@@ -1,0 +1,67 @@
+// Settings 4ABA14800365 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABA14800365
+
+ME ME_0E67D13D7658
+ MEPROP UID '0E67D13D7658'
+ MEPROP GUID 'AE03AFD6-01DB-435D-9437-B777E585331E'
+ MEPROP Name 'Settings'
+ MEPROP OriginalName 'Settings$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы Settings' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABA14800365 // Settings
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4ABA14800365 // Settings
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'SettingsFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_0E67D13D7658 Settings$Def
+
+ME ME_4ABA14800365
+ MEPROP UID '4ABA14800365'
+ MEPROP Name 'Settings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA79F72010A' '4AA79F72010A.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC63ADF023F' '4AC63ADF023F.ms.model.script' // PrimSettings
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_0E67D13D7658 // Settings$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_0E67D13D7658 // Settings$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "finished dfm" true
+ UP "form name prefix" 'cf_'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\Settings_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ UP extprop:pas:TypeName 'Tcf_Settings'
+ UP extprop:rc:SelfName 'cf_Settings'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Settings_Form'
+
+ENDME // ME_4ABA14800365 Settings

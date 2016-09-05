@@ -1,0 +1,28 @@
+// L3$Interface 561D37540316 LibraryST Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_561D37540316
+ MEPROP UID '561D37540316'
+ MEPROP Name 'L3'
+ MEPROP OriginalName 'L3$Interface'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_LibraryST ;
+ %SUMMARY 'Интерфейс библиотеки L3' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B63155B0328' '4B63155B0328.ms.model.script' // MDProcess$ForDelphi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_561D3D9C03C2' '561D3D9C03C2.ms.model.script' // Core
+ WL 'ME_561D3DA401FE' '561D3DA401FE.ms.model.script' // Containers
+ WL 'ME_561D3DAD017D' '561D3DAD017D.ms.model.script' // Strings
+ )
+ ; // Children
+ UP "UseNewGen" true
+ UP "defines" 'l3Define.inc'
+ UP "path prefix" 'components/rtl/Garant'
+ UP intf.pas:PathOnly '\MDProcess\components\rtl\Garant\L3'
+
+ENDME // ME_561D37540316 L3$Interface

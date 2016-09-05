@@ -1,0 +1,169 @@
+// ChangesBetweenEditions 4DDBAF2B0028 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDBAF2B0028
+
+FORWARD ME_4EDE291E00DA
+
+ME ME_4EDE292F00CC
+ MEPROP UID '4EDE292F00CC'
+ MEPROP Name 'CannotShowChanges'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Изменения не могут быть отображены в сводном обзоре''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EDE291E00DA // Local
+ ;
+ UP "AutoInc" false
+ UP "DlgType" 'Warning'
+ UP "NeedCheck" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_4EDE292F00CC CannotShowChanges
+
+ME ME_4EDE291E00DA
+ MEPROP UID '4EDE291E00DA'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EDE292F00CC // CannotShowChanges
+ )
+ ; // Children
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4EDE291E00DA Local
+
+ME ME_57A2070200C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_57A206CD032D' '5795D66F0385.ms.model.script' // TChangesBetweenEditionsService
+ ;
+
+ENDME // ME_57A2070200C5 
+
+ME ME_4DDCC5670027
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_4D78D8200190' '4570511E038A.ms.model.script' // DiffDocDataProvider
+ ;
+
+ENDME // ME_4DDCC5670027 
+
+ME ME_4DDCBBE902D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4DDCBBE902D0 
+
+ME ME_4DDCDA5003A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_4DDCD9670300' '4DDCD7B600D5.ms.model.script' // TnsChangesBetweenEditionsInfo
+ ;
+
+ENDME // ME_4DDCDA5003A9 
+
+ME ME_4DDCDA4C0222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_4DDCD7D0002E' '4DDCD7D0002E.ms.model.script' // TsdsChangesBetweenEditions
+ ;
+
+ENDME // ME_4DDCDA4C0222 
+
+ME ME_4EDE2AF5035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4EDE2AF5035C 
+
+ME ME_4EDE2967009B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_4ED7B9ED0009' '4570511E038A.ms.model.script' // AllChangesInTables
+ ;
+
+ENDME // ME_4EDE2967009B 
+
+ME ME_4DDCDE1A0235
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_4DDCBC5C0211' '4DDCBC5C0211.ms.model.script' // ViewChangedFragments$FSF
+ ;
+
+ENDME // ME_4DDCDE1A0235 
+
+ME ME_4DDBAF2B0028
+ MEPROP UID '4DDBAF2B0028'
+ MEPROP Name 'ChangesBetweenEditions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Просмотр только измененных фрагментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DDBAF0A0029' '4DDBAF0A0029.ms.model.script' // ChangesBetweenEditons
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4DDCD6800267' '4DDCD6800267.ms.model.script' // ChangesBetweenEditons
+ WL 'ME_4DDCBC5C0211' '4DDCBC5C0211.ms.model.script' // ViewChangedFragments$FSF
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4EDE291E00DA // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_57A2070200C5 // TChangesBetweenEditionsService
+ ME_4DDCC5670027 // DiffDocDataProvider
+ ME_4DDCBBE902D0 // DefDataAdapter
+ ME_4DDCDA5003A9 // TnsChangesBetweenEditionsInfo
+ ME_4DDCDA4C0222 // TsdsChangesBetweenEditions
+ ME_4EDE2AF5035C // vcmMessagesSupport
+ ME_4EDE2967009B // AllChangesInTables
+ ME_4DDCDE1A0235 // ViewChangedFragments$FSF
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '24.05.2011 17:14'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditions_Module.pas'
+ UP extprop:pas:TypeName 'TChangesBetweenEditionsModule'
+ UP extprop:rc:SelfName 'ChangesBetweenEditionsModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChangesBetweenEditions_Module'
+
+ENDME // ME_4DDBAF2B0028 ChangesBetweenEditions

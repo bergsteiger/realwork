@@ -1,0 +1,338 @@
+// StatusBarItems 4A8E5BBF0391 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8E5BBF0391
+
+ME ME_4A8E5CAB02AA
+ MEPROP UID '4A8E5CAB02AA'
+ MEPROP Name 'f_StatusBarItems'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ MELINK Target WL 'ME_498036360179' '490838E10313.ms.model.script' // InscStatusBarItemDefsList
+ ;
+
+ENDME // ME_4A8E5CAB02AA f_StatusBarItems
+
+ME ME_4A8E5CC803B8
+ MEPROP UID '4A8E5CC803B8'
+ MEPROP Name 'f_StatusBarPublished'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A8E5CC803B8 f_StatusBarPublished
+
+FORWARD ME_4A8E5C6702D1
+
+ME ME_4A8E5D9902B7
+ MEPROP UID '4A8E5D9902B7'
+ MEPROP Name 'Form'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ MELINK Target WL 'ME_473D95780253' '467823B7002C.ms.model.script' // IafwMainForm
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A8E5D9902B7 Form
+
+ME ME_4A8E5DD30146
+ MEPROP UID '4A8E5DD30146'
+ MEPROP Name 'Visualizer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ MELINK Target WL 'ME_498036CB01D2' '490838E10313.ms.model.script' // InscStatusBarItemsVisualizer
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A8E5DD30146 Visualizer
+
+ME ME_4A8E5C7002D3
+ MEPROP UID '4A8E5C7002D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+
+ENDME // ME_4A8E5C7002D3 DoIt
+
+ME ME_4A8E5D660208
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ MELINK Target WL 'ME_49871E3F01D0' '49871D5103B9.ms.model.script' // TnscStatusBarOperationDefsList
+ ;
+
+ENDME // ME_4A8E5D660208 
+
+ME ME_4A8E5DE90179
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A8E5DE90179 
+
+ME ME_4A8E60990222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ MELINK Target WL 'ME_49871E4F01AF' '49871D5103B9.ms.model.script' // TnscStatusBarOperationDef
+ ;
+
+ENDME // ME_4A8E60990222 
+
+ME ME_4A8E611A00DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4A8E611A00DE 
+
+ME ME_4A8E5C6702D1
+ MEPROP UID '4A8E5C6702D1'
+ MEPROP Name 'RegisterOps'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реристрирует операции' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8E5D9902B7 // Form
+ HWL ME_4A8E5DD30146 // Visualizer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8E5C7002D3 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A8E5D660208 // TnscStatusBarOperationDefsList
+ ME_4A8E5DE90179 // SysUtils
+ ME_4A8E60990222 // TnscStatusBarOperationDef
+ ME_4A8E611A00DE // StdRes
+ )
+ ; // Dependencies
+
+ENDME // ME_4A8E5C6702D1 RegisterOps
+
+FORWARD ME_4A8E5C7903DE
+
+ME ME_4A8E5E1800C2
+ MEPROP UID '4A8E5E1800C2'
+ MEPROP Name 'Form'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8E5C7903DE // UnregisterOps
+ ;
+ MELINK Target WL 'ME_473D95780253' '467823B7002C.ms.model.script' // IafwMainForm
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A8E5E1800C2 Form
+
+ME ME_4A8E5E1F0181
+ MEPROP UID '4A8E5E1F0181'
+ MEPROP Name 'Visualizer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8E5C7903DE // UnregisterOps
+ ;
+ MELINK Target WL 'ME_498036CB01D2' '490838E10313.ms.model.script' // InscStatusBarItemsVisualizer
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A8E5E1F0181 Visualizer
+
+ME ME_4A8E5C83011C
+ MEPROP UID '4A8E5C83011C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8E5C7903DE // UnregisterOps
+ ;
+
+ENDME // ME_4A8E5C83011C DoIt
+
+ME ME_4A8E5C7903DE
+ MEPROP UID '4A8E5C7903DE'
+ MEPROP Name 'UnregisterOps'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отрегистрирует операции' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8E5E1800C2 // Form
+ HWL ME_4A8E5E1F0181 // Visualizer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8E5C83011C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4A8E5C7903DE UnregisterOps
+
+ME ME_4A8E5CEC021F
+ MEPROP UID '4A8E5CEC021F'
+ MEPROP Name 'NeedsStatusBarItems'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что операции в статусной строке таки надо публиковать' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A8E5CEC021F NeedsStatusBarItems
+
+ME ME_4A8E5E6602BD
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498036360179' '490838E10313.ms.model.script' // InscStatusBarItemDefsList
+ ;
+
+ENDME // ME_4A8E5E6602BD aList
+
+ME ME_4A8E5E4702C6
+ MEPROP UID '4A8E5E4702C6'
+ MEPROP Name 'FillList'
+ MEPROP Class class_Operation
+ %SUMMARY 'Заполняет список операций. Для перекрытия в потомках' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8E5E6602BD // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4A8E5E4702C6 FillList
+
+ME ME_498036B8002E_ME_4A8E5BBF0391
+ MELINK Original WL 'ME_498036B8002E' '490838E10313.ms.model.script' // Items
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_498036B8002E_ME_4A8E5BBF0391 Items
+
+ME ME_479731C50290_ME_4A8E5BBF0391
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A8E5BBF0391 Cleanup
+
+ME ME_497469C90140_ME_4A8E5BBF0391
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_4A8E5BBF0391 NotifyDataSourceChanged
+
+ME ME_49803F5503AA_ME_4A8E5BBF0391
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4A8E5BBF0391 DoInit
+
+ME ME_538C374A00B7_ME_4A8E5BBF0391
+ MELINK Original WL 'ME_538C374A00B7' '4AADF9450143.ms.model.script' // ReleaseResources
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_538C374A00B7_ME_4A8E5BBF0391 ReleaseResources
+
+ME ME_4A8E5BBF0391
+ MEPROP UID '4A8E5BBF0391'
+ MEPROP Name 'StatusBarItems'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая форма, публикующая свои операции в статусной строке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A8E5B58037D' '4A8E5B58037D.ms.model.script' // StatusBar
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_498036AD03AB' '490838E10313.ms.model.script' // InscStatusBarItemsProvider
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A8E5CAB02AA // f_StatusBarItems
+ HWL ME_4A8E5CC803B8 // f_StatusBarPublished
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8E5C6702D1 // RegisterOps
+ HWL ME_4A8E5C7903DE // UnregisterOps
+ HWL ME_4A8E5CEC021F // NeedsStatusBarItems
+ HWL ME_4A8E5E4702C6 // FillList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_498036B8002E_ME_4A8E5BBF0391 // Items
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A8E5BBF0391 // Cleanup
+ ME_497469C90140_ME_4A8E5BBF0391 // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_4A8E5BBF0391 // DoInit
+ ME_538C374A00B7_ME_4A8E5BBF0391 // ReleaseResources
+ )
+ ; // Overridden
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas'
+ UP extprop:pas:TypeName '_StatusBarItems_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StatusBarItems.imp'
+
+ENDME // ME_4A8E5BBF0391 StatusBarItems

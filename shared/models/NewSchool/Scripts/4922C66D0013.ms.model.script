@@ -1,0 +1,165 @@
+// TdsMedicFirmSynchroView 4922C66D0013 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4922C66D0013
+
+ME ME_4922C68E0036
+ MEPROP UID '4922C68E0036'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4922C66D0013 // TdsMedicFirmSynchroView
+ ;
+ MELINK Target WL 'ME_5016A8BA01D4' '491D7C9603B2.ms.model.script' // IdsMedicFirmListSynchroView
+ ;
+
+ENDME // ME_4922C68E0036 FormDataSourceType
+
+ME ME_4922C6DB0389
+ MEPROP UID '4922C6DB0389'
+ MEPROP Name 'SDS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ %SUMMARY '—сылка на сборку' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4922C66D0013 // TdsMedicFirmSynchroView
+ ;
+ MELINK Target WL 'ME_4922C5FF0235' '491D7C9603B2.ms.model.script' // IsdsMedicFirmList
+ ;
+
+ENDME // ME_4922C6DB0389 SDS
+
+ME ME_47ECD5280007_ME_4922C66D0013
+ MELINK Original WL 'ME_47ECD5280007' '4922BFA000DD.ms.model.script' // OpenDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47ECD5280007_ME_4922C66D0013 OpenDocument
+
+ME ME_47ECD54803CB_ME_4922C66D0013
+ MELINK Original WL 'ME_47ECD54803CB' '4922BFA000DD.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47ECD54803CB_ME_4922C66D0013 HasDocument
+
+ME ME_47ECD5490012_ME_4922C66D0013
+ MELINK Original WL 'ME_47ECD5490012' '4922BFA000DD.ms.model.script' // IsDocumentActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47ECD5490012_ME_4922C66D0013 IsDocumentActive
+
+ME ME_47F08A0E035F_ME_4922C66D0013
+ MELINK Original WL 'ME_47F08A0E035F' '4922BFA000DD.ms.model.script' // HasAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47F08A0E035F_ME_4922C66D0013 HasAttributes
+
+ME ME_47F08A2A03E6_ME_4922C66D0013
+ MELINK Original WL 'ME_47F08A2A03E6' '4922BFA000DD.ms.model.script' // IsAttributesActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47F08A2A03E6_ME_4922C66D0013 IsAttributesActive
+
+ME ME_47F08A7F0108_ME_4922C66D0013
+ MELINK Original WL 'ME_47F08A7F0108' '4922BFA000DD.ms.model.script' // OpenAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F08A7F0108_ME_4922C66D0013 OpenAttributes
+
+ME ME_494692790065_ME_4922C66D0013
+ MELINK Original WL 'ME_494692790065' '4922BFA000DD.ms.model.script' // OpenList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_494692790065_ME_4922C66D0013 OpenList
+
+ME ME_4946928403A8_ME_4922C66D0013
+ MELINK Original WL 'ME_4946928403A8' '4922BFA000DD.ms.model.script' // HasList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4946928403A8_ME_4922C66D0013 HasList
+
+ME ME_49469292003A_ME_4922C66D0013
+ MELINK Original WL 'ME_49469292003A' '4922BFA000DD.ms.model.script' // IsListActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49469292003A_ME_4922C66D0013 IsListActive
+
+ME ME_AE873C4154C0_ME_4922C66D0013
+ MELINK Original WL 'ME_AE873C4154C0' '491D7C9603B2.ms.model.script' // OpenDrugList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_AE873C4154C0_ME_4922C66D0013 OpenDrugList
+
+ME ME_EA414DEF2CED_ME_4922C66D0013
+ MELINK Original WL 'ME_EA414DEF2CED' '491D7C9603B2.ms.model.script' // IsDrugListActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_EA414DEF2CED_ME_4922C66D0013 IsDrugListActive
+
+ME ME_F5E686C6B9A6_ME_4922C66D0013
+ MELINK Original WL 'ME_F5E686C6B9A6' '491D7C9603B2.ms.model.script' // HasDrugList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_F5E686C6B9A6_ME_4922C66D0013 HasDrugList
+
+ME ME_4922C66D0013
+ MEPROP UID '4922C66D0013'
+ MEPROP Name 'TdsMedicFirmSynchroView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ѕизнес объект формы синхронного просмотра списка препаратов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_494690E5004E' '4922BFA000DD.ms.model.script' // IdsSimpleListSynchroView
+ WL 'ME_5016A8BA01D4' '491D7C9603B2.ms.model.script' // IdsMedicFirmListSynchroView
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4922C68E0036 // FormDataSourceType
+ HWL ME_4922C6DB0389 // SDS
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47ECD5280007_ME_4922C66D0013 // OpenDocument
+ ME_47ECD54803CB_ME_4922C66D0013 // HasDocument
+ ME_47ECD5490012_ME_4922C66D0013 // IsDocumentActive
+ ME_47F08A0E035F_ME_4922C66D0013 // HasAttributes
+ ME_47F08A2A03E6_ME_4922C66D0013 // IsAttributesActive
+ ME_47F08A7F0108_ME_4922C66D0013 // OpenAttributes
+ ME_494692790065_ME_4922C66D0013 // OpenList
+ ME_4946928403A8_ME_4922C66D0013 // HasList
+ ME_49469292003A_ME_4922C66D0013 // IsListActive
+ ME_AE873C4154C0_ME_4922C66D0013 // OpenDrugList
+ ME_EA414DEF2CED_ME_4922C66D0013 // IsDrugListActive
+ ME_F5E686C6B9A6_ME_4922C66D0013 // HasDrugList
+ )
+ ; // Implemented
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmSynchroView.pas'
+ UP extprop:rc:SelfName 'dsMedicFirmSynchroView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsMedicFirmSynchroView'
+
+ENDME // ME_4922C66D0013 TdsMedicFirmSynchroView

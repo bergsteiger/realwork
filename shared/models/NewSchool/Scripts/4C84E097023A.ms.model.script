@@ -1,0 +1,137 @@
+// PrimConsultationMarkOptions 4C84E097023A VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C84E097023A
+
+ME ME_4C84E22801A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4C84E22801A2 
+
+ME ME_4C84E4E803BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ MELINK Target WL 'ME_4570098B0159' '457007DB002E.ms.model.script' // NoConnection
+ ;
+
+ENDME // ME_4C84E4E803BF 
+
+ME ME_4C84E4FF039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ MELINK Target WL 'ME_4570098B015B' '457007DB002E.ms.model.script' // NoSubscription
+ ;
+
+ENDME // ME_4C84E4FF039A 
+
+ME ME_4C84E52002B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4C84E52002B7 
+
+ME ME_5177CFB00365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ToolbarAtBottom::Dependency ;
+ MELINK Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
+ ;
+ MELINK Target WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ ;
+
+ENDME // ME_5177CFB00365 
+
+ME ME_4C762A1501FC_ME_4C84E097023A
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762A1501FC_ME_4C84E097023A Ok
+
+ME ME_4C762AB601E1_ME_4C84E097023A
+ MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C762AB601E1_ME_4C84E097023A Cancel
+
+ME ME_4C84E097023A
+ MEPROP UID '4C84E097023A'
+ MEPROP Name 'PrimConsultationMarkOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Оценка ответа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCFB650008' '4ABCFB650008.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_497EDC5003D1' '497EDC5003D1.ms.model.script' // PrimConsultationMark
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C762A1501FC_ME_4C84E097023A // Ok
+ ME_4C762AB601E1_ME_4C84E097023A // Cancel
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C84E22801A2 // ModalResults
+ ME_4C84E4E803BF // NoConnection
+ ME_4C84E4FF039A // NoSubscription
+ ME_4C84E52002B7 // DefDataAdapter
+ ME_5177CFB00365 // Result$Ok
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '06.09.2010 16:38'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMarkOptions_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms'
+ UP extprop:pas:TypeName 'TPrimConsultationMarkOptionsForm'
+ UP extprop:rc:SelfName 'PrimConsultationMarkOptionsForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimConsultationMarkOptions_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4C84E097023A PrimConsultationMarkOptions

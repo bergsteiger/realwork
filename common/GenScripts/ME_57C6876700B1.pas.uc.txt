@@ -1,0 +1,57 @@
+//#UC START# *479731C50290_57C6876700B1_impl*
+ inherited;
+//#UC END# *479731C50290_57C6876700B1_impl*
+//#UC START# *479731C50290_57C6876700B1_var*
+//#UC END# *479731C50290_57C6876700B1_var*
+//#UC START# *47A042E100E2_57C6876700B1_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47A042E100E2_57C6876700B1_impl*
+//#UC START# *47A042E100E2_57C6876700B1_var*
+//#UC END# *47A042E100E2_57C6876700B1_var*
+//#UC START# *47B2C42A0163_57C6876700B1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47B2C42A0163_57C6876700B1_impl*
+//#UC START# *47B2C42A0163_57C6876700B1_var*
+//#UC END# *47B2C42A0163_57C6876700B1_var*
+//#UC START# *47B99D4503A2_57C6876700B1_impl*
+ Assert(CI.rA^ <> nil);
+ Assert(CI.rB^ <> nil);
+ Result := PChar(CI.rA.WordToLoad) - PChar(CI.rB.WordToLoad);
+//#UC END# *47B99D4503A2_57C6876700B1_impl*
+//#UC START# *47B99D4503A2_57C6876700B1_var*
+//#UC END# *47B99D4503A2_57C6876700B1_var*
+//#UC START# *49BFC98902FF_57C6876700B1_impl*
+ inherited;
+ for l_Index := 0 to Pred(Count) do
+  Items[l_Index].Terminate;
+//#UC END# *49BFC98902FF_57C6876700B1_impl*
+//#UC START# *49BFC98902FF_57C6876700B1_var*
+var
+ l_Index : Integer;
+//#UC END# *49BFC98902FF_57C6876700B1_var*
+//#UC START# *57C6876700B1_ext:FileName
+w:\common\components\gui\Garant\msm\msmModelLoadingThreadPrimList.pas
+//#UC END# *57C6876700B1_ext:FileName
+//#UC START# *57C6876700B1impl_uses*
+//#UC END# *57C6876700B1impl_uses*
+//#UC START# *57C695CA0194_57C6876700B1_impl*
+ Lock;
+ try
+  inherited Add(anItem);
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57C695CA0194_57C6876700B1_impl*
+//#UC START# *57C695CA0194_57C6876700B1_var*
+//#UC END# *57C695CA0194_57C6876700B1_var*
+//#UC START# *57C695E001D4_57C6876700B1_impl*
+ Lock;
+ try
+  inherited Remove(anItem);
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57C695E001D4_57C6876700B1_impl*
+//#UC START# *57C695E001D4_57C6876700B1_var*
+//#UC END# *57C695E001D4_57C6876700B1_var*

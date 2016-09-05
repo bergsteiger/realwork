@@ -1,0 +1,1510 @@
+// ChatImpl 4A66EB280367 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A66EB280367
+
+FORWARD ME_4A66EB5F010C
+
+ME ME_4A66ED03034C
+ MEPROP UID '4A66ED03034C'
+ MEPROP Name 'f_Title'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A66EB5F010C // TnsChatMessage
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4A66ED03034C f_Title
+
+ME ME_4A66ED1400D0
+ MEPROP UID '4A66ED1400D0'
+ MEPROP Name 'f_Body'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A66EB5F010C // TnsChatMessage
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4A66ED1400D0 f_Body
+
+ME ME_4A66EC2C010B
+ MEPROP Name 'aTitle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4A66EC2C010B aTitle
+
+ME ME_4A66EC2C011B
+ MEPROP Name 'aBody'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4A66EC2C011B aBody
+
+ME ME_4A66EC1A00BB
+ MEPROP UID '4A66EC1A00BB'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A66EB5F010C // TnsChatMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66EC2C010B // aTitle
+ ME_4A66EC2C011B // aBody
+ )
+ ; // Parameters
+
+ENDME // ME_4A66EC1A00BB Create
+
+ME ME_4A66EC370232
+ MEPROP Name 'aTitle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4A66EC370232 aTitle
+
+ME ME_4A66EC370251
+ MEPROP Name 'aBody'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4A66EC370251 aBody
+
+ME ME_4A66EC320056
+ MEPROP UID '4A66EC320056'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A66EB5F010C // TnsChatMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66EC370232 // aTitle
+ ME_4A66EC370251 // aBody
+ )
+ ; // Parameters
+
+ENDME // ME_4A66EC320056 Make
+
+ME ME_4A66DD9D0246_ME_4A66EB5F010C
+ MELINK Original WL 'ME_4A66DD9D0246' '4A66DD3C01E8.ms.model.script' // Title
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A66DD9D0246_ME_4A66EB5F010C Title
+
+ME ME_4A66DDAD0124_ME_4A66EB5F010C
+ MELINK Original WL 'ME_4A66DDAD0124' '4A66DD3C01E8.ms.model.script' // Body
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A66DDAD0124_ME_4A66EB5F010C Body
+
+ME ME_479731C50290_ME_4A66EB5F010C
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A66EB5F010C Cleanup
+
+ME ME_4A66EB5F010C
+ MEPROP UID '4A66EB5F010C'
+ MEPROP Name 'TnsChatMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.ms.model.script' // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A66DD7401CD' '4A66DD3C01E8.ms.model.script' // InsChatMessage
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A66ED03034C // f_Title
+ HWL ME_4A66ED1400D0 // f_Body
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A66EC1A00BB // Create
+ HWL ME_4A66EC320056 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A66DD9D0246_ME_4A66EB5F010C // Title
+ ME_4A66DDAD0124_ME_4A66EB5F010C // Body
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A66EB5F010C // Cleanup
+ )
+ ; // Overridden
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsChatMessage.pas'
+ UP extprop:rc:SelfName 'ChatMessage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsChatMessage'
+
+ENDME // ME_4A66EB5F010C TnsChatMessage
+
+FORWARD ME_4A66F04303C3
+
+ME ME_4A66F06503AC
+ MEPROP UID '4A66F06503AC'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A66F04303C3 // TnsChatMessages
+ ;
+ MELINK Target WL 'ME_4A66DD7401CD' '4A66DD3C01E8.ms.model.script' // InsChatMessage
+ ;
+
+ENDME // ME_4A66F06503AC ItemType
+
+ME ME_4A66DDD60130_ME_4A66F04303C3
+ MELINK Original WL 'ME_4A66DDD60130' '4A66DD3C01E8.ms.model.script' // MessagesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A66DDD60130_ME_4A66F04303C3 MessagesCount
+
+ME ME_4A66DDE10034_ME_4A66F04303C3
+ MELINK Original WL 'ME_4A66DDE10034' '4A66DD3C01E8.ms.model.script' // Message
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A66DDE10034_ME_4A66F04303C3 Message
+
+ME ME_4A66F04303C3
+ MEPROP UID '4A66F04303C3'
+ MEPROP Name 'TnsChatMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A66DDC1023C' '4A66DD3C01E8.ms.model.script' // InsChatMessages
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A66F06503AC // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A66DDD60130_ME_4A66F04303C3 // MessagesCount
+ ME_4A66DDE10034_ME_4A66F04303C3 // Message
+ )
+ ; // Implemented
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsChatMessages.pas'
+ UP extprop:rc:SelfName 'ChatMessages'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsChatMessages'
+
+ENDME // ME_4A66F04303C3 TnsChatMessages
+
+FORWARD ME_4A680DA6013C
+
+ME ME_4A6EAB870154
+ MEPROP UID '4A6EAB870154'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6EAB870154 FindDataType
+
+ME ME_4A680EAC019C
+ MEPROP Name 'ForAdd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A680EAC019C ForAdd
+
+ME ME_4A680DCB0084
+ MEPROP UID '4A680DCB0084'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A680EAC019C // ForAdd
+ )
+ ; // Parameters
+
+ENDME // ME_4A680DCB0084 Make
+
+ME ME_4A68157A0373
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_4901E66D024F' '47ECAAF901F8.ms.model.script' // InsUserFlagsFilters
+ ;
+
+ENDME // ME_4A68157A0373 
+
+ME ME_4A6815E601BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4A6815E601BD 
+
+ME ME_4A681608005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_45EED47801AA' '45EEAA96039C.ms.model.script' // UserFilterFlags
+ ;
+
+ENDME // ME_4A681608005F 
+
+ME ME_4A6818000083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A6818000083 
+
+ME ME_4A6818BB03CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+ MELINK Target WL 'ME_4901E8E20154' '4ACF68160358.ms.model.script' // TnsUserFlagsFilter
+ ;
+
+ENDME // ME_4A6818BB03CA 
+
+ME ME_48FF64F60078_ME_4A680DA6013C
+ MELINK Original WL 'ME_48FF64F60078' '48FD8B2702F6.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48FF64F60078_ME_4A680DA6013C ReAqurieUnfilteredRoot
+
+ME ME_4A680DA6013C
+ MEPROP UID '4A680DA6013C'
+ MEPROP Name 'TnsChatTreeStruct'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4906E96C0364' '4ACF68160358.ms.model.script' // TnsUserTreeStruct
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6EAB870154 // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A680DCB0084 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48FF64F60078_ME_4A680DA6013C // ReAqurieUnfilteredRoot
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A68157A0373 // InsUserFlagsFilters
+ ME_4A6815E601BD // DataAdapter
+ ME_4A681608005F // UserFilterFlags
+ ME_4A6818000083 // SysUtils
+ ME_4A6818BB03CA // TnsUserFlagsFilter
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsChatTreeStruct.pas'
+ UP extprop:rc:SelfName 'ChatTreeStruct'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsChatTreeStruct'
+
+ENDME // ME_4A680DA6013C TnsChatTreeStruct
+
+FORWARD ME_4A6D72AD01D4
+
+ME ME_4A6D72C0006E
+ MEPROP UID '4A6D72C0006E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A6D72AD01D4 // TnsBaseChatWindowList
+ ;
+ MELINK Target WL 'ME_4A6D714D0252' '4A66DD3C01E8.ms.model.script' // IbsChatWindow
+ ;
+
+ENDME // ME_4A6D72C0006E ItemType
+
+ME ME_47B07CF403D0_ME_4A6D72AD01D4
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4A6D72AD01D4 IsSameItems
+
+ME ME_47B2C42A0163_ME_4A6D72AD01D4
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4A6D72AD01D4 AssignItem
+
+ME ME_47B99D4503A2_ME_4A6D72AD01D4
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4A6D72AD01D4 CompareExistingItems
+
+ME ME_4A6D72AD01D4
+ MEPROP UID '4A6D72AD01D4'
+ MEPROP Name 'TnsBaseChatWindowList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ WL 'ME_4A6FFCC00354' '47913B47006E.ms.model.script' // l3InterfacePtrListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6D72C0006E // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4A6D72AD01D4 // IsSameItems
+ ME_47B2C42A0163_ME_4A6D72AD01D4 // AssignItem
+ ME_47B99D4503A2_ME_4A6D72AD01D4 // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsBaseChatWindowList.pas'
+ UP extprop:rc:SelfName 'BaseChatWindowList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsBaseChatWindowList'
+
+ENDME // ME_4A6D72AD01D4 TnsBaseChatWindowList
+
+FORWARD ME_4A6EAB540196
+
+ME ME_4A6EAF9802AE
+ MEPROP UID '4A6EAF9802AE'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A6EAB540196 // AbstactChatWindowList
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6EAF9802AE FindDataType
+
+ME ME_4A6EAF740394
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47B9BBB401D0' '47BB24D30205.ms.model.script' // FindDataType
+ ;
+
+ENDME // ME_4A6EAF740394 anUserID
+
+ME ME_4A6EAC0F00A9
+ MEPROP UID '4A6EAC0F00A9'
+ MEPROP Name 'FindChatWindow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EAB540196 // AbstactChatWindowList
+ ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6EAF740394 // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_4A6EAC0F00A9 FindChatWindow
+
+ME ME_47B9BAFD01F4_ME_4A6EAB540196
+ MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B9BAFD01F4_ME_4A6EAB540196 CompareItemWithData
+
+ME ME_4A6EAB540196
+ MEPROP UID '4A6EAB540196'
+ MEPROP Name 'AbstactChatWindowList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6EAF9802AE // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A6EAC0F00A9 // FindChatWindow
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B9BAFD01F4_ME_4A6EAB540196 // CompareItemWithData
+ )
+ ; // Implemented
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\AbstactChatWindowList.imp.pas'
+ UP extprop:pas:TypeName '_AbstactChatWindowList_'
+ UP extprop:pas:UnitName 'AbstactChatWindowList.imp'
+
+ENDME // ME_4A6EAB540196 AbstactChatWindowList
+
+FORWARD ME_4A6D957701B6
+
+ME ME_4A6D958E002A
+ MEPROP UID '4A6D958E002A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A6D957701B6 // TnsUserIDList
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6D958E002A ItemType
+
+ME ME_4A6D957701B6
+ MEPROP UID '4A6D957701B6'
+ MEPROP Name 'TnsUserIDList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47A1B04702C2' '47913B47006E.ms.model.script' // l3AtomicList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6D958E002A // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsUserIDList.pas'
+ UP extprop:rc:SelfName 'UserIDList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsUserIDList'
+
+ENDME // ME_4A6D957701B6 TnsUserIDList
+
+FORWARD ME_4A6EAA6901F5
+
+ME ME_4A6EAAC7018D
+ MEPROP UID '4A6EAAC7018D'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A6EAA6901F5 // TnsBaseChatHistoryList
+ ;
+ MELINK Target WL 'ME_4A6EA4E900C3' '4A66DD3C01E8.ms.model.script' // IbsChatHistoryWindow
+ ;
+
+ENDME // ME_4A6EAAC7018D ItemType
+
+ME ME_47B07CF403D0_ME_4A6EAA6901F5
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4A6EAA6901F5 IsSameItems
+
+ME ME_47B2C42A0163_ME_4A6EAA6901F5
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4A6EAA6901F5 AssignItem
+
+ME ME_47B99D4503A2_ME_4A6EAA6901F5
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4A6EAA6901F5 CompareExistingItems
+
+ME ME_4A6EAA6901F5
+ MEPROP UID '4A6EAA6901F5'
+ MEPROP Name 'TnsBaseChatHistoryList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ WL 'ME_4A6FFCC00354' '47913B47006E.ms.model.script' // l3InterfacePtrListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6EAAC7018D // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4A6EAA6901F5 // IsSameItems
+ ME_47B2C42A0163_ME_4A6EAA6901F5 // AssignItem
+ ME_47B99D4503A2_ME_4A6EAA6901F5 // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsBaseChatHistoryList.pas'
+ UP extprop:rc:SelfName 'BaseChatHistoryList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsBaseChatHistoryList'
+
+ENDME // ME_4A6EAA6901F5 TnsBaseChatHistoryList
+
+ME ME_4A6EAAEC023C
+ MEPROP UID '4A6EAAEC023C'
+ MEPROP Name 'TnsChatHistoryList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A6EAA6901F5 // TnsBaseChatHistoryList
+ HWL ME_4A6EAB540196 // AbstactChatWindowList
+ )
+ ; // Inherits
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsChatHistoryList.pas'
+ UP extprop:rc:SelfName 'ChatHistoryList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsChatHistoryList'
+
+ENDME // ME_4A6EAAEC023C TnsChatHistoryList
+
+ME ME_4A6D7E35012C
+ MEPROP UID '4A6D7E35012C'
+ MEPROP Name 'TnsChatWindowList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A6D72AD01D4 // TnsBaseChatWindowList
+ HWL ME_4A6EAB540196 // AbstactChatWindowList
+ )
+ ; // Inherits
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsChatWindowList.pas'
+ UP extprop:rc:SelfName 'ChatWindowList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsChatWindowList'
+
+ENDME // ME_4A6D7E35012C TnsChatWindowList
+
+FORWARD ME_4A728AA70019
+
+ME ME_4A728B16037C
+ MEPROP UID '4A728B16037C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A728AA70019 // TnsContactListNotifiers
+ ;
+ MELINK Target WL 'ME_4A728A3C01FC' '4A66DD3C01E8.ms.model.script' // IbsContactList
+ ;
+
+ENDME // ME_4A728B16037C ItemType
+
+ME ME_4A728AA70019
+ MEPROP UID '4A728AA70019'
+ MEPROP Name 'TnsContactListNotifiers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A728B16037C // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsContactListNotifiers.pas'
+ UP extprop:rc:SelfName 'ContactListNotifiers'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsContactListNotifiers'
+
+ENDME // ME_4A728AA70019 TnsContactListNotifiers
+
+FORWARD ME_4A682A110387
+
+FORWARD ME_4B13BC920384
+
+ME ME_4B13A26203DB_ME_4B13BC920384
+ MELINK Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.ms.model.script' // EventID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B13A26203DB_ME_4B13BC920384 EventID
+
+ME ME_4B13BC920384
+ MEPROP UID '4B13BC920384'
+ MEPROP Name 'TnsChatWindowOpensCountEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.ms.model.script' // TnsCounterEvent
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B13A26203DB_ME_4B13BC920384 // EventID
+ )
+ ; // Implemented
+ UP "singleton" true
+ UP extprop:rc:SelfName 'ChatWindowOpensCountEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B13BC920384 TnsChatWindowOpensCountEvent
+
+ME ME_4A685CDF01A4
+ MEPROP UID '4A685CDF01A4'
+ MEPROP Name 'f_Processing'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A685CDF01A4 f_Processing
+
+ME ME_4A6D73020062
+ MEPROP UID '4A6D73020062'
+ MEPROP Name 'f_ChatList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4A6D7E35012C // TnsChatWindowList
+ ;
+
+ENDME // ME_4A6D73020062 f_ChatList
+
+ME ME_4A6D95A40342
+ MEPROP UID '4A6D95A40342'
+ MEPROP Name 'f_Unreaded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4A6D957701B6 // TnsUserIDList
+ ;
+
+ENDME // ME_4A6D95A40342 f_Unreaded
+
+ME ME_4A6EAC2901C7
+ MEPROP UID '4A6EAC2901C7'
+ MEPROP Name 'f_HistoryList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4A6EAAEC023C // TnsChatHistoryList
+ ;
+
+ENDME // ME_4A6EAC2901C7 f_HistoryList
+
+ME ME_4A728B480290
+ MEPROP UID '4A728B480290'
+ MEPROP Name 'f_ContactLists'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4A728AA70019 // TnsContactListNotifiers
+ ;
+
+ENDME // ME_4A728B480290 f_ContactLists
+
+ME ME_4A682A8C019A
+ MEPROP Name 'anUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A682A8C019A anUID
+
+ME ME_4A682A8303CA
+ MEPROP UID '4A682A8303CA'
+ MEPROP Name 'DoOpenChatWindow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A682A8C019A // anUID
+ )
+ ; // Parameters
+
+ENDME // ME_4A682A8303CA DoOpenChatWindow
+
+ME ME_4A682A9203C2
+ MEPROP UID '4A682A9203C2'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+
+ENDME // ME_4A682A9203C2 Make
+
+ME ME_4A685C0B0058
+ MEPROP Name 'anUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A685C0B0058 anUID
+
+ME ME_4A685C0B0087
+ MEPROP Name 'aDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_4A685C0B0087 aDate
+
+ME ME_4A685BF20264
+ MEPROP UID '4A685BF20264'
+ MEPROP Name 'MakeTitle'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A685C0B0058 // anUID
+ ME_4A685C0B0087 // aDate
+ )
+ ; // Parameters
+
+ENDME // ME_4A685BF20264 MakeTitle
+
+ME ME_4A69A5550196
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4A69A5550196 aNode
+
+ME ME_4A69A53F0275
+ MEPROP UID '4A69A53F0275'
+ MEPROP Name 'GetUserID'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A69A5550196 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4A69A53F0275 GetUserID
+
+ME ME_4A68447C035E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A68447C035E 
+
+ME ME_4A6845CC03D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_4981AC0701C1' '4AB0997B00A2.ms.model.script' // ComObj
+ ;
+
+ENDME // ME_4A6845CC03D3 
+
+ME ME_4A684EB60172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_4A409BC300FB' '4A40991F003F.ms.model.script' // UserInfo
+ ;
+
+ENDME // ME_4A684EB60172 
+
+ME ME_4A684EDC0338
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4A684EDC0338 
+
+ME ME_4A684EF502C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_4A684EF502C2 
+
+ME ME_4A684F100075
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4A680DA6013C // TnsChatTreeStruct
+ ;
+
+ENDME // ME_4A684F100075 
+
+ME ME_4A684FF8000B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_48F473650362' '47913B47006E.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_4A684FF8000B 
+
+ME ME_4A68504A03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4A66F04303C3 // TnsChatMessages
+ ;
+
+ENDME // ME_4A68504A03DB 
+
+ME ME_4A68504E024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4A66EB5F010C // TnsChatMessage
+ ;
+
+ENDME // ME_4A68504E024F 
+
+ME ME_4A685468012B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4A685468012B 
+
+ME ME_4A6854BB0316
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4A6854BB0316 
+
+ME ME_4A6854E40101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_4A6854E40101 
+
+ME ME_4A68551503DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_45EED730037A' '45EEAA96039C.ms.model.script' // ProfileNode
+ ;
+
+ENDME // ME_4A68551503DE 
+
+ME ME_4A6855410108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A6855410108 
+
+ME ME_4A685BA60129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_48EA3BDD0023' '4678193C009C.ms.model.script' // ActiveXConsts
+ ;
+
+ENDME // ME_4A685BA60129 
+
+ME ME_4A68609702D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4A68609702D2 
+
+ME ME_4A68629000B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_4A6860C40384' '48F747EC0073.ms.model.script' // nsNotifiers
+ ;
+
+ENDME // ME_4A68629000B3 
+
+ME ME_4A703CDD01BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_4A703CDD01BF 
+
+ME ME_4A7A7FCC01FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4A7A7FCC01FF 
+
+ME ME_4AAA2A8F02F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_4AAA2A8F02F8 
+
+ME ME_4AAA8228005B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4AAA8228005B 
+
+ME ME_4B13BCCA0349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target HWL ME_4B13BC920384 // TnsChatWindowOpensCountEvent
+ ;
+
+ENDME // ME_4B13BCCA0349 
+
+ME ME_5795E314017C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ ;
+ MELINK Target WL 'ME_5795D6DC01F8' '5795D66F0385.ms.model.script' // TChatService
+ ;
+
+ENDME // ME_5795E314017C 
+
+ME ME_4A66DF0603DC_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF0603DC' '4A66DD3C01E8.ms.model.script' // ChatSupported
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A66DF0603DC_ME_4A682A110387 ChatSupported
+
+ME ME_4A66DF2101AE_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF2101AE' '4A66DD3C01E8.ms.model.script' // MakeContactList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A66DF2101AE_ME_4A682A110387 MakeContactList
+
+ME ME_4A66DF2D03BC_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF2D03BC' '4A66DD3C01E8.ms.model.script' // OpenChatWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A66DF2D03BC_ME_4A682A110387 OpenChatWindow
+
+ME ME_4A66DF3E0086_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF3E0086' '4A66DD3C01E8.ms.model.script' // GetContactType
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A66DF3E0086_ME_4A682A110387 GetContactType
+
+ME ME_4A66DF64023C_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF64023C' '4A66DD3C01E8.ms.model.script' // SendMessage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A66DF64023C_ME_4A682A110387 SendMessage
+
+ME ME_4A66DF74032C_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF74032C' '4A66DD3C01E8.ms.model.script' // GetMessages
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A66DF74032C_ME_4A682A110387 GetMessages
+
+ME ME_4A66DF820028_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF820028' '4A66DD3C01E8.ms.model.script' // StartProcessing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A66DF820028_ME_4A682A110387 StartProcessing
+
+ME ME_4A66DF8F036E_ME_4A682A110387
+ MELINK Original WL 'ME_4A66DF8F036E' '4A66DD3C01E8.ms.model.script' // MessagesReceived
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A66DF8F036E_ME_4A682A110387 MessagesReceived
+
+ME ME_4A69981E0203_ME_4A682A110387
+ MELINK Original WL 'ME_4A69981E0203' '4A66DD3C01E8.ms.model.script' // AddUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A69981E0203_ME_4A682A110387 AddUser
+
+ME ME_4A6998430245_ME_4A682A110387
+ MELINK Original WL 'ME_4A6998430245' '4A66DD3C01E8.ms.model.script' // DeleteUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6998430245_ME_4A682A110387 DeleteUser
+
+ME ME_4A69985B00A8_ME_4A682A110387
+ MELINK Original WL 'ME_4A69985B00A8' '4A66DD3C01E8.ms.model.script' // ShowAddUserDialog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A69985B00A8_ME_4A682A110387 ShowAddUserDialog
+
+ME ME_4A6D7187013A_ME_4A682A110387
+ MELINK Original WL 'ME_4A6D7187013A' '4A66DD3C01E8.ms.model.script' // RegisterChatWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6D7187013A_ME_4A682A110387 RegisterChatWindow
+
+ME ME_4A6D71A600F9_ME_4A682A110387
+ MELINK Original WL 'ME_4A6D71A600F9' '4A66DD3C01E8.ms.model.script' // UnRegisterChatWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6D71A600F9_ME_4A682A110387 UnRegisterChatWindow
+
+ME ME_4A6D94A501CE_ME_4A682A110387
+ MELINK Original WL 'ME_4A6D94A501CE' '4A66DD3C01E8.ms.model.script' // HasUnreadedMessages
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A6D94A501CE_ME_4A682A110387 HasUnreadedMessages
+
+ME ME_4A6D988D034B_ME_4A682A110387
+ MELINK Original WL 'ME_4A6D988D034B' '4A66DD3C01E8.ms.model.script' // OpenAllUnreaded
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6D988D034B_ME_4A682A110387 OpenAllUnreaded
+
+ME ME_4A6EAC57017D_ME_4A682A110387
+ MELINK Original WL 'ME_4A6EAC57017D' '4A66DD3C01E8.ms.model.script' // OpenChatHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EAC57017D_ME_4A682A110387 OpenChatHistory
+
+ME ME_4A6EAC6C0043_ME_4A682A110387
+ MELINK Original WL 'ME_4A6EAC6C0043' '4A66DD3C01E8.ms.model.script' // RegisterChatHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EAC6C0043_ME_4A682A110387 RegisterChatHistory
+
+ME ME_4A6EAC80032F_ME_4A682A110387
+ MELINK Original WL 'ME_4A6EAC80032F' '4A66DD3C01E8.ms.model.script' // UnRegisterChatHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EAC80032F_ME_4A682A110387 UnRegisterChatHistory
+
+ME ME_4A6EBE8E030F_ME_4A682A110387
+ MELINK Original WL 'ME_4A6EBE8E030F' '4A66DD3C01E8.ms.model.script' // OpenChatHistoryByID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EBE8E030F_ME_4A682A110387 OpenChatHistoryByID
+
+ME ME_4A6FFBF30190_ME_4A682A110387
+ MELINK Original WL 'ME_4A6FFBF30190' '4A66DD3C01E8.ms.model.script' // ClearHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6FFBF30190_ME_4A682A110387 ClearHistory
+
+ME ME_4A728A25029E_ME_4A682A110387
+ MELINK Original WL 'ME_4A728A25029E' '4A66DD3C01E8.ms.model.script' // ContactListChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A728A25029E_ME_4A682A110387 ContactListChanged
+
+ME ME_4A728A620307_ME_4A682A110387
+ MELINK Original WL 'ME_4A728A620307' '4A66DD3C01E8.ms.model.script' // RegisterContactList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A728A620307_ME_4A682A110387 RegisterContactList
+
+ME ME_4A728A7D031A_ME_4A682A110387
+ MELINK Original WL 'ME_4A728A7D031A' '4A66DD3C01E8.ms.model.script' // UnRegisterContactList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A728A7D031A_ME_4A682A110387 UnRegisterContactList
+
+ME ME_479731C50290_ME_4A682A110387
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A682A110387 Cleanup
+
+ME ME_47A042E100E2_ME_4A682A110387
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4A682A110387 InitFields
+
+ME ME_4A682A110387
+ MEPROP UID '4A682A110387'
+ MEPROP Name 'TbsChatDispatcherPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.ms.model.script' // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A66DEE901C9' '4A66DD3C01E8.ms.model.script' // IbsChatDispatcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A685CDF01A4 // f_Processing
+ HWL ME_4A6D73020062 // f_ChatList
+ HWL ME_4A6D95A40342 // f_Unreaded
+ HWL ME_4A6EAC2901C7 // f_HistoryList
+ HWL ME_4A728B480290 // f_ContactLists
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A682A8303CA // DoOpenChatWindow
+ HWL ME_4A682A9203C2 // Make
+ HWL ME_4A685BF20264 // MakeTitle
+ HWL ME_4A69A53F0275 // GetUserID
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A66DF0603DC_ME_4A682A110387 // ChatSupported
+ ME_4A66DF2101AE_ME_4A682A110387 // MakeContactList
+ ME_4A66DF2D03BC_ME_4A682A110387 // OpenChatWindow
+ ME_4A66DF3E0086_ME_4A682A110387 // GetContactType
+ ME_4A66DF64023C_ME_4A682A110387 // SendMessage
+ ME_4A66DF74032C_ME_4A682A110387 // GetMessages
+ ME_4A66DF820028_ME_4A682A110387 // StartProcessing
+ ME_4A66DF8F036E_ME_4A682A110387 // MessagesReceived
+ ME_4A69981E0203_ME_4A682A110387 // AddUser
+ ME_4A6998430245_ME_4A682A110387 // DeleteUser
+ ME_4A69985B00A8_ME_4A682A110387 // ShowAddUserDialog
+ ME_4A6D7187013A_ME_4A682A110387 // RegisterChatWindow
+ ME_4A6D71A600F9_ME_4A682A110387 // UnRegisterChatWindow
+ ME_4A6D94A501CE_ME_4A682A110387 // HasUnreadedMessages
+ ME_4A6D988D034B_ME_4A682A110387 // OpenAllUnreaded
+ ME_4A6EAC57017D_ME_4A682A110387 // OpenChatHistory
+ ME_4A6EAC6C0043_ME_4A682A110387 // RegisterChatHistory
+ ME_4A6EAC80032F_ME_4A682A110387 // UnRegisterChatHistory
+ ME_4A6EBE8E030F_ME_4A682A110387 // OpenChatHistoryByID
+ ME_4A6FFBF30190_ME_4A682A110387 // ClearHistory
+ ME_4A728A25029E_ME_4A682A110387 // ContactListChanged
+ ME_4A728A620307_ME_4A682A110387 // RegisterContactList
+ ME_4A728A7D031A_ME_4A682A110387 // UnRegisterContactList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A682A110387 // Cleanup
+ ME_47A042E100E2_ME_4A682A110387 // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4B13BC920384 // TnsChatWindowOpensCountEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A68447C035E // SysUtils
+ ME_4A6845CC03D3 // ComObj
+ ME_4A684EB60172 // UserInfo
+ ME_4A684EDC0338 // DataAdapter
+ ME_4A684EF502C2 // vcmBase
+ ME_4A684F100075 // TnsChatTreeStruct
+ ME_4A684FF8000B // Tl3MemoryStream
+ ME_4A68504A03DB // TnsChatMessages
+ ME_4A68504E024F // TnsChatMessage
+ ME_4A685468012B // StdRes
+ ME_4A6854BB0316 // nsConst
+ ME_4A6854E40101 // nsTypes
+ ME_4A68551503DE // ProfileNode
+ ME_4A6855410108 // NodeBase
+ ME_4A685BA60129 // ActiveXConsts
+ ME_4A68609702D2 // l3String
+ ME_4A68629000B3 // nsNotifiers
+ ME_4A703CDD01BF // Tafw
+ ME_4A7A7FCC01FF // Standard
+ ME_4AAA2A8F02F8 // nsTypes
+ ME_4AAA8228005B // LogEvent
+ ME_4B13BCCA0349 // TnsChatWindowOpensCountEvent
+ ME_5795E314017C // TChatService
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\bsChatDispatcherPrim.pas'
+ UP extprop:rc:SelfName 'bsChatDispatcherPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsChatDispatcherPrim'
+
+ENDME // ME_4A682A110387 TbsChatDispatcherPrim
+
+FORWARD ME_4A683EC401BB
+
+ME ME_4A683F3A039D
+ MEPROP UID '4A683F3A039D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A683EC401BB // TbsChatDispatcher
+ ;
+ MELINK Target WL 'ME_4A66DEE901C9' '4A66DD3C01E8.ms.model.script' // IbsChatDispatcher
+ ;
+
+ENDME // ME_4A683F3A039D Make
+
+ME ME_4A683EC401BB
+ MEPROP UID '4A683EC401BB'
+ MEPROP Name 'TbsChatDispatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66EB280367 // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A683F3A039D // Make
+ )
+ ; // Operations
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\bsChatDispatcher.pas'
+ UP extprop:rc:SelfName 'bsChatDispatcher'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsChatDispatcher'
+
+ENDME // ME_4A683EC401BB TbsChatDispatcher
+
+ME ME_4A66EB280367
+ MEPROP UID '4A66EB280367'
+ MEPROP Name 'ChatImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A66B91A01E4' '4A66B91A01E4.ms.model.script' // Chat
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A66EB5F010C // TnsChatMessage
+ HWL ME_4A66F04303C3 // TnsChatMessages
+ HWL ME_4A680DA6013C // TnsChatTreeStruct
+ HWL ME_4A6D72AD01D4 // TnsBaseChatWindowList
+ HWL ME_4A6EAB540196 // AbstactChatWindowList
+ HWL ME_4A6D957701B6 // TnsUserIDList
+ HWL ME_4A6EAA6901F5 // TnsBaseChatHistoryList
+ HWL ME_4A6EAAEC023C // TnsChatHistoryList
+ HWL ME_4A6D7E35012C // TnsChatWindowList
+ HWL ME_4A728AA70019 // TnsContactListNotifiers
+ HWL ME_4A682A110387 // TbsChatDispatcherPrim
+ HWL ME_4A683EC401BB // TbsChatDispatcher
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45ED58CF03E6' '45ED58CF03E6.ms.model.script' // Logging
+ WL 'ME_45EEAA96039C' '45EEAA96039C.ms.model.script' // Security
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_476BE0350329' '476BE0350329.ms.model.script' // Styles
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47ECAAF901F8' '47ECAAF901F8.ms.model.script' // bsInterfaces
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_4A40991F003F' '4A40991F003F.ms.model.script' // ChatInterfaces
+ WL 'ME_4A66B9840002' '4A66B9840002.ms.model.script' // ChatTypes
+ WL 'ME_4A66DD3C01E8' '4A66DD3C01E8.ms.model.script' // ChatInterfaces
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ACF68160358' '4ACF68160358.ms.model.script' // Users$CommonForAdminAndF1
+ WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.ms.model.script' // Logging
+ WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
+ )
+ ; // Depends
+
+ENDME // ME_4A66EB280367 ChatImpl

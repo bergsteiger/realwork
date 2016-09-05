@@ -1,0 +1,153 @@
+// PrimRedactionsOptions 4C86253E00C5 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C86253E00C5
+
+ME ME_4C862A330096
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C86253E00C5 // PrimRedactionsOptions
+ ;
+ MELINK Target WL 'ME_498874FD012C' '4AEEE2A40281.ms.model.script' // Document$MangleForSpell
+ ;
+
+ENDME // ME_4C862A330096 
+
+ME ME_4C862B3100A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C86253E00C5 // PrimRedactionsOptions
+ ;
+ MELINK Target WL 'ME_4B040A5E0051' '4BD1E3DE02FB.ms.model.script' // dftDocument
+ ;
+
+ENDME // ME_4C862B3100A5 
+
+ME ME_4BDAF7880236_ME_4C86253E00C5
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7880236_ME_4C86253E00C5 ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4C86253E00C5
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7A2005C_ME_4C86253E00C5 CollapseAll
+
+ME ME_4BDAF7B803CF_ME_4C86253E00C5
+ MELINK Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.ms.model.script' // Wrap
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4BDAF7B803CF_ME_4C86253E00C5 Wrap
+
+ME ME_4C862614021C_ME_4C86253E00C5
+ MELINK Original WL 'ME_4C862614021C' '498874B90391.ms.model.script' // OpenNewWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "ContextMenuWeight" 20
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C862614021C_ME_4C86253E00C5 OpenNewWindow
+
+ME ME_55544CF2027E_ME_4C86253E00C5
+ MELINK Original WL 'ME_55544CF2027E' '498874B90391.ms.model.script' // OpenNewTab
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "ContextMenuWeight" 10
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_55544CF2027E_ME_4C86253E00C5 OpenNewTab
+
+ME ME_4C86253E00C5
+ MEPROP UID '4C86253E00C5'
+ MEPROP Name 'PrimRedactionsOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D3845420021' '4D3845420021.ms.model.script' // Redactions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_497A12850078' '497A12850078.ms.model.script' // PrimRedactions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ WL 'ME_4C862601016C' '498874B90391.ms.model.script' // Edition
+ WL 'ME_4EF0B1EF00BE' '484900780017.ms.model.script' // Если список редакций открыт в модальном состоянии, то контекстной операции "Открыть в новом окне" - быть не должно
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BDAF7880236_ME_4C86253E00C5 // ExpandAll
+ ME_4BDAF7A2005C_ME_4C86253E00C5 // CollapseAll
+ ME_4BDAF7B803CF_ME_4C86253E00C5 // Wrap
+ ME_4C862614021C_ME_4C86253E00C5 // OpenNewWindow
+ ME_55544CF2027E_ME_4C86253E00C5 // OpenNewTab
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C862A330096 // Document$MangleForSpell
+ ME_4C862B3100A5 // dftDocument
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '07.09.2010 15:43'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimRedactionsOptions_Form.pas'
+ UP extprop:pas:TypeName 'TPrimRedactionsOptionsForm'
+ UP extprop:rc:SelfName 'PrimRedactionsOptionsForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimRedactionsOptions_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4C86253E00C5 PrimRedactionsOptions

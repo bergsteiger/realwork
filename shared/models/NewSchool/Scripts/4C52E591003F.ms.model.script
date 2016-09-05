@@ -1,0 +1,290 @@
+// Strange 4C52E591003F VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C52E591003F
+
+FORWARD ME_4C52E5C9005D
+
+FORWARD ME_4C7D373900D0
+
+ME ME_4C7D37940011
+ MEPROP UID '4C7D37940011'
+ MEPROP Name 'Drug'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание препарата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D373900D0 // OpenDocument
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7D37940011 Drug
+
+ME ME_4C7D37A2034D
+ MEPROP UID '4C7D37A2034D'
+ MEPROP Name 'MedicFirm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание фирмы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D373900D0 // OpenDocument
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7D37A2034D MedicFirm
+
+ME ME_4C7D373900D0
+ MEPROP UID '4C7D373900D0'
+ MEPROP Name 'OpenDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C52E5C9005D // MedicListSynchroView
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7D37940011 // Drug
+ HWL ME_4C7D37A2034D // MedicFirm
+ )
+ ; // Children
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C7D373900D0 OpenDocument
+
+FORWARD ME_4C7D37C20388
+
+ME ME_4C7D37DC01D4
+ MEPROP UID '4C7D37DC01D4'
+ MEPROP Name 'Drug'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Препараты-синонимы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D37C20388 // OpenList
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Hint" 'Список препаратов-синонимов по международному названию'
+ UP "ImageIndex" 181
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7D37DC01D4 Drug
+
+ME ME_4C7D37F500F1
+ MEPROP UID '4C7D37F500F1'
+ MEPROP Name 'MedicFirm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Производимые препараты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D37C20388 // OpenList
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Hint" 'Список производимых препаратов'
+ UP "ImageIndex" 183
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7D37F500F1 MedicFirm
+
+ME ME_4C7D37C20388
+ MEPROP UID '4C7D37C20388'
+ MEPROP Name 'OpenList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список препаратов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C52E5C9005D // MedicListSynchroView
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7D37DC01D4 // Drug
+ HWL ME_4C7D37F500F1 // MedicFirm
+ )
+ ; // Children
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C7D37C20388 OpenList
+
+ME ME_4C52E5D702B0
+ MEPROP UID '4C52E5D702B0'
+ MEPROP Name 'OpenDocument'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C52E5C9005D // MedicListSynchroView
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C52E5D702B0 OpenDocument
+
+ME ME_4C52E5F203CC
+ MEPROP UID '4C52E5F203CC'
+ MEPROP Name 'OpenAttributesForm'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C52E5C9005D // MedicListSynchroView
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C52E5F203CC OpenAttributesForm
+
+ME ME_4C52E61002B5
+ MEPROP UID '4C52E61002B5'
+ MEPROP Name 'OpenList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C52E5C9005D // MedicListSynchroView
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C52E61002B5 OpenList
+
+ME ME_4C52E5C9005D
+ MEPROP UID '4C52E5C9005D'
+ MEPROP Name 'MedicListSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр ИНФАРМ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C52E591003F // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7D373900D0 // OpenDocument
+ HWL ME_4C7D37C20388 // OpenList
+ HWL ME_4C52E5D702B0 // OpenDocument
+ HWL ME_4C52E5F203CC // OpenAttributesForm
+ HWL ME_4C52E61002B5 // OpenList
+ )
+ ; // Operations
+
+ENDME // ME_4C52E5C9005D MedicListSynchroView
+
+FORWARD ME_4C7E415800A1
+
+ME ME_4C7E4168031D
+ MEPROP UID '4C7E4168031D'
+ MEPROP Name 'CountryFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7E415800A1 // MedicFirmList
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C7E4168031D CountryFilter
+
+ME ME_4C7E415800A1
+ MEPROP UID '4C7E415800A1'
+ MEPROP Name 'MedicFirmList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C52E591003F // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7E4168031D // CountryFilter
+ )
+ ; // Operations
+
+ENDME // ME_4C7E415800A1 MedicFirmList
+
+ME ME_4C52E591003F
+ MEPROP UID '4C52E591003F'
+ MEPROP Name 'Strange'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4958E46E007B' '4958E46E007B.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C52E5C9005D // MedicListSynchroView
+ HWL ME_4C7E415800A1 // MedicFirmList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '30.07.2010 18:46'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm_Strange_Controls.pas'
+ UP extprop:pas:UnitName 'Inpharm_Strange_Controls'
+
+ENDME // ME_4C52E591003F Strange

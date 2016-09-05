@@ -1,0 +1,502 @@
+// Abstract 46E80398003B MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46E80398003B
+
+FORWARD ME_4A41A0D703C5
+
+ME ME_4A41A13D03D5
+ MEPROP UID '4A41A13D03D5'
+ MEPROP Name 'spell'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор построения виртуальных элементов модели - запускается до генерации конкретных артефактов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A41A0D703C5 // ModelBuilding
+ ;
+
+ENDME // ME_4A41A13D03D5 spell
+
+ME ME_4A41A0D703C5
+ MEPROP UID '4A41A0D703C5'
+ MEPROP Name 'ModelBuilding'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'группа генераторов построения дерева модели' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E80398003B // Abstract
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A41A13D03D5 // spell
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CoreTemplates\Core\Abstract\ModelBuilding.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Abstract\ModelBuilding'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A41A0D703C5 ModelBuilding
+
+FORWARD ME_46E6D49602DB
+
+ME ME_46E6D4BB0339
+ MEPROP UID '46E6D4BB0339'
+ MEPROP Name 'wiki'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Генерация модели в MDKnow' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E6D49602DB // Документация
+ ;
+
+ENDME // ME_46E6D4BB0339 wiki
+
+ME ME_470484D50138
+ MEPROP UID '470484D50138'
+ MEPROP Name 'wiki_up_add_gen'
+ MEPROP Class class_Operation
+ %SUMMARY 'вывод описание авто-генерируемых методов в wiki' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E6D49602DB // Документация
+ ;
+
+ENDME // ME_470484D50138 wiki_up_add_gen
+
+ME ME_4704C0E30186
+ MEPROP UID '4704C0E30186'
+ MEPROP Name 'constraint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'проверка ограничений накладываемых на элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E6D49602DB // Документация
+ ;
+
+ENDME // ME_4704C0E30186 constraint
+
+ME ME_4705CBD6003E
+ MEPROP UID '4705CBD6003E'
+ MEPROP Name 'wiki_child_kind'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит описание элемента (операция, атрибут) в wiki' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E6D49602DB // Документация
+ ;
+
+ENDME // ME_4705CBD6003E wiki_child_kind
+
+ME ME_46E6D49602DB
+ MEPROP UID '46E6D49602DB'
+ MEPROP Name 'Документация'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'генераторы документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E80398003B // Abstract
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A41A0D703C5 // ModelBuilding
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_46E6D4BB0339 // wiki
+ HWL ME_470484D50138 // wiki_up_add_gen
+ HWL ME_4704C0E30186 // constraint
+ HWL ME_4705CBD6003E // wiki_child_kind
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CoreTemplates\Core\Abstract\Документация.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Abstract\Документация'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6D49602DB Документация
+
+FORWARD ME_471738DF00DA
+
+ME ME_485784EC028C
+ MEPROP UID '485784EC028C'
+ MEPROP Name 'wiki_impl_or_support_package'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что пакет должен генериться в документации в секцию "Пакеты реализации и вспомогательные пакеты"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471738DF00DA // WikiPackageImpl
+ ;
+
+ENDME // ME_485784EC028C wiki_impl_or_support_package
+
+ME ME_485785D603C1
+ MEPROP UID '485785D603C1'
+ MEPROP Name 'wiki_utility_package'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что пакет должен генериться в документации в секцию "Утилитные пакеты"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471738DF00DA // WikiPackageImpl
+ ;
+
+ENDME // ME_485785D603C1 wiki_utility_package
+
+ME ME_48578600008D
+ MEPROP UID '48578600008D'
+ MEPROP Name 'wiki_interface_package'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что пакет должен генериться в документации в секцию "Интерфейсные пакеты"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471738DF00DA // WikiPackageImpl
+ ;
+
+ENDME // ME_48578600008D wiki_interface_package
+
+ME ME_485789C102E3
+ MEPROP UID '485789C102E3'
+ MEPROP Name 'data_scheme_package'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что пакет должен генериться в документации в секцию "Схемы данных"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471738DF00DA // WikiPackageImpl
+ ;
+
+ENDME // ME_485789C102E3 data_scheme_package
+
+ME ME_46E6D4BB0339_ME_471738DF00DA
+ MELINK Original HWL ME_46E6D4BB0339 // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_471738DF00DA wiki
+
+ME ME_470484D50138_ME_471738DF00DA
+ MELINK Original HWL ME_470484D50138 // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_471738DF00DA wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_471738DF00DA
+ MELINK Original HWL ME_4704C0E30186 // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_471738DF00DA constraint
+
+ME ME_4705CBD6003E_ME_471738DF00DA
+ MELINK Original HWL ME_4705CBD6003E // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_471738DF00DA wiki_child_kind
+
+ME ME_471738DF00DA
+ MEPROP UID '471738DF00DA'
+ MEPROP Name 'WikiPackageImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый стереотип для всех стереотипов - папок, реализует генерацию в wiki.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E80398003B // Abstract
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_46E6D49602DB // Документация
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_485784EC028C // wiki_impl_or_support_package
+ HWL ME_485785D603C1 // wiki_utility_package
+ HWL ME_48578600008D // wiki_interface_package
+ HWL ME_485789C102E3 // data_scheme_package
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_471738DF00DA // wiki
+ ME_470484D50138_ME_471738DF00DA // wiki_up_add_gen
+ ME_4704C0E30186_ME_471738DF00DA // constraint
+ ME_4705CBD6003E_ME_471738DF00DA // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda:Path 'MDProcess\CoreTemplates\Core\Abstract\WikiPackageImpl.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Abstract\WikiPackageImpl'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471738DF00DA WikiPackageImpl
+
+FORWARD ME_4976EB82018C
+
+ME ME_4976EBD0033B
+ MEPROP UID '4976EBD0033B'
+ MEPROP Name 'ifdef'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+
+ENDME // ME_4976EBD0033B ifdef
+
+ME ME_4976EBD503A8
+ MEPROP UID '4976EBD503A8'
+ MEPROP Name 'ifndef'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+
+ENDME // ME_4976EBD503A8 ifndef
+
+ME ME_569F67930026
+ MEPROP UID '569F67930026'
+ MEPROP Name 'UseNewGen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_569F67930026 UseNewGen
+
+ME ME_5703F2760110
+ MEPROP UID '5703F2760110'
+ MEPROP Name 'NoSpell'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_5703F2760110 NoSpell
+
+ME ME_4976EBC9015F
+ MEPROP UID '4976EBC9015F'
+ MEPROP Name 'close_ifdef'
+ MEPROP Class class_Operation
+ %SUMMARY 'закрывает блок условной компиляции (если блок нужен)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+
+ENDME // ME_4976EBC9015F close_ifdef
+
+ME ME_4976EBCD03AB
+ MEPROP UID '4976EBCD03AB'
+ MEPROP Name 'open_ifdef'
+ MEPROP Class class_Operation
+ %SUMMARY 'открывает блок условной компиляции (если необходимо)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+
+ENDME // ME_4976EBCD03AB open_ifdef
+
+ME ME_56BCA508022D
+ MEPROP UID '56BCA508022D'
+ MEPROP Name 'UseNewGen'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_56BCA508022D UseNewGen
+
+ME ME_56BCA5310152
+ MEPROP UID '56BCA5310152'
+ MEPROP Name 'UseNewGenRec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_56BCA5310152 UseNewGenRec
+
+ME ME_5703F28702DD
+ MEPROP UID '5703F28702DD'
+ MEPROP Name 'NoSpell'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_5703F28702DD NoSpell
+
+ME ME_5703F29A0296
+ MEPROP UID '5703F29A0296'
+ MEPROP Name 'NoSpellRec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4976EB82018C // Ifdef
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_5703F29A0296 NoSpellRec
+
+ME ME_4976EB82018C
+ MEPROP UID '4976EB82018C'
+ MEPROP Name 'Ifdef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'предоставляет функциональность для генерации кода по условной компиляции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E80398003B // Abstract
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4976EBD0033B // ifdef
+ HWL ME_4976EBD503A8 // ifndef
+ HWL ME_569F67930026 // UseNewGen
+ HWL ME_5703F2760110 // NoSpell
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4976EBC9015F // close_ifdef
+ HWL ME_4976EBCD03AB // open_ifdef
+ HWL ME_56BCA508022D // UseNewGen
+ HWL ME_56BCA5310152 // UseNewGenRec
+ HWL ME_5703F28702DD // NoSpell
+ HWL ME_5703F29A0296 // NoSpellRec
+ )
+ ; // Operations
+ UP "internal" true
+ UP mda:Path 'MDProcess\CoreTemplates\Core\Abstract\Ifdef.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Abstract\Ifdef'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4976EB82018C Ifdef
+
+FORWARD ME_471723E1037A
+
+ME ME_49ABB47001E2
+ MEPROP UID '49ABB47001E2'
+ MEPROP Name 'collect_used_in_links'
+ MEPROP Class class_Operation
+ %SUMMARY 'Собирает ссылки на все элементы, которые используют данный в список, заданный идентифкатором list_id.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471723E1037A // WikiImplClass
+ ;
+
+ENDME // ME_49ABB47001E2 collect_used_in_links
+
+ME ME_4E09A6E0018D
+ MEPROP UID '4E09A6E0018D'
+ MEPROP Name 'WikiImplClassGParam'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471723E1037A // WikiImplClass
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4E09A6E0018D WikiImplClassGParam
+
+ME ME_46E6D4BB0339_ME_471723E1037A
+ MELINK Original HWL ME_46E6D4BB0339 // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_471723E1037A wiki
+
+ME ME_470484D50138_ME_471723E1037A
+ MELINK Original HWL ME_470484D50138 // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_471723E1037A wiki_up_add_gen
+
+ME ME_4705CBD6003E_ME_471723E1037A
+ MELINK Original HWL ME_4705CBD6003E // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_471723E1037A wiki_child_kind
+
+ME ME_471723E1037A
+ MEPROP UID '471723E1037A'
+ MEPROP Name 'WikiImplClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый стереотип для всех стереотипов уровня классов, реализует генерацию в wiki.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E80398003B // Abstract
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_46E6D49602DB // Документация
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_49ABB47001E2 // collect_used_in_links
+ HWL ME_4E09A6E0018D // WikiImplClassGParam
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_471723E1037A // wiki
+ ME_470484D50138_ME_471723E1037A // wiki_up_add_gen
+ ME_4705CBD6003E_ME_471723E1037A // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda:Path 'MDProcess\CoreTemplates\Core\Abstract\WikiImplClass.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Abstract\WikiImplClass'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471723E1037A WikiImplClass
+
+ME ME_46E80398003B
+ MEPROP UID '46E80398003B'
+ MEPROP Name 'Abstract'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Общие генераторы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A41A0D703C5 // ModelBuilding
+ HWL ME_46E6D49602DB // Документация
+ HWL ME_471738DF00DA // WikiPackageImpl
+ HWL ME_4976EB82018C // Ifdef
+ HWL ME_471723E1037A // WikiImplClass
+ )
+ ; // Children
+ UP mda:PathOnly '\MDProcess\CoreTemplates\Core\Abstract'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Abstract'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E80398003B Abstract

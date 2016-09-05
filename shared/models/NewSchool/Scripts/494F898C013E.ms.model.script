@@ -1,0 +1,413 @@
+// Usual 494F898C013E VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_494F898C013E
+
+FORWARD ME_494F89AA0017
+
+FORWARD ME_4C7D0CC90052
+
+ME ME_4C7D0CDB0298
+ MEPROP UID '4C7D0CDB0298'
+ MEPROP Name 'Controlled'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Снять с контроля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D0CC90052 // Delete
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+ UP "ifndef" 'Admin,Monitorings'
+
+ENDME // ME_4C7D0CDB0298 Controlled
+
+ME ME_4C7D0CEC0160
+ MEPROP UID '4C7D0CEC0160'
+ MEPROP Name 'User'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удалить пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D0CC90052 // Delete
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "ImageIndex" 149
+ UP "Visible" 'undefined'
+ UP "ifdef" 'Admin'
+
+ENDME // ME_4C7D0CEC0160 User
+
+ME ME_4C7D0D02005D
+ MEPROP UID '4C7D0D02005D'
+ MEPROP Name 'MultiUsers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удалить выделенных пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D0CC90052 // Delete
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "ImageIndex" 149
+ UP "Visible" 'undefined'
+ UP "ifdef" 'Admin'
+
+ENDME // ME_4C7D0D02005D MultiUsers
+
+ME ME_4C7D0D160126
+ MEPROP UID '4C7D0D160126'
+ MEPROP Name 'Group'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удалить группу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D0CC90052 // Delete
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "ImageIndex" 193
+ UP "Visible" 'undefined'
+ UP "ifdef" 'Admin'
+
+ENDME // ME_4C7D0D160126 Group
+
+ME ME_4C7D0D2C028F
+ MEPROP UID '4C7D0D2C028F'
+ MEPROP Name 'Contact'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удалить пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D0CC90052 // Delete
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+ UP "ifndef" 'Admin,Monitorings'
+
+ENDME // ME_4C7D0D2C028F Contact
+
+ME ME_4C7D0CC90052
+ MEPROP UID '4C7D0CC90052'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удалить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_494F89AA0017 // Edit
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7D0CDB0298 // Controlled
+ HWL ME_4C7D0CEC0160 // User
+ HWL ME_4C7D0D02005D // MultiUsers
+ HWL ME_4C7D0D160126 // Group
+ HWL ME_4C7D0D2C028F // Contact
+ )
+ ; // Children
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C7D0CC90052 Delete
+
+ME ME_494F89C30197
+ MEPROP UID '494F89C30197'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удалить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_494F89AA0017 // Edit
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_494F89C30197 Delete
+
+ME ME_494F89AA0017
+ MEPROP UID '494F89AA0017'
+ MEPROP Name 'Edit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F898C013E // Usual
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7D0CC90052 // Delete
+ HWL ME_494F89C30197 // Delete
+ )
+ ; // Operations
+
+ENDME // ME_494F89AA0017 Edit
+
+FORWARD ME_49521D8203A0
+
+ME ME_49521D8E0295
+ MEPROP UID '49521D8E0295'
+ MEPROP Name 'Print'
+ MEPROP Class class_Operation
+ %SUMMARY 'Печать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49521D8203A0 // File
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_49521D8E0295 Print
+
+ME ME_495220DE0298
+ MEPROP UID '495220DE0298'
+ MEPROP Name 'PrintDialog'
+ MEPROP Class class_Operation
+ %SUMMARY 'Печать...' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49521D8203A0 // File
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_495220DE0298 PrintDialog
+
+ME ME_495220F2033A
+ MEPROP UID '495220F2033A'
+ MEPROP Name 'PrintPreview'
+ MEPROP Class class_Operation
+ %SUMMARY 'Предварительный просмотр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49521D8203A0 // File
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_495220F2033A PrintPreview
+
+ME ME_495235F401C0
+ MEPROP UID '495235F401C0'
+ MEPROP Name 'Save'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49521D8203A0 // File
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_495235F401C0 Save
+
+ME ME_49521D8203A0
+ MEPROP UID '49521D8203A0'
+ MEPROP Name 'File'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F898C013E // Usual
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49521D8E0295 // Print
+ HWL ME_495220DE0298 // PrintDialog
+ HWL ME_495220F2033A // PrintPreview
+ HWL ME_495235F401C0 // Save
+ )
+ ; // Operations
+
+ENDME // ME_49521D8203A0 File
+
+FORWARD ME_4A8ED77F0142
+
+ME ME_4ADDD377028F
+ MEPROP UID '4ADDD377028F'
+ MEPROP Name 'Exit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8ED77F0142 // Common
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4ADDD377028F Exit
+
+ME ME_4A8ED77F0142
+ MEPROP UID '4A8ED77F0142'
+ MEPROP Name 'Common'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F898C013E // Usual
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ADDD377028F // Exit
+ )
+ ; // Operations
+
+ENDME // ME_4A8ED77F0142 Common
+
+FORWARD ME_4ADDDC4C0255
+
+ME ME_4ADDDC550118
+ MEPROP UID '4ADDDC550118'
+ MEPROP Name 'Back'
+ MEPROP Class class_Operation
+ %SUMMARY 'Назад' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4ADDDC4C0255 // History
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4ADDDC550118 Back
+
+ME ME_4ADDDC630097
+ MEPROP UID '4ADDDC630097'
+ MEPROP Name 'Forward'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вперёд' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4ADDDC4C0255 // History
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4ADDDC630097 Forward
+
+ME ME_4ADDDC4C0255
+ MEPROP UID '4ADDDC4C0255'
+ MEPROP Name 'History'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'История' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F898C013E // Usual
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ADDDC550118 // Back
+ HWL ME_4ADDDC630097 // Forward
+ )
+ ; // Operations
+
+ENDME // ME_4ADDDC4C0255 History
+
+ME ME_494F898C013E
+ MEPROP UID '494F898C013E'
+ MEPROP Name 'Usual'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY '"Обычные" операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_494F89AA0017 // Edit
+ HWL ME_49521D8203A0 // File
+ HWL ME_4A8ED77F0142 // Common
+ HWL ME_4ADDDC4C0255 // History
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Usual_Controls.pas'
+ UP extprop:pas:UnitName 'OfficeLike_Usual_Controls'
+
+ENDME // ME_494F898C013E Usual

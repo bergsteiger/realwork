@@ -633,10 +633,10 @@ const
  // http://mdp.garant.ru/pages/viewpage.action?pageId=477647712
  l_Para := GetParaForPositionning;
  if l_Doc.IsAlive then
-  TdmStdRes.OpenDocument(TdeDocInfo.Make(l_Doc, TbsDocPos_C(dptPara, l_Para.ID)), nil);
+  TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_Doc, TbsDocPos_C(dptPara, l_Para.ID)), nil);
  l_Doc := nil;
  l_Para := nil;
- (* TdmStdRes.OpenEntityAsDocument(l_Doc{HyperlinkDocument}, nil); *)
+ (* TDocumentService.Instance.OpenEntityAsDocument(l_Doc{HyperlinkDocument}, nil); *)
 //#UC END# *4A9BAFD300BB_4A6EBE900233_impl*
 //#UC START# *4A9BAFD300BB_4A6EBE900233_var*
 var
@@ -741,11 +741,11 @@ var
 //#UC START# *4B1E39750337_4A6EBE900233_impl*
  Assert(EditionDiff.DocumentForReturn.rDoc <> nil);
  if (EditionDiff.DocumentForReturn.rPara <> nil) then
-  TdmStdRes.OpenDocument(TdeDocInfo.Make(EditionDiff.DocumentForReturn.rDoc,
+  TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(EditionDiff.DocumentForReturn.rDoc,
                                          TbsDocPos_P(EditionDiff.DocumentForReturn.rPara)),
                          nil)
  else
-  TdmStdRes.OpenEntityAsDocument(EditionDiff.DocumentForReturn.rDoc, nil);
+  TDocumentService.Instance.OpenEntityAsDocument(EditionDiff.DocumentForReturn.rDoc, nil);
 //#UC END# *4B1E39750337_4A6EBE900233_impl*
 //#UC START# *4B1E39750337_4A6EBE900233_var*
 //#UC END# *4B1E39750337_4A6EBE900233_var*
@@ -965,7 +965,7 @@ var
 //#UC START# *4C068AB5026A_4A6EBE900233_var*
 //#UC END# *4C068AB5026A_4A6EBE900233_var*
 //#UC START# *4C93246B01B8_4A6EBE900233_impl*
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
 //#UC END# *4C93246B01B8_4A6EBE900233_impl*
 //#UC START# *4C93246B01B8_4A6EBE900233_var*
 //#UC END# *4C93246B01B8_4A6EBE900233_var*
@@ -1002,7 +1002,7 @@ var
  l_Container := MakeContainerForBehaviour(aBehaviour);
  l_LeftDocument := CompareEditions.Left.Document;
  l_RightDocument := CompareEditions.Right.Document;
- TdmStdRes.MakeCompareEditions(l_LeftDocument, l_RightDocument,
+ TEditionsService.Instance.MakeCompareEditions(l_LeftDocument, l_RightDocument,
   aPos, HyperlinkDocument, GetParaForPositionning, l_Container);
 //#UC END# *55B081D50048_4A6EBE900233_impl*
 //#UC START# *55B081D50048_4A6EBE900233_var*

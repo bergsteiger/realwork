@@ -1,0 +1,71 @@
+// BaseSearch 4C43D2BB005A VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C43D2BB005A
+
+FORWARD ME_4C43D2E5026B
+
+ME ME_4C43D2F002EC
+ MEPROP UID '4C43D2F002EC'
+ MEPROP Name 'CloseChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D2E5026B // EnclosedForms
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C43D2F002EC CloseChild
+
+ME ME_4C43D2E5026B
+ MEPROP UID '4C43D2E5026B'
+ MEPROP Name 'EnclosedForms'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C43D2BB005A // BaseSearch
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C43D2F002EC // CloseChild
+ )
+ ; // Operations
+
+ENDME // ME_4C43D2E5026B EnclosedForms
+
+ME ME_4C43D2BB005A
+ MEPROP UID '4C43D2BB005A'
+ MEPROP Name 'BaseSearch'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CC97B6702A4' '4CC97B6702A4.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C43D2E5026B // EnclosedForms
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '19.07.2010 8:21'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch_Controls.pas'
+ UP extprop:pas:UnitName 'BaseSearch_Controls'
+
+ENDME // ME_4C43D2BB005A BaseSearch

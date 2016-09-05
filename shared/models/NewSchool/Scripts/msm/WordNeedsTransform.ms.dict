@@ -1,0 +1,28 @@
+UNIT WordNeedsTransform.ms.dict
+
+USES
+ WordIsVar.ms.dict
+;
+
+USES
+ ref.ms.dict
+;
+
+BOOLEAN FUNCTION WordNeedsTransform
+  TtfwWord IN Self
+/*{ RULES
+  ( 'uc:' Self pop:Word:Name StartsStr )
+   false
+  ( Self WordIsVar )
+   false
+  DEFAULT
+   RULES
+    //( Self pop:Word:Name 'IsSummoned' ?== )
+    // false
+    DEFAULT
+     true
+   ; // RULES
+ ; // RULES}*/
+ false
+ >>> Result 
+; // WordNeedsTransform

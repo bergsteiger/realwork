@@ -1,0 +1,249 @@
+// ImageEnView 52E20E0E0059 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E20E0E0059
+
+FORWARD ME_52E20F060237
+
+FORWARD ME_52E20FD6017C
+
+ME ME_52E2163B0209
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.ms.model.script' // TImageEnView
+ ;
+
+ENDME // ME_52E2163B0209 aControl
+
+ME ME_52E2163B0219
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_52E2163B0219 aCtx
+
+ME ME_52E2102002AA
+ MEPROP UID '52E2102002AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E20FD6017C // DoWithImageEn
+ ;
+ MELIST Parameters
+   Seq: ( ME_52E2163B0209 // aControl
+ ME_52E2163B0219 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_52E2102002AA DoIt
+
+ME ME_52E20FD6017C
+ MEPROP UID '52E20FD6017C'
+ MEPROP Name 'DoWithImageEn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52E20F060237 // TkwImageEnControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52E2102002AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52E20FD6017C DoWithImageEn
+
+ME ME_4F212C3A015A_ME_52E20F060237
+ MELINK Original WL 'ME_4F212C3A015A' '54DB92D203C9.ms.model.script' // DoControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F212C3A015A_ME_52E20F060237 DoControl
+
+ME ME_52E20F060237
+ MEPROP UID '52E20F060237'
+ MEPROP Name 'TkwImageEnControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52E20E0E0059 // ImageEnView
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F212C120371' '54DB92D203C9.ms.model.script' // kwControlFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52E20FD6017C // DoWithImageEn
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F212C3A015A_ME_52E20F060237 // DoControl
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas'
+ UP extprop:rc:SelfName 'ImageEnControl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwImageEnControl'
+
+ENDME // ME_52E20F060237 TkwImageEnControl
+
+FORWARD ME_52E20EB3004D
+
+FORWARD ME_52E20E70006F
+
+ME ME_52E20EBE02EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E20EB3004D // ImageEnPack
+ ;
+ MELINK Target HWL ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+
+ENDME // ME_52E20EBE02EF 
+
+ME ME_54F4642100D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_52E20EB3004D // ImageEnPack
+ ;
+ MELINK Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.ms.model.script' // TImageEnView
+ ;
+
+ENDME // ME_54F4642100D0 
+
+FORWARD ME_54F47ECF0071
+
+ME ME_54F47EE30065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E20EB3004D // ImageEnPack
+ ;
+ MELINK Target HWL ME_54F47ECF0071 // TImageEnViewRegistrator
+ ;
+
+ENDME // ME_54F47EE30065 
+
+ME ME_52E20EB3004D
+ MEPROP UID '52E20EB3004D'
+ MEPROP Name 'ImageEnPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E20E0E0059 // ImageEnView
+ ;
+ MELIST Dependencies
+   Seq: ( ME_52E20EBE02EF // ImageEnViewer_SaveBitmap
+ ME_54F4642100D0 // TImageEnView
+ ME_54F47EE30065 // TImageEnViewRegistrator
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ImageEnPack.pas'
+
+ENDME // ME_52E20EB3004D ImageEnPack
+
+ME ME_52E5E9F30266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '4AB0C3C60310.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_52E5E9F30266 
+
+ME ME_52E20FD6017C_ME_52E20E70006F
+ MELINK Original HWL ME_52E20FD6017C // DoWithImageEn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52E20FD6017C_ME_52E20E70006F DoWithImageEn
+
+ME ME_52E20E70006F
+ MEPROP UID '52E20E70006F'
+ MEPROP Name 'ImageEnViewer_SaveBitmap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Формат:'#13#10'{code}'#13#10'aFileName ImageEnViewer:SaveBitmap'#13#10'{code}'#13#10'где aFileName - имя файла, куда сохранять.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E20E0E0059 // ImageEnView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52E20F060237 // TkwImageEnControl
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52E20FD6017C_ME_52E20E70006F // DoWithImageEn
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52E5E9F30266 // ChangeFileExt
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnViewerSaveBitmap.pas'
+ UP extprop:pas:TypeName 'TkwImageEnViewerSaveBitmap'
+ UP extprop:rc:SelfName 'ImageEnViewerSaveBitmap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwImageEnViewerSaveBitmap'
+
+ENDME // ME_52E20E70006F ImageEnViewer_SaveBitmap
+
+ME ME_54F47ECF0071
+ MEPROP UID '54F47ECF0071'
+ MEPROP Name 'TImageEnViewRegistrator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52E20E0E0059 // ImageEnView
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4ACDBC6101A6' '4ACDBC26003C.ms.model.script' // TImageEnView
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas'
+ UP extprop:rc:SelfName 'ImageEnViewRegistrator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ImageEnViewRegistrator'
+
+ENDME // ME_54F47ECF0071 TImageEnViewRegistrator
+
+ME ME_52E20E0E0059
+ MEPROP UID '52E20E0E0059'
+ MEPROP Name 'ImageEnView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54F47D8D007E' '54F47D8D007E.ms.model.script' // ScriptEngine$ImageEn
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52E20F060237 // TkwImageEnControl
+ HWL ME_52E20EB3004D // ImageEnPack
+ HWL ME_52E20E70006F // ImageEnViewer_SaveBitmap
+ HWL ME_54F47ECF0071 // TImageEnViewRegistrator
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ACDBC26003C' '4ACDBC26003C.ms.model.script' // Source
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_54DB92D203C9' '54DB92D203C9.ms.model.script' // VCL bindings
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_52E20E0E0059 ImageEnView

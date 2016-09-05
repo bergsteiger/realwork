@@ -1,0 +1,62 @@
+// Rounded 517C0F37039A Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_517C0F37039A
+
+FORWARD ME_517C0F4B027C
+
+ME ME_4CC847800383_ME_517C0F4B027C
+ MELINK Original WL 'ME_4CC847800383' '4CC81FAC02D6.ms.model.script' // TuneRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC847800383_ME_517C0F4B027C TuneRegion
+
+ME ME_517C0F4B027C
+ MEPROP UID '517C0F4B027C'
+ MEPROP Name 'RoundedControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GUIControlMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_517C0F37039A // Rounded
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CC81FB7008B' '4CC81FAC02D6.ms.model.script' // RegionableControl
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4CC847800383_ME_517C0F4B027C // TuneRegion
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\SandBox\RoundedControl.imp.pas'
+ UP extprop:pas:TypeName '_RoundedControl_'
+ UP extprop:pas:UnitName 'RoundedControl.imp'
+
+ENDME // ME_517C0F4B027C RoundedControl
+
+ME ME_517C0F37039A
+ MEPROP UID '517C0F37039A'
+ MEPROP Name 'Rounded'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.ms.model.script' // SandBox
+ ;
+ MELIST Children
+   Seq: ( HWL ME_517C0F4B027C // RoundedControl
+ WL 'ME_517C0F9C03C3' '517C0F9C03C3.ms.model.script' // TRoundedButton
+ WL 'ME_517C102F03B5' '517C102F03B5.ms.model.script' // TRoundedEdit
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4CC81FAC02D6' '4CC81FAC02D6.ms.model.script' // Core
+ WL 'ME_51612EBB02F5' '51612EBB02F5.ms.model.script' // Ref Counting
+ )
+ ; // Depends
+
+ENDME // ME_517C0F37039A Rounded

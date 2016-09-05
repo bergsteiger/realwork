@@ -1,0 +1,4001 @@
+// Implementation 55082F190334 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55082F190334
+
+FORWARD ME_558947020183
+
+ME ME_5589487300A3
+ MEPROP UID '5589487300A3'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+ MELINK Target WL 'ME_4995594A014C' '4683F37902CF.ms.model.script' // IvcmHistoryItem
+ ;
+
+ENDME // ME_5589487300A3 ItemType
+
+FORWARD ME_558A37400258
+
+ME ME_558A376C0166
+ MEPROP Name 'aOtherList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5589489B004F' '4683F37902CF.ms.model.script' // IvcmHistoryItems
+ ;
+
+ENDME // ME_558A376C0166 aOtherList
+
+ME ME_558A374B00B1
+ MEPROP UID '558A374B00B1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558A37400258 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_558A376C0166 // aOtherList
+ )
+ ; // Parameters
+
+ENDME // ME_558A374B00B1 DoIt
+
+ME ME_558A37400258
+ MEPROP UID '558A37400258'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_558A374B00B1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_558A37400258 Create
+
+ME ME_558A377003D0
+ MEPROP UID '558A377003D0'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_558A37400258 // Create
+ )
+ ; // Inherits
+
+ENDME // ME_558A377003D0 Make
+
+ME ME_558A3C5601E4
+ MEPROP UID '558A3C5601E4'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+
+ENDME // ME_558A3C5601E4 Create$1
+
+ME ME_558A3C660286
+ MEPROP UID '558A3C660286'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_558A3C5601E4 // Create$1
+ )
+ ; // Inherits
+
+ENDME // ME_558A3C660286 Make$1
+
+FORWARD ME_558A411B0177
+
+ME ME_558A413802B4
+ MEPROP Name 'aOtherList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5589489B004F' '4683F37902CF.ms.model.script' // IvcmHistoryItems
+ ;
+
+ENDME // ME_558A413802B4 aOtherList
+
+ME ME_558A41290295
+ MEPROP UID '558A41290295'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558A411B0177 // Assign
+ ;
+ MELIST Parameters
+   Seq: ( ME_558A413802B4 // aOtherList
+ )
+ ; // Parameters
+
+ENDME // ME_558A41290295 DoIt
+
+ME ME_558A411B0177
+ MEPROP UID '558A411B0177'
+ MEPROP Name 'Assign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_558A41290295 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_558A411B0177 Assign
+
+ME ME_55894A2A006B_ME_558947020183
+ MELINK Original WL 'ME_55894A2A006B' '4683F37902CF.ms.model.script' // HistoryItemCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_55894A2A006B_ME_558947020183 HistoryItemCount
+
+ME ME_55894A3F00A3_ME_558947020183
+ MELINK Original WL 'ME_55894A3F00A3' '4683F37902CF.ms.model.script' // HistoryItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_55894A3F00A3_ME_558947020183 HistoryItems
+
+ME ME_55894A720144_ME_558947020183
+ MELINK Original WL 'ME_55894A720144' '4683F37902CF.ms.model.script' // MakeClone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55894A720144_ME_558947020183 MakeClone
+
+ME ME_558947020183
+ MEPROP UID '558947020183'
+ MEPROP Name 'TvcmHistoryItemList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55082F190334 // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ WL 'ME_5589489B004F' '4683F37902CF.ms.model.script' // IvcmHistoryItems
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5589487300A3 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_558A37400258 // Create
+ HWL ME_558A377003D0 // Make
+ HWL ME_558A3C5601E4 // Create$1
+ HWL ME_558A3C660286 // Make$1
+ HWL ME_558A411B0177 // Assign
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_55894A2A006B_ME_558947020183 // HistoryItemCount
+ ME_55894A3F00A3_ME_558947020183 // HistoryItems
+ ME_55894A720144_ME_558947020183 // MakeClone
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmHistoryItemList.pas'
+ UP extprop:rc:SelfName 'HistoryItemList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmHistoryItemList'
+
+ENDME // ME_558947020183 TvcmHistoryItemList
+
+ME ME_5614F2B602CC
+ MEPROP UID '5614F2B602CC'
+ MEPROP Name 'TvcmHistoryFormNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55082F190334 // Implementation
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmHistoryFormNode.pas'
+ UP extprop:rc:SelfName 'HistoryFormNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmHistoryFormNode'
+
+ENDME // ME_5614F2B602CC TvcmHistoryFormNode
+
+FORWARD ME_4AA7B6AB0214
+
+FORWARD ME_5506D3B601B8
+
+ME ME_5506D47103A1
+ MEPROP UID '5506D47103A1'
+ MEPROP Name 'FormClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+ MELINK Target WL 'ME_528C9354017B' '528C93040132.ms.model.script' // TvcmFormID
+ ;
+ UP "pm" true
+
+ENDME // ME_5506D47103A1 FormClass
+
+ME ME_5506D4830243
+ MEPROP UID '5506D4830243'
+ MEPROP Name 'UserType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+ UP "pm" true
+
+ENDME // ME_5506D4830243 UserType
+
+ME ME_5506D49100B7
+ MEPROP UID '5506D49100B7'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+ MELINK Target WL 'ME_4683F451006D' '4683F37902CF.ms.model.script' // TvcmHistoryItemType
+ ;
+ UP "pm" true
+
+ENDME // ME_5506D49100B7 ItemType
+
+ME ME_5583B0BD0124
+ MEPROP UID '5583B0BD0124'
+ MEPROP Name 'ResetContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+
+ENDME // ME_5583B0BD0124 ResetContainer
+
+ME ME_499559980178_ME_5506D3B601B8
+ MELINK Original WL 'ME_499559980178' '4683F37902CF.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499559980178_ME_5506D3B601B8 Caption
+
+ME ME_550938E80131_ME_5506D3B601B8
+ MELINK Original WL 'ME_550938E80131' '4683F37902CF.ms.model.script' // Activate$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550938E80131_ME_5506D3B601B8 Activate$1
+
+ME ME_5509390702F7_ME_5506D3B601B8
+ MELINK Original WL 'ME_5509390702F7' '4683F37902CF.ms.model.script' // Activate$2
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509390702F7_ME_5506D3B601B8 Activate$2
+
+ME ME_5509391E0197_ME_5506D3B601B8
+ MELINK Original WL 'ME_5509391E0197' '4683F37902CF.ms.model.script' // Drop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509391E0197_ME_5506D3B601B8 Drop
+
+ME ME_550953A00312_ME_5506D3B601B8
+ MELINK Original WL 'ME_550953A00312' '4683F37902CF.ms.model.script' // IsAcceptable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550953A00312_ME_5506D3B601B8 IsAcceptable
+
+ME ME_5506D3B601B8
+ MEPROP UID '5506D3B601B8'
+ MEPROP GUID 'B8A57CB1-BC72-41FC-9407-770BE962585D'
+ MEPROP Name 'IvcmFormHistoryItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4995594A014C' '4683F37902CF.ms.model.script' // IvcmHistoryItem
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5506D47103A1 // FormClass
+ HWL ME_5506D4830243 // UserType
+ HWL ME_5506D49100B7 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5583B0BD0124 // ResetContainer
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499559980178_ME_5506D3B601B8 // Caption
+ ME_550938E80131_ME_5506D3B601B8 // Activate$1
+ ME_5509390702F7_ME_5506D3B601B8 // Activate$2
+ ME_5509391E0197_ME_5506D3B601B8 // Drop
+ ME_550953A00312_ME_5506D3B601B8 // IsAcceptable
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'FormHistoryItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506D3B601B8 IvcmFormHistoryItem
+
+FORWARD ME_5506D52B03E3
+
+FORWARD ME_5506D54601F8
+
+ME ME_5506D553020B
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_5506D553020B aForm
+
+ME ME_5506D5530220
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_5506D5530220 aStateType
+
+ME ME_5506D5530235
+ MEPROP Name 'InDestroy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5506D5530235 InDestroy
+
+ME ME_5506D5530256
+ MEPROP Name 'aForceSave'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_5506D5530256 aForceSave
+
+ME ME_5506D54B01EC
+ MEPROP UID '5506D54B01EC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D54601F8 // InternalSaveState
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5506D553020B // aForm
+ ME_5506D5530220 // aStateType
+ ME_5506D5530235 // InDestroy
+ ME_5506D5530256 // aForceSave
+ )
+ ; // Parameters
+
+ENDME // ME_5506D54B01EC DoIt
+
+ME ME_5506D54601F8
+ MEPROP UID '5506D54601F8'
+ MEPROP Name 'InternalSaveState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5506D52B03E3 // IvcmInternalHistory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5506D54B01EC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5506D54601F8 InternalSaveState
+
+ME ME_499559BF038A_ME_5506D52B03E3
+ MELINK Original WL 'ME_499559BF038A' '4683F37902CF.ms.model.script' // BeforeFormDestroy
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499559BF038A_ME_5506D52B03E3 BeforeFormDestroy
+
+ME ME_499559C900EE_ME_5506D52B03E3
+ MELINK Original WL 'ME_499559C900EE' '4683F37902CF.ms.model.script' // ForceSaveState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499559C900EE_ME_5506D52B03E3 ForceSaveState
+
+ME ME_499559DD00D6_ME_5506D52B03E3
+ MELINK Original WL 'ME_499559DD00D6' '4683F37902CF.ms.model.script' // SaveState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499559DD00D6_ME_5506D52B03E3 SaveState
+
+ME ME_499559EC0143_ME_5506D52B03E3
+ MELINK Original WL 'ME_499559EC0143' '4683F37902CF.ms.model.script' // SaveClose
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499559EC0143_ME_5506D52B03E3 SaveClose
+
+ME ME_49955A0E01FD_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A0E01FD' '4683F37902CF.ms.model.script' // HasInPreviousStep
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A0E01FD_ME_5506D52B03E3 HasInPreviousStep
+
+ME ME_49955A280277_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A280277' '4683F37902CF.ms.model.script' // Back
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A280277_ME_5506D52B03E3 Back
+
+ME ME_49955A3202E4_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A3202E4' '4683F37902CF.ms.model.script' // Forward
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A3202E4_ME_5506D52B03E3 Forward
+
+ME ME_49955A4401E0_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A4401E0' '4683F37902CF.ms.model.script' // Back
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A4401E0_ME_5506D52B03E3 Back
+
+ME ME_49955A4F00AB_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A4F00AB' '4683F37902CF.ms.model.script' // Forward
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A4F00AB_ME_5506D52B03E3 Forward
+
+ME ME_49955A5B00B1_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A5B00B1' '4683F37902CF.ms.model.script' // CanBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A5B00B1_ME_5506D52B03E3 CanBack
+
+ME ME_49955A6701A1_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A6701A1' '4683F37902CF.ms.model.script' // CanForward
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A6701A1_ME_5506D52B03E3 CanForward
+
+ME ME_49955A71029F_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A71029F' '4683F37902CF.ms.model.script' // GetBackStrings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A71029F_ME_5506D52B03E3 GetBackStrings
+
+ME ME_49955A7B015F_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A7B015F' '4683F37902CF.ms.model.script' // GetForwardStrings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A7B015F_ME_5506D52B03E3 GetForwardStrings
+
+ME ME_49955A870211_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955A870211' '4683F37902CF.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A870211_ME_5506D52B03E3 Start
+
+ME ME_49955AA6028E_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955AA6028E' '4683F37902CF.ms.model.script' // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AA6028E_ME_5506D52B03E3 Finish
+
+ME ME_49955AB102DB_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955AB102DB' '4683F37902CF.ms.model.script' // AddForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AB102DB_ME_5506D52B03E3 AddForm
+
+ME ME_49955ABC00AD_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955ABC00AD' '4683F37902CF.ms.model.script' // RemoveForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955ABC00AD_ME_5506D52B03E3 RemoveForm
+
+ME ME_49955AC80055_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955AC80055' '4683F37902CF.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AC80055_ME_5506D52B03E3 Add
+
+ME ME_49955AD6022E_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955AD6022E' '4683F37902CF.ms.model.script' // IsLast
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AD6022E_ME_5506D52B03E3 IsLast
+
+ME ME_49955AE20023_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955AE20023' '4683F37902CF.ms.model.script' // InBF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49955AE20023_ME_5506D52B03E3 InBF
+
+ME ME_49955AF40024_ME_5506D52B03E3
+ MELINK Original WL 'ME_49955AF40024' '4683F37902CF.ms.model.script' // InProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49955AF40024_ME_5506D52B03E3 InProcess
+
+ME ME_49EDA518032B_ME_5506D52B03E3
+ MELINK Original WL 'ME_49EDA518032B' '4683F37902CF.ms.model.script' // InBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49EDA518032B_ME_5506D52B03E3 InBack
+
+ME ME_4DB0239600EC_ME_5506D52B03E3
+ MELINK Original WL 'ME_4DB0239600EC' '4683F37902CF.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DB0239600EC_ME_5506D52B03E3 Clear
+
+ME ME_4E82C9D3005D_ME_5506D52B03E3
+ MELINK Original WL 'ME_4E82C9D3005D' '4683F37902CF.ms.model.script' // DeleteBackItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E82C9D3005D_ME_5506D52B03E3 DeleteBackItem
+
+ME ME_4FC4CF3F01DC_ME_5506D52B03E3
+ MELINK Original WL 'ME_4FC4CF3F01DC' '4683F37902CF.ms.model.script' // GetBackCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF3F01DC_ME_5506D52B03E3 GetBackCount
+
+ME ME_4FC4CF570044_ME_5506D52B03E3
+ MELINK Original WL 'ME_4FC4CF570044' '4683F37902CF.ms.model.script' // GetForwardCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF570044_ME_5506D52B03E3 GetForwardCount
+
+ME ME_4FC4CF6B0145_ME_5506D52B03E3
+ MELINK Original WL 'ME_4FC4CF6B0145' '4683F37902CF.ms.model.script' // GetBackItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF6B0145_ME_5506D52B03E3 GetBackItem
+
+ME ME_4FC4CF840110_ME_5506D52B03E3
+ MELINK Original WL 'ME_4FC4CF840110' '4683F37902CF.ms.model.script' // GetForwardItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF840110_ME_5506D52B03E3 GetForwardItem
+
+ME ME_53DE68ED020E_ME_5506D52B03E3
+ MELINK Original WL 'ME_53DE68ED020E' '4683F37902CF.ms.model.script' // DeleteForwardItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53DE68ED020E_ME_5506D52B03E3 DeleteForwardItem
+
+ME ME_5583A8D20275_ME_5506D52B03E3
+ MELINK Original WL 'ME_5583A8D20275' '4683F37902CF.ms.model.script' // ResetContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5583A8D20275_ME_5506D52B03E3 ResetContainer
+
+ME ME_558A5FAC01CC_ME_5506D52B03E3
+ MELINK Original WL 'ME_558A5FAC01CC' '4683F37902CF.ms.model.script' // MakeState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_558A5FAC01CC_ME_5506D52B03E3 MakeState
+
+ME ME_558A5FD70198_ME_5506D52B03E3
+ MELINK Original WL 'ME_558A5FD70198' '4683F37902CF.ms.model.script' // AssignState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_558A5FD70198_ME_5506D52B03E3 AssignState
+
+ME ME_559F70D00030_ME_5506D52B03E3
+ MELINK Original WL 'ME_559F70D00030' '4683F37902CF.ms.model.script' // SaveClone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_559F70D00030_ME_5506D52B03E3 SaveClone
+
+ME ME_5506D52B03E3
+ MEPROP UID '5506D52B03E3'
+ MEPROP GUID 'D98D21B3-34A8-4A13-94D6-C3FE61D93247'
+ MEPROP Name 'IvcmInternalHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5506D54601F8 // InternalSaveState
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499559BF038A_ME_5506D52B03E3 // BeforeFormDestroy
+ ME_499559C900EE_ME_5506D52B03E3 // ForceSaveState
+ ME_499559DD00D6_ME_5506D52B03E3 // SaveState
+ ME_499559EC0143_ME_5506D52B03E3 // SaveClose
+ ME_49955A0E01FD_ME_5506D52B03E3 // HasInPreviousStep
+ ME_49955A280277_ME_5506D52B03E3 // Back
+ ME_49955A3202E4_ME_5506D52B03E3 // Forward
+ ME_49955A4401E0_ME_5506D52B03E3 // Back
+ ME_49955A4F00AB_ME_5506D52B03E3 // Forward
+ ME_49955A5B00B1_ME_5506D52B03E3 // CanBack
+ ME_49955A6701A1_ME_5506D52B03E3 // CanForward
+ ME_49955A71029F_ME_5506D52B03E3 // GetBackStrings
+ ME_49955A7B015F_ME_5506D52B03E3 // GetForwardStrings
+ ME_49955A870211_ME_5506D52B03E3 // Start
+ ME_49955AA6028E_ME_5506D52B03E3 // Finish
+ ME_49955AB102DB_ME_5506D52B03E3 // AddForm
+ ME_49955ABC00AD_ME_5506D52B03E3 // RemoveForm
+ ME_49955AC80055_ME_5506D52B03E3 // Add
+ ME_49955AD6022E_ME_5506D52B03E3 // IsLast
+ ME_49955AE20023_ME_5506D52B03E3 // InBF
+ ME_49955AF40024_ME_5506D52B03E3 // InProcess
+ ME_49EDA518032B_ME_5506D52B03E3 // InBack
+ ME_4DB0239600EC_ME_5506D52B03E3 // Clear
+ ME_4E82C9D3005D_ME_5506D52B03E3 // DeleteBackItem
+ ME_4FC4CF3F01DC_ME_5506D52B03E3 // GetBackCount
+ ME_4FC4CF570044_ME_5506D52B03E3 // GetForwardCount
+ ME_4FC4CF6B0145_ME_5506D52B03E3 // GetBackItem
+ ME_4FC4CF840110_ME_5506D52B03E3 // GetForwardItem
+ ME_53DE68ED020E_ME_5506D52B03E3 // DeleteForwardItem
+ ME_5583A8D20275_ME_5506D52B03E3 // ResetContainer
+ ME_558A5FAC01CC_ME_5506D52B03E3 // MakeState
+ ME_558A5FD70198_ME_5506D52B03E3 // AssignState
+ ME_559F70D00030_ME_5506D52B03E3 // SaveClone
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'InternalHistory'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506D52B03E3 IvcmInternalHistory
+
+FORWARD ME_5506D56E02FB
+
+ME ME_558A90A30189
+ MEPROP UID '558A90A30189'
+ MEPROP Name 'f_History'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+
+ENDME // ME_558A90A30189 f_History
+
+ME ME_559F97F3019A
+ MEPROP UID '559F97F3019A'
+ MEPROP Name 'f_SavingClone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_559F97F3019A f_SavingClone
+
+ME ME_5506D8CD0392
+ MEPROP UID '5506D8CD0392'
+ MEPROP Name 'MainForm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ UP "pm" true
+
+ENDME // ME_5506D8CD0392 MainForm
+
+ME ME_5506DA2A0293
+ MEPROP UID '5506DA2A0293'
+ MEPROP Name 'f_Forms'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_4AC4B82802E1' '4A8D6EF403E4.ms.model.script' // TvcmIEntityFormPtrList
+ ;
+
+ENDME // ME_5506DA2A0293 f_Forms
+
+ME ME_5506DA4B01F0
+ MEPROP UID '5506DA4B01F0'
+ MEPROP Name 'f_ContainerItem'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_5506D4AB03AF' '4683F37902CF.ms.model.script' // IvcmContainerHistoryItem
+ ;
+
+ENDME // ME_5506DA4B01F0 f_ContainerItem
+
+ME ME_5506DAD30260
+ MEPROP UID '5506DAD30260'
+ MEPROP Name 'f_Current'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5506DAD30260 f_Current
+
+ME ME_5506DADD0290
+ MEPROP UID '5506DADD0290'
+ MEPROP Name 'f_Starts'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5506DADD0290 f_Starts
+
+ME ME_5506DAE603D8
+ MEPROP UID '5506DAE603D8'
+ MEPROP Name 'f_Delta'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5506DAE603D8 f_Delta
+
+ME ME_55080EBA030E
+ MEPROP UID '55080EBA030E'
+ MEPROP Name 'f_MainForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_55080EBA030E f_MainForm
+
+ME ME_5506DA780368
+ MEPROP UID '5506DA780368'
+ MEPROP Name 'f_Last'
+ MEPROP Class class_Attribute
+ %SUMMARY 'признак того, что вызов последний' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5506DA780368 f_Last
+
+ME ME_5506DA8C021C
+ MEPROP UID '5506DA8C021C'
+ MEPROP Name 'f_Multi'
+ MEPROP Class class_Attribute
+ %SUMMARY 'скобки для множественного вызова Back из одноименной процедуры' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5506DA8C021C f_Multi
+
+ME ME_5506DAAC0200
+ MEPROP UID '5506DAAC0200'
+ MEPROP Name 'f_InBF'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5506DAAC0200 f_InBF
+
+ME ME_5506DAB701B5
+ MEPROP UID '5506DAB701B5'
+ MEPROP Name 'f_InBack'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5506DAB701B5 f_InBack
+
+ME ME_5506DAC3008F
+ MEPROP UID '5506DAC3008F'
+ MEPROP Name 'f_ForceSave'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5506DAC3008F f_ForceSave
+
+FORWARD ME_5506D91401EE
+
+ME ME_5506D927002F
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_5506D927002F aForm
+
+ME ME_5506D9270044
+ MEPROP Name 'InDestroy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5506D9270044 InDestroy
+
+ME ME_5506D923026D
+ MEPROP UID '5506D923026D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D91401EE // NeedSaveForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5506D927002F // aForm
+ ME_5506D9270044 // InDestroy
+ )
+ ; // Parameters
+
+ENDME // ME_5506D923026D DoIt
+
+ME ME_5506D91401EE
+ MEPROP UID '5506D91401EE'
+ MEPROP Name 'NeedSaveForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'нужно ли сохранять заданную форму' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5506D923026D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5506D91401EE NeedSaveForm
+
+FORWARD ME_5506D937025E
+
+ME ME_5506D9410300
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_5506D9410300 aForm
+
+ME ME_5506D9410316
+ MEPROP Name 'theHistory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ ;
+
+ENDME // ME_5506D9410316 theHistory
+
+ME ME_5506D93D00E5
+ MEPROP UID '5506D93D00E5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D937025E // CheckAnother
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5506D9410300 // aForm
+ ME_5506D9410316 // theHistory
+ )
+ ; // Parameters
+
+ENDME // ME_5506D93D00E5 DoIt
+
+ME ME_5506D937025E
+ MEPROP UID '5506D937025E'
+ MEPROP Name 'CheckAnother'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'проверяет от этой ли формы история, и если не от этой, то возвращает правильную историю.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5506D93D00E5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5506D937025E CheckAnother
+
+FORWARD ME_5506D97302DF
+
+ME ME_5506D97F00BA
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5506D97F00BA anIndex
+
+ME ME_5506D97B03DB
+ MEPROP UID '5506D97B03DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D97302DF // GetCaption
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ MELIST Parameters
+   Seq: ( ME_5506D97F00BA // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_5506D97B03DB DoIt
+
+ME ME_5506D97302DF
+ MEPROP UID '5506D97302DF'
+ MEPROP Name 'GetCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'возвращает название одного шага истории' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5506D97B03DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5506D97302DF GetCaption
+
+FORWARD ME_5506D99500B7
+
+ME ME_5506D99F00B8
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_5506D99F00B8 aMainForm
+
+ME ME_5506D99C03D6
+ MEPROP UID '5506D99C03D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D99500B7 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5506D99F00B8 // aMainForm
+ )
+ ; // Parameters
+
+ENDME // ME_5506D99C03D6 DoIt
+
+ME ME_5506D99500B7
+ MEPROP UID '5506D99500B7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5506D99C03D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5506D99500B7 Create
+
+ME ME_559A3FCA017D
+ MEPROP UID '559A3FCA017D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5506D99500B7 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ )
+ ; // Implements
+
+ENDME // ME_559A3FCA017D Make
+
+ME ME_558A4BD00226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5506D56E02FB // TvcmHistory
+ ;
+ MELINK Target WL 'ME_5589489B004F' '4683F37902CF.ms.model.script' // IvcmHistoryItems
+ ;
+
+ENDME // ME_558A4BD00226 
+
+ME ME_499559BF038A_ME_5506D56E02FB
+ MELINK Original WL 'ME_499559BF038A' '4683F37902CF.ms.model.script' // BeforeFormDestroy
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499559BF038A_ME_5506D56E02FB BeforeFormDestroy
+
+ME ME_499559C900EE_ME_5506D56E02FB
+ MELINK Original WL 'ME_499559C900EE' '4683F37902CF.ms.model.script' // ForceSaveState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499559C900EE_ME_5506D56E02FB ForceSaveState
+
+ME ME_499559DD00D6_ME_5506D56E02FB
+ MELINK Original WL 'ME_499559DD00D6' '4683F37902CF.ms.model.script' // SaveState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" true
+ENDME // ME_499559DD00D6_ME_5506D56E02FB SaveState
+
+ME ME_499559EC0143_ME_5506D56E02FB
+ MELINK Original WL 'ME_499559EC0143' '4683F37902CF.ms.model.script' // SaveClose
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499559EC0143_ME_5506D56E02FB SaveClose
+
+ME ME_49955A0E01FD_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A0E01FD' '4683F37902CF.ms.model.script' // HasInPreviousStep
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A0E01FD_ME_5506D56E02FB HasInPreviousStep
+
+ME ME_49955A280277_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A280277' '4683F37902CF.ms.model.script' // Back
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A280277_ME_5506D56E02FB Back
+
+ME ME_49955A3202E4_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A3202E4' '4683F37902CF.ms.model.script' // Forward
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A3202E4_ME_5506D56E02FB Forward
+
+ME ME_49955A4401E0_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A4401E0' '4683F37902CF.ms.model.script' // Back
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A4401E0_ME_5506D56E02FB Back
+
+ME ME_49955A4F00AB_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A4F00AB' '4683F37902CF.ms.model.script' // Forward
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A4F00AB_ME_5506D56E02FB Forward
+
+ME ME_49955A5B00B1_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A5B00B1' '4683F37902CF.ms.model.script' // CanBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A5B00B1_ME_5506D56E02FB CanBack
+
+ME ME_49955A6701A1_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A6701A1' '4683F37902CF.ms.model.script' // CanForward
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A6701A1_ME_5506D56E02FB CanForward
+
+ME ME_49955A71029F_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A71029F' '4683F37902CF.ms.model.script' // GetBackStrings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A71029F_ME_5506D56E02FB GetBackStrings
+
+ME ME_49955A7B015F_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A7B015F' '4683F37902CF.ms.model.script' // GetForwardStrings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A7B015F_ME_5506D56E02FB GetForwardStrings
+
+ME ME_49955A870211_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955A870211' '4683F37902CF.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955A870211_ME_5506D56E02FB Start
+
+ME ME_49955AA6028E_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955AA6028E' '4683F37902CF.ms.model.script' // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AA6028E_ME_5506D56E02FB Finish
+
+ME ME_49955AB102DB_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955AB102DB' '4683F37902CF.ms.model.script' // AddForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AB102DB_ME_5506D56E02FB AddForm
+
+ME ME_49955ABC00AD_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955ABC00AD' '4683F37902CF.ms.model.script' // RemoveForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955ABC00AD_ME_5506D56E02FB RemoveForm
+
+ME ME_49955AC80055_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955AC80055' '4683F37902CF.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AC80055_ME_5506D56E02FB Add
+
+ME ME_49955AD6022E_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955AD6022E' '4683F37902CF.ms.model.script' // IsLast
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49955AD6022E_ME_5506D56E02FB IsLast
+
+ME ME_49955AE20023_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955AE20023' '4683F37902CF.ms.model.script' // InBF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49955AE20023_ME_5506D56E02FB InBF
+
+ME ME_49955AF40024_ME_5506D56E02FB
+ MELINK Original WL 'ME_49955AF40024' '4683F37902CF.ms.model.script' // InProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49955AF40024_ME_5506D56E02FB InProcess
+
+ME ME_49EDA518032B_ME_5506D56E02FB
+ MELINK Original WL 'ME_49EDA518032B' '4683F37902CF.ms.model.script' // InBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49EDA518032B_ME_5506D56E02FB InBack
+
+ME ME_4DB0239600EC_ME_5506D56E02FB
+ MELINK Original WL 'ME_4DB0239600EC' '4683F37902CF.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DB0239600EC_ME_5506D56E02FB Clear
+
+ME ME_4E82C9D3005D_ME_5506D56E02FB
+ MELINK Original WL 'ME_4E82C9D3005D' '4683F37902CF.ms.model.script' // DeleteBackItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E82C9D3005D_ME_5506D56E02FB DeleteBackItem
+
+ME ME_4FC4CF3F01DC_ME_5506D56E02FB
+ MELINK Original WL 'ME_4FC4CF3F01DC' '4683F37902CF.ms.model.script' // GetBackCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF3F01DC_ME_5506D56E02FB GetBackCount
+
+ME ME_4FC4CF570044_ME_5506D56E02FB
+ MELINK Original WL 'ME_4FC4CF570044' '4683F37902CF.ms.model.script' // GetForwardCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF570044_ME_5506D56E02FB GetForwardCount
+
+ME ME_4FC4CF6B0145_ME_5506D56E02FB
+ MELINK Original WL 'ME_4FC4CF6B0145' '4683F37902CF.ms.model.script' // GetBackItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF6B0145_ME_5506D56E02FB GetBackItem
+
+ME ME_4FC4CF840110_ME_5506D56E02FB
+ MELINK Original WL 'ME_4FC4CF840110' '4683F37902CF.ms.model.script' // GetForwardItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC4CF840110_ME_5506D56E02FB GetForwardItem
+
+ME ME_53DE68ED020E_ME_5506D56E02FB
+ MELINK Original WL 'ME_53DE68ED020E' '4683F37902CF.ms.model.script' // DeleteForwardItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53DE68ED020E_ME_5506D56E02FB DeleteForwardItem
+
+ME ME_5506D54601F8_ME_5506D56E02FB
+ MELINK Original HWL ME_5506D54601F8 // InternalSaveState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" true
+ENDME // ME_5506D54601F8_ME_5506D56E02FB InternalSaveState
+
+ME ME_5583A8D20275_ME_5506D56E02FB
+ MELINK Original WL 'ME_5583A8D20275' '4683F37902CF.ms.model.script' // ResetContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5583A8D20275_ME_5506D56E02FB ResetContainer
+
+ME ME_558A5FAC01CC_ME_5506D56E02FB
+ MELINK Original WL 'ME_558A5FAC01CC' '4683F37902CF.ms.model.script' // MakeState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_558A5FAC01CC_ME_5506D56E02FB MakeState
+
+ME ME_558A5FD70198_ME_5506D56E02FB
+ MELINK Original WL 'ME_558A5FD70198' '4683F37902CF.ms.model.script' // AssignState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_558A5FD70198_ME_5506D56E02FB AssignState
+
+ME ME_559F70D00030_ME_5506D56E02FB
+ MELINK Original WL 'ME_559F70D00030' '4683F37902CF.ms.model.script' // SaveClone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_559F70D00030_ME_5506D56E02FB SaveClone
+
+ME ME_479731C50290_ME_5506D56E02FB
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5506D56E02FB Cleanup
+
+ME ME_5506D56E02FB
+ MEPROP UID '5506D56E02FB'
+ MEPROP Name 'TvcmHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_519A130C00B6' '47D0E1500033.ms.model.script' // TvcmCacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ HWL ME_5506D52B03E3 // IvcmInternalHistory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_558A90A30189 // f_History
+ HWL ME_559F97F3019A // f_SavingClone
+ HWL ME_5506D8CD0392 // MainForm
+ HWL ME_5506DA2A0293 // f_Forms
+ HWL ME_5506DA4B01F0 // f_ContainerItem
+ HWL ME_5506DAD30260 // f_Current
+ HWL ME_5506DADD0290 // f_Starts
+ HWL ME_5506DAE603D8 // f_Delta
+ HWL ME_55080EBA030E // f_MainForm
+ HWL ME_5506DA780368 // f_Last
+ HWL ME_5506DA8C021C // f_Multi
+ HWL ME_5506DAAC0200 // f_InBF
+ HWL ME_5506DAB701B5 // f_InBack
+ HWL ME_5506DAC3008F // f_ForceSave
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5506D91401EE // NeedSaveForm
+ HWL ME_5506D937025E // CheckAnother
+ HWL ME_5506D97302DF // GetCaption
+ HWL ME_5506D99500B7 // Create
+ HWL ME_559A3FCA017D // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499559BF038A_ME_5506D56E02FB // BeforeFormDestroy
+ ME_499559C900EE_ME_5506D56E02FB // ForceSaveState
+ ME_499559DD00D6_ME_5506D56E02FB // SaveState
+ ME_499559EC0143_ME_5506D56E02FB // SaveClose
+ ME_49955A0E01FD_ME_5506D56E02FB // HasInPreviousStep
+ ME_49955A280277_ME_5506D56E02FB // Back
+ ME_49955A3202E4_ME_5506D56E02FB // Forward
+ ME_49955A4401E0_ME_5506D56E02FB // Back
+ ME_49955A4F00AB_ME_5506D56E02FB // Forward
+ ME_49955A5B00B1_ME_5506D56E02FB // CanBack
+ ME_49955A6701A1_ME_5506D56E02FB // CanForward
+ ME_49955A71029F_ME_5506D56E02FB // GetBackStrings
+ ME_49955A7B015F_ME_5506D56E02FB // GetForwardStrings
+ ME_49955A870211_ME_5506D56E02FB // Start
+ ME_49955AA6028E_ME_5506D56E02FB // Finish
+ ME_49955AB102DB_ME_5506D56E02FB // AddForm
+ ME_49955ABC00AD_ME_5506D56E02FB // RemoveForm
+ ME_49955AC80055_ME_5506D56E02FB // Add
+ ME_49955AD6022E_ME_5506D56E02FB // IsLast
+ ME_49955AE20023_ME_5506D56E02FB // InBF
+ ME_49955AF40024_ME_5506D56E02FB // InProcess
+ ME_49EDA518032B_ME_5506D56E02FB // InBack
+ ME_4DB0239600EC_ME_5506D56E02FB // Clear
+ ME_4E82C9D3005D_ME_5506D56E02FB // DeleteBackItem
+ ME_4FC4CF3F01DC_ME_5506D56E02FB // GetBackCount
+ ME_4FC4CF570044_ME_5506D56E02FB // GetForwardCount
+ ME_4FC4CF6B0145_ME_5506D56E02FB // GetBackItem
+ ME_4FC4CF840110_ME_5506D56E02FB // GetForwardItem
+ ME_53DE68ED020E_ME_5506D56E02FB // DeleteForwardItem
+ ME_5506D54601F8_ME_5506D56E02FB // InternalSaveState
+ ME_5583A8D20275_ME_5506D56E02FB // ResetContainer
+ ME_558A5FAC01CC_ME_5506D56E02FB // MakeState
+ ME_558A5FD70198_ME_5506D56E02FB // AssignState
+ ME_559F70D00030_ME_5506D56E02FB // SaveClone
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5506D56E02FB // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_558A4BD00226 // IvcmHistoryItems
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'History'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506D56E02FB TvcmHistory
+
+FORWARD ME_5506DB25003E
+
+ME ME_5506DBEF02F5
+ MEPROP UID '5506DBEF02F5'
+ MEPROP Name 'f_Object'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DB25003E // TvcmObjectWithDataHistoryItem
+ ;
+ MELINK Target WL 'ME_491AFD0D015E' '4683F37902CF.ms.model.script' // IvcmObjectWithData
+ ;
+
+ENDME // ME_5506DBEF02F5 f_Object
+
+ME ME_5506DBF70194
+ MEPROP UID '5506DBF70194'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DB25003E // TvcmObjectWithDataHistoryItem
+ ;
+ MELINK Target WL 'ME_47F378D3029B' '4683F37902CF.ms.model.script' // IvcmData
+ ;
+
+ENDME // ME_5506DBF70194 f_Data
+
+ME ME_5506DB9403A6
+ MEPROP UID '5506DB9403A6'
+ MEPROP Name 'DoActivate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DB25003E // TvcmObjectWithDataHistoryItem
+ ;
+
+ENDME // ME_5506DB9403A6 DoActivate
+
+FORWARD ME_5506DBA30102
+
+ME ME_5506DBB40325
+ MEPROP Name 'aObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491AFD0D015E' '4683F37902CF.ms.model.script' // IvcmObjectWithData
+ ;
+
+ENDME // ME_5506DBB40325 aObject
+
+ME ME_5506DBB40338
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F378D3029B' '4683F37902CF.ms.model.script' // IvcmData
+ ;
+
+ENDME // ME_5506DBB40338 aData
+
+ME ME_5506DBAF0301
+ MEPROP UID '5506DBAF0301'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DBA30102 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5506DBB40325 // aObject
+ ME_5506DBB40338 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_5506DBAF0301 DoIt
+
+ME ME_5506DBA30102
+ MEPROP UID '5506DBA30102'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DB25003E // TvcmObjectWithDataHistoryItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5506DBAF0301 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5506DBA30102 Create
+
+ME ME_5506DBBA03DA
+ MEPROP UID '5506DBBA03DA'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DB25003E // TvcmObjectWithDataHistoryItem
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5506DBA30102 // Create
+ )
+ ; // Inherits
+
+ENDME // ME_5506DBBA03DA Make
+
+ME ME_499559980178_ME_5506DB25003E
+ MELINK Original WL 'ME_499559980178' '4683F37902CF.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499559980178_ME_5506DB25003E Caption
+
+ME ME_550938E80131_ME_5506DB25003E
+ MELINK Original WL 'ME_550938E80131' '4683F37902CF.ms.model.script' // Activate$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550938E80131_ME_5506DB25003E Activate$1
+
+ME ME_5509390702F7_ME_5506DB25003E
+ MELINK Original WL 'ME_5509390702F7' '4683F37902CF.ms.model.script' // Activate$2
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509390702F7_ME_5506DB25003E Activate$2
+
+ME ME_5509391E0197_ME_5506DB25003E
+ MELINK Original WL 'ME_5509391E0197' '4683F37902CF.ms.model.script' // Drop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509391E0197_ME_5506DB25003E Drop
+
+ME ME_550953A00312_ME_5506DB25003E
+ MELINK Original WL 'ME_550953A00312' '4683F37902CF.ms.model.script' // IsAcceptable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550953A00312_ME_5506DB25003E IsAcceptable
+
+ME ME_5506DB25003E
+ MEPROP UID '5506DB25003E'
+ MEPROP Name 'TvcmObjectWithDataHistoryItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F25BEE0389' '47D0E1500033.ms.model.script' // TvcmBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4995594A014C' '4683F37902CF.ms.model.script' // IvcmHistoryItem
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5506DBEF02F5 // f_Object
+ HWL ME_5506DBF70194 // f_Data
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5506DB9403A6 // DoActivate
+ HWL ME_5506DBA30102 // Create
+ HWL ME_5506DBBA03DA // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499559980178_ME_5506DB25003E // Caption
+ ME_550938E80131_ME_5506DB25003E // Activate$1
+ ME_5509390702F7_ME_5506DB25003E // Activate$2
+ ME_5509391E0197_ME_5506DB25003E // Drop
+ ME_550953A00312_ME_5506DB25003E // IsAcceptable
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'ObjectWithDataHistoryItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506DB25003E TvcmObjectWithDataHistoryItem
+
+FORWARD ME_5506DC4F0011
+
+ME ME_550823370284
+ MEPROP UID '550823370284'
+ MEPROP Name 'EvcmFormWasClosedInSave'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_550823370284 EvcmFormWasClosedInSave
+
+ME ME_559F88140365
+ MEPROP UID '559F88140365'
+ MEPROP Name 'SavingClone'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_559F88140365 SavingClone
+
+ME ME_5614F3020215
+ MEPROP UID '5614F3020215'
+ MEPROP Name 'f_PathNode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target HWL ME_5614F2B602CC // TvcmHistoryFormNode
+ ;
+
+ENDME // ME_5614F3020215 f_PathNode
+
+ME ME_5508221803AC
+ MEPROP UID '5508221803AC'
+ MEPROP Name 'f_FormClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_52A58D6E003A' '4AADF9450143.ms.model.script' // RvcmEntityForm
+ ;
+
+ENDME // ME_5508221803AC f_FormClass
+
+ME ME_5508222300C9
+ MEPROP UID '5508222300C9'
+ MEPROP Name 'f_FormId'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_528C9354017B' '528C93040132.ms.model.script' // TvcmFormID
+ ;
+
+ENDME // ME_5508222300C9 f_FormId
+
+ME ME_5508222E0081
+ MEPROP UID '5508222E0081'
+ MEPROP Name 'f_Caption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_5508222E0081 f_Caption
+
+ME ME_5508223702CD
+ MEPROP UID '5508223702CD'
+ MEPROP Name 'f_Focused'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5508223702CD f_Focused
+
+ME ME_550822400359
+ MEPROP UID '550822400359'
+ MEPROP Name 'f_FormData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ ;
+
+ENDME // ME_550822400359 f_FormData
+
+ME ME_5508224801C7
+ MEPROP UID '5508224801C7'
+ MEPROP Name 'f_FormGUID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_5508224801C7 f_FormGUID
+
+ME ME_550822510159
+ MEPROP UID '550822510159'
+ MEPROP Name 'f_ZoneType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_528C93FD01EA' '528C93040132.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_550822510159 f_ZoneType
+
+ME ME_5508226002D2
+ MEPROP UID '5508226002D2'
+ MEPROP Name 'f_Aggregate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_49956803035F' '4AB0C3C60310.ms.model.script' // PGUID
+ ;
+
+ENDME // ME_5508226002D2 f_Aggregate
+
+ME ME_5508226A026E
+ MEPROP UID '5508226A026E'
+ MEPROP Name 'f_ContainerGUID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_49956803035F' '4AB0C3C60310.ms.model.script' // PGUID
+ ;
+
+ENDME // ME_5508226A026E f_ContainerGUID
+
+ME ME_550822760011
+ MEPROP UID '550822760011'
+ MEPROP Name 'f_Owner'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_49956803035F' '4AB0C3C60310.ms.model.script' // PGUID
+ ;
+
+ENDME // ME_550822760011 f_Owner
+
+ME ME_550822810380
+ MEPROP UID '550822810380'
+ MEPROP Name 'f_UserType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_550822810380 f_UserType
+
+ME ME_5508228D0145
+ MEPROP UID '5508228D0145'
+ MEPROP Name 'f_SubUserType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_5508228D0145 f_SubUserType
+
+ME ME_55082298015F
+ MEPROP UID '55082298015F'
+ MEPROP Name 'f_DataSource'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_47EB900B0216' '4683F37902CF.ms.model.script' // IvcmFormDataSource
+ ;
+
+ENDME // ME_55082298015F f_DataSource
+
+ME ME_550822A20275
+ MEPROP UID '550822A20275'
+ MEPROP Name 'f_ItemType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELINK Target WL 'ME_4683F451006D' '4683F37902CF.ms.model.script' // TvcmHistoryItemType
+ ;
+
+ENDME // ME_550822A20275 f_ItemType
+
+FORWARD ME_55080FE40284
+
+ME ME_55080FF30386
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_55080FF30386 aMainForm
+
+ME ME_55080FF3039B
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_55080FF3039B anOwner
+
+ME ME_55080FED01FF
+ MEPROP UID '55080FED01FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55080FE40284 // DoActivate
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55080FF30386 // aMainForm
+ ME_55080FF3039B // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_55080FED01FF DoIt
+
+ME ME_55080FE40284
+ MEPROP UID '55080FE40284'
+ MEPROP Name 'DoActivate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55080FED01FF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55080FE40284 DoActivate
+
+FORWARD ME_5508100C018B
+
+ME ME_5508101E00F6
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_5508101E00F6 aForm
+
+ME ME_5508101802F4
+ MEPROP UID '5508101802F4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5508100C018B // UpdateContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5508101E00F6 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_5508101802F4 DoIt
+
+ME ME_5508100C018B
+ MEPROP UID '5508100C018B'
+ MEPROP Name 'UpdateContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5508101802F4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5508100C018B UpdateContainer
+
+ME ME_5508102A0098
+ MEPROP UID '5508102A0098'
+ MEPROP Name 'UpdateOwner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5508100C018B // UpdateContainer
+ )
+ ; // Inherits
+
+ENDME // ME_5508102A0098 UpdateOwner
+
+ME ME_5508103701AF
+ MEPROP UID '5508103701AF'
+ MEPROP Name 'UpdateAggregate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5508102A0098 // UpdateOwner
+ )
+ ; // Inherits
+
+ENDME // ME_5508103701AF UpdateAggregate
+
+ME ME_5508104402FE
+ MEPROP UID '5508104402FE'
+ MEPROP Name 'UpdateFormInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5508103701AF // UpdateAggregate
+ )
+ ; // Inherits
+
+ENDME // ME_5508104402FE UpdateFormInfo
+
+ME ME_5508105E024B
+ MEPROP UID '5508105E024B'
+ MEPROP Name 'FreeContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+
+ENDME // ME_5508105E024B FreeContainer
+
+ME ME_5508106B01A3
+ MEPROP UID '5508106B01A3'
+ MEPROP Name 'FreeOwner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+
+ENDME // ME_5508106B01A3 FreeOwner
+
+ME ME_550810770379
+ MEPROP UID '550810770379'
+ MEPROP Name 'FreeAggregate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+
+ENDME // ME_550810770379 FreeAggregate
+
+FORWARD ME_5508108B0208
+
+ME ME_550810950132
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550810950132 aMainForm
+
+ME ME_550810920105
+ MEPROP UID '550810920105'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5508108B0208 // Container
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_550810950132 // aMainForm
+ )
+ ; // Parameters
+
+ENDME // ME_550810920105 DoIt
+
+ME ME_5508108B0208
+ MEPROP UID '5508108B0208'
+ MEPROP Name 'Container'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550810920105 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5508108B0208 Container
+
+FORWARD ME_550810B10266
+
+ME ME_550810C6034C
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550810C6034C aMainForm
+
+ME ME_550810C6037D
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550810C6037D anOwner
+
+ME ME_550810C603BE
+ MEPROP Name 'aDataSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EB900B0216' '4683F37902CF.ms.model.script' // IvcmFormDataSource
+ ;
+
+ENDME // ME_550810C603BE aDataSource
+
+ME ME_550810BF02DE
+ MEPROP UID '550810BF02DE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550810B10266 // MakeForm
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_550810C6034C // aMainForm
+ ME_550810C6037D // anOwner
+ ME_550810C603BE // aDataSource
+ )
+ ; // Parameters
+
+ENDME // ME_550810BF02DE DoIt
+
+ME ME_550810B10266
+ MEPROP UID '550810B10266'
+ MEPROP Name 'MakeForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550810BF02DE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550810B10266 MakeForm
+
+ME ME_550811080395
+ MEPROP UID '550811080395'
+ MEPROP Name 'StoreFocused'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5508104402FE // UpdateFormInfo
+ )
+ ; // Inherits
+
+ENDME // ME_550811080395 StoreFocused
+
+ME ME_55081119039F
+ MEPROP UID '55081119039F'
+ MEPROP Name 'RestoreFocused'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_550811080395 // StoreFocused
+ )
+ ; // Inherits
+
+ENDME // ME_55081119039F RestoreFocused
+
+FORWARD ME_550811520043
+
+ME ME_559F88490016
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_559F88490016 aForm
+
+ME ME_559F88490026
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_559F88490026 aStateType
+
+ME ME_559F88490045
+ MEPROP Name 'aFormId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476A84380187' '4683F37902CF.ms.model.script' // TvcmFormID
+ ;
+
+ENDME // ME_559F88490045 aFormId
+
+ME ME_559F88490064
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_559F88490064 aUserType
+
+ME ME_559F884900B2
+ MEPROP Name 'aZoneType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_559F884900B2 aZoneType
+
+ME ME_559F884900E1
+ MEPROP Name 'aItemType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F451006D' '4683F37902CF.ms.model.script' // TvcmHistoryItemType
+ ;
+
+ENDME // ME_559F884900E1 aItemType
+
+ME ME_559F8849012F
+ MEPROP Name 'aSubUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_559F8849012F aSubUserType
+
+ME ME_559F8849017D
+ MEPROP Name 'aForClone'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_559F8849017D aForClone
+
+ME ME_550811680044
+ MEPROP UID '550811680044'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550811520043 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_559F88490016 // aForm
+ ME_559F88490026 // aStateType
+ ME_559F88490045 // aFormId
+ ME_559F88490064 // aUserType
+ ME_559F884900B2 // aZoneType
+ ME_559F884900E1 // aItemType
+ ME_559F8849012F // aSubUserType
+ ME_559F8849017D // aForClone
+ )
+ ; // Parameters
+
+ENDME // ME_550811680044 DoIt
+
+ME ME_550811520043
+ MEPROP UID '550811520043'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550811680044 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550811520043 Create
+
+ME ME_550811800186
+ MEPROP UID '550811800186'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_550811520043 // Create
+ )
+ ; // Inherits
+
+ENDME // ME_550811800186 Make$1
+
+FORWARD ME_5508119800FB
+
+ME ME_550811A90372
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550811A90372 aForm
+
+ME ME_550811A90387
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_550811A90387 aStateType
+
+ME ME_550811A30157
+ MEPROP UID '550811A30157'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5508119800FB // Make$2
+ ;
+ MELINK Target HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_550811A90372 // aForm
+ ME_550811A90387 // aStateType
+ )
+ ; // Parameters
+
+ENDME // ME_550811A30157 DoIt
+
+ME ME_5508119800FB
+ MEPROP UID '5508119800FB'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550811A30157 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_5508119800FB Make$2
+
+ME ME_499559980178_ME_5506DC4F0011
+ MELINK Original WL 'ME_499559980178' '4683F37902CF.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499559980178_ME_5506DC4F0011 Caption
+
+ME ME_5506D47103A1_ME_5506DC4F0011
+ MELINK Original HWL ME_5506D47103A1 // FormClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5506D47103A1_ME_5506DC4F0011 FormClass
+
+ME ME_5506D4830243_ME_5506DC4F0011
+ MELINK Original HWL ME_5506D4830243 // UserType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5506D4830243_ME_5506DC4F0011 UserType
+
+ME ME_5506D49100B7_ME_5506DC4F0011
+ MELINK Original HWL ME_5506D49100B7 // ItemType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5506D49100B7_ME_5506DC4F0011 ItemType
+
+ME ME_550938E80131_ME_5506DC4F0011
+ MELINK Original WL 'ME_550938E80131' '4683F37902CF.ms.model.script' // Activate$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550938E80131_ME_5506DC4F0011 Activate$1
+
+ME ME_5509390702F7_ME_5506DC4F0011
+ MELINK Original WL 'ME_5509390702F7' '4683F37902CF.ms.model.script' // Activate$2
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509390702F7_ME_5506DC4F0011 Activate$2
+
+ME ME_5509391E0197_ME_5506DC4F0011
+ MELINK Original WL 'ME_5509391E0197' '4683F37902CF.ms.model.script' // Drop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509391E0197_ME_5506DC4F0011 Drop
+
+ME ME_550953A00312_ME_5506DC4F0011
+ MELINK Original WL 'ME_550953A00312' '4683F37902CF.ms.model.script' // IsAcceptable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550953A00312_ME_5506DC4F0011 IsAcceptable
+
+ME ME_5583B0BD0124_ME_5506DC4F0011
+ MELINK Original HWL ME_5583B0BD0124 // ResetContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5583B0BD0124_ME_5506DC4F0011 ResetContainer
+
+ME ME_479731C50290_ME_5506DC4F0011
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5506DC4F0011 Cleanup
+
+ME ME_4A60B23E00C3_ME_5506DC4F0011
+ MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A60B23E00C3_ME_5506DC4F0011 COMQueryInterface
+
+ME ME_5506DC4F0011
+ MEPROP UID '5506DC4F0011'
+ MEPROP Name 'TvcmHistoryItemBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_519A130C00B6' '47D0E1500033.ms.model.script' // TvcmCacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_559F88140365 // SavingClone
+ HWL ME_5614F3020215 // f_PathNode
+ HWL ME_5508221803AC // f_FormClass
+ HWL ME_5508222300C9 // f_FormId
+ HWL ME_5508222E0081 // f_Caption
+ HWL ME_5508223702CD // f_Focused
+ HWL ME_550822400359 // f_FormData
+ HWL ME_5508224801C7 // f_FormGUID
+ HWL ME_550822510159 // f_ZoneType
+ HWL ME_5508226002D2 // f_Aggregate
+ HWL ME_5508226A026E // f_ContainerGUID
+ HWL ME_550822760011 // f_Owner
+ HWL ME_550822810380 // f_UserType
+ HWL ME_5508228D0145 // f_SubUserType
+ HWL ME_55082298015F // f_DataSource
+ HWL ME_550822A20275 // f_ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55080FE40284 // DoActivate
+ HWL ME_5508100C018B // UpdateContainer
+ HWL ME_5508102A0098 // UpdateOwner
+ HWL ME_5508103701AF // UpdateAggregate
+ HWL ME_5508104402FE // UpdateFormInfo
+ HWL ME_5508105E024B // FreeContainer
+ HWL ME_5508106B01A3 // FreeOwner
+ HWL ME_550810770379 // FreeAggregate
+ HWL ME_5508108B0208 // Container
+ HWL ME_550810B10266 // MakeForm
+ HWL ME_550811080395 // StoreFocused
+ HWL ME_55081119039F // RestoreFocused
+ HWL ME_550811520043 // Create
+ HWL ME_550811800186 // Make$1
+ HWL ME_5508119800FB // Make$2
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499559980178_ME_5506DC4F0011 // Caption
+ ME_5506D47103A1_ME_5506DC4F0011 // FormClass
+ ME_5506D4830243_ME_5506DC4F0011 // UserType
+ ME_5506D49100B7_ME_5506DC4F0011 // ItemType
+ ME_550938E80131_ME_5506DC4F0011 // Activate$1
+ ME_5509390702F7_ME_5506DC4F0011 // Activate$2
+ ME_5509391E0197_ME_5506DC4F0011 // Drop
+ ME_550953A00312_ME_5506DC4F0011 // IsAcceptable
+ ME_5583B0BD0124_ME_5506DC4F0011 // ResetContainer
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5506DC4F0011 // Cleanup
+ ME_4A60B23E00C3_ME_5506DC4F0011 // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_550823370284 // EvcmFormWasClosedInSave
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'HistoryItemBase'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506DC4F0011 TvcmHistoryItemBase
+
+FORWARD ME_55C0B44002EA
+
+ME ME_55C0A7A20092
+ MEPROP UID '55C0A7A20092'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55C0B44002EA // IvcmFormHistoryItemList
+ ;
+ MELINK Target HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+
+ENDME // ME_55C0A7A20092 ItemType
+
+ME ME_47D8233603DD_ME_55C0B44002EA
+ MELINK Original WL 'ME_47D8233603DD' '47D810610398.ms.model.script' // First
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47D8233603DD_ME_55C0B44002EA First
+
+ME ME_47D823570315_ME_55C0B44002EA
+ MELINK Original WL 'ME_47D823570315' '47D810610398.ms.model.script' // Last
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47D823570315_ME_55C0B44002EA Last
+
+ME ME_47D8248802AD_ME_55C0B44002EA
+ MELINK Original WL 'ME_47D8248802AD' '47D810610398.ms.model.script' // Items
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is default" true
+ UP "pm" true
+ENDME // ME_47D8248802AD_ME_55C0B44002EA Items
+
+ME ME_47E381E203D2_ME_55C0B44002EA
+ MELINK Original WL 'ME_47E381E203D2' '47D810610398.ms.model.script' // Empty
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47E381E203D2_ME_55C0B44002EA Empty
+
+ME ME_4BB08B8902F2_ME_55C0B44002EA
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BB08B8902F2_ME_55C0B44002EA Count
+
+ME ME_55C0B44002EA
+ MEPROP UID '55C0B44002EA'
+ MEPROP GUID '59876B02-DA96-4D06-80B6-6ACA9E7CE378'
+ MEPROP Name 'IvcmFormHistoryItemList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47D821AE00EF' '47D810610398.ms.model.script' // Ml3List
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55C0A7A20092 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47D8233603DD_ME_55C0B44002EA // First
+ ME_47D823570315_ME_55C0B44002EA // Last
+ ME_47D8248802AD_ME_55C0B44002EA // Items
+ ME_47E381E203D2_ME_55C0B44002EA // Empty
+ ME_4BB08B8902F2_ME_55C0B44002EA // Count
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'FormHistoryItemList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55C0B44002EA IvcmFormHistoryItemList
+
+FORWARD ME_55C0A6F4039E
+
+ME ME_55C0BF0500C6
+ MEPROP UID '55C0BF0500C6'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55C0A6F4039E // TvcmFormHistoryItemList
+ ;
+ MELINK Target HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+
+ENDME // ME_55C0BF0500C6 ItemType
+
+ME ME_4BB08B8902F2_ME_55C0A6F4039E
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BB08B8902F2_ME_55C0A6F4039E Count
+
+ME ME_55C0A6F4039E
+ MEPROP UID '55C0A6F4039E'
+ MEPROP Name 'TvcmFormHistoryItemList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ HWL ME_55C0B44002EA // IvcmFormHistoryItemList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55C0BF0500C6 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BB08B8902F2_ME_55C0A6F4039E // Count
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'FormHistoryItemList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55C0A6F4039E TvcmFormHistoryItemList
+
+FORWARD ME_5506DC9F019D
+
+ME ME_550826550389
+ MEPROP UID '550826550389'
+ MEPROP Name 'f_Docked'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ ;
+ MELINK Target HWL ME_55C0A6F4039E // TvcmFormHistoryItemList
+ ;
+
+ENDME // ME_550826550389 f_Docked
+
+ME ME_5508264C03E7
+ MEPROP UID '5508264C03E7'
+ MEPROP Name 'f_Children'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ ;
+ MELINK Target HWL ME_55C0A6F4039E // TvcmFormHistoryItemList
+ ;
+
+ENDME // ME_5508264C03E7 f_Children
+
+FORWARD ME_550825AC0253
+
+ME ME_550825B801FE
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550825B801FE aForm
+
+ME ME_550825B80214
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_550825B80214 aStateType
+
+ME ME_550825B303D4
+ MEPROP UID '550825B303D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550825AC0253 // MakeChild
+ ;
+ MELINK Target HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_550825B801FE // aForm
+ ME_550825B80214 // aStateType
+ )
+ ; // Parameters
+
+ENDME // ME_550825B303D4 DoIt
+
+ME ME_550825AC0253
+ MEPROP UID '550825AC0253'
+ MEPROP Name 'MakeChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550825B303D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550825AC0253 MakeChild
+
+FORWARD ME_550825D501AF
+
+ME ME_550825E10181
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550825E10181 aForm
+
+ME ME_550825E10196
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_550825E10196 aStateType
+
+ME ME_550825E101AC
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_55C0A6F4039E // TvcmFormHistoryItemList
+ ;
+
+ENDME // ME_550825E101AC aList
+
+ME ME_550825DC0122
+ MEPROP UID '550825DC0122'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550825D501AF // SaveOwned
+ ;
+ MELIST Parameters
+   Seq: ( ME_550825E10181 // aForm
+ ME_550825E10196 // aStateType
+ ME_550825E101AC // aList
+ )
+ ; // Parameters
+
+ENDME // ME_550825DC0122 DoIt
+
+ME ME_550825D501AF
+ MEPROP UID '550825D501AF'
+ MEPROP Name 'SaveOwned'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550825DC0122 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550825D501AF SaveOwned
+
+ME ME_550825EE00D2
+ MEPROP UID '550825EE00D2'
+ MEPROP Name 'SaveDocked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_550825D501AF // SaveOwned
+ )
+ ; // Inherits
+
+ENDME // ME_550825EE00D2 SaveDocked
+
+FORWARD ME_5508260503CB
+
+ME ME_55082618009F
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_55082618009F aMainForm
+
+ME ME_5508261800B5
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_5508261800B5 aForm
+
+ME ME_5508261800CA
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55C0A6F4039E // TvcmFormHistoryItemList
+ ;
+
+ENDME // ME_5508261800CA aList
+
+ME ME_5508261800E0
+ MEPROP Name 'aInFormSet'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5508261800E0 aInFormSet
+
+ME ME_5508261001F9
+ MEPROP UID '5508261001F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5508260503CB // ActivateList
+ ;
+ MELIST Parameters
+   Seq: ( ME_55082618009F // aMainForm
+ ME_5508261800B5 // aForm
+ ME_5508261800CA // aList
+ ME_5508261800E0 // aInFormSet
+ )
+ ; // Parameters
+
+ENDME // ME_5508261001F9 DoIt
+
+ME ME_5508260503CB
+ MEPROP UID '5508260503CB'
+ MEPROP Name 'ActivateList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5508261001F9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5508260503CB ActivateList
+
+ME ME_479731C50290_ME_5506DC9F019D
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5506DC9F019D Cleanup
+
+ME ME_550811520043_ME_5506DC9F019D
+ MELINK Original HWL ME_550811520043 // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_550811520043_ME_5506DC9F019D Create
+
+ME ME_5506DC9F019D
+ MEPROP UID '5506DC9F019D'
+ MEPROP Name 'TvcmHistoryItemRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_550826550389 // f_Docked
+ HWL ME_5508264C03E7 // f_Children
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_550825AC0253 // MakeChild
+ HWL ME_550825D501AF // SaveOwned
+ HWL ME_550825EE00D2 // SaveDocked
+ HWL ME_5508260503CB // ActivateList
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5506DC9F019D // Cleanup
+ ME_550811520043_ME_5506DC9F019D // Create
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'HistoryItemRec'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506DC9F019D TvcmHistoryItemRec
+
+FORWARD ME_5506DD0C00BA
+
+ME ME_55082895031B
+ MEPROP UID '55082895031B'
+ MEPROP Name 'f_Caption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DD0C00BA // TvcmContainerHistoryItem
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_55082895031B f_Caption
+
+FORWARD ME_550828670328
+
+ME ME_55082871005E
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_55082871005E aCaption
+
+ME ME_5508286C01A5
+ MEPROP UID '5508286C01A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550828670328 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55082871005E // aCaption
+ )
+ ; // Parameters
+
+ENDME // ME_5508286C01A5 DoIt
+
+ME ME_550828670328
+ MEPROP UID '550828670328'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DD0C00BA // TvcmContainerHistoryItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5508286C01A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550828670328 Create
+
+FORWARD ME_550828F60179
+
+ME ME_550829060270
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550829060270 aMainForm
+
+ME ME_550829060286
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_550829060286 anOwner
+
+ME ME_5508290100A1
+ MEPROP UID '5508290100A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550828F60179 // DoActivate
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_550829060270 // aMainForm
+ ME_550829060286 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_5508290100A1 DoIt
+
+ME ME_550828F60179
+ MEPROP UID '550828F60179'
+ MEPROP Name 'DoActivate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5506DD0C00BA // TvcmContainerHistoryItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5508290100A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550828F60179 DoActivate
+
+ME ME_55C0BFCB029A
+ MEPROP UID '55C0BFCB029A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DD0C00BA // TvcmContainerHistoryItem
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_550828670328 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5506D4AB03AF' '4683F37902CF.ms.model.script' // IvcmContainerHistoryItem
+ )
+ ; // Implements
+
+ENDME // ME_55C0BFCB029A Make
+
+ME ME_499559980178_ME_5506DD0C00BA
+ MELINK Original WL 'ME_499559980178' '4683F37902CF.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499559980178_ME_5506DD0C00BA Caption
+
+ME ME_5506D4C70264_ME_5506DD0C00BA
+ MELINK Original WL 'ME_5506D4C70264' '4683F37902CF.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5506D4C70264_ME_5506DD0C00BA Add
+
+ME ME_5506D4DD031A_ME_5506DD0C00BA
+ MELINK Original WL 'ME_5506D4DD031A' '4683F37902CF.ms.model.script' // IsEmpty
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5506D4DD031A_ME_5506DD0C00BA IsEmpty
+
+ME ME_5506D4EF0074_ME_5506DD0C00BA
+ MELINK Original WL 'ME_5506D4EF0074' '4683F37902CF.ms.model.script' // ItemsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5506D4EF0074_ME_5506DD0C00BA ItemsCount
+
+ME ME_5506D504018E_ME_5506DD0C00BA
+ MELINK Original WL 'ME_5506D504018E' '4683F37902CF.ms.model.script' // GetItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5506D504018E_ME_5506DD0C00BA GetItem
+
+ME ME_550938E80131_ME_5506DD0C00BA
+ MELINK Original WL 'ME_550938E80131' '4683F37902CF.ms.model.script' // Activate$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550938E80131_ME_5506DD0C00BA Activate$1
+
+ME ME_5509390702F7_ME_5506DD0C00BA
+ MELINK Original WL 'ME_5509390702F7' '4683F37902CF.ms.model.script' // Activate$2
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509390702F7_ME_5506DD0C00BA Activate$2
+
+ME ME_5509391E0197_ME_5506DD0C00BA
+ MELINK Original WL 'ME_5509391E0197' '4683F37902CF.ms.model.script' // Drop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5509391E0197_ME_5506DD0C00BA Drop
+
+ME ME_550953A00312_ME_5506DD0C00BA
+ MELINK Original WL 'ME_550953A00312' '4683F37902CF.ms.model.script' // IsAcceptable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550953A00312_ME_5506DD0C00BA IsAcceptable
+
+ME ME_479731C50290_ME_5506DD0C00BA
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5506DD0C00BA Cleanup
+
+ME ME_5506DD0C00BA
+ MEPROP UID '5506DD0C00BA'
+ MEPROP Name 'TvcmContainerHistoryItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_558947020183 // TvcmHistoryItemList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5506D4AB03AF' '4683F37902CF.ms.model.script' // IvcmContainerHistoryItem
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55082895031B // f_Caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_550828670328 // Create
+ HWL ME_550828F60179 // DoActivate
+ HWL ME_55C0BFCB029A // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499559980178_ME_5506DD0C00BA // Caption
+ ME_5506D4C70264_ME_5506DD0C00BA // Add
+ ME_5506D4DD031A_ME_5506DD0C00BA // IsEmpty
+ ME_5506D4EF0074_ME_5506DD0C00BA // ItemsCount
+ ME_5506D504018E_ME_5506DD0C00BA // GetItem
+ ME_550938E80131_ME_5506DD0C00BA // Activate$1
+ ME_5509390702F7_ME_5506DD0C00BA // Activate$2
+ ME_5509391E0197_ME_5506DD0C00BA // Drop
+ ME_550953A00312_ME_5506DD0C00BA // IsAcceptable
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5506DD0C00BA // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'ContainerHistoryItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506DD0C00BA TvcmContainerHistoryItem
+
+FORWARD ME_558A59F101DA
+
+ME ME_558A5A6A03E6
+ MEPROP UID '558A5A6A03E6'
+ MEPROP Name 'f_Items'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_558A59F101DA // TvcmHistoryState
+ ;
+ MELINK Target WL 'ME_5589489B004F' '4683F37902CF.ms.model.script' // IvcmHistoryItems
+ ;
+
+ENDME // ME_558A5A6A03E6 f_Items
+
+ME ME_558D24A902D3
+ MEPROP UID '558D24A902D3'
+ MEPROP Name 'f_Current'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_558A59F101DA // TvcmHistoryState
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_558D24A902D3 f_Current
+
+ME ME_5591187302A2
+ MEPROP UID '5591187302A2'
+ MEPROP Name 'f_ContainerItem'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_558A59F101DA // TvcmHistoryState
+ ;
+ MELINK Target WL 'ME_5506D4AB03AF' '4683F37902CF.ms.model.script' // IvcmContainerHistoryItem
+ ;
+
+ENDME // ME_5591187302A2 f_ContainerItem
+
+FORWARD ME_558A5AC303BA
+
+ME ME_5591188E03BA
+ MEPROP Name 'aItems'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5589489B004F' '4683F37902CF.ms.model.script' // IvcmHistoryItems
+ ;
+
+ENDME // ME_5591188E03BA aItems
+
+ME ME_5591188E03CD
+ MEPROP Name 'aCurrent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5591188E03CD aCurrent
+
+ME ME_5591188E03E1
+ MEPROP Name 'aContainerItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5506D4AB03AF' '4683F37902CF.ms.model.script' // IvcmContainerHistoryItem
+ ;
+
+ENDME // ME_5591188E03E1 aContainerItem
+
+ME ME_558A5AD802E5
+ MEPROP UID '558A5AD802E5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558A5AC303BA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5591188E03BA // aItems
+ ME_5591188E03CD // aCurrent
+ ME_5591188E03E1 // aContainerItem
+ )
+ ; // Parameters
+
+ENDME // ME_558A5AD802E5 DoIt
+
+ME ME_558A5AC303BA
+ MEPROP UID '558A5AC303BA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558A59F101DA // TvcmHistoryState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_558A5AD802E5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_558A5AC303BA Create
+
+ME ME_558A5AE30142
+ MEPROP UID '558A5AE30142'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558A59F101DA // TvcmHistoryState
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_558A5AC303BA // Create
+ )
+ ; // Inherits
+
+ENDME // ME_558A5AE30142 Make
+
+ME ME_558A5A260359_ME_558A59F101DA
+ MELINK Original WL 'ME_558A5A260359' '4683F37902CF.ms.model.script' // Items
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_558A5A260359_ME_558A59F101DA Items
+
+ME ME_558D24FD013A_ME_558A59F101DA
+ MELINK Original WL 'ME_558D24FD013A' '4683F37902CF.ms.model.script' // Current
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_558D24FD013A_ME_558A59F101DA Current
+
+ME ME_55910DA003E1_ME_558A59F101DA
+ MELINK Original WL 'ME_55910DA003E1' '4683F37902CF.ms.model.script' // ContainerItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_55910DA003E1_ME_558A59F101DA ContainerItem
+
+ME ME_479731C50290_ME_558A59F101DA
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_558A59F101DA Cleanup
+
+ME ME_558A59F101DA
+ MEPROP UID '558A59F101DA'
+ MEPROP Name 'TvcmHistoryState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_558946640194' '4683F37902CF.ms.model.script' // IvcmHistoryState
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_558A5A6A03E6 // f_Items
+ HWL ME_558D24A902D3 // f_Current
+ HWL ME_5591187302A2 // f_ContainerItem
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_558A5AC303BA // Create
+ HWL ME_558A5AE30142 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_558A5A260359_ME_558A59F101DA // Items
+ ME_558D24FD013A_ME_558A59F101DA // Current
+ ME_55910DA003E1_ME_558A59F101DA // ContainerItem
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_558A59F101DA // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'HistoryState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_558A59F101DA TvcmHistoryState
+
+FORWARD ME_5506DCC90183
+
+ME ME_550826DF0126
+ MEPROP UID '550826DF0126'
+ MEPROP Name 'f_StateType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5506DCC90183 // TvcmHistoryItemPrim
+ ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_550826DF0126 f_StateType
+
+FORWARD ME_559F7CBC036D
+
+ME ME_559F7CE40310
+ MEPROP UID '559F7CE40310'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559F7CBC036D // NeedCheckHasForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_559F7CE40310 DoIt
+
+ME ME_559F7CBC036D
+ MEPROP UID '559F7CBC036D'
+ MEPROP Name 'NeedCheckHasForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DCC90183 // TvcmHistoryItemPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559F7CE40310 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_559F7CBC036D NeedCheckHasForm
+
+ME ME_55080FE40284_ME_5506DCC90183
+ MELINK Original HWL ME_55080FE40284 // DoActivate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55080FE40284_ME_5506DCC90183 DoActivate
+
+ME ME_550825AC0253_ME_5506DCC90183
+ MELINK Original HWL ME_550825AC0253 // MakeChild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550825AC0253_ME_5506DCC90183 MakeChild
+
+ME ME_550811520043_ME_5506DCC90183
+ MELINK Original HWL ME_550811520043 // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_550811520043_ME_5506DCC90183 Create
+
+ME ME_5506DCC90183
+ MEPROP UID '5506DCC90183'
+ MEPROP Name 'TvcmHistoryItemPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_550826DF0126 // f_StateType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_559F7CBC036D // NeedCheckHasForm
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_55080FE40284_ME_5506DCC90183 // DoActivate
+ ME_550825AC0253_ME_5506DCC90183 // MakeChild
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_550811520043_ME_5506DCC90183 // Create
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'HistoryItemPrim'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506DCC90183 TvcmHistoryItemPrim
+
+FORWARD ME_5506DD5502B6
+
+ME ME_550828F60179_ME_5506DD5502B6
+ MELINK Original HWL ME_550828F60179 // DoActivate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_550828F60179_ME_5506DD5502B6 DoActivate
+
+ME ME_5506DD5502B6
+ MEPROP UID '5506DD5502B6'
+ MEPROP Name 'TvcmContainerFormSetHistoryItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5506DD0C00BA // TvcmContainerHistoryItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_550828F60179_ME_5506DD5502B6 // DoActivate
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'ContainerFormSetHistoryItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506DD5502B6 TvcmContainerFormSetHistoryItem
+
+FORWARD ME_5506DCE50052
+
+FORWARD ME_55082738022C
+
+ME ME_559F902C0329
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_559F902C0329 aForm
+
+ME ME_559F902C0349
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_559F902C0349 aStateType
+
+ME ME_559F902C0358
+ MEPROP Name 'InDestroy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_559F902C0358 InDestroy
+
+ME ME_559F902C0377
+ MEPROP Name 'aForClone'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_559F902C0377 aForClone
+
+ME ME_55082751012F
+ MEPROP UID '55082751012F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55082738022C // Make
+ ;
+ MELINK Target HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_559F902C0329 // aForm
+ ME_559F902C0349 // aStateType
+ ME_559F902C0358 // InDestroy
+ ME_559F902C0377 // aForClone
+ )
+ ; // Parameters
+
+ENDME // ME_55082751012F DoIt
+
+ME ME_55082738022C
+ MEPROP UID '55082738022C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506DCE50052 // TvcmHistoryItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55082751012F // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_55082738022C Make
+
+ME ME_55080FE40284_ME_5506DCE50052
+ MELINK Original HWL ME_55080FE40284 // DoActivate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55080FE40284_ME_5506DCE50052 DoActivate
+
+ME ME_550825AC0253_ME_5506DCE50052
+ MELINK Original HWL ME_550825AC0253 // MakeChild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_550825AC0253_ME_5506DCE50052 MakeChild
+
+ME ME_5506DCE50052
+ MEPROP UID '5506DCE50052'
+ MEPROP Name 'TvcmHistoryItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55082738022C // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_55080FE40284_ME_5506DCE50052 // DoActivate
+ ME_550825AC0253_ME_5506DCE50052 // MakeChild
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'HistoryItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506DCE50052 TvcmHistoryItem
+
+ME ME_4AA7B6BB01BF
+ MEPROP UID '4AA7B6BB01BF'
+ MEPROP Name 'g_vcmHistoryLimit'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Лимит количества записей в истории приложения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 'High(Integer)'
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 'High(Integer)'
+
+ENDME // ME_4AA7B6BB01BF g_vcmHistoryLimit
+
+ME ME_5506DC210162
+ MEPROP UID '5506DC210162'
+ MEPROP Name 'g_LockHistory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_5506DC210162 g_LockHistory
+
+ME ME_55084C9D01E5
+ MEPROP UID '55084C9D01E5'
+ MEPROP Name 'cMaxCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 10
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 10
+
+ENDME // ME_55084C9D01E5 cMaxCount
+
+ME ME_55084CDF0274
+ MEPROP UID '55084CDF0274'
+ MEPROP Name 'g_LockBeforeFormDestroy'
+ MEPROP Class class_Attribute
+ %SUMMARY 'паблик, потому что приватным генерировалось ниже, чем нужно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_55084CDF0274 g_LockBeforeFormDestroy
+
+ME ME_550853EC01E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_478CF8A20368' '478CF8070260.ms.model.script' // Tl3IID
+ ;
+
+ENDME // ME_550853EC01E7 
+
+ME ME_5508540402F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_5508540402F1 
+
+ME ME_550854170294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_550854170294 
+
+ME ME_5508544F016D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_5508544F016D 
+
+ME ME_55085452012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_55085452012E 
+
+ME ME_5508545400EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5508545400EF 
+
+ME ME_550854560069
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_550854560069 
+
+ME ME_5508547D02A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_4AA9377803B5' '47D0E1500033.ms.model.script' // vcmUtils
+ ;
+
+ENDME // ME_5508547D02A1 
+
+ME ME_5508549A016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_528609ED0325' '47D0E1500033.ms.model.script' // TvcmAggregate
+ ;
+
+ENDME // ME_5508549A016F 
+
+ME ME_550854B50009
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_52A1F4A201F9' '4AADF9450143.ms.model.script' // TvcmBaseMenuManager
+ ;
+
+ENDME // ME_550854B50009 
+
+ME ME_550854CA0010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_49940B180124' '49940C8E00DA.ms.model.script' // IvcmMainForm
+ ;
+
+ENDME // ME_550854CA0010 
+
+ME ME_550854F4015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_4B8F9D770358' '4B8E967100D5.ms.model.script' // vcmHistoryRes
+ ;
+
+ENDME // ME_550854F4015C 
+
+ME ME_5508550B01BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_5508550B01BD 
+
+ME ME_558A36B40083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target HWL ME_558947020183 // TvcmHistoryItemList
+ ;
+
+ENDME // ME_558A36B40083 
+
+ME ME_5614F2DD02E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7B6AB0214 // vcmHistory
+ ;
+ MELINK Target HWL ME_5614F2B602CC // TvcmHistoryFormNode
+ ;
+
+ENDME // ME_5614F2DD02E0 
+
+ME ME_4AA7B6AB0214
+ MEPROP UID '4AA7B6AB0214'
+ MEPROP Name 'vcmHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55082F190334 // Implementation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AA7B6BB01BF // g_vcmHistoryLimit
+ HWL ME_5506DC210162 // g_LockHistory
+ HWL ME_55084C9D01E5 // cMaxCount
+ HWL ME_55084CDF0274 // g_LockBeforeFormDestroy
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_5506D3B601B8 // IvcmFormHistoryItem
+ HWL ME_5506D52B03E3 // IvcmInternalHistory
+ HWL ME_5506D56E02FB // TvcmHistory
+ HWL ME_5506DB25003E // TvcmObjectWithDataHistoryItem
+ HWL ME_5506DC4F0011 // TvcmHistoryItemBase
+ HWL ME_55C0B44002EA // IvcmFormHistoryItemList
+ HWL ME_55C0A6F4039E // TvcmFormHistoryItemList
+ HWL ME_5506DC9F019D // TvcmHistoryItemRec
+ HWL ME_5506DD0C00BA // TvcmContainerHistoryItem
+ HWL ME_558A59F101DA // TvcmHistoryState
+ HWL ME_5506DCC90183 // TvcmHistoryItemPrim
+ HWL ME_5506DD5502B6 // TvcmContainerFormSetHistoryItem
+ HWL ME_5506DCE50052 // TvcmHistoryItem
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_550853EC01E7 // Tl3IID
+ ME_5508540402F1 // l3String
+ ME_550854170294 // l3MinMax
+ ME_5508544F016D // Classes
+ ME_55085452012E // Windows
+ ME_5508545400EF // Controls
+ ME_550854560069 // Forms
+ ME_5508547D02A1 // vcmUtils
+ ME_5508549A016F // TvcmAggregate
+ ME_550854B50009 // TvcmBaseMenuManager
+ ME_550854CA0010 // IvcmMainForm
+ ME_550854F4015C // vcmHistoryRes
+ ME_5508550B01BD // afwFacade
+ ME_558A36B40083 // TvcmHistoryItemList
+ ME_5614F2DD02E0 // TvcmHistoryFormNode
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmHistory.pas'
+ UP extprop:rc:SelfName 'History'
+
+ENDME // ME_4AA7B6AB0214 vcmHistory
+
+ME ME_55082F190334
+ MEPROP UID '55082F190334'
+ MEPROP Name 'Implementation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_558947020183 // TvcmHistoryItemList
+ HWL ME_5614F2B602CC // TvcmHistoryFormNode
+ HWL ME_4AA7B6AB0214 // vcmHistory
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_478CF8070260' '478CF8070260.ms.model.script' // l3IID
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47D810610398' '47D810610398.ms.model.script' // l3PureMixIns
+ WL 'ME_49940C8E00DA' '49940C8E00DA.ms.model.script' // vcmTaskPanelInterfaces
+ WL 'ME_499EAAE502A8' '499EAAE502A8.ms.model.script' // vcmUserControls
+ WL 'ME_4A8D6EF403E4' '4A8D6EF403E4.ms.model.script' // Containers
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4B8E967100D5' '4B8E967100D5.ms.model.script' // vcmL10nImpl
+ WL 'ME_528C93040132' '528C93040132.ms.model.script' // vcmBaseTypes
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ )
+ ; // Depends
+ UP "path prefix" '/implementation'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+
+ENDME // ME_55082F190334 Implementation

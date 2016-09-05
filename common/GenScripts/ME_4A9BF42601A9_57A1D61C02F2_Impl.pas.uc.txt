@@ -1,0 +1,37 @@
+//#UC START# *4A9BF42601A9_57A1D61C02F2_Impl_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas
+//#UC END# *4A9BF42601A9_57A1D61C02F2_Impl_ext:ParentFileName
+//#UC START# *4AA4DB140235_4A9BF42601A9_impl*
+ if (aTree = nil) then
+  vcmSay(str_MissingAnalisisTree, [DefDataAdapter.GetDealerInfo], mtInformation)
+ else
+  TListAnalizerForm.Make(aTree, vcmMakeParams(nil, DefaultContainer), vcm_ztModal);
+//#UC END# *4AA4DB140235_4A9BF42601A9_impl*
+//#UC START# *4AA4DB140235_4A9BF42601A9_var*
+//#UC END# *4AA4DB140235_4A9BF42601A9_var*
+//#UC START# *4AA4DB5100EF_4A9BF42601A9_impl*
+ if not TListModule.TryOpenDocument(aList, aContainer) then
+  case aList.List.GetContentType of
+   DLC_LEGAL_DOCUMENTS:
+    Tfs_List.Make(TsdsList.Make(aList As IdeDocumentList),
+                  CheckContainer(aContainer));
+   DLC_MEDICAL_DOCUMENTS:
+   begin
+    l_Cont := CheckContainer(aContainer);
+    TInpharmService.Instance.OpenDrugList(aList, l_Cont);
+    // Синхронный просмотр открыт по умолчанию (CQ: OIT5-29213):
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=96484558
+    if l_Cont.HasForm(fm_TextForm.rFormID,
+                      vcm_ztAny,
+                      True,
+                      @l_Form,
+                      dftDrugSynchroView) then
+     l_Form.SetActiveInParent;
+   end;
+  end;//case aList.List.GetContentType of
+//#UC END# *4AA4DB5100EF_4A9BF42601A9_impl*
+//#UC START# *4AA4DB5100EF_4A9BF42601A9_var*
+var
+ l_Cont : IvcmContainer;
+ l_Form : IvcmEntityForm;
+//#UC END# *4AA4DB5100EF_4A9BF42601A9_var*

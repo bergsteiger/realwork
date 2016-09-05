@@ -1,0 +1,145 @@
+// PharmFirmList 47E8DDB10253 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E8DDB10253
+
+FORWARD ME_47E8DE4300AE
+
+ME ME_47E8F48C02C2
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47E8F48C02C2 id
+
+ME ME_47E8E000004D
+ MEPROP UID '47E8E000004D'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ MELIST Parameters
+   Seq: ( ME_47E8F48C02C2 // id
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" false
+
+ENDME // ME_47E8E000004D make
+
+ME ME_47E8E09A02D3
+ MEPROP UID '47E8E09A02D3'
+ MEPROP Name 'get_document'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_47E8E09A02D3 get_document
+
+ME ME_456EB3E10178_ME_47E8DE4300AE
+ MELINK Original WL 'ME_456EB3E10178' '456EA56002BF.ms.model.script' // save_to
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_456EB3E10178_ME_47E8DE4300AE save_to
+
+ME ME_456EB3E1017A_ME_47E8DE4300AE
+ MELINK Original WL 'ME_456EB3E1017A' '456EA56002BF.ms.model.script' // append_to
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_456EB3E1017A_ME_47E8DE4300AE append_to
+
+ME ME_456EB3E1017C_ME_47E8DE4300AE
+ MELINK Original WL 'ME_456EB3E1017C' '456EA56002BF.ms.model.script' // is_saved
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EB3E1017C_ME_47E8DE4300AE is_saved
+
+ME ME_456EB3E1017D_ME_47E8DE4300AE
+ MELINK Original WL 'ME_456EB3E1017D' '456EA56002BF.ms.model.script' // is_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EB3E1017D_ME_47E8DE4300AE is_changed
+
+ME ME_456EE084033C_ME_47E8DE4300AE
+ MELINK Original WL 'ME_456EE084033C' '456EA56002BF.ms.model.script' // eid
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EE084033C_ME_47E8DE4300AE eid
+
+ME ME_47E8DE4300AE
+ MEPROP UID '47E8DE4300AE'
+ MEPROP GUID '7408C436-42FD-4AD7-879D-5C2625EFAE18'
+ MEPROP Name 'PharmFirmListEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обертка для документа-фирмы из списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E8DDB10253 // PharmFirmList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47E8E000004D // make
+ HWL ME_47E8E09A02D3 // get_document
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_456EB3E10178_ME_47E8DE4300AE // save_to
+ ME_456EB3E1017A_ME_47E8DE4300AE // append_to
+ ME_456EB3E1017C_ME_47E8DE4300AE // is_saved
+ ME_456EB3E1017D_ME_47E8DE4300AE // is_changed
+ ME_456EE084033C_ME_47E8DE4300AE // eid
+ )
+ ; // Implemented
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IPharmFirmListEntry'
+ UP extprop:rc:SelfName 'PharmFirmListEntry'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47E8DE4300AE PharmFirmListEntry
+
+ME ME_47E8DDB10253
+ MEPROP UID '47E8DDB10253'
+ MEPROP Name 'PharmFirmList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Список фирм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47E8DE4300AE // PharmFirmListEntry
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmList.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmList.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PharmFirmListUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmListUnit.pas'
+ UP extprop:pas:UnitName 'PharmFirmListUnit'
+
+ENDME // ME_47E8DDB10253 PharmFirmList

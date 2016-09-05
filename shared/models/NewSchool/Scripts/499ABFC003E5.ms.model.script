@@ -1,0 +1,104 @@
+// Navigator 499ABFC003E5 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499ABFC003E5
+
+FORWARD ME_499ABFF4003B
+
+ME ME_499AC00E001F
+ MEPROP UID '499AC00E001F'
+ MEPROP Name 'TabIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499ABFF4003B // TnscNavigatorPageControl
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499AC00E001F TabIndex
+
+ME ME_499AC95002D7
+ MEPROP UID '499AC95002D7'
+ MEPROP Name 'TabPosition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499ABFF4003B // TnscNavigatorPageControl
+ ;
+ MELINK Target WL 'ME_499ABF8400FF' '499ABF4F02A1.ms.model.script' // TElTabPosition
+ ;
+
+ENDME // ME_499AC95002D7 TabPosition
+
+ME ME_499AC95A016A
+ MEPROP UID '499AC95A016A'
+ MEPROP Name 'ActivePage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499ABFF4003B // TnscNavigatorPageControl
+ ;
+ MELINK Target WL 'ME_499ABF9802AC' '499ABF4F02A1.ms.model.script' // TElTabSheet
+ ;
+
+ENDME // ME_499AC95A016A ActivePage
+
+ME ME_499ABFF4003B
+ MEPROP UID '499ABFF4003B'
+ MEPROP Name 'TnscNavigatorPageControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499ABFC003E5 // Navigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_499AC82A0380' '499ABF3D031B.ms.model.script' // TnscNavigatorPageControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499AC00E001F // TabIndex
+ HWL ME_499AC95002D7 // TabPosition
+ HWL ME_499AC95A016A // ActivePage
+ )
+ ; // Attributes
+ UP "is friend" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas'
+ UP extprop:pas:UnitName 'nscNavigatorPageControl_p'
+
+ENDME // ME_499ABFF4003B TnscNavigatorPageControl
+
+ME ME_499ABFC003E5
+ MEPROP UID '499ABFC003E5'
+ MEPROP Name 'Navigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ %SUMMARY 'Тесты Навигатора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499ABFAA038C' '499ABFAA038C.ms.model.script' // NemesisTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499ABFF4003B // TnscNavigatorPageControl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_499ABF2A0338' '499ABF2A0338.ms.model.script' // Navigator
+ WL 'ME_499ABF4F02A1' '499ABF4F02A1.ms.model.script' // elClone
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP Version 0
+
+ENDME // ME_499ABFC003E5 Navigator

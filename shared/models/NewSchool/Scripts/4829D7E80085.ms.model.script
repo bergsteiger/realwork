@@ -1,0 +1,357 @@
+// TevCustomEdit 4829D7E80085 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829D7E80085
+
+FORWARD ME_4846550D03BD
+
+ME ME_48465522015B
+ MEPROP UID '48465522015B'
+ MEPROP Name 'def_EditScrollStyle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4846550D03BD // Defaults
+ ;
+ MEPROP Value 'def_EditScrollStyle'
+ MELINK ValueType WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'evDef.def_EditScrollStyle'
+
+ENDME // ME_48465522015B def_EditScrollStyle
+
+ME ME_4846550D03BD
+ MEPROP UID '4846550D03BD'
+ MEPROP Name 'Defaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48465522015B // def_EditScrollStyle
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4846550D03BD Defaults
+
+ME ME_482D9D9302ED
+ MEPROP UID '482D9D9302ED'
+ MEPROP Name 'UpperCase'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+ UP extprop:pas:Value false
+
+ENDME // ME_482D9D9302ED UpperCase
+
+ME ME_4CFFC1BA00EB
+ MEPROP UID '4CFFC1BA00EB'
+ MEPROP Name 'Regionable'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4CFFC1BA00EB Regionable
+
+ME ME_4860F690011D
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4860F690011D Sender
+
+ME ME_4860F690014D
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4AB0C3C60310.ms.model.script' // PChar
+ ;
+
+ENDME // ME_4860F690014D aStr
+
+ME ME_4860F690017C
+ MEPROP Name 'aLen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4860F690017C aLen
+
+ME ME_4860F69001AA
+ MEPROP Name 'aCodePage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4860F69001AA aCodePage
+
+ME ME_4860F67C0000
+ MEPROP UID '4860F67C0000'
+ MEPROP Name 'cnvLo2Up'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4860F690011D // Sender
+ ME_4860F690014D // aStr
+ ME_4860F690017C // aLen
+ ME_4860F69001AA // aCodePage
+ )
+ ; // Parameters
+
+ENDME // ME_4860F67C0000 cnvLo2Up
+
+ME ME_482D99920299
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_482D988102EC' '4829D7D50156.ms.model.script' // TevCustomEditTextSource
+ ;
+
+ENDME // ME_482D99920299 
+
+ME ME_482D9E1A03DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_482D9E1A03DE 
+
+ME ME_482D9F030033
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_482D9F030033 
+
+ME ME_4846587602E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target HWL ME_4846550D03BD // Defaults
+ ;
+
+ENDME // ME_4846587602E4 
+
+ME ME_4860F74C02C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_47F1F94201F6' '47F1F90A0391.ms.model.script' // evSearch
+ ;
+
+ENDME // ME_4860F74C02C6 
+
+ME ME_4860F77E0366
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4860F77E0366 
+
+ME ME_4860F84E026E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_47C6CB5C0032' '47C695A10172.ms.model.script' // TevSearchOptionSet
+ ;
+
+ENDME // ME_4860F84E026E 
+
+ME ME_4860F95401FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_4860F9040268' '47F1F90A0391.ms.model.script' // evConvertTextTools
+ ;
+
+ENDME // ME_4860F95401FB 
+
+ME ME_4BA0DFFB011E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_4728976B0154' '472745450206.ms.model.script' // Tl3SRect
+ ;
+
+ENDME // ME_4BA0DFFB011E 
+
+ME ME_4CFFC1B6029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4CFFC1B6029F 
+
+ME ME_4CFFC1BF00EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D7E80085 // TevCustomEdit
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CFFC1BF00EE 
+
+ME ME_47D1602000C6_ME_4829D7E80085
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4829D7E80085 Create
+
+ME ME_482D9D1701E0_ME_4829D7E80085
+ MELINK Original WL 'ME_482D9D1701E0' '4829D81D02E5.ms.model.script' // TextSourceClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482D9D1701E0_ME_4829D7E80085 TextSourceClass
+
+ME ME_483D718E0143_ME_4829D7E80085
+ MELINK Original WL 'ME_483D718E0143' '4829D92A037B.ms.model.script' // GetTopMargin
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_483D718E0143_ME_4829D7E80085 GetTopMargin
+
+ME ME_4860F5DF026F_ME_4829D7E80085
+ MELINK Original WL 'ME_4860F5DF026F' '4829D81D02E5.ms.model.script' // Validate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4860F5DF026F_ME_4829D7E80085 Validate
+
+ME ME_48C6C044025E_ME_4829D7E80085
+ MELINK Original WL 'ME_48C6C044025E' '48BD1975029B.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C6C044025E_ME_4829D7E80085 Paint
+
+ME ME_4B28D6780001_ME_4829D7E80085
+ MELINK Original WL 'ME_4B28D6780001' '4B28D63A00EC.ms.model.script' // WantSoftEnter
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B28D6780001_ME_4829D7E80085 WantSoftEnter
+
+ME ME_4CC847800383_ME_4829D7E80085
+ MELINK Original WL 'ME_4CC847800383' '4CC81FAC02D6.ms.model.script' // TuneRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC847800383_ME_4829D7E80085 TuneRegion
+
+ME ME_4829D7E80085
+ MEPROP UID '4829D7E80085'
+ MEPROP Name 'TevCustomEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Строка ввода.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D81D02E5' '4829D81D02E5.ms.model.script' // TevCustomMemo
+ WL 'ME_4CC81FB7008B' '4CC81FAC02D6.ms.model.script' // RegionableControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_482D9D9302ED // UpperCase
+ HWL ME_4CFFC1BA00EB // Regionable
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4860F67C0000 // cnvLo2Up
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4829D7E80085 // Create
+ ME_482D9D1701E0_ME_4829D7E80085 // TextSourceClass
+ ME_483D718E0143_ME_4829D7E80085 // GetTopMargin
+ ME_4860F5DF026F_ME_4829D7E80085 // Validate
+ ME_48C6C044025E_ME_4829D7E80085 // Paint
+ ME_4B28D6780001_ME_4829D7E80085 // WantSoftEnter
+ ME_4CC847800383_ME_4829D7E80085 // TuneRegion
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4846550D03BD // Defaults
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_482D99920299 // TevCustomEditTextSource
+ ME_482D9E1A03DE // Defaults
+ ME_482D9F030033 // SysUtils
+ ME_4846587602E4 // Defaults
+ ME_4860F74C02C6 // evSearch
+ ME_4860F77E0366 // l3String
+ ME_4860F84E026E // TevSearchOptionSet
+ ME_4860F95401FB // evConvertTextTools
+ ME_4BA0DFFB011E // Tl3SRect
+ ME_4CFFC1B6029F // Windows
+ ME_4CFFC1BF00EE // FreeAndNil
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '13.05.2008 20:35'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomEdit.pas'
+ UP extprop:rc:SelfName 'Edit'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomEdit'
+
+ENDME // ME_4829D7E80085 TevCustomEdit

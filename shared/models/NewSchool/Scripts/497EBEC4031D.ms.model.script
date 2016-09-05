@@ -1,0 +1,1464 @@
+// PrimNewsLine 497EBEC4031D VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497EBEC4031D
+
+ME ME_4BD71E1103CD
+ MEPROP UID '4BD71E1103CD'
+ MEPROP Name 'nltMain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ UP "CanClose" false
+ UP "ImageIndex" 145
+ UP "SettingsCaption" 'ПРАЙМ. Моя новостная лента (вкладка)'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_nltMain_UserType.pas'
+ UP extprop:pas:UnitName 'PrimNewsLine_nltMain_UserType'
+
+ENDME // ME_4BD71E1103CD nltMain
+
+FORWARD ME_541AFB5E0323
+
+FORWARD ME_541AFBC7020F
+
+FORWARD ME_541AFC7C011A
+
+ME ME_541AFCDC0307
+ MEPROP UID '541AFCDC0307'
+ MEPROP Name 'FillForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Заполнить анкету''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541AFC7C011A // Choices
+ ;
+ UP "AutoInc" false
+ UP "Value" 0
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_541AFCDC0307 FillForm
+
+ME ME_541AFD260322
+ MEPROP UID '541AFD260322'
+ MEPROP Name 'ViewFullNewsLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Посмотреть все поступления в продукт ПРАЙМ''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541AFC7C011A // Choices
+ ;
+ UP "AutoInc" false
+ UP "Value" 1
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_541AFD260322 ViewFullNewsLine
+
+ME ME_541AFC7C011A
+ MEPROP UID '541AFC7C011A'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541AFBC7020F // NewsLineIsNotSetup
+ ;
+ MELIST Children
+   Seq: ( HWL ME_541AFCDC0307 // FillForm
+ HWL ME_541AFD260322 // ViewFullNewsLine
+ )
+ ; // Children
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_541AFC7C011A Choices
+
+ME ME_541AFDC50301
+ MEPROP UID '541AFDC50301'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_541AFBC7020F // NewsLineIsNotSetup
+ ;
+ MELINK Target HWL ME_541AFCDC0307 // FillForm
+ ;
+
+ENDME // ME_541AFDC50301 
+
+ME ME_541AFBC7020F
+ MEPROP UID '541AFBC7020F'
+ MEPROP Name 'NewsLineIsNotSetup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Индивидуальные параметры новостной ленты ПРАЙМ не заданы. Вы можете настроить новостную ленту ПРАЙМ в соответствии с вашими профессиональными интересами, заполнив анкету.''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541AFB5E0323 // Local
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_541AFDC50301 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_541AFC7C011A // Choices
+ )
+ ; // Children
+ UP "AutoInc" false
+ UP "DlgType" 'Confirmation'
+ UP "NeedCheck" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_541AFBC7020F NewsLineIsNotSetup
+
+FORWARD ME_54292411034B
+
+FORWARD ME_5429245E00B9
+
+ME ME_5429247103D6
+ MEPROP UID '5429247103D6'
+ MEPROP Name 'Continue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Продолжить настройку''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5429245E00B9 // Choices
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_5429247103D6 Continue
+
+ME ME_5429249001BE
+ MEPROP UID '5429249001BE'
+ MEPROP Name 'Exit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Покинуть анкету''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5429245E00B9 // Choices
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_5429249001BE Exit
+
+ME ME_5429245E00B9
+ MEPROP UID '5429245E00B9'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54292411034B // FormFillIsNotFinished
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5429247103D6 // Continue
+ HWL ME_5429249001BE // Exit
+ )
+ ; // Children
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_5429245E00B9 Choices
+
+ME ME_5429249E0190
+ MEPROP UID '5429249E0190'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_54292411034B // FormFillIsNotFinished
+ ;
+ MELINK Target HWL ME_5429247103D6 // Continue
+ ;
+
+ENDME // ME_5429249E0190 
+
+ME ME_54292411034B
+ MEPROP UID '54292411034B'
+ MEPROP Name 'FormFillIsNotFinished'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Внимание!''#13#10 +'#13#10'''Настройка анкеты ПРАЙМ не окончена. Для того, чтобы изменения вступили в силу, необходимо заполнить анкету и нажать кнопку "Сохранить и отправить".''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541AFB5E0323 // Local
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5429249E0190 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_5429245E00B9 // Choices
+ )
+ ; // Children
+ UP "AutoInc" false
+ UP "DlgType" 'Warning'
+ UP "NeedCheck" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_54292411034B FormFillIsNotFinished
+
+FORWARD ME_5424133901B6
+
+FORWARD ME_542413CA020F
+
+ME ME_542413E803CB
+ MEPROP UID '542413E803CB'
+ MEPROP Name 'Ok'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''ОК''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542413CA020F // Choices
+ ;
+ UP "AutoInc" false
+ UP "Value" 0
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_542413E803CB Ok
+
+ME ME_5424148601D5
+ MEPROP UID '5424148601D5'
+ MEPROP Name 'Details'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Подробнее''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542413CA020F // Choices
+ ;
+ UP "AutoInc" false
+ UP "Value" 1
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_5424148601D5 Details
+
+ME ME_542413CA020F
+ MEPROP UID '542413CA020F'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5424133901B6 // PrimeIsOffline
+ ;
+ MELIST Children
+   Seq: ( HWL ME_542413E803CB // Ok
+ HWL ME_5424148601D5 // Details
+ )
+ ; // Children
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_542413CA020F Choices
+
+ME ME_542414C10121
+ MEPROP UID '542414C10121'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5424133901B6 // PrimeIsOffline
+ ;
+ MELINK Target HWL ME_542413E803CB // Ok
+ ;
+
+ENDME // ME_542414C10121 
+
+ME ME_5424133901B6
+ MEPROP UID '5424133901B6'
+ MEPROP Name 'PrimeIsOffline'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Внимание!''#13#10''Для заполнения или изменения анкеты ПРАЙМ требуется активное Интернет-соединение. Для установки соединения обратитесь, пожалуйста, к вашему системному администратору либо в обслуживающую организацию.''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541AFB5E0323 // Local
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_542414C10121 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_542413CA020F // Choices
+ )
+ ; // Children
+ UP "AutoInc" false
+ UP "DlgType" 'Error'
+ UP "NeedCheck" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_5424133901B6 PrimeIsOffline
+
+ME ME_541AFB5E0323
+ MEPROP UID '541AFB5E0323'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Children
+   Seq: ( HWL ME_541AFBC7020F // NewsLineIsNotSetup
+ HWL ME_54292411034B // FormFillIsNotFinished
+ HWL ME_5424133901B6 // PrimeIsOffline
+ )
+ ; // Children
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_541AFB5E0323 Local
+
+FORWARD ME_5671155B00AC
+
+ME ME_5671156B01AD
+ MEPROP UID '5671156B01AD'
+ MEPROP Name 'CurrentNewsLineIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5671155B00AC // IPrimNewsLineFormState
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_5671156B01AD CurrentNewsLineIndex
+
+ME ME_56713E9A012D
+ MEPROP UID '56713E9A012D'
+ MEPROP Name 'InnerState'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5671155B00AC // IPrimNewsLineFormState
+ ;
+ MELINK Target WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ ;
+ UP "pm" true
+
+ENDME // ME_56713E9A012D InnerState
+
+ME ME_5671155B00AC
+ MEPROP UID '5671155B00AC'
+ MEPROP GUID 'D9676E96-C512-47E1-8218-6622AED4E675'
+ MEPROP Name 'IPrimNewsLineFormState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5671156B01AD // CurrentNewsLineIndex
+ HWL ME_56713E9A012D // InnerState
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'PrimNewsLineFormState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5671155B00AC IPrimNewsLineFormState
+
+FORWARD ME_567115A7039D
+
+ME ME_5671169F01B6
+ MEPROP UID '5671169F01B6'
+ MEPROP Name 'f_CurrentNewsLineIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_567115A7039D // TPrimNewsLineFormState
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5671169F01B6 f_CurrentNewsLineIndex
+
+ME ME_56713EB201D0
+ MEPROP UID '56713EB201D0'
+ MEPROP Name 'f_InnerState'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_567115A7039D // TPrimNewsLineFormState
+ ;
+ MELINK Target WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ ;
+
+ENDME // ME_56713EB201D0 f_InnerState
+
+FORWARD ME_567116EC034D
+
+ME ME_56713EC50013
+ MEPROP Name 'aCurrentNewsLineIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56713EC50013 aCurrentNewsLineIndex
+
+ME ME_56713EC50032
+ MEPROP Name 'aInnerState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ ;
+
+ENDME // ME_56713EC50032 aInnerState
+
+ME ME_567116F600C6
+ MEPROP UID '567116F600C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_567116EC034D // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56713EC50013 // aCurrentNewsLineIndex
+ ME_56713EC50032 // aInnerState
+ )
+ ; // Parameters
+
+ENDME // ME_567116F600C6 DoIt
+
+ME ME_567116EC034D
+ MEPROP UID '567116EC034D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_567115A7039D // TPrimNewsLineFormState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_567116F600C6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_567116EC034D Create
+
+ME ME_567117090387
+ MEPROP UID '567117090387'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_567115A7039D // TPrimNewsLineFormState
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_567116EC034D // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5671155B00AC // IPrimNewsLineFormState
+ )
+ ; // Implements
+
+ENDME // ME_567117090387 Make
+
+ME ME_5671156B01AD_ME_567115A7039D
+ MELINK Original HWL ME_5671156B01AD // CurrentNewsLineIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5671156B01AD_ME_567115A7039D CurrentNewsLineIndex
+
+ME ME_56713E9A012D_ME_567115A7039D
+ MELINK Original HWL ME_56713E9A012D // InnerState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_56713E9A012D_ME_567115A7039D InnerState
+
+ME ME_567115A7039D
+ MEPROP UID '567115A7039D'
+ MEPROP Name 'TPrimNewsLineFormState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5671155B00AC // IPrimNewsLineFormState
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5671169F01B6 // f_CurrentNewsLineIndex
+ HWL ME_56713EB201D0 // f_InnerState
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_567116EC034D // Create
+ HWL ME_567117090387 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5671156B01AD_ME_567115A7039D // CurrentNewsLineIndex
+ ME_56713E9A012D_ME_567115A7039D // InnerState
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'PrimNewsLineFormState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_567115A7039D TPrimNewsLineFormState
+
+FORWARD ME_3D18BA401352
+
+ME ME_E29767C3BFA3
+ MEPROP UID 'E29767C3BFA3'
+ MEPROP Name 'NewsLineIsNotSetup_Choice_FillForm'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Заполнить анкету''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_3D18BA401352 // LCImpl_NewsLineIsNotSetup_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_FillForm''; rValue : ''Заполнить анкету'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_FillForm''; rValue : ''Заполнить анкету'')'
+ UPLINK Speller HWL ME_541AFCDC0307 // FillForm
+ ;
+
+ENDME // ME_E29767C3BFA3 NewsLineIsNotSetup_Choice_FillForm
+
+ME ME_D1E45F067EF7
+ MEPROP UID 'D1E45F067EF7'
+ MEPROP Name 'NewsLineIsNotSetup_Choice_ViewFullNewsLine'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Посмотреть все поступления в продукт ПРАЙМ''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_3D18BA401352 // LCImpl_NewsLineIsNotSetup_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_ViewFullNewsLine''; rValue : ''Посмотреть все поступления в продукт ПРАЙМ'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''NewsLineIsNotSetup_Choice_ViewFullNewsLine''; rValue : ''Посмотреть все поступления в продукт ПРАЙМ'')'
+ UPLINK Speller HWL ME_541AFD260322 // ViewFullNewsLine
+ ;
+
+ENDME // ME_D1E45F067EF7 NewsLineIsNotSetup_Choice_ViewFullNewsLine
+
+ME ME_3D18BA401352
+ MEPROP UID '3D18BA401352'
+ MEPROP Name 'LCImpl_NewsLineIsNotSetup_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога NewsLineIsNotSetup' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_E29767C3BFA3 // NewsLineIsNotSetup_Choice_FillForm
+ HWL ME_D1E45F067EF7 // NewsLineIsNotSetup_Choice_ViewFullNewsLine
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefixBase 'str'
+ UP extprop:pas:ElementPrefix 'str_'
+ UPLINK Speller HWL ME_541AFC7C011A // Choices
+ ;
+
+ENDME // ME_3D18BA401352 LCImpl_NewsLineIsNotSetup_Choices
+
+FORWARD ME_913C9148BB27
+
+ME ME_EE0C728C9A65
+ MEPROP UID 'EE0C728C9A65'
+ MEPROP Name 'FormFillIsNotFinished_Choice_Continue'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Продолжить настройку''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_913C9148BB27 // LCImpl_FormFillIsNotFinished_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Continue''; rValue : ''Продолжить настройку'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Continue''; rValue : ''Продолжить настройку'')'
+ UPLINK Speller HWL ME_5429247103D6 // Continue
+ ;
+
+ENDME // ME_EE0C728C9A65 FormFillIsNotFinished_Choice_Continue
+
+ME ME_DD2C6EE53C20
+ MEPROP UID 'DD2C6EE53C20'
+ MEPROP Name 'FormFillIsNotFinished_Choice_Exit'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Покинуть анкету''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_913C9148BB27 // LCImpl_FormFillIsNotFinished_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Exit''; rValue : ''Покинуть анкету'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''FormFillIsNotFinished_Choice_Exit''; rValue : ''Покинуть анкету'')'
+ UPLINK Speller HWL ME_5429249001BE // Exit
+ ;
+
+ENDME // ME_DD2C6EE53C20 FormFillIsNotFinished_Choice_Exit
+
+ME ME_913C9148BB27
+ MEPROP UID '913C9148BB27'
+ MEPROP Name 'LCImpl_FormFillIsNotFinished_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога FormFillIsNotFinished' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_EE0C728C9A65 // FormFillIsNotFinished_Choice_Continue
+ HWL ME_DD2C6EE53C20 // FormFillIsNotFinished_Choice_Exit
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefixBase 'str'
+ UP extprop:pas:ElementPrefix 'str_'
+ UPLINK Speller HWL ME_5429245E00B9 // Choices
+ ;
+
+ENDME // ME_913C9148BB27 LCImpl_FormFillIsNotFinished_Choices
+
+FORWARD ME_299CFE85D965
+
+ME ME_AE5F6B440848
+ MEPROP UID 'AE5F6B440848'
+ MEPROP Name 'PrimeIsOffline_Choice_Ok'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''ОК''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_299CFE85D965 // LCImpl_PrimeIsOffline_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Ok''; rValue : ''ОК'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Ok''; rValue : ''ОК'')'
+ UPLINK Speller HWL ME_542413E803CB // Ok
+ ;
+
+ENDME // ME_AE5F6B440848 PrimeIsOffline_Choice_Ok
+
+ME ME_C9617FA10EA8
+ MEPROP UID 'C9617FA10EA8'
+ MEPROP Name 'PrimeIsOffline_Choice_Details'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Подробнее''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_299CFE85D965 // LCImpl_PrimeIsOffline_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Details''; rValue : ''Подробнее'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrimeIsOffline_Choice_Details''; rValue : ''Подробнее'')'
+ UPLINK Speller HWL ME_5424148601D5 // Details
+ ;
+
+ENDME // ME_C9617FA10EA8 PrimeIsOffline_Choice_Details
+
+ME ME_299CFE85D965
+ MEPROP UID '299CFE85D965'
+ MEPROP Name 'LCImpl_PrimeIsOffline_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога PrimeIsOffline' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_AE5F6B440848 // PrimeIsOffline_Choice_Ok
+ HWL ME_C9617FA10EA8 // PrimeIsOffline_Choice_Details
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefixBase 'str'
+ UP extprop:pas:ElementPrefix 'str_'
+ UPLINK Speller HWL ME_542413CA020F // Choices
+ ;
+
+ENDME // ME_299CFE85D965 LCImpl_PrimeIsOffline_Choices
+
+FORWARD ME_4AF82291027F
+
+ME ME_46A5AA4B003C_ME_4AF82291027F
+ MELINK Original WL 'ME_46A5AA4B003C' '4677FBA70343.ms.model.script' // Invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5AA4B003C_ME_4AF82291027F Invalidate
+
+ME ME_477243870072_ME_4AF82291027F
+ MELINK Original WL 'ME_477243870072' '4682595B0268.ms.model.script' // RootChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_477243870072_ME_4AF82291027F RootChanged
+
+ME ME_4951285702E1_ME_4AF82291027F
+ MELINK Original WL 'ME_4951285702E1' '495127DD017C.ms.model.script' // Cut
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4951285702E1_ME_4AF82291027F Cut
+
+ME ME_49512B5D0009_ME_4AF82291027F
+ MELINK Original WL 'ME_49512B5D0009' '495127DD017C.ms.model.script' // FindContext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49512B5D0009_ME_4AF82291027F FindContext
+
+ME ME_495130C40123_ME_4AF82291027F
+ MELINK Original WL 'ME_495130C40123' '495127DD017C.ms.model.script' // FindNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_495130C40123_ME_4AF82291027F FindNext
+
+ME ME_49EDFCA2006D_ME_4AF82291027F
+ MELINK Original WL 'ME_49EDFCA2006D' '495127DD017C.ms.model.script' // Undo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFCA2006D_ME_4AF82291027F Undo
+
+ME ME_49EDFCB100BC_ME_4AF82291027F
+ MELINK Original WL 'ME_49EDFCB100BC' '495127DD017C.ms.model.script' // Redo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFCB100BC_ME_4AF82291027F Redo
+
+ME ME_49FEDE4703B8_ME_4AF82291027F
+ MELINK Original WL 'ME_49FEDE4703B8' '495127DD017C.ms.model.script' // FindPrev
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49FEDE4703B8_ME_4AF82291027F FindPrev
+
+ME ME_4C7D0C7B0185_ME_4AF82291027F
+ MELINK Original WL 'ME_4C7D0C7B0185' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0C7B0185_ME_4AF82291027F Copy
+
+ME ME_4AF82291027F
+ MEPROP UID '4AF82291027F'
+ MEPROP Name 'DateList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_54522FE602ED' '54522FE602ED.ms.model.script' // TnscTreeViewForNewsLine
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46A5AA4B003C_ME_4AF82291027F // Invalidate
+ ME_477243870072_ME_4AF82291027F // RootChanged
+ ME_4951285702E1_ME_4AF82291027F // Cut
+ ME_49512B5D0009_ME_4AF82291027F // FindContext
+ ME_495130C40123_ME_4AF82291027F // FindNext
+ ME_49EDFCA2006D_ME_4AF82291027F // Undo
+ ME_49EDFCB100BC_ME_4AF82291027F // Redo
+ ME_49FEDE4703B8_ME_4AF82291027F // FindPrev
+ ME_4C7D0C7B0185_ME_4AF82291027F // Copy
+ )
+ ; // Implemented
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4AF82291027F DateList
+
+ME ME_497EBF5202A3
+ MEPROP UID '497EBF5202A3'
+ MEPROP Name 'sdsAutoreferat'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_492F071B02AC' '492F0586030C.ms.model.script' // IsdsAutoreferat
+ ;
+
+ENDME // ME_497EBF5202A3 sdsAutoreferat
+
+ME ME_4C87BCC90218
+ MEPROP UID '4C87BCC90218'
+ MEPROP Name 'f_UpdateFlag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C87BCC90218 f_UpdateFlag
+
+ME ME_54413B91017D
+ MEPROP UID '54413B91017D'
+ MEPROP Name 'f_InDataChanging'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54413B91017D f_InDataChanging
+
+ME ME_569E2B5B0168
+ MEPROP UID '569E2B5B0168'
+ MEPROP Name 'f_CurrentNewsLineIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_569E2B5B0168 f_CurrentNewsLineIndex
+
+ME ME_4C8DC50203CB
+ MEPROP UID '4C8DC50203CB'
+ MEPROP Name 'ResetThemeList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+
+ENDME // ME_4C8DC50203CB ResetThemeList
+
+ME ME_5242A36D006B
+ MEPROP UID '5242A36D006B'
+ MEPROP Name 'vcmEntityFormCloseQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_523AD9CB02EC' '4799D29F033F.ms.model.script' // TCloseQueryEvent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EntityFormCloseQuery'
+
+ENDME // ME_5242A36D006B vcmEntityFormCloseQuery
+
+ME ME_5242A3770043
+ MEPROP UID '5242A3770043'
+ MEPROP Name 'DateListGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_5242A3770043 DateListGetItemImage
+
+ME ME_5242A37E01D3
+ MEPROP UID '5242A37E01D3'
+ MEPROP Name 'DateListCurrentChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5143220D002B' '4CFFE3470249.ms.model.script' // TCurrentChanged
+ )
+ ; // Inherits
+
+ENDME // ME_5242A37E01D3 DateListCurrentChanged
+
+ME ME_4C87BD85008A
+ MEPROP UID '4C87BD85008A'
+ MEPROP Name 'UpdateNewsLineTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+
+ENDME // ME_4C87BD85008A UpdateNewsLineTree
+
+FORWARD ME_5242A678004A
+
+ME ME_5242A68400DA
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_5242A68400DA aNode
+
+ME ME_5242A68400F7
+ MEPROP Name 'AllowOpen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_5242A68400F7 AllowOpen
+
+ME ME_5242A680017A
+ MEPROP UID '5242A680017A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5242A678004A // OpenAutoreferat
+ ;
+ MELIST Parameters
+   Seq: ( ME_5242A68400DA // aNode
+ ME_5242A68400F7 // AllowOpen
+ )
+ ; // Parameters
+
+ENDME // ME_5242A680017A DoIt
+
+ME ME_5242A678004A
+ MEPROP UID '5242A678004A'
+ MEPROP Name 'OpenAutoreferat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5242A680017A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5242A678004A OpenAutoreferat
+
+ME ME_5242B541016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_4C87BD1A0218' '4A92D644009B.ms.model.script' // TnsNewsLine
+ ;
+
+ENDME // ME_5242B541016C 
+
+ME ME_5242B61F01FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_4EC391C00307' '4EEA0958023A.ms.model.script' // SearchRes
+ ;
+
+ENDME // ME_5242B61F01FE 
+
+ME ME_5242B6500208
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_5242B6500208 
+
+ME ME_5242B87B0342
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_4BD8574A03A5' '4BD856E802F9.ms.model.script' // Text
+ ;
+
+ENDME // ME_5242B87B0342 
+
+ME ME_5242B8AE006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5242B8AE006D 
+
+ME ME_5242B953012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_4B04102D00B6' '4BD1E3DE02FB.ms.model.script' // dftAutoreferat
+ ;
+
+ENDME // ME_5242B953012A 
+
+ME ME_5253D10D02D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_5253D10D02D9 
+
+ME ME_552FBB9103B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_552FBB9103B3 
+
+ME ME_9225F058897B
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_9225F058897B 
+
+ME ME_B8DDB853009A
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EBEC4031D // PrimNewsLine
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_B8DDB853009A 
+
+ME ME_49918CC5036B_ME_497EBEC4031D
+ MELINK Original WL 'ME_49918CC5036B' '499032720106.ms.model.script' // DataChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49918CC5036B_ME_497EBEC4031D DataChanged
+
+ME ME_4A9807F801F9_ME_497EBEC4031D
+ MELINK Original WL 'ME_4A9807F801F9' '4A9807DB01A5.ms.model.script' // BecomeActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4A9807F801F9_ME_497EBEC4031D BecomeActive
+
+ME ME_4AF822B302C4_ME_497EBEC4031D
+ MELINK Original WL 'ME_4AF822B302C4' '4A8ECFED02D8.ms.model.script' // OpenInt
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AF822B302C4_ME_497EBEC4031D OpenInt
+
+ME ME_4AF82EFD0025_ME_497EBEC4031D
+ MELINK Original WL 'ME_4AF82EFD0025' '4A9807DB01A5.ms.model.script' // RequestClose
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AF82EFD0025_ME_497EBEC4031D RequestClose
+
+ME ME_479731C50290_ME_497EBEC4031D
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_497EBEC4031D Cleanup
+
+ME ME_47A042E100E2_ME_497EBEC4031D
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_497EBEC4031D InitFields
+
+ME ME_47EA4E9002C6_ME_497EBEC4031D
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA4E9002C6_ME_497EBEC4031D FinishDataUpdate
+
+ME ME_497469C90140_ME_497EBEC4031D
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_497EBEC4031D NotifyDataSourceChanged
+
+ME ME_49806ED503D5_ME_497EBEC4031D
+ MELINK Original WL 'ME_49806ED503D5' '4AADF9450143.ms.model.script' // DoSaveState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49806ED503D5_ME_497EBEC4031D DoSaveState
+
+ME ME_49807428008C_ME_497EBEC4031D
+ MELINK Original WL 'ME_49807428008C' '4AADF9450143.ms.model.script' // DoLoadState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49807428008C_ME_497EBEC4031D DoLoadState
+
+ME ME_4A8E8F2E0195_ME_497EBEC4031D
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_497EBEC4031D InitControls
+
+ME ME_4E7C2AA3037E_ME_497EBEC4031D
+ MELINK Original WL 'ME_4E7C2AA3037E' '4AADF9450143.ms.model.script' // DoLoadFromSettings
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E7C2AA3037E_ME_497EBEC4031D DoLoadFromSettings
+
+ME ME_4F7B072201AA_ME_497EBEC4031D
+ MELINK Original WL 'ME_4F7B072201AA' '4AADF9450143.ms.model.script' // DoSaveInSettings
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F7B072201AA_ME_497EBEC4031D DoSaveInSettings
+
+ME ME_4FC38C4C0119_ME_497EBEC4031D
+ MELINK Original WL 'ME_4FC38C4C0119' '4AADF9450143.ms.model.script' // NeedSaveInSettings
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4FC38C4C0119_ME_497EBEC4031D NeedSaveInSettings
+
+ME ME_497EBEC4031D
+ MEPROP UID '497EBEC4031D'
+ MEPROP Name 'PrimNewsLine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A92D644009B' '4A92D644009B.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ WL 'ME_53D89F52011D' '533D53FF00C2.ms.model.script' // vcmChromeLikeTabCaptionProvider
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49918CBB000C' '499032720106.ms.model.script' // InsNewsLineNotifier
+ WL 'ME_4A9807E301A6' '4A9807DB01A5.ms.model.script' // Switcher$SetActive
+ WL 'ME_4AF822A80071' '4A8ECFED02D8.ms.model.script' // DateInterval
+ WL 'ME_4AF82EEC0069' '4A9807DB01A5.ms.model.script' // Form
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AF82291027F // DateList
+ HWL ME_497EBF5202A3 // sdsAutoreferat
+ HWL ME_4C87BCC90218 // f_UpdateFlag
+ HWL ME_54413B91017D // f_InDataChanging
+ HWL ME_569E2B5B0168 // f_CurrentNewsLineIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C8DC50203CB // ResetThemeList
+ HWL ME_5242A36D006B // vcmEntityFormCloseQuery
+ HWL ME_5242A3770043 // DateListGetItemImage
+ HWL ME_5242A37E01D3 // DateListCurrentChanged
+ HWL ME_4C87BD85008A // UpdateNewsLineTree
+ HWL ME_5242A678004A // OpenAutoreferat
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49918CC5036B_ME_497EBEC4031D // DataChanged
+ ME_4A9807F801F9_ME_497EBEC4031D // BecomeActive
+ ME_4AF822B302C4_ME_497EBEC4031D // OpenInt
+ ME_4AF82EFD0025_ME_497EBEC4031D // RequestClose
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_497EBEC4031D // Cleanup
+ ME_47A042E100E2_ME_497EBEC4031D // InitFields
+ ME_47EA4E9002C6_ME_497EBEC4031D // FinishDataUpdate
+ ME_497469C90140_ME_497EBEC4031D // NotifyDataSourceChanged
+ ME_49806ED503D5_ME_497EBEC4031D // DoSaveState
+ ME_49807428008C_ME_497EBEC4031D // DoLoadState
+ ME_4A8E8F2E0195_ME_497EBEC4031D // InitControls
+ ME_4E7C2AA3037E_ME_497EBEC4031D // DoLoadFromSettings
+ ME_4F7B072201AA_ME_497EBEC4031D // DoSaveInSettings
+ ME_4FC38C4C0119_ME_497EBEC4031D // NeedSaveInSettings
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD71E1103CD // nltMain
+ HWL ME_5671155B00AC // IPrimNewsLineFormState
+ HWL ME_567115A7039D // TPrimNewsLineFormState
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_541AFB5E0323 // Local
+ HWL ME_3D18BA401352 // LCImpl_NewsLineIsNotSetup_Choices
+ HWL ME_913C9148BB27 // LCImpl_FormFillIsNotFinished_Choices
+ HWL ME_299CFE85D965 // LCImpl_PrimeIsOffline_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_5242B541016C // TnsNewsLine
+ ME_5242B61F01FE // SearchRes
+ ME_5242B6500208 // Document
+ ME_5242B87B0342 // Text
+ ME_5242B8AE006D // Controls
+ ME_5242B953012A // dftAutoreferat
+ ME_5253D10D02D9 // vcmBase
+ ME_552FBB9103B3 // DataAdapter
+ ME_9225F058897B // Tl3StringIDEx
+ ME_B8DDB853009A // Tl3MessageID
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_571A26FD011E' '4A92D644009B.ms.model.script' // PrimMonitoringsWordsPack
+ )
+ ; // Injected
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '27.01.2009 11:00'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ UP extprop:pas:TypeName 'TPrimNewsLineForm'
+ UP extprop:rc:SelfName 'PrimNewsLineForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimNewsLine_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_497EBEC4031D PrimNewsLine

@@ -1,0 +1,48 @@
+//#UC START# *57C52AA20128_ext:FileName
+w:\archi\source\projects\Common\Utils\arDocAttributesMixer.pas
+//#UC END# *57C52AA20128_ext:FileName
+//#UC START# *57C52AA20128impl_uses*
+//#UC END# *57C52AA20128impl_uses*
+//#UC START# *57C52ADD007E_57C52AA20128_impl*
+ if WithAttr then
+ begin
+  TExportFilter.SetTo(aGen, aDocFamily, aDocID, true, false, emLoad, DocPartSel);
+ end;
+
+ if WithAttr then
+  TddWrongTagFixFilter.SetTo(aGen, false);
+
+ if aDocPart = m3_dsMain then
+ begin
+  if not anIsObjTopic then
+  begin
+   //TRecalcHLinksFilter.SetTo(G, aDocFamily, aDocID);
+    TddExtObjInserter.SetTo(aGen);
+    evLinkTableFilters(aGen, False);
+    TevOutTextParaEliminator.SetTo(aGen);
+  end
+  else
+  begin
+   TarDocObjectMixer.SetTo(aGen);
+  end;
+ end;
+
+ //TddKTExtractorFilter.SetTo(aGen);
+ if aFoundSelector <> nil then
+  TarFoundSelectionFilter.SetTo(aGen, aFoundSelector);
+
+ TFixInternalNumberHandleFilter.SetTo(aGen, aDocID); // гарантированно кладет DocInfo.DocID в InternalHandle
+ TevTagsListFilter.SetTo(aGen, TevTagsListFilter.MakeAttrList(k2_typDocument, [k2_tiEditableParts, k2_tiExternalHandle]));
+ TevdBadEVDToEmptyDocumentTranslator.SetTo(aGen, aDocumentType, GlobalDataProvider.BaseLanguage[aDocFamily].LanguageID);
+
+ l_DB := dtGetDB(aDocFamily);
+ try
+  theFiler := Tm3DBFiler.Create(l_DB, aDocID, aDocPart, aLevel);
+ finally
+  l_DB := nil;
+ end;//try..finally
+//#UC END# *57C52ADD007E_57C52AA20128_impl*
+//#UC START# *57C52ADD007E_57C52AA20128_var*
+var
+ l_DB: Im3DB;
+//#UC END# *57C52ADD007E_57C52AA20128_var*

@@ -1,0 +1,141 @@
+// OutlinerTests 4D46B4E403E0 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D46B4E403E0
+
+FORWARD ME_4D46B552013B
+
+ME ME_4D46B809022C
+ MEPROP UID '4D46B809022C'
+ MEPROP Name 'FormClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D46B552013B // OutlinerTest
+ ;
+ MELINK Target WL 'ME_4D4697F30281' '4D4697F30281.ms.model.script' // OutlinerForm
+ ;
+
+ENDME // ME_4D46B809022C FormClass
+
+ME ME_4D46C7AE01E3
+ MEPROP UID '4D46C7AE01E3'
+ MEPROP Name 'DoIt()'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D46B552013B // OutlinerTest
+ ;
+
+ENDME // ME_4D46C7AE01E3 DoIt()
+
+ME ME_4D46E45F00C8
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D4697F30281' '4D4697F30281.ms.model.script' // OutlinerForm
+ ;
+
+ENDME // ME_4D46E45F00C8 aForm
+
+ME ME_4D46E45F0100
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4D46E45F0100 aFileName
+
+ME ME_4D46E22801EB
+ MEPROP UID '4D46E22801EB'
+ MEPROP Name 'Load'
+ MEPROP Class class_Operation
+ %SUMMARY 'Загрузить данные в дерево.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D46B552013B // OutlinerTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D46E45F00C8 // aForm
+ ME_4D46E45F0100 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4D46E22801EB Load
+
+ME ME_4C937013031D_ME_4D46B552013B
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D46B552013B GetFolder
+
+ME ME_4D46B552013B
+ MEPROP UID '4D46B552013B'
+ MEPROP Name 'OutlinerTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D46B4E403E0 // OutlinerTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BCE9EF8033F' '4BCE9EA0028A.ms.model.script' // FormProducer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D46B809022C // FormClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D46C7AE01E3 // DoIt()
+ HWL ME_4D46E22801EB // Load
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4D46B552013B // GetFolder
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\OutlinerTest.pas'
+ UP extprop:pas:TypeName 'TOutlinerTest'
+ UP extprop:rc:SelfName 'OutlinerTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D46B552013B OutlinerTest
+
+ME ME_4D46B4E403E0
+ MEPROP UID '4D46B4E403E0'
+ MEPROP Name 'OutlinerTests'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B30C5FF0172' '4B30C5FF0172.ms.model.script' // TestFormsTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D46B552013B // OutlinerTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4B30C6E3023C' '4B30C6E3023C.ms.model.script' // Forms
+ WL 'ME_4BCE9EA0028A' '4BCE9EA0028A.ms.model.script' // MixIns
+ WL 'ME_4D469729019F' '4D469729019F.ms.model.script' // Outliner
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_4D46B4E403E0 OutlinerTests

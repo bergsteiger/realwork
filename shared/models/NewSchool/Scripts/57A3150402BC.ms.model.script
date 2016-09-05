@@ -1,0 +1,683 @@
+// Services 57A3150402BC VCMContracts Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A3150402BC
+
+FORWARD ME_57A3152102C6
+
+FORWARD ME_39CF00CD3759
+
+FORWARD ME_4AAF590401AC
+
+FORWARD ME_8DB149CAB5A3
+
+ME ME_11CF1EE366C7
+ MEPROP Name 'aTag'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_11CF1EE366C7 aTag
+
+ME ME_B0765055AB6C
+ MEPROP Name 'anAdditionalFilter'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_490200F300DD' '47F2170002B2.ms.model.script' // TnsFilterType
+ ;
+
+ENDME // ME_B0765055AB6C anAdditionalFilter
+
+ME ME_20BA57E14A12
+ MEPROP Name 'aFormData'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4924352E01C3' '491DAF4202EE.ms.model.script' // IdsTreeAttributeSelect
+ ;
+
+ENDME // ME_20BA57E14A12 aFormData
+
+ME ME_11D9F98D89D7
+ MEPROP UID '11D9F98D89D7'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_8DB149CAB5A3 // OpenTreeSelection$4AAF590401AC
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_11CF1EE366C7 // aTag
+ ME_B0765055AB6C // anAdditionalFilter
+ ME_20BA57E14A12 // aFormData
+ )
+ ; // Parameters
+
+ENDME // ME_11D9F98D89D7 DoIt
+
+ME ME_8DB149CAB5A3
+ MEPROP UID '8DB149CAB5A3'
+ MEPROP Name 'OpenTreeSelection'
+ MEPROP OriginalName 'OpenTreeSelection$4AAF590401AC'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_39CF00CD3759 // MLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_11D9F98D89D7 // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FactoryMethod'
+ UPLINK Speller HWL ME_4AAF590401AC // OpenTreeSelection
+ ;
+
+ENDME // ME_8DB149CAB5A3 OpenTreeSelection$4AAF590401AC
+
+FORWARD ME_4AAF4FC80387
+
+FORWARD ME_600E2BE04415
+
+ME ME_948893223EA0
+ MEPROP Name 'aParams'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930F8B0367' '4683F37902CF.ms.model.script' // IvcmMakeParams
+ ;
+
+ENDME // ME_948893223EA0 aParams
+
+ME ME_8D1703CD8F17
+ MEPROP Name 'aZoneType'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_8D1703CD8F17 aZoneType
+
+ME ME_8454F31697B2
+ MEPROP Name 'aRecursive'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_8454F31697B2 aRecursive
+
+ME ME_DD3E684E576C
+ MEPROP Name 'aUserType'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_DD3E684E576C aUserType
+
+ME ME_B73F768BA6BD
+ MEPROP UID 'B73F768BA6BD'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_600E2BE04415 // MakeAttributeSelect$4AAF4FC80387
+ ;
+ MELIST Parameters
+   Seq: ( ME_948893223EA0 // aParams
+ ME_8D1703CD8F17 // aZoneType
+ ME_8454F31697B2 // aRecursive
+ ME_DD3E684E576C // aUserType
+ )
+ ; // Parameters
+
+ENDME // ME_B73F768BA6BD DoIt
+
+ME ME_600E2BE04415
+ MEPROP UID '600E2BE04415'
+ MEPROP Name 'MakeAttributeSelect'
+ MEPROP OriginalName 'MakeAttributeSelect$4AAF4FC80387'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_39CF00CD3759 // MLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_B73F768BA6BD // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FormFactory'
+ UPLINK Speller HWL ME_4AAF4FC80387 // MakeAttributeSelect
+ ;
+
+ENDME // ME_600E2BE04415 MakeAttributeSelect$4AAF4FC80387
+
+FORWARD ME_4AAF52280022
+
+FORWARD ME_5ABF99DDFE2F
+
+ME ME_01BC1497236F
+ MEPROP Name 'aParams'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930F8B0367' '4683F37902CF.ms.model.script' // IvcmMakeParams
+ ;
+
+ENDME // ME_01BC1497236F aParams
+
+ME ME_BD2A1F007C87
+ MEPROP Name 'aZoneType'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_BD2A1F007C87 aZoneType
+
+ME ME_65DB44012280
+ MEPROP Name 'aRecursive'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_65DB44012280 aRecursive
+
+ME ME_594C5FF9554C
+ MEPROP UID '594C5FF9554C'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5ABF99DDFE2F // MakeSelectedAttributes$4AAF52280022
+ ;
+ MELIST Parameters
+   Seq: ( ME_01BC1497236F // aParams
+ ME_BD2A1F007C87 // aZoneType
+ ME_65DB44012280 // aRecursive
+ )
+ ; // Parameters
+
+ENDME // ME_594C5FF9554C DoIt
+
+ME ME_5ABF99DDFE2F
+ MEPROP UID '5ABF99DDFE2F'
+ MEPROP Name 'MakeSelectedAttributes'
+ MEPROP OriginalName 'MakeSelectedAttributes$4AAF52280022'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_39CF00CD3759 // MLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_594C5FF9554C // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FormFactory'
+ UPLINK Speller HWL ME_4AAF52280022 // MakeSelectedAttributes
+ ;
+
+ENDME // ME_5ABF99DDFE2F MakeSelectedAttributes$4AAF52280022
+
+FORWARD ME_4AAF48F502E7
+
+FORWARD ME_2B4BA68BAEF4
+
+ME ME_8E223B96F6F9
+ MEPROP Name 'aParams'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930F8B0367' '4683F37902CF.ms.model.script' // IvcmMakeParams
+ ;
+
+ENDME // ME_8E223B96F6F9 aParams
+
+ME ME_F0BB8CC15552
+ MEPROP Name 'aZoneType'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_F0BB8CC15552 aZoneType
+
+ME ME_849F5270A90F
+ MEPROP Name 'aRecursive'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_849F5270A90F aRecursive
+
+ME ME_F71BFB22BA89
+ MEPROP Name 'aUserType'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_F71BFB22BA89 aUserType
+
+ME ME_CBBF65266902
+ MEPROP UID 'CBBF65266902'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_2B4BA68BAEF4 // MakeTreeAttributeSelect$4AAF48F502E7
+ ;
+ MELIST Parameters
+   Seq: ( ME_8E223B96F6F9 // aParams
+ ME_F0BB8CC15552 // aZoneType
+ ME_849F5270A90F // aRecursive
+ ME_F71BFB22BA89 // aUserType
+ )
+ ; // Parameters
+
+ENDME // ME_CBBF65266902 DoIt
+
+ME ME_2B4BA68BAEF4
+ MEPROP UID '2B4BA68BAEF4'
+ MEPROP Name 'MakeTreeAttributeSelect'
+ MEPROP OriginalName 'MakeTreeAttributeSelect$4AAF48F502E7'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_39CF00CD3759 // MLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_CBBF65266902 // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FormFactory'
+ UPLINK Speller HWL ME_4AAF48F502E7 // MakeTreeAttributeSelect
+ ;
+
+ENDME // ME_2B4BA68BAEF4 MakeTreeAttributeSelect$4AAF48F502E7
+
+ME ME_39CF00CD3759
+ MEPROP UID '39CF00CD3759'
+ MEPROP Name 'MLiteSearchService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TLiteSearchService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A3152102C6 // TLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_8DB149CAB5A3 // OpenTreeSelection$4AAF590401AC
+ HWL ME_600E2BE04415 // MakeAttributeSelect$4AAF4FC80387
+ HWL ME_5ABF99DDFE2F // MakeSelectedAttributes$4AAF52280022
+ HWL ME_2B4BA68BAEF4 // MakeTreeAttributeSelect$4AAF48F502E7
+ )
+ ; // Operations
+
+ENDME // ME_39CF00CD3759 MLiteSearchService
+
+ME ME_4B019BE00202
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4B019BE00202 aTag
+
+ME ME_4B019BEE006C
+ MEPROP Name 'anAdditionalFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_490200F300DD' '47F2170002B2.ms.model.script' // TnsFilterType
+ ;
+
+ENDME // ME_4B019BEE006C anAdditionalFilter
+
+ME ME_4AAF63D50207
+ MEPROP Name 'aFormData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4924352E01C3' '491DAF4202EE.ms.model.script' // IdsTreeAttributeSelect
+ ;
+
+ENDME // ME_4AAF63D50207 aFormData
+
+ME ME_4AAF590D003A
+ MEPROP UID '4AAF590D003A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF590401AC // OpenTreeSelection
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B019BE00202 // aTag
+ ME_4B019BEE006C // anAdditionalFilter
+ ME_4AAF63D50207 // aFormData
+ )
+ ; // Parameters
+
+ENDME // ME_4AAF590D003A DoIt
+
+ME ME_4AAF590401AC
+ MEPROP UID '4AAF590401AC'
+ MEPROP Name 'OpenTreeSelection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FactoryMethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A3152102C6 // TLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAF590D003A // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" false
+
+ENDME // ME_4AAF590401AC OpenTreeSelection
+
+ME ME_4AAF4FDB025B
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930F8B0367' '4683F37902CF.ms.model.script' // IvcmMakeParams
+ ;
+
+ENDME // ME_4AAF4FDB025B aParams
+
+ME ME_4AAF4FDB0275
+ MEPROP Name 'aZoneType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_4AAF4FDB0275 aZoneType
+
+ME ME_4AAF4FDB0292
+ MEPROP Name 'aRecursive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AAF4FDB0292 aRecursive
+
+ME ME_4AAF4FDB02B7
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_4AAF4FDB02B7 aUserType
+
+ME ME_4AAF4FD80301
+ MEPROP UID '4AAF4FD80301'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF4FC80387 // MakeAttributeSelect
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AAF4FDB025B // aParams
+ ME_4AAF4FDB0275 // aZoneType
+ ME_4AAF4FDB0292 // aRecursive
+ ME_4AAF4FDB02B7 // aUserType
+ )
+ ; // Parameters
+
+ENDME // ME_4AAF4FD80301 DoIt
+
+ME ME_4AAF4FC80387
+ MEPROP UID '4AAF4FC80387'
+ MEPROP Name 'MakeAttributeSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FormFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A3152102C6 // TLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAF4FD80301 // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" false
+
+ENDME // ME_4AAF4FC80387 MakeAttributeSelect
+
+ME ME_4AAF52560053
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930F8B0367' '4683F37902CF.ms.model.script' // IvcmMakeParams
+ ;
+
+ENDME // ME_4AAF52560053 aParams
+
+ME ME_4AAF52560071
+ MEPROP Name 'aZoneType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_4AAF52560071 aZoneType
+
+ME ME_4AAF5256008D
+ MEPROP Name 'aRecursive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AAF5256008D aRecursive
+
+ME ME_4AAF525203A3
+ MEPROP UID '4AAF525203A3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF52280022 // MakeSelectedAttributes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AAF52560053 // aParams
+ ME_4AAF52560071 // aZoneType
+ ME_4AAF5256008D // aRecursive
+ )
+ ; // Parameters
+
+ENDME // ME_4AAF525203A3 DoIt
+
+ME ME_4AAF52280022
+ MEPROP UID '4AAF52280022'
+ MEPROP Name 'MakeSelectedAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FormFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A3152102C6 // TLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAF525203A3 // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" false
+
+ENDME // ME_4AAF52280022 MakeSelectedAttributes
+
+ME ME_4AAF492C010A
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930F8B0367' '4683F37902CF.ms.model.script' // IvcmMakeParams
+ ;
+
+ENDME // ME_4AAF492C010A aParams
+
+ME ME_4AAF492C0128
+ MEPROP Name 'aZoneType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_4AAF492C0128 aZoneType
+
+ME ME_4AAF492C0146
+ MEPROP Name 'aRecursive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AAF492C0146 aRecursive
+
+ME ME_4AAF492C017F
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_4AAF492C017F aUserType
+
+ME ME_4AAF491301EB
+ MEPROP UID '4AAF491301EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF48F502E7 // MakeTreeAttributeSelect
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AAF492C010A // aParams
+ ME_4AAF492C0128 // aZoneType
+ ME_4AAF492C0146 // aRecursive
+ ME_4AAF492C017F // aUserType
+ )
+ ; // Parameters
+
+ENDME // ME_4AAF491301EB DoIt
+
+ME ME_4AAF48F502E7
+ MEPROP UID '4AAF48F502E7'
+ MEPROP Name 'MakeTreeAttributeSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FormFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A3152102C6 // TLiteSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAF491301EB // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" false
+
+ENDME // ME_4AAF48F502E7 MakeTreeAttributeSelect
+
+ME ME_57A3152102C6
+ MEPROP UID '57A3152102C6'
+ MEPROP Name 'TLiteSearchService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A3150402BC // Services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4AAF590401AC // OpenTreeSelection
+ HWL ME_4AAF4FC80387 // MakeAttributeSelect
+ HWL ME_4AAF52280022 // MakeSelectedAttributes
+ HWL ME_4AAF48F502E7 // MakeTreeAttributeSelect
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_39CF00CD3759 // MLiteSearchService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:SelfName 'LiteSearchService'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57A3152102C6 TLiteSearchService
+
+ME ME_57A3150402BC
+ MEPROP UID '57A3150402BC'
+ MEPROP Name 'Services'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMContracts ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A85683403A8' '4A85683403A8.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57A3152102C6 // TLiteSearchService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_491DAF4202EE' '491DAF4202EE.ms.model.script' // SearchInterfaces
+ WL 'ME_499EAAE502A8' '499EAAE502A8.ms.model.script' // vcmUserControls
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\SearchLite_Services.pas'
+ UP extprop:pas:UnitName 'SearchLite_Services'
+
+ENDME // ME_57A3150402BC Services

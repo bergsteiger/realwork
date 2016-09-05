@@ -1,0 +1,28 @@
+// RequirementsLib 47287F7D02CE MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_47287F7D02CE
+ MEPROP UID '47287F7D02CE'
+ MEPROP Name 'RequirementsLib'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'библиотека шаблонов поисывающих требования' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4734A46F005D' '4734A46F005D.ms.model.script' // CoreTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_470335E60290' '470335E60290.ms.model.script' // Requirements
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CoreTemplates\RequirementsLib'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47287F7D02CE RequirementsLib

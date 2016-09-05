@@ -1,0 +1,116 @@
+// Pure 4861FFE8022A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4861FFE8022A
+
+ME ME_4862001F02D0
+ MEPROP UID '4862001F02D0'
+ MEPROP Name 'T'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4861FFE8022A // Pure
+ ;
+ UP extprop:pas:TypeName '_T_'
+
+ENDME // ME_4862001F02D0 T
+
+FORWARD ME_4862003B01A0
+
+ME ME_486200560334
+ MEPROP UID '486200560334'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4862003B01A0 // Comparable
+ ;
+ MELINK Target HWL ME_4862001F02D0 // T
+ ;
+
+ENDME // ME_486200560334 
+
+ME ME_4862008002BC
+ MEPROP Name 'x'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4862001F02D0 // T
+ ;
+
+ENDME // ME_4862008002BC x
+
+ME ME_4862008002DC
+ MEPROP Name 'y'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4862001F02D0 // T
+ ;
+
+ENDME // ME_4862008002DC y
+
+ME ME_48620066005A
+ MEPROP UID '48620066005A'
+ MEPROP Name 'compare'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4862003B01A0 // Comparable
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_4862008002BC // x
+ ME_4862008002DC // y
+ )
+ ; // Parameters
+
+ENDME // ME_48620066005A compare
+
+ME ME_4862003B01A0
+ MEPROP UID '4862003B01A0'
+ MEPROP Name 'Comparable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4861FFE8022A // Pure
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_486200560334 // 
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48620066005A // compare
+ )
+ ; // Operations
+
+ENDME // ME_4862003B01A0 Comparable
+
+ME ME_4861FFE8022A
+ MEPROP UID '4861FFE8022A'
+ MEPROP Name 'Pure'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.ms.model.script' // SandBox
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4862001F02D0 // T
+ HWL ME_4862003B01A0 // Comparable
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\SandBox\Pure.pas'
+
+ENDME // ME_4861FFE8022A Pure

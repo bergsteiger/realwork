@@ -4,27 +4,36 @@
 //#UC START# *4CAEDCF9006A_53DA24F802A7_var*
 //#UC END# *4CAEDCF9006A_53DA24F802A7_var*
 //#UC START# *4DAEEDE10285_53DA24F802A7_impl*
- f_NativeCaller := aCtx.rCaller;
+ TtfwCS.Instance.Lock;
  try
-  l_Stream := Self.MakeStream(aCtx.rEngine.PopDelphiString);
+  l_Caller := f_NativeCaller;
+  if (aCtx.rCaller <> ItfwScriptCaller(Self)) then
+   f_NativeCaller := aCtx.rCaller;
   try
-   l_Controller := TkwMainCodeController.Create(WordToWork, @aCtx);
+   l_Stream := Self.MakeStream(aCtx.rEngine.PopDelphiString);
    try
-    l_Controller.Script(l_Stream, Self);
+    l_Controller := TkwMainCodeController.Create(WordToWork, @aCtx);
+    try
+     l_Controller.Script(l_Stream, Self);
+    finally
+     FreeAndNil(l_Controller);
+    end;//try..finally
    finally
-    FreeAndNil(l_Controller);
+    FreeAndNil(l_Stream);
    end;//try..finally
   finally
-   FreeAndNil(l_Stream);
+   f_NativeCaller := l_Caller;
   end;//try..finally
+  l_Caller := nil;
  finally
-  f_NativeCaller := nil;
- end;//try..finally
+  TtfwCS.Instance.Unlock;
+ end;//try..finally 
 //#UC END# *4DAEEDE10285_53DA24F802A7_impl*
 //#UC START# *4DAEEDE10285_53DA24F802A7_var*
 var
  l_Controller : TkwMainCodeController;
  l_Stream     : TtfwStreamFactory;
+ l_Caller : ItfwScriptCaller;
 //#UC END# *4DAEEDE10285_53DA24F802A7_var*
 //#UC START# *4DAF1A280116_53DA24F802A7_impl*
  Assert(false, 'Не доделано');
@@ -42,12 +51,20 @@ var
 //#UC START# *4DB1785F011A_53DA24F802A7_var*
 //#UC END# *4DB1785F011A_53DA24F802A7_var*
 //#UC START# *4DC2E1470046_53DA24F802A7_impl*
- Result := f_NativeCaller.ResolveIncludedFilePath(aFile);
+ Assert(f_NativeCaller <> nil);
+ if (f_NativeCaller <> ItfwScriptCaller(Self)) then
+  Result := f_NativeCaller.ResolveIncludedFilePath(aFile)
+ else
+ begin
+  Assert(false, 'Не доделано');
+  Result := aFile;
+ end;//f_NativeCaller <> ItfwScriptCaller(Self)
 //#UC END# *4DC2E1470046_53DA24F802A7_impl*
 //#UC START# *4DC2E1470046_53DA24F802A7_var*
 //#UC END# *4DC2E1470046_53DA24F802A7_var*
 //#UC START# *4DCA915C0120_53DA24F802A7_impl*
- Assert(false, 'Не доделано');
+ Result := aFile;
+ Assert(ExtractFilePath(Result) <> '');
 //#UC END# *4DCA915C0120_53DA24F802A7_impl*
 //#UC START# *4DCA915C0120_53DA24F802A7_var*
 //#UC END# *4DCA915C0120_53DA24F802A7_var*
@@ -151,8 +168,22 @@ var
 //#UC START# *53DA24F802A7_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileAndProcess.pas
 //#UC END# *53DA24F802A7_ext:FileName
+//#UC START# *53DA24F802A7impl_uses*
+ , tfwCS
+//#UC END# *53DA24F802A7impl_uses*
 //#UC START# *56420D080052_53DA24F802A7_impl*
  Result := TtfwFileStreamFactory.Create(aData);
 //#UC END# *56420D080052_53DA24F802A7_impl*
 //#UC START# *56420D080052_53DA24F802A7_var*
 //#UC END# *56420D080052_53DA24F802A7_var*
+//#UC START# *57A9DF60030B_53DA24F802A7_impl*
+ //f_NativeCaller.ScriptDone(aCtx);
+ //Assert(false, 'Не доделано');
+//#UC END# *57A9DF60030B_53DA24F802A7_impl*
+//#UC START# *57A9DF60030B_53DA24F802A7_var*
+//#UC END# *57A9DF60030B_53DA24F802A7_var*
+//#UC START# *57A9F99A01C4_53DA24F802A7_impl*
+ // - ничего не делаем
+//#UC END# *57A9F99A01C4_53DA24F802A7_impl*
+//#UC START# *57A9F99A01C4_53DA24F802A7_var*
+//#UC END# *57A9F99A01C4_53DA24F802A7_var*

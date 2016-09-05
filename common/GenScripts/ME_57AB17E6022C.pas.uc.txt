@@ -1,0 +1,67 @@
+//#UC START# *479731C50290_57AB17E6022C_impl*
+ FreeAndNil(f_Dictionary);
+ FreeAndNil(f_MainWord);
+ inherited;
+//#UC END# *479731C50290_57AB17E6022C_impl*
+//#UC START# *479731C50290_57AB17E6022C_var*
+//#UC END# *479731C50290_57AB17E6022C_var*
+//#UC START# *57A9FE9400E7_57AB17E6022Cget_impl*
+ if (f_Name = nil) then
+  f_Name := TmsmModelElementMethodCaller.CallAndGetString(f_MainWord, 'NameInModel');
+ Result := f_Name; 
+//#UC END# *57A9FE9400E7_57AB17E6022Cget_impl*
+//#UC START# *57A9FE9400E7_57AB17E6022Cget_var*
+//#UC END# *57A9FE9400E7_57AB17E6022Cget_var*
+//#UC START# *57AA08D80358_57AB17E6022C_impl*
+ inherited Create;
+ aMainWord.SetRefTo(f_MainWord);
+ l_KW := f_MainWord.Key As TtfwKeyWord;
+ if (l_KW = nil) then
+ begin
+ // - возможно это UP (IsSummoned) трансформированное в переменную
+  f_Dictionary := nil;
+  Assert(false, 'Элемент без словаря');
+ end//l_KW = nil
+ else
+ if (l_KW.Dictionary Is TtfwDictionaryEx) then
+  (l_KW.Dictionary As TtfwDictionaryEx).SetRefTo(f_Dictionary)
+ else
+  f_Dictionary := nil;
+//#UC END# *57AA08D80358_57AB17E6022C_impl*
+//#UC START# *57AA08D80358_57AB17E6022C_var*
+var
+ l_KW : TtfwKeyWord;
+//#UC END# *57AA08D80358_57AB17E6022C_var*
+//#UC START# *57AADF560165_57AB17E6022Cget_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetString(f_MainWord, 'UID');
+//#UC END# *57AADF560165_57AB17E6022Cget_impl*
+//#UC START# *57AADF560165_57AB17E6022Cget_var*
+//#UC END# *57AADF560165_57AB17E6022Cget_var*
+//#UC START# *57AB17E6022C_ext:FileName
+w:\common\components\gui\Garant\msm\msmBaseModelElement.pas
+//#UC END# *57AB17E6022C_ext:FileName
+//#UC START# *57AB17E6022Cimpl_uses*
+ , SysUtils
+ , l3InterfacesMisc
+//#UC END# *57AB17E6022Cimpl_uses*
+//#UC START# *57AC39AE0181_57AB17E6022C_impl*
+ Result := l3IEQ(Self, anOther);
+ if not Result then
+ begin
+  if Supports(anOther, ITmsmBaseModelElementWrap, l_W) then
+   try
+    Result := (Self.MainWord.GetRefForCompare = l_W.GetSelf.MainWord.GetRefForCompare);
+   finally
+    l_W := nil;
+   end;//try..finally
+ end;//not Result
+//#UC END# *57AC39AE0181_57AB17E6022C_impl*
+//#UC START# *57AC39AE0181_57AB17E6022C_var*
+var
+ l_W : ITmsmBaseModelElementWrap;
+//#UC END# *57AC39AE0181_57AB17E6022C_var*
+//#UC START# *57AC39FE00B8_57AB17E6022C_impl*
+ Result := Self;
+//#UC END# *57AC39FE00B8_57AB17E6022C_impl*
+//#UC START# *57AC39FE00B8_57AB17E6022C_var*
+//#UC END# *57AC39FE00B8_57AB17E6022C_var*

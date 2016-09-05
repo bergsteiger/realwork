@@ -1,0 +1,68 @@
+// Strange 4C4432FA016A VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C4432FA016A
+
+FORWARD ME_4C44330A0062
+
+ME ME_4C4433150077
+ MEPROP UID '4C4433150077'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C44330A0062 // Rubric
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4C4433150077 Execute
+
+ME ME_4C44330A0062
+ MEPROP UID '4C44330A0062'
+ MEPROP Name 'Rubric'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C4432FA016A // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C4433150077 // Execute
+ )
+ ; // Operations
+
+ENDME // ME_4C44330A0062 Rubric
+
+ME ME_4C4432FA016A
+ MEPROP UID '4C4432FA016A'
+ MEPROP Name 'Strange'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA66B2C02FC' '4AA66B2C02FC.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C44330A0062 // Rubric
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Rubricator_Strange_Controls.pas'
+ UP extprop:pas:UnitName 'Rubricator_Strange_Controls'
+
+ENDME // ME_4C4432FA016A Strange

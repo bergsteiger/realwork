@@ -127,8 +127,7 @@ var
 //#UC START# *521B285C035B_51D547F700AB_impl*
   for I := 0 to Pred(Count) do
    Items[I].ClearControl;
-  for I := 0 to Pred(ChildrenCount) do
-   IddConfigNode(Children[I]).ClearControls;
+  inherited;
 //#UC END# *521B285C035B_51D547F700AB_impl*
 //#UC START# *521B285C035B_51D547F700AB_var*
 var
@@ -219,7 +218,7 @@ var
       then l_Control.Left := l_ButtonLeft - l_Control.Width - 2 * c_ConfigItemTop - c_ScrollBarWidth
       else l_Control.Left := l_ButtonLeft - l_Control.Width - 2 * c_ConfigItemTop;
      {$ifdef nemesis}
-     l_Control.Anchors := l_Control.Anchors + [akRight];
+     l_Control.Anchors := l_Control.Anchors + [akRight] - [akLeft];
      {$endif}
      l_FirstButton := False;
      l_ButtonLeft := l_Control.Left;
@@ -356,8 +355,7 @@ var
    end
   end
  end; // for I
- for I := 0 to Pred(ChildrenCount) do
-  IddConfigNode(Children[I]).GetControlValues;
+ inherited;
 //#UC END# *521B28BE015D_51D547F700AB_impl*
 //#UC START# *521B28BE015D_51D547F700AB_var*
 var
@@ -408,8 +406,7 @@ var
    l_Item.UnLock;
   end; // l_Item.Control <> nil
  end;
- for I := 0 to Pred(ChildrenCount) do
-  IddConfigNode(Children[I]).SetControlValues(aDefault);
+ inherited;
 //#UC END# *521B298800F7_51D547F700AB_impl*
 //#UC START# *521B298800F7_51D547F700AB_var*
 var

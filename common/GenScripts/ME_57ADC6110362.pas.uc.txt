@@ -1,0 +1,82 @@
+//#UC START# *57ADC5D70104_57ADC6110362get_impl*
+ Result := f_Tree;
+//#UC END# *57ADC5D70104_57ADC6110362get_impl*
+//#UC START# *57ADC5D70104_57ADC6110362get_var*
+//#UC END# *57ADC5D70104_57ADC6110362get_var*
+//#UC START# *57ADC5EA01C5_57ADC6110362get_impl*
+ Result := f_List;
+//#UC END# *57ADC5EA01C5_57ADC6110362get_impl*
+//#UC START# *57ADC5EA01C5_57ADC6110362get_var*
+//#UC END# *57ADC5EA01C5_57ADC6110362get_var*
+//#UC START# *57ADC5EA01C5_57ADC6110362set_impl*
+ f_StringList := TmsmModelElementStringList.Make(aValue);
+ Fire(ModelListChangedEvent.Instance);
+//#UC END# *57ADC5EA01C5_57ADC6110362set_impl*
+//#UC START# *57ADC5EA01C5_57ADC6110362set_var*
+//#UC END# *57ADC5EA01C5_57ADC6110362set_var*
+//#UC START# *57ADC6110362_ext:FileName
+w:\common\components\gui\Garant\msm\msmDrawingModel.pas
+//#UC END# *57ADC6110362_ext:FileName
+//#UC START# *57ADC6110362impl_uses*
+//#UC END# *57ADC6110362impl_uses*
+//#UC START# *57ADC6D40238_57ADC6110362_impl*
+ Assert(anElementView.rElement <> nil);
+ f_ElementView := anElementView;
+ inherited Create;
+ Set_List(TmsmModelElementDir.Make(anElementView.rElement.List[anElementView.rListName], anElementView.rTextName));
+//#UC END# *57ADC6D40238_57ADC6110362_impl*
+//#UC START# *57ADC6D40238_57ADC6110362_var*
+//#UC END# *57ADC6D40238_57ADC6110362_var*
+//#UC START# *57ADC92F01F5_57ADC6110362get_impl*
+ Result := f_ModelTreeElementToAction;
+//#UC END# *57ADC92F01F5_57ADC6110362get_impl*
+//#UC START# *57ADC92F01F5_57ADC6110362get_var*
+//#UC END# *57ADC92F01F5_57ADC6110362get_var*
+//#UC START# *57ADC92F01F5_57ADC6110362set_impl*
+ if (f_ModelTreeElementToAction <> aValue) then
+ begin
+  f_ModelTreeElementToAction := aValue;
+  Fire(ActionModelTreeElementEvent.Instance);
+ end;//f_ModelTreeElementToAction <> aValue 
+//#UC END# *57ADC92F01F5_57ADC6110362set_impl*
+//#UC START# *57ADC92F01F5_57ADC6110362set_var*
+//#UC END# *57ADC92F01F5_57ADC6110362set_var*
+//#UC START# *57ADC9A00367_57ADC6110362get_impl*
+ Result := f_ModelListElementToAction;
+//#UC END# *57ADC9A00367_57ADC6110362get_impl*
+//#UC START# *57ADC9A00367_57ADC6110362get_var*
+//#UC END# *57ADC9A00367_57ADC6110362get_var*
+//#UC START# *57ADC9A00367_57ADC6110362set_impl*
+ if (f_ModelListElementToAction <> aValue) then
+ begin
+  f_ModelListElementToAction := aValue;
+  Fire(ActionModelListElementEvent.Instance);
+ end;//f_ModelListElementToAction <> aValue
+//#UC END# *57ADC9A00367_57ADC6110362set_impl*
+//#UC START# *57ADC9A00367_57ADC6110362set_var*
+//#UC END# *57ADC9A00367_57ADC6110362set_var*
+//#UC START# *57B167E2003A_57ADC6110362get_impl*
+ Result := f_StringList;
+//#UC END# *57B167E2003A_57ADC6110362get_impl*
+//#UC START# *57B167E2003A_57ADC6110362get_var*
+//#UC END# *57B167E2003A_57ADC6110362get_var*
+//#UC START# *57B167E2003A_57ADC6110362set_impl*
+ if (f_StringList <> aValue) then
+ begin
+  f_StringList := aValue;
+  Fire(ModelListChangedEvent.Instance);
+ end;//f_StringList <> aValue
+//#UC END# *57B167E2003A_57ADC6110362set_impl*
+//#UC START# *57B167E2003A_57ADC6110362set_var*
+//#UC END# *57B167E2003A_57ADC6110362set_var*
+//#UC START# *57B1A3DA0382_57ADC6110362_impl*
+ f_List := TmsmModelElementStringList.Make(aList);
+ Fire(ListChangedEvent.Instance);
+//#UC END# *57B1A3DA0382_57ADC6110362_impl*
+//#UC START# *57B1A3DA0382_57ADC6110362_var*
+//#UC END# *57B1A3DA0382_57ADC6110362_var*
+//#UC START# *57B1A47403C5_57ADC6110362get_impl*
+ Result := f_List.Owner.Name;
+//#UC END# *57B1A47403C5_57ADC6110362get_impl*
+//#UC START# *57B1A47403C5_57ADC6110362get_var*
+//#UC END# *57B1A47403C5_57ADC6110362get_var*

@@ -1,0 +1,87 @@
+// LongProcess 4A93DDCC03E3 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93DDCC03E3
+
+ME ME_F1A5C94EB755
+ MEPROP UID 'F1A5C94EB755'
+ MEPROP Name 'ut_LongProcess'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDCC03E3 // LongProcess
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_ut_LongProcess_UserType.pas'
+ UP extprop:pas:UnitName 'LongProcess_ut_LongProcess_UserType'
+
+ENDME // ME_F1A5C94EB755 ut_LongProcess
+
+ME ME_082F94F73504
+ MEPROP UID '082F94F73504'
+ MEPROP GUID 'D21B6517-D901-4E98-8A54-287D092EED98'
+ MEPROP Name 'LongProcess'
+ MEPROP OriginalName 'LongProcess$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы LongProcess' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93DDCC03E3 // LongProcess
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A93DDCC03E3 // LongProcess
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'LongProcessFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_082F94F73504 LongProcess$Def
+
+ME ME_4A93DDCC03E3
+ MEPROP UID '4A93DDCC03E3'
+ MEPROP Name 'LongProcess'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A8EC78503BB' '4A8EC78503BB.ms.model.script' // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A93DDAE0396' '4A93DDAE0396.ms.model.script' // PrimLongProcess
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_082F94F73504 // LongProcess$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_F1A5C94EB755 // ut_LongProcess
+ HWL ME_082F94F73504 // LongProcess$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms'
+ UP extprop:pas:TypeName 'TLongProcessForm'
+ UP extprop:rc:SelfName 'LongProcessForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'LongProcess_Form'
+
+ENDME // ME_4A93DDCC03E3 LongProcess

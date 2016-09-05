@@ -1,0 +1,3723 @@
+// Требования к созданию и редактированию документа 53F327E402A1 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53F327E402A1
+
+FORWARD ME_53F328B0007F
+
+FORWARD ME_53F32AF20252
+
+FORWARD ME_53F32B410247
+
+ME ME_540FFE770326
+ MEPROP UID '540FFE770326'
+ MEPROP Name 'Импорт текста в кодировке MS DOS (CP-866)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст в DOS (Code Page 866) должен читаться в Архивариусе корректно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B410247 // Создание документа на основе файла txt
+ ;
+
+ENDME // ME_540FFE770326 Импорт текста в кодировке MS DOS (CP-866)
+
+ME ME_540FFEBE0065
+ MEPROP UID '540FFEBE0065'
+ MEPROP Name 'Импорт текста в кодировке Windows (CP-1251)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст в Windows (Code Page 1251) должен читаться в Архивариусе корректно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B410247 // Создание документа на основе файла txt
+ ;
+
+ENDME // ME_540FFEBE0065 Импорт текста в кодировке Windows (CP-1251)
+
+ME ME_540FFEDE03C0
+ MEPROP UID '540FFEDE03C0'
+ MEPROP Name 'Импорт текстовых таблиц в MS DOS кодировке (CP-866)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текствые таблицы в DOS (Code Page 866) должен читаться в Архивариусе корректно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B410247 // Создание документа на основе файла txt
+ ;
+
+ENDME // ME_540FFEDE03C0 Импорт текстовых таблиц в MS DOS кодировке (CP-866)
+
+ME ME_53F32B410247
+ MEPROP UID '53F32B410247'
+ MEPROP Name 'Создание документа на основе файла txt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32AF20252 // Создание текстовых документов
+ ;
+ MELIST Children
+   Seq: ( HWL ME_540FFE770326 // Импорт текста в кодировке MS DOS (CP-866)
+ HWL ME_540FFEBE0065 // Импорт текста в кодировке Windows (CP-1251)
+ HWL ME_540FFEDE03C0 // Импорт текстовых таблиц в MS DOS кодировке (CP-866)
+ )
+ ; // Children
+
+ENDME // ME_53F32B410247 Создание документа на основе файла txt
+
+FORWARD ME_53F32B620174
+
+ME ME_54112A5603C8
+ MEPROP UID '54112A5603C8'
+ MEPROP Name 'Чтение заголовков'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стиль заголовков не читается из RTF. http://mdp.garant.ru/pages/viewpage.action?pageId=149784104&focusedCommentId=155027765#comment-155027765' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_54112A5603C8 Чтение заголовков
+
+ME ME_54112AE5031C
+ MEPROP UID '54112AE5031C'
+ MEPROP Name 'Чтение стилей'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Все стили игнорирются' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_54112AE5031C Чтение стилей
+
+ME ME_54112B1E009E
+ MEPROP UID '54112B1E009E'
+ MEPROP Name 'Чтение шрифтового оформления текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделение жирным, подчеркивание, курсив, размер и имя шрифта, зачеркивание, цвет шрифта, цвет фона игнорируются при чтении файла из RTF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_54112B1E009E Чтение шрифтового оформления текста
+
+ME ME_5411312301FB
+ MEPROP UID '5411312301FB'
+ MEPROP Name 'Чтение RTF с картинками PNG'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Чтение файлов RTF с картинками PNG внутри' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_5411312301FB Чтение RTF с картинками PNG
+
+ME ME_541131D20320
+ MEPROP UID '541131D20320'
+ MEPROP Name 'Чтение RTF с JPEG'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Чтение файла RTF с картинкой JPEG внутри.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_541131D20320 Чтение RTF с JPEG
+
+ME ME_5411321D0168
+ MEPROP UID '5411321D0168'
+ MEPROP Name 'Чтение RTF с BMP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Чтение файлов RTF с картинками PNG внутри' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_5411321D0168 Чтение RTF с BMP
+
+FORWARD ME_541A76730230
+
+ME ME_541A76AB0193
+ MEPROP UID '541A76AB0193'
+ MEPROP Name 'Чтение простых таблиц'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541A76730230 // Чтение таблиц
+ ;
+
+ENDME // ME_541A76AB0193 Чтение простых таблиц
+
+ME ME_541A76BA0078
+ MEPROP UID '541A76BA0078'
+ MEPROP Name 'Чтение таблиц с объедиенными ячейками'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность читать ячейки, объединенные по вертикали и горизонтали.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541A76730230 // Чтение таблиц
+ ;
+
+ENDME // ME_541A76BA0078 Чтение таблиц с объедиенными ячейками
+
+ME ME_541A76DF02AD
+ MEPROP UID '541A76DF02AD'
+ MEPROP Name 'Чтение вложенных таблиц'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541A76730230 // Чтение таблиц
+ ;
+
+ENDME // ME_541A76DF02AD Чтение вложенных таблиц
+
+ME ME_541A775402EA
+ MEPROP UID '541A775402EA'
+ MEPROP Name 'Чтение рамок таблиц'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541A76730230 // Чтение таблиц
+ ;
+
+ENDME // ME_541A775402EA Чтение рамок таблиц
+
+ME ME_541A792B0344
+ MEPROP UID '541A792B0344'
+ MEPROP Name 'Чтение выравнивания текста в таблице'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541A76730230 // Чтение таблиц
+ ;
+
+ENDME // ME_541A792B0344 Чтение выравнивания текста в таблице
+
+ME ME_541A7A3B0054
+ MEPROP UID '541A7A3B0054'
+ MEPROP Name 'Чтения выравнивания по точке'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Из RTF импортируется выравнивание по точке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_541A76730230 // Чтение таблиц
+ ;
+
+ENDME // ME_541A7A3B0054 Чтения выравнивания по точке
+
+ME ME_541A76730230
+ MEPROP UID '541A76730230'
+ MEPROP Name 'Чтение таблиц'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность чтения таблиц из RTF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ MELIST Children
+   Seq: ( HWL ME_541A76AB0193 // Чтение простых таблиц
+ HWL ME_541A76BA0078 // Чтение таблиц с объедиенными ячейками
+ HWL ME_541A76DF02AD // Чтение вложенных таблиц
+ HWL ME_541A775402EA // Чтение рамок таблиц
+ HWL ME_541A792B0344 // Чтение выравнивания текста в таблице
+ HWL ME_541A7A3B0054 // Чтения выравнивания по точке
+ )
+ ; // Children
+
+ENDME // ME_541A76730230 Чтение таблиц
+
+ME ME_541A7B1002EE
+ MEPROP UID '541A7B1002EE'
+ MEPROP Name 'Разрывы разделов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При импорте из RTF разрывы разделов игнорируются' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_541A7B1002EE Разрывы разделов
+
+ME ME_542414E903CD
+ MEPROP UID '542414E903CD'
+ MEPROP Name 'Импорт списков из RTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность читать списки с маркерами и номерами из файла RTF'#13#10'{Requestlink:88082837} и {Requestlink:89106434}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_542414E903CD Импорт списков из RTF
+
+ME ME_542415090051
+ MEPROP UID '542415090051'
+ MEPROP Name 'Импорт многоуровневых списков из RTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность читать многоуровневые списки из файла RTF'#13#10'{Requestlink:88082837} и {Requestlink:89106434}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_542415090051 Импорт многоуровневых списков из RTF
+
+ME ME_5424157C016E
+ MEPROP UID '5424157C016E'
+ MEPROP Name 'Импорт сносок из RTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность читать сноски из RTF. {Requestlink:88082837} и {Requestlink:89106434}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_5424157C016E Импорт сносок из RTF
+
+ME ME_54241759019E
+ MEPROP UID '54241759019E'
+ MEPROP Name 'Импорт гиперссылок из RTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Импорт гиперссылок при чтении файла RTF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_54241759019E Импорт гиперссылок из RTF
+
+ME ME_542E8F57009E
+ MEPROP UID '542E8F57009E'
+ MEPROP Name 'Импорт стилей Гаранта'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Архивариус читает стили вылитые в RTF с помощью F1 (или самого себя).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_542E8F57009E Импорт стилей Гаранта
+
+ME ME_54113176000F
+ MEPROP UID '54113176000F'
+ MEPROP Name 'Чтение RTF с WMF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Воможность читать файлы RTF с WMF-картинкой внутри.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_54113176000F Чтение RTF с WMF
+
+ME ME_5411319D000A
+ MEPROP UID '5411319D000A'
+ MEPROP Name 'Чтение RTF с EMF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Воможность читать файлы RTF с картинкой формата EMF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+
+ENDME // ME_5411319D000A Чтение RTF с EMF
+
+ME ME_53F32B620174
+ MEPROP UID '53F32B620174'
+ MEPROP Name 'Создание документа на основе файла rtf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32AF20252 // Создание текстовых документов
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54112A5603C8 // Чтение заголовков
+ HWL ME_54112AE5031C // Чтение стилей
+ HWL ME_54112B1E009E // Чтение шрифтового оформления текста
+ HWL ME_5411312301FB // Чтение RTF с картинками PNG
+ HWL ME_541131D20320 // Чтение RTF с JPEG
+ HWL ME_5411321D0168 // Чтение RTF с BMP
+ HWL ME_541A76730230 // Чтение таблиц
+ HWL ME_541A7B1002EE // Разрывы разделов
+ HWL ME_542414E903CD // Импорт списков из RTF
+ HWL ME_542415090051 // Импорт многоуровневых списков из RTF
+ HWL ME_5424157C016E // Импорт сносок из RTF
+ HWL ME_54241759019E // Импорт гиперссылок из RTF
+ HWL ME_542E8F57009E // Импорт стилей Гаранта
+ HWL ME_54113176000F // Чтение RTF с WMF
+ HWL ME_5411319D000A // Чтение RTF с EMF
+ )
+ ; // Children
+
+ENDME // ME_53F32B620174 Создание документа на основе файла rtf
+
+ME ME_53F32B7800C8
+ MEPROP UID '53F32B7800C8'
+ MEPROP Name 'Создание файла на основе doc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32AF20252 // Создание текстовых документов
+ ;
+
+ENDME // ME_53F32B7800C8 Создание файла на основе doc
+
+ME ME_53F32BC2022D
+ MEPROP UID '53F32BC2022D'
+ MEPROP Name 'Создание файла на основе evd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32AF20252 // Создание текстовых документов
+ ;
+
+ENDME // ME_53F32BC2022D Создание файла на основе evd
+
+ME ME_53F32BD70067
+ MEPROP UID '53F32BD70067'
+ MEPROP Name 'Создание файла на осное nsrc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32AF20252 // Создание текстовых документов
+ ;
+
+ENDME // ME_53F32BD70067 Создание файла на осное nsrc
+
+ME ME_53F32C4E0379
+ MEPROP UID '53F32C4E0379'
+ MEPROP Name 'Создание документа на основе docx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть "прецендент" - {Requestlink:437125222}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32AF20252 // Создание текстовых документов
+ ;
+
+ENDME // ME_53F32C4E0379 Создание документа на основе docx
+
+ME ME_53F32AF20252
+ MEPROP UID '53F32AF20252'
+ MEPROP Name 'Создание текстовых документов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53F32B410247 // Создание документа на основе файла txt
+ HWL ME_53F32B620174 // Создание документа на основе файла rtf
+ HWL ME_53F32B7800C8 // Создание файла на основе doc
+ HWL ME_53F32BC2022D // Создание файла на основе evd
+ HWL ME_53F32BD70067 // Создание файла на осное nsrc
+ HWL ME_53F32C4E0379 // Создание документа на основе docx
+ )
+ ; // Children
+
+ENDME // ME_53F32AF20252 Создание текстовых документов
+
+FORWARD ME_53F32B070049
+
+ME ME_53F32C2B0360
+ MEPROP UID '53F32C2B0360'
+ MEPROP Name 'Создание документа-объекта на основе BMP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F32C2B0360 Создание документа-объекта на основе BMP
+
+ME ME_53F330B3028B
+ MEPROP UID '53F330B3028B'
+ MEPROP Name 'Создание документа-объекта на основе jpg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F330B3028B Создание документа-объекта на основе jpg
+
+ME ME_53F330D20290
+ MEPROP UID '53F330D20290'
+ MEPROP Name 'Создание документа-объекта на основе txt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F330D20290 Создание документа-объекта на основе txt
+
+ME ME_53F330ED0068
+ MEPROP UID '53F330ED0068'
+ MEPROP Name 'Создание документа-обекта на основе rtf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F330ED0068 Создание документа-обекта на основе rtf
+
+ME ME_53F331070085
+ MEPROP UID '53F331070085'
+ MEPROP Name 'Создание документа-объекта на основе doc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F331070085 Создание документа-объекта на основе doc
+
+ME ME_53F332AE03DB
+ MEPROP UID '53F332AE03DB'
+ MEPROP Name 'Создание документа-объекта на основе pdf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:401515832}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F332AE03DB Создание документа-объекта на основе pdf
+
+ME ME_53F3362701E2
+ MEPROP UID '53F3362701E2'
+ MEPROP Name 'Создание документа-объекта на основе tiff'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:516165596}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F3362701E2 Создание документа-объекта на основе tiff
+
+ME ME_53F338B50231
+ MEPROP UID '53F338B50231'
+ MEPROP Name 'Создание документа-объкта из PNG'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:224788955} и {Requestlink:85721219}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F32B070049 // Создание документов-объектов
+ ;
+
+ENDME // ME_53F338B50231 Создание документа-объкта из PNG
+
+ME ME_53F32B070049
+ MEPROP UID '53F32B070049'
+ MEPROP Name 'Создание документов-объектов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53F32C2B0360 // Создание документа-объекта на основе BMP
+ HWL ME_53F330B3028B // Создание документа-объекта на основе jpg
+ HWL ME_53F330D20290 // Создание документа-объекта на основе txt
+ HWL ME_53F330ED0068 // Создание документа-обекта на основе rtf
+ HWL ME_53F331070085 // Создание документа-объекта на основе doc
+ HWL ME_53F332AE03DB // Создание документа-объекта на основе pdf
+ HWL ME_53F3362701E2 // Создание документа-объекта на основе tiff
+ HWL ME_53F338B50231 // Создание документа-объкта из PNG
+ )
+ ; // Children
+
+ENDME // ME_53F32B070049 Создание документов-объектов
+
+ME ME_53F33C7A0062
+ MEPROP UID '53F33C7A0062'
+ MEPROP Name 'Возможность задания номера документа при его создании'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+
+ENDME // ME_53F33C7A0062 Возможность задания номера документа при его создании
+
+ME ME_53F33CBD00F0
+ MEPROP UID '53F33CBD00F0'
+ MEPROP Name 'Возможность создания документа без номера'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+
+ENDME // ME_53F33CBD00F0 Возможность создания документа без номера
+
+ME ME_53F33CCE0386
+ MEPROP UID '53F33CCE0386'
+ MEPROP Name 'Возможность задания названия документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+
+ENDME // ME_53F33CCE0386 Возможность задания названия документа
+
+ME ME_53F33D00019B
+ MEPROP UID '53F33D00019B'
+ MEPROP Name 'Возможность создания документа без названия'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+
+ENDME // ME_53F33D00019B Возможность создания документа без названия
+
+ME ME_53F33D9E025F
+ MEPROP UID '53F33D9E025F'
+ MEPROP Name 'Автоматический анализ заголовка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+
+ENDME // ME_53F33D9E025F Автоматический анализ заголовка
+
+ME ME_53F33DB801B6
+ MEPROP UID '53F33DB801B6'
+ MEPROP Name 'Создание словарной статьи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+
+ENDME // ME_53F33DB801B6 Создание словарной статьи
+
+ME ME_53F33DFF033B
+ MEPROP UID '53F33DFF033B'
+ MEPROP Name 'Импорт документов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F328B0007F // Создание нового документа
+ ;
+
+ENDME // ME_53F33DFF033B Импорт документов
+
+ME ME_53F328B0007F
+ MEPROP UID '53F328B0007F'
+ MEPROP Name 'Создание нового документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53F32AF20252 // Создание текстовых документов
+ HWL ME_53F32B070049 // Создание документов-объектов
+ HWL ME_53F33C7A0062 // Возможность задания номера документа при его создании
+ HWL ME_53F33CBD00F0 // Возможность создания документа без номера
+ HWL ME_53F33CCE0386 // Возможность задания названия документа
+ HWL ME_53F33D00019B // Возможность создания документа без названия
+ HWL ME_53F33D9E025F // Автоматический анализ заголовка
+ HWL ME_53F33DB801B6 // Создание словарной статьи
+ HWL ME_53F33DFF033B // Импорт документов
+ )
+ ; // Children
+
+ENDME // ME_53F328B0007F Создание нового документа
+
+FORWARD ME_551121E4029E
+
+FORWARD ME_551122A90004
+
+FORWARD ME_551123420171
+
+ME ME_5511235903E4
+ MEPROP UID '5511235903E4'
+ MEPROP Name 'Преобразование текста в верхний регистр'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_5511235903E4 Преобразование текста в верхний регистр
+
+FORWARD ME_5511236801FE
+
+ME ME_5511245D0018
+ MEPROP UID '5511245D0018'
+ MEPROP Name 'Преобразование всего текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5511236801FE // Преобразование текста в нижний регистр
+ ;
+
+ENDME // ME_5511245D0018 Преобразование всего текста
+
+ME ME_5511246D0083
+ MEPROP UID '5511246D0083'
+ MEPROP Name 'Оставлять первую букву заглваной'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5511236801FE // Преобразование текста в нижний регистр
+ ;
+
+ENDME // ME_5511246D0083 Оставлять первую букву заглваной
+
+ME ME_5511236801FE
+ MEPROP UID '5511236801FE'
+ MEPROP Name 'Преобразование текста в нижний регистр'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5511245D0018 // Преобразование всего текста
+ HWL ME_5511246D0083 // Оставлять первую букву заглваной
+ )
+ ; // Children
+
+ENDME // ME_5511236801FE Преобразование текста в нижний регистр
+
+ME ME_5511237602FC
+ MEPROP UID '5511237602FC'
+ MEPROP Name 'Русская раскладка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_5511237602FC Русская раскладка
+
+ME ME_551123960070
+ MEPROP UID '551123960070'
+ MEPROP Name 'Английская раскладка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_551123960070 Английская раскладка
+
+ME ME_551123A30343
+ MEPROP UID '551123A30343'
+ MEPROP Name 'Преобразование даты в текст'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_551123A30343 Преобразование даты в текст
+
+ME ME_551123B602CD
+ MEPROP UID '551123B602CD'
+ MEPROP Name 'Смена кодировки ОЕМ в ANSI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_551123B602CD Смена кодировки ОЕМ в ANSI
+
+ME ME_551123CA029B
+ MEPROP UID '551123CA029B'
+ MEPROP Name 'Смена кодировки ANSI в ОЕМ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_551123CA029B Смена кодировки ANSI в ОЕМ
+
+ME ME_551123E2014A
+ MEPROP UID '551123E2014A'
+ MEPROP Name 'Объединение абзацев'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_551123E2014A Объединение абзацев
+
+ME ME_5511248F039E
+ MEPROP UID '5511248F039E'
+ MEPROP Name 'Инвертировать регистр'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551123420171 // Дополнительные преобразования
+ ;
+
+ENDME // ME_5511248F039E Инвертировать регистр
+
+ME ME_551123420171
+ MEPROP UID '551123420171'
+ MEPROP Name 'Дополнительные преобразования'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функции из меню "Сервис\Преобразовать"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122A90004 // Изменение текста документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5511235903E4 // Преобразование текста в верхний регистр
+ HWL ME_5511236801FE // Преобразование текста в нижний регистр
+ HWL ME_5511237602FC // Русская раскладка
+ HWL ME_551123960070 // Английская раскладка
+ HWL ME_551123A30343 // Преобразование даты в текст
+ HWL ME_551123B602CD // Смена кодировки ОЕМ в ANSI
+ HWL ME_551123CA029B // Смена кодировки ANSI в ОЕМ
+ HWL ME_551123E2014A // Объединение абзацев
+ HWL ME_5511248F039E // Инвертировать регистр
+ )
+ ; // Children
+
+ENDME // ME_551123420171 Дополнительные преобразования
+
+ME ME_551122A90004
+ MEPROP UID '551122A90004'
+ MEPROP Name 'Изменение текста документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_551123420171 // Дополнительные преобразования
+ )
+ ; // Children
+
+ENDME // ME_551122A90004 Изменение текста документа
+
+FORWARD ME_551122C1020D
+
+FORWARD ME_56EB9D38014F
+
+ME ME_56EB9D88023B
+ MEPROP UID '56EB9D88023B'
+ MEPROP Name 'Копирование текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9D88023B Копирование текста
+
+ME ME_56EB9D940275
+ MEPROP UID '56EB9D940275'
+ MEPROP Name 'Копирование таблицы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9D940275 Копирование таблицы
+
+ME ME_56EB9D9C0381
+ MEPROP UID '56EB9D9C0381'
+ MEPROP Name 'Копирование картики'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9D9C0381 Копирование картики
+
+ME ME_56EB9DA903BD
+ MEPROP UID '56EB9DA903BD'
+ MEPROP Name 'Копирование формулы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9DA903BD Копирование формулы
+
+ME ME_56EB9DB60167
+ MEPROP UID '56EB9DB60167'
+ MEPROP Name 'Копирование блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9DB60167 Копирование блока
+
+ME ME_56EB9DC101F2
+ MEPROP UID '56EB9DC101F2'
+ MEPROP Name 'Копирование строки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9DC101F2 Копирование строки
+
+ME ME_56EB9DE002F8
+ MEPROP UID '56EB9DE002F8'
+ MEPROP Name 'Копирование ячейки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9DE002F8 Копирование ячейки
+
+ME ME_56EB9E3600E9
+ MEPROP UID '56EB9E3600E9'
+ MEPROP Name 'Копирование столбца таблицы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9E3600E9 Копирование столбца таблицы
+
+ME ME_56EB9EC9015A
+ MEPROP UID '56EB9EC9015A'
+ MEPROP Name 'Копирование с помощью Ctrl+C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9EC9015A Копирование с помощью Ctrl+C
+
+ME ME_56EB9EDB026D
+ MEPROP UID '56EB9EDB026D'
+ MEPROP Name 'Копирование с помощью Ctrl+Ins'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ENDME // ME_56EB9EDB026D Копирование с помощью Ctrl+Ins
+
+ME ME_56EB9D38014F
+ MEPROP UID '56EB9D38014F'
+ MEPROP Name 'Копирование в буфер'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122C1020D // Работа с буфером обмена
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56EB9D88023B // Копирование текста
+ HWL ME_56EB9D940275 // Копирование таблицы
+ HWL ME_56EB9D9C0381 // Копирование картики
+ HWL ME_56EB9DA903BD // Копирование формулы
+ HWL ME_56EB9DB60167 // Копирование блока
+ HWL ME_56EB9DC101F2 // Копирование строки
+ HWL ME_56EB9DE002F8 // Копирование ячейки
+ HWL ME_56EB9E3600E9 // Копирование столбца таблицы
+ HWL ME_56EB9EC9015A // Копирование с помощью Ctrl+C
+ HWL ME_56EB9EDB026D // Копирование с помощью Ctrl+Ins
+ )
+ ; // Children
+
+ENDME // ME_56EB9D38014F Копирование в буфер
+
+FORWARD ME_56EB9D4400A2
+
+ME ME_56EB9FB4039B
+ MEPROP UID '56EB9FB4039B'
+ MEPROP Name 'Вырезание в буфер текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ENDME // ME_56EB9FB4039B Вырезание в буфер текста
+
+ME ME_56EB9FC302A9
+ MEPROP UID '56EB9FC302A9'
+ MEPROP Name 'Вырезание в буфер картинки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ENDME // ME_56EB9FC302A9 Вырезание в буфер картинки
+
+ME ME_56EB9FCE0278
+ MEPROP UID '56EB9FCE0278'
+ MEPROP Name 'Вырезание в буфер формулы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ENDME // ME_56EB9FCE0278 Вырезание в буфер формулы
+
+ME ME_56EB9FDC0271
+ MEPROP UID '56EB9FDC0271'
+ MEPROP Name 'Вырезание в буфер таблицы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ENDME // ME_56EB9FDC0271 Вырезание в буфер таблицы
+
+ME ME_56EBA08902EB
+ MEPROP UID '56EBA08902EB'
+ MEPROP Name 'Вырезание в буфер блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ENDME // ME_56EBA08902EB Вырезание в буфер блока
+
+ME ME_56EBA16C02D7
+ MEPROP UID '56EBA16C02D7'
+ MEPROP Name 'Вырезание в буфер с помощью Ctrl+X'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ENDME // ME_56EBA16C02D7 Вырезание в буфер с помощью Ctrl+X
+
+ME ME_56EBA17D009A
+ MEPROP UID '56EBA17D009A'
+ MEPROP Name 'Вырезание в буфер с помощью Shift+Del'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ENDME // ME_56EBA17D009A Вырезание в буфер с помощью Shift+Del
+
+ME ME_56EB9D4400A2
+ MEPROP UID '56EB9D4400A2'
+ MEPROP Name 'Вырезание в буфер'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122C1020D // Работа с буфером обмена
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56EB9FB4039B // Вырезание в буфер текста
+ HWL ME_56EB9FC302A9 // Вырезание в буфер картинки
+ HWL ME_56EB9FCE0278 // Вырезание в буфер формулы
+ HWL ME_56EB9FDC0271 // Вырезание в буфер таблицы
+ HWL ME_56EBA08902EB // Вырезание в буфер блока
+ HWL ME_56EBA16C02D7 // Вырезание в буфер с помощью Ctrl+X
+ HWL ME_56EBA17D009A // Вырезание в буфер с помощью Shift+Del
+ )
+ ; // Children
+
+ENDME // ME_56EB9D4400A2 Вырезание в буфер
+
+FORWARD ME_56EB9D560289
+
+ME ME_56EB9FF7034F
+ MEPROP UID '56EB9FF7034F'
+ MEPROP Name 'Вставки из буфера текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EB9FF7034F Вставки из буфера текста
+
+ME ME_56EBA00D033E
+ MEPROP UID '56EBA00D033E'
+ MEPROP Name 'Вставка из буфера таблицы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA00D033E Вставка из буфера таблицы
+
+ME ME_56EBA01B022E
+ MEPROP UID '56EBA01B022E'
+ MEPROP Name 'Вставка из буфера картинки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA01B022E Вставка из буфера картинки
+
+ME ME_56EBA0290006
+ MEPROP UID '56EBA0290006'
+ MEPROP Name 'Вставка из буфера формулы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA0290006 Вставка из буфера формулы
+
+ME ME_56EBA038008A
+ MEPROP UID '56EBA038008A'
+ MEPROP Name 'Вставка из буфера блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA038008A Вставка из буфера блока
+
+ME ME_56EBA0450027
+ MEPROP UID '56EBA0450027'
+ MEPROP Name 'Вставка из буфера текста в формате RTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA0450027 Вставка из буфера текста в формате RTF
+
+ME ME_56EBA0790121
+ MEPROP UID '56EBA0790121'
+ MEPROP Name 'Вставка из буфера в формате HTML'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA0790121 Вставка из буфера в формате HTML
+
+ME ME_56EBA12E034A
+ MEPROP UID '56EBA12E034A'
+ MEPROP Name 'Вставка из буфера с помощью Ctrl+V'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA12E034A Вставка из буфера с помощью Ctrl+V
+
+ME ME_56EBA13E03DC
+ MEPROP UID '56EBA13E03DC'
+ MEPROP Name 'Вставка из буфера с помощью Shift+Ins'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ENDME // ME_56EBA13E03DC Вставка из буфера с помощью Shift+Ins
+
+ME ME_56EB9D560289
+ MEPROP UID '56EB9D560289'
+ MEPROP Name 'Вставка из буфера'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122C1020D // Работа с буфером обмена
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56EB9FF7034F // Вставки из буфера текста
+ HWL ME_56EBA00D033E // Вставка из буфера таблицы
+ HWL ME_56EBA01B022E // Вставка из буфера картинки
+ HWL ME_56EBA0290006 // Вставка из буфера формулы
+ HWL ME_56EBA038008A // Вставка из буфера блока
+ HWL ME_56EBA0450027 // Вставка из буфера текста в формате RTF
+ HWL ME_56EBA0790121 // Вставка из буфера в формате HTML
+ HWL ME_56EBA12E034A // Вставка из буфера с помощью Ctrl+V
+ HWL ME_56EBA13E03DC // Вставка из буфера с помощью Shift+Ins
+ )
+ ; // Children
+
+ENDME // ME_56EB9D560289 Вставка из буфера
+
+FORWARD ME_56EB9F1503E4
+
+ME ME_56EB9F2A01C0
+ MEPROP UID '56EB9F2A01C0'
+ MEPROP Name 'Добавление в буфер выделенного текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ENDME // ME_56EB9F2A01C0 Добавление в буфер выделенного текста
+
+ME ME_56EB9F3B0291
+ MEPROP UID '56EB9F3B0291'
+ MEPROP Name 'Добавление в буфер таблицы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ENDME // ME_56EB9F3B0291 Добавление в буфер таблицы
+
+ME ME_56EB9F4D033F
+ MEPROP UID '56EB9F4D033F'
+ MEPROP Name 'Добавление в буфер картинки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ENDME // ME_56EB9F4D033F Добавление в буфер картинки
+
+ME ME_56EBA0A002A7
+ MEPROP UID '56EBA0A002A7'
+ MEPROP Name 'Добавление в буфер формулы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ENDME // ME_56EBA0A002A7 Добавление в буфер формулы
+
+ME ME_56EBA0AB039F
+ MEPROP UID '56EBA0AB039F'
+ MEPROP Name 'Добавление в буфер блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ENDME // ME_56EBA0AB039F Добавление в буфер блока
+
+ME ME_56EB9F1503E4
+ MEPROP UID '56EB9F1503E4'
+ MEPROP Name 'Добавление в буфер'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122C1020D // Работа с буфером обмена
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56EB9F2A01C0 // Добавление в буфер выделенного текста
+ HWL ME_56EB9F3B0291 // Добавление в буфер таблицы
+ HWL ME_56EB9F4D033F // Добавление в буфер картинки
+ HWL ME_56EBA0A002A7 // Добавление в буфер формулы
+ HWL ME_56EBA0AB039F // Добавление в буфер блока
+ )
+ ; // Children
+
+ENDME // ME_56EB9F1503E4 Добавление в буфер
+
+ME ME_56EBA0E3032E
+ MEPROP UID '56EBA0E3032E'
+ MEPROP Name 'Специальная вставка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122C1020D // Работа с буфером обмена
+ ;
+
+ENDME // ME_56EBA0E3032E Специальная вставка
+
+ME ME_551122C1020D
+ MEPROP UID '551122C1020D'
+ MEPROP Name 'Работа с буфером обмена'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56EB9D38014F // Копирование в буфер
+ HWL ME_56EB9D4400A2 // Вырезание в буфер
+ HWL ME_56EB9D560289 // Вставка из буфера
+ HWL ME_56EB9F1503E4 // Добавление в буфер
+ HWL ME_56EBA0E3032E // Специальная вставка
+ )
+ ; // Children
+
+ENDME // ME_551122C1020D Работа с буфером обмена
+
+FORWARD ME_551122D603B9
+
+ME ME_551125330170
+ MEPROP UID '551125330170'
+ MEPROP Name 'Изменение стиля текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить стиль текста на котором стоит курсор, так и выделенного текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_551125330170 Изменение стиля текста
+
+ME ME_55112554000C
+ MEPROP UID '55112554000C'
+ MEPROP Name 'Изменение шрифта'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить шрифт текста на котором стоит курсор, так и выделенного текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_55112554000C Изменение шрифта
+
+ME ME_551125650353
+ MEPROP UID '551125650353'
+ MEPROP Name 'Изменение размер шрифта текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить размер шрифта текста на котором стоит курсор, так и выделенного текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_551125650353 Изменение размер шрифта текста
+
+ME ME_551125720398
+ MEPROP UID '551125720398'
+ MEPROP Name 'Изменение цвета текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить цвет текста на котором стоит курсор, так и выделенного текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_551125720398 Изменение цвета текста
+
+ME ME_5511261B02BC
+ MEPROP UID '5511261B02BC'
+ MEPROP Name 'Оформление текста жирным шрифтом'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Жирный''.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_5511261B02BC Оформление текста жирным шрифтом
+
+ME ME_551126A00241
+ MEPROP UID '551126A00241'
+ MEPROP Name 'Оформление текста курсивом'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Курсив''.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_551126A00241 Оформление текста курсивом
+
+ME ME_551126BC0233
+ MEPROP UID '551126BC0233'
+ MEPROP Name 'Оформление текста подчеркиванием'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Подчеркнутый''.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_551126BC0233 Оформление текста подчеркиванием
+
+ME ME_551126DB0270
+ MEPROP UID '551126DB0270'
+ MEPROP Name 'Изменение видимости текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Невидимый''.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+
+ENDME // ME_551126DB0270 Изменение видимости текста
+
+FORWARD ME_56EBA1A102FF
+
+ME ME_56EBA1B401A9
+ MEPROP UID '56EBA1B401A9'
+ MEPROP Name 'Выравнивание текста по ширине'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ENDME // ME_56EBA1B401A9 Выравнивание текста по ширине
+
+ME ME_56EBA1BE0199
+ MEPROP UID '56EBA1BE0199'
+ MEPROP Name 'Выравнивание текста по левому краю'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ENDME // ME_56EBA1BE0199 Выравнивание текста по левому краю
+
+ME ME_56EBA1D20050
+ MEPROP UID '56EBA1D20050'
+ MEPROP Name 'Вырванивание текста по правому краю'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ENDME // ME_56EBA1D20050 Вырванивание текста по правому краю
+
+ME ME_56EBA1DE030B
+ MEPROP UID '56EBA1DE030B'
+ MEPROP Name 'Выравнивание текста по центру'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ENDME // ME_56EBA1DE030B Выравнивание текста по центру
+
+ME ME_56EBA1A102FF
+ MEPROP UID '56EBA1A102FF'
+ MEPROP Name 'Изменение вырванивания текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551122D603B9 // Изменение оформления
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56EBA1B401A9 // Выравнивание текста по ширине
+ HWL ME_56EBA1BE0199 // Выравнивание текста по левому краю
+ HWL ME_56EBA1D20050 // Вырванивание текста по правому краю
+ HWL ME_56EBA1DE030B // Выравнивание текста по центру
+ )
+ ; // Children
+
+ENDME // ME_56EBA1A102FF Изменение вырванивания текста
+
+ME ME_551122D603B9
+ MEPROP UID '551122D603B9'
+ MEPROP Name 'Изменение оформления'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_551125330170 // Изменение стиля текста
+ HWL ME_55112554000C // Изменение шрифта
+ HWL ME_551125650353 // Изменение размер шрифта текста
+ HWL ME_551125720398 // Изменение цвета текста
+ HWL ME_5511261B02BC // Оформление текста жирным шрифтом
+ HWL ME_551126A00241 // Оформление текста курсивом
+ HWL ME_551126BC0233 // Оформление текста подчеркиванием
+ HWL ME_551126DB0270 // Изменение видимости текста
+ HWL ME_56EBA1A102FF // Изменение вырванивания текста
+ )
+ ; // Children
+
+ENDME // ME_551122D603B9 Изменение оформления
+
+FORWARD ME_570B3C440128
+
+ME ME_570B3C5F03C7
+ MEPROP UID '570B3C5F03C7'
+ MEPROP Name 'Вставка подписи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вставка подписи осущетсвляется с помощью команды "Подпись" в меню "Вставка". В результате выполнения появляется табилца, состоящая из двух ячеек.. В правом текст выравнен по правому краю, в левом - по левому. Рамки у таблицы и у ячеек отсутствуют. Таблица автоматически изменяет ширину по ширине документа (в режиме форматирования по метрикам принтера) или экрана в режиме веб-стиля.'#13#10'Вставить подпись можно с помощью комбинации "Shft+Space". При этом, если курсор установлен в тексте, то текст делится в месте установки курсора на две части. Часть до курсора помещается в левую ячейку. Часть после курсора -  в правую.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_570B3C440128 // Вставка в документ
+ ;
+
+ENDME // ME_570B3C5F03C7 Вставка подписи
+
+ME ME_570B3C75008B
+ MEPROP UID '570B3C75008B'
+ MEPROP Name 'Вставка раздела'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вставка осуществляется с помощью меню "Вставка\Раздел". '#13#10'Текущий абзац разбивается на два абзаца, если он не пустой. Между ними появляется разрыв раздела (двойная непрерывная линия с надписью "Разрыв раздела (А4, книжная). В случае пустого абзаца разрыв появляется на его месте. '#13#10'Если курсор находится в табилце, то разрыв раздела в документ не добавляется.'#13#10'В режиме форматирования по метрикам принтера изменения параметров раздела  (формат старницы, ориентация страницы) приводит к изменению форматирования, следующего за ним текста (вплоть до следующего разрыва раздела). На таблицы и картинки (формулы) раздел не влияет. '#13#10'В режиме веб-форматирования разделы не вляют на форматирование документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_570B3C440128 // Вставка в документ
+ ;
+
+ENDME // ME_570B3C75008B Вставка раздела
+
+ME ME_570B3C910214
+ MEPROP UID '570B3C910214'
+ MEPROP Name 'Вставка разрыва страницы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Разрыв страницы добавляется по месту установки курсора с помощью меню "Вставка\Разрыв страницы".'#13#10'При этом, текущий абзац разбивается на два абзаца. Между ними появляется одинарная линия с надписью "Начало страницы". В случае, если азац пустой, то разрыв страницы помещается вместо него.'#13#10'Если курсор находится в табилце, то разрыв страницы в документ не добавляется.'#13#10'С помощью клавиатуры можно добавить разрыв страницы с помощью "Shift+Enter"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_570B3C440128 // Вставка в документ
+ ;
+
+ENDME // ME_570B3C910214 Вставка разрыва страницы
+
+ME ME_570B3CAB0184
+ MEPROP UID '570B3CAB0184'
+ MEPROP Name 'Вставка формулы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вставка формул осуществляется с помощью меню "Вставка\Формула". Или с помощью клавиатуры: "Ctrl+Shift+F).'#13#10'При этом появляется окно редактора формул, в котором можно:'#13#10'* набить текст формулы с помощью клавиатуры'#13#10'* выбрать формулу из уже готовых шаблонов.'#13#10'По окончании ввода формулы пользователь нажимает кнопку "ОК" для вставки формулы в текст документа иили "Отмена" для отказа от вставки формулы в документ.'#13#10'Формула вставляется по месту курсора в редакторе текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_570B3C440128 // Вставка в документ
+ ;
+
+ENDME // ME_570B3CAB0184 Вставка формулы
+
+FORWARD ME_570B3CC80287
+
+ME ME_5715C52B0299
+ MEPROP UID '5715C52B0299'
+ MEPROP Name 'Работа с диалогом шаблонов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вызов из меню: Вставка\Текстовый шаблон\Редактирование'#13#10'В окне редактирования можно ввести шаблон вручную или выбрать уже готовый через выпадающий список.'#13#10'Для удобства ввода доступен выпадащее меню, вызываемое по кнопке "Макросы".  В нем находится список поддерживаемых макросов, доступных для вставки в шаблон. При выборе пункта меню в текст в редакторе шаблона вставляется макрос. '#13#10'Готовый макрос можно сохранить. Для чего досупна кнопка "Сохранить текущий шаблон". После нажатия на кнопку будет запрошено имя сохраняемого шаблона. После сохранения имя шаблона будет помещено в список.'#13#10'Шаблон можно удалить. Для этого справа от списка находится кнопка. Кнопка доступна только после выбора любого шаблона из списка. Если ни одни шаблон не выбран, то на кнопку нельзя будет нажать.'#13#10'Реализованна в задаче: {Requestlink:202342677}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_570B3CC80287 // Вставка текстового шаблона
+ ;
+
+ENDME // ME_5715C52B0299 Работа с диалогом шаблонов
+
+ME ME_570B3CC80287
+ MEPROP UID '570B3CC80287'
+ MEPROP Name 'Вставка текстового шаблона'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текстовый шаблон вставляется с помощью меню "Вставка\Текстовый шаблон". С помощью клавиатуры используется комбинация клавиш "Alt+Ins". '#13#10'В результате появляется окно работы с текстовым шаблоном, в котором можно:'#13#10'* написать шаблон вручную'#13#10'* выбрать из уже готовых шаблонов.'#13#10'По окончании работы с шаблоном, пользователь нажимает "ОК" для обработки шаблона и вставки результата в текст документа. Или "Отмена" для закрытия окна без изменения документа.'#13#10'Доступна также кнопка "Помощь" для вызова справки по шаблонам.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_570B3C440128 // Вставка в документ
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5715C52B0299 // Работа с диалогом шаблонов
+ )
+ ; // Children
+
+ENDME // ME_570B3CC80287 Вставка текстового шаблона
+
+ME ME_570B3C440128
+ MEPROP UID '570B3C440128'
+ MEPROP Name 'Вставка в документ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_570B3C5F03C7 // Вставка подписи
+ HWL ME_570B3C75008B // Вставка раздела
+ HWL ME_570B3C910214 // Вставка разрыва страницы
+ HWL ME_570B3CAB0184 // Вставка формулы
+ HWL ME_570B3CC80287 // Вставка текстового шаблона
+ )
+ ; // Children
+
+ENDME // ME_570B3C440128 Вставка в документ
+
+ME ME_570DE64F021D
+ MEPROP UID '570DE64F021D'
+ MEPROP Name 'Создание схем'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Позволяет создавать текстовые схемы в Архивариусе с пмощью клавиатуры.'#13#10'Для создания схемы следует:'#13#10'* Перейти на стиль Нормальный OEM (Alt+4)'#13#10'* Включить режим рисования линий'#13#10'* Рисование линий осуществляется с помощью кнопок на клавиатуре:'#13#10'** Рисование указателей выполняется с помощью Ctrl + стрелки вправо/влево/вниз/вверх'#13#10'** Рисование простых линий - с помощью Shift + стрелки вправо/влево/вниз/вверх'#13#10'** Удаление лишних линий - с помощью Ctrl+Shift+стрелки вправо/влево/вниз/вверх' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+
+ENDME // ME_570DE64F021D Создание схем
+
+ME ME_5715CB480335
+ MEPROP UID '5715CB480335'
+ MEPROP Name 'Проверка орфографии'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Запускает процесс проверки орфографии для текста документа.'#13#10'Вызывается с помощью кнопки на панели инструментов "Проверка орфографии".'#13#10'Проверка начинается с текущего положения курсора.'#13#10'Окно содержит два поля: "Нет в словаре", где содерится слово, которое не найдено в орфографическом словаре системой проверки орфографии. Такое слово считается ошибочным. И окно "Варианты" - слова, на которые система предлагает заменить ошибочное слово. '#13#10'Справа от полей находятся кнопки: '#13#10'"Пропустить" - считать слово правильным.'#13#10'"Пропустить все" - считать текущее слово и все последующие слова правильными '#13#10'"Добавить" - добавляет текущее слово в орфографический словарь. Такое слово будет считаться правильным в этом и других документах.'#13#10'"Заменить" - заменить текущее слово на выбранное в поле "Варианты"'#13#10'"Заменить все" - заменять все ошибочные слова на первые слова в поле "Варианты"'#13#10'Если в редакторе выделена часть текста, то проверка будет производится для выделенного фрагмента.'#13#10'В нижней части окна есть две кнопки: "Помощь" и "Завершить".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+
+ENDME // ME_5715CB480335 Проверка орфографии
+
+FORWARD ME_5715CFEF0244
+
+FORWARD ME_5715D02202C0
+
+ME ME_5718697D017C
+ MEPROP UID '5718697D017C'
+ MEPROP Name 'Поиск со специсимволами'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Справа от поля есть кнопка "Спецсимволы" для добавленя в поиск специальных условий поиска:'#13#10'* любой буквы '#13#10'* перевода строки'#13#10'* табуляции'#13#10'* параграфа'#13#10'* любого символа'#13#10'* любой цифры'#13#10'* неразрывного пробела'#13#10'* тире'#13#10'* длинного тире.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_5718697D017C Поиск со специсимволами
+
+ME ME_571869930272
+ MEPROP UID '571869930272'
+ MEPROP Name 'Поиск с учетом регистра'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При поиске учитывается регистр слова или выражения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_571869930272 Поиск с учетом регистра
+
+ME ME_571869ED0204
+ MEPROP UID '571869ED0204'
+ MEPROP Name 'Поиск слова целиком'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При выделении параметра ищется целое вхождение слова в текст.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_571869ED0204 Поиск слова целиком
+
+ME ME_57186A120064
+ MEPROP UID '57186A120064'
+ MEPROP Name 'Поиск со словоформами'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск словоформ подразумевает поиск различных склонений имён существительных и прилагательных (по падежам, родам и числам), спряжений глаголов. Поиск неизменяемых частей речи, например, предлогов, вводных слов, наречий и'#13#10'союзов, будет осуществляться в исходном виде. Например, для слова "идти" будут найдены следующие словоформы: "шёл", "идут", "пойдем" и т.д.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_57186A120064 Поиск со словоформами
+
+ME ME_57186A6B0265
+ MEPROP UID '57186A6B0265'
+ MEPROP Name 'Поиск слова с любыми окончаниями'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слова, имеющие разные окончания, будут считаться одинаковыми при поиске. Для поиск строгозаданной последовательности символов в конце слова используется восклицательный знак.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_57186A6B0265 Поиск слова с любыми окончаниями
+
+ME ME_57186B160007
+ MEPROP UID '57186B160007'
+ MEPROP Name 'Поиск с регулярными выраженями'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск текста с использованием регулярных выражений.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_57186B160007 Поиск с регулярными выраженями
+
+ME ME_57186B560280
+ MEPROP UID '57186B560280'
+ MEPROP Name 'Параметры области поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Искать можно по всему тексту или по выделенному фрагменту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_57186B560280 Параметры области поиска
+
+ME ME_57186B7D031F
+ MEPROP UID '57186B7D031F'
+ MEPROP Name 'Начало поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Искать можно от курсора или от начала текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_57186B7D031F Начало поиска
+
+ME ME_57186CB300D4
+ MEPROP UID '57186CB300D4'
+ MEPROP Name 'Использование текста из предыдущего поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'До 20 предыдущих слов или словосочетаний сохраняются в выпадающем списке поля поиска и могут быть использованы для последующего поиска.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_57186CB300D4 Использование текста из предыдущего поиска
+
+ME ME_5732E3C3027B
+ MEPROP UID '5732E3C3027B'
+ MEPROP Name 'Несколько опций поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При поиске можно задавать различные сочетания опций поиска. '#13#10'Поддерживаются следующие сочетания:'#13#10'* "Учитывать регистр" - со всеми, кроме "Со словоформами"'#13#10'* "Со словоформами" - ни с одной из опций.'#13#10'* Остальные опции сочетаются только с опцией"Учитывать регистр"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_5732E3C3027B Несколько опций поиска
+
+ME ME_5732E66F0014
+ MEPROP UID '5732E66F0014'
+ MEPROP Name 'Сочетания спецсимволов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Спецсимволы могут применяться не только по одному, но и в различных сочетаниях. Например, ^# ^$' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715D02202C0 // Поиск текста
+ ;
+
+ENDME // ME_5732E66F0014 Сочетания спецсимволов
+
+ME ME_5715D02202C0
+ MEPROP UID '5715D02202C0'
+ MEPROP Name 'Поиск текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вызывается с помощью меню "Поиск\Найти" или по комбинации клавиш "Ctrl+F" или "Ctrl+T".'#13#10'В окне поиска можно набить слово или словосочетание для поиска. Слова могут вводиться не полностью.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5718697D017C // Поиск со специсимволами
+ HWL ME_571869930272 // Поиск с учетом регистра
+ HWL ME_571869ED0204 // Поиск слова целиком
+ HWL ME_57186A120064 // Поиск со словоформами
+ HWL ME_57186A6B0265 // Поиск слова с любыми окончаниями
+ HWL ME_57186B160007 // Поиск с регулярными выраженями
+ HWL ME_57186B560280 // Параметры области поиска
+ HWL ME_57186B7D031F // Начало поиска
+ HWL ME_57186CB300D4 // Использование текста из предыдущего поиска
+ HWL ME_5732E3C3027B // Несколько опций поиска
+ HWL ME_5732E66F0014 // Сочетания спецсимволов
+ )
+ ; // Children
+
+ENDME // ME_5715D02202C0 Поиск текста
+
+ME ME_5715D06103E1
+ MEPROP UID '5715D06103E1'
+ MEPROP Name 'Поиск стиля'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_5715D06103E1 Поиск стиля
+
+ME ME_5715D06C00C8
+ MEPROP UID '5715D06C00C8'
+ MEPROP Name 'Поиск гиперссылок'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_5715D06C00C8 Поиск гиперссылок
+
+ME ME_5715D0770375
+ MEPROP UID '5715D0770375'
+ MEPROP Name 'Поиск таблиц'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск таблицы находится в меню "Поиск". Команда "Найти таблицу" или с помощью сочетания клавиш "Alt+T"'#13#10'При выборе команды ищется таблица вниз от курсора. Изменить направления поиска нельзя. '#13#10'Подпись по этой команде на находтися.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_5715D0770375 Поиск таблиц
+
+ME ME_5715D16B0195
+ MEPROP UID '5715D16B0195'
+ MEPROP Name 'Продолжения поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_5715D16B0195 Продолжения поиска
+
+ME ME_5715D17C0051
+ MEPROP UID '5715D17C0051'
+ MEPROP Name 'Поиск по фрагменту'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_5715D17C0051 Поиск по фрагменту
+
+FORWARD ME_57186C3A0215
+
+ME ME_573EA7110089
+ MEPROP UID '573EA7110089'
+ MEPROP Name 'Замена текста с учетом регистра'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA7110089 Замена текста с учетом регистра
+
+ME ME_573EA7340209
+ MEPROP UID '573EA7340209'
+ MEPROP Name 'Замена только слова целиком'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA7340209 Замена только слова целиком
+
+ME ME_573EA74900BF
+ MEPROP UID '573EA74900BF'
+ MEPROP Name 'Замена со словоформами'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA74900BF Замена со словоформами
+
+ME ME_573EA76A0148
+ MEPROP UID '573EA76A0148'
+ MEPROP Name 'Замена с любыми окончаниями'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA76A0148 Замена с любыми окончаниями
+
+ME ME_573EA776025D
+ MEPROP UID '573EA776025D'
+ MEPROP Name 'Замена с использованием регулярных выражений'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA776025D Замена с использованием регулярных выражений
+
+ME ME_573EA7BA007F
+ MEPROP UID '573EA7BA007F'
+ MEPROP Name 'Замена с исользованием спецсимволов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA7BA007F Замена с исользованием спецсимволов
+
+ME ME_573EA821024F
+ MEPROP UID '573EA821024F'
+ MEPROP Name 'Замена текста на ссылку'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылка - указанный текст преобразуется в гиперссылку на указанный документ. Формат задаётся в форме: DocID.SubID, где DocID - идентификационный номер документа, а SubID - номер метки. Документ должен присутствовать в базе, метка должна быть в документе;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA821024F Замена текста на ссылку
+
+ME ME_573EA86C0100
+ MEPROP UID '573EA86C0100'
+ MEPROP Name 'Замена текста на стиль'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стиль - применяет выбранный стиль к указанному тексту. Если установлена опция Применить к параграфу, то стиль применяется ко всему абзацу, в котором присутствует указанный текст;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA86C0100 Замена текста на стиль
+
+ME ME_573EA87800FC
+ MEPROP UID '573EA87800FC'
+ MEPROP Name 'Установка метки на найденный параграф'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метка - ставится метка на абзац, содержащий указанный текст.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA87800FC Установка метки на найденный параграф
+
+ME ME_573EA8940014
+ MEPROP UID '573EA8940014'
+ MEPROP Name 'Замена в выделенном фрагменте'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA8940014 Замена в выделенном фрагменте
+
+ME ME_573EA8AA01F6
+ MEPROP UID '573EA8AA01F6'
+ MEPROP Name 'Замена при поиске от курсора'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA8AA01F6 Замена при поиске от курсора
+
+ME ME_573EA8F30206
+ MEPROP UID '573EA8F30206'
+ MEPROP Name 'Поиск и замена текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Находится текст с помощью кнопки "Найти", а потом нажимается "Замена".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA8F30206 Поиск и замена текста
+
+ME ME_573EA92300E6
+ MEPROP UID '573EA92300E6'
+ MEPROP Name 'Заменить все вхождение'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование кнопки "Заменить все" приводит к замене всех вхождений текста в документе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57186C3A0215 // Замента текста
+ ;
+
+ENDME // ME_573EA92300E6 Заменить все вхождение
+
+ME ME_57186C3A0215
+ MEPROP UID '57186C3A0215'
+ MEPROP Name 'Замента текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+ MELIST Children
+   Seq: ( HWL ME_573EA7110089 // Замена текста с учетом регистра
+ HWL ME_573EA7340209 // Замена только слова целиком
+ HWL ME_573EA74900BF // Замена со словоформами
+ HWL ME_573EA76A0148 // Замена с любыми окончаниями
+ HWL ME_573EA776025D // Замена с использованием регулярных выражений
+ HWL ME_573EA7BA007F // Замена с исользованием спецсимволов
+ HWL ME_573EA821024F // Замена текста на ссылку
+ HWL ME_573EA86C0100 // Замена текста на стиль
+ HWL ME_573EA87800FC // Установка метки на найденный параграф
+ HWL ME_573EA8940014 // Замена в выделенном фрагменте
+ HWL ME_573EA8AA01F6 // Замена при поиске от курсора
+ HWL ME_573EA8F30206 // Поиск и замена текста
+ HWL ME_573EA92300E6 // Заменить все вхождение
+ )
+ ; // Children
+
+ENDME // ME_57186C3A0215 Замента текста
+
+ME ME_57186C4500FA
+ MEPROP UID '57186C4500FA'
+ MEPROP Name 'Замена гиперссылки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_57186C4500FA Замена гиперссылки
+
+ME ME_57186C740391
+ MEPROP UID '57186C740391'
+ MEPROP Name 'Замена стиля'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_57186C740391 Замена стиля
+
+ME ME_57186C7F0298
+ MEPROP UID '57186C7F0298'
+ MEPROP Name 'Установка метки на найденный фрагмент'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ENDME // ME_57186C7F0298 Установка метки на найденный фрагмент
+
+ME ME_5715CFEF0244
+ MEPROP UID '5715CFEF0244'
+ MEPROP Name 'Поиск и замена'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5715D02202C0 // Поиск текста
+ HWL ME_5715D06103E1 // Поиск стиля
+ HWL ME_5715D06C00C8 // Поиск гиперссылок
+ HWL ME_5715D0770375 // Поиск таблиц
+ HWL ME_5715D16B0195 // Продолжения поиска
+ HWL ME_5715D17C0051 // Поиск по фрагменту
+ HWL ME_57186C3A0215 // Замента текста
+ HWL ME_57186C4500FA // Замена гиперссылки
+ HWL ME_57186C740391 // Замена стиля
+ HWL ME_57186C7F0298 // Установка метки на найденный фрагмент
+ )
+ ; // Children
+
+ENDME // ME_5715CFEF0244 Поиск и замена
+
+FORWARD ME_574BDBC70389
+
+FORWARD ME_574BDC34037B
+
+ME ME_574BDCB10368
+ MEPROP UID '574BDCB10368'
+ MEPROP Name 'Установка блока с помощью меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDCB10368 Установка блока с помощью меню
+
+ME ME_574BDCD203DB
+ MEPROP UID '574BDCD203DB'
+ MEPROP Name 'Установка блока с помощью клавиатуры'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDCD203DB Установка блока с помощью клавиатуры
+
+ME ME_574BDCED026F
+ MEPROP UID '574BDCED026F'
+ MEPROP Name 'Задание имени блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность задания имени блока вручную.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDCED026F Задание имени блока
+
+ME ME_574BDD330108
+ MEPROP UID '574BDD330108'
+ MEPROP Name 'Задание номера блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность задания номера блока вручную.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDD330108 Задание номера блока
+
+ME ME_574BDD5C02C9
+ MEPROP UID '574BDD5C02C9'
+ MEPROP Name 'Задание стиля блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность установить стиль на блок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDD5C02C9 Задание стиля блока
+
+ME ME_574BDD84016D
+ MEPROP UID '574BDD84016D'
+ MEPROP Name 'Проверка на одинаковые номера'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяется есть ли уже блок с таким номером.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDD84016D Проверка на одинаковые номера
+
+ME ME_574BDDD400B8
+ MEPROP UID '574BDDD400B8'
+ MEPROP Name 'Вставка текста между соседними блоками'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Чтобы вставить текст между соседними блоками, нужно установить курсор в конец последнего абзаца верхнего блока и нажать Ctrl+Alt+Enter. В результате этой операции между блоками появится пустой абзац.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDDD400B8 Вставка текста между соседними блоками
+
+ME ME_574BDDFE024E
+ MEPROP UID '574BDDFE024E'
+ MEPROP Name 'Удаление блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDDFE024E Удаление блока
+
+ME ME_574BDE080241
+ MEPROP UID '574BDE080241'
+ MEPROP Name 'Удаление всех блоков'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDC34037B // Работа с блоками
+ ;
+
+ENDME // ME_574BDE080241 Удаление всех блоков
+
+ME ME_574BDC34037B
+ MEPROP UID '574BDC34037B'
+ MEPROP Name 'Работа с блоками'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDBC70389 // Структурирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_574BDCB10368 // Установка блока с помощью меню
+ HWL ME_574BDCD203DB // Установка блока с помощью клавиатуры
+ HWL ME_574BDCED026F // Задание имени блока
+ HWL ME_574BDD330108 // Задание номера блока
+ HWL ME_574BDD5C02C9 // Задание стиля блока
+ HWL ME_574BDD84016D // Проверка на одинаковые номера
+ HWL ME_574BDDD400B8 // Вставка текста между соседними блоками
+ HWL ME_574BDDFE024E // Удаление блока
+ HWL ME_574BDE080241 // Удаление всех блоков
+ )
+ ; // Children
+
+ENDME // ME_574BDC34037B Работа с блоками
+
+FORWARD ME_574BE0790216
+
+ME ME_574BE08800D5
+ MEPROP UID '574BE08800D5'
+ MEPROP Name 'Установка уровня вложенности'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ENDME // ME_574BE08800D5 Установка уровня вложенности
+
+ME ME_574BE0C801B2
+ MEPROP UID '574BE0C801B2'
+ MEPROP Name 'Подтверждать слияние заголовков'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для того, чтобы заголовки, в тексте которых встречаются символы переноса ка-'#13#10'ретки, воспринимались как единое целое, установите отметку в поле Подтвер-'#13#10'ждать слияние заголовков.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ENDME // ME_574BE0C801B2 Подтверждать слияние заголовков
+
+ME ME_574BE0FF01DE
+ MEPROP UID '574BE0FF01DE'
+ MEPROP Name 'Выделять сноски в блок'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделить содержащиеся в конце документа сноски в отдельный блок позволяет'#13#10'отметка в поле Выделять сноски в блок.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ENDME // ME_574BE0FF01DE Выделять сноски в блок
+
+FORWARD ME_574BE12503BE
+
+ME ME_574BE14501FF
+ MEPROP UID '574BE14501FF'
+ MEPROP Name 'Возможность авторасстановки блоков без настройки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ENDME // ME_574BE14501FF Возможность авторасстановки блоков без настройки
+
+ME ME_574BE16E01EB
+ MEPROP UID '574BE16E01EB'
+ MEPROP Name 'Включение блока в структуру'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ENDME // ME_574BE16E01EB Включение блока в структуру
+
+ME ME_574BE18A01D5
+ MEPROP UID '574BE18A01D5'
+ MEPROP Name 'Исключение блока из структуры'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ENDME // ME_574BE18A01D5 Исключение блока из структуры
+
+ME ME_574BE1A5030D
+ MEPROP UID '574BE1A5030D'
+ MEPROP Name 'Увеличение уровня вложенности блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ENDME // ME_574BE1A5030D Увеличение уровня вложенности блока
+
+ME ME_574BE2910078
+ MEPROP UID '574BE2910078'
+ MEPROP Name 'Уменьшение уровня вложенности блока'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ENDME // ME_574BE2910078 Уменьшение уровня вложенности блока
+
+ME ME_574BE349026D
+ MEPROP UID '574BE349026D'
+ MEPROP Name 'Удаление блока из структуры'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удаление блока кнопкой "Удалить" в окне изменения структуры.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ENDME // ME_574BE349026D Удаление блока из структуры
+
+ME ME_574BE12503BE
+ MEPROP UID '574BE12503BE'
+ MEPROP Name 'Настройка структуры блоков'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE0790216 // Разбивка на блоки
+ ;
+ MELIST Children
+   Seq: ( HWL ME_574BE14501FF // Возможность авторасстановки блоков без настройки
+ HWL ME_574BE16E01EB // Включение блока в структуру
+ HWL ME_574BE18A01D5 // Исключение блока из структуры
+ HWL ME_574BE1A5030D // Увеличение уровня вложенности блока
+ HWL ME_574BE2910078 // Уменьшение уровня вложенности блока
+ HWL ME_574BE349026D // Удаление блока из структуры
+ )
+ ; // Children
+
+ENDME // ME_574BE12503BE Настройка структуры блоков
+
+ME ME_574BE39B038A
+ MEPROP UID '574BE39B038A'
+ MEPROP Name 'Анализ подписи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Автоматически анализируется наличие подписи при автоматической расстановке блоков. Если такая подпись найдена, то предлагается её установить. Появляется соответствующий диалог.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ENDME // ME_574BE39B038A Анализ подписи
+
+ME ME_574BE0790216
+ MEPROP UID '574BE0790216'
+ MEPROP Name 'Разбивка на блоки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_574BDBC70389 // Структурирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_574BE08800D5 // Установка уровня вложенности
+ HWL ME_574BE0C801B2 // Подтверждать слияние заголовков
+ HWL ME_574BE0FF01DE // Выделять сноски в блок
+ HWL ME_574BE12503BE // Настройка структуры блоков
+ HWL ME_574BE39B038A // Анализ подписи
+ )
+ ; // Children
+
+ENDME // ME_574BE0790216 Разбивка на блоки
+
+ME ME_574BDBC70389
+ MEPROP UID '574BDBC70389'
+ MEPROP Name 'Структурирование документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_574BDC34037B // Работа с блоками
+ HWL ME_574BE0790216 // Разбивка на блоки
+ )
+ ; // Children
+
+ENDME // ME_574BDBC70389 Структурирование документа
+
+FORWARD ME_576246200120
+
+ME ME_5762466003B6
+ MEPROP UID '5762466003B6'
+ MEPROP Name 'Изменение курсора мыши при наведении на гиперссылку'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При подведении к ссылке указателя мыши он принимает вид ().' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+
+ENDME // ME_5762466003B6 Изменение курсора мыши при наведении на гиперссылку
+
+FORWARD ME_576246B10374
+
+ME ME_5762470502B8
+ MEPROP UID '5762470502B8'
+ MEPROP Name 'Изменение курсора мыши при установке гиперссыки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При переходе в режим "определения гипертекстовой связи" курсор приобретает вид стрелки со скрепкой.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_5762470502B8 Изменение курсора мыши при установке гиперссыки
+
+ME ME_5762484A03DB
+ MEPROP UID '5762484A03DB'
+ MEPROP Name 'Запрет редактирования документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В режиме установки гиперссылки редактирование документа не запрещено. Но закрыть документ, без выходя из режима установки гиперссылки нельзя.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_5762484A03DB Запрет редактирования документа
+
+ME ME_5762488400A9
+ MEPROP UID '5762488400A9'
+ MEPROP Name 'Установка гиперссылки на метку'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_5762488400A9 Установка гиперссылки на метку
+
+ME ME_5762489300A1
+ MEPROP UID '5762489300A1'
+ MEPROP Name 'Установка гиперссылки на блок'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_5762489300A1 Установка гиперссылки на блок
+
+ME ME_576248A002A1
+ MEPROP UID '576248A002A1'
+ MEPROP Name 'Установка гиперссылки на начало документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Так же, существует возможность постановки ссылки на начало документа или справки. Для этого достаточно во время постановки ссылки применить комбинацию Alt+ЛМ, кликнуть мышью на закладку Текст или Справка соответственно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_576248A002A1 Установка гиперссылки на начало документа
+
+ME ME_576248C10293
+ MEPROP UID '576248C10293'
+ MEPROP Name 'Установка гиперссылки на справку'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Так же, существует возможность постановки ссылки на начало документа или справки. Для этого достаточно во время постановки ссылки применить комбинацию Alt+ЛМ, кликнуть мышью на закладку Текст или Справка соответственно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_576248C10293 Установка гиперссылки на справку
+
+ME ME_576248F800CB
+ MEPROP UID '576248F800CB'
+ MEPROP Name 'Установка гиперссылки на документ в выборке'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Последний этап установки гипертекстовой ссылки может быть выполнен в окне выборки документов. В том случае, когда в качестве объекта выбран весь документ (метка в начале документа), то для завершения операции достаточно нажать комбинацию Alt+ЛМ по названию соответствующего документа в окне выборки документов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_576248F800CB Установка гиперссылки на документ в выборке
+
+ME ME_576249310233
+ MEPROP UID '576249310233'
+ MEPROP Name 'Выход из режима установки гиперссылки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для выхода из режима "определения гипертекстовой связи", отказавшись от установки ссылки, предназначена комбинация Alt+ПМ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_576249310233 Выход из режима установки гиперссылки
+
+ME ME_576249EF033E
+ MEPROP UID '576249EF033E'
+ MEPROP Name 'Обратная установка гиперссылки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В Архивариусе предусмотрена возможность "обратного" способа установки ссылок (от метки к ссылке). Она может быть использована при редактировании документа, на который должна быть установлена ссылка.'#13#10'* На вкладке Текст окна редактор подведите указатель мыши к значку метки (), расположенному слева от соответствующего абзаца текста;'#13#10'* В динамическом меню выберите команду Запомнить, при этом указатель мыши примет вид -;'#13#10'* В документе, в котором необходимо установить ссылку, выделите фрагмент текста, предназначенный для установки ссылки, нажмите комбинацию Alt+ЛМ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_576249EF033E Обратная установка гиперссылки
+
+ME ME_57624A9801C6
+ MEPROP UID '57624A9801C6'
+ MEPROP Name 'Установка нескольких гиперссылок на одну метку'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При необходимости установки нескольких ссылок на одну и ту же метку, вместо Alt+ЛМ нужно использовать комбинацию Alt+Shift+ЛМ. При этом указатель мыши сохранит вид - , и операция установки ссылок сможет быть продолжена. Для выхода из режима определения ссылки воспользуйтесь комбинацией Alt+ПМ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_57624A9801C6 Установка нескольких гиперссылок на одну метку
+
+ME ME_57624AE8024D
+ MEPROP UID '57624AE8024D'
+ MEPROP Name 'Установка гиперссылки вручную'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Если известен адрес гиперссылки на которую следует сослаться, то операция установки ссылки может быть выполнена "вручную". Для этого нужно выбрать в меню Гипертекст команду Установить ссылку "вручную" или воспользоваться комбинацией клавиш Alt+F7. После чего в открывшемся окне в поле ID номер задать нужное значение номера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246B10374 // Установка гиперссылки
+ ;
+
+ENDME // ME_57624AE8024D Установка гиперссылки вручную
+
+ME ME_576246B10374
+ MEPROP UID '576246B10374'
+ MEPROP Name 'Установка гиперссылки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '# В ссылающемся документе выделите слово или словосочетание, по которому будет осуществляться переход к нужному объекту;'#13#10'# Воспользуйтесь командой Установить ссылку в меню Гипертекст или клавишей F11. При этом произойдёт переход в режим "определения гипертекстовой связи", признаком которого является курсор вида . В данном режиме невозможно редактирование документа;'#13#10'# Перейдите к выбранному объекту и установите указатель мыши на значок метки, расположенный напротив него, в колонке Метки;'#13#10'# Примените комбинацию Alt+ЛМ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5762470502B8 // Изменение курсора мыши при установке гиперссыки
+ HWL ME_5762484A03DB // Запрет редактирования документа
+ HWL ME_5762488400A9 // Установка гиперссылки на метку
+ HWL ME_5762489300A1 // Установка гиперссылки на блок
+ HWL ME_576248A002A1 // Установка гиперссылки на начало документа
+ HWL ME_576248C10293 // Установка гиперссылки на справку
+ HWL ME_576248F800CB // Установка гиперссылки на документ в выборке
+ HWL ME_576249310233 // Выход из режима установки гиперссылки
+ HWL ME_576249EF033E // Обратная установка гиперссылки
+ HWL ME_57624A9801C6 // Установка нескольких гиперссылок на одну метку
+ HWL ME_57624AE8024D // Установка гиперссылки вручную
+ )
+ ; // Children
+
+ENDME // ME_576246B10374 Установка гиперссылки
+
+FORWARD ME_57624B2800FD
+
+ME ME_57624B4700F8
+ MEPROP UID '57624B4700F8'
+ MEPROP Name 'Переход по гиперссылке мышью'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для перехода по установленной ссылке необходимо дважды кликнуть по ней мышью.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ENDME // ME_57624B4700F8 Переход по гиперссылке мышью
+
+ME ME_57624BF50128
+ MEPROP UID '57624BF50128'
+ MEPROP Name 'Переход по гиперссылке с помощью меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Также можно воспользоваться командой Перейти по ссылке в меню Гипертекст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ENDME // ME_57624BF50128 Переход по гиперссылке с помощью меню
+
+ME ME_57624C14000C
+ MEPROP UID '57624C14000C'
+ MEPROP Name 'Переход по гиперссылке с помощью клавиатуры'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Также можно воспользоваться командой Перейти по ссылке  комбинацией клавиш Alt+Enter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ENDME // ME_57624C14000C Переход по гиперссылке с помощью клавиатуры
+
+ME ME_57624C62023D
+ MEPROP UID '57624C62023D'
+ MEPROP Name 'Переход по гиперссылке с помощью динамического меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624B2800FD // Переходы по гиперссылкам
+ ;
+
+ENDME // ME_57624C62023D Переход по гиперссылке с помощью динамического меню
+
+ME ME_57624B2800FD
+ MEPROP UID '57624B2800FD'
+ MEPROP Name 'Переходы по гиперссылкам'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57624B4700F8 // Переход по гиперссылке мышью
+ HWL ME_57624BF50128 // Переход по гиперссылке с помощью меню
+ HWL ME_57624C14000C // Переход по гиперссылке с помощью клавиатуры
+ HWL ME_57624C62023D // Переход по гиперссылке с помощью динамического меню
+ )
+ ; // Children
+
+ENDME // ME_57624B2800FD Переходы по гиперссылкам
+
+FORWARD ME_57624CAD03CB
+
+ME ME_57624CC1039B
+ MEPROP UID '57624CC1039B'
+ MEPROP Name 'Возврат назад с помощью кнопки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возврат с помощью кнопки "Вернуться на ссылку с которой перешли" на панели инструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ENDME // ME_57624CC1039B Возврат назад с помощью кнопки
+
+ME ME_57624D0B0048
+ MEPROP UID '57624D0B0048'
+ MEPROP Name 'Возврат назад с помощью комбинации клавиш'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Alt+"<-"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ENDME // ME_57624D0B0048 Возврат назад с помощью комбинации клавиш
+
+ME ME_57624D5003B3
+ MEPROP UID '57624D5003B3'
+ MEPROP Name 'Переход по истории вперед с помощью кнопки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переход по кнопке "Вернуться на метку на которую перешли"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ENDME // ME_57624D5003B3 Переход по истории вперед с помощью кнопки
+
+ME ME_57624D8203C0
+ MEPROP UID '57624D8203C0'
+ MEPROP Name 'Переход по истории вперед с помощью комбинации клавиш'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Alt+"->"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624CAD03CB // Работа с историей переходов
+ ;
+
+ENDME // ME_57624D8203C0 Переход по истории вперед с помощью комбинации клавиш
+
+ME ME_57624CAD03CB
+ MEPROP UID '57624CAD03CB'
+ MEPROP Name 'Работа с историей переходов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57624CC1039B // Возврат назад с помощью кнопки
+ HWL ME_57624D0B0048 // Возврат назад с помощью комбинации клавиш
+ HWL ME_57624D5003B3 // Переход по истории вперед с помощью кнопки
+ HWL ME_57624D8203C0 // Переход по истории вперед с помощью комбинации клавиш
+ )
+ ; // Children
+
+ENDME // ME_57624CAD03CB Работа с историей переходов
+
+FORWARD ME_57624DD50173
+
+ME ME_57624DEC0333
+ MEPROP UID '57624DEC0333'
+ MEPROP Name 'Удаление гиперсылки с помощью клавиатуры'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'комбинацией клавиш Alt+Del' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ENDME // ME_57624DEC0333 Удаление гиперсылки с помощью клавиатуры
+
+ME ME_57624E4F02BC
+ MEPROP UID '57624E4F02BC'
+ MEPROP Name 'Удаление гиперсылки с помощью меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'воспользоваться командой Удалить ссылку в меню Гипертекст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ENDME // ME_57624E4F02BC Удаление гиперсылки с помощью меню
+
+ME ME_57624E710341
+ MEPROP UID '57624E710341'
+ MEPROP Name 'Удаление гиперссылки с помощью динамического меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ENDME // ME_57624E710341 Удаление гиперссылки с помощью динамического меню
+
+ME ME_57624EB9034C
+ MEPROP UID '57624EB9034C'
+ MEPROP Name 'Удаление нескольких гиперссылок из фрагмента'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Если предварительно выделить фрагмент текста, то в результате выполнения данной операции будут удалены все содержащиеся в нём ссылки. После выполнения команды удаления ссылки, выделенные зелёным цветом и функция гипертекстовой связи, исчезнут.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57624DD50173 // Удаление гиперссылки
+ ;
+
+ENDME // ME_57624EB9034C Удаление нескольких гиперссылок из фрагмента
+
+ME ME_57624DD50173
+ MEPROP UID '57624DD50173'
+ MEPROP Name 'Удаление гиперссылки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Чтобы удалить установленную ранее ссылку, нужно выделить её с помощью мыши, после чего воспользоваться командой Удалить ссылку в меню Гипертекст или комбинацией клавиш Alt+Del, а также командой в динамическом меню.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57624DEC0333 // Удаление гиперсылки с помощью клавиатуры
+ HWL ME_57624E4F02BC // Удаление гиперсылки с помощью меню
+ HWL ME_57624E710341 // Удаление гиперссылки с помощью динамического меню
+ HWL ME_57624EB9034C // Удаление нескольких гиперссылок из фрагмента
+ )
+ ; // Children
+
+ENDME // ME_57624DD50173 Удаление гиперссылки
+
+ME ME_57624EF3009A
+ MEPROP UID '57624EF3009A'
+ MEPROP Name 'Копирование гиперссылки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '* Подведите курсор к ссылке и нажмите правую кнопку мыши;'#13#10'•В контекстном меню мыши выберите команду Запомнить адрес;'#13#10'•По комбинации Alt+ЛМ вставьте адрес ссылки выбранному слову или выражению' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_576246200120 // Гипертекстовая связь
+ ;
+
+ENDME // ME_57624EF3009A Копирование гиперссылки
+
+ME ME_576246200120
+ MEPROP UID '576246200120'
+ MEPROP Name 'Гипертекстовая связь'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551121E4029E // Редактирование документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5762466003B6 // Изменение курсора мыши при наведении на гиперссылку
+ HWL ME_576246B10374 // Установка гиперссылки
+ HWL ME_57624B2800FD // Переходы по гиперссылкам
+ HWL ME_57624CAD03CB // Работа с историей переходов
+ HWL ME_57624DD50173 // Удаление гиперссылки
+ HWL ME_57624EF3009A // Копирование гиперссылки
+ )
+ ; // Children
+
+ENDME // ME_576246200120 Гипертекстовая связь
+
+ME ME_551121E4029E
+ MEPROP UID '551121E4029E'
+ MEPROP Name 'Редактирование документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_551122A90004 // Изменение текста документа
+ HWL ME_551122C1020D // Работа с буфером обмена
+ HWL ME_551122D603B9 // Изменение оформления
+ HWL ME_570B3C440128 // Вставка в документ
+ HWL ME_570DE64F021D // Создание схем
+ HWL ME_5715CB480335 // Проверка орфографии
+ HWL ME_5715CFEF0244 // Поиск и замена
+ HWL ME_574BDBC70389 // Структурирование документа
+ HWL ME_576246200120 // Гипертекстовая связь
+ )
+ ; // Children
+
+ENDME // ME_551121E4029E Редактирование документа
+
+FORWARD ME_578F52B00005
+
+ME ME_578F52E20389
+ MEPROP UID '578F52E20389'
+ MEPROP Name 'Изменение названия документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F52E20389 Изменение названия документа
+
+ME ME_578F5B7F01C2
+ MEPROP UID '578F5B7F01C2'
+ MEPROP Name 'Добавление комментария'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F5B7F01C2 Добавление комментария
+
+ME ME_578F5B8E03A2
+ MEPROP UID '578F5B8E03A2'
+ MEPROP Name 'Автоматический анализ заголовка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F5B8E03A2 Автоматический анализ заголовка
+
+ME ME_578F636D01BE
+ MEPROP UID '578F636D01BE'
+ MEPROP Name 'Добавление атрибута'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F636D01BE Добавление атрибута
+
+ME ME_578F63840383
+ MEPROP UID '578F63840383'
+ MEPROP Name 'Удаление атрибута с помощью клавиатуры'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F63840383 Удаление атрибута с помощью клавиатуры
+
+ME ME_578F63E4034F
+ MEPROP UID '578F63E4034F'
+ MEPROP Name 'Удаление атрибута с помощью меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F63E4034F Удаление атрибута с помощью меню
+
+ME ME_578F640E0373
+ MEPROP UID '578F640E0373'
+ MEPROP Name 'Копирование атрибута'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F640E0373 Копирование атрибута
+
+ME ME_578F64210067
+ MEPROP UID '578F64210067'
+ MEPROP Name 'Копирование нескольких атрибутов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+
+ENDME // ME_578F64210067 Копирование нескольких атрибутов
+
+FORWARD ME_5795C39A03D3
+
+FORWARD ME_5795C3DD0046
+
+ME ME_5795C41202B5
+ MEPROP UID '5795C41202B5'
+ MEPROP Name 'Добавление атрибута Типы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C3DD0046 // Добавление атрибута
+ ;
+
+ENDME // ME_5795C41202B5 Добавление атрибута Типы
+
+ME ME_5795C43800E0
+ MEPROP UID '5795C43800E0'
+ MEPROP Name 'Добавление атрибута Классы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C3DD0046 // Добавление атрибута
+ ;
+
+ENDME // ME_5795C43800E0 Добавление атрибута Классы
+
+ME ME_5795C44C0096
+ MEPROP UID '5795C44C0096'
+ MEPROP Name 'Добавление атрибута Префикс'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C3DD0046 // Добавление атрибута
+ ;
+
+ENDME // ME_5795C44C0096 Добавление атрибута Префикс
+
+ME ME_5795C46A023F
+ MEPROP UID '5795C46A023F'
+ MEPROP Name 'Добавление атрибута Ключевые слова'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C3DD0046 // Добавление атрибута
+ ;
+
+ENDME // ME_5795C46A023F Добавление атрибута Ключевые слова
+
+ME ME_5795C49301A7
+ MEPROP UID '5795C49301A7'
+ MEPROP Name 'Добавление атрибута Вид справочной информации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C3DD0046 // Добавление атрибута
+ ;
+
+ENDME // ME_5795C49301A7 Добавление атрибута Вид справочной информации
+
+ME ME_5795C51000FD
+ MEPROP UID '5795C51000FD'
+ MEPROP Name 'Добавление атрибута на вкладке'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Добавление атрибута на вкладке "Атрибуты меток"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C3DD0046 // Добавление атрибута
+ ;
+
+ENDME // ME_5795C51000FD Добавление атрибута на вкладке
+
+ME ME_5795C54B0330
+ MEPROP UID '5795C54B0330'
+ MEPROP Name 'Добавление атрибутов в тексте'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Добавление атрибутов на вкладке Текст с помощью вспылвающего меню для метки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C3DD0046 // Добавление атрибута
+ ;
+
+ENDME // ME_5795C54B0330 Добавление атрибутов в тексте
+
+ME ME_5795C3DD0046
+ MEPROP UID '5795C3DD0046'
+ MEPROP Name 'Добавление атрибута'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C39A03D3 // Арибуты метки
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5795C41202B5 // Добавление атрибута Типы
+ HWL ME_5795C43800E0 // Добавление атрибута Классы
+ HWL ME_5795C44C0096 // Добавление атрибута Префикс
+ HWL ME_5795C46A023F // Добавление атрибута Ключевые слова
+ HWL ME_5795C49301A7 // Добавление атрибута Вид справочной информации
+ HWL ME_5795C51000FD // Добавление атрибута на вкладке
+ HWL ME_5795C54B0330 // Добавление атрибутов в тексте
+ )
+ ; // Children
+
+ENDME // ME_5795C3DD0046 Добавление атрибута
+
+ME ME_5795C5BF026D
+ MEPROP UID '5795C5BF026D'
+ MEPROP Name 'Удаление атрибута'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C39A03D3 // Арибуты метки
+ ;
+
+ENDME // ME_5795C5BF026D Удаление атрибута
+
+ME ME_5795C5F30122
+ MEPROP UID '5795C5F30122'
+ MEPROP Name 'Копирование атрибута'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C39A03D3 // Арибуты метки
+ ;
+
+ENDME // ME_5795C5F30122 Копирование атрибута
+
+ME ME_5795C604035F
+ MEPROP UID '5795C604035F'
+ MEPROP Name 'Копирование нескольких атрибутов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C39A03D3 // Арибуты метки
+ ;
+
+ENDME // ME_5795C604035F Копирование нескольких атрибутов
+
+ME ME_5795C63402AC
+ MEPROP UID '5795C63402AC'
+ MEPROP Name 'Информация о владельцах атрибута'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Окно "Метки-владельцы атрибута"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C39A03D3 // Арибуты метки
+ ;
+
+ENDME // ME_5795C63402AC Информация о владельцах атрибута
+
+ME ME_5795C6910201
+ MEPROP UID '5795C6910201'
+ MEPROP Name 'Выбор метки из списка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выбор метки для отображения атрибутов во вкладке Атрибуты меток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C39A03D3 // Арибуты метки
+ ;
+
+ENDME // ME_5795C6910201 Выбор метки из списка
+
+ME ME_5795C6D503DA
+ MEPROP UID '5795C6D503DA'
+ MEPROP Name 'Выбор всех меток'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выбор для отобржаения атрибутов всех меток в документе на вкладке Атрибуты меток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5795C39A03D3 // Арибуты метки
+ ;
+
+ENDME // ME_5795C6D503DA Выбор всех меток
+
+ME ME_5795C39A03D3
+ MEPROP UID '5795C39A03D3'
+ MEPROP Name 'Арибуты метки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F52B00005 // Редактирование атрибутов
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5795C3DD0046 // Добавление атрибута
+ HWL ME_5795C5BF026D // Удаление атрибута
+ HWL ME_5795C5F30122 // Копирование атрибута
+ HWL ME_5795C604035F // Копирование нескольких атрибутов
+ HWL ME_5795C63402AC // Информация о владельцах атрибута
+ HWL ME_5795C6910201 // Выбор метки из списка
+ HWL ME_5795C6D503DA // Выбор всех меток
+ )
+ ; // Children
+
+ENDME // ME_5795C39A03D3 Арибуты метки
+
+ME ME_578F52B00005
+ MEPROP UID '578F52B00005'
+ MEPROP Name 'Редактирование атрибутов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_578F52E20389 // Изменение названия документа
+ HWL ME_578F5B7F01C2 // Добавление комментария
+ HWL ME_578F5B8E03A2 // Автоматический анализ заголовка
+ HWL ME_578F636D01BE // Добавление атрибута
+ HWL ME_578F63840383 // Удаление атрибута с помощью клавиатуры
+ HWL ME_578F63E4034F // Удаление атрибута с помощью меню
+ HWL ME_578F640E0373 // Копирование атрибута
+ HWL ME_578F64210067 // Копирование нескольких атрибутов
+ HWL ME_5795C39A03D3 // Арибуты метки
+ )
+ ; // Children
+
+ENDME // ME_578F52B00005 Редактирование атрибутов
+
+FORWARD ME_579B134B0142
+
+FORWARD ME_579B13D20351
+
+ME ME_579B13E900C3
+ MEPROP UID '579B13E900C3'
+ MEPROP Name 'Пустые строки в справке'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В начале справки, между абзацами и в конце должно быть по одной пустой строке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B13D20351 // Требоания по оформлению справки
+ ;
+
+ENDME // ME_579B13E900C3 Пустые строки в справке
+
+ME ME_579B14090241
+ MEPROP UID '579B14090241'
+ MEPROP Name 'Слова с заглавной буквы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'С заглавной буквы должны писаться: Федеральные законы, Законы (Постановления и Определения) Конституционного Суда РФ, Указания ЦБ, Положения ЦБ, Инструкции ЦБ (с условием, что в тексте Указания, Положения, Инструкции тоже с заглавной буквы).'#13#10'Постановления, распоряжения, приказы и прочее, в справке исправляются с заглавной буквы на прописную, независимо от того как употребля ется в тексте. Исключение - международные документы, в которых информация в справке аналогична'#13#10'тексту.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B13D20351 // Требоания по оформлению справки
+ ;
+
+ENDME // ME_579B14090241 Слова с заглавной буквы
+
+ME ME_579B147100C3
+ MEPROP UID '579B147100C3'
+ MEPROP Name 'Последовательность представления информации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '* Название документа;'#13#10'* Регистрация в МЮ;'#13#10'* Вступление в силу;'#13#10'* Опубликование;'#13#10'* Информация о разработчиках документа (СНазвание документа;'#13#10'* Регистрация в МЮ;'#13#10'* Вступление в силу;'#13#10'* Опубликование;'#13#10'* Информация о разработчиках документа (СНИПы и пр.);'#13#10'* "Документ приводится с сохранением орфографии ...";'#13#10'* Утрата силы;'#13#10'* Судебные решения;'#13#10'* Изменения;'#13#10'* Снято с контроля;НИПы и пр.);'#13#10'* "Документ приводится с сохранением орфографии ...";'#13#10'* Утрата силы;'#13#10'* Судебные решения;'#13#10'* Изменения;'#13#10'* Снято с контроля;'#13#10'* В начале справки должно быть написано название документа;'#13#10'* Регистрация в Минюсте;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B13D20351 // Требоания по оформлению справки
+ ;
+
+ENDME // ME_579B147100C3 Последовательность представления информации
+
+ME ME_579B13D20351
+ MEPROP UID '579B13D20351'
+ MEPROP Name 'Требоания по оформлению справки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B134B0142 // Работа со справкой
+ ;
+ MELIST Children
+   Seq: ( HWL ME_579B13E900C3 // Пустые строки в справке
+ HWL ME_579B14090241 // Слова с заглавной буквы
+ HWL ME_579B147100C3 // Последовательность представления информации
+ )
+ ; // Children
+
+ENDME // ME_579B13D20351 Требоания по оформлению справки
+
+ME ME_579B134B0142
+ MEPROP UID '579B134B0142'
+ MEPROP Name 'Работа со справкой'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В справке, обычно, сообщается, в каком издании и когда данный документ был опубликован, приводится да-'#13#10'та вступления документа в силу, его статус, информация о государственной регистрации и перечисляются'#13#10'документы, изменяющие данный документ. В начале справки должно быть указано название документа, по-'#13#10'сле которого вводится информация о регистрации документа в МЮ (или, что документ не нуждается в реги-'#13#10'страции). В следующих абзацах вводятся сведения о вступлении документа в силу и информация о публика-'#13#10'ции документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_579B13D20351 // Требоания по оформлению справки
+ )
+ ; // Children
+
+ENDME // ME_579B134B0142 Работа со справкой
+
+FORWARD ME_579B136C000F
+
+ME ME_579B15F30144
+ MEPROP UID '579B15F30144'
+ MEPROP Name 'Установка заголовка аннотации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ENDME // ME_579B15F30144 Установка заголовка аннотации
+
+ME ME_579B161300DA
+ MEPROP UID '579B161300DA'
+ MEPROP Name 'Установка класса аннотации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ENDME // ME_579B161300DA Установка класса аннотации
+
+ME ME_579B163A0090
+ MEPROP UID '579B163A0090'
+ MEPROP Name 'Удаление аннотации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ENDME // ME_579B163A0090 Удаление аннотации
+
+ME ME_579B165501A0
+ MEPROP UID '579B165501A0'
+ MEPROP Name 'Анонсирование аннотации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_579B136C000F // Работа с аннотацией
+ ;
+
+ENDME // ME_579B165501A0 Анонсирование аннотации
+
+ME ME_579B136C000F
+ MEPROP UID '579B136C000F'
+ MEPROP Name 'Работа с аннотацией'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Аннотация - краткое изложение сути описываемого документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_579B15F30144 // Установка заголовка аннотации
+ HWL ME_579B161300DA // Установка класса аннотации
+ HWL ME_579B163A0090 // Удаление аннотации
+ HWL ME_579B165501A0 // Анонсирование аннотации
+ )
+ ; // Children
+
+ENDME // ME_579B136C000F Работа с аннотацией
+
+ME ME_53F327E402A1
+ MEPROP UID '53F327E402A1'
+ MEPROP Name 'Требования к созданию и редактированию документа'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E3130EB007F' '4E3130EB007F.ms.model.script' // Требования к Архивариусу
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53F328B0007F // Создание нового документа
+ HWL ME_551121E4029E // Редактирование документа
+ HWL ME_578F52B00005 // Редактирование атрибутов
+ HWL ME_579B134B0142 // Работа со справкой
+ HWL ME_579B136C000F // Работа с аннотацией
+ )
+ ; // Children
+
+ENDME // ME_53F327E402A1 Требования к созданию и редактированию документа

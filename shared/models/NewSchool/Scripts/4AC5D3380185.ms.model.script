@@ -1,0 +1,37 @@
+// TeeMemoWithEditOperations 4AC5D3380185 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC5D3380185
+
+ME ME_48735C4A03C3_ME_4AC5D3380185
+ MELINK Original WL 'ME_48735C4A03C3' '4829D85C03C1.ms.model.script' // DefineProvideOperations
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48735C4A03C3_ME_4AC5D3380185 DefineProvideOperations
+
+ME ME_4AC5D3380185
+ MEPROP UID '4AC5D3380185'
+ MEPROP Name 'TeeMemoWithEditOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC5D3DB0371' '4AC5D3DB0371.ms.model.script' // TeeMemo
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48735C4A03C3_ME_4AC5D3380185 // DefineProvideOperations
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeMemoWithEditOperations.pas'
+ UP extprop:rc:SelfName 'eeMemoWithEditOperations'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeMemoWithEditOperations'
+
+ENDME // ME_4AC5D3380185 TeeMemoWithEditOperations

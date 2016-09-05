@@ -1,0 +1,404 @@
+// TnscDocumentListTreeView 51D56E9F004B GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51D56E9F004B
+
+FORWARD ME_51DC189502B6
+
+ME ME_51DC1957024E
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DC1957024E anIndex
+
+ME ME_51DC19280230
+ MEPROP UID '51DC19280230'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DC189502B6 // TdltGetNodeTypeEvent
+ ;
+ MELINK Target WL 'ME_47F213990332' '47EA07FA02CE.ms.model.script' // TbsListNodeType
+ ;
+ MELIST Parameters
+   Seq: ( ME_51DC1957024E // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_51DC19280230 DoIt
+
+ME ME_51DC189502B6
+ MEPROP UID '51DC189502B6'
+ MEPROP Name 'TdltGetNodeTypeEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DC19280230 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_51DC189502B6 TdltGetNodeTypeEvent
+
+ME ME_51DC195E0142
+ MEPROP UID '51DC195E0142'
+ MEPROP Name 'OnGetNodeType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target HWL ME_51DC189502B6 // TdltGetNodeTypeEvent
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_51DC195E0142 OnGetNodeType
+
+FORWARD ME_51E01CC7023D
+
+ME ME_51E01CDC0243
+ MEPROP UID '51E01CDC0243'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E01CC7023D // GetCurrentText
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_51E01CDC0243 DoIt
+
+ME ME_51E01CC7023D
+ MEPROP UID '51E01CC7023D'
+ MEPROP Name 'GetCurrentText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51E01CDC0243 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51E01CC7023D GetCurrentText
+
+ME ME_51E00DA20133
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_504F1A2302CE' '476F78840219.ms.model.script' // TWMGetText
+ ;
+
+ENDME // ME_51E00DA20133 Msg
+
+ME ME_51E00D2000A7
+ MEPROP UID '51E00D2000A7'
+ MEPROP Name 'WMGetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELIST Parameters
+   Seq: ( ME_51E00DA20133 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GetText'
+
+ENDME // ME_51E00D2000A7 WMGetText
+
+ME ME_51E00DC1006F
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_504F1A3900B2' '476F78840219.ms.model.script' // TWMGetTextLength
+ ;
+
+ENDME // ME_51E00DC1006F Msg
+
+ME ME_51E00DAD024C
+ MEPROP UID '51E00DAD024C'
+ MEPROP Name 'WMGetTextLength'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELIST Parameters
+   Seq: ( ME_51E00DC1006F // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GETTEXTLENGTH'
+
+ENDME // ME_51E00DAD024C WMGetTextLength
+
+ME ME_51D6DA1300D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_47D0368C0272' '47D036150077.ms.model.script' // TvtViewOptions
+ ;
+
+ENDME // ME_51D6DA1300D6 
+
+ME ME_51D6DEF0012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_51D6DEF0012E 
+
+ME ME_51D7E49A0117
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_51D7E49A0117 
+
+ME ME_51DACF1201D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_51DACF1201D8 
+
+ME ME_51E01C110227
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_51E01C110227 
+
+ME ME_51E029F300E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_51E029F300E5 
+
+ME ME_51E53E3C035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_49F048510365' '47ECB2870309.ms.model.script' // evStyleTableTools
+ ;
+
+ENDME // ME_51E53E3C035F 
+
+ME ME_51E53FC902B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_51E53FC902B3 
+
+ME ME_51E54163036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_4799F84900DD' '473C3BEE0334.ms.model.script' // l3ScreenIC
+ ;
+
+ENDME // ME_51E54163036A 
+
+ME ME_51E5423000C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_51E5423000C7 
+
+ME ME_51EEBD820221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_51EEBD820221 
+
+ME ME_531DAD1F00A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D56E9F004B // TnscDocumentListTreeView
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_531DAD1F00A9 
+
+ME ME_55E6CC91033A_ME_51D56E9F004B
+ MELINK Original WL 'ME_55E6CC91033A' '53D227F702DF.ms.model.script' // NewDocumentInHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55E6CC91033A_ME_51D56E9F004B NewDocumentInHistory
+
+ME ME_479731C50290_ME_51D56E9F004B
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_51D56E9F004B Cleanup
+
+ME ME_47A042E100E2_ME_51D56E9F004B
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_51D56E9F004B InitFields
+
+ME ME_47D1602000C6_ME_51D56E9F004B
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_51D56E9F004B Create
+
+ME ME_508F825303E4_ME_51D56E9F004B
+ MELINK Original WL 'ME_508F825303E4' '515DA5860015.ms.model.script' // DoOnGetItemStyle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_508F825303E4_ME_51D56E9F004B DoOnGetItemStyle
+
+ME ME_5152C7D50201_ME_51D56E9F004B
+ MELINK Original WL 'ME_5152C7D50201' '4CFFE3470249.ms.model.script' // DoOnGetItemFont
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5152C7D50201_ME_51D56E9F004B DoOnGetItemFont
+
+ME ME_51D2DC290320_ME_51D56E9F004B
+ MELINK Original WL 'ME_51D2DC290320' '515DA5860015.ms.model.script' // DoOnGetItemIndentEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51D2DC290320_ME_51D56E9F004B DoOnGetItemIndentEx
+
+ME ME_51EEB81F017C_ME_51D56E9F004B
+ MELINK Original WL 'ME_51EEB81F017C' '4B97E8130272.ms.model.script' // CanAcceptData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51EEB81F017C_ME_51D56E9F004B CanAcceptData
+
+ME ME_543239ED008D_ME_51D56E9F004B
+ MELINK Original WL 'ME_543239ED008D' '515DA5860015.ms.model.script' // GetRealClientWidth
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_543239ED008D_ME_51D56E9F004B GetRealClientWidth
+
+ME ME_5604EC1403A8_ME_51D56E9F004B
+ MELINK Original WL 'ME_5604EC1403A8' '515DA5860015.ms.model.script' // NeedAssignTreeStructFromHistory
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5604EC1403A8_ME_51D56E9F004B NeedAssignTreeStructFromHistory
+
+ME ME_51D56E9F004B
+ MEPROP UID '51D56E9F004B'
+ MEPROP Name 'TnscDocumentListTreeView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51D56E2A023C' '51D56E2A023C.ms.model.script' // DocumentListTree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52DE57DF007B' '52DE57DF007B.ms.model.script' // TnscTreeViewWithAdapterDragDrop
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_55E6CC7C0362' '53D227F702DF.ms.model.script' // InscDocumentHistoryListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51DC195E0142 // OnGetNodeType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51E01CC7023D // GetCurrentText
+ HWL ME_51E00D2000A7 // WMGetText
+ HWL ME_51E00DAD024C // WMGetTextLength
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_55E6CC91033A_ME_51D56E9F004B // NewDocumentInHistory
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_51D56E9F004B // Cleanup
+ ME_47A042E100E2_ME_51D56E9F004B // InitFields
+ ME_47D1602000C6_ME_51D56E9F004B // Create
+ ME_508F825303E4_ME_51D56E9F004B // DoOnGetItemStyle
+ ME_5152C7D50201_ME_51D56E9F004B // DoOnGetItemFont
+ ME_51D2DC290320_ME_51D56E9F004B // DoOnGetItemIndentEx
+ ME_51EEB81F017C_ME_51D56E9F004B // CanAcceptData
+ ME_543239ED008D_ME_51D56E9F004B // GetRealClientWidth
+ ME_5604EC1403A8_ME_51D56E9F004B // NeedAssignTreeStructFromHistory
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_51DC189502B6 // TdltGetNodeTypeEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_51D6DA1300D6 // TvtViewOptions
+ ME_51D6DEF0012E // Il3SimpleNode
+ ME_51D7E49A0117 // Msg Codes
+ ME_51DACF1201D8 // Windows
+ ME_51E01C110227 // SysUtils
+ ME_51E029F300E5 // l3String
+ ME_51E53E3C035F // evStyleTableTools
+ ME_51E53FC902B3 // Tl3Point
+ ME_51E54163036A // l3ScreenIC
+ ME_51E5423000C7 // Standard
+ ME_51EEBD820221 // DynList
+ ME_531DAD1F00A9 // NodeBase
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentListTreeView.pas'
+ UP extprop:rc:SelfName 'DocumentListTreeView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscDocumentListTreeView'
+
+ENDME // ME_51D56E9F004B TnscDocumentListTreeView

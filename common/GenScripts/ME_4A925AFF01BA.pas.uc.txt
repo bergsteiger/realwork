@@ -17,7 +17,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas
    begin
     if TryRunDataInstaller then
     begin
-     StartupCompletedNotify;
+     StartupCompleteNotify;
      WaitForDataInstallerExit;
      Result := false;
      Exit;
@@ -28,7 +28,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas
    begin
     if TryRunDataUpdater then
     begin
-     StartupCompletedNotify;
+     StartupCompleteNotify;
      WaitForDataUpdaterExit;
      Result := false;
      Exit;
@@ -39,7 +39,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas
    begin
     if TryRunDownloader then
     begin
-     StartupCompletedNotify;
+     StartupCompleteNotify;
      WaitForDownloaderExit;
      Result := false;
      Exit;
@@ -50,11 +50,11 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas
    begin
     TrySendOpenByNumer;
     //
-    StartupCompletedNotify;
+    StartupCompleteNotify;
     Result := false;
     Exit;
    end;//TryUnlockLogin or TrySwitchToOtherRunningCopy
-   StartupCompletedNotify;
+   StartupCompleteNotify;
   until (CheckAndCreateRunningCopyMutex);
   StartupPendingNotify;
  end;//TnsStartupSupport
@@ -202,20 +202,19 @@ var
 //#UC START# *4AC4A69D03B7_4A925AFF01BA_impl*
  case aQueryType of
   lg_qtKeyWord:
-   TdmStdRes.OpenKeyWord(aQuery, aContainer);
+   TSearchService.Instance.OpenKeyWord(aQuery, aContainer);
   lg_qtAttribute:
-   TdmStdRes.AttributeSearch(aQuery, nil, aContainer);
+   TSearchService.Instance.AttributeSearch(aQuery, nil, aContainer);
   lg_qtPublishedSource:
-   TdmStdRes.PublishSourceSearch(aQuery, nil);
+   TSearchService.Instance.PublishSourceSearch(aQuery, nil);
   lg_qtLegislationReview:
-   TdmStdRes.OpenLegislationReview(aQuery);
+   TSearchService.Instance.OpenLegislationReview(aQuery);
   lg_qtSendConsultation:
-   vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
+   vcmDispatcher.ModuleOperation(mod_opcode_SearchService_OpenConsult);
   lg_qtBaseSearch:
-   TdmStdRes.OpenBaseSearch(ns_bsokGlobal,
-                            aQuery);
+   TBaseSearchService.Instance.OpenBaseSearch(ns_bsokGlobal, aQuery);
   lg_qtInpharmSearch:
-   TdmStdRes.InpharmSearch(aQuery, nil, aContainer);
+   TSearchService.Instance.InpharmSearch(aQuery, nil, aContainer);
   else
    inherited;   
  end;//case aQueryType

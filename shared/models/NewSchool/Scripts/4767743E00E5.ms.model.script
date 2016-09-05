@@ -1,0 +1,125 @@
+// TypInfo 4767743E00E5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4767743E00E5
+
+ME ME_4767748503B5
+ MEPROP UID '4767748503B5'
+ MEPROP Name 'TTypeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о типе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4767743E00E5 // TypInfo
+ ;
+
+ENDME // ME_4767748503B5 TTypeInfo
+
+ME ME_4767749802D1
+ MEPROP UID '4767749802D1'
+ MEPROP Name 'PTypeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о типе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4767743E00E5 // TypInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4767748503B5 // TTypeInfo
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_4767749802D1 PTypeInfo
+
+ME ME_478E1EF4036B
+ MEPROP UID '478E1EF4036B'
+ MEPROP Name 'TTypeData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4767743E00E5 // TypInfo
+ ;
+
+ENDME // ME_478E1EF4036B TTypeData
+
+ME ME_478E1F060192
+ MEPROP UID '478E1F060192'
+ MEPROP Name 'PTypeData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4767743E00E5 // TypInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_478E1EF4036B // TTypeData
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_478E1F060192 PTypeData
+
+ME ME_4F82F2A000A1
+ MEPROP UID '4F82F2A000A1'
+ MEPROP Name 'GetObjectProp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4767743E00E5 // TypInfo
+ ;
+ UP "of object" false
+
+ENDME // ME_4F82F2A000A1 GetObjectProp
+
+ME ME_55C8617A0259
+ MEPROP UID '55C8617A0259'
+ MEPROP Name 'PPropInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4767743E00E5 // TypInfo
+ ;
+ UP "isPointer" true
+
+ENDME // ME_55C8617A0259 PPropInfo
+
+ME ME_4767743E00E5
+ MEPROP UID '4767743E00E5'
+ MEPROP Name 'TypInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Методы для работы с RTTI.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4767748503B5 // TTypeInfo
+ HWL ME_4767749802D1 // PTypeInfo
+ HWL ME_478E1EF4036B // TTypeData
+ HWL ME_478E1F060192 // PTypeData
+ HWL ME_4F82F2A000A1 // GetObjectProp
+ HWL ME_55C8617A0259 // PPropInfo
+ )
+ ; // Children
+ UP "NoSpell" true
+ UP "is namespace" true
+ UP "path prefix" '/Common'
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\TypInfo.pas'
+ UP intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+
+ENDME // ME_4767743E00E5 TypInfo

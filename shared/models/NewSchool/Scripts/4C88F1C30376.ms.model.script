@@ -1,0 +1,208 @@
+// PrimForbidAutoregistrationOptions 4C88F1C30376 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C88F1C30376
+
+FORWARD ME_4C89FF5C0352
+
+FORWARD ME_4C8A05EA005B
+
+ME ME_4C8A05F9008B
+ MEPROP Name 'aComboBox'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4AC63691012B' '4AC63691012B.ms.model.script' // TnscComboBox
+ ;
+
+ENDME // ME_4C8A05F9008B aComboBox
+
+ME ME_4C8A05F3008F
+ MEPROP UID '4C8A05F3008F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8A05EA005B // lp_SelectComboBox
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C8A05F9008B // aComboBox
+ )
+ ; // Parameters
+
+ENDME // ME_4C8A05F3008F DoIt
+
+ME ME_4C8A05EA005B
+ MEPROP UID '4C8A05EA005B'
+ MEPROP Name 'lp_SelectComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C89FF5C0352 // SaveAdminInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8A05F3008F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C8A05EA005B lp_SelectComboBox
+
+ME ME_4C89FF6C0024
+ MEPROP UID '4C89FF6C0024'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C89FF5C0352 // SaveAdminInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C89FF6C0024 DoIt
+
+ME ME_4C8A0273038A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C89FF5C0352 // SaveAdminInfo
+ ;
+ MELINK Target WL 'ME_491D982203CD' '49903C95009E.ms.model.script' // EdsMaxLengthExceed
+ ;
+
+ENDME // ME_4C8A0273038A 
+
+ME ME_4C89FF5C0352
+ MEPROP UID '4C89FF5C0352'
+ MEPROP Name 'SaveAdminInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88F1C30376 // PrimForbidAutoregistrationOptions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8A05EA005B // lp_SelectComboBox
+ HWL ME_4C89FF6C0024 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C8A0273038A // EdsMaxLengthExceed
+ )
+ ; // Dependencies
+
+ENDME // ME_4C89FF5C0352 SaveAdminInfo
+
+ME ME_4C88F34E02E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88F1C30376 // PrimForbidAutoregistrationOptions
+ ;
+ MELINK Target WL 'ME_4C88F33402E6' '48F747EC0073.ms.model.script' // nsEmailVerify
+ ;
+
+ENDME // ME_4C88F34E02E3 
+
+ME ME_4C89FEAB039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88F1C30376 // PrimForbidAutoregistrationOptions
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '54B90AC6014B.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_4C89FEAB039F 
+
+ME ME_51C32F55023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ToolbarAtBottom::Dependency ;
+ MELINK Parent HWL ME_4C88F1C30376 // PrimForbidAutoregistrationOptions
+ ;
+ MELINK Target WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ ;
+
+ENDME // ME_51C32F55023C 
+
+ME ME_4C762A1501FC_ME_4C88F1C30376
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762A1501FC_ME_4C88F1C30376 Ok
+
+ME ME_4C762C910358_ME_4C88F1C30376
+ MELINK Original WL 'ME_4C762C910358' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C762C910358_ME_4C88F1C30376 Cancel
+
+ME ME_4C88F1C30376
+ MEPROP UID '4C88F1C30376'
+ MEPROP Name 'PrimForbidAutoregistrationOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49480CD20303' '49480CD20303.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_497ED39B034F' '497ED39B034F.ms.model.script' // PrimForbidAutoregistration
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ WL 'ME_4AC5D5FB0293' '4A8AD3C70195.ms.model.script' // Result$CancelWithState
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4C89FF5C0352 // SaveAdminInfo
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C762A1501FC_ME_4C88F1C30376 // Ok
+ ME_4C762C910358_ME_4C88F1C30376 // Cancel
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C88F34E02E3 // nsEmailVerify
+ ME_4C89FEAB039F // l3IsNil
+ ME_51C32F55023C // Result$Ok
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '09.09.2010 18:40'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistrationOptions_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ UP extprop:pas:TypeName 'TPrimForbidAutoregistrationOptionsForm'
+ UP extprop:rc:SelfName 'PrimForbidAutoregistrationOptionsForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimForbidAutoregistrationOptions_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4C88F1C30376 PrimForbidAutoregistrationOptions

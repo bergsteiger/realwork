@@ -1,0 +1,70 @@
+// Tasked Actions 5395D0F601A6 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5395D0F601A6
+
+FORWARD ME_5395D124034E
+
+ME ME_5395D1AB0313
+ MEPROP UID '5395D1AB0313'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5395D124034E // TarchiExportActionTest
+ ;
+
+ENDME // ME_5395D1AB0313 DoIt
+
+ME ME_5395D124034E
+ MEPROP UID '5395D124034E'
+ MEPROP Name 'TarchiExportActionTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5395D0F601A6 // Tasked Actions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5395D1AB0313 // DoIt
+ )
+ ; // Operations
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\NewActions\Export\archiExportActionTest.pas'
+ UP extprop:rc:SelfName 'archiExportActionTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'archiExportActionTest'
+
+ENDME // ME_5395D124034E TarchiExportActionTest
+
+ME ME_5395D0F601A6
+ MEPROP UID '5395D0F601A6'
+ MEPROP Name 'Tasked Actions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ %SUMMARY 'Тесты для действий, которые могут становиться в очередь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5395D0BF015A' '5395D0BF015A.ms.model.script' // New Actions Test
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5395D124034E // TarchiExportActionTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ )
+ ; // Depends
+ UP "path prefix" '/NewActions/Export'
+ UP intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests\NewActions\Export'
+ UP Version 0
+
+ENDME // ME_5395D0F601A6 Tasked Actions

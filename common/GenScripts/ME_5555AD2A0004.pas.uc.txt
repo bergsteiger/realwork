@@ -1,6 +1,7 @@
 //#UC START# *479731C50290_5555AD2A0004_impl*
  f_Converter.FreeParamBuffer(f_Description, f_Buffer);
  f_Description := nil;
+ f_Converter := nil;
  inherited;
 //#UC END# *479731C50290_5555AD2A0004_impl*
 //#UC START# *479731C50290_5555AD2A0004_var*
@@ -8,6 +9,8 @@
 //#UC START# *5555AD2A0004_ext:FileName
 w:\common\components\rtl\Garant\DA\daParam.pas
 //#UC END# *5555AD2A0004_ext:FileName
+//#UC START# *5555AD2A0004impl_uses*
+//#UC END# *5555AD2A0004impl_uses*
 //#UC START# *5555AD6F0065_5555AD2A0004_impl*
  inherited Create;
  f_Description := aDesc;
@@ -27,12 +30,12 @@ w:\common\components\rtl\Garant\DA\daParam.pas
 //#UC START# *5555D4F5030D_5555AD2A0004_var*
 //#UC END# *5555D4F5030D_5555AD2A0004_var*
 //#UC START# *5555E85C00B8_5555AD2A0004get_impl*
- f_Converter.ParamFromDataBase(f_Description, da_dtDWord, f_Buffer, @Result);
+ f_Converter.ParamFromDataBase(f_Description, da_dtInteger, f_Buffer, @Result);
 //#UC END# *5555E85C00B8_5555AD2A0004get_impl*
 //#UC START# *5555E85C00B8_5555AD2A0004get_var*
 //#UC END# *5555E85C00B8_5555AD2A0004get_var*
 //#UC START# *5555E85C00B8_5555AD2A0004set_impl*
- f_Converter.ParamToDataBase(f_Description, da_dtDWord, @aValue, f_Buffer);
+ f_Converter.ParamToDataBase(f_Description, da_dtInteger, @aValue, f_Buffer);
 //#UC END# *5555E85C00B8_5555AD2A0004set_impl*
 //#UC START# *5555E85C00B8_5555AD2A0004set_var*
 //#UC END# *5555E85C00B8_5555AD2A0004set_var*

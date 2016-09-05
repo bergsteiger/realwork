@@ -1,0 +1,132 @@
+// PrimCommon 4A8EC78503BB VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8EC78503BB
+
+ME ME_57A32F9F009A
+ MEPROP UID '57A32F9F009A'
+ MEPROP Name 'TShutdownWarningKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A93A9E3002E' '57A32ECC01AF.ms.model.script' // TShutdownWarningKind
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57A32F9F009A TShutdownWarningKind
+
+ME ME_57A32F790268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELINK Target WL 'ME_57A32EEB003E' '57A32ECC01AF.ms.model.script' // TShutdownService
+ ;
+
+ENDME // ME_57A32F790268 
+
+ME ME_57A32F7E02E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELINK Target WL 'ME_57A32F2F01B5' '57A32ECC01AF.ms.model.script' // TLongProcessService
+ ;
+
+ENDME // ME_57A32F7E02E1 
+
+ME ME_4AE98E5A0138
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELINK Target WL 'ME_4A8EC9DC0375' '4A8EC95E015F.ms.model.script' // System
+ ;
+
+ENDME // ME_4AE98E5A0138 
+
+ME ME_4A93B9DF00C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4A93B9DF00C0 
+
+ME ME_4A93BA3203A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ ;
+
+ENDME // ME_4A93BA3203A3 
+
+ME ME_4A93BD8603DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4A93BD8603DE 
+
+ME ME_4A93DEA10134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC78503BB // PrimCommon
+ ;
+ MELINK Target WL 'ME_498C7D1A035D' '47F2170002B2.ms.model.script' // TnsLongProcessType
+ ;
+
+ENDME // ME_4A93DEA10134 
+
+ME ME_4A8EC78503BB
+ MEPROP UID '4A8EC78503BB'
+ MEPROP Name 'PrimCommon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A924BCA0092' '4A924BCA0092.ms.model.script' // PrimCommon
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4A8EC8950152' '4A8EC8950152.ms.model.script' // ShutDown
+ WL 'ME_4A93D829005C' '4A93D829005C.ms.model.script' // Login
+ WL 'ME_4A93DDCC03E3' '4A93DDCC03E3.ms.model.script' // LongProcess
+ HWL ME_57A32F9F009A // TShutdownWarningKind
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_57A32F790268 // TShutdownService
+ ME_57A32F7E02E1 // TLongProcessService
+ ME_4AE98E5A0138 // System
+ ME_4A93B9DF00C0 // afwFacade
+ ME_4A93BA3203A3 // vcmParams
+ ME_4A93BD8603DE // Forms
+ ME_4A93DEA10134 // TnsLongProcessType
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '21.08.2009 20:15'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\PrimCommon_Module.pas'
+ UP extprop:pas:TypeName 'TPrimCommonModule'
+ UP extprop:rc:SelfName 'PrimCommonModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimCommon_Module'
+
+ENDME // ME_4A8EC78503BB PrimCommon

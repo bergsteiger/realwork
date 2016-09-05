@@ -21,7 +21,7 @@ var
 //#UC START# *3690DB82E835_493D2F7B031Dget_var*
 //#UC END# *3690DB82E835_493D2F7B031Dget_var*
 //#UC START# *479731C50290_493D2F7B031D_impl*
- ResetCachedObject(false);
+ ResetCachedObject(True, True);
  SetData.ResetBooleans;
  inherited;
 //#UC END# *479731C50290_493D2F7B031D_impl*
@@ -87,7 +87,7 @@ var
    not aDoc.Pos.EQ(pm_GetDocInfo.Pos)) then
  begin
   SetData.DocInfo := aDoc;
-  ResetCachedObject(false);
+  ResetCachedObject(True, True);
   SetData.ResetBooleans;
   Result := True;
  end
@@ -123,7 +123,7 @@ var
 //#UC START# *4937C5250138_493D2F7B031D_impl*
  if (pm_GetDocInfo <> nil) then
  begin
-  TdmStdRes.AddDocumentToControl(pm_GetDocInfo.Doc);
+  TCommonService.Instance.AddDocumentToControl(pm_GetDocInfo.Doc);
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C5250138_493D2F7B031D_impl*
@@ -132,7 +132,7 @@ var
 //#UC START# *4937C55101B2_493D2F7B031D_impl*
  if (pm_GetDocInfo <> nil) then
  begin
-  TdmStdRes.DeleteDocumentFromControl(pm_GetDocInfo.Doc);
+  TCommonService.Instance.DeleteDocumentFromControl(pm_GetDocInfo.Doc);
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C55101B2_493D2F7B031D_impl*
@@ -140,7 +140,7 @@ var
 //#UC END# *4937C55101B2_493D2F7B031D_var*
 //#UC START# *4937C56002B6_493D2F7B031D_impl*
  SetData.ResetBooleans;
- ResetCachedObject(True);
+ ResetCachedObject(False, False);
 //#UC END# *4937C56002B6_493D2F7B031D_impl*
 //#UC START# *4937C56002B6_493D2F7B031D_var*
 //#UC END# *4937C56002B6_493D2F7B031D_var*
@@ -168,7 +168,7 @@ var
  if (pm_GetDocInfo <> nil) and
     not l3BoolCheck(SetData.IsUnderControl, Result) then
  begin
-  Result := l3BoolSet(TdmStdRes.IsUnderControl(pm_GetDocInfo.Doc), l_Temp);
+  Result := l3BoolSet(TCommonService.Instance.IsUnderControl(pm_GetDocInfo.Doc), l_Temp);
   SetData.IsUnderControl := l_Temp;
  end;
 //#UC END# *4937C61C0270_493D2F7B031Dget_impl*
@@ -376,15 +376,18 @@ var
 //#UC START# *493D5E9700AE_493D2F7B031D_impl*
  with SetData do
  begin
-  if not aWithoutCRTypes then
+  if aClearCRTypes then
   begin
    if (CorrType <> nil) then
     CorrType.Value := nil;
    if (RespType <> nil) then
     RespType.Value := nil;
   end;
-  CorrList := nil;
-  RespList := nil;
+  if aClearCRLists then
+  begin
+   CorrList := nil;
+   RespList := nil;
+  end;
   //RelatedDoc := nil;
   //Annotation := nil;
   FlashData := nil;
@@ -498,7 +501,7 @@ var
   try
    pm_GetDocInfo.Doc.GetRespondents(SetData.RespType.Value, l_Catalog);
    if Supports(l_Catalog, IDynList, l_Temp) then
-   SetData.RespList := l_Temp;
+    SetData.RespList := l_Temp;
   except
    on ECanNotFindData do
     SetData.RespList := nil;

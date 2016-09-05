@@ -1,0 +1,55 @@
+// FiltersUserTypes 4D80D26F0341 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D80D26F0341
+
+ME ME_4BD729B70260
+ MEPROP UID '4BD729B70260'
+ MEPROP Name 'utFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D80D26F0341 // FiltersUserTypes
+ ;
+ UP "ImageIndex" 40
+ UP "SettingsCaption" 'Фильтры (вкладка)'
+ UP "Weight" 50
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes_utFilters_UserType.pas'
+ UP extprop:pas:UnitName 'FiltersUserTypes_utFilters_UserType'
+
+ENDME // ME_4BD729B70260 utFilters
+
+ME ME_4D80D26F0341
+ MEPROP UID '4D80D26F0341'
+ MEPROP Name 'FiltersUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BD729B70260 // utFilters
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '16.03.2011 18:08'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName '_FiltersUserTypes_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'FiltersUserTypes.imp'
+
+ENDME // ME_4D80D26F0341 FiltersUserTypes

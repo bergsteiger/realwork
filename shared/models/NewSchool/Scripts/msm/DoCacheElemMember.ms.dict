@@ -1,0 +1,23 @@
+UNIT DoCacheElemMember.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ axiom:msm
+;
+
+USES
+ CheckValue.ms.dict
+;
+
+: DoCacheElemMember
+  ModelElement IN aCacheWhere
+  STRING IN aKey
+  IN aDefault
+  ^ IN aLambda
+ //aKey Msg 
+ //aLambda DO 
+ aCacheWhere '.' aKey Cat aDefault @ ( aLambda DO CheckValue ) msm:DoCache
+; // DoCacheElemMember

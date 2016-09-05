@@ -1,0 +1,514 @@
+// Monitoring 45EEA87E0209 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEA87E0209
+
+FORWARD ME_45EEC0FD01B1
+
+ME ME_45EEC0FD01B4
+ MEPROP UID '45EEC0FD01B4'
+ MEPROP Name 'summary'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEC0FD01B1 // MonitoringList
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "pm" false
+
+ENDME // ME_45EEC0FD01B4 summary
+
+ME ME_460117DC0251
+ MEPROP Name 'server_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_460117DC0251 server_list
+
+ME ME_460117DC02AF
+ MEPROP Name 'document_count'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_460117DC02AF document_count
+
+ME ME_460117B20232
+ MEPROP UID '460117B20232'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC0FD01B1 // MonitoringList
+ ;
+ MELIST Parameters
+   Seq: ( ME_460117DC0251 // server_list
+ ME_460117DC02AF // document_count
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" false
+
+ENDME // ME_460117B20232 make
+
+ME ME_456EB3E10178_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_456EB3E10178' '456EA56002BF.ms.model.script' // save_to
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_456EB3E10178_ME_45EEC0FD01B1 save_to
+
+ME ME_456EB3E1017A_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_456EB3E1017A' '456EA56002BF.ms.model.script' // append_to
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_456EB3E1017A_ME_45EEC0FD01B1 append_to
+
+ME ME_456EB3E1017C_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_456EB3E1017C' '456EA56002BF.ms.model.script' // is_saved
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EB3E1017C_ME_45EEC0FD01B1 is_saved
+
+ME ME_456EB3E1017D_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_456EB3E1017D' '456EA56002BF.ms.model.script' // is_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EB3E1017D_ME_45EEC0FD01B1 is_changed
+
+ME ME_456ECA9603AA_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_456ECA9603AA' '456EA56002BF.ms.model.script' // result_type
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456ECA9603AA_ME_45EEC0FD01B1 result_type
+
+ME ME_456ECA9603AB_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_456ECA9603AB' '456EA56002BF.ms.model.script' // document_count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456ECA9603AB_ME_45EEC0FD01B1 document_count
+
+ME ME_456EE084033C_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_456EE084033C' '456EA56002BF.ms.model.script' // eid
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EE084033C_ME_45EEC0FD01B1 eid
+
+ME ME_45EEB02C03AA_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEB02C03AA' '45EEA48F011F.ms.model.script' // add_filter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEB02C03AA_ME_45EEC0FD01B1 add_filter
+
+ME ME_45EEB02C03AD_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEB02C03AD' '45EEA48F011F.ms.model.script' // delete_filter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEB02C03AD_ME_45EEC0FD01B1 delete_filter
+
+ME ME_45EEB02C03B0_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEB02C03B0' '45EEA48F011F.ms.model.script' // clear_filters
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEB02C03B0_ME_45EEC0FD01B1 clear_filters
+
+ME ME_45EEB02C03B1_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEB02C03B1' '45EEA48F011F.ms.model.script' // refresh_filters
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEB02C03B1_ME_45EEC0FD01B1 refresh_filters
+
+ME ME_45EEB02C03B2_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEB02C03B2' '45EEA48F011F.ms.model.script' // apply_filters
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEB02C03B2_ME_45EEC0FD01B1 apply_filters
+
+ME ME_45EEB02C03B4_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEB02C03B4' '45EEA48F011F.ms.model.script' // has_active_filters
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEB02C03B4_ME_45EEC0FD01B1 has_active_filters
+
+ME ME_45EEB18401B0_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEB18401B0' '45EEA48F011F.ms.model.script' // active_filters
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEB18401B0_ME_45EEC0FD01B1 active_filters
+
+ME ME_45EEBA2C02C0_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02C0' '457450470167.ms.model.script' // clone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEBA2C02C0_ME_45EEC0FD01B1 clone
+
+ME ME_45EEBA2C02C1_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02C1' '457450470167.ms.model.script' // get_node_by_path
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEBA2C02C1_ME_45EEC0FD01B1 get_node_by_path
+
+ME ME_45EEBA2C02C3_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02C3' '45700BFD0251.ms.model.script' // as_evd
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEBA2C02C3_ME_45EEC0FD01B1 as_evd
+
+ME ME_45EEBA2C02C5_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02C5' '457450470167.ms.model.script' // intersect_tree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEBA2C02C5_ME_45EEC0FD01B1 intersect_tree
+
+ME ME_45EEBA2C02C7_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02C7' '457450470167.ms.model.script' // merge_tree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEBA2C02C7_ME_45EEC0FD01B1 merge_tree
+
+ME ME_45EEBA2C02C9_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02C9' '457450470167.ms.model.script' // minus_tree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEBA2C02C9_ME_45EEC0FD01B1 minus_tree
+
+ME ME_45EEBA2C02CB_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02CB' '457450470167.ms.model.script' // create
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEBA2C02CB_ME_45EEC0FD01B1 create
+
+ME ME_45EEBA2C02CD_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEBA2C02CD' '457450470167.ms.model.script' // name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEBA2C02CD_ME_45EEC0FD01B1 name
+
+ME ME_45EEDB730269_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEDB730269' '45700BFD0251.ms.model.script' // sort
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEDB730269_ME_45EEC0FD01B1 sort
+
+ME ME_45EEDB73026B_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEDB73026B' '45700BFD0251.ms.model.script' // set_context_filter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEDB73026B_ME_45EEC0FD01B1 set_context_filter
+
+ME ME_45EEDB73026D_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEDB73026D' '45700BFD0251.ms.model.script' // save_to_file
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEDB73026D_ME_45EEC0FD01B1 save_to_file
+
+ME ME_45EEDB730270_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEDB730270' '45700BFD0251.ms.model.script' // history
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEDB730270_ME_45EEC0FD01B1 history
+
+ME ME_45EEDB730271_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEDB730271' '45700BFD0251.ms.model.script' // is_filtered
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEDB730271_ME_45EEC0FD01B1 is_filtered
+
+ME ME_45EEDC7A0244_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEDC7A0244' '45700BFD0251.ms.model.script' // current_sort_params
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEDC7A0244_ME_45EEC0FD01B1 current_sort_params
+
+ME ME_45EEDC910011_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45EEDC910011' '45700BFD0251.ms.model.script' // available_sort_types
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEDC910011_ME_45EEC0FD01B1 available_sort_types
+
+ME ME_45F6906C03C8_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_45F6906C03C8' '457450470167.ms.model.script' // root
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45F6906C03C8_ME_45EEC0FD01B1 root
+
+ME ME_4602A0A801F4_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_4602A0A801F4' '456EA56002BF.ms.model.script' // entry_count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4602A0A801F4_ME_45EEC0FD01B1 entry_count
+
+ME ME_46286B3A029F_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_46286B3A029F' '456EA56002BF.ms.model.script' // edition_count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_46286B3A029F_ME_45EEC0FD01B1 edition_count
+
+ME ME_46F8B9280148_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_46F8B9280148' '45700BFD0251.ms.model.script' // get_short_name
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46F8B9280148_ME_45EEC0FD01B1 get_short_name
+
+ME ME_4763CDEB02F8_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_4763CDEB02F8' '45700BFD0251.ms.model.script' // set_list_storage
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "dll export" false
+ENDME // ME_4763CDEB02F8_ME_45EEC0FD01B1 set_list_storage
+
+ME ME_47E229CE0249_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_47E229CE0249' '45700BFD0251.ms.model.script' // content_type
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_47E229CE0249_ME_45EEC0FD01B1 content_type
+
+ME ME_4A28BDFC00F4_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_4A28BDFC00F4' '45700BFD0251.ms.model.script' // get_full_list
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A28BDFC00F4_ME_45EEC0FD01B1 get_full_list
+
+ME ME_4A28BE1F015C_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_4A28BE1F015C' '45700BFD0251.ms.model.script' // is_short
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A28BE1F015C_ME_45EEC0FD01B1 is_short
+
+ME ME_4A77E72900BC_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_4A77E72900BC' '45700BFD0251.ms.model.script' // is_snippet
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A77E72900BC_ME_45EEC0FD01B1 is_snippet
+
+ME ME_4A9F5D2A001F_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_4A9F5D2A001F' '45700BFD0251.ms.model.script' // get_analysis_tree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A9F5D2A001F_ME_45EEC0FD01B1 get_analysis_tree
+
+ME ME_4B55CF4102BF_ME_45EEC0FD01B1
+ MELINK Original WL 'ME_4B55CF4102BF' '45700BFD0251.ms.model.script' // get_full_list_size
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B55CF4102BF_ME_45EEC0FD01B1 get_full_list_size
+
+ME ME_45EEC0FD01B1
+ MEPROP UID '45EEC0FD01B1'
+ MEPROP GUID 'F6B6B6C2-1E10-41B3-8251-B37665DE05BB'
+ MEPROP Name 'MonitoringList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс-врапер, для того что бы отдать Документ с мониторингом ввиде Списка из опроеации поиска. Сразу после получения MonitoringList необхождимо преобразовать его к документу, через метод summary' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA87E0209 // Monitoring
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_456ECA9603A9' '456EA56002BF.ms.model.script' // SearchEntity
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_45EEC0FD01B4 // summary
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_460117B20232 // make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_456EB3E10178_ME_45EEC0FD01B1 // save_to
+ ME_456EB3E1017A_ME_45EEC0FD01B1 // append_to
+ ME_456EB3E1017C_ME_45EEC0FD01B1 // is_saved
+ ME_456EB3E1017D_ME_45EEC0FD01B1 // is_changed
+ ME_456ECA9603AA_ME_45EEC0FD01B1 // result_type
+ ME_456ECA9603AB_ME_45EEC0FD01B1 // document_count
+ ME_456EE084033C_ME_45EEC0FD01B1 // eid
+ ME_45EEB02C03AA_ME_45EEC0FD01B1 // add_filter
+ ME_45EEB02C03AD_ME_45EEC0FD01B1 // delete_filter
+ ME_45EEB02C03B0_ME_45EEC0FD01B1 // clear_filters
+ ME_45EEB02C03B1_ME_45EEC0FD01B1 // refresh_filters
+ ME_45EEB02C03B2_ME_45EEC0FD01B1 // apply_filters
+ ME_45EEB02C03B4_ME_45EEC0FD01B1 // has_active_filters
+ ME_45EEB18401B0_ME_45EEC0FD01B1 // active_filters
+ ME_45EEBA2C02C0_ME_45EEC0FD01B1 // clone
+ ME_45EEBA2C02C1_ME_45EEC0FD01B1 // get_node_by_path
+ ME_45EEBA2C02C3_ME_45EEC0FD01B1 // as_evd
+ ME_45EEBA2C02C5_ME_45EEC0FD01B1 // intersect_tree
+ ME_45EEBA2C02C7_ME_45EEC0FD01B1 // merge_tree
+ ME_45EEBA2C02C9_ME_45EEC0FD01B1 // minus_tree
+ ME_45EEBA2C02CB_ME_45EEC0FD01B1 // create
+ ME_45EEBA2C02CD_ME_45EEC0FD01B1 // name
+ ME_45EEDB730269_ME_45EEC0FD01B1 // sort
+ ME_45EEDB73026B_ME_45EEC0FD01B1 // set_context_filter
+ ME_45EEDB73026D_ME_45EEC0FD01B1 // save_to_file
+ ME_45EEDB730270_ME_45EEC0FD01B1 // history
+ ME_45EEDB730271_ME_45EEC0FD01B1 // is_filtered
+ ME_45EEDC7A0244_ME_45EEC0FD01B1 // current_sort_params
+ ME_45EEDC910011_ME_45EEC0FD01B1 // available_sort_types
+ ME_45F6906C03C8_ME_45EEC0FD01B1 // root
+ ME_4602A0A801F4_ME_45EEC0FD01B1 // entry_count
+ ME_46286B3A029F_ME_45EEC0FD01B1 // edition_count
+ ME_46F8B9280148_ME_45EEC0FD01B1 // get_short_name
+ ME_4763CDEB02F8_ME_45EEC0FD01B1 // set_list_storage
+ ME_47E229CE0249_ME_45EEC0FD01B1 // content_type
+ ME_4A28BDFC00F4_ME_45EEC0FD01B1 // get_full_list
+ ME_4A28BE1F015C_ME_45EEC0FD01B1 // is_short
+ ME_4A77E72900BC_ME_45EEC0FD01B1 // is_snippet
+ ME_4A9F5D2A001F_ME_45EEC0FD01B1 // get_analysis_tree
+ ME_4B55CF4102BF_ME_45EEC0FD01B1 // get_full_list_size
+ )
+ ; // Implemented
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IMonitoringList'
+ UP extprop:rc:SelfName 'MonitoringList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45EEC0FD01B1 MonitoringList
+
+FORWARD ME_45EEC103021E
+
+ME ME_46023FE30057
+ MEPROP UID '46023FE30057'
+ MEPROP Name 'news_line_root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEC103021E // Monitoring
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "pm" false
+
+ENDME // ME_46023FE30057 news_line_root
+
+ME ME_45EEC103021F
+ MEPROP UID '45EEC103021F'
+ MEPROP Name 'is_news_line_defined'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC103021E // Monitoring
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45EEC103021F is_news_line_defined
+
+ME ME_45EEC1030220
+ MEPROP UID '45EEC1030220'
+ MEPROP Name 'is_exist'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC103021E // Monitoring
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45EEC1030220 is_exist
+
+ME ME_45EEC16B01A1
+ MEPROP UID '45EEC16B01A1'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC103021E // Monitoring
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_45EEC16B01A1 make
+
+ME ME_45EEC103021E
+ MEPROP UID '45EEC103021E'
+ MEPROP GUID 'FD231406-37D4-4C3C-A82F-592343031D3B'
+ MEPROP Name 'Monitoring'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA87E0209 // Monitoring
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_46023FE30057 // news_line_root
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45EEC103021F // is_news_line_defined
+ HWL ME_45EEC1030220 // is_exist
+ HWL ME_45EEC16B01A1 // make
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IMonitoring'
+ UP extprop:rc:SelfName 'Monitoring'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45EEC103021E Monitoring
+
+ME ME_45EEA87E0209
+ MEPROP UID '45EEA87E0209'
+ MEPROP Name 'Monitoring'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEC0FD01B1 // MonitoringList
+ HWL ME_45EEC103021E // Monitoring
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\Monitoring.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\Monitoring.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\MonitoringUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\MonitoringUnit.pas'
+ UP extprop:pas:UnitName 'MonitoringUnit'
+
+ENDME // ME_45EEA87E0209 Monitoring

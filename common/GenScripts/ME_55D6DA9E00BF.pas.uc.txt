@@ -1,8 +1,7 @@
 //#UC START# *479731C50290_55D6DA9E00BF_impl*
  Assert(not f_Connection.Connected);
  FreeAndNil(f_FunctionFactory);
- FreeAndNil(f_MainFreeIDHelper);
- FreeAndNil(f_CurrentFreeIDHelper);
+ FreeAndNil(f_FreeIDHelperHolder);
  FreeAndNil(f_Renum);
  FreeAndNil(f_FamilyHelper);
  f_RegionQuery := nil;
@@ -157,14 +156,14 @@ var
 //#UC END# *551E63B5008C_55D6DA9E00BF_var*
 //#UC START# *551E7E1501D8_55D6DA9E00BF_impl*
  try
-  Result := FreeIDHelper[aFamily].GetFree(ftnImgHandle);
+  Result := FreeIDHelperHolder.FreeIDHelper[aFamily].GetFree(ftnImgHandle);
  except
   Result := 0;
  end;
 
  if (Result <= 0) then
  try
-  Result := FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
+  Result := FreeIDHelperHolder.FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
  except
   Result := 0;
  end;
@@ -176,7 +175,7 @@ var
   Result := 0
  else
   repeat
-   Result := FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
+   Result := FreeIDHelperHolder.FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
   until Renum.ConvertToRealNumber(Result) = cUndefDocID;
 //#UC END# *551E7E35030B_55D6DA9E00BF_impl*
 //#UC START# *551E7E35030B_55D6DA9E00BF_var*
@@ -315,9 +314,10 @@ var
   begin
    if f_RequireAdminRights or ((Get_UserID <> usSupervisor) and (Get_UserID < usAdminReserved)) then
    begin
-//!! !!! Need to be implemented !!!
-//    UserManager.GetUserGroup(fUserID); // load groups for logined user
+    l_UserGroups := Get_UserManager.GetUserGroups(Get_UserID);
     f_CurHomePath:=GetHomePath(Get_UserID);
+//!! !!! Need to be implemented !!!
+//    AccessServer.CurrentUserGroup := l_UserGroups;
 //    AccessServer.ReLoadMasks(MainTblsFamily); // Перегружаем маски доступа к документам
    end;
    f_HasAdminRights := Get_UserManager.IsUserAdmin(Get_UserID);
@@ -337,6 +337,8 @@ var
  f_IsStarted := True;
 //#UC END# *5526537A00CE_55D6DA9E00BF_impl*
 //#UC START# *5526537A00CE_55D6DA9E00BF_var*
+var
+ l_UserGroups: TdaUserGroupIDArray;
 //#UC END# *5526537A00CE_55D6DA9E00BF_var*
 //#UC START# *5526538202A5_55D6DA9E00BF_impl*
  if not f_IsStarted then
@@ -368,8 +370,6 @@ var
 //#UC START# *55409258013F_55D6DA9E00BFget_var*
 //#UC END# *55409258013F_55D6DA9E00BFget_var*
 //#UC START# *554C7A3002BF_55D6DA9E00BFget_impl*
- if f_Factory = nil then
-  f_Factory := TpgTableQueryFactory.Make(f_DataConverter, f_Connection);
  Result := f_Factory;
 //#UC END# *554C7A3002BF_55D6DA9E00BFget_impl*
 //#UC START# *554C7A3002BF_55D6DA9E00BFget_var*
@@ -382,6 +382,8 @@ var
 //#UC START# *55D6DA9E00BF_ext:FileName
 w:\common\components\rtl\Garant\PG\pgDataProvider.pas
 //#UC END# *55D6DA9E00BF_ext:FileName
+//#UC START# *55D6DA9E00BFimpl_uses*
+//#UC END# *55D6DA9E00BFimpl_uses*
 //#UC START# *55E00D5A0297_55D6DA9E00BF_impl*
  inherited Create;
  f_SetGlobalDataProvider := SetGlobalDataProvider;
@@ -397,6 +399,8 @@ w:\common\components\rtl\Garant\PG\pgDataProvider.pas
  f_Connection := TpgConnection.Create(f_LongProcessList);
  f_FunctionFactory := TpgFunctionFactory.Create(f_Connection, f_DataConverter);
  f_AlienSessionID := BlankSession;
+ f_Factory := TpgTableQueryFactory.Make(f_DataConverter, f_Connection);
+ f_FreeIDHelperHolder := TpgFreeIDHelperHolder.Create(f_Connection, f_Factory, f_FunctionFactory);
 //#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
 //#UC START# *55E00D5A0297_55D6DA9E00BF_var*
 //#UC END# *55E00D5A0297_55D6DA9E00BF_var*
@@ -445,7 +449,7 @@ var
 //#UC END# *5617961F0105_55D6DA9E00BF_var*
 //#UC START# *5628D25600E6_55D6DA9E00BFget_impl*
  if f_UserManager = nil then
-  f_UserManager := TpgUserManager.Make(Get_TableQueryFactory);
+  f_UserManager := TpgUserManager.Make(Get_TableQueryFactory, Get_Journal, f_FunctionFactory, f_FreeIDHelperHolder, f_Connection);
  Result := f_UserManager;
 //#UC END# *5628D25600E6_55D6DA9E00BFget_impl*
 //#UC START# *5628D25600E6_55D6DA9E00BFget_var*
@@ -524,17 +528,17 @@ var
 //#UC START# *56558A1600EA_55D6DA9E00BF_var*
 //#UC END# *56558A1600EA_55D6DA9E00BF_var*
 //#UC START# *56558A4A01D1_55D6DA9E00BF_impl*
- Result := FreeIDHelper[aFamilyID].AnyRangesPresent(aKey);
+ Result := FreeIDHelperHolder.FreeIDHelper[aFamilyID].AnyRangesPresent(aKey);
 //#UC END# *56558A4A01D1_55D6DA9E00BF_impl*
 //#UC START# *56558A4A01D1_55D6DA9E00BF_var*
 //#UC END# *56558A4A01D1_55D6DA9E00BF_var*
 //#UC START# *56BC642200D0_55D6DA9E00BF_impl*
- (FreeIDHelper[aFamilyID] as IdaComboAccessDataProviderHelper).RegisterFreeExtObjID(aFamilyID, aKey, anID);
+ FreeIDHelperHolder.FreeIDHelper[aFamilyID].ExcludeFree(aKey, anID);
 //#UC END# *56BC642200D0_55D6DA9E00BF_impl*
 //#UC START# *56BC642200D0_55D6DA9E00BF_var*
 //#UC END# *56BC642200D0_55D6DA9E00BF_var*
 //#UC START# *56BC6437030F_55D6DA9E00BF_impl*
- (FreeIDHelper[aFamilyID] as IdaComboAccessDataProviderHelper).RegisterFreeExtDocID(aFamilyID, aKey, anID);
+ FreeIDHelperHolder.FreeIDHelper[aFamilyID].ExcludeFree(aKey, anID);
 //#UC END# *56BC6437030F_55D6DA9E00BF_impl*
 //#UC START# *56BC6437030F_55D6DA9E00BF_var*
 //#UC END# *56BC6437030F_55D6DA9E00BF_var*

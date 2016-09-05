@@ -1,0 +1,31 @@
+// Meta 46E13A3C030D MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_46E13A3C030D
+ MEPROP UID '46E13A3C030D'
+ MEPROP Name 'Meta'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'библиотека мета-шаблонов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4734A001000F' '4734A001000F.ms.model.script' // MetaTemplate
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_46E16545033C' '46E16545033C.ms.model.script' // Abstracts
+ WL 'ME_46E1536802AF' '46E1536802AF.ms.model.script' // Elements
+ WL 'ME_46E13A54030D' '46E13A54030D.ms.model.script' // HighLayers
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\MetaTemplate\Meta'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E13A3C030D Meta

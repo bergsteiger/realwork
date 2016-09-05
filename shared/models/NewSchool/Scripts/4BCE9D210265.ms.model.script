@@ -1,0 +1,157 @@
+// elCustomEdit 4BCE9D210265 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BCE9D210265
+
+ME ME_ADA641CE296E
+ MEPROP UID 'ADA641CE296E'
+ MEPROP Name 'ut_elCustomEdit'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для тестирования TelCustomEdit' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BCE9D210265 // elCustomEdit
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\elCustomEdit_ut_elCustomEdit_UserType.pas'
+ UP extprop:pas:UnitName 'elCustomEdit_ut_elCustomEdit_UserType'
+
+ENDME // ME_ADA641CE296E ut_elCustomEdit
+
+ME ME_307DDB1A929C
+ MEPROP UID '307DDB1A929C'
+ MEPROP GUID '83F3F220-AFBC-45DC-8C59-16D7972E06BB'
+ MEPROP Name 'elCustomEdit'
+ MEPROP OriginalName 'elCustomEdit$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы elCustomEdit' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BCE9D210265 // elCustomEdit
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4BCE9D210265 // elCustomEdit
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'elCustomEditFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_307DDB1A929C elCustomEdit$Def
+
+ME ME_4BCE9D760012
+ MEPROP UID '4BCE9D760012'
+ MEPROP Name 'Edit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BCE9D210265 // elCustomEdit
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482ACC330173' '482ACC330173.ms.model.script' // TelCustomEdit
+ )
+ ; // Inherits
+ UP "ComponentClass" 'none'
+ UP "need Caption" false
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4BCE9D760012 Edit
+
+ME ME_34F2918AA12E
+ MEPROP UID '34F2918AA12E'
+ MEPROP Name 'Ini_FormFactory_elCustomEdit'
+ MEPROP OriginalName 'Ini_FormFactory_elCustomEdit$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы elCustomEdit' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BCE9D210265 // elCustomEdit
+ ;
+ UPLINK SpelledFor HWL ME_4BCE9D210265 // elCustomEdit
+ ;
+
+ENDME // ME_34F2918AA12E Ini_FormFactory_elCustomEdit$Def
+
+ME ME_4BCEAE3C009B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BCE9D210265 // elCustomEdit
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4BCEAE3C009B 
+
+ME ME_4A8E8F2E0195_ME_4BCE9D210265
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4BCE9D210265 InitControls
+
+ME ME_4BCE9D210265
+ MEPROP UID '4BCE9D210265'
+ MEPROP Name 'elCustomEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для тестирования TelCustomEdit' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B30C72000B3' '4B30C72000B3.ms.model.script' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_307DDB1A929C // elCustomEdit$Def
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4BCE9D760012 // Edit
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_34F2918AA12E // Ini_FormFactory_elCustomEdit$Def
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4BCE9D210265 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_ADA641CE296E // ut_elCustomEdit
+ HWL ME_307DDB1A929C // elCustomEdit$Def
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BCEAE3C009B // Forms
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\elCustomEdit_Form.pas'
+ UP extprop:pas:TypeName 'TelCustomEditForm'
+ UP extprop:rc:SelfName 'elCustomEditForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'elCustomEdit_Form'
+
+ENDME // ME_4BCE9D210265 elCustomEdit

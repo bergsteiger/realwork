@@ -1,0 +1,114 @@
+// DataAccess 519B70FC02AB Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_519B70FC02AB
+
+FORWARD ME_519B719002F1
+
+ME ME_519B71FD024C
+ MEPROP UID '519B71FD024C'
+ MEPROP GUID '2312E8B1-47E7-4451-AA07-3A9E4E07812D'
+ MEPROP Name 'IValueSetFiller'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_519B719002F1 // dt_Sab
+ ;
+ UP extprop:rc:SelfName 'ValueSetFiller'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_519B71FD024C IValueSetFiller
+
+ME ME_559D266C032B
+ MEPROP UID '559D266C032B'
+ MEPROP Name 'MakeSab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519B719002F1 // dt_Sab
+ ;
+
+ENDME // ME_559D266C032B MakeSab
+
+ME ME_519B719002F1
+ MEPROP UID '519B719002F1'
+ MEPROP Name 'dt_Sab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519B70FC02AB // DataAccess
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559D266C032B // MakeSab
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_519B71FD024C // IValueSetFiller
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Sab.pas'
+
+ENDME // ME_519B719002F1 dt_Sab
+
+FORWARD ME_559E5F4702B7
+
+ME ME_559E5F6802C5
+ MEPROP UID '559E5F6802C5'
+ MEPROP Name 'TAbstractList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_559E5F4702B7 // dt_List
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'AbstractList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_559E5F6802C5 TAbstractList
+
+ME ME_559E5F4702B7
+ MEPROP UID '559E5F4702B7'
+ MEPROP Name 'dt_List'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519B70FC02AB // DataAccess
+ ;
+ MELIST Children
+   Seq: ( HWL ME_559E5F6802C5 // TAbstractList
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_List.pas'
+
+ENDME // ME_559E5F4702B7 dt_List
+
+ME ME_519B70FC02AB
+ MEPROP UID '519B70FC02AB'
+ MEPROP Name 'DataAccess'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.ms.model.script' // DT
+ ;
+ MELIST Children
+   Seq: ( HWL ME_519B719002F1 // dt_Sab
+ HWL ME_559E5F4702B7 // dt_List
+ )
+ ; // Children
+
+ENDME // ME_519B70FC02AB DataAccess

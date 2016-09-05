@@ -1,0 +1,110 @@
+// TevButton 52A085A703D4 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52A085A703D4
+
+FORWARD ME_52A085CE03AC
+
+FORWARD ME_52A08AF5004B
+
+ME ME_52A08AFE012F
+ MEPROP UID '52A08AFE012F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A08AF5004B // HackCheck
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A08AFE012F DoIt
+
+ME ME_52A08AF5004B
+ MEPROP UID '52A08AF5004B'
+ MEPROP Name 'HackCheck'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A085CE03AC // TevCustomButton
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A08AFE012F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A08AF5004B HackCheck
+
+ME ME_52A085CE03AC
+ MEPROP UID '52A085CE03AC'
+ MEPROP Name 'TevCustomButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A085A703D4 // TevButton
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.ms.model.script' // TCustomToolbarButton97
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52A08AF5004B // HackCheck
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A085CE03AC TevCustomButton
+
+ME ME_52A08684012E
+ MEPROP UID '52A08684012E'
+ MEPROP Name 'TevCustomButtonActionLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A085A703D4 // TevButton
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A087450138' '4C43E8750153.ms.model.script' // TToolbarButton97ActionLink
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ButtonActionLink'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A08684012E TevCustomButtonActionLink
+
+ME ME_52A085A703D4
+ MEPROP UID '52A085A703D4'
+ MEPROP Name 'TevButton'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52A0859B00E2' '52A0859B00E2.ms.model.script' // Buttons
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A085CE03AC // TevCustomButton
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_52A085CE03AC // TevCustomButton
+ HWL ME_52A08684012E // TevCustomButtonActionLink
+ )
+ ; // Children
+ UP "finished" false
+ UP "register in scripts" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evButton.pas'
+ UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evButton'
+
+ENDME // ME_52A085A703D4 TevButton

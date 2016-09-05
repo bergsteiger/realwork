@@ -1,0 +1,233 @@
+// HideFields 4E732D5D02FE Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E732D5D02FE
+
+FORWARD ME_572318050295
+
+FORWARD ME_4E733DD801B0
+
+ME ME_5110D711023B
+ MEPROP UID '5110D711023B'
+ MEPROP Name 'hfoCanHide'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E733DD801B0 // ThfOption
+ ;
+
+ENDME // ME_5110D711023B hfoCanHide
+
+ME ME_5110D719014A
+ MEPROP UID '5110D719014A'
+ MEPROP Name 'hfoHyperlink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E733DD801B0 // ThfOption
+ ;
+
+ENDME // ME_5110D719014A hfoHyperlink
+
+ME ME_4E733DD801B0
+ MEPROP UID '4E733DD801B0'
+ MEPROP Name 'ThfOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_572318050295 // vtHideFieldTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5110D711023B // hfoCanHide
+ HWL ME_5110D719014A // hfoHyperlink
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E733DD801B0 ThfOption
+
+ME ME_5110D73500ED
+ MEPROP UID '5110D73500ED'
+ MEPROP Name 'ThfOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_572318050295 // vtHideFieldTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E733DD801B0 // ThfOption
+ )
+ ; // Inherits
+
+ENDME // ME_5110D73500ED ThfOptions
+
+ME ME_572318050295
+ MEPROP UID '572318050295'
+ MEPROP Name 'vtHideFieldTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E732D5D02FE // HideFields
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E733DD801B0 // ThfOption
+ HWL ME_5110D73500ED // ThfOptions
+ )
+ ; // Children
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldTypes.pas'
+ UP extprop:rc:SelfName 'HideFieldTypes'
+
+ENDME // ME_572318050295 vtHideFieldTypes
+
+FORWARD ME_5110ED94010E
+
+ME ME_5110EE260146
+ MEPROP UID '5110EE260146'
+ MEPROP Name 'g_HideFieldCount'
+ MEPROP Class class_Attribute
+ %SUMMARY 'дл€ присвоени€ уникальных имен компонентам, дл€ назначени€ обработчиков событий на форме' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5110ED94010E // vtHideFieldUtils
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5110EE260146 g_HideFieldCount
+
+FORWARD ME_5110EDE70381
+
+ME ME_5110EE0B0228
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5110EE0B0228 aName
+
+ME ME_5110EE0801B0
+ MEPROP UID '5110EE0801B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5110EDE70381 // MakeName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5110EE0B0228 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_5110EE0801B0 DoIt
+
+ME ME_5110EDE70381
+ MEPROP UID '5110EDE70381'
+ MEPROP Name 'MakeName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5110ED94010E // vtHideFieldUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5110EE0801B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5110EDE70381 MakeName
+
+ME ME_5111175C03A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5110ED94010E // vtHideFieldUtils
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5111175C03A9 
+
+ME ME_5110ED94010E
+ MEPROP UID '5110ED94010E'
+ MEPROP Name 'vtHideFieldUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E732D5D02FE // HideFields
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5110EE260146 // g_HideFieldCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5110EDE70381 // MakeName
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5111175C03A9 // SysUtils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldUtils.pas'
+ UP extprop:rc:SelfName 'HideFieldUtils'
+
+ENDME // ME_5110ED94010E vtHideFieldUtils
+
+ME ME_4E732D5D02FE
+ MEPROP UID '4E732D5D02FE'
+ MEPROP Name 'HideFields'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
+ ;
+ MELIST Children
+   Seq: ( HWL ME_572318050295 // vtHideFieldTypes
+ HWL ME_5110ED94010E // vtHideFieldUtils
+ WL 'ME_4E732D7F0082' '4E732D7F0082.ms.model.script' // TvtHideField
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47C695A10172' '47C695A10172.ms.model.script' // evTypes
+ WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_48D21909003A' '48D21909003A.ms.model.script' // OvcConst
+ WL 'ME_4A3FAF1003DA' '4A3FAF1003DA.ms.model.script' // OvcCmd
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+
+ENDME // ME_4E732D5D02FE HideFields

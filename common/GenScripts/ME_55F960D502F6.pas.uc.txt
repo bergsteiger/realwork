@@ -7,6 +7,8 @@
 //#UC START# *55F960D502F6_ext:FileName
 w:\common\components\rtl\Garant\PG\pgTabledQuery.pas
 //#UC END# *55F960D502F6_ext:FileName
+//#UC START# *55F960D502F6impl_uses*
+//#UC END# *55F960D502F6impl_uses*
 //#UC START# *55F9617402F2_55F960D502F6_impl*
  inherited Create(aFactory, aDataConverter, aFromClause);
  aConnection.SetRefTo(f_Connection);
@@ -38,7 +40,6 @@ w:\common\components\rtl\Garant\PG\pgTabledQuery.pas
  l_Result := PQprepare(f_Connection.Handle, PAnsiChar(f_QueryName),  PAnsiChar(BuildSQL), Params.Count, nil);
  try
   pgCheckStatus(l_Result);
-  f_Connection.CommitTransaction;
  finally
   PQclear(l_Result);
  end;

@@ -1,0 +1,466 @@
+// RootStereotypes 561D302000A4 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561D302000A4
+
+FORWARD ME_561E4A7E0070
+
+ME ME_561E4AD603B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561E4A7E0070 // Project
+ ;
+ MELINK Target WL 'ME_561D36CD02EA' '561D307100B4.ms.model.script' // LibraryST
+ ;
+
+ENDME // ME_561E4AD603B7 
+
+ME ME_571FEC8D00DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561E4A7E0070 // Project
+ ;
+ MELINK Target WL 'ME_56375EA8032F' '561D307100B4.ms.model.script' // UMLModule
+ ;
+
+ENDME // ME_571FEC8D00DA 
+
+ME ME_561D436002B8_ME_561E4A7E0070
+ MELINK Original WL 'ME_561D436002B8' '561D307100B4.ms.model.script' // path
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_561D436002B8_ME_561E4A7E0070 path
+
+ME ME_561E4A7E0070
+ MEPROP UID '561E4A7E0070'
+ MEPROP Name 'Project'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_484914950379' '4732AE850271.ms.model.script' // Project
+ WL 'ME_561D335D01B2' '561D307100B4.ms.model.script' // Delphi ST
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_561D436002B8_ME_561E4A7E0070 // path
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_561E4AD603B7 // LibraryST
+ ME_571FEC8D00DA // UMLModule
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\Project.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\Project'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561E4A7E0070 Project
+
+FORWARD ME_561D304C03DC
+
+ME ME_561FCB95007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561D304C03DC // LibraryGroup
+ ;
+ MELINK Target WL 'ME_561D36CD02EA' '561D307100B4.ms.model.script' // LibraryST
+ ;
+
+ENDME // ME_561FCB95007B 
+
+ME ME_56239E15029D_ME_561D304C03DC
+ MELINK Original WL 'ME_56239E15029D' '561D307100B4.ms.model.script' // IsLibraryGroup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56239E15029D_ME_561D304C03DC IsLibraryGroup
+
+ME ME_561D304C03DC
+ MEPROP UID '561D304C03DC'
+ MEPROP Name 'LibraryGroup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группа библиотек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561E4A7E0070 // Project
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_56239E15029D_ME_561D304C03DC // IsLibraryGroup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_561FCB95007B // LibraryST
+ )
+ ; // Dependencies
+ UP "can be main" true
+ UP "inherite constraints" false
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\LibraryGroup.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\LibraryGroup'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D304C03DC LibraryGroup
+
+FORWARD ME_561FCB1E032C
+
+ME ME_561FCB710164
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561FCB1E032C // ProjectGroup
+ ;
+ MELINK Target HWL ME_561D304C03DC // LibraryGroup
+ ;
+
+ENDME // ME_561FCB710164 
+
+ME ME_561FCB830268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561FCB1E032C // ProjectGroup
+ ;
+ MELINK Target HWL ME_561E4A7E0070 // Project
+ ;
+
+ENDME // ME_561FCB830268 
+
+ME ME_56250DC70238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561FCB1E032C // ProjectGroup
+ ;
+ MELINK Target HWL ME_561FCB1E032C // ProjectGroup
+ ;
+
+ENDME // ME_56250DC70238 
+
+ME ME_571FEC8301F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561FCB1E032C // ProjectGroup
+ ;
+ MELINK Target WL 'ME_56375EA8032F' '561D307100B4.ms.model.script' // UMLModule
+ ;
+
+ENDME // ME_571FEC8301F1 
+
+ME ME_46E28D830109_ME_561FCB1E032C
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_561FCB1E032C mda
+
+ME ME_46E6D4BB0339_ME_561FCB1E032C
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_561FCB1E032C wiki
+
+ME ME_470484D50138_ME_561FCB1E032C
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_561FCB1E032C wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_561FCB1E032C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_561FCB1E032C constraint
+
+ME ME_4705CBD6003E_ME_561FCB1E032C
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_561FCB1E032C wiki_child_kind
+
+ME ME_561FCB1E032C
+ MEPROP UID '561FCB1E032C'
+ MEPROP Name 'ProjectGroup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группа проектов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
+ WL 'ME_561D335D01B2' '561D307100B4.ms.model.script' // Delphi ST
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_561FCB1E032C // mda
+ ME_46E6D4BB0339_ME_561FCB1E032C // wiki
+ ME_470484D50138_ME_561FCB1E032C // wiki_up_add_gen
+ ME_4704C0E30186_ME_561FCB1E032C // constraint
+ ME_4705CBD6003E_ME_561FCB1E032C // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_561FCB710164 // LibraryGroup
+ ME_561FCB830268 // Project
+ ME_56250DC70238 // ProjectGroup
+ ME_571FEC8301F1 // UMLModule
+ )
+ ; // Dependencies
+ UP "can be main" true
+ UP "personal label" 'code_project'
+ UP "visualization bg color" 12842435
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\ProjectGroup.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\ProjectGroup'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561FCB1E032C ProjectGroup
+
+ME ME_567422BE01A7
+ MEPROP UID '567422BE01A7'
+ MEPROP Name 'UseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470478900251' '470335E60290.ms.model.script' // UseCase
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCase.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCase'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_567422BE01A7 UseCase
+
+ME ME_5674231C022D
+ MEPROP UID '5674231C022D'
+ MEPROP Name 'UseCases'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470472F6005D' '470335E60290.ms.model.script' // UseCases
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCases.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCases'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_5674231C022D UseCases
+
+ME ME_567423420230
+ MEPROP UID '567423420230'
+ MEPROP Name 'Requirements'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47047244009C' '470335E60290.ms.model.script' // Requirements
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\Requirements.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\Requirements'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_567423420230 Requirements
+
+ME ME_5677F0B40216
+ MEPROP UID '5677F0B40216'
+ MEPROP Name 'UseCaseSettingValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E30271A0247' '470335E60290.ms.model.script' // UseCaseSettingValue
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCaseSettingValue.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCaseSettingValue'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_5677F0B40216 UseCaseSettingValue
+
+ME ME_57B5B7340174
+ MEPROP UID '57B5B7340174'
+ MEPROP Name 'MDATemplates'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E13A69005D' '46E13A54030D.ms.model.script' // MDATemplates
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDATemplates.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDATemplates'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_57B5B7340174 MDATemplates
+
+ME ME_57B5B764010F
+ MEPROP UID '57B5B764010F'
+ MEPROP Name 'MDALibrary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E155F80242' '46E13A54030D.ms.model.script' // MDALibrary
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDALibrary.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDALibrary'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_57B5B764010F MDALibrary
+
+ME ME_57B5B78D029E
+ MEPROP UID '57B5B78D029E'
+ MEPROP Name 'MDALayer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E1534D0399' '46E13A54030D.ms.model.script' // MDALayer
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDALayer.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDALayer'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_57B5B78D029E MDALayer
+
+ME ME_57B5B7FA01F5
+ MEPROP UID '57B5B7FA01F5'
+ MEPROP Name 'MDAGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E1540F00AB' '46E1536802AF.ms.model.script' // MDAGenerator
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAGenerator.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAGenerator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_57B5B7FA01F5 MDAGenerator
+
+ME ME_57B5D53F0058
+ MEPROP UID '57B5D53F0058'
+ MEPROP Name 'MDAGeneratorInner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_57B5D4FD0184' '46E1536802AF.ms.model.script' // MDAGeneratorInner
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAGeneratorInner.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAGeneratorInner'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_57B5D53F0058 MDAGeneratorInner
+
+ME ME_57B5DC0001DA
+ MEPROP UID '57B5DC0001DA'
+ MEPROP Name 'MDAUtilityPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D302000A4 // RootStereotypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6CEA300A8' '46E1536802AF.ms.model.script' // MDAUtilityPack
+ )
+ ; // Implements
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAUtilityPack.tpi'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAUtilityPack'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_57B5DC0001DA MDAUtilityPack
+
+ME ME_561D302000A4
+ MEPROP UID '561D302000A4'
+ MEPROP Name 'RootStereotypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_561D2FFF03CF' '561D2FFF03CF.ms.model.script' // SimpleTemplatesLibrary
+ ;
+ MELIST Children
+   Seq: ( HWL ME_561E4A7E0070 // Project
+ HWL ME_561D304C03DC // LibraryGroup
+ HWL ME_561FCB1E032C // ProjectGroup
+ HWL ME_567422BE01A7 // UseCase
+ HWL ME_5674231C022D // UseCases
+ HWL ME_567423420230 // Requirements
+ HWL ME_5677F0B40216 // UseCaseSettingValue
+ HWL ME_57B5B7340174 // MDATemplates
+ HWL ME_57B5B764010F // MDALibrary
+ HWL ME_57B5B78D029E // MDALayer
+ HWL ME_57B5B7FA01F5 // MDAGenerator
+ HWL ME_57B5D53F0058 // MDAGeneratorInner
+ HWL ME_57B5DC0001DA // MDAUtilityPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E13A54030D' '46E13A54030D.ms.model.script' // HighLayers
+ WL 'ME_46E1536802AF' '46E1536802AF.ms.model.script' // Elements
+ WL 'ME_46E16545033C' '46E16545033C.ms.model.script' // Abstracts
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470335E60290' '470335E60290.ms.model.script' // Requirements
+ WL 'ME_4732AE850271' '4732AE850271.ms.model.script' // Redefinitions
+ WL 'ME_561D307100B4' '561D307100B4.ms.model.script' // Elements
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes'
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D302000A4 RootStereotypes

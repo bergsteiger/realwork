@@ -1,0 +1,293 @@
+// Contracts 5791D1FF0214 VCMContracts Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5791D1FF0214
+
+FORWARD ME_5791D23B02DA
+
+FORWARD ME_8ED3ED02A1B9
+
+FORWARD ME_5791E0EF0247
+
+FORWARD ME_29DBB79C11FF
+
+ME ME_F2CACA9697A2
+ MEPROP Name 'aMainForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ ;
+
+ENDME // ME_F2CACA9697A2 aMainForm
+
+ME ME_A04AF61577FD
+ MEPROP Name 'anOwner'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_A04AF61577FD anOwner
+
+ME ME_10B98FFC47EF
+ MEPROP UID '10B98FFC47EF'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_29DBB79C11FF // MakeChild$5791E0EF0247
+ ;
+ MELIST Parameters
+   Seq: ( ME_F2CACA9697A2 // aMainForm
+ ME_A04AF61577FD // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_10B98FFC47EF DoIt
+
+ME ME_29DBB79C11FF
+ MEPROP UID '29DBB79C11FF'
+ MEPROP Name 'MakeChild'
+ MEPROP OriginalName 'MakeChild$5791E0EF0247'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_8ED3ED02A1B9 // MvcmParentAndChildService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_10B98FFC47EF // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FormFactory'
+ UPLINK Speller HWL ME_5791E0EF0247 // MakeChild
+ ;
+
+ENDME // ME_29DBB79C11FF MakeChild$5791E0EF0247
+
+FORWARD ME_4F6B678D03B8
+
+FORWARD ME_69D99D6C3E20
+
+ME ME_A7D7607FA316
+ MEPROP Name 'aMainForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ ;
+
+ENDME // ME_A7D7607FA316 aMainForm
+
+ME ME_CDD049C2F449
+ MEPROP UID 'CDD049C2F449'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_69D99D6C3E20 // MakeParent$4F6B678D03B8
+ ;
+ MELIST Parameters
+   Seq: ( ME_A7D7607FA316 // aMainForm
+ )
+ ; // Parameters
+
+ENDME // ME_CDD049C2F449 DoIt
+
+ME ME_69D99D6C3E20
+ MEPROP UID '69D99D6C3E20'
+ MEPROP Name 'MakeParent'
+ MEPROP OriginalName 'MakeParent$4F6B678D03B8'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_8ED3ED02A1B9 // MvcmParentAndChildService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_CDD049C2F449 // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FormFactory'
+ UPLINK Speller HWL ME_4F6B678D03B8 // MakeParent
+ ;
+
+ENDME // ME_69D99D6C3E20 MakeParent$4F6B678D03B8
+
+ME ME_8ED3ED02A1B9
+ MEPROP UID '8ED3ED02A1B9'
+ MEPROP Name 'MvcmParentAndChildService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TvcmParentAndChildService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5791D23B02DA // TvcmParentAndChildService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_29DBB79C11FF // MakeChild$5791E0EF0247
+ HWL ME_69D99D6C3E20 // MakeParent$4F6B678D03B8
+ )
+ ; // Operations
+
+ENDME // ME_8ED3ED02A1B9 MvcmParentAndChildService
+
+ME ME_5791E10302F1
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ ;
+
+ENDME // ME_5791E10302F1 aMainForm
+
+ME ME_5791E1030319
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_5791E1030319 anOwner
+
+ME ME_5791E10101A2
+ MEPROP UID '5791E10101A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5791E0EF0247 // MakeChild
+ ;
+ MELIST Parameters
+   Seq: ( ME_5791E10302F1 // aMainForm
+ ME_5791E1030319 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_5791E10101A2 DoIt
+
+ME ME_5791E0EF0247
+ MEPROP UID '5791E0EF0247'
+ MEPROP Name 'MakeChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FormFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5791D23B02DA // TvcmParentAndChildService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5791E10101A2 // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" false
+
+ENDME // ME_5791E0EF0247 MakeChild
+
+ME ME_4F6B67ED0116
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ ;
+
+ENDME // ME_4F6B67ED0116 aMainForm
+
+ME ME_4F6B67E20007
+ MEPROP UID '4F6B67E20007'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6B678D03B8 // MakeParent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6B67ED0116 // aMainForm
+ )
+ ; // Parameters
+
+ENDME // ME_4F6B67E20007 DoIt
+
+ME ME_4F6B678D03B8
+ MEPROP UID '4F6B678D03B8'
+ MEPROP Name 'MakeParent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FormFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5791D23B02DA // TvcmParentAndChildService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6B67E20007 // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" false
+
+ENDME // ME_4F6B678D03B8 MakeParent
+
+ME ME_5791D23B02DA
+ MEPROP UID '5791D23B02DA'
+ MEPROP Name 'TvcmParentAndChildService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5791D1FF0214 // Contracts
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5791E0EF0247 // MakeChild
+ HWL ME_4F6B678D03B8 // MakeParent
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_8ED3ED02A1B9 // MvcmParentAndChildService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:SelfName 'ParentAndChildService'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5791D23B02DA TvcmParentAndChildService
+
+ME ME_5791D1FF0214
+ MEPROP UID '5791D1FF0214'
+ MEPROP Name 'Contracts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMContracts ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F6B660100D5' '4F6B660100D5.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5791D23B02DA // TvcmParentAndChildService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\F1Like_Contracts.pas'
+ UP extprop:pas:UnitName 'F1Like_Contracts'
+
+ENDME // ME_5791D1FF0214 Contracts

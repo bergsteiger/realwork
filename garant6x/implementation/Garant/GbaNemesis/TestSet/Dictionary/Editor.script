@@ -22,7 +22,11 @@ INTEGER VAR g_EtalonCount
 //[EXECUTE] 
 ( 0 >>> g_EtalonCount )
 
+BOOLEAN VAR g_EnabledSavePictures
+( True >>> g_EnabledSavePictures )
+
 : "Сравнить текст редактора с эталоном" OBJECT IN anEditor
+ g_EnabledSavePictures EnabledSavePictures
  ++! g_EtalonCount
  OnTest
  VAR l_File

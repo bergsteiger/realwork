@@ -1,0 +1,145 @@
+// AdapterTest$Target 4DE8C9A603C1 ExeTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE8C9A603C1
+
+FORWARD ME_4DE8C9DB02AD
+
+FORWARD ME_4DE8CA530214
+
+ME ME_4DE8CA6E00E3
+ MEPROP UID '4DE8CA6E00E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE8CA530214 // Run
+ ;
+
+ENDME // ME_4DE8CA6E00E3 DoIt
+
+ME ME_4DE8CA530214
+ MEPROP UID '4DE8CA530214'
+ MEPROP Name 'Run'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE8CA6E00E3 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4DE8CA530214 Run
+
+ME ME_4DE8CA3100E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
+ ;
+ MELINK Target WL 'ME_4AC3488802F7' '4AC347B00177.ms.model.script' // TatAdapterTest
+ ;
+
+ENDME // ME_4DE8CA3100E3 
+
+ME ME_4DE8CA930288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DE8CA930288 
+
+ME ME_4DE8CABF039D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4DE8CABF039D 
+
+ME ME_4DE8CAE200F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE8C9DB02AD // TRunner
+ ;
+ MELINK Target WL 'ME_4B72E1CE0002' '4AB112DF005B.ms.model.script' // eeDocument
+ ;
+
+ENDME // ME_4DE8CAE200F5 
+
+ME ME_4DE8C9DB02AD
+ MEPROP UID '4DE8C9DB02AD'
+ MEPROP Name 'TRunner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE8C9A603C1 // AdapterTest$Target
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE8CA530214 // Run
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DE8CA3100E3 // TatAdapterTest
+ ME_4DE8CA930288 // FreeAndNil
+ ME_4DE8CABF039D // IStream
+ ME_4DE8CAE200F5 // eeDocument
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.06.2011 15:47'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Runner.pas'
+ UP extprop:rc:SelfName 'Runner'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Runner'
+
+ENDME // ME_4DE8C9DB02AD TRunner
+
+ME ME_4DE8C9A603C1
+ MEPROP UID '4DE8C9A603C1'
+ MEPROP Name 'AdapterTest'
+ MEPROP OriginalName 'AdapterTest$Target'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ExeTarget ;
+ %SUMMARY 'Консольные тесты адаптера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_480759E50328' '480759E50328.ms.model.script' // garant6x_test
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DE8C9DB02AD // TRunner
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4680E7D50168' '4680E7D50168.ms.model.script' // Everest Engine
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_46A0E6C5023A' '46A0E6C5023A.ms.model.script' // ActiveX
+ WL 'ME_48075C0E02DE' '48075C0E02DE.ms.model.script' // AdapterTest
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB112DF005B' '4AB112DF005B.ms.model.script' // EVD
+ WL 'ME_4AC347B00177' '4AC347B00177.ms.model.script' // Runner
+ )
+ ; // Depends
+ UP "console" true
+ UP "need UC in project" true
+ UP "path suffix" '/AdapterTest'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterTest.dpr'
+ UP intf.pas:PathOnly '\quality\test\garant6x\AdapterTest'
+ UP Version 0
+
+ENDME // ME_4DE8C9A603C1 AdapterTest$Target

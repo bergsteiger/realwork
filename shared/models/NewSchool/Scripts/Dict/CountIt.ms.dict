@@ -1,0 +1,29 @@
+UNIT CountIt.ms.dict
+
+INTEGER FUNCTION .CountIt
+  ARRAY IN anArray
+ if ( anArray Array:IsView ) then
+ begin 
+  0 >>> Result
+  anArray .for> ( 
+    IN anItem 
+   Inc Result 
+  ) 
+ end // ( anArray Array:IsView )
+ else
+ begin
+  anArray Array:Count >>> Result
+ end // ( anArray Array:IsView )
+; // .CountIt
+
+BOOLEAN FUNCTION .NotEmpty
+  ARRAY IN anArray
+ anArray .CountIt 0 !=
+ >>> Result 
+; // .NotEmpty
+
+BOOLEAN FUNCTION .IsEmpty
+  ARRAY IN anArray
+ anArray .CountIt 0 ==
+ >>> Result 
+; // .IsEmpty

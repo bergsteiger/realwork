@@ -1,0 +1,1420 @@
+// RecLists 4B880BC203B6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B880BC203B6
+
+FORWARD ME_47B433E500BC
+
+FORWARD ME_47B99B600208
+
+ME ME_47B99B7E0000
+ MEPROP UID '47B99B7E0000'
+ MEPROP Name 'aLong'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B99B600208 // VOID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47B99B7E0000 aLong
+
+ME ME_47B99B8E0147
+ MEPROP UID '47B99B8E0147'
+ MEPROP Name 'aByte'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B99B600208 // VOID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47B99B8E0147 aByte
+
+ME ME_47B99B600208
+ MEPROP UID '47B99B600208'
+ MEPROP Name 'VOID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Специальный тип, заменяющий void в C++.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47B99B7E0000 // aLong
+ HWL ME_47B99B8E0147 // aByte
+ )
+ ; // Attributes
+
+ENDME // ME_47B99B600208 VOID
+
+ME ME_4B87AD4701FD
+ MEPROP UID '4B87AD4701FD'
+ MEPROP Name 'l3Items_FillItem_NeedsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функции обработки элементов списка требуют знания о самом списке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ UP extprop:rc:SelfName 'Items_FillItem_NeedsList'
+
+ENDME // ME_4B87AD4701FD l3Items_FillItem_NeedsList
+
+ME ME_4D5BFD5202BE
+ MEPROP UID '4D5BFD5202BE'
+ MEPROP Name 'l3Items_CompareItemsRec_NeedsRList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ UP extprop:rc:SelfName 'Items_CompareItemsRec_NeedsRList'
+
+ENDME // ME_4D5BFD5202BE l3Items_CompareItemsRec_NeedsRList
+
+ME ME_47BEE7FD01DC
+ MEPROP UID '47BEE7FD01DC'
+ MEPROP Name 'ItemSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_47BEE7FD01DC ItemSize
+
+ME ME_47B99BAF004B
+ MEPROP UID '47B99BAF004B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target HWL ME_47B99B600208 // VOID
+ ;
+
+ENDME // ME_47B99BAF004B ItemType
+
+ME ME_47BC108C03C9
+ MEPROP UID '47BC108C03C9'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очищает список.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+
+ENDME // ME_47BC108C03C9 Clear
+
+ME ME_47BC67A9001D
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BC67A9001D A
+
+ME ME_47BC67A90080
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BC67A90080 B
+
+ME ME_47BC67A900E4
+ MEPROP Name 'DataSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_47BC67A900E4 DataSize
+
+ME ME_47BC677E02B1
+ MEPROP UID '47BC677E02B1'
+ MEPROP Name 'DoCompare'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сравнивает элементы.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BC67A9001D // A
+ ME_47BC67A90080 // B
+ ME_47BC67A900E4 // DataSize
+ )
+ ; // Parameters
+
+ENDME // ME_47BC677E02B1 DoCompare
+
+ME ME_47BEEBFF02EC
+ MEPROP Name 'aLo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767A382039E' '4677FBA70343.ms.model.script' // Tl3Index
+ ;
+
+ENDME // ME_47BEEBFF02EC aLo
+
+ME ME_47BEEBFF035C
+ MEPROP Name 'aHi'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767A382039E' '4677FBA70343.ms.model.script' // Tl3Index
+ ;
+
+ENDME // ME_47BEEBFF035C aHi
+
+ME ME_47BEEBFF03CE
+ MEPROP Name 'Action'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469FA03900D4' '4678193C009C.ms.model.script' // Tl3IteratorAction
+ ;
+
+ENDME // ME_47BEEBFF03CE Action
+
+ME ME_47BEEBE602B1
+ MEPROP UID '47BEEBE602B1'
+ MEPROP Name 'Iterate'
+ MEPROP Class class_Operation
+ %SUMMARY 'перебирает все элементы хранилища с aLo по aHi.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BEEBFF02EC // aLo
+ ME_47BEEBFF035C // aHi
+ ME_47BEEBFF03CE // Action
+ )
+ ; // Parameters
+
+ENDME // ME_47BEEBE602B1 Iterate
+
+ME ME_47BEEC1A0183
+ MEPROP Name 'Action'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469FA03900D4' '4678193C009C.ms.model.script' // Tl3IteratorAction
+ ;
+
+ENDME // ME_47BEEC1A0183 Action
+
+ME ME_47BEEC10022E
+ MEPROP UID '47BEEC10022E'
+ MEPROP Name 'IterateAll'
+ MEPROP Class class_Operation
+ %SUMMARY 'перебирает все элементы хранилища.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BEEC1A0183 // Action
+ )
+ ; // Parameters
+
+ENDME // ME_47BEEC10022E IterateAll
+
+ME ME_47BEF07E0044
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BEF07E0044 anIndex
+
+ME ME_47BEF07E00C2
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BEF07E00C2 aData
+
+ME ME_47BEF05C0032
+ MEPROP UID '47BEF05C0032'
+ MEPROP Name 'DoInsert'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.ms.model.script' // EListError
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_47BEF07E0044 // anIndex
+ ME_47BEF07E00C2 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_47BEF05C0032 DoInsert
+
+ME ME_47BEF39B01E3
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BEF39B01E3 aData
+
+ME ME_47BEF3910285
+ MEPROP UID '47BEF3910285'
+ MEPROP Name 'DoAdd'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_4787B1BA031F' '4787B0A8007B.ms.model.script' // El3DuplicateItem
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_47BEF39B01E3 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_47BEF3910285 DoAdd
+
+ME ME_47BEF5170309
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BEF5170309 aData
+
+ME ME_47BEF5130164
+ MEPROP UID '47BEF5130164'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BEF5170309 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_47BEF5130164 Add
+
+ME ME_47BF0A5C03E1
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BF0A5C03E1 aData
+
+ME ME_47BF0B5E033A
+ MEPROP Name 'theIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BF0B5E033A theIndex
+
+ME ME_47BF0A3100F6
+ MEPROP UID '47BF0A3100F6'
+ MEPROP Name 'Find'
+ MEPROP Class class_Operation
+ %SUMMARY 'Находит данные, при помощи основной операции сравнения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BF0A5C03E1 // aData
+ ME_47BF0B5E033A // theIndex
+ )
+ ; // Parameters
+
+ENDME // ME_47BF0A3100F6 Find
+
+ME ME_47BF0C870007
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BF0C870007 anIndex
+
+ME ME_47BF0C87009A
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BF0C87009A aData
+
+ME ME_47BF0C7C01D6
+ MEPROP UID '47BF0C7C01D6'
+ MEPROP Name 'Insert'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BF0C870007 // anIndex
+ ME_47BF0C87009A // aData
+ )
+ ; // Parameters
+
+ENDME // ME_47BF0C7C01D6 Insert
+
+ME ME_47B5C41F0148
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_47B5C41F0148 
+
+ME ME_4DD4EC3A038B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_479F1E0803A0' '479F1DEA0057.ms.model.script' // Errors
+ ;
+
+ENDME // ME_4DD4EC3A038B 
+
+ME ME_4DD4EC640377
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4DD4EC640377 
+
+ME ME_4DD4EC8B01C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B433E500BC // l3UntypedList
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4DD4EC8B01C7 
+
+ME ME_47B48A510176_ME_47B433E500BC
+ MELINK Original WL 'ME_47B48A510176' '47BB24D30205.ms.model.script' // MoveItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B48A510176_ME_47B433E500BC MoveItems
+
+ME ME_47B5976F024E_ME_47B433E500BC
+ MELINK Original WL 'ME_47B5976F024E' '47BB24D30205.ms.model.script' // ReAllocList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B5976F024E_ME_47B433E500BC ReAllocList
+
+ME ME_47B5984B019D_ME_47B433E500BC
+ MELINK Original WL 'ME_47B5984B019D' '47BB24D30205.ms.model.script' // GetCapacity
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B5984B019D_ME_47B433E500BC GetCapacity
+
+ME ME_47B5C4080270_ME_47B433E500BC
+ MELINK Original WL 'ME_47B5C4080270' '47BB24D30205.ms.model.script' // DoExchange
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B5C4080270_ME_47B433E500BC DoExchange
+
+ME ME_47B935AF0066_ME_47B433E500BC
+ MELINK Original WL 'ME_47B935AF0066' '47BB24D30205.ms.model.script' // FillItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B935AF0066_ME_47B433E500BC FillItem
+
+ME ME_47B94A5C006E_ME_47B433E500BC
+ MELINK Original WL 'ME_47B94A5C006E' '47BB24D30205.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B94A5C006E_ME_47B433E500BC FreeItem
+
+ME ME_47B99D4503A2_ME_47B433E500BC
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_47B433E500BC CompareExistingItems
+
+ME ME_47BEDF2A02EA_ME_47B433E500BC
+ MELINK Original WL 'ME_47BEDF2A02EA' '47BB24D30205.ms.model.script' // GetItemSlot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47BEDF2A02EA_ME_47B433E500BC GetItemSlot
+
+ME ME_47BEE088001A_ME_47B433E500BC
+ MELINK Original WL 'ME_47BEE088001A' '47BB24D30205.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ UP "reads field" true
+ENDME // ME_47BEE088001A_ME_47B433E500BC Count
+
+ME ME_47B433E500BC
+ MEPROP UID '47B433E500BC'
+ MEPROP Name 'l3UntypedList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B45152003F' '47BB24D30205.ms.model.script' // l3Items
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47BEE7FD01DC // ItemSize
+ HWL ME_47B99BAF004B // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47BC108C03C9 // Clear
+ HWL ME_47BC677E02B1 // DoCompare
+ HWL ME_47BEEBE602B1 // Iterate
+ HWL ME_47BEEC10022E // IterateAll
+ HWL ME_47BEF05C0032 // DoInsert
+ HWL ME_47BEF3910285 // DoAdd
+ HWL ME_47BEF5130164 // Add
+ HWL ME_47BF0A3100F6 // Find
+ HWL ME_47BF0C7C01D6 // Insert
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B48A510176_ME_47B433E500BC // MoveItems
+ ME_47B5976F024E_ME_47B433E500BC // ReAllocList
+ ME_47B5984B019D_ME_47B433E500BC // GetCapacity
+ ME_47B5C4080270_ME_47B433E500BC // DoExchange
+ ME_47B935AF0066_ME_47B433E500BC // FillItem
+ ME_47B94A5C006E_ME_47B433E500BC // FreeItem
+ ME_47B99D4503A2_ME_47B433E500BC // CompareExistingItems
+ ME_47BEDF2A02EA_ME_47B433E500BC // GetItemSlot
+ ME_47BEE088001A_ME_47B433E500BC // Count
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_47B99B600208 // VOID
+ HWL ME_4B87AD4701FD // l3Items_FillItem_NeedsList
+ HWL ME_4D5BFD5202BE // l3Items_CompareItemsRec_NeedsRList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47B5C41F0148 // l3Base
+ ME_4DD4EC3A038B // Errors
+ ME_4DD4EC640377 // SysUtils
+ ME_4DD4EC8B01C7 // l3MinMax
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3UntypedList.imp.pas'
+ UP extprop:pas:TypeName '_l3UntypedList_'
+ UP extprop:pas:UnitName 'l3UntypedList.imp'
+
+ENDME // ME_47B433E500BC l3UntypedList
+
+FORWARD ME_479DF9C5033A
+
+ME ME_4B88025F00AD
+ MEPROP UID '4B88025F00AD'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_4B88025F00AD l3Items_NeedsBeforeFreeItem
+
+ME ME_52FCA68802C2
+ MEPROP UID '52FCA68802C2'
+ MEPROP Name 'l3Items_HasChanging'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_HasChanging'
+
+ENDME // ME_52FCA68802C2 l3Items_HasChanging
+
+ME ME_52FCA9120078
+ MEPROP UID '52FCA9120078'
+ MEPROP Name 'l3Items_IsProto'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_IsProto'
+
+ENDME // ME_52FCA9120078 l3Items_IsProto
+
+ME ME_47B5951701F0
+ MEPROP UID '47B5951701F0'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL 'ME_47AB20F40050' '47913B47006E.ms.model.script' // Tl3Ptr
+ ;
+
+ENDME // ME_47B5951701F0 DataType
+
+ME ME_47B1DA4902C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47B1DA4902C6 
+
+ME ME_47B1DD0A03C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL 'ME_479F1E0803A0' '479F1DEA0057.ms.model.script' // Errors
+ ;
+
+ENDME // ME_47B1DD0A03C4 
+
+ME ME_47B3205602D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_47B3205602D4 
+
+ME ME_47B320E602FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_47B320E602FA 
+
+ME ME_479DF9C5033A
+ MEPROP UID '479DF9C5033A'
+ MEPROP Name 'Tl3ProtoPtrRecListPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4A5CBFAB03AF' '47BB24D30205.ms.model.script' // l3Changing
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_47B433E500BC // l3UntypedList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47B5951701F0 // DataType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4B88025F00AD // l3Items_NeedsBeforeFreeItem
+ HWL ME_52FCA68802C2 // l3Items_HasChanging
+ HWL ME_52FCA9120078 // l3Items_IsProto
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47B1DA4902C6 // SysUtils
+ ME_47B1DD0A03C4 // Errors
+ ME_47B3205602D4 // l3Base
+ ME_47B320E602FA // l3MinMax
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '20.04.2006 17:10'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPtrRecListPrim.pas'
+ UP extprop:rc:SelfName 'ProtoPtrRecListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ProtoPtrRecListPrim'
+
+ENDME // ME_479DF9C5033A Tl3ProtoPtrRecListPrim
+
+FORWARD ME_47BC6C30022F
+
+FORWARD ME_47BC6C92017D
+
+ME ME_47BC6CA301E6
+ MEPROP UID '47BC6CA301E6'
+ MEPROP Name 'rData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BC6C92017D // Tl3DataAndSize
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47BC6CA301E6 rData
+
+ME ME_47BC6CAB03E4
+ MEPROP UID '47BC6CAB03E4'
+ MEPROP Name 'rSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BC6C92017D // Tl3DataAndSize
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_47BC6CAB03E4 rSize
+
+ME ME_47BC6C92017D
+ MEPROP UID '47BC6C92017D'
+ MEPROP Name 'Tl3DataAndSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47BC6CA301E6 // rData
+ HWL ME_47BC6CAB03E4 // rSize
+ )
+ ; // Attributes
+
+ENDME // ME_47BC6C92017D Tl3DataAndSize
+
+ME ME_4B880C8E00F6
+ MEPROP UID '4B880C8E00F6'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ ;
+ MELINK Target HWL ME_47BC6C92017D // Tl3DataAndSize
+ ;
+
+ENDME // ME_4B880C8E00F6 FindDataType
+
+ME ME_47BF0ADC0391
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BF0ADC0391 aData
+
+ME ME_47BF0ADC03C9
+ MEPROP Name 'aDataSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_47BF0ADC03C9 aDataSize
+
+ME ME_47BF0ADD0019
+ MEPROP Name 'theIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BF0ADD0019 theIndex
+
+ME ME_47BF0AB902EB
+ MEPROP UID '47BF0AB902EB'
+ MEPROP Name 'FindPart'
+ MEPROP Class class_Operation
+ %SUMMARY 'поиск по началу записи, размер сравниваемых данных в aDataSize' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BF0ADC0391 // aData
+ ME_47BF0ADC03C9 // aDataSize
+ ME_47BF0ADD0019 // theIndex
+ )
+ ; // Parameters
+
+ENDME // ME_47BF0AB902EB FindPart
+
+ME ME_47B9BAFD01F4_ME_47BC6C30022F
+ MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47B9BAFD01F4_ME_47BC6C30022F CompareItemWithData
+
+ME ME_47BC6C30022F
+ MEPROP UID '47BC6C30022F'
+ MEPROP Name 'Tl3RecListWithPartialFind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B880C8E00F6 // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47BF0AB902EB // FindPart
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47BC6C30022F // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47BC6C92017D // Tl3DataAndSize
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3RecListWithPartialFind.pas'
+ UP extprop:rc:SelfName 'RecListWithPartialFind'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3RecListWithPartialFind'
+
+ENDME // ME_47BC6C30022F Tl3RecListWithPartialFind
+
+FORWARD ME_479DFD5300C5
+
+ME ME_4DD4E7F4016C
+ MEPROP UID '4DD4E7F4016C'
+ MEPROP Name '_l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DFD5300C5 // Tl3DynamicArray
+ ;
+
+ENDME // ME_4DD4E7F4016C _l3Items_NeedsBeforeFreeItem
+
+FORWARD ME_479DFDBE0123
+
+ME ME_479EF49B0106
+ MEPROP UID '479EF49B0106'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DFDBE0123 // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_479EF49B0106 anIndex
+
+ME ME_479DFDBE0123
+ MEPROP UID '479DFDBE0123'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DFD5300C5 // Tl3DynamicArray
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_479EF49B0106 // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_479DFDBE0123 Items
+
+ME ME_4DD4E7D501E6
+ MEPROP UID '4DD4E7D501E6'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DFD5300C5 // Tl3DynamicArray
+ ;
+ MELINK Target WL 'ME_47AB20F40050' '47913B47006E.ms.model.script' // Tl3Ptr
+ ;
+
+ENDME // ME_4DD4E7D501E6 DataType
+
+ME ME_479DFD5300C5
+ MEPROP UID '479DFD5300C5'
+ MEPROP Name 'Tl3DynamicArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс для динамических массовов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47B433E500BC // l3UntypedList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_479DFDBE0123 // Items
+ HWL ME_4DD4E7D501E6 // DataType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4DD4E7F4016C // _l3Items_NeedsBeforeFreeItem
+ )
+ ; // Children
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DynamicArray.pas'
+ UP extprop:rc:SelfName 'DynamicArray'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3DynamicArray'
+
+ENDME // ME_479DFD5300C5 Tl3DynamicArray
+
+FORWARD ME_479DF9D50043
+
+ME ME_47B31DF2019F
+ MEPROP UID '47B31DF2019F'
+ MEPROP Name 'f_SortIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DF9D50043 // Tl3ProtoPtrRecList
+ ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_47B31DF2019F f_SortIndex
+
+ME ME_47A042E100E2_ME_479DF9D50043
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_479DF9D50043 InitFields
+
+ME ME_47B9841B03AD_ME_479DF9D50043
+ MELINK Original WL 'ME_47B9841B03AD' '47BB24D30205.ms.model.script' // DoGetSortIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47B9841B03AD_ME_479DF9D50043 DoGetSortIndex
+
+ME ME_47B9843903DB_ME_479DF9D50043
+ MELINK Original WL 'ME_47B9843903DB' '47BB24D30205.ms.model.script' // DoSetSortIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47B9843903DB_ME_479DF9D50043 DoSetSortIndex
+
+ME ME_479DF9D50043
+ MEPROP UID '479DF9D50043'
+ MEPROP Name 'Tl3ProtoPtrRecList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47B31DF2019F // f_SortIndex
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_479DF9D50043 // InitFields
+ ME_47B9841B03AD_ME_479DF9D50043 // DoGetSortIndex
+ ME_47B9843903DB_ME_479DF9D50043 // DoSetSortIndex
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '20.04.2006 17:10'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPtrRecList.pas'
+ UP extprop:rc:SelfName 'ProtoPtrRecList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ProtoPtrRecList'
+
+ENDME // ME_479DF9D50043 Tl3ProtoPtrRecList
+
+FORWARD ME_479DF7E200A3
+
+ME ME_47BF07ED0281
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BF07ED0281 A
+
+ME ME_47BF07ED02CA
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47BF07ED02CA B
+
+ME ME_47BF07ED0313
+ MEPROP Name 'aDataSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_47BF07ED0313 aDataSize
+
+ME ME_47BF07D000E6
+ MEPROP UID '47BF07D000E6'
+ MEPROP Name 'CompareItem'
+ MEPROP Class class_Operation
+ %SUMMARY 'aDataSize - размер сравниваемой части записи, если 0, то вся запись' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DF7E200A3 // Tl3BaseRecList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BF07ED0281 // A
+ ME_47BF07ED02CA // B
+ ME_47BF07ED0313 // aDataSize
+ )
+ ; // Parameters
+
+ENDME // ME_47BF07D000E6 CompareItem
+
+ME ME_47BF076500FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479DF7E200A3 // Tl3BaseRecList
+ ;
+ MELINK Target WL 'ME_47BF045E0138' '47BF042D029B.ms.model.script' // m2MemLib
+ ;
+
+ENDME // ME_47BF076500FE 
+
+ME ME_47BC677E02B1_ME_479DF7E200A3
+ MELINK Original HWL ME_47BC677E02B1 // DoCompare
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47BC677E02B1_ME_479DF7E200A3 DoCompare
+
+ME ME_479DF7E200A3
+ MEPROP UID '479DF7E200A3'
+ MEPROP Name 'Tl3BaseRecList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479DF9D50043 // Tl3ProtoPtrRecList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47BF07D000E6 // CompareItem
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47BC677E02B1_ME_479DF7E200A3 // DoCompare
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_47BF076500FE // m2MemLib
+ )
+ ; // Dependencies
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3BaseRecList.pas'
+ UP extprop:rc:SelfName 'BaseRecList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3BaseRecList'
+
+ENDME // ME_479DF7E200A3 Tl3BaseRecList
+
+FORWARD ME_479F10C70202
+
+ME ME_479F110F0279
+ MEPROP UID '479F110F0279'
+ MEPROP Name 'f_ItemSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F10C70202 // Tl3RecList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_479F110F0279 f_ItemSize
+
+ME ME_479F1125036F
+ MEPROP Name 'anItemSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_479F1125036F anItemSize
+
+ME ME_479F111E032C
+ MEPROP UID '479F111E032C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479F10C70202 // Tl3RecList
+ ;
+ MELIST Parameters
+   Seq: ( ME_479F1125036F // anItemSize
+ )
+ ; // Parameters
+
+ENDME // ME_479F111E032C Create
+
+ME ME_47BEE7FD01DC_ME_479F10C70202
+ MELINK Original HWL ME_47BEE7FD01DC // ItemSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_47BEE7FD01DC_ME_479F10C70202 ItemSize
+
+ME ME_479F10C70202
+ MEPROP UID '479F10C70202'
+ MEPROP Name 'Tl3RecList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479DF7E200A3 // Tl3BaseRecList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_479F110F0279 // f_ItemSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_479F111E032C // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47BEE7FD01DC_ME_479F10C70202 // ItemSize
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3RecList.pas'
+ UP extprop:rc:SelfName 'RecList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3RecList'
+
+ENDME // ME_479F10C70202 Tl3RecList
+
+FORWARD ME_479F122F038A
+
+ME ME_479F12410013
+ MEPROP UID '479F12410013'
+ MEPROP Name 'f_FieldSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL 'ME_479F11F80049' '4678193C009C.ms.model.script' // TSmallIntArray
+ ;
+
+ENDME // ME_479F12410013 f_FieldSize
+
+ME ME_479F124F01E0
+ MEPROP UID '479F124F01E0'
+ MEPROP Name 'f_FieldOffs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL 'ME_4727223D039C' '4678193C009C.ms.model.script' // TLongArray
+ ;
+
+ENDME // ME_479F124F01E0 f_FieldOffs
+
+ME ME_479F125A0393
+ MEPROP UID '479F125A0393'
+ MEPROP Name 'f_SortFields'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL 'ME_479F11F80049' '4678193C009C.ms.model.script' // TSmallIntArray
+ ;
+
+ENDME // ME_479F125A0393 f_SortFields
+
+ME ME_47BF10330390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_479F122F038A // Tl3FieldSortRecList
+ ;
+ MELINK Target WL 'ME_47BF045E0138' '47BF042D029B.ms.model.script' // m2MemLib
+ ;
+
+ENDME // ME_47BF10330390 
+
+ME ME_479F122F038A
+ MEPROP UID '479F122F038A'
+ MEPROP Name 'Tl3FieldSortRecList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479F10C70202 // Tl3RecList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_479F12410013 // f_FieldSize
+ HWL ME_479F124F01E0 // f_FieldOffs
+ HWL ME_479F125A0393 // f_SortFields
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_47BF10330390 // m2MemLib
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP "started" '25.04.2006 09:30'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FieldSortRecList.pas'
+ UP extprop:rc:SelfName 'FieldSortRecList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3FieldSortRecList'
+
+ENDME // ME_479F122F038A Tl3FieldSortRecList
+
+FORWARD ME_479DFD65024D
+
+ME ME_479DFD7202F3
+ MEPROP UID '479DFD7202F3'
+ MEPROP Name 'f_ItemSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479DFD65024D // Tl3DynamicArrayEx
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_479DFD7202F3 f_ItemSize
+
+ME ME_479F083A01C8
+ MEPROP Name 'anItemSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_479F083A01C8 anItemSize
+
+ME ME_479F082A0193
+ MEPROP UID '479F082A0193'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_479DFD65024D // Tl3DynamicArrayEx
+ ;
+ MELIST Parameters
+   Seq: ( ME_479F083A01C8 // anItemSize
+ )
+ ; // Parameters
+
+ENDME // ME_479F082A0193 Create
+
+ME ME_47BEE7FD01DC_ME_479DFD65024D
+ MELINK Original HWL ME_47BEE7FD01DC // ItemSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_47BEE7FD01DC_ME_479DFD65024D ItemSize
+
+ME ME_479DFD65024D
+ MEPROP UID '479DFD65024D'
+ MEPROP Name 'Tl3DynamicArrayEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B880BC203B6 // RecLists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_479DFD5300C5 // Tl3DynamicArray
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_479DFD7202F3 // f_ItemSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_479F082A0193 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47BEE7FD01DC_ME_479DFD65024D // ItemSize
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DynamicArrayEx.pas'
+ UP extprop:rc:SelfName 'DynamicArrayEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3DynamicArrayEx'
+
+ENDME // ME_479DFD65024D Tl3DynamicArrayEx
+
+ME ME_4B880BC203B6
+ MEPROP UID '4B880BC203B6'
+ MEPROP Name 'RecLists'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Списки "записей" (для Вована)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47B433E500BC // l3UntypedList
+ HWL ME_479DF9C5033A // Tl3ProtoPtrRecListPrim
+ HWL ME_47BC6C30022F // Tl3RecListWithPartialFind
+ HWL ME_479DFD5300C5 // Tl3DynamicArray
+ HWL ME_479DF9D50043 // Tl3ProtoPtrRecList
+ HWL ME_479DF7E200A3 // Tl3BaseRecList
+ HWL ME_479F10C70202 // Tl3RecList
+ HWL ME_479F122F038A // Tl3FieldSortRecList
+ HWL ME_479DFD65024D // Tl3DynamicArrayEx
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4787B0A8007B' '4787B0A8007B.ms.model.script' // l3Except
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_479F1DEA0057' '479F1DEA0057.ms.model.script' // RTLConsts
+ WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ WL 'ME_47BF042D029B' '47BF042D029B.ms.model.script' // m2
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ )
+ ; // Depends
+
+ENDME // ME_4B880BC203B6 RecLists

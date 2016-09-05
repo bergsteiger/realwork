@@ -1,0 +1,562 @@
+// nevNavigation 4A251D6E00BD Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A251D6E00BD
+
+FORWARD ME_49E5FCDB02E9
+
+FORWARD ME_49E5FEA40276
+
+ME ME_49E5FEF30268
+ MEPROP UID '49E5FEF30268'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Количество адресов ссылки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FEA40276 // IevAddressList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_49E5FEF30268 Count
+
+FORWARD ME_49E5FF140260
+
+ME ME_49E5FF330015
+ MEPROP UID '49E5FF330015'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49E5FF140260 // Item
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49E5FF330015 anIndex
+
+ME ME_49E5FF140260
+ MEPROP UID '49E5FF140260'
+ MEPROP Name 'Item'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Список адресов по индексу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FEA40276 // IevAddressList
+ ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49E5FF330015 // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "pm" true
+
+ENDME // ME_49E5FF140260 Item
+
+FORWARD ME_49E5FF4B0102
+
+ME ME_49E5FF62008B
+ MEPROP UID '49E5FF62008B'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49E5FF4B0102 // Name
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49E5FF62008B anIndex
+
+ME ME_49E5FF4B0102
+ MEPROP UID '49E5FF4B0102'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Cписок имен по индексу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FEA40276 // IevAddressList
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49E5FF62008B // anIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_49E5FF4B0102 Name
+
+ME ME_49E5FEBB02E3
+ MEPROP Name 'anAddress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_49E5FEBB02E3 anAddress
+
+ME ME_49E5FEB103C3
+ MEPROP UID '49E5FEB103C3'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавляет еще один адрес' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FEA40276 // IevAddressList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E5FEBB02E3 // anAddress
+ )
+ ; // Parameters
+
+ENDME // ME_49E5FEB103C3 Add
+
+ME ME_49E5FECB0389
+ MEPROP Name 'anAddress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_49E5FECB0389 anAddress
+
+ME ME_49E5FEC301F8
+ MEPROP UID '49E5FEC301F8'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удаляет адрес' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FEA40276 // IevAddressList
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E5FECB0389 // anAddress
+ )
+ ; // Parameters
+
+ENDME // ME_49E5FEC301F8 Delete
+
+ME ME_49E5FEDF0350
+ MEPROP Name 'anOldAddress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_49E5FEDF0350 anOldAddress
+
+ME ME_49E5FEDF0379
+ MEPROP Name 'aNewAddress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_49E5FEDF0379 aNewAddress
+
+ME ME_49E5FED201A4
+ MEPROP UID '49E5FED201A4'
+ MEPROP Name 'Modify'
+ MEPROP Class class_Operation
+ %SUMMARY 'Модифицирует адрес' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FEA40276 // IevAddressList
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E5FEDF0350 // anOldAddress
+ ME_49E5FEDF0379 // aNewAddress
+ )
+ ; // Parameters
+
+ENDME // ME_49E5FED201A4 Modify
+
+ME ME_49E5FEE50350
+ MEPROP UID '49E5FEE50350'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очищает список адресов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FEA40276 // IevAddressList
+ ;
+
+ENDME // ME_49E5FEE50350 Clear
+
+ME ME_49E5FEA40276
+ MEPROP UID '49E5FEA40276'
+ MEPROP GUID 'FF3E2BB3-B94A-4C87-9725-E6EF1E93079A'
+ MEPROP Name 'IevAddressList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список адресов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49E5FEF30268 // Count
+ HWL ME_49E5FF140260 // Item
+ HWL ME_49E5FF4B0102 // Name
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49E5FEB103C3 // Add
+ HWL ME_49E5FEC301F8 // Delete
+ HWL ME_49E5FED201A4 // Modify
+ HWL ME_49E5FEE50350 // Clear
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'AddressList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49E5FEA40276 IevAddressList
+
+FORWARD ME_49E5FF8800A0
+
+ME ME_49E604AD0303
+ MEPROP UID '49E604AD0303'
+ MEPROP Name 'Address'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FF8800A0 // IevAddressHolder
+ ;
+ MELINK Target WL 'ME_534572370056' '47913B47006E.ms.model.script' // Tl3Tag
+ ;
+ UP "pm" true
+
+ENDME // ME_49E604AD0303 Address
+
+ME ME_49E5FF8800A0
+ MEPROP UID '49E5FF8800A0'
+ MEPROP GUID 'C22FA607-035B-44DE-B592-054CB05175DE'
+ MEPROP Name 'IevAddressHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49E604AD0303 // Address
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'AddressHolder'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49E5FF8800A0 IevAddressHolder
+
+ME ME_49E5FD3C021B
+ MEPROP UID '49E5FD3C021B'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Идентификатор ссылки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_49E5FD3C021B ID
+
+ME ME_4A72AAF50077
+ MEPROP UID '4A72AAF50077'
+ MEPROP Name 'FromDocumentExternalHandle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_4A72AAF50077 FromDocumentExternalHandle
+
+ME ME_4A72ABEF02AE
+ MEPROP UID '4A72ABEF02AE'
+ MEPROP Name 'TargetDocumentID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_4A72ABEF02AE TargetDocumentID
+
+ME ME_4A72B4140281
+ MEPROP UID '4A72B4140281'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+ UP "pm" false
+
+ENDME // ME_4A72B4140281 Name
+
+ME ME_49E6095100C3
+ MEPROP UID '49E6095100C3'
+ MEPROP Name 'Para'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Параграф на котором стоит ссылка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ UP "pm" true
+
+ENDME // ME_49E6095100C3 Para
+
+ME ME_49E609B701E8
+ MEPROP UID '49E609B701E8'
+ MEPROP Name 'AddressList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target HWL ME_49E5FEA40276 // IevAddressList
+ ;
+ UP "pm" true
+
+ENDME // ME_49E609B701E8 AddressList
+
+ME ME_49E609D303A4
+ MEPROP UID '49E609D303A4'
+ MEPROP Name 'Address'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Адрес на который указывает ссылка (первый из AddressList)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+ UP "pm" true
+
+ENDME // ME_49E609D303A4 Address
+
+ME ME_49E609FD0318
+ MEPROP UID '49E609FD0318'
+ MEPROP Name 'URL'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Путь к ресурсу на который может указывать ссылка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+ UP "pm" true
+
+ENDME // ME_49E609FD0318 URL
+
+ME ME_49E60A1B02C4
+ MEPROP UID '49E60A1B02C4'
+ MEPROP Name 'Hint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY '"подсказка" появляющаяся при наведении курсора на ссылку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+ UP "pm" true
+
+ENDME // ME_49E60A1B02C4 Hint
+
+ME ME_49E60A650155
+ MEPROP UID '49E60A650155'
+ MEPROP Name 'Kind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Вид отображения ссылки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_47C7F2A703C6' '469D0AC7005E.ms.model.script' // LinkViewKind
+ ;
+ UP "pm" true
+
+ENDME // ME_49E60A650155 Kind
+
+ME ME_49E5FCF403BB
+ MEPROP UID '49E5FCF403BB'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет существует ли данная ссылка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49E5FCF403BB Exists
+
+ME ME_49E5FD13001E
+ MEPROP UID '49E5FD13001E'
+ MEPROP Name 'Insert'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вставляет новую ссылку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+
+ENDME // ME_49E5FD13001E Insert
+
+ME ME_49E5FD1D0339
+ MEPROP UID '49E5FD1D0339'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удаляет гипертекстовую ссылку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+
+ENDME // ME_49E5FD1D0339 Delete
+
+ME ME_5063FF170259
+ MEPROP UID '5063FF170259'
+ MEPROP Name 'GetHyperlink'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E5FCDB02E9 // IevHyperlink
+ ;
+ MELINK Target WL 'ME_534572370056' '47913B47006E.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_5063FF170259 GetHyperlink
+
+ME ME_49E5FCDB02E9
+ MEPROP UID '49E5FCDB02E9'
+ MEPROP GUID '337AC4D3-4CE3-43D3-A6F3-72396283293F'
+ MEPROP Name 'IevHyperlink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Гипертекстовая ссылка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A251D6E00BD // nevNavigation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49E5FD3C021B // ID
+ HWL ME_4A72AAF50077 // FromDocumentExternalHandle
+ HWL ME_4A72ABEF02AE // TargetDocumentID
+ HWL ME_4A72B4140281 // Name
+ HWL ME_49E6095100C3 // Para
+ HWL ME_49E609B701E8 // AddressList
+ HWL ME_49E609D303A4 // Address
+ HWL ME_49E609FD0318 // URL
+ HWL ME_49E60A1B02C4 // Hint
+ HWL ME_49E60A650155 // Kind
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49E5FCF403BB // Exists
+ HWL ME_49E5FD13001E // Insert
+ HWL ME_49E5FD1D0339 // Delete
+ HWL ME_5063FF170259 // GetHyperlink
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_49E5FEA40276 // IevAddressList
+ HWL ME_49E5FF8800A0 // IevAddressHolder
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'Hyperlink'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49E5FCDB02E9 IevHyperlink
+
+ME ME_4A251D6E00BD
+ MEPROP UID '4A251D6E00BD'
+ MEPROP Name 'nevNavigation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Навигация между элементами системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49E5FCDB02E9 // IevHyperlink
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_4A23935A0282' '4A23935A0282.ms.model.script' // afwNavigation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "path prefix" '/new'
+ UP "started" '02.06.2009 16:39'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevNavigation.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+
+ENDME // ME_4A251D6E00BD nevNavigation

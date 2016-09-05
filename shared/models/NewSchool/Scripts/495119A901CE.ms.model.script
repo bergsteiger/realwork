@@ -1,0 +1,165 @@
+// Editor 495119A901CE Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_495119A901CE
+
+ME ME_49512B040003
+ MEPROP UID '49512B040003'
+ MEPROP Name 'TnscTextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495119A901CE // Editor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47542F360372' '47542EA70394.ms.model.script' // TeeTextSource
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '2004/12/23 12:51:13'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTextSource.pas'
+ UP extprop:rc:SelfName 'TextSource'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscTextSource'
+
+ENDME // ME_49512B040003 TnscTextSource
+
+FORWARD ME_4B97EE59039E
+
+FORWARD ME_4B97EE8B032F
+
+ME ME_4B97EEB7015F
+ MEPROP UID '4B97EEB7015F'
+ MEPROP Name 'CloseHyperlinkText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97EE8B032F // MiscMessages
+ ;
+ MEPROP Value '''Закрыть'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Закрыть'''
+
+ENDME // ME_4B97EEB7015F CloseHyperlinkText
+
+ME ME_4B97EE8B032F
+ MEPROP UID '4B97EE8B032F'
+ MEPROP Name 'MiscMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B97EEB7015F // CloseHyperlinkText
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'nsc_'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'nsc_'
+
+ENDME // ME_4B97EE8B032F MiscMessages
+
+ME ME_4B97EE59039E
+ MEPROP UID '4B97EE59039E'
+ MEPROP Name 'nscCustomTreeComboWithHistoryRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы для TnscCustomTreeComboWithHistory' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_495119A901CE // Editor
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B97EE8B032F // MiscMessages
+ )
+ ; // Constants
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.03.2010 22:09'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistoryRes.pas'
+ UP extprop:rc:SelfName 'TreeComboWithHistoryRes'
+
+ENDME // ME_4B97EE59039E nscCustomTreeComboWithHistoryRes
+
+ME ME_495119A901CE
+ MEPROP UID '495119A901CE'
+ MEPROP Name 'Editor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ %SUMMARY 'Редактор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_490838AA02D0' '490838AA02D0.ms.model.script' // Nemesis
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_495119C4011A' '495119C4011A.ms.model.script' // TnscEditor
+ HWL ME_49512B040003 // TnscTextSource
+ WL 'ME_4AC6113D038A' '4AC6113D038A.ms.model.script' // TnscPreviewPanel
+ WL 'ME_4B97EDFB0057' '4B97EDFB0057.ms.model.script' // TnscCustomTreeComboWithHistory
+ WL 'ME_4AC63691012B' '4AC63691012B.ms.model.script' // TnscComboBox
+ WL 'ME_4B97EE390310' '4B97EE390310.ms.model.script' // TnscTreeComboWithHistory
+ WL 'ME_4CF4D14700AE' '4CF4D14700AE.ms.model.script' // TnscTreeComboWithHistoryAndOperations
+ HWL ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
+ WL 'ME_4AF46F430293' '4AF46F430293.ms.model.script' // TnscComboBoxWithReadOnly
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.ms.model.script' // l3InternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_4739AB8601AA' '4739AB8601AA.ms.model.script' // l3Drawer
+ WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ WL 'ME_47542EA70394' '47542EA70394.ms.model.script' // eeTextSource
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47877A6F000A' '47877A6F000A.ms.model.script' // Visual
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4799EC9300AF' '4799EC9300AF.ms.model.script' // l3Defaults
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47D036150077' '47D036150077.ms.model.script' // l3ControlsTypes
+ WL 'ME_47E21C730035' '47E21C730035.ms.model.script' // l3VCLExtensions
+ WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
+ WL 'ME_47ECAB0B0265' '47ECAB0B0265.ms.model.script' // evMsgCode
+ WL 'ME_48297E42011A' '48297E42011A.ms.model.script' // ComboTree
+ WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ WL 'ME_48453A40017C' '48453A40017C.ms.model.script' // evOp
+ WL 'ME_48D21909003A' '48D21909003A.ms.model.script' // OvcConst
+ WL 'ME_490838E10313' '490838E10313.ms.model.script' // nscNewInterfaces
+ WL 'ME_49083E150027' '49083E150027.ms.model.script' // CoreObjects
+ WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ WL 'ME_4A3FAF1003DA' '4A3FAF1003DA.ms.model.script' // OvcCmd
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4B8E675402AB' '4B8E675402AB.ms.model.script' // Dialogs
+ WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
+ WL 'ME_4CC81FAC02D6' '4CC81FAC02D6.ms.model.script' // Core
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_55001317029B' '55001317029B.ms.model.script' // VCLHelpers
+ WL 'ME_557FE2750253' '557FE2750253.ms.model.script' // Filters
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+ UP "UseNewGen" true
+
+ENDME // ME_495119A901CE Editor

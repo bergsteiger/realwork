@@ -1,0 +1,504 @@
+// TabsWords 55AE409701EA ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55AE409701EA
+
+FORWARD ME_55AE40B600B7
+
+ME ME_55AE4C31002C
+ MEPROP UID '55AE4C31002C'
+ MEPROP Name 'vcm_tabs_CloseCurrent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Закрыть текущую вкладку в активном окне. Не закрывает последнюю.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ENDME // ME_55AE4C31002C vcm_tabs_CloseCurrent
+
+ME ME_55AE4C5902F1
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55AE4C5902F1 aTabIndex
+
+ME ME_55AE4C470082
+ MEPROP UID '55AE4C470082'
+ MEPROP Name 'vcm_tabs_Close'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Закрыть вкладку по индексу. Нумерация с нуля.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55AE4C5902F1 // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_55AE4C470082 vcm_tabs_Close
+
+ME ME_55AE4C630229
+ MEPROP UID '55AE4C630229'
+ MEPROP Name 'vcm_tabs_CloseAllButCurrent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Закрыть все вкладки кроме текущей в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ENDME // ME_55AE4C630229 vcm_tabs_CloseAllButCurrent
+
+ME ME_55AE78F700E1
+ MEPROP UID '55AE78F700E1'
+ MEPROP Name 'vcm_tabs_Active'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Номер активной вкладки в текущем окне. Нумерация с нуля.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55AE78F700E1 vcm_tabs_Active
+
+ME ME_55AE790C0142
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55AE790C0142 aValue
+
+ME ME_55AE790302E8
+ MEPROP UID '55AE790302E8'
+ MEPROP Name 'vcm_tabs_SetActive'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Перейти на вкладку в активном окне (нумерация с нуля)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55AE790C0142 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55AE790302E8 vcm_tabs_SetActive
+
+ME ME_55AE79190270
+ MEPROP UID '55AE79190270'
+ MEPROP Name 'vcm_tabs_Count'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Количество вкладок в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55AE79190270 vcm_tabs_Count
+
+ME ME_55AE7931034C
+ MEPROP UID '55AE7931034C'
+ MEPROP Name 'vcm_tabs_OpenNewTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Открыть новую вкладку в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ENDME // ME_55AE7931034C vcm_tabs_OpenNewTab
+
+ME ME_55AE794F0259
+ MEPROP UID '55AE794F0259'
+ MEPROP Name 'vcm_tabs_CanOpenNewTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Можно ли открыть новую вкладку в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55AE794F0259 vcm_tabs_CanOpenNewTab
+
+ME ME_55DB227A0252
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55DB227A0252 aTabIndex
+
+ME ME_55DB1AF403B8
+ MEPROP UID '55DB1AF403B8'
+ MEPROP Name 'vcm_tabs_Duplicate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Дублировать вкладку в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55DB227A0252 // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_55DB1AF403B8 vcm_tabs_Duplicate
+
+ME ME_55DB2284038F
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55DB2284038F aTabIndex
+
+ME ME_55DB1BAC0203
+ MEPROP UID '55DB1BAC0203'
+ MEPROP Name 'vcm_tabs_CanDuplicate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Можно ли дублировать вкладку в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55DB2284038F // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_55DB1BAC0203 vcm_tabs_CanDuplicate
+
+ME ME_55DB1B1500D4
+ MEPROP UID '55DB1B1500D4'
+ MEPROP Name 'vcm_tabs_Reopen'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Открыть закрытую вкладку в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+
+ENDME // ME_55DB1B1500D4 vcm_tabs_Reopen
+
+ME ME_55DB1B7A0137
+ MEPROP UID '55DB1B7A0137'
+ MEPROP Name 'vcm_tabs_CanReopen'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Можно ли открыть закрытую вкладку в активном окне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55DB1B7A0137 vcm_tabs_CanReopen
+
+ME ME_5601688D017E
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5601688D017E aTabIndex
+
+ME ME_560168780139
+ MEPROP UID '560168780139'
+ MEPROP Name 'vcm_tabs_GetIconIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5601688D017E // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_560168780139 vcm_tabs_GetIconIndex
+
+ME ME_56727E2200D2
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56727E2200D2 aTabIndex
+
+ME ME_56727DFE03B2
+ MEPROP UID '56727DFE03B2'
+ MEPROP Name 'vcm_tabs_GetCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_56727E2200D2 // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_56727DFE03B2 vcm_tabs_GetCaption
+
+ME ME_5698FB5D020A
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5698FB5D020A aTabIndex
+
+ME ME_5698FB1801C8
+ MEPROP UID '5698FB1801C8'
+ MEPROP Name 'vcm_tabs_CanUndock'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5698FB5D020A // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_5698FB1801C8 vcm_tabs_CanUndock
+
+ME ME_5698FB760157
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5698FB760157 aTabIndex
+
+ME ME_5698FB610250
+ MEPROP UID '5698FB610250'
+ MEPROP Name 'vcm_tabs_Undock'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_5698FB760157 // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_5698FB610250 vcm_tabs_Undock
+
+ME ME_55B600340140
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_553213D902E0' '553213B80041.ms.model.script' // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_55B600340140 
+
+ME ME_55C8A9BA007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ ;
+ MELINK Target WL 'ME_5538940C00DD' '553893E60323.ms.model.script' // TvcmTabbedContainersService
+ ;
+
+ENDME // ME_55C8A9BA007E 
+
+ME ME_55AE40B600B7
+ MEPROP UID '55AE40B600B7'
+ MEPROP Name 'vcmTabsWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE409701EA // TabsWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55AE4C31002C // vcm_tabs_CloseCurrent
+ HWL ME_55AE4C470082 // vcm_tabs_Close
+ HWL ME_55AE4C630229 // vcm_tabs_CloseAllButCurrent
+ HWL ME_55AE78F700E1 // vcm_tabs_Active
+ HWL ME_55AE790302E8 // vcm_tabs_SetActive
+ HWL ME_55AE79190270 // vcm_tabs_Count
+ HWL ME_55AE7931034C // vcm_tabs_OpenNewTab
+ HWL ME_55AE794F0259 // vcm_tabs_CanOpenNewTab
+ HWL ME_55DB1AF403B8 // vcm_tabs_Duplicate
+ HWL ME_55DB1BAC0203 // vcm_tabs_CanDuplicate
+ HWL ME_55DB1B1500D4 // vcm_tabs_Reopen
+ HWL ME_55DB1B7A0137 // vcm_tabs_CanReopen
+ HWL ME_560168780139 // vcm_tabs_GetIconIndex
+ HWL ME_56727DFE03B2 // vcm_tabs_GetCaption
+ HWL ME_5698FB1801C8 // vcm_tabs_CanUndock
+ HWL ME_5698FB610250 // vcm_tabs_Undock
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55B600340140 // Tl3TabbedContainersDispatcher
+ ME_55C8A9BA007E // TvcmTabbedContainersService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmTabsWordsPack.pas'
+ UP extprop:rc:SelfName 'TabsWordsPack'
+
+ENDME // ME_55AE40B600B7 vcmTabsWordsPack
+
+FORWARD ME_55C874550184
+
+ME ME_55C8753A0311
+ MEPROP UID '55C8753A0311'
+ MEPROP Name 'Active'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ENDME // ME_55C8753A0311 Active
+
+ME ME_55C8756402D3
+ MEPROP UID '55C8756402D3'
+ MEPROP Name 'Hovered'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_47E7ABCB0296' '4799D29F033F.ms.model.script' // TMenuItem
+ ;
+
+ENDME // ME_55C8756402D3 Hovered
+
+ME ME_55C8992400F6
+ MEPROP UID '55C8992400F6'
+ MEPROP Name 'MenuItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_47E7ABCB0296' '4799D29F033F.ms.model.script' // TMenuItem
+ ;
+
+ENDME // ME_55C8992400F6 MenuItem
+
+ME ME_55C8B0DF017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ENDME // ME_55C8B0DF017A 
+
+ME ME_55C874550184
+ MEPROP UID '55C874550184'
+ MEPROP Name 'vcmTabbedMenuWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE409701EA // TabsWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C8753A0311 // Active
+ HWL ME_55C8756402D3 // Hovered
+ HWL ME_55C8992400F6 // MenuItem
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C8B0DF017A // TvcmBaseMenuForChromeLike
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas'
+ UP extprop:rc:SelfName 'TabbedMenuWordsPack'
+
+ENDME // ME_55C874550184 vcmTabbedMenuWordsPack
+
+ME ME_55AE409701EA
+ MEPROP UID '55AE409701EA'
+ MEPROP Name 'TabsWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55AE40B600B7 // vcmTabsWordsPack
+ HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ WL 'ME_553213B80041' '553213B80041.ms.model.script' // TabbedInterfaceServices
+ WL 'ME_553893E60323' '553893E60323.ms.model.script' // Services
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts,NoTabs'
+
+ENDME // ME_55AE409701EA TabsWords

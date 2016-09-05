@@ -1,0 +1,25 @@
+UNIT TranformElementMember.ms.dict
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ CheckValue.ms.dict
+;
+
+USES
+ WordNeedsTransform.ms.dict
+;
+
+USES
+ TransformElementMemberIfNeeded.ms.dict
+;
+
+: TransformElementMember
+  TtfwWord IN aVar
+ aVar DO CheckValue 
+  
+ aVar TransformElementMemberIfNeeded DROP
+ 
+; // TransformElementMember

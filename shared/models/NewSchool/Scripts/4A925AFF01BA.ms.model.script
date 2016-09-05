@@ -1,0 +1,404 @@
+// PrimNemesis 4A925AFF01BA VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A925AFF01BA
+
+FORWARD ME_4AA8AC090381
+
+ME ME_4AA8AC3D00E5
+ MEPROP Name 'aDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4AA8AC3D00E5 aDate
+
+ME ME_4AA8AC2403DA
+ MEPROP UID '4AA8AC2403DA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Глобальный обработчик сообщения о корректировке даты' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA8AC090381 // BeforeCorrectDate
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA8AC3D00E5 // aDate
+ )
+ ; // Parameters
+
+ENDME // ME_4AA8AC2403DA DoIt
+
+ME ME_4AA8AF9700CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA8AC090381 // BeforeCorrectDate
+ ;
+ MELINK Target WL 'ME_4AA13EB80322' '4AADF9450143.ms.model.script' // Ask
+ ;
+
+ENDME // ME_4AA8AF9700CB 
+
+ME ME_4AA8AC090381
+ MEPROP UID '4AA8AC090381'
+ MEPROP Name 'BeforeCorrectDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA8AC2403DA // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AA8AF9700CB // Ask
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_4AA8AC090381 BeforeCorrectDate
+
+ME ME_4AA7C2FD0185
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA7C26401C4' '48F747EC0073.ms.model.script' // TnsStartupSupport
+ ;
+
+ENDME // ME_4AA7C2FD0185 
+
+ME ME_4AA7D8900188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4AA7D8900188 
+
+ME ME_4AA7D8BE03E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4912B19E0139' '48F747EC0073.ms.model.script' // GblAdapter
+ ;
+
+ENDME // ME_4AA7D8BE03E5 
+
+ME ME_4AA7DACD0397
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4AA7DACD0397 
+
+ME ME_4AA7DE8000F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_45EEE02203D8' '456FF1DD031C.ms.model.script' // InvalidBase
+ ;
+
+ENDME // ME_4AA7DE8000F7 
+
+ME ME_4AA7E23B027D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA7E2060118' '4AB0C3C60310.ms.model.script' // EAbort
+ ;
+
+ENDME // ME_4AA7E23B027D 
+
+ME ME_4AA7E24501CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA7E1CF0079' '48F747EC0073.ms.model.script' // ECorbaException
+ ;
+
+ENDME // ME_4AA7E24501CF 
+
+ME ME_4AA7EA360300
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA7E9CB034A' '4AA7E9B9016C.ms.model.script' // MedicMainMenuRes
+ ;
+
+ENDME // ME_4AA7EA360300 
+
+ME ME_4AA7EA3D0203
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA7E9E60251' '4AAA216F032C.ms.model.script' // MainMenuNewRes
+ ;
+
+ENDME // ME_4AA7EA3D0203 
+
+ME ME_4AA8D64702A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA8D62102F5' '4AA8D60602A1.ms.model.script' // nsHooks
+ ;
+
+ENDME // ME_4AA8D64702A7 
+
+ME ME_4AB36E4B0367
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4AB36E4B0367 
+
+ME ME_4AB36E9202EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_49512DE00227' '4A9F98B901A5.ms.model.script' // TnsBaseSearchOpenKind
+ ;
+
+ENDME // ME_4AB36E9202EE 
+
+ME ME_4AB36EA700F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ ;
+
+ENDME // ME_4AB36EA700F1 
+
+ME ME_4AB36EBD02A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4926B55401A2' '48F747EC0073.ms.model.script' // DebugStr
+ ;
+
+ENDME // ME_4AB36EBD02A4 
+
+ME ME_4AB36ECB0344
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4AB36ECB0344 
+
+ME ME_4E034945002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4E034945002E 
+
+ME ME_4F7DA6EF00E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA7E9CB034A' '4AA7E9B9016C.ms.model.script' // MedicMainMenuRes
+ ;
+
+ENDME // ME_4F7DA6EF00E5 
+
+ME ME_4F7DAD9801FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4AA7EA010274' '4AA7EA010274.ms.model.script' // MainWindow
+ ;
+
+ENDME // ME_4F7DAD9801FB 
+
+ME ME_53D0D34202ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_53BA4C3901C1' '53A402C7010D.ms.model.script' // TabbedContainerRes
+ ;
+
+ENDME // ME_53D0D34202ED 
+
+ME ME_544631C20259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_542BED480295' '48F747EC0073.ms.model.script' // TnsNotificationManager
+ ;
+
+ENDME // ME_544631C20259 
+
+ME ME_54915CC6021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_5417C7F502CD' '53288DFA03A7.ms.model.script' // TvgRemindersLineTabbedContainerNotificationProxy
+ ;
+
+ENDME // ME_54915CC6021C 
+
+ME ME_5518EE0101BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_551552FA002B' '53F2D7B00186.ms.model.script' // TChromeLikeTabSetParams
+ ;
+
+ENDME // ME_5518EE0101BF 
+
+ME ME_556489D2014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_4B8E4B58034D' '4AC5DADB00C9.ms.model.script' // vtDateEditRes
+ ;
+
+ENDME // ME_556489D2014B 
+
+ME ME_57574E2502B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_57574E2502B3 
+
+ME ME_57975C800214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A925AFF01BA // PrimNemesis
+ ;
+ MELINK Target WL 'ME_57973D75032B' '5795D66F0385.ms.model.script' // TBaseSearchService
+ ;
+
+ENDME // ME_57975C800214 
+
+ME ME_4AA7C28A0113_ME_4A925AFF01BA
+ MELINK Original WL 'ME_4AA7C28A0113' '4A92BBDF0126.ms.model.script' // RunOtherProcesses
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AA7C28A0113_ME_4A925AFF01BA RunOtherProcesses
+
+ME ME_4AA7D7CA00FE_ME_4A925AFF01BA
+ MELINK Original WL 'ME_4AA7D7CA00FE' '4A92BBDF0126.ms.model.script' // DoGlobalInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AA7D7CA00FE_ME_4A925AFF01BA DoGlobalInit
+
+ME ME_4AA7E4DC0047_ME_4A925AFF01BA
+ MELINK Original WL 'ME_4AA7E4DC0047' '4A92BBDF0126.ms.model.script' // DoRun
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AA7E4DC0047_ME_4A925AFF01BA DoRun
+
+ME ME_4A925AFF01BA
+ MEPROP UID '4A925AFF01BA'
+ MEPROP Name 'PrimNemesis'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Приложение Nemesis' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F7D7B980383' '4F7D7B980383.ms.model.script' // View
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA42BF0267' '4AAA42BF0267.ms.model.script' // ShellAndMonitorings
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4AA8AC090381 // BeforeCorrectDate
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4AA7C28A0113_ME_4A925AFF01BA // RunOtherProcesses
+ ME_4AA7D7CA00FE_ME_4A925AFF01BA // DoGlobalInit
+ ME_4AA7E4DC0047_ME_4A925AFF01BA // DoRun
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( WL 'ME_4958D2EA00CC' '4958D2EA00CC.ms.model.script' // NemesisMain
+ WL 'ME_4C8A29700261' '4C8A29700261.ms.model.script' // MainOptions
+ WL 'ME_4A952BA3006D' '4A952BA3006D.ms.model.script' // Main
+ WL 'ME_4F7DAC14027A' '4F7DAC14027A.ms.model.script' // MainWithReminders
+ WL 'ME_4AA7EA010274' '4AA7EA010274.ms.model.script' // MainWindow
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AA7C2FD0185 // TnsStartupSupport
+ ME_4AA7D8900188 // Windows
+ ME_4AA7D8BE03E5 // GblAdapter
+ ME_4AA7DACD0397 // l3Base
+ ME_4AA7DE8000F7 // InvalidBase
+ ME_4AA7E23B027D // EAbort
+ ME_4AA7E24501CF // ECorbaException
+ ME_4AA7EA360300 // MedicMainMenuRes
+ ME_4AA7EA3D0203 // MainMenuNewRes
+ ME_4AA8D64702A7 // nsHooks
+ ME_4AB36E4B0367 // Query
+ ME_4AB36E9202EE // TnsBaseSearchOpenKind
+ ME_4AB36EA700F1 // vcmParams
+ ME_4AB36EBD02A4 // DebugStr
+ ME_4AB36ECB0344 // StdRes
+ ME_4E034945002E // vcmMessagesSupport
+ ME_4F7DA6EF00E5 // MedicMainMenuRes
+ ME_4F7DAD9801FB // MainWindow
+ ME_53D0D34202ED // TabbedContainerRes
+ ME_544631C20259 // TnsNotificationManager
+ ME_54915CC6021C // TvgRemindersLineTabbedContainerNotificationProxy
+ ME_5518EE0101BF // TChromeLikeTabSetParams
+ ME_556489D2014B // vtDateEditRes
+ ME_57574E2502B3 // TvcmEntityForm
+ ME_57975C800214 // TBaseSearchService
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas'
+ UP extprop:pas:TypeName 'TPrimNemesisRes'
+ UP extprop:rc:SelfName 'PrimNemesisRes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimNemesisRes'
+
+ENDME // ME_4A925AFF01BA PrimNemesis

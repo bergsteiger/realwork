@@ -1,0 +1,94 @@
+// TnscComboBox 4AC63691012B GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC63691012B
+
+ME ME_4AC5F4B9037A
+ MEPROP UID '4AC5F4B9037A'
+ MEPROP Name 'TnscEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC63691012B // TnscComboBox
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC63691012B // TnscComboBox
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'Edit'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AC5F4B9037A TnscEdit
+
+ME ME_4C52BF200205
+ MEPROP UID '4C52BF200205'
+ MEPROP Name 'TnscEditWithoutPlusMinusShortcut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC63691012B // TnscComboBox
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC5F4B9037A // TnscEdit
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'EditWithoutPlusMinusShortcut'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C52BF200205 TnscEditWithoutPlusMinusShortcut
+
+ME ME_520A36BD00B7
+ MEPROP UID '520A36BD00B7'
+ MEPROP Name 'TnscComboBoxWithPwdChar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC63691012B // TnscComboBox
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC5F4B9037A // TnscEdit
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'ComboBoxWithPwdChar'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_520A36BD00B7 TnscComboBoxWithPwdChar
+
+ME ME_4AC63691012B
+ MEPROP UID '4AC63691012B'
+ MEPROP Name 'TnscComboBox'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_495119A901CE' '495119A901CE.ms.model.script' // Editor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4AC5F4B9037A // TnscEdit
+ HWL ME_4C52BF200205 // TnscEditWithoutPlusMinusShortcut
+ HWL ME_520A36BD00B7 // TnscComboBoxWithPwdChar
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscComboBox.pas'
+ UP extprop:rc:SelfName 'ComboBox'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscComboBox'
+
+ENDME // ME_4AC63691012B TnscComboBox

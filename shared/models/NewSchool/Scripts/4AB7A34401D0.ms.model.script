@@ -1,0 +1,111 @@
+// BaseSearchCard 4AB7A34401D0 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB7A34401D0
+
+ME ME_9CF9D22D891B
+ MEPROP UID '9CF9D22D891B'
+ MEPROP Name 'ut_BaseSearchCard'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый поиск' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB7A34401D0 // BaseSearchCard
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchCard_ut_BaseSearchCard_UserType.pas'
+ UP extprop:pas:UnitName 'BaseSearchCard_ut_BaseSearchCard_UserType'
+
+ENDME // ME_9CF9D22D891B ut_BaseSearchCard
+
+ME ME_AEB1E91EE813
+ MEPROP UID 'AEB1E91EE813'
+ MEPROP GUID '8B9F39A3-2E36-4686-82DA-8C441DE365A3'
+ MEPROP Name 'BaseSearchCard'
+ MEPROP OriginalName 'BaseSearchCard$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы BaseSearchCard' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB7A34401D0 // BaseSearchCard
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AB7A34401D0 // BaseSearchCard
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'BaseSearchCardFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_AEB1E91EE813 BaseSearchCard$Def
+
+ME ME_1D206AEEF6A5
+ MEPROP UID '1D206AEEF6A5'
+ MEPROP Name 'Ini_FormFactory_BaseSearchCard'
+ MEPROP OriginalName 'Ini_FormFactory_BaseSearchCard$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы BaseSearchCard' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB7A34401D0 // BaseSearchCard
+ ;
+ UPLINK SpelledFor HWL ME_4AB7A34401D0 // BaseSearchCard
+ ;
+
+ENDME // ME_1D206AEEF6A5 Ini_FormFactory_BaseSearchCard$Def
+
+ME ME_4AB7A34401D0
+ MEPROP UID '4AB7A34401D0'
+ MEPROP Name 'BaseSearchCard'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый поиск' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CC97D020011' '4CC97D020011.ms.model.script' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AB7A3210135' '4AB7A3210135.ms.model.script' // PrimBaseSearchCard
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_AEB1E91EE813 // BaseSearchCard$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_1D206AEEF6A5 // Ini_FormFactory_BaseSearchCard$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_9CF9D22D891B // ut_BaseSearchCard
+ HWL ME_AEB1E91EE813 // BaseSearchCard$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Parent'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "form name prefix" 'en_'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '21.09.2009 20:01'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchCard_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms'
+ UP extprop:pas:TypeName 'Ten_BaseSearchCard'
+ UP extprop:rc:SelfName 'en_BaseSearchCard'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseSearchCard_Form'
+
+ENDME // ME_4AB7A34401D0 BaseSearchCard

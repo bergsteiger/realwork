@@ -47,7 +47,7 @@ PROCEDURE "Подготовить главную форму c шириной и высотой" INTEGER IN aWidth INTE
         push:MainForm pop:Control:Height := aHeight
 ;
 
-: "Выравнивание границ ячеек с сохранением в лог"
+PROCEDURE "Выравнивание границ ячеек с сохранением в лог"
  focused:control:push pop:editor:AlignCellsBoundary
 ; 
 
@@ -55,7 +55,7 @@ PROCEDURE "Развернуть окно"
 	wsMaximized "Текущее родительское окно" pop:form:SetWindowState 
 ;
 
-: "Выключить все флаги"
+PROCEDURE "Выключить все флаги"
  OBJECT VAR l_Editor
  focused:control:push >>> l_Editor 
  l_Editor pop:Editor:WebStyle := false

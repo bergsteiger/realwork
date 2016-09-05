@@ -1,0 +1,116 @@
+// nevContainers 4A23913602C3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23913602C3
+
+FORWARD ME_4A2393970155
+
+ME ME_4A2393F6035C
+ MEPROP UID '4A2393F6035C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A2393970155 // InevFlatSubsList
+ ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+
+ENDME // ME_4A2393F6035C ItemType
+
+ME ME_47D8233603DD_ME_4A2393970155
+ MELINK Original WL 'ME_47D8233603DD' '47D810610398.ms.model.script' // First
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47D8233603DD_ME_4A2393970155 First
+
+ME ME_47D823570315_ME_4A2393970155
+ MELINK Original WL 'ME_47D823570315' '47D810610398.ms.model.script' // Last
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47D823570315_ME_4A2393970155 Last
+
+ME ME_47D8248802AD_ME_4A2393970155
+ MELINK Original WL 'ME_47D8248802AD' '47D810610398.ms.model.script' // Items
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is default" true
+ UP "pm" true
+ENDME // ME_47D8248802AD_ME_4A2393970155 Items
+
+ME ME_47E381E203D2_ME_4A2393970155
+ MELINK Original WL 'ME_47E381E203D2' '47D810610398.ms.model.script' // Empty
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47E381E203D2_ME_4A2393970155 Empty
+
+ME ME_4BB08B8902F2_ME_4A2393970155
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BB08B8902F2_ME_4A2393970155 Count
+
+ME ME_4A2393970155
+ MEPROP UID '4A2393970155'
+ MEPROP GUID '0288488A-FBEB-4E1D-AA0C-3B2E1F3DA447'
+ MEPROP Name 'InevFlatSubsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Плоский контейнер. а-ля Il3InterfacedList' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23913602C3 // nevContainers
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47D821AE00EF' '47D810610398.ms.model.script' // Ml3List
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A2393F6035C // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47D8233603DD_ME_4A2393970155 // First
+ ME_47D823570315_ME_4A2393970155 // Last
+ ME_47D8248802AD_ME_4A2393970155 // Items
+ ME_47E381E203D2_ME_4A2393970155 // Empty
+ ME_4BB08B8902F2_ME_4A2393970155 // Count
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'FlatSubsList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A2393970155 InevFlatSubsList
+
+ME ME_4A23913602C3
+ MEPROP UID '4A23913602C3'
+ MEPROP Name 'nevContainers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Различные контейнеры для хранения интерфейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A2393970155 // InevFlatSubsList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47D810610398' '47D810610398.ms.model.script' // l3PureMixIns
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevContainers.pas'
+
+ENDME // ME_4A23913602C3 nevContainers

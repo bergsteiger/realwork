@@ -80,13 +80,13 @@ var
    // - http://mdp.garant.ru/pages/viewpage.action?pageId=565265761
    if (l_Container <> nil) then
    try
-    TdmStdRes.OpenExternalObject(l_Container, aExternalObject);
+    TDocumentService.Instance.OpenExternalObject(l_Container, aExternalObject);
    finally
     l_Container := nil;
    end;
   end
   else
-   TdmStdRes.OpenExternalObject(nil, aExternalObject);
+   TDocumentService.Instance.OpenExternalObject(nil, aExternalObject);
 //#UC END# *51AF29070012_4B0A77F30378_impl*
 //#UC START# *51AF29070012_4B0A77F30378_var*
 var
@@ -137,7 +137,7 @@ var
  begin
   l_Container := GetContainer(aBehaviour);
   try
-   TdmStdRes.OpenAutoreferat(aDocument, l_Container);
+   TMonitoringsService.Instance.OpenAutoreferat(aDocument, l_Container);
   finally
    l_Container := nil;
   end;
@@ -191,7 +191,7 @@ var
    l_Cont := GetContainer(aBehaviour);
    try
     if (l_Cont <> nil) then
-     TdmStdRes.OpenDocument(l_DocInfo, l_Cont);      
+     TDocumentService.Instance.OpenDocument(l_DocInfo, l_Cont);      
    finally
     l_Cont := nil;
    end;
@@ -438,8 +438,8 @@ var
      end;//Ord(cSwitchFiltersOff_LinkHandle):
      Ord(cTimeMachineChangeDateOrOff_LinkHandle):
      begin
-      vcmDispatcher.EntityOperation(TdmStdRes.opcode_TimeMachine_TimeMachineOnOffNew, vcmParams);
-      //f_Aggregate.Operation(TdmStdRes.opcode_TimeMachine_TimeMachineOnOffNew);
+      vcmDispatcher.EntityOperation(opcode_TimeMachine_TimeMachineOnOffNew, vcmParams);
+      //f_Aggregate.Operation(opcode_TimeMachine_TimeMachineOnOffNew);
       Result := true;
       Exit;
      end;//Ord(TimeMachineChangeDateOrOff_LinkHandle)
@@ -454,7 +454,7 @@ var
     Case f_Hyperlink.ID of
      Ord(cUnreadConsultations_LinkHandle):
      begin
-      TdmStdRes.TryOpenConsultationAnswer(nil);
+      TFoldersService.Instance.TryOpenConsultationAnswer(nil);
       Result := true;
       Exit;
      end;//Ord(cUnreadConsultations_LinkHandle)

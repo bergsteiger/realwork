@@ -1,0 +1,62 @@
+// EditionsContainer 4A6EC095039C VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EC095039C
+
+ME ME_4CDF29F3816A
+ MEPROP UID '4CDF29F3816A'
+ MEPROP Name 'Ini_FormFactory_EditionsContainer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы EditionsContainer' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EC095039C // EditionsContainer
+ ;
+ UPLINK SpelledFor HWL ME_4A6EC095039C // EditionsContainer
+ ;
+
+ENDME // ME_4CDF29F3816A Ini_FormFactory_EditionsContainer
+
+ME ME_4A6EC095039C
+ MEPROP UID '4A6EC095039C'
+ MEPROP Name 'EditionsContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сравнение редакций документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.ms.model.script' // BaseEditions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6EC0D0020C' '4A6EC0D0020C.ms.model.script' // PrimEditionsContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFC675B03C3' '4FFC670F012B.ms.model.script' // EditionsContainer
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4CDF29F3816A // Ini_FormFactory_EditionsContainer
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '28.07.2009 13:11'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsContainer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+ UP extprop:pas:TypeName 'TEditionsContainerForm'
+ UP extprop:rc:SelfName 'EditionsContainerForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'EditionsContainer_Form'
+
+ENDME // ME_4A6EC095039C EditionsContainer

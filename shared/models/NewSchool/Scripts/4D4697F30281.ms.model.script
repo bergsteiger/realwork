@@ -1,0 +1,157 @@
+// OutlinerForm 4D4697F30281 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D4697F30281
+
+ME ME_2404FCE7338E
+ MEPROP UID '2404FCE7338E'
+ MEPROP Name 'ut_OutlinerForm'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для тестирования списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4697F30281 // OutlinerForm
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\OutlinerForm_ut_OutlinerForm_UserType.pas'
+ UP extprop:pas:UnitName 'OutlinerForm_ut_OutlinerForm_UserType'
+
+ENDME // ME_2404FCE7338E ut_OutlinerForm
+
+ME ME_6CA6AB1D6951
+ MEPROP UID '6CA6AB1D6951'
+ MEPROP GUID '0BC56D56-6AF0-47F9-9D0B-4AE7FEEE4483'
+ MEPROP Name 'OutlinerForm'
+ MEPROP OriginalName 'OutlinerForm$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы OutlinerForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D4697F30281 // OutlinerForm
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4D4697F30281 // OutlinerForm
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'OutlinerFormFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_6CA6AB1D6951 OutlinerForm$Def
+
+ME ME_4D469966011E
+ MEPROP UID '4D469966011E'
+ MEPROP Name 'TreeControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4697F30281 // OutlinerForm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D46A125003A' '4D46A125003A.ms.model.script' // TvtOutlinerControl
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4D469966011E TreeControl
+
+ME ME_711B618C77E3
+ MEPROP UID '711B618C77E3'
+ MEPROP Name 'Ini_FormFactory_OutlinerForm'
+ MEPROP OriginalName 'Ini_FormFactory_OutlinerForm$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы OutlinerForm' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4697F30281 // OutlinerForm
+ ;
+ UPLINK SpelledFor HWL ME_4D4697F30281 // OutlinerForm
+ ;
+
+ENDME // ME_711B618C77E3 Ini_FormFactory_OutlinerForm$Def
+
+ME ME_4D47C399028D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D4697F30281 // OutlinerForm
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_4D47C399028D 
+
+ME ME_4A8E8F2E0195_ME_4D4697F30281
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4D4697F30281 InitControls
+
+ME ME_4D4697F30281
+ MEPROP UID '4D4697F30281'
+ MEPROP Name 'OutlinerForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для тестирования списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4D469729019F' '4D469729019F.ms.model.script' // Outliner
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_6CA6AB1D6951 // OutlinerForm$Def
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D469966011E // TreeControl
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_711B618C77E3 // Ini_FormFactory_OutlinerForm$Def
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4D4697F30281 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_2404FCE7338E // ut_OutlinerForm
+ HWL ME_6CA6AB1D6951 // OutlinerForm$Def
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D47C399028D // TAlign
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Инишев Д.А.'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\Outliner_Form.pas'
+ UP extprop:pas:TypeName 'TOutlinerFormForm'
+ UP extprop:rc:SelfName 'OutlinerFormForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Outliner_Form'
+
+ENDME // ME_4D4697F30281 OutlinerForm

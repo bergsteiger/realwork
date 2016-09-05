@@ -1,0 +1,363 @@
+// UserJournal 4A7FF5F301B2 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7FF5F301B2
+
+FORWARD ME_4A7FFAFA023A
+
+ME ME_4A7FFBCD016C
+ MEPROP UID '4A7FFBCD016C'
+ MEPROP Name 'JOT_BOOKMARK'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Закладка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A7FFAFA023A // JournalObjectType
+ ;
+
+ENDME // ME_4A7FFBCD016C JOT_BOOKMARK
+
+ME ME_4A7FFBDC036F
+ MEPROP UID '4A7FFBDC036F'
+ MEPROP Name 'JOT_QUERY'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Запрос' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A7FFAFA023A // JournalObjectType
+ ;
+
+ENDME // ME_4A7FFBDC036F JOT_QUERY
+
+ME ME_4A7FFBF20035
+ MEPROP UID '4A7FFBF20035'
+ MEPROP Name 'JOT_FOLDER'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Папка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A7FFAFA023A // JournalObjectType
+ ;
+
+ENDME // ME_4A7FFBF20035 JOT_FOLDER
+
+ME ME_4A7FFAFA023A
+ MEPROP UID '4A7FFAFA023A'
+ MEPROP Name 'JournalObjectType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы элементов Журнала работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A7FF5F301B2 // UserJournal
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A7FFBCD016C // JOT_BOOKMARK
+ HWL ME_4A7FFBDC036F // JOT_QUERY
+ HWL ME_4A7FFBF20035 // JOT_FOLDER
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TJournalObjectType'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A7FFAFA023A JournalObjectType
+
+FORWARD ME_4A8001010232
+
+ME ME_4A80011400FD
+ MEPROP UID '4A80011400FD'
+ MEPROP Name 'BJT_BOOKMARK'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Закладки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8001010232 // BookmarkJournalType
+ ;
+
+ENDME // ME_4A80011400FD BJT_BOOKMARK
+
+ME ME_4A80011E012C
+ MEPROP UID '4A80011E012C'
+ MEPROP Name 'BJT_PHARM_BOOKMARK'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Закладки Инфарма' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8001010232 // BookmarkJournalType
+ ;
+
+ENDME // ME_4A80011E012C BJT_PHARM_BOOKMARK
+
+ME ME_4A8001010232
+ MEPROP UID '4A8001010232'
+ MEPROP Name 'BookmarkJournalType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A7FF5F301B2 // UserJournal
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A80011400FD // BJT_BOOKMARK
+ HWL ME_4A80011E012C // BJT_PHARM_BOOKMARK
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TBookmarkJournalType'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A8001010232 BookmarkJournalType
+
+FORWARD ME_4A7FF6610114
+
+ME ME_4A7FFECB00CF
+ MEPROP Name 'obj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_4A7FFECB00CF obj
+
+ME ME_4A7FFECB010F
+ MEPROP Name 'object_type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A7FFAFA023A // JournalObjectType
+ ;
+
+ENDME // ME_4A7FFECB010F object_type
+
+ME ME_4A7FF7B40013
+ MEPROP UID '4A7FF7B40013'
+ MEPROP Name 'save'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить объект в журнал работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7FF6610114 // UserJournal
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A7FFECB00CF // obj
+ ME_4A7FFECB010F // object_type
+ )
+ ; // Parameters
+
+ENDME // ME_4A7FF7B40013 save
+
+ME ME_4A7FFEC400BD
+ MEPROP Name 'obj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A7FFEC400BD obj
+
+ME ME_4A7FF9CA0176
+ MEPROP UID '4A7FF9CA0176'
+ MEPROP Name 'remove'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удалить объект из журнала работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7FF6610114 // UserJournal
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A7FFEC400BD // obj
+ )
+ ; // Parameters
+
+ENDME // ME_4A7FF9CA0176 remove
+
+ME ME_4A7FFA7B03B3
+ MEPROP UID '4A7FFA7B03B3'
+ MEPROP Name 'clear'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очистить Журнал работы (аналогичен вызову remove (рут дерева журнала работы)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7FF6610114 // UserJournal
+ ;
+
+ENDME // ME_4A7FFA7B03B3 clear
+
+ME ME_4A7FFAB30168
+ MEPROP UID '4A7FFAB30168'
+ MEPROP Name 'get_user_jornal_tree'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить дерево Журнала работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7FF6610114 // UserJournal
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A7FFAB30168 get_user_jornal_tree
+
+ME ME_4A7FFC1801CF
+ MEPROP UID '4A7FFC1801CF'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7FF6610114 // UserJournal
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_4A7FFC1801CF make
+
+ME ME_4A82545C02BE
+ MEPROP Name 'type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A8001010232 // BookmarkJournalType
+ ;
+
+ENDME // ME_4A82545C02BE type
+
+ME ME_4A82545C02C9
+ MEPROP Name 'max_count'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4A82545C02C9 max_count
+
+ME ME_4A8000BD0335
+ MEPROP UID '4A8000BD0335'
+ MEPROP Name 'get_bookmark_history'
+ MEPROP Class class_Operation
+ %SUMMARY 'список закладок заданного типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7FF6610114 // UserJournal
+ ;
+ MELINK Target WL 'ME_4A8A9DCF030D' '4570511E038A.ms.model.script' // JournalBookmarkList
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A82545C02BE // type
+ ME_4A82545C02C9 // max_count
+ )
+ ; // Parameters
+
+ENDME // ME_4A8000BD0335 get_bookmark_history
+
+ME ME_4A8000D00285
+ MEPROP Name 'query_type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE13200E5' '45EEAA8E034E.ms.model.script' // QueryType
+ ;
+
+ENDME // ME_4A8000D00285 query_type
+
+ME ME_4A8000D002B8
+ MEPROP Name 'max_count'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4A8000D002B8 max_count
+
+ME ME_4A8000D00269
+ MEPROP UID '4A8000D00269'
+ MEPROP Name 'get_query_history'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получит список запросов заданного типа из Журнала' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7FF6610114 // UserJournal
+ ;
+ MELINK Target WL 'ME_45EEE1BC02F7' '45EEAA8E034E.ms.model.script' // QueryList
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A8000D00285 // query_type
+ ME_4A8000D002B8 // max_count
+ )
+ ; // Parameters
+
+ENDME // ME_4A8000D00269 get_query_history
+
+ME ME_4A7FF6610114
+ MEPROP UID '4A7FF6610114'
+ MEPROP GUID '30769E5F-13F7-406E-8E2A-2D35B8BE5192'
+ MEPROP Name 'UserJournal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс журанла работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A7FF5F301B2 // UserJournal
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A7FF7B40013 // save
+ HWL ME_4A7FF9CA0176 // remove
+ HWL ME_4A7FFA7B03B3 // clear
+ HWL ME_4A7FFAB30168 // get_user_jornal_tree
+ HWL ME_4A7FFC1801CF // make
+ HWL ME_4A8000BD0335 // get_bookmark_history
+ HWL ME_4A8000D00269 // get_query_history
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IUserJournal'
+ UP extprop:rc:SelfName 'UserJournal'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A7FF6610114 UserJournal
+
+ME ME_4A7FF5F301B2
+ MEPROP UID '4A7FF5F301B2'
+ MEPROP Name 'UserJournal'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A7FFAFA023A // JournalObjectType
+ HWL ME_4A8001010232 // BookmarkJournalType
+ HWL ME_4A7FF6610114 // UserJournal
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\UserJournal\UserJournal.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\UserJournal'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\UserJournal\UserJournal.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\UserJournal'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\UserJournalUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\UserJournalUnit.pas'
+ UP extprop:pas:UnitName 'UserJournalUnit'
+
+ENDME // ME_4A7FF5F301B2 UserJournal

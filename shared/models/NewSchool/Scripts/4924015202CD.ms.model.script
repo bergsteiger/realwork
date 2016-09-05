@@ -1,0 +1,147 @@
+// dsTagSimpleTree 4924015202CD ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4924015202CD
+
+ME ME_492401E00134
+ MEPROP UID '492401E00134'
+ MEPROP Name 'Operations'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4924015202CD // dsTagSimpleTree
+ ;
+ MELINK Target WL 'ME_49006BE702D7' '4990510C0026.ms.model.script' // TLogicOperationSet
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_492401E00134 Operations
+
+ME ME_492404C20046
+ MEPROP UID '492404C20046'
+ MEPROP Name 'UpdateOperations'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4924015202CD // dsTagSimpleTree
+ ;
+
+ENDME // ME_492404C20046 UpdateOperations
+
+ME ME_492406340209
+ MEPROP UID '492406340209'
+ MEPROP Name 'GetOperations'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4924015202CD // dsTagSimpleTree
+ ;
+ MELINK Target WL 'ME_49006BE702D7' '4990510C0026.ms.model.script' // TLogicOperationSet
+ ;
+
+ENDME // ME_492406340209 GetOperations
+
+ME ME_49240432018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4924015202CD // dsTagSimpleTree
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49240432018F 
+
+ME ME_49240465035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4924015202CD // dsTagSimpleTree
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_49240465035A 
+
+ME ME_4923FDA60287_ME_4924015202CD
+ MELINK Original WL 'ME_4923FDA60287' '491DAF4202EE.ms.model.script' // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDA60287_ME_4924015202CD Search
+
+ME ME_4923FDDB026F_ME_4924015202CD
+ MELINK Original WL 'ME_4923FDDB026F' '491DAF4202EE.ms.model.script' // Operations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDDB026F_ME_4924015202CD Operations
+
+ME ME_4923FDFA00F7_ME_4924015202CD
+ MELINK Original WL 'ME_4923FDFA00F7' '491DAF4202EE.ms.model.script' // IsOneOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDFA00F7_ME_4924015202CD IsOneOperation
+
+ME ME_492ACF630072_ME_4924015202CD
+ MELINK Original WL 'ME_492ACF630072' '47D0E1500033.ms.model.script' // GotData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492ACF630072_ME_4924015202CD GotData
+
+ME ME_4924015202CD
+ MEPROP UID '4924015202CD'
+ MEPROP Name 'dsTagSimpleTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объекта для словарных атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4AA005310028' '4AA005310028.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4923FD8100B7' '491DAF4202EE.ms.model.script' // IdsTagSimpleTree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_492401E00134 // Operations
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_492404C20046 // UpdateOperations
+ HWL ME_492406340209 // GetOperations
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4923FDA60287_ME_4924015202CD // Search
+ ME_4923FDDB026F_ME_4924015202CD // Operations
+ ME_4923FDFA00F7_ME_4924015202CD // IsOneOperation
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_492ACF630072_ME_4924015202CD // GotData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49240432018F // SysUtils
+ ME_49240465035A // bsUtils
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '02.08.2005 11.17'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas'
+ UP extprop:pas:TypeName '_dsTagSimpleTree_'
+ UP extprop:pas:UnitName 'dsTagSimpleTree.imp'
+
+ENDME // ME_4924015202CD dsTagSimpleTree

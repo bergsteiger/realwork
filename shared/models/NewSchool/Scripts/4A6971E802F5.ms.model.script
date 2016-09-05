@@ -1,0 +1,88 @@
+// ChatWindow 4A6971E802F5 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6971E802F5
+
+ME ME_C8D06A43AD67
+ MEPROP UID 'C8D06A43AD67'
+ MEPROP GUID 'BD39AB6D-74A5-4A07-80BA-F529342D3B8A'
+ MEPROP Name 'ChatWindow'
+ MEPROP OriginalName 'ChatWindow$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ChatWindow' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6971E802F5 // ChatWindow
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A6971E802F5 // ChatWindow
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ChatWindowFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_C8D06A43AD67 ChatWindow$Def
+
+ME ME_373EEC13BBF9
+ MEPROP UID '373EEC13BBF9'
+ MEPROP Name 'Ini_FormFactory_ChatWindow'
+ MEPROP OriginalName 'Ini_FormFactory_ChatWindow$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ChatWindow' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6971E802F5 // ChatWindow
+ ;
+ UPLINK SpelledFor HWL ME_4A6971E802F5 // ChatWindow
+ ;
+
+ENDME // ME_373EEC13BBF9 Ini_FormFactory_ChatWindow$Def
+
+ME ME_4A6971E802F5
+ MEPROP UID '4A6971E802F5'
+ MEPROP Name 'ChatWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переписка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A6971B802A6' '4A6971B802A6.ms.model.script' // BaseChat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C84CB6F0007' '4C84CB6F0007.ms.model.script' // BaseChatWindowOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_C8D06A43AD67 // ChatWindow$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_373EEC13BBF9 // Ini_FormFactory_ChatWindow$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_C8D06A43AD67 // ChatWindow$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'SimpleFloat'
+ UP "author" 'Лукьянец Р.В.'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatWindow_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ UP extprop:pas:TypeName 'TChatWindowForm'
+ UP extprop:rc:SelfName 'ChatWindowForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChatWindow_Form'
+
+ENDME // ME_4A6971E802F5 ChatWindow

@@ -1,0 +1,118 @@
+// TdsSelectedAttributes 49241B9903B7 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49241B9903B7
+
+ME ME_49241E7702DB
+ MEPROP UID '49241E7702DB'
+ MEPROP Name 'f_RefreshValues'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49241B9903B7 // TdsSelectedAttributes
+ ;
+ MELINK Target WL 'ME_4AE589BA0016' '491DAF4202EE.ms.model.script' // InsSelectedAttributesIterators
+ ;
+
+ENDME // ME_49241E7702DB f_RefreshValues
+
+ME ME_492D662601BB
+ MEPROP UID '492D662601BB'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49241B9903B7 // TdsSelectedAttributes
+ ;
+ MELINK Target WL 'ME_49241F6B00D7' '491DAF4202EE.ms.model.script' // IdeSelectedAttributes
+ ;
+
+ENDME // ME_492D662601BB InitDataType
+
+ME ME_49241EB5029C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49241B9903B7 // TdsSelectedAttributes
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49241EB5029C 
+
+ME ME_47F4C2B9014A_ME_49241B9903B7
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_49241B9903B7 MakeSimpleTree
+
+ME ME_49241D5D01C0_ME_49241B9903B7
+ MELINK Original WL 'ME_49241D5D01C0' '491DAF4202EE.ms.model.script' // RefreshValues
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49241D5D01C0_ME_49241B9903B7 RefreshValues
+
+ME ME_479731C50290_ME_49241B9903B7
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_49241B9903B7 Cleanup
+
+ME ME_492ACF630072_ME_49241B9903B7
+ MELINK Original WL 'ME_492ACF630072' '47D0E1500033.ms.model.script' // GotData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492ACF630072_ME_49241B9903B7 GotData
+
+ME ME_49241B9903B7
+ MEPROP UID '49241B9903B7'
+ MEPROP Name 'TdsSelectedAttributes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'бизнес объект формы "выбранные атрибуты дерева"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491DCA2C00A9' '491DCA2C00A9.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4924015202CD' '4924015202CD.ms.model.script' // dsTagSimpleTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49241CDE025D' '491DAF4202EE.ms.model.script' // IdsSelectedAttributes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49241E7702DB // f_RefreshValues
+ HWL ME_492D662601BB // InitDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F4C2B9014A_ME_49241B9903B7 // MakeSimpleTree
+ ME_49241D5D01C0_ME_49241B9903B7 // RefreshValues
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49241B9903B7 // Cleanup
+ ME_492ACF630072_ME_49241B9903B7 // GotData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49241EB5029C // SysUtils
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '29.07.2005 17.07 '
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\dsSelectedAttributes.pas'
+ UP extprop:rc:SelfName 'dsSelectedAttributes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsSelectedAttributes'
+
+ENDME // ME_49241B9903B7 TdsSelectedAttributes

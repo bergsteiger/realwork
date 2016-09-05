@@ -1,0 +1,1738 @@
+// NewBaseSearchForDFM 4CFCBB3600E0 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFCBB3600E0
+
+FORWARD ME_4DE66EAE0351
+
+ME ME_4DE66EC60339
+ MEPROP UID '4DE66EC60339'
+ MEPROP Name 'rButton'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ MELINK Target WL 'ME_4CFCF4840379' '4CFCE51A00B0.ms.model.script' // TvgRadioButton
+ ;
+
+ENDME // ME_4DE66EC60339 rButton
+
+ME ME_4DE66F0F0057
+ MEPROP UID '4DE66F0F0057'
+ MEPROP Name 'rClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
+ ;
+
+ENDME // ME_4DE66F0F0057 rClass
+
+FORWARD ME_4DE6709D02E9
+
+ME ME_4DE670B402FD
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+
+ENDME // ME_4DE670B402FD anOther
+
+ME ME_4DE670A8021F
+ MEPROP UID '4DE670A8021F'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE6709D02E9 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DE670B402FD // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_4DE670A8021F EQ
+
+ME ME_4DE6709D02E9
+ MEPROP UID '4DE6709D02E9'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE670A8021F // EQ
+ )
+ ; // Operations
+
+ENDME // ME_4DE6709D02E9 EQ
+
+FORWARD ME_4DE6712F01AA
+
+ME ME_4DE6713D0068
+ MEPROP Name 'aClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
+ ;
+
+ENDME // ME_4DE6713D0068 aClass
+
+ME ME_4DE671350053
+ MEPROP UID '4DE671350053'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE6712F01AA // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DE6713D0068 // aClass
+ )
+ ; // Parameters
+
+ENDME // ME_4DE671350053 DoIt
+
+ME ME_4DE6712F01AA
+ MEPROP UID '4DE6712F01AA'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE671350053 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DE6712F01AA C
+
+FORWARD ME_4DE6734A00D5
+
+ME ME_4DE67369014D
+ MEPROP Name 'aButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CFCF4840379' '4CFCE51A00B0.ms.model.script' // TvgRadioButton
+ ;
+
+ENDME // ME_4DE67369014D aButton
+
+ME ME_4DE6736F0299
+ MEPROP Name 'aClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
+ ;
+
+ENDME // ME_4DE6736F0299 aClass
+
+ME ME_4DE673570081
+ MEPROP UID '4DE673570081'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE6734A00D5 // C$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DE67369014D // aButton
+ ME_4DE6736F0299 // aClass
+ )
+ ; // Parameters
+
+ENDME // ME_4DE673570081 DoIt
+
+ME ME_4DE6734A00D5
+ MEPROP UID '4DE6734A00D5'
+ MEPROP Name 'C'
+ MEPROP OriginalName 'C$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE673570081 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DE6734A00D5 C$1
+
+ME ME_4DE66EAE0351
+ MEPROP UID '4DE66EAE0351'
+ MEPROP Name 'TvgRadioButtonItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DE66EC60339 // rButton
+ HWL ME_4DE66F0F0057 // rClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DE6709D02E9 // EQ
+ HWL ME_4DE6712F01AA // C
+ HWL ME_4DE6734A00D5 // C$1
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'RadioButtonItem'
+
+ENDME // ME_4DE66EAE0351 TvgRadioButtonItem
+
+FORWARD ME_4CFE0E7D012A
+
+ME ME_4CFE0EBA03A4
+ MEPROP UID '4CFE0EBA03A4'
+ MEPROP Name 'Everywhere'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ MEPROP Value '''Везде'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Везде'''
+
+ENDME // ME_4CFE0EBA03A4 Everywhere
+
+ME ME_4CFE0ED5031B
+ MEPROP UID '4CFE0ED5031B'
+ MEPROP Name 'ListDocuments'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ MEPROP Value '''Список: в документах'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Список: в документах'''
+
+ENDME // ME_4CFE0ED5031B ListDocuments
+
+ME ME_4CFE0F0600D3
+ MEPROP UID '4CFE0F0600D3'
+ MEPROP Name 'ListNames'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ MEPROP Value '''Список: в названиях'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Список: в названиях'''
+
+ENDME // ME_4CFE0F0600D3 ListNames
+
+ME ME_4CFE0F260149
+ MEPROP UID '4CFE0F260149'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFE0E7D012A // AreaStrings
+ ;
+ MEPROP Value '''В документе'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''В документе'''
+
+ENDME // ME_4CFE0F260149 Document
+
+ME ME_4CFE0E7D012A
+ MEPROP UID '4CFE0E7D012A'
+ MEPROP Name 'AreaStrings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CFE0EBA03A4 // Everywhere
+ HWL ME_4CFE0ED5031B // ListDocuments
+ HWL ME_4CFE0F0600D3 // ListNames
+ HWL ME_4CFE0F260149 // Document
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'as'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'as'
+
+ENDME // ME_4CFE0E7D012A AreaStrings
+
+FORWARD ME_4CFF858F0113
+
+ME ME_4CFF85AE003D
+ MEPROP UID '4CFF85AE003D'
+ MEPROP Name 'Example'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF858F0113 // ExampleText
+ ;
+ MEPROP Value '''Пример:'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Пример:'''
+
+ENDME // ME_4CFF85AE003D Example
+
+ME ME_4CFF85C103A0
+ MEPROP UID '4CFF85C103A0'
+ MEPROP Name 'FoundCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF858F0113 // ExampleText
+ ;
+ MEPROP Value '''Всего найдено'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Всего найдено'''
+
+ENDME // ME_4CFF85C103A0 FoundCount
+
+ME ME_4CFF858F0113
+ MEPROP UID '4CFF858F0113'
+ MEPROP Name 'ExampleText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CFF85AE003D // Example
+ HWL ME_4CFF85C103A0 // FoundCount
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'et'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'et'
+
+ENDME // ME_4CFF858F0113 ExampleText
+
+FORWARD ME_4D499894017A
+
+ME ME_4D4998B5035A
+ MEPROP UID '4D4998B5035A'
+ MEPROP Name 'More'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D499894017A // MoreTabConsts
+ ;
+ MEPROP Value '''Еще'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Еще'''
+
+ENDME // ME_4D4998B5035A More
+
+ME ME_4D499894017A
+ MEPROP UID '4D499894017A'
+ MEPROP Name 'MoreTabConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D4998B5035A // More
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'mtc'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'mtc'
+
+ENDME // ME_4D499894017A MoreTabConsts
+
+FORWARD ME_4CFCF49601B1
+
+ME ME_4CFCF4BB0160
+ MEPROP UID '4CFCF4BB0160'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CFCF49601B1 // TvgRadioButtonArray
+ ;
+ MELINK Target HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ ;
+
+ENDME // ME_4CFCF4BB0160 ItemType
+
+ME ME_47B2C42A0163_ME_4CFCF49601B1
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4CFCF49601B1 AssignItem
+
+ME ME_47B99D4503A2_ME_4CFCF49601B1
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4CFCF49601B1 CompareExistingItems
+
+ME ME_4CFCF49601B1
+ MEPROP UID '4CFCF49601B1'
+ MEPROP Name 'TvgRadioButtonArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223DB5024B' '47913B47006E.ms.model.script' // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CFCF4BB0160 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4CFCF49601B1 // AssignItem
+ ME_47B99D4503A2_ME_4CFCF49601B1 // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '01.06.2011 21:03'
+ UP extprop:rc:SelfName 'RadioButtonArray'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFCF49601B1 TvgRadioButtonArray
+
+FORWARD ME_4CFE21BB0104
+
+ME ME_4CFE21CD0369
+ MEPROP UID '4CFE21CD0369'
+ MEPROP Name 'ClassNotInBase'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFE21BB0104 // Local
+ ;
+ MEPROP Value '''Данный вид информации отсутствует в Вашем комплекте'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Данный вид информации отсутствует в Вашем комплекте'''
+
+ENDME // ME_4CFE21CD0369 ClassNotInBase
+
+ME ME_4CFE275A03E7
+ MEPROP UID '4CFE275A03E7'
+ MEPROP Name 'FoundFragmentCountHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFE21BB0104 // Local
+ ;
+ MEPROP Value '''Количество найденных в документе вхождений с искомым контекстом'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Количество найденных в документе вхождений с искомым контекстом'''
+
+ENDME // ME_4CFE275A03E7 FoundFragmentCountHint
+
+ME ME_4CFE21BB0104
+ MEPROP UID '4CFE21BB0104'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CFE21CD0369 // ClassNotInBase
+ HWL ME_4CFE275A03E7 // FoundFragmentCountHint
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4CFE21BB0104 Local
+
+ME ME_4CFCE561011D
+ MEPROP UID '4CFCE561011D'
+ MEPROP Name 'FindBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFCE54B01B0' '4CFCE51A00B0.ms.model.script' // TvgPathButton
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFCE561011D FindBtn
+
+ME ME_4CFCE56E009C
+ MEPROP UID '4CFCE56E009C'
+ MEPROP Name 'FindBackBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFCE54B01B0' '4CFCE51A00B0.ms.model.script' // TvgPathButton
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFCE56E009C FindBackBtn
+
+ME ME_4CFCE5B200A9
+ MEPROP UID '4CFCE5B200A9'
+ MEPROP Name 'CloseBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFCE5A10367' '4CFCE51A00B0.ms.model.script' // TvgCloseButton
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFCE5B200A9 CloseBtn
+
+ME ME_4CFE0E5F02D5
+ MEPROP UID '4CFE0E5F02D5'
+ MEPROP Name 'AreaCombo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D3D71CE0254' '4CFCE51A00B0.ms.model.script' // TvgComboBox
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFE0E5F02D5 AreaCombo
+
+ME ME_4CFE2C9F0029
+ MEPROP UID '4CFE2C9F0029'
+ MEPROP Name 'QueryExampleLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFE2C800399' '4CFCE51A00B0.ms.model.script' // TvgText
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFE2C9F0029 QueryExampleLabel
+
+ME ME_4CFF56750396
+ MEPROP UID '4CFF56750396'
+ MEPROP Name 'DropButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFF5690033D' '4CFCE51A00B0.ms.model.script' // TvgButton
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFF56750396 DropButton
+
+ME ME_4CFF80CC027F
+ MEPROP UID '4CFF80CC027F'
+ MEPROP Name 'FoundCountLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFE2C800399' '4CFCE51A00B0.ms.model.script' // TvgText
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFF80CC027F FoundCountLabel
+
+ME ME_4CFF86B00026
+ MEPROP UID '4CFF86B00026'
+ MEPROP Name 'ExampleLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFE2C800399' '4CFCE51A00B0.ms.model.script' // TvgText
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFF86B00026 ExampleLabel
+
+ME ME_4CFFAEBB0305
+ MEPROP UID '4CFFAEBB0305'
+ MEPROP Name 'ContextEditPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFFAE9802DF' '4CFCE51A00B0.ms.model.script' // TvgNonVGLayout
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFFAEBB0305 ContextEditPanel
+
+FORWARD ME_4CFFB1B500DB
+
+FORWARD ME_4D51648F033D
+
+ME ME_4E789D5A0179
+ MEPROP UID '4E789D5A0179'
+ MEPROP Name 'Layout3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D51648F033D // Layout2
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFFB1A00237' '4CFCE51A00B0.ms.model.script' // TvgLayout
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4E789D5A0179 Layout3
+
+ME ME_4D51648F033D
+ MEPROP UID '4D51648F033D'
+ MEPROP Name 'Layout2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFFB1B500DB // Layout1
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFFB1A00237' '4CFCE51A00B0.ms.model.script' // TvgLayout
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E789D5A0179 // Layout3
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4D51648F033D Layout2
+
+ME ME_4CFFB1B500DB
+ MEPROP UID '4CFFB1B500DB'
+ MEPROP Name 'Layout1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFFB1A00237' '4CFCE51A00B0.ms.model.script' // TvgLayout
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D51648F033D // Layout2
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4CFFB1B500DB Layout1
+
+ME ME_4CFFB59200DB
+ MEPROP UID '4CFFB59200DB'
+ MEPROP Name 'vgScene1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFFB562010C' '4CFCE51A00B0.ms.model.script' // TvgScene
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+ UP extprop:rc:SelfName 'Scene1'
+
+ENDME // ME_4CFFB59200DB vgScene1
+
+ME ME_4D49931D0389
+ MEPROP UID '4D49931D0389'
+ MEPROP Name 'MoreTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D3D71CE0254' '4CFCE51A00B0.ms.model.script' // TvgComboBox
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EB7BA17030A' '484FA67302D7.ms.model.script' // Выбор из кнопки 'Ещё'
+ )
+ ; // Implements
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4D49931D0389 MoreTab
+
+ME ME_4D70E56F0066
+ MEPROP UID '4D70E56F0066'
+ MEPROP Name 'Border'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.ms.model.script' // TvgRectangle
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4D70E56F0066 Border
+
+ME ME_4D70E57F00C3
+ MEPROP UID '4D70E57F00C3'
+ MEPROP Name 'InnerBorder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.ms.model.script' // TvgRectangle
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4D70E57F00C3 InnerBorder
+
+ME ME_4D70E7DD0123
+ MEPROP UID '4D70E7DD0123'
+ MEPROP Name 'MostOuterRectangle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.ms.model.script' // TvgRectangle
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4D70E7DD0123 MostOuterRectangle
+
+ME ME_4DE6764D000D
+ MEPROP UID '4DE6764D000D'
+ MEPROP Name 'Rectangle1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D70E5440067' '4CFCE51A00B0.ms.model.script' // TvgRectangle
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4DE6764D000D Rectangle1
+
+ME ME_4CFCF4C60030
+ MEPROP UID '4CFCF4C60030'
+ MEPROP Name 'f_Themes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Темы' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target HWL ME_4CFCF49601B1 // TvgRadioButtonArray
+ ;
+
+ENDME // ME_4CFCF4C60030 f_Themes
+
+ME ME_4DE66D94033D
+ MEPROP UID '4DE66D94033D'
+ MEPROP Name 'ActiveClassTab'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_4CFCF4840379' '4CFCE51A00B0.ms.model.script' // TvgRadioButton
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DE66D94033D ActiveClassTab
+
+FORWARD ME_4CFE4BA60063
+
+ME ME_4D5C0EE701ED
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D5C0EE701ED aSender
+
+ME ME_4CFE4BAD0116
+ MEPROP UID '4CFE4BAD0116'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFE4BA60063 // TabClick
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5C0EE701ED // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4CFE4BAD0116 DoIt
+
+ME ME_4CFE4BA60063
+ MEPROP UID '4CFE4BA60063'
+ MEPROP Name 'TabClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CFE4BAD0116 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CFE4BA60063 TabClick
+
+FORWARD ME_4D3D7176028B
+
+ME ME_4D4998840132
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D3D71CE0254' '4CFCE51A00B0.ms.model.script' // TvgComboBox
+ ;
+
+ENDME // ME_4D4998840132 aParent
+
+ME ME_4D3D718F0394
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4D3D718F0394 aStr
+
+ME ME_4D3D71800335
+ MEPROP UID '4D3D71800335'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3D7176028B // AddListItem
+ ;
+ MELINK Target WL 'ME_4D49985C0087' '4CFCE51A00B0.ms.model.script' // TvgListBoxItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D4998840132 // aParent
+ ME_4D3D718F0394 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4D3D71800335 DoIt
+
+ME ME_4D3D7176028B
+ MEPROP UID '4D3D7176028B'
+ MEPROP Name 'AddListItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D3D71800335 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D3D7176028B AddListItem
+
+FORWARD ME_4D4AA2B500C8
+
+ME ME_4D4AA2C800BD
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D4AA2C800BD aSender
+
+ME ME_4D4AA2BF0088
+ MEPROP UID '4D4AA2BF0088'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4AA2B500C8 // DoResize
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D4AA2C800BD // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4D4AA2BF0088 DoIt
+
+ME ME_4D4AA2B500C8
+ MEPROP UID '4D4AA2B500C8'
+ MEPROP Name 'DoResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D4AA2BF0088 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D4AA2B500C8 DoResize
+
+FORWARD ME_4D4ACB9900F6
+
+ME ME_4D4ACBAB00C0
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D4ACBAB00C0 aSender
+
+ME ME_4D4ACBA30033
+ MEPROP UID '4D4ACBA30033'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4ACB9900F6 // MoreTabChange
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D4ACBAB00C0 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4D4ACBA30033 DoIt
+
+ME ME_4D4ACB9900F6
+ MEPROP UID '4D4ACB9900F6'
+ MEPROP Name 'MoreTabChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D4ACBA30033 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D4ACB9900F6 MoreTabChange
+
+FORWARD ME_4D4BD7C902EA
+
+ME ME_4D4BD7E200FA
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D4BD7E200FA aTag
+
+ME ME_4E15AF8E0354
+ MEPROP Name 'aReallyNeedSearch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E15AF8E0354 aReallyNeedSearch
+
+ME ME_5241B88A01A2
+ MEPROP Name 'aUpdateClassBeforeSearch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5241B88A01A2 aUpdateClassBeforeSearch
+
+ME ME_4D4BD7D702F4
+ MEPROP UID '4D4BD7D702F4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4BD7C902EA // DoSearch
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D4BD7E200FA // aTag
+ ME_4E15AF8E0354 // aReallyNeedSearch
+ ME_5241B88A01A2 // aUpdateClassBeforeSearch
+ )
+ ; // Parameters
+
+ENDME // ME_4D4BD7D702F4 DoIt
+
+ME ME_4D4BD7C902EA
+ MEPROP UID '4D4BD7C902EA'
+ MEPROP Name 'DoSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D4BD7D702F4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D4BD7C902EA DoSearch
+
+FORWARD ME_4D5164A30162
+
+ME ME_4D5164B801F4
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D5164B801F4 aSender
+
+ME ME_4D5164AF0183
+ MEPROP UID '4D5164AF0183'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5164A30162 // DoRealignLayout1
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5164B801F4 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4D5164AF0183 DoIt
+
+ME ME_4D51668A0340
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D5164A30162 // DoRealignLayout1
+ ;
+ MELINK Target WL 'ME_4808A20402DC' '4AB0997B00A2.ms.model.script' // Math
+ ;
+
+ENDME // ME_4D51668A0340 
+
+ME ME_4D5164A30162
+ MEPROP UID '4D5164A30162'
+ MEPROP Name 'DoRealignLayout1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5164AF0183 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D51668A0340 // Math
+ )
+ ; // Dependencies
+
+ENDME // ME_4D5164A30162 DoRealignLayout1
+
+FORWARD ME_4D5C0D11022D
+
+ME ME_4D5C0D2D029D
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D5C0D2D029D aSender
+
+ME ME_4D5C0D24013D
+ MEPROP UID '4D5C0D24013D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5C0D11022D // TabChange
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5C0D2D029D // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4D5C0D24013D DoIt
+
+ME ME_4D5C0D11022D
+ MEPROP UID '4D5C0D11022D'
+ MEPROP Name 'TabChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5C0D24013D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5C0D11022D TabChange
+
+FORWARD ME_4D70ED5901BF
+
+ME ME_4D70ED7601EA
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D70ED7601EA aSender
+
+ME ME_4D70ED6E012B
+ MEPROP UID '4D70ED6E012B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D70ED5901BF // ContextEditFocusChanged
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D70ED7601EA // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4D70ED6E012B DoIt
+
+ME ME_4D70ED5901BF
+ MEPROP UID '4D70ED5901BF'
+ MEPROP Name 'ContextEditFocusChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D70ED6E012B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D70ED5901BF ContextEditFocusChanged
+
+FORWARD ME_4E7899330095
+
+ME ME_4E789944031A
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4E789944031A aSender
+
+ME ME_4E78993C00F5
+ MEPROP UID '4E78993C00F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7899330095 // DoEmptyAddingClick
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E789944031A // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4E78993C00F5 DoIt
+
+ME ME_4E7899330095
+ MEPROP UID '4E7899330095'
+ MEPROP Name 'DoEmptyAddingClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E787ED60292' '484FA67302D7.ms.model.script' // Псевдонадпись и пример в БП должны быть склеены
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E78993C00F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E7899330095 DoEmptyAddingClick
+
+ME ME_4CFCF8B601B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_4CF4D5F9022D' '54B90AC6014B.ms.model.script' // l3DStr
+ ;
+
+ENDME // ME_4CFCF8B601B0 
+
+ME ME_4CFE3E3300FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_4CFE3E1302F5' '4CFCE51A00B0.ms.model.script' // TvgBrushStyle
+ ;
+
+ENDME // ME_4CFE3E3300FF 
+
+ME ME_4CFE3EFB0167
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4CFE3EFB0167 
+
+ME ME_4CFE4E1900C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_496B500E0283' '4A9F98B901A5.ms.model.script' // ETryToFindEmptyContext
+ ;
+
+ENDME // ME_4CFE4E1900C0 
+
+ME ME_4CFFA0BA0095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_4CFFA0BA0095 
+
+ME ME_4CFFA1B30174
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_482B17100178' '4799D29F033F.ms.model.script' // TBorderStyle
+ ;
+
+ENDME // ME_4CFFA1B30174 
+
+ME ME_4D42D1120162
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4D42D1120162 
+
+ME ME_4D441827025E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_4D441827025E 
+
+ME ME_4D44183D021E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_47D036300337' '47D036150077.ms.model.script' // TvtViewOption
+ ;
+
+ENDME // ME_4D44183D021E 
+
+ME ME_4D4AA1E5017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4D4AA1E5017A 
+
+ME ME_4DE671BE00FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DE671BE00FF 
+
+ME ME_4EAFE56B02F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_4799F84900DD' '473C3BEE0334.ms.model.script' // l3ScreenIC
+ ;
+
+ENDME // ME_4EAFE56B02F4 
+
+ME ME_4EAFE59B0229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFCBB3600E0 // NewBaseSearchForDFM
+ ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_4EAFE59B0229 
+
+ME ME_4CF4D1AD01B3_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CF4D1AD01B3' '4AB791130260.ms.model.script' // AdjustParamsPagesHeight
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CF4D1AD01B3_ME_4CFCBB3600E0 AdjustParamsPagesHeight
+
+ME ME_4CF4D56E0258_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CF4D56E0258' '4AB791130260.ms.model.script' // SetUpFindButtons
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CF4D56E0258_ME_4CFCBB3600E0 SetUpFindButtons
+
+ME ME_4CF4D6C40292_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CF4D6C40292' '4AB791130260.ms.model.script' // SetupClasses
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CF4D6C40292_ME_4CFCBB3600E0 SetupClasses
+
+ME ME_4CF4DC7C0129_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CF4DC7C0129' '4AB791130260.ms.model.script' // UpdateExamplePanelWidthAndPosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CF4DC7C0129_ME_4CFCBB3600E0 UpdateExamplePanelWidthAndPosition
+
+ME ME_4CFCCE4B0112_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFCCE4B0112' '4AB791130260.ms.model.script' // FindBtnEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4CFCCE4B0112_ME_4CFCBB3600E0 FindBtnEnabled
+
+ME ME_4CFCD6270160_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFCD6270160' '4AB791130260.ms.model.script' // FindBackBtnEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4CFCD6270160_ME_4CFCBB3600E0 FindBackBtnEnabled
+
+ME ME_4CFCE1AE01A0_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFCE1AE01A0' '4AB791130260.ms.model.script' // CheckParamsPagesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CFCE1AE01A0_ME_4CFCBB3600E0 CheckParamsPagesCount
+
+ME ME_4CFCE22D03D1_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFCE22D03D1' '4AB791130260.ms.model.script' // SetCurrentContextKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CFCE22D03D1_ME_4CFCBB3600E0 SetCurrentContextKind
+
+ME ME_4CFCEBFA0350_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFCEBFA0350' '4AB791130260.ms.model.script' // ContextLabelVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4CFCEBFA0350_ME_4CFCBB3600E0 ContextLabelVisible
+
+ME ME_4CFCEE450210_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFCEE450210' '4AB791130260.ms.model.script' // CloseBtnEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4CFCEE450210_ME_4CFCBB3600E0 CloseBtnEnabled
+
+ME ME_4CFE140401CF_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFE140401CF' '4AB791130260.ms.model.script' // SetCurrentSearchArea
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CFE140401CF_ME_4CFCBB3600E0 SetCurrentSearchArea
+
+ME ME_4CFE192200C5_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFE192200C5' '4AB791130260.ms.model.script' // SetupThemePages
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CFE192200C5_ME_4CFCBB3600E0 SetupThemePages
+
+ME ME_4CFE28330018_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFE28330018' '4AB791130260.ms.model.script' // DoCheckFragmentsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CFE28330018_ME_4CFCBB3600E0 DoCheckFragmentsCount
+
+ME ME_4CFE2AA80164_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4CFE2AA80164' '4AB791130260.ms.model.script' // DoExampleChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CFE2AA80164_ME_4CFCBB3600E0 DoExampleChanged
+
+ME ME_479731C50290_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CFCBB3600E0 Cleanup
+
+ME ME_49BFC98902FF_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_49BFC98902FF' '51612EBB02F5.ms.model.script' // BeforeRelease
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49BFC98902FF_ME_4CFCBB3600E0 BeforeRelease
+
+ME ME_4A8E8F2E0195_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4CFCBB3600E0 InitControls
+
+ME ME_4B13B419036C_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4B13B419036C' '4AB791130260.ms.model.script' // ApplyCurrentExample
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B13B419036C_ME_4CFCBB3600E0 ApplyCurrentExample
+
+ME ME_4B4F13E80365_ME_4CFCBB3600E0
+ MELINK Original WL 'ME_4B4F13E80365' '4F22CB1E0009.ms.model.script' // NeedSetMyFocus
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B4F13E80365_ME_4CFCBB3600E0 NeedSetMyFocus
+
+ME ME_4CFCBB3600E0
+ MEPROP UID '4CFCBB3600E0'
+ MEPROP Name 'NewBaseSearchForDFM'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.ms.model.script' // BaseSearch$Module
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CC7F0CE0267' '4CC7F0CE0267.ms.model.script' // PrimBaseSearchOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E787ED60292' '484FA67302D7.ms.model.script' // Псевдонадпись и пример в БП должны быть склеены
+ WL 'ME_4EAFE98700D7' '484FA67302D7.ms.model.script' // Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CFCE561011D // FindBtn
+ HWL ME_4CFCE56E009C // FindBackBtn
+ HWL ME_4CFCE5B200A9 // CloseBtn
+ HWL ME_4CFE0E5F02D5 // AreaCombo
+ HWL ME_4CFE2C9F0029 // QueryExampleLabel
+ HWL ME_4CFF56750396 // DropButton
+ HWL ME_4CFF80CC027F // FoundCountLabel
+ HWL ME_4CFF86B00026 // ExampleLabel
+ HWL ME_4CFFAEBB0305 // ContextEditPanel
+ HWL ME_4CFFB1B500DB // Layout1
+ HWL ME_4CFFB59200DB // vgScene1
+ HWL ME_4D49931D0389 // MoreTab
+ HWL ME_4D70E56F0066 // Border
+ HWL ME_4D70E57F00C3 // InnerBorder
+ HWL ME_4D70E7DD0123 // MostOuterRectangle
+ HWL ME_4DE6764D000D // Rectangle1
+ HWL ME_4CFCF4C60030 // f_Themes
+ HWL ME_4DE66D94033D // ActiveClassTab
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CFE4BA60063 // TabClick
+ HWL ME_4D3D7176028B // AddListItem
+ HWL ME_4D4AA2B500C8 // DoResize
+ HWL ME_4D4ACB9900F6 // MoreTabChange
+ HWL ME_4D4BD7C902EA // DoSearch
+ HWL ME_4D5164A30162 // DoRealignLayout1
+ HWL ME_4D5C0D11022D // TabChange
+ HWL ME_4D70ED5901BF // ContextEditFocusChanged
+ HWL ME_4E7899330095 // DoEmptyAddingClick
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CF4D1AD01B3_ME_4CFCBB3600E0 // AdjustParamsPagesHeight
+ ME_4CF4D56E0258_ME_4CFCBB3600E0 // SetUpFindButtons
+ ME_4CF4D6C40292_ME_4CFCBB3600E0 // SetupClasses
+ ME_4CF4DC7C0129_ME_4CFCBB3600E0 // UpdateExamplePanelWidthAndPosition
+ ME_4CFCCE4B0112_ME_4CFCBB3600E0 // FindBtnEnabled
+ ME_4CFCD6270160_ME_4CFCBB3600E0 // FindBackBtnEnabled
+ ME_4CFCE1AE01A0_ME_4CFCBB3600E0 // CheckParamsPagesCount
+ ME_4CFCE22D03D1_ME_4CFCBB3600E0 // SetCurrentContextKind
+ ME_4CFCEBFA0350_ME_4CFCBB3600E0 // ContextLabelVisible
+ ME_4CFCEE450210_ME_4CFCBB3600E0 // CloseBtnEnabled
+ ME_4CFE140401CF_ME_4CFCBB3600E0 // SetCurrentSearchArea
+ ME_4CFE192200C5_ME_4CFCBB3600E0 // SetupThemePages
+ ME_4CFE28330018_ME_4CFCBB3600E0 // DoCheckFragmentsCount
+ ME_4CFE2AA80164_ME_4CFCBB3600E0 // DoExampleChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CFCBB3600E0 // Cleanup
+ ME_49BFC98902FF_ME_4CFCBB3600E0 // BeforeRelease
+ ME_4A8E8F2E0195_ME_4CFCBB3600E0 // InitControls
+ ME_4B13B419036C_ME_4CFCBB3600E0 // ApplyCurrentExample
+ ME_4B4F13E80365_ME_4CFCBB3600E0 // NeedSetMyFocus
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DE66EAE0351 // TvgRadioButtonItem
+ HWL ME_4CFCF49601B1 // TvgRadioButtonArray
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4CFE0E7D012A // AreaStrings
+ HWL ME_4CFF858F0113 // ExampleText
+ HWL ME_4D499894017A // MoreTabConsts
+ HWL ME_4CFE21BB0104 // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4CFCF8B601B0 // l3DStr
+ ME_4CFE3E3300FF // TvgBrushStyle
+ ME_4CFE3EFB0167 // nsConst
+ ME_4CFE4E1900C0 // ETryToFindEmptyContext
+ ME_4CFFA0BA0095 // Controls
+ ME_4CFFA1B30174 // TBorderStyle
+ ME_4D42D1120162 // l3MinMax
+ ME_4D441827025E // Graphics
+ ME_4D44183D021E // TvtViewOption
+ ME_4D4AA1E5017A // l3CStr
+ ME_4DE671BE00FF // FreeAndNil
+ ME_4EAFE56B02F4 // l3ScreenIC
+ ME_4EAFE59B0229 // Il3InfoCanvas
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '06.12.2010 13:30'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearchForDFM_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms'
+ UP extprop:pas:TypeName 'TNewBaseSearchForDFMForm'
+ UP extprop:rc:SelfName 'NewBaseSearchForDFMForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'NewBaseSearchForDFM_Form'
+
+ENDME // ME_4CFCBB3600E0 NewBaseSearchForDFM

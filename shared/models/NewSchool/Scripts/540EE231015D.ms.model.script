@@ -1,0 +1,200 @@
+// Logging 540EE231015D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_540EE231015D
+
+FORWARD ME_540EE24702BC
+
+FORWARD ME_540EE287029C
+
+ME ME_E28C5848D66D
+ MEPROP UID 'E28C5848D66D'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода SetOnException' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EE287029C // SetOnException
+ ;
+
+ENDME // ME_E28C5848D66D DoIt
+
+ME ME_540EE287029C
+ MEPROP UID '540EE287029C'
+ MEPROP Name 'SetOnException'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540EE24702BC // Tl3ExceptionsLog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_E28C5848D66D // DoIt
+ )
+ ; // Operations
+ UP "ifdef" '_m0USEFORMS1'
+
+ENDME // ME_540EE287029C SetOnException
+
+FORWARD ME_540EE29A0095
+
+ME ME_5972FACB99CB
+ MEPROP UID '5972FACB99CB'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода ResOnException' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EE29A0095 // ResOnException
+ ;
+
+ENDME // ME_5972FACB99CB DoIt
+
+ME ME_540EE29A0095
+ MEPROP UID '540EE29A0095'
+ MEPROP Name 'ResOnException'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540EE24702BC // Tl3ExceptionsLog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5972FACB99CB // DoIt
+ )
+ ; // Operations
+ UP "ifdef" '_m0USEFORMS1'
+
+ENDME // ME_540EE29A0095 ResOnException
+
+FORWARD ME_5422E8FC025D
+
+ME ME_5422E9050307
+ MEPROP UID '5422E9050307'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5422E8FC025D // NeedTime
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5422E9050307 DoIt
+
+ME ME_5422E8FC025D
+ MEPROP UID '5422E8FC025D'
+ MEPROP Name 'NeedTime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540EE24702BC // Tl3ExceptionsLog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5422E9050307 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5422E8FC025D NeedTime
+
+ME ME_540EE24702BC
+ MEPROP UID '540EE24702BC'
+ MEPROP Name 'Tl3ExceptionsLog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540EE231015D // Logging
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_540EE287029C // SetOnException
+ HWL ME_540EE29A0095 // ResOnException
+ HWL ME_5422E8FC025D // NeedTime
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3ExceptionsLog.pas'
+ UP extprop:rc:SelfName 'ExceptionsLog'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ExceptionsLog'
+
+ENDME // ME_540EE24702BC Tl3ExceptionsLog
+
+FORWARD ME_540EE27400BE
+
+ME ME_540EE287029C_ME_540EE27400BE
+ MELINK Original HWL ME_540EE287029C // SetOnException
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" '_m0USEFORMS1'
+ENDME // ME_540EE287029C_ME_540EE27400BE SetOnException
+
+ME ME_540EE29A0095_ME_540EE27400BE
+ MELINK Original HWL ME_540EE29A0095 // ResOnException
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" '_m0USEFORMS1'
+ENDME // ME_540EE29A0095_ME_540EE27400BE ResOnException
+
+ME ME_5422E8FC025D_ME_540EE27400BE
+ MELINK Original HWL ME_5422E8FC025D // NeedTime
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5422E8FC025D_ME_540EE27400BE NeedTime
+
+ME ME_540EE27400BE
+ MEPROP UID '540EE27400BE'
+ MEPROP Name 'Tl3ExceptionsLogEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540EE231015D // Logging
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_540EE24702BC // Tl3ExceptionsLog
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_540EE287029C_ME_540EE27400BE // SetOnException
+ ME_540EE29A0095_ME_540EE27400BE // ResOnException
+ ME_5422E8FC025D_ME_540EE27400BE // NeedTime
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ExceptionsLogEx.pas'
+ UP extprop:rc:SelfName 'ExceptionsLogEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ExceptionsLogEx'
+
+ENDME // ME_540EE27400BE Tl3ExceptionsLogEx
+
+ME ME_540EE231015D
+ MEPROP UID '540EE231015D'
+ MEPROP Name 'Logging'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_515AC89F01E1' '515AC89F01E1.ms.model.script' // L3$Basic Concepts
+ ;
+ MELIST Children
+   Seq: ( HWL ME_540EE24702BC // Tl3ExceptionsLog
+ HWL ME_540EE27400BE // Tl3ExceptionsLogEx
+ )
+ ; // Children
+
+ENDME // ME_540EE231015D Logging

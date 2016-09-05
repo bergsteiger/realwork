@@ -1218,7 +1218,7 @@ var
  begin
   RunDataInstallerProcess(GetDataInstallerCommandLine);
   //
-  StartupCompletedNotify;
+  StartupCompleteNotify;
   try
    LockLogin;
    WaitWhileLoginIsLocked(IsDataInstallerProcessRunning);
@@ -1233,7 +1233,7 @@ var
   begin
    RunDataUpdaterProcess(GetDataUpdaterCommandLine);
    //
-   StartupCompletedNotify;
+   StartupCompleteNotify;
    try
     LockLogin;
     WaitWhileLoginIsLocked(IsDataUpdaterProcessRunning);
@@ -1248,7 +1248,7 @@ var
    begin
     RunDownloaderProcess(GetDownloaderCommandLine);
     //
-    StartupCompletedNotify;
+    StartupCompleteNotify;
     try
      LockLogin;
      WaitWhileLoginIsLocked(IsDownloaderProcessRunning);

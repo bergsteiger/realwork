@@ -1,0 +1,33 @@
+// F1Specific 4729C1C802AF MDATemplates Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4729C1C802AF
+ MEPROP UID '4729C1C802AF'
+ MEPROP Name 'F1Specific'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDATemplates ;
+ %SUMMARY 'ћодель шаблонов, содержит описани€ стереотипов специфичные дл€ проекта F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B6319D202FE' '4B6319D202FE.ms.model.script' // MDProcess$ForF1
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_498C731501C6' '498C731501C6.ms.model.script' // F1Templates
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4729C18B01F4' '4729C18B01F4.ms.model.script' // DelphiSpecific
+ WL 'ME_4734A001000F' '4734A001000F.ms.model.script' // MetaTemplate
+ WL 'ME_492E8F8603C3' '492E8F8603C3.ms.model.script' // VCMTemplates
+ WL 'ME_561D2FE00378' '561D2FE00378.ms.model.script' // SimpleTemplates
+ )
+ ; // Depends
+ UP mda:Path 'MDProcess\F1Specific\F1Specific.tpl'
+ UP mda:PathOnly '\MDProcess\F1Specific'
+ UP mda.inc:Path 'MDProcess\F1Specific\F1Specific.inc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\F1Specific'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes'
+
+ENDME // ME_4729C1C802AF F1Specific

@@ -1,0 +1,209 @@
+// PrimEULA 4A93FB6B018F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93FB6B018F
+
+FORWARD ME_51BAEE3A02DC
+
+ME ME_51BAEE4E01A4
+ MEPROP UID '51BAEE4E01A4'
+ MEPROP Name 'EULAText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51BAEE3A02DC // EULA Local Const
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Правомерное владение экземпляром версии Электронного периодического справочника '' +'#13#10'''\\"Система ГАРАНТ\\" возможно только на основании и на условиях договора с лицами, '' +'#13#10'''указанными на сайте www.garant.ru''#13#10#13#10''ВНИМАНИЕ! НЕСОБЛЮДЕНИЕ '' +'#13#10'''УКАЗАННОГО ВЫШЕ УСЛОВИЯ ЯВЛЯЕТСЯ НАРУШЕНИЕМ ЗАКОНОДАТЕЛЬСТВА РОССИЙСКОЙ '' +'#13#10'''ФЕДЕРАЦИИ И ПРЕСЛЕДУЕТСЯ ПО ЗАКОНУ.'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_51BAEE4E01A4 EULAText
+
+ME ME_51BAEE3A02DC
+ MEPROP UID '51BAEE3A02DC'
+ MEPROP Name 'EULA Local Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51BAEE4E01A4 // EULAText
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_51BAEE3A02DC EULA Local Const
+
+ME ME_51BAD0C50140
+ MEPROP UID '51BAD0C50140'
+ MEPROP Name 'ShellCaptionLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прочтите внимательно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51BAD0C50140 ShellCaptionLabel
+
+ME ME_51BAD0EA010E
+ MEPROP UID '51BAD0EA010E'
+ MEPROP Name 'OkButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ UP "ControlClass" 'TvtButton'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51BAD0EA010E OkButton
+
+ME ME_51BAD4030098
+ MEPROP UID '51BAD4030098'
+ MEPROP Name 'eeMemoWithEditOperations1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ UP "ControlClass" 'TeeMemoWithEditOperations'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51BAD4030098 eeMemoWithEditOperations1
+
+ME ME_51BAD500014C
+ MEPROP UID '51BAD500014C'
+ MEPROP Name 'OkButtonClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_51BAD500014C OkButtonClick
+
+ME ME_51BAE14703CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_51BAE14703CB 
+
+ME ME_51BAE84E02C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_51BAE84E02C5 
+
+ME ME_51BAEDD802F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93FB6B018F // PrimEULA
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_51BAEDD802F6 
+
+ME ME_49803F5503AA_ME_4A93FB6B018F
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4A93FB6B018F DoInit
+
+ME ME_4A8E8F2E0195_ME_4A93FB6B018F
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A93FB6B018F InitControls
+
+ME ME_4A93FB6B018F
+ MEPROP UID '4A93FB6B018F'
+ MEPROP Name 'PrimEULA'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51BAD0C50140 // ShellCaptionLabel
+ HWL ME_51BAD0EA010E // OkButton
+ HWL ME_51BAD4030098 // eeMemoWithEditOperations1
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51BAD500014C // OkButtonClick
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4A93FB6B018F // DoInit
+ ME_4A8E8F2E0195_ME_4A93FB6B018F // InitControls
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_51BAEE3A02DC // EULA Local Const
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_51BAE14703CB // ModalResults
+ ME_51BAE84E02C5 // Forms
+ ME_51BAEDD802F6 // Controls
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '25.08.2009 18:55'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimEULA_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName 'TPrimEULAForm'
+ UP extprop:rc:SelfName 'PrimEULAForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimEULA_Form'
+
+ENDME // ME_4A93FB6B018F PrimEULA

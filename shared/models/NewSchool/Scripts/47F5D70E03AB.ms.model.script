@@ -1,0 +1,46 @@
+// TdsMainDrugList 47F5D70E03AB ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F5D70E03AB
+
+ME ME_47F0D913030D_ME_47F5D70E03AB
+ MELINK Original WL 'ME_47F0D913030D' '47E9EDA800FE.ms.model.script' // NotifyAboutChangeCurrent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F0D913030D_ME_47F5D70E03AB NotifyAboutChangeCurrent
+
+ME ME_47FB00640212_ME_47F5D70E03AB
+ MELINK Original WL 'ME_47FB00640212' '47E9EDA800FE.ms.model.script' // DoIsMain
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47FB00640212_ME_47F5D70E03AB DoIsMain
+
+ME ME_47F5D70E03AB
+ MEPROP UID '47F5D70E03AB'
+ MEPROP Name 'TdsMainDrugList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОФ списка препаратов в главной зоне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47EA01EA0070' '47EA01EA0070.ms.model.script' // sdsDrugList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E9EDD301A4' '47E9EDD301A4.ms.model.script' // TdsDrugList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F0D913030D_ME_47F5D70E03AB // NotifyAboutChangeCurrent
+ ME_47FB00640212_ME_47F5D70E03AB // DoIsMain
+ )
+ ; // Overridden
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dsMainDrugList.pas'
+ UP extprop:rc:SelfName 'dsMainDrugList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsMainDrugList'
+
+ENDME // ME_47F5D70E03AB TdsMainDrugList

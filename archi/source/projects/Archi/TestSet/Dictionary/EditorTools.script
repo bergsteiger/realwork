@@ -34,12 +34,12 @@ PROCEDURE "Сравнить текст с эталоном"
 	focused:control:push =: l_Control
 	Если ( l_Control "НЕ ЯВЛЯЕТСЯ" class::TevCustomEditorWindow ) то (
 	"Установить фокус в контрол с именем" "Контрол редактора текста" )
- 	STRING VAR l_File	
 	++! g_EtalonCount
 	Если ( g_EtalonCount РАВНО 1 ) то
 		( script:FileName csEVDExt sysutils:ChangeFileExt )
 	иначе
 		( script:FileName '.' g_EtalonCount IntToStr Cat csEVDExt Cat sysutils:ChangeFileExt )	
+ 	STRING VAR l_File	
  	sysutils:ExtractFileName >>> l_File
  	l_File focused:control:push pop:editor:TextToFile
  	l_File '%' tests:CheckEtalon
@@ -193,7 +193,7 @@ PROCEDURE "Вызвать установку гиперссылки"
 	'Alt+F7' key
 ;
 
-: "Ссылка на конституцию"
+PROCEDURE "Ссылка на конституцию"
 	Конституция IntToStr emitstring	
 	"Контрол по имени {('OKBtn')}" pop:Control:Click
 ;
@@ -241,6 +241,10 @@ PROCEDURE "Перейти на вкладку Журналы"
 
 PROCEDURE "Перейти на вкладку Текст" 
 	piText окно_редактора:перейти_на_вкладку
+;
+
+PROCEDURE "Перейти на вкладку Аннотация"
+	piAnno окно_редактора:перейти_на_вкладку
 ;
 
 PROCEDURE "Установить стиль на текущий текстовый параграф" INTEGER IN aStyle OBJECT IN anEditor

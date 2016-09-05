@@ -1,0 +1,34 @@
+// Archi Script Engine 4E5B88E60142 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4E5B88E60142
+ MEPROP UID '4E5B88E60142'
+ MEPROP Name 'Archi Script Engine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Скриптовый движок для Арчи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E5B8882039E' '4E5B8882039E.ms.model.script' // archi$ScriptEngine
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4E5B891C01DE' '4E5B891C01DE.ms.model.script' // ScriptEngine
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4DE7653F03E5' '4DE7653F03E5.ms.model.script' // Archi Insider Test Support
+ WL 'ME_4DFB490B0209' '4DFB490B0209.ms.model.script' // Main
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ WL 'ME_4E25512D01C0' '4E25512D01C0.ms.model.script' // Utils
+ WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'prj'
+ UP "is namespace" true
+ UP "vendor" 'none'
+ UP intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+
+ENDME // ME_4E5B88E60142 Archi Script Engine

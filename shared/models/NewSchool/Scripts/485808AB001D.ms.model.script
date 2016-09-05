@@ -1,0 +1,122 @@
+// evControlsBlockConst 485808AB001D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_485808AB001D
+
+FORWARD ME_485808D2028D
+
+ME ME_485809060075
+ MEPROP UID '485809060075'
+ MEPROP Name 'evControlBlockBefore'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_485808D2028D // ControlsBlockConst
+ ;
+ MEPROP Value 'l3Inch div 3'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 3'
+
+ENDME // ME_485809060075 evControlBlockBefore
+
+ME ME_4858092901C3
+ MEPROP UID '4858092901C3'
+ MEPROP Name 'evControlBlockTop'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_485808D2028D // ControlsBlockConst
+ ;
+ MEPROP Value 'l3Inch div 32'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 32'
+
+ENDME // ME_4858092901C3 evControlBlockTop
+
+ME ME_48580930013B
+ MEPROP UID '48580930013B'
+ MEPROP Name 'evControlBlockLeft'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_485808D2028D // ControlsBlockConst
+ ;
+ MEPROP Value 'l3Inch div 32'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 32'
+
+ENDME // ME_48580930013B evControlBlockLeft
+
+ME ME_4858093901D8
+ MEPROP UID '4858093901D8'
+ MEPROP Name 'evControlBlockBtnWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_485808D2028D // ControlsBlockConst
+ ;
+ MEPROP Value 'l3Inch div 6'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 6'
+
+ENDME // ME_4858093901D8 evControlBlockBtnWidth
+
+ME ME_485808D2028D
+ MEPROP UID '485808D2028D'
+ MEPROP Name 'ControlsBlockConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485808AB001D // evControlsBlockConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_485809060075 // evControlBlockBefore
+ HWL ME_4858092901C3 // evControlBlockTop
+ HWL ME_48580930013B // evControlBlockLeft
+ HWL ME_4858093901D8 // evControlBlockBtnWidth
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_485808D2028D ControlsBlockConst
+
+ME ME_485808AB001D
+ MEPROP UID '485808AB001D'
+ MEPROP Name 'evControlsBlockConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_485808D2028D // ControlsBlockConst
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ )
+ ; // Depends
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" true
+ UP "started" '17.06.2008 22:53'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlockConst.pas'
+
+ENDME // ME_485808AB001D evControlsBlockConst

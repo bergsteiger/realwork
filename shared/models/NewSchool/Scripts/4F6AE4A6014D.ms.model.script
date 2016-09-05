@@ -1,0 +1,123 @@
+// NewGen 4F6AE4A6014D VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6AE4A6014D
+
+FORWARD ME_4F6AF44B016B
+
+ME ME_4F6AF458003D
+ MEPROP UID '4F6AF458003D'
+ MEPROP Name 'NewGenTitle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6AF44B016B // Local
+ ;
+ MEPROP Value '''НЕ Роза'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''НЕ Роза'''
+
+ENDME // ME_4F6AF458003D NewGenTitle
+
+ME ME_4F6AF44B016B
+ MEPROP UID '4F6AF44B016B'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6AE4A6014D // NewGen
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F6AF458003D // NewGenTitle
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4F6AF44B016B Local
+
+ME ME_4F6B01250088
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6AE4A6014D // NewGen
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4F6B01250088 
+
+ME ME_4F6B0CF1013C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6AE4A6014D // NewGen
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4F6B0CF1013C 
+
+ME ME_4F6B0CFC02A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6AE4A6014D // NewGen
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4F6B0CFC02A6 
+
+ME ME_4F6AF5860291_ME_4F6AE4A6014D
+ MELINK Original WL 'ME_4F6AF5860291' '50883A2E00B3.ms.model.script' // Runner
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDME // ME_4F6AF5860291_ME_4F6AE4A6014D Runner
+
+ME ME_4F6AE4A6014D
+ MEPROP UID '4F6AE4A6014D'
+ MEPROP Name 'NewGen'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6AE4780149' '4F6AE4780149.ms.model.script' // NewGen
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F6B607F027E' '4F6B607F027E.ms.model.script' // F1Like
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4F6AF5860291_ME_4F6AE4A6014D // Runner
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( WL 'ME_4F6B6E380367' '4F6B6E380367.ms.model.script' // NewGenMainPrim
+ WL 'ME_4F6AEAE5007B' '4F6AEAE5007B.ms.model.script' // Main
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4F6AF44B016B // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4F6B01250088 // StdRes
+ ME_4F6B0CF1013C // Forms
+ ME_4F6B0CFC02A6 // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'MDProcess\NewGen\NewGenRes.pas'
+ UP extprop:pas:TypeName 'TNewGenRes'
+ UP extprop:rc:SelfName 'NewGenRes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'NewGenRes'
+
+ENDME // ME_4F6AE4A6014D NewGen

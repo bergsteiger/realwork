@@ -1,0 +1,28 @@
+// TnscStatusBarPanel 503DEACA03BB GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_503DEACA03BB
+ MEPROP UID '503DEACA03BB'
+ MEPROP Name 'TnscStatusBarPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49871D5103B9' '49871D5103B9.ms.model.script' // StatusBar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503DEAA102E9' '4C43E8750153.ms.model.script' // TCustomToolbarPanel97
+ WL 'ME_505DA5E7038D' '505DA8FC03CF.ms.model.script' // nscStatusBarItemNotification
+ )
+ ; // Inherits
+ UP "need UC" true
+ UP "register in scripts" true
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarPanel.pas'
+ UP extprop:rc:SelfName 'StatusBarPanel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscStatusBarPanel'
+
+ENDME // ME_503DEACA03BB TnscStatusBarPanel

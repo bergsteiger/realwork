@@ -1,0 +1,79 @@
+// TnscContextFilter 49F0314802E7 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F0314802E7
+
+ME ME_514327310362
+ MEPROP UID '514327310362'
+ MEPROP Name 'OnChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F0314802E7 // TnscContextFilter
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_514327310362 OnChange
+
+ME ME_5143277901BD
+ MEPROP UID '5143277901BD'
+ MEPROP Name 'OnWrongContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F0314802E7 // TnscContextFilter
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5143277901BD OnWrongContext
+
+ME ME_4B97E20602F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F0314802E7 // TnscContextFilter
+ ;
+ MELINK Target WL 'ME_4B97E1EA011F' '49F02FDF02B9.ms.model.script' // nscContextFilterRes
+ ;
+
+ENDME // ME_4B97E20602F6 
+
+ME ME_49F0314802E7
+ MEPROP UID '49F0314802E7'
+ MEPROP Name 'TnscContextFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49F02FDF02B9' '49F02FDF02B9.ms.model.script' // ContextFilter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_514327310362 // OnChange
+ HWL ME_5143277901BD // OnWrongContext
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_4B97E20602F6 // nscContextFilterRes
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscContextFilter.pas'
+ UP extprop:rc:SelfName 'ContextFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscContextFilter'
+
+ENDME // ME_49F0314802E7 TnscContextFilter

@@ -1,0 +1,90 @@
+// TFW 4CA0B21F0130 TestTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0B21F0130
+
+FORWARD ME_4CA0B4860072
+
+ME ME_4B7AB0B6016E_ME_4CA0B4860072
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7AB0B6016E_ME_4CA0B4860072 CommandLineKey
+
+ME ME_4B7C0B43005B_ME_4CA0B4860072
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A112B011A.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7C0B43005B_ME_4CA0B4860072 TimesPage
+
+ME ME_4B7C0B670215_ME_4CA0B4860072
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A112B011A.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7C0B670215_ME_4CA0B4860072 ResultsPage
+
+ME ME_4C35A6DA02E9_ME_4CA0B4860072
+ MELINK Original WL 'ME_4C35A6DA02E9' '4B2A112B011A.ms.model.script' // IsLAW
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C35A6DA02E9_ME_4CA0B4860072 IsLAW
+
+ME ME_4CA0B4860072
+ MEPROP UID '4CA0B4860072'
+ MEPROP Name 'ItsLAW'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0B21F0130 // TFW
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.ms.model.script' // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_4CA0B4860072 // CommandLineKey
+ ME_4B7C0B43005B_ME_4CA0B4860072 // TimesPage
+ ME_4B7C0B670215_ME_4CA0B4860072 // ResultsPage
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C35A6DA02E9_ME_4CA0B4860072 // IsLAW
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\TFWTest\ItsLAW.pas'
+ UP extprop:pas:TypeName 'TItsLAW'
+ UP extprop:rc:SelfName 'ItsLAW'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CA0B4860072 ItsLAW
+
+ME ME_4CA0B21F0130
+ MEPROP UID '4CA0B21F0130'
+ MEPROP Name 'TFW'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestTarget ;
+ %SUMMARY 'Тесты для тестирования собственно тестового фреймворка TFW' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49B923B60333' '49B923B60333.ms.model.script' // Shared Delphi Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA0B4860072 // ItsLAW
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4CA0B1CA00A3' '4CA0B1CA00A3.ms.model.script' // TestForTFW
+ )
+ ; // Depends
+ UP intf.pas:Path 'common\components\TFWTest\TFWTest.dpr'
+ UP intf.pas:PathOnly '\common\components\TFWTest'
+ UP extprop:pas:UnitName 'TFWTest'
+ UP Version 0
+
+ENDME // ME_4CA0B21F0130 TFW

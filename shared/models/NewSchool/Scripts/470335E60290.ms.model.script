@@ -1,0 +1,1309 @@
+// Requirements 470335E60290 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_470335E60290
+
+FORWARD ME_47047244009C
+
+FORWARD ME_4704742800BB
+
+ME ME_470477560290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_47047244009C // Requirements
+ ;
+ MELINK Target HWL ME_4704742800BB // Problems
+ ;
+
+ENDME // ME_470477560290 
+
+FORWARD ME_470472F6005D
+
+ME ME_4704776403A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_47047244009C // Requirements
+ ;
+ MELINK Target HWL ME_470472F6005D // UseCases
+ ;
+
+ENDME // ME_4704776403A9 
+
+FORWARD ME_470473D60213
+
+ME ME_47047AAD0157
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_47047244009C // Requirements
+ ;
+ MELINK Target HWL ME_470473D60213 // Features
+ ;
+
+ENDME // ME_47047AAD0157 
+
+ME ME_46E6D4BB0339_ME_47047244009C
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_47047244009C wiki
+
+ME ME_4A41A13D03D5_ME_47047244009C
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_47047244009C spell
+
+ME ME_47047244009C
+ MEPROP UID '47047244009C'
+ MEPROP Name 'Requirements'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пакет требований'#13#10'---'#13#10'Пакет с моделью требований' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_47047244009C // wiki
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A41A13D03D5_ME_47047244009C // spell
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_470477560290 // Problems
+ ME_4704776403A9 // UseCases
+ ME_47047AAD0157 // Features
+ )
+ ; // Dependencies
+ UP "personal label" 'requirements'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 6566600
+ UP "visualization f-line color" 6566600
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\Requirements.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\Requirements'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47047244009C Requirements
+
+FORWARD ME_4704752002AF
+
+ME ME_47047A3F01C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470472F6005D // UseCases
+ ;
+ MELINK Target HWL ME_4704752002AF // Actor
+ ;
+
+ENDME // ME_47047A3F01C5 
+
+FORWARD ME_470478900251
+
+ME ME_47047A4101F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470472F6005D // UseCases
+ ;
+ MELINK Target HWL ME_470478900251 // UseCase
+ ;
+
+ENDME // ME_47047A4101F4 
+
+FORWARD ME_4E5D084401FE
+
+ME ME_4E5D0A2C0381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470472F6005D // UseCases
+ ;
+ MELINK Target HWL ME_4E5D084401FE // UseCaseTagRequirement
+ ;
+
+ENDME // ME_4E5D0A2C0381 
+
+ME ME_46E6D4BB0339_ME_470472F6005D
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470472F6005D wiki
+
+ME ME_4A41A13D03D5_ME_470472F6005D
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_470472F6005D spell
+
+ME ME_470472F6005D
+ MEPROP UID '470472F6005D'
+ MEPROP Name 'UseCases'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пакет прецедентов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470472F6005D // wiki
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A41A13D03D5_ME_470472F6005D // spell
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47047A3F01C5 // Actor
+ ME_47047A4101F4 // UseCase
+ ME_4E5D0A2C0381 // UseCaseTagRequirement
+ )
+ ; // Dependencies
+ UP "personal label" 'usecases'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 8568555
+ UP "visualization f-line color" 6584470
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCases.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCases'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470472F6005D UseCases
+
+FORWARD ME_47047810029F
+
+ME ME_47047A2000BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470473D60213 // Features
+ ;
+ MELINK Target HWL ME_47047810029F // Feature
+ ;
+
+ENDME // ME_47047A2000BB 
+
+ME ME_46E6D4BB0339_ME_470473D60213
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470473D60213 wiki
+
+ME ME_470473D60213
+ MEPROP UID '470473D60213'
+ MEPROP Name 'Features'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пакет возможностей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470473D60213 // wiki
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_47047A2000BB // Feature
+ )
+ ; // Dependencies
+ UP "disable forward decl" true
+ UP "personal label" 'features'
+ UP "visualization bg color" 11531715
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\Features.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\Features'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470473D60213 Features
+
+FORWARD ME_470476510157
+
+ME ME_470479F80251
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704742800BB // Problems
+ ;
+ MELINK Target HWL ME_470476510157 // UserNeeds
+ ;
+
+ENDME // ME_470479F80251 
+
+ME ME_46E6D4BB0339_ME_4704742800BB
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4704742800BB wiki
+
+ME ME_470484D50138_ME_4704742800BB
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4704742800BB wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4704742800BB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4704742800BB constraint
+
+ME ME_4705CBD6003E_ME_4704742800BB
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4704742800BB wiki_child_kind
+
+ME ME_4704742800BB
+ MEPROP UID '4704742800BB'
+ MEPROP Name 'Problems'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пакет проблем пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4704742800BB // wiki
+ ME_470484D50138_ME_4704742800BB // wiki_up_add_gen
+ ME_4704C0E30186_ME_4704742800BB // constraint
+ ME_4705CBD6003E_ME_4704742800BB // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_470479F80251 // UserNeeds
+ )
+ ; // Dependencies
+ UP "disable forward decl" true
+ UP "personal label" 'problems'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 5911215
+ UP "visualization f-line color" 5911215
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\Problems.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\Problems'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4704742800BB Problems
+
+FORWARD ME_470475BF032C
+
+ME ME_4704C0E30186_ME_470475BF032C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470475BF032C constraint
+
+ME ME_470475BF032C
+ MEPROP UID '470475BF032C'
+ MEPROP Name 'ClassDependency'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование'#13#10'---'#13#10'Актер использует прецедент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4704752002AF // Actor
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_470475BF032C // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\Actor\ClassDependency'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470475BF032C ClassDependency
+
+ME ME_46E6D4BB0339_ME_4704752002AF
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4704752002AF wiki
+
+ME ME_4704C0E30186_ME_4704752002AF
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4704752002AF constraint
+
+ME ME_4704752002AF
+ MEPROP UID '4704752002AF'
+ MEPROP Name 'Actor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Актер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4704752002AF // wiki
+ ME_4704C0E30186_ME_4704752002AF // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470475BF032C // ClassDependency
+ )
+ ; // Children
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_actor'
+ UP "visability type" '+'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP "visualization f-line color" 16714250
+ UP "visualization type" 'd'
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\Actor.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\Actor'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4704752002AF Actor
+
+ME ME_470479D7000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470476510157 // UserNeeds
+ ;
+ MELINK Target HWL ME_470476510157 // UserNeeds
+ ;
+
+ENDME // ME_470479D7000F 
+
+ME ME_46E6D4BB0339_ME_470476510157
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470476510157 wiki
+
+ME ME_4704C0E30186_ME_470476510157
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470476510157 constraint
+
+ME ME_470476510157
+ MEPROP UID '470476510157'
+ MEPROP Name 'UserNeeds'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проблема пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470476510157 // wiki
+ ME_4704C0E30186_ME_470476510157 // constraint
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_470479D7000F // UserNeeds
+ )
+ ; // Dependencies
+ UP "abstraction type" 'r'
+ UP "personal label" 'userneeds'
+ UP "visability type" '+'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 5911215
+ UP "visualization f-line color" 5911215
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UserNeeds.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UserNeeds'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470476510157 UserNeeds
+
+ME ME_4704797A0271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_47047810029F // Feature
+ ;
+ MELINK Target HWL ME_47047810029F // Feature
+ ;
+
+ENDME // ME_4704797A0271 
+
+ME ME_46E6D4BB0339_ME_47047810029F
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_47047810029F wiki
+
+ME ME_4704C0E30186_ME_47047810029F
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47047810029F constraint
+
+ME ME_47047810029F
+ MEPROP UID '47047810029F'
+ MEPROP Name 'Feature'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_47047810029F // wiki
+ ME_4704C0E30186_ME_47047810029F // constraint
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4704797A0271 // Feature
+ )
+ ; // Dependencies
+ UP "abstraction type" 'ra'
+ UP "personal label" 'feature'
+ UP "visability type" '+'
+ UP "visualization bg color" 11531715
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+ UP "visualization type" 'i'
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\Feature.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\Feature'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47047810029F Feature
+
+FORWARD ME_470479110280
+
+ME ME_4704C0E30186_ME_470479110280
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470479110280 constraint
+
+ME ME_470479110280
+ MEPROP UID '470479110280'
+ MEPROP Name 'include'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Включение'#13#10'---'#13#10'Прецедент включает другой прецидент безусловно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_470479110280 // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_include'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCase\include'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470479110280 include
+
+ME ME_47047929006D
+ MEPROP UID '47047929006D'
+ MEPROP Name 'extend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Расширение'#13#10'---'#13#10'Прецедент включает другой прецидент по какому-либо условию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470479110280 // include
+ )
+ ; // Inherits
+ UP "personal label" 'code_dep_extend'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCase\extend'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47047929006D extend
+
+FORWARD ME_4704795200AB
+
+ME ME_4704C0E30186_ME_4704795200AB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4704795200AB constraint
+
+ME ME_4704795200AB
+ MEPROP UID '4704795200AB'
+ MEPROP Name 'notify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сообщение'#13#10'---'#13#10'Прецедент передает какое-либо сообщение (нотификацию) Актеру' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4704795200AB // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_notify'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCase\notify'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4704795200AB notify
+
+FORWARD ME_48E35B39018E
+
+ME ME_4704C0E30186_ME_48E35B39018E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_48E35B39018E constraint
+
+ME ME_48E35B39018E
+ MEPROP UID '48E35B39018E'
+ MEPROP Name 'follow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Иногда хочется показать что выполнение одного прецедента может быть только после выполнения другого. Но при этом это не связанная цепочка действий (как в случае include или extend), а скорее возможность быть выполненным (по свое цепочке) только посдле отработки другого прецедента (напрямую с данным не связанным).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_48E35B39018E // constraint
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCase\follow'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48E35B39018E follow
+
+ME ME_4E302A8B026C
+ MEPROP UID '4E302A8B026C'
+ MEPROP Name 'DoSpell'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+
+ENDME // ME_4E302A8B026C DoSpell
+
+ME ME_4E65E5750233
+ MEPROP UID '4E65E5750233'
+ MEPROP Name 'IsUseCase'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4E65E5750233 IsUseCase
+
+ME ME_47047991031C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELINK Target HWL ME_470478900251 // UseCase
+ ;
+
+ENDME // ME_47047991031C 
+
+FORWARD ME_4E3021A70212
+
+ME ME_4E3022070143
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELINK Target HWL ME_4E3021A70212 // UseCaseRequirement
+ ;
+
+ENDME // ME_4E3022070143 
+
+FORWARD ME_4E3022100248
+
+ME ME_4E30226000B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELINK Target HWL ME_4E3022100248 // UseCaseSetting
+ ;
+
+ENDME // ME_4E30226000B5 
+
+ME ME_4E5D086F019D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470478900251 // UseCase
+ ;
+ MELINK Target HWL ME_4E5D084401FE // UseCaseTagRequirement
+ ;
+
+ENDME // ME_4E5D086F019D 
+
+ME ME_46E6D4BB0339_ME_470478900251
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470478900251 wiki
+
+ME ME_4704C0E30186_ME_470478900251
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470478900251 constraint
+
+ME ME_4A41A13D03D5_ME_470478900251
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_470478900251 spell
+
+ME ME_470478900251
+ MEPROP UID '470478900251'
+ MEPROP Name 'UseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прецедент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E302A8B026C // DoSpell
+ HWL ME_4E65E5750233 // IsUseCase
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470478900251 // wiki
+ ME_4704C0E30186_ME_470478900251 // constraint
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A41A13D03D5_ME_470478900251 // spell
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470479110280 // include
+ HWL ME_47047929006D // extend
+ HWL ME_4704795200AB // notify
+ HWL ME_48E35B39018E // follow
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47047991031C // UseCase
+ ME_4E3022070143 // UseCaseRequirement
+ ME_4E30226000B5 // UseCaseSetting
+ ME_4E5D086F019D // UseCaseTagRequirement
+ )
+ ; // Dependencies
+ UP "abstraction type" 'ra'
+ UP "personal label" 'usecase'
+ UP "visability type" '+'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 1989310
+ UP "visualization f-line color" 1989310
+ UP "visualization type" 'i'
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCase.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCase'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470478900251 UseCase
+
+FORWARD ME_47184C7302EE
+
+ME ME_47184CA10232
+ MEPROP UID '47184CA10232'
+ MEPROP Name 'specialize_usecase_that_used_by_actor'
+ MEPROP Class class_Operation
+ %SUMMARY 'вспомогательная функция для проверки правильности использования юзкейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47184C7302EE // Support
+ ;
+
+ENDME // ME_47184CA10232 specialize_usecase_that_used_by_actor
+
+ME ME_47184CB002AF
+ MEPROP UID '47184CB002AF'
+ MEPROP Name 'specialized_by_usecase_that_used_by_actor'
+ MEPROP Class class_Operation
+ %SUMMARY 'вспомогательная функция для проверки правильности использования юзкейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47184C7302EE // Support
+ ;
+
+ENDME // ME_47184CB002AF specialized_by_usecase_that_used_by_actor
+
+ME ME_47184CBB0399
+ MEPROP UID '47184CBB0399'
+ MEPROP Name 'use_by_actor'
+ MEPROP Class class_Operation
+ %SUMMARY 'используется ли актёром' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47184C7302EE // Support
+ ;
+
+ENDME // ME_47184CBB0399 use_by_actor
+
+ME ME_47184CC400EA
+ MEPROP UID '47184CC400EA'
+ MEPROP Name 'use_by_usecase_that_used_by_actor'
+ MEPROP Class class_Operation
+ %SUMMARY 'вспомогательная функция для проверки правильности использования юзкейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47184C7302EE // Support
+ ;
+
+ENDME // ME_47184CC400EA use_by_usecase_that_used_by_actor
+
+ME ME_47184CCB02FD
+ MEPROP UID '47184CCB02FD'
+ MEPROP Name 'used_by_actor_anyway'
+ MEPROP Class class_Operation
+ %SUMMARY 'вспомогательная функция для проверки правильности использования юзкейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47184C7302EE // Support
+ ;
+
+ENDME // ME_47184CCB02FD used_by_actor_anyway
+
+ME ME_47184C7302EE
+ MEPROP UID '47184C7302EE'
+ MEPROP Name 'Support'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ввспомогательные функции для генерации элементов требований' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47184CA10232 // specialize_usecase_that_used_by_actor
+ HWL ME_47184CB002AF // specialized_by_usecase_that_used_by_actor
+ HWL ME_47184CBB0399 // use_by_actor
+ HWL ME_47184CC400EA // use_by_usecase_that_used_by_actor
+ HWL ME_47184CCB02FD // used_by_actor_anyway
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\Support.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\Support'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47184C7302EE Support
+
+FORWARD ME_4E9F0231024F
+
+ME ME_46E6D4BB0339_ME_4E9F0231024F
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4E9F0231024F wiki
+
+ME ME_470484D50138_ME_4E9F0231024F
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4E9F0231024F wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4E9F0231024F
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4E9F0231024F constraint
+
+ME ME_4705CBD6003E_ME_4E9F0231024F
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4E9F0231024F wiki_child_kind
+
+ME ME_4E9F0231024F
+ MEPROP UID '4E9F0231024F'
+ MEPROP Name 'realized_by'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализуется элементом кода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E3021A70212 // UseCaseRequirement
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4E9F0231024F // wiki
+ ME_470484D50138_ME_4E9F0231024F // wiki_up_add_gen
+ ME_4704C0E30186_ME_4E9F0231024F // constraint
+ ME_4705CBD6003E_ME_4E9F0231024F // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseRequirement\realized_by'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E9F0231024F realized_by
+
+ME ME_4E679139002A
+ MEPROP UID '4E679139002A'
+ MEPROP Name 'IsUseCaseRequirement'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E3021A70212 // UseCaseRequirement
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4E679139002A IsUseCaseRequirement
+
+ME ME_4E3021F70083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4E3021A70212 // UseCaseRequirement
+ ;
+ MELINK Target HWL ME_4E3021A70212 // UseCaseRequirement
+ ;
+
+ENDME // ME_4E3021F70083 
+
+ME ME_4E314DA00350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4E3021A70212 // UseCaseRequirement
+ ;
+ MELINK Target HWL ME_4E3022100248 // UseCaseSetting
+ ;
+
+ENDME // ME_4E314DA00350 
+
+ME ME_4E5D08910143
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4E3021A70212 // UseCaseRequirement
+ ;
+ MELINK Target HWL ME_4E5D084401FE // UseCaseTagRequirement
+ ;
+
+ENDME // ME_4E5D08910143 
+
+ME ME_470484D50138_ME_4E3021A70212
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4E3021A70212 wiki_up_add_gen
+
+ME ME_4705CBD6003E_ME_4E3021A70212
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4E3021A70212 wiki_child_kind
+
+ME ME_4E3021A70212
+ MEPROP UID '4E3021A70212'
+ MEPROP Name 'UseCaseRequirement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Требование к прецеденту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470478900251 // UseCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E679139002A // IsUseCaseRequirement
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_470484D50138_ME_4E3021A70212 // wiki_up_add_gen
+ ME_4705CBD6003E_ME_4E3021A70212 // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4E9F0231024F // realized_by
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E3021F70083 // UseCaseRequirement
+ ME_4E314DA00350 // UseCaseSetting
+ ME_4E5D08910143 // UseCaseTagRequirement
+ )
+ ; // Dependencies
+ UP "inherite constraints" false
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseRequirement.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseRequirement'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E3021A70212 UseCaseRequirement
+
+ME ME_4E302E17022B
+ MEPROP UID '4E302E17022B'
+ MEPROP Name 'CodeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Имя элемента кода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3022100248 // UseCaseSetting
+ ;
+
+ENDME // ME_4E302E17022B CodeName
+
+ME ME_4E30224D0296
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4E3022100248 // UseCaseSetting
+ ;
+ MELINK Target HWL ME_4E3022100248 // UseCaseSetting
+ ;
+
+ENDME // ME_4E30224D0296 
+
+FORWARD ME_4E30271A0247
+
+ME ME_4E3027530378
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4E3022100248 // UseCaseSetting
+ ;
+ MELINK Target HWL ME_4E30271A0247 // UseCaseSettingValue
+ ;
+
+ENDME // ME_4E3027530378 
+
+ME ME_4E302A8B026C_ME_4E3022100248
+ MELINK Original HWL ME_4E302A8B026C // DoSpell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E302A8B026C_ME_4E3022100248 DoSpell
+
+ME ME_4E3022100248
+ MEPROP UID '4E3022100248'
+ MEPROP Name 'UseCaseSetting'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка прецедента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E3021A70212 // UseCaseRequirement
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E302E17022B // CodeName
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4E302A8B026C_ME_4E3022100248 // DoSpell
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E30224D0296 // UseCaseSetting
+ ME_4E3027530378 // UseCaseSettingValue
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseSetting.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseSetting'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E3022100248 UseCaseSetting
+
+ME ME_4E302DFF0171
+ MEPROP UID '4E302DFF0171'
+ MEPROP Name 'CodeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Имя элемента кода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E30271A0247 // UseCaseSettingValue
+ ;
+
+ENDME // ME_4E302DFF0171 CodeName
+
+ME ME_52147FE3014D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4E30271A0247 // UseCaseSettingValue
+ ;
+ MELINK Target HWL ME_4E3022100248 // UseCaseSetting
+ ;
+
+ENDME // ME_52147FE3014D 
+
+ME ME_46E6D4BB0339_ME_4E30271A0247
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4E30271A0247 wiki
+
+ME ME_470484D50138_ME_4E30271A0247
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4E30271A0247 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4E30271A0247
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4E30271A0247 constraint
+
+ME ME_4705CBD6003E_ME_4E30271A0247
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4E30271A0247 wiki_child_kind
+
+ME ME_4A41A13D03D5_ME_4E30271A0247
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_4E30271A0247 spell
+
+ME ME_4E30271A0247
+ MEPROP UID '4E30271A0247'
+ MEPROP Name 'UseCaseSettingValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Значение настройки прецедента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E302DFF0171 // CodeName
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4E30271A0247 // wiki
+ ME_470484D50138_ME_4E30271A0247 // wiki_up_add_gen
+ ME_4704C0E30186_ME_4E30271A0247 // constraint
+ ME_4705CBD6003E_ME_4E30271A0247 // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A41A13D03D5_ME_4E30271A0247 // spell
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52147FE3014D // UseCaseSetting
+ )
+ ; // Dependencies
+ UP "personal label" 'usecase'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 7451452
+ UP "visualization f-line color" 7451452
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseSettingValue.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseSettingValue'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E30271A0247 UseCaseSettingValue
+
+ME ME_4E5D0A350367
+ MEPROP UID '4E5D0A350367'
+ MEPROP Name 'CodeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E5D084401FE // UseCaseTagRequirement
+ ;
+
+ENDME // ME_4E5D0A350367 CodeName
+
+FORWARD ME_4E5D0C7A0101
+
+ME ME_4E5D0C970178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4E5D084401FE // UseCaseTagRequirement
+ ;
+ MELINK Target HWL ME_4E5D0C7A0101 // UseCaseTagValueRequirement
+ ;
+
+ENDME // ME_4E5D0C970178 
+
+ME ME_4E5D084401FE
+ MEPROP UID '4E5D084401FE'
+ MEPROP Name 'UseCaseTagRequirement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Требование к тегу схемы документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E3021A70212 // UseCaseRequirement
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E5D0A350367 // CodeName
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_4E5D0C970178 // UseCaseTagValueRequirement
+ )
+ ; // Dependencies
+ UP "inherite constraints" false
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseTagRequirement.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseTagRequirement'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E5D084401FE UseCaseTagRequirement
+
+ME ME_4E5D0CAD0251
+ MEPROP UID '4E5D0CAD0251'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E5D0C7A0101 // UseCaseTagValueRequirement
+ ;
+
+ENDME // ME_4E5D0CAD0251 Value
+
+ME ME_4E5D0C7A0101
+ MEPROP UID '4E5D0C7A0101'
+ MEPROP Name 'UseCaseTagValueRequirement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Требование к значению тега' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470335E60290 // Requirements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E3021A70212 // UseCaseRequirement
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E5D0CAD0251 // Value
+ )
+ ; // Attributes
+ UP "inherite constraints" false
+ UP mda:Path 'MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseTagValueRequirement.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements\UseCaseTagValueRequirement'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E5D0C7A0101 UseCaseTagValueRequirement
+
+ME ME_470335E60290
+ MEPROP UID '470335E60290'
+ MEPROP Name 'Requirements'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой шаблонов требований' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47287F7D02CE' '47287F7D02CE.ms.model.script' // RequirementsLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47047244009C // Requirements
+ HWL ME_470472F6005D // UseCases
+ HWL ME_470473D60213 // Features
+ HWL ME_4704742800BB // Problems
+ HWL ME_4704752002AF // Actor
+ HWL ME_470476510157 // UserNeeds
+ HWL ME_47047810029F // Feature
+ HWL ME_470478900251 // UseCase
+ HWL ME_47184C7302EE // Support
+ HWL ME_4E3021A70212 // UseCaseRequirement
+ HWL ME_4E3022100248 // UseCaseSetting
+ HWL ME_4E30271A0247 // UseCaseSettingValue
+ HWL ME_4E5D084401FE // UseCaseTagRequirement
+ HWL ME_4E5D0C7A0101 // UseCaseTagValueRequirement
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\RequirementsLib\Requirements'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470335E60290 Requirements

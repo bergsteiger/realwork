@@ -1,0 +1,715 @@
+// ScriptsCompilingAndProcessing 53DA23750089 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53DA23750089
+
+FORWARD ME_53DA23CD0105
+
+FORWARD ME_53DA248C0014
+
+ME ME_53DA24B80027
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ ;
+ MELINK Target HWL ME_53DA248C0014 // script_CompileAndProcess
+ ;
+
+ENDME // ME_53DA24B80027 
+
+FORWARD ME_56420D340374
+
+ME ME_56420D3E03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ ;
+ MELINK Target HWL ME_56420D340374 // script_CompileStringAndProcess
+ ;
+
+ENDME // ME_56420D3E03A0 
+
+ME ME_53DA23CD0105
+ MEPROP UID '53DA23CD0105'
+ MEPROP Name 'ScriptsCompilingAndProcessingPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53DA24B80027 // script_CompileAndProcess
+ ME_56420D3E03A0 // script_CompileStringAndProcess
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScriptsCompilingAndProcessingPack.pas'
+
+ENDME // ME_53DA23CD0105 ScriptsCompilingAndProcessingPack
+
+FORWARD ME_53DA24F802A7
+
+ME ME_53DA250F023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA248C0014 // script_CompileAndProcess
+ ;
+ MELINK Target HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ ;
+
+ENDME // ME_53DA250F023C 
+
+ME ME_4DCBD67C0362_ME_53DA248C0014
+ MELINK Original WL 'ME_4DCBD67C0362' '54F079B5035C.ms.model.script' // CompiledWorkerClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCBD67C0362_ME_53DA248C0014 CompiledWorkerClass
+
+ME ME_53DA248C0014
+ MEPROP UID '53DA248C0014'
+ MEPROP Name 'script_CompileAndProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Компилирует скрипт и обрабатывает его указанной лямбдой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DCBD489023A' '54F079B5035C.ms.model.script' // TtfwWordWorker
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DCBD67C0362_ME_53DA248C0014 // CompiledWorkerClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53DA250F023C // TkwCompiledScriptCompileAndProcess
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwScriptCompileAndProcess.pas'
+ UP extprop:pas:TypeName 'TkwScriptCompileAndProcess'
+ UP extprop:rc:SelfName 'ScriptCompileAndProcess'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwScriptCompileAndProcess'
+
+ENDME // ME_53DA248C0014 script_CompileAndProcess
+
+ME ME_53DA33C9002A
+ MEPROP UID '53DA33C9002A'
+ MEPROP Name 'f_NativeCaller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_53DA33C9002A f_NativeCaller
+
+FORWARD ME_56420D080052
+
+ME ME_56420D2501B6
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_56420D2501B6 aData
+
+ME ME_56420D1802C0
+ MEPROP UID '56420D1802C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56420D080052 // MakeStream
+ ;
+ MELINK Target WL 'ME_52F4E6AA02BB' '4F4734A40270.ms.model.script' // TtfwStreamFactory
+ ;
+ MELIST Parameters
+   Seq: ( ME_56420D2501B6 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_56420D1802C0 DoIt
+
+ME ME_56420D080052
+ MEPROP UID '56420D080052'
+ MEPROP Name 'MakeStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56420D1802C0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56420D080052 MakeStream
+
+ME ME_53DA2544016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ ;
+ MELINK Target WL 'ME_52F4E85300D4' '4F4734A40270.ms.model.script' // TtfwFileStreamFactory
+ ;
+
+ENDME // ME_53DA2544016C 
+
+ME ME_53DA254E0013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ ;
+ MELINK Target WL 'ME_4DC90A1E03C2' '4DAEEA14018A.ms.model.script' // TkwMain
+ ;
+
+ENDME // ME_53DA254E0013 
+
+FORWARD ME_53DA257D011C
+
+ME ME_53DA259202C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ ;
+ MELINK Target HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+
+ENDME // ME_53DA259202C3 
+
+ME ME_53DA265C03DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53DA265C03DA 
+
+ME ME_4CAEDCF9006A_ME_53DA24F802A7
+ MELINK Original WL 'ME_4CAEDCF9006A' '515AC8CC02BD.ms.model.script' // CheckOutputWithInput$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CAEDCF9006A_ME_53DA24F802A7 CheckOutputWithInput$1
+
+ME ME_4DAEEDE10285_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_53DA24F802A7 DoDoIt
+
+ME ME_4DAF1A280116_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DAF1A280116' '4DAF19F600C5.ms.model.script' // Check
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAF1A280116_ME_53DA24F802A7 Check
+
+ME ME_4DB173AA005A_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DB173AA005A' '4DAF19F600C5.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DB173AA005A_ME_53DA24F802A7 Print
+
+ME ME_4DB1785F011A_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DB1785F011A' '4DAF19F600C5.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DB1785F011A_ME_53DA24F802A7 Print
+
+ME ME_4DC2E1470046_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DC2E1470046' '4DAF19F600C5.ms.model.script' // ResolveIncludedFilePath
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DC2E1470046_ME_53DA24F802A7 ResolveIncludedFilePath
+
+ME ME_4DCA915C0120_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DCA915C0120' '4DAF19F600C5.ms.model.script' // ResolveOutputFilePath
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCA915C0120_ME_53DA24F802A7 ResolveOutputFilePath
+
+ME ME_4DD533BF023D_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DD533BF023D' '515AC8CC02BD.ms.model.script' // CheckWithEtalon
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DD533BF023D_ME_53DA24F802A7 CheckWithEtalon
+
+ME ME_4DECF57B02D2_ME_53DA24F802A7
+ MELINK Original WL 'ME_4DECF57B02D2' '4DAF19F600C5.ms.model.script' // ResolveInputFilePath
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DECF57B02D2_ME_53DA24F802A7 ResolveInputFilePath
+
+ME ME_4F0D7AC900FA_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F0D7AC900FA' '4DAF19F600C5.ms.model.script' // CheckPrintEtalon
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F0D7AC900FA_ME_53DA24F802A7 CheckPrintEtalon
+
+ME ME_4F0D8B740186_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F0D8B740186' '4DAF19F600C5.ms.model.script' // ShouldStop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F0D8B740186_ME_53DA24F802A7 ShouldStop
+
+ME ME_4F0D8C360085_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F0D8C360085' '4DAF19F600C5.ms.model.script' // CheckTimeout
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F0D8C360085_ME_53DA24F802A7 CheckTimeout
+
+ME ME_4F0D8C5A01A2_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F0D8C5A01A2' '4DAF19F600C5.ms.model.script' // StartTimer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F0D8C5A01A2_ME_53DA24F802A7 StartTimer
+
+ME ME_4F0D8CB0015D_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F0D8CB0015D' '4DAF19F600C5.ms.model.script' // StopTimer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F0D8CB0015D_ME_53DA24F802A7 StopTimer
+
+ME ME_4F0D91AA0080_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F0D91AA0080' '4DAF19F600C5.ms.model.script' // KPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F0D91AA0080_ME_53DA24F802A7 KPage
+
+ME ME_4F0DA2A7024A_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F0DA2A7024A' '4DAF19F600C5.ms.model.script' // ToLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F0DA2A7024A_ME_53DA24F802A7 ToLog
+
+ME ME_4F5F3C61023E_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F5F3C61023E' '515AC8CC02BD.ms.model.script' // CheckOutputWithInput
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F5F3C61023E_ME_53DA24F802A7 CheckOutputWithInput
+
+ME ME_4F72CEFE016D_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F72CEFE016D' '4DAF19F600C5.ms.model.script' // GetIsWritingToK
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F72CEFE016D_ME_53DA24F802A7 GetIsWritingToK
+
+ME ME_4F72CF27029A_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F72CF27029A' '4DAF19F600C5.ms.model.script' // GetIsFakeCVS
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F72CF27029A_ME_53DA24F802A7 GetIsFakeCVS
+
+ME ME_4F72CF78027D_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F72CF78027D' '4DAF19F600C5.ms.model.script' // GetCVSPath
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F72CF78027D_ME_53DA24F802A7 GetCVSPath
+
+ME ME_4F851D7B0399_ME_53DA24F802A7
+ MELINK Original WL 'ME_4F851D7B0399' '4DAF19F600C5.ms.model.script' // DontRaiseIfEtalonCreated
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F851D7B0399_ME_53DA24F802A7 DontRaiseIfEtalonCreated
+
+ME ME_511BC7C60063_ME_53DA24F802A7
+ MELINK Original WL 'ME_511BC7C60063' '4DAF19F600C5.ms.model.script' // TimeToLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_511BC7C60063_ME_53DA24F802A7 TimeToLog
+
+ME ME_513866B10237_ME_53DA24F802A7
+ MELINK Original WL 'ME_513866B10237' '4DAF19F600C5.ms.model.script' // GetTestSetFolderName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_513866B10237_ME_53DA24F802A7 GetTestSetFolderName
+
+ME ME_5138790002FF_ME_53DA24F802A7
+ MELINK Original WL 'ME_5138790002FF' '4DAF19F600C5.ms.model.script' // GetEtalonSuffix
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5138790002FF_ME_53DA24F802A7 GetEtalonSuffix
+
+ME ME_52EBC5BB0300_ME_53DA24F802A7
+ MELINK Original WL 'ME_52EBC5BB0300' '4DAF19F600C5.ms.model.script' // CompileOnly
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52EBC5BB0300_ME_53DA24F802A7 CompileOnly
+
+ME ME_536A15F901DA_ME_53DA24F802A7
+ MELINK Original WL 'ME_536A15F901DA' '515AC8CC02BD.ms.model.script' // CheckPictureOnly
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_536A15F901DA_ME_53DA24F802A7 CheckPictureOnly
+
+ME ME_57A9DF60030B_ME_53DA24F802A7
+ MELINK Original WL 'ME_57A9DF60030B' '4DAF19F600C5.ms.model.script' // ScriptDone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57A9DF60030B_ME_53DA24F802A7 ScriptDone
+
+ME ME_57A9F99A01C4_ME_53DA24F802A7
+ MELINK Original WL 'ME_57A9F99A01C4' '4DAF19F600C5.ms.model.script' // ScriptWillRun
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57A9F99A01C4_ME_53DA24F802A7 ScriptWillRun
+
+ME ME_53DA24F802A7
+ MEPROP UID '53DA24F802A7'
+ MEPROP Name 'TkwCompiledScriptCompileAndProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DCBD50101CB' '54F079B5035C.ms.model.script' // TkwCompiledWordWorker
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53DA33C9002A // f_NativeCaller
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56420D080052 // MakeStream
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CAEDCF9006A_ME_53DA24F802A7 // CheckOutputWithInput$1
+ ME_4DAEEDE10285_ME_53DA24F802A7 // DoDoIt
+ ME_4DAF1A280116_ME_53DA24F802A7 // Check
+ ME_4DB173AA005A_ME_53DA24F802A7 // Print
+ ME_4DB1785F011A_ME_53DA24F802A7 // Print
+ ME_4DC2E1470046_ME_53DA24F802A7 // ResolveIncludedFilePath
+ ME_4DCA915C0120_ME_53DA24F802A7 // ResolveOutputFilePath
+ ME_4DD533BF023D_ME_53DA24F802A7 // CheckWithEtalon
+ ME_4DECF57B02D2_ME_53DA24F802A7 // ResolveInputFilePath
+ ME_4F0D7AC900FA_ME_53DA24F802A7 // CheckPrintEtalon
+ ME_4F0D8B740186_ME_53DA24F802A7 // ShouldStop
+ ME_4F0D8C360085_ME_53DA24F802A7 // CheckTimeout
+ ME_4F0D8C5A01A2_ME_53DA24F802A7 // StartTimer
+ ME_4F0D8CB0015D_ME_53DA24F802A7 // StopTimer
+ ME_4F0D91AA0080_ME_53DA24F802A7 // KPage
+ ME_4F0DA2A7024A_ME_53DA24F802A7 // ToLog
+ ME_4F5F3C61023E_ME_53DA24F802A7 // CheckOutputWithInput
+ ME_4F72CEFE016D_ME_53DA24F802A7 // GetIsWritingToK
+ ME_4F72CF27029A_ME_53DA24F802A7 // GetIsFakeCVS
+ ME_4F72CF78027D_ME_53DA24F802A7 // GetCVSPath
+ ME_4F851D7B0399_ME_53DA24F802A7 // DontRaiseIfEtalonCreated
+ ME_511BC7C60063_ME_53DA24F802A7 // TimeToLog
+ ME_513866B10237_ME_53DA24F802A7 // GetTestSetFolderName
+ ME_5138790002FF_ME_53DA24F802A7 // GetEtalonSuffix
+ ME_52EBC5BB0300_ME_53DA24F802A7 // CompileOnly
+ ME_536A15F901DA_ME_53DA24F802A7 // CheckPictureOnly
+ ME_57A9DF60030B_ME_53DA24F802A7 // ScriptDone
+ ME_57A9F99A01C4_ME_53DA24F802A7 // ScriptWillRun
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53DA2544016C // TtfwFileStreamFactory
+ ME_53DA254E0013 // TkwMain
+ ME_53DA259202C3 // TkwMainCodeController
+ ME_53DA265C03DA // FreeAndNil
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileAndProcess.pas'
+ UP extprop:rc:SelfName 'CompiledScriptCompileAndProcess'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCompiledScriptCompileAndProcess'
+
+ENDME // ME_53DA24F802A7 TkwCompiledScriptCompileAndProcess
+
+ME ME_53DA26030089
+ MEPROP UID '53DA26030089'
+ MEPROP Name 'f_Lambda'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_53DA26030089 f_Lambda
+
+ME ME_53DA472201B5
+ MEPROP UID '53DA472201B5'
+ MEPROP Name 'f_OuterContext'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELINK Target WL 'ME_4DCACEA0005A' '4DAF19F600C5.ms.model.script' // PtfwContext
+ ;
+
+ENDME // ME_53DA472201B5 f_OuterContext
+
+FORWARD ME_53DA263600C7
+
+ME ME_53DA264A01A2
+ MEPROP Name 'aLambda'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_53DA264A01A2 aLambda
+
+ME ME_53DA473A0293
+ MEPROP Name 'aOuterContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DCACEA0005A' '4DAF19F600C5.ms.model.script' // PtfwContext
+ ;
+
+ENDME // ME_53DA473A0293 aOuterContext
+
+ME ME_53DA263D0225
+ MEPROP UID '53DA263D0225'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53DA263600C7 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53DA264A01A2 // aLambda
+ ME_53DA473A0293 // aOuterContext
+ )
+ ; // Parameters
+
+ENDME // ME_53DA263D0225 DoIt
+
+ME ME_53DA263600C7
+ MEPROP UID '53DA263600C7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53DA263D0225 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53DA263600C7 Create
+
+ME ME_53DA25E702CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53DA25E702CA 
+
+ME ME_479731C50290_ME_53DA257D011C
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53DA257D011C Cleanup
+
+ME ME_4DC90A79006D_ME_53DA257D011C
+ MELINK Original WL 'ME_4DC90A79006D' '4F7338A800A7.ms.model.script' // RunCompiled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DC90A79006D_ME_53DA257D011C RunCompiled
+
+ME ME_55AF8A9D03A2_ME_53DA257D011C
+ MELINK Original WL 'ME_55AF8A9D03A2' '4F7338A800A7.ms.model.script' // CacheDict
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55AF8A9D03A2_ME_53DA257D011C CacheDict
+
+ME ME_53DA257D011C
+ MEPROP UID '53DA257D011C'
+ MEPROP Name 'TkwMainCodeController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DC90A1E03C2' '4DAEEA14018A.ms.model.script' // TkwMain
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53DA26030089 // f_Lambda
+ HWL ME_53DA472201B5 // f_OuterContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53DA263600C7 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53DA257D011C // Cleanup
+ ME_4DC90A79006D_ME_53DA257D011C // RunCompiled
+ ME_55AF8A9D03A2_ME_53DA257D011C // CacheDict
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53DA25E702CA // FreeAndNil
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMainCodeController.pas'
+ UP extprop:rc:SelfName 'MainCodeController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMainCodeController'
+
+ENDME // ME_53DA257D011C TkwMainCodeController
+
+FORWARD ME_56420D5500CC
+
+ME ME_56420D650171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56420D340374 // script_CompileStringAndProcess
+ ;
+ MELINK Target HWL ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
+ ;
+
+ENDME // ME_56420D650171 
+
+ME ME_4DCBD67C0362_ME_56420D340374
+ MELINK Original WL 'ME_4DCBD67C0362' '54F079B5035C.ms.model.script' // CompiledWorkerClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCBD67C0362_ME_56420D340374 CompiledWorkerClass
+
+ME ME_56420D340374
+ MEPROP UID '56420D340374'
+ MEPROP Name 'script_CompileStringAndProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DCBD489023A' '54F079B5035C.ms.model.script' // TtfwWordWorker
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DCBD67C0362_ME_56420D340374 // CompiledWorkerClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_56420D650171 // TkwCompiledScriptCompileStringAndProcess
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwScriptCompileStringAndProcess.pas'
+ UP extprop:pas:TypeName 'TkwScriptCompileStringAndProcess'
+ UP extprop:rc:SelfName 'ScriptCompileStringAndProcess'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwScriptCompileStringAndProcess'
+
+ENDME // ME_56420D340374 script_CompileStringAndProcess
+
+ME ME_56420D760057
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
+ ;
+ MELINK Target WL 'ME_52F4FAF80376' '4F4734A40270.ms.model.script' // TtfwStringStreamFactory
+ ;
+
+ENDME // ME_56420D760057 
+
+ME ME_56420D080052_ME_56420D5500CC
+ MELINK Original HWL ME_56420D080052 // MakeStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56420D080052_ME_56420D5500CC MakeStream
+
+ME ME_56420D5500CC
+ MEPROP UID '56420D5500CC'
+ MEPROP Name 'TkwCompiledScriptCompileStringAndProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53DA23750089 // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_56420D080052_ME_56420D5500CC // MakeStream
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56420D760057 // TtfwStringStreamFactory
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileStringAndProcess.pas'
+ UP extprop:rc:SelfName 'CompiledScriptCompileStringAndProcess'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCompiledScriptCompileStringAndProcess'
+
+ENDME // ME_56420D5500CC TkwCompiledScriptCompileStringAndProcess
+
+ME ME_53DA23750089
+ MEPROP UID '53DA23750089'
+ MEPROP Name 'ScriptsCompilingAndProcessing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ HWL ME_53DA248C0014 // script_CompileAndProcess
+ HWL ME_53DA24F802A7 // TkwCompiledScriptCompileAndProcess
+ HWL ME_53DA257D011C // TkwMainCodeController
+ HWL ME_56420D340374 // script_CompileStringAndProcess
+ HWL ME_56420D5500CC // TkwCompiledScriptCompileStringAndProcess
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_4F4734A40270' '4F4734A40270.ms.model.script' // Parser
+ WL 'ME_54F079B5035C' '54F079B5035C.ms.model.script' // CompiledWords
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_53DA23750089 ScriptsCompilingAndProcessing

@@ -1,0 +1,803 @@
+// AACTextContainerPrim 500406E901E5 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_500406E901E5
+
+FORWARD ME_50040B750234
+
+ME ME_50040B8001CC
+ MEPROP UID '50040B8001CC'
+ MEPROP Name 'WriteToUsDoc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50040B750234 // Local
+ ;
+ UP "AutoInc" false
+ UP "Value" '''{justification:ev_itCenter}''#$D#$A +'#13#10'''s#69. Есть предложения и пожелания? [Напишите нам|'' +'#13#10'''script:''''http://www.garant.ru/company/about/feedback/?typemessage=offer&thememessage=eos&docid='''' '' +'#13#10'''контрол::Text textform:GetDocumentID IntToStr Cat '' +'#13#10'''''''&messageid=1&complect_id='''' Cat GetEncryptedComplectId Cat browse]''#$D#$A +'#13#10'''{/justification}'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_50040B8001CC WriteToUsDoc
+
+ME ME_50040B750234
+ MEPROP UID '50040B750234'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50040B8001CC // WriteToUsDoc
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_50040B750234 Local
+
+FORWARD ME_502A515F03AD
+
+ME ME_502A51A00013
+ MEPROP UID '502A51A00013'
+ MEPROP Name 'LeftIndentDeltaForAACRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502A515F03AD // Константы для ААК
+ ;
+ MEPROP Value 26
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 26
+
+ENDME // ME_502A51A00013 LeftIndentDeltaForAACRight
+
+ME ME_502A515F03AD
+ MEPROP UID '502A515F03AD'
+ MEPROP Name 'Константы для ААК'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_502A51A00013 // LeftIndentDeltaForAACRight
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_502A515F03AD Константы для ААК
+
+FORWARD ME_500407420228
+
+FORWARD ME_500412F501DC
+
+ME ME_50041E060372
+ MEPROP UID '50041E060372'
+ MEPROP Name 'scrRight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500412F501DC // pnRightEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503CD5210135' '4FF2E935019A.ms.model.script' // scrRight
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_50054E63007F' '484FA67302D7.ms.model.script' // Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".
+ )
+ ; // Implements
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_50041E060372 scrRight
+
+FORWARD ME_5005695002CB
+
+FORWARD ME_500407CC000E
+
+ME ME_500407F40049
+ MEPROP UID '500407F40049'
+ MEPROP Name 'edWriteToUs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500407CC000E // pnWriteToUs
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D6B981E0319' '4D6B981E0319.ms.model.script' // TnscSimpleEditorForDialogs
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+ UP extprop:rc:SelfName 'WriteToUs'
+
+ENDME // ME_500407F40049 edWriteToUs
+
+ME ME_500407CC000E
+ MEPROP UID '500407CC000E'
+ MEPROP Name 'pnWriteToUs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005695002CB // pnRightForScroll
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_500407F40049 // edWriteToUs
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_500407CC000E pnWriteToUs
+
+ME ME_500407500148
+ MEPROP UID '500407500148'
+ MEPROP Name 'pnRight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005695002CB // pnRightForScroll
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FF2EA3A02C6' '4FF2E935019A.ms.model.script' // pnRight
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_500407500148 pnRight
+
+FORWARD ME_500FFD190372
+
+ME ME_502A43AD0138
+ MEPROP UID '502A43AD0138'
+ MEPROP Name 'lblSeeAlso'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'См. также' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500FFD190372 // pnSeeAlso
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_502A44A4036B' '484FA67302D7.ms.model.script' // Нужно сдвинуть надпись "см. также" вправо.
+ )
+ ; // Implements
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_502A43AD0138 lblSeeAlso
+
+ME ME_500FFD190372
+ MEPROP UID '500FFD190372'
+ MEPROP Name 'pnSeeAlso'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005695002CB // pnRightForScroll
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_500FFCD001B2' '484FA67302D7.ms.model.script' // В правой части ААК-текста должна быть плашка "см. также"
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_502A43AD0138 // lblSeeAlso
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_500FFD190372 pnSeeAlso
+
+ME ME_5005695002CB
+ MEPROP UID '5005695002CB'
+ MEPROP Name 'pnRightForScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500412F501DC // pnRightEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503CD4E9014C' '4FF2E935019A.ms.model.script' // pnRightForScroll
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_50054E63007F' '484FA67302D7.ms.model.script' // Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_500407CC000E // pnWriteToUs
+ HWL ME_500407500148 // pnRight
+ HWL ME_500FFD190372 // pnSeeAlso
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5005695002CB pnRightForScroll
+
+ME ME_500412F501DC
+ MEPROP UID '500412F501DC'
+ MEPROP Name 'pnRightEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500407420228 // pnBack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503CBA9200CC' '4FF2E935019A.ms.model.script' // pnRightEx
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50041E060372 // scrRight
+ HWL ME_5005695002CB // pnRightForScroll
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_500412F501DC pnRightEx
+
+FORWARD ME_5005589C0163
+
+ME ME_5005583D026D
+ MEPROP UID '5005583D026D'
+ MEPROP Name 'scrLeft'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005589C0163 // pnLeftEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503CD55E0038' '4FF2E935019A.ms.model.script' // scrLeft
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_5005583D026D scrLeft
+
+FORWARD ME_502B98E0038D
+
+FORWARD ME_502A6DB401D2
+
+ME ME_502A6F15025F
+ MEPROP UID '502A6F15025F'
+ MEPROP Name 'pbLinkToContent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502A6DB401D2 // pnLinkToContent
+ ;
+ UP "ControlClass" 'TPaintBox'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_502A6F15025F pbLinkToContent
+
+ME ME_502A6DB401D2
+ MEPROP UID '502A6DB401D2'
+ MEPROP Name 'pnLinkToContent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502B98E0038D // pnLeftForScroll
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_502A6D4D0096' '484FA67302D7.ms.model.script' // Для ААК-Текст левой части должна быть плашка со ссылкой "Энциклопедия решений", ведущая к ААК-содержанию
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_502A6F15025F // pbLinkToContent
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_502A6DB401D2 pnLinkToContent
+
+ME ME_5005580B0101
+ MEPROP UID '5005580B0101'
+ MEPROP Name 'pnLeft'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502B98E0038D // pnLeftForScroll
+ ;
+ UP "ControlClass" 'TvtPanel'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_5005580B0101 pnLeft
+
+ME ME_502B98E0038D
+ MEPROP UID '502B98E0038D'
+ MEPROP Name 'pnLeftForScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005589C0163 // pnLeftEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503CD53B02F9' '4FF2E935019A.ms.model.script' // pnLeftForScroll
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_502A6DB401D2 // pnLinkToContent
+ HWL ME_5005580B0101 // pnLeft
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_502B98E0038D pnLeftForScroll
+
+ME ME_5005589C0163
+ MEPROP UID '5005589C0163'
+ MEPROP Name 'pnLeftEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500407420228 // pnBack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503CBB1800D0' '4FF2E935019A.ms.model.script' // pnLeftEx
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5005583D026D // scrLeft
+ HWL ME_502B98E0038D // pnLeftForScroll
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_5005589C0163 pnLeftEx
+
+ME ME_500407420228
+ MEPROP UID '500407420228'
+ MEPROP Name 'pnBack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FF405D1019B' '4FF2E935019A.ms.model.script' // pnBack
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_500412F501DC // pnRightEx
+ HWL ME_5005589C0163 // pnLeftEx
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_500407420228 pnBack
+
+ME ME_503793A700A8
+ MEPROP UID '503793A700A8'
+ MEPROP Name 'f_EdWriteToUsBufferAlreadyAssigned'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_503793A700A8 f_EdWriteToUsBufferAlreadyAssigned
+
+ME ME_506314020251
+ MEPROP UID '506314020251'
+ MEPROP Name 'f_InSetupWriteToUsEditor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_506314020251 f_InSetupWriteToUsEditor
+
+ME ME_5006F8AA0374
+ MEPROP UID '5006F8AA0374'
+ MEPROP Name 'SetupWriteToUsEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_502A468900DE' '484FA67302D7.ms.model.script' // Для "правой" части ААК-Текст сделать отступ такой же по ширине, как и у "левой" части (там у нас панель сабов)
+ )
+ ; // Implements
+
+ENDME // ME_5006F8AA0374 SetupWriteToUsEditor
+
+FORWARD ME_502A7459031B
+
+ME ME_502A86C20174
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502A7459031B // lblLinkToContentClick
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '47913B47006E.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_502A86C20174 
+
+ME ME_502A86EB0206
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502A7459031B // lblLinkToContentClick
+ ;
+ MELINK Target WL 'ME_4E2067E2007C' '4A815BFF0168.ms.model.script' // TbsHyperLinkProcessorPrim
+ ;
+
+ENDME // ME_502A86EB0206 
+
+ME ME_502A7459031B
+ MEPROP UID '502A7459031B'
+ MEPROP Name 'lblLinkToContentClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_502A86C20174 // l3Free
+ ME_502A86EB0206 // TbsHyperLinkProcessorPrim
+ )
+ ; // Dependencies
+
+ENDME // ME_502A7459031B lblLinkToContentClick
+
+FORWARD ME_502B5F09037C
+
+ME ME_5046096803D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502B5F09037C // pbLinkToContentPaint
+ ;
+ MELINK Target WL 'ME_4FD2246B017B' '4FD078FF017D.ms.model.script' // TvtPngImageList
+ ;
+
+ENDME // ME_5046096803D7 
+
+ME ME_502B5F09037C
+ MEPROP UID '502B5F09037C'
+ MEPROP Name 'pbLinkToContentPaint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5046096803D7 // TvtPngImageList
+ )
+ ; // Dependencies
+
+ENDME // ME_502B5F09037C pbLinkToContentPaint
+
+ME ME_50375C820252
+ MEPROP UID '50375C820252'
+ MEPROP Name 'pnWriteToUsResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_50375C820252 pnWriteToUsResize
+
+ME ME_5049C7C0027F
+ MEPROP UID '5049C7C0027F'
+ MEPROP Name 'edWriteToUsGetHotSpotInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5049C6650272' '4829D92A037B.ms.model.script' // TevGetHotspotInfo
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'WriteToUsGetHotSpotInfo'
+
+ENDME // ME_5049C7C0027F edWriteToUsGetHotSpotInfo
+
+ME ME_500408AB025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_500408AB025B 
+
+ME ME_5004275701FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_500427160316' '4799D29F033F.ms.model.script' // TScrollBarKind
+ ;
+
+ENDME // ME_5004275701FD 
+
+ME ME_50080491020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_47ECB297037D' '47ECB2870309.ms.model.script' // evStyleTableSpy
+ ;
+
+ENDME // ME_50080491020E 
+
+ME ME_50100289039E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_4A840F5703AC' '4AB0997B00A2.ms.model.script' // TAlignment
+ ;
+
+ENDME // ME_50100289039E 
+
+ME ME_501BFFA502F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ ;
+
+ENDME // ME_501BFFA502F9 
+
+ME ME_50461147016E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_50220BCB013C' '50220B0E0061.ms.model.script' // TvtScrollBarAlign
+ ;
+
+ENDME // ME_50461147016E 
+
+ME ME_504635D20268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_504635D20268 
+
+ME ME_5630BF760148
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_5630BF760148 
+
+ME ME_5630BF7902E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_4BA763B0004B' '47F2170002B2.ms.model.script' // bsTypesNew
+ ;
+
+ENDME // ME_5630BF7902E2 
+
+ME ME_56BC5F330381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500406E901E5 // AACTextContainerPrim
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_56BC5F330381 
+
+ME ME_467D2CB10135_ME_500406E901E5
+ MELINK Original WL 'ME_467D2CB10135' '467823B7002C.ms.model.script' // StyleTableChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_467D2CB10135_ME_500406E901E5 StyleTableChanged
+
+ME ME_479731C50290_ME_500406E901E5
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_500406E901E5 Cleanup
+
+ME ME_497469C90140_ME_500406E901E5
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_500406E901E5 NotifyDataSourceChanged
+
+ME ME_4A8E8F2E0195_ME_500406E901E5
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_500406E901E5 InitControls
+
+ME ME_503CE3500038_ME_500406E901E5
+ MELINK Original WL 'ME_503CE3500038' '4FF2E935019A.ms.model.script' // DoSetJumpTo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_503CE3500038_ME_500406E901E5 DoSetJumpTo
+
+ME ME_500406E901E5
+ MEPROP UID '500406E901E5'
+ MEPROP Name 'AACTextContainerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FF2E5B80387' '4FF2E5B80387.ms.model.script' // AAC
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FF2E935019A' '4FF2E935019A.ms.model.script' // AACContainerPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_500407420228 // pnBack
+ HWL ME_503793A700A8 // f_EdWriteToUsBufferAlreadyAssigned
+ HWL ME_506314020251 // f_InSetupWriteToUsEditor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5006F8AA0374 // SetupWriteToUsEditor
+ HWL ME_502A7459031B // lblLinkToContentClick
+ HWL ME_502B5F09037C // pbLinkToContentPaint
+ HWL ME_50375C820252 // pnWriteToUsResize
+ HWL ME_5049C7C0027F // edWriteToUsGetHotSpotInfo
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_467D2CB10135_ME_500406E901E5 // StyleTableChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_500406E901E5 // Cleanup
+ ME_497469C90140_ME_500406E901E5 // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_500406E901E5 // InitControls
+ ME_503CE3500038_ME_500406E901E5 // DoSetJumpTo
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_50040B750234 // Local
+ HWL ME_502A515F03AD // Константы для ААК
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_500408AB025B // TAlign
+ ME_5004275701FD // TScrollBarKind
+ ME_50080491020E // evStyleTableSpy
+ ME_50100289039E // TAlignment
+ ME_501BFFA502F9 // Colors
+ ME_50461147016E // TvtScrollBarAlign
+ ME_504635D20268 // vcmBase
+ ME_5630BF760148 // nsUtils
+ ME_5630BF7902E2 // bsTypesNew
+ ME_56BC5F330381 // nsConst
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACTextContainerPrim_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms'
+ UP extprop:pas:TypeName 'TAACTextContainerPrimForm'
+ UP extprop:rc:SelfName 'AACTextContainerPrimForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'AACTextContainerPrim_Form'
+
+ENDME // ME_500406E901E5 AACTextContainerPrim

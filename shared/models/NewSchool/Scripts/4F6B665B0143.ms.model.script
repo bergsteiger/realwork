@@ -1,0 +1,204 @@
+// PrimParent 4F6B665B0143 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B665B0143
+
+FORWARD ME_4F6B6B7D01BB
+
+ME ME_4F6B6BA30248
+ MEPROP UID '4F6B6BA30248'
+ MEPROP Name 'ParentZone'
+ MEPROP OriginalName 'ParentZone$Zone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F6B6B7D01BB // ParentZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Parent'
+
+ENDME // ME_4F6B6BA30248 ParentZone$Zone
+
+ME ME_4F72C32000CF
+ MEPROP UID '4F72C32000CF'
+ MEPROP Name 'utHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'История навигации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas'
+ UP extprop:pas:UnitName 'PrimParent_utHistory_UserType'
+
+ENDME // ME_4F72C32000CF utHistory
+
+ME ME_4F6B6B7D01BB
+ MEPROP UID '4F6B6B7D01BB'
+ MEPROP Name 'ParentZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+ )
+ ; // Inherits
+ MELIST Zones
+   Seq: ( HWL ME_4F6B6BA30248 // ParentZone$Zone
+ )
+ ; // Zones
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4F6B6B7D01BB ParentZone
+
+ME ME_4F6B6B160050
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4F6B6B160050 
+
+ME ME_4F6B6B1903D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_4F6B6B1903D8 
+
+ME ME_4F6B6B1D019A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4F6B6B1D019A 
+
+ME ME_4F6B6B200397
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4F6B6B200397 
+
+ME ME_4F6B6B24009F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B665B0143 // PrimParent
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_4F6B6B24009F 
+
+ME ME_49803F5503AA_ME_4F6B665B0143
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4F6B665B0143 DoInit
+
+ME ME_4A8E8F2E0195_ME_4F6B665B0143
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4F6B665B0143 InitControls
+
+ME ME_4F7C6D6801F4_ME_4F6B665B0143
+ MELINK Original WL 'ME_4F7C6D6801F4' '4F22CB1E0009.ms.model.script' // FocusIsSetToUs
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F7C6D6801F4_ME_4F6B665B0143 FocusIsSetToUs
+
+ME ME_4F7C6DFE00DE_ME_4F6B665B0143
+ MELINK Original WL 'ME_4F7C6DFE00DE' '4AADF9450143.ms.model.script' // AfterInsertForm
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F7C6DFE00DE_ME_4F6B665B0143 AfterInsertForm
+
+ME ME_541011910033_ME_4F6B665B0143
+ MELINK Original WL 'ME_541011910033' '4AADF9450143.ms.model.script' // GetNeedSetFocusToMainObjectFormOnRefresh
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_541011910033_ME_4F6B665B0143 GetNeedSetFocusToMainObjectFormOnRefresh
+
+ME ME_4F6B665B0143
+ MEPROP UID '4F6B665B0143'
+ MEPROP Name 'PrimParent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F6B66140294' '4F6B66140294.ms.model.script' // ParentAndChild
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F6B6B7D01BB // ParentZone
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4F6B665B0143 // DoInit
+ ME_4A8E8F2E0195_ME_4F6B665B0143 // InitControls
+ ME_4F7C6D6801F4_ME_4F6B665B0143 // FocusIsSetToUs
+ ME_4F7C6DFE00DE_ME_4F6B665B0143 // AfterInsertForm
+ ME_541011910033_ME_4F6B665B0143 // GetNeedSetFocusToMainObjectFormOnRefresh
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F6B6BA30248 // ParentZone$Zone
+ HWL ME_4F72C32000CF // utHistory
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F6B6B160050 // Windows
+ ME_4F6B6B1903D8 // Graphics
+ ME_4F6B6B1D019A // SysUtils
+ ME_4F6B6B200397 // Forms
+ ME_4F6B6B24009F // Controls
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild\Forms'
+ UP extprop:pas:TypeName 'TPrimParentForm'
+ UP extprop:rc:SelfName 'PrimParentForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimParent_Form'
+
+ENDME // ME_4F6B665B0143 PrimParent

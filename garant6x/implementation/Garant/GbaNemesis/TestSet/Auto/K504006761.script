@@ -1,0 +1,19 @@
+Тест K504006761
+ "Открываем {('15477371.14000')}"
+ "Перевести фокус в оглавление"
+ true SetHookShellExecute
+ TRY
+  оп::Пункт_оглавления_Экспорт_фрагмента_в_MS-Word
+  FILE VAR Эталон
+  GetLastShellExecuteFile File:OpenRead =: Эталон
+  TRY
+   Эталон File:ReadLines .
+  FINALLY
+   nil =: Эталон
+  END
+ FINALLY
+  false SetHookShellExecute
+ END
+; // K504006761
+
+K504006761

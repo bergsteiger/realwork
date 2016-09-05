@@ -1,0 +1,60 @@
+// WarningBaloon 4EA58A3903B4 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA58A3903B4
+
+ME ME_D18A1AF77354
+ MEPROP UID 'D18A1AF77354'
+ MEPROP Name 'Ini_FormFactory_WarningBaloon'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY '–егистраци€ фабрики формы WarningBaloon' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EA58A3903B4 // WarningBaloon
+ ;
+ UPLINK SpelledFor HWL ME_4EA58A3903B4 // WarningBaloon
+ ;
+
+ENDME // ME_D18A1AF77354 Ini_FormFactory_WarningBaloon
+
+ME ME_4EA58A3903B4
+ MEPROP UID '4EA58A3903B4'
+ MEPROP Name 'WarningBaloon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ѕаллон с предупреждением' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA599F501CF' '4EA599F501CF.ms.model.script' // PrimWarningBaloonOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E76FC4000A4' '484FA67302D7.ms.model.script' // ≈сли с медали пытаемс€ вызвать вкладку соответствующего предупреждени€, а оно уже открыто, то оно должно закрыватьс€, а операци€ должна называтьс€ "—крыть текст предупреждени€"
+ WL 'ME_4EA58AEA012E' '4BD856E802F9.ms.model.script' // WarningBaloon
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_D18A1AF77354 // Ini_FormFactory_WarningBaloon
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\WarningBaloon_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ UP extprop:pas:TypeName 'TWarningBaloonForm'
+ UP extprop:rc:SelfName 'WarningBaloonForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'WarningBaloon_Form'
+
+ENDME // ME_4EA58A3903B4 WarningBaloon

@@ -1,0 +1,845 @@
+// UnderControl 45EEAA800226 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEAA800226
+
+FORWARD ME_45FA9A8B0318
+
+ME ME_45FA9A8B0319
+ MEPROP UID '45FA9A8B0319'
+ MEPROP Name 'CIT_DOCUMENT'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FA9A8B0318 // ControlledItemType
+ ;
+
+ENDME // ME_45FA9A8B0319 CIT_DOCUMENT
+
+ME ME_45FA9A8B031A
+ MEPROP UID '45FA9A8B031A'
+ MEPROP Name 'CIT_LIST'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Список.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FA9A8B0318 // ControlledItemType
+ ;
+
+ENDME // ME_45FA9A8B031A CIT_LIST
+
+ME ME_45FA9A8B031B
+ MEPROP UID '45FA9A8B031B'
+ MEPROP Name 'CIT_QUERY'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Запрос.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FA9A8B0318 // ControlledItemType
+ ;
+
+ENDME // ME_45FA9A8B031B CIT_QUERY
+
+ME ME_45FA9A8B0318
+ MEPROP UID '45FA9A8B0318'
+ MEPROP Name 'ControlledItemType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы объектов на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45FA9A8B0319 // CIT_DOCUMENT
+ HWL ME_45FA9A8B031A // CIT_LIST
+ HWL ME_45FA9A8B031B // CIT_QUERY
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TControlledItemType'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45FA9A8B0318 ControlledItemType
+
+FORWARD ME_45F118A10361
+
+ME ME_45F118A10362
+ MEPROP UID '45F118A10362'
+ MEPROP Name 'CS_DELETED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ удален.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118A10361 // ControlStatus
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 32
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 32
+
+ENDME // ME_45F118A10362 CS_DELETED
+
+ME ME_45F118A10363
+ MEPROP UID '45F118A10363'
+ MEPROP Name 'CS_ACTIVE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ вступил в действие' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118A10361 // ControlStatus
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 16
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 16
+
+ENDME // ME_45F118A10363 CS_ACTIVE
+
+ME ME_45F118A10364
+ MEPROP UID '45F118A10364'
+ MEPROP Name 'CS_CHANGED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ изменен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118A10361 // ControlStatus
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 8
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 8
+
+ENDME // ME_45F118A10364 CS_CHANGED
+
+ME ME_45F118A10365
+ MEPROP UID '45F118A10365'
+ MEPROP Name 'CS_ABOLISHED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ утратил силу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118A10361 // ControlStatus
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 4
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 4
+
+ENDME // ME_45F118A10365 CS_ABOLISHED
+
+ME ME_45F118A10366
+ MEPROP UID '45F118A10366'
+ MEPROP Name 'CS_REGISTERED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ зарегистрирован в Минюсте РФ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118A10361 // ControlStatus
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 2
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 2
+
+ENDME // ME_45F118A10366 CS_REGISTERED
+
+ME ME_45F118A10367
+ MEPROP UID '45F118A10367'
+ MEPROP Name 'CS_NOT_REGISTERED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документу отказано в регистрации в Минюсте РФ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118A10361 // ControlStatus
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1
+
+ENDME // ME_45F118A10367 CS_NOT_REGISTERED
+
+ME ME_45F118A10368
+ MEPROP UID '45F118A10368'
+ MEPROP Name 'CS_NONE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документ не изменился' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118A10361 // ControlStatus
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 0
+
+ENDME // ME_45F118A10368 CS_NONE
+
+ME ME_45F118A10361
+ MEPROP UID '45F118A10361'
+ MEPROP Name 'ControlStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Битовые значения статуса изменений.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45F118A10362 // CS_DELETED
+ HWL ME_45F118A10363 // CS_ACTIVE
+ HWL ME_45F118A10364 // CS_CHANGED
+ HWL ME_45F118A10365 // CS_ABOLISHED
+ HWL ME_45F118A10366 // CS_REGISTERED
+ HWL ME_45F118A10367 // CS_NOT_REGISTERED
+ HWL ME_45F118A10368 // CS_NONE
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_45F118A10361 ControlStatus
+
+FORWARD ME_45F118D40053
+
+ME ME_45F118D40054
+ MEPROP UID '45F118D40054'
+ MEPROP Name 'fire'
+ MEPROP Class class_Operation
+ %SUMMARY 'сообщает о том что контролируемые объекты изменились.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118D40053 // ControlledChangeNotifier
+ ;
+
+ENDME // ME_45F118D40054 fire
+
+ME ME_45F118D40053
+ MEPROP UID '45F118D40053'
+ MEPROP GUID '939DF9FC-3E7C-4092-8B2B-307737F2583B'
+ MEPROP Name 'ControlledChangeNotifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс который должен быть реализован со стороны оболочки, для нотификации ее об изменении контролируемых объектов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_45F118D40054 // fire
+ )
+ ; // Operations
+ UP "call way" 'back'
+ UP extprop:pas:TypeName 'IControlledChangeNotifier'
+ UP extprop:rc:SelfName 'ControlledChangeNotifier'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45F118D40053 ControlledChangeNotifier
+
+FORWARD ME_45EEC17501B5
+
+ME ME_45EEC17501BB
+ MEPROP UID '45EEC17501BB'
+ MEPROP Name 'controlled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'свойство определяющее, что данная сущность находится на контроле. Установка свойства в true приводит к добавлению сущности на контроль, в false соответственно к снятию.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_45EEC17501BB controlled
+
+ME ME_45EEC17501BC
+ MEPROP UID '45EEC17501BC'
+ MEPROP Name 'short_name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Название объекта на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_45EEC17501BC short_name
+
+ME ME_48EF5B3402B5
+ MEPROP UID '48EF5B3402B5'
+ MEPROP Name 'can_set_to_control'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Возвращает true, если разрешена постановка на контроль' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_48EF5B3402B5 can_set_to_control
+
+ME ME_4BFE1E970136
+ MEPROP UID '4BFE1E970136'
+ MEPROP Name 'name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4BFE1E970136 name
+
+ME ME_45FA9A9C00F5
+ MEPROP UID '45FA9A9C00F5'
+ MEPROP Name 'type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target HWL ME_45FA9A8B0318 // ControlledItemType
+ ;
+ UP "pm" false
+
+ENDME // ME_45FA9A9C00F5 type
+
+ME ME_45EEC17501B6
+ MEPROP UID '45EEC17501B6'
+ MEPROP Name 'get_control_status'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Возврящает текущее значение статуса изменений.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_45EEC17501B6 get_control_status
+
+ME ME_45EEC17501B7
+ MEPROP UID '45EEC17501B7'
+ MEPROP Name 'reset_control_status'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Сбрасывает статус изменений в ноль.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+
+ENDME // ME_45EEC17501B7 reset_control_status
+
+ME ME_45EEC17501B8
+ MEPROP UID '45EEC17501B8'
+ MEPROP Name 'open'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Получить объект на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_45EEC17501B8 open
+
+ME ME_45EEC17501BA
+ MEPROP Name 'other'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ %SUMMARY 'Сравниваемый объект на контроле.' ;
+ MELINK Target HWL ME_45EEC17501B5 // Controllable
+ ;
+
+ENDME // ME_45EEC17501BA other
+
+ME ME_45EEC17501B9
+ MEPROP UID '45EEC17501B9'
+ MEPROP Name 'is_same_controllable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Сравнение объектов на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEC17501B5 // Controllable
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_45EEC17501BA // other
+ )
+ ; // Parameters
+
+ENDME // ME_45EEC17501B9 is_same_controllable
+
+ME ME_45EEC17501B5
+ MEPROP UID '45EEC17501B5'
+ MEPROP GUID '1E74D154-2B48-4F83-A502-B39E3CA72118'
+ MEPROP Name 'Controllable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, который должна реализовывать сущность которую можно ставить "на контроль". Реализация должны быть выполнена, так что бы доступ к методам определяемым этим интерфейсам не приводила к загрузки данных самой сущности. Для функционирования всех мотодов достаточно знать лишь идентификатор сущности на сервере, с помощью которого осуществляется вся работа с серверным интерфейсом ControlManager.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEC17501BB // controlled
+ HWL ME_45EEC17501BC // short_name
+ HWL ME_48EF5B3402B5 // can_set_to_control
+ HWL ME_4BFE1E970136 // name
+ HWL ME_45FA9A9C00F5 // type
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45EEC17501B6 // get_control_status
+ HWL ME_45EEC17501B7 // reset_control_status
+ HWL ME_45EEC17501B8 // open
+ HWL ME_45EEC17501B9 // is_same_controllable
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'IControllable'
+ UP extprop:rc:SelfName 'Controllable'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45EEC17501B5 Controllable
+
+FORWARD ME_45F118FC0312
+
+ME ME_45F1197E014B
+ MEPROP UID '45F1197E014B'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45F118FC0312 // ControlledObjects
+ ;
+ MELINK Target HWL ME_45EEC17501B5 // Controllable
+ ;
+
+ENDME // ME_45F1197E014B 
+
+ME ME_45F118FC0312
+ MEPROP UID '45F118FC0312'
+ MEPROP Name 'ControlledObjects'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список объектов папок, стоящих на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45F1197E014B // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IControlledObjects'
+
+ENDME // ME_45F118FC0312 ControlledObjects
+
+ME ME_45F119A60051
+ MEPROP UID '45F119A60051'
+ MEPROP Name 'NotUnderControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект не на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ UP "force usage" true
+
+ENDME // ME_45F119A60051 NotUnderControl
+
+ME ME_45F119A60053
+ MEPROP UID '45F119A60053'
+ MEPROP Name 'AlreadyControlled'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект уже на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ UP "force usage" true
+
+ENDME // ME_45F119A60053 AlreadyControlled
+
+FORWARD ME_45F118B90277
+
+ME ME_45F11924017B
+ MEPROP UID '45F11924017B'
+ MEPROP Name 'controlled_change_notifier'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELINK Target HWL ME_45F118D40053 // ControlledChangeNotifier
+ ;
+ UP "pm" false
+
+ENDME // ME_45F11924017B controlled_change_notifier
+
+ME ME_45FA9A2000A8
+ MEPROP UID '45FA9A2000A8'
+ MEPROP Name 'changed_doc'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELINK Target WL 'ME_45EEBA2C02BF' '457450470167.ms.model.script' // CatalogBase
+ ;
+ UP "pm" false
+
+ENDME // ME_45FA9A2000A8 changed_doc
+
+ME ME_461662E8007A
+ MEPROP Name 'force'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_461662E8007A force
+
+ME ME_45F118B90278
+ MEPROP UID '45F118B90278'
+ MEPROP Name 'update_status'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Обновить статусы объектов на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_461662E8007A // force
+ )
+ ; // Parameters
+
+ENDME // ME_45F118B90278 update_status
+
+ME ME_46164DFC0178
+ MEPROP Name 'pid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46164DFC0178 pid
+
+ME ME_46164DFC01F5
+ MEPROP Name 'status'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_46164DFC01F5 status
+
+ME ME_46164DFA005F
+ MEPROP UID '46164DFA005F'
+ MEPROP Name 'get_under_control_status'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_46164DFC0178 // pid
+ ME_46164DFC01F5 // status
+ )
+ ; // Parameters
+ UP "dll export" false
+
+ENDME // ME_46164DFA005F get_under_control_status
+
+ME ME_46164E3C0197
+ MEPROP Name 'pid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46164E3C0197 pid
+
+ME ME_46164E3A02FE
+ MEPROP UID '46164E3A02FE'
+ MEPROP Name 'add'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_46164E3C0197 // pid
+ )
+ ; // Parameters
+ UP "dll export" false
+
+ENDME // ME_46164E3A02FE add
+
+ME ME_46164E4901C5
+ MEPROP Name 'pid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46164E4901C5 pid
+
+ME ME_46164E480197
+ MEPROP UID '46164E480197'
+ MEPROP Name 'remove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_46164E4901C5 // pid
+ )
+ ; // Parameters
+ UP "dll export" false
+
+ENDME // ME_46164E480197 remove
+
+ME ME_46164E55033C
+ MEPROP Name 'pid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_46164E55033C pid
+
+ME ME_46164E54004E
+ MEPROP UID '46164E54004E'
+ MEPROP Name 'reset_control_status'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_46164E55033C // pid
+ )
+ ; // Parameters
+ UP "dll export" false
+
+ENDME // ME_46164E54004E reset_control_status
+
+ME ME_46164E6500AC
+ MEPROP UID '46164E6500AC'
+ MEPROP Name 'refresh_control_status'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ UP "dll export" false
+
+ENDME // ME_46164E6500AC refresh_control_status
+
+ME ME_46164E76005D
+ MEPROP UID '46164E76005D'
+ MEPROP Name 'do_update_status'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELINK Target WL 'ME_45EFEB7E020C' '450293FE0261.ms.model.script' // ACE_THR_FUNC_RETURN
+ ;
+ UP "dll export" false
+
+ENDME // ME_46164E76005D do_update_status
+
+ME ME_45FA9A5D0124
+ MEPROP UID '45FA9A5D0124'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MEPROP TargetStereotype 'cached'
+ UP "const_type" 'read-write'
+
+ENDME // ME_45FA9A5D0124 make
+
+ME ME_48733C8703E3
+ MEPROP UID '48733C8703E3'
+ MEPROP Name 'get_controlled_objects'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F118B90277 // ControlManager
+ ;
+ MELINK Target HWL ME_45F118FC0312 // ControlledObjects
+ ;
+
+ENDME // ME_48733C8703E3 get_controlled_objects
+
+ME ME_45F118B90277
+ MEPROP UID '45F118B90277'
+ MEPROP GUID '5EB9D0A5-C7D0-4E98-85D3-4438B5E98AAB'
+ MEPROP Name 'ControlManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Менеджер объектов на контроле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA800226 // UnderControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45F11924017B // controlled_change_notifier
+ HWL ME_45FA9A2000A8 // changed_doc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45F118B90278 // update_status
+ HWL ME_46164DFA005F // get_under_control_status
+ HWL ME_46164E3A02FE // add
+ HWL ME_46164E480197 // remove
+ HWL ME_46164E54004E // reset_control_status
+ HWL ME_46164E6500AC // refresh_control_status
+ HWL ME_46164E76005D // do_update_status
+ HWL ME_45FA9A5D0124 // make
+ HWL ME_48733C8703E3 // get_controlled_objects
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IControlManager'
+ UP extprop:rc:SelfName 'ControlManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45F118B90277 ControlManager
+
+ME ME_45EEAA800226
+ MEPROP UID '45EEAA800226'
+ MEPROP Name 'UnderControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45FA9A8B0318 // ControlledItemType
+ HWL ME_45F118D40053 // ControlledChangeNotifier
+ HWL ME_45EEC17501B5 // Controllable
+ HWL ME_45F118FC0312 // ControlledObjects
+ HWL ME_45F119A60051 // NotUnderControl
+ HWL ME_45F119A60053 // AlreadyControlled
+ HWL ME_45F118B90277 // ControlManager
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_45F118A10361 // ControlStatus
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_450293FE0261' '450293FE0261.ms.model.script' // Task
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\UnderControl\UnderControl.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\UnderControl'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\UnderControl\UnderControl.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\UnderControl'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\UnderControlUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\UnderControlUnit.pas'
+ UP extprop:pas:UnitName 'UnderControlUnit'
+
+ENDME // ME_45EEAA800226 UnderControl

@@ -20,6 +20,11 @@ w:\common\components\rtl\Garant\dd\ddAppConfigDataAdapters.pas
 //#UC END# *522EDFF601C6_522EDF6702AFget_impl*
 //#UC START# *522EDFF601C6_522EDF6702AFget_var*
 //#UC END# *522EDFF601C6_522EDF6702AFget_var*
+//#UC START# *522EE02F00FF_522EDF6702AFget_impl*
+ Result := nil;
+//#UC END# *522EE02F00FF_522EDF6702AFget_impl*
+//#UC START# *522EE02F00FF_522EDF6702AFget_var*
+//#UC END# *522EE02F00FF_522EDF6702AFget_var*
 //#UC START# *522EE0530101_522EDF6702AFget_impl*
  Result := f_Strings[anIndex];
 //#UC END# *522EE0530101_522EDF6702AFget_impl*
@@ -32,37 +37,30 @@ w:\common\components\rtl\Garant\dd\ddAppConfigDataAdapters.pas
 //#UC END# *522EE0DF0080_522EDF6702AF_var*
 //#UC START# *522EE0FB0163_522EDF6702AF_impl*
  Result := True;
- f_Strings.Delete(anIndex);
+ f_EditStrings.Delete(anIndex);
 //#UC END# *522EE0FB0163_522EDF6702AF_impl*
 //#UC START# *522EE0FB0163_522EDF6702AF_var*
 //#UC END# *522EE0FB0163_522EDF6702AF_var*
-//#UC START# *522EE15F026E_522EDF6702AF_impl*
- Result := True;
- f_Strings.Exchange(anIndex, Succ(anIndex));
-//#UC END# *522EE15F026E_522EDF6702AF_impl*
-//#UC START# *522EE15F026E_522EDF6702AF_var*
-//#UC END# *522EE15F026E_522EDF6702AF_var*
 //#UC START# *522EE19901B6_522EDF6702AF_impl*
  if anIndex > -1 then
-  l_S := f_Strings[anIndex]
+  l_S := f_EditStrings[anIndex]
  else
   l_S := '';
  Result := InputQuery('Редактирование элемента', 'Введите текст элемента', l_S);
  if Result then
   if anIndex = -1 then
-   f_Strings.Add(l_S)
+   f_EditStrings.Add(l_S)
   else
-   f_Strings.Strings[anIndex] := l_S;
+   f_EditStrings.Strings[anIndex] := l_S;
 //#UC END# *522EE19901B6_522EDF6702AF_impl*
 //#UC START# *522EE19901B6_522EDF6702AF_var*
 var
  l_S: String;
 //#UC END# *522EE19901B6_522EDF6702AF_var*
 //#UC START# *522EE1B9018D_522EDF6702AF_impl*
-  inherited;
-  l_Count := aStorage.ReadInteger(anAlias + 'Count', 0);
-  for I := 0 to Pred(l_Count) do
-   f_Strings.Add(l3Str(aStorage.ReadString(anAlias + IntToStr(I), '')));
+ l_Count := aStorage.ReadInteger(anAlias + 'Count', 0);
+ for I := 0 to Pred(l_Count) do
+  f_Strings.Add(l3Str(aStorage.ReadString(anAlias + IntToStr(I), '')));
 //#UC END# *522EE1B9018D_522EDF6702AF_impl*
 //#UC START# *522EE1B9018D_522EDF6702AF_var*
 var
@@ -70,7 +68,6 @@ var
  l_Count: Integer;
 //#UC END# *522EE1B9018D_522EDF6702AF_var*
 //#UC START# *522EE1D7016D_522EDF6702AF_impl*
- inherited;
  aStorage.WriteInteger(anAlias + 'Count', f_Strings.Count);
  for I := 0 to Pred(f_Strings.Count) do
   aStorage.WriteString(anAlias + IntToStr(I), f_Strings.Strings[I]);
@@ -79,12 +76,6 @@ var
 var
  I: Integer;
 //#UC END# *522EE1D7016D_522EDF6702AF_var*
-//#UC START# *522EE1F7018F_522EDF6702AF_impl*
- Result := True;
- f_Strings.Exchange(anIndex, Pred(anIndex));
-//#UC END# *522EE1F7018F_522EDF6702AF_impl*
-//#UC START# *522EE1F7018F_522EDF6702AF_var*
-//#UC END# *522EE1F7018F_522EDF6702AF_var*
 //#UC START# *522EE4E000E1_522EDF6702AF_impl*
  Result := f_Strings;
 //#UC END# *522EE4E000E1_522EDF6702AF_impl*
@@ -96,8 +87,34 @@ var
 //#UC END# *5301EC5A006A_522EDF6702AF_impl*
 //#UC START# *5301EC5A006A_522EDF6702AF_var*
 //#UC END# *5301EC5A006A_522EDF6702AF_var*
-//#UC START# *56D93DBD039D_522EDF6702AF_impl*
- f_Strings.Clear;
-//#UC END# *56D93DBD039D_522EDF6702AF_impl*
-//#UC START# *56D93DBD039D_522EDF6702AF_var*
-//#UC END# *56D93DBD039D_522EDF6702AF_var*
+//#UC START# *57A316CA0116_522EDF6702AF_impl*
+ f_EditStrings := TStringList.Create;
+ f_EditStrings.Assign(f_Strings);
+//#UC END# *57A316CA0116_522EDF6702AF_impl*
+//#UC START# *57A316CA0116_522EDF6702AF_var*
+//#UC END# *57A316CA0116_522EDF6702AF_var*
+//#UC START# *57A316E00019_522EDF6702AF_impl*
+ FreeAndNil(f_EditStrings);
+//#UC END# *57A316E00019_522EDF6702AF_impl*
+//#UC START# *57A316E00019_522EDF6702AF_var*
+//#UC END# *57A316E00019_522EDF6702AF_var*
+//#UC START# *57A316F503DF_522EDF6702AF_impl*
+ f_Strings.Assign(f_EditStrings);
+//#UC END# *57A316F503DF_522EDF6702AF_impl*
+//#UC START# *57A316F503DF_522EDF6702AF_var*
+//#UC END# *57A316F503DF_522EDF6702AF_var*
+//#UC START# *57A438DA0057_522EDF6702AFget_impl*
+ Result := f_EditStrings.Count;
+//#UC END# *57A438DA0057_522EDF6702AFget_impl*
+//#UC START# *57A438DA0057_522EDF6702AFget_var*
+//#UC END# *57A438DA0057_522EDF6702AFget_var*
+//#UC START# *57A439130358_522EDF6702AFget_impl*
+ Result := nil;
+//#UC END# *57A439130358_522EDF6702AFget_impl*
+//#UC START# *57A439130358_522EDF6702AFget_var*
+//#UC END# *57A439130358_522EDF6702AFget_var*
+//#UC START# *57A4394A01DA_522EDF6702AFget_impl*
+ Result := f_EditStrings[anIndex];
+//#UC END# *57A4394A01DA_522EDF6702AFget_impl*
+//#UC START# *57A4394A01DA_522EDF6702AFget_var*
+//#UC END# *57A4394A01DA_522EDF6702AFget_var*

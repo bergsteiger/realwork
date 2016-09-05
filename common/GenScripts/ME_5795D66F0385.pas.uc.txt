@@ -1,3 +1,141 @@
+//#UC START# *046E0D6FAF86_579735A70273_impl*
+ if (afw.Settings <> nil) then
+  afw.Settings.SaveInteger(pi_TMainMenuService_ChangeableMainMenuType, aValue);
+//#UC END# *046E0D6FAF86_579735A70273_impl*
+//#UC START# *046E0D6FAF86_579735A70273_var*
+//#UC END# *046E0D6FAF86_579735A70273_var*
+//#UC START# *1A4B62BDCDA1_579735A70273_impl*
+ if (afw.Settings = nil) then
+  Result := dv_TMainMenuService_ChangeableMainMenuType
+ else
+  Result := afw.Settings.LoadInteger(pi_TMainMenuService_ChangeableMainMenuType, dv_TMainMenuService_ChangeableMainMenuType);
+//#UC END# *1A4B62BDCDA1_579735A70273_impl*
+//#UC START# *1A4B62BDCDA1_579735A70273_var*
+//#UC END# *1A4B62BDCDA1_579735A70273_var*
+//#UC START# *484E8BF9A6CB_57A0977900D6_impl*
+ if (afw.Settings = nil) then
+  Result := dv_TDocumentService_ShowChangesInfo
+ else
+  Result := afw.Settings.LoadBoolean(pi_TDocumentService_ShowChangesInfo, dv_TDocumentService_ShowChangesInfo);
+//#UC END# *484E8BF9A6CB_57A0977900D6_impl*
+//#UC START# *484E8BF9A6CB_57A0977900D6_var*
+//#UC END# *484E8BF9A6CB_57A0977900D6_var*
+//#UC START# *4B6074C60325_4B60748400F9_impl*
+ Result.rDoc := aDoc;
+ Result.rPara := aPara;
+//#UC END# *4B6074C60325_4B60748400F9_impl*
+//#UC START# *4B6074C60325_4B60748400F9_var*
+//#UC END# *4B6074C60325_4B60748400F9_var*
+//#UC START# *4D89BAECBC67_57A0977900D6_57A0ADEC0150_Impl_impl*
+ TDocumentService.Instance.OpenDocument(aDocInfo, aContainer);
+//#UC END# *4D89BAECBC67_57A0977900D6_57A0ADEC0150_Impl_impl*
+//#UC START# *4D89BAECBC67_57A0977900D6_57A0ADEC0150_Impl_var*
+//#UC END# *4D89BAECBC67_57A0977900D6_57A0ADEC0150_Impl_var*
+//#UC START# *4D89BAECBC67_57A0AE60005A_impl*
+ TDocumentService.Instance.OpenDocument(aDocInfo, aContainer);
+//#UC END# *4D89BAECBC67_57A0AE60005A_impl*
+//#UC START# *4D89BAECBC67_57A0AE60005A_var*
+//#UC END# *4D89BAECBC67_57A0AE60005A_var*
 //#UC START# *5795D66F0385_ext:FileName
 w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Services_Contracts.pas
 //#UC END# *5795D66F0385_ext:FileName
+//#UC START# *5DD3882DDF54_57A200FC0211_57A2146F017F_Impl_impl*
+ TUnderControlService.Instance.AddControlledObject(aData);
+//#UC END# *5DD3882DDF54_57A200FC0211_57A2146F017F_Impl_impl*
+//#UC START# *5DD3882DDF54_57A200FC0211_57A2146F017F_Impl_var*
+//#UC END# *5DD3882DDF54_57A200FC0211_57A2146F017F_Impl_var*
+//#UC START# *5DD3882DDF54_57A214D402E9_impl*
+ TUnderControlService.Instance.AddControlledObject(aData);
+//#UC END# *5DD3882DDF54_57A214D402E9_impl*
+//#UC START# *5DD3882DDF54_57A214D402E9_var*
+//#UC END# *5DD3882DDF54_57A214D402E9_var*
+//#UC START# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_impl*
+ case aQueryType of
+  lg_qtKeyWord:
+   TSearchService.Instance.OpenKeyWord(aQuery, aContainer);
+  lg_qtAttribute:
+   TSearchService.Instance.AttributeSearch(aQuery, nil, aContainer);
+  lg_qtPublishedSource:
+   TSearchService.Instance.PublishSourceSearch(aQuery, nil);
+  lg_qtLegislationReview:
+   TSearchService.Instance.OpenLegislationReview(aQuery);
+  lg_qtSendConsultation:
+   vcmDispatcher.ModuleOperation(mod_opcode_SearchService_OpenConsult);
+  lg_qtBaseSearch:
+   TBaseSearchService.Instance.OpenBaseSearch(ns_bsokGlobal, aQuery);
+  lg_qtInpharmSearch:
+   TSearchService.Instance.InpharmSearch(aQuery, nil, aContainer);
+  else
+   Assert(false);   
+ end;//case aQueryType
+//#UC END# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_impl*
+//#UC START# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_var*
+//#UC END# *9856D0A1DBB4_579F4A7103CF_57A339A6014A_Impl_var*
+//#UC START# *9856D0A1DBB4_57A33B03017B_impl*
+ case aQueryType of
+  lg_qtKeyWord:
+   TSearchService.Instance.OpenKeyWord(aQuery, aContainer);
+  lg_qtAttribute:
+   TSearchService.Instance.AttributeSearch(aQuery, nil, aContainer);
+  lg_qtPublishedSource:
+   TSearchService.Instance.PublishSourceSearch(aQuery, nil);
+  lg_qtLegislationReview:
+   TSearchService.Instance.OpenLegislationReview(aQuery);
+  lg_qtSendConsultation:
+   vcmDispatcher.ModuleOperation(mod_opcode_SearchService_OpenConsult);
+  lg_qtBaseSearch:
+   TBaseSearchService.Instance.OpenBaseSearch(ns_bsokGlobal, aQuery);
+  lg_qtInpharmSearch:
+   TSearchService.Instance.InpharmSearch(aQuery, nil, aContainer);
+  else
+   Assert(false);   
+ end;//case aQueryType
+//#UC END# *9856D0A1DBB4_57A33B03017B_impl*
+//#UC START# *9856D0A1DBB4_57A33B03017B_var*
+//#UC END# *9856D0A1DBB4_57A33B03017B_var*
+//#UC START# *9BD95B465186_57A0977900D6_impl*
+ if (afw.Settings <> nil) then
+  afw.Settings.SaveBoolean(pi_TDocumentService_ShowChangesInfo, aValue);
+//#UC END# *9BD95B465186_57A0977900D6_impl*
+//#UC START# *9BD95B465186_57A0977900D6_var*
+//#UC END# *9BD95B465186_57A0977900D6_var*
+//#UC START# *C95129E731E7_579735A70273_57A216370186_Impl_impl*
+ TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+//#UC END# *C95129E731E7_579735A70273_57A216370186_Impl_impl*
+//#UC START# *C95129E731E7_579735A70273_57A216370186_Impl_var*
+//#UC END# *C95129E731E7_579735A70273_57A216370186_Impl_var*
+//#UC START# *C95129E731E7_57A216770306_impl*
+ TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+//#UC END# *C95129E731E7_57A216770306_impl*
+//#UC START# *C95129E731E7_57A216770306_var*
+//#UC END# *C95129E731E7_57A216770306_var*
+//#UC START# *CE997E214CFA_57A1D61C02F2_57A1E1B200A4_Impl_impl*
+ TListService.Instance.OpenList(aList, aContainer);
+//#UC END# *CE997E214CFA_57A1D61C02F2_57A1E1B200A4_Impl_impl*
+//#UC START# *CE997E214CFA_57A1D61C02F2_57A1E1B200A4_Impl_var*
+//#UC END# *CE997E214CFA_57A1D61C02F2_57A1E1B200A4_Impl_var*
+//#UC START# *CE997E214CFA_57A1E2780238_impl*
+ TListService.Instance.OpenList(aList, aContainer);
+//#UC END# *CE997E214CFA_57A1E2780238_impl*
+//#UC START# *CE997E214CFA_57A1E2780238_var*
+//#UC END# *CE997E214CFA_57A1E2780238_var*
+//#UC START# *D415A8B98D41_579F2C6901E2_57A21528027F_Impl_impl*
+ TRubricatorOpenService.Instance.OpenRubricator(aNode, aRootToKeep, aMenuSectionItemToKeep, aNeedsSheet, anAggregate, aContainer);
+//#UC END# *D415A8B98D41_579F2C6901E2_57A21528027F_Impl_impl*
+//#UC START# *D415A8B98D41_579F2C6901E2_57A21528027F_Impl_var*
+//#UC END# *D415A8B98D41_579F2C6901E2_57A21528027F_Impl_var*
+//#UC START# *D415A8B98D41_57A2156D00CC_impl*
+ TRubricatorService.Instance.OpenRubricator(aNode, aRootToKeep, aMenuSectionItemToKeep, aNeedsSheet, anAggregate, aContainer);
+//#UC END# *D415A8B98D41_57A2156D00CC_impl*
+//#UC START# *D415A8B98D41_57A2156D00CC_var*
+//#UC END# *D415A8B98D41_57A2156D00CC_var*
+//#UC START# *DD5F4B0AB284_57A200FC0211_57A2146F017F_Impl_impl*
+ TUnderControlService.Instance.DeleteControlledObject(aData);
+//#UC END# *DD5F4B0AB284_57A200FC0211_57A2146F017F_Impl_impl*
+//#UC START# *DD5F4B0AB284_57A200FC0211_57A2146F017F_Impl_var*
+//#UC END# *DD5F4B0AB284_57A200FC0211_57A2146F017F_Impl_var*
+//#UC START# *DD5F4B0AB284_57A214D402E9_impl*
+ TUnderControlService.Instance.DeleteControlledObject(aData);
+//#UC END# *DD5F4B0AB284_57A214D402E9_impl*
+//#UC START# *DD5F4B0AB284_57A214D402E9_var*
+//#UC END# *DD5F4B0AB284_57A214D402E9_var*

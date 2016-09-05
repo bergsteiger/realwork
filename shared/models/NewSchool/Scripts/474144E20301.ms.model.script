@@ -1,0 +1,3440 @@
+// Draw 474144E20301 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_474144E20301
+
+FORWARD ME_47E107E20191
+
+ME ME_47E107F80371
+ MEPROP UID '47E107F80371'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E107E20191 // TafwPreviewPageList
+ ;
+ MELINK Target WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ ;
+
+ENDME // ME_47E107F80371 ItemType
+
+ME ME_47E107E20191
+ MEPROP UID '47E107E20191'
+ MEPROP Name 'TafwPreviewPageList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E107F80371 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '19.03.2008'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageList.pas'
+ UP extprop:rc:SelfName 'afwPreviewPageList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwPreviewPageList'
+
+ENDME // ME_47E107E20191 TafwPreviewPageList
+
+FORWARD ME_47414C8700D5
+
+ME ME_478E3F640288
+ MEPROP UID '478E3F640288'
+ MEPROP Name 'f_CurrentPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_478E3F640288 f_CurrentPage
+
+ME ME_478E3F7B03D9
+ MEPROP UID '478E3F7B03D9'
+ MEPROP Name 'f_IsPreview'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_478E3F7B03D9 f_IsPreview
+
+ME ME_4CC69EF102F0
+ MEPROP UID '4CC69EF102F0'
+ MEPROP Name 'f_PreviewPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ ;
+
+ENDME // ME_4CC69EF102F0 f_PreviewPage
+
+ME ME_4CC69FC8022D
+ MEPROP UID '4CC69FC8022D'
+ MEPROP Name 'f_PagesArray'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_473C571F02A2' '473C569D0287.ms.model.script' // TafwPrintPagesArray
+ ;
+
+ENDME // ME_4CC69FC8022D f_PagesArray
+
+FORWARD ME_4CC69EC600C3
+
+ME ME_4CC69ED10268
+ MEPROP Name 'aPrinter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_4CC69ED10268 aPrinter
+
+ME ME_4CC69ED10280
+ MEPROP Name 'aPagesArray'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473C571F02A2' '473C569D0287.ms.model.script' // TafwPrintPagesArray
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_473C571F02A2' '473C569D0287.ms.model.script' // TafwPrintPagesArray
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4CC69ED10280 aPagesArray
+
+ME ME_4CC69ED00037
+ MEPROP UID '4CC69ED00037'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC69EC600C3 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC69ED10268 // aPrinter
+ ME_4CC69ED10280 // aPagesArray
+ )
+ ; // Parameters
+
+ENDME // ME_4CC69ED00037 Create
+
+ME ME_4CC69EC600C3
+ MEPROP UID '4CC69EC600C3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC69ED00037 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CC69EC600C3 Create
+
+ME ME_4CC69EB001E3
+ MEPROP UID '4CC69EB001E3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CC69EC600C3 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ )
+ ; // Implements
+
+ENDME // ME_4CC69EB001E3 Make
+
+FORWARD ME_474155B703C6
+
+ME ME_478E43D70095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+
+ENDME // ME_478E43D70095 
+
+ME ME_479731C50290_ME_47414C8700D5
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47414C8700D5 Cleanup
+
+ME ME_56B0AE550267_ME_47414C8700D5
+ MELINK Original WL 'ME_56B0AE550267' '473C3BEE0334.ms.model.script' // SetCanvas
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B0AE550267_ME_47414C8700D5 SetCanvas
+
+ME ME_56B0B9790320_ME_47414C8700D5
+ MELINK Original WL 'ME_56B0B9790320' '473C3BEE0334.ms.model.script' // IsPreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B0B9790320_ME_47414C8700D5 IsPreview
+
+ME ME_56B4A55202AB_ME_47414C8700D5
+ MELINK Original WL 'ME_56B4A55202AB' '473C3BEE0334.ms.model.script' // NeedOpenRealPage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4A55202AB_ME_47414C8700D5 NeedOpenRealPage
+
+ME ME_56B4BDA30301_ME_47414C8700D5
+ MELINK Original WL 'ME_56B4BDA30301' '473C3BEE0334.ms.model.script' // DoEndPaint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4BDA30301_ME_47414C8700D5 DoEndPaint
+
+ME ME_47414C8700D5
+ MEPROP UID '47414C8700D5'
+ MEPROP Name 'TafwCanvasEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Канва с информацией о разбиении документа на страницы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_478E3F640288 // f_CurrentPage
+ HWL ME_478E3F7B03D9 // f_IsPreview
+ HWL ME_4CC69EF102F0 // f_PreviewPage
+ HWL ME_4CC69FC8022D // f_PagesArray
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC69EC600C3 // Create
+ HWL ME_4CC69EB001E3 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47414C8700D5 // Cleanup
+ ME_56B0AE550267_ME_47414C8700D5 // SetCanvas
+ ME_56B0B9790320_ME_47414C8700D5 // IsPreview
+ ME_56B4A55202AB_ME_47414C8700D5 // NeedOpenRealPage
+ ME_56B4BDA30301_ME_47414C8700D5 // DoEndPaint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_478E43D70095 // TafwPreviewPage
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '28.09.1999 10:18'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCanvasEx.pas'
+ UP extprop:rc:SelfName 'afwCanvasEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwCanvasEx'
+
+ENDME // ME_47414C8700D5 TafwCanvasEx
+
+FORWARD ME_47414D0C018A
+
+ME ME_4CC69C3200C0
+ MEPROP UID '4CC69C3200C0'
+ MEPROP Name 'f_Caret'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47414D0C018A // TafwMeasureCanvas
+ ;
+ MELINK Target WL 'ME_478E4BF6002B' '467823B7002C.ms.model.script' // IafwCaret
+ ;
+
+ENDME // ME_4CC69C3200C0 f_Caret
+
+FORWARD ME_4CC69AD60087
+
+ME ME_4CC69ADF022C
+ MEPROP Name 'anExtent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D8F4C03CD' '467823B7002C.ms.model.script' // TafwPoint
+ ;
+
+ENDME // ME_4CC69ADF022C anExtent
+
+ME ME_4CC69ADF0244
+ MEPROP Name 'aCaret'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478E4BF6002B' '467823B7002C.ms.model.script' // IafwCaret
+ ;
+
+ENDME // ME_4CC69ADF0244 aCaret
+
+ME ME_4CC69ADE038A
+ MEPROP UID '4CC69ADE038A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC69AD60087 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC69ADF022C // anExtent
+ ME_4CC69ADF0244 // aCaret
+ )
+ ; // Parameters
+
+ENDME // ME_4CC69ADE038A Create
+
+ME ME_4CC69AD60087
+ MEPROP UID '4CC69AD60087'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414D0C018A // TafwMeasureCanvas
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC69ADE038A // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CC69AD60087 Create
+
+ME ME_4CC69AC100E1
+ MEPROP UID '4CC69AC100E1'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414D0C018A // TafwMeasureCanvas
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CC69AD60087 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ )
+ ; // Implements
+
+ENDME // ME_4CC69AC100E1 Make
+
+ME ME_479731C50290_ME_47414D0C018A
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47414D0C018A Cleanup
+
+ME ME_56B49F030225_ME_47414D0C018A
+ MELINK Original WL 'ME_56B49F030225' '473C3BEE0334.ms.model.script' // GetCaret
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B49F030225_ME_47414D0C018A GetCaret
+
+ME ME_47414D0C018A
+ MEPROP UID '47414D0C018A'
+ MEPROP Name 'TafwMeasureCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Канва для измерений и вычисления позиции курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_473C4F1E01A1' '473C3BEE0334.ms.model.script' // Tl3VirtualCanvas
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CC69C3200C0 // f_Caret
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC69AD60087 // Create
+ HWL ME_4CC69AC100E1 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47414D0C018A // Cleanup
+ ME_56B49F030225_ME_47414D0C018A // GetCaret
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В. '
+ UP "no hands" true
+ UP "started" '26.02.2006 13:33'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwMeasureCanvas.pas'
+ UP extprop:rc:SelfName 'afwMeasureCanvas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwMeasureCanvas'
+
+ENDME // ME_47414D0C018A TafwMeasureCanvas
+
+FORWARD ME_474154CE0081
+
+ME ME_478E5A9202E0
+ MEPROP UID '478E5A9202E0'
+ MEPROP Name 'f_Extent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_478E59910054' '467823B7002C.ms.model.script' // TafwSPoint
+ ;
+
+ENDME // ME_478E5A9202E0 f_Extent
+
+ME ME_478E5AA402F6
+ MEPROP UID '478E5AA402F6'
+ MEPROP Name 'f_CaretPos'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_478E59910054' '467823B7002C.ms.model.script' // TafwSPoint
+ ;
+
+ENDME // ME_478E5AA402F6 f_CaretPos
+
+ME ME_478E5AB60046
+ MEPROP UID '478E5AB60046'
+ MEPROP Name 'f_CaretExt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_478E5AB60046 f_CaretExt
+
+FORWARD ME_4CC69A8B0337
+
+ME ME_4CC69A93022C
+ MEPROP Name 'anExtent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478E59910054' '467823B7002C.ms.model.script' // TafwSPoint
+ ;
+
+ENDME // ME_4CC69A93022C anExtent
+
+ME ME_4CC69A9203D0
+ MEPROP UID '4CC69A9203D0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC69A8B0337 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC69A93022C // anExtent
+ )
+ ; // Parameters
+
+ENDME // ME_4CC69A9203D0 Create
+
+ME ME_4CC69A8B0337
+ MEPROP UID '4CC69A8B0337'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC69A9203D0 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CC69A8B0337 Create
+
+ME ME_4CC69A7801C6
+ MEPROP UID '4CC69A7801C6'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CC69A8B0337 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_478E4C070069' '467823B7002C.ms.model.script' // IafwScrollCaret
+ )
+ ; // Implements
+
+ENDME // ME_4CC69A7801C6 Make
+
+ME ME_478E5E0C0388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474154CE0081 // TafwVirtualCaret
+ ;
+ MELINK Target WL 'ME_47289677028A' '472745450206.ms.model.script' // Tl3SPoint
+ ;
+
+ENDME // ME_478E5E0C0388 
+
+ME ME_4728CC9400ED_ME_474154CE0081
+ MELINK Original WL 'ME_4728CC9400ED' '4677FBA70343.ms.model.script' // CheckHidden
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4728CC9400ED_ME_474154CE0081 CheckHidden
+
+ME ME_4728CCB1004E_ME_474154CE0081
+ MELINK Original WL 'ME_4728CCB1004E' '4677FBA70343.ms.model.script' // CanHide
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4728CCB1004E_ME_474154CE0081 CanHide
+
+ME ME_4728CCBC023F_ME_474154CE0081
+ MELINK Original WL 'ME_4728CCBC023F' '4677FBA70343.ms.model.script' // Extent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4728CCBC023F_ME_474154CE0081 Extent
+
+ME ME_4728CCC90157_ME_474154CE0081
+ MELINK Original WL 'ME_4728CCC90157' '4677FBA70343.ms.model.script' // Position
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4728CCC90157_ME_474154CE0081 Position
+
+ME ME_4728CCD502A9_ME_474154CE0081
+ MELINK Original WL 'ME_4728CCD502A9' '4677FBA70343.ms.model.script' // Visible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4728CCD502A9_ME_474154CE0081 Visible
+
+ME ME_4728CCEA00DC_ME_474154CE0081
+ MELINK Original WL 'ME_4728CCEA00DC' '4677FBA70343.ms.model.script' // Hidden
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4728CCEA00DC_ME_474154CE0081 Hidden
+
+ME ME_4728CD1103B3_ME_474154CE0081
+ MELINK Original WL 'ME_4728CD1103B3' '4677FBA70343.ms.model.script' // IsInited
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4728CD1103B3_ME_474154CE0081 IsInited
+
+ME ME_4728CD240270_ME_474154CE0081
+ MELINK Original WL 'ME_4728CD240270' '4677FBA70343.ms.model.script' // IsOnScreen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4728CD240270_ME_474154CE0081 IsOnScreen
+
+ME ME_4728CD370137_ME_474154CE0081
+ MELINK Original WL 'ME_4728CD370137' '4677FBA70343.ms.model.script' // Scroll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4728CD370137_ME_474154CE0081 Scroll
+
+ME ME_4728CD4101D2_ME_474154CE0081
+ MELINK Original WL 'ME_4728CD4101D2' '4677FBA70343.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4728CD4101D2_ME_474154CE0081 Reset
+
+ME ME_474154CE0081
+ MEPROP UID '474154CE0081'
+ MEPROP Name 'TafwVirtualCaret'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Виртуальная каретка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_478E4BF6002B' '467823B7002C.ms.model.script' // IafwCaret
+ WL 'ME_478E4C070069' '467823B7002C.ms.model.script' // IafwScrollCaret
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_478E5A9202E0 // f_Extent
+ HWL ME_478E5AA402F6 // f_CaretPos
+ HWL ME_478E5AB60046 // f_CaretExt
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC69A8B0337 // Create
+ HWL ME_4CC69A7801C6 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4728CC9400ED_ME_474154CE0081 // CheckHidden
+ ME_4728CCB1004E_ME_474154CE0081 // CanHide
+ ME_4728CCBC023F_ME_474154CE0081 // Extent
+ ME_4728CCC90157_ME_474154CE0081 // Position
+ ME_4728CCD502A9_ME_474154CE0081 // Visible
+ ME_4728CCEA00DC_ME_474154CE0081 // Hidden
+ ME_4728CD1103B3_ME_474154CE0081 // IsInited
+ ME_4728CD240270_ME_474154CE0081 // IsOnScreen
+ ME_4728CD370137_ME_474154CE0081 // Scroll
+ ME_4728CD4101D2_ME_474154CE0081 // Reset
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_478E5E0C0388 // Tl3SPoint
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.02.2006 13:49'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwVirtualCaret.pas'
+ UP extprop:rc:SelfName 'afwVirtualCaret'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwVirtualCaret'
+
+ENDME // ME_474154CE0081 TafwVirtualCaret
+
+FORWARD ME_47E0C48A00A5
+
+ME ME_47E0C49C02B4
+ MEPROP UID '47E0C49C02B4'
+ MEPROP Name 'c_MMPerInch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E0C48A00A5 // internal
+ ;
+ MEPROP Value 'l3mmInInch * 10'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3mmInInch * 10'
+
+ENDME // ME_47E0C49C02B4 c_MMPerInch
+
+ME ME_47E0C48A00A5
+ MEPROP UID '47E0C48A00A5'
+ MEPROP Name 'internal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47E0C49C02B4 // c_MMPerInch
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47E0C48A00A5 internal
+
+ME ME_47DFD59B02E7
+ MEPROP UID '47DFD59B02E7'
+ MEPROP Name 'PageNumber'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'номер страницы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD59B02E7 PageNumber
+
+ME ME_47DFD5B60012
+ MEPROP UID '47DFD5B60012'
+ MEPROP Name 'PageWidthNumber'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'номер страницы по ширине.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD5B60012 PageWidthNumber
+
+ME ME_47DFD5D70233
+ MEPROP UID '47DFD5D70233'
+ MEPROP Name 'Metafile'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47DFD79200BD' '473C3BEE0334.ms.model.script' // Tl3Metafile
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD5D70233 Metafile
+
+ME ME_47DFD5EA00DD
+ MEPROP UID '47DFD5EA00DD'
+ MEPROP Name 'HORZRES'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD5EA00DD HORZRES
+
+ME ME_47DFD640017F
+ MEPROP UID '47DFD640017F'
+ MEPROP Name 'VERTRES'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD640017F VERTRES
+
+ME ME_47DFD650037E
+ MEPROP UID '47DFD650037E'
+ MEPROP Name 'LOGPIXELSX'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD650037E LOGPIXELSX
+
+ME ME_47DFD665034B
+ MEPROP UID '47DFD665034B'
+ MEPROP Name 'LOGPIXELSY'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD665034B LOGPIXELSY
+
+ME ME_47DFD67C022C
+ MEPROP UID '47DFD67C022C'
+ MEPROP Name 'PHYSICALWIDTH'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD67C022C PHYSICALWIDTH
+
+ME ME_47DFD68E011A
+ MEPROP UID '47DFD68E011A'
+ MEPROP Name 'PHYSICALHEIGHT'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD68E011A PHYSICALHEIGHT
+
+ME ME_47DFD69E0274
+ MEPROP UID '47DFD69E0274'
+ MEPROP Name 'PHYSICALOFFSETX'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD69E0274 PHYSICALOFFSETX
+
+ME ME_47DFD6FD00B3
+ MEPROP UID '47DFD6FD00B3'
+ MEPROP Name 'PHYSICALOFFSETY'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47DFD6FD00B3 PHYSICALOFFSETY
+
+ME ME_47E1081E014B
+ MEPROP UID '47E1081E014B'
+ MEPROP Name 'f_WidthPages'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target HWL ME_47E107E20191 // TafwPreviewPageList
+ ;
+
+ENDME // ME_47E1081E014B f_WidthPages
+
+ME ME_4CB6E42C0011
+ MEPROP UID '4CB6E42C0011'
+ MEPROP Name 'DropStream'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47E0BF55002A' '467823B7002C.ms.model.script' // IafwTempStream
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4CB6E42C0011 DropStream
+
+ME ME_4CC694FE0272
+ MEPROP UID '4CC694FE0272'
+ MEPROP Name 'OverallPageNumber'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4CC694FE0272 OverallPageNumber
+
+FORWARD ME_4CB6E48501B8
+
+ME ME_4CB6E48D020E
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ ;
+
+ENDME // ME_4CB6E48D020E aCanvas
+
+ME ME_4CB6E48C0213
+ MEPROP UID '4CB6E48C0213'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E48501B8 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E48D020E // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E48C0213 Create
+
+ME ME_4CB6E48501B8
+ MEPROP UID '4CB6E48501B8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E48C0213 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CB6E48501B8 Create
+
+ME ME_4CB6E4940086
+ MEPROP UID '4CB6E4940086'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CB6E48501B8 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ )
+ ; // Implements
+
+ENDME // ME_4CB6E4940086 Make
+
+ME ME_47DFDABD02A9
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ ;
+
+ENDME // ME_47DFDABD02A9 aCanvas
+
+ME ME_47DFDAB403DA
+ MEPROP UID '47DFDAB403DA'
+ MEPROP Name 'Start'
+ MEPROP Class class_Operation
+ %SUMMARY 'начать генерацию страницы.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DFDABD02A9 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_47DFDAB403DA Start
+
+ME ME_47E0CA3201ED
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ ;
+
+ENDME // ME_47E0CA3201ED aCanvas
+
+ME ME_47E0CA2E0263
+ MEPROP UID '47E0CA2E0263'
+ MEPROP Name 'InitCanvas'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELIST Parameters
+   Seq: ( ME_47E0CA3201ED // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_47E0CA2E0263 InitCanvas
+
+ME ME_47E0CA4F0183
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_47E0CA4F0183 aCanvas
+
+ME ME_47E0CA4A006B
+ MEPROP UID '47E0CA4A006B'
+ MEPROP Name 'ReadDCMetrics'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELIST Parameters
+   Seq: ( ME_47E0CA4F0183 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_47E0CA4A006B ReadDCMetrics
+
+ME ME_47DFDB8003DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47DFDB8003DF 
+
+ME ME_47E0C28F014D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47E0C1E80191' '47E0C1C2014B.ms.model.script' // TevDataCache
+ ;
+
+ENDME // ME_47E0C28F014D 
+
+ME ME_47E0C3D3022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47E0C36201C7' '537B83AD01F0.ms.model.script' // l3Math
+ ;
+
+ENDME // ME_47E0C3D3022C 
+
+ME ME_47E0C5A60012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_47E0C5A60012 
+
+ME ME_47E0CB8A0151
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47E0CB3C022E' '55C4AEC801CA.ms.model.script' // TMetafileCanvas
+ ;
+
+ENDME // ME_47E0CB8A0151 
+
+ME ME_47E0CD79038F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target WL 'ME_47E0CD4D0153' '4AB0C3F60375.ms.model.script' // Device Caps
+ ;
+
+ENDME // ME_47E0CD79038F 
+
+FORWARD ME_4CB6DFDE0374
+
+ME ME_4CB6E30C031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+ MELINK Target HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+
+ENDME // ME_4CB6E30C031A 
+
+ME ME_4728BE6A0392_ME_474155B703C6
+ MELINK Original WL 'ME_4728BE6A0392' '467C0CAA02AB.ms.model.script' // PageNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4728BE6A0392_ME_474155B703C6 PageNumber
+
+ME ME_4728BE830080_ME_474155B703C6
+ MELINK Original WL 'ME_4728BE830080' '467C0CAA02AB.ms.model.script' // PageWidthNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4728BE830080_ME_474155B703C6 PageWidthNumber
+
+ME ME_473D824A0357_ME_474155B703C6
+ MELINK Original WL 'ME_473D824A0357' '467823B7002C.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D824A0357_ME_474155B703C6 Add
+
+ME ME_473D826601A8_ME_474155B703C6
+ MELINK Original WL 'ME_473D826601A8' '467823B7002C.ms.model.script' // Drop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D826601A8_ME_474155B703C6 Drop
+
+ME ME_473D8274005E_ME_474155B703C6
+ MELINK Original WL 'ME_473D8274005E' '467823B7002C.ms.model.script' // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8274005E_ME_474155B703C6 Finish
+
+ME ME_473D828E03A5_ME_474155B703C6
+ MELINK Original WL 'ME_473D828E03A5' '467823B7002C.ms.model.script' // GetMMWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D828E03A5_ME_474155B703C6 GetMMWidth
+
+ME ME_473D82A102B2_ME_474155B703C6
+ MELINK Original WL 'ME_473D82A102B2' '467823B7002C.ms.model.script' // GetMMHeight
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D82A102B2_ME_474155B703C6 GetMMHeight
+
+ME ME_473D82B5021A_ME_474155B703C6
+ MELINK Original WL 'ME_473D82B5021A' '467823B7002C.ms.model.script' // DrawTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D82B5021A_ME_474155B703C6 DrawTo
+
+ME ME_473D82CD0066_ME_474155B703C6
+ MELINK Original WL 'ME_473D82CD0066' '467823B7002C.ms.model.script' // WidthCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D82CD0066_ME_474155B703C6 WidthCount
+
+ME ME_473D82E20016_ME_474155B703C6
+ MELINK Original WL 'ME_473D82E20016' '467823B7002C.ms.model.script' // WidthPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D82E20016_ME_474155B703C6 WidthPage
+
+ME ME_4CC68B5D00CA_ME_474155B703C6
+ MELINK Original WL 'ME_4CC68B5D00CA' '467C0CAA02AB.ms.model.script' // OverallPageNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4CC68B5D00CA_ME_474155B703C6 OverallPageNumber
+
+ME ME_479731C50290_ME_474155B703C6
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_474155B703C6 Cleanup
+
+ME ME_47A6FEE600FC_ME_474155B703C6
+ MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_47A6FEE600FC_ME_474155B703C6 IsCacheable
+
+ME ME_474155B703C6
+ MEPROP UID '474155B703C6'
+ MEPROP Name 'TafwPreviewPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект, реализующий страницу preview.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47DFD59B02E7 // PageNumber
+ HWL ME_47DFD5B60012 // PageWidthNumber
+ HWL ME_47DFD5D70233 // Metafile
+ HWL ME_47DFD5EA00DD // HORZRES
+ HWL ME_47DFD640017F // VERTRES
+ HWL ME_47DFD650037E // LOGPIXELSX
+ HWL ME_47DFD665034B // LOGPIXELSY
+ HWL ME_47DFD67C022C // PHYSICALWIDTH
+ HWL ME_47DFD68E011A // PHYSICALHEIGHT
+ HWL ME_47DFD69E0274 // PHYSICALOFFSETX
+ HWL ME_47DFD6FD00B3 // PHYSICALOFFSETY
+ HWL ME_47E1081E014B // f_WidthPages
+ HWL ME_4CB6E42C0011 // DropStream
+ HWL ME_4CC694FE0272 // OverallPageNumber
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E48501B8 // Create
+ HWL ME_4CB6E4940086 // Make
+ HWL ME_47DFDAB403DA // Start
+ HWL ME_47E0CA2E0263 // InitCanvas
+ HWL ME_47E0CA4A006B // ReadDCMetrics
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4728BE6A0392_ME_474155B703C6 // PageNumber
+ ME_4728BE830080_ME_474155B703C6 // PageWidthNumber
+ ME_473D824A0357_ME_474155B703C6 // Add
+ ME_473D826601A8_ME_474155B703C6 // Drop
+ ME_473D8274005E_ME_474155B703C6 // Finish
+ ME_473D828E03A5_ME_474155B703C6 // GetMMWidth
+ ME_473D82A102B2_ME_474155B703C6 // GetMMHeight
+ ME_473D82B5021A_ME_474155B703C6 // DrawTo
+ ME_473D82CD0066_ME_474155B703C6 // WidthCount
+ ME_473D82E20016_ME_474155B703C6 // WidthPage
+ ME_4CC68B5D00CA_ME_474155B703C6 // OverallPageNumber
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_474155B703C6 // Cleanup
+ ME_47A6FEE600FC_ME_474155B703C6 // IsCacheable
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_47E0C48A00A5 // internal
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_47DFDB8003DF // SysUtils
+ ME_47E0C28F014D // TevDataCache
+ ME_47E0C3D3022C // l3Math
+ ME_47E0C5A60012 // L3 Core Consts
+ ME_47E0CB8A0151 // TMetafileCanvas
+ ME_47E0CD79038F // Device Caps
+ ME_4CB6E30C031A // TafwPreviewPageSpy
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '22.10.2004 16:51'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPage.pas'
+ UP extprop:rc:SelfName 'afwPreviewPage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwPreviewPage'
+
+ENDME // ME_474155B703C6 TafwPreviewPage
+
+FORWARD ME_47DF8F0402F7
+
+FORWARD ME_47DF9CB7003E
+
+ME ME_47DF9CD60074
+ MEPROP UID '47DF9CD60074'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47DF9CB7003E // TafwDocumentPreviewArray
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_47DF9CD60074 
+
+ME ME_47DF9CB7003E
+ MEPROP UID '47DF9CB7003E'
+ MEPROP Name 'TafwDocumentPreviewArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_473D8DCA02F6' '467823B7002C.ms.model.script' // TafwPreviewContentKind
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47DF9CD60074 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_47DF9CB7003E TafwDocumentPreviewArray
+
+ME ME_47DF9D5801E0
+ MEPROP UID '47DF9D5801E0'
+ MEPROP Name 'f_ContentKind'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target WL 'ME_473D8DCA02F6' '467823B7002C.ms.model.script' // TafwPreviewContentKind
+ ;
+
+ENDME // ME_47DF9D5801E0 f_ContentKind
+
+ME ME_47DF9D630200
+ MEPROP UID '47DF9D630200'
+ MEPROP Name 'f_Printer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_47DF9D630200 f_Printer
+
+ME ME_47DF9D42003C
+ MEPROP UID '47DF9D42003C'
+ MEPROP Name 'f_Previews'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target HWL ME_47DF9CB7003E // TafwDocumentPreviewArray
+ ;
+
+ENDME // ME_47DF9D42003C f_Previews
+
+ME ME_47ED1B3F0170
+ MEPROP UID '47ED1B3F0170'
+ MEPROP Name 'f_PreviewSubscribers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target WL 'ME_47ED0A030258' '47764CED0308.ms.model.script' // TafwPreviewNotifierPtrList
+ ;
+
+ENDME // ME_47ED1B3F0170 f_PreviewSubscribers
+
+ME ME_47DF9F38039D
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D8DCA02F6' '467823B7002C.ms.model.script' // TafwPreviewContentKind
+ ;
+
+ENDME // ME_47DF9F38039D aKind
+
+ME ME_47DF9F2202FB
+ MEPROP UID '47DF9F2202FB'
+ MEPROP Name 'CheckPrinter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DF9F38039D // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_47DF9F2202FB CheckPrinter
+
+ME ME_47DF9F47026E
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D8DCA02F6' '467823B7002C.ms.model.script' // TafwPreviewContentKind
+ ;
+
+ENDME // ME_47DF9F47026E aKind
+
+ME ME_47DF9F4000BB
+ MEPROP UID '47DF9F4000BB'
+ MEPROP Name 'CheckContent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DF9F47026E // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_47DF9F4000BB CheckContent
+
+ME ME_47DF9FFF02B7
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D8DCA02F6' '467823B7002C.ms.model.script' // TafwPreviewContentKind
+ ;
+
+ENDME // ME_47DF9FFF02B7 aKind
+
+ME ME_47DF9FFF02E7
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_47DF9FFF02E7 aValue
+
+ME ME_47DF9FF70289
+ MEPROP UID '47DF9FF70289'
+ MEPROP Name 'SetContent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DF9FFF02B7 // aKind
+ ME_47DF9FFF02E7 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_47DF9FF70289 SetContent
+
+ME ME_47DFA17602B6
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_47DFA17602B6 aDocument
+
+ME ME_47DFA17602E6
+ MEPROP Name 'anInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_47DFA17602E6 anInfo
+
+ME ME_47DFA16D038D
+ MEPROP UID '47DFA16D038D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DFA17602B6 // aDocument
+ ME_47DFA17602E6 // anInfo
+ )
+ ; // Parameters
+
+ENDME // ME_47DFA16D038D Create
+
+ME ME_47DFA18E0272
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_47DFA18E0272 aDocument
+
+ME ME_47DFA18E02A6
+ MEPROP Name 'anInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_47DFA18E02A6 anInfo
+
+ME ME_47DFA18402C3
+ MEPROP UID '47DFA18402C3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target WL 'ME_473D8DF50230' '467823B7002C.ms.model.script' // IafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DFA18E0272 // aDocument
+ ME_47DFA18E02A6 // anInfo
+ )
+ ; // Parameters
+
+ENDME // ME_47DFA18402C3 Make
+
+ME ME_47DFADB60151
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47DFADB60151 
+
+ME ME_47DFAFA8008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target WL 'ME_4799D40F0004' '4799D37F0203.ms.model.script' // Tl3Printer
+ ;
+
+ENDME // ME_47DFAFA8008D 
+
+ME ME_47DFB0E303A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_47DFB0E303A3 
+
+ME ME_473D8BEE007B_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8BEE007B' '467823B7002C.ms.model.script' // ContentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8BEE007B_ME_47DF8F0402F7 ContentChanged
+
+ME ME_473D8C450198_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8C450198' '467823B7002C.ms.model.script' // DocumentName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C450198_ME_47DF8F0402F7 DocumentName
+
+ME ME_473D8C5C0187_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8C5C0187' '467823B7002C.ms.model.script' // InProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C5C0187_ME_47DF8F0402F7 InProcess
+
+ME ME_473D8C6C0266_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8C6C0266' '467823B7002C.ms.model.script' // InPagesCounting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C6C0266_ME_47DF8F0402F7 InPagesCounting
+
+ME ME_473D8C7C01B5_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8C7C01B5' '467823B7002C.ms.model.script' // InUpdate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C7C01B5_ME_47DF8F0402F7 InUpdate
+
+ME ME_473D8C90022C_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8C90022C' '467823B7002C.ms.model.script' // InPrinting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C90022C_ME_47DF8F0402F7 InPrinting
+
+ME ME_473D8CA002D9_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8CA002D9' '467823B7002C.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CA002D9_ME_47DF8F0402F7 Update
+
+ME ME_473D8CAF028B_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8CAF028B' '467823B7002C.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CAF028B_ME_47DF8F0402F7 Print
+
+ME ME_473D8CE9007C_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8CE9007C' '467823B7002C.ms.model.script' // Stop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CE9007C_ME_47DF8F0402F7 Stop
+
+ME ME_473D8CF80037_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8CF80037' '467823B7002C.ms.model.script' // Stopped
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CF80037_ME_47DF8F0402F7 Stopped
+
+ME ME_473D8D0A01D7_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D0A01D7' '467823B7002C.ms.model.script' // CloseRequested
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D0A01D7_ME_47DF8F0402F7 CloseRequested
+
+ME ME_473D8D1E01B8_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D1E01B8' '467823B7002C.ms.model.script' // PreviewResetting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D1E01B8_ME_47DF8F0402F7 PreviewResetting
+
+ME ME_473D8D3800B1_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D3800B1' '467823B7002C.ms.model.script' // SetCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D3800B1_ME_47DF8F0402F7 SetCurrentPage
+
+ME ME_473D8D4A019D_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D4A019D' '467823B7002C.ms.model.script' // SetCurrentPagePara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D4A019D_ME_47DF8F0402F7 SetCurrentPagePara
+
+ME ME_473D8D5D032B_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D5D032B' '467823B7002C.ms.model.script' // SetCurrentPageNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D5D032B_ME_47DF8F0402F7 SetCurrentPageNumber
+
+ME ME_473D8D72010F_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D72010F' '467823B7002C.ms.model.script' // CurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D72010F_ME_47DF8F0402F7 CurrentPage
+
+ME ME_473D8D830163_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D830163' '467823B7002C.ms.model.script' // HasCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D830163_ME_47DF8F0402F7 HasCurrentPage
+
+ME ME_473D8D9500C9_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8D9500C9' '467823B7002C.ms.model.script' // Printer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_473D8D9500C9_ME_47DF8F0402F7 Printer
+
+ME ME_473D8DB10141_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8DB10141' '467823B7002C.ms.model.script' // HasText
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_473D8DB10141_ME_47DF8F0402F7 HasText
+
+ME ME_473D8E0C01B0_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E0C01B0' '467823B7002C.ms.model.script' // ContentKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_473D8E0C01B0_ME_47DF8F0402F7 ContentKind
+
+ME ME_473D8E3003B1_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E3003B1' '467823B7002C.ms.model.script' // Current
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8E3003B1_ME_47DF8F0402F7 Current
+
+ME ME_473D8E3D007A_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E3D007A' '467823B7002C.ms.model.script' // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8E3D007A_ME_47DF8F0402F7 Document
+
+ME ME_473D8E480102_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E480102' '467823B7002C.ms.model.script' // SetDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8E480102_ME_47DF8F0402F7 SetDocument
+
+ME ME_473D8E540132_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E540132' '467823B7002C.ms.model.script' // Selection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8E540132_ME_47DF8F0402F7 Selection
+
+ME ME_473D8E5F03B8_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E5F03B8' '467823B7002C.ms.model.script' // SetSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8E5F03B8_ME_47DF8F0402F7 SetSelection
+
+ME ME_473D8E6A0314_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E6A0314' '467823B7002C.ms.model.script' // Info
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8E6A0314_ME_47DF8F0402F7 Info
+
+ME ME_473D8E750356_ME_47DF8F0402F7
+ MELINK Original WL 'ME_473D8E750356' '467823B7002C.ms.model.script' // SetInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8E750356_ME_47DF8F0402F7 SetInfo
+
+ME ME_475E827F01CB_ME_47DF8F0402F7
+ MELINK Original WL 'ME_475E827F01CB' '467823B7002C.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_475E827F01CB_ME_47DF8F0402F7 Subscribe
+
+ME ME_475E828B0231_ME_47DF8F0402F7
+ MELINK Original WL 'ME_475E828B0231' '467823B7002C.ms.model.script' // UnSubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_475E828B0231_ME_47DF8F0402F7 UnSubscribe
+
+ME ME_4CC6A6FF0362_ME_47DF8F0402F7
+ MELINK Original WL 'ME_4CC6A6FF0362' '467823B7002C.ms.model.script' // PagesInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4CC6A6FF0362_ME_47DF8F0402F7 PagesInfo
+
+ME ME_479731C50290_ME_47DF8F0402F7
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47DF8F0402F7 Cleanup
+
+ME ME_4A60B23E00C3_ME_47DF8F0402F7
+ MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A60B23E00C3_ME_47DF8F0402F7 COMQueryInterface
+
+ME ME_47DF8F0402F7
+ MEPROP UID '47DF8F0402F7'
+ MEPROP Name 'TafwComplexDocumentPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предварительный просмотр печати составного документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ WL 'ME_473D8BE101DA' '467823B7002C.ms.model.script' // IafwPreviewNotifier
+ WL 'ME_473D8DF50230' '467823B7002C.ms.model.script' // IafwComplexDocumentPreview
+ WL 'ME_475E823D0144' '467823B7002C.ms.model.script' // IafwPreviewNotificationSource
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47DF9D5801E0 // f_ContentKind
+ HWL ME_47DF9D630200 // f_Printer
+ HWL ME_47DF9D42003C // f_Previews
+ HWL ME_47ED1B3F0170 // f_PreviewSubscribers
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47DF9F2202FB // CheckPrinter
+ HWL ME_47DF9F4000BB // CheckContent
+ HWL ME_47DF9FF70289 // SetContent
+ HWL ME_47DFA16D038D // Create
+ HWL ME_47DFA18402C3 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473D8BEE007B_ME_47DF8F0402F7 // ContentChanged
+ ME_473D8C450198_ME_47DF8F0402F7 // DocumentName
+ ME_473D8C5C0187_ME_47DF8F0402F7 // InProcess
+ ME_473D8C6C0266_ME_47DF8F0402F7 // InPagesCounting
+ ME_473D8C7C01B5_ME_47DF8F0402F7 // InUpdate
+ ME_473D8C90022C_ME_47DF8F0402F7 // InPrinting
+ ME_473D8CA002D9_ME_47DF8F0402F7 // Update
+ ME_473D8CAF028B_ME_47DF8F0402F7 // Print
+ ME_473D8CE9007C_ME_47DF8F0402F7 // Stop
+ ME_473D8CF80037_ME_47DF8F0402F7 // Stopped
+ ME_473D8D0A01D7_ME_47DF8F0402F7 // CloseRequested
+ ME_473D8D1E01B8_ME_47DF8F0402F7 // PreviewResetting
+ ME_473D8D3800B1_ME_47DF8F0402F7 // SetCurrentPage
+ ME_473D8D4A019D_ME_47DF8F0402F7 // SetCurrentPagePara
+ ME_473D8D5D032B_ME_47DF8F0402F7 // SetCurrentPageNumber
+ ME_473D8D72010F_ME_47DF8F0402F7 // CurrentPage
+ ME_473D8D830163_ME_47DF8F0402F7 // HasCurrentPage
+ ME_473D8D9500C9_ME_47DF8F0402F7 // Printer
+ ME_473D8DB10141_ME_47DF8F0402F7 // HasText
+ ME_473D8E0C01B0_ME_47DF8F0402F7 // ContentKind
+ ME_473D8E3003B1_ME_47DF8F0402F7 // Current
+ ME_473D8E3D007A_ME_47DF8F0402F7 // Document
+ ME_473D8E480102_ME_47DF8F0402F7 // SetDocument
+ ME_473D8E540132_ME_47DF8F0402F7 // Selection
+ ME_473D8E5F03B8_ME_47DF8F0402F7 // SetSelection
+ ME_473D8E6A0314_ME_47DF8F0402F7 // Info
+ ME_473D8E750356_ME_47DF8F0402F7 // SetInfo
+ ME_475E827F01CB_ME_47DF8F0402F7 // Subscribe
+ ME_475E828B0231_ME_47DF8F0402F7 // UnSubscribe
+ ME_4CC6A6FF0362_ME_47DF8F0402F7 // PagesInfo
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47DF8F0402F7 // Cleanup
+ ME_4A60B23E00C3_ME_47DF8F0402F7 // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47DF9CB7003E // TafwDocumentPreviewArray
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47DFADB60151 // SysUtils
+ ME_47DFAFA8008D // Tl3Printer
+ ME_47DFB0E303A3 // l3Base
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.12.2004 19:44'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreview.pas'
+ UP extprop:rc:SelfName 'afwComplexDocumentPreview'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwComplexDocumentPreview'
+
+ENDME // ME_47DF8F0402F7 TafwComplexDocumentPreview
+
+FORWARD ME_47DF8C5E01AB
+
+FORWARD ME_47DF8FEF0327
+
+ME ME_47DF902B0299
+ MEPROP UID '47DF902B0299'
+ MEPROP Name 'f_Factory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47DF8FEF0327 // TafwCachedComplexDocumentPreview
+ ;
+ MELINK Target HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+
+ENDME // ME_47DF902B0299 f_Factory
+
+ME ME_47DF906401C5
+ MEPROP Name 'aFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+
+ENDME // ME_47DF906401C5 aFactory
+
+ME ME_47DF90540311
+ MEPROP UID '47DF90540311'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8FEF0327 // TafwCachedComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DF906401C5 // aFactory
+ )
+ ; // Parameters
+
+ENDME // ME_47DF90540311 Create
+
+ME ME_479731C50290_ME_47DF8FEF0327
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47DF8FEF0327 Cleanup
+
+ME ME_47DF8FEF0327
+ MEPROP UID '47DF8FEF0327'
+ MEPROP Name 'TafwCachedComplexDocumentPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47DF902B0299 // f_Factory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47DF90540311 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47DF8FEF0327 // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'afwCachedComplexDocumentPreview'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47DF8FEF0327 TafwCachedComplexDocumentPreview
+
+ME ME_47DF8CCD0197
+ MEPROP UID '47DF8CCD0197'
+ MEPROP Name 'f_Previews'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_4773DBBD000D' '47913B47006E.ms.model.script' // Tl3ObjectList
+ ;
+
+ENDME // ME_47DF8CCD0197 f_Previews
+
+ME ME_47DF8CDC0015
+ MEPROP UID '47DF8CDC0015'
+ MEPROP Name 'f_Printer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_47DF8CDC0015 f_Printer
+
+ME ME_47DF8D220142
+ MEPROP UID '47DF8D220142'
+ MEPROP Name 'MakeI'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_473D8E9D026D' '467823B7002C.ms.model.script' // IafwComplexDocumentPreviewFactory
+ ;
+
+ENDME // ME_47DF8D220142 MakeI
+
+ME ME_47DF976600CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_4799D40F0004' '4799D37F0203.ms.model.script' // Tl3Printer
+ ;
+
+ENDME // ME_47DF976600CE 
+
+ME ME_47DF993B03B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47DF993B03B6 
+
+ME ME_47DF9AC002A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_479F1E0803A0' '479F1DEA0057.ms.model.script' // Errors
+ ;
+
+ENDME // ME_47DF9AC002A8 
+
+ME ME_473D8EAF022D_ME_47DF8C5E01AB
+ MELINK Original WL 'ME_473D8EAF022D' '467823B7002C.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8EAF022D_ME_47DF8C5E01AB Make
+
+ME ME_473D8EBB0035_ME_47DF8C5E01AB
+ MELINK Original WL 'ME_473D8EBB0035' '467823B7002C.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8EBB0035_ME_47DF8C5E01AB Count
+
+ME ME_473D8ECB001A_ME_47DF8C5E01AB
+ MELINK Original WL 'ME_473D8ECB001A' '467823B7002C.ms.model.script' // ResetCache
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8ECB001A_ME_47DF8C5E01AB ResetCache
+
+ME ME_473D8ED80268_ME_47DF8C5E01AB
+ MELINK Original WL 'ME_473D8ED80268' '467823B7002C.ms.model.script' // Item
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_473D8ED80268_ME_47DF8C5E01AB Item
+
+ME ME_479731C50290_ME_47DF8C5E01AB
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47DF8C5E01AB Cleanup
+
+ME ME_47DF8C5E01AB
+ MEPROP UID '47DF8C5E01AB'
+ MEPROP Name 'TafwComplexDocumentPreviewFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика Предварительный просмотр печати с кэшем.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_473D8E9D026D' '467823B7002C.ms.model.script' // IafwComplexDocumentPreviewFactory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47DF8CCD0197 // f_Previews
+ HWL ME_47DF8CDC0015 // f_Printer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47DF8D220142 // MakeI
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473D8EAF022D_ME_47DF8C5E01AB // Make
+ ME_473D8EBB0035_ME_47DF8C5E01AB // Count
+ ME_473D8ECB001A_ME_47DF8C5E01AB // ResetCache
+ ME_473D8ED80268_ME_47DF8C5E01AB // Item
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47DF8C5E01AB // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47DF8FEF0327 // TafwCachedComplexDocumentPreview
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47DF976600CE // Tl3Printer
+ ME_47DF993B03B6 // SysUtils
+ ME_47DF9AC002A8 // Errors
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '07.12.2006 13:10'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreviewFactory.pas'
+ UP extprop:rc:SelfName 'afwComplexDocumentPreviewFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwComplexDocumentPreviewFactory'
+
+ENDME // ME_47DF8C5E01AB TafwComplexDocumentPreviewFactory
+
+FORWARD ME_474145DE010F
+
+FORWARD ME_47DFBC4F02AD
+
+ME ME_47DFBC7101F4
+ MEPROP Name 'anObjectID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFBC7101F4 anObjectID
+
+ME ME_47DFBC640050
+ MEPROP UID '47DFBC640050'
+ MEPROP Name 'GetPageByObject'
+ MEPROP Class class_Operation
+ %SUMMARY 'страница по смещению с начала.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DFBC4F02AD // TnevPages
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DFBC7101F4 // anObjectID
+ )
+ ; // Parameters
+
+ENDME // ME_47DFBC640050 GetPageByObject
+
+ME ME_47DFBC9B01B8
+ MEPROP Name 'aParaID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFBC9B01B8 aParaID
+
+ME ME_47DFBC9B01D4
+ MEPROP Name 'aPageNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFBC9B01D4 aPageNumber
+
+ME ME_47DFBC7C0208
+ MEPROP UID '47DFBC7C0208'
+ MEPROP Name 'AddParaOnPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DFBC4F02AD // TnevPages
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DFBC9B01B8 // aParaID
+ ME_47DFBC9B01D4 // aPageNumber
+ )
+ ; // Parameters
+
+ENDME // ME_47DFBC7C0208 AddParaOnPage
+
+ME ME_47DFBC4F02AD
+ MEPROP UID '47DFBC4F02AD'
+ MEPROP Name 'TnevPages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BDA81C0188' '47913B47006E.ms.model.script' // Tl3BaseWithLargeIDList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47DFBC640050 // GetPageByObject
+ HWL ME_47DFBC7C0208 // AddParaOnPage
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Pages'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47DFBC4F02AD TnevPages
+
+FORWARD ME_47DFBCA70343
+
+ME ME_47DFBCC3004C
+ MEPROP UID '47DFBCC3004C'
+ MEPROP Name 'rPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DFBCA70343 // TafwLastPage
+ ;
+ MELINK Target WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ ;
+
+ENDME // ME_47DFBCC3004C rPage
+
+ME ME_47DFBCCC0386
+ MEPROP UID '47DFBCCC0386'
+ MEPROP Name 'rX'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DFBCA70343 // TafwLastPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFBCCC0386 rX
+
+ME ME_47DFBCD40363
+ MEPROP UID '47DFBCD40363'
+ MEPROP Name 'rY'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DFBCA70343 // TafwLastPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFBCD40363 rY
+
+ME ME_47DFBCA70343
+ MEPROP UID '47DFBCA70343'
+ MEPROP Name 'TafwLastPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47DFBCC3004C // rPage
+ HWL ME_47DFBCCC0386 // rX
+ HWL ME_47DFBCD40363 // rY
+ )
+ ; // Attributes
+
+ENDME // ME_47DFBCA70343 TafwLastPage
+
+FORWARD ME_47DFC50B03AF
+
+ME ME_47DFC53B0243
+ MEPROP UID '47DFC53B0243'
+ MEPROP Name 'f_PageNumber'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DFC50B03AF // TnevPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFC53B0243 f_PageNumber
+
+ME ME_47DFC54A03CE
+ MEPROP Name 'aParaID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFC54A03CE aParaID
+
+ME ME_47DFC54B0004
+ MEPROP Name 'aPageNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47DFC54B0004 aPageNumber
+
+ME ME_47DFC54203DC
+ MEPROP UID '47DFC54203DC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DFC50B03AF // TnevPage
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DFC54A03CE // aParaID
+ ME_47DFC54B0004 // aPageNumber
+ )
+ ; // Parameters
+
+ENDME // ME_47DFC54203DC Create
+
+ME ME_47DFC50B03AF
+ MEPROP UID '47DFC50B03AF'
+ MEPROP Name 'TnevPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BD85FA015F' '47913B47006E.ms.model.script' // Tl3BaseWithID
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47DFC53B0243 // f_PageNumber
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47DFC54203DC // Create
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Page'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47DFC50B03AF TnevPage
+
+ME ME_47DFBD1F03A5
+ MEPROP UID '47DFBD1F03A5'
+ MEPROP Name 'f_IsPageCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47DFBD1F03A5 f_IsPageCounter
+
+ME ME_47E10DB9012A
+ MEPROP UID '47E10DB9012A'
+ MEPROP Name 'f_PagesList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target HWL ME_47E107E20191 // TafwPreviewPageList
+ ;
+
+ENDME // ME_47E10DB9012A f_PagesList
+
+ME ME_4CC6985400B9
+ MEPROP UID '4CC6985400B9'
+ MEPROP Name 'f_PagesInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target WL 'ME_4CC6A3D403D7' '467823B7002C.ms.model.script' // TafwPagesInfo
+ ;
+
+ENDME // ME_4CC6985400B9 f_PagesInfo
+
+ME ME_4CC6996B0311
+ MEPROP UID '4CC6996B0311'
+ MEPROP Name 'f_Pages'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target HWL ME_47DFBC4F02AD // TnevPages
+ ;
+
+ENDME // ME_4CC6996B0311 f_Pages
+
+ME ME_4CC6998E032E
+ MEPROP UID '4CC6998E032E'
+ MEPROP Name 'f_LastPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target HWL ME_47DFBCA70343 // TafwLastPage
+ ;
+
+ENDME // ME_4CC6998E032E f_LastPage
+
+ME ME_4CC69C5C038C
+ MEPROP UID '4CC69C5C038C'
+ MEPROP Name 'f_PreviewPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ ;
+
+ENDME // ME_4CC69C5C038C f_PreviewPage
+
+FORWARD ME_4CC69872038E
+
+ME ME_4CC69891039D
+ MEPROP Name 'aPrinter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_4CC69891039D aPrinter
+
+ME ME_4CC6989103B7
+ MEPROP Name 'aIsPageCounter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CC6989103B7 aIsPageCounter
+
+ME ME_4CC6AAC202DF
+ MEPROP Name 'aPagesInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CC6A3D403D7' '467823B7002C.ms.model.script' // TafwPagesInfo
+ ;
+
+ENDME // ME_4CC6AAC202DF aPagesInfo
+
+ME ME_4CC6987C0227
+ MEPROP UID '4CC6987C0227'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC69872038E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC69891039D // aPrinter
+ ME_4CC6989103B7 // aIsPageCounter
+ ME_4CC6AAC202DF // aPagesInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4CC6987C0227 Create
+
+ME ME_4CC69872038E
+ MEPROP UID '4CC69872038E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC6987C0227 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CC69872038E Create
+
+ME ME_47DFD05102BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47DFD05102BC 
+
+ME ME_47DFD09D00AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_47DFD09D00AB 
+
+ME ME_47DFD0E002F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_474145DE010F // TafwPreviewCanvas
+ ;
+ MELINK Target HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+
+ENDME // ME_47DFD0E002F8 
+
+ME ME_473C51D1005A_ME_474145DE010F
+ MELINK Original WL 'ME_473C51D1005A' '467823B7002C.ms.model.script' // IsMonochrome
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C51D1005A_ME_474145DE010F IsMonochrome
+
+ME ME_473C51EB02CE_ME_474145DE010F
+ MELINK Original WL 'ME_473C51EB02CE' '467823B7002C.ms.model.script' // GetPagesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C51EB02CE_ME_474145DE010F GetPagesCount
+
+ME ME_473C52100001_ME_474145DE010F
+ MELINK Original WL 'ME_473C52100001' '467823B7002C.ms.model.script' // GetPagesWidthCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C52100001_ME_474145DE010F GetPagesWidthCount
+
+ME ME_473C52270357_ME_474145DE010F
+ MELINK Original WL 'ME_473C52270357' '467823B7002C.ms.model.script' // GetPageByObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C52270357_ME_474145DE010F GetPageByObject
+
+ME ME_473C524A00D6_ME_474145DE010F
+ MELINK Original WL 'ME_473C524A00D6' '467823B7002C.ms.model.script' // GetMMPageWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C524A00D6_ME_474145DE010F GetMMPageWidth
+
+ME ME_473C52670359_ME_474145DE010F
+ MELINK Original WL 'ME_473C52670359' '467823B7002C.ms.model.script' // GetMMPageHeight
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C52670359_ME_474145DE010F GetMMPageHeight
+
+ME ME_473C5285001D_ME_474145DE010F
+ MELINK Original WL 'ME_473C5285001D' '467823B7002C.ms.model.script' // DrawTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C5285001D_ME_474145DE010F DrawTo
+
+ME ME_473C583A0276_ME_474145DE010F
+ MELINK Original WL 'ME_473C583A0276' '467823B7002C.ms.model.script' // GetIntervalPages
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C583A0276_ME_474145DE010F GetIntervalPages
+
+ME ME_473C60A402D8_ME_474145DE010F
+ MELINK Original WL 'ME_473C60A402D8' '467823B7002C.ms.model.script' // Drop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C60A402D8_ME_474145DE010F Drop
+
+ME ME_473C60BA033E_ME_474145DE010F
+ MELINK Original WL 'ME_473C60BA033E' '467823B7002C.ms.model.script' // IsPagesCounter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C60BA033E_ME_474145DE010F IsPagesCounter
+
+ME ME_473C60F60236_ME_474145DE010F
+ MELINK Original WL 'ME_473C60F60236' '467823B7002C.ms.model.script' // PreviewPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473C60F60236_ME_474145DE010F PreviewPage
+
+ME ME_4CC697810106_ME_474145DE010F
+ MELINK Original WL 'ME_4CC697810106' '467823B7002C.ms.model.script' // PagesInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4CC697810106_ME_474145DE010F PagesInfo
+
+ME ME_479731C50290_ME_474145DE010F
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_474145DE010F Cleanup
+
+ME ME_47DFCAAF0249_ME_474145DE010F
+ MELINK Original WL 'ME_47DFCAAF0249' '473C3BEE0334.ms.model.script' // FillRectPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47DFCAAF0249_ME_474145DE010F FillRectPrim
+
+ME ME_47DFCAEE0007_ME_474145DE010F
+ MELINK Original WL 'ME_47DFCAEE0007' '473C3BEE0334.ms.model.script' // DoFillForeRect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47DFCAEE0007_ME_474145DE010F DoFillForeRect
+
+ME ME_4A4CC195011E_ME_474145DE010F
+ MELINK Original WL 'ME_4A4CC195011E' '473C3BEE0334.ms.model.script' // DoGetDrawEnabled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A4CC195011E_ME_474145DE010F DoGetDrawEnabled
+
+ME ME_4CB32D4C030E_ME_474145DE010F
+ MELINK Original WL 'ME_4CB32D4C030E' '473C3BEE0334.ms.model.script' // GetIsPagesCounter
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CB32D4C030E_ME_474145DE010F GetIsPagesCounter
+
+ME ME_56B0B9790320_ME_474145DE010F
+ MELINK Original WL 'ME_56B0B9790320' '473C3BEE0334.ms.model.script' // IsPreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B0B9790320_ME_474145DE010F IsPreview
+
+ME ME_56B4B5EF019F_ME_474145DE010F
+ MELINK Original WL 'ME_56B4B5EF019F' '473C3BEE0334.ms.model.script' // StartPage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4B5EF019F_ME_474145DE010F StartPage
+
+ME ME_56B4BABD03A2_ME_474145DE010F
+ MELINK Original WL 'ME_56B4BABD03A2' '473C3BEE0334.ms.model.script' // DoStartObject
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4BABD03A2_ME_474145DE010F DoStartObject
+
+ME ME_56B4BBCF00D5_ME_474145DE010F
+ MELINK Original WL 'ME_56B4BBCF00D5' '473C3BEE0334.ms.model.script' // DoSetPageTop
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4BBCF00D5_ME_474145DE010F DoSetPageTop
+
+ME ME_56B4BDA30301_ME_474145DE010F
+ MELINK Original WL 'ME_56B4BDA30301' '473C3BEE0334.ms.model.script' // DoEndPaint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4BDA30301_ME_474145DE010F DoEndPaint
+
+ME ME_474145DE010F
+ MEPROP UID '474145DE010F'
+ MEPROP Name 'TafwPreviewCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация канвы для печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_473C51AC0260' '467823B7002C.ms.model.script' // IafwPreviewCanvas
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47DFBD1F03A5 // f_IsPageCounter
+ HWL ME_47E10DB9012A // f_PagesList
+ HWL ME_4CC6985400B9 // f_PagesInfo
+ HWL ME_4CC6996B0311 // f_Pages
+ HWL ME_4CC6998E032E // f_LastPage
+ HWL ME_4CC69C5C038C // f_PreviewPage
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC69872038E // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473C51D1005A_ME_474145DE010F // IsMonochrome
+ ME_473C51EB02CE_ME_474145DE010F // GetPagesCount
+ ME_473C52100001_ME_474145DE010F // GetPagesWidthCount
+ ME_473C52270357_ME_474145DE010F // GetPageByObject
+ ME_473C524A00D6_ME_474145DE010F // GetMMPageWidth
+ ME_473C52670359_ME_474145DE010F // GetMMPageHeight
+ ME_473C5285001D_ME_474145DE010F // DrawTo
+ ME_473C583A0276_ME_474145DE010F // GetIntervalPages
+ ME_473C60A402D8_ME_474145DE010F // Drop
+ ME_473C60BA033E_ME_474145DE010F // IsPagesCounter
+ ME_473C60F60236_ME_474145DE010F // PreviewPage
+ ME_4CC697810106_ME_474145DE010F // PagesInfo
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_474145DE010F // Cleanup
+ ME_47DFCAAF0249_ME_474145DE010F // FillRectPrim
+ ME_47DFCAEE0007_ME_474145DE010F // DoFillForeRect
+ ME_4A4CC195011E_ME_474145DE010F // DoGetDrawEnabled
+ ME_4CB32D4C030E_ME_474145DE010F // GetIsPagesCounter
+ ME_56B0B9790320_ME_474145DE010F // IsPreview
+ ME_56B4B5EF019F_ME_474145DE010F // StartPage
+ ME_56B4BABD03A2_ME_474145DE010F // DoStartObject
+ ME_56B4BBCF00D5_ME_474145DE010F // DoSetPageTop
+ ME_56B4BDA30301_ME_474145DE010F // DoEndPaint
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47DFBC4F02AD // TnevPages
+ HWL ME_47DFBCA70343 // TafwLastPage
+ HWL ME_47DFC50B03AF // TnevPage
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47DFD05102BC // SysUtils
+ ME_47DFD09D00AB // Tafw
+ ME_47DFD0E002F8 // TafwPreviewPage
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '05.10.2004 16:15'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwPreviewCanvas.pas'
+ UP extprop:rc:SelfName 'afwPreviewCanvas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwPreviewCanvas'
+
+ENDME // ME_474145DE010F TafwPreviewCanvas
+
+FORWARD ME_480DE55C0315
+
+ME ME_480DE5BF01E4
+ MEPROP UID '480DE5BF01E4'
+ MEPROP Name 'f_Docs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_47E2661C0224' '47764CED0308.ms.model.script' // TafwDocumentPreviewList
+ ;
+
+ENDME // ME_480DE5BF01E4 f_Docs
+
+ME ME_480DE5E300CD
+ MEPROP UID '480DE5E300CD'
+ MEPROP Name 'f_Printer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_480DE5E300CD f_Printer
+
+ME ME_480DE6060036
+ MEPROP UID '480DE6060036'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'создает экземпляр класса в виде интерфейса IafwMultiDocumentPreview.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_47F9FD13007A' '467823B7002C.ms.model.script' // IafwMultiDocumentPreview
+ ;
+
+ENDME // ME_480DE6060036 Make
+
+ME ME_480DE6420179
+ MEPROP UID '480DE6420179'
+ MEPROP Name 'GetDocumentName'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_4683C9110178' '467823B7002C.ms.model.script' // IafwCString
+ ;
+
+ENDME // ME_480DE6420179 GetDocumentName
+
+ME ME_480DE96B03A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_4799D40F0004' '4799D37F0203.ms.model.script' // Tl3Printer
+ ;
+
+ENDME // ME_480DE96B03A8 
+
+ME ME_480DEA6400C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_480DEA6400C0 
+
+ME ME_473D8C450198_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8C450198' '467823B7002C.ms.model.script' // DocumentName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C450198_ME_480DE55C0315 DocumentName
+
+ME ME_473D8C5C0187_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8C5C0187' '467823B7002C.ms.model.script' // InProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C5C0187_ME_480DE55C0315 InProcess
+
+ME ME_473D8C6C0266_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8C6C0266' '467823B7002C.ms.model.script' // InPagesCounting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C6C0266_ME_480DE55C0315 InPagesCounting
+
+ME ME_473D8C7C01B5_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8C7C01B5' '467823B7002C.ms.model.script' // InUpdate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C7C01B5_ME_480DE55C0315 InUpdate
+
+ME ME_473D8C90022C_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8C90022C' '467823B7002C.ms.model.script' // InPrinting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8C90022C_ME_480DE55C0315 InPrinting
+
+ME ME_473D8CA002D9_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8CA002D9' '467823B7002C.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CA002D9_ME_480DE55C0315 Update
+
+ME ME_473D8CAF028B_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8CAF028B' '467823B7002C.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CAF028B_ME_480DE55C0315 Print
+
+ME ME_473D8CE9007C_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8CE9007C' '467823B7002C.ms.model.script' // Stop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CE9007C_ME_480DE55C0315 Stop
+
+ME ME_473D8CF80037_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8CF80037' '467823B7002C.ms.model.script' // Stopped
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8CF80037_ME_480DE55C0315 Stopped
+
+ME ME_473D8D0A01D7_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D0A01D7' '467823B7002C.ms.model.script' // CloseRequested
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D0A01D7_ME_480DE55C0315 CloseRequested
+
+ME ME_473D8D1E01B8_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D1E01B8' '467823B7002C.ms.model.script' // PreviewResetting
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D1E01B8_ME_480DE55C0315 PreviewResetting
+
+ME ME_473D8D3800B1_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D3800B1' '467823B7002C.ms.model.script' // SetCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D3800B1_ME_480DE55C0315 SetCurrentPage
+
+ME ME_473D8D4A019D_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D4A019D' '467823B7002C.ms.model.script' // SetCurrentPagePara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D4A019D_ME_480DE55C0315 SetCurrentPagePara
+
+ME ME_473D8D5D032B_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D5D032B' '467823B7002C.ms.model.script' // SetCurrentPageNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D5D032B_ME_480DE55C0315 SetCurrentPageNumber
+
+ME ME_473D8D72010F_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D72010F' '467823B7002C.ms.model.script' // CurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D72010F_ME_480DE55C0315 CurrentPage
+
+ME ME_473D8D830163_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D830163' '467823B7002C.ms.model.script' // HasCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D8D830163_ME_480DE55C0315 HasCurrentPage
+
+ME ME_473D8D9500C9_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8D9500C9' '467823B7002C.ms.model.script' // Printer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_473D8D9500C9_ME_480DE55C0315 Printer
+
+ME ME_473D8DB10141_ME_480DE55C0315
+ MELINK Original WL 'ME_473D8DB10141' '467823B7002C.ms.model.script' // HasText
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_473D8DB10141_ME_480DE55C0315 HasText
+
+ME ME_47FB296803AD_ME_480DE55C0315
+ MELINK Original WL 'ME_47FB296803AD' '467823B7002C.ms.model.script' // AddDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FB296803AD_ME_480DE55C0315 AddDocument
+
+ME ME_48902EA0010E_ME_480DE55C0315
+ MELINK Original WL 'ME_48902EA0010E' '467823B7002C.ms.model.script' // DocCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_48902EA0010E_ME_480DE55C0315 DocCount
+
+ME ME_4CC6A6FF0362_ME_480DE55C0315
+ MELINK Original WL 'ME_4CC6A6FF0362' '467823B7002C.ms.model.script' // PagesInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4CC6A6FF0362_ME_480DE55C0315 PagesInfo
+
+ME ME_479731C50290_ME_480DE55C0315
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_480DE55C0315 Cleanup
+
+ME ME_480DE55C0315
+ MEPROP UID '480DE55C0315'
+ MEPROP Name 'TafwMultiDocumentPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ WL 'ME_47F9FD13007A' '467823B7002C.ms.model.script' // IafwMultiDocumentPreview
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_480DE5BF01E4 // f_Docs
+ HWL ME_480DE5E300CD // f_Printer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_480DE6060036 // Make
+ HWL ME_480DE6420179 // GetDocumentName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473D8C450198_ME_480DE55C0315 // DocumentName
+ ME_473D8C5C0187_ME_480DE55C0315 // InProcess
+ ME_473D8C6C0266_ME_480DE55C0315 // InPagesCounting
+ ME_473D8C7C01B5_ME_480DE55C0315 // InUpdate
+ ME_473D8C90022C_ME_480DE55C0315 // InPrinting
+ ME_473D8CA002D9_ME_480DE55C0315 // Update
+ ME_473D8CAF028B_ME_480DE55C0315 // Print
+ ME_473D8CE9007C_ME_480DE55C0315 // Stop
+ ME_473D8CF80037_ME_480DE55C0315 // Stopped
+ ME_473D8D0A01D7_ME_480DE55C0315 // CloseRequested
+ ME_473D8D1E01B8_ME_480DE55C0315 // PreviewResetting
+ ME_473D8D3800B1_ME_480DE55C0315 // SetCurrentPage
+ ME_473D8D4A019D_ME_480DE55C0315 // SetCurrentPagePara
+ ME_473D8D5D032B_ME_480DE55C0315 // SetCurrentPageNumber
+ ME_473D8D72010F_ME_480DE55C0315 // CurrentPage
+ ME_473D8D830163_ME_480DE55C0315 // HasCurrentPage
+ ME_473D8D9500C9_ME_480DE55C0315 // Printer
+ ME_473D8DB10141_ME_480DE55C0315 // HasText
+ ME_47FB296803AD_ME_480DE55C0315 // AddDocument
+ ME_48902EA0010E_ME_480DE55C0315 // DocCount
+ ME_4CC6A6FF0362_ME_480DE55C0315 // PagesInfo
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_480DE55C0315 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_480DE96B03A8 // Tl3Printer
+ ME_480DEA6400C0 // SysUtils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwMultiDocumentPreview.pas'
+ UP extprop:rc:SelfName 'afwMultiDocumentPreview'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwMultiDocumentPreview'
+
+ENDME // ME_480DE55C0315 TafwMultiDocumentPreview
+
+FORWARD ME_4CB6E3800078
+
+ME ME_4CB6E3BC01A0
+ MEPROP Name 'aPage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+
+ENDME // ME_4CB6E3BC01A0 aPage
+
+ME ME_4CB6E99C0229
+ MEPROP Name 'aCounter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CB6E99C0229 aCounter
+
+ME ME_4CB6E39A019E
+ MEPROP UID '4CB6E39A019E'
+ MEPROP Name 'LogPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E3BC01A0 // aPage
+ ME_4CB6E99C0229 // aCounter
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E39A019E LogPage
+
+ME ME_51ADB60602BB
+ MEPROP UID '51ADB60602BB'
+ MEPROP Name 'IncCounterPageNumer'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_51ADB60602BB IncCounterPageNumer
+
+ME ME_4CB6E3800078
+ MEPROP UID '4CB6E3800078'
+ MEPROP GUID '19361554-2DE2-4E58-B896-503677BDD13B'
+ MEPROP Name 'IafwPagesLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E39A019E // LogPage
+ HWL ME_51ADB60602BB // IncCounterPageNumer
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'afwPagesLogger'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CB6E3800078 IafwPagesLogger
+
+ME ME_4CB6E53B029A
+ MEPROP UID '4CB6E53B029A'
+ MEPROP Name 'f_Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELINK Target HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_4CB6E53B029A f_Logger
+
+FORWARD ME_4CB6E34302AD
+
+ME ME_4CB6E34D031B
+ MEPROP UID '4CB6E34D031B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E34302AD // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CB6E34D031B DoIt
+
+ME ME_4CB6E34302AD
+ MEPROP UID '4CB6E34302AD'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E34D031B // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4CB6E34302AD Exists
+
+FORWARD ME_4CB6E54D0386
+
+ME ME_4CB6E56302E0
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_4CB6E56302E0 aLogger
+
+ME ME_4CB6E55B02C7
+ MEPROP UID '4CB6E55B02C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E54D0386 // SetLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E56302E0 // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E55B02C7 DoIt
+
+ME ME_4CB6E54D0386
+ MEPROP UID '4CB6E54D0386'
+ MEPROP Name 'SetLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E55B02C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CB6E54D0386 SetLogger
+
+FORWARD ME_4CB6E5690252
+
+ME ME_4CB6E57601CA
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4CB6E3800078 // IafwPagesLogger
+ ;
+
+ENDME // ME_4CB6E57601CA aLogger
+
+ME ME_4CB6E575028E
+ MEPROP UID '4CB6E575028E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E5690252 // RemoveLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E57601CA // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E575028E DoIt
+
+ME ME_4CB6E5690252
+ MEPROP UID '4CB6E5690252'
+ MEPROP Name 'RemoveLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E575028E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CB6E5690252 RemoveLogger
+
+FORWARD ME_4CB6E596010B
+
+ME ME_4CB6E5AB00F4
+ MEPROP Name 'aPage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_474155B703C6 // TafwPreviewPage
+ ;
+
+ENDME // ME_4CB6E5AB00F4 aPage
+
+ME ME_4CB6E99603B7
+ MEPROP Name 'aCounter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CB6E99603B7 aCounter
+
+ME ME_4CB6E5A403BE
+ MEPROP UID '4CB6E5A403BE'
+ MEPROP Name 'LogPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6E596010B // LogPage
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6E5AB00F4 // aPage
+ ME_4CB6E99603B7 // aCounter
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6E5A403BE LogPage
+
+ME ME_4CB6E596010B
+ MEPROP UID '4CB6E596010B'
+ MEPROP Name 'LogPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E5A403BE // LogPage
+ )
+ ; // Operations
+
+ENDME // ME_4CB6E596010B LogPage
+
+FORWARD ME_51ADB624017D
+
+ME ME_51ADB639028C
+ MEPROP UID '51ADB639028C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51ADB624017D // IncCounterNumber
+ ;
+
+ENDME // ME_51ADB639028C DoIt
+
+ME ME_51ADB624017D
+ MEPROP UID '51ADB624017D'
+ MEPROP Name 'IncCounterNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51ADB639028C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51ADB624017D IncCounterNumber
+
+ME ME_4CB6DFDE0374
+ MEPROP UID '4CB6DFDE0374'
+ MEPROP Name 'TafwPreviewPageSpy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Следилка за TafwPreviewPage, для {RequestLink:235873282}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CB6E53B029A // f_Logger
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB6E34302AD // Exists
+ HWL ME_4CB6E54D0386 // SetLogger
+ HWL ME_4CB6E5690252 // RemoveLogger
+ HWL ME_4CB6E596010B // LogPage
+ HWL ME_51ADB624017D // IncCounterNumber
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4CB6E3800078 // IafwPagesLogger
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "ifdef" 'nsTest'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '14.10.2010 14:50'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas'
+ UP extprop:rc:SelfName 'afwPreviewPageSpy'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwPreviewPageSpy'
+
+ENDME // ME_4CB6DFDE0374 TafwPreviewPageSpy
+
+ME ME_4E2579780027
+ MEPROP UID '4E2579780027'
+ MEPROP Name 'afwDrawing'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_474144E20301 // Draw
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\NOT_FINISHED_afwDrawing.pas'
+
+ENDME // ME_4E2579780027 afwDrawing
+
+ME ME_474144E20301
+ MEPROP UID '474144E20301'
+ MEPROP Name 'Draw'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Классы для рисования/печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47E107E20191 // TafwPreviewPageList
+ HWL ME_47414C8700D5 // TafwCanvasEx
+ HWL ME_47414D0C018A // TafwMeasureCanvas
+ HWL ME_474154CE0081 // TafwVirtualCaret
+ HWL ME_474155B703C6 // TafwPreviewPage
+ HWL ME_47DF8F0402F7 // TafwComplexDocumentPreview
+ HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ HWL ME_474145DE010F // TafwPreviewCanvas
+ HWL ME_480DE55C0315 // TafwMultiDocumentPreview
+ HWL ME_4CB6DFDE0374 // TafwPreviewPageSpy
+ HWL ME_4E2579780027 // afwDrawing
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.ms.model.script' // l3InternalInterfaces
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ WL 'ME_473C569D0287' '473C569D0287.ms.model.script' // afwTypes
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47764CED0308' '47764CED0308.ms.model.script' // Standard
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4799D37F0203' '4799D37F0203.ms.model.script' // Print
+ WL 'ME_479F1DEA0057' '479F1DEA0057.ms.model.script' // RTLConsts
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_47E0C1C2014B' '47E0C1C2014B.ms.model.script' // l3Persistent
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+ UP "path prefix" '/implementation/Visual'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+
+ENDME // ME_474144E20301 Draw

@@ -1,0 +1,155 @@
+// TdsLeftEdition 4A717F9600F4 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A717F9600F4
+
+ME ME_4A80592701C6
+ MEPROP UID '4A80592701C6'
+ MEPROP Name 'f_OwnDocument'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Собственный документ предыдущей редакции. Чтобы правильно работала обработка гиперссылок' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A717F9600F4 // TdsLeftEdition
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4A80592701C6 f_OwnDocument
+
+ME ME_4A83D53600CD
+ MEPROP UID '4A83D53600CD'
+ MEPROP Name 'OriginalDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Документ из которого производится сравнение' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A717F9600F4 // TdsLeftEdition
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4A83D53600CD OriginalDocument
+
+ME ME_4A83E6D501B7
+ MEPROP UID '4A83E6D501B7'
+ MEPROP Name 'f_PrevEditions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A717F9600F4 // TdsLeftEdition
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_4A83E6D501B7 f_PrevEditions
+
+ME ME_4A805BC50021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A717F9600F4 // TdsLeftEdition
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4A805BC50021 
+
+ME ME_4A83E69403BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A717F9600F4 // TdsLeftEdition
+ ;
+ MELINK Target WL 'ME_492182D60225' '4908545802CA.ms.model.script' // TnsEditionsRoot
+ ;
+
+ENDME // ME_4A83E69403BE 
+
+ME ME_4A83D4CA00D0_ME_4A717F9600F4
+ MELINK Original WL 'ME_4A83D4CA00D0' '4A6D56B00065.ms.model.script' // PrevEditions
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A83D4CA00D0_ME_4A717F9600F4 PrevEditions
+
+ME ME_4A8443C30125_ME_4A717F9600F4
+ MELINK Original WL 'ME_4A8443C30125' '4A7188E40294.ms.model.script' // IsLeft
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A8443C30125_ME_4A717F9600F4 IsLeft
+
+ME ME_479731C50290_ME_4A717F9600F4
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A717F9600F4 Cleanup
+
+ME ME_4A80573D03A7_ME_4A717F9600F4
+ MELINK Original WL 'ME_4A80573D03A7' '4A7188E40294.ms.model.script' // DoGetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A80573D03A7_ME_4A717F9600F4 DoGetDocument
+
+ME ME_4A8426C0002A_ME_4A717F9600F4
+ MELINK Original WL 'ME_4A8426C0002A' '4A7188E40294.ms.model.script' // SignalEditionChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8426C0002A_ME_4A717F9600F4 SignalEditionChanged
+
+ME ME_4A717F9600F4
+ MEPROP UID '4A717F9600F4'
+ MEPROP Name 'TdsLeftEdition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предыдущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A717F3D0221' '4A717F3D0221.ms.model.script' // Editions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7188E40294' '4A7188E40294.ms.model.script' // dsEditionDiff
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A6D57560240' '4A6D56B00065.ms.model.script' // IdsLeftEdition
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A80592701C6 // f_OwnDocument
+ HWL ME_4A83D53600CD // OriginalDocument
+ HWL ME_4A83E6D501B7 // f_PrevEditions
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A83D4CA00D0_ME_4A717F9600F4 // PrevEditions
+ ME_4A8443C30125_ME_4A717F9600F4 // IsLeft
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A717F9600F4 // Cleanup
+ ME_4A80573D03A7_ME_4A717F9600F4 // DoGetDocument
+ ME_4A8426C0002A_ME_4A717F9600F4 // SignalEditionChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A805BC50021 // DataAdapter
+ ME_4A83E69403BE // TnsEditionsRoot
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '30.07.2009 15:52'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\dsLeftEdition.pas'
+ UP extprop:rc:SelfName 'dsLeftEdition'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsLeftEdition'
+
+ENDME // ME_4A717F9600F4 TdsLeftEdition

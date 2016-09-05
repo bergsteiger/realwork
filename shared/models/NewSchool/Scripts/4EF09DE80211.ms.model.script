@@ -1,0 +1,54 @@
+// Поддержка формул 4EF09DE80211 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF09DE80211
+
+FORWARD ME_4EF09E0D007E
+
+ME ME_4EF09E25025C
+ MEPROP UID '4EF09E25025C'
+ MEPROP Name 'При рендеренге должен учитываться Zoom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EF09E0D007E // Рендеринг формул в PNG
+ ;
+
+ENDME // ME_4EF09E25025C При рендеренге должен учитываться Zoom
+
+ME ME_4EF09E0D007E
+ MEPROP UID '4EF09E0D007E'
+ MEPROP Name 'Рендеринг формул в PNG'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EF09DE80211 // Поддержка формул
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EF09E25025C // При рендеренге должен учитываться Zoom
+ )
+ ; // Children
+
+ENDME // ME_4EF09E0D007E Рендеринг формул в PNG
+
+ME ME_4EF09DE80211
+ MEPROP UID '4EF09DE80211'
+ MEPROP Name 'Поддержка формул'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4EF09DD80155' '4EF09DD80155.ms.model.script' // Требования
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EF09E0D007E // Рендеринг формул в PNG
+ )
+ ; // Children
+
+ENDME // ME_4EF09DE80211 Поддержка формул

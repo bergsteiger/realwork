@@ -1,0 +1,249 @@
+// Text 4A853E260311 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A853E260311
+
+ME ME_4DF1F6B3027A
+ MEPROP UID '4DF1F6B3027A'
+ MEPROP Name 'Settings'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A853E260311 // Text
+ ;
+ MELINK Target WL 'ME_473D9EF10387' '467823B7002C.ms.model.script' // IafwSettings
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DF1F6B3027A Settings
+
+FORWARD ME_4A854E340357
+
+ME ME_4AE1CBA4003F
+ MEPROP UID '4AE1CBA4003F'
+ MEPROP Name 'TopCursor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A854E340357 // GetTopParaID
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4AE1CBA4003F TopCursor
+
+ME ME_4A854F0302DB
+ MEPROP UID '4A854F0302DB'
+ MEPROP Name 'GetTopParaID'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A854E340357 // GetTopParaID
+ ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+
+ENDME // ME_4A854F0302DB GetTopParaID
+
+ME ME_4A854F390247
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A854E340357 // GetTopParaID
+ ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+
+ENDME // ME_4A854F390247 
+
+ME ME_4A8551E70149
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A854E340357 // GetTopParaID
+ ;
+ MELINK Target WL 'ME_49523F8B0208' '4912E16B01B4.ms.model.script' // TeePara
+ ;
+
+ENDME // ME_4A8551E70149 
+
+ME ME_4A854E340357
+ MEPROP UID '4A854E340357'
+ MEPROP Name 'GetTopParaID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает верхний нумерованный параграф на видимой странице' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A853E260311 // Text
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AE1CBA4003F // TopCursor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A854F0302DB // GetTopParaID
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A854F390247 // IeeDocumentEx
+ ME_4A8551E70149 // TeePara
+ )
+ ; // Dependencies
+
+ENDME // ME_4A854E340357 GetTopParaID
+
+FORWARD ME_4A854F880181
+
+ME ME_4AE1CBAD034D
+ MEPROP UID '4AE1CBAD034D'
+ MEPROP Name 'Para'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A854F880181 // GetParaForPositionning
+ ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4AE1CBAD034D Para
+
+ME ME_4A854F9C0398
+ MEPROP Name 'aSearchDown'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_4A854F9C0398 aSearchDown
+
+ME ME_4A854F9B035C
+ MEPROP UID '4A854F9B035C'
+ MEPROP Name 'GetParaForPositionning'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A854F880181 // GetParaForPositionning
+ ;
+ MELINK Target WL 'ME_4A7FC9C9008F' '4912DD020283.ms.model.script' // IeeLeafPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A854F9C0398 // aSearchDown
+ )
+ ; // Parameters
+
+ENDME // ME_4A854F9B035C GetParaForPositionning
+
+ME ME_4A854F9002EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A854F880181 // GetParaForPositionning
+ ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+
+ENDME // ME_4A854F9002EB 
+
+ME ME_4A854F93030A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A854F880181 // GetParaForPositionning
+ ;
+ MELINK Target WL 'ME_49523C160394' '4912E16B01B4.ms.model.script' // eeParaTools
+ ;
+
+ENDME // ME_4A854F93030A 
+
+ME ME_4A854F880181
+ MEPROP UID '4A854F880181'
+ MEPROP Name 'GetParaForPositionning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает текущий параграф, если он виден или первый видимый на экране' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A853E260311 // Text
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AE1CBAD034D // Para
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A854F9B035C // GetParaForPositionning
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A854F9002EB // IeeDocumentEx
+ ME_4A854F93030A // eeParaTools
+ )
+ ; // Dependencies
+
+ENDME // ME_4A854F880181 GetParaForPositionning
+
+ME ME_4DF1F50C028D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A853E260311 // Text
+ ;
+ MELINK Target WL 'ME_473D9EF10387' '467823B7002C.ms.model.script' // IafwSettings
+ ;
+
+ENDME // ME_4DF1F50C028D 
+
+ME ME_4A853E260311
+ MEPROP UID '4A853E260311'
+ MEPROP Name 'Text'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработка текста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DF1F6B3027A // Settings
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A854E340357 // GetTopParaID
+ HWL ME_4A854F880181 // GetParaForPositionning
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DF1F50C028D // IafwSettings
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '14.08.2009 14:40'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas'
+ UP extprop:pas:TypeName '_Text_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Text.imp'
+
+ENDME // ME_4A853E260311 Text

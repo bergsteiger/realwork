@@ -1,0 +1,3177 @@
+// Scripting 4DE629810132 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE629810132
+
+FORWARD ME_4DE6299E021A
+
+FORWARD ME_4DE608AF027D
+
+ME ME_4DE62B2702A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE6299E021A // TkwArchiOpenDocument
+ ;
+ MELINK Target HWL ME_4DE608AF027D // arOpenDocumentByNumber
+ ;
+
+ENDME // ME_4DE62B2702A6 
+
+ME ME_4DE6299E021A
+ MEPROP UID '4DE6299E021A'
+ MEPROP Name 'TkwArchiOpenDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  Номер_документа Внутренний_номер Открыть'#13#10'*Описание:* Открывает документ по номеру. Позволяет установить флаг внутренний/внешний при задании номера документа.'#13#10' *Пример:*'#13#10' {code}'#13#10' 10003000 true Открыть'#13#10' {code}'#13#10' *Результат:* Открывает Конституцию РФ'#13#10' *Примечания:*'#13#10' Константы номеров документов в тестах, залитых в тестовую базу, находятся в файле:'#13#10' {code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\DocumentConst.script"'#13#10' {code}'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10' {code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10' {code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DE62B2702A6 // arOpenDocumentByNumber
+ )
+ ; // Dependencies
+ UP "NameForScript" 'Открыть'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiOpenDocument.pas'
+ UP extprop:rc:SelfName 'ArchiOpenDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwArchiOpenDocument'
+
+ENDME // ME_4DE6299E021A TkwArchiOpenDocument
+
+FORWARD ME_4DE60853015A
+
+FORWARD ME_5425548D01DD
+
+FORWARD ME_5425550E01AA
+
+ME ME_5425552800D5
+ MEPROP UID '5425552800D5'
+ MEPROP Name 'ar_AsUsual'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Показывать диалог и проверять его результат.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5425550E01AA // TarSkipDialog
+ ;
+
+ENDME // ME_5425552800D5 ar_AsUsual
+
+ME ME_5425571403DA
+ MEPROP UID '5425571403DA'
+ MEPROP Name 'ar_OpenDocument'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Если есть залоченный - все равно открывать.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5425550E01AA // TarSkipDialog
+ ;
+
+ENDME // ME_5425571403DA ar_OpenDocument
+
+ME ME_5425573B0063
+ MEPROP UID '5425573B0063'
+ MEPROP Name 'ar_NotOpen'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Если есть залоченный - не открывать.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5425550E01AA // TarSkipDialog
+ ;
+
+ENDME // ME_5425573B0063 ar_NotOpen
+
+ME ME_5425550E01AA
+ MEPROP UID '5425550E01AA'
+ MEPROP Name 'TarSkipDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5425548D01DD // TarTestConfig
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5425552800D5 // ar_AsUsual
+ HWL ME_5425571403DA // ar_OpenDocument
+ HWL ME_5425573B0063 // ar_NotOpen
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5425550E01AA TarSkipDialog
+
+ME ME_5425578502BE
+ MEPROP UID '5425578502BE'
+ MEPROP Name 'SkipLockDialog'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5425548D01DD // TarTestConfig
+ ;
+ MELINK Target HWL ME_5425550E01AA // TarSkipDialog
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5425578502BE SkipLockDialog
+
+ME ME_47A042E100E2_ME_5425548D01DD
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_5425548D01DD InitFields
+
+ME ME_5000565C019C_ME_5425548D01DD
+ MELINK Original WL 'ME_5000565C019C' '47913B47006E.ms.model.script' // ClearFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5000565C019C_ME_5425548D01DD ClearFields
+
+ME ME_5425548D01DD
+ MEPROP UID '5425548D01DD'
+ MEPROP Name 'TarTestConfig'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Хранилище всяких флагов, настроек и т.п. чтобы в одном месте было.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5425578502BE // SkipLockDialog
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_5425548D01DD // InitFields
+ ME_5000565C019C_ME_5425548D01DD // ClearFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5425550E01AA // TarSkipDialog
+ )
+ ; // Children
+ UP "singleton" true
+ UP extprop:rc:SelfName 'arTestConfig'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5425548D01DD TarTestConfig
+
+ME ME_4DE609B501DD
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ ;
+
+ENDME // ME_4DE609B501DD aDocID
+
+ME ME_4DE609B501FC
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ ;
+
+ENDME // ME_4DE609B501FC aSubID
+
+ME ME_4DE609B5021B
+ MEPROP Name 'aRenum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DE609B5021B aRenum
+
+ME ME_4DE609950227
+ MEPROP UID '4DE609950227'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE608AF027D // arOpenDocumentByNumber
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DE609B501DD // aDocID
+ ME_4DE609B501FC // aSubID
+ ME_4DE609B5021B // aRenum
+ )
+ ; // Parameters
+
+ENDME // ME_4DE609950227 DoIt
+
+ME ME_4DE608AF027D
+ MEPROP UID '4DE608AF027D'
+ MEPROP Name 'arOpenDocumentByNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Открыть документ по номеру.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE609950227 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DE608AF027D arOpenDocumentByNumber
+
+FORWARD ME_4DE608E101E0
+
+ME ME_4DE609C2007A
+ MEPROP UID '4DE609C2007A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE608E101E0 // arGetDocumentEditor
+ ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4DE609C2007A DoIt
+
+ME ME_4E0AE0970029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE608E101E0 // arGetDocumentEditor
+ ;
+ MELINK Target WL 'ME_4DFB4B01001D' '4DFB49C40350.ms.model.script' // TDocEditorWindow
+ ;
+
+ENDME // ME_4E0AE0970029 
+
+ME ME_4DE608E101E0
+ MEPROP UID '4DE608E101E0'
+ MEPROP Name 'arGetDocumentEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получить редактор для текста документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE609C2007A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E0AE0970029 // TDocEditorWindow
+ )
+ ; // Dependencies
+
+ENDME // ME_4DE608E101E0 arGetDocumentEditor
+
+FORWARD ME_4DE62CD4032D
+
+ME ME_4DE62D3001D5
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4DE62D3001D5 aDocID
+
+ME ME_4DE62D3001F4
+ MEPROP Name 'aRenum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DE62D3001F4 aRenum
+
+ME ME_4DE62CFD0267
+ MEPROP UID '4DE62CFD0267'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE62CD4032D // arOpenByNumberAsString
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DE62D3001D5 // aDocID
+ ME_4DE62D3001F4 // aRenum
+ )
+ ; // Parameters
+
+ENDME // ME_4DE62CFD0267 DoIt
+
+ME ME_4E0AE1220391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE62CD4032D // arOpenByNumberAsString
+ ;
+ MELINK Target WL 'ME_4D6BC8D102C0' '4AB0C3C60310.ms.model.script' // StrToInt
+ ;
+
+ENDME // ME_4E0AE1220391 
+
+ME ME_4DE62CD4032D
+ MEPROP UID '4DE62CD4032D'
+ MEPROP Name 'arOpenByNumberAsString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Открыть документ по номеру' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE62CFD0267 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E0AE1220391 // StrToInt
+ )
+ ; // Dependencies
+
+ENDME // ME_4DE62CD4032D arOpenByNumberAsString
+
+FORWARD ME_4DE6331E00DA
+
+ME ME_4DE633340002
+ MEPROP UID '4DE633340002'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE6331E00DA // arCloseActiveDocument
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DE633340002 DoIt
+
+ME ME_4DE6331E00DA
+ MEPROP UID '4DE6331E00DA'
+ MEPROP Name 'arCloseActiveDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE633340002 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DE6331E00DA arCloseActiveDocument
+
+FORWARD ME_4DFB4F0401D6
+
+ME ME_4DFB4F5403D1
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DFB4CD10172' '47BC51FE018B.ms.model.script' // TSubID
+ ;
+
+ENDME // ME_4DFB4F5403D1 aSubID
+
+ME ME_4DFB4F490039
+ MEPROP UID '4DFB4F490039'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFB4F0401D6 // arSubNameEdit
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DFB4F5403D1 // aSubID
+ )
+ ; // Parameters
+
+ENDME // ME_4DFB4F490039 DoIt
+
+ME ME_4DFB4F0401D6
+ MEPROP UID '4DFB4F0401D6'
+ MEPROP Name 'arSubNameEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редакторование саба.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DFB4F490039 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DFB4F0401D6 arSubNameEdit
+
+FORWARD ME_4E01AD6F0280
+
+ME ME_4E01ADDE03B3
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DFB4CD10172' '47BC51FE018B.ms.model.script' // TSubID
+ ;
+
+ENDME // ME_4E01ADDE03B3 aSubID
+
+ME ME_4E01AD8B003B
+ MEPROP UID '4E01AD8B003B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удалить саб.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01AD6F0280 // arDeleteSub
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01ADDE03B3 // aSubID
+ )
+ ; // Parameters
+
+ENDME // ME_4E01AD8B003B DoIt
+
+ME ME_4E01AD6F0280
+ MEPROP UID '4E01AD6F0280'
+ MEPROP Name 'arDeleteSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01AD8B003B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01AD6F0280 arDeleteSub
+
+FORWARD ME_4E0AD0AD00CD
+
+ME ME_4E0AD0DD0267
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4E0ACCB4021C' '4DFB49C40350.ms.model.script' // TNewDocParams
+ ;
+
+ENDME // ME_4E0AD0DD0267 aParams
+
+ME ME_4E0AD0D402C7
+ MEPROP UID '4E0AD0D402C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0AD0AD00CD // arCreateNewDocument
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0AD0DD0267 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4E0AD0D402C7 DoIt
+
+ME ME_4E0AD0AD00CD
+ MEPROP UID '4E0AD0AD00CD'
+ MEPROP Name 'arCreateNewDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0AD0D402C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E0AD0AD00CD arCreateNewDocument
+
+FORWARD ME_4E0AE1A90285
+
+ME ME_4EFB18310383
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_477113FB020B' '4AB0C3C60310.ms.model.script' // TFileName
+ ;
+
+ENDME // ME_4EFB18310383 aFileName
+
+ME ME_4EFB183103C4
+ MEPROP Name 'aDocType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E0ACD7D020D' '47BC51FE018B.ms.model.script' // TDocType
+ ;
+
+ENDME // ME_4EFB183103C4 aDocType
+
+ME ME_4E0AE1C602DE
+ MEPROP UID '4E0AE1C602DE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0AE1A90285 // arCreateNewDocumentByFileName
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EFB18310383 // aFileName
+ ME_4EFB183103C4 // aDocType
+ )
+ ; // Parameters
+
+ENDME // ME_4E0AE1C602DE DoIt
+
+ME ME_4E0AE1A90285
+ MEPROP UID '4E0AE1A90285'
+ MEPROP Name 'arCreateNewDocumentByFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0AE1C602DE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E0AE1A90285 arCreateNewDocumentByFileName
+
+FORWARD ME_4E2447BF0259
+
+ME ME_4E24488102BE
+ MEPROP UID '4E24488102BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E2447BF0259 // acOpenInsDWin
+ ;
+
+ENDME // ME_4E24488102BE DoIt
+
+ME ME_4E25324F0301
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2447BF0259 // acOpenInsDWin
+ ;
+ MELINK Target WL 'ME_47E7ABCB0296' '4799D29F033F.ms.model.script' // TMenuItem
+ ;
+
+ENDME // ME_4E25324F0301 
+
+ME ME_4E2532530113
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2447BF0259 // acOpenInsDWin
+ ;
+ MELINK Target WL 'ME_55409CB903D4' '5432448401BC.ms.model.script' // TdaDictionaryType
+ ;
+
+ENDME // ME_4E2532530113 
+
+ME ME_4E25325603CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2447BF0259 // acOpenInsDWin
+ ;
+ MELINK Target WL 'ME_4E253095034C' '47BC50280350.ms.model.script' // GetDictName
+ ;
+
+ENDME // ME_4E25325603CB 
+
+ME ME_4E2447BF0259
+ MEPROP UID '4E2447BF0259'
+ MEPROP Name 'acOpenInsDWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E24488102BE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E25324F0301 // TMenuItem
+ ME_4E2532530113 // TdaDictionaryType
+ ME_4E25325603CB // GetDictName
+ )
+ ; // Dependencies
+
+ENDME // ME_4E2447BF0259 acOpenInsDWin
+
+FORWARD ME_4E4B5CDC03DF
+
+ME ME_4E4B5D29024C
+ MEPROP UID '4E4B5D29024C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5CDC03DF // acDeInitDB
+ ;
+
+ENDME // ME_4E4B5D29024C DoIt
+
+ME ME_527201920262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4B5CDC03DF // acDeInitDB
+ ;
+ MELINK Target WL 'ME_54352FD00015' '538DA20300A7.ms.model.script' // DoneClientBaseEngine
+ ;
+
+ENDME // ME_527201920262 
+
+ME ME_5445024D0058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4B5CDC03DF // acDeInitDB
+ ;
+ MELINK Target WL 'ME_542E7AD00050' '5486E32B0191.ms.model.script' // Tm3StorageHolderList
+ ;
+
+ENDME // ME_5445024D0058 
+
+ME ME_4E4B5CDC03DF
+ MEPROP UID '4E4B5CDC03DF'
+ MEPROP Name 'acDeInitDB'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E4B5D29024C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_527201920262 // DoneClientBaseEngine
+ ME_5445024D0058 // Tm3StorageHolderList
+ )
+ ; // Dependencies
+
+ENDME // ME_4E4B5CDC03DF acDeInitDB
+
+FORWARD ME_4E4B5D350252
+
+ME ME_4E4B5D400384
+ MEPROP UID '4E4B5D400384'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5D350252 // acInitDB
+ ;
+
+ENDME // ME_4E4B5D400384 DoIt
+
+ME ME_4E4B5D61034E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4B5D350252 // acInitDB
+ ;
+ MELINK Target WL 'ME_5272013F001A' '4E4B607802DB.ms.model.script' // InitArchiBaseEngine
+ ;
+
+ENDME // ME_4E4B5D61034E 
+
+ME ME_5450D0A902E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4B5D350252 // acInitDB
+ ;
+ MELINK Target WL 'ME_5450D05B00F7' '5450CFDA02FF.ms.model.script' // TMailServer
+ ;
+
+ENDME // ME_5450D0A902E6 
+
+ME ME_4E4B5D350252
+ MEPROP UID '4E4B5D350252'
+ MEPROP Name 'acInitDB'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E4B5D400384 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E4B5D61034E // InitArchiBaseEngine
+ ME_5450D0A902E6 // TMailServer
+ )
+ ; // Dependencies
+
+ENDME // ME_4E4B5D350252 acInitDB
+
+FORWARD ME_4EA94FCA02CD
+
+ME ME_4EA94FDE01A3
+ MEPROP UID '4EA94FDE01A3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EA94FCA02CD // arAddBlock
+ ;
+
+ENDME // ME_4EA94FDE01A3 DoIt
+
+ME ME_4EA94FCA02CD
+ MEPROP UID '4EA94FCA02CD'
+ MEPROP Name 'arAddBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EA94FDE01A3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EA94FCA02CD arAddBlock
+
+FORWARD ME_4EAFC7CC0065
+
+ME ME_4EAFC7E900B6
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4EAFC7E900B6 anIndex
+
+ME ME_4EAFC7DD0182
+ MEPROP UID '4EAFC7DD0182'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EAFC7CC0065 // acSetActivePage
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EAFC7E900B6 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4EAFC7DD0182 DoIt
+
+ME ME_4EAFC7CC0065
+ MEPROP UID '4EAFC7CC0065'
+ MEPROP Name 'acSetActivePage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EAFC7DD0182 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EAFC7CC0065 acSetActivePage
+
+FORWARD ME_4ECB5AFB0277
+
+ME ME_4ECB5B18029A
+ MEPROP UID '4ECB5B18029A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ECB5AFB0277 // acCreateStructure
+ ;
+
+ENDME // ME_4ECB5B18029A DoIt
+
+ME ME_4ECB5B3A020B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ECB5AFB0277 // acCreateStructure
+ ;
+ MELINK Target WL 'ME_4DFB4B01001D' '4DFB49C40350.ms.model.script' // TDocEditorWindow
+ ;
+
+ENDME // ME_4ECB5B3A020B 
+
+ME ME_4ECB5AFB0277
+ MEPROP UID '4ECB5AFB0277'
+ MEPROP Name 'acCreateStructure'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ECB5B18029A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4ECB5B3A020B // TDocEditorWindow
+ )
+ ; // Dependencies
+
+ENDME // ME_4ECB5AFB0277 acCreateStructure
+
+FORWARD ME_4ECB5F560065
+
+ME ME_4ECB5F830184
+ MEPROP Name 'aBlockID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ECB5F830184 aBlockID
+
+ME ME_4ECB5F6C029A
+ MEPROP UID '4ECB5F6C029A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ECB5F560065 // arSetContentsSub
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ECB5F830184 // aBlockID
+ )
+ ; // Parameters
+
+ENDME // ME_4ECB5F6C029A DoIt
+
+ME ME_4ECB5F8A0016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ECB5F560065 // arSetContentsSub
+ ;
+ MELINK Target WL 'ME_4DFB4B01001D' '4DFB49C40350.ms.model.script' // TDocEditorWindow
+ ;
+
+ENDME // ME_4ECB5F8A0016 
+
+ME ME_4ECB5F560065
+ MEPROP UID '4ECB5F560065'
+ MEPROP Name 'arSetContentsSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ECB5F6C029A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4ECB5F8A0016 // TDocEditorWindow
+ )
+ ; // Dependencies
+
+ENDME // ME_4ECB5F560065 arSetContentsSub
+
+FORWARD ME_4EEF085B0345
+
+ME ME_4EEF088C032B
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4EEF088C032B aIndex
+
+ME ME_4EEF087100F9
+ MEPROP UID '4EEF087100F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EEF085B0345 // arGotoSub
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EEF088C032B // aIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4EEF087100F9 DoIt
+
+ME ME_4EEF085B0345
+ MEPROP UID '4EEF085B0345'
+ MEPROP Name 'arGotoSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EEF087100F9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EEF085B0345 arGotoSub
+
+ME ME_4DE60853015A
+ MEPROP UID '4DE60853015A'
+ MEPROP Name 'arArchiTestsAdapter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обертки для вызова функциональности из Арчи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE608AF027D // arOpenDocumentByNumber
+ HWL ME_4DE608E101E0 // arGetDocumentEditor
+ HWL ME_4DE62CD4032D // arOpenByNumberAsString
+ HWL ME_4DE6331E00DA // arCloseActiveDocument
+ HWL ME_4DFB4F0401D6 // arSubNameEdit
+ HWL ME_4E01AD6F0280 // arDeleteSub
+ HWL ME_4E0AD0AD00CD // arCreateNewDocument
+ HWL ME_4E0AE1A90285 // arCreateNewDocumentByFileName
+ HWL ME_4E2447BF0259 // acOpenInsDWin
+ HWL ME_4E4B5CDC03DF // acDeInitDB
+ HWL ME_4E4B5D350252 // acInitDB
+ HWL ME_4EA94FCA02CD // arAddBlock
+ HWL ME_4EAFC7CC0065 // acSetActivePage
+ HWL ME_4ECB5AFB0277 // acCreateStructure
+ HWL ME_4ECB5F560065 // arSetContentsSub
+ HWL ME_4EEF085B0345 // arGotoSub
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_5425548D01DD // TarTestConfig
+ )
+ ; // Children
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\arArchiTestsAdapter.pas'
+
+ENDME // ME_4DE60853015A arArchiTestsAdapter
+
+FORWARD ME_4DE632EF020B
+
+ME ME_4DE6335103A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE632EF020B // TkwArchiCloseDocument
+ ;
+ MELINK Target HWL ME_4DE6331E00DA // arCloseActiveDocument
+ ;
+
+ENDME // ME_4DE6335103A5 
+
+ME ME_4DE632EF020B
+ MEPROP UID '4DE632EF020B'
+ MEPROP Name 'TkwArchiCloseDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* Закрыть'#13#10'*Описание:* Закрывает текущее дочернее окно в Арчи. В качестве окна может выступать окно документа, окно почтового сообщения, окно словарей и т.п.'#13#10' *Пример:*'#13#10'{code}'#13#10' ''76.bmp'' Создать_Объектный_топик_из'#13#10' TRY'#13#10'   carPictureViewer TryFocus ASSERT'#13#10'   acCut arMainActionList carMainForm Action:Execute'#13#10'   ProcessMessages'#13#10'   acPaste arMainActionList carMainForm Action:Execute'#13#10'   ProcessMessages'#13#10' FINALLY'#13#10'  wait:No'#13#10'  Закрыть'#13#10'  waited:? ASSERT'#13#10' END'#13#10'{code}'#13#10' *Результат:*'#13#10' Создает объектный топик из графического файла, выполняет с ними набор тестовых операций (в данном случае, копирование/вставка картинкуи в/из буфера обмена) и закрывает документ без вопроса о необходимости сохранения.'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DE6335103A5 // arCloseActiveDocument
+ )
+ ; // Dependencies
+ UP "NameForScript" 'Закрыть'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiCloseDocument.pas'
+ UP extprop:rc:SelfName 'ArchiCloseDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwArchiCloseDocument'
+
+ENDME // ME_4DE632EF020B TkwArchiCloseDocument
+
+FORWARD ME_4DE643F100CB
+
+ME ME_4DE7427102C5
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4DE7427102C5 aCtx
+
+ME ME_4DE7427102F2
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4DE7427102F2 anEditor
+
+ME ME_4DE7421F03DF
+ MEPROP UID '4DE7421F03DF'
+ MEPROP Name 'DoWithEditor'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DE643F100CB // TarEditorControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DE7427102C5 // aCtx
+ ME_4DE7427102F2 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_4DE7421F03DF DoWithEditor
+
+ME ME_4DE644A5007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE643F100CB // TarEditorControl
+ ;
+ MELINK Target HWL ME_4DE608E101E0 // arGetDocumentEditor
+ ;
+
+ENDME // ME_4DE644A5007E 
+
+ME ME_4DAEEDE10285_ME_4DE643F100CB
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_4DE643F100CB DoDoIt
+
+ME ME_4DE643F100CB
+ MEPROP UID '4DE643F100CB'
+ MEPROP Name 'TarEditorControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.ms.model.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DE7421F03DF // DoWithEditor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DE643F100CB // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DE644A5007E // arGetDocumentEditor
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\arEditorControl.pas'
+ UP extprop:rc:SelfName 'arEditorControl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arEditorControl'
+
+ENDME // ME_4DE643F100CB TarEditorControl
+
+FORWARD ME_4DE740FA0192
+
+ME ME_4DE75634036A
+ MEPROP UID '4DE75634036A'
+ MEPROP Name 'f_Engine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DE740FA0192 // TkwClickOnCommentHeader
+ ;
+ MELINK Target WL 'ME_4DB008DD01BD' '4DAF19F600C5.ms.model.script' // ItfwScriptEngine
+ ;
+
+ENDME // ME_4DE75634036A f_Engine
+
+ME ME_4DE7421F03DF_ME_4DE740FA0192
+ MELINK Original HWL ME_4DE7421F03DF // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DE7421F03DF_ME_4DE740FA0192 DoWithEditor
+
+ME ME_4DE7456800BE_ME_4DE740FA0192
+ MELINK Original WL 'ME_4DE7456800BE' '4C500D470030.ms.model.script' // CheckCollapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DE7456800BE_ME_4DE740FA0192 CheckCollapsed
+
+ME ME_4BF4E6A00093_ME_4DE740FA0192
+ MELINK Original WL 'ME_4BF4E6A00093' '4C500D470030.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BF4E6A00093_ME_4DE740FA0192 GetInnerPara
+
+ME ME_4DB0614603C8_ME_4DE740FA0192
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DE740FA0192 GetWordNameForRegister
+
+ME ME_4DE740FA0192
+ MEPROP UID '4DE740FA0192'
+ MEPROP Name 'TkwClickOnCommentHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DE643F100CB // TarEditorControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4DE7451703C8' '4C500D470030.ms.model.script' // ClickOnCommentHeader
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DE75634036A // f_Engine
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4DE7421F03DF_ME_4DE740FA0192 // DoWithEditor
+ ME_4DE7456800BE_ME_4DE740FA0192 // CheckCollapsed
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4DE740FA0192 // GetInnerPara
+ ME_4DB0614603C8_ME_4DE740FA0192 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "NameForScript" 'редактор:параграф:щелкнуть_на_заголовке'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClickOnCommentHeader.pas'
+ UP extprop:rc:SelfName 'ClickOnCommentHeader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwClickOnCommentHeader'
+
+ENDME // ME_4DE740FA0192 TkwClickOnCommentHeader
+
+FORWARD ME_4DFB3B88027A
+
+ME ME_4DFB4F7903B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB3B88027A // TkwEditorDblClickOnSub
+ ;
+ MELINK Target HWL ME_4DFB4F0401D6 // arSubNameEdit
+ ;
+
+ENDME // ME_4DFB4F7903B0 
+
+ME ME_4DE7421F03DF_ME_4DFB3B88027A
+ MELINK Original HWL ME_4DE7421F03DF // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DE7421F03DF_ME_4DFB3B88027A DoWithEditor
+
+ME ME_4DB0614603C8_ME_4DFB3B88027A
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DFB3B88027A GetWordNameForRegister
+
+ME ME_4DFB3B88027A
+ MEPROP UID '4DFB3B88027A'
+ MEPROP Name 'TkwEditorDblClickOnSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Двойной щелчок на сабе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DE643F100CB // TarEditorControl
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DE7421F03DF_ME_4DFB3B88027A // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DFB3B88027A // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DFB4F7903B0 // arSubNameEdit
+ )
+ ; // Dependencies
+ UP "NameForScript" 'окно_редактора:изменить_саб'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorDblClickOnSub.pas'
+ UP extprop:rc:SelfName 'EditorDblClickOnSub'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorDblClickOnSub'
+
+ENDME // ME_4DFB3B88027A TkwEditorDblClickOnSub
+
+FORWARD ME_4DFB406602B7
+
+ME ME_4DFB4077035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4DE740FA0192 // TkwClickOnCommentHeader
+ ;
+
+ENDME // ME_4DFB4077035A 
+
+ME ME_4DFB40850101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4DFB3B88027A // TkwEditorDblClickOnSub
+ ;
+
+ENDME // ME_4DFB40850101 
+
+FORWARD ME_4E01AD1F02CA
+
+ME ME_4E01B044022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4E01AD1F02CA // TkwDeleteSub
+ ;
+
+ENDME // ME_4E01B044022D 
+
+FORWARD ME_4E01E88B029B
+
+ME ME_4E01E8C502EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4E01E88B029B // TkwDocEditorSetModified
+ ;
+
+ENDME // ME_4E01E8C502EA 
+
+FORWARD ME_4EA94ED30365
+
+ME ME_4EA94F570130
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4EA94ED30365 // TkwAddBlock
+ ;
+
+ENDME // ME_4EA94F570130 
+
+FORWARD ME_4ECB504D000B
+
+ME ME_4ECB50C60195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4ECB504D000B // TkwEditorSetTOC
+ ;
+
+ENDME // ME_4ECB50C60195 
+
+FORWARD ME_4EEF07E80201
+
+ME ME_4EEF083103B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4EEF07E80201 // TkwGotoSub
+ ;
+
+ENDME // ME_4EEF083103B9 
+
+FORWARD ME_4F0C009200D7
+
+ME ME_4F0C01E00111
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ ;
+
+ENDME // ME_4F0C01E00111 
+
+FORWARD ME_4F22AFC0008A
+
+ME ME_4F22AFEE03D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB406602B7 // arEditorUtils
+ ;
+ MELINK Target HWL ME_4F22AFC0008A // TkwSetExpiredStyle
+ ;
+
+ENDME // ME_4F22AFEE03D1 
+
+ME ME_4DFB406602B7
+ MEPROP UID '4DFB406602B7'
+ MEPROP Name 'arEditorUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DFB4077035A // TkwClickOnCommentHeader
+ ME_4DFB40850101 // TkwEditorDblClickOnSub
+ ME_4E01B044022D // TkwDeleteSub
+ ME_4E01E8C502EA // TkwDocEditorSetModified
+ ME_4EA94F570130 // TkwAddBlock
+ ME_4ECB50C60195 // TkwEditorSetTOC
+ ME_4EEF083103B9 // TkwGotoSub
+ ME_4F0C01E00111 // TkwEndAddSubByMouse
+ ME_4F22AFEE03D1 // TkwSetExpiredStyle
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\arEditorUtils.pas'
+
+ENDME // ME_4DFB406602B7 arEditorUtils
+
+ME ME_4E01ADFF021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E01AD1F02CA // TkwDeleteSub
+ ;
+ MELINK Target HWL ME_4E01AD6F0280 // arDeleteSub
+ ;
+
+ENDME // ME_4E01ADFF021C 
+
+ME ME_4E01AD1F02CA
+ MEPROP UID '4E01AD1F02CA'
+ MEPROP Name 'TkwDeleteSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'окно_редактора:удалить_саб' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E01ADFF021C // arDeleteSub
+ )
+ ; // Dependencies
+ UP "NameForScript" 'окно_редактора:удалить_саб'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDeleteSub.pas'
+ UP extprop:rc:SelfName 'DeleteSub'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDeleteSub'
+
+ENDME // ME_4E01AD1F02CA TkwDeleteSub
+
+ME ME_4DE7421F03DF_ME_4E01E88B029B
+ MELINK Original HWL ME_4DE7421F03DF // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DE7421F03DF_ME_4E01E88B029B DoWithEditor
+
+ME ME_4DB0614603C8_ME_4E01E88B029B
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E01E88B029B GetWordNameForRegister
+
+ME ME_4E01E88B029B
+ MEPROP UID '4E01E88B029B'
+ MEPROP Name 'TkwDocEditorSetModified'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DE643F100CB // TarEditorControl
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DE7421F03DF_ME_4E01E88B029B // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E01E88B029B // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "NameForScript" 'окно_редактора:редактор:SetModified'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDocEditorSetModified.pas'
+ UP extprop:rc:SelfName 'DocEditorSetModified'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDocEditorSetModified'
+
+ENDME // ME_4E01E88B029B TkwDocEditorSetModified
+
+FORWARD ME_52BD79050326
+
+FORWARD ME_52BD79600196
+
+ME ME_52BD7A01003C
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_52BD7A01003C aCtx
+
+ME ME_52BD79FE00FD
+ MEPROP UID '52BD79FE00FD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52BD79600196 // DoWithFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD7A01003C // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_52BD79FE00FD DoIt
+
+ME ME_52BD7ACE007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52BD79600196 // DoWithFileName
+ ;
+ MELINK Target HWL ME_4E0AE1A90285 // arCreateNewDocumentByFileName
+ ;
+
+ENDME // ME_52BD7ACE007B 
+
+ME ME_52BD7AF500ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52BD79600196 // DoWithFileName
+ ;
+ MELINK Target WL 'ME_4E0ACD7D020D' '47BC51FE018B.ms.model.script' // TDocType
+ ;
+
+ENDME // ME_52BD7AF500ED 
+
+ME ME_52BD7B04013D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52BD79600196 // DoWithFileName
+ ;
+ MELINK Target WL 'ME_477113FB020B' '4AB0C3C60310.ms.model.script' // TFileName
+ ;
+
+ENDME // ME_52BD7B04013D 
+
+ME ME_52BD79600196
+ MEPROP UID '52BD79600196'
+ MEPROP Name 'DoWithFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52BD79050326 // TkwCreateNewFile
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52BD79FE00FD // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52BD7ACE007B // arCreateNewDocumentByFileName
+ ME_52BD7AF500ED // TDocType
+ ME_52BD7B04013D // TFileName
+ )
+ ; // Dependencies
+
+ENDME // ME_52BD79600196 DoWithFileName
+
+ME ME_4DAEEDE10285_ME_52BD79050326
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_52BD79050326 DoDoIt
+
+ME ME_52BD79050326
+ MEPROP UID '52BD79050326'
+ MEPROP Name 'TkwCreateNewFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.ms.model.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52BD79600196 // DoWithFileName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_52BD79050326 // DoDoIt
+ )
+ ; // Implemented
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwCreateNewFile.pas'
+ UP extprop:rc:SelfName 'CreateNewFile'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCreateNewFile'
+
+ENDME // ME_52BD79050326 TkwCreateNewFile
+
+FORWARD ME_4E1D42EC0296
+
+ME ME_56ECAE9E02CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_56ECAE9E02CA 
+
+ME ME_52BD79600196_ME_4E1D42EC0296
+ MELINK Original HWL ME_52BD79600196 // DoWithFileName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52BD79600196_ME_4E1D42EC0296 DoWithFileName
+
+ME ME_4DB0614603C8_ME_4E1D42EC0296
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E1D42EC0296 GetWordNameForRegister
+
+ME ME_4E1D42EC0296
+ MEPROP UID '4E1D42EC0296'
+ MEPROP Name 'TkwArchiNewDocumentPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* Создать_из'#13#10'*Описание:* Создание документа из файла. Имя файла совпадает с названием теста, но используется расширение evd.'#13#10'*Пример:*'#13#10'{code}'#13#10'имя_файла  Создать_из'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает документ из файла имя_файла. При этом анализируется расширение файла. Путь исправляется на путь к тестовым доукментам.'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52BD79050326 // TkwCreateNewFile
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52BD79600196_ME_4E1D42EC0296 // DoWithFileName
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E1D42EC0296 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56ECAE9E02CA // SysUtils
+ )
+ ; // Dependencies
+ UP "NameForScript" 'Создать_из'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewDocumentPrim.pas'
+ UP extprop:rc:SelfName 'ArchiNewDocumentPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwArchiNewDocumentPrim'
+
+ENDME // ME_4E1D42EC0296 TkwArchiNewDocumentPrim
+
+FORWARD ME_4E2448BD014D
+
+ME ME_4E2449FE014E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2448BD014D // TkwOpenInsDWin
+ ;
+ MELINK Target HWL ME_4E2447BF0259 // acOpenInsDWin
+ ;
+
+ENDME // ME_4E2449FE014E 
+
+ME ME_4E2448BD014D
+ MEPROP UID '4E2448BD014D'
+ MEPROP Name 'TkwOpenInsDWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E2449FE014E // acOpenInsDWin
+ )
+ ; // Dependencies
+ UP "NameForScript" 'редактор_словарей'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwOpenInsDWin.pas'
+ UP extprop:rc:SelfName 'OpenInsDWin'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwOpenInsDWin'
+
+ENDME // ME_4E2448BD014D TkwOpenInsDWin
+
+FORWARD ME_4E244C8400D2
+
+ME ME_4E244CA401AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E244C8400D2 // arDialogsPack
+ ;
+ MELINK Target HWL ME_4E2448BD014D // TkwOpenInsDWin
+ ;
+
+ENDME // ME_4E244CA401AF 
+
+FORWARD ME_4E4BBADC02A0
+
+ME ME_4E4BBB0903D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E244C8400D2 // arDialogsPack
+ ;
+ MELINK Target HWL ME_4E4BBADC02A0 // TkwMakeChangeDoc
+ ;
+
+ENDME // ME_4E4BBB0903D7 
+
+FORWARD ME_4E4BC07D0328
+
+ME ME_4E4BC0B102AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E244C8400D2 // arDialogsPack
+ ;
+ MELINK Target HWL ME_4E4BC07D0328 // TkwInsertDocChanges
+ ;
+
+ENDME // ME_4E4BC0B102AD 
+
+FORWARD ME_4E83072D01FF
+
+ME ME_4E8307CA0122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E244C8400D2 // arDialogsPack
+ ;
+ MELINK Target HWL ME_4E83072D01FF // TkwIniRecSetZoom
+ ;
+
+ENDME // ME_4E8307CA0122 
+
+FORWARD ME_4E8307CE0359
+
+ME ME_4E8307E40345
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E244C8400D2 // arDialogsPack
+ ;
+ MELINK Target HWL ME_4E8307CE0359 // TkwIniRecGetZoom
+ ;
+
+ENDME // ME_4E8307E40345 
+
+ME ME_4E244C8400D2
+ MEPROP UID '4E244C8400D2'
+ MEPROP Name 'arDialogsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E244CA401AF // TkwOpenInsDWin
+ ME_4E4BBB0903D7 // TkwMakeChangeDoc
+ ME_4E4BC0B102AD // TkwInsertDocChanges
+ ME_4E8307CA0122 // TkwIniRecSetZoom
+ ME_4E8307E40345 // TkwIniRecGetZoom
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\arDialogsPack.pas'
+
+ENDME // ME_4E244C8400D2 arDialogsPack
+
+FORWARD ME_4E4A181002B0
+
+ME ME_4E4A4140033A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target WL 'ME_4E4A366801E7' '4E4A36100340.ms.model.script' // arUnackBaseFromArchive
+ ;
+
+ENDME // ME_4E4A4140033A 
+
+ME ME_4E4B5D9A03A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target HWL ME_4E4B5D350252 // acInitDB
+ ;
+
+ENDME // ME_4E4B5D9A03A8 
+
+ME ME_5281F7EC0234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target WL 'ME_5281F3A90273' '519B797A0048.ms.model.script' // EdtBrokenFileLock
+ ;
+
+ENDME // ME_5281F7EC0234 
+
+ME ME_4E4A181002B0
+ MEPROP UID '4E4A181002B0'
+ MEPROP Name 'TkwClearDataBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  ''File_Name.zip'' ''Path2Base'' ClearDataBase'#13#10'*Описание:* Рапаковывает базу из архива ''File_Name.zip'' в заданный каталог ''Path2Base''. Каталог, в который рапаковывается база, предварительно очищается.. '#13#10'*Пример:*'#13#10'{code}'#13#10'  ''testBase.zip'' ''C:\Base\TestBase'' ClearDataBase'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E4A4140033A // arUnackBaseFromArchive
+ ME_4E4B5D9A03A8 // acInitDB
+ ME_5281F7EC0234 // EdtBrokenFileLock
+ )
+ ; // Dependencies
+ UP "NameForScript" 'ClearDataBase'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearDataBase.pas'
+ UP extprop:rc:SelfName 'ClearDataBase'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwClearDataBase'
+
+ENDME // ME_4E4A181002B0 TkwClearDataBase
+
+FORWARD ME_4E4A1982012A
+
+FORWARD ME_4E0A095C0324
+
+ME ME_4E4A19A402A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4E0A095C0324 // TkwArchiNewDocument
+ ;
+
+ENDME // ME_4E4A19A402A1 
+
+ME ME_4E4A19B60146
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+
+ENDME // ME_4E4A19B60146 
+
+ME ME_4E4A19BA0091
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4DE632EF020B // TkwArchiCloseDocument
+ ;
+
+ENDME // ME_4E4A19BA0091 
+
+ME ME_4E4A19BE02EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4DE6299E021A // TkwArchiOpenDocument
+ ;
+
+ENDME // ME_4E4A19BE02EF 
+
+ME ME_4E4A19F4029B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
+ ;
+
+ENDME // ME_4E4A19F4029B 
+
+FORWARD ME_4E60CB00004F
+
+ME ME_4E60CB34035E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
+ ;
+
+ENDME // ME_4E60CB34035E 
+
+FORWARD ME_4E8EE51103C2
+
+ME ME_4E8EE5760016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4E8EE51103C2 // TkwArchiNewEmptyDocument
+ ;
+
+ENDME // ME_4E8EE5760016 
+
+FORWARD ME_4EAFC7190370
+
+ME ME_4EAFC7330065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4EAFC7190370 // TkwSetActivePage
+ ;
+
+ENDME // ME_4EAFC7330065 
+
+FORWARD ME_4F0C26900161
+
+ME ME_4F0C274E022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_4F0C26900161 // TkwShowMailMessage
+ ;
+
+ENDME // ME_4F0C274E022E 
+
+FORWARD ME_55B664E00149
+
+ME ME_55B664F30312
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A1982012A // CommonArchiWords
+ ;
+ MELINK Target HWL ME_55B664E00149 // archiDocEditorWindowWordsPack
+ ;
+
+ENDME // ME_55B664F30312 
+
+ME ME_4E4A1982012A
+ MEPROP UID '4E4A1982012A'
+ MEPROP Name 'CommonArchiWords'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E4A19A402A1 // TkwArchiNewDocument
+ ME_4E4A19B60146 // TkwClearDataBase
+ ME_4E4A19BA0091 // TkwArchiCloseDocument
+ ME_4E4A19BE02EF // TkwArchiOpenDocument
+ ME_4E4A19F4029B // TkwArchiNewDocumentPrim
+ ME_4E60CB34035E // TkwGetActiveEditorPageName
+ ME_4E8EE5760016 // TkwArchiNewEmptyDocument
+ ME_4EAFC7330065 // TkwSetActivePage
+ ME_4F0C274E022E // TkwShowMailMessage
+ ME_55B664F30312 // archiDocEditorWindowWordsPack
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\CommonArchiWords.pas'
+
+ENDME // ME_4E4A1982012A CommonArchiWords
+
+FORWARD ME_4E4B5F29031C
+
+FORWARD ME_4E4B6340031F
+
+ME ME_4E4B63590338
+ MEPROP UID '4E4B63590338'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B6340031F // arMakeChangeDoc
+ ;
+
+ENDME // ME_4E4B63590338 DoIt
+
+ME ME_4E4B6340031F
+ MEPROP UID '4E4B6340031F'
+ MEPROP Name 'arMakeChangeDoc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E4B63590338 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E4B6340031F arMakeChangeDoc
+
+FORWARD ME_4E4B637A01C7
+
+ME ME_4E4B63990140
+ MEPROP UID '4E4B63990140'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B637A01C7 // arInsertDocChanges
+ ;
+
+ENDME // ME_4E4B63990140 DoIt
+
+ME ME_4E4B637A01C7
+ MEPROP UID '4E4B637A01C7'
+ MEPROP Name 'arInsertDocChanges'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E4B63990140 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E4B637A01C7 arInsertDocChanges
+
+FORWARD ME_4E83092C0076
+
+ME ME_4E83095200E7
+ MEPROP Name 'aZoom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E83095200E7 aZoom
+
+ME ME_4E83094C003E
+ MEPROP UID '4E83094C003E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E83092C0076 // arIniRecSetZoom
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E83095200E7 // aZoom
+ )
+ ; // Parameters
+
+ENDME // ME_4E83094C003E DoIt
+
+ME ME_4E83092C0076
+ MEPROP UID '4E83092C0076'
+ MEPROP Name 'arIniRecSetZoom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E83094C003E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E83092C0076 arIniRecSetZoom
+
+FORWARD ME_4E83095902EB
+
+ME ME_4E8309660349
+ MEPROP UID '4E8309660349'
+ MEPROP Name 'DIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E83095902EB // arIniRecGetZoom
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E8309660349 DIt
+
+ME ME_4E83095902EB
+ MEPROP UID '4E83095902EB'
+ MEPROP Name 'arIniRecGetZoom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E8309660349 // DIt
+ )
+ ; // Operations
+
+ENDME // ME_4E83095902EB arIniRecGetZoom
+
+FORWARD ME_4F0C276F03DC
+
+ME ME_4F0C2794038E
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F0C2794038E aIndex
+
+ME ME_4F0C2786014E
+ MEPROP UID '4F0C2786014E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C276F03DC // arShowMailWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F0C2794038E // aIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4F0C2786014E DoIt
+
+ME ME_4F0C276F03DC
+ MEPROP UID '4F0C276F03DC'
+ MEPROP Name 'arShowMailWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F0C2786014E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F0C276F03DC arShowMailWindow
+
+FORWARD ME_4F0C37850322
+
+ME ME_4F0C37970291
+ MEPROP UID '4F0C37970291'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C37850322 // acEndDragAndDrop
+ ;
+
+ENDME // ME_4F0C37970291 DoIt
+
+ME ME_4F0C37850322
+ MEPROP UID '4F0C37850322'
+ MEPROP Name 'acEndDragAndDrop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F0C37970291 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F0C37850322 acEndDragAndDrop
+
+FORWARD ME_4F22AE6C0165
+
+ME ME_4F22AE8900D1
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F22AE8900D1 anID
+
+ME ME_4F22AE8003D5
+ MEPROP UID '4F22AE8003D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F22AE6C0165 // acSetExpiredStyle
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F22AE8900D1 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_4F22AE8003D5 DoIt
+
+ME ME_4F22AE6C0165
+ MEPROP UID '4F22AE6C0165'
+ MEPROP Name 'acSetExpiredStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F22AE8003D5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F22AE6C0165 acSetExpiredStyle
+
+FORWARD ME_526E5BAA00E9
+
+ME ME_526E5BD70189
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_526E5BD70189 aFileName
+
+ME ME_526E5BC80057
+ MEPROP UID '526E5BC80057'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526E5BAA00E9 // acCorrectRelatedText
+ ;
+ MELIST Parameters
+   Seq: ( ME_526E5BD70189 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_526E5BC80057 DoIt
+
+ME ME_526E5BAA00E9
+ MEPROP UID '526E5BAA00E9'
+ MEPROP Name 'acCorrectRelatedText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_526E5BC80057 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_526E5BAA00E9 acCorrectRelatedText
+
+FORWARD ME_530B2FD003B4
+
+ME ME_530B2FEA0079
+ MEPROP UID '530B2FEA0079'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_530B2FD003B4 // acMakePreview
+ ;
+
+ENDME // ME_530B2FEA0079 DoIt
+
+ME ME_530B2FD003B4
+ MEPROP UID '530B2FD003B4'
+ MEPROP Name 'acMakePreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_530B2FEA0079 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_530B2FD003B4 acMakePreview
+
+FORWARD ME_537075A70219
+
+ME ME_537075C80100
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_537075C80100 aFileName
+
+ME ME_537075B903DB
+ MEPROP UID '537075B903DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537075A70219 // acSaveDocAs
+ ;
+ MELIST Parameters
+   Seq: ( ME_537075C80100 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_537075B903DB DoIt
+
+ME ME_537075A70219
+ MEPROP UID '537075A70219'
+ MEPROP Name 'acSaveDocAs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537075B903DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537075A70219 acSaveDocAs
+
+FORWARD ME_537D965101BA
+
+ME ME_537D966F037D
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_537D966F037D aFileName
+
+ME ME_537D966400E0
+ MEPROP UID '537D966400E0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537D965101BA // acSaveTextAs
+ ;
+ MELIST Parameters
+   Seq: ( ME_537D966F037D // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_537D966400E0 DoIt
+
+ME ME_537D965101BA
+ MEPROP UID '537D965101BA'
+ MEPROP Name 'acSaveTextAs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537D966400E0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537D965101BA acSaveTextAs
+
+FORWARD ME_53B648700029
+
+ME ME_53B6488F00D9
+ MEPROP UID '53B6488F00D9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B648700029 // arClearTemplateStorage
+ ;
+
+ENDME // ME_53B6488F00D9 DoIt
+
+ME ME_53B648700029
+ MEPROP UID '53B648700029'
+ MEPROP Name 'arClearTemplateStorage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B6488F00D9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B648700029 arClearTemplateStorage
+
+FORWARD ME_53EB4DC6007B
+
+ME ME_53EB4DD603A0
+ MEPROP UID '53EB4DD603A0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53EB4DC6007B // acMainFormFormClose
+ ;
+
+ENDME // ME_53EB4DD603A0 DoIt
+
+ME ME_53EB4DC6007B
+ MEPROP UID '53EB4DC6007B'
+ MEPROP Name 'acMainFormFormClose'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53EB4DD603A0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53EB4DC6007B acMainFormFormClose
+
+FORWARD ME_56A09EF601E1
+
+ME ME_56A09F230196
+ MEPROP UID '56A09F230196'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56A09EF601E1 // acClearConfig
+ ;
+
+ENDME // ME_56A09F230196 DoIt
+
+ME ME_56A09EF601E1
+ MEPROP UID '56A09EF601E1'
+ MEPROP Name 'acClearConfig'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56A09F230196 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56A09EF601E1 acClearConfig
+
+ME ME_4E4B5F29031C
+ MEPROP UID '4E4B5F29031C'
+ MEPROP Name 'arArchiTestAdapter2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Времянка для подключения модулей не на модели, т.к. даже при частичном переносе требуется их перемещение. А это мешает.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E4B6340031F // arMakeChangeDoc
+ HWL ME_4E4B637A01C7 // arInsertDocChanges
+ HWL ME_4E83092C0076 // arIniRecSetZoom
+ HWL ME_4E83095902EB // arIniRecGetZoom
+ HWL ME_4F0C276F03DC // arShowMailWindow
+ HWL ME_4F0C37850322 // acEndDragAndDrop
+ HWL ME_4F22AE6C0165 // acSetExpiredStyle
+ HWL ME_526E5BAA00E9 // acCorrectRelatedText
+ HWL ME_530B2FD003B4 // acMakePreview
+ HWL ME_537075A70219 // acSaveDocAs
+ HWL ME_537D965101BA // acSaveTextAs
+ HWL ME_53B648700029 // arClearTemplateStorage
+ HWL ME_53EB4DC6007B // acMainFormFormClose
+ HWL ME_56A09EF601E1 // acClearConfig
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\NOT_FINISHED_arArchiTestAdapter2.pas'
+
+ENDME // ME_4E4B5F29031C arArchiTestAdapter2
+
+ME ME_4E4BBB6500A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4BBADC02A0 // TkwMakeChangeDoc
+ ;
+ MELINK Target HWL ME_4E4B6340031F // arMakeChangeDoc
+ ;
+
+ENDME // ME_4E4BBB6500A7 
+
+ME ME_4E4BBADC02A0
+ MEPROP UID '4E4BBADC02A0'
+ MEPROP Name 'TkwMakeChangeDoc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'macros:MakeChangeDoc' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E4BBB6500A7 // arMakeChangeDoc
+ )
+ ; // Dependencies
+ UP "NameForScript" 'macros:MakeChangeDoc'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwMakeChangeDoc.pas'
+ UP extprop:rc:SelfName 'MakeChangeDoc'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMakeChangeDoc'
+
+ENDME // ME_4E4BBADC02A0 TkwMakeChangeDoc
+
+ME ME_4E4BC0DF00D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4BC07D0328 // TkwInsertDocChanges
+ ;
+ MELINK Target HWL ME_4E4B637A01C7 // arInsertDocChanges
+ ;
+
+ENDME // ME_4E4BC0DF00D1 
+
+ME ME_4E4BC07D0328
+ MEPROP UID '4E4BC07D0328'
+ MEPROP Name 'TkwInsertDocChanges'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'macros:InsertDocChanges' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E4BC0DF00D1 // arInsertDocChanges
+ )
+ ; // Dependencies
+ UP "NameForScript" 'macros:InsertDocChanges'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwInsertDocChanges.pas'
+ UP extprop:rc:SelfName 'InsertDocChanges'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwInsertDocChanges'
+
+ENDME // ME_4E4BC07D0328 TkwInsertDocChanges
+
+ME ME_4E60CB98027D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
+ ;
+ MELINK Target WL 'ME_4DFB4B01001D' '4DFB49C40350.ms.model.script' // TDocEditorWindow
+ ;
+
+ENDME // ME_4E60CB98027D 
+
+ME ME_4E60CB9C026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
+ ;
+ MELINK Target WL 'ME_4DFB4D5E0084' '4DFB49C40350.ms.model.script' // TMainForm
+ ;
+
+ENDME // ME_4E60CB9C026C 
+
+ME ME_4E60CB00004F
+ MEPROP UID '4E60CB00004F'
+ MEPROP Name 'TkwGetActiveEditorPageName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* main_form:GetActivePageName'#13#10'*Описание:* Помещает в стек номер активной вкладки в окне редактирования документа.'#13#10'*Примечания:*'#13#10' Константы с номерами вкладок находятся в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E60CB98027D // TDocEditorWindow
+ ME_4E60CB9C026C // TMainForm
+ )
+ ; // Dependencies
+ UP "NameForScript" 'main_form:GetActivePageName'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwGetActiveEditorPageName.pas'
+ UP extprop:rc:SelfName 'GetActiveEditorPageName'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwGetActiveEditorPageName'
+
+ENDME // ME_4E60CB00004F TkwGetActiveEditorPageName
+
+ME ME_4E830AB0011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E83072D01FF // TkwIniRecSetZoom
+ ;
+ MELINK Target HWL ME_4E83092C0076 // arIniRecSetZoom
+ ;
+
+ENDME // ME_4E830AB0011D 
+
+ME ME_4E83072D01FF
+ MEPROP UID '4E83072D01FF'
+ MEPROP Name 'TkwIniRecSetZoom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'IniRec:SetZoom' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E830AB0011D // arIniRecSetZoom
+ )
+ ; // Dependencies
+ UP "NameForScript" 'IniRec:SetZoom'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwIniRecSetZoom.pas'
+ UP extprop:rc:SelfName 'IniRecSetZoom'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwIniRecSetZoom'
+
+ENDME // ME_4E83072D01FF TkwIniRecSetZoom
+
+ME ME_4E830A950199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E8307CE0359 // TkwIniRecGetZoom
+ ;
+ MELINK Target HWL ME_4E83095902EB // arIniRecGetZoom
+ ;
+
+ENDME // ME_4E830A950199 
+
+ME ME_4E8307CE0359
+ MEPROP UID '4E8307CE0359'
+ MEPROP Name 'TkwIniRecGetZoom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'IniRec:GetZoom' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E830A950199 // arIniRecGetZoom
+ )
+ ; // Dependencies
+ UP "NameForScript" 'IniRec:GetZoom'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwIniRecGetZoom.pas'
+ UP extprop:rc:SelfName 'IniRecGetZoom'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwIniRecGetZoom'
+
+ENDME // ME_4E8307CE0359 TkwIniRecGetZoom
+
+ME ME_52BD79600196_ME_4E8EE51103C2
+ MELINK Original HWL ME_52BD79600196 // DoWithFileName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52BD79600196_ME_4E8EE51103C2 DoWithFileName
+
+ME ME_4DB0614603C8_ME_4E8EE51103C2
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E8EE51103C2 GetWordNameForRegister
+
+ME ME_4E8EE51103C2
+ MEPROP UID '4E8EE51103C2'
+ MEPROP Name 'TkwArchiNewEmptyDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* Создать_пустой'#13#10'*Описание:* Создание пустого документа. '#13#10'*Пример:*'#13#10'{code}'#13#10' Создать_пустой'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает пустой документ'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52BD79050326 // TkwCreateNewFile
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52BD79600196_ME_4E8EE51103C2 // DoWithFileName
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E8EE51103C2 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "NameForScript" 'Создать_пустой'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewEmptyDocument.pas'
+ UP extprop:rc:SelfName 'ArchiNewEmptyDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwArchiNewEmptyDocument'
+
+ENDME // ME_4E8EE51103C2 TkwArchiNewEmptyDocument
+
+ME ME_4EA9501F020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA94ED30365 // TkwAddBlock
+ ;
+ MELINK Target HWL ME_4EA94FCA02CD // arAddBlock
+ ;
+
+ENDME // ME_4EA9501F020F 
+
+ME ME_4EA94ED30365
+ MEPROP UID '4EA94ED30365'
+ MEPROP Name 'TkwAddBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'окно_редактора:установить_блок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4EA9501F020F // arAddBlock
+ )
+ ; // Dependencies
+ UP "NameForScript" 'окно_редактора:установить_блок'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwAddBlock.pas'
+ UP extprop:rc:SelfName 'AddBlock'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwAddBlock'
+
+ENDME // ME_4EA94ED30365 TkwAddBlock
+
+ME ME_4EAFCCCF012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EAFC7190370 // TkwSetActivePage
+ ;
+ MELINK Target HWL ME_4EAFC7CC0065 // acSetActivePage
+ ;
+
+ENDME // ME_4EAFCCCF012E 
+
+ME ME_4EAFC7190370
+ MEPROP UID '4EAFC7190370'
+ MEPROP Name 'TkwSetActivePage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* ID_вкладки окно_редактора:перейти_на_вкладку'#13#10'*Описание:* Делает активной вкладку с номером ID_вкладки.'#13#10'*Примечания:*'#13#10' Константы с номерами вкладок находятся в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4EAFCCCF012E // acSetActivePage
+ )
+ ; // Dependencies
+ UP "NameForScript" 'окно_редактора:перейти_на_вкладку'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwSetActivePage.pas'
+ UP extprop:rc:SelfName 'SetActivePage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSetActivePage'
+
+ENDME // ME_4EAFC7190370 TkwSetActivePage
+
+ME ME_4ECB5FCB0285
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ECB504D000B // TkwEditorSetTOC
+ ;
+ MELINK Target HWL ME_4ECB5F560065 // arSetContentsSub
+ ;
+
+ENDME // ME_4ECB5FCB0285 
+
+ME ME_4ECB504D000B
+ MEPROP UID '4ECB504D000B'
+ MEPROP Name 'TkwEditorSetTOC'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'редактор:установить_оглавление' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4ECB5FCB0285 // arSetContentsSub
+ )
+ ; // Dependencies
+ UP "NameForScript" 'редактор:установить_оглавление'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorSetTOC.pas'
+ UP extprop:rc:SelfName 'EditorSetTOC'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorSetTOC'
+
+ENDME // ME_4ECB504D000B TkwEditorSetTOC
+
+ME ME_4EEF08D50168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EEF07E80201 // TkwGotoSub
+ ;
+ MELINK Target HWL ME_4EEF085B0345 // arGotoSub
+ ;
+
+ENDME // ME_4EEF08D50168 
+
+ME ME_4EEF07E80201
+ MEPROP UID '4EEF07E80201'
+ MEPROP Name 'TkwGotoSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'окно_редактора:перейти_к_метке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4EEF08D50168 // arGotoSub
+ )
+ ; // Dependencies
+ UP "NameForScript" 'окно_редактора:перейти_к_метке'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwGotoSub.pas'
+ UP extprop:rc:SelfName 'GotoSub'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwGotoSub'
+
+ENDME // ME_4EEF07E80201 TkwGotoSub
+
+ME ME_4F0C090E01A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4F0C090E01A1 
+
+ME ME_4F0C0BFE0194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ ;
+ MELINK Target WL 'ME_4F0C0B870141' '47F485150151.ms.model.script' // TDragDataSupport
+ ;
+
+ENDME // ME_4F0C0BFE0194 
+
+ME ME_4F0C37BC03D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ ;
+ MELINK Target HWL ME_4F0C37850322 // acEndDragAndDrop
+ ;
+
+ENDME // ME_4F0C37BC03D2 
+
+ME ME_4DB98B990054_ME_4F0C009200D7
+ MELINK Original WL 'ME_4DB98B990054' '54DB92D203C9.ms.model.script' // DoControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DB98B990054_ME_4F0C009200D7 DoControl
+
+ME ME_4DB0614603C8_ME_4F0C009200D7
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4F0C009200D7 GetWordNameForRegister
+
+ME ME_4F0C009200D7
+ MEPROP UID '4F0C009200D7'
+ MEPROP Name 'TkwEndAddSubByMouse'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Закончить простановку ссылки на саб с помощью мыши (Drag&Drop):'#13#10'окно_редактора:постановить_ссылку_мышью' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DB98B4B0382' '54DB92D203C9.ms.model.script' // TkwControlWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DB98B990054_ME_4F0C009200D7 // DoControl
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4F0C009200D7 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F0C090E01A1 // TMessage
+ ME_4F0C0BFE0194 // TDragDataSupport
+ ME_4F0C37BC03D2 // acEndDragAndDrop
+ )
+ ; // Dependencies
+ UP "NameForScript" 'окно_редактора:постановить_ссылку_мышью'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwEndAddSubByMouse.pas'
+ UP extprop:rc:SelfName 'EndAddSubByMouse'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEndAddSubByMouse'
+
+ENDME // ME_4F0C009200D7 TkwEndAddSubByMouse
+
+ME ME_4F0C27B300B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C26900161 // TkwShowMailMessage
+ ;
+ MELINK Target HWL ME_4F0C276F03DC // arShowMailWindow
+ ;
+
+ENDME // ME_4F0C27B300B2 
+
+ME ME_4F0C26900161
+ MEPROP UID '4F0C26900161'
+ MEPROP Name 'TkwShowMailMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ShowMailWindow' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F0C27B300B2 // arShowMailWindow
+ )
+ ; // Dependencies
+ UP "NameForScript" 'ShowMailWindow'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwShowMailMessage.pas'
+ UP extprop:rc:SelfName 'ShowMailMessage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwShowMailMessage'
+
+ENDME // ME_4F0C26900161 TkwShowMailMessage
+
+ME ME_4F22B00703E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F22AFC0008A // TkwSetExpiredStyle
+ ;
+ MELINK Target HWL ME_4F22AE6C0165 // acSetExpiredStyle
+ ;
+
+ENDME // ME_4F22B00703E7 
+
+ME ME_4F22AFC0008A
+ MEPROP UID '4F22AFC0008A'
+ MEPROP Name 'TkwSetExpiredStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22B00703E7 // acSetExpiredStyle
+ )
+ ; // Dependencies
+ UP "NameForScript" 'окно_редактора:SetExpiredStyle'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwSetExpiredStyle.pas'
+ UP extprop:rc:SelfName 'SetExpiredStyle'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSetExpiredStyle'
+
+ENDME // ME_4F22AFC0008A TkwSetExpiredStyle
+
+ME ME_56ECAE6200CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0A095C0324 // TkwArchiNewDocument
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_56ECAE6200CF 
+
+ME ME_52BD79600196_ME_4E0A095C0324
+ MELINK Original HWL ME_52BD79600196 // DoWithFileName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52BD79600196_ME_4E0A095C0324 DoWithFileName
+
+ME ME_4DB0614603C8_ME_4E0A095C0324
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E0A095C0324 GetWordNameForRegister
+
+ME ME_4E0A095C0324
+ MEPROP UID '4E0A095C0324'
+ MEPROP Name 'TkwArchiNewDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* Создать'#13#10'*Описание:* Создание документа из файла. Имя файла совпадает с названием теста, но используется расширение evd.'#13#10'*Пример:*'#13#10'{code}'#13#10' Создать'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает документ из файла Название_теста.evd'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52BD79050326 // TkwCreateNewFile
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52BD79600196_ME_4E0A095C0324 // DoWithFileName
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E0A095C0324 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56ECAE6200CF // SysUtils
+ )
+ ; // Dependencies
+ UP "NameForScript" 'Создать'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewDocument.pas'
+ UP extprop:rc:SelfName 'ArchiNewDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwArchiNewDocument'
+
+ENDME // ME_4E0A095C0324 TkwArchiNewDocument
+
+ME ME_55B6651703CB
+ MEPROP UID '55B6651703CB'
+ MEPROP Name 'IsNeedSaveDocument'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B664E00149 // archiDocEditorWindowWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55B6651703CB IsNeedSaveDocument
+
+ME ME_55B664E00149
+ MEPROP UID '55B664E00149'
+ MEPROP Name 'archiDocEditorWindowWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DE629810132 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DFB4B01001D' '4DFB49C40350.ms.model.script' // TDocEditorWindow
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B6651703CB // IsNeedSaveDocument
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP "no class name" false
+ UP "no_pop" true
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\archiDocEditorWindowWordsPack.pas'
+
+ENDME // ME_55B664E00149 archiDocEditorWindowWordsPack
+
+ME ME_4DE629810132
+ MEPROP UID '4DE629810132'
+ MEPROP Name 'Scripting'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Скрипты для Арчи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DE7653F03E5' '4DE7653F03E5.ms.model.script' // Archi Insider Test Support
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DE6299E021A // TkwArchiOpenDocument
+ HWL ME_4DE60853015A // arArchiTestsAdapter
+ HWL ME_4DE632EF020B // TkwArchiCloseDocument
+ HWL ME_4DE643F100CB // TarEditorControl
+ HWL ME_4DE740FA0192 // TkwClickOnCommentHeader
+ HWL ME_4DFB3B88027A // TkwEditorDblClickOnSub
+ HWL ME_4DFB406602B7 // arEditorUtils
+ HWL ME_4E01AD1F02CA // TkwDeleteSub
+ HWL ME_4E01E88B029B // TkwDocEditorSetModified
+ HWL ME_52BD79050326 // TkwCreateNewFile
+ HWL ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
+ HWL ME_4E2448BD014D // TkwOpenInsDWin
+ HWL ME_4E244C8400D2 // arDialogsPack
+ HWL ME_4E4A181002B0 // TkwClearDataBase
+ HWL ME_4E4A1982012A // CommonArchiWords
+ HWL ME_4E4B5F29031C // arArchiTestAdapter2
+ HWL ME_4E4BBADC02A0 // TkwMakeChangeDoc
+ HWL ME_4E4BC07D0328 // TkwInsertDocChanges
+ HWL ME_4E60CB00004F // TkwGetActiveEditorPageName
+ HWL ME_4E83072D01FF // TkwIniRecSetZoom
+ HWL ME_4E8307CE0359 // TkwIniRecGetZoom
+ HWL ME_4E8EE51103C2 // TkwArchiNewEmptyDocument
+ HWL ME_4EA94ED30365 // TkwAddBlock
+ HWL ME_4EAFC7190370 // TkwSetActivePage
+ HWL ME_4ECB504D000B // TkwEditorSetTOC
+ HWL ME_4EEF07E80201 // TkwGotoSub
+ HWL ME_4F0C009200D7 // TkwEndAddSubByMouse
+ HWL ME_4F0C26900161 // TkwShowMailMessage
+ HWL ME_4F22AFC0008A // TkwSetExpiredStyle
+ HWL ME_4E0A095C0324 // TkwArchiNewDocument
+ HWL ME_55B664E00149 // archiDocEditorWindowWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ WL 'ME_474144E20301' '474144E20301.ms.model.script' // Draw
+ WL 'ME_476BE0350329' '476BE0350329.ms.model.script' // Styles
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4799EC9300AF' '4799EC9300AF.ms.model.script' // l3Defaults
+ WL 'ME_47BC50280350' '47BC50280350.ms.model.script' // Dictionary
+ WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_47EA968D0155' '47EA968D0155.ms.model.script' // Printing
+ WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ WL 'ME_4811D4EC0237' '4811D4EC0237.ms.model.script' // Views
+ WL 'ME_48294AA903A6' '48294AA903A6.ms.model.script' // m3CoreObjects
+ WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ACDBC26003C' '4ACDBC26003C.ms.model.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ WL 'ME_4C9CD07701E6' '4C9CD07701E6.ms.model.script' // AttrSchema
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_4DFB49C40350' '4DFB49C40350.ms.model.script' // MainWindows
+ WL 'ME_4E4A36100340' '4E4A36100340.ms.model.script' // DataBaseUtils
+ WL 'ME_4E4B5C5E0032' '4E4B5C5E0032.ms.model.script' // DataBase
+ WL 'ME_4E4B607802DB' '4E4B607802DB.ms.model.script' // Utils
+ WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.ms.model.script' // PrimitiveWords
+ WL 'ME_4F4CB50403CC' '4F4CB50403CC.ms.model.script' // EditorFromStackKeyWords
+ WL 'ME_50741A080229' '50741A080229.ms.model.script' // FormsProcessing
+ WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
+ WL 'ME_538DA20300A7' '538DA20300A7.ms.model.script' // ClientSide
+ WL 'ME_53FF06D9011C' '53FF06D9011C.ms.model.script' // PDFSupport
+ WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
+ WL 'ME_5450CFDA02FF' '5450CFDA02FF.ms.model.script' // Mail
+ WL 'ME_5486E32B0191' '5486E32B0191.ms.model.script' // StorageHolder
+ WL 'ME_54DB92D203C9' '54DB92D203C9.ms.model.script' // VCL bindings
+ WL 'ME_55B7A3160128' '55B7A3160128.ms.model.script' // ScriptedAxiomatics
+ )
+ ; // Depends
+
+ENDME // ME_4DE629810132 Scripting

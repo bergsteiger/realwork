@@ -1,0 +1,43 @@
+// F1 Поддержка тестов 4DB0572601B7 Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4DB0572601B7
+ MEPROP UID '4DB0572601B7'
+ MEPROP Name 'F1 Поддержка тестов'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Project ;
+ %SUMMARY 'Поддержка тестирования проектов семейства F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELIST Children
+   Seq: ( WL 'ME_4E20331F01E4' '4E20331F01E4.ms.model.script' // F1 Shell Tests Core
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ WL 'ME_4A82FE48010A' '4A82FE48010A.ms.model.script' // Shared Delphi Operations
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.ms.model.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ WL 'ME_4B30CC420206' '4B30CC420206.ms.model.script' // Shared Delphi Testing Framework
+ WL 'ME_562E251101C2' '562E251101C2.ms.model.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ UP "Full MDP" false
+ UP "UseNewGen" true
+ UP "create project" true
+ UP "defines" 'nsDefine.inc'
+ UP "fix version" 0
+ UP "full constraint" false
+ UP "ifndef" 'NoScripts'
+ UP "major version" 8
+ UP "minor version" 01
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/implementation/Garant/GbaNemesis'
+ UP "space key" 'NMS'
+ UP "space name" 'Nemesis'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+
+ENDME // ME_4DB0572601B7 F1 Поддержка тестов

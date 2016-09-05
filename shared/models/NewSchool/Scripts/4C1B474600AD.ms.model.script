@@ -1,0 +1,83 @@
+// Parser 4C1B474600AD Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C1B474600AD
+
+FORWARD ME_4C1B475101C5
+
+ME ME_4C1B47600258
+ MEPROP UID '4C1B47600258'
+ MEPROP Name 'Tl3CustomParser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B475101C5 // l3Parser
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7725102DA' '47913B47006E.ms.model.script' // Tl3ProtoPersistent
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'Parser'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C1B47600258 Tl3CustomParser
+
+ME ME_52EF740F00AE
+ MEPROP UID '52EF740F00AE'
+ MEPROP Name 'Tl3TokenType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B475101C5 // l3Parser
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52EF740F00AE Tl3TokenType
+
+ME ME_4C1B475101C5
+ MEPROP UID '4C1B475101C5'
+ MEPROP Name 'l3Parser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C1B474600AD // Parser
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C1B47600258 // Tl3CustomParser
+ HWL ME_52EF740F00AE // Tl3TokenType
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Parser.pas'
+ UP extprop:rc:SelfName 'Parser'
+
+ENDME // ME_4C1B475101C5 l3Parser
+
+ME ME_4C1B474600AD
+ MEPROP UID '4C1B474600AD'
+ MEPROP Name 'Parser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C1B475101C5 // l3Parser
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ )
+ ; // Depends
+
+ENDME // ME_4C1B474600AD Parser

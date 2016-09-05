@@ -1,0 +1,358 @@
+// Settings_i 45EEAA6E01A9 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEAA6E01A9
+
+FORWARD ME_4889E960019F
+
+ME ME_488DCB920012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4889E960019F // StoreSettingsToServer
+ ;
+
+ENDME // ME_488DCB920012 
+
+ME ME_4889E960019F
+ MEPROP UID '4889E960019F'
+ MEPROP Name 'StoreSettingsToServer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'класс периодически сбрасывающий изменённые настройки на сервер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA6E01A9 // Settings_i
+ ;
+ MELIST Dependencies
+   Seq: ( ME_488DCB920012 // ConfigurationManager_i
+ )
+ ; // Dependencies
+ UP "need objcounter" false
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\StoreSettingsToServer.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\StoreSettingsToServer.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\StoreSettingsToServer.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4889E960019F StoreSettingsToServer
+
+FORWARD ME_488DD13303A4
+
+ME ME_488DD16702A2
+ MEPROP UID '488DD16702A2'
+ MEPROP Name 'conf_id'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_488DD13303A4 // ServerSettingData
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_488DD16702A2 conf_id
+
+ME ME_488DD18301C9
+ MEPROP UID '488DD18301C9'
+ MEPROP Name 'prop_id'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_488DD13303A4 // ServerSettingData
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_488DD18301C9 prop_id
+
+ME ME_488DD19C0358
+ MEPROP UID '488DD19C0358'
+ MEPROP Name 'prop_value'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_488DD13303A4 // ServerSettingData
+ ;
+
+ENDME // ME_488DD19C0358 prop_value
+
+ME ME_488DD1A9000F
+ MEPROP UID '488DD1A9000F'
+ MEPROP Name 'time'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_488DD13303A4 // ServerSettingData
+ ;
+ MELINK Target WL 'ME_3DBFFD860205' '3DBFDB23006E.ms.model.script' // long long
+ ;
+
+ENDME // ME_488DD1A9000F time
+
+ME ME_489816FE01BE
+ MEPROP Name 'conf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_489816FE01BE conf
+
+ME ME_489816FE0200
+ MEPROP Name 'prop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_489816FE0200 prop
+
+ME ME_489816C3023E
+ MEPROP UID '489816C3023E'
+ MEPROP Name 'ctor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ %SUMMARY 'используется для поиска элемента в кешированных данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_488DD13303A4 // ServerSettingData
+ ;
+ MELIST Parameters
+   Seq: ( ME_489816FE01BE // conf
+ ME_489816FE0200 // prop
+ )
+ ; // Parameters
+
+ENDME // ME_489816C3023E ctor
+
+ME ME_488DD13303A4
+ MEPROP UID '488DD13303A4'
+ MEPROP Name 'ServerSettingData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'данные для сохранения настройки на сервере' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA6E01A9 // Settings_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_488DD16702A2 // conf_id
+ HWL ME_488DD18301C9 // prop_id
+ HWL ME_488DD19C0358 // prop_value
+ HWL ME_488DD1A9000F // time
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_489816C3023E // ctor
+ )
+ ; // Operations
+ UP "Need init ctor" true
+ UP extprop:pas:TypeName 'TServerSettingData'
+
+ENDME // ME_488DD13303A4 ServerSettingData
+
+FORWARD ME_488DD1E30293
+
+ME ME_488DD2830065
+ MEPROP UID '488DD2830065'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_488DD1E30293 // CachedDataForServer
+ ;
+ MELINK Target HWL ME_488DD13303A4 // ServerSettingData
+ ;
+
+ENDME // ME_488DD2830065 
+
+ME ME_488DD1E30293
+ MEPROP UID '488DD1E30293'
+ MEPROP Name 'CachedDataForServer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Set ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'данные для отправки на сервер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA6E01A9 // Settings_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_488DD2830065 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_488DD1E30293 CachedDataForServer
+
+FORWARD ME_4898316C03A1
+
+ME ME_489831930115
+ MEPROP UID '489831930115'
+ MEPROP Name 'SSS_INTIME'
+ MEPROP Class class_Attribute
+ %SUMMARY 'сразу писать настройки на сервер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4898316C03A1 // SettingsSaveStrategy
+ ;
+
+ENDME // ME_489831930115 SSS_INTIME
+
+ME ME_489831C2011C
+ MEPROP UID '489831C2011C'
+ MEPROP Name 'SSS_CACHE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'сохранять настройки в кеше с периодическим сбросом на сервер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4898316C03A1 // SettingsSaveStrategy
+ ;
+
+ENDME // ME_489831C2011C SSS_CACHE
+
+ME ME_489831DE03E0
+ MEPROP UID '489831DE03E0'
+ MEPROP Name 'SSS_NOTSAVE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'не сохранять настройки на сервере' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4898316C03A1 // SettingsSaveStrategy
+ ;
+
+ENDME // ME_489831DE03E0 SSS_NOTSAVE
+
+ME ME_4898316C03A1
+ MEPROP UID '4898316C03A1'
+ MEPROP Name 'SettingsSaveStrategy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'стратегия сохранения настроек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA6E01A9 // Settings_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_489831930115 // SSS_INTIME
+ HWL ME_489831C2011C // SSS_CACHE
+ HWL ME_489831DE03E0 // SSS_NOTSAVE
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TSettingsSaveStrategy'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4898316C03A1 SettingsSaveStrategy
+
+FORWARD ME_488EBACB0163
+
+ME ME_488EBB03035A
+ MEPROP UID '488EBB03035A'
+ MEPROP Name 'DELTA_OPTION_NAME'
+ MEPROP Class class_Attribute
+ %SUMMARY 'название опции, задающей таймаут сбрасывания настроек на сервер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_488EBACB0163 // ServerCacheValues
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ MEPROP Value '-SettingsFlushTimeout'
+ MELINK ValueType WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '-SettingsFlushTimeout'
+
+ENDME // ME_488EBB03035A DELTA_OPTION_NAME
+
+ME ME_488EBB8B0014
+ MEPROP UID '488EBB8B0014'
+ MEPROP Name 'DELTA_OPTION_VALUE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'значение таймаута по-умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_488EBACB0163 // ServerCacheValues
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MEPROP Value 600
+ MELINK ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 600
+
+ENDME // ME_488EBB8B0014 DELTA_OPTION_VALUE
+
+ME ME_488EBACB0163
+ MEPROP UID '488EBACB0163'
+ MEPROP Name 'ServerCacheValues'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'константы, связанные с использованием кеша настроек для сбрасывания на сервер. Если таймаут меньше нуля, настройеки на сервер вообще не пишутся, если равен нулю, то пишутся сразу без использования кеша' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA6E01A9 // Settings_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_488EBB03035A // DELTA_OPTION_NAME
+ HWL ME_488EBB8B0014 // DELTA_OPTION_VALUE
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_488EBACB0163 ServerCacheValues
+
+ME ME_45EEAA6E01A9
+ MEPROP UID '45EEAA6E01A9'
+ MEPROP Name 'Settings_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4889E960019F // StoreSettingsToServer
+ HWL ME_488DD13303A4 // ServerSettingData
+ HWL ME_488DD1E30293 // CachedDataForServer
+ HWL ME_4898316C03A1 // SettingsSaveStrategy
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_488EBACB0163 // ServerCacheValues
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_450E6CBF01A5' '450E6CBF01A5.ms.model.script' // Event
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45702A7F01F4' '45702A7F01F4.ms.model.script' // Start_i
+ WL 'ME_45EEAA69036E' '45EEAA69036E.ms.model.script' // Settings
+ WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\Settings_i.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\Settings_i.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i'
+
+ENDME // ME_45EEAA6E01A9 Settings_i

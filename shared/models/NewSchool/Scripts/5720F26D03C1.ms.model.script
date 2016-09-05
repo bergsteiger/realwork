@@ -1,0 +1,617 @@
+// 8.0 5720F26D03C1 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5720F26D03C1
+
+FORWARD ME_5720F28E0343
+
+FORWARD ME_5720F31301A0
+
+ME ME_5720F3650097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5720F3650097 
+
+ME ME_572110B30189
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_572110B30189 
+
+ME ME_572110D30170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_572110D30170 
+
+ME ME_572110FD010E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_572110FD010E 
+
+ME ME_49E488070386_ME_5720F31301A0
+ MELINK Original WL 'ME_49E488070386' '47ECB8BD00A8.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49E488070386_ME_5720F31301A0 ParaTypeForFiltering
+
+ME ME_49E4883E0176_ME_5720F31301A0
+ MELINK Original WL 'ME_49E4883E0176' '47ECB8BD00A8.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49E4883E0176_ME_5720F31301A0 DoWritePara
+
+ME ME_5720F31301A0
+ MEPROP UID '5720F31301A0'
+ MEPROP Name 'TevdTextCodePageChanger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F28E0343 // K622402617
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E487650342' '47ECB8BD00A8.ms.model.script' // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E488070386_ME_5720F31301A0 // ParaTypeForFiltering
+ ME_49E4883E0176_ME_5720F31301A0 // DoWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5720F3650097 // Tk2TagID
+ ME_572110B30189 // l3String
+ ME_572110D30170 // Code Pages
+ ME_572110FD010E // TextPara
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'dTextCodePageChanger'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5720F31301A0 TevdTextCodePageChanger
+
+ME ME_4C07BCBE01F2_ME_5720F28E0343
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDD97014B.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C07BCBE01F2_ME_5720F28E0343 SetFilters
+
+ME ME_5720F28E0343
+ MEPROP UID '5720F28E0343'
+ MEPROP Name 'K622402617'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:622402617}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C07B5E300F2' '4C07B59F0382.ms.model.script' // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_5720F28E0343 // SetFilters
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ )
+ ; // Children
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K622402617.pas'
+ UP extprop:pas:TypeName 'TK622402617'
+ UP extprop:rc:SelfName 'K622402617'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5720F28E0343 K622402617
+
+ME ME_57342D1B03C8
+ MEPROP UID '57342D1B03C8'
+ MEPROP Name 'K622840683'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:622840683}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C971C2203DD' '4BACDED003CE.ms.model.script' // RTFtoEVDWriterTest
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K622840683.pas'
+ UP extprop:pas:TypeName 'TK622840683'
+ UP extprop:rc:SelfName 'K622840683'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57342D1B03C8 K622840683
+
+ME ME_5735925800E1
+ MEPROP UID '5735925800E1'
+ MEPROP Name 'K623067981'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623067981}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_573591C90195' '4E847D6D002B.ms.model.script' // EVDtoHTMLwoCSS
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623067981.pas'
+ UP extprop:pas:TypeName 'TK623067981'
+ UP extprop:rc:SelfName 'K623067981'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5735925800E1 K623067981
+
+ME ME_574EAF4002F2
+ MEPROP UID '574EAF4002F2'
+ MEPROP Name 'K623486769'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769.pas'
+ UP extprop:pas:TypeName 'TK623486769'
+ UP extprop:rc:SelfName 'K623486769'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EAF4002F2 K623486769
+
+ME ME_574EAF6201E3
+ MEPROP UID '574EAF6201E3'
+ MEPROP Name 'K623486769_1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769_1.pas'
+ UP extprop:pas:TypeName 'TK623486769_1'
+ UP extprop:rc:SelfName 'K623486769_1'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EAF6201E3 K623486769_1
+
+ME ME_574EAF7F03CC
+ MEPROP UID '574EAF7F03CC'
+ MEPROP Name 'K623486769_2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769_2.pas'
+ UP extprop:pas:TypeName 'TK623486769_2'
+ UP extprop:rc:SelfName 'K623486769_2'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EAF7F03CC K623486769_2
+
+ME ME_574EAF960308
+ MEPROP UID '574EAF960308'
+ MEPROP Name 'K623486769_3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769_3.pas'
+ UP extprop:pas:TypeName 'TK623486769_3'
+ UP extprop:rc:SelfName 'K623486769_3'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EAF960308 K623486769_3
+
+ME ME_574EAFB50329
+ MEPROP UID '574EAFB50329'
+ MEPROP Name 'K623486769_4'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769_4.pas'
+ UP extprop:pas:TypeName 'TK623486769_4'
+ UP extprop:rc:SelfName 'K623486769_4'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EAFB50329 K623486769_4
+
+ME ME_574EAFD002C5
+ MEPROP UID '574EAFD002C5'
+ MEPROP Name 'K623486769_5'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769_5.pas'
+ UP extprop:pas:TypeName 'TK623486769_5'
+ UP extprop:rc:SelfName 'K623486769_5'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EAFD002C5 K623486769_5
+
+ME ME_574EAFF003CC
+ MEPROP UID '574EAFF003CC'
+ MEPROP Name 'K623486769_6'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769_6.pas'
+ UP extprop:pas:TypeName 'TK623486769_6'
+ UP extprop:rc:SelfName 'K623486769_6'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EAFF003CC K623486769_6
+
+ME ME_574EB0010211
+ MEPROP UID '574EB0010211'
+ MEPROP Name 'K623486769_7'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:623486769}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D9305C01DD' '4E847D6D002B.ms.model.script' // EVDtoHTMLWithExternalHyperlinks
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K623486769_7.pas'
+ UP extprop:pas:TypeName 'TK623486769_7'
+ UP extprop:rc:SelfName 'K623486769_7'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_574EB0010211 K623486769_7
+
+ME ME_575FF5110334
+ MEPROP UID '575FF5110334'
+ MEPROP Name 'K624074743'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:624074743}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C971C2203DD' '4BACDED003CE.ms.model.script' // RTFtoEVDWriterTest
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K624074743.pas'
+ UP extprop:pas:TypeName 'TK624074743'
+ UP extprop:rc:SelfName 'K624074743'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_575FF5110334 K624074743
+
+ME ME_57613E800272
+ MEPROP UID '57613E800272'
+ MEPROP Name 'K624690924'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:624690924}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_573591C90195' '4E847D6D002B.ms.model.script' // EVDtoHTMLwoCSS
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K624690924.pas'
+ UP extprop:pas:TypeName 'TK624690924'
+ UP extprop:rc:SelfName 'K624690924'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57613E800272 K624690924
+
+ME ME_5762732D0290
+ MEPROP UID '5762732D0290'
+ MEPROP Name 'K624692225'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:624692225}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D6CCB60125' '4E847D6D002B.ms.model.script' // HTMLtoEVDFull
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K624692225.pas'
+ UP extprop:pas:TypeName 'TK624692225'
+ UP extprop:rc:SelfName 'K624692225'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5762732D0290 K624692225
+
+ME ME_5763CC780084
+ MEPROP UID '5763CC780084'
+ MEPROP Name 'K624709249'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:624709249}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D6CCB60125' '4E847D6D002B.ms.model.script' // HTMLtoEVDFull
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K624709249.pas'
+ UP extprop:pas:TypeName 'TK624709249'
+ UP extprop:rc:SelfName 'K624709249'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5763CC780084 K624709249
+
+ME ME_576904C80038
+ MEPROP UID '576904C80038'
+ MEPROP Name 'K624692225_1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=624692225&focusedCommentId=624709697#comment-624709697' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D6CCB60125' '4E847D6D002B.ms.model.script' // HTMLtoEVDFull
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K624692225_1.pas'
+ UP extprop:pas:TypeName 'TK624692225_1'
+ UP extprop:rc:SelfName 'K624692225_1'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_576904C80038 K624692225_1
+
+ME ME_5769053901BB
+ MEPROP UID '5769053901BB'
+ MEPROP Name 'K624853474'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:624853474}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D6CCB60125' '4E847D6D002B.ms.model.script' // HTMLtoEVDFull
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K624853474.pas'
+ UP extprop:pas:TypeName 'TK624853474'
+ UP extprop:rc:SelfName 'K624853474'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5769053901BB K624853474
+
+ME ME_5787706900B4
+ MEPROP UID '5787706900B4'
+ MEPROP Name 'K627006470'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:627006470}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D6CCB60125' '4E847D6D002B.ms.model.script' // HTMLtoEVDFull
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K627006470.pas'
+ UP extprop:pas:TypeName 'TK627006470'
+ UP extprop:rc:SelfName 'K627006470'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5787706900B4 K627006470
+
+ME ME_578E1F0A02DF
+ MEPROP UID '578E1F0A02DF'
+ MEPROP Name 'K627385907'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:627385907}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C971C2203DD' '4BACDED003CE.ms.model.script' // RTFtoEVDWriterTest
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K627385907.pas'
+ UP extprop:pas:TypeName 'TK627385907'
+ UP extprop:rc:SelfName 'K627385907'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_578E1F0A02DF K627385907
+
+ME ME_5799DC420209
+ MEPROP UID '5799DC420209'
+ MEPROP Name 'K627817772'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:627817772}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D6CCB60125' '4E847D6D002B.ms.model.script' // HTMLtoEVDFull
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K627817772.pas'
+ UP extprop:pas:TypeName 'TK627817772'
+ UP extprop:rc:SelfName 'K627817772'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5799DC420209 K627817772
+
+ME ME_57B1A26602CB
+ MEPROP UID '57B1A26602CB'
+ MEPROP Name 'K628097544'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:628097544}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56D6CCB60125' '4E847D6D002B.ms.model.script' // HTMLtoEVDFull
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K628097544.pas'
+ UP extprop:pas:TypeName 'TK628097544'
+ UP extprop:rc:SelfName 'K628097544'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57B1A26602CB K628097544
+
+ME ME_5720F26D03C1
+ MEPROP UID '5720F26D03C1'
+ MEPROP Name '8.0'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B2A15810261' '4B2A15810261.ms.model.script' // DailyTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5720F28E0343 // K622402617
+ HWL ME_57342D1B03C8 // K622840683
+ HWL ME_5735925800E1 // K623067981
+ HWL ME_574EAF4002F2 // K623486769
+ HWL ME_574EAF6201E3 // K623486769_1
+ HWL ME_574EAF7F03CC // K623486769_2
+ HWL ME_574EAF960308 // K623486769_3
+ HWL ME_574EAFB50329 // K623486769_4
+ HWL ME_574EAFD002C5 // K623486769_5
+ HWL ME_574EAFF003CC // K623486769_6
+ HWL ME_574EB0010211 // K623486769_7
+ HWL ME_575FF5110334 // K624074743
+ HWL ME_57613E800272 // K624690924
+ HWL ME_5762732D0290 // K624692225
+ HWL ME_5763CC780084 // K624709249
+ HWL ME_576904C80038 // K624692225_1
+ HWL ME_5769053901BB // K624853474
+ HWL ME_5787706900B4 // K627006470
+ HWL ME_578E1F0A02DF // K627385907
+ HWL ME_5799DC420209 // K627817772
+ HWL ME_57B1A26602CB // K628097544
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_476BE98C01B8' '476BE98C01B8.ms.model.script' // l3Chars
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_4BACDED003CE' '4BACDED003CE.ms.model.script' // RTF
+ WL 'ME_4C07B59F0382' '4C07B59F0382.ms.model.script' // EVD
+ WL 'ME_4E847D6D002B' '4E847D6D002B.ms.model.script' // HTML
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ )
+ ; // Depends
+ UP Version 60
+
+ENDME // ME_5720F26D03C1 8.0

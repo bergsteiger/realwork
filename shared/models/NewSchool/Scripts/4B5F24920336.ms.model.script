@@ -1,0 +1,176 @@
+// CustomForms 4B5F24920336 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B5F24920336
+
+FORWARD ME_4947E2F10338
+
+ME ME_4AAE6EAF00CF
+ MEPROP UID '4AAE6EAF00CF'
+ MEPROP Name 'finished dfm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что dfm формы полностью определён на модели' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4947E2F10338 // VCMCustomForm
+ ;
+ MEPROP Value true
+ UP extprop:pas:Value true
+
+ENDME // ME_4AAE6EAF00CF finished dfm
+
+ME ME_4C4419D10329
+ MEPROP UID '4C4419D10329'
+ MEPROP Name 'NeedsHackRef'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужно ли генерировать ссылку на класс данной формы для Design-time' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4947E2F10338 // VCMCustomForm
+ ;
+ MEPROP Value true
+ UP extprop:pas:Value true
+
+ENDME // ME_4C4419D10329 NeedsHackRef
+
+ME ME_4947EB1D002B
+ MEPROP UID '4947EB1D002B'
+ MEPROP Name 'IsVCMForm'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4947E2F10338 // VCMCustomForm
+ ;
+
+ENDME // ME_4947EB1D002B IsVCMForm
+
+ME ME_4A794D280320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947E2F10338 // VCMCustomForm
+ ;
+ MELINK Target WL 'ME_4A794D1700B2' '4B5DCCB9015E.ms.model.script' // Component
+ ;
+
+ENDME // ME_4A794D280320 
+
+ME ME_54E1CFD902FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947E2F10338 // VCMCustomForm
+ ;
+ MELINK Target WL 'ME_4F2C0D86003E' '473A7FCA0203.ms.model.script' // ScriptKeyword
+ ;
+
+ENDME // ME_54E1CFD902FD 
+
+ME ME_4947E2F10338
+ MEPROP UID '4947E2F10338'
+ MEPROP Name 'VCMCustomForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B5F24920336 // CustomForms
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_498885A50170' '473A7FCA0203.ms.model.script' // Dialog
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AAE6EAF00CF // finished dfm
+ HWL ME_4C4419D10329 // NeedsHackRef
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4947EB1D002B // IsVCMForm
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A794D280320 // Component
+ ME_54E1CFD902FD // ScriptKeyword
+ )
+ ; // Dependencies
+ UP "personal label" 'code_vcm_form'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\CustomForms\VCMCustomForm.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\CustomForms\VCMCustomForm'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4947E2F10338 VCMCustomForm
+
+FORWARD ME_4B5D670F0257
+
+ME ME_54E1CFE401BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5D670F0257 // VCMDataModule
+ ;
+ MELINK Target WL 'ME_4F2C0D86003E' '473A7FCA0203.ms.model.script' // ScriptKeyword
+ ;
+
+ENDME // ME_54E1CFE401BA 
+
+ME ME_4B5D670F0257
+ MEPROP UID '4B5D670F0257'
+ MEPROP Name 'VCMDataModule'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Модуль данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F24920336 // CustomForms
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4947E2F10338 // VCMCustomForm
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_54E1CFE401BA // ScriptKeyword
+ )
+ ; // Dependencies
+ UP "personal label" 'code_vcm_datamodule'
+ UP "visualization bg color" 9221330
+ UP "visualization f-font color" 12614523
+ UP "visualization f-line color" 12614523
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\CustomForms\VCMDataModule.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\CustomForms\VCMDataModule'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B5D670F0257 VCMDataModule
+
+ME ME_4B5F24920336
+ MEPROP UID '4B5F24920336'
+ MEPROP Name 'CustomForms'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Базовые формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B62F01802BC' '4B62F01802BC.ms.model.script' // VCMViewImplementationLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4947E2F10338 // VCMCustomForm
+ HWL ME_4B5D670F0257 // VCMDataModule
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ WL 'ME_4B5DCCB9015E' '4B5DCCB9015E.ms.model.script' // FormInner
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\CustomForms'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\CustomForms'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B5F24920336 CustomForms

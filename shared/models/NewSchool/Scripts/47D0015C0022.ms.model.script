@@ -1,0 +1,662 @@
+// evControlParaConst 47D0015C0022 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47D0015C0022
+
+FORWARD ME_47D0018D03D9
+
+ME ME_47D0019E00FF
+ MEPROP UID '47D0019E00FF'
+ MEPROP Name 'evCheckableControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value '[ev_ctCheckEdit, ev_ctRadioEdit]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ev_ctCheckEdit, ev_ctRadioEdit]'
+
+ENDME // ME_47D0019E00FF evCheckableControls
+
+ME ME_47DE2DC30383
+ MEPROP UID '47DE2DC30383'
+ MEPROP Name 'evFlatBTNControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value '[ev_ctButton, ev_ctStateButton]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ev_ctButton, ev_ctStateButton]'
+
+ENDME // ME_47DE2DC30383 evFlatBTNControls
+
+ME ME_47DE2DCD006D
+ MEPROP UID '47DE2DCD006D'
+ MEPROP Name 'evButtonControls'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Компоненты, которые ведут себя как кнопки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value 'evFlatBTNControls + [ev_ctCollapsedPanel]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'evFlatBTNControls + [ev_ctCollapsedPanel]'
+
+ENDME // ME_47DE2DCD006D evButtonControls
+
+ME ME_47DE2DE00062
+ MEPROP UID '47DE2DE00062'
+ MEPROP Name 'evButtonStyleControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value 'evButtonControls + evCheckableControls'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'evButtonControls + evCheckableControls'
+
+ENDME // ME_47DE2DE00062 evButtonStyleControls
+
+ME ME_47DE2DE90249
+ MEPROP UID '47DE2DE90249'
+ MEPROP Name 'evControlsWithButtons'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value '[ev_ctCombo, ev_ctEllipsesEdit, ev_ctSpinedit,ev_ctCalEdit]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ev_ctCombo, ev_ctEllipsesEdit, ev_ctSpinedit,ev_ctCalEdit]'
+
+ENDME // ME_47DE2DE90249 evControlsWithButtons
+
+ME ME_47DE2DF90183
+ MEPROP UID '47DE2DF90183'
+ MEPROP Name 'evTextLabel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value '[ev_ctLabel, ev_ctTextParaLabel]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ev_ctLabel, ev_ctTextParaLabel]'
+
+ENDME // ME_47DE2DF90183 evTextLabel
+
+ME ME_47DE2E01001E
+ MEPROP UID '47DE2E01001E'
+ MEPROP Name 'evLabelControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value 'evTextLabel + [ev_ctPictureLabel]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'evTextLabel + [ev_ctPictureLabel]'
+
+ENDME // ME_47DE2E01001E evLabelControls
+
+ME ME_47DE2E0800EB
+ MEPROP UID '47DE2E0800EB'
+ MEPROP Name 'evNotEditableControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value 'evButtonStyleControls + evLabelControls'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'evButtonStyleControls + evLabelControls'
+
+ENDME // ME_47DE2E0800EB evNotEditableControls
+
+ME ME_47DE2E1300CC
+ MEPROP UID '47DE2E1300CC'
+ MEPROP Name 'evSimpleEditors'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value '[ev_ctEdit, ev_ctEmailEdit, ev_ctMemoEdit, ev_ctPhoneEdit]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ev_ctEdit, ev_ctEmailEdit, ev_ctMemoEdit, ev_ctPhoneEdit]'
+
+ENDME // ME_47DE2E1300CC evSimpleEditors
+
+ME ME_47DE2E1F0269
+ MEPROP UID '47DE2E1F0269'
+ MEPROP Name 'evEditControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value 'evControlsWithButtons + evSimpleEditors'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'evControlsWithButtons + evSimpleEditors'
+
+ENDME // ME_47DE2E1F0269 evEditControls
+
+ME ME_47DE2E27022E
+ MEPROP UID '47DE2E27022E'
+ MEPROP Name 'evMaskedControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value '[ev_ctCalEdit]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ev_ctCalEdit]'
+
+ENDME // ME_47DE2E27022E evMaskedControls
+
+ME ME_47DE2E2F00E4
+ MEPROP UID '47DE2E2F00E4'
+ MEPROP Name 'evTextControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D0018D03D9 // Control Types
+ ;
+ MEPROP Value 'evEditControls + evLabelControls'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'evEditControls + evLabelControls'
+
+ENDME // ME_47DE2E2F00E4 evTextControls
+
+ME ME_47D0018D03D9
+ MEPROP UID '47D0018D03D9'
+ MEPROP Name 'Control Types'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D0015C0022 // evControlParaConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47D0019E00FF // evCheckableControls
+ HWL ME_47DE2DC30383 // evFlatBTNControls
+ HWL ME_47DE2DCD006D // evButtonControls
+ HWL ME_47DE2DE00062 // evButtonStyleControls
+ HWL ME_47DE2DE90249 // evControlsWithButtons
+ HWL ME_47DE2DF90183 // evTextLabel
+ HWL ME_47DE2E01001E // evLabelControls
+ HWL ME_47DE2E0800EB // evNotEditableControls
+ HWL ME_47DE2E1300CC // evSimpleEditors
+ HWL ME_47DE2E1F0269 // evEditControls
+ HWL ME_47DE2E27022E // evMaskedControls
+ HWL ME_47DE2E2F00E4 // evTextControls
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47D0018D03D9 Control Types
+
+FORWARD ME_47DE2D1B0386
+
+ME ME_47DE2D2B01FB
+ MEPROP UID '47DE2D2B01FB'
+ MEPROP Name 'BefSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 128'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 128'
+
+ENDME // ME_47DE2D2B01FB BefSpace
+
+ME ME_47DE2D3B0003
+ MEPROP UID '47DE2D3B0003'
+ MEPROP Name 'BefBtbSpase'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 64'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 64'
+
+ENDME // ME_47DE2D3B0003 BefBtbSpase
+
+ME ME_47DE2D4B02ED
+ MEPROP UID '47DE2D4B02ED'
+ MEPROP Name 'BefUpSpase'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 32'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 32'
+
+ENDME // ME_47DE2D4B02ED BefUpSpase
+
+ME ME_47DE2D5A0186
+ MEPROP UID '47DE2D5A0186'
+ MEPROP Name 'RightMemoSpase'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 32'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 32'
+
+ENDME // ME_47DE2D5A0186 RightMemoSpase
+
+ME ME_47DE2D6800EC
+ MEPROP UID '47DE2D6800EC'
+ MEPROP Name 'HalfBefSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 16'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 16'
+
+ENDME // ME_47DE2D6800EC HalfBefSpace
+
+ME ME_47DE2D7300CC
+ MEPROP UID '47DE2D7300CC'
+ MEPROP Name 'ControlWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 8'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 8'
+
+ENDME // ME_47DE2D7300CC ControlWidth
+
+ME ME_47DE2D7F02C5
+ MEPROP UID '47DE2D7F02C5'
+ MEPROP Name 'ComboBtnWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 6'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 6'
+
+ENDME // ME_47DE2D7F02C5 ComboBtnWidth
+
+ME ME_47DE2D8D01E2
+ MEPROP UID '47DE2D8D01E2'
+ MEPROP Name 'BtnWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 4'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 4'
+
+ENDME // ME_47DE2D8D01E2 BtnWidth
+
+ME ME_47DE2D980092
+ MEPROP UID '47DE2D980092'
+ MEPROP Name 'AfterPictureLabel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 32'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 32'
+
+ENDME // ME_47DE2D980092 AfterPictureLabel
+
+ME ME_47DE2DAC03C0
+ MEPROP UID '47DE2DAC03C0'
+ MEPROP Name 'BefPictureLabel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2D1B0386 // Margins
+ ;
+ MEPROP Value 'l3Inch div 2'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3Inch div 2'
+
+ENDME // ME_47DE2DAC03C0 BefPictureLabel
+
+ME ME_47DE2D1B0386
+ MEPROP UID '47DE2D1B0386'
+ MEPROP Name 'Margins'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D0015C0022 // evControlParaConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47DE2D2B01FB // BefSpace
+ HWL ME_47DE2D3B0003 // BefBtbSpase
+ HWL ME_47DE2D4B02ED // BefUpSpase
+ HWL ME_47DE2D5A0186 // RightMemoSpase
+ HWL ME_47DE2D6800EC // HalfBefSpace
+ HWL ME_47DE2D7300CC // ControlWidth
+ HWL ME_47DE2D7F02C5 // ComboBtnWidth
+ HWL ME_47DE2D8D01E2 // BtnWidth
+ HWL ME_47DE2D980092 // AfterPictureLabel
+ HWL ME_47DE2DAC03C0 // BefPictureLabel
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47DE2D1B0386 Margins
+
+FORWARD ME_47DE2E6302F5
+
+ME ME_47DE2EB60072
+ MEPROP UID '47DE2EB60072'
+ MEPROP Name 'evParaCtrlKeys'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2E6302F5 // Keys
+ ;
+ MEPROP Value '[VK_ESCAPE, VK_RETURN, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,VK_HOME, VK_END]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[VK_ESCAPE, VK_RETURN, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,VK_HOME, VK_END]'
+
+ENDME // ME_47DE2EB60072 evParaCtrlKeys
+
+ME ME_47DE2ECA0054
+ MEPROP UID '47DE2ECA0054'
+ MEPROP Name 'evCalParaCtrlKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2E6302F5 // Keys
+ ;
+ MEPROP Value '[Ord(''t''), Ord(''T''), Ord(''e''), Ord(''E'')]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[Ord(''t''), Ord(''T''), Ord(''e''), Ord(''E'')]'
+
+ENDME // ME_47DE2ECA0054 evCalParaCtrlKey
+
+ME ME_4AB0BFF2006B
+ MEPROP UID '4AB0BFF2006B'
+ MEPROP Name 'VK_ESCAPE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2E6302F5 // Keys
+ ;
+ MEPROP Value 'VK_ESCAPE'
+ MELINK ValueType WL 'ME_4AB0BFAD0370' '4AB0C3F60375.ms.model.script' // Chars
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'Windows.VK_ESCAPE'
+
+ENDME // ME_4AB0BFF2006B VK_ESCAPE
+
+ME ME_47DE2E6302F5
+ MEPROP UID '47DE2E6302F5'
+ MEPROP Name 'Keys'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D0015C0022 // evControlParaConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47DE2EB60072 // evParaCtrlKeys
+ HWL ME_47DE2ECA0054 // evCalParaCtrlKey
+ HWL ME_4AB0BFF2006B // VK_ESCAPE
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47DE2E6302F5 Keys
+
+FORWARD ME_47DE2ED20119
+
+ME ME_47DE2EDF001A
+ MEPROP UID '47DE2EDF001A'
+ MEPROP Name 'evErrorColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2ED20119 // Colors
+ ;
+ MEPROP Value 'clRed'
+ MELINK ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'Graphics.clRed'
+
+ENDME // ME_47DE2EDF001A evErrorColor
+
+ME ME_47DE2EE501B4
+ MEPROP UID '47DE2EE501B4'
+ MEPROP Name 'evValidColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2ED20119 // Colors
+ ;
+ MEPROP Value 'clWindowText'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'clWindowText'
+
+ENDME // ME_47DE2EE501B4 evValidColor
+
+ME ME_47DE2ED20119
+ MEPROP UID '47DE2ED20119'
+ MEPROP Name 'Colors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D0015C0022 // evControlParaConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47DE2EDF001A // evErrorColor
+ HWL ME_47DE2EE501B4 // evValidColor
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47DE2ED20119 Colors
+
+FORWARD ME_47DE2EF00383
+
+ME ME_47DE2EFE03B0
+ MEPROP UID '47DE2EFE03B0'
+ MEPROP Name 'evMemoLineCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2EF00383 // Other
+ ;
+ MEPROP Value 5
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 5
+
+ENDME // ME_47DE2EFE03B0 evMemoLineCount
+
+ME ME_47DE2F0A0391
+ MEPROP UID '47DE2F0A0391'
+ MEPROP Name 'evLineSeparateChar'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Разделитель строк при вставке пробела' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DE2EF00383 // Other
+ ;
+ MEPROP Value ''' '''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value ''' '''
+
+ENDME // ME_47DE2F0A0391 evLineSeparateChar
+
+ME ME_47DE2EF00383
+ MEPROP UID '47DE2EF00383'
+ MEPROP Name 'Other'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D0015C0022 // evControlParaConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47DE2EFE03B0 // evMemoLineCount
+ HWL ME_47DE2F0A0391 // evLineSeparateChar
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47DE2EF00383 Other
+
+ME ME_47D0015C0022
+ MEPROP UID '47D0015C0022'
+ MEPROP Name 'evControlParaConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47D0018D03D9 // Control Types
+ HWL ME_47DE2D1B0386 // Margins
+ HWL ME_47DE2E6302F5 // Keys
+ HWL ME_47DE2ED20119 // Colors
+ HWL ME_47DE2EF00383 // Other
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '13.11.2004 13:23'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaConst.pas'
+
+ENDME // ME_47D0015C0022 evControlParaConst

@@ -7,7 +7,7 @@
 //#UC END# *4683E75B01D8_531DB14D03CC_var*
 //#UC START# *4683E79D0331_531DB14D03CC_impl*
 {$If not defined(DesignTimeLibrary)}
- Result := DoLoadState(theState, aStateType, False);
+ Result := DoLoadState(theState, aStateType, aClone);
 {$ifend}
 //#UC END# *4683E79D0331_531DB14D03CC_impl*
 //#UC START# *4683E79D0331_531DB14D03CC_var*
@@ -1009,13 +1009,19 @@ var
 //#UC START# *531F040903D7_531F03AA0018_var*
 //#UC END# *531F040903D7_531F03AA0018_var*
 //#UC START# *55DC1CFE018D_531DB14D03CC_impl*
+ {$IfNDef DesignTimeLibrary}
  Result := DoSaveState(theState, aStateType, True);
+ {$Else}
+ Result := false;
+ {$EndIf}
 //#UC END# *55DC1CFE018D_531DB14D03CC_impl*
 //#UC START# *55DC1CFE018D_531DB14D03CC_var*
 //#UC END# *55DC1CFE018D_531DB14D03CC_var*
 //#UC START# *55DC1D21005D_531DB14D03CC_impl*
  f_LoadingCloneState := True;
+ {$IfNDef DesignTimeLibrary}
  DoLoadState(aState, aStateType, True);
+ {$EndIf}
  f_LoadingCloneState := False; 
 //#UC END# *55DC1D21005D_531DB14D03CC_impl*
 //#UC START# *55DC1D21005D_531DB14D03CC_var*

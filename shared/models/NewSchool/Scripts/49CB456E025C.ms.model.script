@@ -1,0 +1,223 @@
+// ClassInner 49CB456E025C MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49CB456E025C
+
+ME ME_4AE024D60148
+ MEPROP UID '4AE024D60148'
+ MEPROP Name 'Constructor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конструктор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49CB456E025C // ClassInner
+ ;
+ UP "abstraction type" 'fr'
+ UP "personal label" 'code_factory'
+ UP "visability type" '+#'
+ UP "visualization bg color" 12712062
+ UP "visualization f-font color" 21760
+ UP "visualization f-line color" 21760
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\ClassInner\Constructor.tpi'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner\Constructor'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4AE024D60148 Constructor
+
+FORWARD ME_4AE027EC00A7
+
+ME ME_4AE0282A0202
+ MEPROP UID '4AE0282A0202'
+ MEPROP Name 'check nil'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Проверять, что первый параметр nil и не создавать объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE027EC00A7 // FactoryMixIn
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4AE0282A0202 check nil
+
+ME ME_4AE02831008B
+ MEPROP UID '4AE02831008B'
+ MEPROP Name 'need As'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что нужно приводить класс к интерфейсу через As' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE027EC00A7 // FactoryMixIn
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4AE02831008B need As
+
+ME ME_4CBF04C60273
+ MEPROP UID '4CBF04C60273'
+ MEPROP Name 'need AfterCreate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE027EC00A7 // FactoryMixIn
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4CBF04C60273 need AfterCreate
+
+ME ME_4CC027FE0183
+ MEPROP UID '4CC027FE0183'
+ MEPROP Name 'need Aggregate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE027EC00A7 // FactoryMixIn
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4CC027FE0183 need Aggregate
+
+ME ME_4AE05AD4015A
+ MEPROP UID '4AE05AD4015A'
+ MEPROP Name 'OutFactoryBody'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE027EC00A7 // FactoryMixIn
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4AE05AD4015A OutFactoryBody
+
+ME ME_4AE05AEE0071
+ MEPROP UID '4AE05AEE0071'
+ MEPROP Name 'OutFactoryResult'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE027EC00A7 // FactoryMixIn
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4AE05AEE0071 OutFactoryResult
+
+ME ME_4AE027EC00A7
+ MEPROP UID '4AE027EC00A7'
+ MEPROP Name 'FactoryMixIn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь, для реализации фабричного метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49CB456E025C // ClassInner
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AE0282A0202 // check nil
+ HWL ME_4AE02831008B // need As
+ HWL ME_4CBF04C60273 // need AfterCreate
+ HWL ME_4CC027FE0183 // need Aggregate
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AE05AD4015A // OutFactoryBody
+ HWL ME_4AE05AEE0071 // OutFactoryResult
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\ClassInner\FactoryMixIn.tpi'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner\FactoryMixIn'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4AE027EC00A7 FactoryMixIn
+
+FORWARD ME_4AE0263A0260
+
+ME ME_4CC01C720055
+ MEPROP UID '4CC01C720055'
+ MEPROP Name 'operation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE0263A0260 // Factory
+ ;
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner\Factory\operation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4CC01C720055 operation
+
+ME ME_4AE0263A0260
+ MEPROP UID '4AE0263A0260'
+ MEPROP Name 'Factory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабричный метод' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49CB456E025C // ClassInner
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AE027EC00A7 // FactoryMixIn
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4CC01C720055 // operation
+ )
+ ; // Children
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_factory'
+ UP "visability type" '+'
+ UP "visualization bg color" 16776960
+ UP "visualization f-font color" 16711680
+ UP "visualization f-line color" 16711680
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\ClassInner\Factory.tpi'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner\Factory'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4AE0263A0260 Factory
+
+ME ME_49CB456E025C
+ MEPROP UID '49CB456E025C'
+ MEPROP Name 'ClassInner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Детали реализации классов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4729C41D032C' '4729C41D032C.ms.model.script' // DelphiLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AE024D60148 // Constructor
+ HWL ME_4AE027EC00A7 // FactoryMixIn
+ HWL ME_4AE0263A0260 // Factory
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49CB456E025C ClassInner

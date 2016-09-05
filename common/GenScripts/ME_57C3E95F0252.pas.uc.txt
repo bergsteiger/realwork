@@ -1,0 +1,79 @@
+//#UC START# *479731C50290_57C3E95F0252_impl*
+ inherited;
+//#UC END# *479731C50290_57C3E95F0252_impl*
+//#UC START# *479731C50290_57C3E95F0252_var*
+//#UC END# *479731C50290_57C3E95F0252_var*
+//#UC START# *4911B69E037D_57C3E95F0252_impl*
+ TmsmModelElementMethodCaller.RawCall(WordToLoad, f_MethodName);
+//#UC END# *4911B69E037D_57C3E95F0252_impl*
+//#UC START# *4911B69E037D_57C3E95F0252_var*
+//#UC END# *4911B69E037D_57C3E95F0252_var*
+//#UC START# *57C3E95F0252_ext:FileName
+w:\common\components\gui\Garant\msm\msmModelLoadingThread.pas
+//#UC END# *57C3E95F0252_ext:FileName
+//#UC START# *57C3E95F0252ci*
+//#UC END# *57C3E95F0252ci*
+//#UC START# *57C3E95F0252cit*
+//#UC END# *57C3E95F0252cit*
+//#UC START# *57C3E95F0252impl*
+//#UC END# *57C3E95F0252impl*
+//#UC START# *57C3E95F0252impl_uses*
+ , SysUtils
+//#UC END# *57C3E95F0252impl_uses*
+//#UC START# *57C3E95F0252intf_uses*
+//#UC END# *57C3E95F0252intf_uses*
+//#UC START# *57C3E95F0252publ*
+//#UC END# *57C3E95F0252publ*
+//#UC START# *57C3E9EC02E0_57C3E95F0252_impl*
+ aWordToLoad.SetRefTo(f_WordToLoad);
+ inherited Create;
+//#UC END# *57C3E9EC02E0_57C3E95F0252_impl*
+//#UC START# *57C3E9EC02E0_57C3E95F0252_var*
+//#UC END# *57C3E9EC02E0_57C3E95F0252_var*
+//#UC START# *57C43912010E_57C3E95F0252_impl*
+ TmsmModelElementMethodCaller.CallProc('TerminateLoadInner');
+ inherited;
+//#UC END# *57C43912010E_57C3E95F0252_impl*
+//#UC START# *57C43912010E_57C3E95F0252_var*
+//#UC END# *57C43912010E_57C3E95F0252_var*
+//#UC START# *57C6887501FC_57C3E95F0252_impl*
+ //Exit;
+ with TmsmModelLoadingThreads.Instance do
+ begin
+  Lock;
+  try
+   if (Count > 5) then
+    Exit;
+   if not FindData(aWordToLoad, l_Index) then
+   begin
+    l_T := TmsmModelLoadingThread.Create(aWordToLoad, aMethodName);
+    try
+     Add(l_T);
+     l_T.Suspended := false;
+    finally
+     FreeAndNil(l_T);
+    end;//try..finally
+   end;//not FindData(aWordToLoad, l_Index)
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TmsmModelLoadingThreads.Instance
+//#UC END# *57C6887501FC_57C3E95F0252_impl*
+//#UC START# *57C6887501FC_57C3E95F0252_var*
+var
+ l_Index : Integer;
+ l_T : TmsmModelLoadingThread;
+//#UC END# *57C6887501FC_57C3E95F0252_var*
+//#UC START# *57C69B910319_57C3E95F0252_impl*
+ inherited;
+ if TmsmModelLoadingThreads.Exists then
+  TmsmModelLoadingThreads.Instance.Remove(Self);
+//#UC END# *57C69B910319_57C3E95F0252_impl*
+//#UC START# *57C69B910319_57C3E95F0252_var*
+//#UC END# *57C69B910319_57C3E95F0252_var*
+//#UC START# *57C7DFA7017B_57C3E95F0252_impl*
+ f_MethodName := aMethodName;
+ inherited Create(aWordToLoad);
+//#UC END# *57C7DFA7017B_57C3E95F0252_impl*
+//#UC START# *57C7DFA7017B_57C3E95F0252_var*
+//#UC END# *57C7DFA7017B_57C3E95F0252_var*

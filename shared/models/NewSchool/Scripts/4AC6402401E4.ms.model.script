@@ -1,0 +1,435 @@
+// PrimStyleEditorContainer 4AC6402401E4 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC6402401E4
+
+ME ME_4C93455D0178
+ MEPROP UID '4C93455D0178'
+ MEPROP Name 'utStyleEditorContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редактор стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainer_utStyleEditorContainer_UserType.pas'
+ UP extprop:pas:UnitName 'PrimStyleEditorContainer_utStyleEditorContainer_UserType'
+
+ENDME // ME_4C93455D0178 utStyleEditorContainer
+
+FORWARD ME_526A57060140
+
+ME ME_526A577D007B
+ MEPROP UID '526A577D007B'
+ MEPROP Name 'Parent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_526A57060140 // ParentZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Parent'
+
+ENDME // ME_526A577D007B Parent
+
+FORWARD ME_526A571D0196
+
+ME ME_526A5790016A
+ MEPROP UID '526A5790016A'
+ MEPROP Name 'Child'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_526A571D0196 // ChildZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Child'
+
+ENDME // ME_526A5790016A Child
+
+FORWARD ME_526A573F004F
+
+ME ME_526A57A500F3
+ MEPROP UID '526A57A500F3'
+ MEPROP Name 'Navigator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_526A573F004F // NavigatorZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Navigator'
+
+ENDME // ME_526A57A500F3 Navigator
+
+FORWARD ME_526A56B701E8
+
+FORWARD ME_526A56DA03A7
+
+ME ME_526A57060140
+ MEPROP UID '526A57060140'
+ MEPROP Name 'ParentZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526A56DA03A7 // MainZone
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_526A577D007B // Parent
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtSizeablePanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_526A57060140 ParentZone
+
+ME ME_526A571D0196
+ MEPROP UID '526A571D0196'
+ MEPROP Name 'ChildZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526A56DA03A7 // MainZone
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_526A5790016A // Child
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_526A571D0196 ChildZone
+
+ME ME_526A56DA03A7
+ MEPROP UID '526A56DA03A7'
+ MEPROP Name 'MainZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526A56B701E8 // BackgroundPanel
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_526A57060140 // ParentZone
+ HWL ME_526A571D0196 // ChildZone
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_526A56DA03A7 MainZone
+
+ME ME_526A573F004F
+ MEPROP UID '526A573F004F'
+ MEPROP Name 'NavigatorZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526A56B701E8 // BackgroundPanel
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_526A57A500F3 // Navigator
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtSizeablePanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_526A573F004F NavigatorZone
+
+ME ME_526A56B701E8
+ MEPROP UID '526A56B701E8'
+ MEPROP Name 'BackgroundPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_526A56DA03A7 // MainZone
+ HWL ME_526A573F004F // NavigatorZone
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtProportionalPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_526A56B701E8 BackgroundPanel
+
+ME ME_4AC640AE01E0
+ MEPROP UID '4AC640AE01E0'
+ MEPROP Name 'f_SettingsInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELINK Target WL 'ME_4991666D01FD' '499164F501ED.ms.model.script' // InsStyleTableSettingsInfo
+ ;
+
+ENDME // ME_4AC640AE01E0 f_SettingsInfo
+
+FORWARD ME_4AE06B82037F
+
+ME ME_4AE06B8E03A0
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4991666D01FD' '499164F501ED.ms.model.script' // InsStyleTableSettingsInfo
+ ;
+
+ENDME // ME_4AE06B8E03A0 aData
+
+ME ME_4AE06B8B0250
+ MEPROP UID '4AE06B8B0250'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE06B82037F // Make
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE06B8E03A0 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AE06B8B0250 DoIt
+
+ME ME_4AE06B82037F
+ MEPROP UID '4AE06B82037F'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE06B8B0250 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AE06B82037F Make
+
+ME ME_526A556A020C
+ MEPROP UID '526A556A020C'
+ MEPROP Name 'DoUpdateCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+
+ENDME // ME_526A556A020C DoUpdateCaption
+
+ME ME_526A55940144
+ MEPROP UID '526A55940144'
+ MEPROP Name 'FormResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_526A55940144 FormResize
+
+ME ME_526A55DF0164
+ MEPROP UID '526A55DF0164'
+ MEPROP Name 'vcmContainerFormCloseQueryEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_526A563601F5' '4AADF9450143.ms.model.script' // TvcmCloseQueryEvent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ContainerFormCloseQueryEx'
+
+ENDME // ME_526A55DF0164 vcmContainerFormCloseQueryEx
+
+ME ME_526A72B000B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_526A72B000B4 
+
+ME ME_526A734603D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_526A734603D0 
+
+ME ME_5318335400F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC6402401E4 // PrimStyleEditorContainer
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_5318335400F2 
+
+ME ME_4AF8660E0079_ME_4AC6402401E4
+ MELINK Original WL 'ME_4AF8660E0079' '4AE824CB035A.ms.model.script' // ReloadStyleTable
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AF8660E0079_ME_4AC6402401E4 ReloadStyleTable
+
+ME ME_479731C50290_ME_4AC6402401E4
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AC6402401E4 Cleanup
+
+ME ME_47A042E100E2_ME_4AC6402401E4
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4AC6402401E4 InitFields
+
+ME ME_4A8E8F2E0195_ME_4AC6402401E4
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AC6402401E4 InitControls
+
+ME ME_4AC6402401E4
+ MEPROP UID '4AC6402401E4'
+ MEPROP Name 'PrimStyleEditorContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редактор стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA79F630309' '4AA79F630309.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AF866010019' '4AE824CB035A.ms.model.script' // StyleEditor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_526A56B701E8 // BackgroundPanel
+ HWL ME_4AC640AE01E0 // f_SettingsInfo
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AE06B82037F // Make
+ HWL ME_526A556A020C // DoUpdateCaption
+ HWL ME_526A55940144 // FormResize
+ HWL ME_526A55DF0164 // vcmContainerFormCloseQueryEx
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AF8660E0079_ME_4AC6402401E4 // ReloadStyleTable
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AC6402401E4 // Cleanup
+ ME_47A042E100E2_ME_4AC6402401E4 // InitFields
+ ME_4A8E8F2E0195_ME_4AC6402401E4 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4C93455D0178 // utStyleEditorContainer
+ HWL ME_526A577D007B // Parent
+ HWL ME_526A5790016A // Child
+ HWL ME_526A57A500F3 // Navigator
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_526A72B000B4 // DataAdapter
+ ME_526A734603D0 // Controls
+ ME_5318335400F2 // afwFacade
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'ManualModal'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '02.10.2009 22:02'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ UP extprop:pas:TypeName 'TPrimStyleEditorContainerForm'
+ UP extprop:rc:SelfName 'PrimStyleEditorContainerForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimStyleEditorContainer_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4AC6402401E4 PrimStyleEditorContainer

@@ -1,0 +1,164 @@
+// k2Const 47AC7B760263 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47AC7B760263
+
+FORWARD ME_47AC7BD90281
+
+ME ME_47AC7BED00B6
+ MEPROP UID '47AC7BED00B6'
+ MEPROP Name 'k2_TransparentValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7BD90281 // Tag Consts
+ ;
+ MEPROP Value 'Pred(High(Integer))'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'Pred(High(Integer))'
+
+ENDME // ME_47AC7BED00B6 k2_TransparentValue
+
+ME ME_47AC7BF501F2
+ MEPROP UID '47AC7BF501F2'
+ MEPROP Name 'k2_tiByIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7BD90281 // Tag Consts
+ ;
+ MEPROP Value 'l3_siNative'
+ MELINK ValueType WL 'ME_56D5A8130151' '4678193C009C.ms.model.script' // SortIndexes
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP "suffix expr" '+ 1'
+ UP extprop:pas:Value 'l3Types.l3_siNative + 1'
+
+ENDME // ME_47AC7BF501F2 k2_tiByIndex
+
+ME ME_47AC7BFD0264
+ MEPROP UID '47AC7BFD0264'
+ MEPROP Name 'k2_tiSelfID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7BD90281 // Tag Consts
+ ;
+ MEPROP Value 'Succ(k2_tiByIndex)'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'Succ(k2_tiByIndex)'
+
+ENDME // ME_47AC7BFD0264 k2_tiSelfID
+
+ME ME_47AC7C0401A0
+ MEPROP UID '47AC7C0401A0'
+ MEPROP Name 'k2_tiVoid'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7BD90281 // Tag Consts
+ ;
+ MEPROP Value 'k2_tiSelfID'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'k2_tiSelfID'
+
+ENDME // ME_47AC7C0401A0 k2_tiVoid
+
+ME ME_47AC7C0E0306
+ MEPROP UID '47AC7C0E0306'
+ MEPROP Name 'k2_tiMask'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7BD90281 // Tag Consts
+ ;
+ MEPROP Value 'Succ(k2_tiSelfID)'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'Succ(k2_tiSelfID)'
+
+ENDME // ME_47AC7C0E0306 k2_tiMask
+
+ME ME_484FE2A301FF
+ MEPROP UID '484FE2A301FF'
+ MEPROP Name 'k2_tiNative'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7BD90281 // Tag Consts
+ ;
+ MEPROP Value 'l3_siNative'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'l3_siNative'
+
+ENDME // ME_484FE2A301FF k2_tiNative
+
+ME ME_47AC7BD90281
+ MEPROP UID '47AC7BD90281'
+ MEPROP Name 'Tag Consts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC7B760263 // k2Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47AC7BED00B6 // k2_TransparentValue
+ HWL ME_47AC7BF501F2 // k2_tiByIndex
+ HWL ME_47AC7BFD0264 // k2_tiSelfID
+ HWL ME_47AC7C0401A0 // k2_tiVoid
+ HWL ME_47AC7C0E0306 // k2_tiMask
+ HWL ME_484FE2A301FF // k2_tiNative
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47AC7BD90281 Tag Consts
+
+ME ME_47AC7B760263
+ MEPROP UID '47AC7B760263'
+ MEPROP Name 'k2Const'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47AC7BD90281 // Tag Consts
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '24.09.1998 12:09'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2Const.pas'
+
+ENDME // ME_47AC7B760263 k2Const

@@ -1,0 +1,624 @@
+UNIT ElementsRTTI.ms.dict
+
+USES 
+ types.ms.dict
+ axiom_push.ms.dict
+ core.ms.dict
+ NoStrangeSymbols.ms.dict
+ WordsRTTI.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ DoCacheElemMember.ms.dict
+;
+
+USES
+ TransformElementMember.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ CompileTimeVar.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ axiom:WordBox
+;
+
+USES
+ DoCache.ms.dict
+;
+
+: CacheWord
+  ModelElement IN aCacheWhere
+  TtfwWord IN aWord
+  ^ IN aLambda
+ aCacheWhere aWord .WordName nil DoCache ( aLambda DO )
+; // CacheWord
+
+MACRO Cache
+ axiom:PushSymbol @SELF
+ axiom:PushSymbol CacheWord
+; // Cache
+
+MACRO CacheMethod
+ 'Self' Ctx:Parser:PushSymbol
+ axiom:PushSymbol @SELF
+ axiom:PushSymbol CacheWord
+; // CacheMethod
+
+WordAlias Cached: CacheMethod
+
+ANY elem_func ElemMember
+  STRING IN aMemberName
+  IN aDefaultValue
+  
+ //Self aMemberName aDefaultValue DoCacheElemMember
+ ( 
+  RULES 
+   ( Self IsNil )
+    aDefaultValue
+   ( Self IsString )
+    aDefaultValue
+   ( Self IsIntf ) 
+    ( Self pop:WordBox:Boxed aMemberName aDefaultValue .ElemMemberPrim )
+   DEFAULT
+    ( Self aMemberName aDefaultValue .ElemMemberPrim )
+  ; // RULES
+ )
+ >>> Result
+; // ElemMember
+
+elem_iterator ElemList
+  STRING IN aMemberName
+ //Self aMemberName [empty] DoCache
+ (
+  Self aMemberName [empty] .ElemMember 
+ )
+ >>> Result 
+; // ElemList
+
+STRING elem_func ElemString
+  STRING IN aMemberName
+ //Self aMemberName '' DoCache
+ (
+  Self aMemberName '' .ElemMember 
+ ) 
+ >>> Result 
+; // ElemString
+
+ModelElement elem_func ElemWord
+  STRING IN aMemberName
+ //Self aMemberName nil DoCache
+ (
+  Self aMemberName nil .ElemMember 
+ ) 
+ >>> Result 
+; // ElemWord
+
+elem_iterator Children
+ Self 'Children' .ElemList >>> Result
+; // Children
+
+elem_iterator Constants
+ Self 'Constants' .ElemList >>> Result
+; // Constants
+
+elem_iterator Dependencies
+ Self 'Dependencies' .ElemList >>> Result
+; // Dependencies
+
+elem_iterator UsedElements
+ Self 'UsedElements' .ElemList >>> Result
+; // UsedElements
+
+elem_iterator NeededElementsList
+ Self 'NeededElementsList' .ElemList >>> Result
+; // NeededElementsList
+
+elem_iterator ImplementedElements
+ Self 'ImplementedElements' .ElemList >>> Result
+; // ImplementedElements
+
+elem_iterator Depends
+ Self 'Depends' .ElemList >>> Result
+; // Depends
+
+elem_iterator Injected
+ Self 'Injected' .ElemList >>> Result
+; // Injected
+
+elem_iterator Zones
+ Self 'Zones' .ElemList >>> Result
+; // Zones
+
+elem_iterator Implementors
+ Self 'Implementors' .ElemList >>> Result
+; // Implementors
+
+elem_iterator Forwarded
+ Self 'Forwarded' .ElemList >>> Result
+; // Forwarded
+
+elem_iterator Attributes
+ Self 'Attributes' .ElemList >>> Result
+; // Attributes
+
+elem_iterator Parameters
+ Self 'Parameters' .ElemList >>> Result
+; // Parameters
+
+elem_iterator Operations
+ Self 'Operations' .ElemList >>> Result
+; // Operations
+
+elem_iterator Overridden
+ Self 'Overridden' .ElemList >>> Result
+; // Overridden
+
+elem_iterator Implemented
+ Self 'Implemented' .ElemList >>> Result
+; // Implemented
+
+elem_iterator Inherits
+ Self 'Inherits' .ElemList >>> Result
+; // Inherits
+
+elem_iterator Implements
+ Self 'Implements' .ElemList >>> Result
+; // Implements
+
+elem_iterator CanRaise
+ Self 'CanRaise' .ElemList >>> Result
+; // CanRaise
+
+elem_iterator CanRaiseInSet
+ Self 'CanRaiseInSet' .ElemList >>> Result
+; // CanRaiseInSet
+
+STRING elem_func Name
+ if ( Self IsString ) then
+ begin
+  Self >>> Result
+ end // Self IsString
+ else
+ begin
+  Self 'Name' .ElemString >>> Result
+ end // Self IsString
+; // Name
+
+STRING elem_func OriginalName
+ if ( Self IsString ) then
+ begin
+  Self >>> Result
+ end // Self IsString
+ else
+ begin
+  Self 'OriginalName' .ElemString >>> Result
+ end // Self IsString
+; // OriginalName
+
+STRING elem_func Documentation
+ Self '%SUM' .ElemString >>> Result
+; // Documentation
+
+STRING elem_func TargetStereotype
+ Self 'TargetStereotype' .ElemString >>> Result
+; // TargetStereotype
+
+ModelElement elem_func Target
+ Self 'Target' .ElemWord >>> Result
+; // Target
+
+ModelElement elem_func ValueType
+ Self 'ValueType' .ElemWord >>> Result
+; // ValueType
+
+ANY elem_func GetUP
+  Literal IN aName
+  
+ Self aName |N '' .ElemMember >>> Result 
+; // GetUP
+
+BOOLEAN elem_func UPisTrue
+  Literal IN aName
+  
+ Self aName |N false .ElemMember true ?== >>> Result  
+; // UPisTrue
+
+ModelElement STRING elem_func Stereotype
+ Self 'Stereotype' .ElemWord >>> Result
+; // Stereotype
+
+BOOLEAN elem_func IsStereotype
+  ^ IN aStereo
+  
+ BOOLEAN FUNCTION IsStereoKindOf
+   ModelElement IN anOurStereo
+   ModelElement IN anOtherStereo
+  anOurStereo 
+  'isA:' anOtherStereo .WordName Cat 
+  false
+  DoCache (
+   BOOLEAN VAR l_Is
+   anOurStereo anOtherStereo ?== >>> l_Is
+   if ( l_Is ! ) then
+   begin
+    anOurStereo .Name anOtherStereo .Name ?== >>> l_Is
+   end // l_Is !
+   if ( l_Is ! ) then
+   begin
+    anOurStereo .Inherited.Words 
+    .trunc> ( DROP l_Is ! ) 
+    .for> (
+     ModelElement IN anAncestor
+     if ( anAncestor anOtherStereo call.me ) then
+     begin
+      true >>> l_Is
+     end
+    ) 
+   end // l_Is !
+   l_Is
+  ) >>> Result
+ ; // IsStereoKindOf
+
+ ModelElement VAR l_OurStereo
+ Self .Stereotype >>> l_OurStereo
+ 
+ if ( l_OurStereo IsNil ) then
+ begin
+  false >>> Result
+ end // l_OurStereo IsNil
+ else
+ begin
+  ModelElement VAR l_Stereo
+  aStereo DO >>> l_Stereo
+  l_OurStereo l_Stereo IsStereoKindOf >>> Result
+ end // // l_OurStereo IsNil
+ 
+; // IsStereotype
+
+USES
+ RoseModel.ms.dict
+;  
+
+BOOLEAN elem_func IsSummoned
+ Self 'IsSummoned' false .ElemMember >>> Result
+; // IsSummoned
+
+BOOLEAN elem_func IsAuto
+ Self 'IsAuto' false .ElemMember >>> Result
+; // IsAuto
+
+BOOLEAN elem_func IsSubRoot
+ Self 'IsSubRoot' false .ElemMember >>> Result
+; // IsSubRoot
+
+INTEGER elem_func Visibility
+ Self 'Visibility' UnknownAccess /*PublicAccess*/ .ElemMember >>> Result
+; // Visibility
+
+INTEGER elem_func MDAClass
+ Self 'Class' class_Unknown .ElemMember >>> Result
+; // MDAClass
+
+INTEGER elem_func Kind
+ Self 'Kind' kind_Unknown .ElemMember >>> Result
+; // Kind
+
+INTEGER elem_func LinkType
+ Self 'LinkType' lt_unknown .ElemMember >>> Result
+; // LinkType
+
+INTEGER elem_func Abstraction
+ Self 'Abstraction' /*at_unknown*/ at_final .ElemMember >>> Result
+; // Abstraction
+
+STRING elem_func GUID
+ Self 'GUID' '' .ElemMember >>> Result
+; // GUID
+
+STRING elem_func UID
+ Self 'UID' '' .ElemMember >>> Result
+; // UID
+
+INTEGER elem_func OpKind
+ Self 'OpKind' opkind_Normal .ElemMember >>> Result
+; // OpKind
+
+ModelElement elem_func Parent
+ Self 'Parent' .ElemWord >>> Result
+; // Parent
+
+ModelElement elem_func Original
+ Self 'Original' .ElemWord >>> Result
+; // Original
+
+ModelElement elem_func Creator
+ Self 'Creator' .ElemWord >>> Result
+; // Creator
+
+ModelElement elem_func SpelledFor
+ Self 'SpelledFor' .ElemWord >>> Result
+; // SpelledFor
+
+ModelElement elem_func Speller
+ Self 'Speller' .ElemWord >>> Result
+; // Speller
+
+ModelElement elem_func Facet
+ Self 'Facet' .ElemWord >>> Result
+; // Facet
+
+ModelElement elem_func MixIn
+ Self 'Mixin' .ElemWord >>> Result
+; // MixIn
+
+ModelElement elem_func Action
+ Self 'Action' .ElemWord >>> Result
+; // Action
+
+ModelElement elem_func Stub
+ Self 'Stub' .ElemWord >>> Result
+; // Stub
+
+ModelElement elem_func Implementor
+ Self 'Implementor' .ElemWord >>> Result
+; // Implementor
+
+USES
+ IsNil.ms.dict
+;
+
+STRING elem_func NameInModel
+ Self .OriginalName >>> Result
+ if ( Result .IsNil ) then
+ begin
+  Self .Name >>> Result
+ end // ( Result .IsNil )
+; // NameInModel
+
+USES
+ ref.ms.dict
+;
+
+BOOLEAN elem_func IsUP
+ RULES
+  ( 'uc:' Self .WordName StartsStr )
+   false
+  ( Self pop:Word:Producer @ UP ?== ) 
+   true
+  ( 'CompiledProcedure:' Self .WordName StartsStr )
+   false
+  ( 'cache:' Self .WordName StartsStr )
+   false
+  ( 'ME_' Self .WordName StartsStr )
+   false
+  ( 'IsSummoned' Self .WordName == )
+   true
+  ( 'Speller' Self .WordName == )
+   true
+  ( 'Version' Self .WordName == )
+   true
+  ( 'SpelledFor' Self .WordName == )
+   true
+  ( 'Action' Self .WordName == )
+   true
+  ( 'Stub' Self .WordName == )
+   true
+  ( '.' Self .WordName StartsStr )
+   false
+  ( '"' Self .WordName StartsStr )
+   true
+  ( Self .WordName ':' string:Pos -1 != )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // IsUP
+
+USES
+ TransformElementMemberIfNeeded.ms.dict
+;
+
+elem_iterator UpList
+ RULES
+  ( Self IsIntf )
+   ( Self pop:WordBox:Boxed )
+  DEFAULT
+   Self
+ ; // RULES  
+ MembersIterator
+ .filter> .IsUP
+ .map> (
+   IN aVar
+  aVar DO aVar TransformElementMemberIfNeeded SWAP DROP
+  // - трансформируем и оставляем только переменную, а значение - выкидываем
+ ) // .map>
+ >>> Result
+; // UpList
+
+STRING elem_func UIDEx
+ Cached:
+ (
+  VAR l_UID
+  Self .UID >>> l_UID
+  RULES
+   ( l_UID IsNil )
+    (
+     VAR l_Name
+     Self .Name >>> l_Name 
+     RULES
+      ( l_Name IsNil )
+       ( Self .WordName )
+      DEFAULT
+       ( l_Name '_' Self .WordName Cat Cat )
+     ; // RULES
+    )
+   DEFAULT
+    l_UID
+  ; // RULES
+ )
+ >>> Result  
+; // UIDEx 
+
+BOOLEAN FUNCTION .IsValueValid
+  IN aValue
+ RULES
+  ( aValue IsInt )
+   true
+  ( aValue IsBool )
+   true
+  ( aValue IsNil )
+   false
+  DEFAULT
+   true
+ ; // RULES
+ >>> Result
+; // .IsValueValid
+
+STRING FUNCTION ValueToKey
+  ANY IN aValue
+ RULES
+  //( aValue .IsValueValid ! )
+  // ''
+  ( aValue IsString )
+   aValue
+  ( aValue IsArray )
+   ( 
+    aValue 
+    .map> call.me
+    '|'
+    strings:CatSep
+   )
+  ( aValue IsBool )
+   ( aValue ToPrintable )
+  ( aValue IsInt )
+   ( aValue ToPrintable )  
+  ( aValue IsIntf )
+   ( aValue pop:WordBox:Boxed .UIDEx )
+   //ERROR 'Невозможно построить ключ для интерфейса'
+  ( aValue Is class::TkwCompiledWord )
+   ( aValue .UIDEx )
+  ( aValue Is class::TtfwWord )
+   ( aValue .WordName )
+  ( aValue IsObj )
+   ERROR 'Невозможно построить ключ для абстрактного объекта'
+  ( aValue IsNil )
+   ''   
+  DEFAULT
+   ( aValue ToPrintable )
+ ; // RULES
+ >>> Result
+; // ValueToKey
+
+: CacheWordEx
+  ANY IN aKey
+  ModelElement IN aCacheWhere
+  TtfwWord IN aWord
+  ^ IN aLambda
+ aCacheWhere 
+ aKey ValueToKey aWord .WordName Cat 
+ nil DoCache ( aLambda DO )
+; // CacheWordEx
+
+MACRO :Cached:
+ 'Self' Ctx:Parser:PushSymbol
+ axiom:PushSymbol @SELF
+ axiom:PushSymbol CacheWordEx
+; // :Cached:
+
+USES
+ LoadOnDemand.ms.dict
+;
+
+USES
+ MDProcess_CoreTemplates.tpi.script
+;
+
+USES
+ MDProcess_Templates.tpi.script
+;
+
+USES
+ MDProcess_ForDelphi.tpi.script
+;
+
+USES
+ MDProcess_ForF1.tpi.script
+;
+
+USES
+ ME.ms.dict
+;
+
+ME st_ModelRoot
+ MEPROP Name 'ModelRoot'
+ENDME // st_ModelRoot
+
+ME st_in
+ MEPROP Name 'in'
+ENDME // st_in
+
+ME st_inout
+ MEPROP Name 'inout'
+ENDME // st_inout
+
+ME st_out
+ MEPROP Name 'out'
+ENDME // st_out
+
+ME st_const
+ MEPROP Name 'const'
+ENDME // st_const
+
+ME st_noconst
+ MEPROP Name 'noconst'
+ENDME // st_noconst
+
+ME st_NodeType_
+ MEPROP Name 'NodeType_'
+ENDME // st_NodeType_
+
+EXPORTS
+ LoadOnDemand.ms.dict
+ 
+EXPORTS
+ RoseModel.ms.dict
+ 
+EXPORTS
+ ModelElementsDefinition.ms.dict
+
+EXPORTS
+ MDProcess_ForF1.tpi.script 
+ 
+EXPORTS
+ ref.ms.dict
+
+EXPORTS
+ ME.ms.dict
+
+EXPORTS
+ ModelElement.ms.dict
+
+EXPORTS
+ MDProcess_CoreTemplates.tpi.script
+ 
+EXPORTS
+ MDProcess_Templates.tpi.script
+ 
+EXPORTS
+ MDProcess_ForDelphi.tpi.script
+ 

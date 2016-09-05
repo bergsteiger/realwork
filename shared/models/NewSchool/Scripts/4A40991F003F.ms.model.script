@@ -1,0 +1,699 @@
+// ChatInterfaces 4A40991F003F Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A40991F003F
+
+FORWARD ME_4A409BC300FB
+
+ME ME_4A409BE202A3
+ MEPROP UID '4A409BE202A3'
+ MEPROP Name 'email'
+ MEPROP Class class_Attribute
+ %SUMMARY 'email пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A409BC300FB // UserInfo
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4A409BE202A3 email
+
+ME ME_4A409BFB0002
+ MEPROP UID '4A409BFB0002'
+ MEPROP Name 'login'
+ MEPROP Class class_Attribute
+ %SUMMARY 'регистрационное имя пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A409BC300FB // UserInfo
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4A409BFB0002 login
+
+ME ME_4A409C1D03A7
+ MEPROP UID '4A409C1D03A7'
+ MEPROP Name 'name'
+ MEPROP Class class_Attribute
+ %SUMMARY 'имя пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A409BC300FB // UserInfo
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4A409C1D03A7 name
+
+ME ME_4A409BC300FB
+ MEPROP UID '4A409BC300FB'
+ MEPROP Name 'UserInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'информация о пользователе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A40991F003F // ChatInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A409BE202A3 // email
+ HWL ME_4A409BFB0002 // login
+ HWL ME_4A409C1D03A7 // name
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TUserInfo'
+
+ENDME // ME_4A409BC300FB UserInfo
+
+ME ME_4A409D1F00AA
+ MEPROP UID '4A409D1F00AA'
+ MEPROP Name 'UnknownUser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'задан идентификатор неизвестного пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A40991F003F // ChatInterfaces
+ ;
+
+ENDME // ME_4A409D1F00AA UnknownUser
+
+FORWARD ME_4A4099A302A3
+
+ME ME_4A4099B701A8
+ MEPROP UID '4A4099B701A8'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MEPROP TargetStereotype 'cached'
+ UP "const_type" 'read-write'
+
+ENDME // ME_4A4099B701A8 make
+
+ME ME_4A4099E902D0
+ MEPROP UID '4A4099E902D0'
+ MEPROP Name 'is_embed_chat_enabled'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если на сервере обеспечена поддержка чата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A4099E902D0 is_embed_chat_enabled
+
+ME ME_4A409AAF0399
+ MEPROP UID '4A409AAF0399'
+ MEPROP Name 'get_contacts_tree'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить список пользователей, добавленных в контакты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A409AAF0399 get_contacts_tree
+
+ME ME_4A409B63008E
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A409B63008E uid
+
+ME ME_4A409B2D01EC
+ MEPROP UID '4A409B2D01EC'
+ MEPROP Name 'get_user_info'
+ MEPROP Class class_Operation
+ %SUMMARY 'информация о пользователе с заданным идентификатором' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELINK Target HWL ME_4A409BC300FB // UserInfo
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A409B63008E // uid
+ )
+ ; // Parameters
+
+ENDME // ME_4A409B2D01EC get_user_info
+
+ME ME_4A409CD103C9
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A409CD103C9 uid
+
+ME ME_4A409CB202AF
+ MEPROP UID '4A409CB202AF'
+ MEPROP Name 'add_user'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'добавить пользователя в список контактов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A409CD103C9 // uid
+ )
+ ; // Parameters
+
+ENDME // ME_4A409CB202AF add_user
+
+ME ME_4A409D1700E5
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A409D1700E5 uid
+
+ME ME_4A409CFB026A
+ MEPROP UID '4A409CFB026A'
+ MEPROP Name 'delete_user'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'удалить пользователя из списка контактов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A409D1700E5 // uid
+ )
+ ; // Parameters
+
+ENDME // ME_4A409CFB026A delete_user
+
+ME ME_4A43639603D6
+ MEPROP Name 'listener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EEDE9D01C4' '45EEA85502B4.ms.model.script' // Listener
+ ;
+
+ENDME // ME_4A43639603D6 listener
+
+ME ME_4A43633E02A4
+ MEPROP UID '4A43633E02A4'
+ MEPROP Name 'register_listener_for_notify'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'зарегестрировать слушателя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A43639603D6 // listener
+ )
+ ; // Parameters
+
+ENDME // ME_4A43633E02A4 register_listener_for_notify
+
+ME ME_4A436A9803D8
+ MEPROP Name 'message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4A436A9803D8 message
+
+ME ME_4A4369DE03C8
+ MEPROP UID '4A4369DE03C8'
+ MEPROP Name 'receive_message'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'получить сообщение с сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A436A9803D8 // message
+ )
+ ; // Parameters
+ UP "dll export" false
+
+ENDME // ME_4A4369DE03C8 receive_message
+
+ME ME_4A4B16B400E6
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A4B16B400E6 uid
+
+ME ME_4A4B13F40252
+ MEPROP UID '4A4B13F40252'
+ MEPROP Name 'take_unreaded_messages'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'выбрать все непрочитанные сообщения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4B16B400E6 // uid
+ )
+ ; // Parameters
+ UP "dll export" false
+
+ENDME // ME_4A4B13F40252 take_unreaded_messages
+
+ME ME_4A4C657500D1
+ MEPROP UID '4A4C657500D1'
+ MEPROP Name 'logout'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'вызывается при выходе из системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A4099A302A3 // ChatManager
+ ;
+ UP "dll export" false
+
+ENDME // ME_4A4C657500D1 logout
+
+ME ME_4A4099A302A3
+ MEPROP UID '4A4099A302A3'
+ MEPROP GUID 'F9DEFC6A-0DF4-4DC4-B863-62E0A7D8E68A'
+ MEPROP Name 'ChatManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'управление чатом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A40991F003F // ChatInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A4099B701A8 // make
+ HWL ME_4A4099E902D0 // is_embed_chat_enabled
+ HWL ME_4A409AAF0399 // get_contacts_tree
+ HWL ME_4A409B2D01EC // get_user_info
+ HWL ME_4A409CB202AF // add_user
+ HWL ME_4A409CFB026A // delete_user
+ HWL ME_4A43633E02A4 // register_listener_for_notify
+ HWL ME_4A4369DE03C8 // receive_message
+ HWL ME_4A4B13F40252 // take_unreaded_messages
+ HWL ME_4A4C657500D1 // logout
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IChatManager'
+ UP extprop:rc:SelfName 'ChatManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A4099A302A3 ChatManager
+
+FORWARD ME_4A409DE402DE
+
+ME ME_4A409E150108
+ MEPROP UID '4A409E150108'
+ MEPROP Name 'text'
+ MEPROP Class class_Attribute
+ %SUMMARY 'сообщение (предполагается, что в evd формате)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A409DE402DE // Message
+ ;
+ MELINK Target WL 'ME_4423FB5903D8' '4423F94903C8.ms.model.script' // Stream
+ ;
+
+ENDME // ME_4A409E150108 text
+
+ME ME_4A40A01A020D
+ MEPROP UID '4A40A01A020D'
+ MEPROP Name 'time'
+ MEPROP Class class_Attribute
+ %SUMMARY 'время создания сообщения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A409DE402DE // Message
+ ;
+ MELINK Target WL 'ME_456EA7D402DE' '456EA56002BF.ms.model.script' // DateTime
+ ;
+
+ENDME // ME_4A40A01A020D time
+
+ME ME_4A437417028D
+ MEPROP UID '4A437417028D'
+ MEPROP Name 'my'
+ MEPROP Class class_Attribute
+ %SUMMARY 'true, если сообщение послано текущим пользователем, иначе это сообщение для него' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A409DE402DE // Message
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A437417028D my
+
+ME ME_4A409DE402DE
+ MEPROP UID '4A409DE402DE'
+ MEPROP Name 'Message'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'данные сообщения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A40991F003F // ChatInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A409E150108 // text
+ HWL ME_4A40A01A020D // time
+ HWL ME_4A437417028D // my
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TMessage'
+
+ENDME // ME_4A409DE402DE Message
+
+FORWARD ME_4A40A5670265
+
+ME ME_4A40A5800332
+ MEPROP UID '4A40A5800332'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A40A5670265 // Messages
+ ;
+ MELINK Target HWL ME_4A409DE402DE // Message
+ ;
+
+ENDME // ME_4A40A5800332 
+
+ME ME_4A40A5670265
+ MEPROP UID '4A40A5670265'
+ MEPROP Name 'Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список сообщений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A40991F003F // ChatInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A40A5800332 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IMessages'
+
+ENDME // ME_4A40A5670265 Messages
+
+FORWARD ME_4A409DC300BF
+
+ME ME_4A40A59901F4
+ MEPROP UID '4A40A59901F4'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A409DC300BF // MessagesManager
+ ;
+ MEPROP TargetStereotype 'cached'
+ UP "const_type" 'read-write'
+
+ENDME // ME_4A40A59901F4 make
+
+ME ME_4A40A5FE0093
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A40A5FE0093 uid
+
+ME ME_4A40A5D7025F
+ MEPROP UID '4A40A5D7025F'
+ MEPROP Name 'get_unreaded_messages'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить непрочитанные сообщения от пользователя с заданным uid' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A409DC300BF // MessagesManager
+ ;
+ MELINK Target HWL ME_4A40A5670265 // Messages
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A40A5FE0093 // uid
+ )
+ ; // Parameters
+
+ENDME // ME_4A40A5D7025F get_unreaded_messages
+
+ME ME_4A44BF2002EA
+ MEPROP Name 'message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4423FB5903D8' '4423F94903C8.ms.model.script' // Stream
+ ;
+
+ENDME // ME_4A44BF2002EA message
+
+ME ME_4A40A7580149
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A40A7580149 uid
+
+ME ME_4A40A73102AC
+ MEPROP UID '4A40A73102AC'
+ MEPROP Name 'send_message'
+ MEPROP Class class_Operation
+ %SUMMARY 'послать сообщение заданному пользователю' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A409DC300BF // MessagesManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A44BF2002EA // message
+ ME_4A40A7580149 // uid
+ )
+ ; // Parameters
+
+ENDME // ME_4A40A73102AC send_message
+
+ME ME_4A40A912036E
+ MEPROP Name 'count'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4A40A912036E count
+
+ME ME_4A40A91203A2
+ MEPROP Name 'all_new'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A40A91203A2 all_new
+
+ME ME_4A40A913000B
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A40A913000B uid
+
+ME ME_4A40A84A02FE
+ MEPROP UID '4A40A84A02FE'
+ MEPROP Name 'get_history_for_user'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить count последних сообщений переписки с пользователем uid. Если count = 0, получить полную историю переписки. Если all_new = true, будут получены все непрочитанные сообщения, даже если их количество превышает count.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A409DC300BF // MessagesManager
+ ;
+ MELINK Target HWL ME_4A40A5670265 // Messages
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A40A912036E // count
+ ME_4A40A91203A2 // all_new
+ ME_4A40A913000B // uid
+ )
+ ; // Parameters
+
+ENDME // ME_4A40A84A02FE get_history_for_user
+
+ME ME_4A40A9450393
+ MEPROP Name 'uid'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4A40A9450393 uid
+
+ME ME_4A40A93400D7
+ MEPROP UID '4A40A93400D7'
+ MEPROP Name 'clean_history'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'очистить историю сообщений с заданным пользователем' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A409DC300BF // MessagesManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4A409D1F00AA // UnknownUser
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4A40A9450393 // uid
+ )
+ ; // Parameters
+
+ENDME // ME_4A40A93400D7 clean_history
+
+ME ME_4A4B0CCC007A
+ MEPROP UID '4A4B0CCC007A'
+ MEPROP Name 'get_unreaded_messages'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить непрочитанные сообщения с сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A409DC300BF // MessagesManager
+ ;
+ UP "dll export" false
+
+ENDME // ME_4A4B0CCC007A get_unreaded_messages
+
+ME ME_4A409DC300BF
+ MEPROP UID '4A409DC300BF'
+ MEPROP GUID '7D3435F1-68A4-4CBE-A547-240E45D9FAE4'
+ MEPROP Name 'MessagesManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'работа с сообщениями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A40991F003F // ChatInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A40A59901F4 // make
+ HWL ME_4A40A5D7025F // get_unreaded_messages
+ HWL ME_4A40A73102AC // send_message
+ HWL ME_4A40A84A02FE // get_history_for_user
+ HWL ME_4A40A93400D7 // clean_history
+ HWL ME_4A4B0CCC007A // get_unreaded_messages
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IMessagesManager'
+ UP extprop:rc:SelfName 'MessagesManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A409DC300BF MessagesManager
+
+ME ME_4A40991F003F
+ MEPROP UID '4A40991F003F'
+ MEPROP Name 'ChatInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'интерфейсы для поддержки чата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A409BC300FB // UserInfo
+ HWL ME_4A409D1F00AA // UnknownUser
+ HWL ME_4A4099A302A3 // ChatManager
+ HWL ME_4A409DE402DE // Message
+ HWL ME_4A40A5670265 // Messages
+ HWL ME_4A409DC300BF // MessagesManager
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEA85502B4' '45EEA85502B4.ms.model.script' // Notify
+ WL 'ME_45EEAA96039C' '45EEAA96039C.ms.model.script' // Security
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\ChatInterfaces\ChatInterfaces.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ChatInterfaces'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ChatInterfaces\ChatInterfaces.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ChatInterfaces'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ChatInterfacesUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\ChatInterfacesUnit.pas'
+ UP extprop:pas:UnitName 'ChatInterfacesUnit'
+
+ENDME // ME_4A40991F003F ChatInterfaces

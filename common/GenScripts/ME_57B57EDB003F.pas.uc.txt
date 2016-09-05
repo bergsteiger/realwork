@@ -1,0 +1,34 @@
+//#UC START# *57B2B019009C_57B57EDB003Fget_impl*
+ Result := f_ElementToAction;
+//#UC END# *57B2B019009C_57B57EDB003Fget_impl*
+//#UC START# *57B2B019009C_57B57EDB003Fget_var*
+//#UC END# *57B2B019009C_57B57EDB003Fget_var*
+//#UC START# *57B2B019009C_57B57EDB003Fset_impl*
+ f_ElementToAction := aValue;
+ Fire(ActionElementEvent.Instance);
+//#UC END# *57B2B019009C_57B57EDB003Fset_impl*
+//#UC START# *57B2B019009C_57B57EDB003Fset_var*
+//#UC END# *57B2B019009C_57B57EDB003Fset_var*
+//#UC START# *57B31CF301D2_57B57EDB003Fget_impl*
+ Result := f_CurrentElement;
+//#UC END# *57B31CF301D2_57B57EDB003Fget_impl*
+//#UC START# *57B31CF301D2_57B57EDB003Fget_var*
+//#UC END# *57B31CF301D2_57B57EDB003Fget_var*
+//#UC START# *57B31CF301D2_57B57EDB003Fset_impl*
+ f_CurrentElement := aValue;
+ Fire(CurrentElementChangedEvent.Instance);
+//#UC END# *57B31CF301D2_57B57EDB003Fset_impl*
+//#UC START# *57B31CF301D2_57B57EDB003Fset_var*
+//#UC END# *57B31CF301D2_57B57EDB003Fset_var*
+//#UC START# *57B49A8201E1_57B57EDB003Fget_impl*
+ Result := f_ElementView.rListName;
+ if (Result = '_NullList') then
+  Result := f_ElementView.rTextName;
+ if (Result = 'DocumentationNotEmpty') then
+  Result := 'Doc';
+//#UC END# *57B49A8201E1_57B57EDB003Fget_impl*
+//#UC START# *57B49A8201E1_57B57EDB003Fget_var*
+//#UC END# *57B49A8201E1_57B57EDB003Fget_var*
+//#UC START# *57B57EDB003F_ext:FileName
+w:\common\components\gui\Garant\msm\msmListLikeModel.imp.pas
+//#UC END# *57B57EDB003F_ext:FileName

@@ -1,0 +1,304 @@
+// ExtControlsProcessing 54F58741022C ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F58741022C
+
+FORWARD ME_54F58770000F
+
+ME ME_54F86E0C00C7
+ MEPROP UID '54F86E0C00C7'
+ MEPROP Name 'ItemIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Индекс элемента' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F58770000F // RadioGroupWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "mapped" true
+
+ENDME // ME_54F86E0C00C7 ItemIndex
+
+ME ME_54F58770000F
+ MEPROP UID '54F58770000F'
+ MEPROP Name 'RadioGroupWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F58741022C // ExtControlsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5034B74700CF' '4799D29F033F.ms.model.script' // TRadioGroup
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54F86E0C00C7 // ItemIndex
+ )
+ ; // Attributes
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\RadioGroupWordsPack.pas'
+
+ENDME // ME_54F58770000F RadioGroupWordsPack
+
+FORWARD ME_54F5881101AC
+
+ME ME_54F878D80349
+ MEPROP UID '54F878D80349'
+ MEPROP Name 'VScrollerVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F5881101AC // ScrollingWinControlWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54F878D80349 VScrollerVisible
+
+ME ME_54F878EC0363
+ MEPROP UID '54F878EC0363'
+ MEPROP Name 'HScrollerVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F5881101AC // ScrollingWinControlWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54F878EC0363 HScrollerVisible
+
+ME ME_54F86B4A0153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F5881101AC // ScrollingWinControlWordsPack
+ ;
+ MELINK Target WL 'ME_50222C8103A5' '4AB0C3F60375.ms.model.script' // TScrollInfo
+ ;
+
+ENDME // ME_54F86B4A0153 
+
+ME ME_54F5881101AC
+ MEPROP UID '54F5881101AC'
+ MEPROP Name 'ScrollingWinControlWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F58741022C // ExtControlsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ WL 'ME_495259490229' '4799D29F033F.ms.model.script' // TScrollingWinControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54F878D80349 // VScrollerVisible
+ HWL ME_54F878EC0363 // HScrollerVisible
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_54F86B4A0153 // TScrollInfo
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScrollingWinControlWordsPack.pas'
+
+ENDME // ME_54F5881101AC ScrollingWinControlWordsPack
+
+ME ME_54F5D17A03B9
+ MEPROP UID '54F5D17A03B9'
+ MEPROP Name 'PanelProcessingPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F58741022C // ExtControlsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5028E84F00EE' '4799D29F033F.ms.model.script' // TPanel
+ )
+ ; // Inherits
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\PanelProcessingPack.pas'
+
+ENDME // ME_54F5D17A03B9 PanelProcessingPack
+
+FORWARD ME_552D23C300F1
+
+ME ME_552D245001D2
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552D245001D2 anIndex
+
+ME ME_552D24400252
+ MEPROP UID '552D24400252'
+ MEPROP Name 'GetChecked'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'anIndex aCheckBoxList pop:CheckListBox:GetChecked'#13#10'anIndex - индекс CheckBox''а'#13#10'aCheckBoxList  - контрол'#13#10'Возвращает True, если элемент помечен и False - если нет.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552D23C300F1 // CheckListBoxWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_552D245001D2 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_552D24400252 GetChecked
+
+ME ME_552D2482001C
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552D2482001C anIndex
+
+ME ME_552D24820061
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552D24820061 aValue
+
+ME ME_552D24650138
+ MEPROP UID '552D24650138'
+ MEPROP Name 'SetChecked'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'aValue anIndex aCheckBoxList pop:CheckListBox:SetChecked'#13#10'anIndex - индекс CheckBox''а'#13#10'aCheckBoxList  - контрол'#13#10'Помечает элемент, если aValue = True и сбрасывает пометку, если aValue = False' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552D23C300F1 // CheckListBoxWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_552D2482001C // anIndex
+ ME_552D24820061 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552D24650138 SetChecked
+
+ME ME_552D24A702F3
+ MEPROP UID '552D24A702F3'
+ MEPROP Name 'UncheckAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'aCheckBoxList pop:CheckListBox:UncheckAll'#13#10'Сбрасыват пометки у всех пунктов контрола.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552D23C300F1 // CheckListBoxWordsPack
+ ;
+
+ENDME // ME_552D24A702F3 UncheckAll
+
+ME ME_552D23C300F1
+ MEPROP UID '552D23C300F1'
+ MEPROP Name 'CheckListBoxWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F58741022C // ExtControlsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51F24E890269' '4799D29F033F.ms.model.script' // TCheckListBox
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552D24400252 // GetChecked
+ HWL ME_552D24650138 // SetChecked
+ HWL ME_552D24A702F3 // UncheckAll
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
+
+ENDME // ME_552D23C300F1 CheckListBoxWordsPack
+
+FORWARD ME_552E3DE40071
+
+ME ME_552E3E30024F
+ MEPROP UID '552E3E30024F'
+ MEPROP Name 'Checked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_552E3DE40071 // RadioButtonWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "mapped" true
+
+ENDME // ME_552E3E30024F Checked
+
+ME ME_552E3DE40071
+ MEPROP UID '552E3DE40071'
+ MEPROP Name 'RadioButtonWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F58741022C // ExtControlsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F69BC9C014A' '4799D29F033F.ms.model.script' // TRadioButton
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_552E3E30024F // Checked
+ )
+ ; // Attributes
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
+
+ENDME // ME_552E3DE40071 RadioButtonWordsPack
+
+ME ME_54F58741022C
+ MEPROP UID '54F58741022C'
+ MEPROP Name 'ExtControlsProcessing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54DB92A80279' '54DB92A80279.ms.model.script' // ScriptEngine$RTLandVCL
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54F58770000F // RadioGroupWordsPack
+ HWL ME_54F5881101AC // ScrollingWinControlWordsPack
+ HWL ME_54F5D17A03B9 // PanelProcessingPack
+ HWL ME_552D23C300F1 // CheckListBoxWordsPack
+ HWL ME_552E3DE40071 // RadioButtonWordsPack
+ )
+ ; // Children
+ UP "ifndef" 'NoScripts,NoVCL'
+
+ENDME // ME_54F58741022C ExtControlsProcessing

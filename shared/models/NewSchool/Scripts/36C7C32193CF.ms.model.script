@@ -1,0 +1,27 @@
+// ReleaseImportExport 36C7C32193CF TestTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_36C7C32193CF
+ MEPROP UID '36C7C32193CF'
+ MEPROP Name 'ReleaseImportExport'
+ UP IsSummoned true
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestTarget ;
+ %SUMMARY ' (релизный вариант)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51945CDA0027' '51945CDA0027.ms.model.script' // archi$ImportExprortTest
+ ;
+ MELIST Depends
+   Seq: ( WL 'ME_519465D90095' '519465D90095.ms.model.script' // ImportExportTestLibrary
+ WL 'ME_55ED4FE10372' '55ED4FE10372.ms.model.script' // SimpleTests
+ )
+ ; // Depends
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\ReleaseImportExportTest.dpr'
+ UP intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ UP extprop:pas:UnitName 'ReleaseImportExportTest'
+ UP Version 0
+
+ENDME // ME_36C7C32193CF ReleaseImportExport

@@ -1,0 +1,3175 @@
+// Impl 4CFCE51A00B0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFCE51A00B0
+
+FORWARD ME_4D555D3201E9
+
+ME ME_4D55643301D2
+ MEPROP UID '4D55643301D2'
+ MEPROP Name '_UnknownForDesign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ ;
+
+ENDME // ME_4D55643301D2 _UnknownForDesign
+
+ME ME_4D5564490223
+ MEPROP UID '4D5564490223'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D5564490223 l3Unknown_NoIUnknown
+
+ME ME_4D555E080266
+ MEPROP UID '4D555E080266'
+ MEPROP Name 'IntColor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ ;
+ MELINK Target WL 'ME_4D555D65006D' '4D5420EC039D.ms.model.script' // TvgColor
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4D555E080266 IntColor
+
+ME ME_4D555E79006C
+ MEPROP UID '4D555E79006C'
+ MEPROP Name 'Offset'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ ;
+ MELINK Target WL 'ME_4D542256019C' '4AB0C3C60310.ms.model.script' // single
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4D555E79006C Offset
+
+ME ME_4D555E930177
+ MEPROP UID '4D555E930177'
+ MEPROP Name 'Color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4D555E930177 Color
+
+FORWARD ME_4D555FED002F
+
+ME ME_4D55600E033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ ;
+ MELINK Target HWL ME_4D555FED002F // vgColorToStr
+ ;
+
+ENDME // ME_4D55600E033F 
+
+FORWARD ME_4D555FFC0179
+
+ME ME_4D5560150227
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ ;
+ MELINK Target HWL ME_4D555FFC0179 // vgStrToColor
+ ;
+
+ENDME // ME_4D5560150227 
+
+ME ME_478CF34E02CE_ME_4D555D3201E9
+ MELINK Original WL 'ME_478CF34E02CE' '4AB0997B00A2.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_478CF34E02CE_ME_4D555D3201E9 Assign
+
+ME ME_47A6FEE600FC_ME_4D555D3201E9
+ MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_47A6FEE600FC_ME_4D555D3201E9 IsCacheable
+
+ME ME_4D555CF50027_ME_4D555D3201E9
+ MELINK Original WL 'ME_4D555CF50027' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4D555CF50027_ME_4D555D3201E9 Create
+
+ME ME_4D555D3201E9
+ MEPROP UID '4D555D3201E9'
+ MEPROP Name 'TvgCustomGradientPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ WL 'ME_4D555B5B01E8' '4AB0997B00A2.ms.model.script' // TCollectionItem
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D555E080266 // IntColor
+ HWL ME_4D555E79006C // Offset
+ HWL ME_4D555E930177 // Color
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_478CF34E02CE_ME_4D555D3201E9 // Assign
+ ME_47A6FEE600FC_ME_4D555D3201E9 // IsCacheable
+ ME_4D555CF50027_ME_4D555D3201E9 // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D55643301D2 // _UnknownForDesign
+ HWL ME_4D5564490223 // l3Unknown_NoIUnknown
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D55600E033F // vgColorToStr
+ ME_4D5560150227 // vgStrToColor
+ )
+ ; // Dependencies
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomGradientPoint.pas'
+ UP extprop:rc:SelfName 'GradientPoint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgCustomGradientPoint'
+
+ENDME // ME_4D555D3201E9 TvgCustomGradientPoint
+
+ME ME_4D555E3901BF
+ MEPROP UID '4D555E3901BF'
+ MEPROP Name 'TvgGradientPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ )
+ ; // Inherits
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgGradientPoint.pas'
+ UP extprop:rc:SelfName 'GradientPoint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgGradientPoint'
+
+ENDME // ME_4D555E3901BF TvgGradientPoint
+
+FORWARD ME_4CFE2C72021C
+
+ME ME_4CFE2C800399
+ MEPROP UID '4CFE2C800399'
+ MEPROP Name 'TvgText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE2C72021C // vg_objects
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'Text'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFE2C800399 TvgText
+
+ME ME_4D70E5440067
+ MEPROP UID '4D70E5440067'
+ MEPROP Name 'TvgRectangle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE2C72021C // vg_objects
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'Rectangle'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D70E5440067 TvgRectangle
+
+ME ME_5326E7230130
+ MEPROP UID '5326E7230130'
+ MEPROP Name 'TvgImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE2C72021C // vg_objects
+ ;
+ UP extprop:rc:SelfName 'Image'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5326E7230130 TvgImage
+
+ME ME_4CFE2C72021C
+ MEPROP UID '4CFE2C72021C'
+ MEPROP Name 'vg_objects'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFE2C800399 // TvgText
+ HWL ME_4D70E5440067 // TvgRectangle
+ HWL ME_5326E7230130 // TvgImage
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_objects.pas'
+ UP extprop:rc:SelfName '_objects'
+
+ENDME // ME_4CFE2C72021C vg_objects
+
+FORWARD ME_4D55623200CE
+
+ME ME_4D55645D000A
+ MEPROP UID '4D55645D000A'
+ MEPROP Name '_UnknownForDesign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D55623200CE // TvgGradientPoints
+ ;
+
+ENDME // ME_4D55645D000A _UnknownForDesign
+
+ME ME_4D55646500FE
+ MEPROP UID '4D55646500FE'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D55623200CE // TvgGradientPoints
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D55646500FE l3Unknown_NoIUnknown
+
+FORWARD ME_4D55624903C3
+
+ME ME_4D5562680091
+ MEPROP UID '4D5562680091'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D55624903C3 // Points
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5562680091 anIndex
+
+ME ME_4D55624903C3
+ MEPROP UID '4D55624903C3'
+ MEPROP Name 'Points'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D55623200CE // TvgGradientPoints
+ ;
+ MELINK Target HWL ME_4D555E3901BF // TvgGradientPoint
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D5562680091 // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4D55624903C3 Points
+
+ME ME_47A6FEE600FC_ME_4D55623200CE
+ MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_47A6FEE600FC_ME_4D55623200CE IsCacheable
+
+ME ME_4D55623200CE
+ MEPROP UID '4D55623200CE'
+ MEPROP Name 'TvgGradientPoints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ WL 'ME_4D555B78015F' '4AB0997B00A2.ms.model.script' // TCollection
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D55624903C3 // Points
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4D55623200CE // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D55645D000A // _UnknownForDesign
+ HWL ME_4D55646500FE // l3Unknown_NoIUnknown
+ )
+ ; // Children
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgGradientPoints.pas'
+ UP extprop:rc:SelfName 'GradientPoints'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgGradientPoints'
+
+ENDME // ME_4D55623200CE TvgGradientPoints
+
+FORWARD ME_4CFFAE8902BD
+
+ME ME_4CFFAE9802DF
+ MEPROP UID '4CFFAE9802DF'
+ MEPROP Name 'TvgNonVGLayout'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFFAE8902BD // vg_layouts
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'NonVGLayout'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFFAE9802DF TvgNonVGLayout
+
+ME ME_4CFFB1A00237
+ MEPROP UID '4CFFB1A00237'
+ MEPROP Name 'TvgLayout'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFFAE8902BD // vg_layouts
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'Layout'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFFB1A00237 TvgLayout
+
+ME ME_4CFFAE8902BD
+ MEPROP UID '4CFFAE8902BD'
+ MEPROP Name 'vg_layouts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFFAE9802DF // TvgNonVGLayout
+ HWL ME_4CFFB1A00237 // TvgLayout
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_layouts.pas'
+ UP extprop:rc:SelfName '_layouts'
+
+ENDME // ME_4CFFAE8902BD vg_layouts
+
+ME ME_4D5E628602E6
+ MEPROP UID '4D5E628602E6'
+ MEPROP Name 'TvgScenePrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49EF346400A4' '49EF33F700C2.ms.model.script' // afwShortcutsHandler
+ WL 'ME_4D5416AC01D1' '4D52A63D0365.ms.model.script' // TvgCustomControl
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.02.2011 15:14'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgScenePrim.pas'
+ UP extprop:rc:SelfName 'ScenePrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgScenePrim'
+
+ENDME // ME_4D5E628602E6 TvgScenePrim
+
+FORWARD ME_4D552B230161
+
+ME ME_4D552B9F0084
+ MEPROP UID '4D552B9F0084'
+ MEPROP Name 'f_CurrentComparer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D552B230161 // TvgSortableObjectList
+ ;
+ MELINK Target WL 'ME_4D5529D60358' '4D542052038D.ms.model.script' // TvgObjectSortCompare
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4D552B9F0084 f_CurrentComparer
+
+ME ME_4D5EA0D20199
+ MEPROP UID '4D5EA0D20199'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D552B230161 // TvgSortableObjectList
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D5EA0D20199 ItemType
+
+ME ME_4D552BC1002B
+ MEPROP Name 'aComparer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D5529D60358' '4D542052038D.ms.model.script' // TvgObjectSortCompare
+ ;
+
+ENDME // ME_4D552BC1002B aComparer
+
+ME ME_4D552BB90144
+ MEPROP UID '4D552BB90144'
+ MEPROP Name 'Sort'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D552B230161 // TvgSortableObjectList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D552BC1002B // aComparer
+ )
+ ; // Parameters
+
+ENDME // ME_4D552BB90144 Sort
+
+ME ME_47B07CF403D0_ME_4D552B230161
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4D552B230161 IsSameItems
+
+ME ME_47B2C42A0163_ME_4D552B230161
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4D552B230161 AssignItem
+
+ME ME_47B99D4503A2_ME_4D552B230161
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4D552B230161 CompareExistingItems
+
+ME ME_4D552B230161
+ MEPROP UID '4D552B230161'
+ MEPROP Name 'TvgSortableObjectList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.ms.model.script' // l3PtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D552B9F0084 // f_CurrentComparer
+ HWL ME_4D5EA0D20199 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D552BB90144 // Sort
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4D552B230161 // IsSameItems
+ ME_47B2C42A0163_ME_4D552B230161 // AssignItem
+ ME_47B99D4503A2_ME_4D552B230161 // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '11.02.2011 15:27'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgSortableObjectList.pas'
+ UP extprop:rc:SelfName 'SortableObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgSortableObjectList'
+
+ENDME // ME_4D552B230161 TvgSortableObjectList
+
+FORWARD ME_4D5EA95401A8
+
+ME ME_4D5EA97903D6
+ MEPROP UID '4D5EA97903D6'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5EA95401A8 // TvgCustomObjectList
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D5EA97903D6 ItemType
+
+ME ME_47B07CF403D0_ME_4D5EA95401A8
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4D5EA95401A8 IsSameItems
+
+ME ME_47B2C42A0163_ME_4D5EA95401A8
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4D5EA95401A8 AssignItem
+
+ME ME_47B99D4503A2_ME_4D5EA95401A8
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4D5EA95401A8 CompareExistingItems
+
+ME ME_4D5EA95401A8
+ MEPROP UID '4D5EA95401A8'
+ MEPROP Name 'TvgCustomObjectList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.ms.model.script' // l3PtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EA97903D6 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4D5EA95401A8 // IsSameItems
+ ME_47B2C42A0163_ME_4D5EA95401A8 // AssignItem
+ ME_47B99D4503A2_ME_4D5EA95401A8 // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.02.2011 20:16'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomObjectList.pas'
+ UP extprop:rc:SelfName 'ObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgCustomObjectList'
+
+ENDME // ME_4D5EA95401A8 TvgCustomObjectList
+
+FORWARD ME_4D4956480326
+
+ME ME_4D52D8B402D0
+ MEPROP UID '4D52D8B402D0'
+ MEPROP Name 'FNotifyList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELINK Target WL 'ME_4D52D82E0312' '4D52A63D0365.ms.model.script' // TvgAnyObjectList
+ ;
+
+ENDME // ME_4D52D8B402D0 FNotifyList
+
+ME ME_4D552B73025E
+ MEPROP UID '4D552B73025E'
+ MEPROP Name 'FChildren'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELINK Target HWL ME_4D552B230161 // TvgSortableObjectList
+ ;
+
+ENDME // ME_4D552B73025E FChildren
+
+FORWARD ME_4D5EA9B9016E
+
+ME ME_4D5EA9DF0082
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D5EA95401A8 // TvgCustomObjectList
+ ;
+
+ENDME // ME_4D5EA9DF0082 aList
+
+ME ME_4D5EA9D60139
+ MEPROP UID '4D5EA9D60139'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5EA9B9016E // AddObjectsToList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5EA9DF0082 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4D5EA9D60139 DoIt
+
+ME ME_4D5EA9B9016E
+ MEPROP UID '4D5EA9B9016E'
+ MEPROP Name 'AddObjectsToList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5EA9D60139 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5EA9B9016E AddObjectsToList
+
+FORWARD ME_4D5EA9E700D0
+
+ME ME_4D5EA9FA00F2
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D5EA95401A8 // TvgCustomObjectList
+ ;
+
+ENDME // ME_4D5EA9FA00F2 aList
+
+ME ME_4D5EA9F80139
+ MEPROP UID '4D5EA9F80139'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5EA9E700D0 // AddControlsToList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5EA9FA00F2 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4D5EA9F80139 DoIt
+
+ME ME_4D5EA9E700D0
+ MEPROP UID '4D5EA9E700D0'
+ MEPROP Name 'AddControlsToList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5EA9F80139 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5EA9E700D0 AddControlsToList
+
+ME ME_4D5EAD10009D_ME_4D4956480326
+ MELINK Original WL 'ME_4D5EAD10009D' '4D542052038D.ms.model.script' // IsVisual
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4D5EAD10009D_ME_4D4956480326 IsVisual
+
+ME ME_4D4956480326
+ MEPROP UID '4D4956480326'
+ MEPROP Name 'TvgObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D52D8B402D0 // FNotifyList
+ HWL ME_4D552B73025E // FChildren
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D5EA9B9016E // AddObjectsToList
+ HWL ME_4D5EA9E700D0 // AddControlsToList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D5EAD10009D_ME_4D4956480326 // IsVisual
+ )
+ ; // Implemented
+ UP "finished" false
+ UP "register in scripts" true
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgObject.pas'
+ UP extprop:rc:SelfName 'Object'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgObject'
+
+ENDME // ME_4D4956480326 TvgObject
+
+FORWARD ME_4D5EA20700F4
+
+ME ME_4D5EA24003C0
+ MEPROP UID '4D5EA24003C0'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5EA20700F4 // TvgObjectList
+ ;
+ MELINK Target HWL ME_4D4956480326 // TvgObject
+ ;
+
+ENDME // ME_4D5EA24003C0 ItemType
+
+ME ME_47B07CF403D0_ME_4D5EA20700F4
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4D5EA20700F4 IsSameItems
+
+ME ME_47B2C42A0163_ME_4D5EA20700F4
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4D5EA20700F4 AssignItem
+
+ME ME_47B99D4503A2_ME_4D5EA20700F4
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4D5EA20700F4 CompareExistingItems
+
+ME ME_4D5EA20700F4
+ MEPROP UID '4D5EA20700F4'
+ MEPROP Name 'TvgObjectList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Списсок указателей на объект. НИЧЕГО не освобождает' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.ms.model.script' // l3PtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EA24003C0 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4D5EA20700F4 // IsSameItems
+ ME_47B2C42A0163_ME_4D5EA20700F4 // AssignItem
+ ME_47B99D4503A2_ME_4D5EA20700F4 // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.02.2011 19:45'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgObjectList.pas'
+ UP extprop:rc:SelfName 'ObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgObjectList'
+
+ENDME // ME_4D5EA20700F4 TvgObjectList
+
+ME ME_4D5EC22400DA
+ MEPROP UID '4D5EC22400DA'
+ MEPROP Name 'TvgBounds'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.ms.model.script' // TvgPersistent
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgBounds.pas'
+ UP extprop:rc:SelfName 'Bounds'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgBounds'
+
+ENDME // ME_4D5EC22400DA TvgBounds
+
+ME ME_4D5E914F002C
+ MEPROP UID '4D5E914F002C'
+ MEPROP Name 'TvgEffect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4956480326 // TvgObject
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgEffect.pas'
+ UP extprop:rc:SelfName 'Effect'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgEffect'
+
+ENDME // ME_4D5E914F002C TvgEffect
+
+ME ME_4D5EC25B0067
+ MEPROP UID '4D5EC25B0067'
+ MEPROP Name 'TvgPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.ms.model.script' // TvgPersistent
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgPosition.pas'
+ UP extprop:rc:SelfName 'Position'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgPosition'
+
+ENDME // ME_4D5EC25B0067 TvgPosition
+
+FORWARD ME_4D49562A01B7
+
+ME ME_4D5E5BB000A5
+ MEPROP UID '4D5E5BB000A5'
+ MEPROP Name 'OnClick'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4D5E5BB000A5 OnClick
+
+ME ME_4D5EA2BC0109
+ MEPROP UID '4D5EA2BC0109'
+ MEPROP Name 'FTabList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target HWL ME_4D5EA20700F4 // TvgObjectList
+ ;
+
+ENDME // ME_4D5EA2BC0109 FTabList
+
+ME ME_4D5EB53101A4
+ MEPROP UID '4D5EB53101A4'
+ MEPROP Name 'Align'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL 'ME_4D5EB41C02CB' '4D5420EC039D.ms.model.script' // TvgAlign
+ ;
+ UP "pm" true
+
+ENDME // ME_4D5EB53101A4 Align
+
+ME ME_4D5EB5860298
+ MEPROP UID '4D5EB5860298'
+ MEPROP Name 'DragMode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target WL 'ME_4D5EB55602EC' '4D5420EC039D.ms.model.script' // TvgDragMode
+ ;
+ UP "pm" true
+
+ENDME // ME_4D5EB5860298 DragMode
+
+ME ME_4D5EC23E012F
+ MEPROP UID '4D5EC23E012F'
+ MEPROP Name 'Margins'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target HWL ME_4D5EC22400DA // TvgBounds
+ ;
+ UP "pm" true
+
+ENDME // ME_4D5EC23E012F Margins
+
+ME ME_4D5EC27D0219
+ MEPROP UID '4D5EC27D0219'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ MELINK Target HWL ME_4D5EC25B0067 // TvgPosition
+ ;
+ UP "pm" true
+
+ENDME // ME_4D5EC27D0219 Position
+
+ME ME_4D5EAD10009D_ME_4D49562A01B7
+ MELINK Original WL 'ME_4D5EAD10009D' '4D542052038D.ms.model.script' // IsVisual
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4D5EAD10009D_ME_4D49562A01B7 IsVisual
+
+ME ME_4D49562A01B7
+ MEPROP UID '4D49562A01B7'
+ MEPROP Name 'TvgVisualObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4956480326 // TvgObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5E5BB000A5 // OnClick
+ HWL ME_4D5EA2BC0109 // FTabList
+ HWL ME_4D5EB53101A4 // Align
+ HWL ME_4D5EB5860298 // DragMode
+ HWL ME_4D5EC23E012F // Margins
+ HWL ME_4D5EC27D0219 // Position
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4D5EAD10009D_ME_4D49562A01B7 // IsVisual
+ )
+ ; // Overridden
+ UP "finished" false
+ UP "register in scripts" true
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgVisualObject.pas'
+ UP extprop:rc:SelfName 'VisualObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgVisualObject'
+
+ENDME // ME_4D49562A01B7 TvgVisualObject
+
+FORWARD ME_4D5EB9330192
+
+ME ME_4D5EB94900A6
+ MEPROP UID '4D5EB94900A6'
+ MEPROP Name 'VisualObject'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5EB9330192 // TvgVisual
+ ;
+ MELINK Target HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+ UP "pm" true
+
+ENDME // ME_4D5EB94900A6 VisualObject
+
+ME ME_4D5EB9330192
+ MEPROP UID '4D5EB9330192'
+ MEPROP Name 'TvgVisual'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.ms.model.script' // TvgPersistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EB94900A6 // VisualObject
+ )
+ ; // Attributes
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgVisual.pas'
+ UP extprop:rc:SelfName 'Visual'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgVisual'
+
+ENDME // ME_4D5EB9330192 TvgVisual
+
+ME ME_4D5E913C007F
+ MEPROP UID '4D5E913C007F'
+ MEPROP Name 'TvgAnimation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4956480326 // TvgObject
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgAnimation.pas'
+ UP extprop:rc:SelfName 'Animation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgAnimation'
+
+ENDME // ME_4D5E913C007F TvgAnimation
+
+FORWARD ME_4D5EB3940388
+
+FORWARD ME_4D5EA5E5035E
+
+ME ME_4D5EB39D03CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D5EB3940388 // vg_extctrls
+ ;
+ MELINK Target HWL ME_4D5EA5E5035E // TvgVisualObjectList
+ ;
+
+ENDME // ME_4D5EB39D03CB 
+
+ME ME_4D5EB3940388
+ MEPROP UID '4D5EB3940388'
+ MEPROP Name 'vg_extctrls'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4D5EB39D03CB // TvgVisualObjectList
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_extctrls.pas'
+ UP extprop:rc:SelfName '_extctrls'
+
+ENDME // ME_4D5EB3940388 vg_extctrls
+
+FORWARD ME_4CFE3E000371
+
+ME ME_4CFE3E1302F5
+ MEPROP UID '4CFE3E1302F5'
+ MEPROP Name 'TvgBrushStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ UP "finished" false
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFE3E1302F5 TvgBrushStyle
+
+FORWARD ME_4D54170F00D8
+
+ME ME_4D5EA2F3003C
+ MEPROP UID '4D5EA2F3003C'
+ MEPROP Name 'FChildren'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D54170F00D8 // TvgCustomScene
+ ;
+ MELINK Target HWL ME_4D5EA20700F4 // TvgObjectList
+ ;
+
+ENDME // ME_4D5EA2F3003C FChildren
+
+ME ME_4D5EA31B005D
+ MEPROP UID '4D5EA31B005D'
+ MEPROP Name 'ResourceList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D54170F00D8 // TvgCustomScene
+ ;
+ MELINK Target HWL ME_4D5EA20700F4 // TvgObjectList
+ ;
+
+ENDME // ME_4D5EA31B005D ResourceList
+
+ME ME_4D550CFB029F_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550CFB029F' '4D550C220363.ms.model.script' // AddObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550CFB029F_ME_4D54170F00D8 AddObject
+
+ME ME_4D550D1300CE_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D1300CE' '4D550C220363.ms.model.script' // RemoveObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550D1300CE_ME_4D54170F00D8 RemoveObject
+
+ME ME_4D550D1C01FC_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D1C01FC' '4D550C220363.ms.model.script' // BeginDrag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550D1C01FC_ME_4D54170F00D8 BeginDrag
+
+ME ME_4D550D2D0250_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D2D0250' '4D550C220363.ms.model.script' // BeginResize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550D2D0250_ME_4D54170F00D8 BeginResize
+
+ME ME_4D550D3C0043_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D3C0043' '4D550C220363.ms.model.script' // AddUpdateRect
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550D3C0043_ME_4D54170F00D8 AddUpdateRect
+
+ME ME_4D550D4B00A9_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D4B00A9' '4D550C220363.ms.model.script' // InsertObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'vgDesign'
+ENDME // ME_4D550D4B00A9_ME_4D54170F00D8 InsertObject
+
+ME ME_4D550D5F0167_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D5F0167' '4D550C220363.ms.model.script' // GetActiveControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550D5F0167_ME_4D54170F00D8 GetActiveControl
+
+ME ME_4D550D6A0205_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D6A0205' '4D550C220363.ms.model.script' // GetDisableUpdate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550D6A0205_ME_4D54170F00D8 GetDisableUpdate
+
+ME ME_4D550D780131_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D780131' '4D550C220363.ms.model.script' // SetDisableUpdate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550D780131_ME_4D54170F00D8 SetDisableUpdate
+
+ME ME_4D550D94001B_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550D94001B' '4D550C220363.ms.model.script' // GetDesignTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'vgDesign'
+ENDME // ME_4D550D94001B_ME_4D54170F00D8 GetDesignTime
+
+ME ME_4D550DA002A9_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550DA002A9' '4D550C220363.ms.model.script' // GetCanvas
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550DA002A9_ME_4D54170F00D8 GetCanvas
+
+ME ME_4D550DB102FE_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550DB102FE' '4D550C220363.ms.model.script' // GetRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550DB102FE_ME_4D54170F00D8 GetRoot
+
+ME ME_4D550DBD026F_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550DBD026F' '4D550C220363.ms.model.script' // GetOwner
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550DBD026F_ME_4D54170F00D8 GetOwner
+
+ME ME_4D550DCB00CC_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550DCB00CC' '4D550C220363.ms.model.script' // GetComponent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550DCB00CC_ME_4D54170F00D8 GetComponent
+
+ME ME_4D550DDC0210_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550DDC0210' '4D550C220363.ms.model.script' // GetStyle
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550DDC0210_ME_4D54170F00D8 GetStyle
+
+ME ME_4D550DF103B0_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550DF103B0' '4D550C220363.ms.model.script' // SetStyle
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550DF103B0_ME_4D54170F00D8 SetStyle
+
+ME ME_4D550DFE00F6_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550DFE00F6' '4D550C220363.ms.model.script' // GetTransparency
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550DFE00F6_ME_4D54170F00D8 GetTransparency
+
+ME ME_4D550E0F00A3_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E0F00A3' '4D550C220363.ms.model.script' // UpdateResource
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E0F00A3_ME_4D54170F00D8 UpdateResource
+
+ME ME_4D550E1C03A3_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E1C03A3' '4D550C220363.ms.model.script' // Notification
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E1C03A3_ME_4D54170F00D8 Notification
+
+ME ME_4D550E2B0389_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E2B0389' '4D550C220363.ms.model.script' // GetSelected
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'vgDesign'
+ENDME // ME_4D550E2B0389_ME_4D54170F00D8 GetSelected
+
+ME ME_4D550E380297_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E380297' '4D550C220363.ms.model.script' // GetDesignPlaceObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'vgDesign'
+ENDME // ME_4D550E380297_ME_4D54170F00D8 GetDesignPlaceObject
+
+ME ME_4D550E470234_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E470234' '4D550C220363.ms.model.script' // GetUpdateRectsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E470234_ME_4D54170F00D8 GetUpdateRectsCount
+
+ME ME_4D550E5403DC_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E5403DC' '4D550C220363.ms.model.script' // GetUpdateRect
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E5403DC_ME_4D54170F00D8 GetUpdateRect
+
+ME ME_4D550E600298_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E600298' '4D550C220363.ms.model.script' // SetCaptured
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E600298_ME_4D54170F00D8 SetCaptured
+
+ME ME_4D550E6B0247_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E6B0247' '4D550C220363.ms.model.script' // GetCaptured
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E6B0247_ME_4D54170F00D8 GetCaptured
+
+ME ME_4D550E7901D5_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E7901D5' '4D550C220363.ms.model.script' // SetFocused
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E7901D5_ME_4D54170F00D8 SetFocused
+
+ME ME_4D550E8703BA_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E8703BA' '4D550C220363.ms.model.script' // GetFocused
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550E8703BA_ME_4D54170F00D8 GetFocused
+
+ME ME_4D550E990086_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550E990086' '4D550C220363.ms.model.script' // SetDesignRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'vgDesign'
+ENDME // ME_4D550E990086_ME_4D54170F00D8 SetDesignRoot
+
+ME ME_4D550EA30324_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550EA30324' '4D550C220363.ms.model.script' // GetMousePos
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550EA30324_ME_4D54170F00D8 GetMousePos
+
+ME ME_4D550EB50056_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550EB50056' '4D550C220363.ms.model.script' // LocalToScreen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550EB50056_ME_4D54170F00D8 LocalToScreen
+
+ME ME_4D550EC50042_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550EC50042' '4D550C220363.ms.model.script' // BeginVCLDrag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550EC50042_ME_4D54170F00D8 BeginVCLDrag
+
+ME ME_4D550ED5014D_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550ED5014D' '4D550C220363.ms.model.script' // DoDesignSelect
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'vgDesign'
+ENDME // ME_4D550ED5014D_ME_4D54170F00D8 DoDesignSelect
+
+ME ME_4D550EE303DA_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550EE303DA' '4D550C220363.ms.model.script' // GetAnimatedCaret
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550EE303DA_ME_4D54170F00D8 GetAnimatedCaret
+
+ME ME_4D550EF00002_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550EF00002' '4D550C220363.ms.model.script' // ShowKeyboardForControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550EF00002_ME_4D54170F00D8 ShowKeyboardForControl
+
+ME ME_4D550EFB034B_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D550EFB034B' '4D550C220363.ms.model.script' // HideKeyboardForControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D550EFB034B_ME_4D54170F00D8 HideKeyboardForControl
+
+ME ME_4D5D02B90284_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D5D02B90284' '4D550C220363.ms.model.script' // DoTab
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D5D02B90284_ME_4D54170F00D8 DoTab
+
+ME ME_4D5E7F6C0016_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D5E7F6C0016' '4D550C220363.ms.model.script' // SetFocus
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D5E7F6C0016_ME_4D54170F00D8 SetFocus
+
+ME ME_4D5E7FD70051_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D5E7FD70051' '4D550C220363.ms.model.script' // UnicodeKeyDown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D5E7FD70051_ME_4D54170F00D8 UnicodeKeyDown
+
+ME ME_4D6285E60219_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D6285E60219' '4D550C220363.ms.model.script' // IsAcceptableControlForTabNavigation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D6285E60219_ME_4D54170F00D8 IsAcceptableControlForTabNavigation
+
+ME ME_4D8B889E03D0_ME_4D54170F00D8
+ MELINK Original WL 'ME_4D8B889E03D0' '4D550C220363.ms.model.script' // FocusHook
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D8B889E03D0_ME_4D54170F00D8 FocusHook
+
+ME ME_4DA724DD0394_ME_4D54170F00D8
+ MELINK Original WL 'ME_4DA724DD0394' '4D550C220363.ms.model.script' // ControlMessageHook
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DA724DD0394_ME_4D54170F00D8 ControlMessageHook
+
+ME ME_533E81870210_ME_4D54170F00D8
+ MELINK Original WL 'ME_533E81870210' '4D550C220363.ms.model.script' // ScreenToLocal
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_533E81870210_ME_4D54170F00D8 ScreenToLocal
+
+ME ME_538DBFB202DE_ME_4D54170F00D8
+ MELINK Original WL 'ME_538DBFB202DE' '4D550C220363.ms.model.script' // GetSceneControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_538DBFB202DE_ME_4D54170F00D8 GetSceneControl
+
+ME ME_4D54170F00D8
+ MEPROP UID '4D54170F00D8'
+ MEPROP Name 'TvgCustomScene'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D5E628602E6 // TvgScenePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D550C5B0341' '4D550C220363.ms.model.script' // IvgScene
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EA2F3003C // FChildren
+ HWL ME_4D5EA31B005D // ResourceList
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4D550CFB029F_ME_4D54170F00D8 // AddObject
+ ME_4D550D1300CE_ME_4D54170F00D8 // RemoveObject
+ ME_4D550D1C01FC_ME_4D54170F00D8 // BeginDrag
+ ME_4D550D2D0250_ME_4D54170F00D8 // BeginResize
+ ME_4D550D3C0043_ME_4D54170F00D8 // AddUpdateRect
+ ME_4D550D4B00A9_ME_4D54170F00D8 // InsertObject
+ ME_4D550D5F0167_ME_4D54170F00D8 // GetActiveControl
+ ME_4D550D6A0205_ME_4D54170F00D8 // GetDisableUpdate
+ ME_4D550D780131_ME_4D54170F00D8 // SetDisableUpdate
+ ME_4D550D94001B_ME_4D54170F00D8 // GetDesignTime
+ ME_4D550DA002A9_ME_4D54170F00D8 // GetCanvas
+ ME_4D550DB102FE_ME_4D54170F00D8 // GetRoot
+ ME_4D550DBD026F_ME_4D54170F00D8 // GetOwner
+ ME_4D550DCB00CC_ME_4D54170F00D8 // GetComponent
+ ME_4D550DDC0210_ME_4D54170F00D8 // GetStyle
+ ME_4D550DF103B0_ME_4D54170F00D8 // SetStyle
+ ME_4D550DFE00F6_ME_4D54170F00D8 // GetTransparency
+ ME_4D550E0F00A3_ME_4D54170F00D8 // UpdateResource
+ ME_4D550E1C03A3_ME_4D54170F00D8 // Notification
+ ME_4D550E2B0389_ME_4D54170F00D8 // GetSelected
+ ME_4D550E380297_ME_4D54170F00D8 // GetDesignPlaceObject
+ ME_4D550E470234_ME_4D54170F00D8 // GetUpdateRectsCount
+ ME_4D550E5403DC_ME_4D54170F00D8 // GetUpdateRect
+ ME_4D550E600298_ME_4D54170F00D8 // SetCaptured
+ ME_4D550E6B0247_ME_4D54170F00D8 // GetCaptured
+ ME_4D550E7901D5_ME_4D54170F00D8 // SetFocused
+ ME_4D550E8703BA_ME_4D54170F00D8 // GetFocused
+ ME_4D550E990086_ME_4D54170F00D8 // SetDesignRoot
+ ME_4D550EA30324_ME_4D54170F00D8 // GetMousePos
+ ME_4D550EB50056_ME_4D54170F00D8 // LocalToScreen
+ ME_4D550EC50042_ME_4D54170F00D8 // BeginVCLDrag
+ ME_4D550ED5014D_ME_4D54170F00D8 // DoDesignSelect
+ ME_4D550EE303DA_ME_4D54170F00D8 // GetAnimatedCaret
+ ME_4D550EF00002_ME_4D54170F00D8 // ShowKeyboardForControl
+ ME_4D550EFB034B_ME_4D54170F00D8 // HideKeyboardForControl
+ ME_4D5D02B90284_ME_4D54170F00D8 // DoTab
+ ME_4D5E7F6C0016_ME_4D54170F00D8 // SetFocus
+ ME_4D5E7FD70051_ME_4D54170F00D8 // UnicodeKeyDown
+ ME_4D6285E60219_ME_4D54170F00D8 // IsAcceptableControlForTabNavigation
+ ME_4D8B889E03D0_ME_4D54170F00D8 // FocusHook
+ ME_4DA724DD0394_ME_4D54170F00D8 // ControlMessageHook
+ ME_533E81870210_ME_4D54170F00D8 // ScreenToLocal
+ ME_538DBFB202DE_ME_4D54170F00D8 // GetSceneControl
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'Scene'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D54170F00D8 TvgCustomScene
+
+FORWARD ME_4D49560D0013
+
+ME ME_4D5EA27C017B
+ MEPROP UID '4D5EA27C017B'
+ MEPROP Name 'fBindingObjects'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D49560D0013 // TvgControl
+ ;
+ MELINK Target HWL ME_4D5EA20700F4 // TvgObjectList
+ ;
+
+ENDME // ME_4D5EA27C017B fBindingObjects
+
+FORWARD ME_4F90008B02C6
+
+ME ME_4F90009C026E
+ MEPROP UID '4F90009C026E'
+ MEPROP Name 'new_operation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F90008B02C6 // ApplyStyle
+ ;
+
+ENDME // ME_4F90009C026E new_operation
+
+ME ME_4F90008B02C6
+ MEPROP UID '4F90008B02C6'
+ MEPROP Name 'ApplyStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D49560D0013 // TvgControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F90009C026E // new_operation
+ )
+ ; // Operations
+
+ENDME // ME_4F90008B02C6 ApplyStyle
+
+ME ME_4D49560D0013
+ MEPROP UID '4D49560D0013'
+ MEPROP Name 'TvgControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D49562A01B7 // TvgVisualObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EA27C017B // fBindingObjects
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F90008B02C6 // ApplyStyle
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Control'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D49560D0013 TvgControl
+
+ME ME_4D52A72302CE
+ MEPROP UID '4D52A72302CE'
+ MEPROP Name 'TvgCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D5435820356' '4D542052038D.ms.model.script' // TvgCustomCanvas
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'Canvas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D52A72302CE TvgCanvas
+
+FORWARD ME_4D52A8CB0057
+
+ME ME_4D55124D023C
+ MEPROP UID '4D55124D023C'
+ MEPROP Name 'FSceneList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D52A8CB0057 // TvgResources
+ ;
+ MELINK Target WL 'ME_4D5511DB011D' '4D551198021D.ms.model.script' // TvgSceneList
+ ;
+
+ENDME // ME_4D55124D023C FSceneList
+
+ME ME_4D52A8CB0057
+ MEPROP UID '4D52A8CB0057'
+ MEPROP Name 'TvgResources'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D54299F035D' '4D542052038D.ms.model.script' // TvgCustomResources
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D55124D023C // FSceneList
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'Resources'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D52A8CB0057 TvgResources
+
+ME ME_4D52A8DA0126
+ MEPROP UID '4D52A8DA0126'
+ MEPROP Name 'TvgLang'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.ms.model.script' // TvgComponent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Lang'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D52A8DA0126 TvgLang
+
+ME ME_4D52A8E9012B
+ MEPROP UID '4D52A8E9012B'
+ MEPROP Name 'TvgDesigner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.ms.model.script' // TvgComponent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Designer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D52A8E9012B TvgDesigner
+
+ME ME_4D52A9000294
+ MEPROP UID '4D52A9000294'
+ MEPROP Name 'THackComponent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'HackComponent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D52A9000294 THackComponent
+
+FORWARD ME_4CFFB562010C
+
+ME ME_5475D36C0186
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFFB562010C // TvgScene
+ ;
+ MELINK Target WL 'ME_5475D1E30232' '47913B47006E.ms.model.script' // Tl3ProcessMessagesManager
+ ;
+
+ENDME // ME_5475D36C0186 
+
+ME ME_4CFFB562010C
+ MEPROP UID '4CFFB562010C'
+ MEPROP Name 'TvgScene'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D54170F00D8 // TvgCustomScene
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5475D36C0186 // Tl3ProcessMessagesManager
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP extprop:rc:SelfName 'Scene'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFFB562010C TvgScene
+
+ME ME_4D5423D601B2
+ MEPROP UID '4D5423D601B2'
+ MEPROP Name 'TvgRect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D5421A80032' '4D5420EC039D.ms.model.script' // TvgRect
+ )
+ ; // Inherits
+
+ENDME // ME_4D5423D601B2 TvgRect
+
+ME ME_4D5423EE0336
+ MEPROP UID '4D5423EE0336'
+ MEPROP Name 'TvgPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D5422330322' '4D5420EC039D.ms.model.script' // TvgPoint
+ )
+ ; // Inherits
+
+ENDME // ME_4D5423EE0336 TvgPoint
+
+ME ME_4D550C71029A
+ MEPROP UID '4D550C71029A'
+ MEPROP Name 'IvgScene'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D550C5B0341' '4D550C220363.ms.model.script' // IvgScene
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Scene'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D550C71029A IvgScene
+
+ME ME_4D555DA6008B
+ MEPROP UID '4D555DA6008B'
+ MEPROP Name 'TvgColor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D555D65006D' '4D5420EC039D.ms.model.script' // TvgColor
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D555DA6008B TvgColor
+
+ME ME_4D555DB201B5
+ MEPROP UID '4D555DB201B5'
+ MEPROP Name 'PvgColor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D555D8601D1' '4D5420EC039D.ms.model.script' // PvgColor
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D555DB201B5 PvgColor
+
+ME ME_4D555EFB0296
+ MEPROP UID '4D555EFB0296'
+ MEPROP Name 'TvgGradientPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D555E3901BF // TvgGradientPoint
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'GradientPoint'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D555EFB0296 TvgGradientPoint
+
+ME ME_4D5562880003
+ MEPROP UID '4D5562880003'
+ MEPROP Name 'TvgGradientPoints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D55623200CE // TvgGradientPoints
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'GradientPoints'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D5562880003 TvgGradientPoints
+
+FORWARD ME_4D5EB9810101
+
+ME ME_4D5EB9AF02AE
+ MEPROP UID '4D5EB9AF02AE'
+ MEPROP Name 'Visual'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5EB9810101 // TvgBrush
+ ;
+ MELINK Target HWL ME_4D5EB9330192 // TvgVisual
+ ;
+ UP "pm" true
+
+ENDME // ME_4D5EB9AF02AE Visual
+
+ME ME_4D5EB9810101
+ MEPROP UID '4D5EB9810101'
+ MEPROP Name 'TvgBrush'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.ms.model.script' // TvgPersistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EB9AF02AE // Visual
+ )
+ ; // Attributes
+ UP "finished" false
+ UP extprop:rc:SelfName 'Brush'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D5EB9810101 TvgBrush
+
+ME ME_4FC762770058
+ MEPROP UID '4FC762770058'
+ MEPROP Name 'TvgBackground'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D49560D0013 // TvgControl
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Background'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC762770058 TvgBackground
+
+ME ME_4D555FED002F
+ MEPROP UID '4D555FED002F'
+ MEPROP Name 'vgColorToStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ UP extprop:rc:SelfName 'ColorToStr'
+
+ENDME // ME_4D555FED002F vgColorToStr
+
+ME ME_4D555FFC0179
+ MEPROP UID '4D555FFC0179'
+ MEPROP Name 'vgStrToColor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ UP extprop:rc:SelfName 'StrToColor'
+
+ENDME // ME_4D555FFC0179 vgStrToColor
+
+ME ME_4D5D148101F9
+ MEPROP UID '4D5D148101F9'
+ MEPROP Name 'vgDoTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ UP extprop:rc:SelfName 'DoTab'
+
+ENDME // ME_4D5D148101F9 vgDoTab
+
+ME ME_4D5EB3B50279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELINK Target HWL ME_4D5EB3940388 // vg_extctrls
+ ;
+
+ENDME // ME_4D5EB3B50279 
+
+FORWARD ME_551ABCF10068
+
+ME ME_551ABD35033C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFE3E000371 // vg_scene
+ ;
+ MELINK Target HWL ME_551ABCF10068 // vg_services
+ ;
+
+ENDME // ME_551ABD35033C 
+
+ME ME_4CFE3E000371
+ MEPROP UID '4CFE3E000371'
+ MEPROP Name 'vg_scene'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D555FED002F // vgColorToStr
+ HWL ME_4D555FFC0179 // vgStrToColor
+ HWL ME_4D5D148101F9 // vgDoTab
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4CFE3E1302F5 // TvgBrushStyle
+ HWL ME_4D54170F00D8 // TvgCustomScene
+ HWL ME_4D49560D0013 // TvgControl
+ HWL ME_4D52A72302CE // TvgCanvas
+ HWL ME_4D52A8CB0057 // TvgResources
+ HWL ME_4D52A8DA0126 // TvgLang
+ HWL ME_4D52A8E9012B // TvgDesigner
+ HWL ME_4D52A9000294 // THackComponent
+ HWL ME_4CFFB562010C // TvgScene
+ HWL ME_4D5423D601B2 // TvgRect
+ HWL ME_4D5423EE0336 // TvgPoint
+ HWL ME_4D550C71029A // IvgScene
+ HWL ME_4D555DA6008B // TvgColor
+ HWL ME_4D555DB201B5 // PvgColor
+ HWL ME_4D555EFB0296 // TvgGradientPoint
+ HWL ME_4D5562880003 // TvgGradientPoints
+ HWL ME_4D5EB9810101 // TvgBrush
+ HWL ME_4FC762770058 // TvgBackground
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D5EB3B50279 // vg_extctrls
+ ME_551ABD35033C // vg_services
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_scene.pas'
+ UP extprop:rc:SelfName '_scene'
+
+ENDME // ME_4CFE3E000371 vg_scene
+
+FORWARD ME_4CFCE531013A
+
+ME ME_4CFCE54B01B0
+ MEPROP UID '4CFCE54B01B0'
+ MEPROP Name 'TvgPathButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'PathButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFCE54B01B0 TvgPathButton
+
+ME ME_4CFCE5A10367
+ MEPROP UID '4CFCE5A10367'
+ MEPROP Name 'TvgCloseButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'CloseButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFCE5A10367 TvgCloseButton
+
+ME ME_4CFCF4840379
+ MEPROP UID '4CFCF4840379'
+ MEPROP Name 'TvgRadioButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Injected
+   Seq: ( WL 'ME_54EC66040088' '506AC2F00283.ms.model.script' // VGSceneWordsPack
+ )
+ ; // Injected
+ UP "finished" false
+ UP "register in scripts" true
+ UP extprop:rc:SelfName 'RadioButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFCF4840379 TvgRadioButton
+
+FORWARD ME_4D4955ED018F
+
+FORWARD ME_4D5E5ACA029B
+
+ME ME_4D5E5ADE0011
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_4D5E5ADE0011 Value
+
+ME ME_4D5E5AD3030B
+ MEPROP UID '4D5E5AD3030B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5E5ACA029B // SetText
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5E5ADE0011 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4D5E5AD3030B DoIt
+
+ME ME_4D5E5ACA029B
+ MEPROP UID '4D5E5ACA029B'
+ MEPROP Name 'SetText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D4955ED018F // TvgTextControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5E5AD3030B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5E5ACA029B SetText
+
+ME ME_4D4955ED018F
+ MEPROP UID '4D4955ED018F'
+ MEPROP Name 'TvgTextControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D49560D0013 // TvgControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D5E5ACA029B // SetText
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'TextControl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D4955ED018F TvgTextControl
+
+FORWARD ME_4D4955DB0282
+
+ME ME_4D5E5B530342
+ MEPROP UID '4D5E5B530342'
+ MEPROP Name 'ModalResult'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D4955DB0282 // TvgCustomButton
+ ;
+ MELINK Target WL 'ME_47FE430F0088' '4799D29F033F.ms.model.script' // TModalResult
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4D5E5B530342 ModalResult
+
+ME ME_4D4955DB0282
+ MEPROP UID '4D4955DB0282'
+ MEPROP Name 'TvgCustomButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4955ED018F // TvgTextControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5E5B530342 // ModalResult
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D4955DB0282 TvgCustomButton
+
+FORWARD ME_4CFF5690033D
+
+ME ME_4D5E5C0A01E6
+ MEPROP UID '4D5E5C0A01E6'
+ MEPROP Name 'Default'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF5690033D // TvgButton
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4D5E5C0A01E6 Default
+
+ME ME_4D5E5C27000E
+ MEPROP UID '4D5E5C27000E'
+ MEPROP Name 'Cancel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF5690033D // TvgButton
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4D5E5C27000E Cancel
+
+ME ME_4CFF5690033D
+ MEPROP UID '4CFF5690033D'
+ MEPROP Name 'TvgButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4955DB0282 // TvgCustomButton
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5E5C0A01E6 // Default
+ HWL ME_4D5E5C27000E // Cancel
+ )
+ ; // Attributes
+ UP "finished" false
+ UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFF5690033D TvgButton
+
+ME ME_4F91672600DC
+ MEPROP UID '4F91672600DC'
+ MEPROP Name 'TvgCheckBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ UP extprop:rc:SelfName 'CheckBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F91672600DC TvgCheckBox
+
+ME ME_4FC76491011E
+ MEPROP UID '4FC76491011E'
+ MEPROP Name 'TvgPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D49560D0013 // TvgControl
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Panel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC76491011E TvgPanel
+
+ME ME_4FC7649B002C
+ MEPROP UID '4FC7649B002C'
+ MEPROP Name 'TvgCalloutPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FC76491011E // TvgPanel
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'CalloutPanel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC7649B002C TvgCalloutPanel
+
+ME ME_4CFCE531013A
+ MEPROP UID '4CFCE531013A'
+ MEPROP Name 'vg_controls'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFCE54B01B0 // TvgPathButton
+ HWL ME_4CFCE5A10367 // TvgCloseButton
+ HWL ME_4CFCF4840379 // TvgRadioButton
+ HWL ME_4D4955ED018F // TvgTextControl
+ HWL ME_4D4955DB0282 // TvgCustomButton
+ HWL ME_4CFF5690033D // TvgButton
+ HWL ME_4F91672600DC // TvgCheckBox
+ HWL ME_4FC76491011E // TvgPanel
+ HWL ME_4FC7649B002C // TvgCalloutPanel
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_controls.pas'
+ UP extprop:rc:SelfName '_controls'
+
+ENDME // ME_4CFCE531013A vg_controls
+
+ME ME_4D5EA60D03A1
+ MEPROP UID '4D5EA60D03A1'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5EA5E5035E // TvgVisualObjectList
+ ;
+ MELINK Target HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+
+ENDME // ME_4D5EA60D03A1 ItemType
+
+ME ME_47B07CF403D0_ME_4D5EA5E5035E
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4D5EA5E5035E IsSameItems
+
+ME ME_47B2C42A0163_ME_4D5EA5E5035E
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4D5EA5E5035E AssignItem
+
+ME ME_47B99D4503A2_ME_4D5EA5E5035E
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4D5EA5E5035E CompareExistingItems
+
+ME ME_4D5EA5E5035E
+ MEPROP UID '4D5EA5E5035E'
+ MEPROP Name 'TvgVisualObjectList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.ms.model.script' // l3PtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EA60D03A1 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4D5EA5E5035E // IsSameItems
+ ME_47B2C42A0163_ME_4D5EA5E5035E // AssignItem
+ ME_47B99D4503A2_ME_4D5EA5E5035E // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.02.2011 20:01'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgVisualObjectList.pas'
+ UP extprop:rc:SelfName 'VisualObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgVisualObjectList'
+
+ENDME // ME_4D5EA5E5035E TvgVisualObjectList
+
+FORWARD ME_4CFE0E330363
+
+ME ME_4CFE0E4401D1
+ MEPROP UID '4CFE0E4401D1'
+ MEPROP Name 'TvgStringComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4955ED018F // TvgTextControl
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'StringComboBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFE0E4401D1 TvgStringComboBox
+
+ME ME_4D3D71CE0254
+ MEPROP UID '4D3D71CE0254'
+ MEPROP Name 'TvgComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D49560D0013 // TvgControl
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'ComboBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D3D71CE0254 TvgComboBox
+
+ME ME_4D49985C0087
+ MEPROP UID '4D49985C0087'
+ MEPROP Name 'TvgListBoxItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4955ED018F // TvgTextControl
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ListBoxItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D49985C0087 TvgListBoxItem
+
+ME ME_4E65E22D010C
+ MEPROP UID '4E65E22D010C'
+ MEPROP Name 'TvgListBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E650495010D' '4E650454009C.ms.model.script' // Выпадающие списки должны уметь перемещать подсветку вслед за мышиным курсором
+ )
+ ; // Implements
+ UP extprop:rc:SelfName 'ListBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E65E22D010C TvgListBox
+
+ME ME_4CFE0E330363
+ MEPROP UID '4CFE0E330363'
+ MEPROP Name 'vg_listbox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFE0E4401D1 // TvgStringComboBox
+ HWL ME_4D3D71CE0254 // TvgComboBox
+ HWL ME_4D49985C0087 // TvgListBoxItem
+ HWL ME_4E65E22D010C // TvgListBox
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_listbox.pas'
+ UP extprop:rc:SelfName '_listbox'
+
+ENDME // ME_4CFE0E330363 vg_listbox
+
+FORWARD ME_4D5415920189
+
+ME ME_5326B4F301BF
+ MEPROP UID '5326B4F301BF'
+ MEPROP Name 'TvgBitmapObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5415920189 // TvgBitmap
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4956480326 // TvgObject
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'BitmapObject'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5326B4F301BF TvgBitmapObject
+
+ME ME_4D5415920189
+ MEPROP UID '4D5415920189'
+ MEPROP Name 'TvgBitmap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D542A150195' '4D542052038D.ms.model.script' // TvgCustomBitmap
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_5326B4F301BF // TvgBitmapObject
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgBitmap.pas'
+ UP extprop:rc:SelfName 'Bitmap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgBitmap'
+
+ENDME // ME_4D5415920189 TvgBitmap
+
+ME ME_4D5EC60E0068
+ MEPROP UID '4D5EC60E0068'
+ MEPROP Name 'TvgBrushBitmap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.ms.model.script' // TvgPersistent
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgBrushBitmap.pas'
+ UP extprop:rc:SelfName 'BrushBitmap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgBrushBitmap'
+
+ENDME // ME_4D5EC60E0068 TvgBrushBitmap
+
+FORWARD ME_53297E2801A1
+
+ME ME_53297E3902D5
+ MEPROP UID '53297E3902D5'
+ MEPROP Name 'TvgImageList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53297E2801A1 // vg_actions
+ ;
+ UP extprop:rc:SelfName 'ImageList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53297E3902D5 TvgImageList
+
+ME ME_53297E2801A1
+ MEPROP UID '53297E2801A1'
+ MEPROP Name 'vg_actions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53297E3902D5 // TvgImageList
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_actions.pas'
+ UP extprop:rc:SelfName '_actions'
+
+ENDME // ME_53297E2801A1 vg_actions
+
+FORWARD ME_533E6FDD018D
+
+ME ME_533E706E000A
+ MEPROP UID '533E706E000A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target HWL ME_4D5423D601B2 // TvgRect
+ ;
+
+ENDME // ME_533E706E000A ItemType
+
+ME ME_533E70D50359
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ ;
+
+ENDME // ME_533E70D50359 
+
+ME ME_533E70E00321
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ ;
+
+ENDME // ME_533E70E00321 
+
+ME ME_533E70E500C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533E6FDD018D // TvgRectList
+ ;
+ MELINK Target HWL ME_4CFE3E000371 // vg_scene
+ ;
+
+ENDME // ME_533E70E500C8 
+
+ME ME_47B07CF403D0_ME_533E6FDD018D
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_533E6FDD018D IsSameItems
+
+ME ME_47B2C42A0163_ME_533E6FDD018D
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_533E6FDD018D AssignItem
+
+ME ME_47B99D4503A2_ME_533E6FDD018D
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_533E6FDD018D CompareExistingItems
+
+ME ME_533E6FDD018D
+ MEPROP UID '533E6FDD018D'
+ MEPROP Name 'TvgRectList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_533E706E000A // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_533E6FDD018D // IsSameItems
+ ME_47B2C42A0163_ME_533E6FDD018D // AssignItem
+ ME_47B99D4503A2_ME_533E6FDD018D // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_533E70D50359 // l3RecordListPrim
+ ME_533E70E00321 // Tl3ProtoDataContainer
+ ME_533E70E500C8 // vg_scene
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgRectList.pas'
+ UP extprop:rc:SelfName 'RectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgRectList'
+
+ENDME // ME_533E6FDD018D TvgRectList
+
+FORWARD ME_551ABD0E013B
+
+ME ME_551ACCA50238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_551ABD0E013B // TvgGetComponentFromPointImpl
+ ;
+ MELINK Target WL 'ME_551AB8CA014A' '55001317029B.ms.model.script' // Tl3GetComponentFromPointHelper
+ ;
+
+ENDME // ME_551ACCA50238 
+
+ME ME_551ABD0E013B
+ MEPROP UID '551ABD0E013B'
+ MEPROP Name 'TvgGetComponentFromPointImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_551ACCA50238 // Tl3GetComponentFromPointHelper
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'GetComponentFromPointImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_551ABD0E013B TvgGetComponentFromPointImpl
+
+FORWARD ME_551BCE070003
+
+ME ME_551BCE1702D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_551BCE070003 // TvgFormatObjectInfoImpl
+ ;
+ MELINK Target WL 'ME_551BCBFD0240' '55001317029B.ms.model.script' // Tl3FormatObjectInfoHelper
+ ;
+
+ENDME // ME_551BCE1702D0 
+
+ME ME_551BCEFD03E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCE070003 // TvgFormatObjectInfoImpl
+ ;
+ MELINK Target WL 'ME_551542E902F5' '55001317029B.ms.model.script' // Tl3HugeMessageDlgWithWikiHelper
+ ;
+
+ENDME // ME_551BCEFD03E6 
+
+ME ME_551BD0250273
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCE070003 // TvgFormatObjectInfoImpl
+ ;
+ MELINK Target WL 'ME_5012BFDC0300' '5012CA2D0012.ms.model.script' // l3RTTI
+ ;
+
+ENDME // ME_551BD0250273 
+
+ME ME_551BD05A0236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCE070003 // TvgFormatObjectInfoImpl
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_551BD05A0236 
+
+ME ME_551BE908028E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCE070003 // TvgFormatObjectInfoImpl
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_551BE908028E 
+
+ME ME_551BCE070003
+ MEPROP UID '551BCE070003'
+ MEPROP Name 'TvgFormatObjectInfoImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_551BCE1702D0 // Tl3FormatObjectInfoHelper
+ ME_551BCEFD03E6 // Tl3HugeMessageDlgWithWikiHelper
+ ME_551BD0250273 // l3RTTI
+ ME_551BD05A0236 // Classes
+ ME_551BE908028E // SysUtils
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'FormatObjectInfoImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_551BCE070003 TvgFormatObjectInfoImpl
+
+FORWARD ME_551C4D2300E5
+
+ME ME_551C4D340171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_551C4D2300E5 // TvgIterateComponentsImpl
+ ;
+ MELINK Target WL 'ME_551AA9BD01EE' '55001317029B.ms.model.script' // Tl3IterateComponentParents
+ ;
+
+ENDME // ME_551C4D340171 
+
+ME ME_551C4D46017C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551C4D2300E5 // TvgIterateComponentsImpl
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_551C4D46017C 
+
+ME ME_551C4D610171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551C4D2300E5 // TvgIterateComponentsImpl
+ ;
+ MELINK Target HWL ME_4D4956480326 // TvgObject
+ ;
+
+ENDME // ME_551C4D610171 
+
+ME ME_551C4D2300E5
+ MEPROP UID '551C4D2300E5'
+ MEPROP Name 'TvgIterateComponentsImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_551C4D340171 // Tl3IterateComponentParents
+ ME_551C4D46017C // Controls
+ ME_551C4D610171 // TvgObject
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'IterateComponentsImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_551C4D2300E5 TvgIterateComponentsImpl
+
+FORWARD ME_55226D5F0212
+
+ME ME_55226D830172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_55226D5F0212 // TvgGetCaptureImpl
+ ;
+ MELINK Target WL 'ME_55226C5F035A' '55001317029B.ms.model.script' // Tl3GetCaptureHelper
+ ;
+
+ENDME // ME_55226D830172 
+
+ME ME_55226D5F0212
+ MEPROP UID '55226D5F0212'
+ MEPROP Name 'TvgGetCaptureImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_55226D830172 // Tl3GetCaptureHelper
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'GetCaptureImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55226D5F0212 TvgGetCaptureImpl
+
+FORWARD ME_5522D81901CB
+
+ME ME_5522D8520273
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5522D81901CB // TvgGetComponentBoundsImpl
+ ;
+ MELINK Target WL 'ME_5522D7A90252' '55001317029B.ms.model.script' // Tl3GetComponentBoundsHelper
+ ;
+
+ENDME // ME_5522D8520273 
+
+ME ME_5523BFFB0314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5522D81901CB // TvgGetComponentBoundsImpl
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5523BFFB0314 
+
+ME ME_5522D81901CB
+ MEPROP UID '5522D81901CB'
+ MEPROP Name 'TvgGetComponentBoundsImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5522D8520273 // Tl3GetComponentBoundsHelper
+ ME_5523BFFB0314 // Windows
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'GetComponentBoundsImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5522D81901CB TvgGetComponentBoundsImpl
+
+ME ME_551ABD3A002F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELINK Target HWL ME_4CFE3E000371 // vg_scene
+ ;
+
+ENDME // ME_551ABD3A002F 
+
+ME ME_551BCEA80264
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELINK Target HWL ME_4CFCE531013A // vg_controls
+ ;
+
+ENDME // ME_551BCEA80264 
+
+ME ME_551BCEB70353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551ABCF10068 // vg_services
+ ;
+ MELINK Target HWL ME_4D49562A01B7 // TvgVisualObject
+ ;
+
+ENDME // ME_551BCEB70353 
+
+ME ME_551ABCF10068
+ MEPROP UID '551ABCF10068'
+ MEPROP Name 'vg_services'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFCE51A00B0 // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_551ABD0E013B // TvgGetComponentFromPointImpl
+ HWL ME_551BCE070003 // TvgFormatObjectInfoImpl
+ HWL ME_551C4D2300E5 // TvgIterateComponentsImpl
+ HWL ME_55226D5F0212 // TvgGetCaptureImpl
+ HWL ME_5522D81901CB // TvgGetComponentBoundsImpl
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_551ABD3A002F // vg_scene
+ ME_551BCEA80264 // vg_controls
+ ME_551BCEB70353 // TvgVisualObject
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vg_services.pas'
+ UP extprop:rc:SelfName '_services'
+
+ENDME // ME_551ABCF10068 vg_services
+
+ME ME_4CFCE51A00B0
+ MEPROP UID '4CFCE51A00B0'
+ MEPROP Name 'Impl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.ms.model.script' // VGScene
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D555D3201E9 // TvgCustomGradientPoint
+ HWL ME_4D555E3901BF // TvgGradientPoint
+ HWL ME_4CFE2C72021C // vg_objects
+ HWL ME_4D55623200CE // TvgGradientPoints
+ HWL ME_4CFFAE8902BD // vg_layouts
+ HWL ME_4D5E628602E6 // TvgScenePrim
+ HWL ME_4D552B230161 // TvgSortableObjectList
+ HWL ME_4D5EA95401A8 // TvgCustomObjectList
+ HWL ME_4D4956480326 // TvgObject
+ HWL ME_4D5EA20700F4 // TvgObjectList
+ HWL ME_4D5EC22400DA // TvgBounds
+ HWL ME_4D5E914F002C // TvgEffect
+ HWL ME_4D5EC25B0067 // TvgPosition
+ HWL ME_4D49562A01B7 // TvgVisualObject
+ HWL ME_4D5EB9330192 // TvgVisual
+ HWL ME_4D5E913C007F // TvgAnimation
+ HWL ME_4D5EB3940388 // vg_extctrls
+ HWL ME_4CFE3E000371 // vg_scene
+ HWL ME_4CFCE531013A // vg_controls
+ HWL ME_4D5EA5E5035E // TvgVisualObjectList
+ HWL ME_4CFE0E330363 // vg_listbox
+ HWL ME_4D5415920189 // TvgBitmap
+ HWL ME_4D5EC60E0068 // TvgBrushBitmap
+ HWL ME_53297E2801A1 // vg_actions
+ HWL ME_533E6FDD018D // TvgRectList
+ HWL ME_551ABCF10068 // vg_services
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_49EF33F700C2' '49EF33F700C2.ms.model.script' // ControlsMixIns
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4D52A63D0365' '4D52A63D0365.ms.model.script' // lulin
+ WL 'ME_4D542052038D' '4D542052038D.ms.model.script' // Core
+ WL 'ME_4D5420EC039D' '4D5420EC039D.ms.model.script' // vgTypes
+ WL 'ME_4D550C220363' '4D550C220363.ms.model.script' // vgInterfaces
+ WL 'ME_4D551198021D' '4D551198021D.ms.model.script' // lulin1
+ WL 'ME_4E650454009C' '4E650454009C.ms.model.script' // Требования к контролам VGScene
+ WL 'ME_5012CA2D0012' '5012CA2D0012.ms.model.script' // l3TestUtils
+ WL 'ME_55001317029B' '55001317029B.ms.model.script' // VCLHelpers
+ )
+ ; // Depends
+
+ENDME // ME_4CFCE51A00B0 Impl

@@ -1,0 +1,303 @@
+// Поиск 484407720166 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484407720166
+
+FORWARD ME_484407B70220
+
+ME ME_4860854902C8
+ MEPROP UID '4860854902C8'
+ MEPROP Name '«Подсказки запросов»'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предложение пользователю наиболее популярных запросов с использованием введенных им слов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407B70220 // Базовый поиск
+ ;
+
+ENDME // ME_4860854902C8 «Подсказки запросов»
+
+ME ME_4A374225006A
+ MEPROP UID '4A374225006A'
+ MEPROP Name 'Короткий список и сниппеты'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При проведении поиска показывать не полный список документов с указанием блока, где найден контекст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407B70220 // Базовый поиск
+ ;
+
+ENDME // ME_4A374225006A Короткий список и сниппеты
+
+ME ME_4AC1C6FD02B9
+ MEPROP UID '4AC1C6FD02B9'
+ MEPROP Name 'Навигация по найденным контекстам'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дополнительные опции навигации по найденным контекстам' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407B70220 // Базовый поиск
+ ;
+
+ENDME // ME_4AC1C6FD02B9 Навигация по найденным контекстам
+
+ME ME_484407B70220
+ MEPROP UID '484407B70220'
+ MEPROP Name 'Базовый поиск'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация интеллектуального поиска документов, основанного на разборе запроса пользователя на естественном языке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407720166 // Поиск
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4860854902C8 // «Подсказки запросов»
+ HWL ME_4A374225006A // Короткий список и сниппеты
+ HWL ME_4AC1C6FD02B9 // Навигация по найденным контекстам
+ )
+ ; // Children
+
+ENDME // ME_484407B70220 Базовый поиск
+
+FORWARD ME_484CE381033D
+
+ME ME_484D048300DF
+ MEPROP UID '484D048300DF'
+ MEPROP Name 'Выбор словарных атрибутов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Просмотр списка значений словарного атрибута и выбор нужных значений для поиска.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE381033D // Параметрический поиск
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_484CE59A0140' '484CE48E02E6.ms.model.script' // Работа с древовидными структурами
+ )
+ ; // Inherits
+
+ENDME // ME_484D048300DF Выбор словарных атрибутов
+
+ME ME_4E809398026C
+ MEPROP UID '4E809398026C'
+ MEPROP Name 'Карточки запроса должны уметь заполняться из скриптов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:284164589}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE381033D // Параметрический поиск
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E82032103C9' '4E5CF70B01E2.ms.model.script' // Карточки запроса должны уметь заполняться из скриптов
+ )
+ ; // Inherits
+
+ENDME // ME_4E809398026C Карточки запроса должны уметь заполняться из скриптов
+
+ME ME_4E9C643002E0
+ MEPROP UID '4E9C643002E0'
+ MEPROP Name 'На заголовке карточки поиска не должно быть контекстного меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278844700}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE381033D // Параметрический поиск
+ ;
+
+ENDME // ME_4E9C643002E0 На заголовке карточки поиска не должно быть контекстного меню
+
+FORWARD ME_4F1D8DEF03A3
+
+ME ME_4E9860E7038E
+ MEPROP UID '4E9860E7038E'
+ MEPROP Name 'Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:265397719}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F1D8DEF03A3 // Правовой календарь
+ ;
+
+ENDME // ME_4E9860E7038E Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar
+
+ME ME_4F1D8DEF03A3
+ MEPROP UID '4F1D8DEF03A3'
+ MEPROP Name 'Правовой календарь'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:182157315}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE381033D // Параметрический поиск
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E9860E7038E // Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar
+ )
+ ; // Children
+
+ENDME // ME_4F1D8DEF03A3 Правовой календарь
+
+ME ME_484CE381033D
+ MEPROP UID '484CE381033D'
+ MEPROP Name 'Параметрический поиск'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Составление запроса из произвольной комбинации поисковых атрибутов и построение списка по запросу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407720166 // Поиск
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484D048300DF // Выбор словарных атрибутов
+ HWL ME_4E809398026C // Карточки запроса должны уметь заполняться из скриптов
+ HWL ME_4E9C643002E0 // На заголовке карточки поиска не должно быть контекстного меню
+ HWL ME_4F1D8DEF03A3 // Правовой календарь
+ )
+ ; // Children
+
+ENDME // ME_484CE381033D Параметрический поиск
+
+ME ME_484CE3CC0055
+ MEPROP UID '484CE3CC0055'
+ MEPROP Name 'Типизированный поиск'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Составление запроса из предопределенной, именованной комбинации поисковых атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407720166 // Поиск
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484CE381033D // Параметрический поиск
+ )
+ ; // Inherits
+
+ENDME // ME_484CE3CC0055 Типизированный поиск
+
+FORWARD ME_484E2F2500C6
+
+ME ME_4F325B840351
+ MEPROP UID '4F325B840351'
+ MEPROP Name 'Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:330139802}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E2F2500C6 // Поиск контекста
+ ;
+
+ENDME // ME_4F325B840351 Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
+
+ME ME_484E2F2500C6
+ MEPROP UID '484E2F2500C6'
+ MEPROP Name 'Поиск контекста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск контекста в тексте документа, его текстовых атрибутах (справка, аннотация и т.п.) или древовидных объектах (списке, папках, словарях).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407720166 // Поиск
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F325B840351 // Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
+ )
+ ; // Children
+
+ENDME // ME_484E2F2500C6 Поиск контекста
+
+ME ME_484E4F770035
+ MEPROP UID '484E4F770035'
+ MEPROP Name 'Старые виды поисков'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Карточки запроса созданные для совместимости с версией Гарант 5.х' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407720166 // Поиск
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484CE3CC0055 // Типизированный поиск
+ )
+ ; // Inherits
+
+ENDME // ME_484E4F770035 Старые виды поисков
+
+ME ME_48561B83016C
+ MEPROP UID '48561B83016C'
+ MEPROP Name 'Поиск комментариев пользователя'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обеспечение легкого доступа пользователя ко всем документам, в которых он проставлял свои комментарии.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407720166 // Поиск
+ ;
+
+ENDME // ME_48561B83016C Поиск комментариев пользователя
+
+ME ME_486083160322
+ MEPROP UID '486083160322'
+ MEPROP Name 'Исправление опечаток'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Исправление неправильно введенных слов в строке базового поиска и информирование пользователя об этом.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484407720166 // Поиск
+ ;
+
+ENDME // ME_486083160322 Исправление опечаток
+
+ME ME_484407720166
+ MEPROP UID '484407720166'
+ MEPROP Name 'Поиск'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Реализация поисковых возможностей системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484407B70220 // Базовый поиск
+ HWL ME_484CE381033D // Параметрический поиск
+ HWL ME_484CE3CC0055 // Типизированный поиск
+ HWL ME_484E2F2500C6 // Поиск контекста
+ HWL ME_484E4F770035 // Старые виды поисков
+ HWL ME_48561B83016C // Поиск комментариев пользователя
+ HWL ME_486083160322 // Исправление опечаток
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_484CE48E02E6' '484CE48E02E6.ms.model.script' // Списки
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.ms.model.script' // Требования к редактору Эверест
+ )
+ ; // Depends
+
+ENDME // ME_484407720166 Поиск

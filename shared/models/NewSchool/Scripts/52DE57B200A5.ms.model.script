@@ -1,0 +1,291 @@
+// Tree$WithDnD 52DE57B200A5 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52DE57B200A5
+
+FORWARD ME_468271030094
+
+ME ME_52EBD7C800C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468271030094 // TnsNodeStorable
+ ;
+ MELINK Target WL 'ME_45EEDC6F01D7' '4570501E037A.ms.model.script' // FoldersItemType
+ ;
+
+ENDME // ME_52EBD7C800C5 
+
+ME ME_52EBD7CA03CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468271030094 // TnsNodeStorable
+ ;
+ MELINK Target WL 'ME_45EEB65202A0' '4570511E038A.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_52EBD7CA03CF 
+
+ME ME_52EBD7CC02A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468271030094 // TnsNodeStorable
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_52EBD7CC02A4 
+
+ME ME_52EBD7CE012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468271030094 // TnsNodeStorable
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_52EBD7CE012A 
+
+ME ME_52EBD7D0003E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468271030094 // TnsNodeStorable
+ ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_52EBD7D0003E 
+
+ME ME_52EBD7D10379
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468271030094 // TnsNodeStorable
+ ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+
+ENDME // ME_52EBD7D10379 
+
+ME ME_52EBD7D40035
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468271030094 // TnsNodeStorable
+ ;
+ MELINK Target WL 'ME_484AB26803DB' '469D0AC7005E.ms.model.script' // Hyperlink Const
+ ;
+
+ENDME // ME_52EBD7D40035 
+
+ME ME_48F494F102DD_ME_468271030094
+ MELINK Original WL 'ME_48F494F102DD' '4802FF41005C.ms.model.script' // GetAddress
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F494F102DD_ME_468271030094 GetAddress
+
+ME ME_468271030094
+ MEPROP UID '468271030094'
+ MEPROP Name 'TnsNodeStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52DE57B200A5 // Tree$WithDnD
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F4D8230366' '4802FF41005C.ms.model.script' // TevNodeStorable
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48F494F102DD_ME_468271030094 // GetAddress
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52EBD7C800C5 // FoldersItemType
+ ME_52EBD7CA03CF // Bookmark
+ ME_52EBD7CC02A4 // SysUtils
+ ME_52EBD7CE012A // EntityBase
+ ME_52EBD7D0003E // Node
+ ME_52EBD7D10379 // IevSub
+ ME_52EBD7D40035 // Hyperlink Const
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Components\nsNodeStorable.pas'
+ UP extprop:rc:SelfName 'NodeStorable'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsNodeStorable'
+
+ENDME // ME_468271030094 TnsNodeStorable
+
+FORWARD ME_468270DC0341
+
+ME ME_52EBD76D038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468270DC0341 // TnsNodeDataObject
+ ;
+ MELINK Target HWL ME_468271030094 // TnsNodeStorable
+ ;
+
+ENDME // ME_52EBD76D038E 
+
+ME ME_48F8CD5401AD_ME_468270DC0341
+ MELINK Original WL 'ME_48F8CD5401AD' '4802FF41005C.ms.model.script' // DataClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F8CD5401AD_ME_468270DC0341 DataClass
+
+ME ME_468270DC0341
+ MEPROP UID '468270DC0341'
+ MEPROP Name 'TnsNodeDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52DE57B200A5 // Tree$WithDnD
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F4DC5A018D' '4802FF41005C.ms.model.script' // TevNodeDataObject
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48F8CD5401AD_ME_468270DC0341 // DataClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52EBD76D038E // TnsNodeStorable
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Components\nsNodeDataObject.pas'
+ UP extprop:rc:SelfName 'NodeDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsNodeDataObject'
+
+ENDME // ME_468270DC0341 TnsNodeDataObject
+
+FORWARD ME_48F73BBD02B3
+
+ME ME_52EBD77300B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ ;
+ MELINK Target HWL ME_468270DC0341 // TnsNodeDataObject
+ ;
+
+ENDME // ME_52EBD77300B9 
+
+ME ME_52EBD77F0234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_52EBD77F0234 
+
+ME ME_52EBD7820113
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_52EBD7820113 
+
+ME ME_48F3495D0398_ME_48F73BBD02B3
+ MELINK Original WL 'ME_48F3495D0398' '4680F5600033.ms.model.script' // DoGetData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F3495D0398_ME_48F73BBD02B3 DoGetData
+
+ME ME_48F349AE00F1_ME_48F73BBD02B3
+ MELINK Original WL 'ME_48F349AE00F1' '4680F5600033.ms.model.script' // DoGetDataHere
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F349AE00F1_ME_48F73BBD02B3 DoGetDataHere
+
+ME ME_48F359680368_ME_48F73BBD02B3
+ MELINK Original WL 'ME_48F359680368' '4680F5600033.ms.model.script' // DoQueryGetData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F359680368_ME_48F73BBD02B3 DoQueryGetData
+
+ME ME_48F8D47302FD_ME_48F73BBD02B3
+ MELINK Original WL 'ME_48F8D47302FD' '469C688102A3.ms.model.script' // ExtDataClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F8D47302FD_ME_48F73BBD02B3 ExtDataClass
+
+ME ME_48F73BBD02B3
+ MEPROP UID '48F73BBD02B3'
+ MEPROP Name 'TnsEntitiesTreeDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52DE57B200A5 // Tree$WithDnD
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F7014003A5' '469C688102A3.ms.model.script' // TevNodeData
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48F3495D0398_ME_48F73BBD02B3 // DoGetData
+ ME_48F349AE00F1_ME_48F73BBD02B3 // DoGetDataHere
+ ME_48F359680368_ME_48F73BBD02B3 // DoQueryGetData
+ ME_48F8D47302FD_ME_48F73BBD02B3 // ExtDataClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52EBD77300B9 // TnsNodeDataObject
+ ME_52EBD77F0234 // Windows
+ ME_52EBD7820113 // CanNotFindData
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Components\nsEntitiesTreeDataObject.pas'
+ UP extprop:rc:SelfName 'EntitiesTreeDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsEntitiesTreeDataObject'
+
+ENDME // ME_48F73BBD02B3 TnsEntitiesTreeDataObject
+
+ME ME_52DE57B200A5
+ MEPROP UID '52DE57B200A5'
+ MEPROP Name 'Tree'
+ MEPROP OriginalName 'Tree$WithDnD'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51DD5AB6022D' '51DD5AB6022D.ms.model.script' // Components
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_52DE57DF007B' '52DE57DF007B.ms.model.script' // TnscTreeViewWithAdapterDragDrop
+ HWL ME_468271030094 // TnsNodeStorable
+ HWL ME_468270DC0341 // TnsNodeDataObject
+ HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_456F02A50196' '456F02A50196.ms.model.script' // BaseTreeSupport
+ WL 'ME_4570501E037A' '4570501E037A.ms.model.script' // Folders
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_469C688102A3' '469C688102A3.ms.model.script' // DataObjects
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_4802FF41005C' '4802FF41005C.ms.model.script' // DataObjects
+ WL 'ME_499C2614028C' '499C2614028C.ms.model.script' // Tree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ )
+ ; // Depends
+ UP extprop:pas:UnitName 'Tree$WithDnD'
+
+ENDME // ME_52DE57B200A5 Tree$WithDnD

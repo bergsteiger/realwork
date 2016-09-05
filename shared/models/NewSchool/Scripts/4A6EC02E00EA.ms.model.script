@@ -1,0 +1,62 @@
+// LeftEdition 4A6EC02E00EA VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EC02E00EA
+
+ME ME_3A5A330387A0
+ MEPROP UID '3A5A330387A0'
+ MEPROP Name 'Ini_FormFactory_LeftEdition'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы LeftEdition' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EC02E00EA // LeftEdition
+ ;
+ UPLINK SpelledFor HWL ME_4A6EC02E00EA // LeftEdition
+ ;
+
+ENDME // ME_3A5A330387A0 Ini_FormFactory_LeftEdition
+
+ME ME_4A6EC02E00EA
+ MEPROP UID '4A6EC02E00EA'
+ MEPROP Name 'LeftEdition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предыдущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.ms.model.script' // BaseEditions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6D5A80013C' '4A6D5A80013C.ms.model.script' // PrimLeftEdition
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFC67440230' '4FFC670F012B.ms.model.script' // LeftEdition
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_3A5A330387A0 // Ini_FormFactory_LeftEdition
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '28.07.2009 13:09'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\LeftEdition_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+ UP extprop:pas:TypeName 'TLeftEditionForm'
+ UP extprop:rc:SelfName 'LeftEditionForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'LeftEdition_Form'
+
+ENDME // ME_4A6EC02E00EA LeftEdition

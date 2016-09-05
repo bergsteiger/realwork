@@ -1,0 +1,41 @@
+// dtIntf 559D0BE101B4 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559D0BE101B4
+
+ME ME_519B71CF03DC
+ MEPROP UID '519B71CF03DC'
+ MEPROP GUID '9EF1808E-0254-4493-B759-09898A004F14'
+ MEPROP Name 'ISab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_559D0BE101B4 // dtIntf
+ ;
+ UP extprop:rc:SelfName 'Sab'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_519B71CF03DC ISab
+
+ME ME_559D0BE101B4
+ MEPROP UID '559D0BE101B4'
+ MEPROP Name 'dtIntf'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.ms.model.script' // DT
+ ;
+ MELIST Children
+   Seq: ( HWL ME_519B71CF03DC // ISab
+ )
+ ; // Children
+ UP "finished" false
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dtIntf.pas'
+
+ENDME // ME_559D0BE101B4 dtIntf

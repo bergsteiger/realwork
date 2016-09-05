@@ -1,0 +1,88 @@
+// TurnOffTimeMachine 4AB135AC01DE VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB135AC01DE
+
+ME ME_B9684F81B84D
+ MEPROP UID 'B9684F81B84D'
+ MEPROP Name 'ut_TurnOffTimeMachine'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выключить Машину времени / Изменить дату' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB135AC01DE // TurnOffTimeMachine
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType.pas'
+ UP extprop:pas:UnitName 'TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType'
+
+ENDME // ME_B9684F81B84D ut_TurnOffTimeMachine
+
+ME ME_D1DF92B3B857
+ MEPROP UID 'D1DF92B3B857'
+ MEPROP GUID '3FDF45B7-4023-4D87-A4CB-A153EBA91B78'
+ MEPROP Name 'TurnOffTimeMachine'
+ MEPROP OriginalName 'TurnOffTimeMachine$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы TurnOffTimeMachine' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB135AC01DE // TurnOffTimeMachine
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AB135AC01DE // TurnOffTimeMachine
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'TurnOffTimeMachineFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_D1DF92B3B857 TurnOffTimeMachine$Def
+
+ME ME_4AB135AC01DE
+ MEPROP UID '4AB135AC01DE'
+ MEPROP Name 'TurnOffTimeMachine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выключить Машину времени / Изменить дату' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8A171801CA' '4C8A171801CA.ms.model.script' // PrimTurnOffTimeMachineOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_D1DF92B3B857 // TurnOffTimeMachine$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_B9684F81B84D // ut_TurnOffTimeMachine
+ HWL ME_D1DF92B3B857 // TurnOffTimeMachine$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Modal'
+ UP "finished dfm" true
+ UP "form name prefix" 'en_'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TurnOffTimeMachine_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName 'Ten_TurnOffTimeMachine'
+ UP extprop:rc:SelfName 'en_TurnOffTimeMachine'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TurnOffTimeMachine_Form'
+
+ENDME // ME_4AB135AC01DE TurnOffTimeMachine

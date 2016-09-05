@@ -34,6 +34,8 @@ var
 //#UC START# *5721B7D401CF_ext:FileName
 w:\common\components\rtl\Garant\L3\l3ListUtils.pas
 //#UC END# *5721B7D401CF_ext:FileName
+//#UC START# *5721B7D401CFimpl_uses*
+//#UC END# *5721B7D401CFimpl_uses*
 //#UC START# *5721B80000C0_5721B7D401CF_impl*
  Result := (Pointer(aL1) = Pointer(aL2));
  if not Result then
@@ -90,3 +92,26 @@ var
 var
  l_IDX: Integer;
 //#UC END# *5721BC780362_5721B7D401CF_var*
+//#UC START# *57AADAD40150_5721B7D401CF_impl*
+ Result := (Pointer(aL1) = Pointer(aL2));
+ if not Result then
+ begin
+  if (aL1 = nil) or (aL2 = nil) then
+   Exit;
+  if (aL1.Count = aL2.Count) then
+  begin
+   for l_IDX := 0 to aL1.Count - 1 do
+   begin
+    if aL1[l_IDX] <> aL2[l_IDX] then
+     Exit;
+    if Pointer(aL1.Objects[l_IDX]) <> Pointer(aL2.Objects[l_IDX]) then
+     Exit;
+   end;
+   Result := True;
+  end;
+ end;
+//#UC END# *57AADAD40150_5721B7D401CF_impl*
+//#UC START# *57AADAD40150_5721B7D401CF_var*
+var
+ l_IDX: Integer;
+//#UC END# *57AADAD40150_5721B7D401CF_var*

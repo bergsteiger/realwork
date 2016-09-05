@@ -2,57 +2,57 @@
 // Вспомогательные процедуры работы с таблицами
 
 USES
- axiom:Control
- axiom:Form
- axiom:Editor
- axiom:push
- axiom:Para
- axiom:EVD
+	axiom:Control
+	axiom:Form
+	axiom:Editor
+	axiom:push
+	axiom:Para
+	axiom:EVD
 	Mouse.script
 	EVDSchema.script
 	ArchiSystem.script
-    ArchiControls.script
-    AttributeUtils.script
+	ArchiControls.script
+	AttributeUtils.script
 ;
 
-: "Вставить простую таблицу и выделить ячейку"
+PROCEDURE "Вставить простую таблицу и выделить ячейку"
  OBJECT VAR l_Editor
  focused:control:push >>> l_Editor
  3 3 l_Editor pop:editor:InsertTable
  1 1 l_Editor pop:editor:SelectCellByMouse  
- ProcessMessages
+ "Обработать сообщения"
 ;
 
-: "Изменить размер с клавишей" IN aKey
+PROCEDURE "Изменить размер с клавишей" IN aKey
   450 aKey 2 1 focused:control:push pop:editor:ResizeTableColumnEX
-  ProcessMessages
+  "Обработать сообщения"
 ;
 
-: "Изменить размер"
+PROCEDURE "Изменить размер"
   450 2 1 focused:control:push pop:editor:ResizeTableColumn
-  ProcessMessages
+  "Обработать сообщения"
 ;
 
-: "Изменить SBS"
+PROCEDURE "Изменить SBS"
  -450 0 0 focused:control:push pop:editor:ResizeTableColumn
 ;
 
-: "Объединить ячейки"
+PROCEDURE "Объединить ячейки"
 	'acMergeCells' arMainActionList push:MainForm pop:form:ExecuteAction
 ;
 
-: "Выравнивание по запятой"
+PROCEDURE "Выравнивание по запятой"
 	'acAlignWithSeparator' arMainActionList push:MainForm pop:form:ExecuteAction
 ;
 
-: "Выделить колонку" IN aColID
+PROCEDURE "Выделить колонку" IN aColID
 	aColID focused:control:push pop:editor:SelectColumn 
 ;
 
-: "Объединить таблицы"
+PROCEDURE "Объединить таблицы"
 	'acMergeTables' arMainActionList push:MainForm pop:form:ExecuteAction
 ;
-: "Удалить строку"	
+PROCEDURE "Удалить строку"	
 	'acDeleteRow' arMainActionList push:MainForm pop:form:ExecuteAction
 ;
 
@@ -60,14 +60,14 @@ PROCEDURE "Удалить колонку"
 	'acDeleteColumn' arMainActionList push:MainForm pop:form:ExecuteAction
 ;
 
-: "Удерживая клавишу, уменьшаем размер ячейки в строке" IN aKey INTEGER IN aCol INTEGER IN aRow
+PROCEDURE "Удерживая клавишу, уменьшаем размер ячейки в строке" IN aKey INTEGER IN aCol INTEGER IN aRow
   -450 aKey aCol aRow focused:control:push pop:editor:ResizeTableColumnEX
-  ProcessMessages
+  "Обработать сообщения"
 ;
 
-: "Удерживая клавишу, увеличиваем размер ячейки в строке" IN aKey INTEGER IN aCol INTEGER IN aRow
+PROCEDURE "Удерживая клавишу, увеличиваем размер ячейки в строке" IN aKey INTEGER IN aCol INTEGER IN aRow
   450 aKey aCol aRow focused:control:push pop:editor:ResizeTableColumnEX
-  ProcessMessages
+  "Обработать сообщения"
 ;
 
 PROCEDURE "Вставить колонку"	

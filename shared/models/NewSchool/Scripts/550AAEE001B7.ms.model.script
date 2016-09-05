@@ -1,0 +1,56 @@
+// TsdsInpharmMainMenu 550AAEE001B7 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_550AAEE001B7
+
+ME ME_550C0DC2012C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550AAEE001B7 // TsdsInpharmMainMenu
+ ;
+ MELINK Target WL 'ME_550C0DA5022E' '550C0DA5022E.ms.model.script' // TdsInpharmMainMenu
+ ;
+
+ENDME // ME_550C0DC2012C 
+
+ME ME_550C0D1A00CC_ME_550AAEE001B7
+ MELINK Original WL 'ME_550C0D1A00CC' '4AC241AC01FC.ms.model.script' // dsInpharmMainMenuData
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_550C0D1A00CC_ME_550AAEE001B7 dsInpharmMainMenuData
+
+ME ME_550AAEE001B7
+ MEPROP UID '550AAEE001B7'
+ MEPROP Name 'TsdsInpharmMainMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_550AA7200370' '550AA7200370.ms.model.script' // InpharmMainMenuControllerRealization
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_494778CD004F' '47D0E1500033.ms.model.script' // vcmTinyUseCaseController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_550AA65C0212' '4AC241AC01FC.ms.model.script' // IsdsInpharmMainMenu
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_550C0D1A00CC_ME_550AAEE001B7 // dsInpharmMainMenuData
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_550C0DC2012C // TdsInpharmMainMenu
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\sdsInpharmMainMenu.pas'
+ UP extprop:rc:SelfName 'sdsInpharmMainMenu'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'sdsInpharmMainMenu'
+
+ENDME // ME_550AAEE001B7 TsdsInpharmMainMenu

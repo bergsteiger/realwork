@@ -1,0 +1,22 @@
+UNIT TranformElementMember.ms.dict
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ TransformElementMemberIfNeeded.ms.dict
+;
+
+: TransformElementMember
+  TtfwWord IN aVar
+ aVar DO
+ 
+ //DUP if IsArray then
+ //begin
+ // .filterNil>
+ //end // IsArray
+ 
+ aVar TransformElementMemberIfNeeded DROP
+  
+; // TransformElementMember

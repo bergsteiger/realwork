@@ -1,0 +1,2337 @@
+// TaskSaveLoad 531FF6280311 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_531FF6280311
+
+FORWARD ME_532008240001
+
+ME ME_5320084E020E
+ MEPROP UID '5320084E020E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_5320084E020E DoIt
+
+ME ME_5320086A0278
+ MEPROP UID '5320086A0278'
+ MEPROP Name 'CheckLoad'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_5320086A0278 CheckLoad
+
+FORWARD ME_5320088202FB
+
+ME ME_5320089A03C6
+ MEPROP UID '5320089A03C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5320088202FB // TaskClass
+ ;
+ MELINK Target WL 'ME_53170EB30071' '52FA49B901D3.ms.model.script' // TddTaskClass
+ ;
+
+ENDME // ME_5320089A03C6 DoIt
+
+ME ME_5320088202FB
+ MEPROP UID '5320088202FB'
+ MEPROP Name 'TaskClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5320089A03C6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5320088202FB TaskClass
+
+FORWARD ME_532008D203BA
+
+ME ME_5320093300BA
+ MEPROP Name 'Task'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49B901D3.ms.model.script' // TddTaskItem
+ ;
+
+ENDME // ME_5320093300BA Task
+
+ME ME_5320090E0362
+ MEPROP UID '5320090E0362'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008D203BA // InitTask
+ ;
+ MELIST Parameters
+   Seq: ( ME_5320093300BA // Task
+ )
+ ; // Parameters
+
+ENDME // ME_5320090E0362 DoIt
+
+ME ME_532008D203BA
+ MEPROP UID '532008D203BA'
+ MEPROP Name 'InitTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5320090E0362 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_532008D203BA InitTask
+
+FORWARD ME_537382BA038D
+
+ME ME_537382C60280
+ MEPROP UID '537382C60280'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537382BA038D // MakeTask
+ ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49B901D3.ms.model.script' // TddTaskItem
+ ;
+
+ENDME // ME_537382C60280 DoIt
+
+ME ME_537382BA038D
+ MEPROP UID '537382BA038D'
+ MEPROP Name 'MakeTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537382C60280 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537382BA038D MakeTask
+
+ME ME_537383380115
+ MEPROP UID '537383380115'
+ MEPROP Name 'DoItPiped'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_537383380115 DoItPiped
+
+FORWARD ME_5373834C015D
+
+ME ME_5373835E0314
+ MEPROP Name 'aPiped'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5373835E0314 aPiped
+
+ME ME_53AC317F00ED
+ MEPROP Name 'aAsEVD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53AC317F00ED aAsEVD
+
+ME ME_53738355020D
+ MEPROP UID '53738355020D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5373834C015D // CheckSave
+ ;
+ MELIST Parameters
+   Seq: ( ME_5373835E0314 // aPiped
+ ME_53AC317F00ED // aAsEVD
+ )
+ ; // Parameters
+
+ENDME // ME_53738355020D DoIt
+
+ME ME_5373834C015D
+ MEPROP UID '5373834C015D'
+ MEPROP Name 'CheckSave'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53738355020D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5373834C015D CheckSave
+
+FORWARD ME_5374A4480241
+
+ME ME_5374A46D0319
+ MEPROP Name 'aPiped'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5374A46D0319 aPiped
+
+ME ME_53B5767D007F
+ MEPROP Name 'aAsEVD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53B5767D007F aAsEVD
+
+ME ME_5374A465033E
+ MEPROP UID '5374A465033E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5374A4480241 // DoCheckLoad
+ ;
+ MELIST Parameters
+   Seq: ( ME_5374A46D0319 // aPiped
+ ME_53B5767D007F // aAsEVD
+ )
+ ; // Parameters
+
+ENDME // ME_5374A465033E DoIt
+
+ME ME_5374A4480241
+ MEPROP UID '5374A4480241'
+ MEPROP Name 'DoCheckLoad'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5374A465033E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5374A4480241 DoCheckLoad
+
+ME ME_5374A4750344
+ MEPROP UID '5374A4750344'
+ MEPROP Name 'CheckLoadPiped'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_5374A4750344 CheckLoadPiped
+
+FORWARD ME_5388508D03DE
+
+ME ME_5388514C02BD
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_5388514C02BD aUserID
+
+ME ME_538850A1031E
+ MEPROP UID '538850A1031E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5388508D03DE // CreateTask
+ ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49B901D3.ms.model.script' // TddTaskItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_5388514C02BD // aUserID
+ )
+ ; // Parameters
+
+ENDME // ME_538850A1031E DoIt
+
+ME ME_5388508D03DE
+ MEPROP UID '5388508D03DE'
+ MEPROP Name 'CreateTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538850A1031E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5388508D03DE CreateTask
+
+ME ME_53AC2B1D0102
+ MEPROP UID '53AC2B1D0102'
+ MEPROP Name 'CheckSaveToEVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_53AC2B1D0102 CheckSaveToEVD
+
+ME ME_53B5768B002F
+ MEPROP UID '53B5768B002F'
+ MEPROP Name 'CheckLoadEVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_53B5768B002F CheckLoadEVD
+
+ME ME_53C0122C003B
+ MEPROP UID '53C0122C003B'
+ MEPROP Name 'CheckSaveToEVDPiped'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+
+ENDME // ME_53C0122C003B CheckSaveToEVDPiped
+
+ME ME_5320096101B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_47A0686803A5' '47913B47006E.ms.model.script' // l3Filer
+ ;
+
+ENDME // ME_5320096101B0 
+
+ME ME_5320096C0195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5320096C0195 
+
+ME ME_53200970020A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_4B2A6D4303A9' '4B2A112B011A.ms.model.script' // KTestRunner
+ ;
+
+ENDME // ME_53200970020A 
+
+ME ME_5373830301DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5373830301DC 
+
+ME ME_5374AC820313
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_4B990EF000AA' '4B990EDE031A.ms.model.script' // ddAppConfig
+ ;
+
+ENDME // ME_5374AC820313 
+
+ME ME_5374B7950287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_4B57004201BD' '47D0290B016D.ms.model.script' // l3FileUtils
+ ;
+
+ENDME // ME_5374B7950287 
+
+ME ME_53BBF94A00F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ ;
+ MELINK Target WL 'ME_53A953FD016B' '484A470100DD.ms.model.script' // evdTaskTypes
+ ;
+
+ENDME // ME_53BBF94A00F6 
+
+ME ME_532008240001
+ MEPROP UID '532008240001'
+ MEPROP Name 'K517772970_TCheckSaveToStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53739B29005D' '53739AE1025E.ms.model.script' // TaskSaver
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5320084E020E // DoIt
+ HWL ME_5320086A0278 // CheckLoad
+ HWL ME_5320088202FB // TaskClass
+ HWL ME_532008D203BA // InitTask
+ HWL ME_537382BA038D // MakeTask
+ HWL ME_537383380115 // DoItPiped
+ HWL ME_5373834C015D // CheckSave
+ HWL ME_5374A4480241 // DoCheckLoad
+ HWL ME_5374A4750344 // CheckLoadPiped
+ HWL ME_5388508D03DE // CreateTask
+ HWL ME_53AC2B1D0102 // CheckSaveToEVD
+ HWL ME_53B5768B002F // CheckLoadEVD
+ HWL ME_53C0122C003B // CheckSaveToEVDPiped
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5320096101B0 // l3Filer
+ ME_5320096C0195 // l3Base
+ ME_53200970020A // KTestRunner
+ ME_5373830301DC // FreeAndNil
+ ME_5374AC820313 // ddAppConfig
+ ME_5374B7950287 // l3FileUtils
+ ME_53BBF94A00F6 // evdTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TCheckSaveToStream.pas'
+ UP extprop:pas:TypeName 'TK517772970_TCheckSaveToStream'
+ UP extprop:rc:SelfName 'K517772970_TCheckSaveToStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532008240001 K517772970_TCheckSaveToStream
+
+FORWARD ME_53200B930243
+
+ME ME_53204C5801F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200B930243 // K517772970_TddTaskItem
+ ;
+ MELINK Target WL 'ME_532046D302C2' '52FA49B901D3.ms.model.script' // csTaskTypes
+ ;
+
+ENDME // ME_53204C5801F8 
+
+ME ME_5320088202FB_ME_53200B930243
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5320088202FB_ME_53200B930243 TaskClass
+
+ME ME_532008D203BA_ME_53200B930243
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_532008D203BA_ME_53200B930243 InitTask
+
+ME ME_53200B930243
+ MEPROP UID '53200B930243'
+ MEPROP Name 'K517772970_TddTaskItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5320088202FB_ME_53200B930243 // TaskClass
+ ME_532008D203BA_ME_53200B930243 // InitTask
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53204C5801F8 // csTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddTaskItem.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddTaskItem'
+ UP extprop:rc:SelfName 'K517772970_TddTaskItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53200B930243 K517772970_TddTaskItem
+
+FORWARD ME_53200B5D0155
+
+ME ME_53200BF60343
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ ;
+ MELINK Target WL 'ME_52F8C2AE0042' '52F8C298005C.ms.model.script' // csProcessTask
+ ;
+
+ENDME // ME_53200BF60343 
+
+ME ME_532047CA0357
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ ;
+ MELINK Target WL 'ME_532046D302C2' '52FA49B901D3.ms.model.script' // csTaskTypes
+ ;
+
+ENDME // ME_532047CA0357 
+
+ME ME_5320088202FB_ME_53200B5D0155
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53200B5D0155 TaskClass
+
+ME ME_532008D203BA_ME_53200B5D0155
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53200B5D0155 InitTask
+
+ME ME_53200B5D0155
+ MEPROP UID '53200B5D0155'
+ MEPROP Name 'K517772970_TddProcessTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B930243 // K517772970_TddTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53200B5D0155 // TaskClass
+ ME_532008D203BA_ME_53200B5D0155 // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53200BF60343 // csProcessTask
+ ME_532047CA0357 // csTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddProcessTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddProcessTask'
+ UP extprop:rc:SelfName 'K517772970_TddProcessTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53200B5D0155 K517772970_TddProcessTask
+
+FORWARD ME_53200AD70286
+
+ME ME_53200B320267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200AD70286 // K517772970_TddRequestTask
+ ;
+ MELINK Target WL 'ME_52FA4ACA0020' '52F8C298005C.ms.model.script' // csRequestTask
+ ;
+
+ENDME // ME_53200B320267 
+
+ME ME_5320088202FB_ME_53200AD70286
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53200AD70286 TaskClass
+
+ME ME_53200AD70286
+ MEPROP UID '53200AD70286'
+ MEPROP Name 'K517772970_TddRequestTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B930243 // K517772970_TddTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53200AD70286 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53200B320267 // csRequestTask
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddRequestTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddRequestTask'
+ UP extprop:rc:SelfName 'K517772970_TddRequestTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53200AD70286 K517772970_TddRequestTask
+
+FORWARD ME_53200C460255
+
+ME ME_53200C680206
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200C460255 // K517772970_TddClientMessage
+ ;
+ MELINK Target WL 'ME_52FA504602B0' '52F8C298005C.ms.model.script' // csClientMessageRequest
+ ;
+
+ENDME // ME_53200C680206 
+
+ME ME_53203D9000EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53200C460255 // K517772970_TddClientMessage
+ ;
+ MELINK Target WL 'ME_52FB98CB008D' '52F8C298005C.ms.model.script' // CsNotification
+ ;
+
+ENDME // ME_53203D9000EF 
+
+ME ME_5320088202FB_ME_53200C460255
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53200C460255 TaskClass
+
+ME ME_532008D203BA_ME_53200C460255
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53200C460255 InitTask
+
+ME ME_5388508D03DE_ME_53200C460255
+ MELINK Original HWL ME_5388508D03DE // CreateTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5388508D03DE_ME_53200C460255 CreateTask
+
+ME ME_53200C460255
+ MEPROP UID '53200C460255'
+ MEPROP Name 'K517772970_TddClientMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286 // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53200C460255 // TaskClass
+ ME_532008D203BA_ME_53200C460255 // InitTask
+ ME_5388508D03DE_ME_53200C460255 // CreateTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53200C680206 // csClientMessageRequest
+ ME_53203D9000EF // CsNotification
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddClientMessage.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddClientMessage'
+ UP extprop:rc:SelfName 'K517772970_TddClientMessage'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53200C460255 K517772970_TddClientMessage
+
+FORWARD ME_5320228E011B
+
+ME ME_532022E300C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5320228E011B // K517772970_TddCommonDataRequest
+ ;
+ MELINK Target WL 'ME_531706AF03D5' '52F8C298005C.ms.model.script' // csCommonDataRequest
+ ;
+
+ENDME // ME_532022E300C4 
+
+ME ME_5320088202FB_ME_5320228E011B
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_5320228E011B TaskClass
+
+ME ME_5320228E011B
+ MEPROP UID '5320228E011B'
+ MEPROP Name 'K517772970_TddCommonDataRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286 // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_5320228E011B // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532022E300C4 // csCommonDataRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddCommonDataRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddCommonDataRequest'
+ UP extprop:rc:SelfName 'K517772970_TddCommonDataRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5320228E011B K517772970_TddCommonDataRequest
+
+FORWARD ME_53202365007E
+
+ME ME_532035710262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53202365007E // K517772970_TddBaseStatusRequest
+ ;
+ MELINK Target WL 'ME_531707520169' '52F8C298005C.ms.model.script' // csBaseStatusRequest
+ ;
+
+ENDME // ME_532035710262 
+
+ME ME_5320088202FB_ME_53202365007E
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53202365007E TaskClass
+
+ME ME_532008D203BA_ME_53202365007E
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53202365007E InitTask
+
+ME ME_53202365007E
+ MEPROP UID '53202365007E'
+ MEPROP Name 'K517772970_TddBaseStatusRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286 // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53202365007E // TaskClass
+ ME_532008D203BA_ME_53202365007E // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532035710262 // csBaseStatusRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddBaseStatusRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddBaseStatusRequest'
+ UP extprop:rc:SelfName 'K517772970_TddBaseStatusRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53202365007E K517772970_TddBaseStatusRequest
+
+FORWARD ME_532028C502D9
+
+ME ME_53203EEE0396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532028C502D9 // K517772970_TddServerStatusRequest
+ ;
+ MELINK Target WL 'ME_5317080B0295' '52F8C298005C.ms.model.script' // csServerStatusRequest
+ ;
+
+ENDME // ME_53203EEE0396 
+
+ME ME_5320088202FB_ME_532028C502D9
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532028C502D9 TaskClass
+
+ME ME_532028C502D9
+ MEPROP UID '532028C502D9'
+ MEPROP Name 'K517772970_TddServerStatusRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286 // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532028C502D9 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53203EEE0396 // csServerStatusRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddServerStatusRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddServerStatusRequest'
+ UP extprop:rc:SelfName 'K517772970_TddServerStatusRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532028C502D9 K517772970_TddServerStatusRequest
+
+FORWARD ME_53202A820364
+
+ME ME_53202AD300E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53202A820364 // K517772970_TaskRequest
+ ;
+ MELINK Target WL 'ME_5317087100E3' '52F8C298005C.ms.model.script' // csTaskRequest
+ ;
+
+ENDME // ME_53202AD300E4 
+
+ME ME_53B6940E033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53202A820364 // K517772970_TaskRequest
+ ;
+ MELINK Target WL 'ME_531708E3023A' '52F8C298005C.ms.model.script' // TaskRequest
+ ;
+
+ENDME // ME_53B6940E033D 
+
+ME ME_5320088202FB_ME_53202A820364
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53202A820364 TaskClass
+
+ME ME_53202A820364
+ MEPROP UID '53202A820364'
+ MEPROP Name 'K517772970_TaskRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286 // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53202A820364 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53202AD300E4 // csTaskRequest
+ ME_53B6940E033D // TaskRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TaskRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TaskRequest'
+ UP extprop:rc:SelfName 'K517772970_TaskRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53202A820364 K517772970_TaskRequest
+
+FORWARD ME_532140140146
+
+ME ME_5321407B0141
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532140140146 // K517772970_TddTaskResultRequest
+ ;
+ MELINK Target WL 'ME_5317087100E3' '52F8C298005C.ms.model.script' // csTaskRequest
+ ;
+
+ENDME // ME_5321407B0141 
+
+ME ME_5320088202FB_ME_532140140146
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532140140146 TaskClass
+
+ME ME_532140140146
+ MEPROP UID '532140140146'
+ MEPROP Name 'K517772970_TddTaskResultRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53202A820364 // K517772970_TaskRequest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532140140146 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5321407B0141 // csTaskRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddTaskResultRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddTaskResultRequest'
+ UP extprop:rc:SelfName 'K517772970_TddTaskResultRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532140140146 K517772970_TddTaskResultRequest
+
+FORWARD ME_532140360355
+
+ME ME_532140C802AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532140360355 // K517772970_TddGetTaskRequest
+ ;
+ MELINK Target WL 'ME_5317087100E3' '52F8C298005C.ms.model.script' // csTaskRequest
+ ;
+
+ENDME // ME_532140C802AA 
+
+ME ME_5320088202FB_ME_532140360355
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532140360355 TaskClass
+
+ME ME_532140360355
+ MEPROP UID '532140360355'
+ MEPROP Name 'K517772970_TddGetTaskRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53202A820364 // K517772970_TaskRequest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532140360355 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532140C802AA // csTaskRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddGetTaskRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddGetTaskRequest'
+ UP extprop:rc:SelfName 'K517772970_TddGetTaskRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532140360355 K517772970_TddGetTaskRequest
+
+FORWARD ME_532141560065
+
+ME ME_532141D4009D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532141560065 // K517772970_TcsExportResultRequest
+ ;
+ MELINK Target WL 'ME_53170931038A' '52F8C298005C.ms.model.script' // csExportResultRequest
+ ;
+
+ENDME // ME_532141D4009D 
+
+ME ME_5320088202FB_ME_532141560065
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532141560065 TaskClass
+
+ME ME_532141560065
+ MEPROP UID '532141560065'
+ MEPROP Name 'K517772970_TcsExportResultRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286 // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532141560065 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532141D4009D // csExportResultRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsExportResultRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsExportResultRequest'
+ UP extprop:rc:SelfName 'K517772970_TcsExportResultRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532141560065 K517772970_TcsExportResultRequest
+
+FORWARD ME_532141850386
+
+ME ME_532142020151
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532141850386 // K517772970_TcsLineRequest
+ ;
+ MELINK Target WL 'ME_5317098403B4' '52F8C298005C.ms.model.script' // csLineRequest
+ ;
+
+ENDME // ME_532142020151 
+
+ME ME_5320088202FB_ME_532141850386
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532141850386 TaskClass
+
+ME ME_532141850386
+ MEPROP UID '532141850386'
+ MEPROP Name 'K517772970_TcsLineRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200AD70286 // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532141850386 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532142020151 // csLineRequest
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsLineRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsLineRequest'
+ UP extprop:rc:SelfName 'K517772970_TcsLineRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532141850386 K517772970_TcsLineRequest
+
+FORWARD ME_53214B3E02D3
+
+ME ME_53214B7A00A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214B3E02D3 // K517772970_TalcuAutoClassTask
+ ;
+ MELINK Target WL 'ME_5303549A038F' '52FA3DD30094.ms.model.script' // alcuAutoClassifier
+ ;
+
+ENDME // ME_53214B7A00A8 
+
+ME ME_5320088202FB_ME_53214B3E02D3
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214B3E02D3 TaskClass
+
+ME ME_53214B3E02D3
+ MEPROP UID '53214B3E02D3'
+ MEPROP Name 'K517772970_TalcuAutoClassTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214B3E02D3 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53214B7A00A8 // alcuAutoClassifier
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAutoClassTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuAutoClassTask'
+ UP extprop:rc:SelfName 'K517772970_TalcuAutoClassTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214B3E02D3 K517772970_TalcuAutoClassTask
+
+FORWARD ME_53214BA801AC
+
+ME ME_53214BE40136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214BA801AC // K517772970_TcsExport
+ ;
+ MELINK Target WL 'ME_530355040385' '52F8C298005C.ms.model.script' // csExport
+ ;
+
+ENDME // ME_53214BE40136 
+
+ME ME_5321633901AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214BA801AC // K517772970_TcsExport
+ ;
+ MELINK Target WL 'ME_532162A4001A' '47BC51FE018B.ms.model.script' // TDiapType
+ ;
+
+ENDME // ME_5321633901AD 
+
+ME ME_5320088202FB_ME_53214BA801AC
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214BA801AC TaskClass
+
+ME ME_532008D203BA_ME_53214BA801AC
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53214BA801AC InitTask
+
+ME ME_53214BA801AC
+ MEPROP UID '53214BA801AC'
+ MEPROP Name 'K517772970_TcsExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214BA801AC // TaskClass
+ ME_532008D203BA_ME_53214BA801AC // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53214BE40136 // csExport
+ ME_5321633901AD // TDiapType
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsExport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsExport'
+ UP extprop:rc:SelfName 'K517772970_TcsExport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214BA801AC K517772970_TcsExport
+
+FORWARD ME_53214C4500B5
+
+ME ME_53216B5201B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214C4500B5 // K517772970_TcsImportTaskItem
+ ;
+ MELINK Target WL 'ME_530356A1014F' '52F8C298005C.ms.model.script' // csImport
+ ;
+
+ENDME // ME_53216B5201B0 
+
+ME ME_5320088202FB_ME_53214C4500B5
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214C4500B5 TaskClass
+
+ME ME_532008D203BA_ME_53214C4500B5
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53214C4500B5 InitTask
+
+ME ME_53214C4500B5
+ MEPROP UID '53214C4500B5'
+ MEPROP Name 'K517772970_TcsImportTaskItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214C4500B5 // TaskClass
+ ME_532008D203BA_ME_53214C4500B5 // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53216B5201B0 // csImport
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsImportTaskItem.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsImportTaskItem'
+ UP extprop:rc:SelfName 'K517772970_TcsImportTaskItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214C4500B5 K517772970_TcsImportTaskItem
+
+FORWARD ME_53214D920123
+
+ME ME_53214DBF02D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214D920123 // K517772970_TalcuRegionAutoExportTask
+ ;
+ MELINK Target WL 'ME_5404675C01D2' '52FA3DD30094.ms.model.script' // TalcuRegionAutoExportTask
+ ;
+
+ENDME // ME_53214DBF02D2 
+
+ME ME_5320088202FB_ME_53214D920123
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214D920123 TaskClass
+
+ME ME_532008D203BA_ME_53214D920123
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53214D920123 InitTask
+
+ME ME_53214D920123
+ MEPROP UID '53214D920123'
+ MEPROP Name 'K517772970_TalcuRegionAutoExportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214D920123 // TaskClass
+ ME_532008D203BA_ME_53214D920123 // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53214DBF02D2 // TalcuRegionAutoExportTask
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuRegionAutoExportTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuRegionAutoExportTask'
+ UP extprop:rc:SelfName 'K517772970_TalcuRegionAutoExportTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214D920123 K517772970_TalcuRegionAutoExportTask
+
+FORWARD ME_53214DE40178
+
+ME ME_53214E13023E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214DE40178 // K517772970_TalcuAutoSpellTask
+ ;
+ MELINK Target WL 'ME_53FD8188018E' '52FA3DD30094.ms.model.script' // alcuAutoSpell
+ ;
+
+ENDME // ME_53214E13023E 
+
+ME ME_5320088202FB_ME_53214DE40178
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214DE40178 TaskClass
+
+ME ME_53214DE40178
+ MEPROP UID '53214DE40178'
+ MEPROP Name 'K517772970_TalcuAutoSpellTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214DE40178 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53214E13023E // alcuAutoSpell
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAutoSpellTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuAutoSpellTask'
+ UP extprop:rc:SelfName 'K517772970_TalcuAutoSpellTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214DE40178 K517772970_TalcuAutoSpellTask
+
+FORWARD ME_53214E4C0344
+
+ME ME_53214E6F011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214E4C0344 // K517772970_TddRunCommandTask
+ ;
+ MELINK Target WL 'ME_52FA591401FA' '52F8C298005C.ms.model.script' // csServerTaskTypes
+ ;
+
+ENDME // ME_53214E6F011D 
+
+ME ME_5320088202FB_ME_53214E4C0344
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214E4C0344 TaskClass
+
+ME ME_53214E4C0344
+ MEPROP UID '53214E4C0344'
+ MEPROP Name 'K517772970_TddRunCommandTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214E4C0344 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53214E6F011D // csServerTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddRunCommandTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddRunCommandTask'
+ UP extprop:rc:SelfName 'K517772970_TddRunCommandTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214E4C0344 K517772970_TddRunCommandTask
+
+FORWARD ME_53214E9A00C3
+
+ME ME_53216D0B01CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214E9A00C3 // K517772970_TalcuAnnotationTask
+ ;
+ MELINK Target WL 'ME_531705AC001C' '52FA3DD30094.ms.model.script' // TalcuAnnotationTask
+ ;
+
+ENDME // ME_53216D0B01CB 
+
+ME ME_5320088202FB_ME_53214E9A00C3
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214E9A00C3 TaskClass
+
+ME ME_53214E9A00C3
+ MEPROP UID '53214E9A00C3'
+ MEPROP Name 'K517772970_TalcuAnnotationTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214E9A00C3 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53216D0B01CB // TalcuAnnotationTask
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAnnotationTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuAnnotationTask'
+ UP extprop:rc:SelfName 'K517772970_TalcuAnnotationTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214E9A00C3 K517772970_TalcuAnnotationTask
+
+FORWARD ME_53214EEB036D
+
+ME ME_53214F2001CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214EEB036D // K517772970_TUserEditQuery
+ ;
+ MELINK Target WL 'ME_52FA591401FA' '52F8C298005C.ms.model.script' // csServerTaskTypes
+ ;
+
+ENDME // ME_53214F2001CC 
+
+ME ME_5320088202FB_ME_53214EEB036D
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214EEB036D TaskClass
+
+ME ME_532008D203BA_ME_53214EEB036D
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53214EEB036D InitTask
+
+ME ME_53214EEB036D
+ MEPROP UID '53214EEB036D'
+ MEPROP Name 'K517772970_TUserEditQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214EEB036D // TaskClass
+ ME_532008D203BA_ME_53214EEB036D // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53214F2001CC // csServerTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TUserEditQuery.pas'
+ UP extprop:pas:TypeName 'TK517772970_TUserEditQuery'
+ UP extprop:rc:SelfName 'K517772970_TUserEditQuery'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214EEB036D K517772970_TUserEditQuery
+
+FORWARD ME_53214FDB01D3
+
+ME ME_5321500C0072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214FDB01D3 // K517772970_TalcuAutoExportTask
+ ;
+ MELINK Target WL 'ME_5317054100F1' '52FA3DD30094.ms.model.script' // TalcuAutoExportTask
+ ;
+
+ENDME // ME_5321500C0072 
+
+ME ME_54045B840229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214FDB01D3 // K517772970_TalcuAutoExportTask
+ ;
+ MELINK Target WL 'ME_53FED300014A' '484A470100DD.ms.model.script' // TaeStages
+ ;
+
+ENDME // ME_54045B840229 
+
+ME ME_5320088202FB_ME_53214FDB01D3
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53214FDB01D3 TaskClass
+
+ME ME_532008D203BA_ME_53214FDB01D3
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53214FDB01D3 InitTask
+
+ME ME_53214FDB01D3
+ MEPROP UID '53214FDB01D3'
+ MEPROP Name 'K517772970_TalcuAutoExportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214FDB01D3 // TaskClass
+ ME_532008D203BA_ME_53214FDB01D3 // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5321500C0072 // TalcuAutoExportTask
+ ME_54045B840229 // TaeStages
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAutoExportTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuAutoExportTask'
+ UP extprop:rc:SelfName 'K517772970_TalcuAutoExportTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214FDB01D3 K517772970_TalcuAutoExportTask
+
+FORWARD ME_532150340028
+
+ME ME_532150740293
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532150340028 // K517772970_TDeleteDocsQuery
+ ;
+ MELINK Target WL 'ME_52FA591401FA' '52F8C298005C.ms.model.script' // csServerTaskTypes
+ ;
+
+ENDME // ME_532150740293 
+
+ME ME_5320088202FB_ME_532150340028
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532150340028 TaskClass
+
+ME ME_532150340028
+ MEPROP UID '532150340028'
+ MEPROP Name 'K517772970_TDeleteDocsQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532150340028 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532150740293 // csServerTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TDeleteDocsQuery.pas'
+ UP extprop:pas:TypeName 'TK517772970_TDeleteDocsQuery'
+ UP extprop:rc:SelfName 'K517772970_TDeleteDocsQuery'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532150340028 K517772970_TDeleteDocsQuery
+
+FORWARD ME_532150C50123
+
+ME ME_5321512200EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532150C50123 // K517772970_TDictEditQuery
+ ;
+ MELINK Target WL 'ME_52FA591401FA' '52F8C298005C.ms.model.script' // csServerTaskTypes
+ ;
+
+ENDME // ME_5321512200EB 
+
+ME ME_5320088202FB_ME_532150C50123
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532150C50123 TaskClass
+
+ME ME_532008D203BA_ME_532150C50123
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_532150C50123 InitTask
+
+ME ME_532150C50123
+ MEPROP UID '532150C50123'
+ MEPROP Name 'K517772970_TDictEditQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532150C50123 // TaskClass
+ ME_532008D203BA_ME_532150C50123 // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5321512200EB // csServerTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TDictEditQuery.pas'
+ UP extprop:pas:TypeName 'TK517772970_TDictEditQuery'
+ UP extprop:rc:SelfName 'K517772970_TDictEditQuery'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532150C50123 K517772970_TDictEditQuery
+
+FORWARD ME_53217E7F02A0
+
+ME ME_53218E5201D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53217E7F02A0 // K517772970_TcsAutoAnnoExport
+ ;
+ MELINK Target WL 'ME_5317037001E5' '52F8C298005C.ms.model.script' // csAutoAnnoExport
+ ;
+
+ENDME // ME_53218E5201D4 
+
+ME ME_5320088202FB_ME_53217E7F02A0
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53217E7F02A0 TaskClass
+
+ME ME_53217E7F02A0
+ MEPROP UID '53217E7F02A0'
+ MEPROP Name 'K517772970_TcsAutoAnnoExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214BA801AC // K517772970_TcsExport
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53217E7F02A0 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218E5201D4 // csAutoAnnoExport
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsAutoAnnoExport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsAutoAnnoExport'
+ UP extprop:rc:SelfName 'K517772970_TcsAutoAnnoExport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53217E7F02A0 K517772970_TcsAutoAnnoExport
+
+FORWARD ME_532180F80327
+
+ME ME_53218128035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532180F80327 // K517772970_TddCaseCodeTask
+ ;
+ MELINK Target WL 'ME_5305A7410332' '52FA3DD30094.ms.model.script' // ddCaseCodeMaker
+ ;
+
+ENDME // ME_53218128035A 
+
+ME ME_5320088202FB_ME_532180F80327
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532180F80327 TaskClass
+
+ME ME_532180F80327
+ MEPROP UID '532180F80327'
+ MEPROP Name 'K517772970_TddCaseCodeTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214BA801AC // K517772970_TcsExport
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532180F80327 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218128035A // ddCaseCodeMaker
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddCaseCodeTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TddCaseCodeTask'
+ UP extprop:rc:SelfName 'K517772970_TddCaseCodeTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532180F80327 K517772970_TddCaseCodeTask
+
+FORWARD ME_532182090317
+
+ME ME_5321822B0185
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532182090317 // K517772970_TalcuExport
+ ;
+ MELINK Target WL 'ME_530355800106' '52FA3DD30094.ms.model.script' // TalcuExport
+ ;
+
+ENDME // ME_5321822B0185 
+
+ME ME_5320088202FB_ME_532182090317
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532182090317 TaskClass
+
+ME ME_532182090317
+ MEPROP UID '532182090317'
+ MEPROP Name 'K517772970_TalcuExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214BA801AC // K517772970_TcsExport
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532182090317 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5321822B0185 // TalcuExport
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuExport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuExport'
+ UP extprop:rc:SelfName 'K517772970_TalcuExport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532182090317 K517772970_TalcuExport
+
+FORWARD ME_53218413023C
+
+ME ME_5321844F0074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218413023C // K517772970_TalcuAnoncedExport
+ ;
+ MELINK Target WL 'ME_5305ABFD00F1' '52FA3DD30094.ms.model.script' // TalcuAnoncedExport
+ ;
+
+ENDME // ME_5321844F0074 
+
+ME ME_5320088202FB_ME_53218413023C
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53218413023C TaskClass
+
+ME ME_53218413023C
+ MEPROP UID '53218413023C'
+ MEPROP Name 'K517772970_TalcuAnoncedExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532182090317 // K517772970_TalcuExport
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53218413023C // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5321844F0074 // TalcuAnoncedExport
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAnoncedExport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuAnoncedExport'
+ UP extprop:rc:SelfName 'K517772970_TalcuAnoncedExport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53218413023C K517772970_TalcuAnoncedExport
+
+FORWARD ME_5321847300AB
+
+ME ME_532184B803B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5321847300AB // K517772970_TalcuHavanskyExportTask
+ ;
+ MELINK Target WL 'ME_530355CF0057' '52FA3DD30094.ms.model.script' // TalcuHavanskyExportTask
+ ;
+
+ENDME // ME_532184B803B2 
+
+ME ME_5320088202FB_ME_5321847300AB
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_5321847300AB TaskClass
+
+ME ME_5321847300AB
+ MEPROP UID '5321847300AB'
+ MEPROP Name 'K517772970_TalcuHavanskyExportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532182090317 // K517772970_TalcuExport
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_5321847300AB // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532184B803B2 // TalcuHavanskyExportTask
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuHavanskyExportTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuHavanskyExportTask'
+ UP extprop:rc:SelfName 'K517772970_TalcuHavanskyExportTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5321847300AB K517772970_TalcuHavanskyExportTask
+
+FORWARD ME_532186F3030B
+
+ME ME_532187B20329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532186F3030B // K517772970_TGetDictEditQuery
+ ;
+ MELINK Target WL 'ME_52FA591401FA' '52F8C298005C.ms.model.script' // csServerTaskTypes
+ ;
+
+ENDME // ME_532187B20329 
+
+ME ME_5320088202FB_ME_532186F3030B
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_532186F3030B TaskClass
+
+ME ME_532186F3030B
+ MEPROP UID '532186F3030B'
+ MEPROP Name 'K517772970_TGetDictEditQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532150C50123 // K517772970_TDictEditQuery
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532186F3030B // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532187B20329 // csServerTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TGetDictEditQuery.pas'
+ UP extprop:pas:TypeName 'TK517772970_TGetDictEditQuery'
+ UP extprop:rc:SelfName 'K517772970_TGetDictEditQuery'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532186F3030B K517772970_TGetDictEditQuery
+
+FORWARD ME_53218A6C0235
+
+ME ME_53218A8E035D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218A6C0235 // K517772970_TalcuImport
+ ;
+ MELINK Target WL 'ME_5305AFD5014D' '52FA3DD30094.ms.model.script' // alcuImport
+ ;
+
+ENDME // ME_53218A8E035D 
+
+ME ME_5320088202FB_ME_53218A6C0235
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53218A6C0235 TaskClass
+
+ME ME_53218A6C0235
+ MEPROP UID '53218A6C0235'
+ MEPROP Name 'K517772970_TalcuImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214C4500B5 // K517772970_TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53218A6C0235 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218A8E035D // alcuImport
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuImport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuImport'
+ UP extprop:rc:SelfName 'K517772970_TalcuImport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53218A6C0235 K517772970_TalcuImport
+
+FORWARD ME_53218ABF03BE
+
+ME ME_53218AE50368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218ABF03BE // K517772970_TalcuRelPublishTask
+ ;
+ MELINK Target WL 'ME_530356D90066' '52FA3DD30094.ms.model.script' // alcuRelCorrector
+ ;
+
+ENDME // ME_53218AE50368 
+
+ME ME_5320088202FB_ME_53218ABF03BE
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53218ABF03BE TaskClass
+
+ME ME_53218ABF03BE
+ MEPROP UID '53218ABF03BE'
+ MEPROP Name 'K517772970_TalcuRelPublishTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214C4500B5 // K517772970_TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53218ABF03BE // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218AE50368 // alcuRelCorrector
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuRelPublishTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuRelPublishTask'
+ UP extprop:rc:SelfName 'K517772970_TalcuRelPublishTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53218ABF03BE K517772970_TalcuRelPublishTask
+
+FORWARD ME_53218B090017
+
+ME ME_53218B32031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218B090017 // K517772970_TcsAACImport
+ ;
+ MELINK Target WL 'ME_530356A1014F' '52F8C298005C.ms.model.script' // csImport
+ ;
+
+ENDME // ME_53218B32031A 
+
+ME ME_53BA86880386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218B090017 // K517772970_TcsAACImport
+ ;
+ MELINK Target WL 'ME_5317040F0257' '52F8C298005C.ms.model.script' // TcsAACImport
+ ;
+
+ENDME // ME_53BA86880386 
+
+ME ME_5320088202FB_ME_53218B090017
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53218B090017 TaskClass
+
+ME ME_53218B090017
+ MEPROP UID '53218B090017'
+ MEPROP Name 'K517772970_TcsAACImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53214C4500B5 // K517772970_TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53218B090017 // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218B32031A // csImport
+ ME_53BA86880386 // TcsAACImport
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsAACImport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsAACImport'
+ UP extprop:rc:SelfName 'K517772970_TcsAACImport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53218B090017 K517772970_TcsAACImport
+
+FORWARD ME_53B25C540327
+
+ME ME_53B25C88022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B25C540327 // K517772970_TcsSpellCorrectTask
+ ;
+ MELINK Target WL 'ME_53B254540178' '52F8C298005C.ms.model.script' // TcsSpellCorrectTask
+ ;
+
+ENDME // ME_53B25C88022C 
+
+ME ME_5320088202FB_ME_53B25C540327
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53B25C540327 TaskClass
+
+ME ME_532008D203BA_ME_53B25C540327
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53B25C540327 InitTask
+
+ME ME_53B25C540327
+ MEPROP UID '53B25C540327'
+ MEPROP Name 'K517772970_TcsSpellCorrectTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53B25C540327 // TaskClass
+ ME_532008D203BA_ME_53B25C540327 // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B25C88022C // TcsSpellCorrectTask
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsSpellCorrectTask.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsSpellCorrectTask'
+ UP extprop:rc:SelfName 'K517772970_TcsSpellCorrectTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53B25C540327 K517772970_TcsSpellCorrectTask
+
+FORWARD ME_53B26EC60189
+
+ME ME_53B26EF3001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B26EC60189 // K517772970_TcsUserDefinedExport
+ ;
+ MELINK Target WL 'ME_53B26E050371' '52F8C298005C.ms.model.script' // TcsUserDefinedExport
+ ;
+
+ENDME // ME_53B26EF3001A 
+
+ME ME_5320088202FB_ME_53B26EC60189
+ MELINK Original HWL ME_5320088202FB // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5320088202FB_ME_53B26EC60189 TaskClass
+
+ME ME_532008D203BA_ME_53B26EC60189
+ MELINK Original HWL ME_532008D203BA // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_532008D203BA_ME_53B26EC60189 InitTask
+
+ME ME_53B26EC60189
+ MEPROP UID '53B26EC60189'
+ MEPROP Name 'K517772970_TcsUserDefinedExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531FF6280311 // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53B26EC60189 // TaskClass
+ ME_532008D203BA_ME_53B26EC60189 // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B26EF3001A // TcsUserDefinedExport
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsUserDefinedExport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsUserDefinedExport'
+ UP extprop:rc:SelfName 'K517772970_TcsUserDefinedExport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53B26EC60189 K517772970_TcsUserDefinedExport
+
+ME ME_531FF6280311
+ MEPROP UID '531FF6280311'
+ MEPROP Name 'TaskSaveLoad'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52F275D40238' '52F275D40238.ms.model.script' // Low Level Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_532008240001 // K517772970_TCheckSaveToStream
+ HWL ME_53200B930243 // K517772970_TddTaskItem
+ HWL ME_53200B5D0155 // K517772970_TddProcessTask
+ HWL ME_53200AD70286 // K517772970_TddRequestTask
+ HWL ME_53200C460255 // K517772970_TddClientMessage
+ HWL ME_5320228E011B // K517772970_TddCommonDataRequest
+ HWL ME_53202365007E // K517772970_TddBaseStatusRequest
+ HWL ME_532028C502D9 // K517772970_TddServerStatusRequest
+ HWL ME_53202A820364 // K517772970_TaskRequest
+ HWL ME_532140140146 // K517772970_TddTaskResultRequest
+ HWL ME_532140360355 // K517772970_TddGetTaskRequest
+ HWL ME_532141560065 // K517772970_TcsExportResultRequest
+ HWL ME_532141850386 // K517772970_TcsLineRequest
+ HWL ME_53214B3E02D3 // K517772970_TalcuAutoClassTask
+ HWL ME_53214BA801AC // K517772970_TcsExport
+ HWL ME_53214C4500B5 // K517772970_TcsImportTaskItem
+ HWL ME_53214D920123 // K517772970_TalcuRegionAutoExportTask
+ HWL ME_53214DE40178 // K517772970_TalcuAutoSpellTask
+ HWL ME_53214E4C0344 // K517772970_TddRunCommandTask
+ HWL ME_53214E9A00C3 // K517772970_TalcuAnnotationTask
+ HWL ME_53214EEB036D // K517772970_TUserEditQuery
+ HWL ME_53214FDB01D3 // K517772970_TalcuAutoExportTask
+ HWL ME_532150340028 // K517772970_TDeleteDocsQuery
+ HWL ME_532150C50123 // K517772970_TDictEditQuery
+ HWL ME_53217E7F02A0 // K517772970_TcsAutoAnnoExport
+ HWL ME_532180F80327 // K517772970_TddCaseCodeTask
+ HWL ME_532182090317 // K517772970_TalcuExport
+ HWL ME_53218413023C // K517772970_TalcuAnoncedExport
+ HWL ME_5321847300AB // K517772970_TalcuHavanskyExportTask
+ HWL ME_532186F3030B // K517772970_TGetDictEditQuery
+ HWL ME_53218A6C0235 // K517772970_TalcuImport
+ HWL ME_53218ABF03BE // K517772970_TalcuRelPublishTask
+ HWL ME_53218B090017 // K517772970_TcsAACImport
+ HWL ME_53B25C540327 // K517772970_TcsSpellCorrectTask
+ HWL ME_53B26EC60189 // K517772970_TcsUserDefinedExport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ WL 'ME_52FA3DD30094' '52FA3DD30094.ms.model.script' // Lists
+ WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
+ WL 'ME_53739AE1025E' '53739AE1025E.ms.model.script' // TaskSaveLoadMixIns
+ )
+ ; // Depends
+ UP "path prefix" '/Tasks/SaveLoad'
+ UP intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad'
+ UP Version 0
+
+ENDME // ME_531FF6280311 TaskSaveLoad

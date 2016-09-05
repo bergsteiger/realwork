@@ -1,0 +1,59 @@
+// FoldersElementInfo 4ABCD2AB00C5 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABCD2AB00C5
+
+ME ME_D0340F037320
+ MEPROP UID 'D0340F037320'
+ MEPROP Name 'Ini_FormFactory_FoldersElementInfo'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы FoldersElementInfo' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABCD2AB00C5 // FoldersElementInfo
+ ;
+ UPLINK SpelledFor HWL ME_4ABCD2AB00C5 // FoldersElementInfo
+ ;
+
+ENDME // ME_D0340F037320 Ini_FormFactory_FoldersElementInfo
+
+ME ME_4ABCD2AB00C5
+ MEPROP UID '4ABCD2AB00C5'
+ MEPROP Name 'FoldersElementInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A96B68A03B1' '4A96B68A03B1.ms.model.script' // PrimFolders$UC
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7E91560315' '4C7E91560315.ms.model.script' // PrimFoldersElementInfoOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFAA63A02D0' '4BD856E802F9.ms.model.script' // FoldersElementInfo
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_D0340F037320 // Ini_FormFactory_FoldersElementInfo
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Child'
+ UP "finished dfm" true
+ UP "form name prefix" 'en'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersElementInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms'
+ UP extprop:pas:TypeName 'TenFoldersElementInfo'
+ UP extprop:rc:SelfName 'enFoldersElementInfo'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'FoldersElementInfo_Form'
+
+ENDME // ME_4ABCD2AB00C5 FoldersElementInfo

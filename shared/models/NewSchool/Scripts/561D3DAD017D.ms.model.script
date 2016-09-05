@@ -1,0 +1,38 @@
+// Strings 561D3DAD017D Layer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561D3DAD017D
+
+ME ME_561D40680110
+ MEPROP UID '561D40680110'
+ MEPROP Name 'Tl3CustomString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ClassProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D3DAD017D // Strings
+ ;
+ UP extprop:rc:SelfName 'String'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Tl3CustomString_Proxy'
+
+ENDME // ME_561D40680110 Tl3CustomString
+
+ME ME_561D3DAD017D
+ MEPROP UID '561D3DAD017D'
+ MEPROP Name 'Strings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Layer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_561D37540316' '561D37540316.ms.model.script' // L3$Interface
+ ;
+ MELIST Children
+   Seq: ( HWL ME_561D40680110 // Tl3CustomString
+ )
+ ; // Children
+
+ENDME // ME_561D3DAD017D Strings

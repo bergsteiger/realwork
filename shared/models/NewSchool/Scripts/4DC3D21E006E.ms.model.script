@@ -1,0 +1,182 @@
+// ScriptTestUnit 4DC3D21E006E TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC3D21E006E
+
+FORWARD ME_4DC3D2590217
+
+FORWARD ME_4DC3D2E00153
+
+ME ME_4DC3D30203BF
+ MEPROP UID '4DC3D30203BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC3D2E00153 // Run
+ ;
+
+ENDME // ME_4DC3D30203BF DoIt
+
+ME ME_4DC3D2E00153
+ MEPROP UID '4DC3D2E00153'
+ MEPROP Name 'Run'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DC3D2590217 // TCustomInsiderScripter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DC3D30203BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DC3D2E00153 Run
+
+ME ME_4DC3D3150155
+ MEPROP UID '4DC3D3150155'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC3D2590217 // TCustomInsiderScripter
+ ;
+
+ENDME // ME_4DC3D3150155 DoIt
+
+ME ME_4DC3DE630030
+ MEPROP UID '4DC3DE630030'
+ MEPROP Name 'Prepare'
+ MEPROP Class class_Operation
+ %SUMMARY 'Âûחûגאועסÿ ג םאקאכו DoIt' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DC3D2590217 // TCustomInsiderScripter
+ ;
+
+ENDME // ME_4DC3DE630030 Prepare
+
+ME ME_5501A45D03A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3D2590217 // TCustomInsiderScripter
+ ;
+ MELINK Target WL 'ME_5501A3AE02AA' '550198F60382.ms.model.script' // Tl3DispatcherHelper
+ ;
+
+ENDME // ME_5501A45D03A8 
+
+ME ME_5506FE66032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3D2590217 // TCustomInsiderScripter
+ ;
+ MELINK Target WL 'ME_5506D3B202FA' '5506D079035B.ms.model.script' // Tl3MessagesService
+ ;
+
+ENDME // ME_5506FE66032F 
+
+ME ME_5506FEC703BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3D2590217 // TCustomInsiderScripter
+ ;
+ MELINK Target WL 'ME_5506FEA6012A' '5506D09003AB.ms.model.script' // Tl3DocumentsCacheService
+ ;
+
+ENDME // ME_5506FEC703BD 
+
+ME ME_4C937013031D_ME_4DC3D2590217
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4DC3D2590217 GetFolder
+
+ME ME_4DAED6F60146_ME_4DC3D2590217
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_4DC3D2590217 GetModelElementGUID
+
+ME ME_4DC263E8038F_ME_4DC3D2590217
+ MELINK Original WL 'ME_4DC263E8038F' '4B30FC850092.ms.model.script' // GetScriptName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DC263E8038F_ME_4DC3D2590217 GetScriptName
+
+ME ME_4DCA41A20364_ME_4DC3D2590217
+ MELINK Original WL 'ME_4DCA41A20364' '4B2A112B011A.ms.model.script' // FileNameForOutput
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DCA41A20364_ME_4DC3D2590217 FileNameForOutput
+
+ME ME_4DC3D2590217
+ MEPROP UID '4DC3D2590217'
+ MEPROP Name 'TCustomInsiderScripter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DC3D21E006E // ScriptTestUnit
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DAECE5D0060' '4B30FC850092.ms.model.script' // TvcmInsiderTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DC3D2E00153 // Run
+ HWL ME_4DC3D3150155 // DoIt
+ HWL ME_4DC3DE630030 // Prepare
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4DC3D2590217 // GetFolder
+ ME_4DAED6F60146_ME_4DC3D2590217 // GetModelElementGUID
+ ME_4DC263E8038F_ME_4DC3D2590217 // GetScriptName
+ ME_4DCA41A20364_ME_4DC3D2590217 // FileNameForOutput
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5501A45D03A8 // Tl3DispatcherHelper
+ ME_5506FE66032F // Tl3MessagesService
+ ME_5506FEC703BD // Tl3DocumentsCacheService
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptTestLibrary\CustomInsiderScripter.pas'
+ UP extprop:rc:SelfName 'InsiderScripter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CustomInsiderScripter'
+
+ENDME // ME_4DC3D2590217 TCustomInsiderScripter
+
+ME ME_4DC3D21E006E
+ MEPROP UID '4DC3D21E006E'
+ MEPROP Name 'ScriptTestUnit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DC3D1BC0060' '4DC3D1BC0060.ms.model.script' // ScriptTestLibrary
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DC3D2590217 // TCustomInsiderScripter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4B30FC850092' '4B30FC850092.ms.model.script' // VCM_TFW
+ WL 'ME_550198F60382' '550198F60382.ms.model.script' // VCMHelpers
+ WL 'ME_5506D079035B' '5506D079035B.ms.model.script' // AFWServices
+ WL 'ME_5506D09003AB' '5506D09003AB.ms.model.script' // EverestServices
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_4DC3D21E006E ScriptTestUnit

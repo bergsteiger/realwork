@@ -1,0 +1,93 @@
+// Connection 544A09C403BE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_544A09C403BE
+
+ME ME_5451E68E0399
+ MEPROP UID '5451E68E0399'
+ MEPROP Name 'TncsConnection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_544A09C403BE // Connection
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsConnection.pas'
+ UP extprop:rc:SelfName 'ncsConnection'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsConnection'
+
+ENDME // ME_5451E68E0399 TncsConnection
+
+ME ME_5451E6B902C3
+ MEPROP UID '5451E6B902C3'
+ MEPROP Name 'TncsClientConnection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_544A09C403BE // Connection
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5451E68E0399 // TncsConnection
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsClientConnection.pas'
+ UP extprop:rc:SelfName 'ncsClientConnection'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsClientConnection'
+
+ENDME // ME_5451E6B902C3 TncsClientConnection
+
+ME ME_5451E6E20117
+ MEPROP UID '5451E6E20117'
+ MEPROP Name 'TncsServerConnection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_544A09C403BE // Connection
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5451E68E0399 // TncsConnection
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerConnection.pas'
+ UP extprop:rc:SelfName 'ncsServerConnection'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsServerConnection'
+
+ENDME // ME_5451E6E20117 TncsServerConnection
+
+ME ME_544A09C403BE
+ MEPROP UID '544A09C403BE'
+ MEPROP Name 'Connection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.ms.model.script' // cs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5451E68E0399 // TncsConnection
+ HWL ME_5451E6B902C3 // TncsClientConnection
+ HWL ME_5451E6E20117 // TncsServerConnection
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
+ )
+ ; // Depends
+
+ENDME // ME_544A09C403BE Connection

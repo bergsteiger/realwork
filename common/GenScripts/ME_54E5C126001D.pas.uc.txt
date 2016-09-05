@@ -1289,6 +1289,8 @@ var
 //#UC START# *54E5C126001D_ext:FileName
 w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
 //#UC END# *54E5C126001D_ext:FileName
+//#UC START# *54E5C126001Dimpl_uses*
+//#UC END# *54E5C126001Dimpl_uses*
 //#UC START# *54E5C23D016C_46839C340218get_impl*
  if not Supports(f_EditorReq, IevComboReq, l_EdComboReq) then
   Assert(False);
@@ -1639,7 +1641,7 @@ var
   l_Cursor := Screen.Cursor;
   try
    Screen.Cursor := crHourGlass;
-   Result := TdmStdRes.OpenTreeSelection(aTagName, anAdditionalFilter, nil) = mrOk;
+   Result := TLiteSearchService.Instance.OpenTreeSelection(aTagName, anAdditionalFilter, nil) = mrOk;
   finally
    Screen.Cursor := l_Cursor;
   end;//try..finally

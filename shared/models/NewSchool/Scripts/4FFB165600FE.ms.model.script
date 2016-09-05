@@ -1,0 +1,83 @@
+// ListInfoUserTypes 4FFB165600FE VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFB165600FE
+
+ME ME_4BD6B6890245
+ MEPROP UID '4BD6B6890245'
+ MEPROP Name 'liListInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Справка к списку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFB165600FE // ListInfoUserTypes
+ ;
+ UP "ImageIndex" 20
+ UP "NeedOnQueryClose" true
+ UP "SettingsCaption" 'Список: Справка к списку'
+ UP "Weight" 10
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes_liListInfo_UserType.pas'
+ UP extprop:pas:UnitName 'ListInfoUserTypes_liListInfo_UserType'
+
+ENDME // ME_4BD6B6890245 liListInfo
+
+ME ME_1477F49BED3A
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_1477F49BED3A aSender
+
+ME ME_E4208250FA5A
+ MEPROP UID 'E4208250FA5A'
+ MEPROP Name 'liListInfoQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события liListInfo.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FFB165600FE // ListInfoUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_1477F49BED3A // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_E4208250FA5A liListInfoQueryClose
+
+ME ME_4FFB165600FE
+ MEPROP UID '4FFB165600FE'
+ MEPROP Name 'ListInfoUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_E4208250FA5A // liListInfoQueryClose
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4BD6B6890245 // liListInfo
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes.imp.pas'
+ UP extprop:pas:TypeName '_ListInfoUserTypes_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ListInfoUserTypes.imp'
+
+ENDME // ME_4FFB165600FE ListInfoUserTypes

@@ -1,0 +1,64 @@
+// TdsTranslationWarning 4EDCF6BC00D9 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EDCF6BC00D9
+
+ME ME_4EDCF9EF0072
+ MEPROP UID '4EDCF9EF0072'
+ MEPROP Name 'DocInfo'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4EDCF6BC00D9 // TdsTranslationWarning
+ ;
+ MELINK Target WL 'ME_4926B4100016' '4D1B7B830045.ms.model.script' // IsdsDocInfo
+ ;
+
+ENDME // ME_4EDCF9EF0072 DocInfo
+
+ME ME_4EDCF99301CA_ME_4EDCF6BC00D9
+ MELINK Original WL 'ME_4EDCF99301CA' '492189D90209.ms.model.script' // DoGetDocInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4EDCF99301CA_ME_4EDCF6BC00D9 DoGetDocInfo
+
+ME ME_4EDCF6BC00D9
+ MEPROP UID '4EDCF6BC00D9'
+ MEPROP Name 'TdsTranslationWarning'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предупреждение к переводу документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9F83AD0235' '4A9F83AD0235.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492189D90209' '492189D90209.ms.model.script' // TdsWarning
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EDCF71A016C' '484FA67302D7.ms.model.script' // Предупреждение к переводу документа должно показываться в виде баллона
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4EDCF9EF0072 // DocInfo
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4EDCF99301CA_ME_4EDCF6BC00D9 // DoGetDocInfo
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '05.12.2011 20:52'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Document\dsTranslationWarning.pas'
+ UP extprop:rc:SelfName 'dsTranslationWarning'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsTranslationWarning'
+
+ENDME // ME_4EDCF6BC00D9 TdsTranslationWarning

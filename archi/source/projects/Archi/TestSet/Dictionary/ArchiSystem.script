@@ -55,7 +55,7 @@ CONST ev_saHeaderAACLeftWindow -71
 CONST ev_saTwoColorTable -76
 // Полосатый стиль для таблиц
 
-
+TevEditor TYPE Редактор
 
 // Выдержки из модуля Forms.pas
 // type TWindowState = (wsNormal, wsMinimized, wsMaximized);
@@ -302,7 +302,7 @@ WordAlias "Нажать 'Удалить' атрибут" "Нажать 'Удалить' в списке"
 	'F10' key
 ;
 
-: "Убедиться, что фокус в редакторе"
+PROCEDURE "Убедиться, что фокус в редакторе"
  // Пока заглушка...
  /* OBJECT VAR l_Control
  focused:control:push =: l_Control
@@ -387,11 +387,11 @@ PROCEDURE "Выделить текст от текущего курсора до начала"
 ;
 
 PROCEDURE "Зажать клавишу 'Alt'"
-	'Alt' KeyDown 
+	'Alt+' KeyDown 
 ;
 
 PROCEDURE "Отпустить клавишу 'Alt'"
-	'Alt' KeyUp 
+	'Alt+' KeyUp 
 ;
 
 PROCEDURE "Нажать Alt+F8"
@@ -493,6 +493,8 @@ CONST csTGAExt '.tga'
 CONST csWMFExt '.wmf'
 // Документ с расширением '*.wmf'
 CONST csHTMLExt '.html'
+
+CONST csTreeExt '.tree'
 
 WordAlias pop:Control:GetHandle pop:Control:Handle
 
@@ -679,11 +681,11 @@ PROCEDURE "Начать установку ссылки 'F11'"
 
 
 PROCEDURE "Зажать 'Shift'"
- 'Shift' KeyDown
+	'Shift+' KeyDown
 ;
 
 PROCEDURE "Отпустить 'Shift'"
- 'Shift' KeyUp
+	'Shift+' KeyUp
 ;
 
 PROCEDURE "Нажать 'Alt+<-'"

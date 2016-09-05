@@ -1,0 +1,236 @@
+// TeeSubPanelExport 4C7F94A9028D GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C7F94A9028D
+
+FORWARD ME_5481C789009F
+
+ME ME_5481C7C30220
+ MEPROP Name 'aSubType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5481C7C30220 aSubType
+
+ME ME_5481C7C3023A
+ MEPROP Name 'aSubHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5481C7C3023A aSubHandle
+
+ME ME_5481C7BC035A
+ MEPROP UID '5481C7BC035A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481C789009F // GetHotSpot
+ ;
+ MELINK Target WL 'ME_4F82F62D03BE' '4912DD020283.ms.model.script' // IeeHotSpot
+ ;
+ MELIST Parameters
+   Seq: ( ME_5481C7C30220 // aSubType
+ ME_5481C7C3023A // aSubHandle
+ )
+ ; // Parameters
+
+ENDME // ME_5481C7BC035A DoIt
+
+ME ME_5481C789009F
+ MEPROP UID '5481C789009F'
+ MEPROP Name 'GetHotSpot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5481C7BC035A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5481C789009F GetHotSpot
+
+FORWARD ME_5481D1B20067
+
+ME ME_5481D1C20393
+ MEPROP Name 'aX'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5481D1C20393 aX
+
+ME ME_5481D1C203B5
+ MEPROP Name 'aY'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5481D1C203B5 aY
+
+ME ME_5481D1C203DF
+ MEPROP Name 'theSub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4AE9DFBF0327' '4912DD020283.ms.model.script' // IeeSub
+ ;
+
+ENDME // ME_5481D1C203DF theSub
+
+ME ME_5481D1B900E0
+ MEPROP UID '5481D1B900E0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481D1B20067 // CheckSubOnPoint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5481D1C20393 // aX
+ ME_5481D1C203B5 // aY
+ ME_5481D1C203DF // theSub
+ )
+ ; // Parameters
+
+ENDME // ME_5481D1B900E0 DoIt
+
+ME ME_5481D1B20067
+ MEPROP UID '5481D1B20067'
+ MEPROP Name 'CheckSubOnPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5481D1B900E0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5481D1B20067 CheckSubOnPoint
+
+ME ME_5481C7FC03BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+
+ENDME // ME_5481C7FC03BB 
+
+ME ME_5481C8320140
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
+ ;
+
+ENDME // ME_5481C8320140 
+
+ME ME_5481E45F02A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELINK Target WL 'ME_5481DE430189' '46834DB20230.ms.model.script' // eeSubDescriptorsExport
+ ;
+
+ENDME // ME_5481E45F02A2 
+
+ME ME_5481E47E014C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5481E47E014C 
+
+ME ME_548707B70059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELINK Target WL 'ME_54817DA2016E' '4912E16B01B4.ms.model.script' // TeeSub
+ ;
+
+ENDME // ME_548707B70059 
+
+ME ME_54870CC80160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C7F94A9028D // TeeSubPanelExport
+ ;
+ MELINK Target WL 'ME_5481DD0C0363' '4912E16B01B4.ms.model.script' // TeeHotSpot
+ ;
+
+ENDME // ME_54870CC80160 
+
+ME ME_5481A0B20112_ME_4C7F94A9028D
+ MELINK Original WL 'ME_5481A0B20112' '4912DD020283.ms.model.script' // SubViewDescriptors
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_5481A0B20112_ME_4C7F94A9028D SubViewDescriptors
+
+ME ME_4C7F94A9028D
+ MEPROP UID '4C7F94A9028D'
+ MEPROP Name 'TeeSubPanelExport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54817B05034F' '54817B05034F.ms.model.script' // eeSubPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547DC47400EC' '547DB02F034B.ms.model.script' // TevCustomSubPanel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5481A06803E5' '4912DD020283.ms.model.script' // IeeSubPanel
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5481C789009F // GetHotSpot
+ HWL ME_5481D1B20067 // CheckSubOnPoint
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5481A0B20112_ME_4C7F94A9028D // SubViewDescriptors
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5481C7FC03BB // IevSub
+ ME_5481C8320140 // IeeDocumentEx
+ ME_5481E45F02A2 // eeSubDescriptorsExport
+ ME_5481E47E014C // SysUtils
+ ME_548707B70059 // TeeSub
+ ME_54870CC80160 // TeeHotSpot
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeSubPanelExport.pas'
+ UP extprop:rc:SelfName 'eeSubPanelExport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeSubPanelExport'
+
+ENDME // ME_4C7F94A9028D TeeSubPanelExport

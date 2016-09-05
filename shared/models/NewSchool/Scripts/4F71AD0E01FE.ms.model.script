@@ -1,0 +1,194 @@
+// InternalOperations 4F71AD0E01FE VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F71AD0E01FE
+
+FORWARD ME_4AE836C303BC
+
+ME ME_4AEF3EC3009C
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4AEF3EC3009C aForm
+
+ME ME_4AEF3E8C02F5
+ MEPROP UID '4AEF3E8C02F5'
+ MEPROP Name 'BecomeActive'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE836C303BC // Switcher$SetCaption
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AEF3EC3009C // aForm
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4AEF3E8C02F5 BecomeActive
+
+ME ME_4AF832C401A1
+ MEPROP UID '4AF832C401A1'
+ MEPROP Name 'SetFirstPageActive'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE836C303BC // Switcher$SetCaption
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4AF832C401A1 SetFirstPageActive
+
+ME ME_4AE836C303BC
+ MEPROP UID '4AE836C303BC'
+ MEPROP Name 'Switcher'
+ MEPROP OriginalName 'Switcher$SetCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сущность для управления закладками формы-контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F71AD0E01FE // InternalOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AEF3E8C02F5 // BecomeActive
+ HWL ME_4AF832C401A1 // SetFirstPageActive
+ )
+ ; // Operations
+
+ENDME // ME_4AE836C303BC Switcher$SetCaption
+
+FORWARD ME_4AE874300212
+
+ME ME_4AE87450023F
+ MEPROP Name 'aVisible'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE87450023F aVisible
+
+ME ME_4AE8744002F3
+ MEPROP UID '4AE8744002F3'
+ MEPROP Name 'ShowSplitter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE874300212 // Common$ShowSplitter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE87450023F // aVisible
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4AE8744002F3 ShowSplitter
+
+ME ME_4AE8778C02CF
+ MEPROP Name 'aToggle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE8778C02CF aToggle
+
+ME ME_4AE8777F01A3
+ MEPROP UID '4AE8777F01A3'
+ MEPROP Name 'CheckChildZone'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE874300212 // Common$ShowSplitter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE8778C02CF // aToggle
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4AE8777F01A3 CheckChildZone
+
+ME ME_4AE874300212
+ MEPROP UID '4AE874300212'
+ MEPROP Name 'Common'
+ MEPROP OriginalName 'Common$ShowSplitter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F71AD0E01FE // InternalOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE8744002F3 // ShowSplitter
+ HWL ME_4AE8777F01A3 // CheckChildZone
+ )
+ ; // Operations
+
+ENDME // ME_4AE874300212 Common$ShowSplitter
+
+ME ME_4F71AD0E01FE
+ MEPROP UID '4F71AD0E01FE'
+ MEPROP Name 'InternalOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F6B660100D5' '4F6B660100D5.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AE836C303BC // Switcher$SetCaption
+ HWL ME_4AE874300212 // Common$ShowSplitter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas'
+ UP extprop:pas:UnitName 'F1Like_InternalOperations_Controls'
+
+ENDME // ME_4F71AD0E01FE InternalOperations

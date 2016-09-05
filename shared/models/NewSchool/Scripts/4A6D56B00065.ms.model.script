@@ -1,0 +1,1913 @@
+// EditionsInterfaces 4A6D56B00065 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6D56B00065
+
+FORWARD ME_4A7FF1760065
+
+ME ME_4A7FF1AC035C
+ MEPROP UID '4A7FF1AC035C'
+ MEPROP Name 'RedactionCurrentPara'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Параграф для синхрнонизации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A7FF1760065 // MnsRedactionCurrentPara
+ ;
+ MELINK Target WL 'ME_4A7FC9C9008F' '4912DD020283.ms.model.script' // IeeLeafPara
+ ;
+ UP "pm" false
+
+ENDME // ME_4A7FF1AC035C RedactionCurrentPara
+
+ME ME_4A7FF1760065
+ MEPROP UID '4A7FF1760065'
+ MEPROP Name 'MnsRedactionCurrentPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Источник параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ )
+ ; // Attributes
+
+ENDME // ME_4A7FF1760065 MnsRedactionCurrentPara
+
+FORWARD ME_4A79BB0800E4
+
+ME ME_4A79BB38017C
+ MEPROP UID '4A79BB38017C'
+ MEPROP Name 'rParaID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Параграф' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A79BB0800E4 // TnsParaCoord
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A79BB38017C rParaID
+
+ME ME_4A79BB480330
+ MEPROP UID '4A79BB480330'
+ MEPROP Name 'rBlock'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Блок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A79BB0800E4 // TnsParaCoord
+ ;
+ MELINK Target WL 'ME_47C6B7A6039D' '47C5207602D1.ms.model.script' // IevDocumentPart
+ ;
+
+ENDME // ME_4A79BB480330 rBlock
+
+ME ME_4B06607700A9
+ MEPROP UID '4B06607700A9'
+ MEPROP Name 'rLine'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Строка внутри параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A79BB0800E4 // TnsParaCoord
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B06607700A9 rLine
+
+ME ME_4B0FD79C01D5
+ MEPROP UID '4B0FD79C01D5'
+ MEPROP Name 'rEditor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A79BB0800E4 // TnsParaCoord
+ ;
+ MELINK Target WL 'ME_4A26509001EA' '4A26509001EA.ms.model.script' // TevCustomEditorWindowModelPart
+ ;
+
+ENDME // ME_4B0FD79C01D5 rEditor
+
+ME ME_4B616FA5005F
+ MEPROP UID '4B616FA5005F'
+ MEPROP Name 'rPara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A79BB0800E4 // TnsParaCoord
+ ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+
+ENDME // ME_4B616FA5005F rPara
+
+ME ME_4B0FD7B601AE
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+
+ENDME // ME_4B0FD7B601AE aPara
+
+ME ME_4B0FD7B601DA
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6B7A6039D' '47C5207602D1.ms.model.script' // IevDocumentPart
+ ;
+
+ENDME // ME_4B0FD7B601DA aBlock
+
+ME ME_4B0FD7B60205
+ MEPROP Name 'aLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B0FD7B60205 aLine
+
+ME ME_4B0FD7B60230
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A26509001EA' '4A26509001EA.ms.model.script' // TevCustomEditorWindowModelPart
+ ;
+
+ENDME // ME_4B0FD7B60230 anEditor
+
+ME ME_4A79BB650298
+ MEPROP UID '4A79BB650298'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ %SUMMARY 'Создаёт координату' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A79BB0800E4 // TnsParaCoord
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0FD7B601AE // aPara
+ ME_4B0FD7B601DA // aBlock
+ ME_4B0FD7B60205 // aLine
+ ME_4B0FD7B60230 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_4A79BB650298 C
+
+ME ME_4A79BB0800E4
+ MEPROP UID '4A79BB0800E4'
+ MEPROP Name 'TnsParaCoord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Координаты параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A79BB38017C // rParaID
+ HWL ME_4A79BB480330 // rBlock
+ HWL ME_4B06607700A9 // rLine
+ HWL ME_4B0FD79C01D5 // rEditor
+ HWL ME_4B616FA5005F // rPara
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A79BB650298 // C
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ParaCoord'
+
+ENDME // ME_4A79BB0800E4 TnsParaCoord
+
+FORWARD ME_4A79AB0A0359
+
+ME ME_4A79AB2901CF
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A79BB0800E4 // TnsParaCoord
+ ;
+
+ENDME // ME_4A79AB2901CF aPara
+
+ME ME_4A79AB290196
+ MEPROP UID '4A79AB290196'
+ MEPROP Name 'Sync'
+ MEPROP Class class_Operation
+ %SUMMARY 'Синхронизировать позицию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A79AB0A0359 // VScroll
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A79AB2901CF // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_4A79AB290196 Sync
+
+ME ME_4B5468780284
+ MEPROP Name 'aParaID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B5468780284 aParaID
+
+ME ME_4B54676B0132
+ MEPROP UID '4B54676B0132'
+ MEPROP Name 'CurrentChangedFragmentChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A79AB0A0359 // VScroll
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B5468780284 // aParaID
+ )
+ ; // Parameters
+
+ENDME // ME_4B54676B0132 CurrentChangedFragmentChanged
+
+ME ME_4A79AB0A0359
+ MEPROP UID '4A79AB0A0359'
+ MEPROP Name 'VScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A79AB290196 // Sync
+ HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ )
+ ; // Operations
+
+ENDME // ME_4A79AB0A0359 VScroll
+
+FORWARD ME_4A79952D0084
+
+ME ME_4A79AB290196_ME_4A79952D0084
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A79952D0084 Sync
+
+ME ME_4B54676B0132_ME_4A79952D0084
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A79952D0084 CurrentChangedFragmentChanged
+
+ME ME_4A79952D0084
+ MEPROP UID '4A79952D0084'
+ MEPROP GUID '372B1D0A-5EBD-4770-B425-E693289C5345'
+ MEPROP Name 'InsVScrollListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель вертикального скроллера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.ms.model.script' // Il3Notify
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A79AB0A0359 // VScroll
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4A79952D0084 // Sync
+ ME_4B54676B0132_ME_4A79952D0084 // CurrentChangedFragmentChanged
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'VScrollListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A79952D0084 InsVScrollListener
+
+FORWARD ME_4A8015F803BA
+
+ME ME_57A1CA3D0271
+ MEPROP UID '57A1CA3D0271'
+ MEPROP Name 'TnsDocumentForReturnInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8015F803BA // MnsDocument
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
+ )
+ ; // Inherits
+
+ENDME // ME_57A1CA3D0271 TnsDocumentForReturnInfo
+
+ME ME_4A8006FC02A1
+ MEPROP UID '4A8006FC02A1'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Документ, с которым идёт работа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A8015F803BA // MnsDocument
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "pm" false
+
+ENDME // ME_4A8006FC02A1 Document
+
+ME ME_4B5852A800F5
+ MEPROP UID '4B5852A800F5'
+ MEPROP Name 'DocumentForReturn'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A8015F803BA // MnsDocument
+ ;
+ MELINK Target WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
+ ;
+ UP "pm" false
+
+ENDME // ME_4B5852A800F5 DocumentForReturn
+
+ME ME_4A8015F803BA
+ MEPROP UID '4A8015F803BA'
+ MEPROP Name 'MnsDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Источник документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8006FC02A1 // Document
+ HWL ME_4B5852A800F5 // DocumentForReturn
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_57A1CA3D0271 // TnsDocumentForReturnInfo
+ )
+ ; // Children
+
+ENDME // ME_4A8015F803BA MnsDocument
+
+FORWARD ME_4A803D99011E
+
+ME ME_4A7FF1AC035C_ME_4A803D99011E
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A803D99011E RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A803D99011E
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A803D99011E Document
+
+ME ME_4B5852A800F5_ME_4A803D99011E
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A803D99011E DocumentForReturn
+
+ME ME_4A803D99011E
+ MEPROP UID '4A803D99011E'
+ MEPROP Name 'MnsCompareEditionsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7FF1760065 // MnsRedactionCurrentPara
+ HWL ME_4A8015F803BA // MnsDocument
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4A7FF1AC035C_ME_4A803D99011E // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A803D99011E // Document
+ ME_4B5852A800F5_ME_4A803D99011E // DocumentForReturn
+ )
+ ; // Implemented
+
+ENDME // ME_4A803D99011E MnsCompareEditionsInfo
+
+FORWARD ME_4A841BAA0280
+
+ME ME_4A841BEF002A
+ MEPROP UID '4A841BEF002A'
+ MEPROP Name 'EditionChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A841BAA0280 // InsEditionListener
+ ;
+
+ENDME // ME_4A841BEF002A EditionChanged
+
+ME ME_4A841BAA0280
+ MEPROP UID '4A841BAA0280'
+ MEPROP GUID '61D72366-1A15-4A00-B4B3-78DCA20B6CA8'
+ MEPROP Name 'InsEditionListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель изменения редакции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.ms.model.script' // Il3Notify
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A841BEF002A // EditionChanged
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'EditionListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A841BAA0280 InsEditionListener
+
+FORWARD ME_4A79904A002A
+
+ME ME_4A7FC29601F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_supply::Dependency ;
+ MELINK Parent HWL ME_4A79904A002A // InsVScrollController
+ ;
+ MELINK Target HWL ME_4A79952D0084 // InsVScrollListener
+ ;
+
+ENDME // ME_4A7FC29601F8 
+
+ME ME_4A79AB290196_ME_4A79904A002A
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A79904A002A Sync
+
+ME ME_4B54676B0132_ME_4A79904A002A
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A79904A002A CurrentChangedFragmentChanged
+
+ME ME_4A79904A002A
+ MEPROP UID '4A79904A002A'
+ MEPROP GUID 'B205A94F-1322-445F-B7B8-3194F3F86F77'
+ MEPROP Name 'InsVScrollController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контроллер вертикального скроллера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4A79AB0A0359 // VScroll
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4A79904A002A // Sync
+ ME_4B54676B0132_ME_4A79904A002A // CurrentChangedFragmentChanged
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4A7FC29601F8 // InsVScrollListener
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'VScrollController'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A79904A002A InsVScrollController
+
+FORWARD ME_4B549304002F
+
+ME ME_4A79AB290196_ME_4B549304002F
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4B549304002F Sync
+
+ME ME_4B54676B0132_ME_4B549304002F
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4B549304002F CurrentChangedFragmentChanged
+
+ME ME_4B549304002F
+ MEPROP UID '4B549304002F'
+ MEPROP GUID 'C666C0D5-6FE4-4D49-80A7-685C2E352687'
+ MEPROP Name 'IdsEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4A79952D0084 // InsVScrollListener
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4B549304002F // Sync
+ ME_4B54676B0132_ME_4B549304002F // CurrentChangedFragmentChanged
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsEdition'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B549304002F IdsEdition
+
+FORWARD ME_4A7847D1028F
+
+ME ME_4A786E2A00A2
+ MEPROP UID '4A786E2A00A2'
+ MEPROP Name 'DocumentContainer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контейнер документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A7847D1028F // IdsEditionDiff
+ ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+ UP "pm" false
+
+ENDME // ME_4A786E2A00A2 DocumentContainer
+
+ME ME_4A83CD9502BE
+ MEPROP UID '4A83CD9502BE'
+ MEPROP Name 'RedactionName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Имя редакции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A7847D1028F // IdsEditionDiff
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" false
+
+ENDME // ME_4A83CD9502BE RedactionName
+
+ME ME_4A79AB290196_ME_4A7847D1028F
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A7847D1028F Sync
+
+ME ME_4A7FF1AC035C_ME_4A7847D1028F
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A7847D1028F RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A7847D1028F
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A7847D1028F Document
+
+ME ME_4A841BEF002A_ME_4A7847D1028F
+ MELINK Original HWL ME_4A841BEF002A // EditionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A841BEF002A_ME_4A7847D1028F EditionChanged
+
+ME ME_4AE56DE80093_ME_4A7847D1028F
+ MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE56DE80093_ME_4A7847D1028F MakeHAFMacroReplacer
+
+ME ME_4AE575FA030B_ME_4A7847D1028F
+ MELINK Original WL 'ME_4AE575FA030B' '491B305A0096.ms.model.script' // MakeFilterInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE575FA030B_ME_4A7847D1028F MakeFilterInfo
+
+ME ME_4B54676B0132_ME_4A7847D1028F
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A7847D1028F CurrentChangedFragmentChanged
+
+ME ME_4B5852A800F5_ME_4A7847D1028F
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A7847D1028F DocumentForReturn
+
+ME ME_4DF9D63B0360_ME_4A7847D1028F
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4A7847D1028F DocInfo
+
+ME ME_4A7847D1028F
+ MEPROP UID '4A7847D1028F'
+ MEPROP GUID '30C7415C-8EE4-4E0E-8C65-35231741EEEE'
+ MEPROP Name 'IdsEditionDiff'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат сравнения редакций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B549304002F // IdsEdition
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4A803D99011E // MnsCompareEditionsInfo
+ HWL ME_4A841BAA0280 // InsEditionListener
+ WL 'ME_4AE56DB003D5' '491B305A0096.ms.model.script' // IucpHAFMacroReplacerFactory
+ WL 'ME_4AE575E00174' '491B305A0096.ms.model.script' // IucpFilterInfoFactory
+ WL 'ME_4ED8F1860003' '4B1FC2FF03CD.ms.model.script' // MdeDocInfoProvider
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A786E2A00A2 // DocumentContainer
+ HWL ME_4A83CD9502BE // RedactionName
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4A7847D1028F // Sync
+ ME_4A7FF1AC035C_ME_4A7847D1028F // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A7847D1028F // Document
+ ME_4A841BEF002A_ME_4A7847D1028F // EditionChanged
+ ME_4AE56DE80093_ME_4A7847D1028F // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_4A7847D1028F // MakeFilterInfo
+ ME_4B54676B0132_ME_4A7847D1028F // CurrentChangedFragmentChanged
+ ME_4B5852A800F5_ME_4A7847D1028F // DocumentForReturn
+ ME_4DF9D63B0360_ME_4A7847D1028F // DocInfo
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsEditionDiff'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A7847D1028F IdsEditionDiff
+
+FORWARD ME_4A6D576D0247
+
+ME ME_4B55B0DE0078
+ MEPROP UID '4B55B0DE0078'
+ MEPROP Name 'NextEditions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6D576D0247 // IdsRightEdition
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "pm" false
+
+ENDME // ME_4B55B0DE0078 NextEditions
+
+ME ME_4A786E2A00A2_ME_4A6D576D0247
+ MELINK Original HWL ME_4A786E2A00A2 // DocumentContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A786E2A00A2_ME_4A6D576D0247 DocumentContainer
+
+ME ME_4A79AB290196_ME_4A6D576D0247
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A6D576D0247 Sync
+
+ME ME_4A7FF1AC035C_ME_4A6D576D0247
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A6D576D0247 RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A6D576D0247
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A6D576D0247 Document
+
+ME ME_4A83CD9502BE_ME_4A6D576D0247
+ MELINK Original HWL ME_4A83CD9502BE // RedactionName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A83CD9502BE_ME_4A6D576D0247 RedactionName
+
+ME ME_4A841BEF002A_ME_4A6D576D0247
+ MELINK Original HWL ME_4A841BEF002A // EditionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A841BEF002A_ME_4A6D576D0247 EditionChanged
+
+ME ME_4AE56DE80093_ME_4A6D576D0247
+ MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE56DE80093_ME_4A6D576D0247 MakeHAFMacroReplacer
+
+ME ME_4AE575FA030B_ME_4A6D576D0247
+ MELINK Original WL 'ME_4AE575FA030B' '491B305A0096.ms.model.script' // MakeFilterInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE575FA030B_ME_4A6D576D0247 MakeFilterInfo
+
+ME ME_4B54676B0132_ME_4A6D576D0247
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A6D576D0247 CurrentChangedFragmentChanged
+
+ME ME_4B5852A800F5_ME_4A6D576D0247
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A6D576D0247 DocumentForReturn
+
+ME ME_4DF9D63B0360_ME_4A6D576D0247
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4A6D576D0247 DocInfo
+
+ME ME_4A6D576D0247
+ MEPROP UID '4A6D576D0247'
+ MEPROP GUID '83FE08C5-A8AC-426A-AEDF-307031215F06'
+ MEPROP Name 'IdsRightEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7847D1028F // IdsEditionDiff
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B55B0DE0078 // NextEditions
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A786E2A00A2_ME_4A6D576D0247 // DocumentContainer
+ ME_4A79AB290196_ME_4A6D576D0247 // Sync
+ ME_4A7FF1AC035C_ME_4A6D576D0247 // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A6D576D0247 // Document
+ ME_4A83CD9502BE_ME_4A6D576D0247 // RedactionName
+ ME_4A841BEF002A_ME_4A6D576D0247 // EditionChanged
+ ME_4AE56DE80093_ME_4A6D576D0247 // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_4A6D576D0247 // MakeFilterInfo
+ ME_4B54676B0132_ME_4A6D576D0247 // CurrentChangedFragmentChanged
+ ME_4B5852A800F5_ME_4A6D576D0247 // DocumentForReturn
+ ME_4DF9D63B0360_ME_4A6D576D0247 // DocInfo
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsRightEdition'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A6D576D0247 IdsRightEdition
+
+FORWARD ME_4B6BD5B000D8
+
+ME ME_4B6BD5E001F4
+ MEPROP UID '4B6BD5E001F4'
+ MEPROP Name 'EditionForCompare'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Редакция для сравнения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B6BD5B000D8 // MnsEditionForCompare
+ ;
+ MELINK Target WL 'ME_45EED84C01FD' '4570511E038A.ms.model.script' // RedactionID
+ ;
+ UP "pm" false
+
+ENDME // ME_4B6BD5E001F4 EditionForCompare
+
+ME ME_4B6BD5B000D8
+ MEPROP UID '4B6BD5B000D8'
+ MEPROP Name 'MnsEditionForCompare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B6BD5E001F4 // EditionForCompare
+ )
+ ; // Attributes
+
+ENDME // ME_4B6BD5B000D8 MnsEditionForCompare
+
+FORWARD ME_4A6D57560240
+
+ME ME_4A83D4CA00D0
+ MEPROP UID '4A83D4CA00D0'
+ MEPROP Name 'PrevEditions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Предыдущие редакции (включая данную)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6D57560240 // IdsLeftEdition
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "pm" false
+
+ENDME // ME_4A83D4CA00D0 PrevEditions
+
+ME ME_4A786E2A00A2_ME_4A6D57560240
+ MELINK Original HWL ME_4A786E2A00A2 // DocumentContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A786E2A00A2_ME_4A6D57560240 DocumentContainer
+
+ME ME_4A79AB290196_ME_4A6D57560240
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A6D57560240 Sync
+
+ME ME_4A7FF1AC035C_ME_4A6D57560240
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A6D57560240 RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A6D57560240
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A6D57560240 Document
+
+ME ME_4A83CD9502BE_ME_4A6D57560240
+ MELINK Original HWL ME_4A83CD9502BE // RedactionName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A83CD9502BE_ME_4A6D57560240 RedactionName
+
+ME ME_4A841BEF002A_ME_4A6D57560240
+ MELINK Original HWL ME_4A841BEF002A // EditionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A841BEF002A_ME_4A6D57560240 EditionChanged
+
+ME ME_4AE56DE80093_ME_4A6D57560240
+ MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE56DE80093_ME_4A6D57560240 MakeHAFMacroReplacer
+
+ME ME_4AE575FA030B_ME_4A6D57560240
+ MELINK Original WL 'ME_4AE575FA030B' '491B305A0096.ms.model.script' // MakeFilterInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE575FA030B_ME_4A6D57560240 MakeFilterInfo
+
+ME ME_4B54676B0132_ME_4A6D57560240
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A6D57560240 CurrentChangedFragmentChanged
+
+ME ME_4B5852A800F5_ME_4A6D57560240
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A6D57560240 DocumentForReturn
+
+ME ME_4DF9D63B0360_ME_4A6D57560240
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4A6D57560240 DocInfo
+
+ME ME_4A6D57560240
+ MEPROP UID '4A6D57560240'
+ MEPROP GUID '972B151D-0C3F-427F-8D58-A1E718CF17A8'
+ MEPROP Name 'IdsLeftEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предыдущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7847D1028F // IdsEditionDiff
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A83D4CA00D0 // PrevEditions
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A786E2A00A2_ME_4A6D57560240 // DocumentContainer
+ ME_4A79AB290196_ME_4A6D57560240 // Sync
+ ME_4A7FF1AC035C_ME_4A6D57560240 // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A6D57560240 // Document
+ ME_4A83CD9502BE_ME_4A6D57560240 // RedactionName
+ ME_4A841BEF002A_ME_4A6D57560240 // EditionChanged
+ ME_4AE56DE80093_ME_4A6D57560240 // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_4A6D57560240 // MakeFilterInfo
+ ME_4B54676B0132_ME_4A6D57560240 // CurrentChangedFragmentChanged
+ ME_4B5852A800F5_ME_4A6D57560240 // DocumentForReturn
+ ME_4DF9D63B0360_ME_4A6D57560240 // DocInfo
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsLeftEdition'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A6D57560240 IdsLeftEdition
+
+FORWARD ME_4A7FD75E00CA
+
+ME ME_4A7FF1AC035C_ME_4A7FD75E00CA
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A7FD75E00CA RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A7FD75E00CA
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A7FD75E00CA Document
+
+ME ME_4B5852A800F5_ME_4A7FD75E00CA
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A7FD75E00CA DocumentForReturn
+
+ME ME_4A7FD75E00CA
+ MEPROP UID '4A7FD75E00CA'
+ MEPROP GUID '01E26F79-EB4C-487E-9A15-3C0EFDC2749A'
+ MEPROP Name 'InsEditionDiffData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные для dsEditionDiff' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4A803D99011E // MnsCompareEditionsInfo
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A7FF1AC035C_ME_4A7FD75E00CA // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A7FD75E00CA // Document
+ ME_4B5852A800F5_ME_4A7FD75E00CA // DocumentForReturn
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'EditionDiffData'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A7FD75E00CA InsEditionDiffData
+
+FORWARD ME_4B602B580113
+
+ME ME_4B4F2EAD0183
+ MEPROP UID '4B4F2EAD0183'
+ MEPROP Name 'ChangedParas'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B602B580113 // MnsChangedParas
+ ;
+ MELINK Target WL 'ME_4B4EE046030D' '4570511E038A.ms.model.script' // DiffIterator
+ ;
+ UP "pm" false
+
+ENDME // ME_4B4F2EAD0183 ChangedParas
+
+ME ME_4B602B580113
+ MEPROP UID '4B602B580113'
+ MEPROP Name 'MnsChangedParas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменённые параграфы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B4F2EAD0183 // ChangedParas
+ )
+ ; // Attributes
+
+ENDME // ME_4B602B580113 MnsChangedParas
+
+FORWARD ME_4AE03A510168
+
+ME ME_4A8006FC02A1_ME_4AE03A510168
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4AE03A510168 Document
+
+ME ME_4B5852A800F5_ME_4AE03A510168
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4AE03A510168 DocumentForReturn
+
+ME ME_4AE03A510168
+ MEPROP UID '4AE03A510168'
+ MEPROP GUID 'DA8A9520-2900-43C2-8659-30A9832BD28C'
+ MEPROP Name 'InsEditionsContainerData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные для контейнера сравнения редакций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4A8015F803BA // MnsDocument
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A8006FC02A1_ME_4AE03A510168 // Document
+ ME_4B5852A800F5_ME_4AE03A510168 // DocumentForReturn
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'EditionsContainerData'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AE03A510168 InsEditionsContainerData
+
+FORWARD ME_4A6EC1570374
+
+ME ME_4A800ED00011
+ MEPROP UID '4A800ED00011'
+ MEPROP Name 'DocumentNameForCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Название документа для заголовка окна' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6EC1570374 // IdsEditionsContainerData
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" false
+
+ENDME // ME_4A800ED00011 DocumentNameForCaption
+
+ME ME_4DDCC27802BA
+ MEPROP UID '4DDCC27802BA'
+ MEPROP Name 'Right'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6EC1570374 // IdsEditionsContainerData
+ ;
+ MELINK Target HWL ME_4A6D576D0247 // IdsRightEdition
+ ;
+ UP "pm" false
+
+ENDME // ME_4DDCC27802BA Right
+
+ME ME_4DDCC30E0361
+ MEPROP UID '4DDCC30E0361'
+ MEPROP Name 'Left'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6EC1570374 // IdsEditionsContainerData
+ ;
+ MELINK Target HWL ME_4A6D57560240 // IdsLeftEdition
+ ;
+ UP "pm" false
+
+ENDME // ME_4DDCC30E0361 Left
+
+ME ME_54743B1A00AC
+ MEPROP UID '54743B1A00AC'
+ MEPROP Name 'DocumentFullNameForCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6EC1570374 // IdsEditionsContainerData
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" false
+
+ENDME // ME_54743B1A00AC DocumentFullNameForCaption
+
+ME ME_4A79AB290196_ME_4A6EC1570374
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A6EC1570374 Sync
+
+ME ME_4B4F2EAD0183_ME_4A6EC1570374
+ MELINK Original HWL ME_4B4F2EAD0183 // ChangedParas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B4F2EAD0183_ME_4A6EC1570374 ChangedParas
+
+ME ME_4B54676B0132_ME_4A6EC1570374
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A6EC1570374 CurrentChangedFragmentChanged
+
+ME ME_4A6EC1570374
+ MEPROP UID '4A6EC1570374'
+ MEPROP GUID '186ED124-5A6C-44DB-9FF6-9FE001D6F71C'
+ MEPROP Name 'IdsEditionsContainerData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные для контейнера редакций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B549304002F // IdsEdition
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B602B580113 // MnsChangedParas
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A800ED00011 // DocumentNameForCaption
+ HWL ME_4DDCC27802BA // Right
+ HWL ME_4DDCC30E0361 // Left
+ HWL ME_54743B1A00AC // DocumentFullNameForCaption
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4A6EC1570374 // Sync
+ ME_4B4F2EAD0183_ME_4A6EC1570374 // ChangedParas
+ ME_4B54676B0132_ME_4A6EC1570374 // CurrentChangedFragmentChanged
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsEditionsContainerData'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A6EC1570374 IdsEditionsContainerData
+
+FORWARD ME_4EA7F18E0324
+
+ME ME_4CCE73AA0235
+ MEPROP UID '4CCE73AA0235'
+ MEPROP Name 'TDocumentRoot'
+ MEPROP OriginalName 'TDocumentRoot$FromDTP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA7F18E0324 // InsDocumentTextProviderFactory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CCE73AA0235 TDocumentRoot$FromDTP
+
+FORWARD ME_4EA7F1C400B0
+
+ME ME_4EA7F1C400B2
+ MEPROP UID '4EA7F1C400B2'
+ MEPROP Name 'aIsLeft'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4EA7F1C400B0 // Node
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EA7F1C400B2 aIsLeft
+
+ME ME_4EA7F1C400B0
+ MEPROP UID '4EA7F1C400B0'
+ MEPROP Name 'Node'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4EA7F18E0324 // InsDocumentTextProviderFactory
+ ;
+ MELINK Target HWL ME_4CCE73AA0235 // TDocumentRoot$FromDTP
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4EA7F1C400B2 // aIsLeft
+ )
+ ; // Attributes
+ UP "pm" false
+
+ENDME // ME_4EA7F1C400B0 Node
+
+ME ME_4EA7F18E0324
+ MEPROP UID '4EA7F18E0324'
+ MEPROP GUID 'E7AC6D0F-5B6C-40D7-BAFD-38FDA06053FF'
+ MEPROP Name 'InsDocumentTextProviderFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4EA7F1C400B0 // Node
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4CCE73AA0235 // TDocumentRoot$FromDTP
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'DocumentTextProviderFactory'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA7F18E0324 InsDocumentTextProviderFactory
+
+FORWARD ME_4A784CC802B0
+
+ME ME_4A784CF30229
+ MEPROP UID '4A784CF30229'
+ MEPROP Name 'State'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Состояние документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A784CC802B0 // InsCompareEditionsInfo
+ ;
+ MELINK Target WL 'ME_45EED80E0086' '4570511E038A.ms.model.script' // DocumentState
+ ;
+ UP "pm" false
+
+ENDME // ME_4A784CF30229 State
+
+ME ME_5214A243027F
+ MEPROP UID '5214A243027F'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A784CC802B0 // InsCompareEditionsInfo
+ ;
+ MELINK Target WL 'ME_491B329F0330' '47F2170002B2.ms.model.script' // TbsDocPos
+ ;
+ UP "pm" false
+
+ENDME // ME_5214A243027F Position
+
+ME ME_4A7FF1AC035C_ME_4A784CC802B0
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A784CC802B0 RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A784CC802B0
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A784CC802B0 Document
+
+ME ME_4B5852A800F5_ME_4A784CC802B0
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A784CC802B0 DocumentForReturn
+
+ME ME_4B6BD5E001F4_ME_4A784CC802B0
+ MELINK Original HWL ME_4B6BD5E001F4 // EditionForCompare
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B6BD5E001F4_ME_4A784CC802B0 EditionForCompare
+
+ME ME_4A784CC802B0
+ MEPROP UID '4A784CC802B0'
+ MEPROP GUID '8DC30895-2365-4448-B81D-85AA2E933782'
+ MEPROP Name 'InsCompareEditionsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация для сравнения редакций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4A803D99011E // MnsCompareEditionsInfo
+ HWL ME_4B6BD5B000D8 // MnsEditionForCompare
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A784CF30229 // State
+ HWL ME_5214A243027F // Position
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A7FF1AC035C_ME_4A784CC802B0 // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A784CC802B0 // Document
+ ME_4B5852A800F5_ME_4A784CC802B0 // DocumentForReturn
+ ME_4B6BD5E001F4_ME_4A784CC802B0 // EditionForCompare
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'CompareEditionsInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A784CC802B0 InsCompareEditionsInfo
+
+FORWARD ME_4A6D5729037F
+
+FORWARD ME_4A6D579203BC
+
+ME ME_4A786E2A00A2_ME_4A6D579203BC
+ MELINK Original HWL ME_4A786E2A00A2 // DocumentContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A786E2A00A2_ME_4A6D579203BC DocumentContainer
+
+ME ME_4A79AB290196_ME_4A6D579203BC
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A6D579203BC Sync
+
+ME ME_4A7FF1AC035C_ME_4A6D579203BC
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A6D579203BC RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A6D579203BC
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A6D579203BC Document
+
+ME ME_4A83CD9502BE_ME_4A6D579203BC
+ MELINK Original HWL ME_4A83CD9502BE // RedactionName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A83CD9502BE_ME_4A6D579203BC RedactionName
+
+ME ME_4A83D4CA00D0_ME_4A6D579203BC
+ MELINK Original HWL ME_4A83D4CA00D0 // PrevEditions
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A83D4CA00D0_ME_4A6D579203BC PrevEditions
+
+ME ME_4A841BEF002A_ME_4A6D579203BC
+ MELINK Original HWL ME_4A841BEF002A // EditionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A841BEF002A_ME_4A6D579203BC EditionChanged
+
+ME ME_4AE56DE80093_ME_4A6D579203BC
+ MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE56DE80093_ME_4A6D579203BC MakeHAFMacroReplacer
+
+ME ME_4AE575FA030B_ME_4A6D579203BC
+ MELINK Original WL 'ME_4AE575FA030B' '491B305A0096.ms.model.script' // MakeFilterInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE575FA030B_ME_4A6D579203BC MakeFilterInfo
+
+ME ME_4B54676B0132_ME_4A6D579203BC
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A6D579203BC CurrentChangedFragmentChanged
+
+ME ME_4B5852A800F5_ME_4A6D579203BC
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A6D579203BC DocumentForReturn
+
+ME ME_4DF9D63B0360_ME_4A6D579203BC
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4A6D579203BC DocInfo
+
+ME ME_4A6D579203BC
+ MEPROP UID '4A6D579203BC'
+ MEPROP Name 'Left'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предыдущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A6D5729037F // IsdsCompareEditions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A6D57560240 // IdsLeftEdition
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4A786E2A00A2_ME_4A6D579203BC // DocumentContainer
+ ME_4A79AB290196_ME_4A6D579203BC // Sync
+ ME_4A7FF1AC035C_ME_4A6D579203BC // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A6D579203BC // Document
+ ME_4A83CD9502BE_ME_4A6D579203BC // RedactionName
+ ME_4A83D4CA00D0_ME_4A6D579203BC // PrevEditions
+ ME_4A841BEF002A_ME_4A6D579203BC // EditionChanged
+ ME_4AE56DE80093_ME_4A6D579203BC // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_4A6D579203BC // MakeFilterInfo
+ ME_4B54676B0132_ME_4A6D579203BC // CurrentChangedFragmentChanged
+ ME_4B5852A800F5_ME_4A6D579203BC // DocumentForReturn
+ ME_4DF9D63B0360_ME_4A6D579203BC // DocInfo
+ )
+ ; // Implemented
+ UP "pm" true
+
+ENDME // ME_4A6D579203BC Left
+
+FORWARD ME_4A6D57C80079
+
+ME ME_4A786E2A00A2_ME_4A6D57C80079
+ MELINK Original HWL ME_4A786E2A00A2 // DocumentContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A786E2A00A2_ME_4A6D57C80079 DocumentContainer
+
+ME ME_4A79AB290196_ME_4A6D57C80079
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A6D57C80079 Sync
+
+ME ME_4A7FF1AC035C_ME_4A6D57C80079
+ MELINK Original HWL ME_4A7FF1AC035C // RedactionCurrentPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A7FF1AC035C_ME_4A6D57C80079 RedactionCurrentPara
+
+ME ME_4A8006FC02A1_ME_4A6D57C80079
+ MELINK Original HWL ME_4A8006FC02A1 // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A8006FC02A1_ME_4A6D57C80079 Document
+
+ME ME_4A83CD9502BE_ME_4A6D57C80079
+ MELINK Original HWL ME_4A83CD9502BE // RedactionName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A83CD9502BE_ME_4A6D57C80079 RedactionName
+
+ME ME_4A841BEF002A_ME_4A6D57C80079
+ MELINK Original HWL ME_4A841BEF002A // EditionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A841BEF002A_ME_4A6D57C80079 EditionChanged
+
+ME ME_4AE56DE80093_ME_4A6D57C80079
+ MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE56DE80093_ME_4A6D57C80079 MakeHAFMacroReplacer
+
+ME ME_4AE575FA030B_ME_4A6D57C80079
+ MELINK Original WL 'ME_4AE575FA030B' '491B305A0096.ms.model.script' // MakeFilterInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE575FA030B_ME_4A6D57C80079 MakeFilterInfo
+
+ME ME_4B54676B0132_ME_4A6D57C80079
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A6D57C80079 CurrentChangedFragmentChanged
+
+ME ME_4B55B0DE0078_ME_4A6D57C80079
+ MELINK Original HWL ME_4B55B0DE0078 // NextEditions
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B55B0DE0078_ME_4A6D57C80079 NextEditions
+
+ME ME_4B5852A800F5_ME_4A6D57C80079
+ MELINK Original HWL ME_4B5852A800F5 // DocumentForReturn
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B5852A800F5_ME_4A6D57C80079 DocumentForReturn
+
+ME ME_4DF9D63B0360_ME_4A6D57C80079
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4A6D57C80079 DocInfo
+
+ME ME_4A6D57C80079
+ MEPROP UID '4A6D57C80079'
+ MEPROP Name 'Right'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A6D5729037F // IsdsCompareEditions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A6D576D0247 // IdsRightEdition
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4A786E2A00A2_ME_4A6D57C80079 // DocumentContainer
+ ME_4A79AB290196_ME_4A6D57C80079 // Sync
+ ME_4A7FF1AC035C_ME_4A6D57C80079 // RedactionCurrentPara
+ ME_4A8006FC02A1_ME_4A6D57C80079 // Document
+ ME_4A83CD9502BE_ME_4A6D57C80079 // RedactionName
+ ME_4A841BEF002A_ME_4A6D57C80079 // EditionChanged
+ ME_4AE56DE80093_ME_4A6D57C80079 // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_4A6D57C80079 // MakeFilterInfo
+ ME_4B54676B0132_ME_4A6D57C80079 // CurrentChangedFragmentChanged
+ ME_4B55B0DE0078_ME_4A6D57C80079 // NextEditions
+ ME_4B5852A800F5_ME_4A6D57C80079 // DocumentForReturn
+ ME_4DF9D63B0360_ME_4A6D57C80079 // DocInfo
+ )
+ ; // Implemented
+ UP "pm" true
+
+ENDME // ME_4A6D57C80079 Right
+
+FORWARD ME_4A6EC18E02E3
+
+ME ME_4A79AB290196_ME_4A6EC18E02E3
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A6EC18E02E3 Sync
+
+ME ME_4A800ED00011_ME_4A6EC18E02E3
+ MELINK Original HWL ME_4A800ED00011 // DocumentNameForCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A800ED00011_ME_4A6EC18E02E3 DocumentNameForCaption
+
+ME ME_4B4F2EAD0183_ME_4A6EC18E02E3
+ MELINK Original HWL ME_4B4F2EAD0183 // ChangedParas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B4F2EAD0183_ME_4A6EC18E02E3 ChangedParas
+
+ME ME_4B54676B0132_ME_4A6EC18E02E3
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A6EC18E02E3 CurrentChangedFragmentChanged
+
+ME ME_4DDCC27802BA_ME_4A6EC18E02E3
+ MELINK Original HWL ME_4DDCC27802BA // Right
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4DDCC27802BA_ME_4A6EC18E02E3 Right
+
+ME ME_4DDCC30E0361_ME_4A6EC18E02E3
+ MELINK Original HWL ME_4DDCC30E0361 // Left
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4DDCC30E0361_ME_4A6EC18E02E3 Left
+
+ME ME_54743B1A00AC_ME_4A6EC18E02E3
+ MELINK Original HWL ME_54743B1A00AC // DocumentFullNameForCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_54743B1A00AC_ME_4A6EC18E02E3 DocumentFullNameForCaption
+
+ME ME_4A6EC18E02E3
+ MEPROP UID '4A6EC18E02E3'
+ MEPROP Name 'EditionsContainerData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A6D5729037F // IsdsCompareEditions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A6EC1570374 // IdsEditionsContainerData
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4A6EC18E02E3 // Sync
+ ME_4A800ED00011_ME_4A6EC18E02E3 // DocumentNameForCaption
+ ME_4B4F2EAD0183_ME_4A6EC18E02E3 // ChangedParas
+ ME_4B54676B0132_ME_4A6EC18E02E3 // CurrentChangedFragmentChanged
+ ME_4DDCC27802BA_ME_4A6EC18E02E3 // Right
+ ME_4DDCC30E0361_ME_4A6EC18E02E3 // Left
+ ME_54743B1A00AC_ME_4A6EC18E02E3 // DocumentFullNameForCaption
+ )
+ ; // Implemented
+ UP "pm" true
+
+ENDME // ME_4A6EC18E02E3 EditionsContainerData
+
+ME ME_5214A46601C7
+ MEPROP UID '5214A46601C7'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A6D5729037F // IsdsCompareEditions
+ ;
+ MELINK Target WL 'ME_491B329F0330' '47F2170002B2.ms.model.script' // TbsDocPos
+ ;
+ UP "pm" false
+
+ENDME // ME_5214A46601C7 Position
+
+ME ME_4A79AB290196_ME_4A6D5729037F
+ MELINK Original HWL ME_4A79AB290196 // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4A6D5729037F Sync
+
+ME ME_4B4F2EAD0183_ME_4A6D5729037F
+ MELINK Original HWL ME_4B4F2EAD0183 // ChangedParas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B4F2EAD0183_ME_4A6D5729037F ChangedParas
+
+ME ME_4B54676B0132_ME_4A6D5729037F
+ MELINK Original HWL ME_4B54676B0132 // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4A6D5729037F CurrentChangedFragmentChanged
+
+ME ME_4B6BD5E001F4_ME_4A6D5729037F
+ MELINK Original HWL ME_4B6BD5E001F4 // EditionForCompare
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B6BD5E001F4_ME_4A6D5729037F EditionForCompare
+
+ME ME_4DF9D63B0360_ME_4A6D5729037F
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4A6D5729037F DocInfo
+
+ME ME_4EA7F1C400B0_ME_4A6D5729037F
+ MELINK Original HWL ME_4EA7F1C400B0 // Node
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4EA7F1C400B0_ME_4A6D5729037F Node
+
+ME ME_4ED906420134_ME_4A6D5729037F
+ MELINK Original WL 'ME_4ED906420134' '491B305A0096.ms.model.script' // EditionsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4ED906420134_ME_4A6D5729037F EditionsList
+
+ME ME_4A6D5729037F
+ MEPROP UID '4A6D5729037F'
+ MEPROP GUID '7129759B-164B-4172-8EA3-65D05286CF8D'
+ MEPROP Name 'IsdsCompareEditions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сравнение двух соседний редакций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D56B00065 // EditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4A79904A002A // InsVScrollController
+ HWL ME_4B602B580113 // MnsChangedParas
+ HWL ME_4B6BD5B000D8 // MnsEditionForCompare
+ HWL ME_4EA7F18E0324 // InsDocumentTextProviderFactory
+ WL 'ME_4ED8ECEE00EE' '491B305A0096.ms.model.script' // IsdsPrimDocument
+ WL 'ME_4ED905EA0339' '491B305A0096.ms.model.script' // IsdsEditionsHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A6D579203BC // Left
+ HWL ME_4A6D57C80079 // Right
+ HWL ME_4A6EC18E02E3 // EditionsContainerData
+ HWL ME_5214A46601C7 // Position
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4A6D5729037F // Sync
+ ME_4B4F2EAD0183_ME_4A6D5729037F // ChangedParas
+ ME_4B54676B0132_ME_4A6D5729037F // CurrentChangedFragmentChanged
+ ME_4B6BD5E001F4_ME_4A6D5729037F // EditionForCompare
+ ME_4DF9D63B0360_ME_4A6D5729037F // DocInfo
+ ME_4EA7F1C400B0_ME_4A6D5729037F // Node
+ ME_4ED906420134_ME_4A6D5729037F // EditionsList
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'sdsCompareEditions'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A6D5729037F IsdsCompareEditions
+
+ME ME_4A6D56B00065
+ MEPROP UID '4A6D56B00065'
+ MEPROP Name 'EditionsInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Работа с редакциями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A6D569202A5' '4A6D569202A5.ms.model.script' // Editions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A7FF1760065 // MnsRedactionCurrentPara
+ HWL ME_4A79BB0800E4 // TnsParaCoord
+ HWL ME_4A79AB0A0359 // VScroll
+ HWL ME_4A79952D0084 // InsVScrollListener
+ HWL ME_4A8015F803BA // MnsDocument
+ HWL ME_4A803D99011E // MnsCompareEditionsInfo
+ HWL ME_4A841BAA0280 // InsEditionListener
+ HWL ME_4A79904A002A // InsVScrollController
+ HWL ME_4B549304002F // IdsEdition
+ HWL ME_4A7847D1028F // IdsEditionDiff
+ HWL ME_4A6D576D0247 // IdsRightEdition
+ HWL ME_4B6BD5B000D8 // MnsEditionForCompare
+ HWL ME_4A6D57560240 // IdsLeftEdition
+ HWL ME_4A7FD75E00CA // InsEditionDiffData
+ HWL ME_4B602B580113 // MnsChangedParas
+ HWL ME_4AE03A510168 // InsEditionsContainerData
+ HWL ME_4A6EC1570374 // IdsEditionsContainerData
+ HWL ME_4EA7F18E0324 // InsDocumentTextProviderFactory
+ HWL ME_4A784CC802B0 // InsCompareEditionsInfo
+ HWL ME_4A6D5729037F // IsdsCompareEditions
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ WL 'ME_484900780017' '484900780017.ms.model.script' // Работа с документом
+ WL 'ME_4912DD020283' '4912DD020283.ms.model.script' // eeInterfaces
+ WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.ms.model.script' // DocumentInterfaces
+ WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '27.07.2009 11:28'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\EditionsInterfaces.pas'
+
+ENDME // ME_4A6D56B00065 EditionsInterfaces

@@ -1,0 +1,125 @@
+// AAC 50052359008A VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50052359008A
+
+FORWARD ME_500523660003
+
+ME ME_50055A7D015C
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50055A7D015C aLeft
+
+ME ME_5005237D0210
+ MEPROP UID '5005237D0210'
+ MEPROP Name 'GetVScrollBar'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_500523660003 // AACTextContainer
+ ;
+ MELINK Target WL 'ME_50220B0E0061' '50220B0E0061.ms.model.script' // TvtScrollBar
+ ;
+ MELIST Parameters
+   Seq: ( ME_50055A7D015C // aLeft
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_5005237D0210 GetVScrollBar
+
+ME ME_5006ED3302C8
+ MEPROP Name 'aJumpTo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ ;
+
+ENDME // ME_5006ED3302C8 aJumpTo
+
+ME ME_5006ED2300F9
+ MEPROP UID '5006ED2300F9'
+ MEPROP Name 'SetJumpTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_500523660003 // AACTextContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5006ED3302C8 // aJumpTo
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_5006ED2300F9 SetJumpTo
+
+ME ME_500523660003
+ MEPROP UID '500523660003'
+ MEPROP Name 'AACTextContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50052359008A // AAC
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_50054E63007F' '484FA67302D7.ms.model.script' // Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5005237D0210 // GetVScrollBar
+ HWL ME_5006ED2300F9 // SetJumpTo
+ )
+ ; // Operations
+
+ENDME // ME_500523660003 AACTextContainer
+
+ME ME_50052359008A
+ MEPROP UID '50052359008A'
+ MEPROP Name 'AAC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_500523660003 // AACTextContainer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ WL 'ME_484FA67302D7' '484FA67302D7.ms.model.script' // GUI
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_50220AA101CA' '50220AA101CA.ms.model.script' // Scrollbar
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_AAC_Controls.pas'
+ UP extprop:pas:UnitName 'Base_Operations_AAC_Controls'
+
+ENDME // ME_50052359008A AAC

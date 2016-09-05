@@ -1,0 +1,35 @@
+// DocumentListFromFile 4DA44B030054 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4DA44B030054
+ MEPROP UID '4DA44B030054'
+ MEPROP Name 'DocumentListFromFile'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список документов из файла' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DA44AAD00AD' '4DA44AAD00AD.ms.model.script' // DocumentListFromFile
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DA44B2C01BB' '4DA44B2C01BB.ms.model.script' // PrimDocumentListFromFile
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_484CE5E503D4' '484CE48E02E6.ms.model.script' // Просмотр списка
+ )
+ ; // Implements
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '12.04.2011 16:54'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moDocumentListFromFile.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ UP extprop:pas:TypeName 'Tmo_DocumentListFromFile'
+ UP extprop:rc:SelfName 'mo_DocumentListFromFile'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'moDocumentListFromFile'
+
+ENDME // ME_4DA44B030054 DocumentListFromFile

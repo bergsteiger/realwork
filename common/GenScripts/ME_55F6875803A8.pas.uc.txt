@@ -1,5 +1,7 @@
 //#UC START# *479731C50290_55F6875803A8_impl*
  FreeAndNil(f_LongProcessList);
+ FreeAndNil(f_Listeners);
+ FreeAndNil(f_TransactionsLocks);
  inherited;
 //#UC END# *479731C50290_55F6875803A8_impl*
 //#UC START# *479731C50290_55F6875803A8_var*
@@ -7,6 +9,8 @@
 //#UC START# *55F6875803A8_ext:FileName
 w:\common\components\rtl\Garant\PG\pgConnection.pas
 //#UC END# *55F6875803A8_ext:FileName
+//#UC START# *55F6875803A8impl_uses*
+//#UC END# *55F6875803A8impl_uses*
 //#UC START# *55F68CE401CB_55F6875803A8_impl*
  ConnectAs('postgres','admin','archi', aParams);
 //#UC END# *55F68CE401CB_55F6875803A8_impl*
@@ -19,6 +23,7 @@ w:\common\components\rtl\Garant\PG\pgConnection.pas
    if PQstatus(f_Handle) <> CONNECTION_OK then
     raise EPgError.Create(PQerrorMessage(f_Handle))
   finally
+   NotifyBeforeDisconnect;
    PQfinish(f_Handle);
    f_Handle := nil;
   end;
@@ -110,16 +115,22 @@ const
 //#UC START# *565D75140131_55F6875803A8_var*
 //#UC END# *565D75140131_55F6875803A8_var*
 //#UC START# *565D753001A0_55F6875803A8_impl*
- ExecSQLCommand('COMMIT');
- f_InTransaction := False;
- UnlockAllTransactionTables;
+ Assert(IsInTransaction);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('COMMIT');
+ UnLockTransactionTables(f_TransactionsLocks.Last);
+ f_TransactionsLocks.Delete(f_TransactionsLocks.Count - 1);
 //#UC END# *565D753001A0_55F6875803A8_impl*
 //#UC START# *565D753001A0_55F6875803A8_var*
 //#UC END# *565D753001A0_55F6875803A8_var*
 //#UC START# *565D753C0370_55F6875803A8_impl*
- ExecSQLCommand('ROLLBACK');
- f_InTransaction := False;
- UnlockAllTransactionTables;
+ Assert(IsInTransaction);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('ROLLBACK');
+ UnLockTransactionTables(f_TransactionsLocks.Last);
+ f_TransactionsLocks.Delete(f_TransactionsLocks.Count - 1);
+ if IsInTransaction then
+  raise EpgInnerTransactionFailed.Create('');
 //#UC END# *565D753C0370_55F6875803A8_impl*
 //#UC START# *565D753C0370_55F6875803A8_var*
 //#UC END# *565D753C0370_55F6875803A8_var*
@@ -136,9 +147,8 @@ const
 //#UC END# *565D75E80254_55F6875803A8_var*
 //#UC START# *565D9862017B_55F6875803A8_impl*
  for l_IDX := Low(TdaTables) to High(TdaTables) do
-  if l_IDX in f_TransactionTables then
+  if l_IDX in aTables then
    UnlockTable(l_IDX);
- f_TransactionTables := [];
 //#UC END# *565D9862017B_55F6875803A8_impl*
 //#UC START# *565D9862017B_55F6875803A8_var*
 var
@@ -158,23 +168,10 @@ var
   l_Result: PPGResult;
 //#UC END# *565D98760004_55F6875803A8_var*
 //#UC START# *565D9EA2007D_55F6875803A8_impl*
- Assert(not f_InTransaction);
- try
-  for l_IDX := Low(TdaTables) to High(TdaTables) do
-   if l_IDX in aTables then
-   begin
-    LockTable(l_IDX);
-    Include(f_TransactionTables, l_IDX)
-   end;
- except
-  on EpgLockError do
-  begin
-   UnlockAllTransactionTables;
-   raise;
-  end;
- end;
- ExecSQLCommand('START TRANSACTION');
- f_InTransaction := True;
+ LockTransactionTables(aTables);
+ f_TransactionsLocks.Add(aTables);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('START TRANSACTION');
 //#UC END# *565D9EA2007D_55F6875803A8_impl*
 //#UC START# *565D9EA2007D_55F6875803A8_var*
 var
@@ -183,6 +180,8 @@ var
 //#UC START# *565EA7B30042_55F6875803A8_impl*
  inherited Create;
  aList.SetRefTo(f_LongProcessList);
+ f_Listeners := TpgConnectionListenerList.Make;
+ f_TransactionsLocks := TpgLockedTablesList.Make;
 //#UC END# *565EA7B30042_55F6875803A8_impl*
 //#UC START# *565EA7B30042_55F6875803A8_var*
 //#UC END# *565EA7B30042_55F6875803A8_var*
@@ -197,6 +196,7 @@ var
  end;
  if not Lock(pg_llShared) then
   EPgError.Create('Не удалось захватить базу');
+ NotifyAfterConnect; 
 //#UC END# *569636A400D9_55F6875803A8_impl*
 //#UC START# *569636A400D9_55F6875803A8_var*
 var
@@ -229,3 +229,17 @@ var
 var
  l_IDX: Integer;
 //#UC END# *5769262501D9_55F6875803A8_var*
+//#UC START# *57A8368A01F6_55F6875803A8_impl*
+ for l_IDX := Low(TdaTables) to High(TdaTables) do
+  if l_IDX in aTables then
+   LockTable(l_IDX);
+//#UC END# *57A8368A01F6_55F6875803A8_impl*
+//#UC START# *57A8368A01F6_55F6875803A8_var*
+var
+ l_IDX: TdaTables;
+//#UC END# *57A8368A01F6_55F6875803A8_var*
+//#UC START# *57A8534A00D5_55F6875803A8_impl*
+ Result := f_TransactionsLocks.Count > 0;
+//#UC END# *57A8534A00D5_55F6875803A8_impl*
+//#UC START# *57A8534A00D5_55F6875803A8_var*
+//#UC END# *57A8534A00D5_55F6875803A8_var*

@@ -311,7 +311,7 @@ var
 //#UC START# *4BBCB36D03B8_48E3859101D5_impl*
  l_MemoryPool := Tl3MemoryPool.Create;
  try
-  aTextSource.ReadTag(cf_EverestBin, l_MemoryPool As IStream, aFilters);
+  aTextSource.ReadTag(cf_EverestBin, l_MemoryPool As IStream, aFilters, aBlock);
   InsertData(cf_EverestBin, l_MemoryPool.AsHandle, true);
  finally
   l3Free(l_MemoryPool);

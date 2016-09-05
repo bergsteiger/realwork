@@ -1,0 +1,242 @@
+// SplashServerInterfaces 499D06A201BE Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499D06A201BE
+
+FORWARD ME_499D06FE010B
+
+ME ME_499D070E0287
+ MEPROP UID '499D070E0287'
+ MEPROP Name 'CanCloseSplash'
+ MEPROP Class class_Operation
+ %SUMMARY 'Клиент разрешил закрыть сплеш' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499D06FE010B // InsSplashWaiter
+ ;
+
+ENDME // ME_499D070E0287 CanCloseSplash
+
+ME ME_499D06FE010B
+ MEPROP UID '499D06FE010B'
+ MEPROP GUID '3551107A-2BC6-4CC3-94EA-7F5455557CB0'
+ MEPROP Name 'InsSplashWaiter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект ожидающий нотификацию о том, что клиент хочет погасить сплеш' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499D06A201BE // SplashServerInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_499D070E0287 // CanCloseSplash
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'SplashWaiter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499D06FE010B InsSplashWaiter
+
+FORWARD ME_499D0728005B
+
+ME ME_499D074100CF
+ MEPROP UID '499D074100CF'
+ MEPROP Name 'Waiter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Нотификатор, которому надо сказать, что клиент кочет закрыть сплеш.'#13#10'По идее достаточно этого, а не полноценного Publisher/Subscriber' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target HWL ME_499D06FE010B // InsSplashWaiter
+ ;
+ UP "pm" false
+
+ENDME // ME_499D074100CF Waiter
+
+ME ME_499D121F01A1
+ MEPROP UID '499D121F01A1'
+ MEPROP Name 'IsValid'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Данные успешно вычитаны и можно показывать сплеш' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_499D121F01A1 IsValid
+
+ME ME_499D12390040
+ MEPROP UID '499D12390040'
+ MEPROP Name 'MinimalShowTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Минимальное время показа сплеша' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+ UP "pm" false
+
+ENDME // ME_499D12390040 MinimalShowTime
+
+ME ME_499D12670256
+ MEPROP UID '499D12670256'
+ MEPROP Name 'Warning'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Предупреждение о нарушении авторских прав.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" false
+
+ENDME // ME_499D12670256 Warning
+
+ME ME_499D128B028A
+ MEPROP UID '499D128B028A'
+ MEPROP Name 'UserInfo'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Строка с информацией о пользователе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" false
+
+ENDME // ME_499D128B028A UserInfo
+
+ME ME_499D1298014D
+ MEPROP UID '499D1298014D'
+ MEPROP Name 'ApplicationTitle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Заголовок клиентского приложения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target WL 'ME_4771179900D8' '4AB0C3C60310.ms.model.script' // PChar
+ ;
+ UP "pm" false
+
+ENDME // ME_499D1298014D ApplicationTitle
+
+ME ME_499D076503E0
+ MEPROP UID '499D076503E0'
+ MEPROP Name 'SwitchToParent'
+ MEPROP Class class_Operation
+ %SUMMARY 'Переключиться на окно клиента (в конце показа)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+
+ENDME // ME_499D076503E0 SwitchToParent
+
+ME ME_499D3E8A0270
+ MEPROP UID '499D3E8A0270'
+ MEPROP Name 'MakeSplashDataStream'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_499D3E8A0270 MakeSplashDataStream
+
+ME ME_499E5EA40035
+ MEPROP UID '499E5EA40035'
+ MEPROP Name 'MakeLogoStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создает поток для вычитывания TvtPngImageList в котормо лежит лого' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499D0728005B // InsSplashInfo
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_499E5EA40035 MakeLogoStream
+
+ME ME_499D0728005B
+ MEPROP UID '499D0728005B'
+ MEPROP GUID 'CBECD569-DD17-4BFB-8FAA-F16E652356A4'
+ MEPROP Name 'InsSplashInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация с описанием сплеша, который надо показать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499D06A201BE // SplashServerInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499D074100CF // Waiter
+ HWL ME_499D121F01A1 // IsValid
+ HWL ME_499D12390040 // MinimalShowTime
+ HWL ME_499D12670256 // Warning
+ HWL ME_499D128B028A // UserInfo
+ HWL ME_499D1298014D // ApplicationTitle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_499D076503E0 // SwitchToParent
+ HWL ME_499D3E8A0270 // MakeSplashDataStream
+ HWL ME_499E5EA40035 // MakeLogoStream
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'SplashInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499D0728005B InsSplashInfo
+
+ME ME_499D06A201BE
+ MEPROP UID '499D06A201BE'
+ MEPROP Name 'SplashServerInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499C065E01E5' '499C065E01E5.ms.model.script' // Splash
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499D06FE010B // InsSplashWaiter
+ HWL ME_499D0728005B // InsSplashInfo
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Splash\SplashServerInterfaces.pas'
+
+ENDME // ME_499D06A201BE SplashServerInterfaces

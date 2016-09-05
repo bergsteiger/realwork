@@ -1,0 +1,56 @@
+// DUnitTuning 4B2A10C40309 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4B2A10C40309
+ MEPROP UID '4B2A10C40309'
+ MEPROP Name 'DUnitTuning'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Наши доработки DUnit' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B30CC420206' '4B30CC420206.ms.model.script' // Shared Delphi Testing Framework
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4DF79C0F03A9' '4DF79C0F03A9.ms.model.script' // tfwKConst
+ WL 'ME_4CA0BB31027B' '4CA0BB31027B.ms.model.script' // BridgeToKviaCORBA
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4B30FC850092' '4B30FC850092.ms.model.script' // VCM_TFW
+ WL 'ME_4DB14DDC01A9' '4DB14DDC01A9.ms.model.script' // ScriptDebugger
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
+ WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.ms.model.script' // DUnit
+ WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.ms.model.script' // JEDI
+ WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.ms.model.script' // MTDOrb
+ WL 'ME_4CA0CE0F010F' '4CA0CE0F010F.ms.model.script' // GarORB
+ WL 'ME_4CA1BFBC0259' '4CA1BFBC0259.ms.model.script' // ServerGate
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_515AC89F01E1' '515AC89F01E1.ms.model.script' // L3$Basic Concepts
+ WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ WL 'ME_54ECA252008F' '54ECA252008F.ms.model.script' // ScriptEngine$Everest
+ WL 'ME_550012C403C4' '550012C403C4.ms.model.script' // L3$AFW
+ )
+ ; // Depends
+ UP "defines" 'tfwDefine.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "ifndef" 'NotTunedDUnit'
+ UP "is namespace" true
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\DUnitTuning'
+
+ENDME // ME_4B2A10C40309 DUnitTuning

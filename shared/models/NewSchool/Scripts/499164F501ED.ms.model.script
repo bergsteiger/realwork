@@ -1,0 +1,1587 @@
+// ConfigInterfaces 499164F501ED Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499164F501ED
+
+FORWARD ME_4991656C024F
+
+ME ME_499165A10071
+ MEPROP UID '499165A10071'
+ MEPROP Name 'IsActive'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Настройки от текущей конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_499165A10071 IsActive
+
+ME ME_499165B1011E
+ MEPROP UID '499165B1011E'
+ MEPROP Name 'IsPredefined'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Настройки от предустановленной конфигурации - тогда нельзя делать SaveAsDefault' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_499165B1011E IsPredefined
+
+ME ME_499165D0006C
+ MEPROP UID '499165D0006C'
+ MEPROP Name 'IsDifferFromDefault'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Настройки отличаются от значений по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_499165D0006C IsDifferFromDefault
+
+ME ME_4991665A016D
+ MEPROP UID '4991665A016D'
+ MEPROP Name 'Modified'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4991665A016D Modified
+
+ME ME_49916644013B
+ MEPROP UID '49916644013B'
+ MEPROP Name 'EditingSettings'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Список редактируемых настроек для которых делаются "значения по умолчанию"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+ MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
+ ;
+ UP "pm" true
+
+ENDME // ME_49916644013B EditingSettings
+
+ME ME_499165860115
+ MEPROP Name 'aRestoreDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_499165860115 aRestoreDefault
+
+ME ME_499165830038
+ MEPROP UID '499165830038'
+ MEPROP Name 'Load'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_499165860115 // aRestoreDefault
+ )
+ ; // Parameters
+
+ENDME // ME_499165830038 Load
+
+ME ME_4991658D030F
+ MEPROP Name 'aSaveAsDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4991658D030F aSaveAsDefault
+
+ME ME_4991658C0202
+ MEPROP UID '4991658C0202'
+ MEPROP Name 'Save'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991658D030F // aSaveAsDefault
+ )
+ ; // Parameters
+
+ENDME // ME_4991658C0202 Save
+
+ME ME_499165930270
+ MEPROP UID '499165930270'
+ MEPROP Name 'MarkModified'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+
+ENDME // ME_499165930270 MarkModified
+
+ME ME_4E32B7240068
+ MEPROP UID '4E32B7240068'
+ MEPROP Name 'InitialLoadStyleTableFromSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991656C024F // InsEditSettingsInfo
+ ;
+
+ENDME // ME_4E32B7240068 InitialLoadStyleTableFromSettings
+
+ME ME_4991656C024F
+ MEPROP UID '4991656C024F'
+ MEPROP GUID '7560A3A1-E066-4858-B0D9-3CDE28285590'
+ MEPROP Name 'InsEditSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'для передачи в диалоги редактирования конфигурации параметров с которой работают' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499165A10071 // IsActive
+ HWL ME_499165B1011E // IsPredefined
+ HWL ME_499165D0006C // IsDifferFromDefault
+ HWL ME_4991665A016D // Modified
+ HWL ME_49916644013B // EditingSettings
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_499165830038 // Load
+ HWL ME_4991658C0202 // Save
+ HWL ME_499165930270 // MarkModified
+ HWL ME_4E32B7240068 // InitialLoadStyleTableFromSettings
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'EditSettingsInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4991656C024F InsEditSettingsInfo
+
+FORWARD ME_4991666D01FD
+
+ME ME_499165830038_ME_4991666D01FD
+ MELINK Original HWL ME_499165830038 // Load
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499165830038_ME_4991666D01FD Load
+
+ME ME_4991658C0202_ME_4991666D01FD
+ MELINK Original HWL ME_4991658C0202 // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4991658C0202_ME_4991666D01FD Save
+
+ME ME_499165930270_ME_4991666D01FD
+ MELINK Original HWL ME_499165930270 // MarkModified
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499165930270_ME_4991666D01FD MarkModified
+
+ME ME_499165A10071_ME_4991666D01FD
+ MELINK Original HWL ME_499165A10071 // IsActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165A10071_ME_4991666D01FD IsActive
+
+ME ME_499165B1011E_ME_4991666D01FD
+ MELINK Original HWL ME_499165B1011E // IsPredefined
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165B1011E_ME_4991666D01FD IsPredefined
+
+ME ME_499165D0006C_ME_4991666D01FD
+ MELINK Original HWL ME_499165D0006C // IsDifferFromDefault
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165D0006C_ME_4991666D01FD IsDifferFromDefault
+
+ME ME_49916644013B_ME_4991666D01FD
+ MELINK Original HWL ME_49916644013B // EditingSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49916644013B_ME_4991666D01FD EditingSettings
+
+ME ME_4991665A016D_ME_4991666D01FD
+ MELINK Original HWL ME_4991665A016D // Modified
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4991665A016D_ME_4991666D01FD Modified
+
+ME ME_4E32B7240068_ME_4991666D01FD
+ MELINK Original HWL ME_4E32B7240068 // InitialLoadStyleTableFromSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E32B7240068_ME_4991666D01FD InitialLoadStyleTableFromSettings
+
+ME ME_4991666D01FD
+ MEPROP UID '4991666D01FD'
+ MEPROP GUID '537FC5C6-B22C-4FC9-9156-35C8E920DD37'
+ MEPROP Name 'InsStyleTableSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4991656C024F // InsEditSettingsInfo
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_499165830038_ME_4991666D01FD // Load
+ ME_4991658C0202_ME_4991666D01FD // Save
+ ME_499165930270_ME_4991666D01FD // MarkModified
+ ME_499165A10071_ME_4991666D01FD // IsActive
+ ME_499165B1011E_ME_4991666D01FD // IsPredefined
+ ME_499165D0006C_ME_4991666D01FD // IsDifferFromDefault
+ ME_49916644013B_ME_4991666D01FD // EditingSettings
+ ME_4991665A016D_ME_4991666D01FD // Modified
+ ME_4E32B7240068_ME_4991666D01FD // InitialLoadStyleTableFromSettings
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'StyleTableSettingsInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4991666D01FD InsStyleTableSettingsInfo
+
+FORWARD ME_4991667D0318
+
+ME ME_499166950060
+ MEPROP UID '499166950060'
+ MEPROP Name 'pmLeftMargin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4991667D0318 // TnsPageMetrics
+ ;
+
+ENDME // ME_499166950060 pmLeftMargin
+
+ME ME_4991669B001D
+ MEPROP UID '4991669B001D'
+ MEPROP Name 'pmRightMargin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4991667D0318 // TnsPageMetrics
+ ;
+
+ENDME // ME_4991669B001D pmRightMargin
+
+ME ME_4991669F031C
+ MEPROP UID '4991669F031C'
+ MEPROP Name 'pmUpMargin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4991667D0318 // TnsPageMetrics
+ ;
+
+ENDME // ME_4991669F031C pmUpMargin
+
+ME ME_499166A40068
+ MEPROP UID '499166A40068'
+ MEPROP Name 'pmDownMargin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4991667D0318 // TnsPageMetrics
+ ;
+
+ENDME // ME_499166A40068 pmDownMargin
+
+ME ME_4991667D0318
+ MEPROP UID '4991667D0318'
+ MEPROP Name 'TnsPageMetrics'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499166950060 // pmLeftMargin
+ HWL ME_4991669B001D // pmRightMargin
+ HWL ME_4991669F031C // pmUpMargin
+ HWL ME_499166A40068 // pmDownMargin
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4991667D0318 TnsPageMetrics
+
+FORWARD ME_499166AA0327
+
+ME ME_499166B501D1
+ MEPROP UID '499166B501D1'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499166AA0327 // TnsMetricsIndex
+ ;
+ MEPROP Value 'pmLeftMargin'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'pmLeftMargin'
+
+ENDME // ME_499166B501D1 First
+
+ME ME_499166C1005A
+ MEPROP UID '499166C1005A'
+ MEPROP Name 'Last'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499166AA0327 // TnsMetricsIndex
+ ;
+ MEPROP Value 'pmDownMargin'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'pmDownMargin'
+
+ENDME // ME_499166C1005A Last
+
+ME ME_499166AA0327
+ MEPROP UID '499166AA0327'
+ MEPROP Name 'TnsMetricsIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4991667D0318 // TnsPageMetrics
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499166B501D1 // First
+ HWL ME_499166C1005A // Last
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_499166AA0327 TnsMetricsIndex
+
+FORWARD ME_499166CF011C
+
+ME ME_499166E900F4
+ MEPROP UID '499166E900F4'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_499166CF011C // TnsMetrics
+ ;
+ MELINK Target WL 'ME_475EA27A0131' '4AB0C3C60310.ms.model.script' // Double
+ ;
+
+ENDME // ME_499166E900F4 
+
+ME ME_499166CF011C
+ MEPROP UID '499166CF011C'
+ MEPROP Name 'TnsMetrics'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'отступы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499166AA0327 // TnsMetricsIndex
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499166E900F4 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_499166CF011C TnsMetrics
+
+FORWARD ME_499166FA025A
+
+ME ME_499168610082
+ MEPROP UID '499168610082'
+ MEPROP Name 'Orientation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_499168610082 Orientation
+
+ME ME_499168B402A0
+ MEPROP UID '499168B402A0'
+ MEPROP Name 'PaperFormatIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_499168B402A0 PaperFormatIndex
+
+FORWARD ME_499167FA0390
+
+ME ME_499168040010
+ MEPROP UID '499168040010'
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499167FA0390 // Colontituls
+ ;
+ MELINK Target WL 'ME_4991678A008A' '47C695A10172.ms.model.script' // TevPageColontituls
+ ;
+
+ENDME // ME_499168040010 aIndex
+
+ME ME_499167FA0390
+ MEPROP UID '499167FA0390'
+ MEPROP Name 'Colontituls'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499168040010 // aIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_499167FA0390 Colontituls
+
+FORWARD ME_49916827025C
+
+ME ME_4991683200B8
+ MEPROP UID '4991683200B8'
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49916827025C // Metrics
+ ;
+ MELINK Target HWL ME_499166AA0327 // TnsMetricsIndex
+ ;
+
+ENDME // ME_4991683200B8 aIndex
+
+ME ME_49916827025C
+ MEPROP UID '49916827025C'
+ MEPROP Name 'Metrics'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_475EA27A0131' '4AB0C3C60310.ms.model.script' // Double
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4991683200B8 // aIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_49916827025C Metrics
+
+FORWARD ME_49916880028F
+
+ME ME_499168830281
+ MEPROP UID '499168830281'
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49916880028F // PaperFormats
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_499168830281 aIndex
+
+ME ME_49916880028F
+ MEPROP UID '49916880028F'
+ MEPROP Name 'PaperFormats'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499168830281 // aIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_49916880028F PaperFormats
+
+FORWARD ME_499168CB0036
+
+ME ME_499168D002EC
+ MEPROP UID '499168D002EC'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499168CB0036 // PaperSize
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_499168D002EC anIndex
+
+ME ME_499168CB0036
+ MEPROP UID '499168CB0036'
+ MEPROP Name 'PaperSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A1052001B2' '4677FBA70343.ms.model.script' // TPoint
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499168D002EC // anIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_499168CB0036 PaperSize
+
+ME ME_499167120208
+ MEPROP UID '499167120208'
+ MEPROP Name 'GetCustomFormatIndex'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499167120208 GetCustomFormatIndex
+
+ME ME_4991671F0271
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A1052001B2' '4677FBA70343.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_4991671F0271 aSize
+
+ME ME_4991671D00B6
+ MEPROP UID '4991671D00B6'
+ MEPROP Name 'GetFormatIndex'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991671F0271 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_4991671D00B6 GetFormatIndex
+
+ME ME_4991672E0023
+ MEPROP UID '4991672E0023'
+ MEPROP Name 'IsPaperFormatsExisits'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4991672E0023 IsPaperFormatsExisits
+
+ME ME_49916738010C
+ MEPROP UID '49916738010C'
+ MEPROP Name 'LoadPageFormatFromPrinter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49916738010C LoadPageFormatFromPrinter
+
+ME ME_4991673F01A5
+ MEPROP UID '4991673F01A5'
+ MEPROP Name 'SavePageFormatToSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+
+ENDME // ME_4991673F01A5 SavePageFormatToSettings
+
+ME ME_4991674E006A
+ MEPROP UID '4991674E006A'
+ MEPROP Name 'SaveToPrinter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+
+ENDME // ME_4991674E006A SaveToPrinter
+
+ME ME_4991675E000D
+ MEPROP Name 'aOrientation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4991675E000D aOrientation
+
+ME ME_4991675C02C3
+ MEPROP UID '4991675C02C3'
+ MEPROP Name 'SetPageFormat'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499166FA025A // InsPageSettingsInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991675E000D // aOrientation
+ )
+ ; // Parameters
+
+ENDME // ME_4991675C02C3 SetPageFormat
+
+ME ME_499165830038_ME_499166FA025A
+ MELINK Original HWL ME_499165830038 // Load
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499165830038_ME_499166FA025A Load
+
+ME ME_4991658C0202_ME_499166FA025A
+ MELINK Original HWL ME_4991658C0202 // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4991658C0202_ME_499166FA025A Save
+
+ME ME_499165930270_ME_499166FA025A
+ MELINK Original HWL ME_499165930270 // MarkModified
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499165930270_ME_499166FA025A MarkModified
+
+ME ME_499165A10071_ME_499166FA025A
+ MELINK Original HWL ME_499165A10071 // IsActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165A10071_ME_499166FA025A IsActive
+
+ME ME_499165B1011E_ME_499166FA025A
+ MELINK Original HWL ME_499165B1011E // IsPredefined
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165B1011E_ME_499166FA025A IsPredefined
+
+ME ME_499165D0006C_ME_499166FA025A
+ MELINK Original HWL ME_499165D0006C // IsDifferFromDefault
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165D0006C_ME_499166FA025A IsDifferFromDefault
+
+ME ME_49916644013B_ME_499166FA025A
+ MELINK Original HWL ME_49916644013B // EditingSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49916644013B_ME_499166FA025A EditingSettings
+
+ME ME_4991665A016D_ME_499166FA025A
+ MELINK Original HWL ME_4991665A016D // Modified
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4991665A016D_ME_499166FA025A Modified
+
+ME ME_4E32B7240068_ME_499166FA025A
+ MELINK Original HWL ME_4E32B7240068 // InitialLoadStyleTableFromSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E32B7240068_ME_499166FA025A InitialLoadStyleTableFromSettings
+
+ME ME_499166FA025A
+ MEPROP UID '499166FA025A'
+ MEPROP GUID '89C52852-C652-428B-B01D-ECA5709514AA'
+ MEPROP Name 'InsPageSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'для передачи в диалоги редактирования конфигурации параметров с которой работают' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4991656C024F // InsEditSettingsInfo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499168610082 // Orientation
+ HWL ME_499168B402A0 // PaperFormatIndex
+ HWL ME_499167FA0390 // Colontituls
+ HWL ME_49916827025C // Metrics
+ HWL ME_49916880028F // PaperFormats
+ HWL ME_499168CB0036 // PaperSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_499167120208 // GetCustomFormatIndex
+ HWL ME_4991671D00B6 // GetFormatIndex
+ HWL ME_4991672E0023 // IsPaperFormatsExisits
+ HWL ME_49916738010C // LoadPageFormatFromPrinter
+ HWL ME_4991673F01A5 // SavePageFormatToSettings
+ HWL ME_4991674E006A // SaveToPrinter
+ HWL ME_4991675C02C3 // SetPageFormat
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499165830038_ME_499166FA025A // Load
+ ME_4991658C0202_ME_499166FA025A // Save
+ ME_499165930270_ME_499166FA025A // MarkModified
+ ME_499165A10071_ME_499166FA025A // IsActive
+ ME_499165B1011E_ME_499166FA025A // IsPredefined
+ ME_499165D0006C_ME_499166FA025A // IsDifferFromDefault
+ ME_49916644013B_ME_499166FA025A // EditingSettings
+ ME_4991665A016D_ME_499166FA025A // Modified
+ ME_4E32B7240068_ME_499166FA025A // InitialLoadStyleTableFromSettings
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'PageSettingsInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499166FA025A InsPageSettingsInfo
+
+FORWARD ME_499168FA025D
+
+ME ME_4991697200B8
+ MEPROP UID '4991697200B8'
+ MEPROP Name 'IsOverallModified'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Изменились или настройки или описание конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4991697200B8 IsOverallModified
+
+ME ME_499169B900F3
+ MEPROP UID '499169B900F3'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" true
+
+ENDME // ME_499169B900F3 ID
+
+ME ME_499169860111
+ MEPROP UID '499169860111'
+ MEPROP Name 'ConfigName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_499169860111 ConfigName
+
+ME ME_499169980336
+ MEPROP UID '499169980336'
+ MEPROP Name 'ConfigHint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_499169980336 ConfigHint
+
+ME ME_499169E7017E
+ MEPROP UID '499169E7017E'
+ MEPROP Name 'Configuration'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ MELINK Target WL 'ME_45EEDBE3014C' '45EEAA69036E.ms.model.script' // Configuration
+ ;
+ UP "pm" true
+
+ENDME // ME_499169E7017E Configuration
+
+ME ME_4991691A02F1
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4991691A02F1 aName
+
+ME ME_4991691A033E
+ MEPROP Name 'aHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4991691A033E aHint
+
+ME ME_4991690F0074
+ MEPROP UID '4991690F0074'
+ MEPROP Name 'RenameConfig'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991691A02F1 // aName
+ ME_4991691A033E // aHint
+ )
+ ; // Parameters
+
+ENDME // ME_4991690F0074 RenameConfig
+
+ME ME_49916921033D
+ MEPROP UID '49916921033D'
+ MEPROP Name 'UpdateActivity'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+
+ENDME // ME_49916921033D UpdateActivity
+
+ME ME_4991692E017E
+ MEPROP UID '4991692E017E'
+ MEPROP Name 'RestoreAllSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+
+ENDME // ME_4991692E017E RestoreAllSettings
+
+ME ME_499169430277
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_499169430277 aForm
+
+ME ME_4991694302AC
+ MEPROP Name 'aButtonsPanelHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4991694302AC aButtonsPanelHeight
+
+ME ME_499169390094
+ MEPROP UID '499169390094'
+ MEPROP Name 'FillDialog'
+ MEPROP Class class_Operation
+ %SUMMARY 'заполнить форму редактирования и подключить обработчики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_499169430277 // aForm
+ ME_4991694302AC // aButtonsPanelHeight
+ )
+ ; // Parameters
+
+ENDME // ME_499169390094 FillDialog
+
+ME ME_499169620333
+ MEPROP UID '499169620333'
+ MEPROP Name 'DoneEditing'
+ MEPROP Class class_Operation
+ %SUMMARY 'отключить обработчики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+
+ENDME // ME_499169620333 DoneEditing
+
+ME ME_499165830038_ME_499168FA025D
+ MELINK Original HWL ME_499165830038 // Load
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499165830038_ME_499168FA025D Load
+
+ME ME_4991658C0202_ME_499168FA025D
+ MELINK Original HWL ME_4991658C0202 // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4991658C0202_ME_499168FA025D Save
+
+ME ME_499165930270_ME_499168FA025D
+ MELINK Original HWL ME_499165930270 // MarkModified
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_499165930270_ME_499168FA025D MarkModified
+
+ME ME_499165A10071_ME_499168FA025D
+ MELINK Original HWL ME_499165A10071 // IsActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165A10071_ME_499168FA025D IsActive
+
+ME ME_499165B1011E_ME_499168FA025D
+ MELINK Original HWL ME_499165B1011E // IsPredefined
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165B1011E_ME_499168FA025D IsPredefined
+
+ME ME_499165D0006C_ME_499168FA025D
+ MELINK Original HWL ME_499165D0006C // IsDifferFromDefault
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499165D0006C_ME_499168FA025D IsDifferFromDefault
+
+ME ME_49916644013B_ME_499168FA025D
+ MELINK Original HWL ME_49916644013B // EditingSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49916644013B_ME_499168FA025D EditingSettings
+
+ME ME_4991665A016D_ME_499168FA025D
+ MELINK Original HWL ME_4991665A016D // Modified
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4991665A016D_ME_499168FA025D Modified
+
+ME ME_4E32B7240068_ME_499168FA025D
+ MELINK Original HWL ME_4E32B7240068 // InitialLoadStyleTableFromSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E32B7240068_ME_499168FA025D InitialLoadStyleTableFromSettings
+
+ME ME_499168FA025D
+ MEPROP UID '499168FA025D'
+ MEPROP GUID '9D31F977-B538-4B65-8ADF-0EE2E3E36E12'
+ MEPROP Name 'InsConfigSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройки конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4991656C024F // InsEditSettingsInfo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4991697200B8 // IsOverallModified
+ HWL ME_499169B900F3 // ID
+ HWL ME_499169860111 // ConfigName
+ HWL ME_499169980336 // ConfigHint
+ HWL ME_499169E7017E // Configuration
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4991690F0074 // RenameConfig
+ HWL ME_49916921033D // UpdateActivity
+ HWL ME_4991692E017E // RestoreAllSettings
+ HWL ME_499169390094 // FillDialog
+ HWL ME_499169620333 // DoneEditing
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499165830038_ME_499168FA025D // Load
+ ME_4991658C0202_ME_499168FA025D // Save
+ ME_499165930270_ME_499168FA025D // MarkModified
+ ME_499165A10071_ME_499168FA025D // IsActive
+ ME_499165B1011E_ME_499168FA025D // IsPredefined
+ ME_499165D0006C_ME_499168FA025D // IsDifferFromDefault
+ ME_49916644013B_ME_499168FA025D // EditingSettings
+ ME_4991665A016D_ME_499168FA025D // Modified
+ ME_4E32B7240068_ME_499168FA025D // InitialLoadStyleTableFromSettings
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'ConfigSettingsInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499168FA025D InsConfigSettingsInfo
+
+FORWARD ME_49916A0A015E
+
+ME ME_49916A2101C9
+ MEPROP UID '49916A2101C9'
+ MEPROP Name 'Config'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A0A015E // InsConfigNode
+ ;
+ MELINK Target HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ UP "pm" true
+
+ENDME // ME_49916A2101C9 Config
+
+ME ME_49916A380018
+ MEPROP UID '49916A380018'
+ MEPROP Name 'ActiveSuffix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A0A015E // InsConfigNode
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_49916A380018 ActiveSuffix
+
+ME ME_49916A1703A8
+ MEPROP UID '49916A1703A8'
+ MEPROP Name 'UpdateActivity'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49916A0A015E // InsConfigNode
+ ;
+
+ENDME // ME_49916A1703A8 UpdateActivity
+
+ME ME_49916A0A015E
+ MEPROP UID '49916A0A015E'
+ MEPROP GUID '3A37E1CD-2596-484C-8519-7DE749B0D847'
+ MEPROP Name 'InsConfigNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер для настроек. Дерево поскольку требуется для меню и списка конфигураций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49916A2101C9 // Config
+ HWL ME_49916A380018 // ActiveSuffix
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49916A1703A8 // UpdateActivity
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ConfigNode'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49916A0A015E InsConfigNode
+
+FORWARD ME_49916A4F025E
+
+ME ME_49916A6B0313
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_49916A6B0313 aName
+
+ME ME_49916A6B033E
+ MEPROP Name 'aConfigID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_49916A6B033E aConfigID
+
+ME ME_49916A600123
+ MEPROP UID '49916A600123'
+ MEPROP Name 'DuplicateName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49916A4F025E // InsDuplicateConfigNameChecker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49916A6B0313 // aName
+ ME_49916A6B033E // aConfigID
+ )
+ ; // Parameters
+
+ENDME // ME_49916A600123 DuplicateName
+
+ME ME_49916A4F025E
+ MEPROP UID '49916A4F025E'
+ MEPROP GUID 'CDD5EA66-697D-4CA0-BEE2-E246BCB5379E'
+ MEPROP Name 'InsDuplicateConfigNameChecker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяльщик дублирования имени конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49916A600123 // DuplicateName
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'DuplicateConfigNameChecker'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49916A4F025E InsDuplicateConfigNameChecker
+
+FORWARD ME_49916A7F01DB
+
+ME ME_49916AE8037C
+ MEPROP UID '49916AE8037C'
+ MEPROP Name 'MenuTree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Дерево для отображения в меню Файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "pm" true
+
+ENDME // ME_49916AE8037C MenuTree
+
+ME ME_49916B0301B1
+ MEPROP UID '49916B0301B1'
+ MEPROP Name 'ActiveMenuNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Узел с активной конфигурацией в дереве для меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "pm" true
+
+ENDME // ME_49916B0301B1 ActiveMenuNode
+
+ME ME_49916B51009D
+ MEPROP UID '49916B51009D'
+ MEPROP Name 'ConfigTree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'дерево для отображения в списке конфигураций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+ UP "pm" true
+
+ENDME // ME_49916B51009D ConfigTree
+
+ME ME_49916B6900A4
+ MEPROP UID '49916B6900A4'
+ MEPROP Name 'ActiveConfigNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Узел с активной конфигурацией в списке конфигураций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+ UP "pm" true
+
+ENDME // ME_49916B6900A4 ActiveConfigNode
+
+ME ME_49916B830224
+ MEPROP UID '49916B830224'
+ MEPROP Name 'ActiveConfig'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Активная конфигурация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELINK Target HWL ME_499168FA025D // InsConfigSettingsInfo
+ ;
+ UP "pm" true
+
+ENDME // ME_49916B830224 ActiveConfig
+
+ME ME_49916B9A0250
+ MEPROP UID '49916B9A0250'
+ MEPROP Name 'ActiveConfigSuffix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Суффикс добавляемый для активной конфигурации в списке конфигураций (ConfigTree)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_49916B9A0250 ActiveConfigSuffix
+
+ME ME_49916A980391
+ MEPROP Name 'aConfigNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49916A0A015E // InsConfigNode
+ ;
+
+ENDME // ME_49916A980391 aConfigNode
+
+ME ME_49916A8F028C
+ MEPROP UID '49916A8F028C'
+ MEPROP Name 'ActivateConfig'
+ MEPROP Class class_Operation
+ %SUMMARY 'Активировать конфигурацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELIST Parameters
+   Seq: ( ME_49916A980391 // aConfigNode
+ )
+ ; // Parameters
+
+ENDME // ME_49916A8F028C ActivateConfig
+
+ME ME_53C53BE802AF
+ MEPROP Name 'aConfig'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDBE3014C' '45EEAA69036E.ms.model.script' // Configuration
+ ;
+
+ENDME // ME_53C53BE802AF aConfig
+
+ME ME_53C53BD20284
+ MEPROP UID '53C53BD20284'
+ MEPROP Name 'ActivateConfig'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C53BE802AF // aConfig
+ )
+ ; // Parameters
+
+ENDME // ME_53C53BD20284 ActivateConfig
+
+ME ME_49916ACA0134
+ MEPROP Name 'aConfigNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49916A0A015E // InsConfigNode
+ ;
+
+ENDME // ME_49916ACA0134 aConfigNode
+
+ME ME_49916ACA0162
+ MEPROP Name 'aSinglePattern'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_49916ACA0162 aSinglePattern
+
+ME ME_49916ACA018D
+ MEPROP Name 'aManyPattern'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_49916ACA018D aManyPattern
+
+ME ME_49916AA50011
+ MEPROP UID '49916AA50011'
+ MEPROP Name 'CopyConfig'
+ MEPROP Class class_Operation
+ %SUMMARY 'Копировать конфигурацию'#13#10'       aSinglePattern, aManyPattern - шаблоны для изготовления уникального имени'#13#10'       aSinglePattern - типа "КОпия %s" - обязателено вхождение %s'#13#10'       aManyPattern - типа "копия%d %s" - обязателено вхождение %d и %s' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELINK Target HWL ME_49916A0A015E // InsConfigNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_49916ACA0134 // aConfigNode
+ ME_49916ACA0162 // aSinglePattern
+ ME_49916ACA018D // aManyPattern
+ )
+ ; // Parameters
+
+ENDME // ME_49916AA50011 CopyConfig
+
+ME ME_4991733D0305
+ MEPROP Name 'aConfigNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49916A0A015E // InsConfigNode
+ ;
+
+ENDME // ME_4991733D0305 aConfigNode
+
+ME ME_4991733603DA
+ MEPROP UID '4991733603DA'
+ MEPROP Name 'DeleteConfig'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49916A7F01DB // InsConfigurationList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991733D0305 // aConfigNode
+ )
+ ; // Parameters
+
+ENDME // ME_4991733603DA DeleteConfig
+
+ME ME_49916A7F01DB
+ MEPROP UID '49916A7F01DB'
+ MEPROP GUID '5D4719FF-714C-433D-8F81-DFA95F304B70'
+ MEPROP Name 'InsConfigurationList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список конфигураций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499164F501ED // ConfigInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49916AE8037C // MenuTree
+ HWL ME_49916B0301B1 // ActiveMenuNode
+ HWL ME_49916B51009D // ConfigTree
+ HWL ME_49916B6900A4 // ActiveConfigNode
+ HWL ME_49916B830224 // ActiveConfig
+ HWL ME_49916B9A0250 // ActiveConfigSuffix
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49916A8F028C // ActivateConfig
+ HWL ME_53C53BD20284 // ActivateConfig
+ HWL ME_49916AA50011 // CopyConfig
+ HWL ME_4991733603DA // DeleteConfig
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ConfigurationList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49916A7F01DB InsConfigurationList
+
+ME ME_499164F501ED
+ MEPROP UID '499164F501ED'
+ MEPROP Name 'ConfigInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Настройки конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4991656C024F // InsEditSettingsInfo
+ HWL ME_4991666D01FD // InsStyleTableSettingsInfo
+ HWL ME_4991667D0318 // TnsPageMetrics
+ HWL ME_499166AA0327 // TnsMetricsIndex
+ HWL ME_499166CF011C // TnsMetrics
+ HWL ME_499166FA025A // InsPageSettingsInfo
+ HWL ME_499168FA025D // InsConfigSettingsInfo
+ HWL ME_49916A0A015E // InsConfigNode
+ HWL ME_49916A4F025E // InsDuplicateConfigNameChecker
+ HWL ME_49916A7F01DB // InsConfigurationList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_45EEAA69036E' '45EEAA69036E.ms.model.script' // Settings
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_47C695A10172' '47C695A10172.ms.model.script' // evTypes
+ WL 'ME_4912DD020283' '4912DD020283.ms.model.script' // eeInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '10.02.2009 14:30'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\ConfigInterfaces.pas'
+
+ENDME // ME_499164F501ED ConfigInterfaces

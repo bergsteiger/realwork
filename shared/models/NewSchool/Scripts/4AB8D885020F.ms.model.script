@@ -1,0 +1,88 @@
+// OldSituationSearch 4AB8D885020F VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB8D885020F
+
+ME ME_DA935FDF40EA
+ MEPROP UID 'DA935FDF40EA'
+ MEPROP GUID 'C98510C7-15ED-408C-B356-69BB7B6D9CA4'
+ MEPROP Name 'OldSituationSearch'
+ MEPROP OriginalName 'OldSituationSearch$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы OldSituationSearch' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB8D885020F // OldSituationSearch
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AB8D885020F // OldSituationSearch
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'OldSituationSearchFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_DA935FDF40EA OldSituationSearch$Def
+
+ME ME_4901E1AE4F7C
+ MEPROP UID '4901E1AE4F7C'
+ MEPROP Name 'Ini_FormFactory_OldSituationSearch'
+ MEPROP OriginalName 'Ini_FormFactory_OldSituationSearch$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы OldSituationSearch' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB8D885020F // OldSituationSearch
+ ;
+ UPLINK SpelledFor HWL ME_4AB8D885020F // OldSituationSearch
+ ;
+
+ENDME // ME_4901E1AE4F7C Ini_FormFactory_OldSituationSearch$Def
+
+ME ME_4AB8D885020F
+ MEPROP UID '4AB8D885020F'
+ MEPROP Name 'OldSituationSearch'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск по ситуации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA641A3036C' '4AA641A3036C.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C44149E023F' '4C44149E023F.ms.model.script' // PrimOldSituationSearchOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_DA935FDF40EA // OldSituationSearch$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4901E1AE4F7C // Ini_FormFactory_OldSituationSearch$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_DA935FDF40EA // OldSituationSearch$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "form name prefix" 'cf'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\OldSituationSearch_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ UP extprop:pas:TypeName 'TcfOldSituationSearch'
+ UP extprop:rc:SelfName 'cfOldSituationSearch'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'OldSituationSearch_Form'
+
+ENDME // ME_4AB8D885020F OldSituationSearch

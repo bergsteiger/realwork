@@ -1,0 +1,60 @@
+// Filters 4ABCD2BC0302 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABCD2BC0302
+
+ME ME_29C81B698BDF
+ MEPROP UID '29C81B698BDF'
+ MEPROP Name 'Ini_FormFactory_Filters'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Filters' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABCD2BC0302 // Filters
+ ;
+ UPLINK SpelledFor HWL ME_4ABCD2BC0302 // Filters
+ ;
+
+ENDME // ME_29C81B698BDF Ini_FormFactory_Filters
+
+ME ME_4ABCD2BC0302
+ MEPROP UID '4ABCD2BC0302'
+ MEPROP Name 'Filters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CCAA9E50274' '4CCAA9E50274.ms.model.script' // Filters$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7F5A5800CD' '4C7F5A5800CD.ms.model.script' // PrimFiltersOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D80D1950337' '4BD856E802F9.ms.model.script' // Filters
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_29C81B698BDF // Ini_FormFactory_Filters
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Navigator'
+ UP "finished dfm" true
+ UP "form name prefix" 'en'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\Filters_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms'
+ UP extprop:pas:TypeName 'TenFilters'
+ UP extprop:rc:SelfName 'enFilters'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Filters_Form'
+
+ENDME // ME_4ABCD2BC0302 Filters

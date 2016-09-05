@@ -1,0 +1,107 @@
+// MemoryUsage 4F882096008A VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F882096008A
+
+ME ME_06C06D8D5AC2
+ MEPROP UID '06C06D8D5AC2'
+ MEPROP Name 'ut_MemoryUsage'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Используемые ресурсы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F882096008A // MemoryUsage
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MemoryUsage_ut_MemoryUsage_UserType.pas'
+ UP extprop:pas:UnitName 'MemoryUsage_ut_MemoryUsage_UserType'
+
+ENDME // ME_06C06D8D5AC2 ut_MemoryUsage
+
+ME ME_53BB8038FD9C
+ MEPROP UID '53BB8038FD9C'
+ MEPROP GUID '239C1E38-C6A8-4737-8D22-0F6E2D5E4762'
+ MEPROP Name 'MemoryUsage'
+ MEPROP OriginalName 'MemoryUsage$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы MemoryUsage' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F882096008A // MemoryUsage
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4F882096008A // MemoryUsage
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'MemoryUsageFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53BB8038FD9C MemoryUsage$Def
+
+ME ME_583036A90C2E
+ MEPROP UID '583036A90C2E'
+ MEPROP Name 'Ini_FormFactory_MemoryUsage'
+ MEPROP OriginalName 'Ini_FormFactory_MemoryUsage$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MemoryUsage' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F882096008A // MemoryUsage
+ ;
+ UPLINK SpelledFor HWL ME_4F882096008A // MemoryUsage
+ ;
+
+ENDME // ME_583036A90C2E Ini_FormFactory_MemoryUsage$Def
+
+ME ME_4F882096008A
+ MEPROP UID '4F882096008A'
+ MEPROP Name 'MemoryUsage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Используемые ресурсы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA7E9B9016C' '4AA7E9B9016C.ms.model.script' // Main
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5391A476038A' '5391A476038A.ms.model.script' // MemoryUsagePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53BB8038FD9C // MemoryUsage$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_583036A90C2E // Ini_FormFactory_MemoryUsage$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_06C06D8D5AC2 // ut_MemoryUsage
+ HWL ME_53BB8038FD9C // MemoryUsage$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Modal'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MemoryUsage_Form.pas'
+ UP extprop:pas:TypeName 'TMemoryUsageForm'
+ UP extprop:rc:SelfName 'MemoryUsageForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MemoryUsage_Form'
+
+ENDME // ME_4F882096008A MemoryUsage

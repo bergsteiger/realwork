@@ -1,0 +1,28 @@
+// Design 4AB22E9B0071 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AB22E9B0071
+ MEPROP UID '4AB22E9B0071'
+ MEPROP Name 'Design'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
+ ;
+ MELIST Depends
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ WL 'ME_47B9727603BE' '47B9727603BE.ms.model.script' // FormSets
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB34028023E' '4AB34028023E.ms.model.script' // Components
+ WL 'ME_50883A2E00B3' '50883A2E00B3.ms.model.script' // Application
+ )
+ ; // Depends
+ UP "ifdef" 'DesignTimeLibrary'
+ UP "path prefix" '/implementation/Design'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Design'
+
+ENDME // ME_4AB22E9B0071 Design

@@ -1,0 +1,280 @@
+// TnscTreeViewHotTruck 4B60346A022E GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B60346A022E
+
+FORWARD ME_559BCDD6010D
+
+ME ME_559BCDED03AB
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_559BCDED03AB Sender
+
+ME ME_559BCDED03BF
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_559BCDED03BF anIndex
+
+ME ME_559BCDED03DD
+ MEPROP Name 'Allow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_559BCDED03DD Allow
+
+ME ME_559BCDE801B7
+ MEPROP UID '559BCDE801B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BCDD6010D // TOnAllowHotTruck
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BCDED03AB // Sender
+ ME_559BCDED03BF // anIndex
+ ME_559BCDED03DD // Allow
+ )
+ ; // Parameters
+
+ENDME // ME_559BCDE801B7 DoIt
+
+ME ME_559BCDD6010D
+ MEPROP UID '559BCDD6010D'
+ MEPROP Name 'TOnAllowHotTruck'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559BCDE801B7 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_559BCDD6010D TOnAllowHotTruck
+
+ME ME_559BCE1402D5
+ MEPROP UID '559BCE1402D5'
+ MEPROP Name 'OnAllowHotTruck'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+ MELINK Target HWL ME_559BCDD6010D // TOnAllowHotTruck
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_559BCE1402D5 OnAllowHotTruck
+
+ME ME_559BCE3F0233
+ MEPROP UID '559BCE3F0233'
+ MEPROP Name 'AllowTrucking'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_559BCE3F0233 AllowTrucking
+
+ME ME_559BCE60027E
+ MEPROP UID '559BCE60027E'
+ MEPROP Name 'HotTruckIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_559BCE60027E HotTruckIndex
+
+FORWARD ME_559BCE89021B
+
+ME ME_559BCE930009
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_559BCE930009 aValue
+
+ME ME_559BCE900315
+ MEPROP UID '559BCE900315'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BCE89021B // SetHotTruckIndex
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BCE930009 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_559BCE900315 DoIt
+
+ME ME_559BCE89021B
+ MEPROP UID '559BCE89021B'
+ MEPROP Name 'SetHotTruckIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559BCE900315 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_559BCE89021B SetHotTruckIndex
+
+ME ME_559BCE9C0001
+ MEPROP UID '559BCE9C0001'
+ MEPROP Name 'UpdateTruckFromCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+
+ENDME // ME_559BCE9C0001 UpdateTruckFromCursor
+
+ME ME_559BCEBB010C
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_559BCEBB010C Message
+
+ME ME_559BCEAE01E8
+ MEPROP UID '559BCEAE01E8'
+ MEPROP Name 'CMMouseLeave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BCEBB010C // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_MOUSELEAVE'
+
+ENDME // ME_559BCEAE01E8 CMMouseLeave
+
+ME ME_559BCF6801DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_559BCF6801DE 
+
+ME ME_47D1602000C6_ME_4B60346A022E
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4B60346A022E Create
+
+ME ME_508F825303E4_ME_4B60346A022E
+ MELINK Original WL 'ME_508F825303E4' '515DA5860015.ms.model.script' // DoOnGetItemStyle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_508F825303E4_ME_4B60346A022E DoOnGetItemStyle
+
+ME ME_5152C10E027B_ME_4B60346A022E
+ MELINK Original WL 'ME_5152C10E027B' '4CFFE3470249.ms.model.script' // SetCursorForItem
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5152C10E027B_ME_4B60346A022E SetCursorForItem
+
+ME ME_4B60346A022E
+ MEPROP UID '4B60346A022E'
+ MEPROP Name 'TnscTreeViewHotTruck'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499C2614028C' '499C2614028C.ms.model.script' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_499C26240034' '499C26240034.ms.model.script' // TnscTreeView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_559BCE1402D5 // OnAllowHotTruck
+ HWL ME_559BCE3F0233 // AllowTrucking
+ HWL ME_559BCE60027E // HotTruckIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_559BCE89021B // SetHotTruckIndex
+ HWL ME_559BCE9C0001 // UpdateTruckFromCursor
+ HWL ME_559BCEAE01E8 // CMMouseLeave
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4B60346A022E // Create
+ ME_508F825303E4_ME_4B60346A022E // DoOnGetItemStyle
+ ME_5152C10E027B_ME_4B60346A022E // SetCursorForItem
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_559BCDD6010D // TOnAllowHotTruck
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_559BCF6801DE // Windows
+ )
+ ; // Dependencies
+ UP "ifdef" 'Nemesis'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTreeViewHotTruck.pas'
+ UP extprop:rc:SelfName 'TreeViewHotTruck'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscTreeViewHotTruck'
+
+ENDME // ME_4B60346A022E TnscTreeViewHotTruck

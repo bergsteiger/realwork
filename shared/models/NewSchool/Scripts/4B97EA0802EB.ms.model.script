@@ -1,0 +1,193 @@
+// TvtOutlinerWithQuickSearch 4B97EA0802EB GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97EA0802EB
+
+ME ME_5166DDC602A8
+ MEPROP UID '5166DDC602A8'
+ MEPROP Name 'f_MousePos'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97EA0802EB // TvtOutlinerWithQuickSearch
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_5166DDC602A8 f_MousePos
+
+FORWARD ME_5166DD350150
+
+ME ME_5166DD4B02B6
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5166DD4B02B6 Sender
+
+ME ME_5166DD4B02CD
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5166DD4B02CD aString
+
+ME ME_5166DD4500E0
+ MEPROP UID '5166DD4500E0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5166DD350150 // QuickSearchHandler
+ ;
+ MELIST Parameters
+   Seq: ( ME_5166DD4B02B6 // Sender
+ ME_5166DD4B02CD // aString
+ )
+ ; // Parameters
+
+ENDME // ME_5166DD4500E0 DoIt
+
+ME ME_5166DD350150
+ MEPROP UID '5166DD350150'
+ MEPROP Name 'QuickSearchHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97EA0802EB // TvtOutlinerWithQuickSearch
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5166DD4500E0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5166DD350150 QuickSearchHandler
+
+FORWARD ME_5166DD570238
+
+ME ME_5166DD640149
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5166DD640149 Sender
+
+ME ME_5166DD61024A
+ MEPROP UID '5166DD61024A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5166DD570238 // QuickSearchHintTimerEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_5166DD640149 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_5166DD61024A DoIt
+
+ME ME_5166DD570238
+ MEPROP UID '5166DD570238'
+ MEPROP Name 'QuickSearchHintTimerEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97EA0802EB // TvtOutlinerWithQuickSearch
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5166DD61024A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5166DD570238 QuickSearchHintTimerEvent
+
+ME ME_5166E12B031E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B97EA0802EB // TvtOutlinerWithQuickSearch
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5166E12B031E 
+
+ME ME_5166E1A40063
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B97EA0802EB // TvtOutlinerWithQuickSearch
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5166E1A40063 
+
+ME ME_5166E1ED02B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B97EA0802EB // TvtOutlinerWithQuickSearch
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5166E1ED02B9 
+
+ME ME_47D1602000C6_ME_4B97EA0802EB
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4B97EA0802EB Create
+
+ME ME_4B97EA0802EB
+ MEPROP UID '4B97EA0802EB'
+ MEPROP Name 'TvtOutlinerWithQuickSearch'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFFBEEA0109' '515DA5860015.ms.model.script' // TvtCustomOutliner
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5166DDC602A8 // f_MousePos
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5166DD350150 // QuickSearchHandler
+ HWL ME_5166DD570238 // QuickSearchHintTimerEvent
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4B97EA0802EB // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5166E12B031E // Controls
+ ME_5166E1A40063 // Windows
+ ME_5166E1ED02B9 // Forms
+ )
+ ; // Dependencies
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtOutlinerWithQuickSearch.pas'
+ UP extprop:rc:SelfName 'OutlinerWithQuickSearch'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtOutlinerWithQuickSearch'
+
+ENDME // ME_4B97EA0802EB TvtOutlinerWithQuickSearch

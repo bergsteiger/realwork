@@ -1,0 +1,107 @@
+// TasksPanel 4C8DD8B8006C VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8DD8B8006C
+
+ME ME_5396F51300D8
+ MEPROP UID '5396F51300D8'
+ MEPROP Name 'CustomizeTasksPanelRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8DD8B8006C // TasksPanel
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\NOT_FINISHED_CustomizeTasksPanelRes.pas'
+
+ENDME // ME_5396F51300D8 CustomizeTasksPanelRes
+
+FORWARD ME_559F8C7A0213
+
+ME ME_559F8C960133
+ MEPROP UID '559F8C960133'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559F8C7A0213 // TvcmCustOpsRepGroupList
+ ;
+ MELINK Target WL 'ME_4992FD760178' '49940C8E00DA.ms.model.script' // IvcmCustOpsRepGroup
+ ;
+
+ENDME // ME_559F8C960133 ItemType
+
+ME ME_559F8C7A0213
+ MEPROP UID '559F8C7A0213'
+ MEPROP Name 'TvcmCustOpsRepGroupList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C8DD8B8006C // TasksPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_559F8C960133 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\vcmCustOpsRepGroupList.pas'
+ UP extprop:rc:SelfName 'CustOpsRepGroupList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmCustOpsRepGroupList'
+
+ENDME // ME_559F8C7A0213 TvcmCustOpsRepGroupList
+
+ME ME_4C8DD8B8006C
+ MEPROP UID '4C8DD8B8006C'
+ MEPROP Name 'TasksPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMModule ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C8DD8970344' '4C8DD8970344.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4C8E4D21001F' '4C8E4D21001F.ms.model.script' // PrimCustomizeTasksPanel
+ WL 'ME_4C8DD8C602D3' '4C8DD8C602D3.ms.model.script' // PrimTasksPanelMenu
+ WL 'ME_4C8DE85601C4' '4C8DE85601C4.ms.model.script' // TasksPanelMenu
+ HWL ME_5396F51300D8 // CustomizeTasksPanelRes
+ HWL ME_559F8C7A0213 // TvcmCustOpsRepGroupList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
+ WL 'ME_49940C8E00DA' '49940C8E00DA.ms.model.script' // vcmTaskPanelInterfaces
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_52A1ACC102FE' '52A1ACC102FE.ms.model.script' // PopupMenu
+ WL 'ME_578E02C50241' '578E02C50241.ms.model.script' // Customization
+ )
+ ; // Depends
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\TasksPanel'
+
+ENDME // ME_4C8DD8B8006C TasksPanel

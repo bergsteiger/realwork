@@ -1,0 +1,150 @@
+// k2Tags 47AC75550330 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47AC75550330
+
+FORWARD ME_47AC759800AF
+
+ME ME_47AC75B1032A
+ MEPROP UID '47AC75B1032A'
+ MEPROP Name 'k2_tiComplexBase'
+ MEPROP Class class_Attribute
+ %SUMMARY 'база для указания сложной сортировки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC759800AF // ExtTags
+ ;
+ MEPROP Value 'High(Byte) + 1'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'High(Byte) + 1'
+
+ENDME // ME_47AC75B1032A k2_tiComplexBase
+
+ME ME_47AC759800AF
+ MEPROP UID '47AC759800AF'
+ MEPROP Name 'ExtTags'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'вспомогательные тэги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC75550330 // k2Tags
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47AC75B1032A // k2_tiComplexBase
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47AC759800AF ExtTags
+
+ME ME_47C69EBC00A8
+ MEPROP UID '47C69EBC00A8'
+ MEPROP Name 'Tk2TagID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC75550330 // k2Tags
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47C69EBC00A8 Tk2TagID
+
+FORWARD ME_47C68D850105
+
+ME ME_47C68D980202
+ MEPROP UID '47C68D980202'
+ MEPROP Name 'k2_tiName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47C68D850105 // Tk2FontParam
+ ;
+ MEPROP Value 'k2_tiName'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'k2_tiName'
+
+ENDME // ME_47C68D980202 k2_tiName
+
+ME ME_47C68DA70068
+ MEPROP UID '47C68DA70068'
+ MEPROP Name 'k2_tiIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47C68D850105 // Tk2FontParam
+ ;
+ MEPROP Value 'k2_tiIndex'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'k2_tiIndex'
+
+ENDME // ME_47C68DA70068 k2_tiIndex
+
+ME ME_47C68D850105
+ MEPROP UID '47C68D850105'
+ MEPROP Name 'Tk2FontParam'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC75550330 // k2Tags
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47C69EBC00A8 // Tk2TagID
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47C68D980202 // k2_tiName
+ HWL ME_47C68DA70068 // k2_tiIndex
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47C68D850105 Tk2FontParam
+
+ME ME_47AC75550330
+ MEPROP UID '47AC75550330'
+ MEPROP Name 'k2Tags'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Описание идентификаторов стандартных тегов и типов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47C69EBC00A8 // Tk2TagID
+ HWL ME_47C68D850105 // Tk2FontParam
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_47AC759800AF // ExtTags
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "is namespace" true
+ UP "started" '05.05.1998 09:54'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2Tags.pas'
+
+ENDME // ME_47AC75550330 k2Tags

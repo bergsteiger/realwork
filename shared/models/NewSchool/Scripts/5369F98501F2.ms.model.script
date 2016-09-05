@@ -1,0 +1,58 @@
+// VCL 5369F98501F2 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5369F98501F2
+
+FORWARD ME_5369F9C90151
+
+ME ME_5369F9EA011C
+ MEPROP UID '5369F9EA011C'
+ MEPROP Name 'ScreenShot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5369F9C90151 // JclGraphics
+ ;
+
+ENDME // ME_5369F9EA011C ScreenShot
+
+ME ME_5369F9C90151
+ MEPROP UID '5369F9C90151'
+ MEPROP Name 'JclGraphics'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5369F98501F2 // VCL
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5369F9EA011C // ScreenShot
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\source\vcl\NOT_FINISHED_JclGraphics.pas'
+
+ENDME // ME_5369F9C90151 JclGraphics
+
+ME ME_5369F98501F2
+ MEPROP UID '5369F98501F2'
+ MEPROP Name 'VCL'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.ms.model.script' // JEDI
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5369F9C90151 // JclGraphics
+ )
+ ; // Children
+ UP "path prefix" '/source/vcl'
+ UP intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\vcl'
+
+ENDME // ME_5369F98501F2 VCL

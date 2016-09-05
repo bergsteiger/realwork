@@ -2,6 +2,9 @@
 w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas
 //#UC END# *558D53EF03DB_4DAEED140007_Word_ext:ParentFileName
 //#UC START# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := nil
+ else 
  if (aWord.InnerDictionary <> nil) then
   Result := (aWord.InnerDictionary As TtfwDictionary).DRbyCName[aName]
  else

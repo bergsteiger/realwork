@@ -1,0 +1,398 @@
+// HyperlinkOperations 4F1044DD0281 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F1044DD0281
+
+FORWARD ME_502D447F03D5
+
+ME ME_257A9503F3B8
+ MEPROP UID '257A9503F3B8'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода OpenHyperLink' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502D447F03D5 // OpenHyperLink
+ ;
+
+ENDME // ME_257A9503F3B8 DoIt
+
+ME ME_502D447F03D5
+ MEPROP UID '502D447F03D5'
+ MEPROP Name 'OpenHyperLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Открывает текущую ссылку на которой стоит выделение' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_257A9503F3B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_502D447F03D5 OpenHyperLink
+
+FORWARD ME_544E049F00F7
+
+ME ME_761D1F4E1508
+ MEPROP UID '761D1F4E1508'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода AfterOpenHyperlinkInNewTab' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_544E049F00F7 // AfterOpenHyperlinkInNewTab
+ ;
+
+ENDME // ME_761D1F4E1508 DoIt
+
+ME ME_544E049F00F7
+ MEPROP UID '544E049F00F7'
+ MEPROP Name 'AfterOpenHyperlinkInNewTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_761D1F4E1508 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_544E049F00F7 AfterOpenHyperlinkInNewTab
+
+FORWARD ME_5460AA9C02B3
+
+ME ME_5460AAE10244
+ MEPROP Name 'aLinkType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5460AAE10244 aLinkType
+
+ME ME_5460AAD50238
+ MEPROP UID '5460AAD50238'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5460AA9C02B3 // IsHyperlinkOfType
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5460AAE10244 // aLinkType
+ )
+ ; // Parameters
+
+ENDME // ME_5460AAD50238 DoIt
+
+ME ME_5460AA9C02B3
+ MEPROP UID '5460AA9C02B3'
+ MEPROP Name 'IsHyperlinkOfType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5460AAD50238 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5460AA9C02B3 IsHyperlinkOfType
+
+FORWARD ME_5514FDE2017B
+
+ME ME_551502C4027D
+ MEPROP Name 'aLinkKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C7F2A703C6' '469D0AC7005E.ms.model.script' // LinkViewKind
+ ;
+
+ENDME // ME_551502C4027D aLinkKind
+
+ME ME_5514FDF3014D
+ MEPROP UID '5514FDF3014D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5514FDE2017B // IsHyperlinkOfKind
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_551502C4027D // aLinkKind
+ )
+ ; // Parameters
+
+ENDME // ME_5514FDF3014D DoIt
+
+ME ME_5514FDE2017B
+ MEPROP UID '5514FDE2017B'
+ MEPROP Name 'IsHyperlinkOfKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5514FDF3014D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5514FDE2017B IsHyperlinkOfKind
+
+ME ME_4F104B2A022A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_4F104B2A022A 
+
+ME ME_4F104B390349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+
+ENDME // ME_4F104B390349 
+
+ME ME_4F104B600257
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4F104B600257 
+
+ME ME_4F104B7A0217
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4F104B7A0217 
+
+ME ME_4F10564F032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_4F10564F032F 
+
+ME ME_528666B001C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F1044DD0281 // HyperlinkOperations
+ ;
+ MELINK Target WL 'ME_4829D85C03C1' '4829D85C03C1.ms.model.script' // TevEditorWithOperations
+ ;
+
+ENDME // ME_528666B001C7 
+
+ME ME_4C3C758C0183_ME_4F1044DD0281
+ MELINK Original WL 'ME_4C3C758C0183' '4A9807DB01A5.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" true
+ENDME // ME_4C3C758C0183_ME_4F1044DD0281 Delete
+
+ME ME_4C7F8B870162_ME_4F1044DD0281
+ MELINK Original WL 'ME_4C7F8B870162' '4A9807DB01A5.ms.model.script' // Open
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" true
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7F8B870162_ME_4F1044DD0281 Open
+
+ME ME_4C7F8BBB01B2_ME_4F1044DD0281
+ MELINK Original WL 'ME_4C7F8BBB01B2' '4A9807DB01A5.ms.model.script' // OpenNewWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" true
+ UP "ContextMenuWeight" 5
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7F8BBB01B2_ME_4F1044DD0281 OpenNewWindow
+
+ME ME_4C7F8BD80114_ME_4F1044DD0281
+ MELINK Original WL 'ME_4C7F8BD80114' '4A9807DB01A5.ms.model.script' // NextHyperLink
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C7F8BD80114_ME_4F1044DD0281 NextHyperLink
+
+ME ME_4C7F8BEA01B2_ME_4F1044DD0281
+ MELINK Original WL 'ME_4C7F8BEA01B2' '4A9807DB01A5.ms.model.script' // PrevHyperLink
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C7F8BEA01B2_ME_4F1044DD0281 PrevHyperLink
+
+ME ME_53DF186601F1_ME_4F1044DD0281
+ MELINK Original WL 'ME_53DF186601F1' '4A9807DB01A5.ms.model.script' // OpenInNewTab
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "ContextMenuWeight" 0
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_53DF186601F1_ME_4F1044DD0281 OpenInNewTab
+
+ME ME_53F5887E03A1_ME_4F1044DD0281
+ MELINK Original WL 'ME_53F5887E03A1' '4A9807DB01A5.ms.model.script' // OpenScriptHyperLink
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "ContextMenuWeight" 0
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_53F5887E03A1_ME_4F1044DD0281 OpenScriptHyperLink
+
+ME ME_5460A4DD0349_ME_4F1044DD0281
+ MELINK Original WL 'ME_5460A4DD0349' '4A9807DB01A5.ms.model.script' // NavigateInternetHyperlink
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_5460A4DD0349_ME_4F1044DD0281 NavigateInternetHyperlink
+
+ME ME_4F1044DD0281
+ MEPROP UID '4F1044DD0281'
+ MEPROP Name 'HyperlinkOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A815BFF0168' '4A815BFF0168.ms.model.script' // Navigation
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4C3C757901C3' '4A9807DB01A5.ms.model.script' // HyperLink
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_502D447F03D5 // OpenHyperLink
+ HWL ME_544E049F00F7 // AfterOpenHyperlinkInNewTab
+ HWL ME_5460AA9C02B3 // IsHyperlinkOfType
+ HWL ME_5514FDE2017B // IsHyperlinkOfKind
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C3C758C0183_ME_4F1044DD0281 // Delete
+ ME_4C7F8B870162_ME_4F1044DD0281 // Open
+ ME_4C7F8BBB01B2_ME_4F1044DD0281 // OpenNewWindow
+ ME_4C7F8BD80114_ME_4F1044DD0281 // NextHyperLink
+ ME_4C7F8BEA01B2_ME_4F1044DD0281 // PrevHyperLink
+ ME_53DF186601F1_ME_4F1044DD0281 // OpenInNewTab
+ ME_53F5887E03A1_ME_4F1044DD0281 // OpenScriptHyperLink
+ ME_5460A4DD0349_ME_4F1044DD0281 // NavigateInternetHyperlink
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F104B2A022A // IevHyperlink
+ ME_4F104B390349 // IeePara
+ ME_4F104B600257 // InevSelection
+ ME_4F104B7A0217 // Supports
+ ME_4F10564F032F // TevCustomEditor
+ ME_528666B001C7 // TevEditorWithOperations
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas'
+ UP extprop:pas:TypeName '_HyperlinkOperations_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'HyperlinkOperations.imp'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4F1044DD0281 HyperlinkOperations

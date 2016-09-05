@@ -1,0 +1,129 @@
+//#UC START# *479731C50290_57AAF18F0065_impl*
+ inherited;
+//#UC END# *479731C50290_57AAF18F0065_impl*
+//#UC START# *479731C50290_57AAF18F0065_var*
+//#UC END# *479731C50290_57AAF18F0065_var*
+//#UC START# *57AAF18F0065_ext:FileName
+w:\common\components\gui\Garant\msm\msmListViewController.pas
+//#UC END# *57AAF18F0065_ext:FileName
+//#UC START# *57AAF18F0065impl_uses*
+ , Graphics
+ , l3Base
+ , l3String
+//#UC END# *57AAF18F0065impl_uses*
+//#UC START# *57AAFEAF0249_57AAF18F0065_impl*
+ f_Lister := TvtLister.Create(nil);
+ inherited Create(aModelElement, f_Lister, aParent);
+ f_Lister.OnGetStrItem := DoGetStrItem;
+ f_Lister.OnActionElement := DoActionElement;
+//#UC END# *57AAFEAF0249_57AAF18F0065_impl*
+//#UC START# *57AAFEAF0249_57AAF18F0065_var*
+//#UC END# *57AAFEAF0249_57AAF18F0065_var*
+//#UC START# *57AB0F1703C1_57AAF18F0065_impl*
+ ItemString := Self.Model.List.Strings[Index];
+//#UC END# *57AB0F1703C1_57AAF18F0065_impl*
+//#UC START# *57AB0F1703C1_57AAF18F0065_var*
+//#UC END# *57AB0F1703C1_57AAF18F0065_var*
+//#UC START# *57AB13DC0076_57AAF18F0065_impl*
+ if (Self.Model.ModelList = nil) then
+  l_Count := 0
+ else
+ begin
+  l_Count := Self.Model.ModelList.Children.Count;
+  if (Self.Model.ModelList.Parent <> nil) then
+   Inc(l_Count);
+ end;//Self.Model.ModelList = nil
+ f_OwnView.Total := l_Count;
+ f_OwnView.Current := 0;
+ f_OwnView.Invalidate;
+ inherited;
+//#UC END# *57AB13DC0076_57AAF18F0065_impl*
+//#UC START# *57AB13DC0076_57AAF18F0065_var*
+var
+ l_Count : Integer;
+//#UC END# *57AB13DC0076_57AAF18F0065_var*
+//#UC START# *57AB1EAE00C7_57AAF18F0065_impl*
+ inherited;
+//#UC END# *57AB1EAE00C7_57AAF18F0065_impl*
+//#UC START# *57AB1EAE00C7_57AAF18F0065_var*
+//#UC END# *57AB1EAE00C7_57AAF18F0065_var*
+//#UC START# *57AB589001D7_57AAF18F0065_impl*
+ inherited;
+ f_OwnView.OnGetStrItem := DoGetStrItem;
+ f_OwnView.OnActionElement := DoActionElement;
+//#UC END# *57AB589001D7_57AAF18F0065_impl*
+//#UC START# *57AB589001D7_57AAF18F0065_var*
+//#UC END# *57AB589001D7_57AAF18F0065_var*
+//#UC START# *57AD7F090347_57AAF18F0065_impl*
+ inherited;
+ Self.Model.ModelList := anElement;
+ Self.Model.ModelListElementToAction := anElement;
+ ModelElementChanged;
+//#UC END# *57AD7F090347_57AAF18F0065_impl*
+//#UC START# *57AD7F090347_57AAF18F0065_var*
+//#UC END# *57AD7F090347_57AAF18F0065_var*
+//#UC START# *57ADDC3A0071_57AAF18F0065_impl*
+ inherited;
+//#UC END# *57ADDC3A0071_57AAF18F0065_impl*
+//#UC START# *57ADDC3A0071_57AAF18F0065_var*
+//#UC END# *57ADDC3A0071_57AAF18F0065_var*
+//#UC START# *57ADFB33027D_57AAF18F0065_impl*
+ inherited;
+//#UC END# *57ADFB33027D_57AAF18F0065_impl*
+//#UC START# *57ADFB33027D_57AAF18F0065_var*
+//#UC END# *57ADFB33027D_57AAF18F0065_var*
+//#UC START# *57B3192403D2_57AAF18F0065_impl*
+ inherited;
+//#UC END# *57B3192403D2_57AAF18F0065_impl*
+//#UC START# *57B3192403D2_57AAF18F0065_var*
+//#UC END# *57B3192403D2_57AAF18F0065_var*
+//#UC START# *57B47A2102DE_57AAF18F0065_impl*
+ inherited;
+//#UC END# *57B47A2102DE_57AAF18F0065_impl*
+//#UC START# *57B47A2102DE_57AAF18F0065_var*
+//#UC END# *57B47A2102DE_57AAF18F0065_var*
+//#UC START# *57B490B60385_57AAF18F0065_impl*
+ inherited;
+ theContext.rCaption := Self.Model.Caption;
+//#UC END# *57B490B60385_57AAF18F0065_impl*
+//#UC START# *57B490B60385_57AAF18F0065_var*
+//#UC END# *57B490B60385_57AAF18F0065_var*
+//#UC START# *57B5E02201F7_57AAF18F0065_impl*
+ Len := Length(SrchStr);
+ Index := -1;
+ Screen.Cursor := crHourglass;
+ try
+  for I := 0 to Pred(Self.Model.List.Count) do
+  begin
+   Res := l3AnsiStrLICompExt(PAnsiChar(SrchStr),
+                             l3PCharLen(Self.Model.List[I].StringProp['Name']).S,
+                             //l3PCharLen(DoOnGetItem(I)).S},
+                             Len);
+   if (Res = 0) then
+   begin
+    Index := I;
+    Break;
+   end;//Res = 0
+   {if Res > 0 then Exit;   --if sorted only}
+  end;//for I
+ finally
+  Screen.Cursor := crDefault;
+ end;//try..finally
+//#UC END# *57B5E02201F7_57AAF18F0065_impl*
+//#UC START# *57B5E02201F7_57AAF18F0065_var*
+var
+ I     : LongInt;
+ Len   : Word;
+ Res   : Integer;
+//#UC END# *57B5E02201F7_57AAF18F0065_var*
+//#UC START# *57B6A49900F4_57AAF18F0065_impl*
+ inherited;
+//#UC END# *57B6A49900F4_57AAF18F0065_impl*
+//#UC START# *57B6A49900F4_57AAF18F0065_var*
+//#UC END# *57B6A49900F4_57AAF18F0065_var*
+//#UC START# *57B6C9A5037B_57AAF18F0065_impl*
+ inherited;
+ OwnView.CallDropDrawPoints;
+//#UC END# *57B6C9A5037B_57AAF18F0065_impl*
+//#UC START# *57B6C9A5037B_57AAF18F0065_var*
+//#UC END# *57B6C9A5037B_57AAF18F0065_var*

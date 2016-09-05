@@ -1,0 +1,69 @@
+// l3Operations 48BD24D4011D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BD24D4011D
+
+FORWARD ME_48BD24F800DF
+
+ME ME_48BD25040010
+ MEPROP UID '48BD25040010'
+ MEPROP Name 'l3_ocShortCut'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48BD24F800DF // Operations
+ ;
+ MEPROP Value 'ccShortCut'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'ccShortCut'
+
+ENDME // ME_48BD25040010 l3_ocShortCut
+
+ME ME_48BD24F800DF
+ MEPROP UID '48BD24F800DF'
+ MEPROP Name 'Operations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48BD24D4011D // l3Operations
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48BD25040010 // l3_ocShortCut
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_48BD24F800DF Operations
+
+ME ME_48BD24D4011D
+ MEPROP UID '48BD24D4011D'
+ MEPROP Name 'l3Operations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_48BD24F800DF // Operations
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "is namespace" true
+ UP "started" '27.05.2005 15:10'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Operations.pas'
+
+ENDME // ME_48BD24D4011D l3Operations

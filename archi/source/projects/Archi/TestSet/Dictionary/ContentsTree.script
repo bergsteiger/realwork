@@ -33,12 +33,12 @@ PROCEDURE "проверить что флаг в оглавлении не выставлен" IN anItemID
  l_Flag ! 'Флаг в оглавлении выставлен выставлен, а не должен быть выставлен' ASSERTS
 ;
 
-PROCEDURE "развернуть узел" IN aID
+PROCEDURE "развернуть узел" INTEGER IN aID
   aID "Объект дерева в стек" tree:развернуть 
   "Обработать сообщения"
 ;
 
-: "развернуть узлы" IN aCount
+PROCEDURE "развернуть узлы" INTEGER IN aCount
   OBJECT VAR l_Tree 
   "Объект дерева в стек" >>> l_Tree
   VAR l_NodeID
@@ -50,14 +50,14 @@ PROCEDURE "развернуть узел" IN aID
 ;
 
 PROCEDURE "Показать оглавление"
-         "Объект дерева в стек" pop:Control:Width := cnDefaultContentsWidth
+    "Объект дерева в стек" pop:Control:Width := cnDefaultContentsWidth
 ;
 
 PROCEDURE "Спрятать оглавление"
-        "Объект дерева в стек" pop:Control:Width := cnHideContentsWidth
+    "Объект дерева в стек" pop:Control:Width := cnHideContentsWidth
 ;
 
-: "Проверить, что количество дочерних больше нуля" IN aItemID
+PROCEDURE "Проверить, что количество дочерних больше нуля" INTEGER IN aItemID
 	aItemID "Объект дерева в стек" tree:ChildrenCount >0 ASSERT
 ;
 
@@ -68,28 +68,44 @@ PROCEDURE "Показать оглавление и развернуть"
 	"Обработать сообщения"
 ;
 
-: "Cохранить количество дочерних в узле дерева оглавления"
- cnRootItem "Объект дерева в стек" tree:ChildrenCount .
+PROCEDURE "Cохранить количество дочерних в узле дерева оглавления"
+	cnRootItem "Объект дерева в стек" tree:ChildrenCount .
 ;
 
-: "Сравнить дерево с эталоном" IN ContentsTree
- VAR l_File
- script:FileName '.tree' sysutils:ChangeFileExt
- sysutils:ExtractFileName >>> l_File
- l_File ContentsTree byname:control:push tree:SaveState2File
- l_File '%' tests:CheckEtalon
+INTEGER VAR g_TreeEtalonCount
+//[EXECUTE] 
+( 0 >>> g_TreeEtalonCount )
+
+PROCEDURE "Первый эталон дерева"
+	0 >>> g_TreeEtalonCount
 ;
 
-: "Удалить саб с проверкой количества дочерних" IN aSubID
+PROCEDURE "Второй эталон дерева"
+	1 >>> g_TreeEtalonCount
+;
+
+PROCEDURE "Сравнить дерево с эталоном" STRING IN aContentsTree
+	++! g_TreeEtalonCount
+	Если ( g_TreeEtalonCount РАВНО 1 ) то
+		( script:FileName csTreeExt sysutils:ChangeFileExt )
+	иначе
+		( script:FileName '_' g_TreeEtalonCount IntToStr Cat csTreeExt Cat sysutils:ChangeFileExt )	
+	STRING	VAR l_File	 
+	 sysutils:ExtractFileName >>> l_File
+	 l_File aContentsTree byname:control:push tree:SaveState2File
+	 l_File '%' tests:CheckEtalon
+;
+
+PROCEDURE "Удалить саб с проверкой количества дочерних" INTEGER IN aSubID
 	aSubID окно_редактора:удалить_саб
 	ProcessMessages
 	"Cохранить количество дочерних в узле дерева оглавления"
 ;
 
-: "Имя текущего элемента дерева - в стек" OBJECT IN aControl
- INTERFACE VAR l_Node
- aControl tree:CurrentNode =: l_Node
- l_Node Node:Text 
+PROCEDURE "Имя текущего элемента дерева - в стек" OBJECT IN aControl
+	INTERFACE VAR l_Node
+	aControl tree:CurrentNode =: l_Node
+	l_Node Node:Text 
 ;
 
 WordAlias "Переместиться в начало дерева" cc:Home

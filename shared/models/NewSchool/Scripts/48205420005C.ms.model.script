@@ -1,0 +1,203 @@
+// Вход и выход 48205420005C UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48205420005C
+
+FORWARD ME_482054BC03A6
+
+ME ME_482054BC03A6
+ MEPROP UID '482054BC03A6'
+ MEPROP Name 'Старт системы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Начало работы с системой и авторизация пользователя при входе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_482054BC03A6 Старт системы
+
+ME ME_482054EF0301
+ MEPROP UID '482054EF0301'
+ MEPROP Name 'Регистрация'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Самостоятельное создание учетной записи пользователем' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_482054EF0301 Регистрация
+
+ME ME_482055330165
+ MEPROP UID '482055330165'
+ MEPROP Name 'Завершение работы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Окончание работы с системой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_482055330165 Завершение работы
+
+ME ME_482055A60187
+ MEPROP UID '482055A60187'
+ MEPROP Name '"Гостевой вход"'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Авторизация в системе под логином GUEST' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_482054BC03A6 // Старт системы
+ )
+ ; // Inherits
+
+ENDME // ME_482055A60187 "Гостевой вход"
+
+ME ME_482055D7033C
+ MEPROP UID '482055D7033C'
+ MEPROP Name 'Старт оболочки с определенного документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Старт оболочки с заранее определенного пользователем документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_482054BC03A6 // Старт системы
+ )
+ ; // Inherits
+
+ENDME // ME_482055D7033C Старт оболочки с определенного документа
+
+ME ME_482069310030
+ MEPROP UID '482069310030'
+ MEPROP Name 'Предупреждение об устаревшей базе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вывод предупреждения о том, что информация в базе устарела' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_482069310030 Предупреждение об устаревшей базе
+
+FORWARD ME_4821B9370055
+
+ME ME_4821B9370055
+ MEPROP UID '4821B9370055'
+ MEPROP Name 'Выключение сервера'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Принудительная остановка серевера через ПУПС (Панель Управления ???? Сервера)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_4821B9370055 Выключение сервера
+
+ME ME_483CF51B0313
+ MEPROP UID '483CF51B0313'
+ MEPROP Name 'Автологон'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Автоматическая авторизация в системе, без участия пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_482054BC03A6 // Старт системы
+ )
+ ; // Inherits
+
+ENDME // ME_483CF51B0313 Автологон
+
+ME ME_483D178E0008
+ MEPROP UID '483D178E0008'
+ MEPROP Name 'Показ экрана приветствия'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При начале и окончании работы с ГАРАНТ, должна отображается заставка (splash-screen), автоматически выбираемая из заранее определенного блока заставок, в зависимости от ряда факторов, определяющих правила и последовательность показа.'#13#10'Блок заставок формируется Управлением Маркетинга' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_483D178E0008 Показ экрана приветствия
+
+ME ME_483D1B8F00CA
+ MEPROP UID '483D1B8F00CA'
+ MEPROP Name 'Совет дня'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показ предустановленных советов о работе с системой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_483D1B8F00CA Совет дня
+
+ME ME_483D1DF402D1
+ MEPROP UID '483D1DF402D1'
+ MEPROP Name 'Информация о новых возможностях'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Автоматический показ странички Help с описанием того, что изменилось по сравнению с предыдущим выпуском системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48205420005C // Вход и выход
+ ;
+
+ENDME // ME_483D1DF402D1 Информация о новых возможностях
+
+ME ME_48205420005C
+ MEPROP UID '48205420005C'
+ MEPROP Name 'Вход и выход'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Авторизация, регистрация, начало и окончание работы с системой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_482054BC03A6 // Старт системы
+ HWL ME_482054EF0301 // Регистрация
+ HWL ME_482055330165 // Завершение работы
+ HWL ME_482055A60187 // "Гостевой вход"
+ HWL ME_482055D7033C // Старт оболочки с определенного документа
+ HWL ME_482069310030 // Предупреждение об устаревшей базе
+ HWL ME_4821B9370055 // Выключение сервера
+ HWL ME_483CF51B0313 // Автологон
+ HWL ME_483D178E0008 // Показ экрана приветствия
+ HWL ME_483D1B8F00CA // Совет дня
+ HWL ME_483D1DF402D1 // Информация о новых возможностях
+ )
+ ; // Children
+
+ENDME // ME_48205420005C Вход и выход

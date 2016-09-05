@@ -25,12 +25,12 @@
 
  procedure DoPushResult;
  var
-  l_V : PtfwStackValue;
+  l_V : TtfwStackValue;
  begin//DoPushResult
   l_V := ResultVar.GetValue(aCtx);
   if (l_V.rType = tfw_vtVoid) then
    RunnerError('Результат функции не инициализирован', aCtx);
-  aCtx.rEngine.Push(l_V^);
+  aCtx.rEngine.Push(l_V);
  end;//DoPushResult
 
 //#UC END# *4DAEEDE10285_4F3BEDFE0051_var*
@@ -59,6 +59,8 @@ var
 //#UC START# *4F3BEDFE0051_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\kwCompiledFunction.pas
 //#UC END# *4F3BEDFE0051_ext:FileName
+//#UC START# *4F3BEDFE0051impl_uses*
+//#UC END# *4F3BEDFE0051impl_uses*
 //#UC START# *528F7301033E_4F3BEDFE0051_impl*
  Result := 'После выполнения функции остался мусор на стеке';
 //#UC END# *528F7301033E_4F3BEDFE0051_impl*

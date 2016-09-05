@@ -1,0 +1,138 @@
+// Consultation 4ABCFB650008 VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABCFB650008
+
+FORWARD ME_571A296801DD
+
+FORWARD ME_4DECF7F4001F
+
+ME ME_4DECF85901A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DECF7F4001F // TkwF1ImportConsultation
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4DECF85901A2 
+
+ME ME_4DECF87F00BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DECF7F4001F // TkwF1ImportConsultation
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '47F2170002B2.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4DECF87F00BF 
+
+ME ME_4DECF7F4001F
+ MEPROP UID '4DECF7F4001F'
+ MEPROP Name 'TkwF1ImportConsultation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A296801DD // ConsultationWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DECF85901A2 // DefDataAdapter
+ ME_4DECF87F00BF // nsAStr
+ )
+ ; // Dependencies
+ UP "NameForScript" 'f1::ImportConsultation'
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '06.06.2011 19:53'
+ UP extprop:rc:SelfName 'F1ImportConsultation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DECF7F4001F TkwF1ImportConsultation
+
+ME ME_571A297B0071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_571A296801DD // ConsultationWordsPack
+ ;
+ MELINK Target WL 'ME_497EDC5003D1' '497EDC5003D1.ms.model.script' // PrimConsultationMark
+ ;
+
+ENDME // ME_571A297B0071 
+
+ME ME_571A296801DD
+ MEPROP UID '571A296801DD'
+ MEPROP Name 'ConsultationWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABCFB650008 // Consultation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DECF7F4001F // TkwF1ImportConsultation
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_571A297B0071 // PrimConsultationMark
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "need UC" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\ConsultationWordsPack.pas'
+
+ENDME // ME_571A296801DD ConsultationWordsPack
+
+ME ME_4ABCFB650008
+ MEPROP UID '4ABCFB650008'
+ MEPROP Name 'Consultation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMModule ;
+ %SUMMARY 'Консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCFB180302' '4ABCFB180302.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_497EDC5003D1' '497EDC5003D1.ms.model.script' // PrimConsultationMark
+ WL 'ME_4C84E097023A' '4C84E097023A.ms.model.script' // PrimConsultationMarkOptions
+ WL 'ME_4ABCFB7F017B' '4ABCFB7F017B.ms.model.script' // Consultation$FP
+ HWL ME_571A296801DD // ConsultationWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_457007DB002E' '457007DB002E.ms.model.script' // Consulting
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47B9727603BE' '47B9727603BE.ms.model.script' // FormSets
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.ms.model.script' // bsTypes
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ WL 'ME_491C3E540050' '491C3E540050.ms.model.script' // ConsultationInterfaces
+ WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ WL 'ME_4A8AD3C70195' '4A8AD3C70195.ms.model.script' // Result
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ABCF04F00DF' '4ABCF04F00DF.ms.model.script' // ConsultationDomainInterfaces
+ WL 'ME_4ABCF1450282' '4ABCF1450282.ms.model.script' // ConsultationDomain
+ WL 'ME_4BD856E802F9' '4BD856E802F9.ms.model.script' // FormDefinitions
+ WL 'ME_4BD97FDB031A' '4BD97FDB031A.ms.model.script' // FormDefinitions
+ WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
+ )
+ ; // Depends
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Consultation'
+
+ENDME // ME_4ABCFB650008 Consultation

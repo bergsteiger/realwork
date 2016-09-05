@@ -1,0 +1,42 @@
+// evOp 48453A40017C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48453A40017C
+
+ME ME_48453A750156
+ MEPROP UID '48453A750156'
+ MEPROP Name 'Operations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48453A40017C // evOp
+ ;
+ UP "spell names" false
+
+ENDME // ME_48453A750156 Operations
+
+ME ME_48453A40017C
+ MEPROP UID '48453A40017C'
+ MEPROP Name 'evOp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Описание кодов операций.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_48453A750156 // Operations
+ )
+ ; // Constants
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "is namespace" true
+ UP "started" '20.03.97 16:51'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evOp.pas'
+
+ENDME // ME_48453A40017C evOp

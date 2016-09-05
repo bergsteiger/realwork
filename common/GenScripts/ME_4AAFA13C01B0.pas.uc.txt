@@ -95,11 +95,12 @@ var
 w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_Form.pas
 //#UC END# *4AAFA13C01B0_ext:FileName
 //#UC START# *4AAFA13C01B0impl_uses*
+ , Search_Services
 //#UC END# *4AAFA13C01B0impl_uses*
 //#UC START# *4C84EE020054_4AAFA13C01B0exec_impl*
  if Save then
  begin
-  TdmStdRes.OpenPostingOrder(nil, Container);
+  TCommonPostService.Instance.OpenPostingOrder(nil, Container);
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
   TnsPostingsTreeSingle.Instance.EditNodeIndex := -1;
  end;//Save
@@ -119,7 +120,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostings
    try
     l_Prime.Data.GetQuery(l_Query);
     try
-     TdmStdRes.OpenPostingOrder(l_Query, Container);
+     TCommonPostService.Instance.OpenPostingOrder(l_Query, Container);
      // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
      TnsPostingsTreeSingle.Instance.EditNodeIndex := Current;
       // - пользователь может перескочить на другой узел в списке и тогда мы
@@ -144,7 +145,7 @@ var
 //#UC START# *4C84EE1D0024_4AAFA13C01B0test_var*
 //#UC END# *4C84EE1D0024_4AAFA13C01B0test_var*
 //#UC START# *4C84EE3801EB_4AAFA13C01B0exec_impl*
- TdmStdRes.CheckHistory;
+ TCommonPostService.Instance.CheckHistory;
  l_CurTreeView := tvPostings.TreeView;
  if Assigned(l_CurTreeView) then
   if l_CurTreeView.Tree.SelectedCount > 1 then
@@ -175,12 +176,12 @@ var
 //#UC START# *4C84EE3801EB_4AAFA13C01B0test_var*
 //#UC END# *4C84EE3801EB_4AAFA13C01B0test_var*
 //#UC START# *4C84EE590206_4AAFA13C01B0exec_impl*
- TdmStdRes.SavePostList;
+ TCommonPostService.Instance.SavePostList;
 //#UC END# *4C84EE590206_4AAFA13C01B0exec_impl*
 //#UC START# *4C84EE590206_4AAFA13C01B0exec_var*
 //#UC END# *4C84EE590206_4AAFA13C01B0exec_var*
 //#UC START# *4C84EE590206_4AAFA13C01B0test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := TdmStdRes.CanSavePostList;
+ aParams.Op.Flag[vcm_ofEnabled] := TCommonPostService.Instance.CanSavePostList;
 //#UC END# *4C84EE590206_4AAFA13C01B0test_impl*
 //#UC START# *4C84EE590206_4AAFA13C01B0test_var*
 //#UC END# *4C84EE590206_4AAFA13C01B0test_var*
@@ -217,7 +218,7 @@ var
 //#UC START# *4C84EE750308_4AAFA13C01B0test_var*
 //#UC END# *4C84EE750308_4AAFA13C01B0test_var*
 //#UC START# *4C84F272012A_4AAFA13C01B0_impl*
- TdmStdRes.CheckHistory;
+ TCommonPostService.Instance.CheckHistory;
  Result := True;
  if IsNeedSave then
   Result := TnsPostingsTreeSingle.Instance.SaveOrCreateQuery;
@@ -250,7 +251,7 @@ var
  // Если из списка рассылок удаляется текущая редактируемая рассылка, то очищаем
  // карточку:
  if (TnsPostingsTreeSingle.Instance.EditNodeIndex = aIndex) then
-  TdmStdRes.OpenPostingOrder(nil);
+  TCommonPostService.Instance.OpenPostingOrder(nil);
 //#UC END# *528265720097_4AAFA13C01B0_impl*
 //#UC START# *528265720097_4AAFA13C01B0_var*
 //#UC END# *528265720097_4AAFA13C01B0_var*

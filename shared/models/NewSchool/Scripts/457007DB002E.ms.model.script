@@ -1,0 +1,1617 @@
+// Consulting 457007DB002E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_457007DB002E
+
+FORWARD ME_457009E7035B
+
+ME ME_457009E7035C
+ MEPROP UID '457009E7035C'
+ MEPROP Name 'EV_UNDEFINED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'оценка не выставлена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457009E7035B // EstimationValue
+ ;
+
+ENDME // ME_457009E7035C EV_UNDEFINED
+
+ME ME_457009E7035D
+ MEPROP UID '457009E7035D'
+ MEPROP Name 'EV_VERY_GOOD'
+ MEPROP Class class_Attribute
+ %SUMMARY 'супер!!!' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457009E7035B // EstimationValue
+ ;
+
+ENDME // ME_457009E7035D EV_VERY_GOOD
+
+ME ME_457009E7035E
+ MEPROP UID '457009E7035E'
+ MEPROP Name 'EV_GOOD'
+ MEPROP Class class_Attribute
+ %SUMMARY 'хорошо' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457009E7035B // EstimationValue
+ ;
+
+ENDME // ME_457009E7035E EV_GOOD
+
+ME ME_457009E7035F
+ MEPROP UID '457009E7035F'
+ MEPROP Name 'EV_NORMAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'сойдёт' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457009E7035B // EstimationValue
+ ;
+
+ENDME // ME_457009E7035F EV_NORMAL
+
+ME ME_457009E70360
+ MEPROP UID '457009E70360'
+ MEPROP Name 'EV_BAD'
+ MEPROP Class class_Attribute
+ %SUMMARY 'полная фигня...' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457009E7035B // EstimationValue
+ ;
+
+ENDME // ME_457009E70360 EV_BAD
+
+ME ME_457009E7035B
+ MEPROP UID '457009E7035B'
+ MEPROP Name 'EstimationValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможные оценки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_457009E7035C // EV_UNDEFINED
+ HWL ME_457009E7035D // EV_VERY_GOOD
+ HWL ME_457009E7035E // EV_GOOD
+ HWL ME_457009E7035F // EV_NORMAL
+ HWL ME_457009E70360 // EV_BAD
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TEstimationValue'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_457009E7035B EstimationValue
+
+ME ME_4570098B0157
+ MEPROP UID '4570098B0157'
+ MEPROP Name 'NoDocumentList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нет списка документов в ответе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+
+ENDME // ME_4570098B0157 NoDocumentList
+
+ME ME_4570098B0159
+ MEPROP UID '4570098B0159'
+ MEPROP Name 'NoConnection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нет связи с сервером консультаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+
+ENDME // ME_4570098B0159 NoConnection
+
+ME ME_4570098B015B
+ MEPROP UID '4570098B015B'
+ MEPROP Name 'NoSubscription'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нет доступа с сервису - вы не подписаны на услугу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+
+ENDME // ME_4570098B015B NoSubscription
+
+ME ME_4570098B015F
+ MEPROP UID '4570098B015F'
+ MEPROP Name 'PaymentForbidden'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'У пользователя нет прав оплачивать консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+
+ENDME // ME_4570098B015F PaymentForbidden
+
+ME ME_4570098B015D
+ MEPROP UID '4570098B015D'
+ MEPROP Name 'NotDeleted'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нельзя удалить консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ UP "force usage" true
+
+ENDME // ME_4570098B015D NotDeleted
+
+ME ME_4570098B0161
+ MEPROP UID '4570098B0161'
+ MEPROP Name 'Deleted'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Консультация удалена - все операции запрещены' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+
+ENDME // ME_4570098B0161 Deleted
+
+FORWARD ME_4570081E002E
+
+ME ME_4570081E002F
+ MEPROP UID '4570081E002F'
+ MEPROP Name 'value'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'оценка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4570081E002E // Estimation
+ ;
+ MELINK Target HWL ME_457009E7035B // EstimationValue
+ ;
+ UP "pm" false
+
+ENDME // ME_4570081E002F value
+
+ME ME_4570081E0030
+ MEPROP UID '4570081E0030'
+ MEPROP Name 'text'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'комментарий к оценке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4570081E002E // Estimation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4570081E0030 text
+
+ME ME_45700DC8004E
+ MEPROP UID '45700DC8004E'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4570081E002E // Estimation
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_45700DC8004E make
+
+ME ME_4570081E002E
+ MEPROP UID '4570081E002E'
+ MEPROP GUID 'DD01B380-09FE-4476-8789-20B2291FE41B'
+ MEPROP Name 'Estimation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Оценка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4570081E002F // value
+ HWL ME_4570081E0030 // text
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45700DC8004E // make
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IEstimation'
+ UP extprop:rc:SelfName 'Estimation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4570081E002E Estimation
+
+ME ME_46286C980119
+ MEPROP UID '46286C980119'
+ MEPROP Name 'OldFormatConsultation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'консультация старого формата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+
+ENDME // ME_46286C980119 OldFormatConsultation
+
+ME ME_4868F286004D
+ MEPROP UID '4868F286004D'
+ MEPROP Name 'ConsultationStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TConsultationStatus'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4868F286004D ConsultationStatus
+
+FORWARD ME_4CEBCFD7003C
+
+ME ME_4CEBD01E00E4
+ MEPROP UID '4CEBD01E00E4'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CEBCFD7003C // ParasList
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4CEBD01E00E4 
+
+ME ME_4CEBCFD7003C
+ MEPROP UID '4CEBCFD7003C'
+ MEPROP Name 'ParasList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CEBD01E00E4 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IParasList'
+
+ENDME // ME_4CEBCFD7003C ParasList
+
+FORWARD ME_4868F1FA03E2
+
+ME ME_4868F2260131
+ MEPROP UID '4868F2260131'
+ MEPROP Name 'CS_SENT'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Отправлена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 1024
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1024
+
+ENDME // ME_4868F2260131 CS_SENT
+
+ME ME_4868F23F0196
+ MEPROP UID '4868F23F0196'
+ MEPROP Name 'CS_PAYMENT_REQUEST'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Запрос на оплату' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 1
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1
+
+ENDME // ME_4868F23F0196 CS_PAYMENT_REQUEST
+
+ME ME_4868F26200F3
+ MEPROP UID '4868F26200F3'
+ MEPROP Name 'CS_ANSWER_RECEIVED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Получен ответ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 2
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 2
+
+ENDME // ME_4868F26200F3 CS_ANSWER_RECEIVED
+
+ME ME_4868F2DD0337
+ MEPROP UID '4868F2DD0337'
+ MEPROP Name 'CS_READ'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 4
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 4
+
+ENDME // ME_4868F2DD0337 CS_READ
+
+ME ME_4868F30600C9
+ MEPROP UID '4868F30600C9'
+ MEPROP Name 'CS_ESTIMATION_SENT'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Отправлена оценка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 8
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 8
+
+ENDME // ME_4868F30600C9 CS_ESTIMATION_SENT
+
+ME ME_4868F31E00E6
+ MEPROP UID '4868F31E00E6'
+ MEPROP Name 'CS_DRAFTS'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Создана, но не отправлена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 16
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 16
+
+ENDME // ME_4868F31E00E6 CS_DRAFTS
+
+ME ME_4868F3450044
+ MEPROP UID '4868F3450044'
+ MEPROP Name 'CS_PAYMENT_REFUSAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Оплата отклонена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 32
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 32
+
+ENDME // ME_4868F3450044 CS_PAYMENT_REFUSAL
+
+ME ME_4868F36500C8
+ MEPROP UID '4868F36500C8'
+ MEPROP Name 'CS_PAYMENT_CONFIRM'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 64
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 64
+
+ENDME // ME_4868F36500C8 CS_PAYMENT_CONFIRM
+
+ME ME_4868F36F029E
+ MEPROP UID '4868F36F029E'
+ MEPROP Name 'CS_VALIDATION_FAILED'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 128
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 128
+
+ENDME // ME_4868F36F029E CS_VALIDATION_FAILED
+
+ME ME_4868F3770168
+ MEPROP UID '4868F3770168'
+ MEPROP Name 'CS_ANSWER_NOT_CONFIRM'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 256
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 256
+
+ENDME // ME_4868F3770168 CS_ANSWER_NOT_CONFIRM
+
+ME ME_4868F37D0387
+ MEPROP UID '4868F37D0387'
+ MEPROP Name 'CS_READ_NOT_CONFIRM'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MEPROP Value 512
+ MELINK ValueType HWL ME_4868F286004D // ConsultationStatus
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 512
+
+ENDME // ME_4868F37D0387 CS_READ_NOT_CONFIRM
+
+ME ME_4868F1FA03E2
+ MEPROP UID '4868F1FA03E2'
+ MEPROP Name 'ConsultationsStatusConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Статусы консультаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4868F2260131 // CS_SENT
+ HWL ME_4868F23F0196 // CS_PAYMENT_REQUEST
+ HWL ME_4868F26200F3 // CS_ANSWER_RECEIVED
+ HWL ME_4868F2DD0337 // CS_READ
+ HWL ME_4868F30600C9 // CS_ESTIMATION_SENT
+ HWL ME_4868F31E00E6 // CS_DRAFTS
+ HWL ME_4868F3450044 // CS_PAYMENT_REFUSAL
+ HWL ME_4868F36500C8 // CS_PAYMENT_CONFIRM
+ HWL ME_4868F36F029E // CS_VALIDATION_FAILED
+ HWL ME_4868F3770168 // CS_ANSWER_NOT_CONFIRM
+ HWL ME_4868F37D0387 // CS_READ_NOT_CONFIRM
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4868F1FA03E2 ConsultationsStatusConstants
+
+FORWARD ME_457008050157
+
+ME ME_457008050160
+ MEPROP UID '457008050160'
+ MEPROP Name 'status'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Статус консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target HWL ME_4868F286004D // ConsultationStatus
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_457008050160 status
+
+ME ME_457008050161
+ MEPROP UID '457008050161'
+ MEPROP Name 'id'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Идентификатор консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_457008050161 id
+
+ME ME_457008050162
+ MEPROP UID '457008050162'
+ MEPROP Name 'creation_date'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Дата создания' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_456EA7D402DE' '456EA56002BF.ms.model.script' // DateTime
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_457008050162 creation_date
+
+ME ME_457008050163
+ MEPROP UID '457008050163'
+ MEPROP Name 'modification_date'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Дата последнего изменения статуса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_456EA7D402DE' '456EA56002BF.ms.model.script' // DateTime
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_457008050163 modification_date
+
+ME ME_457008050164
+ MEPROP UID '457008050164'
+ MEPROP Name 'name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Имя консультации (текст запроса)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_457008050164 name
+
+ME ME_4CEBCF3F036E
+ MEPROP UID '4CEBCF3F036E'
+ MEPROP Name 'query_data'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MEPROP TargetStereotype 'const'
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_4CEBCF3F036E query_data
+
+ME ME_4CEBCF680012
+ MEPROP UID '4CEBCF680012'
+ MEPROP Name 'user_name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MEPROP TargetStereotype 'const'
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_4CEBCF680012 user_name
+
+ME ME_4CEBD05900FE
+ MEPROP UID '4CEBD05900FE'
+ MEPROP Name 'expert_info'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target HWL ME_4CEBCFD7003C // ParasList
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_4CEBD05900FE expert_info
+
+ME ME_4CEBD0D901D5
+ MEPROP UID '4CEBD0D901D5'
+ MEPROP Name 'expert_name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MEPROP TargetStereotype 'const'
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_4CEBD0D901D5 expert_name
+
+ME ME_4CEE1A350233
+ MEPROP UID '4CEE1A350233'
+ MEPROP Name 'reply_date'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_456EA6F00109' '456EA56002BF.ms.model.script' // Date
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "pm" false
+
+ENDME // ME_4CEE1A350233 reply_date
+
+ME ME_4CEE59B10371
+ MEPROP UID '4CEE59B10371'
+ MEPROP Name 'type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ UP "dll export" false
+ UP "pm" false
+
+ENDME // ME_4CEE59B10371 type
+
+ME ME_457008050159
+ MEPROP UID '457008050159'
+ MEPROP Name 'get_answer'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить уведомление или ответ на запрос' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ HWL ME_46286C980119 // OldFormatConsultation
+ )
+ ; // CanRaise
+
+ENDME // ME_457008050159 get_answer
+
+ME ME_46BAFEDB004E
+ MEPROP UID '46BAFEDB004E'
+ MEPROP Name 'get_query'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить запрос' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ HWL ME_46286C980119 // OldFormatConsultation
+ )
+ ; // CanRaise
+
+ENDME // ME_46BAFEDB004E get_query
+
+ME ME_45700805015A
+ MEPROP UID '45700805015A'
+ MEPROP Name 'get_document_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить список документов ответа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0157 // NoDocumentList
+ HWL ME_4570098B0161 // Deleted
+ HWL ME_46286C980119 // OldFormatConsultation
+ )
+ ; // CanRaise
+
+ENDME // ME_45700805015A get_document_list
+
+ME ME_45743612001F
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4570081E002E // Estimation
+ ;
+
+ENDME // ME_45743612001F value
+
+ME ME_45700805015B
+ MEPROP UID '45700805015B'
+ MEPROP Name 'send_estimation'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Отправить оценку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0159 // NoConnection
+ HWL ME_4570098B015B // NoSubscription
+ HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_45743612001F // value
+ )
+ ; // Parameters
+
+ENDME // ME_45700805015B send_estimation
+
+ME ME_45700805015D
+ MEPROP UID '45700805015D'
+ MEPROP Name 'create_estimation'
+ MEPROP Class class_Operation
+ %SUMMARY 'создать оценку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target HWL ME_4570081E002E // Estimation
+ ;
+
+ENDME // ME_45700805015D create_estimation
+
+ME ME_45742DB1005D
+ MEPROP Name 'answer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45742DB1005D answer
+
+ME ME_45700805015E
+ MEPROP UID '45700805015E'
+ MEPROP Name 'payment_confirm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Подвердить (answer = true)/отказаться (false) от оплаты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0159 // NoConnection
+ HWL ME_4570098B015F // PaymentForbidden
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_45742DB1005D // answer
+ )
+ ; // Parameters
+
+ENDME // ME_45700805015E payment_confirm
+
+ME ME_461CC1210251
+ MEPROP Name 'server_consultation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_461CC1210251 server_consultation
+
+ME ME_461CC121029F
+ MEPROP Name 'folders_node'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+
+ENDME // ME_461CC121029F folders_node
+
+ME ME_4570516E002E
+ MEPROP UID '4570516E002E'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELIST Parameters
+   Seq: ( ME_461CC1210251 // server_consultation
+ ME_461CC121029F // folders_node
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" false
+
+ENDME // ME_4570516E002E make
+
+ME ME_486B5273020E
+ MEPROP UID '486B5273020E'
+ MEPROP Name 'read'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Помечают консультацию как прочитанную' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+
+ENDME // ME_486B5273020E read
+
+ME ME_4CEBD9790091
+ MEPROP UID '4CEBD9790091'
+ MEPROP Name 'has_list'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+
+ENDME // ME_4CEBD9790091 has_list
+
+ME ME_4CEBD99E01F5
+ MEPROP UID '4CEBD99E01F5'
+ MEPROP Name 'has_estimation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+
+ENDME // ME_4CEBD99E01F5 has_estimation
+
+ME ME_4CEBD9BE03E4
+ MEPROP UID '4CEBD9BE03E4'
+ MEPROP Name 'has_payment_information'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+
+ENDME // ME_4CEBD9BE03E4 has_payment_information
+
+ME ME_4D07592B0032
+ MEPROP UID '4D07592B0032'
+ MEPROP Name 'get_query_by_paras'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить запрос в виде списка параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target HWL ME_4CEBCFD7003C // ParasList
+ ;
+ MEPROP TargetStereotype 'const,cached'
+
+ENDME // ME_4D07592B0032 get_query_by_paras
+
+ME ME_4DA581BD0004
+ MEPROP Name 'is_evd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4DA581BD0004 is_evd
+
+ME ME_4DA581950113
+ MEPROP UID '4DA581950113'
+ MEPROP Name 'get_answer_data'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457008050157 // Consultation
+ ;
+ MELINK Target HWL ME_4CEBCFD7003C // ParasList
+ ;
+ MEPROP TargetStereotype 'const,cached'
+ MELIST Parameters
+   Seq: ( ME_4DA581BD0004 // is_evd
+ )
+ ; // Parameters
+
+ENDME // ME_4DA581950113 get_answer_data
+
+ME ME_456EB3E10178_ME_457008050157
+ MELINK Original WL 'ME_456EB3E10178' '456EA56002BF.ms.model.script' // save_to
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_456EB3E10178_ME_457008050157 save_to
+
+ME ME_456EB3E1017A_ME_457008050157
+ MELINK Original WL 'ME_456EB3E1017A' '456EA56002BF.ms.model.script' // append_to
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_456EB3E1017A_ME_457008050157 append_to
+
+ME ME_456EB3E1017C_ME_457008050157
+ MELINK Original WL 'ME_456EB3E1017C' '456EA56002BF.ms.model.script' // is_saved
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EB3E1017C_ME_457008050157 is_saved
+
+ME ME_456EB3E1017D_ME_457008050157
+ MELINK Original WL 'ME_456EB3E1017D' '456EA56002BF.ms.model.script' // is_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EB3E1017D_ME_457008050157 is_changed
+
+ME ME_456EE084033C_ME_457008050157
+ MELINK Original WL 'ME_456EE084033C' '456EA56002BF.ms.model.script' // eid
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_456EE084033C_ME_457008050157 eid
+
+ME ME_457008050157
+ MEPROP UID '457008050157'
+ MEPROP GUID '69D87373-CAC1-4228-9F26-4E46D2A8CBE9'
+ MEPROP Name 'Consultation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Консультация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_457008050160 // status
+ HWL ME_457008050161 // id
+ HWL ME_457008050162 // creation_date
+ HWL ME_457008050163 // modification_date
+ HWL ME_457008050164 // name
+ HWL ME_4CEBCF3F036E // query_data
+ HWL ME_4CEBCF680012 // user_name
+ HWL ME_4CEBD05900FE // expert_info
+ HWL ME_4CEBD0D901D5 // expert_name
+ HWL ME_4CEE1A350233 // reply_date
+ HWL ME_4CEE59B10371 // type
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_457008050159 // get_answer
+ HWL ME_46BAFEDB004E // get_query
+ HWL ME_45700805015A // get_document_list
+ HWL ME_45700805015B // send_estimation
+ HWL ME_45700805015D // create_estimation
+ HWL ME_45700805015E // payment_confirm
+ HWL ME_4570516E002E // make
+ HWL ME_486B5273020E // read
+ HWL ME_4CEBD9790091 // has_list
+ HWL ME_4CEBD99E01F5 // has_estimation
+ HWL ME_4CEBD9BE03E4 // has_payment_information
+ HWL ME_4D07592B0032 // get_query_by_paras
+ HWL ME_4DA581950113 // get_answer_data
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_456EB3E10178_ME_457008050157 // save_to
+ ME_456EB3E1017A_ME_457008050157 // append_to
+ ME_456EB3E1017C_ME_457008050157 // is_saved
+ ME_456EB3E1017D_ME_457008050157 // is_changed
+ ME_456EE084033C_ME_457008050157 // eid
+ )
+ ; // Implemented
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IConsultation'
+ UP extprop:rc:SelfName 'Consultation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_457008050157 Consultation
+
+FORWARD ME_4CEE558003DE
+
+ME ME_4CEE56E70329
+ MEPROP UID '4CEE56E70329'
+ MEPROP Name 'PREANSWER_TEMPLATE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'шаблон запроса об оплате' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEE558003DE // TemplateType
+ ;
+
+ENDME // ME_4CEE56E70329 PREANSWER_TEMPLATE
+
+ME ME_4CEE57010160
+ MEPROP UID '4CEE57010160'
+ MEPROP Name 'ANSWER_TEMPLATE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'шаблон ответа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEE558003DE // TemplateType
+ ;
+
+ENDME // ME_4CEE57010160 ANSWER_TEMPLATE
+
+ME ME_4D0757BC01CF
+ MEPROP UID '4D0757BC01CF'
+ MEPROP Name 'QUERY_TEMPLATE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'шаблон запроса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEE558003DE // TemplateType
+ ;
+
+ENDME // ME_4D0757BC01CF QUERY_TEMPLATE
+
+ME ME_4CEE558003DE
+ MEPROP UID '4CEE558003DE'
+ MEPROP Name 'TemplateType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тип шаблона' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CEE56E70329 // PREANSWER_TEMPLATE
+ HWL ME_4CEE57010160 // ANSWER_TEMPLATE
+ HWL ME_4D0757BC01CF // QUERY_TEMPLATE
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TTemplateType'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CEE558003DE TemplateType
+
+FORWARD ME_457009CC035B
+
+ME ME_457009CC035C
+ MEPROP UID '457009CC035C'
+ MEPROP Name 'check_internet_channel'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверка интернет канала' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_457009CC035C check_internet_channel
+
+ME ME_457009CC035D
+ MEPROP UID '457009CC035D'
+ MEPROP Name 'check_consulting_available'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверка досутпности консультационных услуг' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_457009CC035D check_consulting_available
+
+ME ME_460CF919029F
+ MEPROP Name 'for_delete'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_457008050157 // Consultation
+ ;
+
+ENDME // ME_460CF919029F for_delete
+
+ME ME_457009CC035E
+ MEPROP UID '457009CC035E'
+ MEPROP Name 'delete_consultation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удалить консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B015D // NotDeleted
+ HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_460CF919029F // for_delete
+ )
+ ; // Parameters
+
+ENDME // ME_457009CC035E delete_consultation
+
+ME ME_457009CC0360
+ MEPROP UID '457009CC0360'
+ MEPROP Name 'update_not_readed_consultations'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает количество непрочитанных консультаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_457009CC0360 update_not_readed_consultations
+
+ME ME_460CF9220280
+ MEPROP Name 'file_name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_460CF9220280 file_name
+
+ME ME_457009CC0361
+ MEPROP UID '457009CC0361'
+ MEPROP Name 'load_from_xml'
+ MEPROP Class class_Operation
+ %SUMMARY 'загрузить консультацию из файла' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ WL 'ME_456EB4540197' '456EA56002BF.ms.model.script' // InvalidXMLType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_460CF9220280 // file_name
+ )
+ ; // Parameters
+
+ENDME // ME_457009CC0361 load_from_xml
+
+ME ME_457026D700EA
+ MEPROP UID '457026D700EA'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_457026D700EA make
+
+ME ME_4829A56201B6
+ MEPROP UID '4829A56201B6'
+ MEPROP Name 'cant_receive_answer'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сообщает о невозможности получать ответы (true - когда лампочку надо включать)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4829A56201B6 cant_receive_answer
+
+ME ME_4867614C01B0
+ MEPROP UID '4867614C01B0'
+ MEPROP Name 'create_query_with_notice_user'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создание уведомления пользователя о консалтинге' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457009CC035B // ConsultationManager
+ ;
+
+ENDME // ME_4867614C01B0 create_query_with_notice_user
+
+ME ME_457009CC035B
+ MEPROP UID '457009CC035B'
+ MEPROP GUID '713794D3-0F90-4EE5-AF5D-644D9091DA0C'
+ MEPROP Name 'ConsultationManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Менеджер консультаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_457009CC035C // check_internet_channel
+ HWL ME_457009CC035D // check_consulting_available
+ HWL ME_457009CC035E // delete_consultation
+ HWL ME_457009CC0360 // update_not_readed_consultations
+ HWL ME_457009CC0361 // load_from_xml
+ HWL ME_457026D700EA // make
+ HWL ME_4829A56201B6 // cant_receive_answer
+ HWL ME_4867614C01B0 // create_query_with_notice_user
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IConsultationManager'
+ UP extprop:rc:SelfName 'ConsultationManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_457009CC035B ConsultationManager
+
+FORWARD ME_4CEBC75B00B0
+
+ME ME_4CEBC80B00FD
+ MEPROP UID '4CEBC80B00FD'
+ MEPROP Name 'get_preanswer_template'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CEBC75B00B0 // ConsultingTemplateInfo
+ ;
+ MELINK Target WL 'ME_4423FB5903D8' '4423F94903C8.ms.model.script' // Stream
+ ;
+
+ENDME // ME_4CEBC80B00FD get_preanswer_template
+
+ME ME_4CEBC82300CD
+ MEPROP UID '4CEBC82300CD'
+ MEPROP Name 'get_answer_template'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CEBC75B00B0 // ConsultingTemplateInfo
+ ;
+ MELINK Target WL 'ME_4423FB5903D8' '4423F94903C8.ms.model.script' // Stream
+ ;
+
+ENDME // ME_4CEBC82300CD get_answer_template
+
+ME ME_4CEBC83F016B
+ MEPROP UID '4CEBC83F016B'
+ MEPROP Name 'get_dealer_info'
+ MEPROP Class class_Operation
+ %SUMMARY 'информация о комплекте, которая может быть нужна для шаблона. См. [$100008775]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CEBC75B00B0 // ConsultingTemplateInfo
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4CEBC83F016B get_dealer_info
+
+ME ME_4CEBDE5D01AA
+ MEPROP UID '4CEBDE5D01AA'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CEBC75B00B0 // ConsultingTemplateInfo
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_4CEBDE5D01AA make
+
+ME ME_4CEE5743000F
+ MEPROP Name 'consultation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_457008050157 // Consultation
+ ;
+
+ENDME // ME_4CEE5743000F consultation
+
+ME ME_4CEE5713008E
+ MEPROP UID '4CEE5713008E'
+ MEPROP Name 'get_template_type'
+ MEPROP Class class_Operation
+ %SUMMARY 'определяет какой шаблон нужен для отображения консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CEBC75B00B0 // ConsultingTemplateInfo
+ ;
+ MELINK Target HWL ME_4CEE558003DE // TemplateType
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_4570098B0161 // Deleted
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4CEE5743000F // consultation
+ )
+ ; // Parameters
+
+ENDME // ME_4CEE5713008E get_template_type
+
+ME ME_4D075AF20237
+ MEPROP UID '4D075AF20237'
+ MEPROP Name 'get_query_template'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить шаблон для запроса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CEBC75B00B0 // ConsultingTemplateInfo
+ ;
+ MELINK Target WL 'ME_4423FB5903D8' '4423F94903C8.ms.model.script' // Stream
+ ;
+
+ENDME // ME_4D075AF20237 get_query_template
+
+ME ME_4CEBC75B00B0
+ MEPROP UID '4CEBC75B00B0'
+ MEPROP GUID '3613E72E-8CD0-4D45-B517-BD45F9764A82'
+ MEPROP Name 'ConsultingTemplateInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация для шаблонов консалтинга. Сейчас в базе есть 2 шаблона (preanswer и answer). Какой шаблон нужен для консультации спрашиваем у get_template_type' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457007DB002E // Consulting
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEBC80B00FD // get_preanswer_template
+ HWL ME_4CEBC82300CD // get_answer_template
+ HWL ME_4CEBC83F016B // get_dealer_info
+ HWL ME_4CEBDE5D01AA // make
+ HWL ME_4CEE5713008E // get_template_type
+ HWL ME_4D075AF20237 // get_query_template
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IConsultingTemplateInfo'
+ UP extprop:rc:SelfName 'ConsultingTemplateInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CEBC75B00B0 ConsultingTemplateInfo
+
+ME ME_457007DB002E
+ MEPROP UID '457007DB002E'
+ MEPROP Name 'Consulting'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для работы со службой ПП' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_457009E7035B // EstimationValue
+ HWL ME_4570098B0157 // NoDocumentList
+ HWL ME_4570098B0159 // NoConnection
+ HWL ME_4570098B015B // NoSubscription
+ HWL ME_4570098B015F // PaymentForbidden
+ HWL ME_4570098B015D // NotDeleted
+ HWL ME_4570098B0161 // Deleted
+ HWL ME_4570081E002E // Estimation
+ HWL ME_46286C980119 // OldFormatConsultation
+ HWL ME_4868F286004D // ConsultationStatus
+ HWL ME_4CEBCFD7003C // ParasList
+ HWL ME_457008050157 // Consultation
+ HWL ME_4CEE558003DE // TemplateType
+ HWL ME_457009CC035B // ConsultationManager
+ HWL ME_4CEBC75B00B0 // ConsultingTemplateInfo
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4868F1FA03E2 // ConsultationsStatusConstants
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_456FF1DD031C' '456FF1DD031C.ms.model.script' // Start
+ WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
+ WL 'ME_4570501E037A' '4570501E037A.ms.model.script' // Folders
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ )
+ ; // Depends
+ UP "need UC" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Consulting\Consulting.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Consulting'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Consulting\Consulting.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Consulting'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ConsultingUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\ConsultingUnit.pas'
+ UP extprop:pas:UnitName 'ConsultingUnit'
+
+ENDME // ME_457007DB002E Consulting

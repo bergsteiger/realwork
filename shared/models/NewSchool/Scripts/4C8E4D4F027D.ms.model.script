@@ -1,0 +1,76 @@
+// CustomizeTasksPanel 4C8E4D4F027D VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8E4D4F027D
+
+ME ME_57FDA2BA57FE
+ MEPROP UID '57FDA2BA57FE'
+ MEPROP Name 'ut_CustomizeTasksPanel'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редактор панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E4D4F027D // CustomizeTasksPanel
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType.pas'
+ UP extprop:pas:UnitName 'CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType'
+
+ENDME // ME_57FDA2BA57FE ut_CustomizeTasksPanel
+
+ME ME_55A347B4039B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E4D4F027D // CustomizeTasksPanel
+ ;
+ MELINK Target WL 'ME_559F8C7A0213' '4C8DD8B8006C.ms.model.script' // TvcmCustOpsRepGroupList
+ ;
+
+ENDME // ME_55A347B4039B 
+
+ME ME_4C8E4D4F027D
+ MEPROP UID '4C8E4D4F027D'
+ MEPROP Name 'CustomizeTasksPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редактор панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4C8DD8C602D3' '4C8DD8C602D3.ms.model.script' // PrimTasksPanelMenu
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8E4D21001F' '4C8E4D21001F.ms.model.script' // PrimCustomizeTasksPanel
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_57FDA2BA57FE // ut_CustomizeTasksPanel
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55A347B4039B // TvcmCustOpsRepGroupList
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '13.09.2010 20:12'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\Forms\NOT_FINISHED_CustomizeTasksPanel_Form.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\TasksPanel\Forms'
+ UP extprop:pas:TypeName 'TCustomizeTasksPanelForm'
+ UP extprop:rc:SelfName 'CustomizeTasksPanelForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CustomizeTasksPanel_Form'
+
+ENDME // ME_4C8E4D4F027D CustomizeTasksPanel

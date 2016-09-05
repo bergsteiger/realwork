@@ -1,0 +1,137 @@
+// AutoreferatInterfaces 492F0586030C ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492F0586030C
+
+ME ME_492FDE16013B
+ MEPROP UID '492FDE16013B'
+ MEPROP GUID '34D4F64F-ABFB-48BE-B04F-DD609BB32DAB'
+ MEPROP Name 'IdsNewsLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492F0586030C // AutoreferatInterfaces
+ ;
+ UP extprop:rc:SelfName 'dsNewsLine'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492FDE16013B IdsNewsLine
+
+FORWARD ME_492F071B02AC
+
+ME ME_492F060800A2
+ MEPROP UID '492F060800A2'
+ MEPROP Name 'MakeNewsLineFakeDS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'Фиктивный бизнес объект новостной ленты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492F071B02AC // IsdsAutoreferat
+ ;
+ MELINK Target HWL ME_492FDE16013B // IdsNewsLine
+ ;
+ UP "pm" true
+
+ENDME // ME_492F060800A2 MakeNewsLineFakeDS
+
+ME ME_4925978F00FA_ME_492F071B02AC
+ MELINK Original WL 'ME_4925978F00FA' '491B305A0096.ms.model.script' // ChangeDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925978F00FA_ME_492F071B02AC ChangeDocument
+
+ME ME_492597A602F6_ME_492F071B02AC
+ MELINK Original WL 'ME_492597A602F6' '491B305A0096.ms.model.script' // MakeGotoPointData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492597A602F6_ME_492F071B02AC MakeGotoPointData
+
+ME ME_4DF9D63B0360_ME_492F071B02AC
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_492F071B02AC DocInfo
+
+ME ME_50002EC80001_ME_492F071B02AC
+ MELINK Original WL 'ME_50002EC80001' '491B305A0096.ms.model.script' // dsDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is reference" true
+ UP "pm" true
+ENDME // ME_50002EC80001_ME_492F071B02AC dsDocument
+
+ME ME_5111C2BAF24F_ME_492F071B02AC
+ MELINK Original WL 'ME_5111C2BAF24F' '491B305A0096.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5111C2BAF24F_ME_492F071B02AC HasDocument
+
+ME ME_492F071B02AC
+ MEPROP UID '492F071B02AC'
+ MEPROP GUID '22A93E6D-D6A0-4D95-BA27-C6A9CFBBF259'
+ MEPROP Name 'IsdsAutoreferat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492F0586030C // AutoreferatInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_492F060800A2 // MakeNewsLineFakeDS
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4925978F00FA_ME_492F071B02AC // ChangeDocument
+ ME_492597A602F6_ME_492F071B02AC // MakeGotoPointData
+ ME_4DF9D63B0360_ME_492F071B02AC // DocInfo
+ ME_50002EC80001_ME_492F071B02AC // dsDocument
+ ME_5111C2BAF24F_ME_492F071B02AC // HasDocument
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'sdsAutoreferat'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492F071B02AC IsdsAutoreferat
+
+ME ME_492F0586030C
+ MEPROP UID '492F0586030C'
+ MEPROP Name 'AutoreferatInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы для работы с новостной лентой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49411E4001AB' '49411E4001AB.ms.model.script' // Autoreferat
+ ;
+ MELIST Children
+   Seq: ( HWL ME_492FDE16013B // IdsNewsLine
+ HWL ME_492F071B02AC // IsdsAutoreferat
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_491DAF4202EE' '491DAF4202EE.ms.model.script' // SearchInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '27.11.2008 23:40'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\AutoreferatInterfaces.pas'
+
+ENDME // ME_492F0586030C AutoreferatInterfaces

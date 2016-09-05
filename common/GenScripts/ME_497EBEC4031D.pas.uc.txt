@@ -17,7 +17,7 @@
  begin
   if not vcmDispatcher.History.CanBack then
   begin
-   TdmStdRes.OpenMainMenuIfNeeded(nil);
+   TMainMenuService.Instance.OpenMainMenuIfNeeded(nil);
    vcmDispatcher.History.DeleteBackItem;
   end else
   while vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer.HasForm(fm_enNewsLine.rFormID) and
@@ -41,6 +41,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_Form
  , Classes
  , Forms
  , l3ControlsTypes
+ , Base_Operations_F1Services_Contracts
 //#UC END# *497EBEC4031Dimpl_uses*
 //#UC START# *49806ED503D5_497EBEC4031D_impl*
  l_InnerState := nil;
@@ -64,7 +65,7 @@ var
  end
  else
   l_InnerState := aState; 
- Result := inherited DoLoadState(l_InnerState, aStateType);
+ Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
 //#UC END# *49807428008C_497EBEC4031D_impl*
 //#UC START# *49807428008C_497EBEC4031D_var*
 var
@@ -186,7 +187,7 @@ var
   if AllowOpen or
      NativeMainForm.HasForm(fm_TextForm.rFormID, vcm_ztParent, True, nil, dftAutoreferat) then
   // Создадим сборку:
-   TdmStdRes.OpenAutoreferat(l_Document, nil);
+   TMonitoringsService.Instance.OpenAutoreferat(l_Document, nil);
  end
  else
  begin

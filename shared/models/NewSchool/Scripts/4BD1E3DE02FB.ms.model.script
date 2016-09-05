@@ -1,0 +1,1080 @@
+// DocumentUserTypes 4BD1E3DE02FB VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BD1E3DE02FB
+
+ME ME_4B040A4A0373
+ MEPROP UID '4B040A4A0373'
+ MEPROP Name 'dftNone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftNone_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftNone_UserType'
+
+ENDME // ME_4B040A4A0373 dftNone
+
+ME ME_4B040A5E0051
+ MEPROP UID '4B040A5E0051'
+ MEPROP Name 'dftDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040A4A0373 // dftNone
+ )
+ ; // Inherits
+ UP "ImageIndex" 21
+ UP "SettingsCaption" 'Документ: Текст документа'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDocument_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftDocument_UserType'
+
+ENDME // ME_4B040A5E0051 dftDocument
+
+FORWARD ME_4B040AD300BB
+
+FORWARD ME_4B040A84030D
+
+ME ME_4B040DBC029F
+ MEPROP UID '4B040DBC029F'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B040A84030D // dftRelatedDoc
+ ;
+ MELINK Target HWL ME_4B040AD300BB // dftAnnotation
+ ;
+
+ENDME // ME_4B040DBC029F UseToolbarOfUserTypeName
+
+ME ME_4B040A84030D
+ MEPROP UID '4B040A84030D'
+ MEPROP Name 'dftRelatedDoc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Справка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040A5E0051 // dftDocument
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B040DBC029F // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ MELIST Forwarded
+   Seq: ( HWL ME_4B040AD300BB // dftAnnotation
+ )
+ ; // Forwarded
+ UP "ImageIndex" 20
+ UP "NeedOnQueryClose" true
+ UP "SettingsCaption" 'Документ: Справка к документу'
+ UP "VisibleToUser" false
+ UP "Weight" 30
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftRelatedDoc_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftRelatedDoc_UserType'
+
+ENDME // ME_4B040A84030D dftRelatedDoc
+
+ME ME_4B040E1D00EA
+ MEPROP UID '4B040E1D00EA'
+ MEPROP Name 'dftDocSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст документа (синхронный просмотр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040A84030D // dftRelatedDoc
+ )
+ ; // Inherits
+ UP "ImageIndex" 30
+ UP "NeedOnQueryMaximized" true
+ UP "NeedOnQueryOpen" true
+ UP "SettingsCaption" 'Синхронный просмотр: Текст документа'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDocSynchroView_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftDocSynchroView_UserType'
+
+ENDME // ME_4B040E1D00EA dftDocSynchroView
+
+FORWARD ME_4B040E960118
+
+FORWARD ME_4B040E560333
+
+ME ME_4B040EA00198
+ MEPROP UID '4B040EA00198'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B040E560333 // dftRelatedSynchroView
+ ;
+ MELINK Target HWL ME_4B040E960118 // dftAnnotationSynchroView
+ ;
+
+ENDME // ME_4B040EA00198 UseToolbarOfUserTypeName
+
+ME ME_4B040E560333
+ MEPROP UID '4B040E560333'
+ MEPROP Name 'dftRelatedSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Справка к документу (синхронный просмотр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040E1D00EA // dftDocSynchroView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B040EA00198 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ MELIST Forwarded
+   Seq: ( HWL ME_4B040E960118 // dftAnnotationSynchroView
+ )
+ ; // Forwarded
+ UP "ImageIndex" 30
+ UP "SettingsCaption" 'Синхронный просмотр: Справка к документу'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftRelatedSynchroView_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftRelatedSynchroView_UserType'
+
+ENDME // ME_4B040E560333 dftRelatedSynchroView
+
+ME ME_4B040EB3003F
+ MEPROP UID '4B040EB3003F'
+ MEPROP Name 'dftDictEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст словарной статьи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040E560333 // dftRelatedSynchroView
+ )
+ ; // Inherits
+ UP "ImageIndex" 21
+ UP "SettingsCaption" 'Толковый словарь: Текст словарной статьи'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDictEntry_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftDictEntry_UserType'
+
+ENDME // ME_4B040EB3003F dftDictEntry
+
+ME ME_4B040ED4039A
+ MEPROP UID '4B040ED4039A'
+ MEPROP Name 'dftDictSubEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перевод словарной статьи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040EB3003F // dftDictEntry
+ )
+ ; // Inherits
+ UP "ImageIndex" 21
+ UP "NeedOnQueryClose" true
+ UP "SettingsCaption" 'Толковый словарь: Перевод словарной статьи'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDictSubEntry_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftDictSubEntry_UserType'
+
+ENDME // ME_4B040ED4039A dftDictSubEntry
+
+ME ME_4B040AD300BB
+ MEPROP UID '4B040AD300BB'
+ MEPROP Name 'dftAnnotation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Аннотация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040ED4039A // dftDictSubEntry
+ )
+ ; // Inherits
+ UP "ImageIndex" 143
+ UP "NeedOnQueryClose" true
+ UP "SettingsCaption" 'Документ: Дополнительная информация'
+ UP "Weight" 35
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAnnotation_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAnnotation_UserType'
+
+ENDME // ME_4B040AD300BB dftAnnotation
+
+ME ME_4B040F34030A
+ MEPROP UID '4B040F34030A'
+ MEPROP Name 'dftAutoreferatAfterSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ПРАЙМ. Обзор изменений законодательства' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040AD300BB // dftAnnotation
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Документ: ПРАЙМ. Обзор изменений законодательства'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAutoreferatAfterSearch_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAutoreferatAfterSearch_UserType'
+
+ENDME // ME_4B040F34030A dftAutoreferatAfterSearch
+
+ME ME_4B040F540027
+ MEPROP UID '4B040F540027'
+ MEPROP Name 'dftConsultation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Консультация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040F34030A // dftAutoreferatAfterSearch
+ )
+ ; // Inherits
+ UP "ImageIndex" 155
+ UP "SettingsCaption" 'Документ: Консультация'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftConsultation_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftConsultation_UserType'
+
+ENDME // ME_4B040F540027 dftConsultation
+
+ME ME_4B040F7C030A
+ MEPROP UID '4B040F7C030A'
+ MEPROP Name 'dftTranslation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перевод' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040F540027 // dftConsultation
+ )
+ ; // Inherits
+ UP "ImageIndex" 167
+ UP "NeedOnQueryClose" true
+ UP "NeedOnQueryMaximized" true
+ UP "NeedOnQueryOpen" true
+ UP "SettingsCaption" 'Документ: Перевод'
+ UP "Weight" 110
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftTranslation_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftTranslation_UserType'
+
+ENDME // ME_4B040F7C030A dftTranslation
+
+ME ME_4B040E960118
+ MEPROP UID '4B040E960118'
+ MEPROP Name 'dftAnnotationSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Аннотация (синхронный просмотр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040F7C030A // dftTranslation
+ )
+ ; // Inherits
+ UP "ImageIndex" 143
+ UP "SettingsCaption" 'Синхронный просмотр: Дополнительная информация'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAnnotationSynchroView_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAnnotationSynchroView_UserType'
+
+ENDME // ME_4B040E960118 dftAnnotationSynchroView
+
+ME ME_4B040FE700A1
+ MEPROP UID '4B040FE700A1'
+ MEPROP Name 'dftTips'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040E960118 // dftAnnotationSynchroView
+ )
+ ; // Inherits
+ UP "ImageIndex" 175
+ UP "SettingsCaption" 'Совет дня: Текст совета'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftTips_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftTips_UserType'
+
+ENDME // ME_4B040FE700A1 dftTips
+
+ME ME_4B04100D0197
+ MEPROP UID '4B04100D0197'
+ MEPROP Name 'dftMedDictEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание медицинского термина' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B040FE700A1 // dftTips
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Словарь медицинских терминов: Описание медицинского термина'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftMedDictEntry_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftMedDictEntry_UserType'
+
+ENDME // ME_4B04100D0197 dftMedDictEntry
+
+ME ME_4B04102D00B6
+ MEPROP UID '4B04102D00B6'
+ MEPROP Name 'dftAutoreferat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B04100D0197 // dftMedDictEntry
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Документ: ПРАЙМ. Моя новостная лента'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAutoreferat_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAutoreferat_UserType'
+
+ENDME // ME_4B04102D00B6 dftAutoreferat
+
+ME ME_4B04104F0026
+ MEPROP UID '4B04104F0026'
+ MEPROP Name 'dftDrug'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание препарата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B04102D00B6 // dftAutoreferat
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDrug_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftDrug_UserType'
+
+ENDME // ME_4B04104F0026 dftDrug
+
+ME ME_4B041062003C
+ MEPROP UID '4B041062003C'
+ MEPROP Name 'dftMedicFirm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание фирмы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B04104F0026 // dftDrug
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftMedicFirm_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftMedicFirm_UserType'
+
+ENDME // ME_4B041062003C dftMedicFirm
+
+ME ME_4B041084021C
+ MEPROP UID '4B041084021C'
+ MEPROP Name 'dftMedicFirmSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание фирмы (синхронный просмотр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B041062003C // dftMedicFirm
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" true
+ UP "NeedOnQueryOpen" true
+ UP "SettingsCaption" 'Синхронный просмотр: Описание фирмы'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftMedicFirmSynchroView_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftMedicFirmSynchroView_UserType'
+
+ENDME // ME_4B041084021C dftMedicFirmSynchroView
+
+ME ME_4B0410A102E1
+ MEPROP UID '4B0410A102E1'
+ MEPROP Name 'dftDrugSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание препарата (синхронный просмотр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B041084021C // dftMedicFirmSynchroView
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" true
+ UP "NeedOnQueryOpen" true
+ UP "SettingsCaption" 'Синхронный просмотр: Описание препарата'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDrugSynchroView_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftDrugSynchroView_UserType'
+
+ENDME // ME_4B0410A102E1 dftDrugSynchroView
+
+ME ME_4FF2ECB40153
+ MEPROP UID '4FF2ECB40153'
+ MEPROP Name 'dftAACLeft'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Левая часть Энциклопедии решений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B0410A102E1 // dftDrugSynchroView
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_50067DB5010E' '484FA67302D7.ms.model.script' // в тулбар для "ААК - текст" должны попадать операции только от левой части. Операции от правой части в тулбар не попадают.
+ WL 'ME_50067DFB02D6' '484FA67302D7.ms.model.script' // Тулбар для левой части ААК-текста должен брать настройки из тулбара для документа
+ )
+ ; // Implements
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Левая часть Энциклопедии решений'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAACLeft_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAACLeft_UserType'
+
+ENDME // ME_4FF2ECB40153 dftAACLeft
+
+ME ME_4FF2ECC2023E
+ MEPROP UID '4FF2ECC2023E'
+ MEPROP Name 'dftAACRight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правая часть Энциклопедии решений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FF2ECB40153 // dftAACLeft
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_50067DB5010E' '484FA67302D7.ms.model.script' // в тулбар для "ААК - текст" должны попадать операции только от левой части. Операции от правой части в тулбар не попадают.
+ )
+ ; // Implements
+ UP "CanHaveToolbars" false
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Правая часть Энциклопедии решений'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAACRight_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAACRight_UserType'
+
+ENDME // ME_4FF2ECC2023E dftAACRight
+
+ME ME_4FF43F4B0071
+ MEPROP UID '4FF43F4B0071'
+ MEPROP Name 'dftAACContentsLeft'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Левая часть оглавления Энциклопедии решений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FF2ECC2023E // dftAACRight
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_50067D910104' '484FA67302D7.ms.model.script' // В тулбар для "ААК - содержание" НЕ должны попадать никакие операции от правой-левой части.
+ )
+ ; // Implements
+ UP "CanHaveToolbars" false
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAACContentsLeft_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAACContentsLeft_UserType'
+
+ENDME // ME_4FF43F4B0071 dftAACContentsLeft
+
+ME ME_4FF43F64023A
+ MEPROP UID '4FF43F64023A'
+ MEPROP Name 'dftAACContentsRight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правая часть оглавления Энциклопедии решений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FF43F4B0071 // dftAACContentsLeft
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_50067D910104' '484FA67302D7.ms.model.script' // В тулбар для "ААК - содержание" НЕ должны попадать никакие операции от правой-левой части.
+ )
+ ; // Implements
+ UP "CanHaveToolbars" false
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAACContentsRight_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftAACContentsRight_UserType'
+
+ENDME // ME_4FF43F64023A dftAACContentsRight
+
+FORWARD ME_53BFD2E400A4
+
+ME ME_53C653E501F6
+ MEPROP UID '53C653E501F6'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53BFD2E400A4 // dftChronology
+ ;
+ MELINK Target HWL ME_4B040A84030D // dftRelatedDoc
+ ;
+
+ENDME // ME_53C653E501F6 UseToolbarOfUserTypeName
+
+ME ME_53BFD2E400A4
+ MEPROP UID '53BFD2E400A4'
+ MEPROP Name 'dftChronology'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Хронология судебного дела' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FF43F64023A // dftAACContentsRight
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53C653E501F6 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ UP "ImageIndex" 211
+ UP "NeedOnQueryClose" true
+ UP "SettingsCaption" 'Документ: Хронология судебного дела'
+ UP "Weight" 130
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftChronology_UserType.pas'
+ UP extprop:pas:UnitName 'DocumentUserTypes_dftChronology_UserType'
+
+ENDME // ME_53BFD2E400A4 dftChronology
+
+ME ME_027501391672
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_027501391672 aSender
+
+ME ME_A2BF852CD6C7
+ MEPROP UID 'A2BF852CD6C7'
+ MEPROP Name 'dftRelatedDocQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftRelatedDoc.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_027501391672 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_A2BF852CD6C7 dftRelatedDocQueryClose
+
+ME ME_F133E6430B17
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_F133E6430B17 aSender
+
+ME ME_931EEB23421A
+ MEPROP UID '931EEB23421A'
+ MEPROP Name 'dftDocSynchroViewQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftDocSynchroView.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_F133E6430B17 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_931EEB23421A dftDocSynchroViewQueryMaximized
+
+ME ME_0E518CA60978
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_0E518CA60978 aSender
+
+ME ME_BB5471A3EA8E
+ MEPROP UID 'BB5471A3EA8E'
+ MEPROP Name 'dftDocSynchroViewQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftDocSynchroView.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_0E518CA60978 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_BB5471A3EA8E dftDocSynchroViewQueryOpen
+
+ME ME_4EB7A1EB34CB
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4EB7A1EB34CB aSender
+
+ME ME_701BC3512B2B
+ MEPROP UID '701BC3512B2B'
+ MEPROP Name 'dftDictSubEntryQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftDictSubEntry.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EB7A1EB34CB // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_701BC3512B2B dftDictSubEntryQueryClose
+
+ME ME_93DF189A5225
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_93DF189A5225 aSender
+
+ME ME_918005C1AFE3
+ MEPROP UID '918005C1AFE3'
+ MEPROP Name 'dftAnnotationQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftAnnotation.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_93DF189A5225 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_918005C1AFE3 dftAnnotationQueryClose
+
+ME ME_A1E8B7EBE509
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_A1E8B7EBE509 aSender
+
+ME ME_0B8413148796
+ MEPROP UID '0B8413148796'
+ MEPROP Name 'dftTranslationQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftTranslation.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_A1E8B7EBE509 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_0B8413148796 dftTranslationQueryMaximized
+
+ME ME_88B374E50077
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_88B374E50077 aSender
+
+ME ME_AF0C9051AEEF
+ MEPROP UID 'AF0C9051AEEF'
+ MEPROP Name 'dftTranslationQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftTranslation.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_88B374E50077 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_AF0C9051AEEF dftTranslationQueryOpen
+
+ME ME_93209C3F382B
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_93209C3F382B aSender
+
+ME ME_7401AD950C39
+ MEPROP UID '7401AD950C39'
+ MEPROP Name 'dftTranslationQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftTranslation.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_93209C3F382B // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_7401AD950C39 dftTranslationQueryClose
+
+ME ME_0B995B0CCCB9
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_0B995B0CCCB9 aSender
+
+ME ME_08687812598B
+ MEPROP UID '08687812598B'
+ MEPROP Name 'dftMedicFirmSynchroViewQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftMedicFirmSynchroView.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_0B995B0CCCB9 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_08687812598B dftMedicFirmSynchroViewQueryMaximized
+
+ME ME_53A6DFB53772
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_53A6DFB53772 aSender
+
+ME ME_FD0B95191C1E
+ MEPROP UID 'FD0B95191C1E'
+ MEPROP Name 'dftMedicFirmSynchroViewQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftMedicFirmSynchroView.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A6DFB53772 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_FD0B95191C1E dftMedicFirmSynchroViewQueryOpen
+
+ME ME_4685EB76EB89
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4685EB76EB89 aSender
+
+ME ME_8A8A353C1A57
+ MEPROP UID '8A8A353C1A57'
+ MEPROP Name 'dftDrugSynchroViewQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftDrugSynchroView.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4685EB76EB89 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_8A8A353C1A57 dftDrugSynchroViewQueryMaximized
+
+ME ME_2FA41F859A49
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_2FA41F859A49 aSender
+
+ME ME_664D52829DD3
+ MEPROP UID '664D52829DD3'
+ MEPROP Name 'dftDrugSynchroViewQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftDrugSynchroView.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_2FA41F859A49 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_664D52829DD3 dftDrugSynchroViewQueryOpen
+
+ME ME_8071C1C1BD17
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_8071C1C1BD17 aSender
+
+ME ME_8418208BCCA0
+ MEPROP UID '8418208BCCA0'
+ MEPROP Name 'dftChronologyQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события dftChronology.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD1E3DE02FB // DocumentUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_8071C1C1BD17 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_8418208BCCA0 dftChronologyQueryClose
+
+ME ME_4BD1E3DE02FB
+ MEPROP UID '4BD1E3DE02FB'
+ MEPROP Name 'DocumentUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пользовательские типы документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_A2BF852CD6C7 // dftRelatedDocQueryClose
+ HWL ME_931EEB23421A // dftDocSynchroViewQueryMaximized
+ HWL ME_BB5471A3EA8E // dftDocSynchroViewQueryOpen
+ HWL ME_701BC3512B2B // dftDictSubEntryQueryClose
+ HWL ME_918005C1AFE3 // dftAnnotationQueryClose
+ HWL ME_0B8413148796 // dftTranslationQueryMaximized
+ HWL ME_AF0C9051AEEF // dftTranslationQueryOpen
+ HWL ME_7401AD950C39 // dftTranslationQueryClose
+ HWL ME_08687812598B // dftMedicFirmSynchroViewQueryMaximized
+ HWL ME_FD0B95191C1E // dftMedicFirmSynchroViewQueryOpen
+ HWL ME_8A8A353C1A57 // dftDrugSynchroViewQueryMaximized
+ HWL ME_664D52829DD3 // dftDrugSynchroViewQueryOpen
+ HWL ME_8418208BCCA0 // dftChronologyQueryClose
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B040A4A0373 // dftNone
+ HWL ME_4B040A5E0051 // dftDocument
+ HWL ME_4B040A84030D // dftRelatedDoc
+ HWL ME_4B040E1D00EA // dftDocSynchroView
+ HWL ME_4B040E560333 // dftRelatedSynchroView
+ HWL ME_4B040EB3003F // dftDictEntry
+ HWL ME_4B040ED4039A // dftDictSubEntry
+ HWL ME_4B040AD300BB // dftAnnotation
+ HWL ME_4B040F34030A // dftAutoreferatAfterSearch
+ HWL ME_4B040F540027 // dftConsultation
+ HWL ME_4B040F7C030A // dftTranslation
+ HWL ME_4B040E960118 // dftAnnotationSynchroView
+ HWL ME_4B040FE700A1 // dftTips
+ HWL ME_4B04100D0197 // dftMedDictEntry
+ HWL ME_4B04102D00B6 // dftAutoreferat
+ HWL ME_4B04104F0026 // dftDrug
+ HWL ME_4B041062003C // dftMedicFirm
+ HWL ME_4B041084021C // dftMedicFirmSynchroView
+ HWL ME_4B0410A102E1 // dftDrugSynchroView
+ HWL ME_4FF2ECB40153 // dftAACLeft
+ HWL ME_4FF2ECC2023E // dftAACRight
+ HWL ME_4FF43F4B0071 // dftAACContentsLeft
+ HWL ME_4FF43F64023A // dftAACContentsRight
+ HWL ME_53BFD2E400A4 // dftChronology
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes.imp.pas'
+ UP extprop:pas:TypeName '_DocumentUserTypes_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'DocumentUserTypes.imp'
+
+ENDME // ME_4BD1E3DE02FB DocumentUserTypes

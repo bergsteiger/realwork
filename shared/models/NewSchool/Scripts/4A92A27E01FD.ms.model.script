@@ -1,0 +1,238 @@
+// UserJournal_i 4A92A27E01FD Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A92A27E01FD
+
+FORWARD ME_4A92A8F2022D
+
+ME ME_4A92A92A00A8
+ MEPROP UID '4A92A92A00A8'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A92A8F2022D // JournalTree
+ ;
+
+ENDME // ME_4A92A92A00A8 NodeDelegateType_
+
+ME ME_4A92AF4D024B
+ MEPROP UID '4A92AF4D024B'
+ MEPROP Name 'NodeType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A92A8F2022D // JournalTree
+ ;
+
+ENDME // ME_4A92AF4D024B NodeType_
+
+ME ME_4A92A95201EE
+ MEPROP Name 'tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4A92A95201EE tree
+
+ME ME_4A92A941032E
+ MEPROP UID '4A92A941032E'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A92A8F2022D // JournalTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A92A95201EE // tree
+ )
+ ; // Parameters
+
+ENDME // ME_4A92A941032E make
+
+ME ME_4AF42B76023D
+ MEPROP UID '4AF42B76023D'
+ MEPROP Name 'clear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Очистить дерево' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A92A8F2022D // JournalTree
+ ;
+
+ENDME // ME_4AF42B76023D clear
+
+FORWARD ME_4A92AEE900C8
+
+ME ME_4A92AEE900C8
+ MEPROP Name ':'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_NodeType_ ;
+ MELINK Target ME_4A92AEE900C8 // :
+ ;
+
+ENDME // ME_4A92AEE900C8 :
+
+ME ME_4A92B6C4037A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92A8F2022D // JournalTree
+ ;
+
+ENDME // ME_4A92B6C4037A 
+
+ME ME_4AF42CEF02C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92A8F2022D // JournalTree
+ ;
+ MELINK Target WL 'ME_460A6EF8024B' '460BAAA30119.ms.model.script' // ApplicationHelper
+ ;
+
+ENDME // ME_4AF42CEF02C9 
+
+ME ME_4A92A8F2022D
+ MEPROP UID '4A92A8F2022D'
+ MEPROP Name 'JournalTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A92A27E01FD // UserJournal_i
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_45F585F802AF' '45EEA4490239.ms.model.script' // Tree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A92A92A00A8 // NodeDelegateType_
+ HWL ME_4A92AF4D024B // NodeType_
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A92A941032E // make
+ HWL ME_4AF42B76023D // clear
+ )
+ ; // Operations
+ MELIST Parameters
+   Seq: ( ME_4A92AEE900C8 // :
+ )
+ ; // Parameters
+ MELIST Dependencies
+   Seq: ( ME_4A92B6C4037A // JournalNode
+ ME_4AF42CEF02C9 // ApplicationHelper
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalTree.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalTree.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalTree.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A92A8F2022D JournalTree
+
+FORWARD ME_4A94342100B3
+
+ME ME_4A9434790292
+ MEPROP Name 'adapter_type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
+ ;
+
+ENDME // ME_4A9434790292 adapter_type
+
+ME ME_4A9434510206
+ MEPROP UID '4A9434510206'
+ MEPROP Name 'translate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A9434790292 // adapter_type
+ )
+ ; // Parameters
+
+ENDME // ME_4A9434510206 translate
+
+ME ME_4A9434A30323
+ MEPROP Name 'server_type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4A9434A30323 server_type
+
+ME ME_4A94348F01E6
+ MEPROP UID '4A94348F01E6'
+ MEPROP Name 'translate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
+ ;
+ MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A9434A30323 // server_type
+ )
+ ; // Parameters
+
+ENDME // ME_4A94348F01E6 translate
+
+ME ME_4A94342100B3
+ MEPROP UID '4A94342100B3'
+ MEPROP Name 'JournalObjectTypeTranslator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A92A27E01FD // UserJournal_i
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A9434510206 // translate
+ HWL ME_4A94348F01E6 // translate
+ )
+ ; // Operations
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalObjectTypeTranslator.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalObjectTypeTranslator.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalObjectTypeTranslator.pas'
+
+ENDME // ME_4A94342100B3 JournalObjectTypeTranslator
+
+ME ME_4A92A27E01FD
+ MEPROP UID '4A92A27E01FD'
+ MEPROP Name 'UserJournal_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A92A8F2022D // JournalTree
+ HWL ME_4A94342100B3 // JournalObjectTypeTranslator
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEA4490239' '45EEA4490239.ms.model.script' // DynamicTree_i
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ WL 'ME_4A7FF5F301B2' '4A7FF5F301B2.ms.model.script' // UserJournal
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i'
+
+ENDME // ME_4A92A27E01FD UserJournal_i

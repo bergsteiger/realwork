@@ -1,0 +1,149 @@
+//#UC START# *479731C50290_57A9F5170275_impl*
+ f_Children := nil;
+ inherited;
+//#UC END# *479731C50290_57A9F5170275_impl*
+//#UC START# *479731C50290_57A9F5170275_var*
+//#UC END# *479731C50290_57A9F5170275_var*
+//#UC START# *47A6FEE600FC_57A9F5170275_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_57A9F5170275_impl*
+//#UC START# *47A6FEE600FC_57A9F5170275_var*
+//#UC END# *47A6FEE600FC_57A9F5170275_var*
+//#UC START# *4DAEEDE10285_57AB42080059_impl*
+ Assert(false);
+//#UC END# *4DAEEDE10285_57AB42080059_impl*
+//#UC START# *4DAEEDE10285_57AB42080059_var*
+//#UC END# *4DAEEDE10285_57AB42080059_var*
+//#UC START# *57A9F5170275_ext:FileName
+w:\common\components\gui\Garant\msm\msmModelElement.pas
+//#UC END# *57A9F5170275_ext:FileName
+//#UC START# *57A9F5170275impl_uses*
+ , l3String
+//#UC END# *57A9F5170275impl_uses*
+//#UC START# *57A9F5D1016B_57A9F5170275_impl*
+ inherited Create(aCaller.MainWord);
+//#UC END# *57A9F5D1016B_57A9F5170275_impl*
+//#UC START# *57A9F5D1016B_57A9F5170275_var*
+//#UC END# *57A9F5D1016B_57A9F5170275_var*
+//#UC START# *57A9FE9400E7_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetString(f_MainWord, 'Name');
+//#UC END# *57A9FE9400E7_57A9F5170275get_impl*
+//#UC START# *57A9FE9400E7_57A9F5170275get_var*
+//#UC END# *57A9FE9400E7_57A9F5170275get_var*
+//#UC START# *57AA08D80358_57A9F5170275_impl*
+ inherited Create;
+ aMainWord.SetRefTo(f_MainWord);
+ ((f_MainWord.Key As TtfwKeyWord).Dictionary As TtfwDictionaryEx).SetRefTo(f_Dictionary);
+//#UC END# *57AA08D80358_57A9F5170275_impl*
+//#UC START# *57AA08D80358_57A9F5170275_var*
+//#UC END# *57AA08D80358_57A9F5170275_var*
+//#UC START# *57AA0B890200_57A9F5170275get_impl*
+ l_P := TmsmModelElementMethodCaller.CallAndGetObj(MainWord, 'Parent');
+ if (l_P = nil) then
+  l_Parent := nil
+ else
+  l_Parent := l_P As TtfwWord;
+ if (l_Parent = nil) then
+  Result := nil
+ else
+  Result := TmsmModelElementFactory.Make(l_Parent);
+//#UC END# *57AA0B890200_57A9F5170275get_impl*
+//#UC START# *57AA0B890200_57A9F5170275get_var*
+var
+ l_P : TObject;
+ l_Parent: TtfwWord;
+//#UC END# *57AA0B890200_57A9F5170275get_var*
+//#UC START# *57AAD9CA008A_57A9F5170275get_impl*
+ if (f_Children = nil) then
+  f_Children := TmsmModelElementList.Make(MainWord, TmsmModelElementMethodCaller.CallAndGetList(MainWord, cChildren), cChildren);
+ Result := f_Children; 
+//#UC END# *57AAD9CA008A_57A9F5170275get_impl*
+//#UC START# *57AAD9CA008A_57A9F5170275get_var*
+const
+ cChildren = 'Children';
+//#UC END# *57AAD9CA008A_57A9F5170275get_var*
+//#UC START# *57AADF560165_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetString(f_MainWord, 'UID');
+//#UC END# *57AADF560165_57A9F5170275get_impl*
+//#UC START# *57AADF560165_57A9F5170275get_var*
+//#UC END# *57AADF560165_57A9F5170275get_var*
+//#UC START# *57AB1B1F01B5_57A9F5170275get_impl*
+ l_P := TmsmModelElementMethodCaller.CallAndGetObj(MainWord, 'Stereotype');
+ if (l_P = nil) then
+  Result := nil
+ else
+  Result := TmsmModelElementStereotype.Make(l_P As TtfwWord); 
+//#UC END# *57AB1B1F01B5_57A9F5170275get_impl*
+//#UC START# *57AB1B1F01B5_57A9F5170275get_var*
+var
+ l_P : TObject;
+//#UC END# *57AB1B1F01B5_57A9F5170275get_var*
+//#UC START# *57AB1E890029_57A9F5170275get_impl*
+ if (f_NameWithStereo = nil) then
+ begin
+  Result := TmsmModelElementMethodCaller.CallAndGetString(MainWord, 'NameWithStereo');
+(*  Result := Get_Name;
+  l_S := Get_Stereotype;
+  if (l_S <> nil) then
+   Result := l3Cat([l3CStr('<<'), l_S.Name, l3CStr('>> '), Result]);*)
+  f_NameWithStereo := Result;
+ end//f_NameWithStereo = nil
+ else
+  Result := f_NameWithStereo;
+//#UC END# *57AB1E890029_57A9F5170275get_impl*
+//#UC START# *57AB1E890029_57A9F5170275get_var*
+(*var
+ l_S : ImsmModelElementStereotype;*)
+//#UC END# *57AB1E890029_57A9F5170275get_var*
+//#UC START# *57ACABF800A3_57A9F5170275_impl*
+ inherited Create(aMainWord);
+//#UC END# *57ACABF800A3_57A9F5170275_impl*
+//#UC START# *57ACABF800A3_57A9F5170275_var*
+//#UC END# *57ACABF800A3_57A9F5170275_var*
+//#UC START# *57B2F55702DE_57A9F5170275get_impl*
+ if (aName = 'Children') then
+  Result := Get_Children
+ else
+  Result := TmsmModelElementList.Make(MainWord, TmsmModelElementMethodCaller.CallAndGetList(MainWord, aName), aName);
+//#UC END# *57B2F55702DE_57A9F5170275get_impl*
+//#UC START# *57B2F55702DE_57A9F5170275get_var*
+//#UC END# *57B2F55702DE_57A9F5170275get_var*
+//#UC START# *57B301FD025C_57A9F5170275get_impl*
+ if (aName = 'NameInModel') then
+  Result := Get_Name
+ else
+  Result := TmsmModelElementMethodCaller.CallAndGetString(MainWord, aName);
+//#UC END# *57B301FD025C_57A9F5170275get_impl*
+//#UC START# *57B301FD025C_57A9F5170275get_var*
+//#UC END# *57B301FD025C_57A9F5170275get_var*
+//#UC START# *57B47A88013F_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetInt(MainWord, aName);
+//#UC END# *57B47A88013F_57A9F5170275get_impl*
+//#UC START# *57B47A88013F_57A9F5170275get_var*
+//#UC END# *57B47A88013F_57A9F5170275get_var*
+//#UC START# *57B47AB0030F_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetBool(MainWord, aName);
+//#UC END# *57B47AB0030F_57A9F5170275get_impl*
+//#UC START# *57B47AB0030F_57A9F5170275get_var*
+//#UC END# *57B47AB0030F_57A9F5170275get_var*
+//#UC START# *57B5E9BE022F_57A9F5170275get_impl*
+ if (aName = 'Parent') then
+  Result := Get_Parent
+ else
+ begin
+  l_P := TmsmModelElementMethodCaller.CallAndGetObj(MainWord, aName);
+  if (l_P = nil) then
+   Result := nil
+  else
+   Result := TmsmModelElementFactory.Make(l_P As TtfwWord);
+ end;//aName = 'Parent'
+//#UC END# *57B5E9BE022F_57A9F5170275get_impl*
+//#UC START# *57B5E9BE022F_57A9F5170275get_var*
+var
+ l_P : TObject;
+//#UC END# *57B5E9BE022F_57A9F5170275get_var*
+//#UC START# *57C3E90C0177_57A9F5170275get_impl*
+ Result := MainWord;
+//#UC END# *57C3E90C0177_57A9F5170275get_impl*
+//#UC START# *57C3E90C0177_57A9F5170275get_var*
+//#UC END# *57C3E90C0177_57A9F5170275get_var*

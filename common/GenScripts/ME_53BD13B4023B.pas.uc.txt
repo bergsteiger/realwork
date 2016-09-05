@@ -47,6 +47,8 @@ var
 //#UC START# *53BD13B4023B_ext:FileName
 w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas
 //#UC END# *53BD13B4023B_ext:FileName
+//#UC START# *53BD13B4023Bimpl_uses*
+//#UC END# *53BD13B4023Bimpl_uses*
 //#UC START# *53BD1BCF010B_53BFD54A01CC_impl*
  inherited Create;
  f_Value := aValue;
@@ -211,3 +213,29 @@ var
 //#UC END# *53F1FD130157_54646EB103D5_impl*
 //#UC START# *53F1FD130157_54646EB103D5_var*
 //#UC END# *53F1FD130157_54646EB103D5_var*
+//#UC START# *57C55E300362_57BEADEE00FCget_impl*
+ Result := f_Value.ChildrenCount;
+//#UC END# *57C55E300362_57BEADEE00FCget_impl*
+//#UC START# *57C55E300362_57BEADEE00FCget_var*
+//#UC END# *57C55E300362_57BEADEE00FCget_var*
+//#UC START# *57C55E50024D_57BEADEE00FC_impl*
+ l_Addr := k2_typFoundSelector.MakeTag.AsObject;
+ l_Addr.IntA[k2_attrPara] := aPara;
+ l_Addr.IntA[k2_attrWord] := aWord;
+ l_Addr.IntA[k2_attrDocument] := aDocument;
+ f_Value.AddChild(l_Addr);
+//#UC END# *57C55E50024D_57BEADEE00FC_impl*
+//#UC START# *57C55E50024D_57BEADEE00FC_var*
+var
+ l_Addr : Tl3Tag;
+//#UC END# *57C55E50024D_57BEADEE00FC_var*
+//#UC START# *57C55E5D000A_57BEADEE00FC_impl*
+ l_Addr := f_Value.Child[anIndex];
+ thePara := l_Addr.IntA[k2_attrPara];
+ theWord := l_Addr.IntA[k2_attrWord];
+ theDocument := l_Addr.IntA[k2_attrDocument];
+//#UC END# *57C55E5D000A_57BEADEE00FC_impl*
+//#UC START# *57C55E5D000A_57BEADEE00FC_var*
+var
+ l_Addr : Tl3Tag;
+//#UC END# *57C55E5D000A_57BEADEE00FC_var*

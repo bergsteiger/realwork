@@ -50,8 +50,6 @@ w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
    try
     l3Move(f_Value, l_Value, SizeOf(TddConfigValue));
     GetValueFromControl;
-    for I := 0 to f_NotifyList.Hi do
-     TddBaseConfigItem(f_NotifyList.Items[I]).ProcessNotify(Value);
     l3Move(l_Value, f_Value, SizeOf(TddConfigValue));
    finally
     UnLock;

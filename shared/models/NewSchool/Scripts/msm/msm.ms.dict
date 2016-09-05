@@ -1,0 +1,370 @@
+UNIT msm.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+elem_iterator NullList
+ [ Self ] >>> Result
+ //[empty] >>> Result
+; // NullList
+
+WordAlias ._NullList .NullList
+
+elem_iterator Inner
+ Cached:
+ (
+  Self .Children
+  .join> ( Self .Constants )
+  .join> ( Self .Attributes )
+  .join> ( Self .Operations )
+  .join> ( Self .Dependencies )
+  .join> ( Self .Parameters )
+ ) 
+ >>> Result
+; // Inner
+
+USES
+ FirstElement.ms.dict
+;
+
+STRING elem_func UpText
+ Self .NameInModel >>> Result
+ if ( Result .IsNil ) then
+ begin
+  Self .WordName >>> Result
+ end // ( Result .IsNil )
+ if ( Self .IsUP ) then
+ begin
+  VAR l_Value
+  [ Self DO ]
+  .map> (
+    IN aValue
+   RULES 
+    ( aValue IsObj )
+     ( aValue .Name )
+    DEFAULT
+     ( aValue ToPrintable )
+   ; // RULES 
+  ) 
+  .FirstElement >>> l_Value
+  [ Result ' = ' l_Value ] strings:Cat >>> Result 
+ end // ( Self .IsUP )
+; // UpText
+
+STRING elem_func NameWithStereo
+ Cached:
+ (
+  Self .NameInModel
+  >>> Result
+ 
+  if ( Result .IsNil ) then
+  begin
+   '(unnamed)' >>> Result
+  end // ( Result .IsNil )
+ 
+  VAR l_St
+  Self .Stereotype >>> l_St
+  if (
+      ( l_St .NotIsNil )
+      AND ( l_St .NameInModel .NotIsNil )
+     ) then
+  begin
+   [ '<<' l_St .NameInModel '>>' ' ' Result ] strings:Cat >>> Result
+  end // ( l_St .NotIsNil )
+  else
+  begin
+   [ '<<default>>' ' ' Result ] strings:Cat >>> Result
+  end
+  Result
+ )
+ >>> Result 
+; // NameWithStereo
+
+STRING elem_func ValueString
+ '' >>> Result
+ VAR l_Value
+ Self .GetUP 'Value' >>> l_Value
+
+ if ( l_Value .IsValueValid ) then
+ begin
+  l_Value ToPrintable >>> Result
+ end // ( l_Value .IsValueValid )
+; // ValueString
+
+USES
+ CountIt.ms.dict
+;
+
+ModelElement elem_func FirstOperation
+ Cached:
+ (
+  Self .Operations
+  .filter> ( .IsLocalMethod ! )
+  .FirstElement
+ )
+ >>> Result
+; // FirstOperation
+
+elem_iterator MethodParameters
+ Cached:
+ (
+  RULES
+   ( Self .IsMethod )
+    ( Self .FirstOperation .Parameters )
+   DEFAULT
+    ( Self .Parameters )
+  ; // RULES
+ )
+ >>> Result
+; // MethodParameters
+
+ModelElement elem_func MethodTarget
+ Cached:
+ (
+  RULES
+   ( Self .IsMethod )
+    ( Self .FirstOperation .Target )
+   DEFAULT
+    ( Self .Target )
+  ; // RULES
+ ) 
+ >>> Result
+; // MethodTarget
+
+STRING elem_func ParametersString
+ '' >>> Result
+ VAR l_P
+ VAR l_Open
+ VAR l_Close
+ if ( Self .MDAClass class_Attribute == ) then
+ begin
+  Self .Attributes >>> l_P
+  '[' >>> l_Open
+  ']' >>> l_Close
+ end // ( Self .MDAClass class_Attribute == )
+ else
+ begin
+  Self .MethodParameters >>> l_P
+  '(' >>> l_Open
+  ')' >>> l_Close
+ end // ( Self .MDAClass class_Attribute == )
+ if ( l_P .NotEmpty ) then
+ begin
+  [
+   VAR l_WasParam
+   false >>> l_WasParam
+   l_Open
+   l_P .for> (
+     IN aParam
+    if l_WasParam then
+     ', '
+    VAR l_St
+    aParam .Stereotype >>> l_St
+    if ( l_St .NotIsNil ) then
+    begin
+     if ( l_St .NameInModel 'in' != ) then
+     begin
+      l_St .NameInModel ' '
+     end // ( l_St .NameInModel 'in' != )
+    end // ( l_St .NotIsNil )
+    aParam .NameInModel
+    VAR l_T
+    aParam .Target >>> l_T
+    VAR l_N
+    if ( l_T .IsNil ) then
+    begin
+     'void' >>> l_N
+    end // ( l_T .IsNil )
+    else
+    begin
+     l_T .NameInModel >>> l_N
+    end // ( l_T .IsNil )
+    ': ' l_N
+    VAR l_V
+    aParam .ValueString >>> l_V
+    if ( l_V .NotIsNil ) then
+    begin
+     ' = ' l_V
+    end // ( l_V .NotIsNil )
+    true >>> l_WasParam
+   ) //l_P .for>
+   l_Close
+  ] strings:Cat >>> Result
+ end // l_P .NotEmpty
+; // ParametersString
+
+STRING elem_func NameWithStereoAndTarget
+ Cached:
+ (
+  [ Self .NameWithStereo Self .ParametersString ] strings:Cat
+  >>> Result
+  
+  VAR l_T
+  Self .MethodTarget >>> l_T
+  
+  if ( l_T .NotIsNil ) then
+  begin
+   VAR l_Name
+   l_T .NameInModel >>> l_Name
+   if ( l_Name .IsNil ) then
+   begin
+    'void' >>> l_Name
+   end // ( l_Name .IsNil )
+   [ Result ': ' l_Name ] strings:Cat >>> Result
+  end // ( l_T .NotIsNil )
+  Result
+ )
+ >>> Result 
+; // NameWithStereoAndTarget
+
+STRING elem_func NameWithStereoAndTargetAndValue
+ Cached:
+ (
+  Self .NameWithStereoAndTarget
+  >>> Result
+ 
+  VAR l_Value
+  Self .ValueString >>> l_Value
+  if ( l_Value .NotIsNil ) then
+  begin
+   [ Result ' = ' l_Value  ] strings:Cat >>> Result
+  end // ( l_Value .NotIsNil )
+  Result
+ )
+ >>> Result 
+; // NameWithStereoAndTargetAndValue
+
+STRING elem_func NameWithStereoAndTargetAndValueAndDoc
+ Self .NameWithStereoAndTargetAndValue >>> Result
+ VAR l_D
+ Self .Documentation >>> l_D
+ if ( l_D .NotIsNil ) then
+ begin
+  [ Result #10 ' - ' l_D ] strings:Cat >>> Result
+ end // ( l_D .NotIsNil )
+; // NameWithStereoAndTargetAndValueAndDoc
+
+STRING elem_func DocumentationNotEmpty
+ Self .Documentation >>> Result
+ if ( Result .IsNil ) then
+ begin
+  'Ёлемент не документирован' >>> Result
+ end // ( Result .IsNil )
+; // DocumentationNotEmpty
+
+BOOLEAN elem_func IsFinished
+ Self .GetUP "finished" false ?!=
+ >>> Result
+; // IsFinished
+
+WordAlias .DefaultShortText .NameWithStereo
+//WordAlias .DefaultText .Name
+//WordAlias .DefaultSearchText .Name
+WordAlias .DefaultSearchText .NameInModel
+WordAlias .DefaultText .NameWithStereoAndTargetAndValue
+WordAlias .DefaultFullText .DefaultText
+WordAlias .DefaultTextAndDoc .NameWithStereoAndTargetAndValueAndDoc
+
+USES
+ CompileTimeVar.ms.dict
+;
+
+USES
+ Log.ms.dict
+;
+
+BOOLEAN CompileTime-VAR g_NeedTerminate false
+
+PROCEDURE TerminateLoadInner
+ true >>> g_NeedTerminate
+ Log: 'Terminate Request'
+; // TerminateLoadInner
+
+elem_proc LoadChildInfo
+ if ( g_NeedTerminate ! ) then
+ begin
+  Self .NameWithStereo DROP
+  Self .DefaultText DROP
+  Self .Parent DROP
+  Self .IsSummoned DROP
+  //Self .Depends DROP
+  //Self .Inherits DROP
+  //Self .Implements DROP
+  //Self .Implemented DROP
+  //Self .Overridden DROP
+  //Self .Dependencies DROP
+  //Self .UpList DROP
+  //Self .DocumentationNotEmpty DROP
+  Self .Inner DROP
+ end // ( g_NeedTerminate ! )
+; // LoadChildInfo
+
+elem_proc LoadInnerPrim
+ if ( g_NeedTerminate ! ) then
+ begin
+  Self .LoadChildInfo
+  Self .Inner .for> (
+   if g_NeedTerminate then
+   begin
+    DROP
+   end // g_NeedTerminate
+   else
+   begin
+    call.me
+   end // g_NeedTerminate
+  ) // Self .Children .for>
+ end // ( g_NeedTerminate ! )
+; // LoadInnerPrim
+
+BOOLEAN elem_func LoadLevel
+ true >>> Result
+ if ( g_NeedTerminate ! ) then
+ begin
+  Self .LoadChildInfo
+/*{  Self .Inner .for> (
+   if g_NeedTerminate then
+   begin
+    DROP
+   end // g_NeedTerminate
+   else
+   begin
+    .LoadChildInfo
+   end // g_NeedTerminate
+  ) // Self .Children .for>}*/
+ end // ( g_NeedTerminate ! )
+; // LoadLevel
+
+BOOLEAN elem_func LoadInner
+ Log: 'Loading'
+ true >>> Result
+ Self .LoadInnerPrim
+ if g_NeedTerminate then
+ begin
+  Log: 'Terminated'
+ end // g_NeedTerminate
+ else
+ begin
+  Log: 'Loaded'
+ end // g_NeedTerminate
+; // LoadInner

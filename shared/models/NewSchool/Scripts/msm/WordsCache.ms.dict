@@ -1,0 +1,44 @@
+UNIT WordsCache.ms.dict
+
+USES
+ axiom:msm
+;
+
+: WordFromCache
+  STRING IN aWordName
+ aWordName msm:WordFromCache
+; // WordFromCache
+
+USES 
+ ElemMemberPrim.ms.dict 
+;
+
+USES
+ IsNil.ms.dict
+;
+
+PROCEDURE WordToCache
+  STRING IN aWordName
+  TtfwWord IN aWord
+ aWordName aWord msm:WordToCache 
+ 
+  PROCEDURE .CheckChild
+    IN aChild
+   if ( aChild .xParent .IsNil ) then
+   begin
+    aChild -> Parent := aWord
+   end // ( aChild .xParent .IsNil )
+  ; // .CheckChild
+  
+ VAR l_Name
+ aWord .xStereotype .xName >>> l_Name
+ if (
+     ( l_Name 'ModelRoot' == )
+     OR ( l_Name 'ProjectGroup' == )
+    ) then
+ begin
+  aWord .xChildren .for> .CheckChild
+ end // ( l_Name 'ModelRoot' == )
+ aWord .xParameters .for> .CheckChild
+; // WordToCache
+

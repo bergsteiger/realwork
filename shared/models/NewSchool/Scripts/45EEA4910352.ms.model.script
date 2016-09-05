@@ -1,0 +1,180 @@
+// Filters_i 45EEA4910352 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEA4910352
+
+FORWARD ME_4CB2DC4003E4
+
+ME ME_4CB2DC4B0323
+ MEPROP UID '4CB2DC4B0323'
+ MEPROP Name 'count'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CB2DC4003E4 // FilterInfo
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4CB2DC4B0323 count
+
+ME ME_4CB2DC5C0083
+ MEPROP UID '4CB2DC5C0083'
+ MEPROP Name 'flags'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CB2DC4003E4 // FilterInfo
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4CB2DC5C0083 flags
+
+ME ME_4CB2DD5702C3
+ MEPROP Name 'my_flags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4CB2DD5702C3 my_flags
+
+ME ME_4CB2DCFF0049
+ MEPROP UID '4CB2DCFF0049'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CB2DC4003E4 // FilterInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB2DD5702C3 // my_flags
+ )
+ ; // Parameters
+
+ENDME // ME_4CB2DCFF0049 make
+
+ME ME_4CB2DC4003E4
+ MEPROP UID '4CB2DC4003E4'
+ MEPROP Name 'FilterInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA4910352 // Filters_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CB2DC4B0323 // count
+ HWL ME_4CB2DC5C0083 // flags
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB2DCFF0049 // make
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'TFilterInfo'
+
+ENDME // ME_4CB2DC4003E4 FilterInfo
+
+FORWARD ME_4CB2D1450374
+
+ME ME_4CB2D19E01F9
+ MEPROP UID '4CB2D19E01F9'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CB2D1450374 // ErasedIds
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4CB2D19E01F9 
+
+ME ME_4CB2D1450374
+ MEPROP UID '4CB2D1450374'
+ MEPROP Name 'ErasedIds'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA4910352 // Filters_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CB2D19E01F9 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IErasedIds'
+
+ENDME // ME_4CB2D1450374 ErasedIds
+
+FORWARD ME_4CB2CEE902D8
+
+ME ME_4CB2CF4A0273
+ MEPROP UID '4CB2CF4A0273'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CB2CEE902D8 // Counter
+ ;
+ MELINK Target HWL ME_4CB2DC4003E4 // FilterInfo
+ ;
+
+ENDME // ME_4CB2CF4A0273 
+
+ME ME_4CB2CEE902D8
+ MEPROP UID '4CB2CEE902D8'
+ MEPROP Name 'Counter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Map ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA4910352 // Filters_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CB2CF4A0273 // 
+ )
+ ; // Attributes
+
+ENDME // ME_4CB2CEE902D8 Counter
+
+ME ME_45EEA4910352
+ MEPROP UID '45EEA4910352'
+ MEPROP Name 'Filters_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CB2DC4003E4 // FilterInfo
+ HWL ME_4CB2D1450374 // ErasedIds
+ HWL ME_4CB2CEE902D8 // Counter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_45EEA48F011F' '45EEA48F011F.ms.model.script' // Filters
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ WL 'ME_4C174FC20145' '4C174FC20145.ms.model.script' // foreach
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Filters_i\Filters_i.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Filters_i'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Filters_i\Filters_i.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Filters_i'
+
+ENDME // ME_45EEA4910352 Filters_i

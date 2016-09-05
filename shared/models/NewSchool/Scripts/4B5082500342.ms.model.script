@@ -1,0 +1,57 @@
+// PrimEditionsRes 4B5082500342 VCMDataModule Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B5082500342
+
+ME ME_4B50956D00B2
+ MEPROP UID '4B50956D00B2'
+ MEPROP Name 'EditionsStateIcons'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5082500342 // PrimEditionsRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FD2246B017B' '4FD078FF017D.ms.model.script' // TvtPngImageList
+ )
+ ; // Inherits
+ UP "ComponentClass" 'none'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4B50956D00B2 EditionsStateIcons
+
+ME ME_4B5082500342
+ MEPROP UID '4B5082500342'
+ MEPROP Name 'PrimEditionsRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMDataModule ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A6D5A220389' '4A6D5A220389.ms.model.script' // Editions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B50956D00B2 // EditionsStateIcons
+ )
+ ; // Attributes
+ UP "NeedsHackRef" true
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "singleton" true
+ UP "started" '15.01.2010 17:57'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsRes_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+ UP extprop:pas:TypeName 'TPrimEditionsResForm'
+ UP extprop:rc:SelfName 'PrimEditionsResForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimEditionsRes_Form'
+
+ENDME // ME_4B5082500342 PrimEditionsRes

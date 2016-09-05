@@ -1,0 +1,53 @@
+//#UC START# *57AB1EAE00C7_57B6BF8A0210_impl*
+ Self.Model.ElementToAction := Self.Model.List[Index];
+//#UC END# *57AB1EAE00C7_57B6BF8A0210_impl*
+//#UC START# *57AB1EAE00C7_57B6BF8A0210_var*
+//#UC END# *57AB1EAE00C7_57B6BF8A0210_var*
+//#UC START# *57ADFB33027D_57B6BF8A0210_impl*
+ inherited;
+ OwnView.OnActionElement := Self.DoActionElement;
+ OwnView.OnCurrentChanged := Self.DoCurrentChanged;
+ OwnView.OnCharToItem := Self.DoCharToItem;
+ OwnView.MultiStrokeItem := InitContext.rMultiStrokeItem;
+ OwnView.OnGetItemFont := Self.DoGetItemFont;
+//#UC END# *57ADFB33027D_57B6BF8A0210_impl*
+//#UC START# *57ADFB33027D_57B6BF8A0210_var*
+//#UC END# *57ADFB33027D_57B6BF8A0210_var*
+//#UC START# *57B3192403D2_57B6BF8A0210_impl*
+ if (Self.Model.List = nil) then
+  Self.Model.CurrentElement := nil
+ else
+  Self.Model.CurrentElement := Self.Model.List[aNewCurrent];
+//#UC END# *57B3192403D2_57B6BF8A0210_impl*
+//#UC START# *57B3192403D2_57B6BF8A0210_var*
+//#UC END# *57B3192403D2_57B6BF8A0210_var*
+//#UC START# *57B47A2102DE_57B6BF8A0210_impl*
+//#UC END# *57B47A2102DE_57B6BF8A0210_impl*
+//#UC START# *57B47A2102DE_57B6BF8A0210_var*
+//#UC END# *57B47A2102DE_57B6BF8A0210_var*
+//#UC START# *57B5E02201F7_57B6BF8A0210_impl*
+ Len := Length(SrchStr);
+ Index := -1;
+ TmsmWaitCursor.Make;
+ for I := 0 to Pred(Self.Model.List.Count) do
+ begin
+  Res := l3AnsiStrLICompExt(PAnsiChar(SrchStr),
+                            l3PCharLen(Self.Model.List.StringsToFind[I]).S,
+                            Len);
+  if (Res = 0) then
+  begin
+   Index := I;
+   Break;
+  end;//Res = 0
+  {if Res > 0 then Exit;   --if sorted only}
+ end;//for I
+//#UC END# *57B5E02201F7_57B6BF8A0210_impl*
+//#UC START# *57B5E02201F7_57B6BF8A0210_var*
+var
+ I     : LongInt;
+ Len   : Word;
+ Res   : Integer;
+//#UC END# *57B5E02201F7_57B6BF8A0210_var*
+//#UC START# *57B6BF8A0210_ext:FileName
+w:\common\components\gui\Garant\msm\msmListLikeViewController.imp.pas
+//#UC END# *57B6BF8A0210_ext:FileName

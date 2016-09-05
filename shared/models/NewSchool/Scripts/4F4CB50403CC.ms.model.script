@@ -1,0 +1,6328 @@
+// EditorFromStackKeyWords 4F4CB50403CC ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4CB50403CC
+
+FORWARD ME_4F4CB625027A
+
+FORWARD ME_4F4CB81200CA
+
+ME ME_4F4CB85701C6
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F4CB85701C6 aCtx
+
+ME ME_4F4CB85701E5
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4F4CB85701E5 anEditor
+
+ME ME_4F4CB8220060
+ MEPROP UID '4F4CB8220060'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F4CB85701C6 // aCtx
+ ME_4F4CB85701E5 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_4F4CB8220060 DoIt
+
+ME ME_4F4CB81200CA
+ MEPROP UID '4F4CB81200CA'
+ MEPROP Name 'DoWithEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F4CB8220060 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F4CB81200CA DoWithEditor
+
+ME ME_4F212C3A015A_ME_4F4CB625027A
+ MELINK Original WL 'ME_4F212C3A015A' '54DB92D203C9.ms.model.script' // DoControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F212C3A015A_ME_4F4CB625027A DoControl
+
+ME ME_4F4CB625027A
+ MEPROP UID '4F4CB625027A'
+ MEPROP Name 'TkwEditorFromStackWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F212C120371' '54DB92D203C9.ms.model.script' // kwControlFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F4CB81200CA // DoWithEditor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F212C3A015A_ME_4F4CB625027A // DoControl
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackWord.pas'
+ UP extprop:rc:SelfName 'EditorFromStackWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorFromStackWord'
+
+ENDME // ME_4F4CB625027A TkwEditorFromStackWord
+
+FORWARD ME_4F4CB68801E0
+
+ME ME_55D5F5430178
+ MEPROP UID '55D5F5430178'
+ MEPROP Name 'CaretVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55D5F5430178 CaretVisible
+
+ME ME_55D5F57E037C
+ MEPROP UID '55D5F57E037C'
+ MEPROP Name 'ShowDocumentParts'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "mapped" true
+
+ENDME // ME_55D5F57E037C ShowDocumentParts
+
+ME ME_55D5F5F802E6
+ MEPROP UID '55D5F5F802E6'
+ MEPROP Name 'WebStyle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "mapped" true
+
+ENDME // ME_55D5F5F802E6 WebStyle
+
+ME ME_55D5F64A01F0
+ MEPROP UID '55D5F64A01F0'
+ MEPROP Name 'DrawSpecial'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "mapped" true
+
+ENDME // ME_55D5F64A01F0 DrawSpecial
+
+ME ME_55D5F7C3030B
+ MEPROP UID '55D5F7C3030B'
+ MEPROP Name 'DocumentTailVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55D5F7C3030B DocumentTailVisible
+
+ME ME_55D5F864022F
+ MEPROP UID '55D5F864022F'
+ MEPROP Name 'Modified'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "mapped" true
+
+ENDME // ME_55D5F864022F Modified
+
+ME ME_55D5FECF025D
+ MEPROP UID '55D5FECF025D'
+ MEPROP Name 'DrawLines'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55D5FECF025D DrawLines
+
+ME ME_55D609CC0214
+ MEPROP UID '55D609CC0214'
+ MEPROP Name 'AllowRubberTables'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_4DFF70B60031' '4678209200A6.ms.model.script' // TnevRubberTablesMode
+ ;
+ UP "mapped" true
+
+ENDME // ME_55D609CC0214 AllowRubberTables
+
+ME ME_55D5F6C70256
+ MEPROP Name 'aVert'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55D5F6C70256 aVert
+
+ME ME_55D5F6BB01C5
+ MEPROP UID '55D5F6BB01C5'
+ MEPROP Name 'ScrollBottom'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55D5F6C70256 // aVert
+ )
+ ; // Parameters
+
+ENDME // ME_55D5F6BB01C5 ScrollBottom
+
+ME ME_55D5F6F701A4
+ MEPROP UID '55D5F6F701A4'
+ MEPROP Name 'ScrollLineUp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+
+ENDME // ME_55D5F6F701A4 ScrollLineUp
+
+ME ME_55D5F70C019D
+ MEPROP UID '55D5F70C019D'
+ MEPROP Name 'ScrollLineDown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+
+ENDME // ME_55D5F70C019D ScrollLineDown
+
+ME ME_55D5F78F0227
+ MEPROP Name 'aVert'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55D5F78F0227 aVert
+
+ME ME_55D5FE7E023A
+ MEPROP Name 'aPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55D5FE7E023A aPosition
+
+ME ME_55D5F73E005E
+ MEPROP UID '55D5F73E005E'
+ MEPROP Name 'ScrollTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55D5F78F0227 // aVert
+ ME_55D5FE7E023A // aPosition
+ )
+ ; // Parameters
+
+ENDME // ME_55D5F73E005E ScrollTo
+
+ME ME_55D5F82B0316
+ MEPROP UID '55D5F82B0316'
+ MEPROP Name 'PushParaFromCursor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_55D5F82B0316 PushParaFromCursor
+
+ME ME_55D5F8E00362
+ MEPROP UID '55D5F8E00362'
+ MEPROP Name 'SelectAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+
+ENDME // ME_55D5F8E00362 SelectAll
+
+ME ME_55D5F9010294
+ MEPROP UID '55D5F9010294'
+ MEPROP Name 'SelectPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+
+ENDME // ME_55D5F9010294 SelectPara
+
+ME ME_55D6030E03A9
+ MEPROP UID '55D6030E03A9'
+ MEPROP Name 'AtTop'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55D6030E03A9 AtTop
+
+ME ME_55D608E50272
+ MEPROP UID '55D608E50272'
+ MEPROP Name 'SelectWord'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+
+ENDME // ME_55D608E50272 SelectWord
+
+FORWARD ME_4F4DD643008C
+
+ME ME_4F4DD67D0038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F4DD643008C // pop_editor_SelectCells
+ ;
+
+ENDME // ME_4F4DD67D0038 
+
+FORWARD ME_4F4F5A730085
+
+ME ME_4F4F5ADC0280
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F4F5A730085 // pop_editor_WheelScroll
+ ;
+
+ENDME // ME_4F4F5ADC0280 
+
+FORWARD ME_4F548EC7007E
+
+ME ME_4F548EED037D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F548EC7007E // pop_editor_SelectColumn
+ ;
+
+ENDME // ME_4F548EED037D 
+
+FORWARD ME_4F6044140356
+
+ME ME_4F6044A803D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F6044140356 // pop_editor_SelectCellsVertical
+ ;
+
+ENDME // ME_4F6044A803D3 
+
+FORWARD ME_4F75BC5F03A0
+
+ME ME_4F75BC9D0167
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ ;
+
+ENDME // ME_4F75BC9D0167 
+
+FORWARD ME_4FA3BC08027F
+
+ME ME_4FA3BCED014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4FA3BC08027F // pop_editor_RepaintTableLinesAndCheckWithEtalon
+ ;
+
+ENDME // ME_4FA3BCED014F 
+
+FORWARD ME_5009071C00FF
+
+ME ME_5009078D017D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+
+ENDME // ME_5009078D017D 
+
+FORWARD ME_5028D0B602D0
+
+ME ME_5028D0FA0236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+
+ENDME // ME_5028D0FA0236 
+
+FORWARD ME_503C589F0334
+
+ME ME_503C58C8038F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_503C589F0334 // pop_editor_LP2DP
+ ;
+
+ENDME // ME_503C58C8038F 
+
+FORWARD ME_503C650202E5
+
+ME ME_503C651A03A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_503C650202E5 // pop_editor_DP2LP
+ ;
+
+ENDME // ME_503C651A03A3 
+
+FORWARD ME_507510BF02AB
+
+ME ME_507510FF03AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_507510BF02AB // pop_editor_CheckContinueCells
+ ;
+
+ENDME // ME_507510FF03AC 
+
+FORWARD ME_50AE54F001B4
+
+ME ME_50AE55030358
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_50AE54F001B4 // pop_editor_GetLeftIndentDelta
+ ;
+
+ENDME // ME_50AE55030358 
+
+FORWARD ME_4DD663F8004B
+
+ME ME_50B88EF1015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4DD663F8004B // pop_editor_ParaDown
+ ;
+
+ENDME // ME_50B88EF1015C 
+
+FORWARD ME_4EA83B830393
+
+ME ME_50B88EF4009A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4EA83B830393 // pop_editor_ParaUp
+ ;
+
+ENDME // ME_50B88EF4009A 
+
+FORWARD ME_4F732C5C00BD
+
+ME ME_50B8B0170242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F732C5C00BD // pop_editor_ParaEnd
+ ;
+
+ENDME // ME_50B8B0170242 
+
+FORWARD ME_4F73173A01D7
+
+ME ME_50B8B01B0003
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F73173A01D7 // pop_editor_ParaHome
+ ;
+
+ENDME // ME_50B8B01B0003 
+
+FORWARD ME_4E2820E701E1
+
+ME ME_50B8B1AC00BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E2820E701E1 // pop_editor_SelectTable
+ ;
+
+ENDME // ME_50B8B1AC00BA 
+
+FORWARD ME_4DD0F87600ED
+
+ME ME_50BA0D50019F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4DD0F87600ED // pop_editor_HasComment
+ ;
+
+ENDME // ME_50BA0D50019F 
+
+FORWARD ME_4DB7EA830363
+
+ME ME_50BA0D570148
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4DB7EA830363 // pop_editor_DeleteUserComment
+ ;
+
+ENDME // ME_50BA0D570148 
+
+FORWARD ME_4DD649D40028
+
+ME ME_50BA0D5A00AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4DD649D40028 // pop_editor_CurrentText
+ ;
+
+ENDME // ME_50BA0D5A00AD 
+
+FORWARD ME_4E68D7D10110
+
+ME ME_50BA0D5D02FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E68D7D10110 // pop_editor_UpdateCursorFromHotSpot
+ ;
+
+ENDME // ME_50BA0D5D02FA 
+
+FORWARD ME_4E68DD3B01A2
+
+ME ME_50BA0D6102E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E68DD3B01A2 // pop_editor_UpdateCursorFromHotSpotEx
+ ;
+
+ENDME // ME_50BA0D6102E2 
+
+FORWARD ME_4DDE23E403D6
+
+ME ME_50BA0D640354
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+
+ENDME // ME_50BA0D640354 
+
+FORWARD ME_4EAFDEE000EC
+
+ME ME_50BA0D67017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4EAFDEE000EC // pop_editor_GetSelectionText
+ ;
+
+ENDME // ME_50BA0D67017F 
+
+FORWARD ME_4EB27F0E00CF
+
+ME ME_50BA0D6B00BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4EB27F0E00CF // pop_editor_GetParaByID
+ ;
+
+ENDME // ME_50BA0D6B00BF 
+
+FORWARD ME_4EC10AB3000A
+
+ME ME_50BA0D6D02D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+
+ENDME // ME_50BA0D6D02D9 
+
+FORWARD ME_4F38F6E001CB
+
+ME ME_50BC89340094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F38F6E001CB // pop_editor_BlockResize
+ ;
+
+ENDME // ME_50BC89340094 
+
+FORWARD ME_4E980426001F
+
+ME ME_50BC89390029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+
+ENDME // ME_50BC89390029 
+
+FORWARD ME_4E60749A01C2
+
+ME ME_50BC8AB3002A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E60749A01C2 // pop_editor_SetTextParaStyle
+ ;
+
+ENDME // ME_50BC8AB3002A 
+
+FORWARD ME_4EA922390373
+
+ME ME_50BC8D860382
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4EA922390373 // pop_editor_SetCursorByPoint
+ ;
+
+ENDME // ME_50BC8D860382 
+
+FORWARD ME_4E1B0DEA0240
+
+ME ME_50BC8D8A029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E1B0DEA0240 // pop_editor_RepaintAndCheckWithEtalon
+ ;
+
+ENDME // ME_50BC8D8A029F 
+
+FORWARD ME_4E2835DE00FD
+
+ME ME_50BC8D8D01D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E2835DE00FD // pop_editor_CopyAndPaste2DocumentBottom
+ ;
+
+ENDME // ME_50BC8D8D01D1 
+
+FORWARD ME_4E3644790235
+
+ME ME_50BCCCE0021B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E3644790235 // pop_editor_ResizeTableColumn
+ ;
+
+ENDME // ME_50BCCCE0021B 
+
+FORWARD ME_4E37BEF102EE
+
+ME ME_50BCCCE4000C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4E37BEF102EE // pop_editor_ResizeTableColumnEX
+ ;
+
+ENDME // ME_50BCCCE4000C 
+
+FORWARD ME_50D44F67024C
+
+ME ME_50D44F9F03D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_50D44F67024C // pop_editor_CheckWithEtalon
+ ;
+
+ENDME // ME_50D44F9F03D9 
+
+FORWARD ME_5141D01300D2
+
+ME ME_5141D0790082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_5141D01300D2 // pop_editor_GetLMargin
+ ;
+
+ENDME // ME_5141D0790082 
+
+FORWARD ME_51499706003B
+
+ME ME_5149971F028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_51499706003B // pop_editor_GetWrapLimit
+ ;
+
+ENDME // ME_5149971F028C 
+
+FORWARD ME_514BFA8902C0
+
+ME ME_514BFAC1021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_514BFA8902C0 // pop_editor_BlockResizeEX
+ ;
+
+ENDME // ME_514BFAC1021F 
+
+FORWARD ME_5260EBCB0238
+
+ME ME_5260EC5E0256
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_5260EBCB0238 // pop_editor_PasteRTF
+ ;
+
+ENDME // ME_5260EC5E0256 
+
+FORWARD ME_5265029302FC
+
+ME ME_5265033C01E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_5265029302FC // pop_editor_InsertStream
+ ;
+
+ENDME // ME_5265033C01E4 
+
+FORWARD ME_53957B0E024C
+
+ME ME_53957B7101E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+
+ENDME // ME_53957B7101E3 
+
+ME ME_54F06E6A0366
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_4B28D63A00EC' '4B28D63A00EC.ms.model.script' // TevCustomEditorWindowPrim
+ ;
+
+ENDME // ME_54F06E6A0366 
+
+FORWARD ME_4F72B9B00169
+
+ME ME_54F072610188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F72B9B00169 // BeginWait_Print
+ ;
+
+ENDME // ME_54F072610188 
+
+FORWARD ME_4F72BA72006B
+
+ME ME_54F0728B0297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_4F72BA72006B // EndWait_Print
+ ;
+
+ENDME // ME_54F0728B0297 
+
+ME ME_55D5F8BD02BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target WL 'ME_47C695D90332' '47C695A10172.ms.model.script' // TevSelectTarget
+ ;
+
+ENDME // ME_55D5F8BD02BE 
+
+FORWARD ME_55E46D4F03AE
+
+ME ME_55E46D6103B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ ;
+ MELINK Target HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+
+ENDME // ME_55E46D6103B5 
+
+ME ME_4F4CB68801E0
+ MEPROP UID '4F4CB68801E0'
+ MEPROP Name 'EditorFromStackKeyWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55D5F5430178 // CaretVisible
+ HWL ME_55D5F57E037C // ShowDocumentParts
+ HWL ME_55D5F5F802E6 // WebStyle
+ HWL ME_55D5F64A01F0 // DrawSpecial
+ HWL ME_55D5F7C3030B // DocumentTailVisible
+ HWL ME_55D5F864022F // Modified
+ HWL ME_55D5FECF025D // DrawLines
+ HWL ME_55D609CC0214 // AllowRubberTables
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55D5F6BB01C5 // ScrollBottom
+ HWL ME_55D5F6F701A4 // ScrollLineUp
+ HWL ME_55D5F70C019D // ScrollLineDown
+ HWL ME_55D5F73E005E // ScrollTo
+ HWL ME_55D5F82B0316 // PushParaFromCursor
+ HWL ME_55D5F8E00362 // SelectAll
+ HWL ME_55D5F9010294 // SelectPara
+ HWL ME_55D6030E03A9 // AtTop
+ HWL ME_55D608E50272 // SelectWord
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F4DD67D0038 // pop_editor_SelectCells
+ ME_4F4F5ADC0280 // pop_editor_WheelScroll
+ ME_4F548EED037D // pop_editor_SelectColumn
+ ME_4F6044A803D3 // pop_editor_SelectCellsVertical
+ ME_4F75BC9D0167 // pop_editor_JumpToHyperlink
+ ME_4FA3BCED014F // pop_editor_RepaintTableLinesAndCheckWithEtalon
+ ME_5009078D017D // pop_editor_PrintAcnhor
+ ME_5028D0FA0236 // pop_editor_PrintTableCellsParams
+ ME_503C58C8038F // pop_editor_LP2DP
+ ME_503C651A03A3 // pop_editor_DP2LP
+ ME_507510FF03AC // pop_editor_CheckContinueCells
+ ME_50AE55030358 // pop_editor_GetLeftIndentDelta
+ ME_50B88EF1015C // pop_editor_ParaDown
+ ME_50B88EF4009A // pop_editor_ParaUp
+ ME_50B8B0170242 // pop_editor_ParaEnd
+ ME_50B8B01B0003 // pop_editor_ParaHome
+ ME_50B8B1AC00BA // pop_editor_SelectTable
+ ME_50BA0D50019F // pop_editor_HasComment
+ ME_50BA0D570148 // pop_editor_DeleteUserComment
+ ME_50BA0D5A00AD // pop_editor_CurrentText
+ ME_50BA0D5D02FA // pop_editor_UpdateCursorFromHotSpot
+ ME_50BA0D6102E2 // pop_editor_UpdateCursorFromHotSpotEx
+ ME_50BA0D640354 // pop_editor_TextToFile
+ ME_50BA0D67017F // pop_editor_GetSelectionText
+ ME_50BA0D6B00BF // pop_editor_GetParaByID
+ ME_50BA0D6D02D9 // pop_editor_GetSelectionTextInFormat
+ ME_50BC89340094 // pop_editor_BlockResize
+ ME_50BC89390029 // pop_editor_SelectCellByMouse
+ ME_50BC8AB3002A // pop_editor_SetTextParaStyle
+ ME_50BC8D860382 // pop_editor_SetCursorByPoint
+ ME_50BC8D8A029F // pop_editor_RepaintAndCheckWithEtalon
+ ME_50BC8D8D01D1 // pop_editor_CopyAndPaste2DocumentBottom
+ ME_50BCCCE0021B // pop_editor_ResizeTableColumn
+ ME_50BCCCE4000C // pop_editor_ResizeTableColumnEX
+ ME_50D44F9F03D9 // pop_editor_CheckWithEtalon
+ ME_5141D0790082 // pop_editor_GetLMargin
+ ME_5149971F028C // pop_editor_GetWrapLimit
+ ME_514BFAC1021F // pop_editor_BlockResizeEX
+ ME_5260EC5E0256 // pop_editor_PasteRTF
+ ME_5265033C01E4 // pop_editor_InsertStream
+ ME_53957B7101E3 // pop_editor_PasteEVDTroughClipboard
+ ME_54F06E6A0366 // TevCustomEditorWindowPrim
+ ME_54F072610188 // BeginWait_Print
+ ME_54F0728B0297 // EndWait_Print
+ ME_55D5F8BD02BE // TevSelectTarget
+ ME_55E46D6103B5 // TevCustomEditorWordsPack
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\EditorFromStackKeyWordsPack.pas'
+
+ENDME // ME_4F4CB68801E0 EditorFromStackKeyWordsPack
+
+FORWARD ME_4F549BD300D3
+
+FORWARD ME_4F549C0101F6
+
+ME ME_4F54A2CA010F
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F54A2CA010F aCtx
+
+ME ME_4F54A2CA012F
+ MEPROP Name 'aCursorPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4F54A2CA012F aCursorPoint
+
+ME ME_4F549C23000B
+ MEPROP UID '4F549C23000B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F549C0101F6 // GetTablePoint
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F54A2CA010F // aCtx
+ ME_4F54A2CA012F // aCursorPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4F549C23000B DoIt
+
+ME ME_4F549C7B032A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F549C0101F6 // GetTablePoint
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4F549C7B032A 
+
+ME ME_4F549C0101F6
+ MEPROP UID '4F549C0101F6'
+ MEPROP Name 'GetTablePoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F549BD300D3 // kwEditorGetTableFromCursor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F549C23000B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F549C7B032A // Table
+ )
+ ; // Dependencies
+
+ENDME // ME_4F549C0101F6 GetTablePoint
+
+ME ME_4F549BD300D3
+ MEPROP UID '4F549BD300D3'
+ MEPROP Name 'kwEditorGetTableFromCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F549C0101F6 // GetTablePoint
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas'
+ UP extprop:pas:TypeName '_kwEditorGetTableFromCursor_'
+ UP extprop:pas:UnitName 'kwEditorGetTableFromCursor.imp'
+
+ENDME // ME_4F549BD300D3 kwEditorGetTableFromCursor
+
+ME ME_4F4CB81200CA_ME_4F4F5A730085
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4F4F5A730085 DoWithEditor
+
+ME ME_4F4F5A730085
+ MEPROP UID '4F4F5A730085'
+ MEPROP Name 'pop_editor_WheelScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aUp aVeritcal anEditorControl pop:editor:WheelScroll'#13#10'*Описание:* Прокручивает документ к позиции скроллера. aVeritcal - если true, то скроллируем повертикали. aUp - сроллировать вверх, если true'#13#10'*Пример:*'#13#10'{code} '#13#10'false true focused:control:push anEditorControl pop:editor:WheelScroll'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F4F5A730085 // DoWithEditor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorWheelScroll.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorWheelScroll'
+ UP extprop:rc:SelfName 'PopEditorWheelScroll'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorWheelScroll'
+
+ENDME // ME_4F4F5A730085 pop_editor_WheelScroll
+
+ME ME_4F548FC602E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F548EC7007E // pop_editor_SelectColumn
+ ;
+ MELINK Target WL 'ME_48453B7601F9' '47F1F38601A3.ms.model.script' // evCursorTools
+ ;
+
+ENDME // ME_4F548FC602E1 
+
+ME ME_4F4CB81200CA_ME_4F548EC7007E
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4F548EC7007E DoWithEditor
+
+ME ME_4F548EC7007E
+ MEPROP UID '4F548EC7007E'
+ MEPROP Name 'pop_editor_SelectColumn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aColID anEditorControl pop:editor:SelectCells'#13#10'*Описание:* Выделяет колонку таблицы. Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aColID - Integer'#13#10'*Пример:*'#13#10'{code} '#13#10'2 focused:control:push pop:editor:SelectCells'#13#10'{code} '#13#10'*Результат:* Выделяет вторую колонку.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ HWL ME_4F549BD300D3 // kwEditorGetTableFromCursor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F548EC7007E // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F548FC602E1 // evCursorTools
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectColumn.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSelectColumn'
+ UP extprop:rc:SelfName 'PopEditorSelectColumn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSelectColumn'
+
+ENDME // ME_4F548EC7007E pop_editor_SelectColumn
+
+FORWARD ME_4F604272014E
+
+FORWARD ME_4F6042D20081
+
+ME ME_4F6042F603B1
+ MEPROP UID '4F6042F603B1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6042D20081 // IsVertical
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F6042F603B1 DoIt
+
+ME ME_4F6042D20081
+ MEPROP UID '4F6042D20081'
+ MEPROP Name 'IsVertical'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При выделении мышь движется сверху вниз.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6042F603B1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6042D20081 IsVertical
+
+ME ME_4F6044D201C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4F6044D201C2 
+
+ME ME_4F6044E30016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4F6044E30016 
+
+ME ME_4F6044F10074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4F6044F10074 
+
+ME ME_4F604503012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4F604503012A 
+
+ME ME_4F60451400B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4F60451400B3 
+
+ME ME_4F4CB81200CA_ME_4F604272014E
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4F604272014E DoWithEditor
+
+ME ME_4F604272014E
+ MEPROP UID '4F604272014E'
+ MEPROP Name 'TkwSelectCellsWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь выделения мышью части таблицы в редакторе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ HWL ME_4F549BD300D3 // kwEditorGetTableFromCursor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F6042D20081 // IsVertical
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F604272014E // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F6044D201C2 // l3FillChar
+ ME_4F6044E30016 // Tl3Point
+ ME_4F6044F10074 // InevMap
+ ME_4F604503012A // evL3CoreConsts
+ ME_4F60451400B3 // IevHotSpot
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSelectCellsWord.pas'
+ UP extprop:rc:SelfName 'SelectCellsWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSelectCellsWord'
+
+ENDME // ME_4F604272014E TkwSelectCellsWord
+
+ME ME_4F6042D20081_ME_4F4DD643008C
+ MELINK Original HWL ME_4F6042D20081 // IsVertical
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F6042D20081_ME_4F4DD643008C IsVertical
+
+ME ME_4F4DD643008C
+ MEPROP UID '4F4DD643008C'
+ MEPROP Name 'pop_editor_SelectCells'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aStartCell aStartRow aFinshCell aFinishRow anEditorControl pop:editor:SelectCells'#13#10'*Описание:* Выделяет диапазон ячеек с помощью мыши начиная от начальной (aStartCell, aRowCell) до конечной (aFinishCell, aFinishRow). Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aStartCell aStartRow aFinshCell aFinishRow - Integer'#13#10'*Пример:*'#13#10'{code} '#13#10'0 0 2 2 focused:control:push pop:editor:SelectCells'#13#10'{code} '#13#10'*Результат:* Выделяет диапазон ячеек в таблице от (0, 0) до (2, 2) у текущего редактора.'#13#10'*Примечание:* В каждой ячейке должен быть только один параграф, иначе выделение будет неправильным.'#13#10'*Примечание 2:* Текст в начальной ячейке должен быть выровнен по левому краю. Иначе  появится сообщение об ошибке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F604272014E // TkwSelectCellsWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F6042D20081_ME_4F4DD643008C // IsVertical
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCells.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSelectCells'
+ UP extprop:rc:SelfName 'PopEditorSelectCells'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSelectCells'
+
+ENDME // ME_4F4DD643008C pop_editor_SelectCells
+
+ME ME_4F6042D20081_ME_4F6044140356
+ MELINK Original HWL ME_4F6042D20081 // IsVertical
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F6042D20081_ME_4F6044140356 IsVertical
+
+ME ME_4F6044140356
+ MEPROP UID '4F6044140356'
+ MEPROP Name 'pop_editor_SelectCellsVertical'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aStartCell aStartRow aFinshCell aFinishRow anEditorControl pop:editor:SelectCellsVertical'#13#10'*Описание:* Выделяет диапазон ячеек с помощью мыши начиная от начальной (aStartCell, aRowCell) до конечной (aFinishCell, aFinishRow). Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aStartCell aStartRow aFinshCell aFinishRow - Integer'#13#10'*Пример:*'#13#10'{code} '#13#10'0 0 2 2 focused:control:push pop:editor:SelectCellsVertical'#13#10'{code} '#13#10'*Результат:* Выделяет диапазон ячеек в таблице от (0, 0) до (2, 2) у текущего редактора.'#13#10'*Примечание:* В каждой ячейке должен быть только один параграф, иначе выделение будет неправильным.'#13#10'*Примечание 2:* Текст в начальной ячейке должен быть выровнен по левому краю. Иначе  появится сообщение об ошибке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F604272014E // TkwSelectCellsWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F6042D20081_ME_4F6044140356 // IsVertical
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellsVertical.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSelectCellsVertical'
+ UP extprop:rc:SelfName 'PopEditorSelectCellsVertical'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSelectCellsVertical'
+
+ENDME // ME_4F6044140356 pop_editor_SelectCellsVertical
+
+ME ME_4F75BCBB02DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_4F75BCBB02DD 
+
+ME ME_4F75BCD6014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ ;
+ MELINK Target WL 'ME_47C5BD35000A' '4A23935A0282.ms.model.script' // IevMoniker
+ ;
+
+ENDME // ME_4F75BCD6014B 
+
+ME ME_4F75C09801D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4F75C09801D4 
+
+ME ME_4F4CB81200CA_ME_4F75BC5F03A0
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4F75BC5F03A0 DoWithEditor
+
+ME ME_4F75BC5F03A0
+ MEPROP UID '4F75BC5F03A0'
+ MEPROP Name 'pop_editor_JumpToHyperlink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F75BC5F03A0 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F75BCBB02DD // IevHyperlink
+ ME_4F75BCD6014B // IevMoniker
+ ME_4F75C09801D4 // Supports
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorJumpToHyperlink.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorJumpToHyperlink'
+ UP extprop:rc:SelfName 'PopEditorJumpToHyperlink'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorJumpToHyperlink'
+
+ENDME // ME_4F75BC5F03A0 pop_editor_JumpToHyperlink
+
+ME ME_4FA3CB6A0092
+ MEPROP UID '4FA3CB6A0092'
+ MEPROP Name 'f_ScriptCaller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA3BC08027F // pop_editor_RepaintTableLinesAndCheckWithEtalon
+ ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_4FA3CB6A0092 f_ScriptCaller
+
+ME ME_4FA3CE3F0061
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA3BC08027F // pop_editor_RepaintTableLinesAndCheckWithEtalon
+ ;
+ MELINK Target WL 'ME_4B853D8301E9' '4AB0997B00A2.ms.model.script' // AnsiStartsStr
+ ;
+
+ENDME // ME_4FA3CE3F0061 
+
+ME ME_4F4CB81200CA_ME_4FA3BC08027F
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4FA3BC08027F DoWithEditor
+
+ME ME_4FA3C6D2025F_ME_4FA3BC08027F
+ MELINK Original WL 'ME_4FA3C6D2025F' '4E1C0134031B.ms.model.script' // DoCloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FA3C6D2025F_ME_4FA3BC08027F DoCloseLog
+
+ME ME_4FA3BC08027F
+ MEPROP UID '4FA3BC08027F'
+ MEPROP Name 'pop_editor_RepaintTableLinesAndCheckWithEtalon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ WL 'ME_4FA3BB1500BA' '4E1C0134031B.ms.model.script' // LinesDrawOutput
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FA3CB6A0092 // f_ScriptCaller
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4FA3BC08027F // DoWithEditor
+ ME_4FA3C6D2025F_ME_4FA3BC08027F // DoCloseLog
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FA3CE3F0061 // AnsiStartsStr
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintTableLinesAndCheckWithEtalon.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorRepaintTableLinesAndCheckWithEtalon'
+ UP extprop:rc:SelfName 'PopEditorRepaintTableLinesAndCheckWithEtalon'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorRepaintTableLinesAndCheckWithEtalon'
+
+ENDME // ME_4FA3BC08027F pop_editor_RepaintTableLinesAndCheckWithEtalon
+
+FORWARD ME_500925030215
+
+ME ME_50096EF00103
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50096EF00103 aCtx
+
+ME ME_50096EF00126
+ MEPROP Name 'anAnchor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_50096EF00126 anAnchor
+
+ME ME_50096EF00144
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50096EF00144 anEditor
+
+ME ME_500926380206
+ MEPROP UID '500926380206'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500925030215 // SaveAnchor
+ ;
+ MELIST Parameters
+   Seq: ( ME_50096EF00103 // aCtx
+ ME_50096EF00126 // anAnchor
+ ME_50096EF00144 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_500926380206 DoIt
+
+ME ME_500925030215
+ MEPROP UID '500925030215'
+ MEPROP Name 'SaveAnchor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_500926380206 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_500925030215 SaveAnchor
+
+FORWARD ME_5009264E0377
+
+ME ME_50096EFC0108
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50096EFC0108 aCtx
+
+ME ME_50096EFC0128
+ MEPROP Name 'anAnchor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_50096EFC0128 anAnchor
+
+ME ME_50096EFC0147
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50096EFC0147 anEditor
+
+ME ME_5009267C0000
+ MEPROP UID '5009267C0000'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5009264E0377 // CheckBaseLine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_50096EFC0108 // aCtx
+ ME_50096EFC0128 // anAnchor
+ ME_50096EFC0147 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_5009267C0000 DoIt
+
+ME ME_5009264E0377
+ MEPROP UID '5009264E0377'
+ MEPROP Name 'CheckBaseLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5009267C0000 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5009264E0377 CheckBaseLine
+
+ME ME_50092F850114
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ ;
+
+ENDME // ME_50092F850114 
+
+ME ME_50094F8F0169
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_50094F8F0169 
+
+ME ME_4F4CB81200CA_ME_5009071C00FF
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_5009071C00FF DoWithEditor
+
+ME ME_5009071C00FF
+ MEPROP UID '5009071C00FF'
+ MEPROP Name 'pop_editor_PrintAcnhor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aTopAnchor anEditorControl pop:editor:PrintAcnhor'#13#10'*Описание:* Печатает текущее значение якоря, включая дочерние, позицию, PID параграф и т.п. aTopAnchor - true - верхния якорь, false - нижний якорь.'#13#10'*Пример:*'#13#10'{code} '#13#10'true focused:control:push pop:editor:PrintAcnhor'#13#10'{code} '#13#10'*Результат:* В засимости от значения поля в будет напечатано значение "true" или "false"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_500925030215 // SaveAnchor
+ HWL ME_5009264E0377 // CheckBaseLine
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_5009071C00FF // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50092F850114 // Format
+ ME_50094F8F0169 // l3CStr
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintAcnhor.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorPrintAcnhor'
+ UP extprop:rc:SelfName 'PopEditorPrintAcnhor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorPrintAcnhor'
+
+ENDME // ME_5009071C00FF pop_editor_PrintAcnhor
+
+ME ME_5028E3770350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_5028E3770350 
+
+ME ME_5028E759015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_5005218F0347' '48185390010A.ms.model.script' // evGetContinueCell
+ ;
+
+ENDME // ME_5028E759015D 
+
+ME ME_5028EF0203C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_5028EF0203C6 
+
+ME ME_5028F2D90040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ ;
+
+ENDME // ME_5028F2D90040 
+
+ME ME_5028F75500A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ ;
+ MELINK Target WL 'ME_47D00CC20108' '47C52679006D.ms.model.script' // nevFacade
+ ;
+
+ENDME // ME_5028F75500A4 
+
+ME ME_4F4CB81200CA_ME_5028D0B602D0
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_5028D0B602D0 DoWithEditor
+
+ME ME_5028D0B602D0
+ MEPROP UID '5028D0B602D0'
+ MEPROP Name 'pop_editor_PrintTableCellsParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* anEditorControl pop:editor:PrintTableCellsParams'#13#10'*Описание:* Печатает структуру информацию ячеек таблицы: тип объединения, если объединенная, то номер ячейки в строке сверху, номер ячейки в строке снизу и номер начальной ячейки/номер строки, где эта ячейка. Результат выводится в обычный файл вывода результатов.'#13#10'*Пример:*'#13#10'{code} '#13#10'focused:control:push pop:editor:PrintTableCellsParams'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ HWL ME_4F549BD300D3 // kwEditorGetTableFromCursor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_5028D0B602D0 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5028E3770350 // TnevFormatInfoPrim
+ ME_5028E759015D // evGetContinueCell
+ ME_5028EF0203C6 // l3CStr
+ ME_5028F2D90040 // Format
+ ME_5028F75500A4 // nevFacade
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintTableCellsParams.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorPrintTableCellsParams'
+ UP extprop:rc:SelfName 'PopEditorPrintTableCellsParams'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorPrintTableCellsParams'
+
+ENDME // ME_5028D0B602D0 pop_editor_PrintTableCellsParams
+
+ME ME_503C5F160234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503C589F0334 // pop_editor_LP2DP
+ ;
+ MELINK Target WL 'ME_47289677028A' '472745450206.ms.model.script' // Tl3SPoint
+ ;
+
+ENDME // ME_503C5F160234 
+
+ME ME_4F4CB81200CA_ME_503C589F0334
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_503C589F0334 DoWithEditor
+
+ME ME_503C589F0334
+ MEPROP UID '503C589F0334'
+ MEPROP Name 'pop_editor_LP2DP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* X Y anEditorControl pop:editor:LP2DP'#13#10'*Описание:* Переводи значения точки из долей дюйма в пиксели.'#13#10'*Пример:*'#13#10'{code} '#13#10'100 100  focused:control:push pop:editor:LP2DP'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_503C589F0334 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_503C5F160234 // Tl3SPoint
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorLP2DP.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorLP2DP'
+ UP extprop:rc:SelfName 'PopEditorLP2DP'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorLP2DP'
+
+ENDME // ME_503C589F0334 pop_editor_LP2DP
+
+ME ME_503C65430178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503C650202E5 // pop_editor_DP2LP
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_503C65430178 
+
+ME ME_4F4CB81200CA_ME_503C650202E5
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_503C650202E5 DoWithEditor
+
+ME ME_503C650202E5
+ MEPROP UID '503C650202E5'
+ MEPROP Name 'pop_editor_DP2LP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* X Y anEditorControl pop:editor:DP2LP'#13#10'*Описание:* Переводи значения точки из долей дюйма в пиксели.'#13#10'*Пример:*'#13#10'{code} '#13#10'100 100  focused:control:push pop:editor:DP2LP'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_503C650202E5 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_503C65430178 // Tl3Point
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorDP2LP.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorDP2LP'
+ UP extprop:rc:SelfName 'PopEditorDP2LP'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorDP2LP'
+
+ENDME // ME_503C650202E5 pop_editor_DP2LP
+
+ME ME_50751F7F0310
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507510BF02AB // pop_editor_CheckContinueCells
+ ;
+ MELINK Target WL 'ME_50751F2001E9' '5075275701AF.ms.model.script' // TevTextInContinueCellSearcher
+ ;
+
+ENDME // ME_50751F7F0310 
+
+ME ME_5075242900C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507510BF02AB // pop_editor_CheckContinueCells
+ ;
+ MELINK Target WL 'ME_47C6CAC503DE' '47C695A10172.ms.model.script' // TevSearchOptionEx
+ ;
+
+ENDME // ME_5075242900C8 
+
+ME ME_4F4CB81200CA_ME_507510BF02AB
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_507510BF02AB DoWithEditor
+
+ME ME_507510BF02AB
+ MEPROP UID '507510BF02AB'
+ MEPROP Name 'pop_editor_CheckContinueCells'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_507510BF02AB // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50751F7F0310 // TevTextInContinueCellSearcher
+ ME_5075242900C8 // TevSearchOptionEx
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckContinueCells.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorCheckContinueCells'
+ UP extprop:rc:SelfName 'PopEditorCheckContinueCells'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorCheckContinueCells'
+
+ENDME // ME_507510BF02AB pop_editor_CheckContinueCells
+
+ME ME_4F4CB81200CA_ME_50AE54F001B4
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_50AE54F001B4 DoWithEditor
+
+ME ME_50AE54F001B4
+ MEPROP UID '50AE54F001B4'
+ MEPROP Name 'pop_editor_GetLeftIndentDelta'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_50AE54F001B4 // DoWithEditor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLeftIndentDelta.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorGetLeftIndentDelta'
+ UP extprop:rc:SelfName 'PopEditorGetLeftIndentDelta'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorGetLeftIndentDelta'
+
+ENDME // ME_50AE54F001B4 pop_editor_GetLeftIndentDelta
+
+FORWARD ME_54EF5B8401B0
+
+ME ME_54EF5B9B02FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54EF5B8401B0 // kwEditorFromStackCursorWordUses
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_54EF5B9B02FA 
+
+ME ME_54EF5BB303D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54EF5B8401B0 // kwEditorFromStackCursorWordUses
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_54EF5BB303D9 
+
+ME ME_54EF5BBC013D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54EF5B8401B0 // kwEditorFromStackCursorWordUses
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_54EF5BBC013D 
+
+ME ME_54EF5B8401B0
+ MEPROP UID '54EF5B8401B0'
+ MEPROP Name 'kwEditorFromStackCursorWordUses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54EF5B9B02FA // Operations
+ ME_54EF5BB303D9 // CommentPara
+ ME_54EF5BBC013D // TextPara
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas'
+ UP extprop:pas:TypeName '_kwEditorFromStackCursorWordUses_'
+ UP extprop:pas:UnitName 'kwEditorFromStackCursorWordUses.imp'
+
+ENDME // ME_54EF5B8401B0 kwEditorFromStackCursorWordUses
+
+FORWARD ME_50B88DF40154
+
+FORWARD ME_50B8BCDF0093
+
+ME ME_50B8BCE9039C
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50B8BCE9039C aCtx
+
+ME ME_50B8BCE903B8
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50B8BCE903B8 anEditor
+
+ME ME_50B8BCE903D5
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_50B8BCE903D5 aPoint
+
+ME ME_50B8BCE801AA
+ MEPROP UID '50B8BCE801AA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_50B8BCE9039C // aCtx
+ ME_50B8BCE903B8 // anEditor
+ ME_50B8BCE903D5 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_50B8BCE801AA DoIt
+
+ME ME_50B8BCDF0093
+ MEPROP UID '50B8BCDF0093'
+ MEPROP Name 'DoCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50B8BCE801AA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50B8BCDF0093 DoCursor
+
+ME ME_50B88E6C02D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_50B88E6C02D7 
+
+ME ME_50B88E6F0287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_50B88E6F0287 
+
+ME ME_50B88E7102F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_50B88E7102F9 
+
+ME ME_50B88E7302D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50B88E7302D6 
+
+ME ME_50B88E75035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_4DDE2C4C01CD' '4AB0C3F60375.ms.model.script' // GetFocus
+ ;
+
+ENDME // ME_50B88E75035F 
+
+ME ME_50B88E7702DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_4AAF9CFA0263' '4799D29F033F.ms.model.script' // FindControl
+ ;
+
+ENDME // ME_50B88E7702DA 
+
+ME ME_50B88E79028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ ;
+
+ENDME // ME_50B88E79028B 
+
+ME ME_50B8C17F0324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_50B8C17F0324 
+
+ME ME_4F4CB81200CA_ME_50B88DF40154
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_50B88DF40154 DoWithEditor
+
+ME ME_50B88DF40154
+ MEPROP UID '50B88DF40154'
+ MEPROP Name 'TkwEditorFromStackCursorWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_54EF5B8401B0 // kwEditorFromStackCursorWordUses
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_50B8BCDF0093 // DoCursor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_50B88DF40154 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50B88E6C02D7 // TextPara
+ ME_50B88E6F0287 // CommentPara
+ ME_50B88E7102F9 // InevObject
+ ME_50B88E7302D6 // TevCustomEditorWindow
+ ME_50B88E75035F // GetFocus
+ ME_50B88E7702DA // FindControl
+ ME_50B88E79028B // evParaTools
+ ME_50B8C17F0324 // Operations
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWord.pas'
+ UP extprop:rc:SelfName 'EditorFromStackCursorWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorFromStackCursorWord'
+
+ENDME // ME_50B88DF40154 TkwEditorFromStackCursorWord
+
+ME ME_4DD6669301B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD663F8004B // pop_editor_ParaDown
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4DD6669301B4 
+
+ME ME_50B8C0F30008
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD663F8004B // pop_editor_ParaDown
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_50B8C0F30008 
+
+ME ME_50B8BCDF0093_ME_4DD663F8004B
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_4DD663F8004B DoCursor
+
+ME ME_4DB0614603C8_ME_4DD663F8004B
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DD663F8004B GetWordNameForRegister
+
+ME ME_4DD663F8004B
+ MEPROP UID '4DD663F8004B'
+ MEPROP Name 'pop_editor_ParaDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переходит на параграф вниз в редакторе. pop:editor:ParaDown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4DD663F8004B // DoCursor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DD663F8004B // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DD6669301B4 // Msg Codes
+ ME_50B8C0F30008 // Operations
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '20.05.2011 16:52'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorParaDown.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorParaDown'
+ UP extprop:rc:SelfName 'PopEditorParaDown'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorParaDown'
+
+ENDME // ME_4DD663F8004B pop_editor_ParaDown
+
+ME ME_50B8BCDF0093_ME_4F73173A01D7
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_4F73173A01D7 DoCursor
+
+ME ME_4F73173A01D7
+ MEPROP UID '4F73173A01D7'
+ MEPROP Name 'pop_editor_ParaHome'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В начало параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4F73173A01D7 // DoCursor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorParaHome.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorParaHome'
+ UP extprop:rc:SelfName 'PopEditorParaHome'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorParaHome'
+
+ENDME // ME_4F73173A01D7 pop_editor_ParaHome
+
+ME ME_50B8BCDF0093_ME_4F732C5C00BD
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_4F732C5C00BD DoCursor
+
+ME ME_4F732C5C00BD
+ MEPROP UID '4F732C5C00BD'
+ MEPROP Name 'pop_editor_ParaEnd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4F732C5C00BD // DoCursor
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "started" '26.10.2011 18:48'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEnd.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorParaEnd'
+ UP extprop:rc:SelfName 'PopEditorParaEnd'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorParaEnd'
+
+ENDME // ME_4F732C5C00BD pop_editor_ParaEnd
+
+ME ME_4E2832CE03DC
+ MEPROP UID '4E2832CE03DC'
+ MEPROP Name 'f_Point'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E2820E701E1 // pop_editor_SelectTable
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E2832CE03DC f_Point
+
+ME ME_4E2835290100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2820E701E1 // pop_editor_SelectTable
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E2835290100 
+
+ME ME_50B8BCDF0093_ME_4E2820E701E1
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_4E2820E701E1 DoCursor
+
+ME ME_479731C50290_ME_4E2820E701E1
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4E2820E701E1 Cleanup
+
+ME ME_4C34625E021F_ME_4E2820E701E1
+ MELINK Original WL 'ME_4C34625E021F' '4E1C0134031B.ms.model.script' // SelectTableWholly
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C34625E021F_ME_4E2820E701E1 SelectTableWholly
+
+ME ME_4CC818F4022D_ME_4E2820E701E1
+ MELINK Original WL 'ME_4CC818F4022D' '4E1C0134031B.ms.model.script' // GetTablePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC818F4022D_ME_4E2820E701E1 GetTablePara
+
+ME ME_4DB0614603C8_ME_4E2820E701E1
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E2820E701E1 GetWordNameForRegister
+
+ME ME_4E2820E701E1
+ MEPROP UID '4E2820E701E1'
+ MEPROP Name 'pop_editor_SelectTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CC815A00031' '4E1C0134031B.ms.model.script' // SelectTablePart
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E2832CE03DC // f_Point
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4E2820E701E1 // DoCursor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4E2820E701E1 // Cleanup
+ ME_4C34625E021F_ME_4E2820E701E1 // SelectTableWholly
+ ME_4CC818F4022D_ME_4E2820E701E1 // GetTablePara
+ ME_4DB0614603C8_ME_4E2820E701E1 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E2835290100 // Table
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectTable.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSelectTable'
+ UP extprop:rc:SelfName 'PopEditorSelectTable'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSelectTable'
+
+ENDME // ME_4E2820E701E1 pop_editor_SelectTable
+
+ME ME_4E68D85100F0
+ MEPROP UID '4E68D85100F0'
+ MEPROP Name 'TevCustomEditorWindowHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E68D7D10110 // pop_editor_UpdateCursorFromHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EditorWindowHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E68D85100F0 TevCustomEditorWindowHack
+
+ME ME_4F4CB81200CA_ME_4E68D7D10110
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4E68D7D10110 DoWithEditor
+
+ME ME_4DB0614603C8_ME_4E68D7D10110
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E68D7D10110 GetWordNameForRegister
+
+ME ME_4E68D7D10110
+ MEPROP UID '4E68D7D10110'
+ MEPROP Name 'pop_editor_UpdateCursorFromHotSpot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4E68D7D10110 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E68D7D10110 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4E68D85100F0 // TevCustomEditorWindowHack
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '08.09.2011 18:57'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpot.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorUpdateCursorFromHotSpot'
+ UP extprop:rc:SelfName 'PopEditorUpdateCursorFromHotSpot'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorUpdateCursorFromHotSpot'
+
+ENDME // ME_4E68D7D10110 pop_editor_UpdateCursorFromHotSpot
+
+ME ME_4E68DD8200A4
+ MEPROP UID '4E68DD8200A4'
+ MEPROP Name 'TevCustomEditorWindowHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E68DD3B01A2 // pop_editor_UpdateCursorFromHotSpotEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EditorWindowHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E68DD8200A4 TevCustomEditorWindowHack
+
+ME ME_4F4CB81200CA_ME_4E68DD3B01A2
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4E68DD3B01A2 DoWithEditor
+
+ME ME_4DB0614603C8_ME_4E68DD3B01A2
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E68DD3B01A2 GetWordNameForRegister
+
+ME ME_4E68DD3B01A2
+ MEPROP UID '4E68DD3B01A2'
+ MEPROP Name 'pop_editor_UpdateCursorFromHotSpotEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4E68DD3B01A2 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E68DD3B01A2 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4E68DD8200A4 // TevCustomEditorWindowHack
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '08.09.2011 19:20'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpotEx.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorUpdateCursorFromHotSpotEx'
+ UP extprop:rc:SelfName 'PopEditorUpdateCursorFromHotSpotEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorUpdateCursorFromHotSpotEx'
+
+ENDME // ME_4E68DD3B01A2 pop_editor_UpdateCursorFromHotSpotEx
+
+ME ME_4DDE2447038B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_4DDE2447038B 
+
+ME ME_4DDE247801A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_46A626BC0145' '4677FBA70343.ms.model.script' // ClipboardFormats
+ ;
+
+ENDME // ME_4DDE247801A6 
+
+ME ME_4DDE248A0006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_495230C40219' '47913B47006E.ms.model.script' // Tl3NamedTextStream
+ ;
+
+ENDME // ME_4DDE248A0006 
+
+ME ME_4DDE24960345
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4DDE24960345 
+
+ME ME_4DDE293D01C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DDE293D01C9 
+
+ME ME_4DDE41D90297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4DDE3E97005C' '47ECB8BD00A8.ms.model.script' // TevdMarkEliminator
+ ;
+
+ENDME // ME_4DDE41D90297 
+
+ME ME_4E664D5302BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4E664CB30360' '47ECB8BD00A8.ms.model.script' // TevdDocumentMarksEliminator
+ ;
+
+ENDME // ME_4E664D5302BD 
+
+ME ME_4E66527C00FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4678160E01BE' '47913B47006E.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_4E66527C00FA 
+
+ME ME_4E6751640345
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4E6750EF020D' '47ECB8BD00A8.ms.model.script' // TevdDocumentBookmarksEliminator
+ ;
+
+ENDME // ME_4E6751640345 
+
+ME ME_4E67570E03DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4E6756B3015E' '47ECB8BD00A8.ms.model.script' // TevdDocumentSubsEliminator
+ ;
+
+ENDME // ME_4E67570E03DD 
+
+ME ME_4E7755510151
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4E7754BD01BA' '4C407B410029.ms.model.script' // TevDocumentSubsChildrenCountEliminator
+ ;
+
+ENDME // ME_4E7755510151 
+
+ME ME_4F33C75F008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4F33BAE302FA' '47ECB8BD00A8.ms.model.script' // TevdHypelinkDocIDEliminator
+ ;
+ UP "ifdef" 'ARCHI'
+
+ENDME // ME_4F33C75F008D 
+
+ME ME_4F9BFA9702D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_4F9BFA1F007E' '47ECB8BD00A8.ms.model.script' // TevdEmptySubsEliminator
+ ;
+
+ENDME // ME_4F9BFA9702D2 
+
+ME ME_5358CC82021E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_5358C3EA01ED' '47ECACA70141.ms.model.script' // TevdStartAndTimeEliminator
+ ;
+
+ENDME // ME_5358CC82021E 
+
+ME ME_53735A2F03B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ ;
+ MELINK Target WL 'ME_53731FC4015A' '47ECACA70141.ms.model.script' // TevBitmapEliminator4Tests
+ ;
+
+ENDME // ME_53735A2F03B8 
+
+ME ME_4F4CB81200CA_ME_4DDE23E403D6
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4DDE23E403D6 DoWithEditor
+
+ME ME_4DB0614603C8_ME_4DDE23E403D6
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DDE23E403D6 GetWordNameForRegister
+
+ME ME_4DDE23E403D6
+ MEPROP UID '4DDE23E403D6'
+ MEPROP Name 'pop_editor_TextToFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохраняет содержимое редактора в evd-файл. '#13#10'Пример:'#13#10'''C:\MyFile.evd'' editor:TextToFile' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4DDE23E403D6 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DDE23E403D6 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DDE2447038B // Clipboard Formats
+ ME_4DDE247801A6 // ClipboardFormats
+ ME_4DDE248A0006 // Tl3NamedTextStream
+ ME_4DDE24960345 // Tl3FileMode
+ ME_4DDE293D01C9 // FreeAndNil
+ ME_4DDE41D90297 // TevdMarkEliminator
+ ME_4E664D5302BD // TevdDocumentMarksEliminator
+ ME_4E66527C00FA // Ik2TagGenerator
+ ME_4E6751640345 // TevdDocumentBookmarksEliminator
+ ME_4E67570E03DD // TevdDocumentSubsEliminator
+ ME_4E7755510151 // TevDocumentSubsChildrenCountEliminator
+ ME_4F33C75F008D // TevdHypelinkDocIDEliminator
+ ME_4F9BFA9702D2 // TevdEmptySubsEliminator
+ ME_5358CC82021E // TevdStartAndTimeEliminator
+ ME_53735A2F03B8 // TevBitmapEliminator4Tests
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.05.2011 13:53'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorTextToFile.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorTextToFile'
+ UP extprop:rc:SelfName 'PopEditorTextToFile'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorTextToFile'
+
+ENDME // ME_4DDE23E403D6 pop_editor_TextToFile
+
+ME ME_50BA2BF90070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EAFDEE000EC // pop_editor_GetSelectionText
+ ;
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ ;
+
+ENDME // ME_50BA2BF90070 
+
+ME ME_4F4CB81200CA_ME_4EAFDEE000EC
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4EAFDEE000EC DoWithEditor
+
+ME ME_4DB0614603C8_ME_4EAFDEE000EC
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4EAFDEE000EC GetWordNameForRegister
+
+ME ME_4EAFDEE000EC
+ MEPROP UID '4EAFDEE000EC'
+ MEPROP Name 'pop_editor_GetSelectionText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4EAFDEE000EC // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EAFDEE000EC // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50BA2BF90070 // evParaTools
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionText.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorGetSelectionText'
+ UP extprop:rc:SelfName 'PopEditorGetSelectionText'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorGetSelectionText'
+
+ENDME // ME_4EAFDEE000EC pop_editor_GetSelectionText
+
+ME ME_4EB27FA3019A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EB27F0E00CF // pop_editor_GetParaByID
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4EB27FA3019A 
+
+ME ME_4F4CB81200CA_ME_4EB27F0E00CF
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4EB27F0E00CF DoWithEditor
+
+ME ME_4DB0614603C8_ME_4EB27F0E00CF
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4EB27F0E00CF GetWordNameForRegister
+
+ME ME_4EB27F0E00CF
+ MEPROP UID '4EB27F0E00CF'
+ MEPROP Name 'pop_editor_GetParaByID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает от редактора параграф по его ID.'#13#10''#13#10'Пример:'#13#10'{code}'#13#10' 12 editor:GetParaByID'#13#10' IF'#13#10'  Para:Text .'#13#10' ELSE'#13#10' ''Параграф не найден'' .'#13#10' ENDIF'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4EB27F0E00CF // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EB27F0E00CF // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EB27FA3019A // InevPara
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.11.2011 15:47'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetParaByID.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorGetParaByID'
+ UP extprop:rc:SelfName 'PopEditorGetParaByID'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorGetParaByID'
+
+ENDME // ME_4EB27F0E00CF pop_editor_GetParaByID
+
+ME ME_4EC10B9F033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_480F78BC0146' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+
+ENDME // ME_4EC10B9F033D 
+
+ME ME_4EC11A290190
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_4EC11A290190 
+
+ME ME_50BA2EBE0204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ ;
+
+ENDME // ME_50BA2EBE0204 
+
+ME ME_5200DD0F026E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_4A2CFFA30282' '47ECACA70141.ms.model.script' // TevdBlockNameAdder
+ ;
+
+ENDME // ME_5200DD0F026E 
+
+ME ME_52315AAF0244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_4E664CB30360' '47ECB8BD00A8.ms.model.script' // TevdDocumentMarksEliminator
+ ;
+
+ENDME // ME_52315AAF0244 
+
+ME ME_52315AB40265
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_4DDE3E97005C' '47ECB8BD00A8.ms.model.script' // TevdMarkEliminator
+ ;
+
+ENDME // ME_52315AB40265 
+
+ME ME_5548CDCA00E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_52F8B15003A7' '4F6843C101D1.ms.model.script' // TddPicturePathListner
+ ;
+
+ENDME // ME_5548CDCA00E8 
+
+ME ME_5549FC2303D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_5549FC2303D8 
+
+ME ME_4F4CB81200CA_ME_4EC10AB3000A
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4EC10AB3000A DoWithEditor
+
+ME ME_4DB0614603C8_ME_4EC10AB3000A
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4EC10AB3000A GetWordNameForRegister
+
+ME ME_4EC10AB3000A
+ MEPROP UID '4EC10AB3000A'
+ MEPROP Name 'pop_editor_GetSelectionTextInFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает текст параграфа в указанном формате' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4EC10AB3000A // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EC10AB3000A // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EC10B9F033D // l3Utils
+ ME_4EC11A290190 // InevTagGenerator
+ ME_50BA2EBE0204 // evParaTools
+ ME_5200DD0F026E // TevdBlockNameAdder
+ ME_52315AAF0244 // TevdDocumentMarksEliminator
+ ME_52315AB40265 // TevdMarkEliminator
+ ME_5548CDCA00E8 // TddPicturePathListner
+ ME_5549FC2303D8 // Clipboard Formats
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '14.11.2011 16:34'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionTextInFormat.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorGetSelectionTextInFormat'
+ UP extprop:rc:SelfName 'PopEditorGetSelectionTextInFormat'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorGetSelectionTextInFormat'
+
+ENDME // ME_4EC10AB3000A pop_editor_GetSelectionTextInFormat
+
+FORWARD ME_50BA0B820089
+
+FORWARD ME_50BA0BBD01BF
+
+ME ME_50BA0BC7025B
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50BA0BC7025B aCtx
+
+ME ME_50BA0BC70277
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50BA0BC70277 anEditor
+
+ME ME_50BA0BC7029E
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_50BA0BC7029E aPara
+
+ME ME_50BA0BC6022F
+ MEPROP UID '50BA0BC6022F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50BA0BBD01BF // DoPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_50BA0BC7025B // aCtx
+ ME_50BA0BC70277 // anEditor
+ ME_50BA0BC7029E // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_50BA0BC6022F DoIt
+
+ME ME_50BA0BBD01BF
+ MEPROP UID '50BA0BBD01BF'
+ MEPROP Name 'DoPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50BA0B820089 // TkwEditorFromStackTextParaWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50BA0BC6022F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50BA0BBD01BF DoPara
+
+ME ME_50BA0BDD00E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50BA0B820089 // TkwEditorFromStackTextParaWord
+ ;
+ MELINK Target WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+
+ENDME // ME_50BA0BDD00E4 
+
+ME ME_50B8BCDF0093_ME_50BA0B820089
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_50BA0B820089 DoCursor
+
+ME ME_50BA0B820089
+ MEPROP UID '50BA0B820089'
+ MEPROP Name 'TkwEditorFromStackTextParaWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_50BA0BBD01BF // DoPara
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_50BA0B820089 // DoCursor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50BA0BDD00E4 // LeafPara
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTextParaWord.pas'
+ UP extprop:rc:SelfName 'EditorFromStackTextParaWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorFromStackTextParaWord'
+
+ENDME // ME_50BA0B820089 TkwEditorFromStackTextParaWord
+
+ME ME_4DD64CC103E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD649D40028 // pop_editor_CurrentText
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4DD64CC103E2 
+
+ME ME_4DD64D0E0182
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD649D40028 // pop_editor_CurrentText
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4DD64D0E0182 
+
+ME ME_50BA0BBD01BF_ME_4DD649D40028
+ MELINK Original HWL ME_50BA0BBD01BF // DoPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50BA0BBD01BF_ME_4DD649D40028 DoPara
+
+ME ME_4DB0614603C8_ME_4DD649D40028
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DD649D40028 GetWordNameForRegister
+
+ME ME_4DD649D40028
+ MEPROP UID '4DD649D40028'
+ MEPROP Name 'pop_editor_CurrentText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50BA0B820089 // TkwEditorFromStackTextParaWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50BA0BBD01BF_ME_4DD649D40028 // DoPara
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DD649D40028 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DD64CC103E2 // Tk2TagID
+ ME_4DD64D0E0182 // l3CStr
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '20.05.2011 15:01'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCurrentText.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorCurrentText'
+ UP extprop:rc:SelfName 'PopEditorCurrentText'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorCurrentText'
+
+ENDME // ME_4DD649D40028 pop_editor_CurrentText
+
+FORWARD ME_50BA0C4E001B
+
+FORWARD ME_50BA0CC800CA
+
+ME ME_50BA0CD7007A
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50BA0CD7007A aCtx
+
+ME ME_50BA0CD70096
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50BA0CD70096 anEditor
+
+ME ME_50BA0CD700B2
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_50BA0CD700B2 aPara
+
+ME ME_50BA0CD303BA
+ MEPROP UID '50BA0CD303BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50BA0CC800CA // DoNextPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_50BA0CD7007A // aCtx
+ ME_50BA0CD70096 // anEditor
+ ME_50BA0CD700B2 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_50BA0CD303BA DoIt
+
+ME ME_50BA0CC800CA
+ MEPROP UID '50BA0CC800CA'
+ MEPROP Name 'DoNextPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50BA0C4E001B // TkwEditorFromStackNextParaWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50BA0CD303BA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50BA0CC800CA DoNextPara
+
+ME ME_50BA0BBD01BF_ME_50BA0C4E001B
+ MELINK Original HWL ME_50BA0BBD01BF // DoPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50BA0BBD01BF_ME_50BA0C4E001B DoPara
+
+ME ME_50BA0C4E001B
+ MEPROP UID '50BA0C4E001B'
+ MEPROP Name 'TkwEditorFromStackNextParaWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50BA0B820089 // TkwEditorFromStackTextParaWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_50BA0CC800CA // DoNextPara
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_50BA0BBD01BF_ME_50BA0C4E001B // DoPara
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackNextParaWord.pas'
+ UP extprop:rc:SelfName 'EditorFromStackNextParaWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorFromStackNextParaWord'
+
+ENDME // ME_50BA0C4E001B TkwEditorFromStackNextParaWord
+
+ME ME_4DB7EBBB024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB7EA830363 // pop_editor_DeleteUserComment
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4DB7EBBB024E 
+
+ME ME_4DB7EBC103CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB7EA830363 // pop_editor_DeleteUserComment
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4DB7EBC103CE 
+
+ME ME_50BA0CC800CA_ME_4DB7EA830363
+ MELINK Original HWL ME_50BA0CC800CA // DoNextPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50BA0CC800CA_ME_4DB7EA830363 DoNextPara
+
+ME ME_4DB0614603C8_ME_4DB7EA830363
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DB7EA830363 GetWordNameForRegister
+
+ME ME_4DB7EA830363
+ MEPROP UID '4DB7EA830363'
+ MEPROP Name 'pop_editor_DeleteUserComment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50BA0C4E001B // TkwEditorFromStackNextParaWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50BA0CC800CA_ME_4DB7EA830363 // DoNextPara
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DB7EA830363 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DB7EBBB024E // CommentPara
+ ME_4DB7EBC103CE // InevObject
+ )
+ ; // Dependencies
+ UP "NameForScript" 'pop:editor:DeleteComment'
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '27.04.2011 14:06'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorDeleteUserComment.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorDeleteUserComment'
+ UP extprop:rc:SelfName 'PopEditorDeleteUserComment'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorDeleteUserComment'
+
+ENDME // ME_4DB7EA830363 pop_editor_DeleteUserComment
+
+ME ME_50BA0CC800CA_ME_4DD0F87600ED
+ MELINK Original HWL ME_50BA0CC800CA // DoNextPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50BA0CC800CA_ME_4DD0F87600ED DoNextPara
+
+ME ME_4DB0614603C8_ME_4DD0F87600ED
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DD0F87600ED GetWordNameForRegister
+
+ME ME_4DD0F87600ED
+ MEPROP UID '4DD0F87600ED'
+ MEPROP Name 'pop_editor_HasComment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'editor:HasComment. Помещает в стек true, если текущий параграф содержит комментарий.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50BA0C4E001B // TkwEditorFromStackNextParaWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50BA0CC800CA_ME_4DD0F87600ED // DoNextPara
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DD0F87600ED // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorHasComment.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorHasComment'
+ UP extprop:rc:SelfName 'PopEditorHasComment'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorHasComment'
+
+ENDME // ME_4DD0F87600ED pop_editor_HasComment
+
+FORWARD ME_514BFB250118
+
+FORWARD ME_514BFC55039E
+
+ME ME_514C04B0032D
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_514C04B0032D aCtx
+
+ME ME_514C04B0033C
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_514C04B0033C aMap
+
+ME ME_514C04B0035B
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_514C04B0035B aCursor
+
+ME ME_514BFC7201FF
+ MEPROP UID '514BFC7201FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_514BFC55039E // CorrectBlockPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_514C04B0032D // aCtx
+ ME_514C04B0033C // aMap
+ ME_514C04B0035B // aCursor
+ )
+ ; // Parameters
+
+ENDME // ME_514BFC7201FF DoIt
+
+ME ME_514BFC55039E
+ MEPROP UID '514BFC55039E'
+ MEPROP Name 'CorrectBlockPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_514BFB250118 // TkwBlockResize
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_514BFC7201FF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_514BFC55039E CorrectBlockPoint
+
+ME ME_514BFBB103DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_514BFB250118 // TkwBlockResize
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_514BFBB103DD 
+
+ME ME_514BFBC7018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_514BFB250118 // TkwBlockResize
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+
+ENDME // ME_514BFBC7018C 
+
+ME ME_514BFBE1021D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_514BFB250118 // TkwBlockResize
+ ;
+ MELINK Target WL 'ME_4728CE680258' '4AB0997B00A2.ms.model.script' // TShiftState
+ ;
+
+ENDME // ME_514BFBE1021D 
+
+ME ME_514BFC0200B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_514BFB250118 // TkwBlockResize
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_514BFC0200B3 
+
+ME ME_514BFC05036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_514BFB250118 // TkwBlockResize
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_514BFC05036F 
+
+ME ME_514BFC1F02B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_514BFB250118 // TkwBlockResize
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_514BFC1F02B5 
+
+ME ME_50B8BCDF0093_ME_514BFB250118
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_514BFB250118 DoCursor
+
+ME ME_514BFB250118
+ MEPROP UID '514BFB250118'
+ MEPROP Name 'TkwBlockResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_514BFC55039E // CorrectBlockPoint
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_514BFB250118 // DoCursor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_514BFBB103DD // Tl3Point
+ ME_514BFBC7018C // InevHotSpotTester2
+ ME_514BFBE1021D // TShiftState
+ ME_514BFC0200B3 // l3FillChar
+ ME_514BFC05036F // Block
+ ME_514BFC1F02B5 // IevHotSpot
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwBlockResize.pas'
+ UP extprop:rc:SelfName 'BlockResize'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwBlockResize'
+
+ENDME // ME_514BFB250118 TkwBlockResize
+
+ME ME_4E980B53029A
+ MEPROP UID '4E980B53029A'
+ MEPROP Name 'f_Row'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Номер строки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E980B53029A f_Row
+
+ME ME_4E980B790282
+ MEPROP UID '4E980B790282'
+ MEPROP Name 'f_Col'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Номер колонки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E980B790282 f_Col
+
+ME ME_4E98107C02A6
+ MEPROP UID '4E98107C02A6'
+ MEPROP Name 'f_Table'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_4E98107C02A6 f_Table
+
+ME ME_4E98125B0294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E98125B0294 
+
+ME ME_50B8BCDF0093_ME_4E980426001F
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_4E980426001F DoCursor
+
+ME ME_4BF4E6A00093_ME_4E980426001F
+ MELINK Original WL 'ME_4BF4E6A00093' '4C500D470030.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BF4E6A00093_ME_4E980426001F GetInnerPara
+
+ME ME_4DB0614603C8_ME_4E980426001F
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E980426001F GetWordNameForRegister
+
+ME ME_4E980426001F
+ MEPROP UID '4E980426001F'
+ MEPROP Name 'pop_editor_SelectCellByMouse'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'editorSelectCellByMouse' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E97EE2D00D7' '4C500D470030.ms.model.script' // CellSelectionByMouse
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E980B53029A // f_Row
+ HWL ME_4E980B790282 // f_Col
+ HWL ME_4E98107C02A6 // f_Table
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4E980426001F // DoCursor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4E980426001F // GetInnerPara
+ ME_4DB0614603C8_ME_4E980426001F // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E98125B0294 // Table
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellByMouse.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSelectCellByMouse'
+ UP extprop:rc:SelfName 'PopEditorSelectCellByMouse'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSelectCellByMouse'
+
+ENDME // ME_4E980426001F pop_editor_SelectCellByMouse
+
+ME ME_50BA0BBD01BF_ME_4E60749A01C2
+ MELINK Original HWL ME_50BA0BBD01BF // DoPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50BA0BBD01BF_ME_4E60749A01C2 DoPara
+
+ME ME_4DB0614603C8_ME_4E60749A01C2
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E60749A01C2 GetWordNameForRegister
+
+ME ME_4E60749A01C2
+ MEPROP UID '4E60749A01C2'
+ MEPROP Name 'pop_editor_SetTextParaStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'StyleID textpara:SetStyleByID' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50BA0B820089 // TkwEditorFromStackTextParaWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50BA0BBD01BF_ME_4E60749A01C2 // DoPara
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E60749A01C2 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "NameForScript" 'textpara:SetStyleByID'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSetTextParaStyle.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSetTextParaStyle'
+ UP extprop:rc:SelfName 'PopEditorSetTextParaStyle'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSetTextParaStyle'
+
+ENDME // ME_4E60749A01C2 pop_editor_SetTextParaStyle
+
+FORWARD ME_50D456F10356
+
+ME ME_50D4576A0222
+ MEPROP UID '50D4576A0222'
+ MEPROP Name 'f_ScriptCaller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_50D4576A0222 f_ScriptCaller
+
+ME ME_50D4579103CC
+ MEPROP UID '50D4579103CC'
+ MEPROP Name 'f_OutputFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_50D4579103CC f_OutputFileName
+
+FORWARD ME_50F3D8DF034F
+
+ME ME_50F3DA290042
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50F3DA290042 aCtx
+
+ME ME_50F3DA290061
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50F3DA290061 anEditor
+
+ME ME_50F3D9180127
+ MEPROP UID '50F3D9180127'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F3D8DF034F // ExecuteWithEditor
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F3DA290042 // aCtx
+ ME_50F3DA290061 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_50F3D9180127 DoIt
+
+ME ME_50F3D8DF034F
+ MEPROP UID '50F3D8DF034F'
+ MEPROP Name 'ExecuteWithEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50F3D9180127 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50F3D8DF034F ExecuteWithEditor
+
+ME ME_50D457C50021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_50D457C50021 
+
+ME ME_50D457D70255
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_4B853D8301E9' '4AB0997B00A2.ms.model.script' // AnsiStartsStr
+ ;
+
+ENDME // ME_50D457D70255 
+
+ME ME_4E1C0C6C026C_ME_50D456F10356
+ MELINK Original WL 'ME_4E1C0C6C026C' '4E1C0134031B.ms.model.script' // DoOpenLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E1C0C6C026C_ME_50D456F10356 DoOpenLog
+
+ME ME_4E1C0C8C0007_ME_50D456F10356
+ MELINK Original WL 'ME_4E1C0C8C0007' '4E1C0134031B.ms.model.script' // DoCloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E1C0C8C0007_ME_50D456F10356 DoCloseLog
+
+ME ME_50D456F10356
+ MEPROP UID '50D456F10356'
+ MEPROP Name 'kwCheckWithEtalonCommon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E1C016B0011' '4E1C0134031B.ms.model.script' // DrawOutputSupport
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_50D4576A0222 // f_ScriptCaller
+ HWL ME_50D4579103CC // f_OutputFileName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50F3D8DF034F // ExecuteWithEditor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4E1C0C6C026C_ME_50D456F10356 // DoOpenLog
+ ME_4E1C0C8C0007_ME_50D456F10356 // DoCloseLog
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50D457C50021 // FreeAndNil
+ ME_50D457D70255 // AnsiStartsStr
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas'
+ UP extprop:pas:TypeName '_kwCheckWithEtalonCommon_'
+ UP extprop:pas:UnitName 'kwCheckWithEtalonCommon.imp'
+
+ENDME // ME_50D456F10356 kwCheckWithEtalonCommon
+
+ME ME_4F4CB81200CA_ME_4E2835DE00FD
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4E2835DE00FD DoWithEditor
+
+ME ME_4DB0614603C8_ME_4E2835DE00FD
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E2835DE00FD GetWordNameForRegister
+
+ME ME_4E2835DE00FD
+ MEPROP UID '4E2835DE00FD'
+ MEPROP Name 'pop_editor_CopyAndPaste2DocumentBottom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CE1344403AC' '4E1C0134031B.ms.model.script' // ClipboardOperations
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4E2835DE00FD // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E2835DE00FD // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCopyAndPaste2DocumentBottom.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorCopyAndPaste2DocumentBottom'
+ UP extprop:rc:SelfName 'PopEditorCopyAndPaste2DocumentBottom'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorCopyAndPaste2DocumentBottom'
+
+ENDME // ME_4E2835DE00FD pop_editor_CopyAndPaste2DocumentBottom
+
+ME ME_4EA9265E001C
+ MEPROP UID '4EA9265E001C'
+ MEPROP Name 'f_Point'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EA922390373 // pop_editor_SetCursorByPoint
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4EA9265E001C f_Point
+
+ME ME_4EA93EAC0373
+ MEPROP UID '4EA93EAC0373'
+ MEPROP Name 'f_DeltaX'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EA922390373 // pop_editor_SetCursorByPoint
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4EA93EAC0373 f_DeltaX
+
+ME ME_4EA93EBA03DF
+ MEPROP UID '4EA93EBA03DF'
+ MEPROP Name 'f_DeltaY'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EA922390373 // pop_editor_SetCursorByPoint
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4EA93EBA03DF f_DeltaY
+
+ME ME_4EA93E630122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA922390373 // pop_editor_SetCursorByPoint
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4EA93E630122 
+
+ME ME_4EA93E8B03AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA922390373 // pop_editor_SetCursorByPoint
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4EA93E8B03AA 
+
+ME ME_4F4CB81200CA_ME_4EA922390373
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4EA922390373 DoWithEditor
+
+ME ME_4BF4E6A00093_ME_4EA922390373
+ MELINK Original WL 'ME_4BF4E6A00093' '4C500D470030.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BF4E6A00093_ME_4EA922390373 GetInnerPara
+
+ME ME_4C3C927B027E_ME_4EA922390373
+ MELINK Original WL 'ME_4C3C927B027E' '4C500D470030.ms.model.script' // GetPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C3C927B027E_ME_4EA922390373 GetPoint
+
+ME ME_4DB0614603C8_ME_4EA922390373
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4EA922390373 GetWordNameForRegister
+
+ME ME_4EA922390373
+ MEPROP UID '4EA922390373'
+ MEPROP Name 'pop_editor_SetCursorByPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'editor:SetCursorByPoint' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CED0194038A' '4C500D470030.ms.model.script' // Para2Point
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4EA9265E001C // f_Point
+ HWL ME_4EA93EAC0373 // f_DeltaX
+ HWL ME_4EA93EBA03DF // f_DeltaY
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4EA922390373 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4EA922390373 // GetInnerPara
+ ME_4C3C927B027E_ME_4EA922390373 // GetPoint
+ ME_4DB0614603C8_ME_4EA922390373 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EA93E630122 // IevHotSpot
+ ME_4EA93E8B03AA // l3FillChar
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSetCursorByPoint.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSetCursorByPoint'
+ UP extprop:rc:SelfName 'PopEditorSetCursorByPoint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSetCursorByPoint'
+
+ENDME // ME_4EA922390373 pop_editor_SetCursorByPoint
+
+FORWARD ME_4E37F5B402A5
+
+ME ME_4E37F62F0018
+ MEPROP UID '4E37F62F0018'
+ MEPROP Name 'f_TablePara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_4E37F62F0018 f_TablePara
+
+ME ME_50BCCD4E0084
+ MEPROP UID '50BCCD4E0084'
+ MEPROP Name 'f_Engine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_50BCCD4E0084 f_Engine
+
+ME ME_4E37F68300F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E37F68300F8 
+
+ME ME_4E37F6A1037F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4E37F6A1037F 
+
+ME ME_50B8BCDF0093_ME_4E37F5B402A5
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_4E37F5B402A5 DoCursor
+
+ME ME_479731C50290_ME_4E37F5B402A5
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4E37F5B402A5 Cleanup
+
+ME ME_4BF4E6A00093_ME_4E37F5B402A5
+ MELINK Original WL 'ME_4BF4E6A00093' '4C500D470030.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BF4E6A00093_ME_4E37F5B402A5 GetInnerPara
+
+ME ME_4E32CA35008A_ME_4E37F5B402A5
+ MELINK Original WL 'ME_4E32CA35008A' '4C500D470030.ms.model.script' // GetColumnAndRow
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E32CA35008A_ME_4E37F5B402A5 GetColumnAndRow
+
+ME ME_4E32CA5E0115_ME_4E37F5B402A5
+ MELINK Original WL 'ME_4E32CA5E0115' '4C500D470030.ms.model.script' // GetDelta
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E32CA5E0115_ME_4E37F5B402A5 GetDelta
+
+ME ME_4E37F5B402A5
+ MEPROP UID '4E37F5B402A5'
+ MEPROP Name 'TkwEditorFromStackTableColumnResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вспомогательное слово для изменение размера колонок таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E32C9540390' '4C500D470030.ms.model.script' // ColumnResizeByMouse
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E37F62F0018 // f_TablePara
+ HWL ME_50BCCD4E0084 // f_Engine
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4E37F5B402A5 // DoCursor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4E37F5B402A5 // Cleanup
+ ME_4BF4E6A00093_ME_4E37F5B402A5 // GetInnerPara
+ ME_4E32CA35008A_ME_4E37F5B402A5 // GetColumnAndRow
+ ME_4E32CA5E0115_ME_4E37F5B402A5 // GetDelta
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E37F68300F8 // Table
+ ME_4E37F6A1037F // evL3CoreConsts
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTableColumnResize.pas'
+ UP extprop:rc:SelfName 'EditorFromStackTableColumnResize'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorFromStackTableColumnResize'
+
+ENDME // ME_4E37F5B402A5 TkwEditorFromStackTableColumnResize
+
+ME ME_4DB0614603C8_ME_4E3644790235
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E3644790235 GetWordNameForRegister
+
+ME ME_4E3644790235
+ MEPROP UID '4E3644790235'
+ MEPROP Name 'pop_editor_ResizeTableColumn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменить размер колонки таблицы. Пример:'#13#10'{code}   aDelta aCol aRow editor:ResizeTableColumn {code}'#13#10'{panel}'#13#10' * aCol - номер ячейки, которую тянем'#13#10' * aRow - номер строки'#13#10' * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).'#13#10'{panel}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E3644790235 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumn.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorResizeTableColumn'
+ UP extprop:rc:SelfName 'PopEditorResizeTableColumn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorResizeTableColumn'
+
+ENDME // ME_4E3644790235 pop_editor_ResizeTableColumn
+
+ME ME_4E37CD3E01CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E37BEF102EE // pop_editor_ResizeTableColumnEX
+ ;
+ MELINK Target WL 'ME_4DB008DD01BD' '4DAF19F600C5.ms.model.script' // ItfwScriptEngine
+ ;
+
+ENDME // ME_4E37CD3E01CE 
+
+ME ME_4DB0614603C8_ME_4E37BEF102EE
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E37BEF102EE GetWordNameForRegister
+
+ME ME_4E32CA120170_ME_4E37BEF102EE
+ MELINK Original WL 'ME_4E32CA120170' '4C500D470030.ms.model.script' // GetKeys
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E32CA120170_ME_4E37BEF102EE GetKeys
+
+ME ME_4E37BEF102EE
+ MEPROP UID '4E37BEF102EE'
+ MEPROP Name 'pop_editor_ResizeTableColumnEX'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменить размер колонки таблицы. Пример:'#13#10'{code}   aDelta aKeys aCol aRow editor:ResizeTableColumnEX{code}'#13#10'{panel}'#13#10' * aCol - номер ячейки, которую тянем'#13#10' * aRow - номер строки'#13#10' * aKeys - клавиша, нажатая при изменении размеров.'#13#10' * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).'#13#10'{panel}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E37BEF102EE // GetWordNameForRegister
+ ME_4E32CA120170_ME_4E37BEF102EE // GetKeys
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E37CD3E01CE // ItfwScriptEngine
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumnEX.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorResizeTableColumnEX'
+ UP extprop:rc:SelfName 'PopEditorResizeTableColumnEX'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorResizeTableColumnEX'
+
+ENDME // ME_4E37BEF102EE pop_editor_ResizeTableColumnEX
+
+FORWARD ME_50F3D22D007B
+
+ME ME_50F3D2960184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50D44F67024C // pop_editor_CheckWithEtalon
+ ;
+ MELINK Target HWL ME_50F3D22D007B // TkwCompiledCheckWithEtalon
+ ;
+
+ENDME // ME_50F3D2960184 
+
+ME ME_4DCBD67C0362_ME_50D44F67024C
+ MELINK Original WL 'ME_4DCBD67C0362' '54F079B5035C.ms.model.script' // CompiledWorkerClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCBD67C0362_ME_50D44F67024C CompiledWorkerClass
+
+ME ME_4DB0614603C8_ME_50D44F67024C
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_50D44F67024C GetWordNameForRegister
+
+ME ME_50D44F67024C
+ MEPROP UID '50D44F67024C'
+ MEPROP Name 'pop_editor_CheckWithEtalon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Описание:*'#13#10'Перерисовывает редактор сохраняя данные об отриосванном для тестов. Сохранение данных об отрисовке вызвается только после выполения функции. Создается файл с именем NNN.shapes - где NNN - номер теста (Внимание! Имя теста дожно начинаться с TK) . Если до этого не существовало эталона, то он создается. О чем сообщается в конце выполнеия теста. Если эталон уже существовал, то производится сравнение новой версии файла с эталоном. Если сравнение не прошло, то об этом будет сообщено (тест будет считаться не прошедшим) и будет вызвана внешняя программа сравнения файлов.'#13#10'*Формат:*'#13#10'{code}'#13#10'anEditor pop:editor:CheckWithEtalon aProc'#13#10'{code}'#13#10'где anEditor - указатель на редактор, в котором нужно проверить отрисовку. aProc - процедура, вызывающая отрисовку.'#13#10'*Пример:*'#13#10'{code}'#13#10'focused:control:push pop:editor:CheckWithEtalon "Разделить ячейки таблицы"'#13#10'{code}'#13#10'Проверяет отрисовку в редакторе, где находится фокус после выполнения функции "Разделить ячейки таблицы".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DCBD489023A' '54F079B5035C.ms.model.script' // TtfwWordWorker
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DCBD67C0362_ME_50D44F67024C // CompiledWorkerClass
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_50D44F67024C // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50F3D2960184 // TkwCompiledCheckWithEtalon
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckWithEtalon.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorCheckWithEtalon'
+ UP extprop:rc:SelfName 'PopEditorCheckWithEtalon'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorCheckWithEtalon'
+
+ENDME // ME_50D44F67024C pop_editor_CheckWithEtalon
+
+ME ME_4F4CB81200CA_ME_4E1B0DEA0240
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_4E1B0DEA0240 DoWithEditor
+
+ME ME_4DB0614603C8_ME_4E1B0DEA0240
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4E1B0DEA0240 GetWordNameForRegister
+
+ME ME_4E1B0DEA0240
+ MEPROP UID '4E1B0DEA0240'
+ MEPROP Name 'pop_editor_RepaintAndCheckWithEtalon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Описание:*'#13#10'Перерисовывает редактор сохраняя данные об отриосванном для тестов. Пересовка вызвается принудительно. Все отрисованные до этого данные стираются! Создается файл с именем NNN.shapes - где NNN - номер теста (Внимание! Имя теста дожно начинаться с TK) . Если до этого не существовало эталона, то он создается. О чем сообщается в конце выполнеия теста. Если эталон уже существовал, то производится сравнение новой версии файла с эталоном. Если сравнение не прошло, то об этом будет сообщено (тест будет считаться не прошедшим) и будет вызвана внешняя программа сравнения файлов.'#13#10'*Формат:*'#13#10'{code}'#13#10'anEditor pop:editor:RepaintCheckWithEtalon '#13#10'{code}'#13#10'где anEditor - указатель на редактор, в котором нужно вызвать перерисовку.'#13#10'*Пример:*'#13#10'{code}'#13#10'focused:control:push pop:editor:RepaintCheckWithEtalon '#13#10'{code}'#13#10'Вызывает перисовку в редакторе, где находится фокус.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4E1B0DEA0240 // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E1B0DEA0240 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "ifdef" 'nsTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintAndCheckWithEtalon.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorRepaintAndCheckWithEtalon'
+ UP extprop:rc:SelfName 'PopEditorRepaintAndCheckWithEtalon'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorRepaintAndCheckWithEtalon'
+
+ENDME // ME_4E1B0DEA0240 pop_editor_RepaintAndCheckWithEtalon
+
+ME ME_4DAEEDE10285_ME_50F3D22D007B
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_50F3D22D007B DoDoIt
+
+ME ME_4EB100CE0160_ME_50F3D22D007B
+ MELINK Original WL 'ME_4EB100CE0160' '4E1C0134031B.ms.model.script' // DoRepaint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4EB100CE0160_ME_50F3D22D007B DoRepaint
+
+ME ME_50F3D22D007B
+ MEPROP UID '50F3D22D007B'
+ MEPROP Name 'TkwCompiledCheckWithEtalon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DCBD50101CB' '54F079B5035C.ms.model.script' // TkwCompiledWordWorker
+ HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_50F3D22D007B // DoDoIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4EB100CE0160_ME_50F3D22D007B // DoRepaint
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledCheckWithEtalon.pas'
+ UP extprop:rc:SelfName 'CompiledCheckWithEtalon'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCompiledCheckWithEtalon'
+
+ENDME // ME_50F3D22D007B TkwCompiledCheckWithEtalon
+
+ME ME_4F4CB81200CA_ME_5141D01300D2
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_5141D01300D2 DoWithEditor
+
+ME ME_5141D01300D2
+ MEPROP UID '5141D01300D2'
+ MEPROP Name 'pop_editor_GetLMargin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_5141D01300D2 // DoWithEditor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLMargin.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorGetLMargin'
+ UP extprop:rc:SelfName 'PopEditorGetLMargin'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorGetLMargin'
+
+ENDME // ME_5141D01300D2 pop_editor_GetLMargin
+
+ME ME_5149977C00C2
+ MEPROP UID '5149977C00C2'
+ MEPROP Name 'TevCEWHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51499706003B // pop_editor_GetWrapLimit
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'CEWHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5149977C00C2 TevCEWHack
+
+ME ME_5149A6DF02A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51499706003B // pop_editor_GetWrapLimit
+ ;
+ MELINK Target WL 'ME_47289677028A' '472745450206.ms.model.script' // Tl3SPoint
+ ;
+
+ENDME // ME_5149A6DF02A9 
+
+ME ME_4F4CB81200CA_ME_51499706003B
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_51499706003B DoWithEditor
+
+ME ME_51499706003B
+ MEPROP UID '51499706003B'
+ MEPROP Name 'pop_editor_GetWrapLimit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_51499706003B // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_5149977C00C2 // TevCEWHack
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5149A6DF02A9 // Tl3SPoint
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetWrapLimit.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorGetWrapLimit'
+ UP extprop:rc:SelfName 'PopEditorGetWrapLimit'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorGetWrapLimit'
+
+ENDME // ME_51499706003B pop_editor_GetWrapLimit
+
+ME ME_514BFC55039E_ME_514BFA8902C0
+ MELINK Original HWL ME_514BFC55039E // CorrectBlockPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_514BFC55039E_ME_514BFA8902C0 CorrectBlockPoint
+
+ME ME_514BFA8902C0
+ MEPROP UID '514BFA8902C0'
+ MEPROP Name 'pop_editor_BlockResizeEX'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:'#13#10'aDelta aTop aLevel anEditor  pop:editor:BlockResizeEX'#13#10'* aDelta - смещение блока'#13#10'* aTop - true чтобы двигать верхнюю границу'#13#10'* aLevel - уровень изменяемого блока.'#13#10'* anEditor - редактор, в котором изменяется блок.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_514BFB250118 // TkwBlockResize
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_514BFC55039E_ME_514BFA8902C0 // CorrectBlockPoint
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResizeEX.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorBlockResizeEX'
+ UP extprop:rc:SelfName 'PopEditorBlockResizeEX'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorBlockResizeEX'
+
+ENDME // ME_514BFA8902C0 pop_editor_BlockResizeEX
+
+ME ME_514BFC55039E_ME_4F38F6E001CB
+ MELINK Original HWL ME_514BFC55039E // CorrectBlockPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_514BFC55039E_ME_4F38F6E001CB CorrectBlockPoint
+
+ME ME_4DB0614603C8_ME_4F38F6E001CB
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4F38F6E001CB GetWordNameForRegister
+
+ME ME_4F38F6E001CB
+ MEPROP UID '4F38F6E001CB'
+ MEPROP Name 'pop_editor_BlockResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:'#13#10'aDelta aTop anEditor  pop:editor:BlockResize'#13#10'* aDelta - смещение блока'#13#10'* aTop - true чтобы двигать верхнюю границу'#13#10'* anEditor - редактор, в котором изменяется блок.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_514BFB250118 // TkwBlockResize
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_514BFC55039E_ME_4F38F6E001CB // CorrectBlockPoint
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4F38F6E001CB // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResize.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorBlockResize'
+ UP extprop:rc:SelfName 'PopEditorBlockResize'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorBlockResize'
+
+ENDME // ME_4F38F6E001CB pop_editor_BlockResize
+
+FORWARD ME_52650217029A
+
+FORWARD ME_5265050903DB
+
+ME ME_5265057200EA
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_5265057200EA aCtx
+
+ME ME_526505190364
+ MEPROP UID '526505190364'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5265050903DB // GetFormat
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5265057200EA // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_526505190364 DoIt
+
+ME ME_5265050903DB
+ MEPROP UID '5265050903DB'
+ MEPROP Name 'GetFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52650217029A // TkwInsertFromStreamCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_526505190364 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5265050903DB GetFormat
+
+ME ME_5265045702DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52650217029A // TkwInsertFromStreamCommon
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_5265045702DE 
+
+ME ME_52650465034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52650217029A // TkwInsertFromStreamCommon
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_52650465034C 
+
+ME ME_526504750323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52650217029A // TkwInsertFromStreamCommon
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '47913B47006E.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_526504750323 
+
+ME ME_5265048601EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52650217029A // TkwInsertFromStreamCommon
+ ;
+ MELINK Target WL 'ME_4B4F61AD01AA' '47913B47006E.ms.model.script' // Tl3CustomDosFiler
+ ;
+
+ENDME // ME_5265048601EF 
+
+ME ME_5265049503AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52650217029A // TkwInsertFromStreamCommon
+ ;
+ MELINK Target WL 'ME_47F09669027A' '47F0893F0220.ms.model.script' // Tk2CustomReader
+ ;
+
+ENDME // ME_5265049503AB 
+
+ME ME_526504A60219
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52650217029A // TkwInsertFromStreamCommon
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_526504A60219 
+
+ME ME_4F4CB81200CA_ME_52650217029A
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_52650217029A DoWithEditor
+
+ME ME_52650217029A
+ MEPROP UID '52650217029A'
+ MEPROP Name 'TkwInsertFromStreamCommon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5265050903DB // GetFormat
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_52650217029A // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5265045702DE // Clipboard Formats
+ ME_52650465034C // IStream
+ ME_526504750323 // l3Free
+ ME_5265048601EF // Tl3CustomDosFiler
+ ME_5265049503AB // Tk2CustomReader
+ ME_526504A60219 // Tl3FileMode
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwInsertFromStreamCommon.pas'
+ UP extprop:rc:SelfName 'InsertFromStreamCommon'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwInsertFromStreamCommon'
+
+ENDME // ME_52650217029A TkwInsertFromStreamCommon
+
+ME ME_54DA23140215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5260EBCB0238 // pop_editor_PasteRTF
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_54DA23140215 
+
+ME ME_54DA23C8006C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5260EBCB0238 // pop_editor_PasteRTF
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_54DA23C8006C 
+
+ME ME_5265050903DB_ME_5260EBCB0238
+ MELINK Original HWL ME_5265050903DB // GetFormat
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5265050903DB_ME_5260EBCB0238 GetFormat
+
+ME ME_5260EBCB0238
+ MEPROP UID '5260EBCB0238'
+ MEPROP Name 'pop_editor_PasteRTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* rtf_file_name anEditorControl pop:editor:PasteRTF'#13#10'*Описание:* Эмулирует вставку из буфера обмена данных из внешних приложений, например, текст в формате RTF из файла rtf_file_name.'#13#10'*Пример:*'#13#10'{code} '#13#10'Test.rtf  focused:control:push pop:editor:PasteRTF'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52650217029A // TkwInsertFromStreamCommon
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5265050903DB_ME_5260EBCB0238 // GetFormat
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_54DA23140215 // Clipboard Formats
+ ME_54DA23C8006C // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteRTF.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorPasteRTF'
+ UP extprop:rc:SelfName 'PopEditorPasteRTF'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorPasteRTF'
+
+ENDME // ME_5260EBCB0238 pop_editor_PasteRTF
+
+ME ME_5265050903DB_ME_5265029302FC
+ MELINK Original HWL ME_5265050903DB // GetFormat
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5265050903DB_ME_5265029302FC GetFormat
+
+ME ME_5265029302FC
+ MEPROP UID '5265029302FC'
+ MEPROP Name 'pop_editor_InsertStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aFromat file_name anEditorControl pop:editor:InsertStream'#13#10'*Описание:* Эмулирует вставку из буфера обмена данных из внешних приложений, например, текст в формате aFromat  из файла file_name.'#13#10'*Пример:*'#13#10'{code} '#13#10'Test.rtf CF_RTF  focused:control:push pop:editor:InsertStream'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52650217029A // TkwInsertFromStreamCommon
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5265050903DB_ME_5265029302FC // GetFormat
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorInsertStream.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorInsertStream'
+ UP extprop:rc:SelfName 'PopEditorInsertStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorInsertStream'
+
+ENDME // ME_5265029302FC pop_editor_InsertStream
+
+ME ME_5395A6490131
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5395A6490131 
+
+ME ME_5395A6990311
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_5395A6990311 
+
+ME ME_5395A6F40010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+ MELINK Target WL 'ME_48F473650362' '47913B47006E.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_5395A6F40010 
+
+ME ME_5395A6FF00E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47913B47006E.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_5395A6FF00E8 
+
+ME ME_5395A8D10142
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '47913B47006E.ms.model.script' // l3System
+ ;
+
+ENDME // ME_5395A8D10142 
+
+ME ME_5395ABDD039E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+ MELINK Target WL 'ME_47F0C76F0397' '47C695A10172.ms.model.script' // TevFormat
+ ;
+
+ENDME // ME_5395ABDD039E 
+
+ME ME_5506CF4B00A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5506CF4B00A3 
+
+ME ME_4F4CB81200CA_ME_53957B0E024C
+ MELINK Original HWL ME_4F4CB81200CA // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4CB81200CA_ME_53957B0E024C DoWithEditor
+
+ME ME_53957B0E024C
+ MEPROP UID '53957B0E024C'
+ MEPROP Name 'pop_editor_PasteEVDTroughClipboard'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание: загружает EVD''файл в виде текста в буфер обмена, а потом вставляет в редактор.'#13#10'Формат: '#13#10'{code}'#13#10'anEditor aFileName pop:editor:PasteEVDTroughClipboard'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_53957B0E024C // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5395A6490131 // FreeAndNil
+ ME_5395A6990311 // Tl3FileMode
+ ME_5395A6F40010 // Tl3MemoryStream
+ ME_5395A6FF00E8 // Tl3FileStream
+ ME_5395A8D10142 // l3System
+ ME_5395ABDD039E // TevFormat
+ ME_5506CF4B00A3 // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteEVDTroughClipboard.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorPasteEVDTroughClipboard'
+ UP extprop:rc:SelfName 'PopEditorPasteEVDTroughClipboard'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorPasteEVDTroughClipboard'
+
+ENDME // ME_53957B0E024C pop_editor_PasteEVDTroughClipboard
+
+ME ME_4EA83BB30325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA83B830393 // pop_editor_ParaUp
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4EA83BB30325 
+
+ME ME_50B8C1080260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA83B830393 // pop_editor_ParaUp
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_50B8C1080260 
+
+ME ME_50B8BCDF0093_ME_4EA83B830393
+ MELINK Original HWL ME_50B8BCDF0093 // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B8BCDF0093_ME_4EA83B830393 DoCursor
+
+ME ME_4DB0614603C8_ME_4EA83B830393
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4EA83B830393 GetWordNameForRegister
+
+ME ME_4EA83B830393
+ MEPROP UID '4EA83B830393'
+ MEPROP Name 'pop_editor_ParaUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переходит на параграф вверх в редакторе. pop:editor:ParaUp' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4EA83B830393 // DoCursor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EA83B830393 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EA83BB30325 // Msg Codes
+ ME_50B8C1080260 // Operations
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.10.2011 20:55'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorParaUp.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorParaUp'
+ UP extprop:rc:SelfName 'PopEditorParaUp'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorParaUp'
+
+ENDME // ME_4EA83B830393 pop_editor_ParaUp
+
+ME ME_4F72BAE60032
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72B9B00169 // BeginWait_Print
+ ;
+ MELINK Target WL 'ME_4F72AE860228' '4E1C0134031B.ms.model.script' // TkwPrintDataSaver
+ ;
+
+ENDME // ME_4F72BAE60032 
+
+ME ME_4F72B9B00169
+ MEPROP UID '4F72B9B00169'
+ MEPROP Name 'BeginWait_Print'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F72BAE60032 // TkwPrintDataSaver
+ )
+ ; // Dependencies
+ UP "ifdef" 'nsTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwBeginWaitPrint.pas'
+ UP extprop:pas:TypeName 'TkwBeginWaitPrint'
+ UP extprop:rc:SelfName 'BeginWaitPrint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwBeginWaitPrint'
+
+ENDME // ME_4F72B9B00169 BeginWait_Print
+
+ME ME_4F72BACE00E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F72BA72006B // EndWait_Print
+ ;
+ MELINK Target WL 'ME_4F72AE860228' '4E1C0134031B.ms.model.script' // TkwPrintDataSaver
+ ;
+
+ENDME // ME_4F72BACE00E9 
+
+ME ME_4F72BA72006B
+ MEPROP UID '4F72BA72006B'
+ MEPROP Name 'EndWait_Print'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F72BACE00E9 // TkwPrintDataSaver
+ )
+ ; // Dependencies
+ UP "ifdef" 'nsTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEndWaitPrint.pas'
+ UP extprop:pas:TypeName 'TkwEndWaitPrint'
+ UP extprop:rc:SelfName 'EndWaitPrint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEndWaitPrint'
+
+ENDME // ME_4F72BA72006B EndWait_Print
+
+FORWARD ME_55B782940096
+
+ME ME_55B783230053
+ MEPROP UID '55B783230053'
+ MEPROP Name 'CurrentNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B782940096 // vtComboTreeWordsPack
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_55B783230053 CurrentNode
+
+ME ME_55B782940096
+ MEPROP UID '55B782940096'
+ MEPROP Name 'vtComboTreeWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B783230053 // CurrentNode
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas'
+ UP extprop:rc:SelfName 'ComboTreeWordsPack'
+
+ENDME // ME_55B782940096 vtComboTreeWordsPack
+
+ME ME_55E46D990245
+ MEPROP Name 'aRowNum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55E46D990245 aRowNum
+
+ME ME_55E46D990209
+ MEPROP Name 'aColNum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55E46D990209 aColNum
+
+ME ME_55E46D7201BC
+ MEPROP UID '55E46D7201BC'
+ MEPROP Name 'InsertTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E46D990245 // aRowNum
+ ME_55E46D990209 // aColNum
+ )
+ ; // Parameters
+
+ENDME // ME_55E46D7201BC InsertTable
+
+ME ME_55E46DC101AC
+ MEPROP UID '55E46DC101AC'
+ MEPROP Name 'InsertRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ UP "mapped" true
+
+ENDME // ME_55E46DC101AC InsertRow
+
+ME ME_55E46DEF020F
+ MEPROP UID '55E46DEF020F'
+ MEPROP Name 'DeleteRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ UP "mapped" true
+
+ENDME // ME_55E46DEF020F DeleteRow
+
+ME ME_55E46E080033
+ MEPROP UID '55E46E080033'
+ MEPROP Name 'InsertColumn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ UP "mapped" true
+
+ENDME // ME_55E46E080033 InsertColumn
+
+ME ME_55E46E22002F
+ MEPROP UID '55E46E22002F'
+ MEPROP Name 'DeleteColumn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ UP "mapped" true
+
+ENDME // ME_55E46E22002F DeleteColumn
+
+ME ME_55E46F6601BE
+ MEPROP Name 'anAlgorytm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC96360015' '48E3836D00C8.ms.model.script' // TedMergeAlgorythm
+ ;
+
+ENDME // ME_55E46F6601BE anAlgorytm
+
+ME ME_55E46F51016A
+ MEPROP UID '55E46F51016A'
+ MEPROP Name 'MergeCells'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E46F6601BE // anAlgorytm
+ )
+ ; // Parameters
+
+ENDME // ME_55E46F51016A MergeCells
+
+ME ME_55E46FE703BE
+ MEPROP Name 'aVert'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E46FE703BE aVert
+
+ME ME_55E46FDE02F7
+ MEPROP UID '55E46FDE02F7'
+ MEPROP Name 'SplitCell'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E46FE703BE // aVert
+ )
+ ; // Parameters
+
+ENDME // ME_55E46FDE02F7 SplitCell
+
+ME ME_55E4714B033F
+ MEPROP UID '55E4714B033F'
+ MEPROP Name 'SplitTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+
+ENDME // ME_55E4714B033F SplitTable
+
+ME ME_55E471580016
+ MEPROP UID '55E471580016'
+ MEPROP Name 'MergeTables'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+
+ENDME // ME_55E471580016 MergeTables
+
+ME ME_55E472030189
+ MEPROP Name 'aPageOrientation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468CFC7101C1' '469D0AC7005E.ms.model.script' // PageOrientation
+ ;
+
+ENDME // ME_55E472030189 aPageOrientation
+
+ME ME_55E471E9011E
+ MEPROP UID '55E471E9011E'
+ MEPROP Name 'InsertSectionBreak'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E472030189 // aPageOrientation
+ )
+ ; // Parameters
+
+ENDME // ME_55E471E9011E InsertSectionBreak
+
+ME ME_55E47282036F
+ MEPROP UID '55E47282036F'
+ MEPROP Name 'PrevHyperlink'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+
+ENDME // ME_55E47282036F PrevHyperlink
+
+ME ME_55E4728F01D8
+ MEPROP UID '55E4728F01D8'
+ MEPROP Name 'NextHyperlink'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+
+ENDME // ME_55E4728F01D8 NextHyperlink
+
+ME ME_55E5A3D40355
+ MEPROP UID '55E5A3D40355'
+ MEPROP Name 'Range'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELINK Target WL 'ME_48E38399034C' '48E3836D00C8.ms.model.script' // IedRange
+ ;
+
+ENDME // ME_55E5A3D40355 Range
+
+ME ME_55E46E9E03DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELINK Target WL 'ME_468CFC7101C1' '469D0AC7005E.ms.model.script' // PageOrientation
+ ;
+
+ENDME // ME_55E46E9E03DD 
+
+ME ME_55E46FAB02D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELINK Target WL 'ME_468D0B5C0292' '4677FBA70343.ms.model.script' // Tl3Orientation
+ ;
+
+ENDME // ME_55E46FAB02D5 
+
+ME ME_55E46FB10236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_55E46FB10236 
+
+FORWARD ME_55E5A40600C8
+
+ME ME_55E5A41402F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ ;
+ MELINK Target HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+
+ENDME // ME_55E5A41402F2 
+
+ME ME_55E46D4F03AE
+ MEPROP UID '55E46D4F03AE'
+ MEPROP Name 'TevCustomEditorWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55E46D7201BC // InsertTable
+ HWL ME_55E46DC101AC // InsertRow
+ HWL ME_55E46DEF020F // DeleteRow
+ HWL ME_55E46E080033 // InsertColumn
+ HWL ME_55E46E22002F // DeleteColumn
+ HWL ME_55E46F51016A // MergeCells
+ HWL ME_55E46FDE02F7 // SplitCell
+ HWL ME_55E4714B033F // SplitTable
+ HWL ME_55E471580016 // MergeTables
+ HWL ME_55E471E9011E // InsertSectionBreak
+ HWL ME_55E47282036F // PrevHyperlink
+ HWL ME_55E4728F01D8 // NextHyperlink
+ HWL ME_55E5A3D40355 // Range
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55E46E9E03DD // PageOrientation
+ ME_55E46FAB02D5 // Tl3Orientation
+ ME_55E46FB10236 // IedTable
+ ME_55E5A41402F2 // IedRangeWordsPack
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TevCustomEditorWordsPack.pas'
+
+ENDME // ME_55E46D4F03AE TevCustomEditorWordsPack
+
+ME ME_55E5A42D01DD
+ MEPROP UID '55E5A42D01DD'
+ MEPROP Name 'Table'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_55E5A42D01DD Table
+
+ME ME_55E5A43E00EE
+ MEPROP UID '55E5A43E00EE'
+ MEPROP Name 'Hyperlink'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_55E5A43E00EE Hyperlink
+
+ME ME_55E5A44D01A4
+ MEPROP UID '55E5A44D01A4'
+ MEPROP Name 'Collapsed'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A44D01A4 Collapsed
+
+ME ME_55E5A45F032F
+ MEPROP UID '55E5A45F032F'
+ MEPROP Name 'TextParagraph'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_4B547F7801F3' '48E3836D00C8.ms.model.script' // IedTextParagraph
+ ;
+
+ENDME // ME_55E5A45F032F TextParagraph
+
+ME ME_55E5A4F70193
+ MEPROP UID '55E5A4F70193'
+ MEPROP Name 'Document'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_47C6B7BE0395' '47C5207602D1.ms.model.script' // IevDocument
+ ;
+
+ENDME // ME_55E5A4F70193 Document
+
+ME ME_55E5A51201C5
+ MEPROP UID '55E5A51201C5'
+ MEPROP Name 'DeleteChar'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A51201C5 DeleteChar
+
+ME ME_55E5A525018D
+ MEPROP UID '55E5A525018D'
+ MEPROP Name 'InsertParaBreak'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A525018D InsertParaBreak
+
+ME ME_55E5A5550311
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55E5A5550311 aString
+
+ME ME_55E5A54A0108
+ MEPROP UID '55E5A54A0108'
+ MEPROP Name 'InsertString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E5A5550311 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_55E5A54A0108 InsertString
+
+ME ME_55E5A57701F7
+ MEPROP Name 'aMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6926702A2' '47C5207602D1.ms.model.script' // TevClearMode
+ ;
+
+ENDME // ME_55E5A57701F7 aMode
+
+ME ME_55E5A5710018
+ MEPROP UID '55E5A5710018'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E5A57701F7 // aMode
+ )
+ ; // Parameters
+
+ENDME // ME_55E5A5710018 Delete
+
+ME ME_55E5A59300AD
+ MEPROP UID '55E5A59300AD'
+ MEPROP Name 'ContainsOneLeaf'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A59300AD ContainsOneLeaf
+
+ME ME_55E5A5B70005
+ MEPROP UID '55E5A5B70005'
+ MEPROP Name 'AsString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_55E5A5B70005 AsString
+
+FORWARD ME_55E5A6200262
+
+ME ME_55E5A62B0251
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E5A40600C8 // IedRangeWordsPack
+ ;
+ MELINK Target HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+
+ENDME // ME_55E5A62B0251 
+
+ME ME_4BBCB16B01A8_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB16B01A8' '48E3836D00C8.ms.model.script' // Paragraph
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBCB16B01A8_ME_55E5A40600C8 Paragraph
+
+ME ME_4BBCB17D02BC_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB17D02BC' '48E3836D00C8.ms.model.script' // Table
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBCB17D02BC_ME_55E5A40600C8 Table
+
+ME ME_4BBCB1E00074_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB1E00074' '48E3836D00C8.ms.model.script' // Hyperlink
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBCB1E00074_ME_55E5A40600C8 Hyperlink
+
+ME ME_4BBCB211030A_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB211030A' '48E3836D00C8.ms.model.script' // Collapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBCB211030A_ME_55E5A40600C8 Collapsed
+
+ME ME_4BBCB22F02D6_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB22F02D6' '48E3836D00C8.ms.model.script' // TextParagraph
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBCB22F02D6_ME_55E5A40600C8 TextParagraph
+
+ME ME_4BBCB24A0106_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB24A0106' '48E3836D00C8.ms.model.script' // Part
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBCB24A0106_ME_55E5A40600C8 Part
+
+ME ME_4BBCB28E02E6_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB28E02E6' '48E3836D00C8.ms.model.script' // Document
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBCB28E02E6_ME_55E5A40600C8 Document
+
+ME ME_4BBCB2AD02B2_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB2AD02B2' '48E3836D00C8.ms.model.script' // ContainsOneLeaf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB2AD02B2_ME_55E5A40600C8 ContainsOneLeaf
+
+ME ME_4BBCB2C003AE_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB2C003AE' '48E3836D00C8.ms.model.script' // AsString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB2C003AE_ME_55E5A40600C8 AsString
+
+ME ME_4BBCB3350175_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB3350175' '48E3836D00C8.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB3350175_ME_55E5A40600C8 Delete
+
+ME ME_4BBCB34C003A_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB34C003A' '48E3836D00C8.ms.model.script' // InsertData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB34C003A_ME_55E5A40600C8 InsertData
+
+ME ME_4BBCB36D03B8_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB36D03B8' '48E3836D00C8.ms.model.script' // InsertFrom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB36D03B8_ME_55E5A40600C8 InsertFrom
+
+ME ME_4BBCB38B00C2_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB38B00C2' '48E3836D00C8.ms.model.script' // InsertString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB38B00C2_ME_55E5A40600C8 InsertString
+
+ME ME_4BBCB3B2009F_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB3B2009F' '48E3836D00C8.ms.model.script' // InsertString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB3B2009F_ME_55E5A40600C8 InsertString
+
+ME ME_4BBCB3D20184_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB3D20184' '48E3836D00C8.ms.model.script' // InsertParaBreak
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB3D20184_ME_55E5A40600C8 InsertParaBreak
+
+ME ME_4BBCB3EB003D_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB3EB003D' '48E3836D00C8.ms.model.script' // DeleteChar
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB3EB003D_ME_55E5A40600C8 DeleteChar
+
+ME ME_4BBCB3FE033D_ME_55E5A40600C8
+ MELINK Original WL 'ME_4BBCB3FE033D' '48E3836D00C8.ms.model.script' // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCB3FE033D_ME_55E5A40600C8 Save
+
+ME ME_55E5A40600C8
+ MEPROP UID '55E5A40600C8'
+ MEPROP Name 'IedRangeWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48E38399034C' '48E3836D00C8.ms.model.script' // IedRange
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55E5A42D01DD // Table
+ HWL ME_55E5A43E00EE // Hyperlink
+ HWL ME_55E5A44D01A4 // Collapsed
+ HWL ME_55E5A45F032F // TextParagraph
+ HWL ME_55E5A4F70193 // Document
+ HWL ME_55E5A51201C5 // DeleteChar
+ HWL ME_55E5A525018D // InsertParaBreak
+ HWL ME_55E5A54A0108 // InsertString
+ HWL ME_55E5A5710018 // Delete
+ HWL ME_55E5A59300AD // ContainsOneLeaf
+ HWL ME_55E5A5B70005 // AsString
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBCB16B01A8_ME_55E5A40600C8 // Paragraph
+ ME_4BBCB17D02BC_ME_55E5A40600C8 // Table
+ ME_4BBCB1E00074_ME_55E5A40600C8 // Hyperlink
+ ME_4BBCB211030A_ME_55E5A40600C8 // Collapsed
+ ME_4BBCB22F02D6_ME_55E5A40600C8 // TextParagraph
+ ME_4BBCB24A0106_ME_55E5A40600C8 // Part
+ ME_4BBCB28E02E6_ME_55E5A40600C8 // Document
+ ME_4BBCB2AD02B2_ME_55E5A40600C8 // ContainsOneLeaf
+ ME_4BBCB2C003AE_ME_55E5A40600C8 // AsString
+ ME_4BBCB3350175_ME_55E5A40600C8 // Delete
+ ME_4BBCB34C003A_ME_55E5A40600C8 // InsertData
+ ME_4BBCB36D03B8_ME_55E5A40600C8 // InsertFrom
+ ME_4BBCB38B00C2_ME_55E5A40600C8 // InsertString
+ ME_4BBCB3B2009F_ME_55E5A40600C8 // InsertString
+ ME_4BBCB3D20184_ME_55E5A40600C8 // InsertParaBreak
+ ME_4BBCB3EB003D_ME_55E5A40600C8 // DeleteChar
+ ME_4BBCB3FE033D_ME_55E5A40600C8 // Save
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_55E5A62B0251 // IedTableWordsPack
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\IedRangeWordsPack.pas'
+
+ENDME // ME_55E5A40600C8 IedRangeWordsPack
+
+ME ME_55E5A70E01E7
+ MEPROP UID '55E5A70E01E7'
+ MEPROP Name 'OldNSRC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A70E01E7 OldNSRC
+
+ME ME_55E5A64A019C
+ MEPROP Name 'NumRows'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55E5A64A019C NumRows
+
+ME ME_55E5A6480145
+ MEPROP UID '55E5A6480145'
+ MEPROP Name 'InsertRows'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E5A64A019C // NumRows
+ )
+ ; // Parameters
+
+ENDME // ME_55E5A6480145 InsertRows
+
+ME ME_55E5A65F0349
+ MEPROP UID '55E5A65F0349'
+ MEPROP Name 'Split'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A65F0349 Split
+
+ME ME_55E5A66903D8
+ MEPROP UID '55E5A66903D8'
+ MEPROP Name 'Merge'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A66903D8 Merge
+
+ME ME_55E5A68602F0
+ MEPROP UID '55E5A68602F0'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55E5A68602F0 Delete
+
+ME ME_55E5A69E0012
+ MEPROP UID '55E5A69E0012'
+ MEPROP Name 'RowCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55E5A69E0012 RowCount
+
+ME ME_55E5A6B001EF
+ MEPROP UID '55E5A6B001EF'
+ MEPROP Name 'Cell'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_4BBC90130064' '48E3836D00C8.ms.model.script' // IedCell
+ ;
+
+ENDME // ME_55E5A6B001EF Cell
+
+ME ME_55E5A6C10230
+ MEPROP UID '55E5A6C10230'
+ MEPROP Name 'Cells'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_4BBC961903CD' '48E3836D00C8.ms.model.script' // IedCells
+ ;
+
+ENDME // ME_55E5A6C10230 Cells
+
+ME ME_55E5A6D40041
+ MEPROP UID '55E5A6D40041'
+ MEPROP Name 'Column'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_4BBC958A01C3' '48E3836D00C8.ms.model.script' // IedColumn
+ ;
+
+ENDME // ME_55E5A6D40041 Column
+
+ME ME_55E5A7750138
+ MEPROP UID '55E5A7750138'
+ MEPROP Name 'ColumnsIterator'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_4BBC95BF001F' '48E3836D00C8.ms.model.script' // IedColumnsIterator
+ ;
+
+ENDME // ME_55E5A7750138 ColumnsIterator
+
+ME ME_55E5A78C019B
+ MEPROP UID '55E5A78C019B'
+ MEPROP Name 'RowsIterator'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5A6200262 // IedTableWordsPack
+ ;
+ MELINK Target WL 'ME_4BBC95440333' '48E3836D00C8.ms.model.script' // IedRowsIterator
+ ;
+
+ENDME // ME_55E5A78C019B RowsIterator
+
+ME ME_4BBC89F8009C_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBC89F8009C' '48E3836D00C8.ms.model.script' // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBC89F8009C_ME_55E5A6200262 Frame
+
+ME ME_4BBCAF7B0203_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCAF7B0203' '48E3836D00C8.ms.model.script' // InsertRows
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCAF7B0203_ME_55E5A6200262 InsertRows
+
+ME ME_4BBCAF9600F1_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCAF9600F1' '48E3836D00C8.ms.model.script' // Split
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCAF9600F1_ME_55E5A6200262 Split
+
+ME ME_4BBCAFA802FB_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCAFA802FB' '48E3836D00C8.ms.model.script' // Merge
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCAFA802FB_ME_55E5A6200262 Merge
+
+ME ME_4BBCAFBC0333_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCAFBC0333' '48E3836D00C8.ms.model.script' // FirstRowID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCAFBC0333_ME_55E5A6200262 FirstRowID
+
+ME ME_4BBCAFD10171_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCAFD10171' '48E3836D00C8.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCAFD10171_ME_55E5A6200262 Delete
+
+ME ME_4BBCAFFE0032_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCAFFE0032' '48E3836D00C8.ms.model.script' // RowCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBCAFFE0032_ME_55E5A6200262 RowCount
+
+ME ME_4BBCB0470309_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCB0470309' '48E3836D00C8.ms.model.script' // Cell
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBCB0470309_ME_55E5A6200262 Cell
+
+ME ME_4BBCB05B0293_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCB05B0293' '48E3836D00C8.ms.model.script' // Cells
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBCB05B0293_ME_55E5A6200262 Cells
+
+ME ME_4BBCB07702A8_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCB07702A8' '48E3836D00C8.ms.model.script' // Column
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBCB07702A8_ME_55E5A6200262 Column
+
+ME ME_4BBCB0890007_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCB0890007' '48E3836D00C8.ms.model.script' // ColumnsIterator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBCB0890007_ME_55E5A6200262 ColumnsIterator
+
+ME ME_4BBCB0A0014A_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCB0A0014A' '48E3836D00C8.ms.model.script' // RowsIterator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBCB0A0014A_ME_55E5A6200262 RowsIterator
+
+ME ME_4BBCB0BE004E_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBCB0BE004E' '48E3836D00C8.ms.model.script' // OldNSRC
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBCB0BE004E_ME_55E5A6200262 OldNSRC
+
+ME ME_4BBF42BF004D_ME_55E5A6200262
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_55E5A6200262 Processor
+
+ME ME_4FC49AA30122_ME_55E5A6200262
+ MELINK Original WL 'ME_4FC49AA30122' '48E3836D00C8.ms.model.script' // GetTagCell
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FC49AA30122_ME_55E5A6200262 GetTagCell
+
+ME ME_50DD7CA901AD_ME_55E5A6200262
+ MELINK Original WL 'ME_50DD7CA901AD' '48E3836D00C8.ms.model.script' // GetTag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50DD7CA901AD_ME_55E5A6200262 GetTag
+
+ME ME_55E5A6200262
+ MEPROP UID '55E5A6200262'
+ MEPROP Name 'IedTableWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4CB50403CC // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55E5A70E01E7 // OldNSRC
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55E5A6480145 // InsertRows
+ HWL ME_55E5A65F0349 // Split
+ HWL ME_55E5A66903D8 // Merge
+ HWL ME_55E5A68602F0 // Delete
+ HWL ME_55E5A69E0012 // RowCount
+ HWL ME_55E5A6B001EF // Cell
+ HWL ME_55E5A6C10230 // Cells
+ HWL ME_55E5A6D40041 // Column
+ HWL ME_55E5A7750138 // ColumnsIterator
+ HWL ME_55E5A78C019B // RowsIterator
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBC89F8009C_ME_55E5A6200262 // Frame
+ ME_4BBCAF7B0203_ME_55E5A6200262 // InsertRows
+ ME_4BBCAF9600F1_ME_55E5A6200262 // Split
+ ME_4BBCAFA802FB_ME_55E5A6200262 // Merge
+ ME_4BBCAFBC0333_ME_55E5A6200262 // FirstRowID
+ ME_4BBCAFD10171_ME_55E5A6200262 // Delete
+ ME_4BBCAFFE0032_ME_55E5A6200262 // RowCount
+ ME_4BBCB0470309_ME_55E5A6200262 // Cell
+ ME_4BBCB05B0293_ME_55E5A6200262 // Cells
+ ME_4BBCB07702A8_ME_55E5A6200262 // Column
+ ME_4BBCB0890007_ME_55E5A6200262 // ColumnsIterator
+ ME_4BBCB0A0014A_ME_55E5A6200262 // RowsIterator
+ ME_4BBCB0BE004E_ME_55E5A6200262 // OldNSRC
+ ME_4BBF42BF004D_ME_55E5A6200262 // Processor
+ ME_4FC49AA30122_ME_55E5A6200262 // GetTagCell
+ ME_50DD7CA901AD_ME_55E5A6200262 // GetTag
+ )
+ ; // Implemented
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas'
+
+ENDME // ME_55E5A6200262 IedTableWordsPack
+
+ME ME_4F4CB50403CC
+ MEPROP UID '4F4CB50403CC'
+ MEPROP Name 'EditorFromStackKeyWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ %SUMMARY 'Слова относящиеся к редктору.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54ECA252008F' '54ECA252008F.ms.model.script' // ScriptEngine$Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F4CB625027A // TkwEditorFromStackWord
+ HWL ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
+ HWL ME_4F549BD300D3 // kwEditorGetTableFromCursor
+ HWL ME_4F4F5A730085 // pop_editor_WheelScroll
+ HWL ME_4F548EC7007E // pop_editor_SelectColumn
+ HWL ME_4F604272014E // TkwSelectCellsWord
+ HWL ME_4F4DD643008C // pop_editor_SelectCells
+ HWL ME_4F6044140356 // pop_editor_SelectCellsVertical
+ HWL ME_4F75BC5F03A0 // pop_editor_JumpToHyperlink
+ HWL ME_4FA3BC08027F // pop_editor_RepaintTableLinesAndCheckWithEtalon
+ HWL ME_5009071C00FF // pop_editor_PrintAcnhor
+ HWL ME_5028D0B602D0 // pop_editor_PrintTableCellsParams
+ HWL ME_503C589F0334 // pop_editor_LP2DP
+ HWL ME_503C650202E5 // pop_editor_DP2LP
+ HWL ME_507510BF02AB // pop_editor_CheckContinueCells
+ HWL ME_50AE54F001B4 // pop_editor_GetLeftIndentDelta
+ HWL ME_54EF5B8401B0 // kwEditorFromStackCursorWordUses
+ HWL ME_50B88DF40154 // TkwEditorFromStackCursorWord
+ HWL ME_4DD663F8004B // pop_editor_ParaDown
+ HWL ME_4F73173A01D7 // pop_editor_ParaHome
+ HWL ME_4F732C5C00BD // pop_editor_ParaEnd
+ HWL ME_4E2820E701E1 // pop_editor_SelectTable
+ HWL ME_4E68D7D10110 // pop_editor_UpdateCursorFromHotSpot
+ HWL ME_4E68DD3B01A2 // pop_editor_UpdateCursorFromHotSpotEx
+ HWL ME_4DDE23E403D6 // pop_editor_TextToFile
+ HWL ME_4EAFDEE000EC // pop_editor_GetSelectionText
+ HWL ME_4EB27F0E00CF // pop_editor_GetParaByID
+ HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ HWL ME_50BA0B820089 // TkwEditorFromStackTextParaWord
+ HWL ME_4DD649D40028 // pop_editor_CurrentText
+ HWL ME_50BA0C4E001B // TkwEditorFromStackNextParaWord
+ HWL ME_4DB7EA830363 // pop_editor_DeleteUserComment
+ HWL ME_4DD0F87600ED // pop_editor_HasComment
+ HWL ME_514BFB250118 // TkwBlockResize
+ HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ HWL ME_4E60749A01C2 // pop_editor_SetTextParaStyle
+ HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ HWL ME_4E2835DE00FD // pop_editor_CopyAndPaste2DocumentBottom
+ HWL ME_4EA922390373 // pop_editor_SetCursorByPoint
+ HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ HWL ME_4E3644790235 // pop_editor_ResizeTableColumn
+ HWL ME_4E37BEF102EE // pop_editor_ResizeTableColumnEX
+ HWL ME_50D44F67024C // pop_editor_CheckWithEtalon
+ HWL ME_4E1B0DEA0240 // pop_editor_RepaintAndCheckWithEtalon
+ HWL ME_50F3D22D007B // TkwCompiledCheckWithEtalon
+ HWL ME_5141D01300D2 // pop_editor_GetLMargin
+ HWL ME_51499706003B // pop_editor_GetWrapLimit
+ HWL ME_514BFA8902C0 // pop_editor_BlockResizeEX
+ HWL ME_4F38F6E001CB // pop_editor_BlockResize
+ HWL ME_52650217029A // TkwInsertFromStreamCommon
+ HWL ME_5260EBCB0238 // pop_editor_PasteRTF
+ HWL ME_5265029302FC // pop_editor_InsertStream
+ HWL ME_53957B0E024C // pop_editor_PasteEVDTroughClipboard
+ HWL ME_4EA83B830393 // pop_editor_ParaUp
+ HWL ME_4F72B9B00169 // BeginWait_Print
+ HWL ME_4F72BA72006B // EndWait_Print
+ HWL ME_55B782940096 // vtComboTreeWordsPack
+ HWL ME_55E46D4F03AE // TevCustomEditorWordsPack
+ HWL ME_55E5A40600C8 // IedRangeWordsPack
+ HWL ME_55E5A6200262 // IedTableWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.ms.model.script' // k2Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_46A0E6C5023A' '46A0E6C5023A.ms.model.script' // ActiveX
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_476BEA0B0103' '476BEA0B0103.ms.model.script' // evConst
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ WL 'ME_47C695A10172' '47C695A10172.ms.model.script' // evTypes
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_47ECAB0B0265' '47ECAB0B0265.ms.model.script' // evMsgCode
+ WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ WL 'ME_47F0893F0220' '47F0893F0220.ms.model.script' // nevInternalInterfaces
+ WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ WL 'ME_47F1F90A0391' '47F1F90A0391.ms.model.script' // Searchers
+ WL 'ME_48185390010A' '48185390010A.ms.model.script' // Rendering
+ WL 'ME_48297E42011A' '48297E42011A.ms.model.script' // ComboTree
+ WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ WL 'ME_48453A40017C' '48453A40017C.ms.model.script' // evOp
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_48E3836D00C8' '48E3836D00C8.ms.model.script' // evEditorInterfaces
+ WL 'ME_4A1FCBA0014C' '4A1FCBA0014C.ms.model.script' // nevGUIInterfaces
+ WL 'ME_4A23935A0282' '4A23935A0282.ms.model.script' // afwNavigation
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.ms.model.script' // nevNavigation
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.ms.model.script' // k2Core
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4C407B410029' '4C407B410029.ms.model.script' // Generators
+ WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_4E1C0134031B' '4E1C0134031B.ms.model.script' // MixIns
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.ms.model.script' // PrimitiveWords
+ WL 'ME_4F6843C101D1' '4F6843C101D1.ms.model.script' // ddCommon
+ WL 'ME_5075275701AF' '5075275701AF.ms.model.script' // Searchers
+ WL 'ME_54DB92D203C9' '54DB92D203C9.ms.model.script' // VCL bindings
+ WL 'ME_54EDDC8A013D' '54EDDC8A013D.ms.model.script' // SchemaWords
+ WL 'ME_54F079B5035C' '54F079B5035C.ms.model.script' // CompiledWords
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_4F4CB50403CC EditorFromStackKeyWords

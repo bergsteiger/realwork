@@ -1,0 +1,58 @@
+// Contents_int 4CA1BFF9036D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA1BFF9036D
+
+ME ME_4CA1C00E03B3
+ MEPROP UID '4CA1C00E03B3'
+ MEPROP GUID 'E2284957-394E-44C4-85EE-69FD82DD9D56'
+ MEPROP Name 'IServerGate_Contents_KPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1BFF9036D // Contents_int
+ ;
+ UP extprop:rc:SelfName 'ServerGate_Contents_KPage'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CA1C00E03B3 IServerGate_Contents_KPage
+
+ME ME_4CA1D48F0229
+ MEPROP UID '4CA1D48F0229'
+ MEPROP GUID '79180EA5-C291-4CB7-9000-29EFC7E58725'
+ MEPROP Name 'IServerGate_Contents_KPageFactoryManagerSrv'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1BFF9036D // Contents_int
+ ;
+ UP extprop:rc:SelfName 'ServerGate_Contents_KPageFactoryManagerSrv'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CA1D48F0229 IServerGate_Contents_KPageFactoryManagerSrv
+
+ME ME_4CA1BFF9036D
+ MEPROP UID '4CA1BFF9036D'
+ MEPROP Name 'Contents_int'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CA1BFBC0259' '4CA1BFBC0259.ms.model.script' // ServerGate
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1C00E03B3 // IServerGate_Contents_KPage
+ HWL ME_4CA1D48F0229 // IServerGate_Contents_KPageFactoryManagerSrv
+ )
+ ; // Children
+ UP "finished" false
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ServerGate\NOT_FINISHED_Contents_int.pas'
+
+ENDME // ME_4CA1BFF9036D Contents_int

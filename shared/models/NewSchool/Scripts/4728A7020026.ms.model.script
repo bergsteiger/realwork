@@ -1,0 +1,108 @@
+// Types 4728A7020026 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4728A7020026
+
+ME ME_4728A7190065
+ MEPROP UID '4728A7190065'
+ MEPROP Name 'TRect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прямоугольник.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4728A7020026 // Types
+ ;
+
+ENDME // ME_4728A7190065 TRect
+
+ME ME_4739AD110072
+ MEPROP UID '4739AD110072'
+ MEPROP Name 'TPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Точка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4728A7020026 // Types
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4739AD110072 TPoint
+
+ME ME_49B14F3C0099
+ MEPROP UID '49B14F3C0099'
+ MEPROP Name 'DWORD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4728A7020026 // Types
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49B14F3C0099 DWORD
+
+ME ME_4F5DC5530226
+ MEPROP UID '4F5DC5530226'
+ MEPROP Name 'TSmallPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4728A7020026 // Types
+ ;
+
+ENDME // ME_4F5DC5530226 TSmallPoint
+
+ME ME_50477FCE0307
+ MEPROP UID '50477FCE0307'
+ MEPROP Name 'TSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4728A7020026 // Types
+ ;
+
+ENDME // ME_50477FCE0307 TSize
+
+ME ME_4728A7020026
+ MEPROP UID '4728A7020026'
+ MEPROP Name 'Types'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4728A7190065 // TRect
+ HWL ME_4739AD110072 // TPoint
+ HWL ME_49B14F3C0099 // DWORD
+ HWL ME_4F5DC5530226 // TSmallPoint
+ HWL ME_50477FCE0307 // TSize
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "NoSpell" true
+ UP "is namespace" true
+ UP "path prefix" '/Sys'
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\Types.pas'
+ UP intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys'
+
+ENDME // ME_4728A7020026 Types

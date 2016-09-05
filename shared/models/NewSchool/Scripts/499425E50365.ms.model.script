@@ -1,0 +1,379 @@
+// vcmProfilerInterfaces 499425E50365 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499425E50365
+
+FORWARD ME_49930249037D
+
+ME ME_499302A6031B
+ MEPROP UID '499302A6031B'
+ MEPROP Name 'Id'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'идентификатор профайлера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_499302A6031B Id
+
+ME ME_499302B70057
+ MEPROP UID '499302B70057'
+ MEPROP Name 'HasFinished'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'определяет закончил ли профайлер работу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_499302B70057 HasFinished
+
+ME ME_499302C50196
+ MEPROP UID '499302C50196'
+ MEPROP Name 'ExecuteTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'время загрузки прецедента (в миллисекунадах)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_499302C50196 ExecuteTime
+
+ME ME_499302D900EF
+ MEPROP UID '499302D900EF'
+ MEPROP Name 'ExecuteCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'количество открытий прецедента. Профайлер запоминает результаты'#13#10'           каждого замера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_499302D900EF ExecuteCount
+
+ME ME_499302E902E2
+ MEPROP UID '499302E902E2'
+ MEPROP Name 'AverageExecuteTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'среднее время открытие прецедента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_499302E902E2 AverageExecuteTime
+
+ME ME_499302FB0094
+ MEPROP UID '499302FB0094'
+ MEPROP Name 'DisplayName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'отображаемое название' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP "pm" true
+
+ENDME // ME_499302FB0094 DisplayName
+
+ME ME_4993028502E3
+ MEPROP Name 'aDisplayName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4993028502E3 aDisplayName
+
+ME ME_499302850321
+ MEPROP Name 'aFinishCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499302850321 aFinishCount
+
+ME ME_4993027B0003
+ MEPROP UID '4993027B0003'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ %SUMMARY 'инициализирует профайлер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELIST Parameters
+   Seq: ( ME_4993028502E3 // aDisplayName
+ ME_499302850321 // aFinishCount
+ )
+ ; // Parameters
+
+ENDME // ME_4993027B0003 Init
+
+ME ME_4993028A0316
+ MEPROP UID '4993028A0316'
+ MEPROP Name 'Start'
+ MEPROP Class class_Operation
+ %SUMMARY 'начать замер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+
+ENDME // ME_4993028A0316 Start
+
+ME ME_4993029801AF
+ MEPROP UID '4993029801AF'
+ MEPROP Name 'Finish'
+ MEPROP Class class_Operation
+ %SUMMARY 'закончить замер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49930249037D // IvcmProfiler
+ ;
+
+ENDME // ME_4993029801AF Finish
+
+ME ME_49930249037D
+ MEPROP UID '49930249037D'
+ MEPROP GUID '9414E6E8-AC1E-4B2C-8F9C-EB76E9BB846B'
+ MEPROP Name 'IvcmProfiler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'профайлер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499425E50365 // vcmProfilerInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499302A6031B // Id
+ HWL ME_499302B70057 // HasFinished
+ HWL ME_499302C50196 // ExecuteTime
+ HWL ME_499302D900EF // ExecuteCount
+ HWL ME_499302E902E2 // AverageExecuteTime
+ HWL ME_499302FB0094 // DisplayName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4993027B0003 // Init
+ HWL ME_4993028A0316 // Start
+ HWL ME_4993029801AF // Finish
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Profiler'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49930249037D IvcmProfiler
+
+FORWARD ME_499302090191
+
+ME ME_4993022701FD
+ MEPROP Name 'aDisplayName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4993022701FD aDisplayName
+
+ME ME_49930227023D
+ MEPROP Name 'anId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49930227023D anId
+
+ME ME_49930227027B
+ MEPROP Name 'aFinishCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49930227027B aFinishCount
+
+ME ME_499302160046
+ MEPROP UID '499302160046'
+ MEPROP Name 'StartProfile'
+ MEPROP Class class_Operation
+ %SUMMARY 'aFinishCount - устанавливает количество вызовов Finish после которых'#13#10'                         считается, что профайле отработал и его свойство'#13#10'                         HasFinished установится в True' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499302090191 // IvcmProfilersCollection
+ ;
+ MELIST Parameters
+   Seq: ( ME_4993022701FD // aDisplayName
+ ME_49930227023D // anId
+ ME_49930227027B // aFinishCount
+ )
+ ; // Parameters
+
+ENDME // ME_499302160046 StartProfile
+
+ME ME_499302380150
+ MEPROP Name 'anId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499302380150 anId
+
+ME ME_4993022F032D
+ MEPROP UID '4993022F032D'
+ MEPROP Name 'FinishProfile'
+ MEPROP Class class_Operation
+ %SUMMARY 'завершить работу профайлера. EvcmProfilerWasNotStarted' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499302090191 // IvcmProfilersCollection
+ ;
+ MELIST Parameters
+   Seq: ( ME_499302380150 // anId
+ )
+ ; // Parameters
+
+ENDME // ME_4993022F032D FinishProfile
+
+ME ME_4993026202FD
+ MEPROP Name 'anId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4993026202FD anId
+
+ME ME_49930258016F
+ MEPROP UID '49930258016F'
+ MEPROP Name 'FindById'
+ MEPROP Class class_Operation
+ %SUMMARY 'это нужно пользователям профайлера, они знают только его'#13#10'          идентификатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499302090191 // IvcmProfilersCollection
+ ;
+ MELINK Target HWL ME_49930249037D // IvcmProfiler
+ ;
+ MELIST Parameters
+   Seq: ( ME_4993026202FD // anId
+ )
+ ; // Parameters
+
+ENDME // ME_49930258016F FindById
+
+ME ME_499302090191
+ MEPROP UID '499302090191'
+ MEPROP GUID '0EE0F248-3908-4E76-B215-164D52D394DD'
+ MEPROP Name 'IvcmProfilersCollection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'профайлеры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499425E50365 // vcmProfilerInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_499302160046 // StartProfile
+ HWL ME_4993022F032D // FinishProfile
+ HWL ME_49930258016F // FindById
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ProfilersCollection'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499302090191 IvcmProfilersCollection
+
+ME ME_499301DF026E
+ MEPROP UID '499301DF026E'
+ MEPROP Name 'EvcmProfilerWasNotStarted'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Профайлер не был запущен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499425E50365 // vcmProfilerInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_499301DF026E EvcmProfilerWasNotStarted
+
+ME ME_499425E50365
+ MEPROP UID '499425E50365'
+ MEPROP Name 'vcmProfilerInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Профилирование. [$136264930]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49930249037D // IvcmProfiler
+ HWL ME_499302090191 // IvcmProfilersCollection
+ HWL ME_499301DF026E // EvcmProfilerWasNotStarted
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '12.02.2009 16:27'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmProfilerInterfaces.pas'
+
+ENDME // ME_499425E50365 vcmProfilerInterfaces

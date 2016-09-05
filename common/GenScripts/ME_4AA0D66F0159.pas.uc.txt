@@ -5,7 +5,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas
  , StdRes
 //#UC END# *4AA0D66F0159impl_uses*
 //#UC START# *4AA11B7A0009_4AA0D66F0159_impl*
- OpenMedicDictionPrim(TsdsMedicDiction.Make(aDocInfo), aContainer);
+ TInpharmModule.OpenMedicDictionPrim(TsdsMedicDiction.Make(aDocInfo), aContainer);
 //#UC END# *4AA11B7A0009_4AA0D66F0159_impl*
 //#UC START# *4AA11B7A0009_4AA0D66F0159_var*
 //#UC END# *4AA11B7A0009_4AA0D66F0159_var*
@@ -36,11 +36,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas
 //#UC START# *4AB9FC8F027A_4AA0D66F0159exec_impl*
  Assert(((aParams As IvcmExecuteParams).Data = nil),
         'Пользуйтесь фабрикой OpenMedicDictionPrim');
-(* if Supports(aParams.Data, IsdsCommonDiction, l_SDS) AND (l_SDS <> nil) then
-  OpenMedicDictionPrim(l_SDS, aParams.Container)
- else*)
- if {(l_SDS = nil) AND} not lp_HasDictionForm {or Assigned(l_SDS)} then
-  OpenMedicDiction(nil, CheckContainer(nil));
+ if not lp_HasDictionForm then
+  TInpharmService.Instance.OpenMedicDiction(nil, CheckContainer(nil));
 //#UC END# *4AB9FC8F027A_4AA0D66F0159exec_impl*
 //#UC START# *4AB9FC8F027A_4AA0D66F0159exec_var*
   
@@ -51,8 +48,6 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas
                                         True, nil, Ord(utMedicDiction));
  end;//lp_HasTipsForm
 
-(*var
- l_SDS: IsdsCommonDiction;*)
 //#UC END# *4AB9FC8F027A_4AA0D66F0159exec_var*
 //#UC START# *4AB9FC8F027A_4AA0D66F0159test_impl*
  aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInpharmExists;
@@ -60,7 +55,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas
 //#UC START# *4AB9FC8F027A_4AA0D66F0159test_var*
 //#UC END# *4AB9FC8F027A_4AA0D66F0159test_var*
 //#UC START# *4AB9FCE902EC_4AA0D66F0159exec_impl*
- MedicFirms(nil);
+ TInpharmService.Instance.MedicFirms(nil);
 //#UC END# *4AB9FCE902EC_4AA0D66F0159exec_impl*
 //#UC START# *4AB9FCE902EC_4AA0D66F0159exec_var*
 //#UC END# *4AB9FCE902EC_4AA0D66F0159exec_var*
@@ -70,7 +65,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas
 //#UC START# *4AB9FCE902EC_4AA0D66F0159test_var*
 //#UC END# *4AB9FCE902EC_4AA0D66F0159test_var*
 //#UC START# *4AB9FD0601CF_4AA0D66F0159exec_impl*
- TdmStdRes.OpenList(
+ TListService.Instance.OpenList(
   TdeListSet.Make(
    defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), nil);
 //#UC END# *4AB9FD0601CF_4AA0D66F0159exec_impl*
@@ -82,7 +77,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas
 //#UC START# *4AB9FD0601CF_4AA0D66F0159test_var*
 //#UC END# *4AB9FD0601CF_4AA0D66F0159test_var*
 //#UC START# *4AB9FD6F017A_4AA0D66F0159exec_impl*
- OpenInpharmMainMenu(nil);
+ TInpharmService.Instance.OpenInpharmMainMenu(nil);
 //#UC END# *4AB9FD6F017A_4AA0D66F0159exec_impl*
 //#UC START# *4AB9FD6F017A_4AA0D66F0159exec_var*
 //#UC END# *4AB9FD6F017A_4AA0D66F0159exec_var*
@@ -142,7 +137,7 @@ var
 //#UC START# *530340E702A3_4AA0D66F0159_var*
 //#UC END# *530340E702A3_4AA0D66F0159_var*
 //#UC START# *530513060354_4AA0D66F0159_impl*
- TdmStdRes.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
+ TListService.Instance.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
 //#UC END# *530513060354_4AA0D66F0159_impl*
 //#UC START# *530513060354_4AA0D66F0159_var*
 //#UC END# *530513060354_4AA0D66F0159_var*

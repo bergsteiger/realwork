@@ -36,6 +36,8 @@
 //#UC START# *55895EA203B9_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\NewWordDefinitorPack.pas
 //#UC END# *55895EA203B9_ext:FileName
+//#UC START# *55895EA203B9impl_uses*
+//#UC END# *55895EA203B9impl_uses*
 //#UC START# *5589A2F10199_0518A66C4F49_impl*
  l_KW := aNewWordDefinitor.CheckWord(aName);
  l_W := l_KW.Word;
@@ -214,6 +216,35 @@ var
  l_KW : TtfwKeyWord;
  l_W : TtfwWord;
 //#UC END# *5673DD6F001B_61662B3659A7_var*
+//#UC START# *57B55A630344_57B55A630344_4DC95E96023B_Word_impl*
+ l_KW := aNewWordDefinitor.CheckWord(aName);
+ if (l_KW.Word <> nil) then 
+  if l_KW.Word.IsForwardDeclaration then
+   Assert(false, 'ѕытаютс€ создать переменную вместо предварительного описани€ слова' + l3Str(Self.Key.AsWStr) + ' : ' + l3Str(aName));
+ if aLocal then
+  l_W := TkwCompiledVar.Create(Self,
+                               aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                               aCtx.rTypeInfo,
+                               aCtx,
+                               l_KW)
+ else
+  l_W := TkwGlobalVar.Create(Self,
+                             aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                             aCtx.rTypeInfo,
+                             aCtx,
+                             l_KW);
+ try
+  l_KW.SetWord(aCtx, l_W);
+  Result := l_W;
+ finally
+  FreeAndNil(l_W);
+ end;//try..finally
+//#UC END# *57B55A630344_57B55A630344_4DC95E96023B_Word_impl*
+//#UC START# *57B55A630344_57B55A630344_4DC95E96023B_Word_var*
+var
+ l_KW : TtfwKeyWord;
+ l_W : TtfwWord;
+//#UC END# *57B55A630344_57B55A630344_4DC95E96023B_Word_var*
 //#UC START# *B2F36CF00AB7_CDFCC0A90AF7_impl*
  Result := aNewWordDefinitor.DefineInParameter(aCtx, aParamName, aStereo, aCtx.rTypeInfo);
 //#UC END# *B2F36CF00AB7_CDFCC0A90AF7_impl*

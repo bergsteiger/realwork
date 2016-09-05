@@ -1,0 +1,72 @@
+// dsEdition 4A71859C0249 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A71859C0249
+
+ME ME_4A84277D0171
+ MEPROP UID '4A84277D0171'
+ MEPROP Name 'CompareEditions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ %SUMMARY 'Прецедент Сравнение редакций' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A71859C0249 // dsEdition
+ ;
+ MELINK Target WL 'ME_4A6D5729037F' '4A6D56B00065.ms.model.script' // IsdsCompareEditions
+ ;
+
+ENDME // ME_4A84277D0171 CompareEditions
+
+ME ME_479731C50290_ME_4A71859C0249
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A71859C0249 Cleanup
+
+ME ME_47A042E100E2_ME_4A71859C0249
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4A71859C0249 InitFields
+
+ME ME_4A71859C0249
+ MEPROP UID '4A71859C0249'
+ MEPROP Name 'dsEdition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая область ввода, для работы с редакциями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A717F3D0221' '4A717F3D0221.ms.model.script' // Editions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.ms.model.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4B548BE50138' '4A717F3D0221.ms.model.script' // VScroll
+ WL 'ME_4B549304002F' '4A6D56B00065.ms.model.script' // IdsEdition
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A84277D0171 // CompareEditions
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A71859C0249 // Cleanup
+ ME_47A042E100E2_ME_4A71859C0249 // InitFields
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '30.07.2009 15:51'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas'
+ UP extprop:pas:TypeName '_dsEdition_'
+ UP extprop:pas:UnitName 'dsEdition.imp'
+
+ENDME // ME_4A71859C0249 dsEdition

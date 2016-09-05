@@ -1,0 +1,377 @@
+// ExternalOperation 45EEA4890342 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEA4890342
+
+FORWARD ME_45EEAEA10295
+
+ME ME_45EEAEA10296
+ MEPROP UID '45EEAEA10296'
+ MEPROP Name 'id'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEA10295 // ExternalOperation
+ ;
+ MELINK Target WL 'ME_456EA5EF01A5' '456EA56002BF.ms.model.script' // ObjectId
+ ;
+ UP "pm" false
+
+ENDME // ME_45EEAEA10296 id
+
+ME ME_45F5793D0138
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EA5EF01A5' '456EA56002BF.ms.model.script' // ObjectId
+ ;
+
+ENDME // ME_45F5793D0138 id
+
+ME ME_45F577DE0283
+ MEPROP UID '45F577DE0283'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEAEA10295 // ExternalOperation
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F5793D0138 // id
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+
+ENDME // ME_45F577DE0283 make
+
+ME ME_45EEAEA10295
+ MEPROP UID '45EEAEA10295'
+ MEPROP GUID '71ECDD4A-0455-4800-BD55-7ECB739949A7'
+ MEPROP Name 'ExternalOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылки на операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA4890342 // ExternalOperation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEAEA10296 // id
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45F577DE0283 // make
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IExternalOperation'
+ UP extprop:rc:SelfName 'ExternalOperation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45EEAEA10295 ExternalOperation
+
+FORWARD ME_45EEAEC40311
+
+ME ME_45EEAEC40312
+ MEPROP UID '45EEAEC40312'
+ MEPROP Name 'EOI_ESTIMATION'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Оценить ответ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1
+
+ENDME // ME_45EEAEC40312 EOI_ESTIMATION
+
+ME ME_45EEAEC40313
+ MEPROP UID '45EEAEC40313'
+ MEPROP Name 'EOI_PAYMENT_CONFIRM'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Подтверждение оплаты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 2
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 2
+
+ENDME // ME_45EEAEC40313 EOI_PAYMENT_CONFIRM
+
+ME ME_45EEAEC40314
+ MEPROP UID '45EEAEC40314'
+ MEPROP Name 'EOI_PAYMENT_REFUSAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Оплата отклонена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 3
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 3
+
+ENDME // ME_45EEAEC40314 EOI_PAYMENT_REFUSAL
+
+ME ME_45EEAEC40315
+ MEPROP UID '45EEAEC40315'
+ MEPROP Name 'EOI_OPEN_ATTRIBUTE_CARD'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 4
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 4
+
+ENDME // ME_45EEAEC40315 EOI_OPEN_ATTRIBUTE_CARD
+
+ME ME_45EEAEC40316
+ MEPROP UID '45EEAEC40316'
+ MEPROP Name 'EOI_SHOW_HELP_TOPIC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 5
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 5
+
+ENDME // ME_45EEAEC40316 EOI_SHOW_HELP_TOPIC
+
+ME ME_45EEAEC40317
+ MEPROP UID '45EEAEC40317'
+ MEPROP Name 'EOI_CHANGE_COLLAPSED'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 6
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 6
+
+ENDME // ME_45EEAEC40317 EOI_CHANGE_COLLAPSED
+
+ME ME_466410A500D7
+ MEPROP UID '466410A500D7'
+ MEPROP Name 'EOI_CHECK_LEGAL_ADVISE_AVAILABLE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 7
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 7
+
+ENDME // ME_466410A500D7 EOI_CHECK_LEGAL_ADVISE_AVAILABLE
+
+ME ME_4958ECB40296
+ MEPROP UID '4958ECB40296'
+ MEPROP Name 'EOI_CONSULTATION_CALL_GARANT'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ссылка на www.garant.ru в уведомлении о консалтинге' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 8
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 8
+
+ENDME // ME_4958ECB40296 EOI_CONSULTATION_CALL_GARANT
+
+ME ME_4C69259100F4
+ MEPROP UID '4C69259100F4'
+ MEPROP Name 'EOI_SHOW_CONSULTATION_LIST'
+ MEPROP Class class_Attribute
+ %SUMMARY 'показать список к консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 9
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 9
+
+ENDME // ME_4C69259100F4 EOI_SHOW_CONSULTATION_LIST
+
+ME ME_4D63B5BA0127
+ MEPROP UID '4D63B5BA0127'
+ MEPROP Name 'EOI_SHOW_LC_HELP'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ссылка на Справка-описание Правового календаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 10
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 10
+
+ENDME // ME_4D63B5BA0127 EOI_SHOW_LC_HELP
+
+ME ME_4DE7A6F9005F
+ MEPROP UID '4DE7A6F9005F'
+ MEPROP Name 'EOI_CHANGES_INSIDE_TABLE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEAEC40311 // ExternalOperationId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MEPROP Value 11
+ MELINK ValueType WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 11
+
+ENDME // ME_4DE7A6F9005F EOI_CHANGES_INSIDE_TABLE
+
+ME ME_45EEAEC40311
+ MEPROP UID '45EEAEC40311'
+ MEPROP Name 'ExternalOperationId'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA4890342 // ExternalOperation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEAEC40312 // EOI_ESTIMATION
+ HWL ME_45EEAEC40313 // EOI_PAYMENT_CONFIRM
+ HWL ME_45EEAEC40314 // EOI_PAYMENT_REFUSAL
+ HWL ME_45EEAEC40315 // EOI_OPEN_ATTRIBUTE_CARD
+ HWL ME_45EEAEC40316 // EOI_SHOW_HELP_TOPIC
+ HWL ME_45EEAEC40317 // EOI_CHANGE_COLLAPSED
+ HWL ME_466410A500D7 // EOI_CHECK_LEGAL_ADVISE_AVAILABLE
+ HWL ME_4958ECB40296 // EOI_CONSULTATION_CALL_GARANT
+ HWL ME_4C69259100F4 // EOI_SHOW_CONSULTATION_LIST
+ HWL ME_4D63B5BA0127 // EOI_SHOW_LC_HELP
+ HWL ME_4DE7A6F9005F // EOI_CHANGES_INSIDE_TABLE
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_45EEAEC40311 ExternalOperationId
+
+ME ME_45EEA4890342
+ MEPROP UID '45EEA4890342'
+ MEPROP Name 'ExternalOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEAEA10295 // ExternalOperation
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_45EEAEC40311 // ExternalOperationId
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_456F02A50196' '456F02A50196.ms.model.script' // BaseTreeSupport
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\ExternalOperation\ExternalOperation.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ExternalOperation'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ExternalOperation\ExternalOperation.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ExternalOperation'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ExternalOperationUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\ExternalOperationUnit.pas'
+ UP extprop:pas:UnitName 'ExternalOperationUnit'
+
+ENDME // ME_45EEA4890342 ExternalOperation

@@ -1,0 +1,128 @@
+// l3Chars 476BE98C01B8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_476BE98C01B8
+
+FORWARD ME_47A082F101DB
+
+ME ME_47A0830A02DB
+ MEPROP UID '47A0830A02DB'
+ MEPROP Name 'cc_EOL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'конец строки в текстовых файлах.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A082F101DB // Ext Chars
+ ;
+ MEPROP Value '#13#10'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '#13#10'
+
+ENDME // ME_47A0830A02DB cc_EOL
+
+ME ME_47A083180248
+ MEPROP UID '47A083180248'
+ MEPROP Name 'cc_EOL_Len'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A082F101DB // Ext Chars
+ ;
+ MEPROP Value 2
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 2
+
+ENDME // ME_47A083180248 cc_EOL_Len
+
+ME ME_47A082F101DB
+ MEPROP UID '47A082F101DB'
+ MEPROP Name 'Ext Chars'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_476BE98C01B8 // l3Chars
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47A0830A02DB // cc_EOL
+ HWL ME_47A083180248 // cc_EOL_Len
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47A082F101DB Ext Chars
+
+FORWARD ME_49082AE80393
+
+ME ME_561519CE00C4
+ MEPROP UID '561519CE00C4'
+ MEPROP Name 'CP_OEMLite'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49082AE80393 // Code Pages
+ ;
+ MEPROP Value '-3'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '-3'
+
+ENDME // ME_561519CE00C4 CP_OEMLite
+
+ME ME_49082AE80393
+ MEPROP UID '49082AE80393'
+ MEPROP Name 'Code Pages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_476BE98C01B8 // l3Chars
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_561519CE00C4 // CP_OEMLite
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_49082AE80393 Code Pages
+
+ME ME_476BE98C01B8
+ MEPROP UID '476BE98C01B8'
+ MEPROP Name 'l3Chars'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Константы для работы с символами и кодировками.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47A082F101DB // Ext Chars
+ HWL ME_49082AE80393 // Code Pages
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '01.12.1995 16:28'
+ UP "weak" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Chars.pas'
+
+ENDME // ME_476BE98C01B8 l3Chars

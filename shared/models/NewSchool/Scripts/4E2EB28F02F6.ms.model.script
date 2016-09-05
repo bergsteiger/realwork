@@ -1,0 +1,79 @@
+// Tags 4E2EB28F02F6 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E2EB28F02F6
+
+FORWARD ME_4E2EB2D50291
+
+ME ME_4E2EB37F0188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2EB2D50291 // K275780190
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E2EB37F0188 
+
+ME ME_4BE13147032C_ME_4E2EB2D50291
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE13147032C_ME_4E2EB2D50291 Process
+
+ME ME_4E2EB2D50291
+ MEPROP UID '4E2EB2D50291'
+ MEPROP Name 'K275780190'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:275780190}.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E2EB28F02F6 // Tags
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.ms.model.script' // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4E2EB2D50291 // Process
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4E2EB37F0188 // Tk2TagID
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '26.07.2011 16:28'
+ UP intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K275780190.pas'
+ UP extprop:pas:TypeName 'TK275780190'
+ UP extprop:rc:SelfName 'K275780190'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E2EB2D50291 K275780190
+
+ME ME_4E2EB28F02F6
+ MEPROP UID '4E2EB28F02F6'
+ MEPROP Name 'Tags'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D53DEED0062' '4D53DEED0062.ms.model.script' // Archi Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E2EB2D50291 // K275780190
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_4B30C89F035F' '4B30C89F035F.ms.model.script' // Everest
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_4E2EB28F02F6 Tags

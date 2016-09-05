@@ -1,0 +1,1621 @@
+// Elements 4849199D0140 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4849199D0140
+
+FORWARD ME_4F9001E303DE
+
+ME ME_4F9002060002
+ MEPROP UID '4F9002060002'
+ MEPROP Name 'SpellAttrValue'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9001E303DE // AttrValueSpeller
+ ;
+
+ENDME // ME_4F9002060002 SpellAttrValue
+
+ME ME_4F9001E303DE
+ MEPROP UID '4F9001E303DE'
+ MEPROP Name 'AttrValueSpeller'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F9002060002 // SpellAttrValue
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\AttrValueSpeller.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\AttrValueSpeller'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4F9001E303DE AttrValueSpeller
+
+FORWARD ME_48492CB900AB
+
+FORWARD ME_48564FC60216
+
+ME ME_46E6D4BB0339_ME_48564FC60216
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_48564FC60216 wiki
+
+ME ME_470484D50138_ME_48564FC60216
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_48564FC60216 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_48564FC60216
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_48564FC60216 constraint
+
+ME ME_4705CBD6003E_ME_48564FC60216
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_48564FC60216 wiki_child_kind
+
+ME ME_48564FC60216
+ MEPROP UID '48564FC60216'
+ MEPROP Name 'uses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Зависимость структурного элемента от элементов реализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_48564FC60216 // wiki
+ ME_470484D50138_ME_48564FC60216 // wiki_up_add_gen
+ ME_4704C0E30186_ME_48564FC60216 // constraint
+ ME_4705CBD6003E_ME_48564FC60216 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_uses'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Atom\uses'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48564FC60216 uses
+
+ME ME_49AD33FB00A1
+ MEPROP UID '49AD33FB00A1'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Идентификатор типа. Используется для записи EVD в бинарный поток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+
+ENDME // ME_49AD33FB00A1 ID
+
+ME ME_4A64A36B003E
+ MEPROP UID '4A64A36B003E'
+ MEPROP Name 'Implementation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Тип класса реализации'#13#10'---'#13#10'Определяет генерацию класса реализации:'#13#10'- undef - наследуется от родителя'#13#10'- list - список тегов'#13#10'- leaf - листьевой тег'#13#10'- none - никакого класса реализации не генерируется' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MEPROP Value 'undef|list|leaf|none'
+ UP extprop:pas:Value 'undef|list|leaf|none'
+
+ENDME // ME_4A64A36B003E Implementation
+
+ME ME_4A64A45A00AB
+ MEPROP UID '4A64A45A00AB'
+ MEPROP Name 'Parented'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Нужно ли хранить ссылку на родительский тег' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MEPROP Value 'undefined|false|true|owned'
+ UP extprop:pas:Value 'undefined|false|true|owned'
+
+ENDME // ME_4A64A45A00AB Parented
+
+ME ME_4E834224019D
+ MEPROP UID '4E834224019D'
+ MEPROP Name 'SmallTag'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ %SUMMARY 'Определяет, что элемент может иметь НЕ более 32 (включительно) атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4E834224019D SmallTag
+
+ME ME_484EAD6D02EC
+ MEPROP UID '484EAD6D02EC'
+ MEPROP Name 'evd_IsSchemaElement'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что объект является элементом схемы EVD.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+
+ENDME // ME_484EAD6D02EC evd_IsSchemaElement
+
+ME ME_484F892902D9
+ MEPROP UID '484F892902D9'
+ MEPROP Name 'evd_SchemaElementAncestorCount'
+ MEPROP Class class_Operation
+ %SUMMARY 'Количество элементов схемы, от которых наследуется тег.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+
+ENDME // ME_484F892902D9 evd_SchemaElementAncestorCount
+
+ME ME_4860FEC5003E
+ MEPROP UID '4860FEC5003E'
+ MEPROP Name 'evd_DefineType'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+
+ENDME // ME_4860FEC5003E evd_DefineType
+
+ME ME_4A64A41E0269
+ MEPROP UID '4A64A41E0269'
+ MEPROP Name 'evd_Implementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает тип класса реализации с учётом наследования' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4A64A41E0269 evd_Implementation
+
+ME ME_4A64A48B02F1
+ MEPROP UID '4A64A48B02F1'
+ MEPROP Name 'evd_Parented'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нужно ли хранить ссылку на родительский тег' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A64A48B02F1 evd_Parented
+
+ME ME_4A64ADC30232
+ MEPROP UID '4A64ADC30232'
+ MEPROP Name 'evd_ImplementationClassAncestor'
+ MEPROP Class class_Operation
+ %SUMMARY 'Предок класса реализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4A64ADC30232 evd_ImplementationClassAncestor
+
+ME ME_4BC4367C02DB
+ MEPROP UID '4BC4367C02DB'
+ MEPROP Name 'evd_OutElementImplementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит реализацию элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+
+ENDME // ME_4BC4367C02DB evd_OutElementImplementation
+
+ME ME_4BCC78C10007
+ MEPROP UID '4BCC78C10007'
+ MEPROP Name 'ImplementationClassToVar'
+ MEPROP Class class_Operation
+ %SUMMARY 'Кладёт класс реализации в переменную PARENT' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+
+ENDME // ME_4BCC78C10007 ImplementationClassToVar
+
+ME ME_4E8342460069
+ MEPROP UID '4E8342460069'
+ MEPROP Name 'evd_SmallTag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4E8342460069 evd_SmallTag
+
+ME ME_5267F53C0142
+ MEPROP UID '5267F53C0142'
+ MEPROP Name 'evd_HasPersistentID'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48492CB900AB // Atom
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_5267F53C0142 evd_HasPersistentID
+
+ME ME_4704C0E30186_ME_48492CB900AB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_48492CB900AB constraint
+
+ME ME_48492CB900AB
+ MEPROP UID '48492CB900AB'
+ MEPROP Name 'Atom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атом'#13#10'---'#13#10'Атомарный элемент. Не может содержать атрибутов или дочерних элементов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ HWL ME_4F9001E303DE // AttrValueSpeller
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49AD33FB00A1 // ID
+ HWL ME_4A64A36B003E // Implementation
+ HWL ME_4A64A45A00AB // Parented
+ HWL ME_4E834224019D // SmallTag
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_484EAD6D02EC // evd_IsSchemaElement
+ HWL ME_484F892902D9 // evd_SchemaElementAncestorCount
+ HWL ME_4860FEC5003E // evd_DefineType
+ HWL ME_4A64A41E0269 // evd_Implementation
+ HWL ME_4A64A48B02F1 // evd_Parented
+ HWL ME_4A64ADC30232 // evd_ImplementationClassAncestor
+ HWL ME_4BC4367C02DB // evd_OutElementImplementation
+ HWL ME_4BCC78C10007 // ImplementationClassToVar
+ HWL ME_4E8342460069 // evd_SmallTag
+ HWL ME_5267F53C0142 // evd_HasPersistentID
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_48492CB900AB // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48564FC60216 // uses
+ )
+ ; // Children
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_evd_atom'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 16744576
+ UP "visualization f-line color" 16744576
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\Atom.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Atom'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48492CB900AB Atom
+
+FORWARD ME_48491DC20030
+
+FORWARD ME_48493312009A
+
+ME ME_484939F9027E
+ MEPROP UID '484939F9027E'
+ MEPROP Name 'ReadOnly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_484939F9027E ReadOnly
+
+ME ME_484ABDC800DC
+ MEPROP UID '484ABDC800DC'
+ MEPROP Name 'stored'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_484ABDC800DC stored
+
+ME ME_484D393501E5
+ MEPROP UID '484D393501E5'
+ MEPROP Name 'EmptyMapping'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Тег у которого берётся значение атрибута, если собственное значение не задано.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_484D393501E5 EmptyMapping
+
+ME ME_484FA588003F
+ MEPROP UID '484FA588003F'
+ MEPROP Name 'HasStoredTrigger'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что значение stored вычисляется.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_484FA588003F HasStoredTrigger
+
+ME ME_484FB79502BB
+ MEPROP UID '484FB79502BB'
+ MEPROP Name 'HasBeforeChangeTrigger'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_484FB79502BB HasBeforeChangeTrigger
+
+ME ME_485671AF0020
+ MEPROP UID '485671AF0020'
+ MEPROP Name 'need UC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_485671AF0020 need UC
+
+ME ME_4856761F0002
+ MEPROP UID '4856761F0002'
+ MEPROP Name 'HasAfterChangeTrigger'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4856761F0002 HasAfterChangeTrigger
+
+ME ME_4857DA7801EB
+ MEPROP UID '4857DA7801EB'
+ MEPROP Name 'NeedMarkModified'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4857DA7801EB NeedMarkModified
+
+ME ME_484A918802EE
+ MEPROP UID '484A918802EE'
+ MEPROP Name 'DefinitionHeader'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит заголовок определения атрибута.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_484A918802EE DefinitionHeader
+
+ME ME_484FBC200182
+ MEPROP UID '484FBC200182'
+ MEPROP Name 'Body'
+ MEPROP Class class_Operation
+ %SUMMARY 'Тело атрибута.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_484FBC200182 Body
+
+ME ME_49A7961C0289
+ MEPROP UID '49A7961C0289'
+ MEPROP Name 'Prologue'
+ MEPROP Class class_Operation
+ %SUMMARY 'Пролог определения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_49A7961C0289 Prologue
+
+ME ME_49A7BAF50197
+ MEPROP UID '49A7BAF50197'
+ MEPROP Name 'NeedsOwnType'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что атрибуту необходимо собственное определение типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_49A7BAF50197 NeedsOwnType
+
+ME ME_49A7CCE80269
+ MEPROP UID '49A7CCE80269'
+ MEPROP Name 'AncestorTypeName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Предок вновь определяемого типа. См. NeedsOwnType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_49A7CCE80269 AncestorTypeName
+
+ME ME_49A7CD3200CF
+ MEPROP UID '49A7CD3200CF'
+ MEPROP Name 'DefineNewType'
+ MEPROP Class class_Operation
+ %SUMMARY 'Собственно определение пового типа См. NeedOwnType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_49A7CD3200CF DefineNewType
+
+ME ME_49AD12F30104
+ MEPROP UID '49AD12F30104'
+ MEPROP Name 'NewTypeName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имя типа, определяемого для свойства' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_49AD12F30104 NewTypeName
+
+ME ME_4BC439B602D4
+ MEPROP UID '4BC439B602D4'
+ MEPROP Name 'evd_OutElementImplementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит реализацию элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493312009A // attr
+ ;
+
+ENDME // ME_4BC439B602D4 evd_OutElementImplementation
+
+ME ME_46E6D4BB0339_ME_48493312009A
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_48493312009A wiki
+
+ME ME_470484D50138_ME_48493312009A
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_48493312009A wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_48493312009A
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_48493312009A constraint
+
+ME ME_4705CBD6003E_ME_48493312009A
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_48493312009A wiki_child_kind
+
+ME ME_48493312009A
+ MEPROP UID '48493312009A'
+ MEPROP Name 'attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут'#13#10'---'#13#10'Определяет скалярный атрибут' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_484939F9027E // ReadOnly
+ HWL ME_484ABDC800DC // stored
+ HWL ME_484D393501E5 // EmptyMapping
+ HWL ME_484FA588003F // HasStoredTrigger
+ HWL ME_484FB79502BB // HasBeforeChangeTrigger
+ HWL ME_485671AF0020 // need UC
+ HWL ME_4856761F0002 // HasAfterChangeTrigger
+ HWL ME_4857DA7801EB // NeedMarkModified
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_484A918802EE // DefinitionHeader
+ HWL ME_484FBC200182 // Body
+ HWL ME_49A7961C0289 // Prologue
+ HWL ME_49A7BAF50197 // NeedsOwnType
+ HWL ME_49A7CCE80269 // AncestorTypeName
+ HWL ME_49A7CD3200CF // DefineNewType
+ HWL ME_49AD12F30104 // NewTypeName
+ HWL ME_4BC439B602D4 // evd_OutElementImplementation
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_48493312009A // wiki
+ ME_470484D50138_ME_48493312009A // wiki_up_add_gen
+ ME_4704C0E30186_ME_48493312009A // constraint
+ ME_4705CBD6003E_ME_48493312009A // wiki_child_kind
+ )
+ ; // Implemented
+ UP "abstraction type" 'fa'
+ UP "link type" 'al'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" true
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag\attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48493312009A attr
+
+FORWARD ME_484938D00395
+
+ME ME_484FB6FB01BD
+ MEPROP UID '484FB6FB01BD'
+ MEPROP Name 'SortIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Индекс сортировки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484938D00395 // children
+ ;
+
+ENDME // ME_484FB6FB01BD SortIndex
+
+ME ME_484FB708005A
+ MEPROP UID '484FB708005A'
+ MEPROP Name 'HasStoreChildTrigger'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Есть триггер на сохранение дочернего тега.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484938D00395 // children
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_484FB708005A HasStoreChildTrigger
+
+ME ME_4858ADB502D3
+ MEPROP UID '4858ADB502D3'
+ MEPROP Name 'MaxChildrenCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Ограничение количества дочерних элементов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484938D00395 // children
+ ;
+
+ENDME // ME_4858ADB502D3 MaxChildrenCount
+
+ME ME_49B793F50274
+ MEPROP UID '49B793F50274'
+ MEPROP Name 'Duplicates'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Как обрабатывать дубликаты, если список сортированный.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484938D00395 // children
+ ;
+ MEPROP Value 'Ignore|Accept|Change|Assign|Error'
+ UP extprop:pas:Value 'Ignore|Accept|Change|Assign|Error'
+
+ENDME // ME_49B793F50274 Duplicates
+
+ME ME_4DDA64D4032B
+ MEPROP UID '4DDA64D4032B'
+ MEPROP Name 'SortTags'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Теги для сортировки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484938D00395 // children
+ ;
+
+ENDME // ME_4DDA64D4032B SortTags
+
+ME ME_484A918802EE_ME_484938D00395
+ MELINK Original HWL ME_484A918802EE // DefinitionHeader
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484A918802EE_ME_484938D00395 DefinitionHeader
+
+ME ME_484FBC200182_ME_484938D00395
+ MELINK Original HWL ME_484FBC200182 // Body
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484FBC200182_ME_484938D00395 Body
+
+ME ME_49A7BAF50197_ME_484938D00395
+ MELINK Original HWL ME_49A7BAF50197 // NeedsOwnType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7BAF50197_ME_484938D00395 NeedsOwnType
+
+ME ME_49A7CCE80269_ME_484938D00395
+ MELINK Original HWL ME_49A7CCE80269 // AncestorTypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7CCE80269_ME_484938D00395 AncestorTypeName
+
+ME ME_49A7CD3200CF_ME_484938D00395
+ MELINK Original HWL ME_49A7CD3200CF // DefineNewType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7CD3200CF_ME_484938D00395 DefineNewType
+
+ME ME_49AD12F30104_ME_484938D00395
+ MELINK Original HWL ME_49AD12F30104 // NewTypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49AD12F30104_ME_484938D00395 NewTypeName
+
+ME ME_484938D00395
+ MEPROP UID '484938D00395'
+ MEPROP Name 'children'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дочерние теги'#13#10'---'#13#10'Определяет тип элемента, который вкладывается в данный как дочерний.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48493312009A // attr
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_484FB6FB01BD // SortIndex
+ HWL ME_484FB708005A // HasStoreChildTrigger
+ HWL ME_4858ADB502D3 // MaxChildrenCount
+ HWL ME_49B793F50274 // Duplicates
+ HWL ME_4DDA64D4032B // SortTags
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_484A918802EE_ME_484938D00395 // DefinitionHeader
+ ME_484FBC200182_ME_484938D00395 // Body
+ ME_49A7BAF50197_ME_484938D00395 // NeedsOwnType
+ ME_49A7CCE80269_ME_484938D00395 // AncestorTypeName
+ ME_49A7CD3200CF_ME_484938D00395 // DefineNewType
+ ME_49AD12F30104_ME_484938D00395 // NewTypeName
+ )
+ ; // Overridden
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag\children'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_484938D00395 children
+
+FORWARD ME_4849393D00CB
+
+ME ME_484A918802EE_ME_4849393D00CB
+ MELINK Original HWL ME_484A918802EE // DefinitionHeader
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484A918802EE_ME_4849393D00CB DefinitionHeader
+
+ME ME_49A7BAF50197_ME_4849393D00CB
+ MELINK Original HWL ME_49A7BAF50197 // NeedsOwnType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7BAF50197_ME_4849393D00CB NeedsOwnType
+
+ME ME_49A7CCE80269_ME_4849393D00CB
+ MELINK Original HWL ME_49A7CCE80269 // AncestorTypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7CCE80269_ME_4849393D00CB AncestorTypeName
+
+ME ME_49A7CD3200CF_ME_4849393D00CB
+ MELINK Original HWL ME_49A7CD3200CF // DefineNewType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7CD3200CF_ME_4849393D00CB DefineNewType
+
+ME ME_49AD12F30104_ME_4849393D00CB
+ MELINK Original HWL ME_49AD12F30104 // NewTypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49AD12F30104_ME_4849393D00CB NewTypeName
+
+ME ME_4849393D00CB
+ MEPROP UID '4849393D00CB'
+ MEPROP Name 'array'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут-массив'#13#10'---'#13#10'Определяет атрибут-массив.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484938D00395 // children
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_484A918802EE_ME_4849393D00CB // DefinitionHeader
+ ME_49A7BAF50197_ME_4849393D00CB // NeedsOwnType
+ ME_49A7CCE80269_ME_4849393D00CB // AncestorTypeName
+ ME_49A7CD3200CF_ME_4849393D00CB // DefineNewType
+ ME_49AD12F30104_ME_4849393D00CB // NewTypeName
+ )
+ ; // Overridden
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag\array'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4849393D00CB array
+
+FORWARD ME_484FA5D60101
+
+ME ME_484A918802EE_ME_484FA5D60101
+ MELINK Original HWL ME_484A918802EE // DefinitionHeader
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484A918802EE_ME_484FA5D60101 DefinitionHeader
+
+ME ME_484FBC200182_ME_484FA5D60101
+ MELINK Original HWL ME_484FBC200182 // Body
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484FBC200182_ME_484FA5D60101 Body
+
+ME ME_49A7BAF50197_ME_484FA5D60101
+ MELINK Original HWL ME_49A7BAF50197 // NeedsOwnType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7BAF50197_ME_484FA5D60101 NeedsOwnType
+
+ME ME_484FA5D60101
+ MEPROP UID '484FA5D60101'
+ MEPROP Name 'override'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переопределение атрибута'#13#10'---'#13#10'Переопределяет тип, значение по-умолчанию, признак сохранённости от унаследованного атрибута.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48493312009A // attr
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_484A918802EE_ME_484FA5D60101 // DefinitionHeader
+ ME_484FBC200182_ME_484FA5D60101 // Body
+ ME_49A7BAF50197_ME_484FA5D60101 // NeedsOwnType
+ )
+ ; // Overridden
+ UP "empty target" true
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag\override'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_484FA5D60101 override
+
+FORWARD ME_484FBFC70323
+
+ME ME_484A918802EE_ME_484FBFC70323
+ MELINK Original HWL ME_484A918802EE // DefinitionHeader
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484A918802EE_ME_484FBFC70323 DefinitionHeader
+
+ME ME_484FBC200182_ME_484FBFC70323
+ MELINK Original HWL ME_484FBC200182 // Body
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484FBC200182_ME_484FBFC70323 Body
+
+ME ME_49A7BAF50197_ME_484FBFC70323
+ MELINK Original HWL ME_49A7BAF50197 // NeedsOwnType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49A7BAF50197_ME_484FBFC70323 NeedsOwnType
+
+ME ME_484FBFC70323
+ MEPROP UID '484FBFC70323'
+ MEPROP Name 'children_override'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переопределение дочерних тегов'#13#10'---'#13#10'Переопределяет тип, значение по-умолчанию, признак сохранённости от унаследованного дочернего элемента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484938D00395 // children
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_484A918802EE_ME_484FBFC70323 // DefinitionHeader
+ ME_484FBC200182_ME_484FBFC70323 // Body
+ ME_49A7BAF50197_ME_484FBFC70323 // NeedsOwnType
+ )
+ ; // Overridden
+ UP "empty target" true
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag\children_override'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_484FBFC70323 children_override
+
+FORWARD ME_48578C1801EF
+
+ME ME_46E6D4BB0339_ME_48578C1801EF
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_48578C1801EF wiki
+
+ME ME_470484D50138_ME_48578C1801EF
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_48578C1801EF wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_48578C1801EF
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_48578C1801EF constraint
+
+ME ME_4705CBD6003E_ME_48578C1801EF
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_48578C1801EF wiki_child_kind
+
+ME ME_48578C1801EF
+ MEPROP UID '48578C1801EF'
+ MEPROP Name 'default_child'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип дочернего элемента по-умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_48578C1801EF // wiki
+ ME_470484D50138_ME_48578C1801EF // wiki_up_add_gen
+ ME_4704C0E30186_ME_48578C1801EF // constraint
+ ME_4705CBD6003E_ME_48578C1801EF // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag\default_child'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48578C1801EF default_child
+
+FORWARD ME_4C178DB2019A
+
+ME ME_46E6D4BB0339_ME_4C178DB2019A
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4C178DB2019A wiki
+
+ME ME_470484D50138_ME_4C178DB2019A
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4C178DB2019A wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4C178DB2019A
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4C178DB2019A constraint
+
+ME ME_4705CBD6003E_ME_4C178DB2019A
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4C178DB2019A wiki_child_kind
+
+ME ME_4C178DB2019A
+ MEPROP UID '4C178DB2019A'
+ MEPROP Name 'disabled_child'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Запрещённый тип дочерних элементов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4C178DB2019A // wiki
+ ME_470484D50138_ME_4C178DB2019A // wiki_up_add_gen
+ ME_4704C0E30186_ME_4C178DB2019A // constraint
+ ME_4705CBD6003E_ME_4C178DB2019A // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag\disabled_child'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4C178DB2019A disabled_child
+
+ME ME_484F8957018E
+ MEPROP UID '484F8957018E'
+ MEPROP Name 'IDIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Атрибут, служащий ключём тега.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+
+ENDME // ME_484F8957018E IDIndex
+
+ME ME_484F8FA8037C
+ MEPROP UID '484F8FA8037C'
+ MEPROP Name 'SetNeedMarkModifiedAllExcept'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Все теги, кроме указанного взводят флаг модифицированности.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+
+ENDME // ME_484F8FA8037C SetNeedMarkModifiedAllExcept
+
+ME ME_48567182018A
+ MEPROP UID '48567182018A'
+ MEPROP Name 'need UC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_48567182018A need UC
+
+ME ME_4BC5B66801CC
+ MEPROP UID '4BC5B66801CC'
+ MEPROP Name 'Defines CompareTags'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет собственую функцию сравнения тегов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4BC5B66801CC Defines CompareTags
+
+ME ME_4BC5B6C102E4
+ MEPROP UID '4BC5B6C102E4'
+ MEPROP Name 'Defines CompareTagWithInt'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет собственную функцию сравнения тега с целым' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4BC5B6C102E4 Defines CompareTagWithInt
+
+FORWARD ME_485FB3190099
+
+ME ME_485FB3A2001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48491DC20030 // Tag
+ ;
+ MELINK Target HWL ME_485FB3190099 // TagValue
+ ;
+
+ENDME // ME_485FB3A2001B 
+
+ME ME_48491DC20030
+ MEPROP UID '48491DC20030'
+ MEPROP Name 'Tag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тег'#13#10'---'#13#10'Структурный элемент. Может содержать дочерние элементы или атрибуты. Мета-класс для [TagValue].' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48492CB900AB // Atom
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_484F8957018E // IDIndex
+ HWL ME_484F8FA8037C // SetNeedMarkModifiedAllExcept
+ HWL ME_48567182018A // need UC
+ HWL ME_4BC5B66801CC // Defines CompareTags
+ HWL ME_4BC5B6C102E4 // Defines CompareTagWithInt
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_48493312009A // attr
+ HWL ME_484938D00395 // children
+ HWL ME_4849393D00CB // array
+ HWL ME_484FA5D60101 // override
+ HWL ME_484FBFC70323 // children_override
+ HWL ME_48578C1801EF // default_child
+ HWL ME_4C178DB2019A // disabled_child
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_485FB3A2001B // TagValue
+ )
+ ; // Dependencies
+ UP "personal label" 'code_evd_tag'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13959039
+ UP "visualization f-line color" 13959039
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\Tag.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\Tag'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48491DC20030 Tag
+
+FORWARD ME_485FB4850287
+
+ME ME_46E6D4BB0339_ME_485FB4850287
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_485FB4850287 wiki
+
+ME ME_470484D50138_ME_485FB4850287
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_485FB4850287 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_485FB4850287
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_485FB4850287 constraint
+
+ME ME_4705CBD6003E_ME_485FB4850287
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_485FB4850287 wiki_child_kind
+
+ME ME_4F9002060002_ME_485FB4850287
+ MELINK Original HWL ME_4F9002060002 // SpellAttrValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F9002060002_ME_485FB4850287 SpellAttrValue
+
+ME ME_485FB4850287
+ MEPROP UID '485FB4850287'
+ MEPROP Name 'Attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485FB3190099 // TagValue
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9001E303DE // AttrValueSpeller
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_485FB4850287 // wiki
+ ME_470484D50138_ME_485FB4850287 // wiki_up_add_gen
+ ME_4704C0E30186_ME_485FB4850287 // constraint
+ ME_4705CBD6003E_ME_485FB4850287 // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4F9002060002_ME_485FB4850287 // SpellAttrValue
+ )
+ ; // Overridden
+ UP "abstraction type" 'r'
+ UP "empty target" true
+ UP "link type" 'a'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\TagValue\Attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_485FB4850287 Attr
+
+FORWARD ME_485FB3B3034A
+
+ME ME_485FB3D0031C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_485FB3190099 // TagValue
+ ;
+ MELINK Target HWL ME_485FB3B3034A // TagChild
+ ;
+
+ENDME // ME_485FB3D0031C 
+
+FORWARD ME_485FB5350380
+
+ME ME_485FB55602ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_485FB3190099 // TagValue
+ ;
+ MELINK Target HWL ME_485FB5350380 // InnerTag
+ ;
+
+ENDME // ME_485FB55602ED 
+
+ME ME_4704C0E30186_ME_485FB3190099
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_485FB3190099 constraint
+
+ME ME_485FB3190099
+ MEPROP UID '485FB3190099'
+ MEPROP Name 'TagValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предопределённое значение тега'#13#10'---'#13#10'Экземпляр [Tag].' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ HWL ME_4F9001E303DE // AttrValueSpeller
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_485FB3190099 // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_485FB4850287 // Attr
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_485FB3D0031C // TagChild
+ ME_485FB55602ED // InnerTag
+ )
+ ; // Dependencies
+ UP "abstraction type" 'r'
+ UP "personal label" 'code_evd_tag_value'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 3329330
+ UP "visualization f-line color" 3329330
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\TagValue.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\TagValue'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_485FB3190099 TagValue
+
+ME ME_485FB3B3034A
+ MEPROP UID '485FB3B3034A'
+ MEPROP Name 'TagChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дочерний тег' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_485FB3190099 // TagValue
+ )
+ ; // Inherits
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\TagChild.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\TagChild'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_485FB3B3034A TagChild
+
+ME ME_4E160542010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_485FB5350380 // InnerTag
+ ;
+ MELINK Target HWL ME_485FB3B3034A // TagChild
+ ;
+
+ENDME // ME_4E160542010C 
+
+ME ME_4E16054901AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_485FB5350380 // InnerTag
+ ;
+ MELINK Target HWL ME_485FB5350380 // InnerTag
+ ;
+
+ENDME // ME_4E16054901AC 
+
+ME ME_485FB5350380
+ MEPROP UID '485FB5350380'
+ MEPROP Name 'InnerTag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вложенный тег' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_485FB3190099 // TagValue
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4E160542010C // TagChild
+ ME_4E16054901AC // InnerTag
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\InnerTag.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\InnerTag'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_485FB5350380 InnerTag
+
+ME ME_4860FE730347
+ MEPROP UID '4860FE730347'
+ MEPROP Name 'TagOverride'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48491DC20030 // Tag
+ )
+ ; // Inherits
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\TagOverride.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\TagOverride'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4860FE730347 TagOverride
+
+FORWARD ME_484926640110
+
+FORWARD ME_49AE663102AD
+
+ME ME_46E6D4BB0339_ME_49AE663102AD
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_49AE663102AD wiki
+
+ME ME_470484D50138_ME_49AE663102AD
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_49AE663102AD wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_49AE663102AD
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_49AE663102AD constraint
+
+ME ME_4705CBD6003E_ME_49AE663102AD
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_49AE663102AD wiki_child_kind
+
+ME ME_49AE663102AD
+ MEPROP UID '49AE663102AD'
+ MEPROP Name 'uses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование других элементов кода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_49AE663102AD // wiki
+ ME_470484D50138_ME_49AE663102AD // wiki_up_add_gen
+ ME_4704C0E30186_ME_49AE663102AD // constraint
+ ME_4705CBD6003E_ME_49AE663102AD // wiki_child_kind
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_uses'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\TagTable\uses'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49AE663102AD uses
+
+ME ME_484AACAA023C
+ MEPROP UID '484AACAA023C'
+ MEPROP Name 'author'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+
+ENDME // ME_484AACAA023C author
+
+ME ME_484AACB40356
+ MEPROP UID '484AACB40356'
+ MEPROP Name 'started'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+
+ENDME // ME_484AACB40356 started
+
+ME ME_4857D6340306
+ MEPROP UID '4857D6340306'
+ MEPROP Name 'need UC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4857D6340306 need UC
+
+ME ME_484926C100F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+ MELINK Target HWL ME_48491DC20030 // Tag
+ ;
+
+ENDME // ME_484926C100F4 
+
+ME ME_48492D0E0272
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+ MELINK Target HWL ME_48492CB900AB // Atom
+ ;
+
+ENDME // ME_48492D0E0272 
+
+ME ME_4860FFFD00F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+ MELINK Target HWL ME_4860FE730347 // TagOverride
+ ;
+
+ENDME // ME_4860FFFD00F1 
+
+ME ME_4861FE90015F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_484926640110 // TagTable
+ ;
+
+ENDME // ME_4861FE90015F 
+
+ME ME_4704C0E30186_ME_484926640110
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_484926640110 constraint
+
+ME ME_484926640110
+ MEPROP UID '484926640110'
+ MEPROP Name 'TagTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'EVD-схема'#13#10'---'#13#10'Таблица описания тегов. Может содержать атомы или теги, которые связываются друг с другом отношениями наследования, реализации или связи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4849199D0140 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ HWL ME_4F9001E303DE // AttrValueSpeller
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_484AACAA023C // author
+ HWL ME_484AACB40356 // started
+ HWL ME_4857D6340306 // need UC
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_484926640110 // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_49AE663102AD // uses
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_484926C100F4 // Tag
+ ME_48492D0E0272 // Atom
+ ME_4860FFFD00F1 // TagOverride
+ ME_4861FE90015F // 
+ )
+ ; // Dependencies
+ UP "personal label" 'code_evd_tag_table'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13959039
+ UP "visualization f-line color" 13959039
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Elements\TagTable.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements\TagTable'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_484926640110 TagTable
+
+ME ME_4849199D0140
+ MEPROP UID '4849199D0140'
+ MEPROP Name 'Elements'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Элементы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_484918A30320' '484918A30320.ms.model.script' // Data Definition
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9001E303DE // AttrValueSpeller
+ HWL ME_48492CB900AB // Atom
+ HWL ME_48491DC20030 // Tag
+ HWL ME_485FB3190099 // TagValue
+ HWL ME_485FB3B3034A // TagChild
+ HWL ME_485FB5350380 // InnerTag
+ HWL ME_4860FE730347 // TagOverride
+ HWL ME_484926640110 // TagTable
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Elements'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4849199D0140 Elements

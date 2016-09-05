@@ -1,0 +1,34 @@
+// AFWTest 499AF0880116 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_499AF0880116
+ MEPROP UID '499AF0880116'
+ MEPROP Name 'AFWTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestLibrary ;
+ %SUMMARY 'Тесты для AFW и стандартных библиотек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E256A300117' '4E256A300117.ms.model.script' // Shared Delphi TestComplete Wrappers
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_499AF1EA03DB' '499AF1EA03DB.ms.model.script' // VCL
+ WL 'ME_53723A1C0058' '53723A1C0058.ms.model.script' // Rtl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'gui'
+ UP "is namespace" true
+ UP "vendor" '/Garant'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\AFWTest.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ UP Version 0
+
+ENDME // ME_499AF0880116 AFWTest

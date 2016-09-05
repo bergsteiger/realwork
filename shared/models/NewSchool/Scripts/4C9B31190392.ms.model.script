@@ -1,0 +1,178 @@
+// F1LikeTextLoad 4C9B31190392 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C9B31190392
+
+ME ME_EB591A36290E
+ MEPROP UID 'EB591A36290E'
+ MEPROP Name 'ut_F1LikeTextLoad'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'F1LikeTextLoad' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9B31190392 // F1LikeTextLoad
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\F1LikeTextLoad_ut_F1LikeTextLoad_UserType.pas'
+ UP extprop:pas:UnitName 'F1LikeTextLoad_ut_F1LikeTextLoad_UserType'
+
+ENDME // ME_EB591A36290E ut_F1LikeTextLoad
+
+ME ME_A86FD59E8040
+ MEPROP UID 'A86FD59E8040'
+ MEPROP GUID 'FAAC10AB-4EAF-4B43-B184-7BFAADA53CAD'
+ MEPROP Name 'F1LikeTextLoad'
+ MEPROP OriginalName 'F1LikeTextLoad$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы F1LikeTextLoad' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C9B31190392 // F1LikeTextLoad
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4C9B31190392 // F1LikeTextLoad
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'F1LikeTextLoadFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_A86FD59E8040 F1LikeTextLoad$Def
+
+ME ME_4C9B316B032B
+ MEPROP UID '4C9B316B032B'
+ MEPROP Name 'Text'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9B31190392 // F1LikeTextLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4952693000EA' '4952693000EA.ms.model.script' // TeeEditorExport
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C9B316B032B Text
+
+ME ME_4C9B31AA01A0
+ MEPROP UID '4C9B31AA01A0'
+ MEPROP Name 'TextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9B31190392 // F1LikeTextLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47542EDE038A' '47542EA70394.ms.model.script' // TeeTextSourceExport
+ )
+ ; // Inherits
+ UP "ComponentClass" 'none'
+ UP "need Caption" false
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C9B31AA01A0 TextSource
+
+ME ME_16DE576D8ED2
+ MEPROP UID '16DE576D8ED2'
+ MEPROP Name 'Ini_FormFactory_F1LikeTextLoad'
+ MEPROP OriginalName 'Ini_FormFactory_F1LikeTextLoad$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы F1LikeTextLoad' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9B31190392 // F1LikeTextLoad
+ ;
+ UPLINK SpelledFor HWL ME_4C9B31190392 // F1LikeTextLoad
+ ;
+
+ENDME // ME_16DE576D8ED2 Ini_FormFactory_F1LikeTextLoad$Def
+
+ME ME_4C9B21D20187_ME_4C9B31190392
+ MELINK Original WL 'ME_4C9B21D20187' '4C9B20790302.ms.model.script' // TextSource
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4C9B21D20187_ME_4C9B31190392 TextSource
+
+ME ME_4C9B21E400A4_ME_4C9B31190392
+ MELINK Original WL 'ME_4C9B21E400A4' '4C9B20790302.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4C9B21E400A4_ME_4C9B31190392 Text
+
+ME ME_4C9B31190392
+ MEPROP UID '4C9B31190392'
+ MEPROP Name 'F1LikeTextLoad'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B30C72000B3' '4B30C72000B3.ms.model.script' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C9B20790302' '4C9B20790302.ms.model.script' // PrimTextLoad
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_A86FD59E8040 // F1LikeTextLoad$Def
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C9B316B032B // Text
+ HWL ME_4C9B31AA01A0 // TextSource
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_16DE576D8ED2 // Ini_FormFactory_F1LikeTextLoad$Def
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C9B21D20187_ME_4C9B31190392 // TextSource
+ ME_4C9B21E400A4_ME_4C9B31190392 // Text
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_EB591A36290E // ut_F1LikeTextLoad
+ HWL ME_A86FD59E8040 // F1LikeTextLoad$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '23.09.2010 14:51'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\F1LikeTextLoad_Form.pas'
+ UP extprop:pas:TypeName 'TF1LikeTextLoadForm'
+ UP extprop:rc:SelfName 'F1LikeTextLoadForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'F1LikeTextLoad_Form'
+
+ENDME // ME_4C9B31190392 F1LikeTextLoad

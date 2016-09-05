@@ -356,7 +356,13 @@ CONST cnSpecSymbol 26
 CONST cnViborkaSize 27
 CONST cnWorkWithJournals 28
 CONST cnPrepareWideFormOnly 29
-CONST cnSymbolStructContent 30 
+CONST cnSymbolStructContent 30
+CONST cnWorkingWithAnno 31
+CONST cnWorkingWithSpravkaBlock 32
+CONST cnWorkingWithAnnoBlock 33
+CONST cnWorkingWithTextBlock 34
+CONST cnWorkingWithAnnoSpec 35
+CONST cnWorkingWithSpravkaSpec 36
 
 INTEGER VAR aSizeWidth
 INTEGER VAR aSizeHeight
@@ -383,6 +389,30 @@ PROCEDURE "Подготовка к работе с атрибутами"
 
 PROCEDURE "Подготовка к работе со справкой"
 	cnWorkingWithSpravka >>> g_How2Prepare
+;
+
+PROCEDURE "Подготовка к работе на вкладке Аннотация"
+	cnWorkingWithAnno >>> g_How2Prepare
+;
+
+PROCEDURE "Работа на вкладке 'Справка' с блоками"
+	cnWorkingWithSpravkaBlock >>> g_How2Prepare
+;
+
+PROCEDURE "Работа на вкладке 'Аннотация' с блоками"
+	cnWorkingWithAnnoBlock >>> g_How2Prepare
+;
+
+PROCEDURE "Работа на вкладке 'Текст' с блоками"
+	cnWorkingWithTextBlock >>> g_How2Prepare
+;
+
+PROCEDURE "Работа на вкладке 'Аннотация' со спецсимволами"
+	cnWorkingWithAnnoSpec >>> g_How2Prepare
+;
+
+PROCEDURE "Работа на вкладке 'Справка' со спецсимволами"
+	cnWorkingWithSpravkaSpec >>> g_How2Prepare
 ;
 
 INTEGER VAR g_SaveDocID
@@ -529,6 +559,7 @@ CONST cnCheckClipboardEvd 36
 CONST cnExport2EVDAndCheckWithEtalon 37
 CONST cnCheckCursorIndexNameEtalon 38
 CONST cnCheckEvdWithPicture 39
+CONST cnCheckNSRWithAnno 40
 
 PROCEDURE "Без проверок"
 	cnNoneAction >>> g_CheckAction
@@ -703,6 +734,10 @@ PROCEDURE "Проверка содержимого буфера обмена в EVD"
 
 PROCEDURE "Проверка EVD эталона с картинками"
 	cnCheckEvdWithPicture >>> g_CheckAction
+;
+
+PROCEDURE "Вылить в NSR и сравнить c эталоном с аннотацией"
+	cnCheckNSRWithAnno >>> g_CheckAction
 ;
 
 // --------------- Предварительные операции -----------
@@ -986,6 +1021,21 @@ PROCEDURE "Документ типа 'ААК-текст'"
 	"Открывать документ из базы"
 ;
 
+PROCEDURE "Документ Конституция РФ с ID 628100198"
+	"Документ Конституция РФ" >>> glNumDoc
+	"Открывать документ из базы" 
+;
+
+PROCEDURE "Документ с текстом в Unicode"
+	"Документ Об отзыве лицензии на осуществление банковских операций" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Документ с комментариями Гаранта"
+	cnDocumentWithComment >>> glNumDoc
+	"Открывать документ из базы"
+;
+
 PROCEDURE "Документ 'Закон Санкт-Петербурга' N 3-6"
 	"Документ 'Закон Санкт-Петербурга от 7 февраля 2008 г. N 3-6'" >>> glNumDoc
 	"Открывать документ из базы"
@@ -1109,6 +1159,10 @@ PROCEDURE "Эталон для дерева оглавления"
 	"Эталон для дерева {(carContentsTree)}"
 ;
 
+PROCEDURE "Эталон для дерева атрибутов"
+	"Эталон для дерева {(acAttributesOutliner)}"
+;
+
 PROCEDURE "Тестирование изображения редактора"
 	"Размеры для отрисовки"
 	"Изображение текущего контрола"
@@ -1117,6 +1171,16 @@ PROCEDURE "Тестирование изображения редактора"
 PROCEDURE "Тестирование изображения редактора с невидимыми символами"
 	"Подготовка к отрисовке SBS"
 	"Изображение текущего контрола"
+;
+
+PROCEDURE "Тестирование изображения справки со спецсимволами"
+  "Работа на вкладке 'Справка' со спецсимволами"
+  "Изображение текущего контрола"
+;
+
+PROCEDURE "Тестирование изображения аннотации со спецсимволами"
+  "Работа на вкладке 'Аннотация' со спецсимволами"
+  "Изображение текущего контрола"
 ;
 
 PROCEDURE "Тестирование изображения редактора с блоками"

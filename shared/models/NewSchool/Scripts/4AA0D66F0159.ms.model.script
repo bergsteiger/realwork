@@ -1,0 +1,542 @@
+// Inpharm 4AA0D66F0159 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0D66F0159
+
+FORWARD ME_4B14D8AE00D4
+
+ME ME_4B14D8DC01A3
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B14D8DC01A3 aDoc
+
+ME ME_4B14D8D10222
+ MEPROP UID '4B14D8D10222'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B14D8DC01A3 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4B14D8D10222 Log
+
+ME ME_4B14D91103BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14D91103BE 
+
+ME ME_4B14D8AE00D4
+ MEPROP UID '4B14D8AE00D4'
+ MEPROP Name 'TnsOpenPharmFirmDocumentEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14D8D10222 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14D91103BE // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OpenPharmFirmDocumentEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B14D8AE00D4 TnsOpenPharmFirmDocumentEvent
+
+FORWARD ME_4B14D96C038A
+
+ME ME_4B14D99301D6
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B14D99301D6 aDoc
+
+ME ME_4B14D98900BD
+ MEPROP UID '4B14D98900BD'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B14D99301D6 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4B14D98900BD Log
+
+ME ME_4B14D99A00B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14D99A00B2 
+
+ME ME_4B14D96C038A
+ MEPROP UID '4B14D96C038A'
+ MEPROP Name 'TnsOpenPharmDocumentEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14D98900BD // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14D99A00B2 // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OpenPharmDocumentEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B14D96C038A TnsOpenPharmDocumentEvent
+
+FORWARD ME_4B14DA170298
+
+ME ME_4B14DA27026F
+ MEPROP UID '4B14DA27026F'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ ;
+
+ENDME // ME_4B14DA27026F Log
+
+ME ME_4B14DA32020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14DA32020F 
+
+ME ME_4B14DA170298
+ MEPROP UID '4B14DA170298'
+ MEPROP Name 'TnsOpenMedicDictionaryEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14DA27026F // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14DA32020F // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OpenMedicDictionaryEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B14DA170298 TnsOpenMedicDictionaryEvent
+
+FORWARD ME_4B14DA6101E3
+
+ME ME_4B14DA6B00F9
+ MEPROP UID '4B14DA6B00F9'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ ;
+
+ENDME // ME_4B14DA6B00F9 Log
+
+ME ME_4B14DA790314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14DA790314 
+
+ME ME_4B14DA6101E3
+ MEPROP UID '4B14DA6101E3'
+ MEPROP Name 'TnsOpenMedicFirmsEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14DA6B00F9 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14DA790314 // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OpenMedicFirmsEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B14DA6101E3 TnsOpenMedicFirmsEvent
+
+FORWARD ME_4AA52C670101
+
+ME ME_4AA52C9B01D2
+ MEPROP Name 'aSDS'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4936823400AE' '492540AF02CD.ms.model.script' // IsdsCommonDiction
+ ;
+
+ENDME // ME_4AA52C9B01D2 aSDS
+
+ME ME_4AA52C9B01F4
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AA52C9B01F4 aContainer
+
+ME ME_4AA52C860249
+ MEPROP UID '4AA52C860249'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA52C670101 // OpenMedicDictionPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA52C9B01D2 // aSDS
+ ME_4AA52C9B01F4 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_4AA52C860249 DoIt
+
+ME ME_4AA52C670101
+ MEPROP UID '4AA52C670101'
+ MEPROP Name 'OpenMedicDictionPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA52C860249 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AA52C670101 OpenMedicDictionPrim
+
+ME ME_4B14D8E10312
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ ;
+
+ENDME // ME_4B14D8E10312 
+
+ME ME_4B14D99F0107
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ ;
+
+ENDME // ME_4B14D99F0107 
+
+ME ME_4B14DA370226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ ;
+
+ENDME // ME_4B14DA370226 
+
+ME ME_4B14DA7E007D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ ;
+
+ENDME // ME_4B14DA7E007D 
+
+ME ME_4BD6DC890352
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_4BD6DC630189' '4958E868009C.ms.model.script' // ut_mmmMain
+ ;
+
+ENDME // ME_4BD6DC890352 
+
+ME ME_4BD6DE230054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_4BD6DE050133' '497EE4EB00CB.ms.model.script' // mflMain
+ ;
+
+ENDME // ME_4BD6DE230054 
+
+ME ME_4BD6F6BD0200
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_4BD6F18301FD' '497ED770029D.ms.model.script' // utMedicDiction
+ ;
+
+ENDME // ME_4BD6F6BD0200 
+
+ME ME_4BD964C40096
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_4BD964270238' '4BD856E802F9.ms.model.script' // CommonDiction
+ ;
+
+ENDME // ME_4BD964C40096 
+
+ME ME_550ADF280218
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_550AAEE001B7' '550AAEE001B7.ms.model.script' // TsdsInpharmMainMenu
+ ;
+
+ENDME // ME_550ADF280218 
+
+ME ME_5796238501EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_579623590356' '5795D66F0385.ms.model.script' // TInpharmService
+ ;
+
+ENDME // ME_5796238501EF 
+
+ME ME_4AC0F99401FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_493A658D0181' '493A658D0181.ms.model.script' // TsdsMedicFirmList
+ ;
+
+ENDME // ME_4AC0F99401FE 
+
+ME ME_4AA11CFC0385
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_47F4A2F801D8' '47F4A2F801D8.ms.model.script' // TsdsDrugDocument
+ ;
+
+ENDME // ME_4AA11CFC0385 
+
+ME ME_4AA4D4570338
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_47EA0F2B031C' '47EA0F2B031C.ms.model.script' // TsdsDrugList
+ ;
+
+ENDME // ME_4AA4D4570338 
+
+ME ME_4AA11BCA0197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_493D11EA0286' '493D11EA0286.ms.model.script' // TsdsMedicDiction
+ ;
+
+ENDME // ME_4AA11BCA0197 
+
+ME ME_4AA11C2403A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_49414F880240' '49414F880240.ms.model.script' // TsdsMedicFirmDocument
+ ;
+
+ENDME // ME_4AA11C2403A6 
+
+ME ME_4ABA027202AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_4926AE3900B9' '47EA50050263.ms.model.script' // TdeListSet
+ ;
+
+ENDME // ME_4ABA027202AB 
+
+ME ME_4ABA02BC015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_47FDDCBA00E9' '45700BFD0251.ms.model.script' // SpecialListKey
+ ;
+
+ENDME // ME_4ABA02BC015B 
+
+ME ME_4AB9FDBB03DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4AB9FDBB03DA 
+
+ME ME_57A2209A02D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4AA0D66F0159 // Inpharm
+ ;
+ MELINK Target WL 'ME_57A21FA40131' '579F7F680321.ms.model.script' // TInpharmOperations
+ ;
+
+ENDME // ME_57A2209A02D6 
+
+ME ME_4AA0D66F0159
+ MEPROP UID '4AA0D66F0159'
+ MEPROP Name 'Inpharm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4958E49A023A' '4958E49A023A.ms.model.script' // Inpharm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA52C670101 // OpenMedicDictionPrim
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( WL 'ME_4AA12BA501E4' '4AA12BA501E4.ms.model.script' // MedicDiction
+ WL 'ME_4AA12BC400A6' '4AA12BC400A6.ms.model.script' // MedicFirmDocument
+ WL 'ME_4AA12BE1014F' '4AA12BE1014F.ms.model.script' // DrugDocument
+ WL 'ME_4AA4D3F40235' '4AA4D3F40235.ms.model.script' // DrugList
+ WL 'ME_4AA7A19E01D0' '4AA7A19E01D0.ms.model.script' // MedicFirmList
+ WL 'ME_4AB9E67A00A7' '4AB9E67A00A7.ms.model.script' // MedicMainMenu
+ WL 'ME_4AB9E69C0243' '4AB9E69C0243.ms.model.script' // MedicFirmList$Form
+ WL 'ME_4AB9E6D40211' '4AB9E6D40211.ms.model.script' // MedicListSynchroView
+ HWL ME_4B14D8AE00D4 // TnsOpenPharmFirmDocumentEvent
+ HWL ME_4B14D96C038A // TnsOpenPharmDocumentEvent
+ HWL ME_4B14DA170298 // TnsOpenMedicDictionaryEvent
+ HWL ME_4B14DA6101E3 // TnsOpenMedicFirmsEvent
+ WL 'ME_550C0EE00301' '550C0EE00301.ms.model.script' // InpharmMainMenu
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B14D8E10312 // TnsOpenPharmFirmDocumentEvent
+ ME_4B14D99F0107 // TnsOpenPharmDocumentEvent
+ ME_4B14DA370226 // TnsOpenMedicDictionaryEvent
+ ME_4B14DA7E007D // TnsOpenMedicFirmsEvent
+ ME_4BD6DC890352 // ut_mmmMain
+ ME_4BD6DE230054 // mflMain
+ ME_4BD6F6BD0200 // utMedicDiction
+ ME_4BD964C40096 // CommonDiction
+ ME_550ADF280218 // TsdsInpharmMainMenu
+ ME_5796238501EF // TInpharmService
+ ME_4AC0F99401FE // TsdsMedicFirmList
+ ME_4AA11CFC0385 // TsdsDrugDocument
+ ME_4AA4D4570338 // TsdsDrugList
+ ME_4AA11BCA0197 // TsdsMedicDiction
+ ME_4AA11C2403A6 // TsdsMedicFirmDocument
+ ME_4ABA027202AB // TdeListSet
+ ME_4ABA02BC015B // SpecialListKey
+ ME_4AB9FDBB03DA // DataAdapter
+ ME_57A2209A02D6 // TInpharmOperations
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '04.09.2009 12:57'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas'
+ UP extprop:pas:TypeName 'TInpharmModule'
+ UP extprop:rc:SelfName 'InpharmModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Inpharm_Module'
+
+ENDME // ME_4AA0D66F0159 Inpharm

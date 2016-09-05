@@ -4,6 +4,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
 //#UC START# *4A92C1380380impl_uses*
  , StdRes
  , StartUnit
+ , Search_Services
 //#UC END# *4A92C1380380impl_uses*
 //#UC START# *4A93F1F200B0_4A92C1380380_impl*
  Result := TefProgressIndicator.Make(aProgress, aCaption, aMaxCount);
@@ -35,6 +36,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
   l_Form.SafeClose;
 //#UC END# *4AAFCA2D03D0_4A92C1380380_impl*
 //#UC START# *4AAFCA2D03D0_4A92C1380380_var*
+var
+ l_Form : IvcmEntityForm;
 //#UC END# *4AAFCA2D03D0_4A92C1380380_var*
 //#UC START# *4AAFCCD00301_4A92C1380380_impl*
  Assert(aContainer <> nil);
@@ -43,6 +46,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
   l_Form.SafeClose;
 //#UC END# *4AAFCCD00301_4A92C1380380_impl*
 //#UC START# *4AAFCCD00301_4A92C1380380_var*
+var
+ l_Form : IvcmEntityForm;
 //#UC END# *4AAFCCD00301_4A92C1380380_var*
 //#UC START# *4ABB68C603CE_4A92C1380380_impl*
  l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
@@ -55,6 +60,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//try..finally
 //#UC END# *4ABB68C603CE_4A92C1380380_impl*
 //#UC START# *4ABB68C603CE_4A92C1380380_var*
+var
+ l_PageSetup : InsPageSettingsInfo;
 //#UC END# *4ABB68C603CE_4A92C1380380_var*
 //#UC START# *4ABB691803C2_4A92C1380380_impl*
  l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
@@ -65,6 +72,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//try..finally
 //#UC END# *4ABB691803C2_4A92C1380380_impl*
 //#UC START# *4ABB691803C2_4A92C1380380_var*
+var
+ l_PageSetup : InsPageSettingsInfo;
 //#UC END# *4ABB691803C2_4A92C1380380_var*
 //#UC START# *4ABB6F5D0397_4A92C1380380_impl*
  TefAbout.Make(vcmMakeParams);
@@ -89,7 +98,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
 //#UC START# *4ABB7615007A_4A92C1380380test_var*
 //#UC END# *4ABB7615007A_4A92C1380380test_var*
 //#UC START# *4ABB76520183_4A92C1380380exec_impl*
- TdmStdRes.MakePageSetup(nil);
+ TPrintingService.Instance.MakePageSetup(nil);
 //#UC END# *4ABB76520183_4A92C1380380exec_impl*
 //#UC START# *4ABB76520183_4A92C1380380exec_var*
 //#UC END# *4ABB76520183_4A92C1380380exec_var*
@@ -153,12 +162,12 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
 //#UC START# *4ABB8A470126_4A92C1380380_var*
 //#UC END# *4ABB8A470126_4A92C1380380_var*
 //#UC START# *4ABB8D6B0041_4A92C1380380_impl*
- l_Node := GetMenuTypedItem(NM_LAW_NAVIGATOR_FOLDER);
+ l_Node := TPrimF1CommonModule.GetMenuTypedItem(NM_LAW_NAVIGATOR_FOLDER);
  if (l_Node <> nil) then
  begin
   l_Node.GetFirstChild(l_Child);
   if l_Child <> nil then
-   TdmStdRes.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+   TRubricatorOpenService.Instance.OpenRubricator(TnsNewCachableNode.Make(l_Child),
                             l_Node,
                             nil,
                             true,
@@ -167,9 +176,12 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//l_Node <> nil
 //#UC END# *4ABB8D6B0041_4A92C1380380_impl*
 //#UC START# *4ABB8D6B0041_4A92C1380380_var*
+var
+ l_Node : INodeBase;
+ l_Child : INodeBase;
 //#UC END# *4ABB8D6B0041_4A92C1380380_var*
 //#UC START# *4ABBA74F03DA_4A92C1380380_impl*
- l_Node := GetMenuTypedItem(NM_BUSINESS_INFO_FOLDER);
+ l_Node := TPrimF1CommonModule.GetMenuTypedItem(NM_BUSINESS_INFO_FOLDER);
  if (l_Node <> nil) then
  begin
   l_Node.GetFirstChild(l_Child);
@@ -181,7 +193,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
    l_Child := l_Node;
   end;//l_Child <> nil
   if (l_Child <> nil) then
-   TdmStdRes.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+   TRubricatorOpenService.Instance.OpenRubricator(TnsNewCachableNode.Make(l_Child),
                             l_Node,
                             nil,
                             true,
@@ -190,14 +202,17 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//l_Node <> nil
 //#UC END# *4ABBA74F03DA_4A92C1380380_impl*
 //#UC START# *4ABBA74F03DA_4A92C1380380_var*
+var
+ l_Node : INodeBase;
+ l_Child : INodeBase;
 //#UC END# *4ABBA74F03DA_4A92C1380380_var*
 //#UC START# *4ABBAAE40176_4A92C1380380exec_impl*
- TdmStdRes.OpenMainMenuIfNeeded(nil);
+ TMainMenuOpenService.Instance.OpenMainMenuIfNeeded(nil);
 //#UC END# *4ABBAAE40176_4A92C1380380exec_impl*
 //#UC START# *4ABBAAE40176_4A92C1380380exec_var*
 //#UC END# *4ABBAAE40176_4A92C1380380exec_var*
 //#UC START# *4ABBAB14034B_4A92C1380380exec_impl*
- TdmStdRes.OpenMainMenuIfNeeded(nil);
+ TMainMenuOpenService.Instance.OpenMainMenuIfNeeded(nil);
 //#UC END# *4ABBAB14034B_4A92C1380380exec_impl*
 //#UC START# *4ABBAB14034B_4A92C1380380exec_var*
 //#UC END# *4ABBAB14034B_4A92C1380380exec_var*
@@ -207,15 +222,15 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
   Clear;
   if defDataAdapter.IsInpharmExists then
   begin
-   AddOp(TdmStdRes.mod_opcode_Common_OpenMainMenuByButton, vcmCStr(str_MainMenuButtonItem));
-   AddOp(TdmStdRes.mod_opcode_Inpharm_MedicMainMenu, vcmCStr(str_InPharmMenuButtonItem));
-  end;
- end;
+   AddOp(mod_opcode_CommonService_OpenMainMenuByButton, vcmCStr(str_MainMenuButtonItem));
+   AddOp(mod_opcode_InpharmOperations_MedicMainMenu, vcmCStr(str_InPharmMenuButtonItem));
+  end;//defDataAdapter.IsInpharmExists
+ end;//with aParams.Op.SubItems
 //#UC END# *4ABBAB14034B_4A92C1380380test_impl*
 //#UC START# *4ABBAB14034B_4A92C1380380test_var*
 //#UC END# *4ABBAB14034B_4A92C1380380test_var*
 //#UC START# *4ABBAC7D003B_4A92C1380380exec_impl*
- OpenTasksPanel(nil);
+ TCommonService.Instance.OpenTasksPanel(nil);
 //#UC END# *4ABBAC7D003B_4A92C1380380exec_impl*
 //#UC START# *4ABBAC7D003B_4A92C1380380exec_var*
 //#UC END# *4ABBAC7D003B_4A92C1380380exec_var*
@@ -283,9 +298,14 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  op_Rubricator_Synchronize.Call(l_RubList);
 //#UC END# *4ABCA68B0155_4A92C1380380_impl*
 //#UC START# *4ABCA68B0155_4A92C1380380_var*
+var
+ l_Aggregate : IvcmAggregate;
+ l_RubList : IvcmEntityForm;
+ l_Params : IvcmMakeParams;
+ l_Navigator : IvcmEntityForm;
 //#UC END# *4ABCA68B0155_4A92C1380380_var*
 //#UC START# *4AC0FBFE0095_4A92C1380380exec_impl*
- GetNavigator(nil, nil);
+ TCommonService.Instance.GetNavigator(nil, nil);
 //#UC END# *4AC0FBFE0095_4A92C1380380exec_impl*
 //#UC START# *4AC0FBFE0095_4A92C1380380exec_var*
 //#UC END# *4AC0FBFE0095_4A92C1380380exec_var*
@@ -311,12 +331,14 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//Supports(aDoc, IControllable, l_Controllable)
 //#UC END# *4AC1F3770062_4A92C1380380_impl*
 //#UC START# *4AC1F3770062_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
 //#UC END# *4AC1F3770062_4A92C1380380_var*
 //#UC START# *4AC1F3A700BE_4A92C1380380_impl*
  if Assigned(aControllable) and aControllable.GetCanSetToControl then
  begin
   aControllable.SetControlled(True);
-  TdmStdRes.AddControlledObject(aControllable);
+  TControlledObjectService.Instance.AddControlledObject(aControllable);
  end;//Assigned(aControllable) and aControllable.GetCanSetToControl
 //#UC END# *4AC1F3A700BE_4A92C1380380_impl*
 //#UC START# *4AC1F3A700BE_4A92C1380380_var*
@@ -330,12 +352,14 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//Supports(aDoc, IControllable, l_Controllable)
 //#UC END# *4AC1F3D702D2_4A92C1380380_impl*
 //#UC START# *4AC1F3D702D2_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
 //#UC END# *4AC1F3D702D2_4A92C1380380_var*
 //#UC START# *4AC1F40900DE_4A92C1380380_impl*
  if Assigned(aControllable) then
  begin
   aControllable.SetControlled(False);
-  TdmStdRes.DeleteControlledObject(aControllable);
+  TControlledObjectService.Instance.DeleteControlledObject(aControllable);
  end;//Assigned(aControllable)
 //#UC END# *4AC1F40900DE_4A92C1380380_impl*
 //#UC START# *4AC1F40900DE_4A92C1380380_var*
@@ -350,6 +374,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;
 //#UC END# *4AC1F483035F_4A92C1380380_impl*
 //#UC START# *4AC1F483035F_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
 //#UC END# *4AC1F483035F_4A92C1380380_var*
 //#UC START# *4AC1F6E802E5_4A92C1380380_impl*
   Result := True;
@@ -377,6 +403,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//aDocument <> nil
 //#UC END# *4AC1F71B0366_4A92C1380380_impl*
 //#UC START# *4AC1F71B0366_4A92C1380380_var*
+var
+ l_State : IDocumentState;
 //#UC END# *4AC1F71B0366_4A92C1380380_var*
 //#UC START# *4AC203EB01AE_4A92C1380380_impl*
  Result := cNullDate;
@@ -396,6 +424,9 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  end;//aDocument <> nil
 //#UC END# *4AC203EB01AE_4A92C1380380_impl*
 //#UC START# *4AC203EB01AE_4A92C1380380_var*
+var
+ l_State : IDocumentState;
+ l_Info : TRedactionInfo;
 //#UC END# *4AC203EB01AE_4A92C1380380_var*
 //#UC START# *4B2624ED010D_4A92C1380380_impl*
  Result := Ten_TurnOffTimeMachine.Make(anIntf);
@@ -408,8 +439,9 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
 //#UC START# *4BD162890088_4A92C1380380exec_var*
 //#UC END# *4BD162890088_4A92C1380380exec_var*
 //#UC START# *4BD162890088_4A92C1380380test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.RevisionCheckEnabled and
-                                   (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE);
+ aParams.Op.Flag[vcm_ofEnabled] := (defDataAdapter.RevisionCheckEnabled and
+                                   (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+                                   or DefDataAdapter.CommonInterfaces.IsEarlyInstalled;
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
 //#UC END# *4BD162890088_4A92C1380380test_impl*
 //#UC START# *4BD162890088_4A92C1380380test_var*

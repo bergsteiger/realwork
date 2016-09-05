@@ -1,0 +1,22 @@
+//#UC START# *57B2E68103BA_ext:ParentFileName
+w:\common\components\gui\Garant\msm\msmModelElementMethodValueList.pas
+//#UC END# *57B2E68103BA_ext:ParentFileName
+//#UC START# *57B2E73703A2_57B2E68103BA_impl*
+ if Integer(Self.rWord) > Integer(anOther.rWord) then
+  Result := +1
+ else
+ if Integer(Self.rWord) < Integer(anOther.rWord) then
+  Result := -1
+ else
+  Result := 0;
+ if (Result = 0) then
+  Result := l3Compare(l3PCharLen(Self.rName), l3PCharLen(anOther.rName));
+//#UC END# *57B2E73703A2_57B2E68103BA_impl*
+//#UC START# *57B2E73703A2_57B2E68103BA_var*
+//#UC END# *57B2E73703A2_57B2E68103BA_var*
+//#UC START# *57B2E78200E3_57B2E68103BA_impl*
+ Result.rWord := aWord;
+ Result.rName := aName;
+//#UC END# *57B2E78200E3_57B2E68103BA_impl*
+//#UC START# *57B2E78200E3_57B2E68103BA_var*
+//#UC END# *57B2E78200E3_57B2E68103BA_var*

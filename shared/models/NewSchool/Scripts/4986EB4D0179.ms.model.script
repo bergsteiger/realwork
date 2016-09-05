@@ -1,0 +1,113 @@
+// CommonForTextAndFlashAndMedicFirmList 4986EB4D0179 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4986EB4D0179
+
+ME ME_4986EC7001E1
+ MEPROP UID '4986EC7001E1'
+ MEPROP Name 'sdsBaseDocumentWithAttributes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4986EB4D0179 // CommonForTextAndFlashAndMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F083E60105' '4D1B85BF03E4.ms.model.script' // IsdsBaseDocumentWithAttributes
+ ;
+
+ENDME // ME_4986EC7001E1 sdsBaseDocumentWithAttributes
+
+ME ME_4986F577032B
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
+ ;
+
+ENDME // ME_4986F577032B aParams
+
+ME ME_4986F55B0274
+ MEPROP UID '4986F55B0274'
+ MEPROP Name 'OpenAttributesOpTest'
+ MEPROP Class class_Operation
+ %SUMMARY 'Операция информация о документе. Тестирование' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4986EB4D0179 // CommonForTextAndFlashAndMedicFirmList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4986F577032B // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4986F55B0274 OpenAttributesOpTest
+
+ME ME_4986F8870069
+ MEPROP UID '4986F8870069'
+ MEPROP Name 'OpenAttributesOpExecute'
+ MEPROP Class class_Operation
+ %SUMMARY 'Операция информация о документе. Выполнение' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4986EB4D0179 // CommonForTextAndFlashAndMedicFirmList
+ ;
+
+ENDME // ME_4986F8870069 OpenAttributesOpExecute
+
+ME ME_4986FA1D003E
+ MEPROP UID '4986FA1D003E'
+ MEPROP Name 'OpenAttributesOpCanBeClosed'
+ MEPROP Class class_Operation
+ %SUMMARY 'возможность закрытия вкладки информация о документе' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4986EB4D0179 // CommonForTextAndFlashAndMedicFirmList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4986FA1D003E OpenAttributesOpCanBeClosed
+
+ME ME_4986EB4D0179
+ MEPROP UID '4986EB4D0179'
+ MEPROP Name 'CommonForTextAndFlashAndMedicFirmList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Общие операции для текста, флеш-схем и списков медфирм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4D8C81D403AA' '497ED74F0032.ms.model.script' // MBaseDocument
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4986EC7001E1 // sdsBaseDocumentWithAttributes
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4986F55B0274 // OpenAttributesOpTest
+ HWL ME_4986F8870069 // OpenAttributesOpExecute
+ HWL ME_4986FA1D003E // OpenAttributesOpCanBeClosed
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '02.02.2009 15:48'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName '_CommonForTextAndFlashAndMedicFirmList_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CommonForTextAndFlashAndMedicFirmList.imp'
+
+ENDME // ME_4986EB4D0179 CommonForTextAndFlashAndMedicFirmList

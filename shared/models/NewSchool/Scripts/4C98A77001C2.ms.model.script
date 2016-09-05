@@ -1,0 +1,148 @@
+// Win32API 4C98A77001C2 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C98A77001C2
+
+FORWARD ME_4C98A79C011D
+
+ME ME_4C98A7AB00F5
+ MEPROP UID '4C98A7AB00F5'
+ MEPROP Name 'WTSGetActiveConsoleSessionId'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+
+ENDME // ME_4C98A7AB00F5 WTSGetActiveConsoleSessionId
+
+FORWARD ME_4C98AE5C02C8
+
+ME ME_4C98AE620132
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+ MELINK Target HWL ME_4C98AE5C02C8 // JwaNtStatus
+ ;
+
+ENDME // ME_4C98AE620132 
+
+FORWARD ME_4C98AE6C0194
+
+ME ME_4C98AE730336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+ MELINK Target HWL ME_4C98AE6C0194 // JwaWinNT
+ ;
+
+ENDME // ME_4C98AE730336 
+
+FORWARD ME_4C98AE7D0126
+
+ME ME_4C98AE86021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+ MELINK Target HWL ME_4C98AE7D0126 // JwaWinType
+ ;
+
+ENDME // ME_4C98AE86021A 
+
+ME ME_4C98A79C011D
+ MEPROP UID '4C98A79C011D'
+ MEPROP Name 'JwaWinBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C98A77001C2 // Win32API
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C98A7AB00F5 // WTSGetActiveConsoleSessionId
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C98AE620132 // JwaNtStatus
+ ME_4C98AE730336 // JwaWinNT
+ ME_4C98AE86021A // JwaWinType
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinBase.pas'
+
+ENDME // ME_4C98A79C011D JwaWinBase
+
+ME ME_4C98AE5C02C8
+ MEPROP UID '4C98AE5C02C8'
+ MEPROP Name 'JwaNtStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C98A77001C2 // Win32API
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaNtStatus.pas'
+
+ENDME // ME_4C98AE5C02C8 JwaNtStatus
+
+ME ME_4C98AE6C0194
+ MEPROP UID '4C98AE6C0194'
+ MEPROP Name 'JwaWinNT'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C98A77001C2 // Win32API
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinNT.pas'
+
+ENDME // ME_4C98AE6C0194 JwaWinNT
+
+ME ME_4C98AE7D0126
+ MEPROP UID '4C98AE7D0126'
+ MEPROP Name 'JwaWinType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C98A77001C2 // Win32API
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinType.pas'
+
+ENDME // ME_4C98AE7D0126 JwaWinType
+
+ME ME_4C98A77001C2
+ MEPROP UID '4C98A77001C2'
+ MEPROP Name 'Win32API'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.ms.model.script' // JEDI
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C98A79C011D // JwaWinBase
+ HWL ME_4C98AE5C02C8 // JwaNtStatus
+ HWL ME_4C98AE6C0194 // JwaWinNT
+ HWL ME_4C98AE7D0126 // JwaWinType
+ )
+ ; // Children
+ UP "path prefix" '/Win32API'
+ UP intf.pas:PathOnly '\common\components\rtl\external\JEDI\Win32API'
+
+ENDME // ME_4C98A77001C2 Win32API

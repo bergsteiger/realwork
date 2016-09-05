@@ -1,0 +1,252 @@
+// PrimPageSetup 4AAF8637036A VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAF8637036A
+
+ME ME_4C93316D02C8
+ MEPROP UID '4C93316D02C8'
+ MEPROP Name 'pstNone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка страницы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_pstNone_UserType.pas'
+ UP extprop:pas:UnitName 'PrimPageSetup_pstNone_UserType'
+
+ENDME // ME_4C93316D02C8 pstNone
+
+ME ME_4AC608FA0372
+ MEPROP UID '4AC608FA0372'
+ MEPROP Name 'PreviewGroupBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC608E40294' '4AC608E40294.ms.model.script' // TvtGroupBox
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4AC608FA0372 PreviewGroupBox
+
+ME ME_4AC60C6B023A
+ MEPROP UID '4AC60C6B023A'
+ MEPROP Name 'SettingsPageControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC60C4B00AA' '4AC60C4B00AA.ms.model.script' // TnscPageControl
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4AC60C6B023A SettingsPageControl
+
+ME ME_4AC6080200B3
+ MEPROP UID '4AC6080200B3'
+ MEPROP Name 'f_CurrentColontitul'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AC6080200B3 f_CurrentColontitul
+
+ME ME_4AC60842003B
+ MEPROP UID '4AC60842003B'
+ MEPROP Name 'f_PageSetup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELINK Target WL 'ME_499166FA025A' '499164F501ED.ms.model.script' // InsPageSettingsInfo
+ ;
+
+ENDME // ME_4AC60842003B f_PageSetup
+
+ME ME_4AC608570314
+ MEPROP UID '4AC608570314'
+ MEPROP Name 'f_DisableControls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AC608570314 f_DisableControls
+
+ME ME_4AC607D4024D
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499166FA025A' '499164F501ED.ms.model.script' // InsPageSettingsInfo
+ ;
+
+ENDME // ME_4AC607D4024D aData
+
+ME ME_4AC607B7039E
+ MEPROP UID '4AC607B7039E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC607D4024D // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AC607B7039E Make
+
+ME ME_4AC608780164
+ MEPROP UID '4AC608780164'
+ MEPROP Name 'ReadPageFormats'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+
+ENDME // ME_4AC608780164 ReadPageFormats
+
+ME ME_4AC6089C014A
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AC6089C014A aIndex
+
+ME ME_4AC6089603D4
+ MEPROP UID '4AC6089603D4'
+ MEPROP Name 'SetColontitulComboBoxItemIndex'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC6089C014A // aIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4AC6089603D4 SetColontitulComboBoxItemIndex
+
+ME ME_4AC608AC03C7
+ MEPROP UID '4AC608AC03C7'
+ MEPROP Name 'ToGUIMargins'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+
+ENDME // ME_4AC608AC03C7 ToGUIMargins
+
+ME ME_4AC609690346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
+ ;
+ MELINK Target WL 'ME_4ABB686202B1' '4ABB68530117.ms.model.script' // TnsPageSetup
+ ;
+
+ENDME // ME_4AC609690346 
+
+ME ME_479731C50290_ME_4AAF8637036A
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AAF8637036A Cleanup
+
+ME ME_4AAF8637036A
+ MEPROP UID '4AAF8637036A'
+ MEPROP Name 'PrimPageSetup'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка страницы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC608FA0372 // PreviewGroupBox
+ HWL ME_4AC60C6B023A // SettingsPageControl
+ HWL ME_4AC6080200B3 // f_CurrentColontitul
+ HWL ME_4AC60842003B // f_PageSetup
+ HWL ME_4AC608570314 // f_DisableControls
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC607B7039E // Make
+ HWL ME_4AC608780164 // ReadPageFormats
+ HWL ME_4AC6089603D4 // SetColontitulComboBoxItemIndex
+ HWL ME_4AC608AC03C7 // ToGUIMargins
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AAF8637036A // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4C93316D02C8 // pstNone
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AC609690346 // TnsPageSetup
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'ManualModal'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '15.09.2009 16:19'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ UP extprop:pas:TypeName 'TPrimPageSetupForm'
+ UP extprop:rc:SelfName 'PrimPageSetupForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimPageSetup_Form'
+
+ENDME // ME_4AAF8637036A PrimPageSetup

@@ -1,0 +1,396 @@
+// m4DBInterfaces 476BBF330336 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_476BBF330336
+
+FORWARD ME_476BBF8D0133
+
+ME ME_476BBFB60160
+ MEPROP Name 'aHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_476BBFB60160 aHandle
+
+ME ME_476BBFB60179
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_476BBFB60179 aStr
+
+ME ME_476BBF9C023F
+ MEPROP UID '476BBF9C023F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_476BBF8D0133 // Tm4WordAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_476BBFB60160 // aHandle
+ ME_476BBFB60179 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_476BBF9C023F DoIt
+
+ME ME_476BBF8D0133
+ MEPROP UID '476BBF8D0133'
+ MEPROP Name 'Tm4WordAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_476BBF330336 // m4DBInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_476BBF9C023F // DoIt
+ )
+ ; // Operations
+ UP "of object" false
+
+ENDME // ME_476BBF8D0133 Tm4WordAction
+
+FORWARD ME_476BC039022B
+
+ME ME_476BC1F90149
+ MEPROP UID '476BC1F90149'
+ MEPROP Name 'PackedIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'паковать ли индекс?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_476BC039022B // Im4DB
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_476BC1F90149 PackedIndex
+
+ME ME_476BC2120062
+ MEPROP UID '476BC2120062'
+ MEPROP Name 'FakeIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'индексировать в пустоту?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_476BC039022B // Im4DB
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_476BC2120062 FakeIndex
+
+FORWARD ME_4FBF8EE30376
+
+ME ME_4FBF8EF60129
+ MEPROP UID '4FBF8EF60129'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FBF8EE30376 // DeleteIndex
+ ;
+
+ENDME // ME_4FBF8EF60129 DoIt
+
+ME ME_4FBF8EE30376
+ MEPROP UID '4FBF8EE30376'
+ MEPROP Name 'DeleteIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удаляет текстовый индекс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_476BC039022B // Im4DB
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FBF8EF60129 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FBF8EE30376 DeleteIndex
+
+FORWARD ME_563C863C0330
+
+ME ME_563C86480032
+ MEPROP UID '563C86480032'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563C863C0330 // DeleteIndexDelta
+ ;
+
+ENDME // ME_563C86480032 DoIt
+
+ME ME_563C863C0330
+ MEPROP UID '563C863C0330'
+ MEPROP Name 'DeleteIndexDelta'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_476BC039022B // Im4DB
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_563C86480032 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_563C863C0330 DeleteIndexDelta
+
+ME ME_476BC0C50258
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_476BC0C50258 aDelta
+
+ME ME_476BC0C50270
+ MEPROP Name 'aExitIfExists'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_476BC0C50270 aExitIfExists
+
+ME ME_476BC0C50289
+ MEPROP Name 'anIndexID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP extprop:pas:Value 1
+
+ENDME // ME_476BC0C50289 anIndexID
+
+ME ME_476BC09F0011
+ MEPROP UID '476BC09F0011'
+ MEPROP Name 'BuildIndex'
+ MEPROP Class class_Operation
+ %SUMMARY 'строит контекстный индкс. Возвращает число проиндексированных файлов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_476BC039022B // Im4DB
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_476BC0C50258 // aDelta
+ ME_476BC0C50270 // aExitIfExists
+ ME_476BC0C50289 // anIndexID
+ )
+ ; // Parameters
+
+ENDME // ME_476BC09F0011 BuildIndex
+
+ME ME_476BC0DD039B
+ MEPROP Name 'anIndexID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP extprop:pas:Value 1
+
+ENDME // ME_476BC0DD039B anIndexID
+
+ME ME_476BC0D30367
+ MEPROP UID '476BC0D30367'
+ MEPROP Name 'UpdateIndex'
+ MEPROP Class class_Operation
+ %SUMMARY 'обновляет или перестраивает индекс (в зависимости от его состояния).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_476BC039022B // Im4DB
+ ;
+ MELIST Parameters
+   Seq: ( ME_476BC0DD039B // anIndexID
+ )
+ ; // Parameters
+
+ENDME // ME_476BC0D30367 UpdateIndex
+
+ME ME_47272B980395_ME_476BC039022B
+ MELINK Original WL 'ME_47272B980395' '4720831F012D.ms.model.script' // Stop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47272B980395_ME_476BC039022B Stop
+
+ME ME_47272BAA0251_ME_476BC039022B
+ MELINK Original WL 'ME_47272BAA0251' '4720831F012D.ms.model.script' // Purge
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47272BAA0251_ME_476BC039022B Purge
+
+ME ME_47272BBF01F7_ME_476BC039022B
+ MELINK Original WL 'ME_47272BBF01F7' '4720831F012D.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47272BBF01F7_ME_476BC039022B Update
+
+ME ME_47272C0C0284_ME_476BC039022B
+ MELINK Original WL 'ME_47272C0C0284' '4720831F012D.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47272C0C0284_ME_476BC039022B Start
+
+ME ME_47272C1D02C4_ME_476BC039022B
+ MELINK Original WL 'ME_47272C1D02C4' '4720831F012D.ms.model.script' // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47272C1D02C4_ME_476BC039022B Finish
+
+ME ME_4FA16B78016F_ME_476BC039022B
+ MELINK Original WL 'ME_4FA16B78016F' '4720831F012D.ms.model.script' // DeleteVersion
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FA16B78016F_ME_476BC039022B DeleteVersion
+
+ME ME_5419A76B0193_ME_476BC039022B
+ MELINK Original WL 'ME_5419A76B0193' '4720831F012D.ms.model.script' // CompareVersionWithBackup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5419A76B0193_ME_476BC039022B CompareVersionWithBackup
+
+ME ME_5419A79201B8_ME_476BC039022B
+ MELINK Original WL 'ME_5419A79201B8' '4720831F012D.ms.model.script' // CopyBackupToVersion
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5419A79201B8_ME_476BC039022B CopyBackupToVersion
+
+ME ME_5419A7AA002A_ME_476BC039022B
+ MELINK Original WL 'ME_5419A7AA002A' '4720831F012D.ms.model.script' // CopyVersionToBackup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5419A7AA002A_ME_476BC039022B CopyVersionToBackup
+
+ME ME_541AE1C4006F_ME_476BC039022B
+ MELINK Original WL 'ME_541AE1C4006F' '4720831F012D.ms.model.script' // ExtractMainTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_541AE1C4006F_ME_476BC039022B ExtractMainTo
+
+ME ME_541AE4C701CE_ME_476BC039022B
+ MELINK Original WL 'ME_541AE4C701CE' '4720831F012D.ms.model.script' // ExtractVersionTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_541AE4C701CE_ME_476BC039022B ExtractVersionTo
+
+ME ME_541AF7940108_ME_476BC039022B
+ MELINK Original WL 'ME_541AF7940108' '4720831F012D.ms.model.script' // ExtractBackupTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_541AF7940108_ME_476BC039022B ExtractBackupTo
+
+ME ME_476BC039022B
+ MEPROP UID '476BC039022B'
+ MEPROP GUID '6C9973E5-00A7-46C0-BA8F-E28FFB54D94D'
+ MEPROP Name 'Im4DB'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_476BBF330336 // m4DBInterfaces
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_5411960801BF' '4720831F012D.ms.model.script' // Mm3DB
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_476BC1F90149 // PackedIndex
+ HWL ME_476BC2120062 // FakeIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FBF8EE30376 // DeleteIndex
+ HWL ME_563C863C0330 // DeleteIndexDelta
+ HWL ME_476BC09F0011 // BuildIndex
+ HWL ME_476BC0D30367 // UpdateIndex
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47272B980395_ME_476BC039022B // Stop
+ ME_47272BAA0251_ME_476BC039022B // Purge
+ ME_47272BBF01F7_ME_476BC039022B // Update
+ ME_47272C0C0284_ME_476BC039022B // Start
+ ME_47272C1D02C4_ME_476BC039022B // Finish
+ ME_4FA16B78016F_ME_476BC039022B // DeleteVersion
+ ME_5419A76B0193_ME_476BC039022B // CompareVersionWithBackup
+ ME_5419A79201B8_ME_476BC039022B // CopyBackupToVersion
+ ME_5419A7AA002A_ME_476BC039022B // CopyVersionToBackup
+ ME_541AE1C4006F_ME_476BC039022B // ExtractMainTo
+ ME_541AE4C701CE_ME_476BC039022B // ExtractVersionTo
+ ME_541AF7940108_ME_476BC039022B // ExtractBackupTo
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'm4DB'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_476BC039022B Im4DB
+
+ME ME_476BBF330336
+ MEPROP UID '476BBF330336'
+ MEPROP Name 'm4DBInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы индексируемого хранилища.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_476BBDC80314' '476BBDC80314.ms.model.script' // m4
+ ;
+ MELIST Children
+   Seq: ( HWL ME_476BBF8D0133 // Tm4WordAction
+ HWL ME_476BC039022B // Im4DB
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_472082A400B8' '472082A400B8.ms.model.script' // m3Interfaces
+ WL 'ME_4720831F012D' '4720831F012D.ms.model.script' // m3DBInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '18.08.2004 21:48'
+ UP intf.pas:Path 'common\components\rtl\Garant\m4\m4DBInterfaces.pas'
+
+ENDME // ME_476BBF330336 m4DBInterfaces

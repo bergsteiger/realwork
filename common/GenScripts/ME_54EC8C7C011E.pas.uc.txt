@@ -58,6 +58,8 @@ var
 //#UC START# *54EC8C7C011E_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas
 //#UC END# *54EC8C7C011E_ext:FileName
+//#UC START# *54EC8C7C011Eimpl_uses*
+//#UC END# *54EC8C7C011Eimpl_uses*
 //#UC START# *55B7A59500C7_55B7A59500C7_5049DA2A035D_Word_impl*
  aCombobox.DroppedDown := aValue;
 //#UC END# *55B7A59500C7_55B7A59500C7_5049DA2A035D_Word_impl*
@@ -110,7 +112,7 @@ w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas
 //#UC START# *55B7A5CD03A9_55B7A5CD03A9_5049DA2A035D_Word_var*
 //#UC END# *55B7A5CD03A9_55B7A5CD03A9_5049DA2A035D_Word_var*
 //#UC START# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
- Result := aComboTree.Items.IndexOf(aString);
+ Result := aComboTree.IndexOfText(aString);
 //#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
 //#UC START# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_var*
 //#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_var*
@@ -130,7 +132,7 @@ w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas
 //#UC START# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_var*
 //#UC END# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_var*
 //#UC START# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_impl*
- aComboTree.ItemIndex := aComboTree.Items.IndexOf(aString);
+ aComboTree.ItemIndex := aComboTree.IndexOfText(aString);
 //#UC END# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_impl*
 //#UC START# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_var*
 //#UC END# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_var*
@@ -151,14 +153,14 @@ w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas
 //#UC START# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_var*
 //#UC END# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_var*
 //#UC START# *55B7A6200240_55B7A6200240_55B780E60398_Word_impl*
- if (aComboTree is TvtComboBoxQS) then //561950536
+ //if (aComboTree is TvtComboBoxQS) then //561950536
   aComboTree.ItemIndex := anIndex
- else
+ {else
  begin
   l_Node := aComboTree.Tree.GetNode(anIndex);
   aComboTree.Tree.GotoOnNode(l_Node);
   aComboTree.ShowNode(l_Node, True);
- end;//aComboTree is TvtComboBoxQS
+ end;//aComboTree is TvtComboBoxQS}
 //#UC END# *55B7A6200240_55B7A6200240_55B780E60398_Word_impl*
 //#UC START# *55B7A6200240_55B7A6200240_55B780E60398_Word_var*
 var
@@ -215,7 +217,7 @@ var
  try
   l_Filer.Open;
   try
-   l_Filer.WriteLn((aComboTree.Items as Il3Strings).Items.Text);
+   l_Filer.WriteLn(aComboTree.GetTextOfAllItems);
   finally
    l_Filer.Close;
   end;

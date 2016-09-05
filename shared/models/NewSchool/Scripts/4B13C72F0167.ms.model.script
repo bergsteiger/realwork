@@ -1,0 +1,345 @@
+// PrimTasksPanel 4B13C72F0167 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B13C72F0167
+
+FORWARD ME_4B13C75E02D1
+
+ME ME_4B13A26203DB_ME_4B13C75E02D1
+ MELINK Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.ms.model.script' // EventID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B13A26203DB_ME_4B13C75E02D1 EventID
+
+ME ME_4B13C75E02D1
+ MEPROP UID '4B13C75E02D1'
+ MEPROP Name 'TnsUseTaskPanelOperationEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.ms.model.script' // TnsCounterEvent
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B13A26203DB_ME_4B13C75E02D1 // EventID
+ )
+ ; // Implemented
+ UP "singleton" true
+ UP extprop:rc:SelfName 'UseTaskPanelOperationEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B13C75E02D1 TnsUseTaskPanelOperationEvent
+
+ME ME_4BD6D9AE030B
+ MEPROP UID '4BD6D9AE030B'
+ MEPROP Name 'tpMain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Панель задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ UP "CanClose" true
+ UP "ImageIndex" 165
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTasksPanel_tpMain_UserType.pas'
+ UP extprop:pas:UnitName 'PrimTasksPanel_tpMain_UserType'
+
+ENDME // ME_4BD6D9AE030B tpMain
+
+ME ME_4EE78A580355
+ MEPROP UID '4EE78A580355'
+ MEPROP Name 'tpvMain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D3424C203C2' '4D3424C203C2.ms.model.script' // TnscTasksPanelView
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4EE78A580355 tpvMain
+
+FORWARD ME_4EE78AE903D9
+
+ME ME_4EE78AFA01E8
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4EE78AFA01E8 Sender
+
+ME ME_4EE78AF600CC
+ MEPROP UID '4EE78AF600CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EE78AE903D9 // tpvMainOperationExecute
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EE78AFA01E8 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4EE78AF600CC DoIt
+
+ME ME_4EE78AE903D9
+ MEPROP UID '4EE78AE903D9'
+ MEPROP Name 'tpvMainOperationExecute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EE78AF600CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EE78AE903D9 tpvMainOperationExecute
+
+ME ME_4EE78AD90332
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4EE78AD90332 aMessage
+
+ME ME_4EE78AC500E3
+ MEPROP UID '4EE78AC500E3'
+ MEPROP Name 'WMSetFocus'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EE78AD90332 // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SETFOCUS'
+
+ENDME // ME_4EE78AC500E3 WMSetFocus
+
+ME ME_4B13C76F0258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target HWL ME_4B13C75E02D1 // TnsUseTaskPanelOperationEvent
+ ;
+
+ENDME // ME_4B13C76F0258 
+
+ME ME_4EE78B1D0178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_49940B180124' '49940C8E00DA.ms.model.script' // IvcmMainForm
+ ;
+
+ENDME // ME_4EE78B1D0178 
+
+ME ME_4EE78B700230
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4EE78B700230 
+
+ME ME_4EE78BA503B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_4799ED060093' '4799EC9300AF.ms.model.script' // l3Defaults
+ ;
+
+ENDME // ME_4EE78BA503B5 
+
+ME ME_4EE78BF3037D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4EE78BF3037D 
+
+ME ME_4EE78F7900BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4EE78F7900BF 
+
+ME ME_5272738502C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5272738502C8 
+
+ME ME_5272738800FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5272738800FC 
+
+ME ME_527273DC0317
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_4AA7E9E60251' '4AAA216F032C.ms.model.script' // MainMenuNewRes
+ ;
+
+ENDME // ME_527273DC0317 
+
+ME ME_52834CFD01CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_52834CFD01CD 
+
+ME ME_578E044B029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B13C72F0167 // PrimTasksPanel
+ ;
+ MELINK Target WL 'ME_578E02D603D1' '578E02C50241.ms.model.script' // TTaskPanelService
+ ;
+
+ENDME // ME_578E044B029F 
+
+ME ME_4D3D969B02EA_ME_4B13C72F0167
+ MELINK Original WL 'ME_4D3D969B02EA' '4AEEE2A40281.ms.model.script' // Fake
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4D3D969B02EA_ME_4B13C72F0167 Fake
+
+ME ME_4A8E8F2E0195_ME_4B13C72F0167
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4B13C72F0167 InitControls
+
+ME ME_4B13C72F0167
+ MEPROP UID '4B13C72F0167'
+ MEPROP Name 'PrimTasksPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ WL 'ME_4D3D967A02B2' '4AEEE2A40281.ms.model.script' // Fake
+ WL 'ME_528468A00346' '4AADF9450143.ms.model.script' // vcmScrollableFormWithWheelSupport
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4EE78A580355 // tpvMain
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4EE78AE903D9 // tpvMainOperationExecute
+ HWL ME_4EE78AC500E3 // WMSetFocus
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D3D969B02EA_ME_4B13C72F0167 // Fake
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4B13C72F0167 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4B13C75E02D1 // TnsUseTaskPanelOperationEvent
+ HWL ME_4BD6D9AE030B // tpMain
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B13C76F0258 // TnsUseTaskPanelOperationEvent
+ ME_4EE78B1D0178 // IvcmMainForm
+ ME_4EE78B700230 // StdRes
+ ME_4EE78BA503B5 // l3Defaults
+ ME_4EE78BF3037D // afwFacade
+ ME_4EE78F7900BF // Supports
+ ME_5272738502C8 // Controls
+ ME_5272738800FC // Forms
+ ME_527273DC0317 // MainMenuNewRes
+ ME_52834CFD01CD // Windows
+ ME_578E044B029F // TTaskPanelService
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTasksPanel_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName 'TPrimTasksPanelForm'
+ UP extprop:rc:SelfName 'PrimTasksPanelForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimTasksPanel_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4B13C72F0167 PrimTasksPanel

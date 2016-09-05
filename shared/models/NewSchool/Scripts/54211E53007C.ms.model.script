@@ -1,0 +1,48 @@
+// ChromeLikeFormFrameDecorator 54211E53007C Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54211E53007C
+
+ME ME_54211E9E038E
+ MEPROP UID '54211E9E038E'
+ MEPROP Name 'TChromeLikeFormFramePainter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54211E53007C // ChromeLikeFormFrameDecorator
+ ;
+ UP "finished" false
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeFormFramePainter.pas'
+ UP extprop:rc:SelfName 'ChromeLikeFormFramePainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChromeLikeFormFramePainter'
+
+ENDME // ME_54211E9E038E TChromeLikeFormFramePainter
+
+ME ME_54211E53007C
+ MEPROP UID '54211E53007C'
+ MEPROP Name 'ChromeLikeFormFrameDecorator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D017702F1' '533D017702F1.ms.model.script' // ChromeLikeControls
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_54211E830399' '54211E830399.ms.model.script' // TFormFrameDecorator
+ HWL ME_54211E9E038E // TChromeLikeFormFramePainter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_533D01A201A9' '533D01A201A9.ms.model.script' // ChromeLikeWindowCaptionButtons
+ )
+ ; // Depends
+ UP "ifndef" 'NoVGScene, NoVCM'
+
+ENDME // ME_54211E53007C ChromeLikeFormFrameDecorator

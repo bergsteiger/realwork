@@ -1,0 +1,145 @@
+// PrimCommon 4A924BCA0092 VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A924BCA0092
+
+FORWARD ME_55B0CFA90241
+
+FORWARD ME_3044CBAC1F5E
+
+FORWARD ME_55B0DDC00044
+
+ME ME_2627E933260B
+ MEPROP UID '2627E933260B'
+ MEPROP Name 'Notify'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_3044CBAC1F5E // Mf1StartupCompleteNotificationService
+ ;
+ UPLINK Speller HWL ME_55B0DDC00044 // Notify
+ ;
+
+ENDME // ME_2627E933260B Notify
+
+ME ME_3044CBAC1F5E
+ MEPROP UID '3044CBAC1F5E'
+ MEPROP Name 'Mf1StartupCompleteNotificationService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tf1StartupCompleteNotificationService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B0CFA90241 // Tf1StartupCompleteNotificationService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_2627E933260B // Notify
+ )
+ ; // Operations
+
+ENDME // ME_3044CBAC1F5E Mf1StartupCompleteNotificationService
+
+ME ME_55B0DDC00044
+ MEPROP UID '55B0DDC00044'
+ MEPROP Name 'Notify'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B0CFA90241 // Tf1StartupCompleteNotificationService
+ ;
+
+ENDME // ME_55B0DDC00044 Notify
+
+ME ME_55B0CFA90241
+ MEPROP UID '55B0CFA90241'
+ MEPROP Name 'Tf1StartupCompleteNotificationService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A924BCA0092 // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B0DDC00044 // Notify
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_3044CBAC1F5E // Mf1StartupCompleteNotificationService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompleteNotificationService.pas'
+ UP extprop:rc:SelfName 'f1StartupCompleteNotificationService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'f1StartupCompleteNotificationService'
+
+ENDME // ME_55B0CFA90241 Tf1StartupCompleteNotificationService
+
+ME ME_4A924BCA0092
+ MEPROP UID '4A924BCA0092'
+ MEPROP Name 'PrimCommon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMModule ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4986ECDF01F4' '4986ECDF01F4.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4A8EC8AC02EE' '4A8EC8AC02EE.ms.model.script' // PrimShutDown
+ WL 'ME_4A93D80F014F' '4A93D80F014F.ms.model.script' // PrimLogin
+ WL 'ME_4A93DDAE0396' '4A93DDAE0396.ms.model.script' // PrimLongProcess
+ WL 'ME_4A8EC78503BB' '4A8EC78503BB.ms.model.script' // PrimCommon
+ WL 'ME_4A92C0AB0155' '4A92C0AB0155.ms.model.script' // RealCommon
+ WL 'ME_4AA7E32D0252' '4AA7E32D0252.ms.model.script' // Logo
+ HWL ME_55B0CFA90241 // Tf1StartupCompleteNotificationService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.ms.model.script' // l3InternalInterfaces
+ WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_484FA67302D7' '484FA67302D7.ms.model.script' // GUI
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_499ABF4F02A1' '499ABF4F02A1.ms.model.script' // elClone
+ WL 'ME_4A8EC95E015F' '4A8EC95E015F.ms.model.script' // InternalOperations
+ WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.ms.model.script' // Labels
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4AC5E84C02AA' '4AC5E84C02AA.ms.model.script' // PageControl
+ WL 'ME_4C8DD8B8006C' '4C8DD8B8006C.ms.model.script' // TasksPanel
+ WL 'ME_4EEA0958023A' '4EEA0958023A.ms.model.script' // SearchRes
+ WL 'ME_4F635E1901E5' '4F635E1901E5.ms.model.script' // l3Listeners
+ WL 'ME_4F6B66140294' '4F6B66140294.ms.model.script' // ParentAndChild
+ WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.ms.model.script' // InternalOperations
+ WL 'ME_4F7DD05B035B' '4F7DD05B035B.ms.model.script' // Flashing
+ WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_54F5D55D00C6' '54F5D55D00C6.ms.model.script' // CommonNotifications
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ WL 'ME_57A32ECC01AF' '57A32ECC01AF.ms.model.script' // Services
+ )
+ ; // Depends
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon'
+
+ENDME // ME_4A924BCA0092 PrimCommon

@@ -1,0 +1,11 @@
+UNIT CheckValue.ms.dict
+
+USES
+ arrays.ms.dict
+;
+
+: CheckValue
+ if ( DUP IsArray ) then
+  ( Array:SafeView ) 
+  //( .filterNil> array:CopyIfNotView ) 
+; // CheckValue

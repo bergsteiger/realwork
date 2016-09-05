@@ -1,0 +1,247 @@
+// PrimAdmin 4AFB0146035B VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AFB0146035B
+
+ME ME_4C88EBD5036F
+ MEPROP UID '4C88EBD5036F'
+ MEPROP Name 'utAdmin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Администрирование пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_utAdmin_UserType.pas'
+ UP extprop:pas:UnitName 'PrimAdmin_utAdmin_UserType'
+
+ENDME // ME_4C88EBD5036F utAdmin
+
+FORWARD ME_4C88E75E0365
+
+ME ME_52809C6B0323
+ MEPROP UID '52809C6B0323'
+ MEPROP Name 'Parent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C88E75E0365 // TreeZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Parent'
+
+ENDME // ME_52809C6B0323 Parent
+
+FORWARD ME_4C88E7BA013D
+
+ME ME_52809C87024F
+ MEPROP UID '52809C87024F'
+ MEPROP Name 'Child'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C88E7BA013D // PropertyZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Child'
+
+ENDME // ME_52809C87024F Child
+
+FORWARD ME_4C88E7920386
+
+ME ME_4C88E7BA013D
+ MEPROP UID '4C88E7BA013D'
+ MEPROP Name 'PropertyZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88E7920386 // BackgroundPanel
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_52809C87024F // Child
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtSizeablePanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C88E7BA013D PropertyZone
+
+ME ME_4C88E75E0365
+ MEPROP UID '4C88E75E0365'
+ MEPROP Name 'TreeZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88E7920386 // BackgroundPanel
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_52809C6B0323 // Parent
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C88E75E0365 TreeZone
+
+ME ME_4C88E7920386
+ MEPROP UID '4C88E7920386'
+ MEPROP Name 'BackgroundPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C88E7BA013D // PropertyZone
+ HWL ME_4C88E75E0365 // TreeZone
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtProportionalPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C88E7920386 BackgroundPanel
+
+ME ME_4AFB01CC01B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELINK Target WL 'ME_4AFB01B0002C' '494FD61000CC.ms.model.script' // Result
+ ;
+
+ENDME // ME_4AFB01CC01B7 
+
+ME ME_4AFB028B0186
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELINK Target WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ ;
+
+ENDME // ME_4AFB028B0186 
+
+ME ME_4AFB02D60393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELINK Target WL 'ME_4A8AD4260126' '4A8AD3DE0008.ms.model.script' // Result
+ ;
+
+ENDME // ME_4AFB02D60393 
+
+ME ME_52809CD900E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_52809CD900E4 
+
+ME ME_52809CDC0074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AFB0146035B // PrimAdmin
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_52809CDC0074 
+
+ME ME_47A042E100E2_ME_4AFB0146035B
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4AFB0146035B InitFields
+
+ME ME_4A8E8F2E0195_ME_4AFB0146035B
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AFB0146035B InitControls
+
+ME ME_4AFB0146035B
+ MEPROP UID '4AFB0146035B'
+ MEPROP Name 'PrimAdmin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49480CD20303' '49480CD20303.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C88E7920386 // BackgroundPanel
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4AFB0146035B // InitFields
+ ME_4A8E8F2E0195_ME_4AFB0146035B // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4C88EBD5036F // utAdmin
+ HWL ME_52809C6B0323 // Parent
+ HWL ME_52809C87024F // Child
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AFB01CC01B7 // Result
+ ME_4AFB028B0186 // Result$Cancel
+ ME_4AFB02D60393 // Result
+ ME_52809CD900E4 // Controls
+ ME_52809CDC0074 // Forms
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '11.11.2009 21:24'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ UP extprop:pas:TypeName 'TPrimAdminForm'
+ UP extprop:rc:SelfName 'PrimAdminForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimAdmin_Form'
+
+ENDME // ME_4AFB0146035B PrimAdmin

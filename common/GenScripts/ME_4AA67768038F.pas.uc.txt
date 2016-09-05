@@ -3,6 +3,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Rubricator_Module.p
 //#UC END# *4AA67768038F_ext:FileName
 //#UC START# *4AA67768038Fimpl_uses*
  , StdRes
+ , Common_F1CommonServices_Contracts
 //#UC END# *4AA67768038Fimpl_uses*
 //#UC START# *4AA691690389_4AA67768038F_impl*
  l_Params := vcmMakeParams(anAggregate, aContainer);
@@ -39,7 +40,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Rubricator_Module.p
    l_Params := vcmSetAggregate(l_Aggregate, l_Params);
 
   if not op_Switcher_BecomeActive.Call(l_Aggregate) and aNeedsSheet then
-   TdmStdRes.GetNavigator(l_Params.Aggregate, l_Params.Container);
+   TCommonService.Instance.GetNavigator(l_Params.Aggregate, l_Params.Container);
 
   if not l_RubrExists then
    Result := TefRubricator.MakeSingleChild(l_Container.NativeMainForm,

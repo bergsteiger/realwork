@@ -1,0 +1,68 @@
+// Strange 4C3F34640373 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3F34640373
+
+FORWARD ME_4C3F347A0168
+
+ME ME_4C3F348402AC
+ MEPROP UID '4C3F348402AC'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3F347A0168 // Journal
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C3F348402AC Clear
+
+ME ME_4C3F347A0168
+ MEPROP UID '4C3F347A0168'
+ MEPROP Name 'Journal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C3F34640373 // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C3F348402AC // Clear
+ )
+ ; // Operations
+
+ENDME // ME_4C3F347A0168 Journal
+
+ME ME_4C3F34640373
+ MEPROP UID '4C3F34640373'
+ MEPROP Name 'Strange'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A811B89032D' '4A811B89032D.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C3F347A0168 // Journal
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal_Strange_Controls.pas'
+ UP extprop:pas:UnitName 'WorkJournal_Strange_Controls'
+
+ENDME // ME_4C3F34640373 Strange

@@ -1,0 +1,637 @@
+// TevCustomEditorWindowPrim 4B28D63A00EC GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B28D63A00EC
+
+FORWARD ME_4DCD55580188
+
+ME ME_4DCD55940168
+ MEPROP Name 'aSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DCD55940168 aSelection
+
+ME ME_4DCD559401E7
+ MEPROP Name 'aForExport'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DCD559401E7 aForExport
+
+ME ME_4DCD55940275
+ MEPROP Name 'theGen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_4DCD55940275 theGen
+
+ME ME_4DCD556F0244
+ MEPROP UID '4DCD556F0244'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCD55580188 // TevMakeExportFiltersEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DCD55940168 // aSelection
+ ME_4DCD559401E7 // aForExport
+ ME_4DCD55940275 // theGen
+ )
+ ; // Parameters
+
+ENDME // ME_4DCD556F0244 DoIt
+
+ME ME_4DCD55580188
+ MEPROP UID '4DCD55580188'
+ MEPROP Name 'TevMakeExportFiltersEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCD556F0244 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_4DCD55580188 TevMakeExportFiltersEvent
+
+ME ME_4D3973B70186
+ MEPROP UID '4D3973B70186'
+ MEPROP Name 'Zoom'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 'def_Zoom'
+ MELINK ValueType WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP extprop:pas:Value 'def_Zoom'
+
+ENDME // ME_4D3973B70186 Zoom
+
+ME ME_4BCC31B5032E
+ MEPROP UID '4BCC31B5032E'
+ MEPROP Name 'ForceRepaint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'признак необходимости отрисовки даже при Locked' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4BCC31B5032E ForceRepaint
+
+ME ME_4DA805F302D6
+ MEPROP UID '4DA805F302D6'
+ MEPROP Name 'f_LockForceRepaint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DA805F302D6 f_LockForceRepaint
+
+ME ME_4DCD55BC0103
+ MEPROP UID '4DCD55BC0103'
+ MEPROP Name 'OnMakeExportFilters'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELINK Target HWL ME_4DCD55580188 // TevMakeExportFiltersEvent
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4DCD55BC0103 OnMakeExportFilters
+
+ME ME_4E7B472E017E
+ MEPROP UID '4E7B472E017E'
+ MEPROP Name 'OnFocusViaMouseSet'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4E7B472E017E OnFocusViaMouseSet
+
+FORWARD ME_4C0CA1FC02A8
+
+ME ME_4C0CA21B039E
+ MEPROP Name 'anAnchor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4C0CA21B039E anAnchor
+
+ME ME_4C0CA215029F
+ MEPROP UID '4C0CA215029F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C0CA21B039E // anAnchor
+ )
+ ; // Parameters
+
+ENDME // ME_4C0CA215029F DoIt
+
+ME ME_4C0CA28202FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4C0CA28202FA 
+
+ME ME_4C0CAAB0036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ ;
+ MELINK Target WL 'ME_533C138F0003' '4678137501EA.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_4C0CAAB0036A 
+
+ME ME_4C0CAABC0116
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ ;
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ ;
+
+ENDME // ME_4C0CAABC0116 
+
+ME ME_4C0CAEDC0297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4C0CAEDC0297 
+
+ME ME_4C0CB2D1027A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4C0CB2D1027A 
+
+ME ME_4C0CB501032E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C0CB501032E 
+
+ME ME_4C0CA1FC02A8
+ MEPROP UID '4C0CA1FC02A8'
+ MEPROP Name 'GetVScrollerHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C0CA215029F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C0CA28202FA // l3String
+ ME_4C0CAAB0036A // Ik2Tag
+ ME_4C0CAABC0116 // evParaTools
+ ME_4C0CAEDC0297 // Block
+ ME_4C0CB2D1027A // Document
+ ME_4C0CB501032E // Tk2TagID
+ )
+ ; // Dependencies
+
+ENDME // ME_4C0CA1FC02A8 GetVScrollerHint
+
+FORWARD ME_4C0E39BE0272
+
+ME ME_4C0E3AD600C1
+ MEPROP Name 'aPart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6B7A6039D' '47C5207602D1.ms.model.script' // IevDocumentPart
+ ;
+
+ENDME // ME_4C0E3AD600C1 aPart
+
+ME ME_4C0E3AC7003D
+ MEPROP UID '4C0E3AC7003D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0E39BE0272 // GetDocumentPartHint
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C0E3AD600C1 // aPart
+ )
+ ; // Parameters
+
+ENDME // ME_4C0E3AC7003D DoIt
+
+ME ME_4C0E39BE0272
+ MEPROP UID '4C0E39BE0272'
+ MEPROP Name 'GetDocumentPartHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C0E3AC7003D // DoIt
+ )
+ ; // Operations
+ UP "is static" false
+
+ENDME // ME_4C0E39BE0272 GetDocumentPartHint
+
+FORWARD ME_4C0E3AF002E8
+
+ME ME_4C0E3B28004E
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4C0E3B28004E aPoint
+
+ME ME_4C0E3B220325
+ MEPROP UID '4C0E3B220325'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0E3AF002E8 // GetDocumentPartByPoint
+ ;
+ MELINK Target WL 'ME_47C6B7A6039D' '47C5207602D1.ms.model.script' // IevDocumentPart
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C0E3B28004E // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4C0E3B220325 DoIt
+
+ME ME_4C0E3AF002E8
+ MEPROP UID '4C0E3AF002E8'
+ MEPROP Name 'GetDocumentPartByPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C0E3B220325 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C0E3AF002E8 GetDocumentPartByPoint
+
+FORWARD ME_4D6D427D023A
+
+ME ME_4D6D429B02B7
+ MEPROP UID '4D6D429B02B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6D427D023A // NeedAlignMarksOnSingleClick
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6D429B02B7 DoIt
+
+ME ME_4D6D427D023A
+ MEPROP UID '4D6D427D023A'
+ MEPROP Name 'NeedAlignMarksOnSingleClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6D429B02B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6D427D023A NeedAlignMarksOnSingleClick
+
+FORWARD ME_4E788DB902F9
+
+ME ME_4E788E46006C
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4769570D0204' '46A5E026007E.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_4E788E46006C aPoint
+
+ME ME_4E788E4600D9
+ MEPROP Name 'theCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E788E98006B' '4799D29F033F.ms.model.script' // TCursor
+ ;
+
+ENDME // ME_4E788E4600D9 theCursor
+
+ME ME_4E788E32029A
+ MEPROP UID '4E788E32029A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E788DB902F9 // RecalcScreenCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E788E46006C // aPoint
+ ME_4E788E4600D9 // theCursor
+ )
+ ; // Parameters
+
+ENDME // ME_4E788E32029A DoIt
+
+ME ME_4E788DB902F9
+ MEPROP UID '4E788DB902F9'
+ MEPROP Name 'RecalcScreenCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E787E7400A7' '4E787E1E02F8.ms.model.script' // Должен уметь показывать сложную псевдонадпись
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E788E32029A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E788DB902F9 RecalcScreenCursor
+
+FORWARD ME_4E7B4686012C
+
+ME ME_4E7B46DD0054
+ MEPROP UID '4E7B46DD0054'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7B4686012C // SetFocusViaMouse
+ ;
+
+ENDME // ME_4E7B46DD0054 DoIt
+
+ME ME_4E7B4686012C
+ MEPROP UID '4E7B4686012C'
+ MEPROP Name 'SetFocusViaMouse'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7B46DD0054 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E7B4686012C SetFocusViaMouse
+
+ME ME_4B28D6780001
+ MEPROP UID '4B28D6780001'
+ MEPROP Name 'WantSoftEnter'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B28D6780001 WantSoftEnter
+
+ME ME_4D3998FE03C1
+ MEPROP UID '4D3998FE03C1'
+ MEPROP Name 'DoAfterSetZoom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+
+ENDME // ME_4D3998FE03C1 DoAfterSetZoom
+
+ME ME_4E7B4F5202BA
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E7B4F6B0021' '476F78840219.ms.model.script' // TWMMouseActivate
+ ;
+
+ENDME // ME_4E7B4F5202BA aMsg
+
+ME ME_4E7B4F3A00E5
+ MEPROP UID '4E7B4F3A00E5'
+ MEPROP Name 'WMMOUSEACTIVATE'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E7B4F5202BA // aMsg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_MOUSEACTIVATE'
+
+ENDME // ME_4E7B4F3A00E5 WMMOUSEACTIVATE
+
+ME ME_4E7B513C019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B28D63A00EC // TevCustomEditorWindowPrim
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4E7B513C019C 
+
+ME ME_47A042E100E2_ME_4B28D63A00EC
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4B28D63A00EC InitFields
+
+ME ME_4BCC315901D3_ME_4B28D63A00EC
+ MELINK Original WL 'ME_4BCC315901D3' '48E0E5C1032A.ms.model.script' // DoForceRepaint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BCC315901D3_ME_4B28D63A00EC DoForceRepaint
+
+ME ME_4D3974AB02E5_ME_4B28D63A00EC
+ MELINK Original WL 'ME_4D3974AB02E5' '48BD1975029B.ms.model.script' // DoAfterCreateCanvas
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4D3974AB02E5_ME_4B28D63A00EC DoAfterCreateCanvas
+
+ME ME_4B28D63A00EC
+ MEPROP UID '4B28D63A00EC'
+ MEPROP Name 'TevCustomEditorWindowPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48E0E5C1032A' '48E0E5C1032A.ms.model.script' // TnevControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E7B18D60286' '4E5CF70B01E2.ms.model.script' // Скроллирование документа
+ WL 'ME_4E85A4280258' '4E5CF70B01E2.ms.model.script' // Редактирование документа
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D3973B70186 // Zoom
+ HWL ME_4BCC31B5032E // ForceRepaint
+ HWL ME_4DA805F302D6 // f_LockForceRepaint
+ HWL ME_4DCD55BC0103 // OnMakeExportFilters
+ HWL ME_4E7B472E017E // OnFocusViaMouseSet
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C0CA1FC02A8 // GetVScrollerHint
+ HWL ME_4C0E39BE0272 // GetDocumentPartHint
+ HWL ME_4C0E3AF002E8 // GetDocumentPartByPoint
+ HWL ME_4D6D427D023A // NeedAlignMarksOnSingleClick
+ HWL ME_4E788DB902F9 // RecalcScreenCursor
+ HWL ME_4E7B4686012C // SetFocusViaMouse
+ HWL ME_4B28D6780001 // WantSoftEnter
+ HWL ME_4D3998FE03C1 // DoAfterSetZoom
+ HWL ME_4E7B4F3A00E5 // WMMOUSEACTIVATE
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4B28D63A00EC // InitFields
+ ME_4BCC315901D3_ME_4B28D63A00EC // DoForceRepaint
+ ME_4D3974AB02E5_ME_4B28D63A00EC // DoAfterCreateCanvas
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DCD55580188 // TevMakeExportFiltersEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E7B513C019C // Windows
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_54EDDE8F00BB' '54EDDC8A013D.ms.model.script' // evSchemaWordsPack
+ WL 'ME_54EDDFC2024F' '54EDDF000377.ms.model.script' // evParaWordsPack
+ WL 'ME_54F06E6A0366' '4F4CB50403CC.ms.model.script' // EditorFromStackKeyWordsPack
+ WL 'ME_54F06F45006B' '4F954EC9038E.ms.model.script' // EditorParaCoordsToScreenPack
+ )
+ ; // Injected
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "register in scripts" true
+ UP "started" '16.12.2009 15:44'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomEditorWindowPrim.pas'
+ UP extprop:rc:SelfName 'Editor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomEditorWindowPrim'
+
+ENDME // ME_4B28D63A00EC TevCustomEditorWindowPrim

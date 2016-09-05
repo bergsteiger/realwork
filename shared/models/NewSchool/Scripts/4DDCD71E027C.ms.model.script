@@ -1,0 +1,378 @@
+// ChangesBetweenEditionsInterfaces 4DDCD71E027C ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCD71E027C
+
+FORWARD ME_4F2BF13800A5
+
+ME ME_4DDCE9110130
+ MEPROP UID '4DDCE9110130'
+ MEPROP Name 'RightEdition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Правая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F2BF13800A5 // MnsEditionsHolder
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "pm" false
+
+ENDME // ME_4DDCE9110130 RightEdition
+
+ME ME_4F2BF187026F
+ MEPROP UID '4F2BF187026F'
+ MEPROP Name 'LeftEdition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Левая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F2BF13800A5 // MnsEditionsHolder
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "pm" false
+
+ENDME // ME_4F2BF187026F LeftEdition
+
+ME ME_4F2BF13800A5
+ MEPROP UID '4F2BF13800A5'
+ MEPROP Name 'MnsEditionsHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DDCE9110130 // RightEdition
+ HWL ME_4F2BF187026F // LeftEdition
+ )
+ ; // Attributes
+
+ENDME // ME_4F2BF13800A5 MnsEditionsHolder
+
+FORWARD ME_4DDCD7420084
+
+ME ME_4DDD0C170344
+ MEPROP UID '4DDD0C170344'
+ MEPROP Name 'DocumentContainer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4DDCD7420084 // IdsChangesBetweenEditions
+ ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+ UP "pm" false
+
+ENDME // ME_4DDD0C170344 DocumentContainer
+
+ME ME_4DDCE9110130_ME_4DDCD7420084
+ MELINK Original HWL ME_4DDCE9110130 // RightEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4DDCE9110130_ME_4DDCD7420084 RightEdition
+
+ME ME_4DF9D63B0360_ME_4DDCD7420084
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4DDCD7420084 DocInfo
+
+ME ME_4F2BF187026F_ME_4DDCD7420084
+ MELINK Original HWL ME_4F2BF187026F // LeftEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4F2BF187026F_ME_4DDCD7420084 LeftEdition
+
+ME ME_4DDCD7420084
+ MEPROP UID '4DDCD7420084'
+ MEPROP GUID '2D74CBC5-124E-4777-A6CA-891E3037761E'
+ MEPROP Name 'IdsChangesBetweenEditions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4ED8F1860003' '4B1FC2FF03CD.ms.model.script' // MdeDocInfoProvider
+ HWL ME_4F2BF13800A5 // MnsEditionsHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DDD0C170344 // DocumentContainer
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD7420084 // RightEdition
+ ME_4DF9D63B0360_ME_4DDCD7420084 // DocInfo
+ ME_4F2BF187026F_ME_4DDCD7420084 // LeftEdition
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsChangesBetweenEditions'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DDCD7420084 IdsChangesBetweenEditions
+
+FORWARD ME_4DDCD8CD008D
+
+ME ME_4DDCD8ED00A5
+ MEPROP UID '4DDCD8ED00A5'
+ MEPROP Name 'DiffProvider'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ ;
+ MELINK Target WL 'ME_4D78D8200190' '4570511E038A.ms.model.script' // DiffDocDataProvider
+ ;
+ UP "pm" false
+
+ENDME // ME_4DDCD8ED00A5 DiffProvider
+
+ME ME_4DDCE9110130_ME_4DDCD8CD008D
+ MELINK Original HWL ME_4DDCE9110130 // RightEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4DDCE9110130_ME_4DDCD8CD008D RightEdition
+
+ME ME_4F2BF187026F_ME_4DDCD8CD008D
+ MELINK Original HWL ME_4F2BF187026F // LeftEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4F2BF187026F_ME_4DDCD8CD008D LeftEdition
+
+ME ME_4DDCD8CD008D
+ MEPROP UID '4DDCD8CD008D'
+ MEPROP GUID '66611345-5B71-4A0D-863D-C2903B8296A9'
+ MEPROP Name 'InsChangesBetweenEditionsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4F2BF13800A5 // MnsEditionsHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DDCD8ED00A5 // DiffProvider
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD8CD008D // RightEdition
+ ME_4F2BF187026F_ME_4DDCD8CD008D // LeftEdition
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'ChangesBetweenEditionsInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DDCD8CD008D InsChangesBetweenEditionsInfo
+
+FORWARD ME_4DDCF62C01DF
+
+ME ME_4DDCF63C0353
+ MEPROP UID '4DDCF63C0353'
+ MEPROP Name 'Info'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
+ ;
+ MELINK Target HWL ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ ;
+ UP "pm" false
+
+ENDME // ME_4DDCF63C0353 Info
+
+ME ME_4995768F007A_ME_4DDCF62C01DF
+ MELINK Original WL 'ME_4995768F007A' '4683F37902CF.ms.model.script' // Clone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4995768F007A_ME_4DDCF62C01DF Clone
+
+ME ME_4DDCF62C01DF
+ MEPROP UID '4DDCF62C01DF'
+ MEPROP GUID '840AD10B-834F-49F5-B4BC-521EE38DB3AA'
+ MEPROP Name 'IsdsChangesBetweenEditionsData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F378D3029B' '4683F37902CF.ms.model.script' // IvcmData
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DDCF63C0353 // Info
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4995768F007A_ME_4DDCF62C01DF // Clone
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'sdsChangesBetweenEditionsData'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DDCF62C01DF IsdsChangesBetweenEditionsData
+
+FORWARD ME_4DDCD72C006B
+
+FORWARD ME_4DDCD7520351
+
+ME ME_4DDCE9110130_ME_4DDCD7520351
+ MELINK Original HWL ME_4DDCE9110130 // RightEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4DDCE9110130_ME_4DDCD7520351 RightEdition
+
+ME ME_4DDD0C170344_ME_4DDCD7520351
+ MELINK Original HWL ME_4DDD0C170344 // DocumentContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4DDD0C170344_ME_4DDCD7520351 DocumentContainer
+
+ME ME_4DF9D63B0360_ME_4DDCD7520351
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4DDCD7520351 DocInfo
+
+ME ME_4F2BF187026F_ME_4DDCD7520351
+ MELINK Original HWL ME_4F2BF187026F // LeftEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4F2BF187026F_ME_4DDCD7520351 LeftEdition
+
+ME ME_4DDCD7520351
+ MEPROP UID '4DDCD7520351'
+ MEPROP Name 'Changes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DDCD72C006B // IsdsChangesBetweenEditions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DDCD7420084 // IdsChangesBetweenEditions
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD7520351 // RightEdition
+ ME_4DDD0C170344_ME_4DDCD7520351 // DocumentContainer
+ ME_4DF9D63B0360_ME_4DDCD7520351 // DocInfo
+ ME_4F2BF187026F_ME_4DDCD7520351 // LeftEdition
+ )
+ ; // Implemented
+ UP "pm" true
+
+ENDME // ME_4DDCD7520351 Changes
+
+ME ME_4DF9D63B0360_ME_4DDCD72C006B
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4DDCD72C006B DocInfo
+
+ME ME_4ED906420134_ME_4DDCD72C006B
+ MELINK Original WL 'ME_4ED906420134' '491B305A0096.ms.model.script' // EditionsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4ED906420134_ME_4DDCD72C006B EditionsList
+
+ME ME_4DDCD72C006B
+ MEPROP UID '4DDCD72C006B'
+ MEPROP GUID 'CEB84047-C17B-48F3-BEA2-191D90F3BBE6'
+ MEPROP Name 'IsdsChangesBetweenEditions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прецедент ОИД' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4ED8ECEE00EE' '491B305A0096.ms.model.script' // IsdsPrimDocument
+ WL 'ME_4ED905EA0339' '491B305A0096.ms.model.script' // IsdsEditionsHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DDCD7520351 // Changes
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4DF9D63B0360_ME_4DDCD72C006B // DocInfo
+ ME_4ED906420134_ME_4DDCD72C006B // EditionsList
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'sdsChangesBetweenEditions'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DDCD72C006B IsdsChangesBetweenEditions
+
+ME ME_4DDCD71E027C
+ MEPROP UID '4DDCD71E027C'
+ MEPROP Name 'ChangesBetweenEditionsInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DDCD6FF0208' '4DDCD6FF0208.ms.model.script' // ChangesBetweenEditions$Domain
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F2BF13800A5 // MnsEditionsHolder
+ HWL ME_4DDCD7420084 // IdsChangesBetweenEditions
+ HWL ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ HWL ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
+ HWL ME_4DDCD72C006B // IsdsChangesBetweenEditions
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.ms.model.script' // DocumentInterfaces
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\ChangesBetweenEditionsInterfaces.pas'
+
+ENDME // ME_4DDCD71E027C ChangesBetweenEditionsInterfaces

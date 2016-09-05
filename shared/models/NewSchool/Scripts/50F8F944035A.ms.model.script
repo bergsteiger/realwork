@@ -1,0 +1,78 @@
+// EditorCommon 50F8F944035A Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50F8F944035A
+
+FORWARD ME_50F8F97E0292
+
+ME ME_50F9343C01C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50F8F97E0292 // TevArchiLikeDocumentContainer
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '47913B47006E.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_50F9343C01C8 
+
+ME ME_479731C50290_ME_50F8F97E0292
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_50F8F97E0292 Cleanup
+
+ME ME_50F8F97E0292
+ MEPROP UID '50F8F97E0292'
+ MEPROP Name 'TevArchiLikeDocumentContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50F8F944035A // EditorCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F34F00021C' '47F086170200.ms.model.script' // TnevPrintableDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_50F8F97E0292 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50F9343C01C8 // l3Free
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\evArchiLikeDocumentContainer.pas'
+ UP extprop:rc:SelfName 'ArchiLikeDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evArchiLikeDocumentContainer'
+
+ENDME // ME_50F8F97E0292 TevArchiLikeDocumentContainer
+
+ME ME_50F8F944035A
+ MEPROP UID '50F8F944035A'
+ MEPROP Name 'EditorCommon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E25512D01C0' '4E25512D01C0.ms.model.script' // Utils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_50F8F97E0292 // TevArchiLikeDocumentContainer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47ECA80B000D' '47ECA80B000D.ms.model.script' // Generators
+ WL 'ME_47F086170200' '47F086170200.ms.model.script' // DocumentContainers
+ WL 'ME_47F088300159' '47F088300159.ms.model.script' // evInternalInterfaces
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ )
+ ; // Depends
+
+ENDME // ME_50F8F944035A EditorCommon

@@ -1,0 +1,62 @@
+// Translation_WarningBaloon 4EE22F340060 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EE22F340060
+
+ME ME_2D74B80A9C4A
+ MEPROP UID '2D74B80A9C4A'
+ MEPROP Name 'Ini_FormFactory_Translation_WarningBaloon'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Translation_WarningBaloon' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EE22F340060 // Translation_WarningBaloon
+ ;
+ UPLINK SpelledFor HWL ME_4EE22F340060 // Translation_WarningBaloon
+ ;
+
+ENDME // ME_2D74B80A9C4A Ini_FormFactory_Translation_WarningBaloon
+
+ME ME_4EE22F340060
+ MEPROP UID '4EE22F340060'
+ MEPROP Name 'Translation_WarningBaloon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Балон с предупреждением для перевода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA599F501CF' '4EA599F501CF.ms.model.script' // PrimWarningBaloonOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EE22F16004F' '4BD856E802F9.ms.model.script' // Translation_WarningBaloon
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_2D74B80A9C4A // Ini_FormFactory_Translation_WarningBaloon
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '09.12.2011 19:56'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Translation_WarningBaloon_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ UP extprop:pas:TypeName 'TTranslation_WarningBaloonForm'
+ UP extprop:rc:SelfName 'Translation_WarningBaloonForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Translation_WarningBaloon_Form'
+
+ENDME // ME_4EE22F340060 Translation_WarningBaloon

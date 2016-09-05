@@ -1,0 +1,442 @@
+// CompareEditions 4A897A0F0097 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A897A0F0097
+
+FORWARD ME_4A8993050237
+
+ME ME_4A8996E000FF
+ MEPROP UID '4A8996E000FF'
+ MEPROP Name 'PrevChange'
+ MEPROP Class class_Operation
+ %SUMMARY 'Предыдущее изменение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8993050237 // Edition
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4A8996E000FF PrevChange
+
+ME ME_4A8996FA03B8
+ MEPROP UID '4A8996FA03B8'
+ MEPROP Name 'NextChange'
+ MEPROP Class class_Operation
+ %SUMMARY 'Следующее изменение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8993050237 // Edition
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4A8996FA03B8 NextChange
+
+ME ME_4B1E37CE00C1_ME_4A8993050237
+ MELINK Original WL 'ME_4B1E37CE00C1' '4A77058200BA.ms.model.script' // ReturnToDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4B1E37CE00C1_ME_4A8993050237 ReturnToDocument
+
+ME ME_4A8993050237
+ MEPROP UID '4A8993050237'
+ MEPROP Name 'Edition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A897A0F0097 // CompareEditions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E8C3C6C0244' '4A77058200BA.ms.model.script' // Edition
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A8996E000FF // PrevChange
+ HWL ME_4A8996FA03B8 // NextChange
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B1E37CE00C1_ME_4A8993050237 // ReturnToDocument
+ )
+ ; // Implemented
+
+ENDME // ME_4A8993050237 Edition
+
+FORWARD ME_4B6ADBAC0014
+
+ME ME_4B6ADBEF0081
+ MEPROP UID '4B6ADBEF0081'
+ MEPROP Name 'Fail'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Неуспешно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6ADBAC0014 // TGotoParaResult
+ ;
+
+ENDME // ME_4B6ADBEF0081 Fail
+
+ME ME_4B6ADBF900C7
+ MEPROP UID '4B6ADBF900C7'
+ MEPROP Name 'Ok'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Успешно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6ADBAC0014 // TGotoParaResult
+ ;
+
+ENDME // ME_4B6ADBF900C7 Ok
+
+ME ME_4B6ADC03006C
+ MEPROP UID '4B6ADC03006C'
+ MEPROP Name 'Already'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Уже стояли на этом параграфе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6ADBAC0014 // TGotoParaResult
+ ;
+
+ENDME // ME_4B6ADC03006C Already
+
+ME ME_4B6ADBAC0014
+ MEPROP UID '4B6ADBAC0014'
+ MEPROP Name 'TGotoParaResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат перехода на параграф' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A897A0F0097 // CompareEditions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B6ADBEF0081 // Fail
+ HWL ME_4B6ADBF900C7 // Ok
+ HWL ME_4B6ADC03006C // Already
+ )
+ ; // Attributes
+ UP "children prefix" 'gtpr'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefix 'gtpr'
+
+ENDME // ME_4B6ADBAC0014 TGotoParaResult
+
+FORWARD ME_4B065085018D
+
+ME ME_54D30CC50329
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_54D30CC50329 aDocument
+
+ME ME_54D30CC50343
+ MEPROP Name 'aSub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54D30CC50343 aSub
+
+ME ME_54D30CC5035D
+ MEPROP Name 'aBehaviour'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53A91FD901F3' '4ACF514E0337.ms.model.script' // TbsProcessHyperLinkBehaviour
+ ;
+
+ENDME // ME_54D30CC5035D aBehaviour
+
+ME ME_4B0650D4035A
+ MEPROP UID '4B0650D4035A'
+ MEPROP Name 'OpenEditionLocalLink'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Переход по локальной ссылке на редакцию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B065085018D // Document
+ ;
+ MELIST Parameters
+   Seq: ( ME_54D30CC50329 // aDocument
+ ME_54D30CC50343 // aSub
+ ME_54D30CC5035D // aBehaviour
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4B0650D4035A OpenEditionLocalLink
+
+ME ME_4B065085018D
+ MEPROP UID '4B065085018D'
+ MEPROP Name 'Document'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A897A0F0097 // CompareEditions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B0650D4035A // OpenEditionLocalLink
+ )
+ ; // Operations
+
+ENDME // ME_4B065085018D Document
+
+FORWARD ME_4B1E38210086
+
+ME ME_4B1E3833024A
+ MEPROP UID '4B1E3833024A'
+ MEPROP Name 'ReturnToDocument'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Вернуться в текст документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1E38210086 // RightEdition
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4B1E3833024A ReturnToDocument
+
+ME ME_4B69B5A802C2
+ MEPROP UID '4B69B5A802C2'
+ MEPROP Name 'SetFocusToText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Устанавливает фокус тексту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1E38210086 // RightEdition
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4B69B5A802C2 SetFocusToText
+
+ME ME_4B6AF2C401E0
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B6AF2C401E0 aPara
+
+ME ME_4B6AF2A502AE
+ MEPROP UID '4B6AF2A502AE'
+ MEPROP Name 'IsCurrentPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Является ли параграф текущим' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1E38210086 // RightEdition
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B6AF2C401E0 // aPara
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4B6AF2A502AE IsCurrentPara
+
+ME ME_4B1E38210086
+ MEPROP UID '4B1E38210086'
+ MEPROP Name 'RightEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A897A0F0097 // CompareEditions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1E3833024A // ReturnToDocument
+ HWL ME_4B69B5A802C2 // SetFocusToText
+ HWL ME_4B6AF2A502AE // IsCurrentPara
+ )
+ ; // Operations
+
+ENDME // ME_4B1E38210086 RightEdition
+
+FORWARD ME_4ADC8B0F02CF
+
+ME ME_4AE042630148
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE042630148 aPara
+
+ME ME_4AE042520302
+ MEPROP UID '4AE042520302'
+ MEPROP Name 'GotoPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Перейти к параграфу по номеру' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4ADC8B0F02CF // Finder
+ ;
+ MELINK Target HWL ME_4B6ADBAC0014 // TGotoParaResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE042630148 // aPara
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4AE042520302 GotoPara
+
+ME ME_4B59C1F401F8
+ MEPROP UID '4B59C1F401F8'
+ MEPROP Name 'DisableForceDrawFocusRect'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Запрещает рисование фокусной рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4ADC8B0F02CF // Finder
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4B59C1F401F8 DisableForceDrawFocusRect
+
+ME ME_4ADC8B0F02CF
+ MEPROP UID '4ADC8B0F02CF'
+ MEPROP Name 'Finder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Инструмент для поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A897A0F0097 // CompareEditions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE042520302 // GotoPara
+ HWL ME_4B59C1F401F8 // DisableForceDrawFocusRect
+ )
+ ; // Operations
+
+ENDME // ME_4ADC8B0F02CF Finder
+
+ME ME_4A897A0F0097
+ MEPROP UID '4A897A0F0097'
+ MEPROP Name 'CompareEditions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Операции специфичные для Сравнения редакций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A6D59C9005C' '4A6D59C9005C.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A8993050237 // Edition
+ HWL ME_4B6ADBAC0014 // TGotoParaResult
+ HWL ME_4B065085018D // Document
+ HWL ME_4B1E38210086 // RightEdition
+ HWL ME_4ADC8B0F02CF // Finder
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_4A77058200BA' '4A77058200BA.ms.model.script' // Editions
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ACF514E0337' '4ACF514E0337.ms.model.script' // NavigationInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '17.08.2009 19:42'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_Controls.pas'
+ UP extprop:pas:UnitName 'CompareEditions_Controls'
+
+ENDME // ME_4A897A0F0097 CompareEditions

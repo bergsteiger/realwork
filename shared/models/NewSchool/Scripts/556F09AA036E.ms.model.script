@@ -1,0 +1,539 @@
+// l3PrinterInterfaces 556F09AA036E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_556F09AA036E
+
+ME ME_46A46A030333
+ MEPROP UID '46A46A030333'
+ MEPROP Name 'TCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Канва для вывода.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_556F09AA036E // l3PrinterInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_515581580039' '55C4AEC801CA.ms.model.script' // TCanvas
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Canvas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_46A46A030333 TCanvas
+
+FORWARD ME_46A4657201E7
+
+ME ME_46A4692C01C1
+ MEPROP UID '46A4692C01C1'
+ MEPROP Name 'PrinterIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'индекс текущего принтера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" false
+
+ENDME // ME_46A4692C01C1 PrinterIndex
+
+ME ME_46A4696D021E
+ MEPROP UID '46A4696D021E'
+ MEPROP Name 'Title'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'заголовок задания печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" false
+
+ENDME // ME_46A4696D021E Title
+
+ME ME_46A469970084
+ MEPROP UID '46A469970084'
+ MEPROP Name 'FileName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Имя файла - куда печатать.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ UP "pm" false
+
+ENDME // ME_46A469970084 FileName
+
+ME ME_46A46C000399
+ MEPROP UID '46A46C000399'
+ MEPROP Name 'Printing'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'находимся в процессе печати?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46C000399 Printing
+
+ME ME_46A46C1B00DA
+ MEPROP UID '46A46C1B00DA'
+ MEPROP Name 'PageHeight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'высота текущей страницы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46C1B00DA PageHeight
+
+ME ME_46A46C2D00C2
+ MEPROP UID '46A46C2D00C2'
+ MEPROP Name 'PageWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'ширина текущей страницы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46C2D00C2 PageWidth
+
+ME ME_46A46C410049
+ MEPROP UID '46A46C410049'
+ MEPROP Name 'Copies'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'количество печатаемых копий.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46C410049 Copies
+
+ME ME_4C2D834D0019
+ MEPROP UID '4C2D834D0019'
+ MEPROP Name 'Collate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_4C2D834D0019 Collate
+
+ME ME_4C2D837000AB
+ MEPROP UID '4C2D837000AB'
+ MEPROP Name 'CanCollate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_4C2D837000AB CanCollate
+
+ME ME_46A46A95001B
+ MEPROP UID '46A46A95001B'
+ MEPROP Name 'DC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'контекст печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_46A46A6802C0' '4677FBA70343.ms.model.script' // hDC
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46A95001B DC
+
+ME ME_46A46ACA00CC
+ MEPROP UID '46A46ACA00CC'
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'канва для печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target HWL ME_46A46A030333 // TCanvas
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46ACA00CC Canvas
+
+ME ME_46A46AF00379
+ MEPROP UID '46A46AF00379'
+ MEPROP Name 'Printers'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'список доступных принтеров.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_46A46864000B' '4677FBA70343.ms.model.script' // TStrings
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46AF00379 Printers
+
+ME ME_46A46B9E02CF
+ MEPROP UID '46A46B9E02CF'
+ MEPROP Name 'Orientation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'ориентация текущей страницы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_46A46B650237' '4677FBA70343.ms.model.script' // Tl3PageOrientation
+ ;
+ UP "pm" false
+
+ENDME // ME_46A46B9E02CF Orientation
+
+ME ME_4799B438008C
+ MEPROP UID '4799B438008C'
+ MEPROP Name 'PaperExtent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Размер бумаги.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_46A480790259' '4677FBA70343.ms.model.script' // Tl3_Point
+ ;
+ UP "pm" false
+
+ENDME // ME_4799B438008C PaperExtent
+
+FORWARD ME_4F36910C00F8
+
+ME ME_4F3691210250
+ MEPROP UID '4F3691210250'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F36910C00F8 // Refresh
+ ;
+
+ENDME // ME_4F3691210250 DoIt
+
+ME ME_4F36910C00F8
+ MEPROP UID '4F36910C00F8'
+ MEPROP Name 'Refresh'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обновляет список принтеров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F3691210250 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F36910C00F8 Refresh
+
+ME ME_46A465CD021A
+ MEPROP UID '46A465CD021A'
+ MEPROP Name 'HasPrinter'
+ MEPROP Class class_Operation
+ %SUMMARY 'есть ли принтер для печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_46A465CD021A HasPrinter
+
+ME ME_46A467610351
+ MEPROP Name 'ADevice'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5154744C018F' '4AB0C3C60310.ms.model.script' // PChar$XE
+ ;
+
+ENDME // ME_46A467610351 ADevice
+
+ME ME_46A46761038E
+ MEPROP Name 'ADriver'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5154744C018F' '4AB0C3C60310.ms.model.script' // PChar$XE
+ ;
+
+ENDME // ME_46A46761038E ADriver
+
+ME ME_46A4676103C0
+ MEPROP Name 'APort'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5154744C018F' '4AB0C3C60310.ms.model.script' // PChar$XE
+ ;
+
+ENDME // ME_46A4676103C0 APort
+
+ME ME_46A467690399
+ MEPROP Name 'ADeviceMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_477266BB000B' '46A5E026007E.ms.model.script' // THandle
+ ;
+
+ENDME // ME_46A467690399 ADeviceMode
+
+ME ME_46A466120219
+ MEPROP UID '46A466120219'
+ MEPROP Name 'GetPrinter'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить параметры принтера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELIST Parameters
+   Seq: ( ME_46A467610351 // ADevice
+ ME_46A46761038E // ADriver
+ ME_46A4676103C0 // APort
+ ME_46A467690399 // ADeviceMode
+ )
+ ; // Parameters
+
+ENDME // ME_46A466120219 GetPrinter
+
+ME ME_46A4674A03A9
+ MEPROP Name 'ADevice'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5154744C018F' '4AB0C3C60310.ms.model.script' // PChar$XE
+ ;
+
+ENDME // ME_46A4674A03A9 ADevice
+
+ME ME_46A4674A03DB
+ MEPROP Name 'ADriver'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5154744C018F' '4AB0C3C60310.ms.model.script' // PChar$XE
+ ;
+
+ENDME // ME_46A4674A03DB ADriver
+
+ME ME_46A4674B002F
+ MEPROP Name 'APort'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5154744C018F' '4AB0C3C60310.ms.model.script' // PChar$XE
+ ;
+
+ENDME // ME_46A4674B002F APort
+
+ME ME_46A4674B006B
+ MEPROP Name 'ADeviceMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_477266BB000B' '46A5E026007E.ms.model.script' // THandle
+ ;
+
+ENDME // ME_46A4674B006B ADeviceMode
+
+ME ME_46A4672E0127
+ MEPROP UID '46A4672E0127'
+ MEPROP Name 'SetPrinter'
+ MEPROP Class class_Operation
+ %SUMMARY 'установить параметры принтера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELIST Parameters
+   Seq: ( ME_46A4674A03A9 // ADevice
+ ME_46A4674A03DB // ADriver
+ ME_46A4674B002F // APort
+ ME_46A4674B006B // ADeviceMode
+ )
+ ; // Parameters
+
+ENDME // ME_46A4672E0127 SetPrinter
+
+ME ME_46A467C30370
+ MEPROP UID '46A467C30370'
+ MEPROP Name 'BeginDoc'
+ MEPROP Class class_Operation
+ %SUMMARY 'начать печать документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+
+ENDME // ME_46A467C30370 BeginDoc
+
+ME ME_46A467D703D3
+ MEPROP UID '46A467D703D3'
+ MEPROP Name 'EndDoc'
+ MEPROP Class class_Operation
+ %SUMMARY 'закончить печать документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+
+ENDME // ME_46A467D703D3 EndDoc
+
+ME ME_46A468010301
+ MEPROP UID '46A468010301'
+ MEPROP Name 'NewPage'
+ MEPROP Class class_Operation
+ %SUMMARY 'начать новую страницу.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+
+ENDME // ME_46A468010301 NewPage
+
+ME ME_49BAA14602EC
+ MEPROP UID '49BAA14602EC'
+ MEPROP Name 'Clone'
+ MEPROP Class class_Operation
+ %SUMMARY 'Клонирует принтер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A4657201E7 // Il3Printer
+ ;
+ MELINK Target HWL ME_46A4657201E7 // Il3Printer
+ ;
+
+ENDME // ME_49BAA14602EC Clone
+
+ME ME_46A4657201E7
+ MEPROP UID '46A4657201E7'
+ MEPROP GUID 'D81ECD1A-CE19-4262-BE7C-58A1401F2C7E'
+ MEPROP Name 'Il3Printer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Принтер.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_556F09AA036E // l3PrinterInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_46A4692C01C1 // PrinterIndex
+ HWL ME_46A4696D021E // Title
+ HWL ME_46A469970084 // FileName
+ HWL ME_46A46C000399 // Printing
+ HWL ME_46A46C1B00DA // PageHeight
+ HWL ME_46A46C2D00C2 // PageWidth
+ HWL ME_46A46C410049 // Copies
+ HWL ME_4C2D834D0019 // Collate
+ HWL ME_4C2D837000AB // CanCollate
+ HWL ME_46A46A95001B // DC
+ HWL ME_46A46ACA00CC // Canvas
+ HWL ME_46A46AF00379 // Printers
+ HWL ME_46A46B9E02CF // Orientation
+ HWL ME_4799B438008C // PaperExtent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F36910C00F8 // Refresh
+ HWL ME_46A465CD021A // HasPrinter
+ HWL ME_46A466120219 // GetPrinter
+ HWL ME_46A4672E0127 // SetPrinter
+ HWL ME_46A467C30370 // BeginDoc
+ HWL ME_46A467D703D3 // EndDoc
+ HWL ME_46A468010301 // NewPage
+ HWL ME_49BAA14602EC // Clone
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Printer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_46A4657201E7 Il3Printer
+
+ME ME_556F09AA036E
+ MEPROP UID '556F09AA036E'
+ MEPROP Name 'l3PrinterInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ ;
+ MELIST Children
+   Seq: ( HWL ME_46A46A030333 // TCanvas
+ HWL ME_46A4657201E7 // Il3Printer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PrinterInterfaces.pas'
+
+ENDME // ME_556F09AA036E l3PrinterInterfaces

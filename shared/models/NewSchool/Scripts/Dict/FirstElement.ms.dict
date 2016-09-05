@@ -1,0 +1,31 @@
+UNIT FirstElement.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+: .FirstElement
+  ARRAY IN anArray
+ VAR l_Found
+ nil >>> l_Found
+ anArray 
+ .trunc> ( DROP l_Found .IsNil ) 
+ .for> ( >>> l_Found )
+ l_Found
+; // .FirstElement
+
+: .SecondElement
+  ARRAY IN anArray
+ VAR l_Found
+ nil >>> l_Found
+ INTEGER VAR l_Index
+ 0 >>> l_Index
+ anArray .trunc> ( DROP l_Index < 2 ) .for> (
+   IN anItem
+  ( l_Index 1 == ) ? 
+   ( anItem >>> l_Found ) 
+  INC l_Index 
+ ) // anArray .trunc> ( DROP l_Index < 2 ) .for>
+ l_Found
+; // .SecondElement
+

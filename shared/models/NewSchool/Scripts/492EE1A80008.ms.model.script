@@ -1,0 +1,98 @@
+// TsdsFolders 492EE1A80008 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492EE1A80008
+
+ME ME_492EE3CD0086
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492EE1A80008 // TsdsFolders
+ ;
+ MELINK Target WL 'ME_492198EA0072' '492198EA0072.ms.model.script' // TdsFolders
+ ;
+
+ENDME // ME_492EE3CD0086 
+
+ME ME_492EE3E9018A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492EE1A80008 // TsdsFolders
+ ;
+ MELINK Target WL 'ME_492286CA0097' '492286CA0097.ms.model.script' // TdsFoldersTree
+ ;
+
+ENDME // ME_492EE3E9018A 
+
+ME ME_492EE4150264
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492EE1A80008 // TsdsFolders
+ ;
+ MELINK Target WL 'ME_492195FE01B3' '492195FE01B3.ms.model.script' // TdsFolderElement
+ ;
+
+ENDME // ME_492EE4150264 
+
+ME ME_492EAE8B01AC_ME_492EE1A80008
+ MELINK Original WL 'ME_492EAE8B01AC' '492192300095.ms.model.script' // dsFolders
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492EAE8B01AC_ME_492EE1A80008 dsFolders
+
+ME ME_492EB06D013C_ME_492EE1A80008
+ MELINK Original WL 'ME_492EB06D013C' '492192300095.ms.model.script' // dsFoldersTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492EB06D013C_ME_492EE1A80008 dsFoldersTree
+
+ME ME_492EB098008A_ME_492EE1A80008
+ MELINK Original WL 'ME_492EB098008A' '492192300095.ms.model.script' // dsFolderElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492EB098008A_ME_492EE1A80008 dsFolderElement
+
+ME ME_492EE1A80008
+ MEPROP UID '492EE1A80008'
+ MEPROP Name 'TsdsFolders'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прецедент "Папки"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4921954E019B' '4921954E019B.ms.model.script' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_494778CD004F' '47D0E1500033.ms.model.script' // vcmTinyUseCaseController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492EAE13002A' '492192300095.ms.model.script' // IsdsFolders
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_492EAE8B01AC_ME_492EE1A80008 // dsFolders
+ ME_492EB06D013C_ME_492EE1A80008 // dsFoldersTree
+ ME_492EB098008A_ME_492EE1A80008 // dsFolderElement
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_492EE3CD0086 // TdsFolders
+ ME_492EE3E9018A // TdsFoldersTree
+ ME_492EE4150264 // TdsFolderElement
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '2006/05/03 14:59:45'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\sdsFolders.pas'
+ UP extprop:rc:SelfName 'sdsFolders'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'sdsFolders'
+
+ENDME // ME_492EE1A80008 TsdsFolders

@@ -1,0 +1,39 @@
+// HCAdapterLib 45E43D74036B Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_45E43D74036B
+ MEPROP UID '45E43D74036B'
+ MEPROP Name 'HCAdapterLib'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_442BEDF00290' '442BEDF00290.ms.model.script' // garant6x
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_442BEF93030D' '442BEF93030D.ms.model.script' // HCInterfaces
+ WL 'ME_442CE247030D' '442CE247030D.ms.model.script' // HCInterfaces_i
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_447878770121' '447878770121.ms.model.script' // GCI
+ WL 'ME_44EC25FD0119' '44EC25FD0119.ms.model.script' // xerces
+ WL 'ME_450293DF0167' '450293DF0167.ms.model.script' // ace
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'tie'
+ UP "is namespace" true
+ UP "need UC" true
+ UP "vendor" '/Garant'
+ UP cpp:Path 'garant6x\implementation\Garant\HCAdapterLib\LibHome.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ UP h:Path 'garant6x\implementation\Garant\HCAdapterLib\LibHome.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\HCAdapterLib'
+ UP pas:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+
+ENDME // ME_45E43D74036B HCAdapterLib

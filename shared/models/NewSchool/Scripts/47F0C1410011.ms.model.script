@@ -1,0 +1,525 @@
+// dsSimpleTree 47F0C1410011 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F0C1410011
+
+FORWARD ME_4921543D025B
+
+ME ME_4921544B0190
+ MEPROP UID '4921544B0190'
+ MEPROP Name 'ns_UpdateTime'
+ MEPROP Class class_Attribute
+ %SUMMARY 'время с момента обновления текущего после которого можно снова обновлять связанное представление' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4921543D025B // Times
+ ;
+ MEPROP Value 100
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 100
+
+ENDME // ME_4921544B0190 ns_UpdateTime
+
+ME ME_4921543D025B
+ MEPROP UID '4921543D025B'
+ MEPROP Name 'Times'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4921544B0190 // ns_UpdateTime
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4921543D025B Times
+
+ME ME_49213F16029F
+ MEPROP UID '49213F16029F'
+ MEPROP Name 'f_SimpleTree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_49213F16029F f_SimpleTree
+
+ME ME_49213F3B016B
+ MEPROP UID '49213F3B016B'
+ MEPROP Name 'IsFirstMake'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_49213F3B016B IsFirstMake
+
+ME ME_4921515002F6
+ MEPROP UID '4921515002F6'
+ MEPROP Name 'MovingCurrent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий перемещаемый в дереве, которым ещё не было обновлено связанное'#13#10'           представление' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4921515002F6 MovingCurrent
+
+ME ME_4921518E034B
+ MEPROP UID '4921518E034B'
+ MEPROP Name 'PrevMovingCurrent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'предыдущий текущий узел в дереве, используется для определения конца'#13#10'          перемещения' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4921518E034B PrevMovingCurrent
+
+ME ME_492151D003A5
+ MEPROP UID '492151D003A5'
+ MEPROP Name 'ChangeCurrentTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'время последнего обновления текущего' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_492151D003A5 ChangeCurrentTime
+
+ME ME_492152570031
+ MEPROP UID '492152570031'
+ MEPROP Name 'UpdateCurrentTimer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_48C7C96E0135' '4799D29F033F.ms.model.script' // TTimer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "writes field" true
+
+ENDME // ME_492152570031 UpdateCurrentTimer
+
+ME ME_492155A70263
+ MEPROP UID '492155A70263'
+ MEPROP Name 'Current'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий узел, данные которого показываются в связанном представлении'#13#10'           (например список и зона синхронного просмотра)' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_492155A70263 Current
+
+ME ME_492D5B7903AC
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_492D5B7903AC aNode
+
+ME ME_47F0C1BF0314
+ MEPROP UID '47F0C1BF0314'
+ MEPROP Name 'DoCurrentChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'сменился текущий.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D5B7903AC // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_47F0C1BF0314 DoCurrentChanged
+
+ME ME_47F465F80149
+ MEPROP UID '47F465F80149'
+ MEPROP Name 'MakeImageList'
+ MEPROP Class class_Operation
+ %SUMMARY '- создать иконки дерева.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_4728C6AC0070' '467C0CAA02AB.ms.model.script' // Il3ImageList
+ ;
+
+ENDME // ME_47F465F80149 MakeImageList
+
+ME ME_47F4C2B9014A
+ MEPROP UID '47F4C2B9014A'
+ MEPROP Name 'MakeSimpleTree'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создать данные дерева' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_47F4C2B9014A MakeSimpleTree
+
+ME ME_492D5B7300F4
+ MEPROP Name 'aOld'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_492D5B7300F4 aOld
+
+ME ME_47FC72AF006B
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_47FC72AF006B aNew
+
+ME ME_47FC718400FA
+ MEPROP UID '47FC718400FA'
+ MEPROP Name 'UpdateSimpleTree'
+ MEPROP Class class_Operation
+ %SUMMARY '- обновить данные дерева.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D5B7300F4 // aOld
+ ME_47FC72AF006B // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_47FC718400FA UpdateSimpleTree
+
+ME ME_4921408502B7
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4921408502B7 aSender
+
+ME ME_492140830112
+ MEPROP UID '492140830112'
+ MEPROP Name 'OnUpdateCurrent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4921408502B7 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_492140830112 OnUpdateCurrent
+
+ME ME_49214097027A
+ MEPROP UID '49214097027A'
+ MEPROP Name 'MovingFinished'
+ MEPROP Class class_Operation
+ %SUMMARY 'перемещение закончено' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+
+ENDME // ME_49214097027A MovingFinished
+
+ME ME_49215CE702B9
+ MEPROP UID '49215CE702B9'
+ MEPROP Name 'DoDataDropped'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+
+ENDME // ME_49215CE702B9 DoDataDropped
+
+ME ME_4978163E03A0
+ MEPROP UID '4978163E03A0'
+ MEPROP Name 'RefreshSimpleTree'
+ MEPROP Class class_Operation
+ %SUMMARY 'обнуляет SimpleTree и получает его заново' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4978163E03A0 RefreshSimpleTree
+
+ME ME_49213D2F022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49213D2F022C 
+
+ME ME_49213D43000B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_49213D43000B 
+
+ME ME_49213DF003D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_47F4853203E7' '47F485150151.ms.model.script' // vtUtils
+ ;
+
+ENDME // ME_49213DF003D2 
+
+ME ME_49213E4B014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_49213DFA02CB' '4E1447600037.ms.model.script' // vtStdRes
+ ;
+
+ENDME // ME_49213E4B014A 
+
+ME ME_49213F660021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_49213F660021 
+
+ME ME_49213F8900AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_490AF9B0039B' '4908A8A20107.ms.model.script' // TnsNewCachableNode
+ ;
+
+ENDME // ME_49213F8900AA 
+
+ME ME_49214101032A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ ;
+
+ENDME // ME_49214101032A 
+
+ME ME_4921556703C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0C1410011 // dsSimpleTree
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4921556703C9 
+
+ME ME_48FEE96D03AD_ME_47F0C1410011
+ MELINK Original WL 'ME_48FEE96D03AD' '47ECAAF901F8.ms.model.script' // DataDropped
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48FEE96D03AD_ME_47F0C1410011 DataDropped
+
+ME ME_491DD57603A3_ME_47F0C1410011
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_47F0C1410011 ImageList
+
+ME ME_491DD5A10199_ME_47F0C1410011
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_47F0C1410011 SimpleTree
+
+ME ME_491DD5C90095_ME_47F0C1410011
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_47F0C1410011 CurrentChanged
+
+ME ME_479731C50290_ME_47F0C1410011
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47F0C1410011 Cleanup
+
+ME ME_491476B001D3_ME_47F0C1410011
+ MELINK Original WL 'ME_491476B001D3' '47D0E1500033.ms.model.script' // MakeDisplayName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491476B001D3_ME_47F0C1410011 MakeDisplayName
+
+ME ME_492BF7900310_ME_47F0C1410011
+ MELINK Original WL 'ME_492BF7900310' '47D0E1500033.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492BF7900310_ME_47F0C1410011 DoInit
+
+ME ME_47F0C1410011
+ MEPROP UID '47F0C1410011'
+ MEPROP Name 'dsSimpleTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект формы с деревом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47F282AE0082' '47F282AE0082.ms.model.script' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.ms.model.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.ms.model.script' // IdsSimpleTree
+ WL 'ME_48FEE95F0124' '47ECAAF901F8.ms.model.script' // InsDropListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49213F16029F // f_SimpleTree
+ HWL ME_49213F3B016B // IsFirstMake
+ HWL ME_4921515002F6 // MovingCurrent
+ HWL ME_4921518E034B // PrevMovingCurrent
+ HWL ME_492151D003A5 // ChangeCurrentTime
+ HWL ME_492152570031 // UpdateCurrentTimer
+ HWL ME_492155A70263 // Current
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47F0C1BF0314 // DoCurrentChanged
+ HWL ME_47F465F80149 // MakeImageList
+ HWL ME_47F4C2B9014A // MakeSimpleTree
+ HWL ME_47FC718400FA // UpdateSimpleTree
+ HWL ME_492140830112 // OnUpdateCurrent
+ HWL ME_49214097027A // MovingFinished
+ HWL ME_49215CE702B9 // DoDataDropped
+ HWL ME_4978163E03A0 // RefreshSimpleTree
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48FEE96D03AD_ME_47F0C1410011 // DataDropped
+ ME_491DD57603A3_ME_47F0C1410011 // ImageList
+ ME_491DD5A10199_ME_47F0C1410011 // SimpleTree
+ ME_491DD5C90095_ME_47F0C1410011 // CurrentChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47F0C1410011 // Cleanup
+ ME_491476B001D3_ME_47F0C1410011 // MakeDisplayName
+ ME_492BF7900310_ME_47F0C1410011 // DoInit
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4921543D025B // Times
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_49213D2F022C // SysUtils
+ ME_49213D43000B // l3Base
+ ME_49213DF003D2 // vtUtils
+ ME_49213E4B014A // vtStdRes
+ ME_49213F660021 // NodeBase
+ ME_49213F8900AA // TnsNewCachableNode
+ ME_49214101032A // Il3ChangeNotifier
+ ME_4921556703C9 // Windows
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '2005/8/3 13:49:6'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas'
+ UP extprop:pas:TypeName '_dsSimpleTree_'
+ UP extprop:pas:UnitName 'dsSimpleTree.imp'
+
+ENDME // ME_47F0C1410011 dsSimpleTree

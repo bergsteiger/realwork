@@ -943,6 +943,8 @@ var
 //#UC START# *55B26A1C0277_ext:FileName
 w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas
 //#UC END# *55B26A1C0277_ext:FileName
+//#UC START# *55B26A1C0277impl_uses*
+//#UC END# *55B26A1C0277impl_uses*
 //#UC START# *55B26AC301C3_4AA7C26401C4_impl*
  if (g_TnsStartupSupport <> nil) then
  begin
@@ -1218,7 +1220,7 @@ var
  begin
   RunDataInstallerProcess(GetDataInstallerCommandLine);
   //
-  StartupCompletedNotify;
+  StartupCompleteNotify;
   try
    LockLogin;
    WaitWhileLoginIsLocked(IsDataInstallerProcessRunning);
@@ -1233,7 +1235,7 @@ var
   begin
    RunDataUpdaterProcess(GetDataUpdaterCommandLine);
    //
-   StartupCompletedNotify;
+   StartupCompleteNotify;
    try
     LockLogin;
     WaitWhileLoginIsLocked(IsDataUpdaterProcessRunning);
@@ -1248,7 +1250,7 @@ var
    begin
     RunDownloaderProcess(GetDownloaderCommandLine);
     //
-    StartupCompletedNotify;
+    StartupCompleteNotify;
     try
      LockLogin;
      WaitWhileLoginIsLocked(IsDownloaderProcessRunning);

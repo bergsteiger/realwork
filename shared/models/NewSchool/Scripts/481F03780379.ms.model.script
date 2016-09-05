@@ -1,0 +1,37 @@
+// Утилиты 481F03780379 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481F03780379
+
+ME ME_481F041C02D9
+ MEPROP UID '481F041C02D9'
+ MEPROP Name 'Утилита импорта списка пользователей'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилита предназначеная для создания в системе ГАРАНТ Платформа F1 списка пользователей из CSV-файла, передаваемого ей в качестве параметра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481F03780379 // Утилиты
+ ;
+
+ENDME // ME_481F041C02D9 Утилита импорта списка пользователей
+
+ME ME_481F03780379
+ MEPROP UID '481F03780379'
+ MEPROP Name 'Утилиты'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Различные вспомогательные программы, облегчающие выполнение пакетных операций или обслуживание Банка данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E312E2502AE' '4E312E2502AE.ms.model.script' // Требования
+ ;
+ MELIST Children
+   Seq: ( HWL ME_481F041C02D9 // Утилита импорта списка пользователей
+ )
+ ; // Children
+
+ENDME // ME_481F03780379 Утилиты

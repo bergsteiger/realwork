@@ -1,0 +1,59 @@
+// dsBaseSearchSupportQuery 496F3F2500A8 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_496F3F2500A8
+
+ME ME_497A0B2203C4
+ MEPROP UID '497A0B2203C4'
+ MEPROP Name 'BaseSearch'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_496F3F2500A8 // dsBaseSearchSupportQuery
+ ;
+ MELINK Target WL 'ME_496F39650385' '4D1B548F00EE.ms.model.script' // IucpBaseSearchSupportQuery
+ ;
+
+ENDME // ME_497A0B2203C4 BaseSearch
+
+ME ME_496F344101D0_ME_496F3F2500A8
+ MELINK Original WL 'ME_496F344101D0' '491B305A0096.ms.model.script' // CanRunBaseSearch
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_496F344101D0_ME_496F3F2500A8 CanRunBaseSearch
+
+ME ME_496F3F2500A8
+ MEPROP UID '496F3F2500A8'
+ MEPROP Name 'dsBaseSearchSupportQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь, реализующая абстрактный интерфейс BaseSearchSupportQuery' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_496F33D900C1' '491B305A0096.ms.model.script' // BaseSearchSupportQuery
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_497A0B2203C4 // BaseSearch
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_496F344101D0_ME_496F3F2500A8 // CanRunBaseSearch
+ )
+ ; // Implemented
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas'
+ UP extprop:pas:TypeName '_dsBaseSearchSupportQuery_'
+ UP extprop:pas:UnitName 'dsBaseSearchSupportQuery.imp'
+
+ENDME // ME_496F3F2500A8 dsBaseSearchSupportQuery

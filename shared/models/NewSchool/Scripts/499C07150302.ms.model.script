@@ -1,0 +1,407 @@
+// SplashTypes 499C07150302 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499C07150302
+
+FORWARD ME_499C079E018B
+
+ME ME_499C07B50202
+ MEPROP UID '499C07B50202'
+ MEPROP Name 'cMemFileName'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Имя файла проецируемого в память' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C079E018B // SplashConstants
+ ;
+ MEPROP Value '''{FD2B7487-1FEB-40A4-9D66-8532A4BB7C10}'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''{FD2B7487-1FEB-40A4-9D66-8532A4BB7C10}'''
+
+ENDME // ME_499C07B50202 cMemFileName
+
+ME ME_499C07D002E0
+ MEPROP UID '499C07D002E0'
+ MEPROP Name 'cGuardName'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Имя мьютекса для защиты данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C079E018B // SplashConstants
+ ;
+ MEPROP Value '''{36F75AF8-F8E5-4C52-9046-1720F059F9A1}'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''{36F75AF8-F8E5-4C52-9046-1720F059F9A1}'''
+
+ENDME // ME_499C07D002E0 cGuardName
+
+ME ME_499C07DB029F
+ MEPROP UID '499C07DB029F'
+ MEPROP Name 'cFinishEventName'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Сообщение от клиента к серверу о том, что оболочка все сделала и можно сплеш закрывать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C079E018B // SplashConstants
+ ;
+ MEPROP Value '''{9B07B496-065C-474D-87D6-7FCA7A3184B0}'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''{9B07B496-065C-474D-87D6-7FCA7A3184B0}'''
+
+ENDME // ME_499C07DB029F cFinishEventName
+
+ME ME_499C07EA0046
+ MEPROP UID '499C07EA0046'
+ MEPROP Name 'cSplashVersion'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Версия протокола - для защиты от дурака' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C079E018B // SplashConstants
+ ;
+ MEPROP Value 1
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1
+
+ENDME // ME_499C07EA0046 cSplashVersion
+
+ME ME_499C079E018B
+ MEPROP UID '499C079E018B'
+ MEPROP Name 'SplashConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499C07150302 // SplashTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499C07B50202 // cMemFileName
+ HWL ME_499C07D002E0 // cGuardName
+ HWL ME_499C07DB029F // cFinishEventName
+ HWL ME_499C07EA0046 // cSplashVersion
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_499C079E018B SplashConstants
+
+FORWARD ME_499C08380323
+
+ME ME_499C094B0284
+ MEPROP UID '499C094B0284'
+ MEPROP Name 'Version'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Версия данных - для защиты от дурака' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499C094B0284 Version
+
+ME ME_499C097E02DE
+ MEPROP UID '499C097E02DE'
+ MEPROP Name 'ProcessID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID процесса сервера - для защиты от дурака' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499C097E02DE ProcessID
+
+ME ME_499C098B0327
+ MEPROP UID '499C098B0327'
+ MEPROP Name 'Size'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Полный размер данных (с заголовком)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499C098B0327 Size
+
+ME ME_499C099C001F
+ MEPROP UID '499C099C001F'
+ MEPROP Name 'MinimalShowTime'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Минимальное время показа сплеша' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499C099C001F MinimalShowTime
+
+ME ME_499C09A400FC
+ MEPROP UID '499C09A400FC'
+ MEPROP Name 'ParentWnd'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Окно клиента, которому надо передать обратно фокус' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_499C09A400FC ParentWnd
+
+ME ME_499D33A403BA
+ MEPROP UID '499D33A403BA'
+ MEPROP Name 'SplashDataOffset'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Смещение для данных флеша/картинки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D33A403BA SplashDataOffset
+
+ME ME_499D33C901D9
+ MEPROP UID '499D33C901D9'
+ MEPROP Name 'SplashDataSize'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Размер данных сплеша/картинки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D33C901D9 SplashDataSize
+
+ME ME_499D340100D4
+ MEPROP UID '499D340100D4'
+ MEPROP Name 'ApplicationTitleOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D340100D4 ApplicationTitleOffset
+
+ME ME_499D34170246
+ MEPROP UID '499D34170246'
+ MEPROP Name 'ApplicationTitleSize'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Передается как AnsiChar, включает конечный нуль' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D34170246 ApplicationTitleSize
+
+ME ME_499D34330380
+ MEPROP UID '499D34330380'
+ MEPROP Name 'UserInfoOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D34330380 UserInfoOffset
+
+ME ME_499D344A0243
+ MEPROP UID '499D344A0243'
+ MEPROP Name 'UserInfoSize'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Передается как WideChar, включает конечные нули' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D344A0243 UserInfoSize
+
+ME ME_499D345A00E2
+ MEPROP UID '499D345A00E2'
+ MEPROP Name 'WarningOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D345A00E2 WarningOffset
+
+ME ME_499D346F00D0
+ MEPROP UID '499D346F00D0'
+ MEPROP Name 'WarningSize'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Передается как WideChar, включает конечные нули' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499D346F00D0 WarningSize
+
+ME ME_499E5E1E00AD
+ MEPROP UID '499E5E1E00AD'
+ MEPROP Name 'LogoOffset'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Картинка с лого - едет компонент TvtPngImageList' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499E5E1E00AD LogoOffset
+
+ME ME_499E5E720094
+ MEPROP UID '499E5E720094'
+ MEPROP Name 'LogoSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C08380323 // TnsSplashData
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_499E5E720094 LogoSize
+
+ME ME_499C08380323
+ MEPROP UID '499C08380323'
+ MEPROP Name 'TnsSplashData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Заголовок файла проецируемого в память' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499C07150302 // SplashTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499C094B0284 // Version
+ HWL ME_499C097E02DE // ProcessID
+ HWL ME_499C098B0327 // Size
+ HWL ME_499C099C001F // MinimalShowTime
+ HWL ME_499C09A400FC // ParentWnd
+ HWL ME_499D33A403BA // SplashDataOffset
+ HWL ME_499D33C901D9 // SplashDataSize
+ HWL ME_499D340100D4 // ApplicationTitleOffset
+ HWL ME_499D34170246 // ApplicationTitleSize
+ HWL ME_499D34330380 // UserInfoOffset
+ HWL ME_499D344A0243 // UserInfoSize
+ HWL ME_499D345A00E2 // WarningOffset
+ HWL ME_499D346F00D0 // WarningSize
+ HWL ME_499E5E1E00AD // LogoOffset
+ HWL ME_499E5E720094 // LogoSize
+ )
+ ; // Attributes
+ UP "packed" true
+
+ENDME // ME_499C08380323 TnsSplashData
+
+ME ME_499C08FA03D1
+ MEPROP UID '499C08FA03D1'
+ MEPROP Name 'PnsSplashData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Указатель на заголовок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499C07150302 // SplashTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499C08380323 // TnsSplashData
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_499C08FA03D1 PnsSplashData
+
+ME ME_499C07150302
+ MEPROP UID '499C07150302'
+ MEPROP Name 'SplashTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Внутренние типы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499C065E01E5' '499C065E01E5.ms.model.script' // Splash
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499C08380323 // TnsSplashData
+ HWL ME_499C08FA03D1 // PnsSplashData
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_499C079E018B // SplashConstants
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Splash\SplashTypes.pas'
+
+ENDME // ME_499C07150302 SplashTypes

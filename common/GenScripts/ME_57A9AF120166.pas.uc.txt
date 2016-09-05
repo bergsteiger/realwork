@@ -1,0 +1,46 @@
+//#UC START# *479731C50290_57A9AF120166_impl*
+ f_Field := nil;
+ inherited;
+//#UC END# *479731C50290_57A9AF120166_impl*
+//#UC START# *479731C50290_57A9AF120166_var*
+//#UC END# *479731C50290_57A9AF120166_var*
+//#UC START# *555351D702B3_57A9AF120166get_impl*
+ Result := f_TableAlias;
+//#UC END# *555351D702B3_57A9AF120166get_impl*
+//#UC START# *555351D702B3_57A9AF120166get_var*
+//#UC END# *555351D702B3_57A9AF120166get_var*
+//#UC START# *555351F500BC_57A9AF120166get_impl*
+ Result := f_Field;
+//#UC END# *555351F500BC_57A9AF120166get_impl*
+//#UC START# *555351F500BC_57A9AF120166get_var*
+//#UC END# *555351F500BC_57A9AF120166get_var*
+//#UC START# *56408E7F01A1_57A9AF120166_impl*
+ if f_TableAlias <> '' then
+  Result := Format('%s.%s', [f_TableAlias, f_Field.SQLName])
+ else
+  Result := f_Field.SQLName;
+ Result := Format('%s %s %s', [Result, cMap[f_Operator], IntToStr(f_Value)]);
+//#UC END# *56408E7F01A1_57A9AF120166_impl*
+//#UC START# *56408E7F01A1_57A9AF120166_var*
+const
+  cMap: array [TdaBitwiseOperator] of String = (
+   '&', // da_bwAnd
+   '|'  // da_bwOr
+  );
+//#UC END# *56408E7F01A1_57A9AF120166_var*
+//#UC START# *57A9AF120166_ext:FileName
+w:\common\components\rtl\Garant\DA\daBitwiseCondition.pas
+//#UC END# *57A9AF120166_ext:FileName
+//#UC START# *57A9AF120166impl_uses*
+, SysUtils
+//#UC END# *57A9AF120166impl_uses*
+//#UC START# *57A9AF460222_57A9AF120166_impl*
+ Assert(aField.DataType in da_dtIntegers);
+ inherited Create;
+ f_TableAlias := aTableAlias;
+ f_Field := aField;
+ f_Operator := anOperation;
+ f_Value := aValue;
+//#UC END# *57A9AF460222_57A9AF120166_impl*
+//#UC START# *57A9AF460222_57A9AF120166_var*
+//#UC END# *57A9AF460222_57A9AF120166_var*

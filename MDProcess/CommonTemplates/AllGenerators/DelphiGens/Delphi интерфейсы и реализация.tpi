@@ -54,27 +54,13 @@ F %S%f_pas_script_GenerateForward()
 
 f _CallAppend
 	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
-	W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
+	W:/common/env/QuickLaunch/Appender.cmd "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
 	]
 //	[{%S%f_pas_script_runner_NeedOwnFile()=true&%f_exists_in_list(Append_CALL,"%S%f_pas_script_runner_FileName()")!=true}\
 //	%f_add_to_list(Append_CALL,"%S%f_pas_script_runner_FileName()")\
-//	W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
+//	W:/common/env/QuickLaunch/Appender.cmd "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
 //	]
 //#UC END# *563244E50325for470F151302FD*
-
-+ pas.script.runner
-R  
-//#UC START# *563CBCC10243for470F151302FD*
-P true
-X %f_CallAppend(%S)
-C %S%f_pas_script_Path()
-O %S%f_pas_script_runner_FileName()
-	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
-	%S%f_pas_script_runner_Generate()\
-	]\
-	<%CX>
-//	<{}{%C#f_pas_script_runner_NeedOwnFile()=true}%CX>
-//#UC END# *563CBCC10243for470F151302FD*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Трансформаторы стереотипа
@@ -1920,7 +1906,7 @@ f _NeedFinalize
 // возвращаемый результат: a-string
 //#UC START# *5632451B0167for470F151302FD*
 	[{%S%f_pas_script_NeedOwnFile()=true}\
-	%SU.pas.ms.script\
+	%SU.ms.model.script\
 	]
 //#UC END# *5632451B0167for470F151302FD*
 
@@ -1988,179 +1974,189 @@ f _NeedFinalize
 	<{}{%aC=Dependency&%aS=injects}{Sg}%a#f_pas_script_GenerateForwardPrim()>\
 
 	\n\
-	: %S%f_pas_script_Name()
+	ME %S#f_pas_script_Name()
 
 	[{%SC!=Dependency&%SC!=Parameter}\
 	[\
-	 CONST UID '%SU'
+	 MEPROP UID '%SU'
 	]\
 	]\
 
 	[{%S#f_IsInterface()=true}\
-	 CONST GUID '%SG'
+	 MEPROP GUID '%SG'
 	]\
 
 	[{"%SN"!=""}\
-	 CONST Name '%f_str_replace(%f_N(%S),','')'
+	 MEPROP Name '%f_str_replace(%f_N(%S),','')'
+	]\
+
+	[{"%SN"!=""}\
+	[{%f_N(%S)!=%SN}\
+	 MEPROP OriginalName '%f_str_replace(%SN,','')'
+	]\
 	]\
 
 	[{%S#f_is_virtual()=true}\
-	 CONST IsSummoned true
+	 UP IsSummoned true
+	]\
+
+	[{%S%f_pas_script_NeedOwnFile()=true}\
+	 MEPROP IsSubRoot true
 	]\
 
 	[\
-	 CONST Class class_%SC
+	 MEPROP Class class_%SC
 	]\
 
 	[{"%SS"!=""}\
 	[{%SC=Category|%SC=Class}{\
 	[{%SC=Operation|%SC=Attribute|%SC=Dependency}{\
-	 : Stereotype st_%f_str_replace(%SS, ,_) ;
+	 MELINK Stereotype st_%f_str_replace(%SS, ,_) ;
 	}\
-	 : Stereotype st_%f_str_replace(%SS, ,_)::%SC ;
+	 MELINK Stereotype st_%f_str_replace(%SS, ,_)::%SC ;
 	]\
 	}\
-	 : Stereotype st_%f_str_replace(%SS, ,_) ;
+	 MELINK Stereotype st_%f_str_replace(%SS, ,_) ;
 	]\
 	]\
 	[{"%SK"!=""}\
-	 CONST Kind kind_%SK
+	 MEPROP Kind kind_%SK
 	]\
 	[{"%SD"!=""&"%SD"!="undefined"}\
 	 \%SUMMARY '%f_fine_string("%SD")' ;
 	]\
 	[{%SC!=Dependency&%SC!=Parameter}\
 	[\
-	 CONST Visibility %SV
+	 MEPROP Visibility %SV
 	]\
 	]\
 	[{%SC!=Dependency&%SC!=Parameter}\
 	[\
-	 CONST Abstraction at_%Sa
+	 MEPROP Abstraction at_%Sa
 	]\
 	]\
 	[{"%Sl"!=""}\
-	 CONST LinkType lt_%Sl
+	 MEPROP LinkType lt_%Sl
 	]\
 
 	[{%PS!=ProjectGroup&%SC!=Parameter}\
 	[\
-	 : Parent %P#f_pas_script_Reference() ;
+	 MELINK Parent %P#f_pas_script_Reference() ;
 	]\
 	]\
 	[{%TN!=void&"%TN"!=""}\
 	[\
-	 : Target %T#f_pas_script_Reference() ;
+	 MELINK Target %T#f_pas_script_Reference() ;
 	]\
 	]\
 	[{"%Ss"!=""}\
-	 CONST TargetStereotype '%Ss'
+	 MEPROP TargetStereotype '%Ss'
 	]\
 	[{"%VN"!=""}\
-	 CONST Value %f_out_val(%f_fine_string("%VN"))
+	 MEPROP Value %f_out_val(%f_fine_string("%VN"))
 	]\
 	[{"%VN"!=""&"%V%TU"!=""&"%V%TN"!="void"}\
 	[\
-	 : ValueType %V%T#f_pas_script_Reference() ;
+	 MELINK ValueType %V%T#f_pas_script_Reference() ;
 	]\
 	]\
 
 	[\
-	 : Inherits
+	 MELIST Inherits
 	   Seq: (< %G#f_pas_script_Reference()> )
 	 ; // Inherits
 	]\
 	[\
-	 : Implements
+	 MELIST Implements
 	   Seq: (< %R#f_pas_script_Reference()> )
 	 ; // Implements
 	]\
 	[\
-	 : CanRaise
+	 MELIST CanRaise
 	   Seq: (< %E#f_pas_script_Reference()> )
 	 ; // CanRaise
 	]\
 	[\
-	 : CanRaiseInSet
+	 MELIST CanRaiseInSet
 	   Seq: (< %e#f_pas_script_Reference()> )
 	 ; // CanRaiseInSet
 	]\
 	[\
-	 : Attributes
+	 MELIST Attributes
 	   Seq: (<{}{%C#f_pas_script_IsAttribute()=true} %C#f_pas_script_Reference()> )
 	 ; // Attributes
 	]\
 	[\
-	 : Operations
+	 MELIST Operations
 	   Seq: (<{}{%C#f_pas_script_IsOperation()=true} %C#f_pas_script_Reference()> )
 	 ; // Operations
 	]\
 
 	[{%S#f_pas_script_CanImplementMethods()=true}\
 	[\
-	 : Implemented
+	 MELIST Implemented
 	   Seq: (<{}{}{%o} %f_OverrideLink(%o,%S)> )
 	 ; // Implemented
 	]\
 	[\
-	 : Overridden
+	 MELIST Overridden
 	   Seq: (<{}{}{%O} %f_OverrideLink(%O,%S)> )
 	 ; // Overridden
 	]\
 	]\
 
 	[\
-	 : Children
+	 MELIST Children
 	   Seq: (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)!=true} %C#f_pas_script_Reference()> )
 	 ; // Children
 	]\
 	[\
-	 : Constants
+	 MELIST Constants
 	   Seq: (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)=true} %C#f_pas_script_Reference()> )
 	 ; // Constants
 	]\
 	[\
-	 : Parameters
+	 MELIST Parameters
 	   Seq: (<{}{%CC=Parameter} %C#f_pas_script_Reference()> )
 	 ; // Parameters
 	]\
 	[\
-	 : Dependencies
+	 MELIST Dependencies
 	   Seq: (<{}{%CC=Dependency} %C#f_pas_script_Reference()> )
 	 ; // Dependencies
 	]\
 	[\
-	 : Injected
+	 MELIST Injected
 	   Seq: (<{}{%aC=Dependency&%aS=injects&%f_IsSameProject(%S,%a)=true}{Sg} %a#f_pas_script_Reference(%a%P)> )
 	 ; // Injected
 	]\
 	[\
-	 : Zones
+	 MELIST Zones
 	   Seq: (<{}{%ZS=VCMFormZone}{Sg} %Z#f_pas_script_Reference()> )
 	 ; // Zones
 	]\
 	[{%SS=Atom|%SS=Tag|%SS=VCMFormDefinition}\
 	[\
-	 : Implementors
+	 MELIST Implementors
 	   Seq: (<{}{%f_IsSameProject(%S,%L)=true}{%LSg} %L#f_pas_script_Reference()> )
 	 ; // Implementors
 	]\
 	]\
 	[\
-	 : Depends
+	 MELIST Depends
 	   Seq: (< %D#f_pas_script_Reference()> )
 	 ; // Depends
 	]\
 
 	[{%SC=Class}\
 	[\
-	 : Forwarded
+	 MELIST Forwarded
 	   Seq: (< %F#f_pas_script_Reference()> )
 	 ; // Forwarded
 	]\
 	]\
 
-	%S%f_pas_script_GenerateUserProperties()\
+	%S#f_pas_script_GenerateUserProperties()\
 
 	[{%SC=Class|%SC=Category}\
 	%f_clear_list(ALL_GENERATORS_ID)\
@@ -2171,14 +2167,14 @@ f _NeedFinalize
 	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell&"%{GEN_ID}N"!="pas.script"&"%{GEN_ID}N"!="pas.script.runner"}\
 	[{%f_has_non_empty_gen(S,%{GEN_ID}N)=true}\
 	[{"%f_with_gen_id(%{GEN_ID}N,%SL)"!=""}\
-	 CONST %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
+	 UP %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
 	]\
 	]\
 
 	[{"%f_with_gen_id(%{GEN_ID}N,%Sd)"!=""}\
 	[{%S#f_pas_script_IsOperation()!=true}\
 	[{%S#f_IsProject()=true|"%f_with_gen_id(%{GEN_ID}N,%Pd)"!="%f_with_gen_id(%{GEN_ID}N,%Sd)"}\
-	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
+	 UP %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
 	]\
 	]\
 	]\
@@ -2191,7 +2187,7 @@ f _NeedFinalize
 	[{%SC=Class}\
 	[{%f_pas_TypeName(%S)!=%f_N(%S)}\
 	[\
-	 CONST extprop:pas:TypeName '%f_pas_TypeName(%S)'
+	 UP extprop:pas:TypeName '%f_pas_TypeName(%S)'
 	]\
 	]\
 	]\
@@ -2199,7 +2195,7 @@ f _NeedFinalize
 	[{%SC=Class}\
 	[{%t_SelfName(%S)!=%f_pas_TypeName(%S)}\
 	[\
-	 CONST extprop:rc:SelfName '%t_SelfName(%S)'
+	 UP extprop:rc:SelfName '%t_SelfName(%S)'
 	]\
 	]\
 	]\
@@ -2207,7 +2203,7 @@ f _NeedFinalize
 	[{%SC=Class}\
 	[{%t_isAcceptableForScripts(%S)=true}\
 	[\
-	 CONST extprop:rc:isAcceptableForScripts %t_isAcceptableForScripts(%S)
+	 UP extprop:rc:isAcceptableForScripts %t_isAcceptableForScripts(%S)
 	]\
 	]\
 	]\
@@ -2216,7 +2212,7 @@ f _NeedFinalize
 	[{"%f_pas_UnitName(%S)"!=""&%f_pas_UnitName(%S)!=%f_N(%S)}\
 	[{%S#f_pas_script_IsOperation()!=true}\
 	[\
-	 CONST extprop:pas:UnitName '%f_fine_string(%f_pas_UnitName(%S))'
+	 UP extprop:pas:UnitName '%f_fine_string(%f_pas_UnitName(%S))'
 	]\
 	]\
 	]\
@@ -2224,21 +2220,21 @@ f _NeedFinalize
 
 	[{%SC=Class|%SC=Category}\
 	[\
-	 CONST extprop:pas:ElementPrefixBase '%S#f_pas_ElementPrefixBase()'
+	 UP extprop:pas:ElementPrefixBase '%S#f_pas_ElementPrefixBase()'
 	]\
 	[\
-	 CONST extprop:pas:ElementPrefix '%S#f_pas_ElementPrefix()'
+	 UP extprop:pas:ElementPrefix '%S#f_pas_ElementPrefix()'
 	]\
 
 	[{"%S{isGlobal}"!=""}\
 	[\
-	 CONST extprop:isGlobal %f_out_val("%S{isGlobal}")
+	 UP extprop:isGlobal %f_out_val("%S{isGlobal}")
 	]\
 	]\
 
 	[{"%S#f_InitFieldsUC()"!=""}\
 	[\
-	 CONST extprop:pas:InitFields %f_out_val(%f_fine_string("%f_with_gen_id(intf.pas,%S#f_InitFieldsUC())"))
+	 UP extprop:pas:InitFields %f_out_val(%f_fine_string("%f_with_gen_id(intf.pas,%S#f_InitFieldsUC())"))
 	]\
 	]\
 	]\
@@ -2246,100 +2242,100 @@ f _NeedFinalize
 	[{%SC=Class|%SC=Category|%SC=Attribute}\
 	[{"%S#f_NeedsOwnType()"!=""&%S#f_NeedsOwnType()!=false}\
 	[\
-	 CONST extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
+	 UP extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
 	]\
 	]\
 
 	[{"%S#f_NewTypeName()"!=""}\
 	[\
-	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
+	 UP extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
 	]\
 	]\
 	]\
 
 	[{"%S{prop_stereo}"!=""}\
 	[\
-	 CONST extprop:prop_stereo %f_out_val("%S{prop_stereo}")
+	 UP extprop:prop_stereo %f_out_val("%S{prop_stereo}")
 	]\
 	]\
 
 	[{"%S{prop_name}"!=""}\
 	[\
-	 CONST extprop:prop_name %f_out_val("%S{prop_name}")
+	 UP extprop:prop_name %f_out_val("%S{prop_name}")
 	]\
 	]\
 
 	[{"%S{isAsm}"!=""}\
 	[\
-	 CONST extprop:isAsm %f_out_val("%S{isAsm}")
+	 UP extprop:isAsm %f_out_val("%S{isAsm}")
 	]\
 	]\
 
 	[{%S%{IsBool}N=true}\
-	 CONST extprop:IsBool %f_out_val(%S%{IsBool})
+	 UP extprop:IsBool %f_out_val(%S%{IsBool})
 	]\
 
 	[{%S{isSynchroEnum}=true}\
-	 CONST extprop:isSynchroEnum true
+	 UP extprop:isSynchroEnum true
 	]\
 
 	[{"%S%{SDS_CASTER}N"!=""}\
-	 CONST extprop:SDS_CASTER %f_out_val("%S%{SDS_CASTER}N")
+	 UP extprop:SDS_CASTER %f_out_val("%S%{SDS_CASTER}N")
 	]\
 
 	[{"%S%{CASTER}U"!=""}\
-	 : extprop:CASTER %S%{CASTER}#f_pas_script_Reference() ;
+	 UPLINK extprop:CASTER %S%{CASTER}#f_pas_script_Reference() ;
 	]\
 
 	[{%S#f_pas_script_IsAttribute()=true}\
 	[{"%S%{clearViaProperty}N"!=""}\
 	[\
-	 CONST extprop:clearViaProperty '%S%{clearViaProperty}N'
+	 UP extprop:clearViaProperty '%S%{clearViaProperty}N'
 	]\
 	]\
 	]\
 
 	[{"%S#f_OutValue()"!=""}\
 	[\
-	 CONST extprop:pas:Value %f_out_val(%f_fine_string(%S#f_OutValue()))
+	 UP extprop:pas:Value %f_out_val(%f_fine_string(%S#f_OutValue()))
 	]\
 	]\
 
 	[{%S#f_NeedsInitEntities()=true}\
-	 CONST extprop:NeedsInitEntities true
+	 UP extprop:NeedsInitEntities true
 	]\
 
 	[{"%S%{Speller}U"!=""}\
 	[\
-	 : Speller %S%{Speller}#f_pas_script_Reference() ;
+	 UPLINK Speller %S%{Speller}#f_pas_script_Reference() ;
 	]\
 	]\
 
 	[{"%S%{SpelledFor}U"!=""}\
 	[\
-	 : SpelledFor %S%{SpelledFor}#f_pas_script_Reference() ;
+	 UPLINK SpelledFor %S%{SpelledFor}#f_pas_script_Reference() ;
 	]\
 	]\
 
 	[{"%S%{Action}U"!=""}\
 	[\
-	 : Action %S%{Action}#f_pas_script_Reference() ;
+	 UPLINK Action %S%{Action}#f_pas_script_Reference() ;
 	]\
 	]\
 
 	[{"%S%{Stub}U"!=""}\
 	[\
-	 : Stub %S%{Stub}#f_pas_script_Reference() ;
+	 UPLINK Stub %S%{Stub}#f_pas_script_Reference() ;
 	]\
 	]\
 
 	[{%S#f_IsTarget()=true|%SS=TestLibrary|%SS=TestUnit}\
 	[\
-	 CONST Version %SA
+	 UP Version %SA
 	]\
 	]\
 	
-	ref; // %S%f_pas_script_Name() %SN\n
+	ENDME // %S#f_pas_script_Name() %SN\n
 
 t _SelfNamePrim
 @ %SU
@@ -2347,6 +2343,7 @@ c {}
 r {%t_interface(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),I)}
 r {%S#f_IsStaticObject()=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
 r {%t_simple_class(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
+r {%SS=Event}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
 r {""=""}: {%f_pas_TypeName(%S)}
 
 t _SelfNameEx
@@ -2419,6 +2416,7 @@ r {%f_pas_TypeName(%S)=ItfwFile}: {true}
 r {%t_isClassRef(%S)=true}: {true}
 r {%f_pas_TypeName(%S)=Tl3WString|%f_pas_TypeName(%S)=Tl3PCharLenPrim|%f_pas_TypeName(%S)=Tl3PCharLen}: {true}
 r {%f_pas_TypeName(%S)=Il3CString}: {true}
+r {%SS=Event}: {true}
 r {%t_simple_class(%S)=true}: {true}
 r {%t_interface(%S)=true}: {true}
 r {%f_pas_TypeName(%S)=String}: {true}
@@ -3057,29 +3055,28 @@ f _IsConstants
 	%S%f_pas_script_GenerateDescription()
 
 f _OverrideName
-	%S%f_pas_script_Name()_%1%f_pas_script_Name()
+	[{"%S#f_pas_script_Name()"!=""&"%1#f_pas_script_Name()"!=""}\
+	%S#f_pas_script_Name()_%1#f_pas_script_Name()\
+	]
 
 f _OverrideLink
-	%f_OverrideName(%S,%1) // %SN\n
+	[%f_OverrideName(%S,%1) // %SN\n]
 
 f _OutOverride
+	[{"%f_OverrideName(%S,%1)"!=""}\
 	\n\
-	: %f_OverrideName(%S,%1)
-//	 CONST UID '%SU'
-//	[{"%SN"!=""}\
-//	 CONST Name '%f_str_replace(%f_N(%S),','')'
-//	]\
-	 : Original %S#f_pas_script_Reference() ;
-//	[\
-//	 : Implementor %1#f_pas_script_Reference() ;
-//	]\
-
-	[{"%2N"!=""}\
-	 CONST OpKind %2N
+	ME %f_OverrideName(%S,%1)
+	[\
+	 MELINK Original %S#f_pas_script_Reference() ;
 	]\
 
-	%S%f_pas_script_GenerateUserProperties()\
-	ref; // %f_OverrideName(%S,%1) %SN\n
+	[{"%2N"!=""}\
+	 MEPROP OpKind %2N
+	]\
+
+	%S#f_pas_script_GenerateUserProperties()\
+	ENDME // %f_OverrideName(%S,%1) %SN\n\
+	]
 //#UC END# *563378C200C8for470F151302FD*
 
 %f _pas_script_GenerateUserProperties
@@ -3101,7 +3098,7 @@ f _OutOverride
 	[{"%{RIGHT}N"!=""}\
 // - не выводим пустые значения
 	[{%f_is_default_up_value(%S,%{LEFT},%{RIGHT})!=true}\
-	 CONST \
+	 UP \
 
 	"%{LEFT}N" \
 	%f_out_val("%{RIGHT}N")
@@ -3133,9 +3130,9 @@ f _OutOverride
 	HWL \
 	}\
 	]\
-	%S%f_pas_script_Name()\
+	%S#f_pas_script_Name()\
 	}\
-	WL '%S%f_pas_script_Name()' \
+	WL '%S#f_pas_script_Name()' \
 	'%f_pas_script_FileNameForLinkSafe(%S)'\
 	] \
 	// \
@@ -3221,7 +3218,7 @@ f _pas_script_FileNameForLinkSafe
 	%f_clear_list(FORWARDED_ELEMENTS)\
 	%f_clear_list(INCLUDED_FILES)\
 	
-	%S%f_pas_script_Name() .Generate
+	%S#f_pas_script_Name() .Generate
 //#UC END# *563CBD450198for470F151302FD*
 
 %f _pas_script_GenerateWeakInclude
@@ -3234,7 +3231,9 @@ f _pas_script_FileNameForLinkSafe
 // - forward-декларации валидны только в пределах своего же файла
 	[{%f_exists_in_list(FORWARDED_ELEMENTS,S)!=true}\
 	%f_add_to_list(FORWARDED_ELEMENTS,S)\
-	\nFORWARD %S%f_pas_script_Name()\n\
+	[\
+	\nFORWARD %S#f_pas_script_Name()\n\
+	]\
 	]\
 	]
 //#UC END# *5643707B0390for470F151302FD*

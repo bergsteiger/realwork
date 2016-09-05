@@ -1,0 +1,52 @@
+// CompareEditions 4A6D5A4902D8 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6D5A4902D8
+
+ME ME_4A9BD2920088
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5A4902D8 // CompareEditions
+ ;
+ MELINK Target WL 'ME_48490152021B' '484900780017.ms.model.script' // Просмотр документа
+ ;
+
+ENDME // ME_4A9BD2920088 
+
+ME ME_4A6D5A4902D8
+ MEPROP UID '4A6D5A4902D8'
+ MEPROP Name 'CompareEditions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сравнение редакций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A6D566201F3' '4A6D566201F3.ms.model.script' // CompareEditions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.ms.model.script' // BaseEditions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A431CD00395' '484900780017.ms.model.script' // Сравнение редакций документов
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_4A9BD2920088 // Просмотр документа
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'Admin,Monitorings'
+ UP "no hands" true
+ UP "started" '27.07.2009 11:42'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moCompareEditions.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ UP extprop:pas:TypeName 'Tmo_CompareEditions'
+ UP extprop:rc:SelfName 'mo_CompareEditions'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'moCompareEditions'
+
+ENDME // ME_4A6D5A4902D8 CompareEditions

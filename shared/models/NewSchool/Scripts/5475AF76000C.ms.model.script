@@ -1,0 +1,75 @@
+// alcuDeliveryInterfaces 5475AF76000C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5475AF76000C
+
+FORWARD ME_5475AF890358
+
+ME ME_5475AFB000C5
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_5475AFB000C5 aTask
+
+ME ME_5475AFAA017A
+ MEPROP UID '5475AFAA017A'
+ MEPROP Name 'TaskDone'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5475AF890358 // IalcuTaskFinisher
+ ;
+ MELIST Parameters
+   Seq: ( ME_5475AFB000C5 // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_5475AFAA017A TaskDone
+
+ME ME_5475AF890358
+ MEPROP UID '5475AF890358'
+ MEPROP GUID 'EEC123D4-2A14-46DA-A4B0-03904BB8751C'
+ MEPROP Name 'IalcuTaskFinisher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5475AF76000C // alcuDeliveryInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5475AFAA017A // TaskDone
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'alcuTaskFinisher'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5475AF890358 IalcuTaskFinisher
+
+ME ME_5475AF76000C
+ MEPROP UID '5475AF76000C'
+ MEPROP Name 'alcuDeliveryInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5475AF890358 // IalcuTaskFinisher
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuDeliveryInterfaces.pas'
+
+ENDME // ME_5475AF76000C alcuDeliveryInterfaces

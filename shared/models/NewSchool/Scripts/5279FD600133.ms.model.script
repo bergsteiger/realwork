@@ -1,0 +1,162 @@
+// Misc 5279FD600133 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5279FD600133
+
+FORWARD ME_5279FD7E02F7
+
+ME ME_5279FD970204
+ MEPROP UID '5279FD970204'
+ MEPROP Name 'ZipFiles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279FD7E02F7 // ddZipUtils
+ ;
+
+ENDME // ME_5279FD970204 ZipFiles
+
+ME ME_5279FD9F01B9
+ MEPROP UID '5279FD9F01B9'
+ MEPROP Name 'UnZipFiles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279FD7E02F7 // ddZipUtils
+ ;
+
+ENDME // ME_5279FD9F01B9 UnZipFiles
+
+ME ME_5279FD7E02F7
+ MEPROP UID '5279FD7E02F7'
+ MEPROP Name 'ddZipUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279FD600133 // Misc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5279FD970204 // ZipFiles
+ HWL ME_5279FD9F01B9 // UnZipFiles
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddZipUtils.pas'
+
+ENDME // ME_5279FD7E02F7 ddZipUtils
+
+FORWARD ME_546C731802D0
+
+ME ME_546C734403DC
+ MEPROP UID '546C734403DC'
+ MEPROP Name 'TddFileIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_546C731802D0 // ddFileIterator
+ ;
+ UP extprop:rc:SelfName 'ddFileIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_546C734403DC TddFileIterator
+
+ME ME_546C731802D0
+ MEPROP UID '546C731802D0'
+ MEPROP Name 'ddFileIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279FD600133 // Misc
+ ;
+ MELIST Children
+   Seq: ( HWL ME_546C734403DC // TddFileIterator
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddFileIterator.pas'
+
+ENDME // ME_546C731802D0 ddFileIterator
+
+FORWARD ME_55893A8B0110
+
+ME ME_55893A9D02C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_55893A8B0110 // TddExceptionHandler
+ ;
+ MELINK Target WL 'ME_5589239300B6' '47EA946A0315.ms.model.script' // Tl3ExceptionHandler
+ ;
+
+ENDME // ME_55893A9D02C7 
+
+ME ME_55893D4A02A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55893A8B0110 // TddExceptionHandler
+ ;
+ MELINK Target WL 'ME_4C8A2ADD01B1' '4799D29F033F.ms.model.script' // Application
+ ;
+
+ENDME // ME_55893D4A02A4 
+
+ME ME_55893A8B0110
+ MEPROP UID '55893A8B0110'
+ MEPROP Name 'TddExceptionHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279FD600133 // Misc
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_55893A9D02C7 // Tl3ExceptionHandler
+ ME_55893D4A02A4 // Application
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExceptionHandler.pas'
+ UP extprop:rc:SelfName 'ddExceptionHandler'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddExceptionHandler'
+
+ENDME // ME_55893A8B0110 TddExceptionHandler
+
+ME ME_5279FD600133
+ MEPROP UID '5279FD600133'
+ MEPROP Name 'Misc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5279FD7E02F7 // ddZipUtils
+ HWL ME_546C731802D0 // ddFileIterator
+ HWL ME_55893A8B0110 // TddExceptionHandler
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47EA946A0315' '47EA946A0315.ms.model.script' // l3Misc
+ )
+ ; // Depends
+
+ENDME // ME_5279FD600133 Misc

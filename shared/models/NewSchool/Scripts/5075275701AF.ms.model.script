@@ -1,0 +1,531 @@
+// Searchers 5075275701AF Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5075275701AF
+
+FORWARD ME_50751A0A0164
+
+FORWARD ME_50751AB90061
+
+FORWARD ME_5075300802E0
+
+ME ME_533EBCB601A7
+ MEPROP Name 'aCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_533D31A90231' '4678209200A6.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_533EBCB601A7 aCell
+
+ME ME_5075301A038E
+ MEPROP UID '5075301A038E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5075300802E0 // CheckCellType
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_533EBCB601A7 // aCell
+ )
+ ; // Parameters
+
+ENDME // ME_5075301A038E DoIt
+
+ME ME_5075300802E0
+ MEPROP UID '5075300802E0'
+ MEPROP Name 'CheckCellType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50751AB90061 // TevTableTextSearcher
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5075301A038E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5075300802E0 CheckCellType
+
+ME ME_50753D8E02C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751AB90061 // TevTableTextSearcher
+ ;
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ ;
+
+ENDME // ME_50753D8E02C4 
+
+ME ME_50753DD70204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751AB90061 // TevTableTextSearcher
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_50753DD70204 
+
+ME ME_50753DDB01CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751AB90061 // TevTableTextSearcher
+ ;
+ MELINK Target WL 'ME_4857D15D029B' '48492FC0029D.ms.model.script' // SBSCell
+ ;
+
+ENDME // ME_50753DDB01CF 
+
+ME ME_50751B680376_ME_50751AB90061
+ MELINK Original WL 'ME_50751B680376' '47F1F90A0391.ms.model.script' // DoCheckText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_50751B680376_ME_50751AB90061 DoCheckText
+
+ME ME_50751AB90061
+ MEPROP UID '50751AB90061'
+ MEPROP Name 'TevTableTextSearcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50751A0A0164 // evTableSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50751A9F02EB' '47F1F90A0391.ms.model.script' // TevAnyParagraphSearcher
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5075300802E0 // CheckCellType
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_50751B680376_ME_50751AB90061 // DoCheckText
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50753D8E02C4 // evParaTools
+ ME_50753DD70204 // TableCell
+ ME_50753DDB01CF // SBSCell
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'TableTextSearcher'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50751AB90061 TevTableTextSearcher
+
+FORWARD ME_50751AEF02A9
+
+ME ME_50751B680376_ME_50751AEF02A9
+ MELINK Original WL 'ME_50751B680376' '47F1F90A0391.ms.model.script' // DoCheckText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_50751B680376_ME_50751AEF02A9 DoCheckText
+
+ME ME_50751AEF02A9
+ MEPROP UID '50751AEF02A9'
+ MEPROP Name 'TevFirstTableCellSearcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50751A0A0164 // evTableSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50751AB90061 // TevTableTextSearcher
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_50751B680376_ME_50751AEF02A9 // DoCheckText
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'FirstTableCellSearcher'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50751AEF02A9 TevFirstTableCellSearcher
+
+FORWARD ME_50751B080168
+
+ME ME_507530CE03D5
+ MEPROP UID '507530CE03D5'
+ MEPROP Name 'f_FlagInit'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_507530CE03D5 f_FlagInit
+
+ME ME_507530E1004C
+ MEPROP UID '507530E1004C'
+ MEPROP Name 'f_FlagValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_507530E1004C f_FlagValue
+
+FORWARD ME_507530F8022A
+
+ME ME_5075312102A4
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6CB5C0032' '47C695A10172.ms.model.script' // TevSearchOptionSet
+ ;
+ MEPROP Value '[]'
+ MELINK ValueType WL 'ME_47C6CB5C0032' '47C695A10172.ms.model.script' // TevSearchOptionSet
+ ;
+ UP extprop:pas:Value 'evTypes.[]'
+
+ENDME // ME_5075312102A4 anOptions
+
+ME ME_5075311101A5
+ MEPROP UID '5075311101A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_507530F8022A // Make
+ ;
+ MELINK Target WL 'ME_47C693BF0118' '47C5207602D1.ms.model.script' // IevReplacer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5075312102A4 // anOptions
+ )
+ ; // Parameters
+
+ENDME // ME_5075311101A5 DoIt
+
+ME ME_507530F8022A
+ MEPROP UID '507530F8022A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5075311101A5 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_507530F8022A Make
+
+ME ME_50753E110188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_50753E110188 
+
+ME ME_50753E2D036E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ ;
+ MELINK Target WL 'ME_4857E2A70175' '48492FC0029D.ms.model.script' // SBS
+ ;
+
+ENDME // ME_50753E2D036E 
+
+ME ME_50753E39030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_50753E39030D 
+
+ME ME_50753E5E0130
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_50753E5E0130 
+
+ME ME_4D553AC103A3_ME_50751B080168
+ MELINK Original WL 'ME_4D553AC103A3' '47F1F90A0391.ms.model.script' // ReplaceFunc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D553AC103A3_ME_50751B080168 ReplaceFunc
+
+ME ME_50751B080168
+ MEPROP UID '50751B080168'
+ MEPROP Name 'TevOldNSRCFlagReplacer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50751A0A0164 // evTableSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D553A4A005D' '47F1F90A0391.ms.model.script' // TevBaseReplacer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_507530CE03D5 // f_FlagInit
+ HWL ME_507530E1004C // f_FlagValue
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_507530F8022A // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D553AC103A3_ME_50751B080168 // ReplaceFunc
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50753E110188 // FreeAndNil
+ ME_50753E2D036E // SBS
+ ME_50753E39030D // Table
+ ME_50753E5E0130 // Tk2TagID
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OldNSRCFlagReplacer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50751B080168 TevOldNSRCFlagReplacer
+
+FORWARD ME_50751B12004F
+
+ME ME_5075380C0091
+ MEPROP UID '5075380C0091'
+ MEPROP Name 'f_Frame'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50751B12004F // TevTableCellFrameReplacer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5075380C0091 f_Frame
+
+FORWARD ME_507531E0006E
+
+ME ME_507532020288
+ MEPROP Name 'aFrame'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_507532020288 aFrame
+
+ME ME_5075320202A8
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6CB5C0032' '47C695A10172.ms.model.script' // TevSearchOptionSet
+ ;
+ MEPROP Value '[]'
+ MELINK ValueType WL 'ME_47C6CB5C0032' '47C695A10172.ms.model.script' // TevSearchOptionSet
+ ;
+ UP extprop:pas:Value 'evTypes.[]'
+
+ENDME // ME_5075320202A8 anOptions
+
+ME ME_507531EE01FD
+ MEPROP UID '507531EE01FD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_507531E0006E // Make
+ ;
+ MELINK Target WL 'ME_47C693BF0118' '47C5207602D1.ms.model.script' // IevReplacer
+ ;
+ MELIST Parameters
+   Seq: ( ME_507532020288 // aFrame
+ ME_5075320202A8 // anOptions
+ )
+ ; // Parameters
+
+ENDME // ME_507531EE01FD DoIt
+
+ME ME_507531E0006E
+ MEPROP UID '507531E0006E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50751B12004F // TevTableCellFrameReplacer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_507531EE01FD // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_507531E0006E Make
+
+ME ME_4D553AC103A3_ME_50751B12004F
+ MELINK Original WL 'ME_4D553AC103A3' '47F1F90A0391.ms.model.script' // ReplaceFunc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D553AC103A3_ME_50751B12004F ReplaceFunc
+
+ME ME_50751B12004F
+ MEPROP UID '50751B12004F'
+ MEPROP Name 'TevTableCellFrameReplacer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50751A0A0164 // evTableSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D553A4A005D' '47F1F90A0391.ms.model.script' // TevBaseReplacer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5075380C0091 // f_Frame
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_507531E0006E // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D553AC103A3_ME_50751B12004F // ReplaceFunc
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'TableCellFrameReplacer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50751B12004F TevTableCellFrameReplacer
+
+FORWARD ME_50751F2001E9
+
+ME ME_50753E940264
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50751F2001E9 // TevTextInContinueCellSearcher
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_50753E940264 
+
+ME ME_5075300802E0_ME_50751F2001E9
+ MELINK Original HWL ME_5075300802E0 // CheckCellType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5075300802E0_ME_50751F2001E9 CheckCellType
+
+ME ME_50751F2001E9
+ MEPROP UID '50751F2001E9'
+ MEPROP Name 'TevTextInContinueCellSearcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50751A0A0164 // evTableSearch
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50751AB90061 // TevTableTextSearcher
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5075300802E0_ME_50751F2001E9 // CheckCellType
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50753E940264 // MergeStatus
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'TextInContinueCellSearcher'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50751F2001E9 TevTextInContinueCellSearcher
+
+ME ME_50751A0A0164
+ MEPROP UID '50751A0A0164'
+ MEPROP Name 'evTableSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5075275701AF // Searchers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_50751AB90061 // TevTableTextSearcher
+ HWL ME_50751AEF02A9 // TevFirstTableCellSearcher
+ HWL ME_50751B080168 // TevOldNSRCFlagReplacer
+ HWL ME_50751B12004F // TevTableCellFrameReplacer
+ HWL ME_50751F2001E9 // TevTextInContinueCellSearcher
+ )
+ ; // Children
+ UP "UseNewGen" true
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evTableSearch.pas'
+ UP extprop:rc:SelfName 'TableSearch'
+
+ENDME // ME_50751A0A0164 evTableSearch
+
+ME ME_5075275701AF
+ MEPROP UID '5075275701AF'
+ MEPROP Name 'Searchers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48EEE54C0072' '48EEE54C0072.ms.model.script' // EverestCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_50751A0A0164 // evTableSearch
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47C695A10172' '47C695A10172.ms.model.script' // evTypes
+ WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ WL 'ME_47F1F90A0391' '47F1F90A0391.ms.model.script' // Searchers
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "UseNewGen" true
+
+ENDME // ME_5075275701AF Searchers

@@ -1,0 +1,1229 @@
+// nevRealTools 49D2080D020C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49D2080D020C
+
+ME ME_49D20910019D
+ MEPROP UID '49D20910019D'
+ MEPROP Name 'InevBaseTool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый инструмент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49D2080D020C // nevRealTools
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47C52228029C' '47C5207602D1.ms.model.script' // InevBase
+ )
+ ; // Inherits
+ UP "is default ancestor" true
+ UP extprop:rc:SelfName 'BaseTool'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49D20910019D InevBaseTool
+
+FORWARD ME_47C697030322
+
+FORWARD ME_47FA2B4E0022
+
+ME ME_4A4B25E203AA
+ MEPROP UID '4A4B25E203AA'
+ MEPROP Name 'rView'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Область вывода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47FA2B4E0022 // TnevShapeArea
+ ;
+ MELINK Target WL 'ME_4A4B231403B6' '578F8F6C0050.ms.model.script' // HnevView
+ ;
+
+ENDME // ME_4A4B25E203AA rView
+
+ME ME_4A4B260902ED
+ MEPROP UID '4A4B260902ED'
+ MEPROP Name 'rCanvas'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Канва для рисования' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47FA2B4E0022 // TnevShapeArea
+ ;
+ MELINK Target WL 'ME_4A4479E503D5' '578F8F6C0050.ms.model.script' // Hl3Canvas
+ ;
+
+ENDME // ME_4A4B260902ED rCanvas
+
+ME ME_4A585DF90027
+ MEPROP UID '4A585DF90027'
+ MEPROP Name 'rNeedBottom'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Нужно ли вычислять rBottom' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47FA2B4E0022 // TnevShapeArea
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A585DF90027 rNeedBottom
+
+ME ME_47FA2B4E0022
+ MEPROP UID '47FA2B4E0022'
+ MEPROP Name 'TnevShapeArea'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Область вывода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C697030322 // InevDrawingShape
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A4B25E203AA // rView
+ HWL ME_4A4B260902ED // rCanvas
+ HWL ME_4A585DF90027 // rNeedBottom
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'ShapeArea'
+
+ENDME // ME_47FA2B4E0022 TnevShapeArea
+
+FORWARD ME_47FA3B72006E
+
+ME ME_47FA3B9D02B6
+ MEPROP UID '47FA3B9D02B6'
+ MEPROP Name 'rMap'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Карта форматирования.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA3B72006E // TnevShapeInfo
+ ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_47FA3B9D02B6 rMap
+
+ME ME_47FA3BAE00E1
+ MEPROP UID '47FA3BAE00E1'
+ MEPROP Name 'rBottom'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Точка указывающая за последний отрисованный элемент объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA3B72006E // TnevShapeInfo
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_47FA3BAE00E1 rBottom
+
+ME ME_4A81105300A7
+ MEPROP UID '4A81105300A7'
+ MEPROP Name 'rCalculatedHeight'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Посчтианная высота оставшейся части таблицы, для использования на следующих страницах.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA3B72006E // TnevShapeInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A81105300A7 rCalculatedHeight
+
+ME ME_4CD803E902A5
+ MEPROP UID '4CD803E902A5'
+ MEPROP Name 'rCellBottom'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Продолжение объедиенной ячейки (если есть).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA3B72006E // TnevShapeInfo
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4CD803E902A5 rCellBottom
+
+ME ME_47FA3B72006E
+ MEPROP UID '47FA3B72006E'
+ MEPROP Name 'TnevShapeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация об отрисованном объекте.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C697030322 // InevDrawingShape
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47FA3B9D02B6 // rMap
+ HWL ME_47FA3BAE00E1 // rBottom
+ HWL ME_4A81105300A7 // rCalculatedHeight
+ HWL ME_4CD803E902A5 // rCellBottom
+ )
+ ; // Attributes
+
+ENDME // ME_47FA3B72006E TnevShapeInfo
+
+FORWARD ME_47FA29CC0055
+
+ME ME_47FA29EA0357
+ MEPROP UID '47FA29EA0357'
+ MEPROP Name 'rTop'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Точка начала отображения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_47FA29EA0357 rTop
+
+ME ME_47FA2A060311
+ MEPROP UID '47FA2A060311'
+ MEPROP Name 'rCaret'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Точка, в которой надо рисовать каретку.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_47FA2A060311 rCaret
+
+ME ME_47FA2A2502DA
+ MEPROP UID '47FA2A2502DA'
+ MEPROP Name 'rSelection'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Выделенные участки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_47FA2A2502DA rSelection
+
+ME ME_4A8110740323
+ MEPROP UID '4A8110740323'
+ MEPROP Name 'rPrevHeight'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Высота оставшейся части таблицы, вычисленная на при печати предыдущих страниц.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8110740323 rPrevHeight
+
+ME ME_4AEC2EAA0080
+ MEPROP UID '4AEC2EAA0080'
+ MEPROP Name 'rRealTop'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Точка, которая реально отрисовывается в этом месте (начало объедиения).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4AEC2EAA0080 rRealTop
+
+ME ME_4AEC2ED40350
+ MEPROP UID '4AEC2ED40350'
+ MEPROP Name 'rFake'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Фейковая точка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AEC2ED40350 rFake
+
+ME ME_4BBB0CF90297
+ MEPROP UID '4BBB0CF90297'
+ MEPROP Name 'rCheckCaret'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Каретка для проверки в дочерних' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4BBB0CF90297 rCheckCaret
+
+ME ME_4BC5AAD50074
+ MEPROP UID '4BC5AAD50074'
+ MEPROP Name 'rCheckSelection'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Выделение для проверки дочерними.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_4BC5AAD50074 rCheckSelection
+
+ME ME_47FA29CC0055
+ MEPROP UID '47FA29CC0055'
+ MEPROP Name 'TnevShapePoints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные для отображения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C697030322 // InevDrawingShape
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47FA29EA0357 // rTop
+ HWL ME_47FA2A060311 // rCaret
+ HWL ME_47FA2A2502DA // rSelection
+ HWL ME_4A8110740323 // rPrevHeight
+ HWL ME_4AEC2EAA0080 // rRealTop
+ HWL ME_4AEC2ED40350 // rFake
+ HWL ME_4BBB0CF90297 // rCheckCaret
+ HWL ME_4BC5AAD50074 // rCheckSelection
+ )
+ ; // Attributes
+
+ENDME // ME_47FA29CC0055 TnevShapePoints
+
+FORWARD ME_4A4B3579038F
+
+ME ME_4A4B359D0096
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4A4B359D0096 aView
+
+ME ME_4A4B359D00B6
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_4A4B359D00B6 aCanvas
+
+ME ME_4A585E1E009F
+ MEPROP Name 'aNeedBottom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A585E1E009F aNeedBottom
+
+ME ME_4A4B359D0072
+ MEPROP UID '4A4B359D0072'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4B359D0096 // aView
+ ME_4A4B359D00B6 // aCanvas
+ ME_4A585E1E009F // aNeedBottom
+ )
+ ; // Parameters
+
+ENDME // ME_4A4B359D0072 Init
+
+ME ME_4A4B35A10063
+ MEPROP Name 'anArea'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47FA2B4E0022 // TnevShapeArea
+ ;
+
+ENDME // ME_4A4B35A10063 anArea
+
+ME ME_4A4B35A1004C
+ MEPROP UID '4A4B35A1004C'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4B35A10063 // anArea
+ )
+ ; // Parameters
+
+ENDME // ME_4A4B35A1004C Init
+
+ME ME_4A4B35A400CE
+ MEPROP UID '4A4B35A400CE'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Освобождает запись' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+
+ENDME // ME_4A4B35A400CE Free
+
+ME ME_4A4DD45400DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4B3579038F // TnevShapeAreaEx
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4A4DD45400DE 
+
+ME ME_4A4B3579038F
+ MEPROP UID '4A4B3579038F'
+ MEPROP Name 'TnevShapeAreaEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C697030322 // InevDrawingShape
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47FA2B4E0022 // TnevShapeArea
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A4B359D0072 // Init
+ HWL ME_4A4B35A1004C // Init
+ HWL ME_4A4B35A400CE // Free
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A4DD45400DE // l3Base
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'ShapeAreaEx'
+
+ENDME // ME_4A4B3579038F TnevShapeAreaEx
+
+ME ME_4A4B3696016B
+ MEPROP UID '4A4B3696016B'
+ MEPROP Name 'PnevShapeArea'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Указатель на область вывода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C697030322 // InevDrawingShape
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47FA2B4E0022 // TnevShapeArea
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_4A4B3696016B PnevShapeArea
+
+ME ME_47FA4B7A0114
+ MEPROP Name 'anArea'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47FA2B4E0022 // TnevShapeArea
+ ;
+
+ENDME // ME_47FA4B7A0114 anArea
+
+ME ME_47FA4B7A0145
+ MEPROP Name 'aPoints'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47FA29CC0055 // TnevShapePoints
+ ;
+
+ENDME // ME_47FA4B7A0145 aPoints
+
+ME ME_47FA4B7A0176
+ MEPROP Name 'theInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_47FA3B72006E // TnevShapeInfo
+ ;
+
+ENDME // ME_47FA4B7A0176 theInfo
+
+ME ME_47C6972A036C
+ MEPROP UID '47C6972A036C'
+ MEPROP Name 'Draw'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47C697030322 // InevDrawingShape
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47FA4B7A0114 // anArea
+ ME_47FA4B7A0145 // aPoints
+ ME_47FA4B7A0176 // theInfo
+ )
+ ; // Parameters
+
+ENDME // ME_47C6972A036C Draw
+
+ME ME_4E25BC360220_ME_47C697030322
+ MELINK Original WL 'ME_4E25BC360220' '47C5207602D1.ms.model.script' // Obj
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4E25BC360220_ME_47C697030322 Obj
+
+ME ME_47C697030322
+ MEPROP UID '47C697030322'
+ MEPROP GUID '7EB9B9FF-B988-4F9B-9D6F-13730A7BDD39'
+ MEPROP Name 'InevDrawingShape'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Визуально отображаемый объект умеющий себя рисовать.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49D2080D020C // nevRealTools
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E25BC1903C9' '47C5207602D1.ms.model.script' // InevTool
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47C6972A036C // Draw
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4E25BC360220_ME_47C697030322 // Obj
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_47FA2B4E0022 // TnevShapeArea
+ HWL ME_47FA3B72006E // TnevShapeInfo
+ HWL ME_47FA29CC0055 // TnevShapePoints
+ HWL ME_4A4B3579038F // TnevShapeAreaEx
+ HWL ME_4A4B3696016B // PnevShapeArea
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'DrawingShape'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47C697030322 InevDrawingShape
+
+FORWARD ME_47C7DC2801FB
+
+FORWARD ME_47C7DBE0022A
+
+ME ME_47C7DBEB037E
+ MEPROP UID '47C7DBEB037E'
+ MEPROP Name 'ev_pmUsial'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47C7DBE0022A // TevParaMarkStyle
+ ;
+
+ENDME // ME_47C7DBEB037E ev_pmUsial
+
+ME ME_47C7DBF10070
+ MEPROP UID '47C7DBF10070'
+ MEPROP Name 'ev_pmCell'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47C7DBE0022A // TevParaMarkStyle
+ ;
+
+ENDME // ME_47C7DBF10070 ev_pmCell
+
+ME ME_47C7DBE0022A
+ MEPROP UID '47C7DBE0022A'
+ MEPROP Name 'TevParaMarkStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стиль рисования конца параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47C7DBEB037E // ev_pmUsial
+ HWL ME_47C7DBF10070 // ev_pmCell
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47C7DBE0022A TevParaMarkStyle
+
+FORWARD ME_47C7DE24022A
+
+ME ME_4FD8737B0265
+ MEPROP Name 'aChildMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4FD8737B0265 aChildMap
+
+ME ME_4FD8737B02A4
+ MEPROP Name 'aSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FD8737B02A4 aSelection
+
+ME ME_47C7DE3200E4
+ MEPROP UID '47C7DE3200E4'
+ MEPROP Name 'RemeberSelPart'
+ MEPROP Class class_Operation
+ %SUMMARY 'Запомнить прямоугольник для отрисовки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47C7DE24022A // InevPaintersHolder
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FD8737B0265 // aChildMap
+ ME_4FD8737B02A4 // aSelection
+ )
+ ; // Parameters
+
+ENDME // ME_47C7DE3200E4 RemeberSelPart
+
+ME ME_47C7DE47009D
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47C7DE47009D aHeight
+
+ME ME_47C7DE42020F
+ MEPROP UID '47C7DE42020F'
+ MEPROP Name 'SetHeight'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47C7DE24022A // InevPaintersHolder
+ ;
+ MELIST Parameters
+   Seq: ( ME_47C7DE47009D // aHeight
+ )
+ ; // Parameters
+
+ENDME // ME_47C7DE42020F SetHeight
+
+ME ME_47C7DE24022A
+ MEPROP UID '47C7DE24022A'
+ MEPROP GUID '98A8C324-A25A-412A-8028-FF614D4C7756'
+ MEPROP Name 'InevPaintersHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для поддержки отложенного рисования. [$89096971]. [$89096991]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47C7DE3200E4 // RemeberSelPart
+ HWL ME_47C7DE42020F // SetHeight
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'PaintersHolder'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47C7DE24022A InevPaintersHolder
+
+FORWARD ME_4ABB4BC20136
+
+ME ME_4ABB4C1901AC
+ MEPROP UID '4ABB4C1901AC'
+ MEPROP Name 'nev_None'
+ MEPROP Class class_Attribute
+ %SUMMARY 'не проверять' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ABB4BC20136 // TnevCheckType
+ ;
+
+ENDME // ME_4ABB4C1901AC nev_None
+
+ME ME_4ABB4C4003C6
+ MEPROP UID '4ABB4C4003C6'
+ MEPROP Name 'nev_CheckOnly'
+ MEPROP Class class_Attribute
+ %SUMMARY 'только проверка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ABB4BC20136 // TnevCheckType
+ ;
+
+ENDME // ME_4ABB4C4003C6 nev_CheckOnly
+
+ME ME_4ABB4C520350
+ MEPROP UID '4ABB4C520350'
+ MEPROP Name 'nev_NeedAdd'
+ MEPROP Class class_Attribute
+ %SUMMARY 'проверить и добавить новое значение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ABB4BC20136 // TnevCheckType
+ ;
+
+ENDME // ME_4ABB4C520350 nev_NeedAdd
+
+ME ME_4ABB4BC20136
+ MEPROP UID '4ABB4BC20136'
+ MEPROP Name 'TnevCheckType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'вид проверки отрисованности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4ABB4C1901AC // nev_None
+ HWL ME_4ABB4C4003C6 // nev_CheckOnly
+ HWL ME_4ABB4C520350 // nev_NeedAdd
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4ABB4BC20136 TnevCheckType
+
+FORWARD ME_49CB6B81028D
+
+ME ME_53550F3C028F
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '47913B47006E.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_53550F3C028F aPara
+
+ME ME_4ABB4C8E00D0
+ MEPROP Name 'aCheckType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4ABB4BC20136 // TnevCheckType
+ ;
+ MEPROP Value 'nev_None'
+ MELINK ValueType HWL ME_4ABB4BC20136 // TnevCheckType
+ ;
+ UP extprop:pas:Value 'nev_None'
+
+ENDME // ME_4ABB4C8E00D0 aCheckType
+
+ME ME_49CB6BE30032
+ MEPROP UID '49CB6BE30032'
+ MEPROP Name 'CheckCell'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49CB6B81028D // IevTablePainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_53550F3C028F // aPara
+ ME_4ABB4C8E00D0 // aCheckType
+ )
+ ; // Parameters
+
+ENDME // ME_49CB6BE30032 CheckCell
+
+ME ME_49CB6C1A02DF
+ MEPROP UID '49CB6C1A02DF'
+ MEPROP Name 'CalcOffset'
+ MEPROP Class class_Operation
+ %SUMMARY 'Пересчитать смещение для следующей ячейки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49CB6B81028D // IevTablePainter
+ ;
+
+ENDME // ME_49CB6C1A02DF CalcOffset
+
+ME ME_53550F470067
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '47913B47006E.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_53550F470067 aPara
+
+ME ME_4C458F0A020B
+ MEPROP Name 'anPID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C458F0A020B anPID
+
+ME ME_4C458F0A0230
+ MEPROP Name 'aForLines'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C458F0A0230 aForLines
+
+ME ME_49CB6C2E02E2
+ MEPROP UID '49CB6C2E02E2'
+ MEPROP Name 'WasPainted'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверка была ли отрисована начальная ячейка объединения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49CB6B81028D // IevTablePainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53550F470067 // aPara
+ ME_4C458F0A020B // anPID
+ ME_4C458F0A0230 // aForLines
+ )
+ ; // Parameters
+
+ENDME // ME_49CB6C2E02E2 WasPainted
+
+ME ME_52B2EF99032C
+ MEPROP UID '52B2EF99032C'
+ MEPROP Name 'HasOwnStyle'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49CB6B81028D // IevTablePainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52B2EF99032C HasOwnStyle
+
+ME ME_49CB6B81028D
+ MEPROP UID '49CB6B81028D'
+ MEPROP GUID '1F693F22-31C3-49CE-BDCE-7E9001DC432C'
+ MEPROP Name 'IevTablePainter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс инструмента рисования таблицы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49CB6BE30032 // CheckCell
+ HWL ME_49CB6C1A02DF // CalcOffset
+ HWL ME_49CB6C2E02E2 // WasPainted
+ HWL ME_52B2EF99032C // HasOwnStyle
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'TablePainter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49CB6B81028D IevTablePainter
+
+FORWARD ME_4C774E380004
+
+ME ME_4C774EBC0242
+ MEPROP Name 'aFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4C774EBC0242 aFI
+
+ME ME_4C774EBC0286
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_4C774EBC0286 aCanvas
+
+ME ME_4C774E7D01CD
+ MEPROP UID '4C774E7D01CD'
+ MEPROP Name 'CheckChildren'
+ MEPROP Class class_Operation
+ %SUMMARY '[$219123966]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C774E380004 // IevTableRowPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C774EBC0242 // aFI
+ ME_4C774EBC0286 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_4C774E7D01CD CheckChildren
+
+ME ME_4D9AF0DB039C
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D9AF0DB039C aDelta
+
+ME ME_4D9AF0D00093
+ MEPROP UID '4D9AF0D00093'
+ MEPROP Name 'CorrectTopDelta'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C774E380004 // IevTableRowPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D9AF0DB039C // aDelta
+ )
+ ; // Parameters
+
+ENDME // ME_4D9AF0D00093 CorrectTopDelta
+
+ME ME_4D9AFB1202F9
+ MEPROP UID '4D9AFB1202F9'
+ MEPROP Name 'IsTopAnchorAtStart'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C774E380004 // IevTableRowPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D9AFB1202F9 IsTopAnchorAtStart
+
+ME ME_50A2210D0105
+ MEPROP UID '50A2210D0105'
+ MEPROP Name 'GetTopAnchor4Row'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает указатель на строку из View.TopAnchor' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C774E380004 // IevTableRowPainter
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_50A2210D0105 GetTopAnchor4Row
+
+ME ME_4C774E380004
+ MEPROP UID '4C774E380004'
+ MEPROP GUID 'DF548913-37DF-44B8-8C6A-67A83D991141'
+ MEPROP Name 'IevTableRowPainter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс инструмента рисования строки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C774E7D01CD // CheckChildren
+ HWL ME_4D9AF0D00093 // CorrectTopDelta
+ HWL ME_4D9AFB1202F9 // IsTopAnchorAtStart
+ HWL ME_50A2210D0105 // GetTopAnchor4Row
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'TableRowPainter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C774E380004 IevTableRowPainter
+
+ME ME_47C7DD07029E
+ MEPROP UID '47C7DD07029E'
+ MEPROP Name 'CurrentBlock'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ UP "pm" true
+
+ENDME // ME_47C7DD07029E CurrentBlock
+
+ME ME_47C7DD2E007F
+ MEPROP UID '47C7DD2E007F'
+ MEPROP Name 'DrawingTopmostChild'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'рисуется самый верхний ребенок?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_47C7DD2E007F DrawingTopmostChild
+
+ME ME_47C7DD4500A5
+ MEPROP UID '47C7DD4500A5'
+ MEPROP Name 'DrawingLastChild'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'рисуется самый последний ребенок?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_47C7DD4500A5 DrawingLastChild
+
+ME ME_47C7DDD702A7
+ MEPROP UID '47C7DDD702A7'
+ MEPROP Name 'ParaMarkStyle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Стиль рисования конца параграфа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target HWL ME_47C7DBE0022A // TevParaMarkStyle
+ ;
+ UP "pm" true
+
+ENDME // ME_47C7DDD702A7 ParaMarkStyle
+
+ME ME_47C7DCB10302
+ MEPROP UID '47C7DCB10302'
+ MEPROP Name 'ParentPainter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'инструмент для рисования объекта более верхнего уровня.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target HWL ME_47C7DC2801FB // IevPainter
+ ;
+ UP "pm" true
+
+ENDME // ME_47C7DCB10302 ParentPainter
+
+ME ME_49DB945D01A4
+ MEPROP UID '49DB945D01A4'
+ MEPROP Name 'PaintersHolder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target HWL ME_47C7DE24022A // InevPaintersHolder
+ ;
+ UP "pm" false
+
+ENDME // ME_49DB945D01A4 PaintersHolder
+
+ME ME_49DCA7D10326
+ MEPROP UID '49DCA7D10326'
+ MEPROP Name 'TablePainter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target HWL ME_49CB6B81028D // IevTablePainter
+ ;
+ UP "pm" false
+
+ENDME // ME_49DCA7D10326 TablePainter
+
+ME ME_4C774ECF0308
+ MEPROP UID '4C774ECF0308'
+ MEPROP Name 'TableRowPainter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Инструмент для рисования строки таблицы (доступен только при отрисовке строки).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47C7DC2801FB // IevPainter
+ ;
+ MELINK Target HWL ME_4C774E380004 // IevTableRowPainter
+ ;
+ UP "pm" false
+
+ENDME // ME_4C774ECF0308 TableRowPainter
+
+ME ME_47C6972A036C_ME_47C7DC2801FB
+ MELINK Original HWL ME_47C6972A036C // Draw
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C6972A036C_ME_47C7DC2801FB Draw
+
+ME ME_4E25BC360220_ME_47C7DC2801FB
+ MELINK Original WL 'ME_4E25BC360220' '47C5207602D1.ms.model.script' // Obj
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4E25BC360220_ME_47C7DC2801FB Obj
+
+ME ME_47C7DC2801FB
+ MEPROP UID '47C7DC2801FB'
+ MEPROP GUID '60FC0B5C-FC01-47F4-9FAB-9AE04B1520DE'
+ MEPROP Name 'IevPainter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс инструментов для рисования объектов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49D2080D020C // nevRealTools
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47C697030322 // InevDrawingShape
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47C7DD07029E // CurrentBlock
+ HWL ME_47C7DD2E007F // DrawingTopmostChild
+ HWL ME_47C7DD4500A5 // DrawingLastChild
+ HWL ME_47C7DDD702A7 // ParaMarkStyle
+ HWL ME_47C7DCB10302 // ParentPainter
+ HWL ME_49DB945D01A4 // PaintersHolder
+ HWL ME_49DCA7D10326 // TablePainter
+ HWL ME_4C774ECF0308 // TableRowPainter
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47C6972A036C_ME_47C7DC2801FB // Draw
+ ME_4E25BC360220_ME_47C7DC2801FB // Obj
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_47C7DBE0022A // TevParaMarkStyle
+ HWL ME_47C7DE24022A // InevPaintersHolder
+ HWL ME_4ABB4BC20136 // TnevCheckType
+ HWL ME_49CB6B81028D // IevTablePainter
+ HWL ME_4C774E380004 // IevTableRowPainter
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'Painter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47C7DC2801FB IevPainter
+
+ME ME_49D2080D020C
+ MEPROP UID '49D2080D020C'
+ MEPROP Name 'nevRealTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Реальные инструменты для работы с EVD документами (в отличии от nevTools - куда свалено всё подряд). Инструмент получается методом QT, и ТОЛЬКО им' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49D20910019D // InevBaseTool
+ HWL ME_47C697030322 // InevDrawingShape
+ HWL ME_47C7DC2801FB // IevPainter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.ms.model.script' // l3InternalInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.ms.model.script' // Требования к редактору Эверест
+ WL 'ME_578F8F6C0050' '578F8F6C0050.ms.model.script' // nevViewInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "defines" 'nevDefine.inc'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "path prefix" '/new'
+ UP "started" '31.03.2009 16:12'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRealTools.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+
+ENDME // ME_49D2080D020C nevRealTools

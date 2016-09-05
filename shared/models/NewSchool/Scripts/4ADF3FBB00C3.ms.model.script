@@ -1,0 +1,70 @@
+// PrimeDomainInterfaces 4ADF3FBB00C3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADF3FBB00C3
+
+FORWARD ME_499032AE00A0
+
+ME ME_499032D40064
+ MEPROP UID '499032D40064'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499032AE00A0 // InsPrimeNode
+ ;
+ MELINK Target WL 'ME_47BECCE501B5' '47BECCB801BE.ms.model.script' // Prime
+ ;
+ UP "pm" true
+
+ENDME // ME_499032D40064 Data
+
+ME ME_499032AE00A0
+ MEPROP UID '499032AE00A0'
+ MEPROP GUID 'E5BF71FF-A857-40FD-A325-7B8F18DEEA50'
+ MEPROP Name 'InsPrimeNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Узел дерева новостных лент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ADF3FBB00C3 // PrimeDomainInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499032D40064 // Data
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'PrimeNode'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499032AE00A0 InsPrimeNode
+
+ME ME_4ADF3FBB00C3
+ MEPROP UID '4ADF3FBB00C3'
+ MEPROP Name 'PrimeDomainInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5257E836001C' '5257E836001C.ms.model.script' // View$Strange
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499032AE00A0 // InsPrimeNode
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47BECCB801BE' '47BECCB801BE.ms.model.script' // Prime
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '21.10.2009 21:07'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimeDomainInterfaces.pas'
+
+ENDME // ME_4ADF3FBB00C3 PrimeDomainInterfaces

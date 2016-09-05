@@ -30,12 +30,12 @@ C /%SN%S{root path suffix}
 R  
 //#UC START# *5655E2B600CAfor46E28D3A01E4*
 P true
-C %S#f_pas_script_Path()
+C %f_tpi_script_Path(%S)
 O %S%f_tpi_script_FileName()
 F %S%f_tpi_script_GenerateForward()
 	[{"%SO"!=""}\
 	%f_clear_list(GENERATED_STEREOS)\
-	INCLUDE 'classRelations.ms.dict'\n\n\
+	INCLUDE 'ME.ms.dict'\n\n\
 
 	<{}{"%D#f_tpi_script_FileName()"!=""}\
 	INCLUDE '%D#f_tpi_script_FileName()'\n\
@@ -55,22 +55,26 @@ F %S%f_tpi_script_GenerateForward()
 
 	<%FF>\
 
-	: %S%f_tpi_script_Name()\
+	ME %S%f_tpi_script_Name()\
 	[ Inherits ( <%G#f_tpi_script_Name() ><%R#f_tpi_script_Name() >)]
-	 CONST UID '%SU'
+	 MEPROP UID '%SU'
 	[{"%SN"!=""}\
-	 CONST Name '%S%f_tpi_script_NamePrim()'
+	 MEPROP Name '%S%f_tpi_script_NamePrim()'
 	]\
 	[{"%SS"!=""}\
-	 CONST Stereotype '%f_str_replace(%SS,','')'
+	 MEPROP Stereotype '%f_str_replace(%SS,','')'
 	]\
-	 @SELF
-	; // %S%f_tpi_script_Name()\n\n\
+	%S#f_pas_script_GenerateUserProperties()\
+	
+	ENDME // %S%f_tpi_script_Name()\n\n\
 	]\
 
 //	[{%SS=MDAGenerator}%f_warning(%SN %SS)]\
 
 	<%CX>
+
+f _tpi_script_Path
+	%S#f_pas_script_Path()/Stereotypes
 //#UC END# *5655E2B600CAfor46E28D3A01E4*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,148 @@
+// vcmFormDispatcherInterfaces 499469840038 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499469840038
+
+FORWARD ME_49525BDD02FE
+
+ME ME_4992FBD101B2
+ MEPROP UID '4992FBD101B2'
+ MEPROP Name 'StartNewMainForm'
+ MEPROP Class class_Operation
+ %SUMMARY 'вызывается перед созданием главной формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49525BDD02FE // IvcmFormDispatcherListener
+ ;
+
+ENDME // ME_4992FBD101B2 StartNewMainForm
+
+ME ME_49525BDD02FE
+ MEPROP UID '49525BDD02FE'
+ MEPROP GUID 'BABDE672-E93F-47FE-977B-BA11D6250821'
+ MEPROP Name 'IvcmFormDispatcherListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499469840038 // vcmFormDispatcherInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4992FBD101B2 // StartNewMainForm
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'FormDispatcherListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49525BDD02FE IvcmFormDispatcherListener
+
+FORWARD ME_4992FBE702BE
+
+ME ME_4992FC390349
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49525BDD02FE // IvcmFormDispatcherListener
+ ;
+
+ENDME // ME_4992FC390349 aListener
+
+ME ME_4992FC34014C
+ MEPROP UID '4992FC34014C'
+ MEPROP Name 'AddListener'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FBE702BE // IvcmFormDispatcherNotify
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FC390349 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_4992FC34014C AddListener
+
+ME ME_4992FC4402F2
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49525BDD02FE // IvcmFormDispatcherListener
+ ;
+
+ENDME // ME_4992FC4402F2 aListener
+
+ME ME_4992FC420063
+ MEPROP UID '4992FC420063'
+ MEPROP Name 'RemoveListener'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FBE702BE // IvcmFormDispatcherNotify
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FC4402F2 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_4992FC420063 RemoveListener
+
+ME ME_4992FBE702BE
+ MEPROP UID '4992FBE702BE'
+ MEPROP GUID 'B91EBDC9-90C1-4165-BD33-8EB57BA4DACA'
+ MEPROP Name 'IvcmFormDispatcherNotify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Уведомляет о событиях диспетчера форм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499469840038 // vcmFormDispatcherInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4992FC34014C // AddListener
+ HWL ME_4992FC420063 // RemoveListener
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'FormDispatcherNotify'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FBE702BE IvcmFormDispatcherNotify
+
+ME ME_499469840038
+ MEPROP UID '499469840038'
+ MEPROP Name 'vcmFormDispatcherInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для работы с диспетчером форм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49525BDD02FE // IvcmFormDispatcherListener
+ HWL ME_4992FBE702BE // IvcmFormDispatcherNotify
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '12.02.2009 21:25'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmFormDispatcherInterfaces.pas'
+
+ENDME // ME_499469840038 vcmFormDispatcherInterfaces

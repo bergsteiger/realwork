@@ -1,0 +1,321 @@
+// Printing 55C4AEB903E1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C4AEB903E1
+
+FORWARD ME_4799D2E6027B
+
+ME ME_4799D3180344
+ MEPROP UID '4799D3180344'
+ MEPROP Name 'EPrinter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4799D3180344 EPrinter
+
+ME ME_4799D345027F
+ MEPROP UID '4799D345027F'
+ MEPROP Name 'TPrinter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TPrinter encapsulates the Windows printer interface.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_469F8577004B' '4AB0C3C60310.ms.model.script' // TObject$Stub
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Printer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4799D345027F TPrinter
+
+FORWARD ME_4799E9B3024C
+
+ME ME_4799E9BB00AA
+ MEPROP UID '4799E9BB00AA'
+ MEPROP Name 'psNoHandle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9B3024C // TPrinterState
+ ;
+
+ENDME // ME_4799E9BB00AA psNoHandle
+
+ME ME_4799E9C002F2
+ MEPROP UID '4799E9C002F2'
+ MEPROP Name 'psHandleIC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9B3024C // TPrinterState
+ ;
+
+ENDME // ME_4799E9C002F2 psHandleIC
+
+ME ME_4799E9C603E2
+ MEPROP UID '4799E9C603E2'
+ MEPROP Name 'psHandleDC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9B3024C // TPrinterState
+ ;
+
+ENDME // ME_4799E9C603E2 psHandleDC
+
+ME ME_4799E9B3024C
+ MEPROP UID '4799E9B3024C'
+ MEPROP Name 'TPrinterState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4799E9BB00AA // psNoHandle
+ HWL ME_4799E9C002F2 // psHandleIC
+ HWL ME_4799E9C603E2 // psHandleDC
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4799E9B3024C TPrinterState
+
+FORWARD ME_4799E9D90376
+
+ME ME_4799E9E00149
+ MEPROP UID '4799E9E00149'
+ MEPROP Name 'poPortrait'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9D90376 // TPrinterOrientation
+ ;
+
+ENDME // ME_4799E9E00149 poPortrait
+
+ME ME_4799E9E500B4
+ MEPROP UID '4799E9E500B4'
+ MEPROP Name 'poLandscape'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9D90376 // TPrinterOrientation
+ ;
+
+ENDME // ME_4799E9E500B4 poLandscape
+
+ME ME_4799E9D90376
+ MEPROP UID '4799E9D90376'
+ MEPROP Name 'TPrinterOrientation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4799E9E00149 // poPortrait
+ HWL ME_4799E9E500B4 // poLandscape
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4799E9D90376 TPrinterOrientation
+
+FORWARD ME_4799E9EE0087
+
+ME ME_4799EA0601F6
+ MEPROP UID '4799EA0601F6'
+ MEPROP Name 'pcCopies'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9EE0087 // TPrinterCapability
+ ;
+
+ENDME // ME_4799EA0601F6 pcCopies
+
+ME ME_4799EA0C03D0
+ MEPROP UID '4799EA0C03D0'
+ MEPROP Name 'pcOrientation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9EE0087 // TPrinterCapability
+ ;
+
+ENDME // ME_4799EA0C03D0 pcOrientation
+
+ME ME_4799EA12003E
+ MEPROP UID '4799EA12003E'
+ MEPROP Name 'pcCollation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799E9EE0087 // TPrinterCapability
+ ;
+
+ENDME // ME_4799EA12003E pcCollation
+
+ME ME_4799E9EE0087
+ MEPROP UID '4799E9EE0087'
+ MEPROP Name 'TPrinterCapability'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4799EA0601F6 // pcCopies
+ HWL ME_4799EA0C03D0 // pcOrientation
+ HWL ME_4799EA12003E // pcCollation
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4799E9EE0087 TPrinterCapability
+
+ME ME_4799EA1C0221
+ MEPROP UID '4799EA1C0221'
+ MEPROP Name 'TPrinterCapabilities'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4799E9EE0087 // TPrinterCapability
+ )
+ ; // Inherits
+
+ENDME // ME_4799EA1C0221 TPrinterCapabilities
+
+ME ME_4AE1D63601CB
+ MEPROP UID '4AE1D63601CB'
+ MEPROP Name 'Printer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+
+ENDME // ME_4AE1D63601CB Printer
+
+ME ME_4799F731014C
+ MEPROP UID '4799F731014C'
+ MEPROP Name 'Printer'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELINK Target HWL ME_4799D345027F // TPrinter
+ ;
+
+ENDME // ME_4799F731014C Printer
+
+ME ME_4799F748023A
+ MEPROP Name 'NewPrinter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4799D345027F // TPrinter
+ ;
+
+ENDME // ME_4799F748023A NewPrinter
+
+ME ME_4799F74602BA
+ MEPROP UID '4799F74602BA'
+ MEPROP Name 'SetPrinter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799D2E6027B // Printers
+ ;
+ MELINK Target HWL ME_4799D345027F // TPrinter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4799F748023A // NewPrinter
+ )
+ ; // Parameters
+
+ENDME // ME_4799F74602BA SetPrinter
+
+ME ME_4799D2E6027B
+ MEPROP UID '4799D2E6027B'
+ MEPROP Name 'Printers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TPrinter encapsulates the Windows printer interface.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C4AEB903E1 // Printing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE1D63601CB // Printer
+ HWL ME_4799F731014C // Printer
+ HWL ME_4799F74602BA // SetPrinter
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4799D3180344 // EPrinter
+ HWL ME_4799D345027F // TPrinter
+ HWL ME_4799E9B3024C // TPrinterState
+ HWL ME_4799E9D90376 // TPrinterOrientation
+ HWL ME_4799E9EE0087 // TPrinterCapability
+ HWL ME_4799EA1C0221 // TPrinterCapabilities
+ )
+ ; // Children
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Printers.pas'
+
+ENDME // ME_4799D2E6027B Printers
+
+ME ME_55C4AEB903E1
+ MEPROP UID '55C4AEB903E1'
+ MEPROP Name 'Printing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4799D2E6027B // Printers
+ )
+ ; // Children
+
+ENDME // ME_55C4AEB903E1 Printing

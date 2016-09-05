@@ -1,0 +1,86 @@
+// Сохранение информации 484E2D92034B UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484E2D92034B
+
+FORWARD ME_484E2FF10125
+
+ME ME_484E2FF10125
+ MEPROP UID '484E2FF10125'
+ MEPROP Name 'Управление папками'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Просмотр и модификация структуры папок. Изменение атрибутов папок и сохраненных в них объектов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E2D92034B // Сохранение информации
+ ;
+
+ENDME // ME_484E2FF10125 Управление папками
+
+FORWARD ME_484E301C00F0
+
+ME ME_484E301C00F0
+ MEPROP UID '484E301C00F0'
+ MEPROP Name 'Сохранение в папку'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохранение текущего объекта в новую или существующую папку. Сохранению подлежит либо сам объект (список, запрос), либо ссылка на объект (закладка).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E2D92034B // Сохранение информации
+ ;
+
+ENDME // ME_484E301C00F0 Сохранение в папку
+
+ME ME_484E31200266
+ MEPROP UID '484E31200266'
+ MEPROP Name 'Настройка доступа к папке'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Разрешение доступа к собственной папке и ее содержимому для других пользователей системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E2D92034B // Сохранение информации
+ ;
+
+ENDME // ME_484E31200266 Настройка доступа к папке
+
+ME ME_484E316302D6
+ MEPROP UID '484E316302D6'
+ MEPROP Name 'Выбор из папки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выбор сохраненного объекта из папки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E2D92034B // Сохранение информации
+ ;
+
+ENDME // ME_484E316302D6 Выбор из папки
+
+ME ME_484E2D92034B
+ MEPROP UID '484E2D92034B'
+ MEPROP Name 'Сохранение информации'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Способы сохранения и загрузки запросов, закладок и списков.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484E2FF10125 // Управление папками
+ HWL ME_484E301C00F0 // Сохранение в папку
+ HWL ME_484E31200266 // Настройка доступа к папке
+ HWL ME_484E316302D6 // Выбор из папки
+ )
+ ; // Children
+
+ENDME // ME_484E2D92034B Сохранение информации

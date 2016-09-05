@@ -199,17 +199,41 @@ var
 //#UC END# *521B277C02F3_51D547DD026Cset_impl*
 //#UC START# *521B277C02F3_51D547DD026Cset_var*
 //#UC END# *521B277C02F3_51D547DD026Cset_var*
+//#UC START# *521B285C035B_51D547DD026C_impl*
+ for I := 0 to Pred(ChildrenCount) do
+  IddConfigNode(Children[I]).ClearControls;
+//#UC END# *521B285C035B_51D547DD026C_impl*
+//#UC START# *521B285C035B_51D547DD026C_var*
+var
+ i: Integer;
+//#UC END# *521B285C035B_51D547DD026C_var*
 //#UC START# *521B28930009_51D547DD026C_impl*
  aHeight := 0;
  aWidth := 0;
 //#UC END# *521B28930009_51D547DD026C_impl*
 //#UC START# *521B28930009_51D547DD026C_var*
 //#UC END# *521B28930009_51D547DD026C_var*
+//#UC START# *521B28BE015D_51D547DD026C_impl*
+ for I := 0 to Pred(ChildrenCount) do
+  IddConfigNode(Children[I]).GetControlValues;
+//#UC END# *521B28BE015D_51D547DD026C_impl*
+//#UC START# *521B28BE015D_51D547DD026C_var*
+var
+ I: Integer;
+//#UC END# *521B28BE015D_51D547DD026C_var*
 //#UC START# *521B293B0012_51D547DD026C_impl*
  { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
 //#UC END# *521B293B0012_51D547DD026C_impl*
 //#UC START# *521B293B0012_51D547DD026C_var*
 //#UC END# *521B293B0012_51D547DD026C_var*
+//#UC START# *521B298800F7_51D547DD026C_impl*
+ for I := 0 to Pred(ChildrenCount) do
+  IddConfigNode(Children[I]).SetControlValues(aDefault);
+//#UC END# *521B298800F7_51D547DD026C_impl*
+//#UC START# *521B298800F7_51D547DD026C_var*
+var
+  I: Integer;
+//#UC END# *521B298800F7_51D547DD026C_var*
 //#UC START# *5301EC7500FF_51D547DD026C_impl*
  Result := RddBaseConfigNode(ClassType).Create(Alias, Caption);
  TddCustomConfigNode(Result).Assign(Self);

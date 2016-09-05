@@ -1,0 +1,84 @@
+// msmListAndTreeInterfaces 57C99A680247 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C99A680247
+
+ME ME_57B2B0C602DF
+ MEPROP UID '57B2B0C602DF'
+ MEPROP Name 'ActionElementEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Event ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C99A680247 // msmListAndTreeInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AD8C3B0155' '57AAE8D403E5.ms.model.script' // TmsmModelEvent
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57B2B0C602DF ActionElementEvent
+
+ME ME_57B31D1000FA
+ MEPROP UID '57B31D1000FA'
+ MEPROP Name 'CurrentElementChangedEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Event ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C99A680247 // msmListAndTreeInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AD8C3B0155' '57AAE8D403E5.ms.model.script' // TmsmModelEvent
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57B31D1000FA CurrentElementChangedEvent
+
+ME ME_57ADBA39026E
+ MEPROP UID '57ADBA39026E'
+ MEPROP Name 'ListChangedEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Event ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C99A680247 // msmListAndTreeInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AD8C3B0155' '57AAE8D403E5.ms.model.script' // TmsmModelEvent
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57ADBA39026E ListChangedEvent
+
+ME ME_57C99A680247
+ MEPROP UID '57C99A680247'
+ MEPROP Name 'msmListAndTreeInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57C99A3900B9' '57C99A3900B9.ms.model.script' // msm$MVC$DefaultControllers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57B2B0C602DF // ActionElementEvent
+ HWL ME_57B31D1000FA // CurrentElementChangedEvent
+ HWL ME_57ADBA39026E // ListChangedEvent
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListAndTreeInterfaces.pas'
+
+ENDME // ME_57C99A680247 msmListAndTreeInterfaces

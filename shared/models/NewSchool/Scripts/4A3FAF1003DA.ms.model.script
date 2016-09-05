@@ -1,0 +1,103 @@
+// OvcCmd 4A3FAF1003DA Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3FAF1003DA
+
+ME ME_4A3FAF1F00EC
+ MEPROP UID '4A3FAF1F00EC'
+ MEPROP Name 'Command Tables'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A3FAF1003DA // OvcCmd
+ ;
+ UP "spell names" false
+
+ENDME // ME_4A3FAF1F00EC Command Tables
+
+FORWARD ME_515181D600DD
+
+ME ME_515182080271
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_515182080271 Sender
+
+ME ME_515182080287
+ MEPROP Name 'Command'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+
+ENDME // ME_515182080287 Command
+
+ME ME_515182020122
+ MEPROP UID '515182020122'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_515181D600DD // TUserCommandEvent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_515182080271 // Sender
+ ME_515182080287 // Command
+ )
+ ; // Parameters
+
+ENDME // ME_515182020122 DoIt
+
+ME ME_515181D600DD
+ MEPROP UID '515181D600DD'
+ MEPROP Name 'TUserCommandEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A3FAF1003DA // OvcCmd
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_515182020122 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_515181D600DD TUserCommandEvent
+
+ME ME_4A3FAF1003DA
+ MEPROP UID '4A3FAF1003DA'
+ MEPROP Name 'OvcCmd'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47540FF802AC' '47540FF802AC.ms.model.script' // Orpheus
+ ;
+ MELIST Children
+   Seq: ( HWL ME_515181D600DD // TUserCommandEvent
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4A3FAF1F00EC // Command Tables
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "finished" false
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcCmd.pas'
+
+ENDME // ME_4A3FAF1003DA OvcCmd

@@ -1,0 +1,77 @@
+// Redefinitions 498C732000B3 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_498C732000B3
+
+FORWARD ME_498C733E0315
+
+ME ME_498C73750392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_498C733E0315 // Project
+ ;
+
+ENDME // ME_498C73750392 
+
+ME ME_4B630AF00312
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_498C733E0315 // Project
+ ;
+ MELINK Target WL 'ME_46E13A69005D' '46E13A54030D.ms.model.script' // MDATemplates
+ ;
+
+ENDME // ME_4B630AF00312 
+
+ME ME_498C733E0315
+ MEPROP UID '498C733E0315'
+ MEPROP Name 'Project'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проект'#13#10'---'#13#10'Переопределение стандартного стереотипа проекта, дополнительно позволяет использовать в проекте серверные библиотеки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_498C732000B3 // Redefinitions
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_492E95760246' '492E953D00E4.ms.model.script' // Project
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_498C73750392 // 
+ ME_4B630AF00312 // MDATemplates
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\F1Specific\F1Templates\Redefinitions\Project.tpi'
+ UP mda.inc:PathOnly '\MDProcess\F1Specific\F1Templates\Redefinitions\Project'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_498C733E0315 Project
+
+ME ME_498C732000B3
+ MEPROP UID '498C732000B3'
+ MEPROP Name 'Redefinitions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Пакет переопределений стандартных стереотипов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_498C731501C6' '498C731501C6.ms.model.script' // F1Templates
+ ;
+ MELIST Children
+   Seq: ( HWL ME_498C733E0315 // Project
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E13A54030D' '46E13A54030D.ms.model.script' // HighLayers
+ WL 'ME_492E953D00E4' '492E953D00E4.ms.model.script' // ProjectDefinitions
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\F1Specific\F1Templates\Redefinitions'
+ UP mda.inc:PathOnly '\MDProcess\F1Specific\F1Templates\Redefinitions'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_498C732000B3 Redefinitions

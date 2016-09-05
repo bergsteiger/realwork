@@ -1,0 +1,60 @@
+// Diction 4A9CEA5001CF VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9CEA5001CF
+
+ME ME_8682F204C911
+ MEPROP UID '8682F204C911'
+ MEPROP Name 'Ini_FormFactory_Diction'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Diction' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A9CEA5001CF // Diction
+ ;
+ UPLINK SpelledFor HWL ME_4A9CEA5001CF // Diction
+ ;
+
+ENDME // ME_8682F204C911 Ini_FormFactory_Diction
+
+ME ME_4A9CEA5001CF
+ MEPROP UID '4A9CEA5001CF'
+ MEPROP Name 'Diction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A9CE5F2036F' '4A9CE5F2036F.ms.model.script' // Diction$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51B860F20280' '51B860F20280.ms.model.script' // PrimDictionOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD8774400C5' '4BD856E802F9.ms.model.script' // Diction
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_8682F204C911 // Ini_FormFactory_Diction
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Navigator'
+ UP "finished dfm" true
+ UP "form name prefix" 'en'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\Diction_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms'
+ UP extprop:pas:TypeName 'TenDiction'
+ UP extprop:rc:SelfName 'enDiction'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Diction_Form'
+
+ENDME // ME_4A9CEA5001CF Diction

@@ -1,0 +1,52 @@
+// F1 Утилита Прайм 4AA902A10064 VCMProject Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AA902A10064
+ MEPROP UID '4AA902A10064'
+ MEPROP Name 'F1 Утилита Прайм'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMProject ;
+ %SUMMARY 'Мониторинги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELIST Children
+   Seq: ( WL 'ME_4AA9032A002B' '4AA9032A002B.ms.model.script' // Monitoring
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_442BEDF00290' '442BEDF00290.ms.model.script' // garant6x
+ WL 'ME_45ED6F0303D2' '45ED6F0303D2.ms.model.script' // shared
+ WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ WL 'ME_498B35810374' '498B35810374.ms.model.script' // F1 Базовые определения предметной области
+ WL 'ME_49B1511700CA' '49B1511700CA.ms.model.script' // Shared Delphi Core
+ WL 'ME_4A82FE48010A' '4A82FE48010A.ms.model.script' // Shared Delphi Operations
+ WL 'ME_4A856C6B0338' '4A856C6B0338.ms.model.script' // F1 Common For Shell And Monitoring
+ WL 'ME_4AA9194D0280' '4AA9194D0280.ms.model.script' // View
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.ms.model.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ WL 'ME_4E366CA201C2' '4E366CA201C2.ms.model.script' // F1 Требования
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_4E78CD64017F' '4E78CD64017F.ms.model.script' // F1 Проблемы и решения
+ WL 'ME_4F7C1CFD01B7' '4F7C1CFD01B7.ms.model.script' // F1 Common For Admin And Monitoring
+ WL 'ME_542015B5012C' '542015B5012C.ms.model.script' // PostingOrder
+ )
+ ; // Depends
+ UP "Full MDP" false
+ UP "create project" true
+ UP "defines" 'nsDefine.inc'
+ UP "fix version" 0
+ UP "full constraint" false
+ UP "ifdef" 'Monitorings'
+ UP "ifndef" 'Admin'
+ UP "major version" 8
+ UP "minor version" 01
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/implementation/Garant'
+ UP "space key" 'NMS'
+ UP "space name" 'Nemesis'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant'
+
+ENDME // ME_4AA902A10064 F1 Утилита Прайм

@@ -1,0 +1,62 @@
+// UserCR1_WarningBaloon 4EF47F2E0348 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF47F2E0348
+
+ME ME_5B7A794CDC6A
+ MEPROP UID '5B7A794CDC6A'
+ MEPROP Name 'Ini_FormFactory_UserCR1_WarningBaloon'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы UserCR1_WarningBaloon' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EF47F2E0348 // UserCR1_WarningBaloon
+ ;
+ UPLINK SpelledFor HWL ME_4EF47F2E0348 // UserCR1_WarningBaloon
+ ;
+
+ENDME // ME_5B7A794CDC6A Ini_FormFactory_UserCR1_WarningBaloon
+
+ME ME_4EF47F2E0348
+ MEPROP UID '4EF47F2E0348'
+ MEPROP Name 'UserCR1_WarningBaloon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA599F501CF' '4EA599F501CF.ms.model.script' // PrimWarningBaloonOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EF47EF602BE' '4BD856E802F9.ms.model.script' // UserCR1_WarningBaloon
+ WL 'ME_4EF47FB900CD' '484FA67302D7.ms.model.script' // На медали 'Список изменён' в пользовательских вкладках СКР должен показываться баллон
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5B7A794CDC6A // Ini_FormFactory_UserCR1_WarningBaloon
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '23.12.2011 17:16'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\UserCR1_WarningBaloon_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ UP extprop:pas:TypeName 'TUserCR1_WarningBaloonForm'
+ UP extprop:rc:SelfName 'UserCR1_WarningBaloonForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'UserCR1_WarningBaloon_Form'
+
+ENDME // ME_4EF47F2E0348 UserCR1_WarningBaloon

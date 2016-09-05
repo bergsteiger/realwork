@@ -1,0 +1,42 @@
+UNIT ME.ms.dict
+
+USES
+ InheritsAndImplementsNew.ms.dict
+;
+
+USES
+ WordsCache.ms.dict
+;
+
+STACK_CHANGING_MACRO CacheME
+ DUP pop:Word:Name
+ SWAP WordToCache
+; // CacheME
+
+STACK_CHANGING_MACRO ENDME
+ axiom:PushSymbol @SELF
+ axiom:PushSymbol ;
+ Ctx:WordDefiningNow
+ axiom:PushSymbol CacheME
+; // ENDME
+
+EXPORTS
+ NamedCodeProducer.ms.dict
+
+EXPORTS
+ InheritsAndImplementsNew.ms.dict
+
+USES
+ classRelations.ms.dict
+;
+
+EXPORTS
+ classRelations.ms.dict
+ 
+USES
+ ref.ms.dict
+;
+
+EXPORTS
+ ref.ms.dict
+ 

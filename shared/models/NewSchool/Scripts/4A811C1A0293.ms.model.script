@@ -1,0 +1,64 @@
+// BaseWorkJournal 4A811C1A0293 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A811C1A0293
+
+ME ME_4BD6D84B016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A811C1A0293 // BaseWorkJournal
+ ;
+ MELINK Target WL 'ME_4BD6D74C0111' '4BD6D6EA0075.ms.model.script' // utWorkJournal
+ ;
+
+ENDME // ME_4BD6D84B016B 
+
+ME ME_579F74CB0188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A811C1A0293 // BaseWorkJournal
+ ;
+ MELINK Target WL 'ME_579F749600D6' '5795D66F0385.ms.model.script' // TWorkJournalService
+ ;
+
+ENDME // ME_579F74CB0188 
+
+ME ME_4A827EF40353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A811C1A0293 // BaseWorkJournal
+ ;
+ MELINK Target WL 'ME_4A825E1200F4' '4A825D760190.ms.model.script' // TbsWorkJournal
+ ;
+
+ENDME // ME_4A827EF40353 
+
+ME ME_4A811C1A0293
+ MEPROP UID '4A811C1A0293'
+ MEPROP Name 'BaseWorkJournal'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A811BCC031F' '4A811BCC031F.ms.model.script' // WorkJournal
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4A811C620210' '4A811C620210.ms.model.script' // WorkJournal
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BD6D84B016B // utWorkJournal
+ ME_579F74CB0188 // TWorkJournalService
+ ME_4A827EF40353 // TbsWorkJournal
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\BaseWorkJournal_Module.pas'
+ UP extprop:pas:TypeName 'TBaseWorkJournalModule'
+ UP extprop:rc:SelfName 'BaseWorkJournalModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseWorkJournal_Module'
+
+ENDME // ME_4A811C1A0293 BaseWorkJournal

@@ -1,0 +1,72 @@
+// k2PureMixIns 4BC83B8301E5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BC83B8301E5
+
+FORWARD ME_4BBF4290001A
+
+ME ME_4BBF42BF004D
+ MEPROP UID '4BBF42BF004D'
+ MEPROP Name 'Processor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBF4290001A // Mk2ProcessorHolder
+ ;
+ MELINK Target WL 'ME_469F6BF0009D' '47913B47006E.ms.model.script' // Ik2Processor
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBF42BF004D Processor
+
+ME ME_4BBF4290001A
+ MEPROP UID '4BBF4290001A'
+ MEPROP Name 'Mk2ProcessorHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BC83B8301E5 // k2PureMixIns
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBF42BF004D // Processor
+ )
+ ; // Attributes
+
+ENDME // ME_4BBF4290001A Mk2ProcessorHolder
+
+ME ME_4BC83B8301E5
+ MEPROP UID '4BC83B8301E5'
+ MEPROP Name 'k2PureMixIns'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Примеси для конструирования интерфейсов библиотеки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BBF4290001A // Mk2ProcessorHolder
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.ms.model.script' // k2Core
+ WL 'ME_5326D70401F3' '5326D70401F3.ms.model.script' // l3Variants
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '16.04.2010 14:27'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2PureMixIns.pas'
+
+ENDME // ME_4BC83B8301E5 k2PureMixIns

@@ -29,13 +29,13 @@
 
 //	%f_set_var(THIS_SET,S)\
 
-	<{}{%LS=VCMUseCaseRealization}\
-	%L<{}{%GS=VCMFormsPack}\
-	%1%f_SpellToMod(%G,%G%P,%S)\
-	>\
-	>\
+//	<{}{%LS=VCMUseCaseRealization}\
+//	%L<{}{%GS=VCMFormsPack}\
+//	%1%f_SpellToMod(%G,%G%P,%S)\
+//	>\
+//	>\
 
-	<{}{%LS=SettingsHolder}\
+	<{}{%LS=SettingsHolder|%LS=VCMModuleContract}\
 	%S%f_SpellToMod(%L,%L%P,%L)\
 	>\
 	
@@ -108,7 +108,16 @@
 	%f_set_var(MOD,1)\
 	%f_set_var(PAR,2)\
 
+	[{%{MOD}S=VCMModuleContract}{\
 	%{PAR}%f_add_class(%{SELF}U_%{MOD}U_Res,UtilityPack,%f_N(%{MOD})%{SELF}{CodeName}SettingRes,Pack_Inst)\
+	%f_addCDep(%{MOD},%{Pack_Inst})\
+	%{Pack_Inst}%f_set_documentation(Ресурсы для настройки "%{SELF}N")\
+	%{Pack_Inst}%f_make_accessable(%{SELF}U)\
+	%f_addR(%{Pack_Inst},%{SELF})\
+	}\
+//	%{PAR}%f_add_class(%{SELF}U_%{MOD}U_Res,SimpleClass,%f_N(%{MOD})%{SELF}{CodeName}SettingRes,Pack_Inst)\
+	%f_set_var(Pack_Inst,{MOD})\
+	]\
 //	%f_warning(made %{Pack_Inst}N:%{Pack_Inst}S)\
 
 	[{%{SELF}%{IsBool}N=true}{\
@@ -125,7 +134,7 @@
 	}\
 	]\
 
-	[{%{MOD}S=SettingsHolder}{\
+	[{%{MOD}S=SettingsHolder|%{MOD}S=VCMModuleContract}{\
 	%f_set_var(METHOD,"FactoryMethod")\
 	%f_set_var(METHODN,"%f_N(%{MOD})")\
 	}\
@@ -139,6 +148,7 @@
 	%{FM_Inst}%f_set_visibility_type(PublicAccess)\
 	%{FM_Inst}%f_set_abstraction_type(final)\
 	%{FM_Inst}%f_set_documentation(Метод для получения значения настройки "%{SELF}N")\
+	%{FM_Inst}%f_set_var(Speller,{SELF})\
 
 	%{FM_Inst}%f_make_accessable(%{SELF}U)\
 	%f_addR(%{FM_Inst},%{SELF})\
@@ -180,6 +190,7 @@
 	%{FM_Inst_W}%f_set_visibility_type(PublicAccess)\
 	%{FM_Inst_W}%f_set_abstraction_type(final)\
 	%{FM_Inst_W}%f_set_documentation(Метод для записи значения настройки "%{SELF}N")\
+	%{FM_Inst_W}%f_set_var(Speller,{SELF})\
 
 	%{FM_Inst_W}%f_make_accessable(%{SELF}U)\
 	%f_addR(%{FM_Inst_W},%{SELF})\
@@ -216,6 +227,7 @@
 	%{FM_Inst}%f_set_visibility_type(PublicAccess)\
 	%{FM_Inst}%f_set_abstraction_type(final)\
 	%{FM_Inst}%f_set_documentation(Метод для получения значения настройки "%{SELF}N"."%CN")\
+	%{FM_Inst}%f_set_var(Speller,{SELF})\
 
 	%{FM_Inst}%f_make_accessable(%{SELF}U)\
 	%f_addR(%{FM_Inst},%{SELF})\
@@ -249,11 +261,6 @@
 	>\
 
 	]\
-
-	%f_addCDep(%{MOD},%{Pack_Inst})\
-	%{Pack_Inst}%f_set_documentation(Ресурсы для настройки "%{SELF}N")\
-	%{Pack_Inst}%f_make_accessable(%{SELF}U)\
-	%f_addR(%{Pack_Inst},%{SELF})\
 
 	%{Pack_Inst}%f_add_class(%{Pack_Inst}U_Key,Constants,%{SELF}{CodeName}Key,Const_Inst)\
 	%{Const_Inst}%f_add_attribute(%{Const_Inst}U_Key,,\

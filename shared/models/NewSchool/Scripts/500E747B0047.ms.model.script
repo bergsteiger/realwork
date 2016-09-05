@@ -1,0 +1,72 @@
+// TdsAACDocumentRight 500E747B0047 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_500E747B0047
+
+ME ME_500E76A600B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500E747B0047 // TdsAACDocumentRight
+ ;
+ MELINK Target WL 'ME_500E75C90024' '4FF2E66802B4.ms.model.script' // TnsAACRightDocumentContainer
+ ;
+
+ENDME // ME_500E76A600B2 
+
+ME ME_500E74C30088_ME_500E747B0047
+ MELINK Original WL 'ME_500E74C30088' '500E749D0046.ms.model.script' // BlockViewKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_500E74C30088_ME_500E747B0047 BlockViewKind
+
+ME ME_491C263E03AF_ME_500E747B0047
+ MELINK Original WL 'ME_491C263E03AF' '47EA20430108.ms.model.script' // GetIsReadOnly
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C263E03AF_ME_500E747B0047 GetIsReadOnly
+
+ME ME_4C6AB38800F3_ME_500E747B0047
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_500E747B0047 MakeContainer
+
+ME ME_500E747B0047
+ MEPROP UID '500E747B0047'
+ MEPROP Name 'TdsAACDocumentRight'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FF2E66802B4' '4FF2E66802B4.ms.model.script' // AACImplementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_500E749D0046' '500E749D0046.ms.model.script' // TdsAACDocumentPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_500FF3E20023' '484FA67302D7.ms.model.script' // `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_500E74C30088_ME_500E747B0047 // BlockViewKind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_491C263E03AF_ME_500E747B0047 // GetIsReadOnly
+ ME_4C6AB38800F3_ME_500E747B0047 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_500E76A600B2 // TnsAACRightDocumentContainer
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentRight.pas'
+ UP extprop:rc:SelfName 'dsAACDocumentRight'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsAACDocumentRight'
+
+ENDME // ME_500E747B0047 TdsAACDocumentRight

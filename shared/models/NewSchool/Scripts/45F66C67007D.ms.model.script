@@ -1,0 +1,52 @@
+// SearchDefines 45F66C67007D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45F66C67007D
+
+ME ME_45EEE30C0130
+ MEPROP UID '45EEE30C0130'
+ MEPROP Name 'AttributeTag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тэги всех атрибутов получаемых в виде дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F66C67007D // SearchDefines
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TAttributeTag'
+
+ENDME // ME_45EEE30C0130 AttributeTag
+
+ME ME_45F66C67007D
+ MEPROP UID '45F66C67007D'
+ MEPROP Name 'SearchDefines'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEE30C0130 // AttributeTag
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchDefines'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchDefines\SearchDefines.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchDefines'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SearchDefinesUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchDefinesUnit.pas'
+ UP extprop:pas:UnitName 'SearchDefinesUnit'
+
+ENDME // ME_45F66C67007D SearchDefines

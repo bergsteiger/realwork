@@ -1,0 +1,109 @@
+// StartupTips 4AB9DA410090 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB9DA410090
+
+ME ME_0F70FC525F19
+ MEPROP UID '0F70FC525F19'
+ MEPROP Name 'ut_StartupTips'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB9DA410090 // StartupTips
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\StartupTips_ut_StartupTips_UserType.pas'
+ UP extprop:pas:UnitName 'StartupTips_ut_StartupTips_UserType'
+
+ENDME // ME_0F70FC525F19 ut_StartupTips
+
+ME ME_0E5003440F0B
+ MEPROP UID '0E5003440F0B'
+ MEPROP GUID '69581B33-5C00-46C8-8723-A5DE81DDD577'
+ MEPROP Name 'StartupTips'
+ MEPROP OriginalName 'StartupTips$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы StartupTips' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB9DA410090 // StartupTips
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AB9DA410090 // StartupTips
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'StartupTipsFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_0E5003440F0B StartupTips$Def
+
+ME ME_7CBE85141D9C
+ MEPROP UID '7CBE85141D9C'
+ MEPROP Name 'Ini_FormFactory_StartupTips'
+ MEPROP OriginalName 'Ini_FormFactory_StartupTips$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы StartupTips' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB9DA410090 // StartupTips
+ ;
+ UPLINK SpelledFor HWL ME_4AB9DA410090 // StartupTips
+ ;
+
+ENDME // ME_7CBE85141D9C Ini_FormFactory_StartupTips$Def
+
+ME ME_4AB9DA410090
+ MEPROP UID '4AB9DA410090'
+ MEPROP Name 'StartupTips'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA0D5380056' '4AA0D5380056.ms.model.script' // DayTips
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC4F49F010B' '4AC4F49F010B.ms.model.script' // PrimStartupTips
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_0E5003440F0B // StartupTips$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_7CBE85141D9C // Ini_FormFactory_StartupTips$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_0F70FC525F19 // ut_StartupTips
+ HWL ME_0E5003440F0B // StartupTips$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Floating'
+ UP "finished dfm" true
+ UP "form name prefix" 'ef'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\StartupTips_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms'
+ UP extprop:pas:TypeName 'TefStartupTips'
+ UP extprop:rc:SelfName 'efStartupTips'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StartupTips_Form'
+
+ENDME // ME_4AB9DA410090 StartupTips

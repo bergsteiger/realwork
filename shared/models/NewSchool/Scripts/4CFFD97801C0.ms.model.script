@@ -1,0 +1,47 @@
+// TeePreviewPanel 4CFFD97801C0 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFFD97801C0
+
+ME ME_4CFFD98700DD
+ MEPROP UID '4CFFD98700DD'
+ MEPROP Name 'TeeCustomPreviewPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFFD97801C0 // TeePreviewPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C2238D10107' '4C2238D10107.ms.model.script' // TvtCustomPreviewPanel
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'eeCustomPreviewPanel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFFD98700DD TeeCustomPreviewPanel
+
+ME ME_4CFFD97801C0
+ MEPROP UID '4CFFD97801C0'
+ MEPROP Name 'TeePreviewPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFFD98700DD // TeeCustomPreviewPanel
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eePreviewPanel.pas'
+ UP extprop:rc:SelfName 'eePreviewPanel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eePreviewPanel'
+
+ENDME // ME_4CFFD97801C0 TeePreviewPanel

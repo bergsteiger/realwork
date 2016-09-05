@@ -1,0 +1,121 @@
+// TdsMedicDiction 4925595900C8 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4925595900C8
+
+ME ME_492D5F3A0205
+ MEPROP UID '492D5F3A0205'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4925595900C8 // TdsMedicDiction
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_492D5F3A0205 InitDataType
+
+ME ME_492559B800FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4925595900C8 // TdsMedicDiction
+ ;
+ MELINK Target WL 'ME_492559970076' '491D7CDC0221.ms.model.script' // TdeMedicDiction
+ ;
+
+ENDME // ME_492559B800FE 
+
+ME ME_49255A03004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4925595900C8 // TdsMedicDiction
+ ;
+ MELINK Target WL 'ME_49070AD5032C' '4901F07D039B.ms.model.script' // TnsMedicDictionTree
+ ;
+
+ENDME // ME_49255A03004D 
+
+ME ME_55F00B2801AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4925595900C8 // TdsMedicDiction
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_55F00B2801AB 
+
+ME ME_47F4C2B9014A_ME_4925595900C8
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_4925595900C8 MakeSimpleTree
+
+ME ME_49254515003C_ME_4925595900C8
+ MELINK Original WL 'ME_49254515003C' '4925449A0296.ms.model.script' // MakeDocInfoForCurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49254515003C_ME_4925595900C8 MakeDocInfoForCurrentChanged
+
+ME ME_5571EB84007F_ME_4925595900C8
+ MELINK Original WL 'ME_5571EB84007F' '4925449A0296.ms.model.script' // DictionKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5571EB84007F_ME_4925595900C8 DictionKind
+
+ME ME_55097FF5008E_ME_4925595900C8
+ MELINK Original WL 'ME_55097FF5008E' '47D0E1500033.ms.model.script' // GetIsDataAvailable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55097FF5008E_ME_4925595900C8 GetIsDataAvailable
+
+ME ME_4925595900C8
+ MEPROP UID '4925595900C8'
+ MEPROP Name 'TdsMedicDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список медицинских терминов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4925449A0296' '4925449A0296.ms.model.script' // dsCommonDiction
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_492D5F3A0205 // InitDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F4C2B9014A_ME_4925595900C8 // MakeSimpleTree
+ ME_49254515003C_ME_4925595900C8 // MakeDocInfoForCurrentChanged
+ ME_5571EB84007F_ME_4925595900C8 // DictionKind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_55097FF5008E_ME_4925595900C8 // GetIsDataAvailable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_492559B800FE // TdeMedicDiction
+ ME_49255A03004D // TnsMedicDictionTree
+ ME_55F00B2801AB // DefDataAdapter
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '2008/03/06 10:02:57'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicDiction.pas'
+ UP extprop:rc:SelfName 'dsMedicDiction'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsMedicDiction'
+
+ENDME // ME_4925595900C8 TdsMedicDiction

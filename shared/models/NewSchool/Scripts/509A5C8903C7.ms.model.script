@@ -1,0 +1,33 @@
+// Keywords4Daily 509A5C8903C7 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_509A5C8903C7
+ MEPROP UID '509A5C8903C7'
+ MEPROP Name 'Keywords4Daily'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Ключевые слова специально для DailyTests' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49B923B60333' '49B923B60333.ms.model.script' // Shared Delphi Tests
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_509A5CB50110' '509A5CB50110.ms.model.script' // SupportWords
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ WL 'ME_4B30C5FF0172' '4B30C5FF0172.ms.model.script' // TestFormsTest
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "ifndef" 'NoVCM'
+ UP "is namespace" true
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
+
+ENDME // ME_509A5C8903C7 Keywords4Daily

@@ -1,0 +1,70 @@
+// NSRC 4F266203018F UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F266203018F
+
+FORWARD ME_4BBB34EC029C
+
+ME ME_4F2663560035
+ MEPROP UID '4F2663560035'
+ MEPROP Name 'Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:331186919}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BBB34EC029C // Выливка в формат NSRC
+ ;
+
+ENDME // ME_4F2663560035 Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+
+ME ME_4F4DD4AB0339
+ MEPROP UID '4F4DD4AB0339'
+ MEPROP Name 'Картинки внутри сегментов должны уметь писаться в NSRC'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336664105}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BBB34EC029C // Выливка в формат NSRC
+ ;
+
+ENDME // ME_4F4DD4AB0339 Картинки внутри сегментов должны уметь писаться в NSRC
+
+ME ME_4BBB34EC029C
+ MEPROP UID '4BBB34EC029C'
+ MEPROP Name 'Выливка в формат NSRC'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F266203018F // NSRC
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F2663560035 // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+ HWL ME_4F4DD4AB0339 // Картинки внутри сегментов должны уметь писаться в NSRC
+ )
+ ; // Children
+
+ENDME // ME_4BBB34EC029C Выливка в формат NSRC
+
+ME ME_4F266203018F
+ MEPROP UID '4F266203018F'
+ MEPROP Name 'NSRC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BBB34EC029C // Выливка в формат NSRC
+ )
+ ; // Children
+
+ENDME // ME_4F266203018F NSRC

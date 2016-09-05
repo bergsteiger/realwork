@@ -1,0 +1,285 @@
+// afwTypes 473C569D0287 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_473C569D0287
+
+FORWARD ME_473C5701008C
+
+ME ME_473C57110125
+ MEPROP UID '473C57110125'
+ MEPROP Name 'rNumber'
+ MEPROP Class class_Attribute
+ %SUMMARY 'номер страницы начиная с 0' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_473C5701008C // TafwPrintPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_473C57110125 rNumber
+
+ME ME_473C5701008C
+ MEPROP UID '473C5701008C'
+ MEPROP Name 'TafwPrintPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'инфо для печати страницы документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C569D0287 // afwTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_473C57110125 // rNumber
+ )
+ ; // Attributes
+
+ENDME // ME_473C5701008C TafwPrintPage
+
+FORWARD ME_473C571F02A2
+
+ME ME_473C57290238
+ MEPROP UID '473C57290238'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_473C571F02A2 // TafwPrintPagesArray
+ ;
+ MELINK Target HWL ME_473C5701008C // TafwPrintPage
+ ;
+
+ENDME // ME_473C57290238 
+
+ME ME_473C571F02A2
+ MEPROP UID '473C571F02A2'
+ MEPROP Name 'TafwPrintPagesArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Массив страниц preview.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C569D0287 // afwTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_473C57290238 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_473C571F02A2 TafwPrintPagesArray
+
+FORWARD ME_473C573902F9
+
+ME ME_473C57470123
+ MEPROP UID '473C57470123'
+ MEPROP Name 'afw_piAll'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_473C573902F9 // TafwPagesInterval
+ ;
+
+ENDME // ME_473C57470123 afw_piAll
+
+ME ME_473C574D0059
+ MEPROP UID '473C574D0059'
+ MEPROP Name 'afw_piOdd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_473C573902F9 // TafwPagesInterval
+ ;
+
+ENDME // ME_473C574D0059 afw_piOdd
+
+ME ME_473C575202C3
+ MEPROP UID '473C575202C3'
+ MEPROP Name 'afw_piEven'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_473C573902F9 // TafwPagesInterval
+ ;
+
+ENDME // ME_473C575202C3 afw_piEven
+
+ME ME_473C573902F9
+ MEPROP UID '473C573902F9'
+ MEPROP Name 'TafwPagesInterval'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интервал печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C569D0287 // afwTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_473C57470123 // afw_piAll
+ HWL ME_473C574D0059 // afw_piOdd
+ HWL ME_473C575202C3 // afw_piEven
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_473C573902F9 TafwPagesInterval
+
+FORWARD ME_475FEDD003AD
+
+ME ME_475FEDEC0200
+ MEPROP UID '475FEDEC0200'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_475FEDD003AD // TafwCommands
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_475FEDEC0200 
+
+ME ME_475FEDD003AD
+ MEPROP UID '475FEDD003AD'
+ MEPROP Name 'TafwCommands'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C569D0287 // afwTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_475FEDEC0200 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP "force usage" true
+
+ENDME // ME_475FEDD003AD TafwCommands
+
+FORWARD ME_56D05B910044
+
+ME ME_46A1020802EA
+ MEPROP UID '46A1020802EA'
+ MEPROP Name 'afw_sbHorz'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56D05B910044 // TafwScrollBarType
+ ;
+
+ENDME // ME_46A1020802EA afw_sbHorz
+
+ME ME_46A10214005C
+ MEPROP UID '46A10214005C'
+ MEPROP Name 'afw_sbVert'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56D05B910044 // TafwScrollBarType
+ ;
+
+ENDME // ME_46A10214005C afw_sbVert
+
+ME ME_56D05B910044
+ MEPROP UID '56D05B910044'
+ MEPROP Name 'TafwScrollBarType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C569D0287 // afwTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_46A1020802EA // afw_sbHorz
+ HWL ME_46A10214005C // afw_sbVert
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56D05B910044 TafwScrollBarType
+
+ME ME_56D05BE903C1
+ MEPROP UID '56D05BE903C1'
+ MEPROP Name 'TafwScrollBars'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C569D0287 // afwTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56D05B910044 // TafwScrollBarType
+ )
+ ; // Inherits
+
+ENDME // ME_56D05BE903C1 TafwScrollBars
+
+ME ME_56D05C220016
+ MEPROP UID '56D05C220016'
+ MEPROP Name 'afw_sbBoth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C569D0287 // afwTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56D05BE903C1 // TafwScrollBars
+ )
+ ; // Inherits
+ UP "spell names" false
+
+ENDME // ME_56D05C220016 afw_sbBoth
+
+ME ME_473C569D0287
+ MEPROP UID '473C569D0287'
+ MEPROP Name 'afwTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Базовые типы библиотеки AFW.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
+ ;
+ MELIST Children
+   Seq: ( HWL ME_473C5701008C // TafwPrintPage
+ HWL ME_473C571F02A2 // TafwPrintPagesArray
+ HWL ME_473C573902F9 // TafwPagesInterval
+ HWL ME_475FEDD003AD // TafwCommands
+ HWL ME_56D05B910044 // TafwScrollBarType
+ HWL ME_56D05BE903C1 // TafwScrollBars
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_56D05C220016 // afw_sbBoth
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '30.12.2004 13:38'
+ UP "weak" true
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwTypes.pas'
+
+ENDME // ME_473C569D0287 afwTypes

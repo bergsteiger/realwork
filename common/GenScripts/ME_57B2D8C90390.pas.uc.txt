@@ -1,0 +1,45 @@
+//#UC START# *57B2D8C90390_ext:FileName
+w:\common\components\gui\Garant\msm\msmWordsCache.pas
+//#UC END# *57B2D8C90390_ext:FileName
+//#UC START# *57B2D8C90390impl_uses*
+//#UC END# *57B2D8C90390impl_uses*
+//#UC START# *57C4878D02D3_57B2D8C90390_impl*
+ Lock;
+ try
+  inherited Add(anItem.GetRefForCompare);
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57C4878D02D3_57B2D8C90390_impl*
+//#UC START# *57C4878D02D3_57B2D8C90390_var*
+//#UC END# *57C4878D02D3_57B2D8C90390_var*
+//#UC START# *57C487A801B7_57B2D8C90390_impl*
+ Lock;
+ try
+  inherited Insert(anIndex, anItem.GetRefForCompare);
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57C487A801B7_57B2D8C90390_impl*
+//#UC START# *57C487A801B7_57B2D8C90390_var*
+//#UC END# *57C487A801B7_57B2D8C90390_var*
+//#UC START# *57C487D4037A_57B2D8C90390_impl*
+ Lock;
+ try
+  Result := inherited FindData(anItem.GetRefForCompare, theIndex);
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57C487D4037A_57B2D8C90390_impl*
+//#UC START# *57C487D4037A_57B2D8C90390_var*
+//#UC END# *57C487D4037A_57B2D8C90390_var*
+//#UC START# *57C48BE901A3_57B2D8C90390_impl*
+ Lock;
+ try
+  Result := inherited FindData(anItem, theIndex);
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57C48BE901A3_57B2D8C90390_impl*
+//#UC START# *57C48BE901A3_57B2D8C90390_var*
+//#UC END# *57C48BE901A3_57B2D8C90390_var*

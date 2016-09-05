@@ -1,0 +1,220 @@
+// PrimInternetAgent$FP 49EC739C0100 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EC739C0100
+
+FORWARD ME_4B14DF1F0101
+
+ME ME_4B14DF4201A3
+ MEPROP UID '4B14DF4201A3'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+
+ENDME // ME_4B14DF4201A3 Log
+
+ME ME_4B14DF7401B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14DF7401B1 
+
+ME ME_4B14DF1F0101
+ MEPROP UID '4B14DF1F0101'
+ MEPROP Name 'TnsOpenInternetAgentEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14DF4201A3 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14DF7401B1 // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OpenInternetAgentEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B14DF1F0101 TnsOpenInternetAgentEvent
+
+ME ME_4A979E4D015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4A979E4D015A 
+
+ME ME_4A979E4F037F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4A979E4F037F 
+
+ME ME_4A979E51035B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4A979E51035B 
+
+ME ME_4AAA08430001
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_4AAA08430001 
+
+ME ME_4B14DF4B0118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+
+ENDME // ME_4B14DF4B0118 
+
+ME ME_4B5EDA850332
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4B5EDA850332 
+
+ME ME_4B5EDC76016E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_475EA8840080' '467823B7002C.ms.model.script' // Locale
+ ;
+
+ENDME // ME_4B5EDC76016E 
+
+ME ME_4C0DDE9901BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4C0DDE9901BA 
+
+ME ME_57971CB30188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_57971A530162' '5795D66F0385.ms.model.script' // TInternetAgentService
+ ;
+
+ENDME // ME_57971CB30188 
+
+ME ME_49ECA9E301EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_49ECA984005F' '49ECA984005F.ms.model.script' // TsdsInternetAgent
+ ;
+
+ENDME // ME_49ECA9E301EF 
+
+ME ME_49ECAA2A0030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+ ;
+
+ENDME // ME_49ECAA2A0030 
+
+ME ME_49ECAA4400C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_49ECAA4400C8 
+
+ME ME_49EC739C0100
+ MEPROP UID '49EC739C0100'
+ MEPROP Name 'PrimInternetAgent'
+ MEPROP OriginalName 'PrimInternetAgent$FP'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Модуль для [Интернет-агента|$144575249]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_49EC7167004C' '49EC7167004C.ms.model.script' // InternetAgent
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_49EC74D002B8' '49EC74D002B8.ms.model.script' // InternetAgent$F
+ WL 'ME_49F586610347' '49F586610347.ms.model.script' // InternetAgent
+ HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A979E4D015A // Il3CString
+ ME_4A979E4F037F // l3Base
+ ME_4A979E51035B // DataAdapter
+ ME_4AAA08430001 // nsTypes
+ ME_4B14DF4B0118 // TnsOpenInternetAgentEvent
+ ME_4B5EDA850332 // afwFacade
+ ME_4B5EDC76016E // Locale
+ ME_4C0DDE9901BA // nsConst
+ ME_57971CB30188 // TInternetAgentService
+ ME_49ECA9E301EF // TsdsInternetAgent
+ ME_49ECAA2A0030 // TvcmFormSetFactory
+ ME_49ECAA4400C8 // StdRes
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\PrimInternetAgent_Module.pas'
+ UP extprop:pas:TypeName 'TPrimInternetAgentModule'
+ UP extprop:rc:SelfName 'PrimInternetAgentModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimInternetAgent_Module'
+
+ENDME // ME_49EC739C0100 PrimInternetAgent$FP

@@ -1,0 +1,328 @@
+// TsdsMainWindow 4DC011350154 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC011350154
+
+FORWARD ME_4DC0221700D8
+
+ME ME_4DC0224102B9
+ MEPROP UID '4DC0224102B9'
+ MEPROP Name 'UnreadConsultations'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC0221700D8 // Local
+ ;
+ MEPROP Value '''Получены ответы или уведомления от службы Правовой поддержки онлайн. Перейти к тексту ответа.'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Получены ответы или уведомления от службы Правовой поддержки онлайн. Перейти к тексту ответа.'''
+
+ENDME // ME_4DC0224102B9 UnreadConsultations
+
+ME ME_4DC0225F001F
+ MEPROP UID '4DC0225F001F'
+ MEPROP Name 'UnreadConsultationsLink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC0221700D8 // Local
+ ;
+ MEPROP Value '''Перейти к тексту ответа'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Перейти к тексту ответа'''
+
+ENDME // ME_4DC0225F001F UnreadConsultationsLink
+
+ME ME_4DC125B80395
+ MEPROP UID '4DC125B80395'
+ MEPROP Name 'OnlineDead'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC0221700D8 // Local
+ ;
+ UP "AutoInc" false
+ UP "Value" '''С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. '' + '#13#10'''Онлайн-проверка актуальности документов отключена.'' + #13#10 + '#13#10'''Для обновления системы ГАРАНТ обратитесь в обслуживающую Вас организацию:'' + #13#10 + '#13#10'''%s'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_4DC125B80395 OnlineDead
+
+ME ME_4DC12BDA01A4
+ MEPROP UID '4DC12BDA01A4'
+ MEPROP Name 'TrialModeWarning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC0221700D8 // Local
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Вы работаете с ознакомительной версией системы ГАРАНТ.'' +'#13#10''' До окончания срока ее действия осталось дней: %s.'' + #13#10 + #13#10 +'#13#10''#13#10'''Чтобы стать зарегистрированным пользователем системы ГАРАНТ и получать полный комплекс информационно-правового обеспечения, обращайтесь в компанию \\"Гарант\\" или к ее региональным партнерам:'' + #13#10 + #13#10 +'#13#10''#13#10'''%s'''
+ UP "finished" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_4DC12BDA01A4 TrialModeWarning
+
+ME ME_4DC131A20095
+ MEPROP UID '4DC131A20095'
+ MEPROP Name 'ControlledChangingWarning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC0221700D8 // Local
+ ;
+ MEPROP Value '''Внимание! Документы на контроле изменились.'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Внимание! Документы на контроле изменились.'''
+
+ENDME // ME_4DC131A20095 ControlledChangingWarning
+
+ME ME_4DC0221700D8
+ MEPROP UID '4DC0221700D8'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DC0224102B9 // UnreadConsultations
+ HWL ME_4DC0225F001F // UnreadConsultationsLink
+ HWL ME_4DC125B80395 // OnlineDead
+ HWL ME_4DC12BDA01A4 // TrialModeWarning
+ HWL ME_4DC131A20095 // ControlledChangingWarning
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'mw'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'mw'
+
+ENDME // ME_4DC0221700D8 Local
+
+ME ME_4DC03E5F0267
+ MEPROP UID '4DC03E5F0267'
+ MEPROP Name 'f_OldBaseWarning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4DC03E5F0267 f_OldBaseWarning
+
+ME ME_4DC03F5B00A1
+ MEPROP UID '4DC03F5B00A1'
+ MEPROP Name 'OldBaseWarning'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DC03F5B00A1 OldBaseWarning
+
+ME ME_4DC01154004B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_492189D90209' '492189D90209.ms.model.script' // TdsWarning
+ ;
+
+ENDME // ME_4DC01154004B 
+
+ME ME_4DC01888037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_4DA8763E0201' '4DA8763E0201.ms.model.script' // WarningUserTypes
+ ;
+
+ENDME // ME_4DC01888037C 
+
+ME ME_4DC021DE02C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4DC021DE02C2 
+
+ME ME_4DC024D202D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_4DC024D202D4 
+
+ME ME_4DC03EDE02CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4DC03EDE02CF 
+
+ME ME_4DC03F0D034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4DC03F0D034C 
+
+ME ME_4DC03F5103A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4DC03F5103A7 
+
+ME ME_4DC03FAC0347
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4DC03FAC0347 
+
+ME ME_4DC0464E01B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_4DC0464E01B5 
+
+ME ME_4ED8C0FB0080
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4ED8C0FB0080 
+
+ME ME_4F5E408600D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC011350154 // TsdsMainWindow
+ ;
+ MELINK Target WL 'ME_4F5E12C20114' '4F5E12C20114.ms.model.script' // BaloonWarningUserTypes
+ ;
+
+ENDME // ME_4F5E408600D1 
+
+ME ME_493E4F7E039B_ME_4DC011350154
+ MELINK Original WL 'ME_493E4F7E039B' '491B305A0096.ms.model.script' // Generate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_493E4F7E039B_ME_4DC011350154 Generate
+
+ME ME_4DC010300124_ME_4DC011350154
+ MELINK Original WL 'ME_4DC010300124' '4DC00FC302B7.ms.model.script' // dsBaloonWarning
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4DC010300124_ME_4DC011350154 dsBaloonWarning
+
+ME ME_4DC011350154
+ MEPROP UID '4DC011350154'
+ MEPROP Name 'TsdsMainWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DC010B802AF' '4DC010B802AF.ms.model.script' // MainWindowControllersRealization
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_494778CD004F' '47D0E1500033.ms.model.script' // vcmTinyUseCaseController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4DC0100200B7' '4DC00FC302B7.ms.model.script' // IsdsMainWindow
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DC03E5F0267 // f_OldBaseWarning
+ HWL ME_4DC03F5B00A1 // OldBaseWarning
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_493E4F7E039B_ME_4DC011350154 // Generate
+ ME_4DC010300124_ME_4DC011350154 // dsBaloonWarning
+ )
+ ; // Implemented
+ MELIST Constants
+   Seq: ( HWL ME_4DC0221700D8 // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4DC01154004B // TdsWarning
+ ME_4DC01888037C // WarningUserTypes
+ ME_4DC021DE02C2 // Document
+ ME_4DC024D202D4 // bsUtils
+ ME_4DC03EDE02CF // DefDataAdapter
+ ME_4DC03F0D034C // l3String
+ ME_4DC03F5103A7 // l3CStr
+ ME_4DC03FAC0347 // Ext Chars
+ ME_4DC0464E01B5 // IndentType
+ ME_4ED8C0FB0080 // Tk2TagID
+ ME_4F5E408600D1 // BaloonWarningUserTypes
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.05.2011 18:29'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\sdsMainWindow.pas'
+ UP extprop:rc:SelfName 'sdsMainWindow'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'sdsMainWindow'
+
+ENDME // ME_4DC011350154 TsdsMainWindow

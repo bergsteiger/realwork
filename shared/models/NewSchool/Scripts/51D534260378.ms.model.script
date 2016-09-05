@@ -1,0 +1,156 @@
+// FromWithPanel 51D534260378 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51D534260378
+
+ME ME_C8D510D2786B
+ MEPROP UID 'C8D510D2786B'
+ MEPROP Name 'ut_FromWithPanel'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'FromWithPanel' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D534260378 // FromWithPanel
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\FromWithPanel_ut_FromWithPanel_UserType.pas'
+ UP extprop:pas:UnitName 'FromWithPanel_ut_FromWithPanel_UserType'
+
+ENDME // ME_C8D510D2786B ut_FromWithPanel
+
+ME ME_DA3DF41960FE
+ MEPROP UID 'DA3DF41960FE'
+ MEPROP GUID '52A98A72-5DD1-4BDA-8FD3-152438D1B28D'
+ MEPROP Name 'FromWithPanel'
+ MEPROP OriginalName 'FromWithPanel$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы FromWithPanel' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51D534260378 // FromWithPanel
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_51D534260378 // FromWithPanel
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'FromWithPanelFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_DA3DF41960FE FromWithPanel$Def
+
+ME ME_51D5346A02B5
+ MEPROP UID '51D5346A02B5'
+ MEPROP Name 'WorkSpace'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D534260378 // FromWithPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51D5346A02B5 WorkSpace
+
+ME ME_48AC75E96F90
+ MEPROP UID '48AC75E96F90'
+ MEPROP Name 'Ini_FormFactory_FromWithPanel'
+ MEPROP OriginalName 'Ini_FormFactory_FromWithPanel$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы FromWithPanel' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D534260378 // FromWithPanel
+ ;
+ UPLINK SpelledFor HWL ME_51D534260378 // FromWithPanel
+ ;
+
+ENDME // ME_48AC75E96F90 Ini_FormFactory_FromWithPanel$Def
+
+ME ME_51D565B10103
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D534260378 // FromWithPanel
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_51D565B10103 
+
+ME ME_4A8E8F2E0195_ME_51D534260378
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_51D534260378 InitControls
+
+ME ME_51D534260378
+ MEPROP UID '51D534260378'
+ MEPROP Name 'FromWithPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51D533840334' '51D533840334.ms.model.script' // FormWithPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_DA3DF41960FE // FromWithPanel$Def
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51D5346A02B5 // WorkSpace
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48AC75E96F90 // Ini_FormFactory_FromWithPanel$Def
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_51D534260378 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_C8D510D2786B // ut_FromWithPanel
+ HWL ME_DA3DF41960FE // FromWithPanel$Def
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_51D565B10103 // TAlign
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Инишев Д.А.'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\FromWithPanel_Form.pas'
+ UP extprop:pas:TypeName 'TFromWithPanelForm'
+ UP extprop:rc:SelfName 'FromWithPanelForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'FromWithPanel_Form'
+
+ENDME // ME_51D534260378 FromWithPanel

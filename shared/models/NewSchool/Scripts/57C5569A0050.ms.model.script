@@ -1,0 +1,101 @@
+// MultiThread 57C5569A0050 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C5569A0050
+
+ME ME_57C55713006C
+ MEPROP UID '57C55713006C'
+ MEPROP Name 'seCriticalSectionHolderPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57C5569A0050 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53A03846011C' '53A038340371.ms.model.script' // l3CriticalSectionHolder
+ )
+ ; // Inherits
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seCriticalSectionHolderPrim.imp.pas'
+ UP extprop:pas:TypeName '_seCriticalSectionHolderPrim_'
+ UP extprop:pas:UnitName 'seCriticalSectionHolderPrim.imp'
+
+ENDME // ME_57C55713006C seCriticalSectionHolderPrim
+
+FORWARD ME_57C5572B036F
+
+ME ME_57C5574D0227
+ MEPROP UID '57C5574D0227'
+ MEPROP Name 'Lock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C5572B036F // seCriticalSectionHolder
+ ;
+
+ENDME // ME_57C5574D0227 Lock
+
+ME ME_57C5575903E6
+ MEPROP UID '57C5575903E6'
+ MEPROP Name 'Unlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C5572B036F // seCriticalSectionHolder
+ ;
+
+ENDME // ME_57C5575903E6 Unlock
+
+ME ME_57C5572B036F
+ MEPROP UID '57C5572B036F'
+ MEPROP Name 'seCriticalSectionHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C5569A0050 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57C55713006C // seCriticalSectionHolderPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57C5574D0227 // Lock
+ HWL ME_57C5575903E6 // Unlock
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seCriticalSectionHolder.imp.pas'
+ UP extprop:pas:TypeName '_seCriticalSectionHolder_'
+ UP extprop:pas:UnitName 'seCriticalSectionHolder.imp'
+
+ENDME // ME_57C5572B036F seCriticalSectionHolder
+
+ME ME_57C5569A0050
+ MEPROP UID '57C5569A0050'
+ MEPROP Name 'MultiThread'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.ms.model.script' // ScriptEngine$Parsing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57C55713006C // seCriticalSectionHolderPrim
+ HWL ME_57C5572B036F // seCriticalSectionHolder
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_53A038340371' '53A038340371.ms.model.script' // MultiThread
+ )
+ ; // Depends
+
+ENDME // ME_57C5569A0050 MultiThread

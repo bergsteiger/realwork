@@ -22,6 +22,8 @@ var
 //#UC START# *4DB009CF0103_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\tfwValueStack.pas
 //#UC END# *4DB009CF0103_ext:FileName
+//#UC START# *4DB009CF0103impl_uses*
+//#UC END# *4DB009CF0103impl_uses*
 //#UC START# *4DB013A10166_4DB009CF0103_impl*
  with GrowByOne^ do
  begin
@@ -373,9 +375,23 @@ var
 //#UC START# *5085275F0044_4DB009CF0103_var*
 //#UC END# *5085275F0044_4DB009CF0103_var*
 //#UC START# *54F7390300EC_4DB009CF0103_impl*
+ {$IfDef seThreadSafe}
+ l_V := Pop;
+ try
+  Result := l_V.AsObject(aClass, aAllowNil);
+ except
+  // - закладочка для отладки
+  Result := l_V.AsObject(aClass, aAllowNil);
+ end;
+ {$Else  seThreadSafe}
  Result := Pop.AsObject(aClass, aAllowNil);
+ {$EndIf seThreadSafe}
 //#UC END# *54F7390300EC_4DB009CF0103_impl*
 //#UC START# *54F7390300EC_4DB009CF0103_var*
+{$IfDef seThreadSafe}
+var
+ l_V : TtfwStackValue;
+{$EndIf seThreadSafe}
 //#UC END# *54F7390300EC_4DB009CF0103_var*
 //#UC START# *54F8664200B0_4DB009CF0103_impl*
  Result := Pop.AsClass(aClass);
@@ -453,7 +469,11 @@ var
  l_Index : Integer;
 //#UC END# *55E84904001E_4DB009CF0103_var*
 //#UC START# *55EFF78F01D7_4DB009CF0103_impl*
+ {$IfDef XE}
+ Result := PtfwStackValue(ItemSlot(Count - 1));
+ {$Else  XE}
  Result := ItemSlot(Count - 1);
+ {$EndIf XE}
 //#UC END# *55EFF78F01D7_4DB009CF0103_impl*
 //#UC START# *55EFF78F01D7_4DB009CF0103_var*
 //#UC END# *55EFF78F01D7_4DB009CF0103_var*

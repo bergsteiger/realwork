@@ -1,0 +1,25 @@
+//#UC START# *57A33B03017B_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Services_Contracts.pas
+//#UC END# *57A33B03017B_ext:ParentFileName
+//#UC START# *9856D0A1DBB4_57A33B03017B_impl*
+ case aQueryType of
+  lg_qtKeyWord:
+   TSearchService.Instance.OpenKeyWord(aQuery, aContainer);
+  lg_qtAttribute:
+   TSearchService.Instance.AttributeSearch(aQuery, nil, aContainer);
+  lg_qtPublishedSource:
+   TSearchService.Instance.PublishSourceSearch(aQuery, nil);
+  lg_qtLegislationReview:
+   TSearchService.Instance.OpenLegislationReview(aQuery);
+  lg_qtSendConsultation:
+   vcmDispatcher.ModuleOperation(mod_opcode_SearchService_OpenConsult);
+  lg_qtBaseSearch:
+   TBaseSearchService.Instance.OpenBaseSearch(ns_bsokGlobal, aQuery);
+  lg_qtInpharmSearch:
+   TSearchService.Instance.InpharmSearch(aQuery, nil, aContainer);
+  else
+   Assert(false);   
+ end;//case aQueryType
+//#UC END# *9856D0A1DBB4_57A33B03017B_impl*
+//#UC START# *9856D0A1DBB4_57A33B03017B_var*
+//#UC END# *9856D0A1DBB4_57A33B03017B_var*

@@ -7,7 +7,7 @@
 //#UC END# *4ABCD31A033C_4CCAC71C0347_var*
 //#UC START# *4ABCE38D00B4_4CCAC71C0347_impl*
  Assert(aContainer <> nil);
- l_Form := FindUnderControlForm(aContainer);
+ l_Form := TUnderControlModule.FindUnderControlForm(aContainer);
  if l_Form <> nil then
   l_Form.SafeClose;
 //#UC END# *4ABCE38D00B4_4CCAC71C0347_impl*
@@ -24,7 +24,7 @@ var
 //#UC START# *4AC09339029B_4CCAC71C0347_var*
 //#UC END# *4AC09339029B_4CCAC71C0347_var*
 //#UC START# *4AC0938B0336_4CCAC71C0347_impl*
- UnderControlOpen(aContainer);
+  TUnderControlModule.UnderControlOpen(aContainer);
 //#UC END# *4AC0938B0336_4CCAC71C0347_impl*
 //#UC START# *4AC0938B0336_4CCAC71C0347_var*
 //#UC END# *4AC0938B0336_4CCAC71C0347_var*
@@ -59,8 +59,7 @@ var
  end;
  if Supports(l_CatalogBase, IDynList, l_List) then
   try
-   TdmStdRes.OpenList(TdeListSet.Make(l_List),
-                      aContainer);
+   TListService.Instance.OpenList(TdeListSet.Make(l_List), aContainer);
   finally
    l_List := nil;
   end;//try..finally

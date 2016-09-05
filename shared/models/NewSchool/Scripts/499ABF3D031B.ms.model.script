@@ -1,0 +1,58 @@
+// TnscNavigator 499ABF3D031B GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499ABF3D031B
+
+ME ME_499AC82A0380
+ MEPROP UID '499AC82A0380'
+ MEPROP Name 'TnscNavigatorPageControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF3D031B // TnscNavigator
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'NavigatorPageControl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499AC82A0380 TnscNavigatorPageControl
+
+ME ME_53CF7DD00066_ME_499ABF3D031B
+ MELINK Original WL 'ME_53CF7DD00066' '467BAB7F021E.ms.model.script' // MainFormChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53CF7DD00066_ME_499ABF3D031B MainFormChanged
+
+ME ME_499ABF3D031B
+ MEPROP UID '499ABF3D031B'
+ MEPROP Name 'TnscNavigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499ABF2A0338' '499ABF2A0338.ms.model.script' // Navigator
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_53CF7D800293' '467BAB7F021E.ms.model.script' // IvcmMainFormDependent
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_53CF7DD00066_ME_499ABF3D031B // MainFormChanged
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_499AC82A0380 // TnscNavigatorPageControl
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscNavigator.pas'
+ UP extprop:rc:SelfName 'Navigator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscNavigator'
+
+ENDME // ME_499ABF3D031B TnscNavigator

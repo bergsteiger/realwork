@@ -1,0 +1,383 @@
+// ChildWindow 4E202A4A01B6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E202A4A01B6
+
+FORWARD ME_4E202A8502E6
+
+ME ME_4E202ABC005B
+ MEPROP UID '4E202ABC005B'
+ MEPROP Name 'TInsertTextDictForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E202A8502E6 // InsDWin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E202C090145' '4E202BD501B7.ms.model.script' // TDictMetaForm
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'InsertTextDictForm'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E202ABC005B TInsertTextDictForm
+
+FORWARD ME_4E202ADD0180
+
+ME ME_4E202D480123
+ MEPROP Name 'anInsText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4E202D480123 anInsText
+
+ME ME_4E202D3A0356
+ MEPROP UID '4E202D3A0356'
+ MEPROP Name 'Doit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202ADD0180 // GetInsTextNode
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E202D480123 // anInsText
+ )
+ ; // Parameters
+
+ENDME // ME_4E202D3A0356 Doit
+
+ME ME_4E202ADD0180
+ MEPROP UID '4E202ADD0180'
+ MEPROP Name 'GetInsTextNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A8502E6 // InsDWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E202D3A0356 // Doit
+ )
+ ; // Operations
+
+ENDME // ME_4E202ADD0180 GetInsTextNode
+
+FORWARD ME_4E202AEC00C0
+
+ME ME_4E202DC901C3
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_4E202DC901C3 aNode
+
+ME ME_4E202D8503E2
+ MEPROP UID '4E202D8503E2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202AEC00C0 // GetInsText
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E202DC901C3 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4E202D8503E2 DoIt
+
+ME ME_4E202AEC00C0
+ MEPROP UID '4E202AEC00C0'
+ MEPROP Name 'GetInsText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A8502E6 // InsDWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E202D8503E2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E202AEC00C0 GetInsText
+
+ME ME_4E202A8502E6
+ MEPROP UID '4E202A8502E6'
+ MEPROP Name 'InsDWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A4A01B6 // ChildWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E202ADD0180 // GetInsTextNode
+ HWL ME_4E202AEC00C0 // GetInsText
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4E202ABC005B // TInsertTextDictForm
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_InsDWin.pas'
+
+ENDME // ME_4E202A8502E6 InsDWin
+
+FORWARD ME_4F0C221F03C1
+
+FORWARD ME_4F0C222F0080
+
+FORWARD ME_4F0C225A02DD
+
+ME ME_4F0C22E10276
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F0C22E10276 Value
+
+ME ME_4F0C22E10295
+ MEPROP Name 'Mode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476130E5023C' '4AB0C3C60310.ms.model.script' // Byte
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_476130E5023C' '4AB0C3C60310.ms.model.script' // Byte
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4F0C22E10295 Mode
+
+ME ME_4F0C2275025F
+ MEPROP UID '4F0C2275025F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C225A02DD // SetMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F0C22E10276 // Value
+ ME_4F0C22E10295 // Mode
+ )
+ ; // Parameters
+
+ENDME // ME_4F0C2275025F DoIt
+
+ME ME_4F0C225A02DD
+ MEPROP UID '4F0C225A02DD'
+ MEPROP Name 'SetMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '0 - This, 1 - Prev, 2 - Next' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C222F0080 // TViewMailWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F0C2275025F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F0C225A02DD SetMessage
+
+ME ME_5549C2DD0193
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C222F0080 // TViewMailWin
+ ;
+ MELINK Target WL 'ME_4D514CA600C2' '4B322B67038B.ms.model.script' // evExtFormat
+ ;
+
+ENDME // ME_5549C2DD0193 
+
+ME ME_4F0C222F0080
+ MEPROP UID '4F0C222F0080'
+ MEPROP Name 'TViewMailWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Почтовое окно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C221F03C1 // VMailWin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F0C239A01E1' '47F485150151.ms.model.script' // TvtForm
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F0C225A02DD // SetMessage
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5549C2DD0193 // evExtFormat
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP extprop:rc:SelfName 'ViewMailWin'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F0C222F0080 TViewMailWin
+
+ME ME_4F0C221F03C1
+ MEPROP UID '4F0C221F03C1'
+ MEPROP Name 'VMailWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Почтовое окно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A4A01B6 // ChildWindow
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F0C222F0080 // TViewMailWin
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_VMailWin.pas'
+
+ENDME // ME_4F0C221F03C1 VMailWin
+
+FORWARD ME_4F8D5E560101
+
+FORWARD ME_4F8D5E6B0120
+
+ME ME_4F8D742F024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_4F8D73AD0139' '4F8D7381019D.ms.model.script' // TDocumentList
+ ;
+
+ENDME // ME_4F8D742F024C 
+
+ME ME_4F8D5E6B0120
+ MEPROP UID '4F8D5E6B0120'
+ MEPROP Name 'TSearchWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D5E560101 // SrchWin
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F8D742F024C // TDocumentList
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'SearchWin'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F8D5E6B0120 TSearchWin
+
+ME ME_4F8D5E560101
+ MEPROP UID '4F8D5E560101'
+ MEPROP Name 'SrchWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A4A01B6 // ChildWindow
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D5E6B0120 // TSearchWin
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_SrchWin.pas'
+
+ENDME // ME_4F8D5E560101 SrchWin
+
+FORWARD ME_4F8FEB5201C5
+
+ME ME_4F8FEB600171
+ MEPROP UID '4F8FEB600171'
+ MEPROP Name 'TSendMailWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8FEB5201C5 // MailWin
+ ;
+ UP extprop:rc:SelfName 'SendMailWin'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F8FEB600171 TSendMailWin
+
+ME ME_4F8FEB5201C5
+ MEPROP UID '4F8FEB5201C5'
+ MEPROP Name 'MailWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A4A01B6 // ChildWindow
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8FEB600171 // TSendMailWin
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_MailWin.pas'
+
+ENDME // ME_4F8FEB5201C5 MailWin
+
+ME ME_4E202A4A01B6
+ MEPROP UID '4E202A4A01B6'
+ MEPROP Name 'ChildWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Диалоговые окна, ведущие себя как дочерние (открываются в главном окне).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DE803840174' '4DE803840174.ms.model.script' // Dlg
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E202A8502E6 // InsDWin
+ HWL ME_4F0C221F03C1 // VMailWin
+ HWL ME_4F8D5E560101 // SrchWin
+ HWL ME_4F8FEB5201C5 // MailWin
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B322B67038B' '4B322B67038B.ms.model.script' // ext
+ WL 'ME_4E1C0134031B' '4E1C0134031B.ms.model.script' // MixIns
+ WL 'ME_4E202BD501B7' '4E202BD501B7.ms.model.script' // BaseForms
+ WL 'ME_4F8D7381019D' '4F8D7381019D.ms.model.script' // Frames
+ )
+ ; // Depends
+ UP "finished" false
+
+ENDME // ME_4E202A4A01B6 ChildWindow

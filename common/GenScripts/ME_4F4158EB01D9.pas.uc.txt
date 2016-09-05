@@ -1,11 +1,13 @@
 //#UC START# *4DAEEDE10285_558D7FFE0092_impl*
- aCtx.rEngine.Push(f_Value);
+ TtfwThreadVar.Instance.PushValue(Self, @f_Value, aCtx);
 //#UC END# *4DAEEDE10285_558D7FFE0092_impl*
 //#UC START# *4DAEEDE10285_558D7FFE0092_var*
 //#UC END# *4DAEEDE10285_558D7FFE0092_var*
 //#UC START# *4F4158EB01D9_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas
 //#UC END# *4F4158EB01D9_ext:FileName
+//#UC START# *4F4158EB01D9impl_uses*
+//#UC END# *4F4158EB01D9impl_uses*
 //#UC START# *52CFC11603C8_52E91D6202F4get_impl*
  Result := TkwRightParamWordInfo.Instance.WI;
 //#UC END# *52CFC11603C8_52E91D6202F4get_impl*
@@ -37,11 +39,11 @@ w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas
 //#UC START# *52D00B00031A_558D7FFE0092_impl*
  Case aValue.rType of
   tfw_vtVoid:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   tfw_vtNil:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   tfw_vtObj:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   else
    RunnerAssert(false, 'Требуется объект', aCtx);
  end;//aValue.rType
@@ -49,7 +51,7 @@ w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas
 //#UC START# *52D00B00031A_558D7FFE0092_var*
 //#UC END# *52D00B00031A_558D7FFE0092_var*
 //#UC START# *52D399A00173_558D7FFE0092_impl*
- Result := @f_Value;
+ Result := TtfwThreadVar.Instance.GetValue(Self, @f_Value);
 //#UC END# *52D399A00173_558D7FFE0092_impl*
 //#UC START# *52D399A00173_558D7FFE0092_var*
 //#UC END# *52D399A00173_558D7FFE0092_var*
@@ -109,7 +111,7 @@ w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas
 //#UC START# *558D2BCA0324_558D7FFE0092_var*
 //#UC END# *558D2BCA0324_558D7FFE0092_var*
 //#UC START# *558D2BCA0324_559AA1BE0237_impl*
- Result := f_Value.AsObject As TtfwWord;
+ Result := TtfwThreadVar.Instance.GetValue(Self, @f_Value).AsObject As TtfwWord;
  Result := Result.GetRef(aCtx);
 //#UC END# *558D2BCA0324_559AA1BE0237_impl*
 //#UC START# *558D2BCA0324_559AA1BE0237_var*

@@ -1,3 +1,9 @@
+//#UC START# *4768DD730235_49257BB801C7_impl*
+ inherited;
+ DoOnCurrentFirmChanged(Current, True);
+//#UC END# *4768DD730235_49257BB801C7_impl*
+//#UC START# *4768DD730235_49257BB801C7_var*
+//#UC END# *4768DD730235_49257BB801C7_var*
 //#UC START# *479731C50290_49257BB801C7_impl*
  f_Current := nil;
  f_CurrentCountryFilter := nil;
@@ -11,30 +17,9 @@ var
  l_Source: InsMedicFirmsTreeNotificationSource;
 //#UC END# *479731C50290_49257BB801C7_var*
 //#UC START# *47F0C1BF0314_49257BB801C7_impl*
- if Supports(aNode, INodeBase, l_Node) and not l_Node.IsSameNode(Current) then
- try
-  l_Node.GetEntity(l_Entity);
-  if Supports(l_Entity, IPharmFirmListEntry, l_Entry) then
-  try
-   if (ucc_BaseDocument <> nil) then
-   begin
-    ChangeCurrent(aNode);
-    ucc_BaseDocument.ChangeDocument(TdeDocInfo.Make(TbsMedicFirmNodeContainer.Make(l_Node, l_Entry)));
-   end;//ucc_BaseDocument <> nil
-  finally
-   l_Entry := nil;
-  end//try..finally
-  else
-   Assert(false, 'http://mdp.garant.ru/pages/viewpage.action?pageId=136255787&focusedCommentId=136256073#comment-136256073');
- finally
-  l_Node := nil;
- end;//try..finally
+ DoOnCurrentFirmChanged(aNode);
 //#UC END# *47F0C1BF0314_49257BB801C7_impl*
 //#UC START# *47F0C1BF0314_49257BB801C7_var*
-var
- l_Node   : INodeBase;
- l_Entity : IEntityBase;
- l_Entry  : IPharmFirmListEntry;
 //#UC END# *47F0C1BF0314_49257BB801C7_var*
 //#UC START# *47F4C2B9014A_49257BB801C7_impl*
  Result := TnsMedicFirmsTree.Make;
@@ -80,7 +65,7 @@ var
  l_Bookmark := CreateBookmark;
  if Assigned(l_Bookmark) then
  try
-   TdmStdRes.SaveOpen(nil, // - вот это НОМЕР ! не форма вызывает :-(
+  TFoldersService.Instance.SaveOpen(nil, // - вот это НОМЕР ! не форма вызывает :-(
                       TnsFolderFilterInfo.Make(ffBookmark, ns_ffDocument),
                       fetBookmark,
                       l_Bookmark,
@@ -249,6 +234,8 @@ var
 //#UC START# *49257BB801C7_ext:FileName
 w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmList.pas
 //#UC END# *49257BB801C7_ext:FileName
+//#UC START# *49257BB801C7impl_uses*
+//#UC END# *49257BB801C7impl_uses*
 //#UC START# *49257D0D020D_49257BB801C7_impl*
  l_Replacer := TnsFixedHAFMacroReplacer.Make(nil, pm_GetShortName, FullName);
  Result := TafwComplexDocumentPreview.Make(TnsDocumentPreview.Make(TevTreeStorable.MakeStorable(TevTreeStorableData_C(aTree)),
@@ -363,3 +350,34 @@ var
 //#UC END# *55097FF5008E_49257BB801C7_impl*
 //#UC START# *55097FF5008E_49257BB801C7_var*
 //#UC END# *55097FF5008E_49257BB801C7_var*
+//#UC START# *57CD3354008A_49257BB801C7_impl*
+ ucc_BaseDocument.ChangeDocument(TdeDocInfo.Make(TbsMedicFirmNodeContainer.Make(aDocumentNode, aEntry)));
+//#UC END# *57CD3354008A_49257BB801C7_impl*
+//#UC START# *57CD3354008A_49257BB801C7_var*
+//#UC END# *57CD3354008A_49257BB801C7_var*
+//#UC START# *57CD3B970117_49257BB801C7_impl*
+ if Supports(aNode, INodeBase, l_Node) and ((not l_Node.IsSameNode(Current)) or aForce) then
+ try
+  l_Node.GetEntity(l_Entity);
+  if Supports(l_Entity, IPharmFirmListEntry, l_Entry) then
+  try
+   if (ucc_BaseDocument <> nil) then
+   begin
+    ChangeCurrent(aNode);
+    ucc_BaseDocument.ChangeDocument(TdeDocInfo.Make(TbsMedicFirmNodeContainer.Make(l_Node, l_Entry)));
+   end;//ucc_BaseDocument <> nil
+  finally
+   l_Entry := nil;
+  end//try..finally
+  else
+   Assert(false, 'http://mdp.garant.ru/pages/viewpage.action?pageId=136255787&focusedCommentId=136256073#comment-136256073');
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *57CD3B970117_49257BB801C7_impl*
+//#UC START# *57CD3B970117_49257BB801C7_var*
+var
+ l_Node   : INodeBase;
+ l_Entity : IEntityBase;
+ l_Entry  : IPharmFirmListEntry;
+//#UC END# *57CD3B970117_49257BB801C7_var*

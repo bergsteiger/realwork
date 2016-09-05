@@ -335,6 +335,8 @@ var
 //#UC START# *47EA97410130_ext:FileName
 w:\common\components\gui\Garant\Everest\evDocumentPreviewPrim.pas
 //#UC END# *47EA97410130_ext:FileName
+//#UC START# *47EA97410130impl_uses*
+//#UC END# *47EA97410130impl_uses*
 //#UC START# *47EA993A0208_47EA97410130get_impl*
  Result := f_HAF.MacroReplacer;
 //#UC END# *47EA993A0208_47EA97410130get_impl*
@@ -755,7 +757,7 @@ var
         until False;
         anArea.rCanvas.SectionExtent := l_HeightExtent;
         {$IFDEF nsTest}
-        if TPrintRowHeightsSpy.Exists then
+        if TPrintRowHeightsSpy.ExistsAndValid then
          TPrintRowHeightsSpy.Instance.ClearData;
         {$ENDIF nsTest}
         Inc(l_Top.P.Y, l_PageHeight);

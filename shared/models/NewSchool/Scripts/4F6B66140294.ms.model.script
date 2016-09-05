@@ -1,0 +1,494 @@
+// ParentAndChild 4F6B66140294 VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B66140294
+
+FORWARD ME_4F71E93E00EA
+
+FORWARD ME_4F71E957012F
+
+ME ME_4F71E968009B
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4F71E968009B aForm
+
+ME ME_4F71E9640011
+ MEPROP UID '4F71E9640011'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F71E957012F // nsSetPageIcon
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F71E968009B // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4F71E9640011 DoIt
+
+ME ME_4F71E98F00F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F71E957012F // nsSetPageIcon
+ ;
+ MELINK Target WL 'ME_499ABF9802AC' '499ABF4F02A1.ms.model.script' // TElTabSheet
+ ;
+
+ENDME // ME_4F71E98F00F9 
+
+ME ME_4F71F9B00040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F71E957012F // nsSetPageIcon
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_4F71F9B00040 
+
+ME ME_4F71E957012F
+ MEPROP UID '4F71E957012F'
+ MEPROP Name 'nsSetPageIcon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F71E93E00EA // nsFormUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F71E9640011 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F71E98F00F9 // TElTabSheet
+ ME_4F71F9B00040 // TvcmEntityForm
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'SetPageIcon'
+
+ENDME // ME_4F71E957012F nsSetPageIcon
+
+ME ME_4F71E93E00EA
+ MEPROP UID '4F71E93E00EA'
+ MEPROP Name 'nsFormUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6B66140294 // ParentAndChild
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F71E957012F // nsSetPageIcon
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\nsFormUtils.pas'
+ UP extprop:rc:SelfName 'FormUtils'
+
+ENDME // ME_4F71E93E00EA nsFormUtils
+
+FORWARD ME_4F7B037D01FF
+
+FORWARD ME_4F7B03D70163
+
+ME ME_4F7B03E40371
+ MEPROP UID '4F7B03E40371'
+ MEPROP Name 'gi_Internal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value '''Внутренняя'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Внутренняя'''
+
+ENDME // ME_4F7B03E40371 gi_Internal
+
+ME ME_4F7B03F803A4
+ MEPROP UID '4F7B03F803A4'
+ MEPROP Name 'pi_Navigator_RightSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'gi_Internal + ''/Навигатор/Правый размер'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'gi_Internal + ''/Навигатор/Правый размер'''
+
+ENDME // ME_4F7B03F803A4 pi_Navigator_RightSize
+
+ME ME_4F7B0413001B
+ MEPROP UID '4F7B0413001B'
+ MEPROP Name 'pi_Navigator_LeftSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'gi_Internal + ''/Навигатор/Левый размер'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'gi_Internal + ''/Навигатор/Левый размер'''
+
+ENDME // ME_4F7B0413001B pi_Navigator_LeftSize
+
+ME ME_4F7B042F0290
+ MEPROP UID '4F7B042F0290'
+ MEPROP Name 'dv_Navigator_LeftSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 200
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 200
+
+ENDME // ME_4F7B042F0290 dv_Navigator_LeftSize
+
+ME ME_4F7B043A0230
+ MEPROP UID '4F7B043A0230'
+ MEPROP Name 'dv_Navigator_RightSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 200
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 200
+
+ENDME // ME_4F7B043A0230 dv_Navigator_RightSize
+
+ME ME_4F7B0F0D0136
+ MEPROP UID '4F7B0F0D0136'
+ MEPROP Name 'gi_IfaceSettings'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value '''Настройки интерфейса'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Настройки интерфейса'''
+
+ENDME // ME_4F7B0F0D0136 gi_IfaceSettings
+
+ME ME_4F7B0F1E0183
+ MEPROP UID '4F7B0F1E0183'
+ MEPROP Name 'piHistoryItems'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'gi_IfaceSettings + ''/HistoryItems'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'gi_IfaceSettings + ''/HistoryItems'''
+
+ENDME // ME_4F7B0F1E0183 piHistoryItems
+
+ME ME_4F7B0F6D033E
+ MEPROP UID '4F7B0F6D033E'
+ MEPROP Name 'cv6xHistoryItems'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 25
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 25
+
+ENDME // ME_4F7B0F6D033E cv6xHistoryItems
+
+ME ME_4F7B0F7B00EF
+ MEPROP UID '4F7B0F7B00EF'
+ MEPROP Name 'dvHistoryItems'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'cv6xHistoryItems'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'cv6xHistoryItems'
+
+ENDME // ME_4F7B0F7B00EF dvHistoryItems
+
+ME ME_4F7B1E9A037B
+ MEPROP UID '4F7B1E9A037B'
+ MEPROP Name 'pi_LeftNavigator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'gi_IfaceSettings + ''/Левый навигатор'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'gi_IfaceSettings + ''/Левый навигатор'''
+
+ENDME // ME_4F7B1E9A037B pi_LeftNavigator
+
+ME ME_4F7B1EC203C1
+ MEPROP UID '4F7B1EC203C1'
+ MEPROP Name 'dv_LeftNavigator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'nsNormal'
+ MELINK ValueType WL 'ME_4F7B1E670309' '4C8A252E01C2.ms.model.script' // TNavigatorState
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'vtNavigator.nsNormal'
+
+ENDME // ME_4F7B1EC203C1 dv_LeftNavigator
+
+ME ME_4F7B1F000021
+ MEPROP UID '4F7B1F000021'
+ MEPROP Name 'pi_RightNavigator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'gi_IfaceSettings + ''/Правый навигатор'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'gi_IfaceSettings + ''/Правый навигатор'''
+
+ENDME // ME_4F7B1F000021 pi_RightNavigator
+
+ME ME_4F7B1F0C00EF
+ MEPROP UID '4F7B1F0C00EF'
+ MEPROP Name 'dv_RightNavigator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'nsNormal'
+ MELINK ValueType WL 'ME_4F7B1E670309' '4C8A252E01C2.ms.model.script' // TNavigatorState
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'vtNavigator.nsNormal'
+
+ENDME // ME_4F7B1F0C00EF dv_RightNavigator
+
+ME ME_4F7B1F3D0008
+ MEPROP UID '4F7B1F3D0008'
+ MEPROP Name 'pi_lnAutoHideFloat'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'pi_LeftNavigator + ''/AutoFloat'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'pi_LeftNavigator + ''/AutoFloat'''
+
+ENDME // ME_4F7B1F3D0008 pi_lnAutoHideFloat
+
+ME ME_4F7B1F4802D6
+ MEPROP UID '4F7B1F4802D6'
+ MEPROP Name 'dv_lnAutoHideFloat'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value false
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value false
+
+ENDME // ME_4F7B1F4802D6 dv_lnAutoHideFloat
+
+ME ME_4F7B1F53014E
+ MEPROP UID '4F7B1F53014E'
+ MEPROP Name 'pi_rnAutoHideFloat'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value 'pi_RightNavigator + ''/AutoFloat'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'pi_RightNavigator + ''/AutoFloat'''
+
+ENDME // ME_4F7B1F53014E pi_rnAutoHideFloat
+
+ME ME_4F7B1F5E0065
+ MEPROP UID '4F7B1F5E0065'
+ MEPROP Name 'dv_rnAutoHideFloat'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7B03D70163 // Settings Const
+ ;
+ MEPROP Value false
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value false
+
+ENDME // ME_4F7B1F5E0065 dv_rnAutoHideFloat
+
+ME ME_4F7B03D70163
+ MEPROP UID '4F7B03D70163'
+ MEPROP Name 'Settings Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F7B037D01FF // nsSettingsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F7B03E40371 // gi_Internal
+ HWL ME_4F7B03F803A4 // pi_Navigator_RightSize
+ HWL ME_4F7B0413001B // pi_Navigator_LeftSize
+ HWL ME_4F7B042F0290 // dv_Navigator_LeftSize
+ HWL ME_4F7B043A0230 // dv_Navigator_RightSize
+ HWL ME_4F7B0F0D0136 // gi_IfaceSettings
+ HWL ME_4F7B0F1E0183 // piHistoryItems
+ HWL ME_4F7B0F6D033E // cv6xHistoryItems
+ HWL ME_4F7B0F7B00EF // dvHistoryItems
+ HWL ME_4F7B1E9A037B // pi_LeftNavigator
+ HWL ME_4F7B1EC203C1 // dv_LeftNavigator
+ HWL ME_4F7B1F000021 // pi_RightNavigator
+ HWL ME_4F7B1F0C00EF // dv_RightNavigator
+ HWL ME_4F7B1F3D0008 // pi_lnAutoHideFloat
+ HWL ME_4F7B1F4802D6 // dv_lnAutoHideFloat
+ HWL ME_4F7B1F53014E // pi_rnAutoHideFloat
+ HWL ME_4F7B1F5E0065 // dv_rnAutoHideFloat
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4F7B03D70163 Settings Const
+
+ME ME_4F7B037D01FF
+ MEPROP UID '4F7B037D01FF'
+ MEPROP Name 'nsSettingsConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6B66140294 // ParentAndChild
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4F7B03D70163 // Settings Const
+ )
+ ; // Constants
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas'
+ UP extprop:rc:SelfName 'SettingsConst'
+
+ENDME // ME_4F7B037D01FF nsSettingsConst
+
+ME ME_4F6B66140294
+ MEPROP UID '4F6B66140294'
+ MEPROP Name 'ParentAndChild'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMModule ;
+ %SUMMARY 'Поддержка работы с родительской и дочерней зонами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F6B660100D5' '4F6B660100D5.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4F6B6646037F' '4F6B6646037F.ms.model.script' // PrimChild
+ WL 'ME_4F6B665B0143' '4F6B665B0143.ms.model.script' // PrimParent
+ WL 'ME_4F6B66260326' '4F6B66260326.ms.model.script' // ParentAndChildPrim
+ WL 'ME_4F6B663803AE' '4F6B663803AE.ms.model.script' // ParentAndChild
+ HWL ME_4F71E93E00EA // nsFormUtils
+ HWL ME_4F7B037D01FF // nsSettingsConst
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47CD07B900E0' '47CD07B900E0.ms.model.script' // vtNavigator
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_49804E310263' '49804E310263.ms.model.script' // PresentationInterfaces
+ WL 'ME_499ABF4F02A1' '499ABF4F02A1.ms.model.script' // elClone
+ WL 'ME_4A7960CC03A4' '4A7960CC03A4.ms.model.script' //  Panels
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4AC5E84C02AA' '4AC5E84C02AA.ms.model.script' // PageControl
+ WL 'ME_4F6B66F8001B' '4F6B66F8001B.ms.model.script' // FormDefinitions
+ WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.ms.model.script' // InternalOperations
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ WL 'ME_5791D1FF0214' '5791D1FF0214.ms.model.script' // Contracts
+ )
+ ; // Depends
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild'
+
+ENDME // ME_4F6B66140294 ParentAndChild

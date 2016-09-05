@@ -1,0 +1,271 @@
+// TevCustomEditor 4829D89703D2 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829D89703D2
+
+FORWARD ME_54C0FF7C0012
+
+ME ME_54C0FF9100C7
+ MEPROP UID '54C0FF9100C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C0FF7C0012 // InTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54C0FF9100C7 DoIt
+
+ME ME_54C0FF7C0012
+ MEPROP UID '54C0FF7C0012'
+ MEPROP Name 'InTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D89703D2 // TevCustomEditor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54C0FF9100C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54C0FF7C0012 InTable
+
+FORWARD ME_54C10AFF0075
+
+ME ME_54C10B12019D
+ MEPROP Name 'NeedNewSection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_54C10B12019D NeedNewSection
+
+ME ME_54C10B1201D1
+ MEPROP Name 'aPageOrientation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468CFC7101C1' '469D0AC7005E.ms.model.script' // PageOrientation
+ ;
+ MEPROP Value 'Portrait'
+ MELINK ValueType WL 'ME_468CFC7101C1' '469D0AC7005E.ms.model.script' // PageOrientation
+ ;
+ UP extprop:pas:Value 'evdTypes.ev_poPortrait'
+
+ENDME // ME_54C10B1201D1 aPageOrientation
+
+ME ME_54C10B0B02F8
+ MEPROP UID '54C10B0B02F8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C10AFF0075 // InsertPageBreak
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54C10B12019D // NeedNewSection
+ ME_54C10B1201D1 // aPageOrientation
+ )
+ ; // Parameters
+
+ENDME // ME_54C10B0B02F8 DoIt
+
+ME ME_54C10AFF0075
+ MEPROP UID '54C10AFF0075'
+ MEPROP Name 'InsertPageBreak'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D89703D2 // TevCustomEditor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54C10B0B02F8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54C10AFF0075 InsertPageBreak
+
+FORWARD ME_54C10BEA0345
+
+ME ME_0EC2705A2042
+ MEPROP UID '0EC2705A2042'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DecIndent' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C10BEA0345 // DecIndent
+ ;
+
+ENDME // ME_0EC2705A2042 DoIt
+
+ME ME_54C10BEA0345
+ MEPROP UID '54C10BEA0345'
+ MEPROP Name 'DecIndent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D89703D2 // TevCustomEditor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_0EC2705A2042 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54C10BEA0345 DecIndent
+
+FORWARD ME_54C10BFE0098
+
+ME ME_421635D10724
+ MEPROP UID '421635D10724'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода IncIndent' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C10BFE0098 // IncIndent
+ ;
+
+ENDME // ME_421635D10724 DoIt
+
+ME ME_54C10BFE0098
+ MEPROP UID '54C10BFE0098'
+ MEPROP Name 'IncIndent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D89703D2 // TevCustomEditor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_421635D10724 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54C10BFE0098 IncIndent
+
+FORWARD ME_55CDBD7600D4
+
+ME ME_55CDBD9B0258
+ MEPROP Name 'anOption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C6CB200166' '47C695A10172.ms.model.script' // TevSearchOptionSetEx
+ ;
+
+ENDME // ME_55CDBD9B0258 anOption
+
+ME ME_55CDBD930265
+ MEPROP UID '55CDBD930265'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55CDBD7600D4 // DoSearchHyperLink
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55CDBD9B0258 // anOption
+ )
+ ; // Parameters
+
+ENDME // ME_55CDBD930265 DoIt
+
+ME ME_55CDBD7600D4
+ MEPROP UID '55CDBD7600D4'
+ MEPROP Name 'DoSearchHyperLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D89703D2 // TevCustomEditor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CDBD930265 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55CDBD7600D4 DoSearchHyperLink
+
+ME ME_4C346719001A
+ MEPROP UID '4C346719001A'
+ MEPROP Name 'AllowAutoSelectByMouse'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D89703D2 // TevCustomEditor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C346719001A AllowAutoSelectByMouse
+
+ME ME_48F4EBE40039
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D89703D2 // TevCustomEditor
+ ;
+ MELINK Target WL 'ME_476BED00024F' '48F4E61C0060.ms.model.script' // StoreFlag
+ ;
+
+ENDME // ME_48F4EBE40039 
+
+ME ME_4829D89703D2
+ MEPROP UID '4829D89703D2'
+ MEPROP Name 'TevCustomEditor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс окна редактора с кучей "полезных" функций. Рекомендуется для конечного пользователя (программиста).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B877C5101C1' '4B877C5101C1.ms.model.script' // TevCustomEditorModelPart
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54C0FF7C0012 // InTable
+ HWL ME_54C10AFF0075 // InsertPageBreak
+ HWL ME_54C10BEA0345 // DecIndent
+ HWL ME_54C10BFE0098 // IncIndent
+ HWL ME_55CDBD7600D4 // DoSearchHyperLink
+ HWL ME_4C346719001A // AllowAutoSelectByMouse
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48F4EBE40039 // StoreFlag
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '25.11.2004 10:05'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditor.pas'
+ UP extprop:rc:SelfName 'Editor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomEditor'
+
+ENDME // ME_4829D89703D2 TevCustomEditor

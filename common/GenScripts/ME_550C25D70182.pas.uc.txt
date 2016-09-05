@@ -93,6 +93,8 @@
 //#UC START# *550C25D70182_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas
 //#UC END# *550C25D70182_ext:FileName
+//#UC START# *550C25D70182impl_uses*
+//#UC END# *550C25D70182impl_uses*
 //#UC START# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
  Result := GetWordDirectives(aCtx, aWord);
 //#UC END# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
@@ -178,6 +180,9 @@ var
 //#UC START# *558D53EF03DB_289A2FC7F4D3_var*
 //#UC END# *558D53EF03DB_289A2FC7F4D3_var*
 //#UC START# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := nil
+ else 
  if (aWord.InnerDictionary <> nil) then
   Result := (aWord.InnerDictionary As TtfwDictionary).DRbyCName[aName]
  else
@@ -522,7 +527,10 @@ var
 //#UC START# *5609675401ED_B103AAB7CCE4_var*
 //#UC END# *5609675401ED_B103AAB7CCE4_var*
 //#UC START# *5613CB150380_5613CB150380_4DAEED140007_Word_impl*
- Result := aWord.Key As TtfwKeyWord;
+ if (aWord = nil) then
+  Result := nil
+ else
+  Result := aWord.Key As TtfwKeyWord;
 //#UC END# *5613CB150380_5613CB150380_4DAEED140007_Word_impl*
 //#UC START# *5613CB150380_5613CB150380_4DAEED140007_Word_var*
 //#UC END# *5613CB150380_5613CB150380_4DAEED140007_Word_var*

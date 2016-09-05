@@ -1,0 +1,61 @@
+// BaseSearchContainer 4D7A458300CB VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D7A458300CB
+
+ME ME_9FE8B83587EB
+ MEPROP UID '9FE8B83587EB'
+ MEPROP Name 'Ini_FormFactory_BaseSearchContainer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы BaseSearchContainer' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D7A458300CB // BaseSearchContainer
+ ;
+ UPLINK SpelledFor HWL ME_4D7A458300CB // BaseSearchContainer
+ ;
+
+ENDME // ME_9FE8B83587EB Ini_FormFactory_BaseSearchContainer
+
+ME ME_4D7A458300CB
+ MEPROP UID '4D7A458300CB'
+ MEPROP Name 'BaseSearchContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CC97D020011' '4CC97D020011.ms.model.script' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D7A454101A4' '4D7A454101A4.ms.model.script' // PrimBaseSearchContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D7A45A50205' '4BD856E802F9.ms.model.script' // BaseSearchContainer
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_9FE8B83587EB // Ini_FormFactory_BaseSearchContainer
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '11.03.2011 18:53'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchContainer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms'
+ UP extprop:pas:TypeName 'TBaseSearchContainerForm'
+ UP extprop:rc:SelfName 'BaseSearchContainerForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseSearchContainer_Form'
+
+ENDME // ME_4D7A458300CB BaseSearchContainer

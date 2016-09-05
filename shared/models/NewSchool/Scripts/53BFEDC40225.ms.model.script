@@ -1,0 +1,136 @@
+// TdsChronology 53BFEDC40225 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BFEDC40225
+
+FORWARD ME_53DA03540293
+
+ME ME_53DA036E01A9
+ MEPROP UID '53DA036E01A9'
+ MEPROP Name 'OldDocumentNamePrefix'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53DA03540293 // Chronology Local Const
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Справка к'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53DA036E01A9 OldDocumentNamePrefix
+
+ME ME_53DA038A0046
+ MEPROP UID '53DA038A0046'
+ MEPROP Name 'NewDocumentNamePrefix'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53DA03540293 // Chronology Local Const
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Хронология судебного дела'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53DA038A0046 NewDocumentNamePrefix
+
+ME ME_53DA03540293
+ MEPROP UID '53DA03540293'
+ MEPROP Name 'Chronology Local Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BFEDC40225 // TdsChronology
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53DA036E01A9 // OldDocumentNamePrefix
+ HWL ME_53DA038A0046 // NewDocumentNamePrefix
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_53DA03540293 Chronology Local Const
+
+ME ME_53C65ED1028E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BFEDC40225 // TdsChronology
+ ;
+ MELINK Target WL 'ME_53C65E01039B' '4C6A7BA001A5.ms.model.script' // TnsChronologyDocumentContainer
+ ;
+
+ENDME // ME_53C65ED1028E 
+
+ME ME_53D8FF630067
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BFEDC40225 // TdsChronology
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_53D8FF630067 
+
+ME ME_49589999029F_ME_53BFEDC40225
+ MELINK Original WL 'ME_49589999029F' '47EA20430108.ms.model.script' // DoGet_PreviewCaleeArea
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49589999029F_ME_53BFEDC40225 DoGet_PreviewCaleeArea
+
+ME ME_4C6AB38800F3_ME_53BFEDC40225
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_53BFEDC40225 MakeContainer
+
+ME ME_53D8E620037C_ME_53BFEDC40225
+ MELINK Original WL 'ME_53D8E620037C' '47EA20430108.ms.model.script' // DoGetDocumentShortName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53D8E620037C_ME_53BFEDC40225 DoGetDocumentShortName
+
+ME ME_53BFEDC40225
+ MEPROP UID '53BFEDC40225'
+ MEPROP Name 'TdsChronology'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Хронология судебного дела' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493D465902FA' '493D465902FA.ms.model.script' // DocumentAndList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4958980300D5' '4958980300D5.ms.model.script' // TdsChildDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49589999029F_ME_53BFEDC40225 // DoGet_PreviewCaleeArea
+ ME_4C6AB38800F3_ME_53BFEDC40225 // MakeContainer
+ ME_53D8E620037C_ME_53BFEDC40225 // DoGetDocumentShortName
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_53DA03540293 // Chronology Local Const
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_53C65ED1028E // TnsChronologyDocumentContainer
+ ME_53D8FF630067 // l3String
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsChronology.pas'
+ UP extprop:rc:SelfName 'dsChronology'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsChronology'
+
+ENDME // ME_53BFEDC40225 TdsChronology

@@ -1,0 +1,905 @@
+// SubPanelWords 52D643A301A9 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52D643A301A9
+
+FORWARD ME_52D646990049
+
+FORWARD ME_52D6471802DC
+
+ME ME_53300FDA02E4
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_548072270387' '547CB376012F.ms.model.script' // TevCustomSubPanel
+ ;
+
+ENDME // ME_53300FDA02E4 aControl
+
+ME ME_53300FDA02F4
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_53300FDA02F4 aCtx
+
+ME ME_52D6472F006E
+ MEPROP UID '52D6472F006E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D6471802DC // DoWithSubPanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_53300FDA02E4 // aControl
+ ME_53300FDA02F4 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_52D6472F006E DoIt
+
+ME ME_52D6471802DC
+ MEPROP UID '52D6471802DC'
+ MEPROP Name 'DoWithSubPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52D646990049 // TkwSubPanelFromStackWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D6472F006E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D6471802DC DoWithSubPanel
+
+ME ME_4F212C3A015A_ME_52D646990049
+ MELINK Original WL 'ME_4F212C3A015A' '54DB92D203C9.ms.model.script' // DoControl
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F212C3A015A_ME_52D646990049 DoControl
+
+ME ME_52D646990049
+ MEPROP UID '52D646990049'
+ MEPROP Name 'TkwSubPanelFromStackWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F212C120371' '54DB92D203C9.ms.model.script' // kwControlFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52D6471802DC // DoWithSubPanel
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F212C3A015A_ME_52D646990049 // DoControl
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubPanelFromStackWord.pas'
+ UP extprop:rc:SelfName 'SubPanelFromStackWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubPanelFromStackWord'
+
+ENDME // ME_52D646990049 TkwSubPanelFromStackWord
+
+FORWARD ME_52D643FE004B
+
+FORWARD ME_52D643C100A8
+
+ME ME_52D6441600EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D643C100A8 // IterateSubDescriptors
+ ;
+
+ENDME // ME_52D6441600EA 
+
+FORWARD ME_52D65F690396
+
+ME ME_52D6600503A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D65F690396 // subdescriptor_GetDrawType
+ ;
+
+ENDME // ME_52D6600503A0 
+
+FORWARD ME_52D6601F031E
+
+ME ME_52D6605B02B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D6601F031E // subdescriptor_GetBitmapIndex
+ ;
+
+ENDME // ME_52D6605B02B4 
+
+FORWARD ME_52D660670205
+
+ME ME_52D660950006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D660670205 // subdescriptor_GetBlockBitmapIndex
+ ;
+
+ENDME // ME_52D660950006 
+
+FORWARD ME_52D660C703AC
+
+ME ME_52D660E30372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D660C703AC // subdescriptor_GetDocumentBitmapIndex
+ ;
+
+ENDME // ME_52D660E30372 
+
+FORWARD ME_52D661D4008D
+
+ME ME_52D661F402E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D661D4008D // subdescriptor_GetVisible
+ ;
+
+ENDME // ME_52D661F402E9 
+
+FORWARD ME_52D6622F0148
+
+ME ME_52D66278006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D6622F0148 // subdescriptor_GetColumn
+ ;
+
+ENDME // ME_52D66278006D 
+
+FORWARD ME_52D78486017B
+
+ME ME_52D7871A02DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_52D78486017B // IterateSubDecriptorsOnSubPanel
+ ;
+
+ENDME // ME_52D7871A02DE 
+
+FORWARD ME_53EDF0A20129
+
+ME ME_53EDF0EE03DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
+ ;
+
+ENDME // ME_53EDF0EE03DF 
+
+FORWARD ME_53EE014B03AC
+
+ME ME_53EE025800A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target HWL ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
+ ;
+
+ENDME // ME_53EE025800A8 
+
+ME ME_54ECA1BC02A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target WL 'ME_547DC47400EC' '547DB02F034B.ms.model.script' // TevCustomSubPanel
+ ;
+
+ENDME // ME_54ECA1BC02A5 
+
+ME ME_54ECA21603BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_52D643FE004B // SubPanelWordsPack
+ ;
+ MELINK Target WL 'ME_547DB364031F' '547DB02F034B.ms.model.script' // TevSubDescriptor
+ ;
+
+ENDME // ME_54ECA21603BB 
+
+ME ME_52D643FE004B
+ MEPROP UID '52D643FE004B'
+ MEPROP Name 'SubPanelWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_52D6441600EA // IterateSubDescriptors
+ ME_52D6600503A0 // subdescriptor_GetDrawType
+ ME_52D6605B02B4 // subdescriptor_GetBitmapIndex
+ ME_52D660950006 // subdescriptor_GetBlockBitmapIndex
+ ME_52D660E30372 // subdescriptor_GetDocumentBitmapIndex
+ ME_52D661F402E9 // subdescriptor_GetVisible
+ ME_52D66278006D // subdescriptor_GetColumn
+ ME_52D7871A02DE // IterateSubDecriptorsOnSubPanel
+ ME_53EDF0EE03DF // IterateSubDecriptorsOnSubPanelEX
+ ME_53EE025800A8 // SubPanel_GetPopupMenuForSub
+ ME_54ECA1BC02A5 // TevCustomSubPanel
+ ME_54ECA21603BB // TevSubDescriptor
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SubPanelWordsPack.pas'
+
+ENDME // ME_52D643FE004B SubPanelWordsPack
+
+ME ME_52D6471802DC_ME_52D643C100A8
+ MELINK Original HWL ME_52D6471802DC // DoWithSubPanel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D6471802DC_ME_52D643C100A8 DoWithSubPanel
+
+ME ME_52D643C100A8
+ MEPROP UID '52D643C100A8'
+ MEPROP Name 'IterateSubDescriptors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перебирает все SubDescriptot на SubPanel, которые могут быть использованы (!). Такой список задается на этапе проектирвоания/изменения компонета. И не зависит от вида отображения.'#13#10'Формат:'#13#10'{code}'#13#10'@ aWord aLayerID aSubPanel ItarateSubDescriptors'#13#10'{code}'#13#10'aLayerID - слой, в котором производится итерация'#13#10'aSubPanel - контрол сабпанели.'#13#10'aWord - функция для обработки вида:'#13#10'{code}'#13#10'PROCEDURE CheckDescription OBJECT IN aSubDescription'#13#10' // А здесь обрабатываем полученный aSubDescription'#13#10';'#13#10'{code}'#13#10'Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D646990049 // TkwSubPanelFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D6471802DC_ME_52D643C100A8 // DoWithSubPanel
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDescriptors.pas'
+ UP extprop:pas:TypeName 'TkwIterateSubDescriptors'
+ UP extprop:rc:SelfName 'IterateSubDescriptors'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwIterateSubDescriptors'
+
+ENDME // ME_52D643C100A8 IterateSubDescriptors
+
+FORWARD ME_52D65E6902A8
+
+FORWARD ME_52D65E9502E1
+
+ME ME_5330169A030B
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_548072430161' '547CB376012F.ms.model.script' // TevSubDescriptor
+ ;
+
+ENDME // ME_5330169A030B aControl
+
+ME ME_5330169A031A
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_5330169A031A aCtx
+
+ME ME_52D65EB6003E
+ MEPROP UID '52D65EB6003E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ ;
+ MELIST Parameters
+   Seq: ( ME_5330169A030B // aControl
+ ME_5330169A031A // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_52D65EB6003E DoIt
+
+ME ME_52D65E9502E1
+ MEPROP UID '52D65E9502E1'
+ MEPROP Name 'DoWithSubDescriptor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D65EB6003E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D65E9502E1 DoWithSubDescriptor
+
+ME ME_4F212BD5010E_ME_52D65E6902A8
+ MELINK Original WL 'ME_4F212BD5010E' '54DC9ACA0156.ms.model.script' // DoObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F212BD5010E_ME_52D65E6902A8 DoObject
+
+ME ME_52D65E6902A8
+ MEPROP UID '52D65E6902A8'
+ MEPROP Name 'TkwSubDescriptorFromStackWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F212BA80137' '54DC9ACA0156.ms.model.script' // TkwObjectFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F212BD5010E_ME_52D65E6902A8 // DoObject
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubDescriptorFromStackWord.pas'
+ UP extprop:rc:SelfName 'SubDescriptorFromStackWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubDescriptorFromStackWord'
+
+ENDME // ME_52D65E6902A8 TkwSubDescriptorFromStackWord
+
+ME ME_52D65E9502E1_ME_52D65F690396
+ MELINK Original HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D65E9502E1_ME_52D65F690396 DoWithSubDescriptor
+
+ME ME_52D65F690396
+ MEPROP UID '52D65F690396'
+ MEPROP Name 'subdescriptor_GetDrawType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помещает в стек тип отображения метки в виде целого числа.'#13#10'Формат:'#13#10'{code}'#13#10'aSubDescrObj subdescriptor:GetDrawType'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D65E9502E1_ME_52D65F690396 // DoWithSubDescriptor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetDrawType.pas'
+ UP extprop:pas:TypeName 'TkwSubdescriptorGetDrawType'
+ UP extprop:rc:SelfName 'SubdescriptorGetDrawType'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubdescriptorGetDrawType'
+
+ENDME // ME_52D65F690396 subdescriptor_GetDrawType
+
+ME ME_52D65E9502E1_ME_52D6601F031E
+ MELINK Original HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D65E9502E1_ME_52D6601F031E DoWithSubDescriptor
+
+ME ME_52D6601F031E
+ MEPROP UID '52D6601F031E'
+ MEPROP Name 'subdescriptor_GetBitmapIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помещает в стек иконки для отображения обычной метки'#13#10'Формат:'#13#10'{code}'#13#10'aSubDescrObj subdescriptor:GetBitmapIndex'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D65E9502E1_ME_52D6601F031E // DoWithSubDescriptor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetBitmapIndex.pas'
+ UP extprop:pas:TypeName 'TkwSubdescriptorGetBitmapIndex'
+ UP extprop:rc:SelfName 'SubdescriptorGetBitmapIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubdescriptorGetBitmapIndex'
+
+ENDME // ME_52D6601F031E subdescriptor_GetBitmapIndex
+
+ME ME_52D65E9502E1_ME_52D660670205
+ MELINK Original HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D65E9502E1_ME_52D660670205 DoWithSubDescriptor
+
+ME ME_52D660670205
+ MEPROP UID '52D660670205'
+ MEPROP Name 'subdescriptor_GetBlockBitmapIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помещает в стек индекс иконки для отображения метки блока'#13#10'Формат:'#13#10'{code}'#13#10'aSubDescrObj subdescriptor:GetBlockBitmapIndex'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D65E9502E1_ME_52D660670205 // DoWithSubDescriptor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetBlockBitmapIndex.pas'
+ UP extprop:pas:TypeName 'TkwSubdescriptorGetBlockBitmapIndex'
+ UP extprop:rc:SelfName 'SubdescriptorGetBlockBitmapIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubdescriptorGetBlockBitmapIndex'
+
+ENDME // ME_52D660670205 subdescriptor_GetBlockBitmapIndex
+
+ME ME_52D65E9502E1_ME_52D660C703AC
+ MELINK Original HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D65E9502E1_ME_52D660C703AC DoWithSubDescriptor
+
+ME ME_52D660C703AC
+ MEPROP UID '52D660C703AC'
+ MEPROP Name 'subdescriptor_GetDocumentBitmapIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помещает в стек индекс иконки для отображения метки документа.'#13#10'Формат:'#13#10'{code}'#13#10'aSubDescrObj subdescriptor:GetDocumentBitmapIndex'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D65E9502E1_ME_52D660C703AC // DoWithSubDescriptor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetDocumentBitmapIndex.pas'
+ UP extprop:pas:TypeName 'TkwSubdescriptorGetDocumentBitmapIndex'
+ UP extprop:rc:SelfName 'SubdescriptorGetDocumentBitmapIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubdescriptorGetDocumentBitmapIndex'
+
+ENDME // ME_52D660C703AC subdescriptor_GetDocumentBitmapIndex
+
+ME ME_52D65E9502E1_ME_52D661D4008D
+ MELINK Original HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D65E9502E1_ME_52D661D4008D DoWithSubDescriptor
+
+ME ME_52D661D4008D
+ MEPROP UID '52D661D4008D'
+ MEPROP Name 'subdescriptor_GetVisible'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помещает в стек видмость метки.'#13#10'Формат:'#13#10'{code}'#13#10'aSubDescrObj subdescriptor:GetVisible'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D65E9502E1_ME_52D661D4008D // DoWithSubDescriptor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetVisible.pas'
+ UP extprop:pas:TypeName 'TkwSubdescriptorGetVisible'
+ UP extprop:rc:SelfName 'SubdescriptorGetVisible'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubdescriptorGetVisible'
+
+ENDME // ME_52D661D4008D subdescriptor_GetVisible
+
+ME ME_52D65E9502E1_ME_52D6622F0148
+ MELINK Original HWL ME_52D65E9502E1 // DoWithSubDescriptor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D65E9502E1_ME_52D6622F0148 DoWithSubDescriptor
+
+ME ME_52D6622F0148
+ MEPROP UID '52D6622F0148'
+ MEPROP Name 'subdescriptor_GetColumn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помещает в стек номер колонки.'#13#10'Формат:'#13#10'{code}'#13#10'aSubDescrObj subdescriptor:GetColumn'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D65E9502E1_ME_52D6622F0148 // DoWithSubDescriptor
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetColumn.pas'
+ UP extprop:pas:TypeName 'TkwSubdescriptorGetColumn'
+ UP extprop:rc:SelfName 'SubdescriptorGetColumn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubdescriptorGetColumn'
+
+ENDME // ME_52D6622F0148 subdescriptor_GetColumn
+
+FORWARD ME_53EDFA0401B8
+
+ME ME_53EE063E00D6
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_53EE063E00D6 aCtx
+
+ME ME_53EE063E00E6
+ MEPROP Name 'aSubDescription'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_548072430161' '547CB376012F.ms.model.script' // TevSubDescriptor
+ ;
+
+ENDME // ME_53EE063E00E6 aSubDescription
+
+ME ME_53EE063E0105
+ MEPROP Name 'aSubPanelSub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B87DC6C02F7' '4B87B5720153.ms.model.script' // TevSubPanelSub
+ ;
+
+ENDME // ME_53EE063E0105 aSubPanelSub
+
+ME ME_53EDFA2802F5
+ MEPROP UID '53EDFA2802F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53EDFA0401B8 // PushObjData
+ ;
+ MELIST Parameters
+   Seq: ( ME_53EE063E00D6 // aCtx
+ ME_53EE063E00E6 // aSubDescription
+ ME_53EE063E0105 // aSubPanelSub
+ )
+ ; // Parameters
+
+ENDME // ME_53EDFA2802F5 DoIt
+
+ME ME_53EDFA0401B8
+ MEPROP UID '53EDFA0401B8'
+ MEPROP Name 'PushObjData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52D78486017B // IterateSubDecriptorsOnSubPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53EDFA2802F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53EDFA0401B8 PushObjData
+
+ME ME_52D78CB90285
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D78486017B // IterateSubDecriptorsOnSubPanel
+ ;
+ MELINK Target WL 'ME_4B87D32A0023' '4B87B5720153.ms.model.script' // TevSubPanelSubCollection
+ ;
+
+ENDME // ME_52D78CB90285 
+
+ME ME_52D7903E034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D78486017B // IterateSubDecriptorsOnSubPanel
+ ;
+ MELINK Target WL 'ME_4B87B6A2008E' '4B87B5720153.ms.model.script' // TevSubPanelSubArray
+ ;
+
+ENDME // ME_52D7903E034C 
+
+ME ME_52D6471802DC_ME_52D78486017B
+ MELINK Original HWL ME_52D6471802DC // DoWithSubPanel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D6471802DC_ME_52D78486017B DoWithSubPanel
+
+ME ME_52D78486017B
+ MEPROP UID '52D78486017B'
+ MEPROP Name 'IterateSubDecriptorsOnSubPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перебирает все SubDescriptot на SubPanel, которые *могут быть* отрисованы (!). Т.е. проверка на Visible не производится. Если это нужно, то можно реализвать в скриптах. '#13#10'Формат:'#13#10'{code}'#13#10'@ aWord aLayerID aSubPanel IterateSubDecriptorsOnSubPanel'#13#10'{code}'#13#10'aLayerID - слой, в котором производится итерация'#13#10'aSubPanel - контрол сабпанели.'#13#10'aWord - функция для обработки вида:'#13#10'{code}'#13#10'PROCEDURE CheckDescription OBJECT IN aSubDescription INTEGER IN aHandle'#13#10' // А здесь обрабатываем полученный aSubDescription'#13#10';'#13#10'{code}'#13#10'Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.'#13#10'aHandle - номер саба, к которому рисуется метка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D646990049 // TkwSubPanelFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53EDFA0401B8 // PushObjData
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52D6471802DC_ME_52D78486017B // DoWithSubPanel
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52D78CB90285 // TevSubPanelSubCollection
+ ME_52D7903E034C // TevSubPanelSubArray
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanel.pas'
+ UP extprop:pas:TypeName 'TkwIterateSubDecriptorsOnSubPanel'
+ UP extprop:rc:SelfName 'IterateSubDecriptorsOnSubPanel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwIterateSubDecriptorsOnSubPanel'
+
+ENDME // ME_52D78486017B IterateSubDecriptorsOnSubPanel
+
+ME ME_53EDF1D903D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
+ ;
+ MELINK Target WL 'ME_4B87B6A2008E' '4B87B5720153.ms.model.script' // TevSubPanelSubArray
+ ;
+
+ENDME // ME_53EDF1D903D7 
+
+ME ME_53EDF1DE0101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
+ ;
+ MELINK Target WL 'ME_4B87D32A0023' '4B87B5720153.ms.model.script' // TevSubPanelSubCollection
+ ;
+
+ENDME // ME_53EDF1DE0101 
+
+ME ME_53EDFA0401B8_ME_53EDF0A20129
+ MELINK Original HWL ME_53EDFA0401B8 // PushObjData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53EDFA0401B8_ME_53EDF0A20129 PushObjData
+
+ME ME_53EDF0A20129
+ MEPROP UID '53EDF0A20129'
+ MEPROP Name 'IterateSubDecriptorsOnSubPanelEX'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перебирает все SubDescriptot на SubPanel, которые *могут быть* отрисованы (!). Т.е. проверка на Visible не производится. Если это нужно, то можно реализвать в скриптах. '#13#10'Формат:'#13#10'{code}'#13#10'@ aWord aLayerID aSubPanel IterateSubDecriptorsOnSubPanelEX'#13#10'{code}'#13#10'aLayerID - слой, в котором производится итерация'#13#10'aSubPanel - контрол сабпанели.'#13#10'aWord - функция для обработки вида:'#13#10'{code}'#13#10'PROCEDURE CheckDescription OBJECT IN aSubDescription OBJECT IN aSubPanelSub'#13#10' // А здесь обрабатываем полученный aSubDescription'#13#10';'#13#10'{code}'#13#10'Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.'#13#10'aSubPanelSub - визуальное представление метки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D78486017B // IterateSubDecriptorsOnSubPanel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53EDFA0401B8_ME_53EDF0A20129 // PushObjData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53EDF1D903D7 // TevSubPanelSubArray
+ ME_53EDF1DE0101 // TevSubPanelSubCollection
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanelEX.pas'
+ UP extprop:pas:TypeName 'TkwIterateSubDecriptorsOnSubPanelEX'
+ UP extprop:rc:SelfName 'IterateSubDecriptorsOnSubPanelEX'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwIterateSubDecriptorsOnSubPanelEX'
+
+ENDME // ME_53EDF0A20129 IterateSubDecriptorsOnSubPanelEX
+
+ME ME_53F1A9530216
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
+ ;
+ MELINK Target WL 'ME_4B87DC6C02F7' '4B87B5720153.ms.model.script' // TevSubPanelSub
+ ;
+
+ENDME // ME_53F1A9530216 
+
+ME ME_53F1B168028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
+ ;
+ MELINK Target WL 'ME_47D00CC20108' '47C52679006D.ms.model.script' // nevFacade
+ ;
+
+ENDME // ME_53F1B168028A 
+
+ME ME_53F1C2B401FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
+ ;
+ MELINK Target WL 'ME_46A4988D03E1' '4677FBA70343.ms.model.script' // Tl3_SPoint
+ ;
+
+ENDME // ME_53F1C2B401FD 
+
+ME ME_54ECAF5600EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_54ECAF5600EE 
+
+ME ME_550039F002FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
+ ;
+ MELINK Target WL 'ME_550013770000' '55001317029B.ms.model.script' // Tl3PopupMenuHelper
+ ;
+
+ENDME // ME_550039F002FE 
+
+ME ME_52D6471802DC_ME_53EE014B03AC
+ MELINK Original HWL ME_52D6471802DC // DoWithSubPanel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52D6471802DC_ME_53EE014B03AC DoWithSubPanel
+
+ME ME_53EE014B03AC
+ MEPROP UID '53EE014B03AC'
+ MEPROP Name 'SubPanel_GetPopupMenuForSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Описание*: возвращает меню для саба на сабпанели.'#13#10'*Формат:*'#13#10'{code}'#13#10'aSubPanel aSubPanelSub SubPanel:GetPopupMenuForSub'#13#10'{code}'#13#10'aSubPanel - контрол саб панели.'#13#10'aSubPanelSub - объект класса TevSubPanelSub' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D643A301A9 // SubPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D646990049 // TkwSubPanelFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52D6471802DC_ME_53EE014B03AC // DoWithSubPanel
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53F1A9530216 // TevSubPanelSub
+ ME_53F1B168028A // nevFacade
+ ME_53F1C2B401FD // Tl3_SPoint
+ ME_54ECAF5600EE // TPoint
+ ME_550039F002FE // Tl3PopupMenuHelper
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubPanelGetPopupMenuForSub.pas'
+ UP extprop:pas:TypeName 'TkwSubPanelGetPopupMenuForSub'
+ UP extprop:rc:SelfName 'SubPanelGetPopupMenuForSub'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSubPanelGetPopupMenuForSub'
+
+ENDME // ME_53EE014B03AC SubPanel_GetPopupMenuForSub
+
+ME ME_52D643A301A9
+ MEPROP UID '52D643A301A9'
+ MEPROP Name 'SubPanelWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54ECA252008F' '54ECA252008F.ms.model.script' // ScriptEngine$Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52D646990049 // TkwSubPanelFromStackWord
+ HWL ME_52D643FE004B // SubPanelWordsPack
+ HWL ME_52D643C100A8 // IterateSubDescriptors
+ HWL ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ HWL ME_52D65F690396 // subdescriptor_GetDrawType
+ HWL ME_52D6601F031E // subdescriptor_GetBitmapIndex
+ HWL ME_52D660670205 // subdescriptor_GetBlockBitmapIndex
+ HWL ME_52D660C703AC // subdescriptor_GetDocumentBitmapIndex
+ HWL ME_52D661D4008D // subdescriptor_GetVisible
+ HWL ME_52D6622F0148 // subdescriptor_GetColumn
+ HWL ME_52D78486017B // IterateSubDecriptorsOnSubPanel
+ HWL ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
+ HWL ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ WL 'ME_4B87B5720153' '4B87B5720153.ms.model.script' // SubPanel
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_547CB376012F' '547CB376012F.ms.model.script' // ToolPanel
+ WL 'ME_54DB92D203C9' '54DB92D203C9.ms.model.script' // VCL bindings
+ WL 'ME_54DC9ACA0156' '54DC9ACA0156.ms.model.script' // RTL bindings
+ WL 'ME_55001317029B' '55001317029B.ms.model.script' // VCLHelpers
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_52D643A301A9 SubPanelWords

@@ -1,0 +1,49 @@
+// dsBaseDocument 4926CAF40166 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4926CAF40166
+
+ME ME_491C1E9901A7
+ MEPROP UID '491C1E9901A7'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4926CAF40166 // dsBaseDocument
+ ;
+ MELINK Target WL 'ME_47EA0356011B' '491B305A0096.ms.model.script' // IdsBaseDocument
+ ;
+
+ENDME // ME_491C1E9901A7 FormDataSourceType
+
+ME ME_4926CAF40166
+ MEPROP UID '4926CAF40166'
+ MEPROP Name 'dsBaseDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОФ, базовый для прецедентов с документом. ОПРЕДЕЛЯЕТ конечный интерфейс бизнес-объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA20430108' '47EA20430108.ms.model.script' // dsBaseDocumentPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_491C1E9901A7 // FormDataSourceType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '21.11.2008 17:53'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas'
+ UP extprop:pas:TypeName '_dsBaseDocument_'
+ UP extprop:pas:UnitName 'dsBaseDocument.imp'
+
+ENDME // ME_4926CAF40166 dsBaseDocument

@@ -1,0 +1,193 @@
+// WorkWithRedactions 4A7B03ED01E3 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7B03ED01E3
+
+FORWARD ME_4EF354C8018B
+
+ME ME_4EF354F70276
+ MEPROP UID '4EF354F70276'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EF354C8018B // CaneHaveDocumentCompareEditionsOperation
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EF354F70276 DoIt
+
+ME ME_4EF354C8018B
+ MEPROP UID '4EF354C8018B'
+ MEPROP Name 'CaneHaveDocumentCompareEditionsOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4EF35363033C' '484900780017.ms.model.script' // Если список редакций открыт в модальном состоянии, то контекстной операции "Сравнение редакций" - быть не должно
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4EF354F70276 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EF354C8018B CaneHaveDocumentCompareEditionsOperation
+
+FORWARD ME_4F2BEF740060
+
+ME ME_4F2BF04303AF
+ MEPROP UID '4F2BF04303AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2BEF740060 // GetRedactionOnLeftEdition
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2BF04303AF DoIt
+
+ME ME_4F2BEF740060
+ MEPROP UID '4F2BEF740060'
+ MEPROP Name 'GetRedactionOnLeftEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2BF04303AF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2BEF740060 GetRedactionOnLeftEdition
+
+ME ME_4A7FCEA9025D
+ MEPROP UID '4A7FCEA9025D'
+ MEPROP Name 'RedactionCurrentPara'
+ MEPROP Class class_Operation
+ %SUMMARY 'Текущий параграф редакции для синхронизации с окном сравннения редакций' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ MELINK Target WL 'ME_4A7FC9C9008F' '4912DD020283.ms.model.script' // IeeLeafPara
+ ;
+
+ENDME // ME_4A7FCEA9025D RedactionCurrentPara
+
+ME ME_4A8931130363
+ MEPROP UID '4A8931130363'
+ MEPROP Name 'CanBeChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'Может ли документ быть изменён' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A8931130363 CanBeChanged
+
+ME ME_4A8930FC03DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ MELINK Target WL 'ME_45EEC17501B5' '45EEAA800226.ms.model.script' // Controllable
+ ;
+
+ENDME // ME_4A8930FC03DC 
+
+ME ME_57483CCA035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_57483CCA035F 
+
+ME ME_57A1D4440317
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
+ ;
+ MELINK Target WL 'ME_57A1C81101B6' '5795D66F0385.ms.model.script' // TEditionsService
+ ;
+
+ENDME // ME_57A1D4440317 
+
+ME ME_4C7BAEB4010E_ME_4A7B03ED01E3
+ MELINK Original WL 'ME_4C7BAEB4010E' '4A77058200BA.ms.model.script' // CompareEditions
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7BAEB4010E_ME_4A7B03ED01E3 CompareEditions
+
+ME ME_4A7B03ED01E3
+ MEPROP UID '4A7B03ED01E3'
+ MEPROP Name 'WorkWithRedactions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Работа с редакциями документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A7705AD01AB' '4A77058200BA.ms.model.script' // Document
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4EF354C8018B // CaneHaveDocumentCompareEditionsOperation
+ HWL ME_4F2BEF740060 // GetRedactionOnLeftEdition
+ HWL ME_4A7FCEA9025D // RedactionCurrentPara
+ HWL ME_4A8931130363 // CanBeChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C7BAEB4010E_ME_4A7B03ED01E3 // CompareEditions
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4A8930FC03DC // Controllable
+ ME_57483CCA035F // Supports
+ ME_57A1D4440317 // TEditionsService
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "needs InstanceR" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas'
+ UP extprop:pas:TypeName '_WorkWithRedactions_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'WorkWithRedactions.imp'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4A7B03ED01E3 WorkWithRedactions

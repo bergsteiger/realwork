@@ -1,0 +1,138 @@
+// Root 4742D06A0248 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4742D06A0248
+
+FORWARD ME_4742D0D30277
+
+ME ME_4742D0EE0073
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4742D0D30277 // Project
+ ;
+ MELINK Target WL 'ME_46E13A69005D' '46E13A54030D.ms.model.script' // MDATemplates
+ ;
+
+ENDME // ME_4742D0EE0073 
+
+ME ME_46E28D830109_ME_4742D0D30277
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_4742D0D30277 mda
+
+ME ME_4A09484300C6_ME_4742D0D30277
+ MELINK Original WL 'ME_4A09484300C6' '46E16545033C.ms.model.script' // mda.inc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A09484300C6_ME_4742D0D30277 mda.inc
+
+ME ME_4742D0D30277
+ MEPROP UID '4742D0D30277'
+ MEPROP Name 'Project'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объединенный проект (CommonLang+Mata)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4742D06A0248 // Root
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_4742D0D30277 // mda
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A09484300C6_ME_4742D0D30277 // mda.inc
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4742D0EE0073 // MDATemplates
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\CommonWithMeta\Integrated\Root\Project.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonWithMeta\Integrated\Root\Project'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4742D0D30277 Project
+
+FORWARD ME_4DE79F24030E
+
+ME ME_4DE79F440317
+ MEPROP UID '4DE79F440317'
+ MEPROP Name 'tc_OutControlsDefinitions'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит описание всех вложенных форм и контролов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE79F24030E // TCSupport
+ ;
+
+ENDME // ME_4DE79F440317 tc_OutControlsDefinitions
+
+ME ME_4DE7A1AC02A2
+ MEPROP UID '4DE7A1AC02A2'
+ MEPROP Name 'tc_ProjectPrefix'
+ MEPROP Class class_Operation
+ %SUMMARY 'Префикс проекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DE79F24030E // TCSupport
+ ;
+
+ENDME // ME_4DE7A1AC02A2 tc_ProjectPrefix
+
+ME ME_4DE79F24030E
+ MEPROP UID '4DE79F24030E'
+ MEPROP Name 'TCSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилитные функции для TC' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4742D06A0248 // Root
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DE79F440317 // tc_OutControlsDefinitions
+ HWL ME_4DE7A1AC02A2 // tc_ProjectPrefix
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CommonWithMeta\Integrated\Root\TCSupport.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonWithMeta\Integrated\Root\TCSupport'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4DE79F24030E TCSupport
+
+ME ME_4742D06A0248
+ MEPROP UID '4742D06A0248'
+ MEPROP Name 'Root'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Объединенный слой (CommonLang + Meta)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4742D02F0390' '4742D02F0390.ms.model.script' // Integrated
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4742D0D30277 // Project
+ HWL ME_4DE79F24030E // TCSupport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E13A54030D' '46E13A54030D.ms.model.script' // HighLayers
+ WL 'ME_46E16545033C' '46E16545033C.ms.model.script' // Abstracts
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonWithMeta\Integrated\Root'
+ UP mda.inc:PathOnly '\MDProcess\CommonWithMeta\Integrated\Root'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4742D06A0248 Root

@@ -1,0 +1,938 @@
+// ChatInterfaces 4A66DD3C01E8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A66DD3C01E8
+
+FORWARD ME_4A66DD7401CD
+
+ME ME_4A66DD9D0246
+ MEPROP UID '4A66DD9D0246'
+ MEPROP Name 'Title'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A66DD7401CD // InsChatMessage
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ UP "pm" false
+
+ENDME // ME_4A66DD9D0246 Title
+
+ME ME_4A66DDAD0124
+ MEPROP UID '4A66DDAD0124'
+ MEPROP Name 'Body'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A66DD7401CD // InsChatMessage
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ UP "pm" false
+
+ENDME // ME_4A66DDAD0124 Body
+
+ME ME_4A66DD7401CD
+ MEPROP UID '4A66DD7401CD'
+ MEPROP GUID '795E7D5F-7571-4B33-992D-6720A0129530'
+ MEPROP Name 'InsChatMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A66DD9D0246 // Title
+ HWL ME_4A66DDAD0124 // Body
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'ChatMessage'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A66DD7401CD InsChatMessage
+
+FORWARD ME_4A66DDC1023C
+
+ME ME_4A66DDD60130
+ MEPROP UID '4A66DDD60130'
+ MEPROP Name 'MessagesCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A66DDC1023C // InsChatMessages
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_4A66DDD60130 MessagesCount
+
+FORWARD ME_4A66DDE10034
+
+ME ME_4A66DDE90269
+ MEPROP UID '4A66DDE90269'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A66DDE10034 // Message
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A66DDE90269 anIndex
+
+ME ME_4A66DDE10034
+ MEPROP UID '4A66DDE10034'
+ MEPROP Name 'Message'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A66DDC1023C // InsChatMessages
+ ;
+ MELINK Target HWL ME_4A66DD7401CD // InsChatMessage
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A66DDE90269 // anIndex
+ )
+ ; // Attributes
+ UP "pm" false
+
+ENDME // ME_4A66DDE10034 Message
+
+ME ME_4A66DDC1023C
+ MEPROP UID '4A66DDC1023C'
+ MEPROP GUID '39935DF7-B2B9-45A2-BD4E-F5BE19488806'
+ MEPROP Name 'InsChatMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A66DDD60130 // MessagesCount
+ HWL ME_4A66DDE10034 // Message
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'ChatMessages'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A66DDC1023C InsChatMessages
+
+FORWARD ME_4A6EA4C503DA
+
+ME ME_4A6EA502033A
+ MEPROP UID '4A6EA502033A'
+ MEPROP Name 'UserID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6EA4C503DA // IbsAbstractChatWindow
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+ UP "pm" false
+
+ENDME // ME_4A6EA502033A UserID
+
+ME ME_4A6EA50801BA
+ MEPROP UID '4A6EA50801BA'
+ MEPROP Name 'ActivateChatWindow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A6EA4C503DA // IbsAbstractChatWindow
+ ;
+
+ENDME // ME_4A6EA50801BA ActivateChatWindow
+
+ME ME_4A6EA4C503DA
+ MEPROP UID '4A6EA4C503DA'
+ MEPROP GUID '2CEA751B-9081-4CFF-81D9-175E6ECF3BE5'
+ MEPROP Name 'IbsAbstractChatWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A6EA502033A // UserID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A6EA50801BA // ActivateChatWindow
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'bsAbstractChatWindow'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A6EA4C503DA IbsAbstractChatWindow
+
+FORWARD ME_4A6D714D0252
+
+ME ME_4A6D71700008
+ MEPROP UID '4A6D71700008'
+ MEPROP Name 'NewMessagesReceived'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A6D714D0252 // IbsChatWindow
+ ;
+
+ENDME // ME_4A6D71700008 NewMessagesReceived
+
+ME ME_4A7C023702A5
+ MEPROP UID '4A7C023702A5'
+ MEPROP Name 'HistoryCleaned'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A6D714D0252 // IbsChatWindow
+ ;
+
+ENDME // ME_4A7C023702A5 HistoryCleaned
+
+ME ME_4A6EA502033A_ME_4A6D714D0252
+ MELINK Original HWL ME_4A6EA502033A // UserID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A6EA502033A_ME_4A6D714D0252 UserID
+
+ME ME_4A6EA50801BA_ME_4A6D714D0252
+ MELINK Original HWL ME_4A6EA50801BA // ActivateChatWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EA50801BA_ME_4A6D714D0252 ActivateChatWindow
+
+ME ME_4A6D714D0252
+ MEPROP UID '4A6D714D0252'
+ MEPROP GUID '491B359B-0B9B-4C41-8CE8-E1F45F26003D'
+ MEPROP Name 'IbsChatWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A6EA4C503DA // IbsAbstractChatWindow
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A6D71700008 // NewMessagesReceived
+ HWL ME_4A7C023702A5 // HistoryCleaned
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A6EA502033A_ME_4A6D714D0252 // UserID
+ ME_4A6EA50801BA_ME_4A6D714D0252 // ActivateChatWindow
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'bsChatWindow'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A6D714D0252 IbsChatWindow
+
+FORWARD ME_4A6EA4E900C3
+
+ME ME_4A6EA502033A_ME_4A6EA4E900C3
+ MELINK Original HWL ME_4A6EA502033A // UserID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4A6EA502033A_ME_4A6EA4E900C3 UserID
+
+ME ME_4A6EA50801BA_ME_4A6EA4E900C3
+ MELINK Original HWL ME_4A6EA50801BA // ActivateChatWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EA50801BA_ME_4A6EA4E900C3 ActivateChatWindow
+
+ME ME_4A6EA4E900C3
+ MEPROP UID '4A6EA4E900C3'
+ MEPROP GUID 'A1DF16AD-AA8B-4783-9EF1-5F0FAB51B62E'
+ MEPROP Name 'IbsChatHistoryWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A6EA4C503DA // IbsAbstractChatWindow
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4A6EA502033A_ME_4A6EA4E900C3 // UserID
+ ME_4A6EA50801BA_ME_4A6EA4E900C3 // ActivateChatWindow
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'bsChatHistoryWindow'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A6EA4E900C3 IbsChatHistoryWindow
+
+FORWARD ME_4A728A3C01FC
+
+ME ME_4A728A4900FD
+ MEPROP UID '4A728A4900FD'
+ MEPROP Name 'NotifyContactListChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A728A3C01FC // IbsContactList
+ ;
+
+ENDME // ME_4A728A4900FD NotifyContactListChanged
+
+ME ME_4A728A3C01FC
+ MEPROP UID '4A728A3C01FC'
+ MEPROP GUID 'F1F0F5CE-0323-471A-8D8A-96888AB8208F'
+ MEPROP Name 'IbsContactList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A728A4900FD // NotifyContactListChanged
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'bsContactList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A728A3C01FC IbsContactList
+
+FORWARD ME_4A66DEE901C9
+
+ME ME_4A66DF0603DC
+ MEPROP UID '4A66DF0603DC'
+ MEPROP Name 'ChatSupported'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_4A66DF0603DC ChatSupported
+
+ME ME_4A6D94A501CE
+ MEPROP UID '4A6D94A501CE'
+ MEPROP Name 'HasUnreadedMessages'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_4A6D94A501CE HasUnreadedMessages
+
+ME ME_4A66DF24033E
+ MEPROP Name 'ForAdd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A66DF24033E ForAdd
+
+ME ME_4A66DF2101AE
+ MEPROP UID '4A66DF2101AE'
+ MEPROP Name 'MakeContactList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66DF24033E // ForAdd
+ )
+ ; // Parameters
+
+ENDME // ME_4A66DF2101AE MakeContactList
+
+ME ME_4A66DF580211
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4A66DF580211 aNode
+
+ME ME_4A66DF2D03BC
+ MEPROP UID '4A66DF2D03BC'
+ MEPROP Name 'OpenChatWindow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66DF580211 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4A66DF2D03BC OpenChatWindow
+
+ME ME_4A66DF43011A
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4A66DF43011A aNode
+
+ME ME_4A66DF3E0086
+ MEPROP UID '4A66DF3E0086'
+ MEPROP Name 'GetContactType'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELINK Target WL 'ME_4A66B9D20178' '4A66B9840002.ms.model.script' // TnsContactType
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66DF43011A // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4A66DF3E0086 GetContactType
+
+ME ME_4A66DF6B0398
+ MEPROP Name 'Recip'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A66DF6B0398 Recip
+
+ME ME_4A66DF6B03B7
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4A66DF6B03B7 aMessage
+
+ME ME_4A66DF64023C
+ MEPROP UID '4A66DF64023C'
+ MEPROP Name 'SendMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELINK Target HWL ME_4A66DD7401CD // InsChatMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66DF6B0398 // Recip
+ ME_4A66DF6B03B7 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_4A66DF64023C SendMessage
+
+ME ME_4A66DF780289
+ MEPROP Name 'anUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A66DF780289 anUID
+
+ME ME_4A66DF7802A8
+ MEPROP Name 'MinCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A66DF7802A8 MinCount
+
+ME ME_4A66DF74032C
+ MEPROP UID '4A66DF74032C'
+ MEPROP Name 'GetMessages'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELINK Target HWL ME_4A66DDC1023C // InsChatMessages
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66DF780289 // anUID
+ ME_4A66DF7802A8 // MinCount
+ )
+ ; // Parameters
+
+ENDME // ME_4A66DF74032C GetMessages
+
+ME ME_4A66DF820028
+ MEPROP UID '4A66DF820028'
+ MEPROP Name 'StartProcessing'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+
+ENDME // ME_4A66DF820028 StartProcessing
+
+ME ME_4A66DF920137
+ MEPROP Name 'anUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A66DF920137 anUID
+
+ME ME_4A66DF8F036E
+ MEPROP UID '4A66DF8F036E'
+ MEPROP Name 'MessagesReceived'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A66DF920137 // anUID
+ )
+ ; // Parameters
+
+ENDME // ME_4A66DF8F036E MessagesReceived
+
+ME ME_4A69A8190238
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4A69A8190238 aNode
+
+ME ME_4A69981E0203
+ MEPROP UID '4A69981E0203'
+ MEPROP Name 'AddUser'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A69A8190238 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4A69981E0203 AddUser
+
+ME ME_4A69A81E0194
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4A69A81E0194 aNode
+
+ME ME_4A6998430245
+ MEPROP UID '4A6998430245'
+ MEPROP Name 'DeleteUser'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A69A81E0194 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4A6998430245 DeleteUser
+
+ME ME_4A69985B00A8
+ MEPROP UID '4A69985B00A8'
+ MEPROP Name 'ShowAddUserDialog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+
+ENDME // ME_4A69985B00A8 ShowAddUserDialog
+
+ME ME_4A6D71A10381
+ MEPROP Name 'aWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A6D714D0252 // IbsChatWindow
+ ;
+
+ENDME // ME_4A6D71A10381 aWindow
+
+ME ME_4A6D7187013A
+ MEPROP UID '4A6D7187013A'
+ MEPROP Name 'RegisterChatWindow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6D71A10381 // aWindow
+ )
+ ; // Parameters
+
+ENDME // ME_4A6D7187013A RegisterChatWindow
+
+ME ME_4A6D71BF0322
+ MEPROP Name 'aWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A6D714D0252 // IbsChatWindow
+ ;
+
+ENDME // ME_4A6D71BF0322 aWindow
+
+ME ME_4A6D71A600F9
+ MEPROP UID '4A6D71A600F9'
+ MEPROP Name 'UnRegisterChatWindow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6D71BF0322 // aWindow
+ )
+ ; // Parameters
+
+ENDME // ME_4A6D71A600F9 UnRegisterChatWindow
+
+ME ME_4A6D988D034B
+ MEPROP UID '4A6D988D034B'
+ MEPROP Name 'OpenAllUnreaded'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+
+ENDME // ME_4A6D988D034B OpenAllUnreaded
+
+ME ME_4A6EAC6002D6
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4A6EAC6002D6 aNode
+
+ME ME_4A6EAC57017D
+ MEPROP UID '4A6EAC57017D'
+ MEPROP Name 'OpenChatHistory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6EAC6002D6 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4A6EAC57017D OpenChatHistory
+
+ME ME_4A6EAC7C0113
+ MEPROP Name 'aWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A6EA4E900C3 // IbsChatHistoryWindow
+ ;
+
+ENDME // ME_4A6EAC7C0113 aWindow
+
+ME ME_4A6EAC6C0043
+ MEPROP UID '4A6EAC6C0043'
+ MEPROP Name 'RegisterChatHistory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6EAC7C0113 // aWindow
+ )
+ ; // Parameters
+
+ENDME // ME_4A6EAC6C0043 RegisterChatHistory
+
+ME ME_4A6EAC87016F
+ MEPROP Name 'aWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A6EA4E900C3 // IbsChatHistoryWindow
+ ;
+
+ENDME // ME_4A6EAC87016F aWindow
+
+ME ME_4A6EAC80032F
+ MEPROP UID '4A6EAC80032F'
+ MEPROP Name 'UnRegisterChatHistory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6EAC87016F // aWindow
+ )
+ ; // Parameters
+
+ENDME // ME_4A6EAC80032F UnRegisterChatHistory
+
+ME ME_4A6EC1420051
+ MEPROP Name 'anUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6EC1420051 anUID
+
+ME ME_4A6EBE8E030F
+ MEPROP UID '4A6EBE8E030F'
+ MEPROP Name 'OpenChatHistoryByID'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6EC1420051 // anUID
+ )
+ ; // Parameters
+
+ENDME // ME_4A6EBE8E030F OpenChatHistoryByID
+
+ME ME_4A6FFC020149
+ MEPROP Name 'anUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6FFC020149 anUID
+
+ME ME_4A6FFBF30190
+ MEPROP UID '4A6FFBF30190'
+ MEPROP Name 'ClearHistory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6FFC020149 // anUID
+ )
+ ; // Parameters
+
+ENDME // ME_4A6FFBF30190 ClearHistory
+
+ME ME_4A728A25029E
+ MEPROP UID '4A728A25029E'
+ MEPROP Name 'ContactListChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+
+ENDME // ME_4A728A25029E ContactListChanged
+
+ME ME_4A728A7801DA
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A728A3C01FC // IbsContactList
+ ;
+
+ENDME // ME_4A728A7801DA aList
+
+ME ME_4A728A620307
+ MEPROP UID '4A728A620307'
+ MEPROP Name 'RegisterContactList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A728A7801DA // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4A728A620307 RegisterContactList
+
+ME ME_4A728A8203CD
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A728A3C01FC // IbsContactList
+ ;
+
+ENDME // ME_4A728A8203CD aList
+
+ME ME_4A728A7D031A
+ MEPROP UID '4A728A7D031A'
+ MEPROP Name 'UnRegisterContactList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A728A8203CD // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4A728A7D031A UnRegisterContactList
+
+ME ME_4A66DEE901C9
+ MEPROP UID '4A66DEE901C9'
+ MEPROP GUID 'FACFDBC2-7E48-4189-BC96-3BF0BF577378'
+ MEPROP Name 'IbsChatDispatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A66DF0603DC // ChatSupported
+ HWL ME_4A6D94A501CE // HasUnreadedMessages
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A66DF2101AE // MakeContactList
+ HWL ME_4A66DF2D03BC // OpenChatWindow
+ HWL ME_4A66DF3E0086 // GetContactType
+ HWL ME_4A66DF64023C // SendMessage
+ HWL ME_4A66DF74032C // GetMessages
+ HWL ME_4A66DF820028 // StartProcessing
+ HWL ME_4A66DF8F036E // MessagesReceived
+ HWL ME_4A69981E0203 // AddUser
+ HWL ME_4A6998430245 // DeleteUser
+ HWL ME_4A69985B00A8 // ShowAddUserDialog
+ HWL ME_4A6D7187013A // RegisterChatWindow
+ HWL ME_4A6D71A600F9 // UnRegisterChatWindow
+ HWL ME_4A6D988D034B // OpenAllUnreaded
+ HWL ME_4A6EAC57017D // OpenChatHistory
+ HWL ME_4A6EAC6C0043 // RegisterChatHistory
+ HWL ME_4A6EAC80032F // UnRegisterChatHistory
+ HWL ME_4A6EBE8E030F // OpenChatHistoryByID
+ HWL ME_4A6FFBF30190 // ClearHistory
+ HWL ME_4A728A25029E // ContactListChanged
+ HWL ME_4A728A620307 // RegisterContactList
+ HWL ME_4A728A7D031A // UnRegisterContactList
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'bsChatDispatcher'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A66DEE901C9 IbsChatDispatcher
+
+ME ME_4C2C503400B6
+ MEPROP UID '4C2C503400B6'
+ MEPROP Name 'EnsUnknownChatUser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4C2C503400B6 EnsUnknownChatUser
+
+ME ME_4A66DD3C01E8
+ MEPROP UID '4A66DD3C01E8'
+ MEPROP Name 'ChatInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A66DD7401CD // InsChatMessage
+ HWL ME_4A66DDC1023C // InsChatMessages
+ HWL ME_4A6EA4C503DA // IbsAbstractChatWindow
+ HWL ME_4A6D714D0252 // IbsChatWindow
+ HWL ME_4A6EA4E900C3 // IbsChatHistoryWindow
+ HWL ME_4A728A3C01FC // IbsContactList
+ HWL ME_4A66DEE901C9 // IbsChatDispatcher
+ HWL ME_4C2C503400B6 // EnsUnknownChatUser
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4A66B9840002' '4A66B9840002.ms.model.script' // ChatTypes
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChatInterfaces.pas'
+
+ENDME // ME_4A66DD3C01E8 ChatInterfaces

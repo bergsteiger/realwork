@@ -1,0 +1,105 @@
+// Rounded 517C11AD010E TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_517C11AD010E
+
+FORWARD ME_517C11C6019A
+
+ME ME_517C40E900DA
+ MEPROP UID '517C40E900DA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+
+ENDME // ME_517C40E900DA DoIt
+
+ME ME_517C11D7018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+ MELINK Target WL 'ME_517C0F9C03C3' '517C0F9C03C3.ms.model.script' // TRoundedButton
+ ;
+
+ENDME // ME_517C11D7018C 
+
+ME ME_517C11DE0150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+ MELINK Target WL 'ME_517C102F03B5' '517C102F03B5.ms.model.script' // TRoundedEdit
+ ;
+
+ENDME // ME_517C11DE0150 
+
+ME ME_517C41500140
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_517C41500140 
+
+ME ME_517C11C6019A
+ MEPROP UID '517C11C6019A'
+ MEPROP Name 'RoundedControlsTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_517C11AD010E // Rounded
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.ms.model.script' // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_517C40E900DA // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_517C11D7018C // TRoundedButton
+ ME_517C11DE0150 // TRoundedEdit
+ ME_517C41500140 // TForm
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\SandBox\RoundedControlsTest.pas'
+ UP extprop:pas:TypeName 'TRoundedControlsTest'
+ UP extprop:rc:SelfName 'RoundedControlsTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_517C11C6019A RoundedControlsTest
+
+ME ME_517C11AD010E
+ MEPROP UID '517C11AD010E'
+ MEPROP Name 'Rounded'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5155865B01B6' '5155865B01B6.ms.model.script' // SandBoxTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_517C11C6019A // RoundedControlsTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
+ WL 'ME_517C0F37039A' '517C0F37039A.ms.model.script' // Rounded
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_517C11AD010E Rounded

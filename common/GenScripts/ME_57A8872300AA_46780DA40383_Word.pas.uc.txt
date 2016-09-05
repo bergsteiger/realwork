@@ -1,0 +1,19 @@
+//#UC START# *57A8872300AA_46780DA40383_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwIl3CStringPack.pas
+//#UC END# *57A8872300AA_46780DA40383_Word_ext:ParentFileName
+//#UC START# *57A8872300AA_57A8872300AA_46780DA40383_Word_impl*
+ l_W := l3PCharLen(aString);
+ l_S := Tl3String.Make(l3PCharLen(l_W.S, l_W.SLen, CP_ANSI));
+ try
+  l_S.CodePage := CP_OEM;
+  l_S._CodePage := CP_ANSI;
+  Result := TtfwCStringFactory.C(l_S);
+ finally
+  FreeAndNil(l_S);
+ end;//try..finally
+//#UC END# *57A8872300AA_57A8872300AA_46780DA40383_Word_impl*
+//#UC START# *57A8872300AA_57A8872300AA_46780DA40383_Word_var*
+var
+ l_W : Tl3PCharLen;
+ l_S : Tl3String;
+//#UC END# *57A8872300AA_57A8872300AA_46780DA40383_Word_var*

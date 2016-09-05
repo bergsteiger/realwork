@@ -1,0 +1,49 @@
+// TvcmBaseMenuForChromeLike 545C51CB0171 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545C51CB0171
+
+ME ME_545C536D01B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C51CB0171 // TvcmBaseMenuForChromeLike
+ ;
+ MELINK Target WL 'ME_545C535201B3' '533D53FF00C2.ms.model.script' // TvcmMenuForChromeLikeItems
+ ;
+
+ENDME // ME_545C536D01B7 
+
+ME ME_545C53C901FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C51CB0171 // TvcmBaseMenuForChromeLike
+ ;
+ MELINK Target WL 'ME_545C53AA026E' '533D53FF00C2.ms.model.script' // vcmMainMenuForChromeLikeTypes
+ ;
+
+ENDME // ME_545C53C901FE 
+
+ME ME_545C51CB0171
+ MEPROP UID '545C51CB0171'
+ MEPROP Name 'TvcmBaseMenuForChromeLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Dependencies
+   Seq: ( ME_545C536D01B7 // TvcmMenuForChromeLikeItems
+ ME_545C53C901FE // vcmMainMenuForChromeLikeTypes
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmBaseMenuForChromeLike.pas'
+ UP extprop:rc:SelfName 'MenuForChromeLike'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmBaseMenuForChromeLike'
+
+ENDME // ME_545C51CB0171 TvcmBaseMenuForChromeLike

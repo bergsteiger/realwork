@@ -1,0 +1,254 @@
+// TdsWarning 492189D90209 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492189D90209
+
+ME ME_49218B2202BC
+ MEPROP UID '49218B2202BC'
+ MEPROP Name 'f_WarningContent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492189D90209 // TdsWarning
+ ;
+ MELINK Target WL 'ME_4921866C01A1' '47F2170002B2.ms.model.script' // TWarningTypeSet
+ ;
+
+ENDME // ME_49218B2202BC f_WarningContent
+
+ME ME_497890BE025C
+ MEPROP UID '497890BE025C'
+ MEPROP Name 'WarningGenerator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492189D90209 // TdsWarning
+ ;
+ MELINK Target WL 'ME_49218BD80300' '491B305A0096.ms.model.script' // InsWarningGenerator
+ ;
+
+ENDME // ME_497890BE025C WarningGenerator
+
+ME ME_4B681E010202
+ MEPROP UID '4B681E010202'
+ MEPROP Name 'BaseDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492189D90209 // TdsWarning
+ ;
+ MELINK Target WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ ;
+
+ENDME // ME_4B681E010202 BaseDocument
+
+FORWARD ME_4EDCF99301CA
+
+ME ME_4EDCF9A402B6
+ MEPROP UID '4EDCF9A402B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EDCF99301CA // DoGetDocInfo
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_4EDCF9A402B6 DoIt
+
+ME ME_4EDCF99301CA
+ MEPROP UID '4EDCF99301CA'
+ MEPROP Name 'DoGetDocInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492189D90209 // TdsWarning
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EDCF9A402B6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EDCF99301CA DoGetDocInfo
+
+FORWARD ME_4EF4849D01C9
+
+ME ME_4EF484F60251
+ MEPROP Name 'aGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_4EF484F60251 aGenerator
+
+ME ME_4EF484F602A1
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4EF484F602A1 aUserType
+
+ME ME_4EF484CE038A
+ MEPROP UID '4EF484CE038A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EF4849D01C9 // DoGenerateWarning
+ ;
+ MELINK Target WL 'ME_4921866C01A1' '47F2170002B2.ms.model.script' // TWarningTypeSet
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EF484F60251 // aGenerator
+ ME_4EF484F602A1 // aUserType
+ )
+ ; // Parameters
+
+ENDME // ME_4EF484CE038A DoIt
+
+ME ME_4EF4849D01C9
+ MEPROP UID '4EF4849D01C9'
+ MEPROP Name 'DoGenerateWarning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492189D90209 // TdsWarning
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EF484CE038A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EF4849D01C9 DoGenerateWarning
+
+FORWARD ME_4EFC5A6501C9
+
+ME ME_4EFC5A73025F
+ MEPROP UID '4EFC5A73025F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EFC5A6501C9 // GetIsForSynchroView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EFC5A73025F DoIt
+
+ME ME_4EFC5A6501C9
+ MEPROP UID '4EFC5A6501C9'
+ MEPROP Name 'GetIsForSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492189D90209 // TdsWarning
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EFC5A73025F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EFC5A6501C9 GetIsForSynchroView
+
+ME ME_492186B0008F_ME_492189D90209
+ MELINK Original WL 'ME_492186B0008F' '491B305A0096.ms.model.script' // GenerateWarning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492186B0008F_ME_492189D90209 GenerateWarning
+
+ME ME_492186D101E0_ME_492189D90209
+ MELINK Original WL 'ME_492186D101E0' '491B305A0096.ms.model.script' // WarningContent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492186D101E0_ME_492189D90209 WarningContent
+
+ME ME_4DF9D63B0360_ME_492189D90209
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_492189D90209 DocInfo
+
+ME ME_4EFC5A31016E_ME_492189D90209
+ MELINK Original WL 'ME_4EFC5A31016E' '491B305A0096.ms.model.script' // ForSynchroView
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4EFC5A31016E_ME_492189D90209 ForSynchroView
+
+ME ME_479731C50290_ME_492189D90209
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_492189D90209 Cleanup
+
+ME ME_492189D90209
+ MEPROP UID '492189D90209'
+ MEPROP Name 'TdsWarning'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4921869901CF' '491B305A0096.ms.model.script' // IdsWarning
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49218B2202BC // f_WarningContent
+ HWL ME_497890BE025C // WarningGenerator
+ HWL ME_4B681E010202 // BaseDocument
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4EDCF99301CA // DoGetDocInfo
+ HWL ME_4EF4849D01C9 // DoGenerateWarning
+ HWL ME_4EFC5A6501C9 // GetIsForSynchroView
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_492186B0008F_ME_492189D90209 // GenerateWarning
+ ME_492186D101E0_ME_492189D90209 // WarningContent
+ ME_4DF9D63B0360_ME_492189D90209 // DocInfo
+ ME_4EFC5A31016E_ME_492189D90209 // ForSynchroView
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_492189D90209 // Cleanup
+ )
+ ; // Overridden
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" true
+ UP "started" '21.09.2005 11.30'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsWarning.pas'
+ UP extprop:rc:SelfName 'dsWarning'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsWarning'
+
+ENDME // ME_492189D90209 TdsWarning

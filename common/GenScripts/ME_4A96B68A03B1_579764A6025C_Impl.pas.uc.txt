@@ -3,7 +3,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas
 //#UC END# *4A96B68A03B1_579764A6025C_Impl_ext:ParentFileName
 //#UC START# *4ABCDBC0002F_4A96B68A03B1_impl*
  if not defDataAdapter.AdministratorLogin then
-  Result := Open(aContainer, aCanCreate)
+  Result := TPrimFoldersModule.Open(aContainer, aCanCreate)
  else
   Result := nil; 
 //#UC END# *4ABCDBC0002F_4A96B68A03B1_impl*
@@ -22,7 +22,7 @@ var
 //#UC START# *4ABCE3C2032A_4A96B68A03B1_impl*
  if not defDataAdapter.AdministratorLogin then
  begin
-  l_Container := Open(CheckContainer(aContainer), true);
+  l_Container := TPrimFoldersModule.Open(CheckContainer(aContainer), true);
   op_Folders_TryOpenConsultationAnswer.Call(l_Container.Aggregate);
  end;//not defDataAdapter.AdministratorLogin
 //#UC END# *4ABCE3C2032A_4A96B68A03B1_impl*
@@ -60,9 +60,12 @@ var
  Result := l_Container.ShowModal;
 //#UC END# *4AC0AB11030C_4A96B68A03B1_impl*
 //#UC START# *4AC0AB11030C_4A96B68A03B1_var*
+var
+ l_Container : IvcmEntityForm;
+ l_Form : IvcmEntityForm;
 //#UC END# *4AC0AB11030C_4A96B68A03B1_var*
 //#UC START# *4AC0B7BA003B_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aData,
                       nil,
@@ -72,7 +75,7 @@ var
 //#UC START# *4AC0B7BA003B_4A96B68A03B1_var*
 //#UC END# *4AC0B7BA003B_4A96B68A03B1_var*
 //#UC START# *4AC0B94902C7_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -82,7 +85,7 @@ var
 //#UC START# *4AC0B94902C7_4A96B68A03B1_var*
 //#UC END# *4AC0B94902C7_4A96B68A03B1_var*
 //#UC START# *4AC0BA2301AC_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -93,7 +96,7 @@ var
 //#UC START# *4AC0BA2301AC_4A96B68A03B1_var*
 //#UC END# *4AC0BA2301AC_4A96B68A03B1_var*
 //#UC START# *4AC0BAEB012F_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -147,4 +150,9 @@ var
  end;//not defDataAdapter.AdministratorLogin
 //#UC END# *4AC0CBE300FC_4A96B68A03B1_impl*
 //#UC START# *4AC0CBE300FC_4A96B68A03B1_var*
+var
+ l_Params : IvcmMakeParams;
+ l_Folders : IsdsFolders;
+ l_Container : IvcmEntityForm; 
+ l_Form : IvcmEntityForm; 
 //#UC END# *4AC0CBE300FC_4A96B68A03B1_var*

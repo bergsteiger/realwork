@@ -1,0 +1,31 @@
+//#UC START# *57AB0F1703C1_57B6C958008A_impl*
+ ItemString := Self.Model.List.Strings[Index];
+//#UC END# *57AB0F1703C1_57B6C958008A_impl*
+//#UC START# *57AB0F1703C1_57B6C958008A_var*
+//#UC END# *57AB0F1703C1_57B6C958008A_var*
+//#UC START# *57ADFB33027D_57B6C958008A_impl*
+ inherited;
+ OwnView.OnGetStrItem := Self.DoGetStrItem;
+//#UC END# *57ADFB33027D_57B6C958008A_impl*
+//#UC START# *57ADFB33027D_57B6C958008A_var*
+//#UC END# *57ADFB33027D_57B6C958008A_var*
+//#UC START# *57B6A49900F4_57B6C958008A_impl*
+ inherited;
+ if (Self.Model.List = nil) then
+  OwnView.Total := 0
+ else
+  OwnView.Total := Self.Model.List.Count;
+ OwnView.Current := 0;
+ if (OwnView.Total = 0) then
+  //DoCurrentChanged(Self, -1, -1)
+ else
+  DoCurrentChanged(Self, 0, -1);
+ if OwnView.MultiStrokeItem then
+  CallDropDrawPoints;
+ OwnView.Invalidate;
+//#UC END# *57B6A49900F4_57B6C958008A_impl*
+//#UC START# *57B6A49900F4_57B6C958008A_var*
+//#UC END# *57B6A49900F4_57B6C958008A_var*
+//#UC START# *57B6C958008A_ext:FileName
+w:\common\components\gui\Garant\msm\msmListViewController.imp.pas
+//#UC END# *57B6C958008A_ext:FileName

@@ -1,0 +1,440 @@
+// l3PureMixIns 47D810610398 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47D810610398
+
+ME ME_47D823030380
+ MEPROP UID '47D823030380'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип элемента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47D810610398 // l3PureMixIns
+ ;
+ UP extprop:pas:TypeName '_ItemType_'
+
+ENDME // ME_47D823030380 ItemType
+
+FORWARD ME_4BB08B690185
+
+ME ME_4BB08B8902F2
+ MEPROP UID '4BB08B8902F2'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Число элементов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BB08B690185 // Ml3CountHolder
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BB08B8902F2 Count
+
+ME ME_4BB08B690185
+ MEPROP UID '4BB08B690185'
+ MEPROP Name 'Ml3CountHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D810610398 // l3PureMixIns
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BB08B8902F2 // Count
+ )
+ ; // Attributes
+
+ENDME // ME_4BB08B690185 Ml3CountHolder
+
+FORWARD ME_47D821AE00EF
+
+ME ME_47E381E203D2
+ MEPROP UID '47E381E203D2'
+ MEPROP Name 'Empty'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47D821AE00EF // Ml3List
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_47E381E203D2 Empty
+
+ME ME_47D823170041
+ MEPROP UID '47D823170041'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D821AE00EF // Ml3List
+ ;
+ MELINK Target HWL ME_47D823030380 // ItemType
+ ;
+
+ENDME // ME_47D823170041 
+
+ME ME_47D8233603DD
+ MEPROP UID '47D8233603DD'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Первый элемент.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47D821AE00EF // Ml3List
+ ;
+ MELINK Target HWL ME_47D823030380 // ItemType
+ ;
+ UP "pm" true
+
+ENDME // ME_47D8233603DD First
+
+ME ME_47D823570315
+ MEPROP UID '47D823570315'
+ MEPROP Name 'Last'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Последний элемент.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47D821AE00EF // Ml3List
+ ;
+ MELINK Target HWL ME_47D823030380 // ItemType
+ ;
+ UP "pm" true
+
+ENDME // ME_47D823570315 Last
+
+FORWARD ME_47D8248802AD
+
+ME ME_47D825090353
+ MEPROP UID '47D825090353'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D8248802AD // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47D825090353 anIndex
+
+ME ME_47D8248802AD
+ MEPROP UID '47D8248802AD'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47D821AE00EF // Ml3List
+ ;
+ MELINK Target HWL ME_47D823030380 // ItemType
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47D825090353 // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "pm" true
+
+ENDME // ME_47D8248802AD Items
+
+ME ME_4BB08B8902F2_ME_47D821AE00EF
+ MELINK Original HWL ME_4BB08B8902F2 // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BB08B8902F2_ME_47D821AE00EF Count
+
+ME ME_47D821AE00EF
+ MEPROP UID '47D821AE00EF'
+ MEPROP Name 'Ml3List'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D810610398 // l3PureMixIns
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BB08B690185 // Ml3CountHolder
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E381E203D2 // Empty
+ HWL ME_47D823170041 // 
+ HWL ME_47D8233603DD // First
+ HWL ME_47D823570315 // Last
+ HWL ME_47D8248802AD // Items
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BB08B8902F2_ME_47D821AE00EF // Count
+ )
+ ; // Implemented
+
+ENDME // ME_47D821AE00EF Ml3List
+
+FORWARD ME_482955720131
+
+ME ME_482955910087
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47D823030380 // ItemType
+ ;
+
+ENDME // ME_482955910087 anItem
+
+ME ME_482955910076
+ MEPROP UID '482955910076'
+ MEPROP Name 'IndexOf'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_482955720131 // Ml3ListEx
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_482955910087 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_482955910076 IndexOf
+
+ME ME_482958B20226
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47D823030380 // ItemType
+ ;
+
+ENDME // ME_482958B20226 anItem
+
+ME ME_482958A203D0
+ MEPROP UID '482958A203D0'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_482955720131 // Ml3ListEx
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_482958B20226 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_482958A203D0 Add
+
+ME ME_47D8233603DD_ME_482955720131
+ MELINK Original HWL ME_47D8233603DD // First
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47D8233603DD_ME_482955720131 First
+
+ME ME_47D823570315_ME_482955720131
+ MELINK Original HWL ME_47D823570315 // Last
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47D823570315_ME_482955720131 Last
+
+ME ME_47D8248802AD_ME_482955720131
+ MELINK Original HWL ME_47D8248802AD // Items
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is default" true
+ UP "pm" true
+ENDME // ME_47D8248802AD_ME_482955720131 Items
+
+ME ME_47E381E203D2_ME_482955720131
+ MELINK Original HWL ME_47E381E203D2 // Empty
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47E381E203D2_ME_482955720131 Empty
+
+ME ME_4BB08B8902F2_ME_482955720131
+ MELINK Original HWL ME_4BB08B8902F2 // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BB08B8902F2_ME_482955720131 Count
+
+ME ME_482955720131
+ MEPROP UID '482955720131'
+ MEPROP Name 'Ml3ListEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D810610398 // l3PureMixIns
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47D821AE00EF // Ml3List
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_482955910076 // IndexOf
+ HWL ME_482958A203D0 // Add
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47D8233603DD_ME_482955720131 // First
+ ME_47D823570315_ME_482955720131 // Last
+ ME_47D8248802AD_ME_482955720131 // Items
+ ME_47E381E203D2_ME_482955720131 // Empty
+ ME_4BB08B8902F2_ME_482955720131 // Count
+ )
+ ; // Implemented
+
+ENDME // ME_482955720131 Ml3ListEx
+
+FORWARD ME_54D8A952031C
+
+ME ME_46781407030C
+ MEPROP Name 'aGUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_46781407030C aGUID
+
+ME ME_467813E40207
+ MEPROP UID '467813E40207'
+ MEPROP Name 'CheckStamp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет метку реализации интерфейса. Например для того, чтобы узнать, что реализация наша "родная".' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54D8A952031C // Ml3CheckStamp
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_46781407030C // aGUID
+ )
+ ; // Parameters
+
+ENDME // ME_467813E40207 CheckStamp
+
+ME ME_54D8A952031C
+ MEPROP UID '54D8A952031C'
+ MEPROP Name 'Ml3CheckStamp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D810610398 // l3PureMixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_467813E40207 // CheckStamp
+ )
+ ; // Operations
+
+ENDME // ME_54D8A952031C Ml3CheckStamp
+
+FORWARD ME_54D8B06301D2
+
+ME ME_4A5CC00B03D5
+ MEPROP UID '4A5CC00B03D5'
+ MEPROP Name 'Changed'
+ MEPROP Class class_Operation
+ %SUMMARY 'нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54D8B06301D2 // Ml3ChangingChanged
+ ;
+
+ENDME // ME_4A5CC00B03D5 Changed
+
+ME ME_4A5CBFFE0157
+ MEPROP UID '4A5CBFFE0157'
+ MEPROP Name 'Changing'
+ MEPROP Class class_Operation
+ %SUMMARY 'нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54D8B06301D2 // Ml3ChangingChanged
+ ;
+
+ENDME // ME_4A5CBFFE0157 Changing
+
+ME ME_54D8B06301D2
+ MEPROP UID '54D8B06301D2'
+ MEPROP Name 'Ml3ChangingChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D810610398 // l3PureMixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A5CC00B03D5 // Changed
+ HWL ME_4A5CBFFE0157 // Changing
+ )
+ ; // Operations
+
+ENDME // ME_54D8B06301D2 Ml3ChangingChanged
+
+ME ME_47D810610398
+ MEPROP UID '47D810610398'
+ MEPROP Name 'l3PureMixIns'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Абстрактные примеси.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47D823030380 // ItemType
+ HWL ME_4BB08B690185 // Ml3CountHolder
+ HWL ME_47D821AE00EF // Ml3List
+ HWL ME_482955720131 // Ml3ListEx
+ HWL ME_54D8A952031C // Ml3CheckStamp
+ HWL ME_54D8B06301D2 // Ml3ChangingChanged
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '12.03.2008 20:28'
+ UP "weak" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PureMixIns.pas'
+
+ENDME // ME_47D810610398 l3PureMixIns

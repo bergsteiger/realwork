@@ -1,0 +1,194 @@
+// MixIns 4A95156202EB MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A95156202EB
+
+ME ME_4A9271340328
+ MEPROP UID '4A9271340328'
+ MEPROP Name 'User'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пользователь других классов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A95156202EB // MixIns
+ ;
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\User.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\User'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A9271340328 User
+
+FORWARD ME_4A797DC60043
+
+ME ME_4A797DFE003B
+ MEPROP UID '4A797DFE003B'
+ MEPROP Name 'ZoneType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Тип зоны' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A797DC60043 // VCMZonePrim
+ ;
+ MEPROP Value 'Parent|Child|Main|Navigator|Modal|Reminder'
+ UP extprop:pas:Value 'Parent|Child|Main|Navigator|Modal|Reminder'
+
+ENDME // ME_4A797DFE003B ZoneType
+
+ME ME_4F72C82A03BB
+ MEPROP UID '4F72C82A03BB'
+ MEPROP Name 'Need UC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A797DC60043 // VCMZonePrim
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4F72C82A03BB Need UC
+
+ME ME_4704C0E30186_ME_4A797DC60043
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4A797DC60043 constraint
+
+ME ME_4A797DC60043
+ MEPROP UID '4A797DC60043'
+ MEPROP Name 'VCMZonePrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая зона' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A95156202EB // MixIns
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A797DFE003B // ZoneType
+ HWL ME_4F72C82A03BB // Need UC
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4A797DC60043 // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_vcm_zone'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\VCMZonePrim.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\VCMZonePrim'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A797DC60043 VCMZonePrim
+
+FORWARD ME_4B5F276900DE
+
+ME ME_4B5F2781030C
+ MEPROP UID '4B5F2781030C'
+ MEPROP Name 'form name prefix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Префикс имени формы. Для поддержки старых настроек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B5F276900DE // FormNamePrefixHolder
+ ;
+
+ENDME // ME_4B5F2781030C form name prefix
+
+ME ME_4B5F276900DE
+ MEPROP UID '4B5F276900DE'
+ MEPROP Name 'FormNamePrefixHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A95156202EB // MixIns
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B5F2781030C // form name prefix
+ )
+ ; // Attributes
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\FormNamePrefixHolder.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\FormNamePrefixHolder'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B5F276900DE FormNamePrefixHolder
+
+FORWARD ME_4BD70B860015
+
+ME ME_4BD70B950302
+ MEPROP UID '4BD70B950302'
+ MEPROP Name 'UserTypeID'
+ MEPROP Class class_Operation
+ %SUMMARY 'Идентификатор пользовательского типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BD70B860015 // UserTypeIDHolder
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4BD70B950302 UserTypeID
+
+ME ME_4BD70B860015
+ MEPROP UID '4BD70B860015'
+ MEPROP Name 'UserTypeIDHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A95156202EB // MixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BD70B950302 // UserTypeID
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\UserTypeIDHolder.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\UserTypeIDHolder'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4BD70B860015 UserTypeIDHolder
+
+ME ME_4A95156202EB
+ MEPROP UID '4A95156202EB'
+ MEPROP Name 'MixIns'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Примеси' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B62EC84020F' '4B62EC84020F.ms.model.script' // VCMViewInterfacesLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A9271340328 // User
+ HWL ME_4A797DC60043 // VCMZonePrim
+ HWL ME_4B5F276900DE // FormNamePrefixHolder
+ HWL ME_4BD70B860015 // UserTypeIDHolder
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E1536802AF' '46E1536802AF.ms.model.script' // Elements
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A95156202EB MixIns

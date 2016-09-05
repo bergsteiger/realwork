@@ -1,0 +1,430 @@
+// TevEditorWithOperations 4829D85C03C1 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829D85C03C1
+
+FORWARD ME_487358E3015A
+
+ME ME_487358F1026F
+ MEPROP UID '487358F1026F'
+ MEPROP Name 'potEdit'
+ MEPROP Class class_Attribute
+ %SUMMARY 'редактирование текста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487358E3015A // TevEditorProvideOperationType
+ ;
+
+ENDME // ME_487358F1026F potEdit
+
+ME ME_487358FC0126
+ MEPROP UID '487358FC0126'
+ MEPROP Name 'potTable'
+ MEPROP Class class_Attribute
+ %SUMMARY 'работа с таблицами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487358E3015A // TevEditorProvideOperationType
+ ;
+
+ENDME // ME_487358FC0126 potTable
+
+ME ME_487359060284
+ MEPROP UID '487359060284'
+ MEPROP Name 'potFontStyle'
+ MEPROP Class class_Attribute
+ %SUMMARY 'стиль текста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487358E3015A // TevEditorProvideOperationType
+ ;
+
+ENDME // ME_487359060284 potFontStyle
+
+ME ME_48735911033C
+ MEPROP UID '48735911033C'
+ MEPROP Name 'potPrint'
+ MEPROP Class class_Attribute
+ %SUMMARY 'операции печати' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487358E3015A // TevEditorProvideOperationType
+ ;
+
+ENDME // ME_48735911033C potPrint
+
+ME ME_4873591F00BD
+ MEPROP UID '4873591F00BD'
+ MEPROP Name 'potText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487358E3015A // TevEditorProvideOperationType
+ ;
+
+ENDME // ME_4873591F00BD potText
+
+ME ME_487358E3015A
+ MEPROP UID '487358E3015A'
+ MEPROP Name 'TevEditorProvideOperationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операции которые публикует редактор.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_487358F1026F // potEdit
+ HWL ME_487358FC0126 // potTable
+ HWL ME_487359060284 // potFontStyle
+ HWL ME_48735911033C // potPrint
+ HWL ME_4873591F00BD // potText
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_487358E3015A TevEditorProvideOperationType
+
+ME ME_48735C0C032B
+ MEPROP UID '48735C0C032B'
+ MEPROP Name 'TevEditorProvideOperationTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_487358E3015A // TevEditorProvideOperationType
+ )
+ ; // Inherits
+
+ENDME // ME_48735C0C032B TevEditorProvideOperationTypes
+
+ME ME_48735C3301F7
+ MEPROP UID '48735C3301F7'
+ MEPROP Name 'f_ProvideOperationTypes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELINK Target HWL ME_48735C0C032B // TevEditorProvideOperationTypes
+ ;
+
+ENDME // ME_48735C3301F7 f_ProvideOperationTypes
+
+ME ME_48735C3D02B2
+ MEPROP UID '48735C3D02B2'
+ MEPROP Name 'f_Published'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48735C3D02B2 f_Published
+
+FORWARD ME_54C0FF240304
+
+ME ME_54C0FF3100C6
+ MEPROP Name 'aPt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_54C0FF3100C6 aPt
+
+ME ME_54C0FF3100DD
+ MEPROP Name 'theTarget'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A451250363' '4AB0C3C60310.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_54C0FF3100DD theTarget
+
+ME ME_54C0FF2C03D1
+ MEPROP UID '54C0FF2C03D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C0FF240304 // TextGetTarget
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54C0FF3100C6 // aPt
+ ME_54C0FF3100DD // theTarget
+ )
+ ; // Parameters
+
+ENDME // ME_54C0FF2C03D1 DoIt
+
+ME ME_54C0FF240304
+ MEPROP UID '54C0FF240304'
+ MEPROP Name 'TextGetTarget'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54C0FF2C03D1 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'NoVCM'
+
+ENDME // ME_54C0FF240304 TextGetTarget
+
+FORWARD ME_54C0FFEF0266
+
+ME ME_54C0FFFC004D
+ MEPROP Name 'aTarget'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4AB0C3C60310.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_54C0FFFC004D aTarget
+
+ME ME_54C0FFF902F0
+ MEPROP UID '54C0FFF902F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C0FFEF0266 // IsReadOnlyTarget
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54C0FFFC004D // aTarget
+ )
+ ; // Parameters
+
+ENDME // ME_54C0FFF902F0 DoIt
+
+ME ME_54C0FFEF0266
+ MEPROP UID '54C0FFEF0266'
+ MEPROP Name 'IsReadOnlyTarget'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54C0FFF902F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54C0FFEF0266 IsReadOnlyTarget
+
+FORWARD ME_54C1051E0360
+
+ME ME_54C10531005E
+ MEPROP UID '54C10531005E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C1051E0360 // CanCut
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54C10531005E DoIt
+
+ME ME_54C1051E0360
+ MEPROP UID '54C1051E0360'
+ MEPROP Name 'CanCut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54C10531005E // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'NoVCM'
+
+ENDME // ME_54C1051E0360 CanCut
+
+ME ME_48735C4A03C3
+ MEPROP UID '48735C4A03C3'
+ MEPROP Name 'DefineProvideOperations'
+ MEPROP Class class_Operation
+ %SUMMARY 'Какие операции публикуются компонентом.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELINK Target HWL ME_48735C0C032B // TevEditorProvideOperationTypes
+ ;
+
+ENDME // ME_48735C4A03C3 DefineProvideOperations
+
+ME ME_48E228D301E6
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
+ ;
+
+ENDME // ME_48E228D301E6 aParams
+
+ME ME_48E228CC0396
+ MEPROP UID '48E228CC0396'
+ MEPROP Name 'opSelectAll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E228D301E6 // aParams
+ )
+ ; // Parameters
+ UP "ifndef" 'NoVCM'
+
+ENDME // ME_48E228CC0396 opSelectAll
+
+ME ME_48E228E002E0
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
+ ;
+
+ENDME // ME_48E228E002E0 aParams
+
+ME ME_48E228DB0194
+ MEPROP UID '48E228DB0194'
+ MEPROP Name 'testSelectAll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E228E002E0 // aParams
+ )
+ ; // Parameters
+ UP "ifndef" 'NoVCM'
+
+ENDME // ME_48E228DB0194 testSelectAll
+
+ME ME_4B30969003BC
+ MEPROP Name 'Cmd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476A8035027F' '4677FBA70343.ms.model.script' // Tl3OperationCode
+ ;
+
+ENDME // ME_4B30969003BC Cmd
+
+ME ME_4B309684022A
+ MEPROP UID '4B309684022A'
+ MEPROP Name 'IsCommandPublished'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B30969003BC // Cmd
+ )
+ ; // Parameters
+
+ENDME // ME_4B309684022A IsCommandPublished
+
+ME ME_4769552100DD_ME_4829D85C03C1
+ MELINK Original WL 'ME_4769552100DD' '467BAB7F021E.ms.model.script' // ProvideOps
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4769552100DD_ME_4829D85C03C1 ProvideOps
+
+ME ME_476BFD420341_ME_4829D85C03C1
+ MELINK Original WL 'ME_476BFD420341' '467C0CAA02AB.ms.model.script' // IsCommandPublished
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476BFD420341_ME_4829D85C03C1 IsCommandPublished
+
+ME ME_4829D85C03C1
+ MEPROP UID '4829D85C03C1'
+ MEPROP Name 'TevEditorWithOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467BABAA00D5' '467BAB7F021E.ms.model.script' // IvcmOperationsProvider
+ WL 'ME_476BFD340267' '467C0CAA02AB.ms.model.script' // Il3CommandPublisherInfo
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48735C3301F7 // f_ProvideOperationTypes
+ HWL ME_48735C3D02B2 // f_Published
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54C0FF240304 // TextGetTarget
+ HWL ME_54C0FFEF0266 // IsReadOnlyTarget
+ HWL ME_54C1051E0360 // CanCut
+ HWL ME_48735C4A03C3 // DefineProvideOperations
+ HWL ME_48E228CC0396 // opSelectAll
+ HWL ME_48E228DB0194 // testSelectAll
+ HWL ME_4B309684022A // IsCommandPublished
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4769552100DD_ME_4829D85C03C1 // ProvideOps
+ ME_476BFD420341_ME_4829D85C03C1 // IsCommandPublished
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_487358E3015A // TevEditorProvideOperationType
+ HWL ME_48735C0C032B // TevEditorProvideOperationTypes
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '25.11.2004 11:08'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEditorWithOperations.pas'
+ UP extprop:rc:SelfName 'EditorWithOperations'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evEditorWithOperations'
+
+ENDME // ME_4829D85C03C1 TevEditorWithOperations

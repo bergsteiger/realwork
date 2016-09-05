@@ -1,0 +1,84 @@
+// Delphi Specific 4936A16E0294 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4936A16E0294
+
+FORWARD ME_4721B0380203
+
+ME ME_4721B0B302CE
+ MEPROP UID '4721B0B302CE'
+ MEPROP Name 'force usage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'явно определяет, что элемент будет кем-то использован (нужно для проверки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4721B0380203 // Range
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4721B0B302CE force usage
+
+ME ME_4704C0E30186_ME_4721B0380203
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4721B0380203 constraint
+
+ME ME_4721B0380203
+ MEPROP UID '4721B0380203'
+ MEPROP Name 'Range'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Диапазон'#13#10'---'#13#10'Декларация типа определяет производный тип как диапазон в исходном. Исходный задаётся как базовый класс (связь наследования). Границы диапазона задаются атрибутами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4936A16E0294 // Delphi Specific
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4721B0B302CE // force usage
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4721B0380203 // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_range'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 13821680
+ UP "visualization f-font color" 2313060
+ UP "visualization f-line color" 2313060
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Delphi Specific\Range.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Delphi Specific\Range'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4721B0380203 Range
+
+ME ME_4936A16E0294
+ MEPROP UID '4936A16E0294'
+ MEPROP Name 'Delphi Specific'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Элементы реализации, специфичные для Delphi' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_484918A30320' '484918A30320.ms.model.script' // Data Definition
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4721B0380203 // Range
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\EVDTemplates\Data Definition\Delphi Specific'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Delphi Specific'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4936A16E0294 Delphi Specific

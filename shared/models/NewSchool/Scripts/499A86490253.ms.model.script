@@ -1,0 +1,37 @@
+// VTTest 499A86490253 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_499A86490253
+ MEPROP UID '499A86490253'
+ MEPROP Name 'VTTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestLibrary ;
+ %SUMMARY 'Тесты для VT' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E256A300117' '4E256A300117.ms.model.script' // Shared Delphi TestComplete Wrappers
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_499A8677021B' '499A8677021B.ms.model.script' // ComboTree
+ WL 'ME_536A56A6004E' '536A56A6004E.ms.model.script' // NewReminders
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.ms.model.script' // VGScene
+ WL 'ME_4F91817500AC' '4F91817500AC.ms.model.script' // VT$Rem
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'gui'
+ UP "is namespace" true
+ UP "vendor" '/Garant'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\VTTest.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ UP Version 0
+
+ENDME // ME_499A86490253 VTTest

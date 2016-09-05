@@ -1,0 +1,139 @@
+UNIT ElemMemberPrim.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ DoCacheElemMember.ms.dict
+;
+
+USES
+ TransformElementMember.ms.dict
+;
+
+ANY elem_func ElemMemberPrim
+  STRING IN aMemberName
+  IN aDefaultValue
+  
+ TtfwWord VAR l_FieldVar
+ 
+ Self %% aMemberName >>> l_FieldVar
+ 
+ if ( l_FieldVar NotValid ) then
+ begin
+  Self %% 'Original' >>> l_FieldVar
+  if ( l_FieldVar NotValid ) then
+  begin
+   Self aMemberName aDefaultValue DoCacheElemMember
+   (
+    aDefaultValue 
+   ) 
+   >>> Result
+  end // l_FieldVar NotValid
+  else
+  begin
+   TtfwWord VAR l_Original
+   l_FieldVar DO >>> l_Original
+   if ( l_Original IsNil ) then
+   begin
+    Self aMemberName aDefaultValue DoCacheElemMember
+    (
+     aDefaultValue 
+    ) 
+    >>> Result
+   end // l_Original IsNil
+   else
+   begin
+    l_Original aMemberName aDefaultValue call.me >>> Result
+   end // l_Original IsNil
+  end // l_FieldVar NotValid
+ end // l_FieldVar NotValid
+ else
+ begin
+  Self aMemberName aDefaultValue DoCacheElemMember
+  (
+   l_FieldVar TransformElementMember 
+  ) 
+  >>> Result
+ end // l_FieldVar NotValid
+; // ElemMemberPrim
+
+ANY elem_func xElemMemberPrim
+  STRING IN aMemberName
+  IN aDefaultValue
+  
+ TtfwWord VAR l_FieldVar
+ 
+ Self %% aMemberName >>> l_FieldVar
+ 
+ if ( l_FieldVar NotValid ) then
+ begin
+  //Self aMemberName aDefaultValue DoCacheElemMember
+  (
+   aDefaultValue 
+  ) 
+  >>> Result
+ end // l_FieldVar NotValid
+ else
+ begin
+  Self aMemberName aDefaultValue DoCacheElemMember
+  (
+   l_FieldVar TransformElementMember 
+  ) 
+  >>> Result
+ end // l_FieldVar NotValid
+; // xElemMemberPrim
+
+elem_iterator xElemList
+  STRING IN aMemberName
+ Self aMemberName [empty] .xElemMemberPrim
+ >>> Result 
+; // ElemList
+
+ModelElement elem_func xElemWord
+  STRING IN aMemberName
+ Self aMemberName nil .xElemMemberPrim
+ >>> Result 
+; // xElemWord
+
+STRING elem_func xElemString
+  STRING IN aMemberName
+ Self aMemberName '' .xElemMemberPrim 
+ >>> Result 
+; // xElemString
+
+STRING elem_func xName
+ if ( Self IsString ) then
+ begin
+  Self >>> Result
+ end // Self IsString
+ else
+ begin
+  Self 'Name' .xElemString >>> Result
+ end // Self IsString
+; // xName
+
+elem_iterator xChildren
+ Self 'Children' .xElemList >>> Result
+; // xChildren
+
+ModelElement STRING elem_func xStereotype
+ Self 'Stereotype' .xElemWord >>> Result
+; // xStereotype
+
+ModelElement elem_func xParent
+ Self 'Parent' .xElemWord >>> Result
+; // xParent
+
+elem_iterator xParameters
+ Self 'Parameters' .xElemList >>> Result
+; // xParameters

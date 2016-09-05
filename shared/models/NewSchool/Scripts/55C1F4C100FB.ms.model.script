@@ -1,0 +1,120 @@
+// MakeCO 55C1F4C100FB ExeTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C1F4C100FB
+
+FORWARD ME_55C1F539010F
+
+FORWARD ME_55C1F54A0327
+
+ME ME_55C1F5570148
+ MEPROP UID '55C1F5570148'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C1F54A0327 // Run
+ ;
+
+ENDME // ME_55C1F5570148 DoIt
+
+ME ME_55C2041B028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C1F54A0327 // Run
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_55C2041B028C 
+
+ME ME_55C1F54A0327
+ MEPROP UID '55C1F54A0327'
+ MEPROP Name 'Run'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C1F539010F // TMakeCORunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C1F5570148 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C2041B028C // SysUtils
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_55C1F54A0327 Run
+
+ME ME_55C1F6070030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C1F539010F // TMakeCORunner
+ ;
+ MELINK Target WL 'ME_55C1F59F001C' '55C1F58400F6.ms.model.script' // TtfwCOMaker
+ ;
+
+ENDME // ME_55C1F6070030 
+
+ME ME_55C1F539010F
+ MEPROP UID '55C1F539010F'
+ MEPROP Name 'TMakeCORunner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C1F4C100FB // MakeCO
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C1F54A0327 // Run
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C1F6070030 // TtfwCOMaker
+ )
+ ; // Dependencies
+ UP "UseNewGen" true
+ UP intf.pas:Path 'common\components\MakeCO\MakeCORunner.pas'
+ UP extprop:rc:SelfName 'MakeCORunner'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MakeCORunner'
+
+ENDME // ME_55C1F539010F TMakeCORunner
+
+ME ME_55C1F4C100FB
+ MEPROP UID '55C1F4C100FB'
+ MEPROP Name 'MakeCO'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ExeTarget ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55C1F539010F // TMakeCORunner
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.ms.model.script' // ScriptEngine$Parsing
+ WL 'ME_55C1F58400F6' '55C1F58400F6.ms.model.script' // Tools
+ )
+ ; // Depends
+ UP "console" true
+ UP "defines" 'MakeCO.inc'
+ UP "need UC in project" true
+ UP "path suffix" '/MakeCO'
+ UP intf.pas:Path 'common\components\MakeCO\MakeCO.dpr'
+ UP intf.pas:PathOnly '\common\components\MakeCO'
+ UP Version 0
+
+ENDME // ME_55C1F4C100FB MakeCO

@@ -1,0 +1,2077 @@
+INCLUDE 'ME.ms.dict'
+
+INCLUDE 'MDProcess_Templates.tpi.script'
+EXPORTS MDProcess_Templates.tpi.script
+
+INCLUDE 'MDProcess_CoreTemplates.tpi.script'
+EXPORTS MDProcess_CoreTemplates.tpi.script
+
+ME st_AttrValueSpeller
+ MEPROP UID '4F9001E303DE'
+ MEPROP Name 'AttrValueSpeller'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_AttrValueSpeller
+
+ME st_Atom Inherits ( st_WikiImplClass st_AttrValueSpeller )
+ MEPROP UID '48492CB900AB'
+ MEPROP Name 'Atom'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_evd_atom'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 16744576
+ UP "visualization f-line color" 16744576
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+
+ENDME // st_Atom
+
+ME st_uses::Dependency
+ MEPROP UID '48564FC60216'
+ MEPROP Name 'uses::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ UP "personal label" 'code_dep_uses'
+
+ENDME // st_uses::Dependency
+
+ME st_Tag Inherits ( st_Atom )
+ MEPROP UID '48491DC20030'
+ MEPROP Name 'Tag'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_evd_tag'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13959039
+ UP "visualization f-line color" 13959039
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+
+ENDME // st_Tag
+
+ME st_attr::Attribute
+ MEPROP UID '48493312009A'
+ MEPROP Name 'attr::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'fa'
+ UP "link type" 'al'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" true
+ UP "visability type" '+'
+
+ENDME // st_attr::Attribute
+
+ME st_children::Attribute Inherits ( st_attr::Attribute )
+ MEPROP UID '484938D00395'
+ MEPROP Name 'children::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_children::Attribute
+
+ME st_array::Attribute Inherits ( st_children::Attribute )
+ MEPROP UID '4849393D00CB'
+ MEPROP Name 'array::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_array::Attribute
+
+ME st_override::Attribute Inherits ( st_attr::Attribute )
+ MEPROP UID '484FA5D60101'
+ MEPROP Name 'override::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "empty target" true
+
+ENDME // st_override::Attribute
+
+ME st_children_override::Attribute Inherits ( st_children::Attribute )
+ MEPROP UID '484FBFC70323'
+ MEPROP Name 'children_override::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "empty target" true
+
+ENDME // st_children_override::Attribute
+
+ME st_default_child::Attribute
+ MEPROP UID '48578C1801EF'
+ MEPROP Name 'default_child::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_default_child::Attribute
+
+ME st_disabled_child::Attribute
+ MEPROP UID '4C178DB2019A'
+ MEPROP Name 'disabled_child::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_disabled_child::Attribute
+
+ME st_TagValue Inherits ( st_WikiImplClass st_AttrValueSpeller )
+ MEPROP UID '485FB3190099'
+ MEPROP Name 'TagValue'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'r'
+ UP "personal label" 'code_evd_tag_value'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 3329330
+ UP "visualization f-line color" 3329330
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+
+ENDME // st_TagValue
+
+ME st_Attr::Attribute Inherits ( st_AttrValueSpeller )
+ MEPROP UID '485FB4850287'
+ MEPROP Name 'Attr::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'r'
+ UP "empty target" true
+ UP "link type" 'a'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" true
+
+ENDME // st_Attr::Attribute
+
+ME st_TagChild Inherits ( st_TagValue )
+ MEPROP UID '485FB3B3034A'
+ MEPROP Name 'TagChild'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_TagChild
+
+ME st_InnerTag Inherits ( st_TagValue )
+ MEPROP UID '485FB5350380'
+ MEPROP Name 'InnerTag'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_InnerTag
+
+ME st_TagOverride Inherits ( st_Tag )
+ MEPROP UID '4860FE730347'
+ MEPROP Name 'TagOverride'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_TagOverride
+
+ME st_TagTable Inherits ( st_WikiImplClass st_AttrValueSpeller )
+ MEPROP UID '484926640110'
+ MEPROP Name 'TagTable'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_evd_tag_table'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13959039
+ UP "visualization f-line color" 13959039
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+
+ENDME // st_TagTable
+
+REDEFINITION ME st_uses::Dependency
+ MEPROP UID '49AE663102AD'
+ MEPROP Name 'uses::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ UP "personal label" 'code_dep_uses'
+
+ENDME // st_uses::Dependency
+
+ME st_Range Inherits ( st_Constants )
+ MEPROP UID '4721B0380203'
+ MEPROP Name 'Range'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_range'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 13821680
+ UP "visualization f-font color" 2313060
+ UP "visualization f-line color" 2313060
+
+ENDME // st_Range
+
+ME st_Wrapper Inherits ( st_SimpleClass )
+ MEPROP UID '48493B85025A'
+ MEPROP Name 'Wrapper'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_Wrapper
+
+ME st_TagImplementator Inherits ( st_Typedef )
+ MEPROP UID '484A925103A7'
+ MEPROP Name 'TagImplementator'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_TagImplementator
+
+REDEFINITION ME st_uses::Dependency
+ MEPROP UID '49A3E3DA028C'
+ MEPROP Name 'uses::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ UP "personal label" 'code_dep'
+
+ENDME // st_uses::Dependency
+
+ME st_InterfaceFactory Inherits ( st_SimpleClass )
+ MEPROP UID '4856767D006A'
+ MEPROP Name 'InterfaceFactory'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_InterfaceFactory
+
+ME st_EVD Inherits ( st_WikiPackageImpl )
+ MEPROP UID '48491CCA01C3'
+ MEPROP Name 'EVD'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'code_evd_data_def'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13959039
+ UP "visualization f-line color" 13959039
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+
+ENDME // st_EVD
+
+ME st_Constructor Inherits ( st_method )
+ MEPROP UID '4AE024D60148'
+ MEPROP Name 'Constructor'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'fr'
+ UP "personal label" 'code_factory'
+ UP "visability type" '+#'
+ UP "visualization bg color" 12712062
+ UP "visualization f-font color" 21760
+ UP "visualization f-line color" 21760
+
+ENDME // st_Constructor
+
+ME st_FactoryMixIn
+ MEPROP UID '4AE027EC00A7'
+ MEPROP Name 'FactoryMixIn'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_FactoryMixIn
+
+ME st_Factory Inherits ( st_method st_FactoryMixIn )
+ MEPROP UID '4AE0263A0260'
+ MEPROP Name 'Factory'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_factory'
+ UP "visability type" '+'
+ UP "visualization bg color" 16776960
+ UP "visualization f-font color" 16711680
+ UP "visualization f-line color" 16711680
+
+ENDME // st_Factory
+
+ME st_operation::Operation Inherits ( st_operation::Operation )
+ MEPROP UID '4CC01C720055'
+ MEPROP Name 'operation::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "unstereotyped" true
+
+ENDME // st_operation::Operation
+
+ME st_InterfaceTypesInclude
+ MEPROP UID '4B6BF66900BF'
+ MEPROP Name 'InterfaceTypesInclude'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_InterfaceTypesInclude
+
+ME st_SetOf
+ MEPROP UID '4721B1C60157'
+ MEPROP Name 'SetOf'
+ MEPROP Stereotype 'MDAClass'
+ UP "disable forward decl" true
+ UP "personal label" 'code_setof'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 15781360
+ UP "visualization f-font color" 7874680
+ UP "visualization f-line color" 7874680
+
+ENDME // st_SetOf
+
+ME st_SetConst Inherits ( st_Constants )
+ MEPROP UID '4721B14D00AB'
+ MEPROP Name 'SetConst'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_set_const'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 16119285
+ UP "visualization f-font color" 6579300
+ UP "visualization f-line color" 6579300
+
+ENDME // st_SetConst
+
+ME st_DelphiPackageInclude Inherits ( st_InterfaceTypesInclude )
+ MEPROP UID '4729C4CF00AB'
+ MEPROP Name 'DelphiPackageInclude'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_DelphiPackageInclude
+
+ME st_Interfaces Inherits ( st_DelphiPackageInclude st_Interfaces )
+ MEPROP UID '473A80A70213'
+ MEPROP Name 'Interfaces'
+ MEPROP Stereotype 'MDACategory'
+ UP "disable forward decl" true
+ UP "personal label" 'code_interfaces'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP "visualization f-line color" 16714250
+
+ENDME // st_Interfaces
+
+ME st_ObjStub Inherits ( st_Facet )
+ MEPROP UID '498090FE0150'
+ MEPROP Name 'ObjStub'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_ObjStub
+
+ME st_FacetIncludePrim Inherits ( st_InterfaceTypesInclude )
+ MEPROP UID '4B6BFF45025F'
+ MEPROP Name 'FacetIncludePrim'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_FacetIncludePrim
+
+ME st_FacetInclude Inherits ( st_FacetIncludePrim )
+ MEPROP UID '4F2A9A06021D'
+ MEPROP Name 'FacetInclude'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_FacetInclude
+
+ME st_Struct Inherits ( st_Struct )
+ MEPROP UID '4B7034B20297'
+ MEPROP Name 'Struct'
+ MEPROP Stereotype 'MDAClass'
+ UP "inherite constraints" false
+
+ENDME // st_Struct
+
+ME st_Facet Inherits ( st_FacetInclude st_Facet )
+ MEPROP UID '499D6E6D0319'
+ MEPROP Name 'Facet'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'ra'
+
+ENDME // st_Facet
+
+ME st_StaticObjectPrim Inherits ( st_Struct )
+ MEPROP UID '4B6C2D8B00B1'
+ MEPROP Name 'StaticObjectPrim'
+ MEPROP Stereotype 'MDAClass'
+ UP "inherite constraints" false
+
+ENDME // st_StaticObjectPrim
+
+ME st_StaticObject Inherits ( st_UsesContainer st_InterfaceTypesInclude st_StaticObjectPrim )
+ MEPROP UID '4739862802BF'
+ MEPROP Name 'StaticObject'
+ MEPROP Stereotype 'MDAClass'
+ UP "disable forward decl" true
+ UP "has derived impl" true
+ UP "personal label" 'code_struct'
+ UP "visualization bg color" 13821680
+ UP "visualization f-font color" 2313060
+ UP "visualization f-line color" 2313060
+
+ENDME // st_StaticObject
+
+REDEFINITION ME st_attr::Attribute
+ MEPROP UID '47398BF3004E'
+ MEPROP Name 'attr::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'fr'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" true
+ UP "visability type" '+#-'
+
+ENDME // st_attr::Attribute
+
+REDEFINITION ME st_operation::Operation
+ MEPROP UID '47398C2B001F'
+ MEPROP Name 'operation::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'fr'
+ UP "empty target" true
+ UP "personal label" 'code_method'
+ UP "unstereotyped" true
+ UP "visability type" '+#-'
+
+ENDME // st_operation::Operation
+
+ME st_ctor::Operation Inherits ( st_operation::Operation )
+ MEPROP UID '47E0E4970192'
+ MEPROP Name 'ctor::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "empty target" true
+ UP "personal label" 'code_ctor'
+ UP "visability type" '+'
+
+ENDME // st_ctor::Operation
+
+ME st_readonly::Attribute Inherits ( st_readonly::Attribute )
+ MEPROP UID '4E0AFFF702A6'
+ MEPROP Name 'readonly::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'f'
+
+ENDME // st_readonly::Attribute
+
+ME st_Define Inherits ( st_WikiImplClass )
+ MEPROP UID '4B7EBC4002E1'
+ MEPROP Name 'Define'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_define'
+ UP "visability type" '+-'
+ UP "visualization bg color" 16443110
+ UP "visualization f-font color" 6710886
+ UP "visualization f-line color" 6710886
+
+ENDME // st_Define
+
+ME st_Undef Inherits ( st_Define )
+ MEPROP UID '4B7ECBCF0091'
+ MEPROP Name 'Undef'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_Undef
+
+ME st_facetmethod Inherits ( st_method )
+ MEPROP UID '4E82C72002E9'
+ MEPROP Name 'facetmethod'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'a'
+ UP "implementable" true
+ UP "inherite constraints" false
+ UP "personal label" 'code_method'
+ UP "visability type" '+#'
+
+ENDME // st_facetmethod
+
+REDEFINITION ME st_operation::Operation Inherits ( st_operation::Operation )
+ MEPROP UID '4E82C7620176'
+ MEPROP Name 'operation::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "empty target" true
+ UP "has exception" 'g'
+ UP "implementable" false
+ UP "personal label" 'code_method'
+ UP "unstereotyped" true
+ UP "visability type" '-'
+
+ENDME // st_operation::Operation
+
+ME st_PureMixIn Inherits ( st_Facet st_FacetInclude st_PureMixIn )
+ MEPROP UID '49D0EBE60338'
+ MEPROP Name 'PureMixIn'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_PureMixIn
+
+ME st_Impl Inherits ( st_DelphiPackageInclude st_Impl )
+ MEPROP UID '473A803A01B5'
+ MEPROP Name 'Impl'
+ MEPROP Stereotype 'MDACategory'
+ UP "disable forward decl" true
+ UP "personal label" 'code_impl'
+ UP "visability type" '#-i'
+ UP "visualization bg color" 12842435
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+
+ENDME // st_Impl
+
+ME st_Unit Inherits ( st_Unit )
+ MEPROP UID '473A81010196'
+ MEPROP Name 'Unit'
+ MEPROP Stereotype 'MDACategory'
+ UP "disable forward decl" true
+ UP "personal label" 'code_unit'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 14145535
+ UP "visualization f-font color" 5263560
+ UP "visualization f-line color" 3289840
+
+ENDME // st_Unit
+
+ME st_StandardImplInclude Inherits ( st_FacetIncludePrim )
+ MEPROP UID '4B7EB45D03BD'
+ MEPROP Name 'StandardImplInclude'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_StandardImplInclude
+
+ME st_StandardClassInclude Inherits ( st_StandardImplInclude )
+ MEPROP UID '4B7EB4FC014F'
+ MEPROP Name 'StandardClassInclude'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_StandardClassInclude
+
+ME st_SimpleClass Inherits ( st_StandardClassInclude st_SimpleClass )
+ MEPROP UID '481EC6BD016B'
+ MEPROP Name 'SimpleClass'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_SimpleClass
+
+ME st_factory::Operation Inherits ( st_static::Operation st_FactoryMixIn )
+ MEPROP UID '4787ED5E030C'
+ MEPROP Name 'factory::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_factory'
+ UP "visability type" '+'
+
+ENDME // st_factory::Operation
+
+ME st_vctor::Operation Inherits ( st_ctor::Operation )
+ MEPROP UID '47A08DC70357'
+ MEPROP Name 'vctor::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'r'
+ UP "empty target" true
+ UP "implementable" true
+
+ENDME // st_vctor::Operation
+
+ME st_injects::Dependency
+ MEPROP UID '53C7FB6D0337'
+ MEPROP Name 'injects::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_injects::Dependency
+
+ME st_injects_this::Dependency
+ MEPROP UID '53CE27910262'
+ MEPROP Name 'injects_this::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_injects_this::Dependency
+
+ME st_GuiControl Inherits ( st_StandardClassInclude st_GuiControl )
+ MEPROP UID '482C3EB303C4'
+ MEPROP Name 'GuiControl'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_GuiControl
+
+ME st_message::Operation Inherits ( st_Operation::Operation )
+ MEPROP UID '482C3F24029C'
+ MEPROP Name 'message::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "empty target" true
+ UP "implementable" false
+ UP "visability type" '-'
+
+ENDME // st_message::Operation
+
+REDEFINITION ME st_factory::Operation Inherits ( st_factory::Operation )
+ MEPROP UID '4BFCB6120117'
+ MEPROP Name 'factory::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_factory::Operation
+
+REDEFINITION ME st_vctor::Operation Inherits ( st_vctor::Operation )
+ MEPROP UID '4BFCB623025F'
+ MEPROP Name 'vctor::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_vctor::Operation
+
+ME st_Dialog Inherits ( st_GuiControl st_StandardClassInclude st_Dialog )
+ MEPROP UID '498885A50170'
+ MEPROP Name 'Dialog'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_Dialog
+
+ME st_ExeTarget Inherits ( st_ExeTarget )
+ MEPROP UID '4E2582920072'
+ MEPROP Name 'ExeTarget'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_ExeTarget
+
+ME st_TestResults Inherits ( st_SimpleClass )
+ MEPROP UID '4B7BFBB103E2'
+ MEPROP Name 'TestResults'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 13688896
+
+ENDME // st_TestResults
+
+ME st_StandardPackInclude Inherits ( st_StandardImplInclude )
+ MEPROP UID '4B7EB5DC01A4'
+ MEPROP Name 'StandardPackInclude'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_StandardPackInclude
+
+ME st_Impurity Inherits ( st_SimpleClass st_StandardClassInclude st_Impurity )
+ MEPROP UID '48FEE42D005F'
+ MEPROP Name 'Impurity'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_Impurity
+
+ME st_UtilityPack Inherits ( st_StandardPackInclude st_UtilityPack )
+ MEPROP UID '473A813203C8'
+ MEPROP Name 'UtilityPack'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_UtilityPack
+
+ME st_GUIControlMixIn Inherits ( st_Impurity )
+ MEPROP UID '4CC861480108'
+ MEPROP Name 'GUIControlMixIn'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 15313387
+ UP "visualization f-font color" 8388736
+ UP "visualization f-line color" 8388736
+
+ENDME // st_GUIControlMixIn
+
+REDEFINITION ME st_message::Operation Inherits ( st_message::Operation )
+ MEPROP UID '4CC8643600BE'
+ MEPROP Name 'message::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_message::Operation
+
+ME st_Views Inherits ( st_Views )
+ MEPROP UID '4CC861BB0125'
+ MEPROP Name 'Views'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_Views
+
+ME st_TestTarget Inherits ( st_ExeTarget )
+ MEPROP UID '4B4CAE4F00E4'
+ MEPROP Name 'TestTarget'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'code_test_target'
+ UP "visualization bg color" 13663966
+ UP "visualization f-font color" 9342520
+ UP "visualization f-line color" 9342520
+
+ENDME // st_TestTarget
+
+ME st_Contract Inherits ( st_PureMixIn )
+ MEPROP UID '4E722F910219'
+ MEPROP Name 'Contract'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 12614523
+ UP "visualization f-font color" 12614523
+ UP "visualization f-line color" 12614523
+
+ENDME // st_Contract
+
+ME st_abstractmethod Inherits ( st_method )
+ MEPROP UID '4E82E7310127'
+ MEPROP Name 'abstractmethod'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'a'
+ UP "has exception" 'g'
+ UP "implementable" true
+ UP "inherite constraints" false
+ UP "personal label" 'code_method'
+ UP "visability type" '#+-'
+
+ENDME // st_abstractmethod
+
+REDEFINITION ME st_operation::Operation Inherits ( st_operation::Operation )
+ MEPROP UID '4E82E7A4025C'
+ MEPROP Name 'operation::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "empty target" true
+ UP "has exception" 'g'
+ UP "personal label" 'code_method'
+ UP "unstereotyped" true
+ UP "visability type" '-'
+
+ENDME // st_operation::Operation
+
+ME st_virtualmethod Inherits ( st_method )
+ MEPROP UID '4F2A9A3800EE'
+ MEPROP Name 'virtualmethod'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'r'
+ UP "has exception" 'g'
+ UP "implementable" true
+ UP "inherite constraints" false
+ UP "personal label" 'code_method'
+ UP "visability type" '#+-'
+
+ENDME // st_virtualmethod
+
+REDEFINITION ME st_operation::Operation Inherits ( st_operation::Operation )
+ MEPROP UID '4F2A9AB302D6'
+ MEPROP Name 'operation::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "empty target" true
+ UP "has exception" 'g'
+ UP "personal label" 'code_method'
+ UP "unstereotyped" true
+ UP "visability type" '-'
+
+ENDME // st_operation::Operation
+
+ME st_SettingsHolder Inherits ( st_SimpleClass )
+ MEPROP UID '522EE3210288'
+ MEPROP Name 'SettingsHolder'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_SettingsHolder
+
+ME st_ScriptKeyword Inherits ( st_SimpleClass )
+ MEPROP UID '4F2C0D86003E'
+ MEPROP Name 'ScriptKeyword'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'fra'
+ UP "visability type" '+-'
+ UP "visualization bg color" 16443110
+
+ENDME // st_ScriptKeyword
+
+ME st_ServicePrim Inherits ( st_SimpleClass )
+ MEPROP UID '5502BA9C0354'
+ MEPROP Name 'ServicePrim'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_ServicePrim
+
+ME st_implements::Dependency
+ MEPROP UID '5502BC8E029A'
+ MEPROP Name 'implements::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_implements::Dependency
+
+ME st_Service Inherits ( st_ServicePrim )
+ MEPROP UID '5502BABC0193'
+ MEPROP Name 'Service'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+
+ENDME // st_Service
+
+ME st_responsibility::Operation Inherits ( st_Operation::Operation )
+ MEPROP UID '5502BBDB02C9'
+ MEPROP Name 'responsibility::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "empty target" true
+ UP "implementable" false
+ UP "visability type" '+'
+
+ENDME // st_responsibility::Operation
+
+REDEFINITION ME st_implements::Dependency Inherits ( st_implements::Dependency )
+ MEPROP UID '57A4826000C8'
+ MEPROP Name 'implements::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_implements::Dependency
+
+ME st_ServiceImplementation Inherits ( st_ServicePrim )
+ MEPROP UID '5502BADD01CB'
+ MEPROP Name 'ServiceImplementation'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+
+ENDME // st_ServiceImplementation
+
+ME st_serviceiterator Inherits ( st_facetiterator )
+ MEPROP UID '551925F00071'
+ MEPROP Name 'serviceiterator'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "implementable" false
+ UP "visability type" '+'
+
+ENDME // st_serviceiterator
+
+ME st_SupressNextImmediateHolder
+ MEPROP UID '55141D2203CF'
+ MEPROP Name 'SupressNextImmediateHolder'
+ MEPROP Stereotype 'MDAAbstractClass'
+
+ENDME // st_SupressNextImmediateHolder
+
+ME st_ScriptKeywordsPack Inherits ( st_UtilityPack )
+ MEPROP UID '4F2C15C90252'
+ MEPROP Name 'ScriptKeywordsPack'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 11446419
+
+ENDME // st_ScriptKeywordsPack
+
+REDEFINITION ME st_injects::Dependency
+ MEPROP UID '54D4A61F00BA'
+ MEPROP Name 'injects::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_injects::Dependency
+
+ME st_keyword::Operation Inherits ( st_op::Operation )
+ MEPROP UID '54F734BC0087'
+ MEPROP Name 'keyword::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'f'
+ UP "empty target" true
+ UP "visability type" '-'
+
+ENDME // st_keyword::Operation
+
+ME st_property::Attribute Inherits ( st_attr::Attribute )
+ MEPROP UID '54F861670034'
+ MEPROP Name 'property::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'f'
+ UP "visability type" '-'
+
+ENDME // st_property::Attribute
+
+REDEFINITION ME st_readonly::Attribute Inherits ( st_property::Attribute )
+ MEPROP UID '54F8618001CF'
+ MEPROP Name 'readonly::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_readonly::Attribute
+
+ME st_friend::Dependency Inherits ( st_friend::Dependency )
+ MEPROP UID '54FECA940175'
+ MEPROP Name 'friend::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_friend::Dependency
+
+ME st_creator::Operation Inherits ( st_keyword::Operation )
+ MEPROP UID '5510358803BD'
+ MEPROP Name 'creator::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_creator::Operation
+
+ME st_globalkeyword::Operation Inherits ( st_op::Operation )
+ MEPROP UID '55115A7D0330'
+ MEPROP Name 'globalkeyword::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_globalkeyword::Operation
+
+ME st_varworker::Operation Inherits ( st_keyword::Operation )
+ MEPROP UID '55128EAF022E'
+ MEPROP Name 'varworker::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_varworker::Operation
+
+ME st_globalvarworker::Operation Inherits ( st_globalkeyword::Operation )
+ MEPROP UID '55128EDC028D'
+ MEPROP Name 'globalvarworker::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_globalvarworker::Operation
+
+ME st_wordworker::Operation Inherits ( st_varworker::Operation st_SupressNextImmediateHolder )
+ MEPROP UID '5513DB34012F'
+ MEPROP Name 'wordworker::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_wordworker::Operation
+
+ME st_globalwordworker::Operation Inherits ( st_globalvarworker::Operation st_SupressNextImmediateHolder )
+ MEPROP UID '5513DB5502C7'
+ MEPROP Name 'globalwordworker::Operation'
+ MEPROP Stereotype 'MDAOperation'
+
+ENDME // st_globalwordworker::Operation
+
+ME st_ScriptKeywords Inherits ( st_Unit )
+ MEPROP UID '4F2C0DA00085'
+ MEPROP Name 'ScriptKeywords'
+ MEPROP Stereotype 'MDACategory'
+ UP "visualization bg color" 16443110
+
+ENDME // st_ScriptKeywords
+
+ME st_Vector Inherits ( st_Vector )
+ MEPROP UID '4732AECB0222'
+ MEPROP Name 'Vector'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_Vector
+
+ME st_Project Inherits ( st_Project )
+ MEPROP UID '484914950379'
+ MEPROP Name 'Project'
+ MEPROP Stereotype 'MDACategory'
+ UP "inherite constraints" false
+
+ENDME // st_Project
+
+ME st_Library Inherits ( st_Library )
+ MEPROP UID '484915CD0184'
+ MEPROP Name 'Library'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_Library
+
+ME st_Domain Inherits ( st_Project )
+ MEPROP UID '498C6FE90293'
+ MEPROP Name 'Domain'
+ MEPROP Stereotype 'MDACategory'
+ UP "can be main" true
+
+ENDME // st_Domain
+
+ME st_ClassBase Inherits ( st_ClassBase )
+ MEPROP UID '4C1F51A00108'
+ MEPROP Name 'ClassBase'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_ClassBase
+
+ME st_static::Operation Inherits ( st_static::Operation )
+ MEPROP UID '4C1F51B702CD'
+ MEPROP Name 'static::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "abstraction type" 'fra'
+ UP "implementable" true
+
+ENDME // st_static::Operation
+
+ME st_UseCaseSetting Inherits ( st_UseCaseSetting )
+ MEPROP UID '4E30ECBB004D'
+ MEPROP Name 'UseCaseSetting'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_UseCaseSetting
+
+ME st_InternalInterfaces Inherits ( st_Interfaces )
+ MEPROP UID '4E71D86D0036'
+ MEPROP Name 'InternalInterfaces'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_InternalInterfaces
+
+ME st_Delphi_ST
+ MEPROP UID '561D335D01B2'
+ MEPROP Name 'Delphi_ST'
+ MEPROP Stereotype 'MDAAbstractClass'
+
+ENDME // st_Delphi_ST
+
+ME st_PascalGenerator Inherits ( st_Delphi_ST )
+ MEPROP UID '561D41F8013A'
+ MEPROP Name 'PascalGenerator'
+ MEPROP Stereotype 'MDAAbstractClass'
+
+ENDME // st_PascalGenerator
+
+ME st_CategoryLike Inherits ( st_WikiPackageImpl st_PascalGenerator )
+ MEPROP UID '561D3BE5006A'
+ MEPROP Name 'CategoryLike'
+ MEPROP Stereotype 'MDAAbstractClass'
+
+ENDME // st_CategoryLike
+
+ME st_Layer Inherits ( st_CategoryLike )
+ MEPROP UID '561D3C0F00B3'
+ MEPROP Name 'Layer'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'code_unit'
+ UP "visualization bg color" 14145535
+
+ENDME // st_Layer
+
+ME st_Atomic Inherits ( st_WikiImplClass st_PascalGenerator )
+ MEPROP UID '561D3E2E029C'
+ MEPROP Name 'Atomic'
+ MEPROP Stereotype 'MDAAbstractClass'
+
+ENDME // st_Atomic
+
+ME st_UnitProducer Inherits ( st_Atomic )
+ MEPROP UID '561D478F0224'
+ MEPROP Name 'UnitProducer'
+ MEPROP Stereotype 'MDAAbstractClass'
+
+ENDME // st_UnitProducer
+
+ME st_LibraryST Inherits ( st_CategoryLike )
+ MEPROP UID '561D36CD02EA'
+ MEPROP Name 'LibraryST'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'code_library'
+ UP "visualization bg color" 16114090
+
+ENDME // st_LibraryST
+
+ME st_ElementProxy Inherits ( st_UnitProducer )
+ MEPROP UID '561D3E94025C'
+ MEPROP Name 'ElementProxy'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'a'
+ UP "personal label" 'code_simple_class'
+ UP "visability type" '+'
+ UP "visualization bg color" 13821680
+
+ENDME // st_ElementProxy
+
+ME st_ImplementableProxy Inherits ( st_ElementProxy )
+ MEPROP UID '561E558703CD'
+ MEPROP Name 'ImplementableProxy'
+ MEPROP Stereotype 'MDAClass'
+ UP "has derived impl" true
+
+ENDME // st_ImplementableProxy
+
+ME st_ClassProxy Inherits ( st_ImplementableProxy )
+ MEPROP UID '561E515A008B'
+ MEPROP Name 'ClassProxy'
+ MEPROP Stereotype 'MDAClass'
+ UP "has derived impl" true
+ UP "visualization bg color" 12842465
+
+ENDME // st_ClassProxy
+
+ME st_InterfaceProxy Inherits ( st_ImplementableProxy )
+ MEPROP UID '561E55DC0030'
+ MEPROP Name 'InterfaceProxy'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 16766935
+
+ENDME // st_InterfaceProxy
+
+ME st_UMLPrimitive Inherits ( st_UMLPrimitive st_Delphi_ST )
+ MEPROP UID '563757310212'
+ MEPROP Name 'UMLPrimitive'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_UMLPrimitive
+
+ME st_UMLModule Inherits ( st_UMLModule st_Delphi_ST )
+ MEPROP UID '56375EA8032F'
+ MEPROP Name 'UMLModule'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_UMLModule
+
+ME st_InterfaceFactoryProxy Inherits ( st_ClassProxy )
+ MEPROP UID '56D06F7E00BD'
+ MEPROP Name 'InterfaceFactoryProxy'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_InterfaceFactoryProxy
+
+REDEFINITION ME st_Project Inherits ( st_Project st_Delphi_ST )
+ MEPROP UID '561E4A7E0070'
+ MEPROP Name 'Project'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_Project
+
+ME st_LibraryGroup Inherits ( st_Project )
+ MEPROP UID '561D304C03DC'
+ MEPROP Name 'LibraryGroup'
+ MEPROP Stereotype 'MDACategory'
+ UP "can be main" true
+ UP "inherite constraints" false
+
+ENDME // st_LibraryGroup
+
+ME st_ProjectGroup Inherits ( st_Delphi_ST )
+ MEPROP UID '561FCB1E032C'
+ MEPROP Name 'ProjectGroup'
+ MEPROP Stereotype 'MDACategory'
+ UP "can be main" true
+ UP "personal label" 'code_project'
+ UP "visualization bg color" 12842435
+
+ENDME // st_ProjectGroup
+
+ME st_UseCase Inherits ( st_UseCase )
+ MEPROP UID '567422BE01A7'
+ MEPROP Name 'UseCase'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_UseCase
+
+ME st_UseCases Inherits ( st_UseCases )
+ MEPROP UID '5674231C022D'
+ MEPROP Name 'UseCases'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_UseCases
+
+ME st_Requirements Inherits ( st_Requirements )
+ MEPROP UID '567423420230'
+ MEPROP Name 'Requirements'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_Requirements
+
+ME st_UseCaseSettingValue Inherits ( st_UseCaseSettingValue )
+ MEPROP UID '5677F0B40216'
+ MEPROP Name 'UseCaseSettingValue'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_UseCaseSettingValue
+
+ME st_MDATemplates Inherits ( st_MDATemplates )
+ MEPROP UID '57B5B7340174'
+ MEPROP Name 'MDATemplates'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_MDATemplates
+
+ME st_MDALibrary Inherits ( st_MDALibrary )
+ MEPROP UID '57B5B764010F'
+ MEPROP Name 'MDALibrary'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_MDALibrary
+
+ME st_MDALayer Inherits ( st_MDALayer )
+ MEPROP UID '57B5B78D029E'
+ MEPROP Name 'MDALayer'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_MDALayer
+
+ME st_MDAGenerator Inherits ( st_MDAGenerator )
+ MEPROP UID '57B5B7FA01F5'
+ MEPROP Name 'MDAGenerator'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_MDAGenerator
+
+ME st_MDAGeneratorInner Inherits ( st_MDAGeneratorInner )
+ MEPROP UID '57B5D53F0058'
+ MEPROP Name 'MDAGeneratorInner'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_MDAGeneratorInner
+
+ME st_MDAUtilityPack Inherits ( st_MDAUtilityPack )
+ MEPROP UID '57B5DC0001DA'
+ MEPROP Name 'MDAUtilityPack'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_MDAUtilityPack
+
+ME st_VCMLibrary Inherits ( st_Library )
+ MEPROP UID '4947E36801B6'
+ MEPROP Name 'VCMLibrary'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_VCMLibrary
+
+ME st_VCMInterfacesLike Inherits ( st_Interfaces )
+ MEPROP UID '494F7E5C0301'
+ MEPROP Name 'VCMInterfacesLike'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_VCMInterfacesLike
+
+ME st_VCMUnit Inherits ( st_Unit )
+ MEPROP UID '4947E3F30334'
+ MEPROP Name 'VCMUnit'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_VCMUnit
+
+ME st_Reflectable
+ MEPROP UID '501824040339'
+ MEPROP Name 'Reflectable'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_Reflectable
+
+ME st_ReflectablePureMixIn Inherits ( st_PureMixIn )
+ MEPROP UID '50191492035D'
+ MEPROP Name 'ReflectablePureMixIn'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_ReflectablePureMixIn
+
+REDEFINITION ME st_readonly::Attribute Inherits ( st_readonly::Attribute st_Reflectable )
+ MEPROP UID '501915BD0369'
+ MEPROP Name 'readonly::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_readonly::Attribute
+
+REDEFINITION ME st_property::Attribute Inherits ( st_property::Attribute st_Reflectable )
+ MEPROP UID '501915CD01DE'
+ MEPROP Name 'property::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_property::Attribute
+
+ME st_writeonly::Attribute Inherits ( st_writeonly::Attribute st_Reflectable )
+ MEPROP UID '501915DD0234'
+ MEPROP Name 'writeonly::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_writeonly::Attribute
+
+ME st_UseCaseController Inherits ( st_Facet )
+ MEPROP UID '492E97E60140'
+ MEPROP Name 'UseCaseController'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_vcm_usecase_controller'
+ UP "visualization bg color" 13011097
+ UP "visualization f-font color" 12420235
+ UP "visualization f-line color" 12615808
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+
+ENDME // st_UseCaseController
+
+ME st_area::Attribute Inherits ( st_readonly::Attribute )
+ MEPROP UID '492EAC6D029A'
+ MEPROP Name 'area::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "link type" 'lr'
+
+ENDME // st_area::Attribute
+
+ME st_injects_to::Dependency
+ MEPROP UID '5011502C019D'
+ MEPROP Name 'injects_to::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_injects_to::Dependency
+
+ME st_reflected_by::Dependency Inherits ( st_injects_to::Dependency )
+ MEPROP UID '5011434D0313'
+ MEPROP Name 'reflected_by::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_reflected_by::Dependency
+
+ME st_inited_by::Dependency Inherits ( st_injects_to::Dependency )
+ MEPROP UID '50123F750281'
+ MEPROP Name 'inited_by::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_inited_by::Dependency
+
+REDEFINITION ME st_readonly::Attribute Inherits ( st_readonly::Attribute st_Reflectable )
+ MEPROP UID '501818650280'
+ MEPROP Name 'readonly::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_readonly::Attribute
+
+REDEFINITION ME st_writeonly::Attribute Inherits ( st_writeonly::Attribute st_Reflectable )
+ MEPROP UID '50181882031B'
+ MEPROP Name 'writeonly::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_writeonly::Attribute
+
+REDEFINITION ME st_property::Attribute Inherits ( st_property::Attribute st_Reflectable )
+ MEPROP UID '5018188F009D'
+ MEPROP Name 'property::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_property::Attribute
+
+ME st_ViewAreaController Inherits ( st_Facet )
+ MEPROP UID '492E980503DD'
+ MEPROP Name 'ViewAreaController'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_vcm_viewarea_controller'
+ UP "visualization bg color" 15908010
+ UP "visualization f-font color" 12615680
+ UP "visualization f-line color" 12615680
+
+ENDME // st_ViewAreaController
+
+ME st_Area Inherits ( st_WikiImplClass st_area::Attribute )
+ MEPROP UID '4A379BB60099'
+ MEPROP Name 'Area'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 15908010
+ UP "visualization f-font color" 12615680
+ UP "visualization f-line color" 12615680
+
+ENDME // st_Area
+
+ME st_SynchroViewArea Inherits ( st_Area )
+ MEPROP UID '50111EBB0016'
+ MEPROP Name 'SynchroViewArea'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_SynchroViewArea
+
+ME st_ControllerInterfaces Inherits ( st_VCMInterfacesLike )
+ MEPROP UID '492E96FD00A7'
+ MEPROP Name 'ControllerInterfaces'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'code_vcm_controller_interfaces'
+ UP "visualization bg color" 16636008
+ UP "visualization f-font color" 16711808
+ UP "visualization f-line color" 16711808
+
+ENDME // st_ControllerInterfaces
+
+ME st_ViewAreaControllerImp Inherits ( st_SimpleClass )
+ MEPROP UID '492EC6CB020F'
+ MEPROP Name 'ViewAreaControllerImp'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_viewarea_controller_i'
+ UP "visualization bg color" 12582847
+ UP "visualization f-font color" 7907860
+ UP "visualization f-line color" 7907860
+
+ENDME // st_ViewAreaControllerImp
+
+ME st_UseCase::Attribute Inherits ( st_Attr::Attribute )
+ MEPROP UID '4978621501D1'
+ MEPROP Name 'UseCase::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'f'
+ UP "link type" 'l'
+ UP "visability type" '#-'
+
+ENDME // st_UseCase::Attribute
+
+ME st_UseCaseControllerImp Inherits ( st_SimpleClass )
+ MEPROP UID '492EC704029E'
+ MEPROP Name 'UseCaseControllerImp'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_usecase_controller_i'
+ UP "visualization bg color" 12516729
+ UP "visualization f-font color" 9881605
+ UP "visualization f-line color" 9881605
+
+ENDME // st_UseCaseControllerImp
+
+REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
+ MEPROP UID '5757284A001D'
+ MEPROP Name 'attr::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "unstereotyped" true
+ UP "visability type" '-#+'
+
+ENDME // st_attr::Attribute
+
+ME st_ControllerUnit Inherits ( st_VCMUnit )
+ MEPROP UID '492E97410321'
+ MEPROP Name 'ControllerUnit'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_vcm_controller_unit'
+ UP "visualization bg color" 10206463
+ UP "visualization f-font color" 2124031
+ UP "visualization f-line color" 2124031
+
+ENDME // st_ControllerUnit
+
+ME st_User Inherits ( st_UsesContainer )
+ MEPROP UID '4A9271340328'
+ MEPROP Name 'User'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_User
+
+ME st_VCMZonePrim Inherits ( st_WikiImplClass )
+ MEPROP UID '4A797DC60043'
+ MEPROP Name 'VCMZonePrim'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_zone'
+
+ENDME // st_VCMZonePrim
+
+ME st_FormNamePrefixHolder
+ MEPROP UID '4B5F276900DE'
+ MEPROP Name 'FormNamePrefixHolder'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_FormNamePrefixHolder
+
+ME st_UserTypeIDHolder
+ MEPROP UID '4BD70B860015'
+ MEPROP Name 'UserTypeIDHolder'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_UserTypeIDHolder
+
+ME st_VCMOperationPrim
+ MEPROP UID '494F818000E6'
+ MEPROP Name 'VCMOperationPrim'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'a'
+ UP "implementable" true
+ UP "personal label" 'code_vcm_operation'
+ UP "visability type" '+'
+
+ENDME // st_VCMOperationPrim
+
+ME st_VCMOperationBase Inherits ( st_VCMOperationPrim )
+ MEPROP UID '4C751E7E0064'
+ MEPROP Name 'VCMOperationBase'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_VCMOperationBase
+
+ME st_VCMOperations Inherits ( st_WikiImplClass )
+ MEPROP UID '494F808C01DB'
+ MEPROP Name 'VCMOperations'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_operations'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 16744448
+ UP "visualization f-line color" 16744448
+
+ENDME // st_VCMOperations
+
+ME st_Operation::Operation Inherits ( st_VCMOperationBase )
+ MEPROP UID '4C3F21D003DD'
+ MEPROP Name 'Operation::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "empty target" true
+ UP "unstereotyped" true
+
+ENDME // st_Operation::Operation
+
+ME st_VCMFacet Inherits ( st_VCMOperations )
+ MEPROP UID '4A96A6C3006A'
+ MEPROP Name 'VCMFacet'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 15510336
+ UP "visualization f-font color" 12584240
+ UP "visualization f-line color" 12584240
+
+ENDME // st_VCMFacet
+
+ME st_InternalOperation::Operation Inherits ( st_VCMOperationPrim )
+ MEPROP UID '4A9801640116'
+ MEPROP Name 'InternalOperation::Operation'
+ MEPROP Stereotype 'MDAOperation'
+ UP "empty target" true
+
+ENDME // st_InternalOperation::Operation
+
+ME st_VCMOperation Inherits ( st_WikiImplClass st_VCMOperationBase )
+ MEPROP UID '4C75214E0366'
+ MEPROP Name 'VCMOperation'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 9342520
+ UP "visualization f-line color" 9342520
+
+ENDME // st_VCMOperation
+
+ME st_VCMOperationState Inherits ( st_WikiImplClass )
+ MEPROP UID '4C7657C500E9'
+ MEPROP Name 'VCMOperationState'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_vcm_operationstate'
+ UP "visability type" '+'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 12623485
+ UP "visualization f-line color" 12614523
+
+ENDME // st_VCMOperationState
+
+ME st_FormSetFactory Inherits ( st_method )
+ MEPROP UID '4A73234800B8'
+ MEPROP Name 'FormSetFactory'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13688896
+ UP "visualization f-line color" 13688896
+
+ENDME // st_FormSetFactory
+
+ME st_FormFactory Inherits ( st_FormSetFactory )
+ MEPROP UID '4A816E04018E'
+ MEPROP Name 'FormFactory'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 16777152
+
+ENDME // st_FormFactory
+
+ME st_FactoryMethod Inherits ( st_FormSetFactory )
+ MEPROP UID '4A8288FF021A'
+ MEPROP Name 'FactoryMethod'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 7451452
+
+ENDME // st_FactoryMethod
+
+ME st_VCMControls Inherits ( st_VCMInterfacesLike )
+ MEPROP UID '494F7EF903BC'
+ MEPROP Name 'VCMControls'
+ MEPROP Stereotype 'MDACategory'
+ UP "inherite constraints" false
+ UP "personal label" 'code_vcm_controls'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 13688896
+ UP "visualization f-line color" 13688896
+
+ENDME // st_VCMControls
+
+ME st_VCMFormDefinition Inherits ( st_Facet )
+ MEPROP UID '4BD853F50147'
+ MEPROP Name 'VCMFormDefinition'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_VCMFormDefinition
+
+ME st_VCMModuleContract Inherits ( st_Service )
+ MEPROP UID '5791C9860070'
+ MEPROP Name 'VCMModuleContract'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_VCMModuleContract
+
+ME st_VCMContracts Inherits ( st_VCMControls )
+ MEPROP UID '5791D6D50045'
+ MEPROP Name 'VCMContracts'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_VCMContracts
+
+ME st_ModuleOperationPrim
+ MEPROP UID '4A9D2DEA0027'
+ MEPROP Name 'ModuleOperationPrim'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "visability type" '#'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 4210688
+ UP "visualization f-line color" 4210688
+
+ENDME // st_ModuleOperationPrim
+
+ME st_ModuleMethod Inherits ( st_method st_ModuleOperationPrim )
+ MEPROP UID '4A9D2BC80274'
+ MEPROP Name 'ModuleMethod'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_ModuleMethod
+
+ME st_ControlPrim Inherits ( st_readonly::Attribute )
+ MEPROP UID '4B5DC1D50227'
+ MEPROP Name 'ControlPrim'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_ControlPrim
+
+ME st_FormInner Inherits ( st_WikiImplClass st_ControlPrim )
+ MEPROP UID '4A794C0F002B'
+ MEPROP Name 'FormInner'
+ MEPROP Stereotype 'MDAClass'
+ UP "no auto copy" true
+
+ENDME // st_FormInner
+
+ME st_after::Attribute
+ MEPROP UID '4F952901031F'
+ MEPROP Name 'after::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'a'
+ UP "link type" 'a'
+ UP "personal label" 'code_attr'
+ UP "visability type" '-'
+
+ENDME // st_after::Attribute
+
+ME st_Control Inherits ( st_FormInner )
+ MEPROP UID '4A794CA201BF'
+ MEPROP Name 'Control'
+ MEPROP Stereotype 'MDAClass'
+ UP "no auto copy" true
+ UP "visualization bg color" 13353215
+ UP "visualization f-font color" 10917
+ UP "visualization f-line color" 10917
+
+ENDME // st_Control
+
+ME st_ControlOverride Inherits ( st_Control )
+ MEPROP UID '4A83F1EB00AB'
+ MEPROP Name 'ControlOverride'
+ MEPROP Stereotype 'MDAClass'
+ UP "no auto copy" true
+ UP "visualization bg color" 9143144
+ UP "visualization f-font color" 12614523
+ UP "visualization f-line color" 12614523
+
+ENDME // st_ControlOverride
+
+ME st_Component Inherits ( st_FormInner )
+ MEPROP UID '4A794D1700B2'
+ MEPROP Name 'Component'
+ MEPROP Stereotype 'MDAClass'
+ UP "no auto copy" true
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 21760
+ UP "visualization f-line color" 4210688
+
+ENDME // st_Component
+
+ME st_VCMCustomForm Inherits ( st_Dialog )
+ MEPROP UID '4947E2F10338'
+ MEPROP Name 'VCMCustomForm'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_form'
+
+ENDME // st_VCMCustomForm
+
+ME st_VCMDataModule Inherits ( st_VCMCustomForm )
+ MEPROP UID '4B5D670F0257'
+ MEPROP Name 'VCMDataModule'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_datamodule'
+ UP "visualization bg color" 9221330
+ UP "visualization f-font color" 12614523
+ UP "visualization f-line color" 12614523
+
+ENDME // st_VCMDataModule
+
+ME st_CanCloseHolder
+ MEPROP UID '4F72C6E703C7'
+ MEPROP Name 'CanCloseHolder'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_CanCloseHolder
+
+ME st_VCMController Inherits ( st_Attr::Attribute )
+ MEPROP UID '496A216D0337'
+ MEPROP Name 'VCMController'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "visability type" '#-'
+
+ENDME // st_VCMController
+
+ME st_VCMForm Inherits ( st_VCMCustomForm )
+ MEPROP UID '4B5DA84A00DD'
+ MEPROP Name 'VCMForm'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_VCMForm
+
+ME st_ViewArea::Attribute Inherits ( st_VCMController )
+ MEPROP UID '494B848E003E'
+ MEPROP Name 'ViewArea::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'f'
+ UP "link type" 'l'
+ UP "visability type" '#-'
+
+ENDME // st_ViewArea::Attribute
+
+REDEFINITION ME st_UseCase::Attribute Inherits ( st_VCMController )
+ MEPROP UID '496A21CE0209'
+ MEPROP Name 'UseCase::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+
+ENDME // st_UseCase::Attribute
+
+ME st_GroupItemsInContextMenu::Dependency
+ MEPROP UID '502128C500BE'
+ MEPROP Name 'GroupItemsInContextMenu::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_GroupItemsInContextMenu::Dependency
+
+ME st_ToolbarAtBottom::Dependency
+ MEPROP UID '502149B8006C'
+ MEPROP Name 'ToolbarAtBottom::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_ToolbarAtBottom::Dependency
+
+ME st_ContextMenuWeight::Dependency
+ MEPROP UID '51CE86080034'
+ MEPROP Name 'ContextMenuWeight::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_ContextMenuWeight::Dependency
+
+ME st_VCMContainer Inherits ( st_VCMForm )
+ MEPROP UID '4947FD1201CE'
+ MEPROP Name 'VCMContainer'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_VCMContainer
+
+ME st_UserType Inherits ( st_UsesContainer st_UserTypeIDHolder st_CanCloseHolder st_WikiImplClass )
+ MEPROP UID '4B0402290215'
+ MEPROP Name 'UserType'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_vcm_usertype'
+ UP "visability type" '+'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 37632
+ UP "visualization f-line color" 37632
+
+ENDME // st_UserType
+
+ME st_link::Attribute
+ MEPROP UID '4B040B8B0071'
+ MEPROP Name 'link::Attribute'
+ MEPROP Stereotype 'MDAAttribute'
+ UP "abstraction type" 'f'
+ UP "link type" 'l'
+ UP "personal label" 'code_property'
+ UP "visability type" '#'
+
+ENDME // st_link::Attribute
+
+ME st_ExcludeUserTypes Inherits ( st_WikiImplClass )
+ MEPROP UID '4BDAFC17020A'
+ MEPROP Name 'ExcludeUserTypes'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "has derived impl" true
+ UP "personal label" 'code_vcm_excludeusertypes'
+ UP "visability type" '-'
+ UP "visualization bg color" 10066425
+ UP "visualization f-font color" 255
+ UP "visualization f-line color" 255
+
+ENDME // st_ExcludeUserTypes
+
+ME st_IncludeUserTypes Inherits ( st_ExcludeUserTypes )
+ MEPROP UID '4C342272021C'
+ MEPROP Name 'IncludeUserTypes'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_includeusertypes'
+ UP "visualization bg color" 10156124
+ UP "visualization f-font color" 37632
+ UP "visualization f-line color" 37632
+
+ENDME // st_IncludeUserTypes
+
+ME st_FakeChild
+ MEPROP UID '4C3AF75101F2'
+ MEPROP Name 'FakeChild'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'a'
+ UP "visability type" '-'
+
+ENDME // st_FakeChild
+
+ME st_VCMFormZone Inherits ( st_VCMZonePrim st_CanCloseHolder )
+ MEPROP UID '4A797F2E017E'
+ MEPROP Name 'VCMFormZone'
+ MEPROP Stereotype 'MDAClass'
+ UP "visualization bg color" 6008319
+ UP "visualization f-font color" 6008319
+ UP "visualization f-line color" 2124031
+ UP "visualization font color" 0
+
+ENDME // st_VCMFormZone
+
+ME st_VCMFinalForm Inherits ( st_VCMForm st_FormNamePrefixHolder )
+ MEPROP UID '498B000A00E4'
+ MEPROP Name 'VCMFinalForm'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "visability type" '#+-'
+ UP "visualization bg color" 13993956
+ UP "visualization f-font color" 15796930
+ UP "visualization f-line color" 15796930
+
+ENDME // st_VCMFinalForm
+
+ME st_VCMFinalContainer Inherits ( st_VCMForm st_FormNamePrefixHolder )
+ MEPROP UID '4B5F286B03AE'
+ MEPROP Name 'VCMFinalContainer'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "visability type" '#+-'
+
+ENDME // st_VCMFinalContainer
+
+ME st_VCMFormSetFactory Inherits ( st_SimpleClass )
+ MEPROP UID '49F572B403E3'
+ MEPROP Name 'VCMFormSetFactory'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'far'
+ UP "personal label" 'code_vcm_formsetfactory'
+ UP "visualization bg color" 16687762
+ UP "visualization f-font color" 16261900
+ UP "visualization f-line color" 16261900
+
+ENDME // st_VCMFormSetFactory
+
+ME st_OwnerForm::Dependency
+ MEPROP UID '4D78C2510247'
+ MEPROP Name 'OwnerForm::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_OwnerForm::Dependency
+
+ME st_VCMZone Inherits ( st_VCMZonePrim st_User st_UserTypeIDHolder )
+ MEPROP UID '49F5A46300C9'
+ MEPROP Name 'VCMZone'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_zone'
+ UP "visualization bg color" 6008319
+ UP "visualization f-font color" 2124031
+ UP "visualization f-line color" 2124031
+
+ENDME // st_VCMZone
+
+ME st_VCMFormsPack Inherits ( st_SimpleClass )
+ MEPROP UID '498AFF8101F5'
+ MEPROP Name 'VCMFormsPack'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'code_vcm_formspack'
+ UP "visualization bg color" 10679668
+ UP "visualization f-font color" 3846429
+ UP "visualization f-line color" 3846429
+
+ENDME // st_VCMFormsPack
+
+REDEFINITION ME st_implements::Dependency
+ MEPROP UID '5791EDE701F0'
+ MEPROP Name 'implements::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_implements::Dependency
+
+ME st_VCMForms Inherits ( st_VCMUnit )
+ MEPROP UID '4947E799017D'
+ MEPROP Name 'VCMForms'
+ MEPROP Stereotype 'MDACategory'
+ UP "visualization bg color" 16691696
+ UP "visualization f-font color" 14239736
+ UP "visualization f-line color" 15609075
+
+ENDME // st_VCMForms
+
+ME st_VCMModule Inherits ( st_VCMForms )
+ MEPROP UID '4948C382021A'
+ MEPROP Name 'VCMModule'
+ MEPROP Stereotype 'MDACategory'
+ UP "visualization bg color" 15448575
+ UP "visualization f-font color" 13110000
+ UP "visualization f-line color" 13110000
+
+ENDME // st_VCMModule
+
+ME st_VCMAbstractFormSetFactory Inherits ( st_VCMFormSetFactory )
+ MEPROP UID '500932D501D0'
+ MEPROP Name 'VCMAbstractFormSetFactory'
+ MEPROP Stereotype 'MDAAbstractClass'
+ UP "abstraction type" 'a'
+
+ENDME // st_VCMAbstractFormSetFactory
+
+ME st_VCMMainForm Inherits ( st_VCMContainer )
+ MEPROP UID '4958D0210219'
+ MEPROP Name 'VCMMainForm'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_VCMMainForm
+
+ME st_VCMApplication Inherits ( st_SimpleClass )
+ MEPROP UID '4958D0CD0287'
+ MEPROP Name 'VCMApplication'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'fa'
+ UP "inherite constraints" false
+ UP "personal label" 'code_exe_target'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 21760
+ UP "visualization f-line color" 21760
+
+ENDME // st_VCMApplication
+
+ME st_VCMFinalMainForm Inherits ( st_VCMMainForm st_FormNamePrefixHolder )
+ MEPROP UID '4F7DAF6E007D'
+ MEPROP Name 'VCMFinalMainForm'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "visability type" '-+'
+
+ENDME // st_VCMFinalMainForm
+
+ME st_VCMControllers Inherits ( st_VCMLibrary )
+ MEPROP UID '492E95D1017C'
+ MEPROP Name 'VCMControllers'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_vcm_controllers'
+ UP "visualization bg color" 12623485
+ UP "visualization f-font color" 16711808
+ UP "visualization f-line color" 16711808
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+
+ENDME // st_VCMControllers
+
+ME st_VCMViews Inherits ( st_VCMLibrary )
+ MEPROP UID '4947E343031C'
+ MEPROP Name 'VCMViews'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'code_vcm_views'
+ UP "visualization bg color" 16033019
+ UP "visualization f-font color" 12731311
+ UP "visualization f-line color" 2124031
+
+ENDME // st_VCMViews
+
+ME st_VCMSubsystem Inherits ( st_WikiPackageImpl )
+ MEPROP UID '4953E0360081'
+ MEPROP Name 'VCMSubsystem'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'af'
+ UP "personal label" 'code_vcm_subsystem'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 3329330
+ UP "visualization f-line color" 3329330
+
+ENDME // st_VCMSubsystem
+
+ME st_VCMUseCase Inherits ( st_VCMSubsystem )
+ MEPROP UID '4A891EB000DB'
+ MEPROP Name 'VCMUseCase'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'fa'
+ UP "personal label" 'code_vcm_usecase'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 1989310
+ UP "visualization f-line color" 1989310
+
+ENDME // st_VCMUseCase
+
+ME st_VCMUseCaseRealization Inherits ( st_VCMFormsPack )
+ MEPROP UID '4A951D4900CF'
+ MEPROP Name 'VCMUseCaseRealization'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'fra'
+ UP "personal label" 'code_vcm_usecase_realization'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 1989310
+ UP "visualization f-line color" 1989310
+
+ENDME // st_VCMUseCaseRealization
+
+REDEFINITION ME st_Project Inherits ( st_Project )
+ MEPROP UID '492E95760246'
+ MEPROP Name 'Project'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_Project
+
+ME st_VCMDomain Inherits ( st_Project )
+ MEPROP UID '4992E0530224'
+ MEPROP Name 'VCMDomain'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'a'
+ UP "can be main" true
+ UP "inherite constraints" false
+ UP "personal label" 'code_vcm_domain'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 9342520
+ UP "visualization f-line color" 9342520
+
+ENDME // st_VCMDomain
+
+ME st_VCMGUI Inherits ( st_VCMSubsystem )
+ MEPROP UID '4A8925B00009'
+ MEPROP Name 'VCMGUI'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'f'
+ UP "inherite constraints" false
+ UP "personal label" 'code_vcm_gui'
+ UP "visability type" '+'
+ UP "visualization bg color" 12842435
+ UP "visualization f-font color" 5961040
+ UP "visualization f-line color" 5961040
+
+ENDME // st_VCMGUI
+
+ME st_VCMUseCases Inherits ( st_VCMDomain )
+ MEPROP UID '4C851F2E0205'
+ MEPROP Name 'VCMUseCases'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'a'
+ UP "can be main" true
+ UP "personal label" 'code_vcm_usecases'
+ UP "visualization bg color" 11458559
+ UP "visualization f-font color" 6008319
+ UP "visualization f-line color" 2124031
+
+ENDME // st_VCMUseCases
+
+ME st_VCMProject Inherits ( st_VCMUseCases )
+ MEPROP UID '4B17A8180223'
+ MEPROP Name 'VCMProject'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'f'
+ UP "can be main" true
+ UP "personal label" 'code_vcm_project'
+ UP "visualization bg color" 15438845
+ UP "visualization f-font color" 8388736
+ UP "visualization f-line color" 8519755
+
+ENDME // st_VCMProject
+
+ME st_VCMTestProject Inherits ( st_VCMProject )
+ MEPROP UID '4D9F244B02F4'
+ MEPROP Name 'VCMTestProject'
+ MEPROP Stereotype 'MDACategory'
+ UP "abstraction type" 'f'
+ UP "can be main" true
+ UP "inherite constraints" false
+ UP "personal label" 'code_vcm_project'
+ UP "visualization bg color" 12615935
+ UP "visualization f-font color" 4194432
+ UP "visualization f-line color" 4194432
+
+ENDME // st_VCMTestProject
+
+ME st_VCMTestTarget Inherits ( st_TestTarget )
+ MEPROP UID '4D9F24AD01A4'
+ MEPROP Name 'VCMTestTarget'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'code_test_target'
+
+ENDME // st_VCMTestTarget
+
+ME st_VCMTestApplication Inherits ( st_VCMApplication )
+ MEPROP UID '4D9F253E0082'
+ MEPROP Name 'VCMTestApplication'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_exe_target'
+ UP "visualization bg color" 12615935
+ UP "visualization f-font color" 8388736
+ UP "visualization f-line color" 8388736
+
+ENDME // st_VCMTestApplication
+
+REDEFINITION ME st_ProjectGroup Inherits ( st_ProjectGroup )
+ MEPROP UID '56250DF4011B'
+ MEPROP Name 'ProjectGroup'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_ProjectGroup
+

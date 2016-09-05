@@ -1,0 +1,209 @@
+// PrimDocumentListFromFile 4DA44B2C01BB VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DA44B2C01BB
+
+FORWARD ME_4DA469B30396
+
+ME ME_4DA46A320096
+ MEPROP UID '4DA46A320096'
+ MEPROP Name 'AccessDenied'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DA469B30396 // Local
+ ;
+ MEPROP Value '''Нет доступа к файлу'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Нет доступа к файлу'''
+
+ENDME // ME_4DA46A320096 AccessDenied
+
+ME ME_4DA46A460119
+ MEPROP UID '4DA46A460119'
+ MEPROP Name 'InvalidType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DA469B30396 // Local
+ ;
+ MEPROP Value '''Неверный тип файла'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Неверный тип файла'''
+
+ENDME // ME_4DA46A460119 InvalidType
+
+ME ME_4DF0CA020253
+ MEPROP UID '4DF0CA020253'
+ MEPROP Name 'ImportDocuments'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DA469B30396 // Local
+ ;
+ MEPROP Value '''Импортируемых документов'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Импортируемых документов'''
+
+ENDME // ME_4DF0CA020253 ImportDocuments
+
+ME ME_4DA469B30396
+ MEPROP UID '4DA469B30396'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DA46A320096 // AccessDenied
+ HWL ME_4DA46A460119 // InvalidType
+ HWL ME_4DF0CA020253 // ImportDocuments
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4DA469B30396 Local
+
+ME ME_4E0344DA0341
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4E0344DA0341 
+
+ME ME_57971EDE02DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_57971EB50122' '5795D66F0385.ms.model.script' // TDocumentListFromFileService
+ ;
+
+ENDME // ME_57971EDE02DF 
+
+ME ME_4DF0D42201F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_4AA4D8A6012B' '47F475660140.ms.model.script' // TbsOpenListInfo
+ ;
+
+ENDME // ME_4DF0D42201F4 
+
+ME ME_4DA45BF30397
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_4926AE3900B9' '47EA50050263.ms.model.script' // TdeListSet
+ ;
+
+ENDME // ME_4DA45BF30397 
+
+ME ME_4DECC9D30272
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_4DDD468D0131' '4DDA34AA023B.ms.model.script' // TnsOpenDialog
+ ;
+
+ENDME // ME_4DECC9D30272 
+
+ME ME_4DA44E450022
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_4DA44E2C0153' '4799D29F033F.ms.model.script' // TOpenDialog
+ ;
+
+ENDME // ME_4DA44E450022 
+
+ME ME_4DA4664A0051
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_4AA7F1CB012C' '47D0E1500033.ms.model.script' // vcmConstString
+ ;
+
+ENDME // ME_4DA4664A0051 
+
+ME ME_4DA45BA301FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '47F2170002B2.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4DA45BA301FC 
+
+ME ME_4DA45C690223
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA44B2C01BB // PrimDocumentListFromFile
+ ;
+ MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_4DA45C690223 
+
+ME ME_4DA44B2C01BB
+ MEPROP UID '4DA44B2C01BB'
+ MEPROP Name 'PrimDocumentListFromFile'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список документов из файла' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DA44B170176' '4DA44B170176.ms.model.script' // DocumentListFromFile
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4DA469B30396 // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4E0344DA0341 // vcmMessagesSupport
+ ME_57971EDE02DF // TDocumentListFromFileService
+ ME_4DF0D42201F4 // TbsOpenListInfo
+ ME_4DA45BF30397 // TdeListSet
+ ME_4DECC9D30272 // TnsOpenDialog
+ ME_4DA44E450022 // TOpenDialog
+ ME_4DA4664A0051 // vcmConstString
+ ME_4DA45BA301FC // nsAStr
+ ME_4DA45C690223 // Tafw
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '12.04.2011 16:53'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentListFromFile\PrimDocumentListFromFile_Module.pas'
+ UP extprop:pas:TypeName 'TPrimDocumentListFromFileModule'
+ UP extprop:rc:SelfName 'PrimDocumentListFromFileModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimDocumentListFromFile_Module'
+
+ENDME // ME_4DA44B2C01BB PrimDocumentListFromFile

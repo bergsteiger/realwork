@@ -1,0 +1,266 @@
+// HyperlinkToDocumentProducer 4CDD18E80034 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDD18E80034
+
+ME ME_4CDD19B503B1
+ MEPROP UID '4CDD19B503B1'
+ MEPROP Name 'HyperlinkDocID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Идентификато документа на который надо ставить ссылку' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4CDD19B503B1 HyperlinkDocID
+
+ME ME_4CDD1A02013D
+ MEPROP UID '4CDD1A02013D'
+ MEPROP Name 'HyperlinkDocumentName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Имя документа на который надо ставить ссылку' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4CDD1A02013D HyperlinkDocumentName
+
+ME ME_4CE41B300315
+ MEPROP UID '4CE41B300315'
+ MEPROP Name 'HyperlinkSubID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4CE41B300315 HyperlinkSubID
+
+FORWARD ME_53EB17EF0306
+
+ME ME_53EB180603A6
+ MEPROP UID '53EB180603A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53EB17EF0306 // NeedMakeHyperlinkToDocument
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53EB180603A6 DoIt
+
+ME ME_53EB17EF0306
+ MEPROP UID '53EB17EF0306'
+ MEPROP Name 'NeedMakeHyperlinkToDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53EB180603A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53EB17EF0306 NeedMakeHyperlinkToDocument
+
+ME ME_4CDD2088026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_48F4CF9903D6' '469C688102A3.ms.model.script' // TevConstStringData
+ ;
+
+ENDME // ME_4CDD2088026B 
+
+ME ME_4CDD21050084
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4CDD21050084 
+
+ME ME_4CDD23EF01A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_4CDD23D702B6' '47913B47006E.ms.model.script' // SetClipboardData
+ ;
+
+ENDME // ME_4CDD23EF01A9 
+
+ME ME_4CDD4052026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_4CDD3D930147' '4860B0120014.ms.model.script' // TevdHyperlinkInfo
+ ;
+
+ENDME // ME_4CDD4052026D 
+
+ME ME_4CDD75FE03AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4CDD75FE03AF 
+
+ME ME_4CDD79620085
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_4CDD77A700E6' '4CDD1854020C.ms.model.script' // Local
+ ;
+
+ENDME // ME_4CDD79620085 
+
+ME ME_4CDE773B0083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
+ ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_4CDE773B0083 
+
+ME ME_4CDD18A20143_ME_4CDD18E80034
+ MELINK Original WL 'ME_4CDD18A20143' '4CDD18640278.ms.model.script' // MakeHyperlinkToDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4CDD18A20143_ME_4CDD18E80034 MakeHyperlinkToDocument
+
+ME ME_4CDD5C3901E0_ME_4CDD18E80034
+ MELINK Original WL 'ME_4CDD5C3901E0' '4CDD18640278.ms.model.script' // MakeHyperlinkToDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4CDD5C3901E0_ME_4CDD18E80034 MakeHyperlinkToDocument
+
+ME ME_4CDE7C2C0258_ME_4CDD18E80034
+ MELINK Original WL 'ME_4CDE7C2C0258' '4CDD18640278.ms.model.script' // MakeHyperlinkToDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4CDE7C2C0258_ME_4CDD18E80034 MakeHyperlinkToDocument
+
+ME ME_4CDD18E80034
+ MEPROP UID '4CDD18E80034'
+ MEPROP Name 'HyperlinkToDocumentProducer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изготовитель ссылок на документы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4CDD1854020C' '4CDD1854020C.ms.model.script' // Forms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ WL 'ME_4CDD188900C5' '4CDD18640278.ms.model.script' // File
+ WL 'ME_4CDD5C020288' '4CDD18640278.ms.model.script' // Text
+ WL 'ME_4CDE7C1E020F' '4CDD18640278.ms.model.script' // Document
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CDD19B503B1 // HyperlinkDocID
+ HWL ME_4CDD1A02013D // HyperlinkDocumentName
+ HWL ME_4CE41B300315 // HyperlinkSubID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53EB17EF0306 // NeedMakeHyperlinkToDocument
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CDD18A20143_ME_4CDD18E80034 // MakeHyperlinkToDocument
+ ME_4CDD5C3901E0_ME_4CDD18E80034 // MakeHyperlinkToDocument
+ ME_4CDE7C2C0258_ME_4CDD18E80034 // MakeHyperlinkToDocument
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CDD2088026B // TevConstStringData
+ ME_4CDD21050084 // l3String
+ ME_4CDD23EF01A9 // SetClipboardData
+ ME_4CDD4052026D // TevdHyperlinkInfo
+ ME_4CDD75FE03AF // l3CStr
+ ME_4CDD79620085 // Local
+ ME_4CDE773B0083 // TevAddress
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '12.11.2010 13:38'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas'
+ UP extprop:pas:TypeName '_HyperlinkToDocumentProducer_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'HyperlinkToDocumentProducer.imp'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4CDD18E80034 HyperlinkToDocumentProducer

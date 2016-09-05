@@ -1,0 +1,474 @@
+// PrimTreeAttributeFirstLevel 497EC6A4022F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497EC6A4022F
+
+ME ME_4BD71C0000AE
+ MEPROP UID '4BD71C0000AE'
+ MEPROP Name 'flSituation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ситуации первого уровня (вкладка)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ UP "CanClose" false
+ UP "ImageIndex" 29
+ UP "SettingsCaption" 'Поиск: Ситуации первого уровня (вкладка)'
+ UP "Weight" 40
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimTreeAttributeFirstLevel_flSituation_UserType.pas'
+ UP extprop:pas:UnitName 'PrimTreeAttributeFirstLevel_flSituation_UserType'
+
+ENDME // ME_4BD71C0000AE flSituation
+
+FORWARD ME_4AEF14BA019B
+
+ME ME_4BDAF7880236_ME_4AEF14BA019B
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7880236_ME_4AEF14BA019B ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4AEF14BA019B
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7A2005C_ME_4AEF14BA019B CollapseAll
+
+ME ME_4BDAF7B803CF_ME_4AEF14BA019B
+ MELINK Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.ms.model.script' // Wrap
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7B803CF_ME_4AEF14BA019B Wrap
+
+ME ME_4AEF14BA019B
+ MEPROP UID '4AEF14BA019B'
+ MEPROP Name 'FirstLevelContent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BDAF7880236_ME_4AEF14BA019B // ExpandAll
+ ME_4BDAF7A2005C_ME_4AEF14BA019B // CollapseAll
+ ME_4BDAF7B803CF_ME_4AEF14BA019B // Wrap
+ )
+ ; // Implemented
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4AEF14BA019B FirstLevelContent
+
+ME ME_497EC7380069
+ MEPROP UID '497EC7380069'
+ MEPROP Name 'dsSimpleTree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_47E9F96B035A' '491DD2830110.ms.model.script' // IdsSimpleTree
+ ;
+
+ENDME // ME_497EC7380069 dsSimpleTree
+
+ME ME_497F015A0358
+ MEPROP UID '497F015A0358'
+ MEPROP Name 'dsTreeAttributeFirstLevel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_4924450800EC' '4AA5503000D7.ms.model.script' // IdsTreeAttributeFirstLevel
+ ;
+
+ENDME // ME_497F015A0358 dsTreeAttributeFirstLevel
+
+ME ME_4AEF141D0045
+ MEPROP UID '4AEF141D0045'
+ MEPROP Name 'f_InternalMove'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AEF141D0045 f_InternalMove
+
+ME ME_52728D2A036D
+ MEPROP UID '52728D2A036D'
+ MEPROP Name 'FirstLevelContentGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_52728D2A036D FirstLevelContentGetItemImage
+
+ME ME_52728D32009E
+ MEPROP UID '52728D32009E'
+ MEPROP Name 'FirstLevelContentCurrentChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A9D4FB0034A' '494B949E022B.ms.model.script' // TeeCurrentChanged
+ )
+ ; // Inherits
+
+ENDME // ME_52728D32009E FirstLevelContentCurrentChanged
+
+ME ME_52728D3A0299
+ MEPROP UID '52728D3A0299'
+ MEPROP Name 'FirstLevelContentNewCharPressed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5143230F01E4' '494B949E022B.ms.model.script' // TeeNewCharPressed
+ )
+ ; // Inherits
+
+ENDME // ME_52728D3A0299 FirstLevelContentNewCharPressed
+
+FORWARD ME_52728FBC02D2
+
+ME ME_52728FC5036B
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_52728FC5036B aNode
+
+ME ME_52728FC3019B
+ MEPROP UID '52728FC3019B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52728FBC02D2 // UpdateCurrent
+ ;
+ MELIST Parameters
+   Seq: ( ME_52728FC5036B // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_52728FC3019B DoIt
+
+ME ME_52728FBC02D2
+ MEPROP UID '52728FBC02D2'
+ MEPROP Name 'UpdateCurrent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52728FC3019B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52728FBC02D2 UpdateCurrent
+
+ME ME_4AEF150C00D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4AEF150C00D3 
+
+ME ME_4AEF154A015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_4683698E01BC' '49006FAB024A.ms.model.script' // TnsAttributeOneLevelTreeStruct
+ ;
+
+ENDME // ME_4AEF154A015A 
+
+ME ME_527362C901ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_4EC391C00307' '4EEA0958023A.ms.model.script' // SearchRes
+ ;
+
+ENDME // ME_527362C901ED 
+
+ME ME_527362CC02C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_527362CC02C5 
+
+ME ME_527362CE0365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_527362CE0365 
+
+ME ME_527362D10014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_527362D10014 
+
+ME ME_497465F501B7_ME_497EC6A4022F
+ MELINK Original WL 'ME_497465F501B7' '4974652502DA.ms.model.script' // CurrentChangedNotification
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_497465F501B7_ME_497EC6A4022F CurrentChangedNotification
+
+ME ME_4AEF129601AC_ME_497EC6A4022F
+ MELINK Original WL 'ME_4AEF129601AC' '4AE831B30019.ms.model.script' // SetParent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AEF129601AC_ME_497EC6A4022F SetParent
+
+ME ME_4AEF14460025_ME_497EC6A4022F
+ MELINK Original WL 'ME_4AEF14460025' '4AE831B30019.ms.model.script' // ExtSetRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AEF14460025_ME_497EC6A4022F ExtSetRoot
+
+ME ME_4AF3EBC001C4_ME_497EC6A4022F
+ MELINK Original WL 'ME_4AF3EBC001C4' '4AE831B30019.ms.model.script' // SetRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AF3EBC001C4_ME_497EC6A4022F SetRoot
+
+ME ME_4BDAF7880236_ME_497EC6A4022F
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7880236_ME_497EC6A4022F ExpandAll
+
+ME ME_4BDAF7A2005C_ME_497EC6A4022F
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7A2005C_ME_497EC6A4022F CollapseAll
+
+ME ME_47A042E100E2_ME_497EC6A4022F
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_497EC6A4022F InitFields
+
+ME ME_497469C90140_ME_497EC6A4022F
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_497EC6A4022F NotifyDataSourceChanged
+
+ME ME_4A8E8F2E0195_ME_497EC6A4022F
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_497EC6A4022F InitControls
+
+ME ME_497EC6A4022F
+ MEPROP UID '497EC6A4022F'
+ MEPROP Name 'PrimTreeAttributeFirstLevel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Первый уровень дерева атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4974652502DA' '4974652502DA.ms.model.script' // TreeAttribute
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AEF128901C3' '4AE831B30019.ms.model.script' // AttributeTree
+ WL 'ME_4AF3EB1C03A9' '4AE831B30019.ms.model.script' // AttributeTree$SetRoot
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AEF14BA019B // FirstLevelContent
+ HWL ME_497EC7380069 // dsSimpleTree
+ HWL ME_497F015A0358 // dsTreeAttributeFirstLevel
+ HWL ME_4AEF141D0045 // f_InternalMove
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52728D2A036D // FirstLevelContentGetItemImage
+ HWL ME_52728D32009E // FirstLevelContentCurrentChanged
+ HWL ME_52728D3A0299 // FirstLevelContentNewCharPressed
+ HWL ME_52728FBC02D2 // UpdateCurrent
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_497465F501B7_ME_497EC6A4022F // CurrentChangedNotification
+ ME_4AEF129601AC_ME_497EC6A4022F // SetParent
+ ME_4AEF14460025_ME_497EC6A4022F // ExtSetRoot
+ ME_4AF3EBC001C4_ME_497EC6A4022F // SetRoot
+ ME_4BDAF7880236_ME_497EC6A4022F // ExpandAll
+ ME_4BDAF7A2005C_ME_497EC6A4022F // CollapseAll
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_497EC6A4022F // InitFields
+ ME_497469C90140_ME_497EC6A4022F // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_497EC6A4022F // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD71C0000AE // flSituation
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AEF150C00D3 // l3CStr
+ ME_4AEF154A015A // TnsAttributeOneLevelTreeStruct
+ ME_527362C901ED // SearchRes
+ ME_527362CC02C5 // nsTypes
+ ME_527362CE0365 // Controls
+ ME_527362D10014 // Forms
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '27.01.2009 11:33'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimTreeAttributeFirstLevel_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ UP extprop:pas:TypeName 'TPrimTreeAttributeFirstLevelForm'
+ UP extprop:rc:SelfName 'PrimTreeAttributeFirstLevelForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimTreeAttributeFirstLevel_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_497EC6A4022F PrimTreeAttributeFirstLevel

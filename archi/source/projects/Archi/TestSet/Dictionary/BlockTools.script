@@ -60,6 +60,14 @@ PROCEDURE "Включить режим отображения блоков"
  "Обработать сообщения"
 ;
 
+PROCEDURE "Выключить режим отображения блоков"
+ OBJECT VAR l_Editor
+ focused:control:push >>> l_Editor
+ l_Editor pop:Editor:DrawSpecial := false
+ l_Editor pop:Editor:ShowDocumentParts := false
+ "Обработать сообщения"
+;
+
 PROCEDURE "Подвинуть нижнюю границу блока" INTEGER IN aDelta
  aDelta false focused:control:push pop:editor:BlockResize 
 ;

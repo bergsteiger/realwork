@@ -18,6 +18,8 @@
 //#UC START# *4B990EF000AA_ext:FileName
 w:\common\components\rtl\Garant\dd\ddAppConfig.pas
 //#UC END# *4B990EF000AA_ext:FileName
+//#UC START# *4B990EF000AAimpl_uses*
+//#UC END# *4B990EF000AAimpl_uses*
 //#UC START# *5214861D002A_52148644004Cget_impl*
  Result := f_Node;
 //#UC END# *5214861D002A_52148644004Cget_impl*
@@ -574,8 +576,9 @@ var
   I: Integer;
  begin
   IddConfigNode(aNode).ClearControls;
-  for I := 0 to Pred(aNode.ChildrenCount) do
-   _Clear(aNode.Children[I]);
+// Это сами ноды проделают иначе выходит двойная очистка.  
+//  for I := 0 to Pred(aNode.ChildrenCount) do
+//   _Clear(aNode.Children[I]);
  end;
 //#UC END# *52149EC1019B_4B990F100126_var*
 //#UC START# *52149ECF002E_4B990F100126_impl*
@@ -1367,8 +1370,9 @@ var
      IddConfigNode(aNode).GetControlValues
     else
      IddConfigNode(aNode).SetControlValues(False);
-    for I := 0 to Pred(aNode.ChildrenCount) do
-     _ReadValue(aNode.Children[I]);
+// Дети вычитают себя сами! Иначе получаетя двойная запись/чтение для второго уровня дерева.     
+//    for I := 0 to Pred(aNode.ChildrenCount) do
+//     _ReadValue(aNode.Children[I]);
   end;
 var
  I: Integer;

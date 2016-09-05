@@ -1,0 +1,171 @@
+// SearchProgressIndicator 4A38B397024A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A38B397024A
+
+FORWARD ME_462748CD01A4
+
+ME ME_462756630354
+ MEPROP Name 'search_manager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_462756630354 search_manager
+
+ME ME_46274948003B
+ MEPROP UID '46274948003B'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_462748CD01A4 // CancelSearch
+ ;
+ MELIST Parameters
+   Seq: ( ME_462756630354 // search_manager
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" false
+
+ENDME // ME_46274948003B make
+
+ME ME_45EEE00D032A_ME_462748CD01A4
+ MELINK Original WL 'ME_45EEE00D032A' '45EEA87702A5.ms.model.script' // cancel_process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEE00D032A_ME_462748CD01A4 cancel_process
+
+ME ME_462748CD01A4
+ MEPROP UID '462748CD01A4'
+ MEPROP GUID '77C1D94F-084E-4430-8FE6-796A9817D990'
+ MEPROP Name 'CancelSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A38B397024A // SearchProgressIndicator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_45EEE00D0329' '45EEA87702A5.ms.model.script' // CancelLongProcess
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_46274948003B // make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEE00D032A_ME_462748CD01A4 // cancel_process
+ )
+ ; // Implemented
+ UP "single impl" false
+ UP extprop:pas:TypeName 'ICancelSearch'
+ UP extprop:rc:SelfName 'CancelSearch'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_462748CD01A4 CancelSearch
+
+FORWARD ME_46273EF90166
+
+ME ME_4627420703AE
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456ECA9603A9' '456EA56002BF.ms.model.script' // SearchEntity
+ ;
+
+ENDME // ME_4627420703AE entity
+
+ME ME_462741D0012E
+ MEPROP UID '462741D0012E'
+ MEPROP Name 'finish_process'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46273EF90166 // ProgressIndicatorForSearch
+ ;
+ MELIST Parameters
+   Seq: ( ME_4627420703AE // entity
+ )
+ ; // Parameters
+
+ENDME // ME_462741D0012E finish_process
+
+ME ME_45EEE00A025D_ME_46273EF90166
+ MELINK Original WL 'ME_45EEE00A025D' '45EEA87702A5.ms.model.script' // set_current
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEE00A025D_ME_46273EF90166 set_current
+
+ME ME_45EEE02703C5_ME_46273EF90166
+ MELINK Original WL 'ME_45EEE02703C5' '45EEA87702A5.ms.model.script' // max_count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_45EEE02703C5_ME_46273EF90166 max_count
+
+ME ME_46273EF90166
+ MEPROP UID '46273EF90166'
+ MEPROP GUID 'C403A3AE-7807-49A8-807F-B2FEA60F7695'
+ MEPROP Name 'ProgressIndicatorForSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A38B397024A // SearchProgressIndicator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_45EEE00A024E' '45EEA87702A5.ms.model.script' // ProgressIndicator
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_462741D0012E // finish_process
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEE00A025D_ME_46273EF90166 // set_current
+ ME_45EEE02703C5_ME_46273EF90166 // max_count
+ )
+ ; // Implemented
+ UP "call way" 'back'
+ UP extprop:pas:TypeName 'IProgressIndicatorForSearch'
+ UP extprop:rc:SelfName 'ProgressIndicatorForSearch'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_46273EF90166 ProgressIndicatorForSearch
+
+ME ME_4A38B397024A
+ MEPROP UID '4A38B397024A'
+ MEPROP Name 'SearchProgressIndicator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Прогрессиндикаторы для поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_462748CD01A4 // CancelSearch
+ HWL ME_46273EF90166 // ProgressIndicatorForSearch
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45EEA87702A5' '45EEA87702A5.ms.model.script' // ProgressIndicatorSupport
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicator.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicator.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SearchProgressIndicatorUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicatorUnit.pas'
+ UP extprop:pas:UnitName 'SearchProgressIndicatorUnit'
+
+ENDME // ME_4A38B397024A SearchProgressIndicator

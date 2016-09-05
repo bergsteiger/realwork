@@ -1,0 +1,213 @@
+// UnderControlResetter 4BA0A2CC0305 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BA0A2CC0305
+
+ME ME_4BA0A2EF0167
+ MEPROP UID '4BA0A2EF0167'
+ MEPROP Name 'ucpUnderControl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.ms.model.script' // IucpUnderControl
+ ;
+
+ENDME // ME_4BA0A2EF0167 ucpUnderControl
+
+ME ME_4BA0A3C901DE
+ MEPROP Name 'aInspect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BA0A48E0248' '4B9A1E7F0036.ms.model.script' // TnsDropControlStatusSet
+ ;
+
+ENDME // ME_4BA0A3C901DE aInspect
+
+ME ME_4BA0A3BC028F
+ MEPROP UID '4BA0A3BC028F'
+ MEPROP Name 'CheckControllableState'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BA0A3C901DE // aInspect
+ )
+ ; // Parameters
+
+ENDME // ME_4BA0A3BC028F CheckControllableState
+
+ME ME_4BA0ACB501DA
+ MEPROP UID '4BA0ACB501DA'
+ MEPROP Name 'CanUnControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BA0ACB501DA CanUnControl
+
+ME ME_4BA0B0F4001D
+ MEPROP UID '4BA0B0F4001D'
+ MEPROP Name 'UpdateUnderControlList'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+
+ENDME // ME_4BA0B0F4001D UpdateUnderControlList
+
+ME ME_4BA0ACDD03AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4BA0ACDD03AC 
+
+ME ME_4BA0AD13029B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_47FB51FA0178' '48F747EC0073.ms.model.script' // Settings
+ ;
+
+ENDME // ME_4BA0AD13029B 
+
+ME ME_4BA0AD3A0088
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4BA0AD3A0088 
+
+ME ME_4BA0ADF002EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4BA0ADF002EE 
+
+ME ME_4BA0C7CD0364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4BA0C7CD0364 
+
+ME ME_4BA0D35100C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_4AF836680019' '4A9807DB01A5.ms.model.script' // ControlCenter
+ ;
+
+ENDME // ME_4BA0D35100C0 
+
+ME ME_4BD86C3100FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_4BD86C04039D' '4BD856E802F9.ms.model.script' // UnderControl
+ ;
+
+ENDME // ME_4BD86C3100FC 
+
+ME ME_57A207AC00C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA0A2CC0305 // UnderControlResetter
+ ;
+ MELINK Target WL 'ME_57A200FC0211' '5795D66F0385.ms.model.script' // TUnderControlService
+ ;
+
+ENDME // ME_57A207AC00C0 
+
+ME ME_479731C50290_ME_4BA0A2CC0305
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4BA0A2CC0305 Cleanup
+
+ME ME_497469C90140_ME_4BA0A2CC0305
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_4BA0A2CC0305 NotifyDataSourceChanged
+
+ME ME_4BA0A2CC0305
+ MEPROP UID '4BA0A2CC0305'
+ MEPROP Name 'UnderControlResetter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4B9A345700FA' '4B9A345700FA.ms.model.script' // UnderControl
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4BA0A2EF0167 // ucpUnderControl
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BA0A3BC028F // CheckControllableState
+ HWL ME_4BA0ACB501DA // CanUnControl
+ HWL ME_4BA0B0F4001D // UpdateUnderControlList
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4BA0A2CC0305 // Cleanup
+ ME_497469C90140_ME_4BA0A2CC0305 // NotifyDataSourceChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4BA0ACDD03AC // afwFacade
+ ME_4BA0AD13029B // Settings
+ ME_4BA0AD3A0088 // StdRes
+ ME_4BA0ADF002EE // Il3CString
+ ME_4BA0C7CD0364 // l3String
+ ME_4BA0D35100C0 // ControlCenter
+ ME_4BD86C3100FC // UnderControl
+ ME_57A207AC00C0 // TUnderControlService
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas'
+ UP extprop:pas:TypeName '_UnderControlResetter_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'UnderControlResetter.imp'
+
+ENDME // ME_4BA0A2CC0305 UnderControlResetter

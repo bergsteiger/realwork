@@ -1,0 +1,235 @@
+// TestHelpers 499C380102CF Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499C380102CF
+
+FORWARD ME_499C38220140
+
+ME ME_499C389C0050
+ MEPROP UID '499C389C0050'
+ MEPROP Name 'hDC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C38220140 // TMessageOnDesktop
+ ;
+ MELINK Target WL 'ME_47726DC00087' '46A5E026007E.ms.model.script' // hDC
+ ;
+
+ENDME // ME_499C389C0050 hDC
+
+ME ME_499C38A5001E
+ MEPROP UID '499C38A5001E'
+ MEPROP Name 'hFont'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499C38220140 // TMessageOnDesktop
+ ;
+ MELINK Target WL 'ME_46A61419013D' '4AB0C3F60375.ms.model.script' // HFONT
+ ;
+
+ENDME // ME_499C38A5001E hFont
+
+ME ME_499C387E0015
+ MEPROP UID '499C387E0015'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499C38220140 // TMessageOnDesktop
+ ;
+
+ENDME // ME_499C387E0015 Create
+
+ME ME_499C389102C5
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_499C389102C5 aMsg
+
+ME ME_499C388A00BB
+ MEPROP UID '499C388A00BB'
+ MEPROP Name 'DrawMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499C38220140 // TMessageOnDesktop
+ ;
+ MELIST Parameters
+   Seq: ( ME_499C389102C5 // aMsg
+ )
+ ; // Parameters
+
+ENDME // ME_499C388A00BB DrawMessage
+
+ME ME_499C38B30357
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C38220140 // TMessageOnDesktop
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_499C38B30357 
+
+ME ME_499C3AC10106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C38220140 // TMessageOnDesktop
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ ;
+
+ENDME // ME_499C3AC10106 
+
+ME ME_479731C50290_ME_499C38220140
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_499C38220140 Cleanup
+
+ME ME_499C38220140
+ MEPROP UID '499C38220140'
+ MEPROP Name 'TMessageOnDesktop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499C380102CF // TestHelpers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.ms.model.script' // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499C389C0050 // hDC
+ HWL ME_499C38A5001E // hFont
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_499C387E0015 // Create
+ HWL ME_499C388A00BB // DrawMessage
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_499C38220140 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_499C38B30357 // Windows
+ ME_499C3AC10106 // Colors
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MessageOnDesktop.pas'
+ UP extprop:rc:SelfName 'MessageOnDesktop'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MessageOnDesktop'
+
+ENDME // ME_499C38220140 TMessageOnDesktop
+
+FORWARD ME_499C3E6803D8
+
+ME ME_499C3EA1029F
+ MEPROP Name 'Delimiter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482C48430205' '4AB0C3C60310.ms.model.script' // Char
+ ;
+
+ENDME // ME_499C3EA1029F Delimiter
+
+ME ME_499C3EA102B6
+ MEPROP Name 'Input'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_499C3EA102B6 Input
+
+ME ME_499C3EA102D0
+ MEPROP Name 'Strings'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E21A8A0324' '4AB0997B00A2.ms.model.script' // TStrings
+ ;
+
+ENDME // ME_499C3EA102D0 Strings
+
+ME ME_499C3E8E03D8
+ MEPROP UID '499C3E8E03D8'
+ MEPROP Name 'Split'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499C3E6803D8 // TestStringUtils
+ ;
+ MELIST Parameters
+   Seq: ( ME_499C3EA1029F // Delimiter
+ ME_499C3EA102B6 // Input
+ ME_499C3EA102D0 // Strings
+ )
+ ; // Parameters
+
+ENDME // ME_499C3E8E03D8 Split
+
+ME ME_499C3E6803D8
+ MEPROP UID '499C3E6803D8'
+ MEPROP Name 'TestStringUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Работа со строками' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499C380102CF // TestHelpers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_499C3E8E03D8 // Split
+ )
+ ; // Operations
+ UP "author" 'ГК'
+ UP "no hands" true
+ UP "started" 'давно'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\TestStringUtils.pas'
+
+ENDME // ME_499C3E6803D8 TestStringUtils
+
+ME ME_499C380102CF
+ MEPROP UID '499C380102CF'
+ MEPROP Name 'TestHelpers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Штучки для ГК не завязанные на адаптер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499AEC6A0372' '499AEC6A0372.ms.model.script' // F1Test
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499C38220140 // TMessageOnDesktop
+ HWL ME_499C3E6803D8 // TestStringUtils
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+
+ENDME // ME_499C380102CF TestHelpers

@@ -1,0 +1,30 @@
+// Core 46E801C00348 MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_46E801C00348
+ MEPROP UID '46E801C00348'
+ MEPROP Name 'Core'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'Общее описание' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4734A46F005D' '4734A46F005D.ms.model.script' // CoreTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_46E8051A0106' '46E8051A0106.ms.model.script' // Support
+ WL 'ME_470481B700FA' '470481B700FA.ms.model.script' // UML
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CoreTemplates\Core'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E801C00348 Core

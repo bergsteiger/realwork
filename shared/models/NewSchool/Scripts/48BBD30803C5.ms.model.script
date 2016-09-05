@@ -1,0 +1,198 @@
+// TafwTextControlPrim 48BBD30803C5 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BBD30803C5
+
+ME ME_48BBF0D70131
+ MEPROP UID '48BBF0D70131'
+ MEPROP Name 'CCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELINK Target WL 'ME_4683C9110178' '467823B7002C.ms.model.script' // IafwCString
+ ;
+ UP "needs field" false
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_48BBF0D70131 CCaption
+
+ME ME_48BBF34A018A
+ MEPROP UID '48BBF34A018A'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELINK Target WL 'ME_46A616080197' '4677FBA70343.ms.model.script' // Tl3DString
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_48BBF34A018A Caption
+
+ME ME_48BBE8D40192
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_48BBE8D40192 Msg
+
+ME ME_48BBE8CB00B3
+ MEPROP UID '48BBE8CB00B3'
+ MEPROP Name 'WMGetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_48BBE8D40192 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GetText'
+
+ENDME // ME_48BBE8CB00B3 WMGetText
+
+ME ME_48BBE8E40163
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_48BBE8E40163 Msg
+
+ME ME_48BBE8DD0385
+ MEPROP UID '48BBE8DD0385'
+ MEPROP Name 'WMGetTextLength'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_48BBE8E40163 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GetTextLength'
+
+ENDME // ME_48BBE8DD0385 WMGetTextLength
+
+ME ME_48BBE90B02EB
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_48BBE90B02EB Msg
+
+ME ME_48BBE90600CF
+ MEPROP UID '48BBE90600CF'
+ MEPROP Name 'WMSetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_48BBE90B02EB // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SetText'
+
+ENDME // ME_48BBE90600CF WMSetText
+
+ME ME_48BBEED900FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_48BBEED900FF 
+
+ME ME_48BBEF3F0268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_48BBEF3F0268 
+
+ME ME_48BBF5080003
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48BBD30803C5 // TafwTextControlPrim
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48BBF5080003 
+
+ME ME_479731C50290_ME_48BBD30803C5
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48BBD30803C5 Cleanup
+
+ME ME_48BBD30803C5
+ MEPROP UID '48BBD30803C5'
+ MEPROP Name 'TafwTextControlPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_467BA96E003C' '467BA96E003C.ms.model.script' // TafwControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48BBF0D70131 // CCaption
+ HWL ME_48BBF34A018A // Caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48BBE8CB00B3 // WMGetText
+ HWL ME_48BBE8DD0385 // WMGetTextLength
+ HWL ME_48BBE90600CF // WMSetText
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48BBD30803C5 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48BBEED900FF // SysUtils
+ ME_48BBEF3F0268 // l3String
+ ME_48BBF5080003 // l3Base
+ )
+ ; // Dependencies
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwTextControlPrim.pas'
+ UP extprop:rc:SelfName 'afwTextControlPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwTextControlPrim'
+
+ENDME // ME_48BBD30803C5 TafwTextControlPrim

@@ -1,0 +1,107 @@
+// InpharmMainMenu 550C0EE00301 VCMFormSetFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_550C0EE00301
+
+ME ME_550C0F2603D5
+ MEPROP UID '550C0F2603D5'
+ MEPROP Name 'Main'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_550C0EE00301 // InpharmMainMenu
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BD6DC630189' '4958E868009C.ms.model.script' // ut_mmmMain
+ WL 'ME_4BD96ADF0136' '4BD856E802F9.ms.model.script' // MedicMainMenu
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_550C0D1A00CC' '4AC241AC01FC.ms.model.script' // dsInpharmMainMenuData
+ )
+ ; // Implements
+ UP "ActivateIfUpdate" 'None'
+ UP "Need GetFormCount" false
+ UP "Need OnFormWeight" 'undefined'
+ UP "ZoneType" 'Parent'
+
+ENDME // ME_550C0F2603D5 Main
+
+ME ME_C1D9743E0694
+ MEPROP UID 'C1D9743E0694'
+ MEPROP Name 'Main_Parent_ut_mmmMain_NeedMakeForm'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для Main' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550C0EE00301 // InpharmMainMenu
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.ms.model.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ UPLINK Speller HWL ME_550C0F2603D5 // Main
+ ;
+
+ENDME // ME_C1D9743E0694 Main_Parent_ut_mmmMain_NeedMakeForm
+
+ME ME_47A042E100E2_ME_550C0EE00301
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_550C0EE00301 InitFields
+
+ME ME_4FFE854A009B_ME_550C0EE00301
+ MELINK Original WL 'ME_4FFE854A009B' '47B9727603BE.ms.model.script' // GetInstance
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDME // ME_4FFE854A009B_ME_550C0EE00301 GetInstance
+
+ME ME_550C0EE00301
+ MEPROP UID '550C0EE00301'
+ MEPROP Name 'InpharmMainMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormSetFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA0D66F0159' '4AA0D66F0159.ms.model.script' // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_C1D9743E0694 // Main_Parent_ut_mmmMain_NeedMakeForm
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_550C0EE00301 // InitFields
+ ME_4FFE854A009B_ME_550C0EE00301 // GetInstance
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_550C0F2603D5 // Main
+ )
+ ; // Children
+ UP "DefaultStatusForm" '-1'
+ UP "Need GetMainCaption" false
+ UP "Need GetMainImageIndex" false
+ UP "finished dfm" true
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsInpharmMainMenu.pas'
+ UP extprop:pas:TypeName 'Tfs_InpharmMainMenu'
+ UP extprop:rc:SelfName 'fs_InpharmMainMenu'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'fsInpharmMainMenu'
+ UP extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''Main'', vcm_ztParent, fm_en_MedicMainMenu) do'#13#10' begin'#13#10'  UserType := ut_mmmMain;'#13#10'  OnNeedMakeForm := MainParentUtMmmMainNeedMakeForm;'#13#10' end;'#13#10' OwnerForm := 0;'
+
+ENDME // ME_550C0EE00301 InpharmMainMenu

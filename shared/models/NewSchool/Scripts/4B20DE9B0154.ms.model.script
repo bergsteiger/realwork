@@ -1,0 +1,93 @@
+// StatusBar 4B20DE9B0154 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B20DE9B0154
+
+FORWARD ME_4B20DEB600D5
+
+ME ME_4C8103FB02FD
+ MEPROP UID '4C8103FB02FD'
+ MEPROP Name 'Analize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Анализ списка...' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B20DEB600D5 // Selection
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C8103FB02FD Analize
+
+ME ME_4C46EB11016B
+ MEPROP UID '4C46EB11016B'
+ MEPROP Name 'CopyToNewList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B20DEB600D5 // Selection
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C46EB11016B CopyToNewList
+
+ME ME_4B20DEB600D5
+ MEPROP UID '4B20DEB600D5'
+ MEPROP Name 'Selection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделенные элементы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B20DE9B0154 // StatusBar
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8103FB02FD // Analize
+ HWL ME_4C46EB11016B // CopyToNewList
+ )
+ ; // Operations
+
+ENDME // ME_4B20DEB600D5 Selection
+
+ME ME_4B20DE9B0154
+ MEPROP UID '4B20DE9B0154'
+ MEPROP Name 'StatusBar'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9BEFA00301' '4A9BEFA00301.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B20DEB600D5 // Selection
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_StatusBar_Controls.pas'
+ UP extprop:pas:UnitName 'WorkWithList_StatusBar_Controls'
+
+ENDME // ME_4B20DE9B0154 StatusBar

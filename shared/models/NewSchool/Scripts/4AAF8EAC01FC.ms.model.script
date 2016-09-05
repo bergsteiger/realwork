@@ -1,0 +1,93 @@
+// PrintDialog 4AAF8EAC01FC VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAF8EAC01FC
+
+ME ME_5E53BABDF58D
+ MEPROP UID '5E53BABDF58D'
+ MEPROP Name 'ut_PrintDialog'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'PrintDialog' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF8EAC01FC // PrintDialog
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrintDialog_ut_PrintDialog_UserType.pas'
+ UP extprop:pas:UnitName 'PrintDialog_ut_PrintDialog_UserType'
+
+ENDME // ME_5E53BABDF58D ut_PrintDialog
+
+ME ME_4B9FBF8C015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF8EAC01FC // PrintDialog
+ ;
+ MELINK Target WL 'ME_4B9FBF5A021A' '47EA946A0315.ms.model.script' // Tl3RangeManager
+ ;
+
+ENDME // ME_4B9FBF8C015A 
+
+ME ME_4AC6228101B1_ME_4AAF8EAC01FC
+ MELINK Original WL 'ME_4AC6228101B1' '4AAF8E8701C9.ms.model.script' // UpdateState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC6228101B1_ME_4AAF8EAC01FC UpdateState
+
+ME ME_4AF8271C0033_ME_4AAF8EAC01FC
+ MELINK Original WL 'ME_4AF8271C0033' '4AAF8E8701C9.ms.model.script' // UpdatePrintersList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AF8271C0033_ME_4AAF8EAC01FC UpdatePrintersList
+
+ME ME_4AAF8EAC01FC
+ MEPROP UID '4AAF8EAC01FC'
+ MEPROP Name 'PrintDialog'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA931390118' '4AA931390118.ms.model.script' // CommonSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C52BA5D01A8' '4C52BA5D01A8.ms.model.script' // PrimPrintDialogOptions
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4AC6228101B1_ME_4AAF8EAC01FC // UpdateState
+ ME_4AF8271C0033_ME_4AAF8EAC01FC // UpdatePrintersList
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_5E53BABDF58D // ut_PrintDialog
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B9FBF8C015A // Tl3RangeManager
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "finished dfm" true
+ UP "form name prefix" 'en_'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '15.09.2009 16:55'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NOT_FINISHED_PrintDialog_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ UP extprop:pas:TypeName 'Ten_PrintDialog'
+ UP extprop:rc:SelfName 'en_PrintDialog'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrintDialog_Form'
+
+ENDME // ME_4AAF8EAC01FC PrintDialog

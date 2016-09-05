@@ -1,0 +1,117 @@
+// Main 4F6AEAE5007B VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6AEAE5007B
+
+ME ME_A8FD32960190
+ MEPROP UID 'A8FD32960190'
+ MEPROP Name 'ut_Main'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'НЕ Роза' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6AEAE5007B // Main
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'MDProcess\NewGen\Main_ut_Main_UserType.pas'
+ UP extprop:pas:UnitName 'Main_ut_Main_UserType'
+
+ENDME // ME_A8FD32960190 ut_Main
+
+ME ME_D8C3E0B6746B
+ MEPROP UID 'D8C3E0B6746B'
+ MEPROP GUID '45D03D24-01B1-4C43-89B5-AF75285241AE'
+ MEPROP Name 'Main'
+ MEPROP OriginalName 'Main$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы Main' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6AEAE5007B // Main
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4F6AEAE5007B // Main
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'MainFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_D8C3E0B6746B Main$Def
+
+ME ME_4732628682FD
+ MEPROP UID '4732628682FD'
+ MEPROP Name 'Ini_FormFactory_Main'
+ MEPROP OriginalName 'Ini_FormFactory_Main$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Main' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6AEAE5007B // Main
+ ;
+ UPLINK SpelledFor HWL ME_4F6AEAE5007B // Main
+ ;
+
+ENDME // ME_4732628682FD Ini_FormFactory_Main$Def
+
+ME ME_47A042E100E2_ME_4F6AEAE5007B
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4F6AEAE5007B InitFields
+
+ME ME_4F6AEAE5007B
+ MEPROP UID '4F6AEAE5007B'
+ MEPROP Name 'Main'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMMainForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'НЕ Роза' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6AE4A6014D' '4F6AE4A6014D.ms.model.script' // NewGen
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F6B6E380367' '4F6B6E380367.ms.model.script' // NewGenMainPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_D8C3E0B6746B // Main$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4732628682FD // Ini_FormFactory_Main$Def
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4F6AEAE5007B // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_A8FD32960190 // ut_Main
+ HWL ME_D8C3E0B6746B // Main$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'MDProcess\NewGen\Main_Form.pas'
+ UP extprop:pas:TypeName 'TMainForm'
+ UP extprop:rc:SelfName 'MainForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Main_Form'
+
+ENDME // ME_4F6AEAE5007B Main

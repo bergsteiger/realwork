@@ -1,0 +1,429 @@
+// PrimMain 4A92BD85004D VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A92BD85004D
+
+FORWARD ME_4EB148110130
+
+FORWARD ME_4EB148230290
+
+FORWARD ME_4EB148D2015E
+
+ME ME_4EB14915018A
+ MEPROP UID '4EB14915018A'
+ MEPROP Name 'Exit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выйти''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EB148D2015E // Choices
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_4EB14915018A Exit
+
+ME ME_4EB1492F0013
+ MEPROP UID '4EB1492F0013'
+ MEPROP Name 'Stay'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Продолжить работу''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EB148D2015E // Choices
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_4EB1492F0013 Stay
+
+ME ME_4EB148D2015E
+ MEPROP UID '4EB148D2015E'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EB148230290 // MayExit
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EB14915018A // Exit
+ HWL ME_4EB1492F0013 // Stay
+ )
+ ; // Children
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4EB148D2015E Choices
+
+ME ME_4EB14947032E
+ MEPROP UID '4EB14947032E'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4EB148230290 // MayExit
+ ;
+ MELINK Target HWL ME_4EB14915018A // Exit
+ ;
+
+ENDME // ME_4EB14947032E 
+
+ME ME_4EB148230290
+ MEPROP UID '4EB148230290'
+ MEPROP Name 'MayExit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Вы уверены, что хотите закрыть систему %s?''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EB148110130 // Local
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4EB14947032E // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4EB148D2015E // Choices
+ )
+ ; // Children
+ UP "AutoInc" false
+ UP "CheckCaption" 'Всегда выходить без подтверждения'
+ UP "DlgType" 'Confirmation'
+ UP "LongHint" 'Подтверждение при выходе из системы'
+ UP "NeedCheck" true
+ UP "SettingsCaption" 'Выход из системы'
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_4EB148230290 MayExit
+
+ME ME_4EB14D26039E
+ MEPROP UID '4EB14D26039E'
+ MEPROP Name 'ApplicationName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB148110130 // Local
+ ;
+ MEPROP Value '''ГАРАНТ'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''ГАРАНТ'''
+
+ENDME // ME_4EB14D26039E ApplicationName
+
+ME ME_61DFBAD9D7DA
+ MEPROP UID '61DFBAD9D7DA'
+ MEPROP Name 'MayExit_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB148110130 // Local
+ ;
+ MEPROP Value '''Всегда выходить без подтверждения'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Всегда выходить без подтверждения'''
+
+ENDME // ME_61DFBAD9D7DA MayExit_CheckCaption
+
+ME ME_89EC5D0A026E
+ MEPROP UID '89EC5D0A026E'
+ MEPROP Name 'MayExit_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB148110130 // Local
+ ;
+ MEPROP Value '''Выход из системы'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Выход из системы'''
+
+ENDME // ME_89EC5D0A026E MayExit_SettingsCaption
+
+ME ME_FE3BE2AB73F5
+ MEPROP UID 'FE3BE2AB73F5'
+ MEPROP Name 'MayExit_LongHint'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB148110130 // Local
+ ;
+ MEPROP Value '''Подтверждение при выходе из системы'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Подтверждение при выходе из системы'''
+
+ENDME // ME_FE3BE2AB73F5 MayExit_LongHint
+
+ME ME_4EB148110130
+ MEPROP UID '4EB148110130'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4EB14D26039E // ApplicationName
+ HWL ME_61DFBAD9D7DA // MayExit_CheckCaption
+ HWL ME_89EC5D0A026E // MayExit_SettingsCaption
+ HWL ME_FE3BE2AB73F5 // MayExit_LongHint
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4EB148230290 // MayExit
+ )
+ ; // Children
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4EB148110130 Local
+
+FORWARD ME_3617045CF99C
+
+ME ME_E78A0FE428C9
+ MEPROP UID 'E78A0FE428C9'
+ MEPROP Name 'MayExit_Choice_Exit'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Выйти''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_3617045CF99C // LCImpl_MayExit_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Exit''; rValue : ''Выйти'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Exit''; rValue : ''Выйти'')'
+ UPLINK Speller HWL ME_4EB14915018A // Exit
+ ;
+
+ENDME // ME_E78A0FE428C9 MayExit_Choice_Exit
+
+ME ME_84224545092A
+ MEPROP UID '84224545092A'
+ MEPROP Name 'MayExit_Choice_Stay'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Продолжить работу''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_3617045CF99C // LCImpl_MayExit_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Stay''; rValue : ''Продолжить работу'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MayExit_Choice_Stay''; rValue : ''Продолжить работу'')'
+ UPLINK Speller HWL ME_4EB1492F0013 // Stay
+ ;
+
+ENDME // ME_84224545092A MayExit_Choice_Stay
+
+ME ME_3617045CF99C
+ MEPROP UID '3617045CF99C'
+ MEPROP Name 'LCImpl_MayExit_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога MayExit' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_E78A0FE428C9 // MayExit_Choice_Exit
+ HWL ME_84224545092A // MayExit_Choice_Stay
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefixBase 'str'
+ UP extprop:pas:ElementPrefix 'str_'
+ UPLINK Speller HWL ME_4EB148D2015E // Choices
+ ;
+
+ENDME // ME_3617045CF99C LCImpl_MayExit_Choices
+
+ME ME_4ADDD2D302D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4ADDD2D302D3 
+
+ME ME_4D38354F0238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELINK Target WL 'ME_47ECE41C00D2' '4799D29F033F.ms.model.script' // TApplication
+ ;
+
+ENDME // ME_4D38354F0238 
+
+ME ME_4F72E1E703E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELINK Target WL 'ME_4F6B670E017C' '4F6B66F8001B.ms.model.script' // Child
+ ;
+
+ENDME // ME_4F72E1E703E1 
+
+ME ME_53AC0B240161
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELINK Target WL 'ME_53AC08C900D0' '53AC08AA02C7.ms.model.script' // TnsCustomStyleProcessor
+ ;
+
+ENDME // ME_53AC0B240161 
+
+ME ME_93E42B9C7594
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_93E42B9C7594 
+
+ME ME_00298B30F93E
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A92BD85004D // PrimMain
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_00298B30F93E 
+
+ME ME_49803F5503AA_ME_4A92BD85004D
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4A92BD85004D DoInit
+
+ME ME_4ADDD31E0091_ME_4A92BD85004D
+ MELINK Original WL 'ME_4ADDD31E0091' '4ADDD3030251.ms.model.script' // NeedTerminateOnExit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4ADDD31E0091_ME_4A92BD85004D NeedTerminateOnExit
+
+ME ME_4ADDD5A30139_ME_4A92BD85004D
+ MELINK Original WL 'ME_4ADDD5A30139' '4ADDD3030251.ms.model.script' // AskMayExit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4ADDD5A30139_ME_4A92BD85004D AskMayExit
+
+ME ME_4B321D1301DD_ME_4A92BD85004D
+ MELINK Original WL 'ME_4B321D1301DD' '4799D29F033F.ms.model.script' // DoShow
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B321D1301DD_ME_4A92BD85004D DoShow
+
+ME ME_4F71FA8102BF_ME_4A92BD85004D
+ MELINK Original WL 'ME_4F71FA8102BF' '4F6B382E00D9.ms.model.script' // ActivateDefKeyboardLayout
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F71FA8102BF_ME_4A92BD85004D ActivateDefKeyboardLayout
+
+ME ME_4A92BD85004D
+ MEPROP UID '4A92BD85004D'
+ MEPROP Name 'PrimMain'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMMainForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Главная форма. Общая для всех приложений F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A92BBDF0126' '4A92BBDF0126.ms.model.script' // PrimF1
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F6B382E00D9' '4F6B382E00D9.ms.model.script' // MainPrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4A92BD85004D // DoInit
+ ME_4ADDD31E0091_ME_4A92BD85004D // NeedTerminateOnExit
+ ME_4ADDD5A30139_ME_4A92BD85004D // AskMayExit
+ ME_4B321D1301DD_ME_4A92BD85004D // DoShow
+ ME_4F71FA8102BF_ME_4A92BD85004D // ActivateDefKeyboardLayout
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4EB148110130 // Local
+ HWL ME_3617045CF99C // LCImpl_MayExit_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4ADDD2D302D3 // DataAdapter
+ ME_4D38354F0238 // TApplication
+ ME_4F72E1E703E1 // Child
+ ME_53AC0B240161 // TnsCustomStyleProcessor
+ ME_93E42B9C7594 // Tl3StringIDEx
+ ME_00298B30F93E // Tl3MessageID
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimMain_Form.pas'
+ UP extprop:pas:TypeName 'TPrimMainForm'
+ UP extprop:rc:SelfName 'PrimMainForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimMain_Form'
+
+ENDME // ME_4A92BD85004D PrimMain

@@ -1,0 +1,534 @@
+// l3IID 478CF8070260 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_478CF8070260
+
+FORWARD ME_478CF883039E
+
+ME ME_478CF895004F
+ MEPROP UID '478CF895004F'
+ MEPROP Name 'IID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_478CF883039E // Tl3_IID
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_478CF895004F IID
+
+ME ME_478CF883039E
+ MEPROP UID '478CF883039E'
+ MEPROP Name 'Tl3_IID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478CF8070260 // l3IID
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_478CF895004F // IID
+ )
+ ; // Attributes
+ UP "not treat as record for XE4" true
+ UP "packed" true
+ UP extprop:rc:SelfName '_IID'
+
+ENDME // ME_478CF883039E Tl3_IID
+
+FORWARD ME_478CF8A20368
+
+ME ME_478CF8B803D0
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_478CF883039E // Tl3_IID
+ ;
+
+ENDME // ME_478CF8B803D0 anID
+
+ME ME_478CF8B1002E
+ MEPROP UID '478CF8B1002E'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478CF8A20368 // Tl3IID
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_478CF8B803D0 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_478CF8B1002E EQ
+
+ME ME_478CF8A20368
+ MEPROP UID '478CF8A20368'
+ MEPROP Name 'Tl3IID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478CF8070260 // l3IID
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_478CF883039E // Tl3_IID
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_478CF8B1002E // EQ
+ )
+ ; // Operations
+ UP "not treat as record for XE4" true
+ UP "packed" true
+ UP extprop:rc:SelfName 'IID'
+
+ENDME // ME_478CF8A20368 Tl3IID
+
+FORWARD ME_478CF8C200EB
+
+ME ME_478CF8DD01EB
+ MEPROP UID '478CF8DD01EB'
+ MEPROP Name 'IID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_478CF8C200EB // Tl3_GUID
+ ;
+ MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_478CF8DD01EB IID
+
+ME ME_478CF8C200EB
+ MEPROP UID '478CF8C200EB'
+ MEPROP Name 'Tl3_GUID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект-обертка вокруг GUID (без методов).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478CF8070260 // l3IID
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_478CF8DD01EB // IID
+ )
+ ; // Attributes
+ UP "not treat as record for XE4" true
+ UP "packed" true
+ UP extprop:rc:SelfName '_GUID'
+
+ENDME // ME_478CF8C200EB Tl3_GUID
+
+FORWARD ME_478CF97C01EB
+
+ME ME_478CF99202E5
+ MEPROP UID '478CF99202E5'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_478CF97C01EB // array of TGUID
+ ;
+ MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_478CF99202E5 
+
+ME ME_478CF97C01EB
+ MEPROP UID '478CF97C01EB'
+ MEPROP Name 'array of TGUID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список GUID''ов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478CF8070260 // l3IID
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_478CF99202E5 // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_478CF97C01EB array of TGUID
+
+FORWARD ME_478CF8F202C7
+
+ME ME_478CF90F027D
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_478CF8C200EB // Tl3_GUID
+ ;
+
+ENDME // ME_478CF90F027D anID
+
+ME ME_478CF90801FE
+ MEPROP UID '478CF90801FE'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ %SUMMARY 'сравнить совпадение GUID''ов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478CF8F202C7 // Tl3GUID
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_478CF90F027D // anID
+ )
+ ; // Parameters
+
+ENDME // ME_478CF90801FE EQ
+
+ME ME_478CF91D0220
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_478CF91D0220 anID
+
+ME ME_478CF919003A
+ MEPROP UID '478CF919003A'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ %SUMMARY 'сравнить совпадение GUID''ов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478CF8F202C7 // Tl3GUID
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_478CF91D0220 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_478CF919003A EQ
+
+ME ME_478CF9B7036E
+ MEPROP Name 'GUIDs'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_478CF97C01EB // array of TGUID
+ ;
+
+ENDME // ME_478CF9B7036E GUIDs
+
+ME ME_478CF9A1010D
+ MEPROP UID '478CF9A1010D'
+ MEPROP Name 'SomeOf'
+ MEPROP Class class_Operation
+ %SUMMARY 'идентификатор один из GUIDs?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478CF8F202C7 // Tl3GUID
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_478CF9B7036E // GUIDs
+ )
+ ; // Parameters
+
+ENDME // ME_478CF9A1010D SomeOf
+
+ME ME_4942796A013C
+ MEPROP Name 'anIID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_4942796A013C anIID
+
+ME ME_4942795A0282
+ MEPROP UID '4942795A0282'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478CF8F202C7 // Tl3GUID
+ ;
+ MELIST Parameters
+   Seq: ( ME_4942796A013C // anIID
+ )
+ ; // Parameters
+
+ENDME // ME_4942795A0282 C
+
+ME ME_478CF8F202C7
+ MEPROP UID '478CF8F202C7'
+ MEPROP Name 'Tl3GUID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект-обертка вокруг GUID.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478CF8070260 // l3IID
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_478CF8C200EB // Tl3_GUID
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_478CF90801FE // EQ
+ HWL ME_478CF919003A // EQ
+ HWL ME_478CF9A1010D // SomeOf
+ HWL ME_4942795A0282 // C
+ )
+ ; // Operations
+ UP "not treat as record for XE4" true
+ UP "packed" true
+ UP extprop:rc:SelfName 'GUID'
+
+ENDME // ME_478CF8F202C7 Tl3GUID
+
+FORWARD ME_49427DEE015B
+
+ME ME_49427E18023D
+ MEPROP UID '49427E18023D'
+ MEPROP Name 'f_Res'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Собственно код результата' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_49427DEE015B // Tl3HResult
+ ;
+ MELINK Target WL 'ME_472094E70218' '4AB0C3C60310.ms.model.script' // hResult
+ ;
+
+ENDME // ME_49427E18023D f_Res
+
+ME ME_49427EB903DB
+ MEPROP UID '49427EB903DB'
+ MEPROP Name 'Ok'
+ MEPROP Class class_Operation
+ %SUMMARY 'Результат успешен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49427DEE015B // Tl3HResult
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49427EB903DB Ok
+
+ME ME_49427ED200F2
+ MEPROP UID '49427ED200F2'
+ MEPROP Name 'Fail'
+ MEPROP Class class_Operation
+ %SUMMARY 'Результат неуспешен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49427DEE015B // Tl3HResult
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49427ED200F2 Fail
+
+ME ME_49427F010006
+ MEPROP Name 'aRes'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_472094E70218' '4AB0C3C60310.ms.model.script' // hResult
+ ;
+
+ENDME // ME_49427F010006 aRes
+
+ME ME_49427EEF0016
+ MEPROP UID '49427EEF0016'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49427DEE015B // Tl3HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_49427F010006 // aRes
+ )
+ ; // Parameters
+
+ENDME // ME_49427EEF0016 C
+
+ME ME_49427F5D038D
+ MEPROP UID '49427F5D038D'
+ MEPROP Name 'SetOk'
+ MEPROP Class class_Operation
+ %SUMMARY 'Установить в S_Ok' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49427DEE015B // Tl3HResult
+ ;
+
+ENDME // ME_49427F5D038D SetOk
+
+ME ME_49427F6D03CB
+ MEPROP UID '49427F6D03CB'
+ MEPROP Name 'SetNoInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'Установить в E_NoInterface' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49427DEE015B // Tl3HResult
+ ;
+
+ENDME // ME_49427F6D03CB SetNoInterface
+
+ME ME_494283D90043
+ MEPROP UID '494283D90043'
+ MEPROP Name 'Res'
+ MEPROP Class class_Operation
+ %SUMMARY 'Собственно результат' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49427DEE015B // Tl3HResult
+ ;
+ MELINK Target WL 'ME_472094E70218' '4AB0C3C60310.ms.model.script' // hResult
+ ;
+
+ENDME // ME_494283D90043 Res
+
+ME ME_49427DEE015B
+ MEPROP UID '49427DEE015B'
+ MEPROP Name 'Tl3HResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат COM-операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478CF8070260 // l3IID
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49427E18023D // f_Res
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49427EB903DB // Ok
+ HWL ME_49427ED200F2 // Fail
+ HWL ME_49427EEF0016 // C
+ HWL ME_49427F5D038D // SetOk
+ HWL ME_49427F6D03CB // SetNoInterface
+ HWL ME_494283D90043 // Res
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'HResult'
+
+ENDME // ME_49427DEE015B Tl3HResult
+
+FORWARD ME_53CE6449012F
+
+ME ME_53CE646D021D
+ MEPROP UID '53CE646D021D'
+ MEPROP Name 'ev_iidCursor'
+ MEPROP Class class_Attribute
+ %SUMMARY 'курсор объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CE6449012F // OldGUIDS
+ ;
+ MELINK Target HWL ME_478CF8A20368 // Tl3IID
+ ;
+ MEPROP Value '(IID: 0)'
+ MELINK ValueType HWL ME_478CF8A20368 // Tl3IID
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(IID: 0)'
+
+ENDME // ME_53CE646D021D ev_iidCursor
+
+ME ME_53CE648603B9
+ MEPROP UID '53CE648603B9'
+ MEPROP Name 'ev_iidBlock'
+ MEPROP Class class_Attribute
+ %SUMMARY 'выделение части объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CE6449012F // OldGUIDS
+ ;
+ MELINK Target HWL ME_478CF8A20368 // Tl3IID
+ ;
+ MEPROP Value '(IID: 1)'
+ MELINK ValueType HWL ME_478CF8A20368 // Tl3IID
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(IID: 1)'
+
+ENDME // ME_53CE648603B9 ev_iidBlock
+
+ME ME_53CE6449012F
+ MEPROP UID '53CE6449012F'
+ MEPROP Name 'OldGUIDS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478CF8070260 // l3IID
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53CE646D021D // ev_iidCursor
+ HWL ME_53CE648603B9 // ev_iidBlock
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_53CE6449012F OldGUIDS
+
+ME ME_478CF8070260
+ MEPROP UID '478CF8070260'
+ MEPROP Name 'l3IID'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Объект-обертка вокруг GUID' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ ;
+ MELIST Children
+   Seq: ( HWL ME_478CF883039E // Tl3_IID
+ HWL ME_478CF8A20368 // Tl3IID
+ HWL ME_478CF8C200EB // Tl3_GUID
+ HWL ME_478CF97C01EB // array of TGUID
+ HWL ME_478CF8F202C7 // Tl3GUID
+ HWL ME_49427DEE015B // Tl3HResult
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_53CE6449012F // OldGUIDS
+ )
+ ; // Constants
+ UP "UseNewGen" true
+ UP "author" 'Люлин А.В. ©'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '23.09.1999 14:32'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3IID.pas'
+
+ENDME // ME_478CF8070260 l3IID

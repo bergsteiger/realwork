@@ -1,0 +1,109 @@
+// BaseSearchPresentationFor296635421 4EB7BDAB01D0 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EB7BDAB01D0
+
+FORWARD ME_57AD7BC3004F
+
+ME ME_57AD7D3A0050
+ MEPROP Name 'aFromHistory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57AD7D3A0050 aFromHistory
+
+ME ME_57AD7BDC03D3
+ MEPROP UID '57AD7BDC03D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD7BC3004F // NeedDropActiveClass
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AD7D3A0050 // aFromHistory
+ )
+ ; // Parameters
+
+ENDME // ME_57AD7BDC03D3 DoIt
+
+ME ME_57AD7BC3004F
+ MEPROP UID '57AD7BC3004F'
+ MEPROP Name 'NeedDropActiveClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EB7BDAB01D0 // BaseSearchPresentationFor296635421
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AD7BDC03D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57AD7BC3004F NeedDropActiveClass
+
+ME ME_572AF0D300B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EB7BDAB01D0 // BaseSearchPresentationFor296635421
+ ;
+ MELINK Target WL 'ME_559BA19C0076' '553893E60323.ms.model.script' // TvcmHistoryService
+ ;
+
+ENDME // ME_572AF0D300B6 
+
+ME ME_49803F5503AA_ME_4EB7BDAB01D0
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4EB7BDAB01D0 DoInit
+
+ME ME_4EB7BDAB01D0
+ MEPROP UID '4EB7BDAB01D0'
+ MEPROP Name 'BaseSearchPresentationFor296635421'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AD5E6A60262' '4AD5E6A60262.ms.model.script' // BaseSearchPresentation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EB7BA320128' '484FA67302D7.ms.model.script' // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_57AD7BC3004F // NeedDropActiveClass
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4EB7BDAB01D0 // DoInit
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_572AF0D300B6 // TvcmHistoryService
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas'
+ UP extprop:pas:TypeName '_BaseSearchPresentationFor296635421_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseSearchPresentationFor296635421.imp'
+
+ENDME // ME_4EB7BDAB01D0 BaseSearchPresentationFor296635421

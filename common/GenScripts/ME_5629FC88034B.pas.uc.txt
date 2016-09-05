@@ -3,6 +3,7 @@
  FreeAndNil(f_UserStatusChangedSubscriberList);
  FreeAndNil(f_AllUsers);
  FreeAndNil(f_AllGroups);
+ FreeAndNil(f_CacheActiveUserList);
  f_PasswordQuery := nil;
  f_UserFlagsQuery := nil;
  f_UserNameQuery := nil;
@@ -10,7 +11,15 @@
  f_PriorityCalculator := nil;
  f_AllArchiUsersQuery := nil;
  f_AllGroupsQuery := nil;
+ f_IsMemberOfGroupQuery := nil;
+ f_UserGroupsQuery := nil;
+ f_GroupUsersQuery := nil;
  f_Factory := nil;
+ f_Journal := nil;
+ FreeAndNil(f_GroupModifier);
+ FreeAndNil(f_FunctionFactory);
+ FreeAndNil(f_FreeIDHelperHolder);
+ FreeAndNil(f_Connection);
  inherited;
 //#UC END# *479731C50290_5629FC88034B_impl*
 //#UC START# *479731C50290_5629FC88034B_var*
@@ -59,12 +68,17 @@ var
  l_ResultSet: IdaResultSet;
  l_Flags: Byte;
 //#UC END# *5628D14D0151_5629FC88034B_var*
-//#UC START# *5629FC88034B_ext:FileName
+//#UC START# *5629FC88034B_ext:ParentFileName
 w:\common\components\rtl\Garant\PG\pgUserManager.pas
-//#UC END# *5629FC88034B_ext:FileName
+//#UC END# *5629FC88034B_ext:ParentFileName
 //#UC START# *562A074E0321_5629FC88034B_impl*
  inherited Create;
- f_Factory := aFactory;
+ f_Factory := aTableFactory;
+ f_Journal := aJournal;
+
+ aConnection.SetRefTo(f_Connection);
+ aFunctionFactory.SetRefTo(f_FunctionFactory);
+ aFreeIDHelperHolder.SetRefTo(f_FreeIDHelperHolder);
 
  f_ArchiUsers := TdaArchiUserList.Create;
  f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
@@ -129,7 +143,7 @@ var
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', 4, 'user_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', cUserIDSize, 'user_name', True);
   finally
    l_ResultSet := nil;
   end;
@@ -150,7 +164,7 @@ var
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', 2, 'group_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', cGroupIDSize, 'group_name', False);
   finally
    l_ResultSet := nil;
   end;
@@ -163,105 +177,14 @@ var
  l_Query: IdaTabledQuery;
  l_ResultSet: IdaResultSet;
 //#UC END# *5715E74402CA_5629FC88034B_var*
-//#UC START# *5715E767013D_5629FC88034B_impl*
- theUserID := 0;
- Result := da_leUserParamsWrong;
- if (AnsiLowerCase(aLogin) = c_SupervisorUserName) and not RequireAdminRights then
-  Exit;
- f_PasswordQuery.Param['p_ShortName'].AsString := aLogin;
- l_ResultSet := f_PasswordQuery.OpenResultSet;
- try
-  if l_ResultSet.IsEmpty then
-    Exit;
-  if (l_ResultSet.Field['Password'].AsString <> '') and (not AnsiSameText(l_ResultSet.Field['Password'].AsString, aPassword)) then
-    Exit;
-  theUserID := l_ResultSet.Field['User_ID'].AsLargeInt;
-  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := theUserID;
- finally
-  l_ResultSet := nil;
- end;
-
- if theUserID <> usSupervisor then
- begin
-  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
-  try
-   l_Flags := l_ResultSet.Field['Active'].AsByte;
-   if (l_Flags and usActive) <> usActive then
-    Exit;
-   if RequireAdminRights and ((l_Flags and usAdmin) <> usAdmin) then
-   begin
-    Result := da_leInsufficientRights;
-    Exit;
-   end;
-   Result := da_leOk;
-
-  finally
-   l_ResultSet := nil;
-  end;
- end
- else
-  Result := da_leOk;
-//#UC END# *5715E767013D_5629FC88034B_impl*
-//#UC START# *5715E767013D_5629FC88034B_var*
-var
- l_ResultSet: IdaResultSet;
- l_Flags: Byte;
-//#UC END# *5715E767013D_5629FC88034B_var*
-//#UC START# *5715E78F013E_5629FC88034B_impl*
- Result := (anUserID = usSupervisor);
- if not Result then
- begin
-  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := anUserID;
-  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
-  try
-   Result := not l_ResultSet.IsEmpty and ((l_ResultSet.Field['Active'].AsByte and usAdmin) = usAdmin);
-  finally
-   l_ResultSet := nil;
-  end;
- end;
-//#UC END# *5715E78F013E_5629FC88034B_impl*
-//#UC START# *5715E78F013E_5629FC88034B_var*
-var
- l_ResultSet: IdaResultSet;
-//#UC END# *5715E78F013E_5629FC88034B_var*
 //#UC START# *5715ED0002E0_5629FC88034B_impl*
  aList.SortF(l3LocalStub(@l_CompareUsers));
 //#UC END# *5715ED0002E0_5629FC88034B_impl*
 //#UC START# *5715ED0002E0_5629FC88034B_var*
 
  function l_CompareUsers(I, J: Integer): Integer;
- var
-  l_Reg1, l_Reg2: TdaRegionID;
-  l_Name1, l_Name2: AnsiString;
  begin
-  // сначала сравниваем регионы
-  l_Reg1 := GetUserRegion(TdaUserID(aList.DataInt[I]));
-  l_Reg2 := GetUserRegion(TdaUserID(aList.DataInt[J]));
-  if l_Reg1 <> l_Reg2 then
-  begin
-   // если регион наш, родной, то он должен быть наверху, однозначно!
-   if l_Reg1 = GlobalDataProvider.RegionID then
-   begin
-    Result := -1;
-    Exit;
-   end
-   else
-    if l_Reg2 = GlobalDataProvider.RegionID then
-    begin
-     Result := 1;
-     Exit;
-    end
-  end;
-  // По региону не вышел наверх. Сортируем по имени (к которому название региона уже приклеено)
-  l_Name1 := aList.PasStr[I];
-  l_Name2 := aList.PasStr[J];
-  if l_Name1 < l_Name2 then
-   Result := -1
-  else
-   if l_Name1 > l_Name2 then
-    Result := 1
-   else
-    Result := 0;
+  Result := CompareUsers(TdaUserID(aList.DataInt[I]), aList.PasStr[I], TdaUserID(aList.DataInt[J]), aList.PasStr[J]);
  end;
 
 //#UC END# *5715ED0002E0_5629FC88034B_var*
@@ -274,7 +197,10 @@ var
   while not aResultSet.EOF do
   begin
    l_ID := aResultSet.Field[anIDFieldName].AsLargeInt;
-   Tl3StringDataList(aList).AddStr(aResultSet.Field[aNameFieldName].AsString, @l_ID);
+   l_Name := aResultSet.Field[aNameFieldName].AsString;
+   if AddRegion then
+    l_Name := ConcatRegionAndUserNames(l_ID,  l_Name);
+   aList.AddStr(l_Name, @l_ID);
    aResultSet.Next;
   end;
  finally
@@ -284,6 +210,7 @@ var
 //#UC START# *57172C740069_5629FC88034B_var*
 var
  l_ID: TdaUserID;
+ l_Name: AnsiString;
 //#UC END# *57172C740069_5629FC88034B_var*
 //#UC START# *5718B5CF0399_5629FC88034B_impl*
  UserNameQuery.Param['p_UserID'].AsLargeInt := anUserID;
@@ -365,12 +292,6 @@ var
  end;
 
 //#UC END# *5729DD530330_5629FC88034B_var*
-//#UC START# *57347AFF018E_5629FC88034B_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
-//#UC END# *57347AFF018E_5629FC88034B_impl*
-//#UC START# *57347AFF018E_5629FC88034B_var*
-//#UC END# *57347AFF018E_5629FC88034B_var*
 //#UC START# *57358B940211_5629FC88034B_impl*
  Result := nil;
  if f_ArchiUsers.Count = 0 then
@@ -662,12 +583,9 @@ var
 //#UC START# *575809C5019A_5629FC88034B_var*
 //#UC END# *575809C5019A_5629FC88034B_var*
 //#UC START# *575A8B790353_5629FC88034B_impl*
- Result := False;
- Assert(False);
-//!! !!! Needs to be implemented !!!
-// IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
-// IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
-// l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
+ IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
+ IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
+ l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
  try
   Result := not l_ResultSet.IsEmpty;
  finally
@@ -1274,3 +1192,111 @@ Var
  l_Modifier: TpgTableModifier;
  l_ResultSet: IdaResultSet;
 //#UC END# *5784BE1E02F7_5629FC88034B_var*
+//#UC START# *57A87EF901F3_5629FC88034B_impl*
+ if aUsGroup = 0 then
+  FillAllUsers(aList)
+ else
+ begin
+  l_Query := f_Factory.MakeTabledQuery(
+   f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers), 'u').Join(
+    f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroupMembers), 'm'),
+    da_jkLeftOuter).SetCondition(f_Factory.MakeJoinCondition('u', TdaScheme.Instance.Table(da_mtUsers)['id'], 'm', TdaScheme.Instance.Table(da_mtGroupMembers)['user_id']))
+  );
+  try
+   l_Query.WhereCondition := f_Factory.MakeParamsCondition('m', TdaScheme.Instance.Table(da_mtGroupMembers).Field['group_id'], da_copEqual, 'p_GroupID');
+   if GetActiveUsersOnly then
+    l_Query.WhereCondition := f_Factory.MakeLogicCondition(l_Query.WhereCondition, da_loAnd,
+     f_Factory.MakeBitWiseCondition('u', TdaScheme.Instance.Table(da_mtUsers)['active'], da_bwAnd, usActive));
+   l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['id']));
+   l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+   l_Query.Prepare;
+   l_Query.Param['p_GroupID'].AsLargeInt := aUsGroup;
+   l_ResultSet := l_Query.OpenResultSet;
+   try
+    FillListByResultSet(aList, l_ResultSet, 'id', cUserIDSize, 'user_name', True);
+   finally
+    l_ResultSet := nil;
+   end;
+  finally
+   l_Query := nil;
+  end;
+ end;
+ SortUsersInList(aList);
+//#UC END# *57A87EF901F3_5629FC88034B_impl*
+//#UC START# *57A87EF901F3_5629FC88034B_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
+//#UC END# *57A87EF901F3_5629FC88034B_var*
+//#UC START# *57A9DF2103CE_5629FC88034B_impl*
+ Assert(Self <> nil);
+ if not aOnlyActive then
+ begin
+  l_List := TStringList.Create;
+  try
+   LoadFiltredUserList(l_List, false);
+   aList.Assign(l_List);
+  finally
+   FreeAndNil(l_List);
+  end;
+ end
+ else
+ begin
+  if f_CacheActiveUserList = nil then
+  begin
+   f_CacheActiveUserList := TStringList.Create;
+   LoadFiltredUserList(f_CacheActiveUserList, true);
+  end;
+  aList.Assign(f_CacheActiveUserList);
+ end;
+//#UC END# *57A9DF2103CE_5629FC88034B_impl*
+//#UC START# *57A9DF2103CE_5629FC88034B_var*
+var
+ l_List: TStringList;
+//#UC END# *57A9DF2103CE_5629FC88034B_var*
+//#UC START# *57AAF3DF0284_5629FC88034B_impl*
+ aList.Clear;
+ l_Query := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers), 'u'));
+ try
+  l_Query.WhereCondition := nil;
+  if aOnlyActive then
+   l_Query.WhereCondition := f_Factory.MakeBitWiseCondition('u', TdaScheme.Instance.Table(da_mtUsers)['active'], da_bwAnd, usActive);
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['id']));
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+  l_Query.Prepare;
+  l_ResultSet := l_Query.OpenResultSet;
+  try
+   l_IDField := l_ResultSet.Field['id'];
+   l_NameField := l_ResultSet.Field['user_name'];
+   while not l_ResultSet.EOF do
+   begin
+    aList.AddObject(ConcatRegionAndUserNames(l_IDField.AsLargeInt,  l_NameField.AsString), TObject(l_IDField.AsLargeInt));
+    l_ResultSet.Next;
+   end;
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  l_Query := nil;
+ end;
+ aList.CustomSort(@CompareStringsUser);
+//#UC END# *57AAF3DF0284_5629FC88034B_impl*
+//#UC START# *57AAF3DF0284_5629FC88034B_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
+ l_IDField: IdaField;
+ l_NameField: IdaField;
+//#UC END# *57AAF3DF0284_5629FC88034B_var*
+//#UC START# *57AC28890131_5629FC88034B_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *57AC28890131_5629FC88034B_impl*
+//#UC START# *57AC28890131_5629FC88034B_var*
+//#UC END# *57AC28890131_5629FC88034B_var*
+//#UC START# *57AC289F0257_5629FC88034B_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *57AC289F0257_5629FC88034B_impl*
+//#UC START# *57AC289F0257_5629FC88034B_var*
+//#UC END# *57AC289F0257_5629FC88034B_var*

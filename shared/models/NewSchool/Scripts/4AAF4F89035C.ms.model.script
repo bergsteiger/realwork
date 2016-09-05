@@ -1,0 +1,75 @@
+// AttributeSelect 4AAF4F89035C VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAF4F89035C
+
+ME ME_A2A6C539433F
+ MEPROP UID 'A2A6C539433F'
+ MEPROP Name 'Ini_FormFactory_AttributeSelect'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы AttributeSelect' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF4F89035C // AttributeSelect
+ ;
+ UPLINK SpelledFor HWL ME_4AAF4F89035C // AttributeSelect
+ ;
+
+ENDME // ME_A2A6C539433F Ini_FormFactory_AttributeSelect
+
+ME ME_512207910226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF4F89035C // AttributeSelect
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '54B90AC6014B.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_512207910226 
+
+ME ME_4AAF4F89035C
+ MEPROP UID '4AAF4F89035C'
+ MEPROP Name 'AttributeSelect'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA0EA76017F' '4AA0EA76017F.ms.model.script' // LiteSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C88C855017E' '4C88C855017E.ms.model.script' // PrimAttributeSelectOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D80CF9A02A7' '4D80CDE4033D.ms.model.script' // AttributeSelect
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_A2A6C539433F // Ini_FormFactory_AttributeSelect
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_512207910226 // l3IsNil
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "form name prefix" 'cf'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '15.09.2009 12:26'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\AttributeSelect_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms'
+ UP extprop:pas:TypeName 'TcfAttributeSelect'
+ UP extprop:rc:SelfName 'cfAttributeSelect'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'AttributeSelect_Form'
+
+ENDME // ME_4AAF4F89035C AttributeSelect

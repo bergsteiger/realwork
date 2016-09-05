@@ -1,0 +1,1000 @@
+// GUI 484FA67302D7 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484FA67302D7
+
+FORWARD ME_484FA70A0269
+
+FORWARD ME_4E7C2A4B0369
+
+ME ME_4E7C2A4B0369
+ MEPROP UID '4E7C2A4B0369'
+ MEPROP Name 'Нижняя вкладка основного окна должна иметь фиксированный размер при открытии'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278827108}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484FA70A0269 // Интерфейс системы
+ ;
+
+ENDME // ME_4E7C2A4B0369 Нижняя вкладка основного окна должна иметь фиксированный размер при открытии
+
+ME ME_484FA70A0269
+ MEPROP UID '484FA70A0269'
+ MEPROP Name 'Интерфейс системы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Общие концепции построения интерфейса системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484FA67302D7 // GUI
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E7C2A4B0369 // Нижняя вкладка основного окна должна иметь фиксированный размер при открытии
+ )
+ ; // Children
+
+ENDME // ME_484FA70A0269 Интерфейс системы
+
+ME ME_4856589E0275
+ MEPROP UID '4856589E0275'
+ MEPROP Name 'Панели инструментов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Организация панелей инструментов и их настройка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484FA67302D7 // GUI
+ ;
+
+ENDME // ME_4856589E0275 Панели инструментов
+
+FORWARD ME_4D5A1A0703BB
+
+FORWARD ME_4D5A1A4F0149
+
+FORWARD ME_4E787ED60292
+
+ME ME_4E787ED60292
+ MEPROP UID '4E787ED60292'
+ MEPROP Name 'Псевдонадпись и пример в БП должны быть склеены'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:272663344}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A4F0149 // Интерфейс Базового поиска
+ ;
+
+ENDME // ME_4E787ED60292 Псевдонадпись и пример в БП должны быть склеены
+
+ME ME_4EAFE98700D7
+ MEPROP UID '4EAFE98700D7'
+ MEPROP Name 'Крайнее правое положение кнопки ''Ещё'' должно быть закреплено на уровне конца строки ввода'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:294610088}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A4F0149 // Интерфейс Базового поиска
+ ;
+
+ENDME // ME_4EAFE98700D7 Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
+
+FORWARD ME_4EB7BA17030A
+
+FORWARD ME_4EB7BA320128
+
+ME ME_4EB7CCF90203
+ MEPROP UID '4EB7CCF90203'
+ MEPROP Name 'При хождении по истории выбор должен восстанавливаться'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296635902#comment-296635902' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EB7BA320128 // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+ ;
+
+ENDME // ME_4EB7CCF90203 При хождении по истории выбор должен восстанавливаться
+
+ME ME_4EB7BA320128
+ MEPROP UID '4EB7BA320128'
+ MEPROP Name 'Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:269069309}'#13#10''#13#10'Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню" или карточки БП. При переходах по истории "назад/вперед" ничего не сбрасываем, т.е. если у нас с начала было ОМ, мы в нем что-то выбрали в кнопке "Ещё", попали в список и нажали "назад" по истории - мы должны в ОМ вернуться к состоянию с уже выбранным элементом по кнопке "Ещё"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EB7BA17030A // Выбор из кнопки 'Ещё'
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EB7CCF90203 // При хождении по истории выбор должен восстанавливаться
+ )
+ ; // Children
+
+ENDME // ME_4EB7BA320128 Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+
+ME ME_4EB7BA17030A
+ MEPROP UID '4EB7BA17030A'
+ MEPROP Name 'Выбор из кнопки ''Ещё'''
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:269069309}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A4F0149 // Интерфейс Базового поиска
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EB7BA320128 // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+ )
+ ; // Children
+
+ENDME // ME_4EB7BA17030A Выбор из кнопки 'Ещё'
+
+FORWARD ME_4EBD36A70225
+
+ME ME_4EBD36A70225
+ MEPROP UID '4EBD36A70225'
+ MEPROP Name 'Выпадающие списки должна закрываться клавишей Esc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:297704648}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A4F0149 // Интерфейс Базового поиска
+ ;
+
+ENDME // ME_4EBD36A70225 Выпадающие списки должна закрываться клавишей Esc
+
+ME ME_4F4F7DB0003B
+ MEPROP UID '4F4F7DB0003B'
+ MEPROP Name 'Если фокус стоит в форме БП, то операция "Найти далее" должна быть доступной'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:342328736}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A4F0149 // Интерфейс Базового поиска
+ ;
+
+ENDME // ME_4F4F7DB0003B Если фокус стоит в форме БП, то операция "Найти далее" должна быть доступной
+
+ME ME_4D5A1A4F0149
+ MEPROP UID '4D5A1A4F0149'
+ MEPROP Name 'Интерфейс Базового поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменение внешнего вида строки Базового поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A0703BB // Интерфейс 2011
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E787ED60292 // Псевдонадпись и пример в БП должны быть склеены
+ HWL ME_4EAFE98700D7 // Крайнее правое положение кнопки 'Ещё' должно быть закреплено на уровне конца строки ввода
+ HWL ME_4EB7BA17030A // Выбор из кнопки 'Ещё'
+ HWL ME_4EBD36A70225 // Выпадающие списки должна закрываться клавишей Esc
+ HWL ME_4F4F7DB0003B // Если фокус стоит в форме БП, то операция "Найти далее" должна быть доступной
+ )
+ ; // Children
+
+ENDME // ME_4D5A1A4F0149 Интерфейс Базового поиска
+
+FORWARD ME_4D5A1ED40027
+
+ME ME_4D5A1ED40027
+ MEPROP UID '4D5A1ED40027'
+ MEPROP Name 'Интерфейс диалогов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменение во внешнем виде диалогов, используемых в системе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A0703BB // Интерфейс 2011
+ ;
+
+ENDME // ME_4D5A1ED40027 Интерфейс диалогов
+
+ME ME_4D5A216E009E
+ MEPROP UID '4D5A216E009E'
+ MEPROP Name 'Общий интерфейс'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменения внешнего вида (фона, отрисовки), касающиеся частей системы, использующихся в разных прецедентах.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A0703BB // Интерфейс 2011
+ ;
+
+ENDME // ME_4D5A216E009E Общий интерфейс
+
+FORWARD ME_4D5A243A012E
+
+ME ME_4F63418802F1
+ MEPROP UID '4F63418802F1'
+ MEPROP Name 'Высота заголовков карточек поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:346751433}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A243A012E // Интерфейс Поиска
+ ;
+
+ENDME // ME_4F63418802F1 Высота заголовков карточек поиска
+
+ME ME_4F69ADC70003
+ MEPROP UID '4F69ADC70003'
+ MEPROP Name 'Карточки запроса должны уметь не писать своё состояние при вызове из скриптов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:349114873}'#13#10'[$349116523]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A243A012E // Интерфейс Поиска
+ ;
+
+ENDME // ME_4F69ADC70003 Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
+
+ME ME_4D5A243A012E
+ MEPROP UID '4D5A243A012E'
+ MEPROP Name 'Интерфейс Поиска'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменение внешнего вида и поведения поисковых карточек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A0703BB // Интерфейс 2011
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F63418802F1 // Высота заголовков карточек поиска
+ HWL ME_4F69ADC70003 // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
+ )
+ ; // Children
+
+ENDME // ME_4D5A243A012E Интерфейс Поиска
+
+FORWARD ME_4D5A256601E8
+
+FORWARD ME_4E30242402C6
+
+FORWARD ME_4E3024310248
+
+ME ME_4E3028C1036D
+ MEPROP UID '4E3028C1036D'
+ MEPROP Name 'В свернутом виде'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSettingValue ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E3024310248 // Показывать историю изменений в документе
+ ;
+ UP "CodeName" 'Collapsed'
+
+ENDME // ME_4E3028C1036D В свернутом виде
+
+ME ME_4E3028D30381
+ MEPROP UID '4E3028D30381'
+ MEPROP Name 'В развернутом виде'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSettingValue ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E3024310248 // Показывать историю изменений в документе
+ ;
+ UP "CodeName" 'Expanded'
+
+ENDME // ME_4E3028D30381 В развернутом виде
+
+ME ME_4E3024310248
+ MEPROP UID '4E3024310248'
+ MEPROP Name 'Показывать историю изменений в документе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSetting ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:275780337}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E30242402C6 // Информация об изменяющих документах
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E3028C1036D // В свернутом виде
+ HWL ME_4E3028D30381 // В развернутом виде
+ )
+ ; // Children
+ UP "CodeName" 'ShowChangesInfo'
+ UP extprop:IsBool true
+
+ENDME // ME_4E3024310248 Показывать историю изменений в документе
+
+ME ME_4E30242402C6
+ MEPROP UID '4E30242402C6'
+ MEPROP Name 'Информация об изменяющих документах'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A256601E8 // Интерфейс документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E3024310248 // Показывать историю изменений в документе
+ )
+ ; // Children
+
+ENDME // ME_4E30242402C6 Информация об изменяющих документах
+
+ME ME_4D5A256601E8
+ MEPROP UID '4D5A256601E8'
+ MEPROP Name 'Интерфейс документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменение во внешнем виде показа документа в системе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A0703BB // Интерфейс 2011
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E30242402C6 // Информация об изменяющих документах
+ )
+ ; // Children
+
+ENDME // ME_4D5A256601E8 Интерфейс документа
+
+FORWARD ME_4E6DC5C80293
+
+ME ME_4E6DC5EC0253
+ MEPROP UID '4E6DC5EC0253'
+ MEPROP Name 'Всплывающее окно (балон)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5C80293 // Медали в системе
+ ;
+
+ENDME // ME_4E6DC5EC0253 Всплывающее окно (балон)
+
+FORWARD ME_4E6DC5FD0170
+
+ME ME_4E76FC4000A4
+ MEPROP UID '4E76FC4000A4'
+ MEPROP Name 'Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:287219564}'#13#10'[$285508953]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5FD0170 // Медали в документе
+ ;
+
+ENDME // ME_4E76FC4000A4 Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+
+FORWARD ME_4EDCF71A016C
+
+ME ME_4EDDF998021B
+ MEPROP UID '4EDDF998021B'
+ MEPROP Name 'У перевода должна быть ТОЛЬКО ОДНА медаль - юридическое предупреждение'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$314213628]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EDCF71A016C // Предупреждение к переводу документа должно показываться в виде баллона
+ ;
+
+ENDME // ME_4EDDF998021B У перевода должна быть ТОЛЬКО ОДНА медаль - юридическое предупреждение
+
+ME ME_4EDCF71A016C
+ MEPROP UID '4EDCF71A016C'
+ MEPROP Name 'Предупреждение к переводу документа должно показываться в виде баллона'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:300515360}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5FD0170 // Медали в документе
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EDDF998021B // У перевода должна быть ТОЛЬКО ОДНА медаль - юридическое предупреждение
+ )
+ ; // Children
+
+ENDME // ME_4EDCF71A016C Предупреждение к переводу документа должно показываться в виде баллона
+
+ME ME_4EF47FB900CD
+ MEPROP UID '4EF47FB900CD'
+ MEPROP Name 'На медали ''Список изменён'' в пользовательских вкладках СКР должен показываться баллон'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:318374910}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5FD0170 // Медали в документе
+ ;
+
+ENDME // ME_4EF47FB900CD На медали 'Список изменён' в пользовательских вкладках СКР должен показываться баллон
+
+ME ME_4FD0899600AE
+ MEPROP UID '4FD0899600AE'
+ MEPROP Name 'Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:316113315}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5FD0170 // Медали в документе
+ ;
+
+ENDME // ME_4FD0899600AE Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно
+
+ME ME_4E6DC5FD0170
+ MEPROP UID '4E6DC5FD0170'
+ MEPROP Name 'Медали в документе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5C80293 // Медали в системе
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E76FC4000A4 // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+ HWL ME_4EDCF71A016C // Предупреждение к переводу документа должно показываться в виде баллона
+ HWL ME_4EF47FB900CD // На медали 'Список изменён' в пользовательских вкладках СКР должен показываться баллон
+ HWL ME_4FD0899600AE // Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно
+ )
+ ; // Children
+
+ENDME // ME_4E6DC5FD0170 Медали в документе
+
+ME ME_4E6DC60F0066
+ MEPROP UID '4E6DC60F0066'
+ MEPROP Name 'Медали в основном окне'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5C80293 // Медали в системе
+ ;
+
+ENDME // ME_4E6DC60F0066 Медали в основном окне
+
+ME ME_4E6DC6220293
+ MEPROP UID '4E6DC6220293'
+ MEPROP Name 'Медали в списке'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6DC5C80293 // Медали в системе
+ ;
+
+ENDME // ME_4E6DC6220293 Медали в списке
+
+ME ME_4E6DC5C80293
+ MEPROP UID '4E6DC5C80293'
+ MEPROP Name 'Медали в системе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A1A0703BB // Интерфейс 2011
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E6DC5EC0253 // Всплывающее окно (балон)
+ HWL ME_4E6DC5FD0170 // Медали в документе
+ HWL ME_4E6DC60F0066 // Медали в основном окне
+ HWL ME_4E6DC6220293 // Медали в списке
+ )
+ ; // Children
+
+ENDME // ME_4E6DC5C80293 Медали в системе
+
+ME ME_4D5A1A0703BB
+ MEPROP UID '4D5A1A0703BB'
+ MEPROP Name 'Интерфейс 2011'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменения в интерфейсе сделанные по заказу УМ в 2011 году' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484FA67302D7 // GUI
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484FA70A0269 // Интерфейс системы
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4D5A1A4F0149 // Интерфейс Базового поиска
+ HWL ME_4D5A1ED40027 // Интерфейс диалогов
+ HWL ME_4D5A216E009E // Общий интерфейс
+ HWL ME_4D5A243A012E // Интерфейс Поиска
+ HWL ME_4D5A256601E8 // Интерфейс документа
+ HWL ME_4E6DC5C80293 // Медали в системе
+ )
+ ; // Children
+
+ENDME // ME_4D5A1A0703BB Интерфейс 2011
+
+FORWARD ME_4FBB5FE2026D
+
+FORWARD ME_4FBB5FF302D2
+
+ME ME_50054E63007F
+ MEPROP UID '50054E63007F'
+ MEPROP Name 'Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_50054E63007F Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".
+
+ME ME_50067D910104
+ MEPROP UID '50067D910104'
+ MEPROP Name 'В тулбар для "ААК - содержание" НЕ должны попадать никакие операции от правой-левой части.'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:378541134}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_50067D910104 В тулбар для "ААК - содержание" НЕ должны попадать никакие операции от правой-левой части.
+
+ME ME_50067DB5010E
+ MEPROP UID '50067DB5010E'
+ MEPROP Name 'в тулбар для "ААК - текст" должны попадать операции только от левой части. Операции от правой части в тулбар не попадают.'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:378541134}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_50067DB5010E в тулбар для "ААК - текст" должны попадать операции только от левой части. Операции от правой части в тулбар не попадают.
+
+ME ME_50067DFB02D6
+ MEPROP UID '50067DFB02D6'
+ MEPROP Name 'Тулбар для левой части ААК-текста должен брать настройки из тулбара для документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$378548726]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_50067DFB02D6 Тулбар для левой части ААК-текста должен брать настройки из тулбара для документа
+
+ME ME_500958570271
+ MEPROP UID '500958570271'
+ MEPROP Name 'для ААК-Содержание - не было никаких табов внизу, ни в "правой", ни в "левой" частях.'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:378556652}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_500958570271 для ААК-Содержание - не было никаких табов внизу, ни в "правой", ни в "левой" частях.
+
+ME ME_5009587B0161
+ MEPROP UID '5009587B0161'
+ MEPROP Name 'Для ААК-Текст надо чтобы в "правой" части не было никаких табов, а в "левой" - обычный набор табов, как для любого другого документа системы ГАРАНТ (на эскизе это "Текст", "Справка").'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:378556652}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_5009587B0161 Для ААК-Текст надо чтобы в "правой" части не было никаких табов, а в "левой" - обычный набор табов, как для любого другого документа системы ГАРАНТ (на эскизе это "Текст", "Справка").
+
+ME ME_500D5D8B00E9
+ MEPROP UID '500D5D8B00E9'
+ MEPROP Name 'В Журнал работы должны попадать документы ААК'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:379224869}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_500D5D8B00E9 В Журнал работы должны попадать документы ААК
+
+ME ME_500FF3E20023
+ MEPROP UID '500FF3E20023'
+ MEPROP Name '`Правые` блоки должны показываться в правой половине окна, а `левые` в левой'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:378540022}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_500FF3E20023 `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
+
+ME ME_500FFCD001B2
+ MEPROP UID '500FFCD001B2'
+ MEPROP Name 'В правой части ААК-текста должна быть плашка "см. также"'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$379246638]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_500FFCD001B2 В правой части ААК-текста должна быть плашка "см. также"
+
+ME ME_5010123F0048
+ MEPROP UID '5010123F0048'
+ MEPROP Name 'ААК документы должно быть можно оценивать'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_5010123F0048 ААК документы должно быть можно оценивать
+
+ME ME_50111A5601B6
+ MEPROP UID '50111A5601B6'
+ MEPROP Name 'для ААК-документов должны строиться СКР'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_50111A5601B6 для ААК-документов должны строиться СКР
+
+ME ME_501128C50029
+ MEPROP UID '501128C50029'
+ MEPROP Name 'Заголовок главного окна с открытым ААК-документом должен состоять из ShortName документа с префиксом "Текст : "'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_501128C50029 Заголовок главного окна с открытым ААК-документом должен состоять из ShortName документа с префиксом "Текст : "
+
+ME ME_5012646003C9
+ MEPROP UID '5012646003C9'
+ MEPROP Name 'В Журнал Работы, должно попадать меню ААК'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:379238541}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_5012646003C9 В Журнал Работы, должно попадать меню ААК
+
+FORWARD ME_50166C7500A8
+
+ME ME_50166C7500A8
+ MEPROP UID '50166C7500A8'
+ MEPROP Name 'если текст ААК ПОЛНОСТЬЮ влезает в окно редактора по вертикали, то вертикального скроллера быть не должно'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{requestlink:379244068}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_50166C7500A8 если текст ААК ПОЛНОСТЬЮ влезает в окно редактора по вертикали, то вертикального скроллера быть не должно
+
+ME ME_501939150027
+ MEPROP UID '501939150027'
+ MEPROP Name 'При отображении ААК-Текст в "левой" части должна присутствовать панель сабов, как для обычного документа системы ГАРАНТ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{requestlink:379238730}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_501939150027 При отображении ААК-Текст в "левой" части должна присутствовать панель сабов, как для обычного документа системы ГАРАНТ
+
+ME ME_501B80E50304
+ MEPROP UID '501B80E50304'
+ MEPROP Name 'Пункт "Справка" должен быть активен в меню для обеих частей ААК-документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:380047003}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_501B80E50304 Пункт "Справка" должен быть активен в меню для обеих частей ААК-документа
+
+ME ME_5021094202B4
+ MEPROP UID '5021094202B4'
+ MEPROP Name 'Пунктов меню открывающих табы в ААК-оглавлении быть не должно'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:380046320}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_5021094202B4 Пунктов меню открывающих табы в ААК-оглавлении быть не должно
+
+ME ME_5024F90003C7
+ MEPROP UID '5024F90003C7'
+ MEPROP Name 'ААК - текст при синхронном просмотре'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:380046789}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_5024F90003C7 ААК - текст при синхронном просмотре
+
+ME ME_502A44A4036B
+ MEPROP UID '502A44A4036B'
+ MEPROP Name 'Нужно сдвинуть надпись "см. также" вправо.'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_502A44A4036B Нужно сдвинуть надпись "см. также" вправо.
+
+ME ME_502A468900DE
+ MEPROP UID '502A468900DE'
+ MEPROP Name 'Для "правой" части ААК-Текст сделать отступ такой же по ширине, как и у "левой" части (там у нас панель сабов)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_502A468900DE Для "правой" части ААК-Текст сделать отступ такой же по ширине, как и у "левой" части (там у нас панель сабов)
+
+ME ME_502A6D4D0096
+ MEPROP UID '502A6D4D0096'
+ MEPROP Name 'Для ААК-Текст левой части должна быть плашка со ссылкой "Энциклопедия решений", ведущая к ААК-содержанию'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_502A6D4D0096 Для ААК-Текст левой части должна быть плашка со ссылкой "Энциклопедия решений", ведущая к ААК-содержанию
+
+ME ME_502B82E301EA
+ MEPROP UID '502B82E301EA'
+ MEPROP Name 'Если у документа ААК есть оглавление, то оно должно показываться при показе документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:383588226}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_502B82E301EA Если у документа ААК есть оглавление, то оно должно показываться при показе документа
+
+ME ME_502D3B5E0384
+ MEPROP UID '502D3B5E0384'
+ MEPROP Name 'Левая часть ААК-содержания должна показывать активную ссылку на блок, который открыт в правой части'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:384434840}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_502D3B5E0384 Левая часть ААК-содержания должна показывать активную ссылку на блок, который открыт в правой части
+
+ME ME_502D49AE0123
+ MEPROP UID '502D49AE0123'
+ MEPROP Name 'При хождении по ссылкам в левой части ААК-содержания должны открываться соответствующие блоки в правой части'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:384434840}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ ;
+
+ENDME // ME_502D49AE0123 При хождении по ссылкам в левой части ААК-содержания должны открываться соответствующие блоки в правой части
+
+ME ME_4FBB5FF302D2
+ MEPROP UID '4FBB5FF302D2'
+ MEPROP Name 'Актуальная аналитика'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FE2026D // Интерфейс 2012
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48490152021B' '484900780017.ms.model.script' // Просмотр документа
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_50054E63007F // Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".
+ HWL ME_50067D910104 // В тулбар для "ААК - содержание" НЕ должны попадать никакие операции от правой-левой части.
+ HWL ME_50067DB5010E // в тулбар для "ААК - текст" должны попадать операции только от левой части. Операции от правой части в тулбар не попадают.
+ HWL ME_50067DFB02D6 // Тулбар для левой части ААК-текста должен брать настройки из тулбара для документа
+ HWL ME_500958570271 // для ААК-Содержание - не было никаких табов внизу, ни в "правой", ни в "левой" частях.
+ HWL ME_5009587B0161 // Для ААК-Текст надо чтобы в "правой" части не было никаких табов, а в "левой" - обычный набор табов, как для любого другого документа системы ГАРАНТ (на эскизе это "Текст", "Справка").
+ HWL ME_500D5D8B00E9 // В Журнал работы должны попадать документы ААК
+ HWL ME_500FF3E20023 // `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
+ HWL ME_500FFCD001B2 // В правой части ААК-текста должна быть плашка "см. также"
+ HWL ME_5010123F0048 // ААК документы должно быть можно оценивать
+ HWL ME_50111A5601B6 // для ААК-документов должны строиться СКР
+ HWL ME_501128C50029 // Заголовок главного окна с открытым ААК-документом должен состоять из ShortName документа с префиксом "Текст : "
+ HWL ME_5012646003C9 // В Журнал Работы, должно попадать меню ААК
+ HWL ME_50166C7500A8 // если текст ААК ПОЛНОСТЬЮ влезает в окно редактора по вертикали, то вертикального скроллера быть не должно
+ HWL ME_501939150027 // При отображении ААК-Текст в "левой" части должна присутствовать панель сабов, как для обычного документа системы ГАРАНТ
+ HWL ME_501B80E50304 // Пункт "Справка" должен быть активен в меню для обеих частей ААК-документа
+ HWL ME_5021094202B4 // Пунктов меню открывающих табы в ААК-оглавлении быть не должно
+ HWL ME_5024F90003C7 // ААК - текст при синхронном просмотре
+ HWL ME_502A44A4036B // Нужно сдвинуть надпись "см. также" вправо.
+ HWL ME_502A468900DE // Для "правой" части ААК-Текст сделать отступ такой же по ширине, как и у "левой" части (там у нас панель сабов)
+ HWL ME_502A6D4D0096 // Для ААК-Текст левой части должна быть плашка со ссылкой "Энциклопедия решений", ведущая к ААК-содержанию
+ HWL ME_502B82E301EA // Если у документа ААК есть оглавление, то оно должно показываться при показе документа
+ HWL ME_502D3B5E0384 // Левая часть ААК-содержания должна показывать активную ссылку на блок, который открыт в правой части
+ HWL ME_502D49AE0123 // При хождении по ссылкам в левой части ААК-содержания должны открываться соответствующие блоки в правой части
+ )
+ ; // Children
+
+ENDME // ME_4FBB5FF302D2 Актуальная аналитика
+
+ME ME_4FBB600001C9
+ MEPROP UID '4FBB600001C9'
+ MEPROP Name 'Информеры в списке'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FBB5FE2026D // Интерфейс 2012
+ ;
+
+ENDME // ME_4FBB600001C9 Информеры в списке
+
+ME ME_4FBB5FE2026D
+ MEPROP UID '4FBB5FE2026D'
+ MEPROP Name 'Интерфейс 2012'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484FA67302D7 // GUI
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D5A1A0703BB // Интерфейс 2011
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4FBB5FF302D2 // Актуальная аналитика
+ HWL ME_4FBB600001C9 // Информеры в списке
+ )
+ ; // Children
+
+ENDME // ME_4FBB5FE2026D Интерфейс 2012
+
+ME ME_484FA67302D7
+ MEPROP UID '484FA67302D7'
+ MEPROP Name 'GUI'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Общие концепции визуализации информации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484FA70A0269 // Интерфейс системы
+ HWL ME_4856589E0275 // Панели инструментов
+ HWL ME_4D5A1A0703BB // Интерфейс 2011
+ HWL ME_4FBB5FE2026D // Интерфейс 2012
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_484407720166' '484407720166.ms.model.script' // Поиск
+ WL 'ME_484900780017' '484900780017.ms.model.script' // Работа с документом
+ WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ WL 'ME_49EF33F700C2' '49EF33F700C2.ms.model.script' // ControlsMixIns
+ WL 'ME_4E31266501ED' '4E31266501ED.ms.model.script' // Visual Component Model
+ WL 'ME_4E57B8C2010F' '4E57B8C2010F.ms.model.script' // Требования к схеме документа EVD
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.ms.model.script' // Требования к редактору Эверест
+ WL 'ME_4E650454009C' '4E650454009C.ms.model.script' // Требования к контролам VGScene
+ WL 'ME_4E787E1E02F8' '4E787E1E02F8.ms.model.script' // Редактор с выпадающим деревом
+ WL 'ME_4E8587AE01D0' '4E8587AE01D0.ms.model.script' // Требования к диалоговым окнам
+ WL 'ME_4F6B66140294' '4F6B66140294.ms.model.script' // ParentAndChild
+ )
+ ; // Depends
+
+ENDME // ME_484FA67302D7 GUI

@@ -1,0 +1,53 @@
+// BaseDocument 49870A7E033E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49870A7E033E
+
+ME ME_49870AB400FA
+ MEPROP UID '49870AB400FA'
+ MEPROP Name 'sdsBaseDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ %SUMMARY 'Базовый прецедент работы с документом' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49870A7E033E // BaseDocument
+ ;
+ MELINK Target WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ ;
+
+ENDME // ME_49870AB400FA sdsBaseDocument
+
+ME ME_49870A7E033E
+ MEPROP UID '49870A7E033E'
+ MEPROP Name 'BaseDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактное представление базового документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49870AB400FA // sdsBaseDocument
+ )
+ ; // Attributes
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '02.02.2009 18:00'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName '_BaseDocument_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseDocument.imp'
+
+ENDME // ME_49870A7E033E BaseDocument

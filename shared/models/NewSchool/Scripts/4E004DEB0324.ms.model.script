@@ -1,0 +1,73 @@
+// Printing 4E004DEB0324 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E004DEB0324
+
+ME ME_4E004E2F0251
+ MEPROP UID '4E004E2F0251'
+ MEPROP Name 'TarHAFPainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E004DEB0324 // Printing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F352A30004' '47EA968D0155.ms.model.script' // TevHAFPainterEx
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arHAFPainer.pas'
+ UP extprop:rc:SelfName 'arHAFPainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arHAFPainer'
+
+ENDME // ME_4E004E2F0251 TarHAFPainer
+
+ME ME_4E004EA70057
+ MEPROP UID '4E004EA70057'
+ MEPROP Name 'TarMacroReplacer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E004DEB0324 // Printing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C2215040200' '47EA968D0155.ms.model.script' // TevCustomHAFMacroReplacer
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arMacroReplacer.pas'
+ UP extprop:rc:SelfName 'arMacroReplacer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arMacroReplacer'
+
+ENDME // ME_4E004EA70057 TarMacroReplacer
+
+ME ME_4E004DEB0324
+ MEPROP UID '4E004DEB0324'
+ MEPROP Name 'Printing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Поддержка печати в Арчи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E004D0B033A' '4E004D0B033A.ms.model.script' // Editor
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E004E2F0251 // TarHAFPainer
+ HWL ME_4E004EA70057 // TarMacroReplacer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47EA968D0155' '47EA968D0155.ms.model.script' // Printing
+ )
+ ; // Depends
+ UP "finished" false
+
+ENDME // ME_4E004DEB0324 Printing

@@ -1,0 +1,392 @@
+// Document 498B135601B6 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_498B135601B6
+
+FORWARD ME_4B150A890212
+
+ME ME_4B150AB80169
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B150AB80169 aDocID
+
+ME ME_4B150AAA0334
+ MEPROP UID '4B150AAA0334'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B150AB80169 // aDocID
+ )
+ ; // Parameters
+
+ENDME // ME_4B150AAA0334 Log
+
+ME ME_4B150AE0035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B150AE0035A 
+
+ME ME_4B150A890212
+ MEPROP UID '4B150A890212'
+ MEPROP Name 'TnsOpenDocumentByNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B150AAA0334 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B150AE0035A // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OpenDocumentByNumber'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B150A890212 TnsOpenDocumentByNumber
+
+ME ME_4AF3E0560016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4AF32F290177' '498874B90391.ms.model.script' // Picture
+ ;
+
+ENDME // ME_4AF3E0560016 
+
+ME ME_4B150ACD0270
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ ;
+
+ENDME // ME_4B150ACD0270 
+
+ME ME_4E03378802DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4E03378802DD 
+
+ME ME_57A097C602E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_57A0977900D6' '5795D66F0385.ms.model.script' // TDocumentService
+ ;
+
+ENDME // ME_57A097C602E0 
+
+ME ME_4AA140E50070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4AA140E50070 
+
+ME ME_4AA14027000E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AA14027000E 
+
+ME ME_4AA1400500C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.ms.model.script' // TdeDocInfo
+ ;
+
+ENDME // ME_4AA1400500C5 
+
+ME ME_4AA133DC022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4AA133DC022E 
+
+ME ME_4AD444380271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_456EB4540190' '456EA56002BF.ms.model.script' // NotSaved
+ ;
+
+ENDME // ME_4AD444380271 
+
+ME ME_57A09981024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_57A09981024C 
+
+ME ME_57A099870071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_45EEB65202A0' '4570511E038A.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_57A099870071 
+
+ME ME_57A0998C008F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_57A0998C008F 
+
+ME ME_4AA13F2E0352
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4AA13EB80322' '4AADF9450143.ms.model.script' // Ask
+ ;
+
+ENDME // ME_4AA13F2E0352 
+
+ME ME_4AA119B6016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_493E754301C8' '493E754301C8.ms.model.script' // TsdsDocumentWithFlash
+ ;
+
+ENDME // ME_4AA119B6016B 
+
+ME ME_4AA119A503AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_5010180C0356' '5010180C0356.ms.model.script' // TsdsDocument
+ ;
+
+ENDME // ME_4AA119A503AE 
+
+ME ME_4AA118660097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_45EEB6520208' '4570511E038A.ms.model.script' // DocumentType
+ ;
+
+ENDME // ME_4AA118660097 
+
+ME ME_4AA1184102F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4AA1182503AD' '48F747EC0073.ms.model.script' // ProfilersManager
+ ;
+
+ENDME // ME_4AA1184102F0 
+
+ME ME_4AB1346B006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4AB1346B006D 
+
+ME ME_4AE821E4018D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4AE760FD0182' '4A815BFF0168.ms.model.script' // TnsOpenDocOnNumberData
+ ;
+
+ENDME // ME_4AE821E4018D 
+
+ME ME_4AB133FF037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ ;
+
+ENDME // ME_4AB133FF037C 
+
+ME ME_4AD6E87C03C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4AD6E87C03C1 
+
+ME ME_4AB134FB00F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_4AB134FB00F6 
+
+ME ME_57A099FD0211
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_4AE760410074' '4ACF514E0337.ms.model.script' // InsOpenDocOnNumberData
+ ;
+
+ENDME // ME_57A099FD0211 
+
+ME ME_4AAFD5180062
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_45ED932A0044' '45ED922F00A4.ms.model.script' // ExternalObject
+ ;
+
+ENDME // ME_4AAFD5180062 
+
+ME ME_4AAFD4FD0076
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_498B135601B6 // Document
+ ;
+ MELINK Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.ms.model.script' // nsExternalObjectPrim
+ ;
+
+ENDME // ME_4AAFD4FD0076 
+
+ME ME_498B135601B6
+ MEPROP UID '498B135601B6'
+ MEPROP Name 'Document'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Работа с документом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4951181B02B6' '4951181B02B6.ms.model.script' // Document
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4989E67D00C0' '4989E67D00C0.ms.model.script' // DocumentWithFlash
+ WL 'ME_4A7709C70002' '4A7709C70002.ms.model.script' // Text
+ WL 'ME_4A8EE2890012' '4A8EE2890012.ms.model.script' // Redactions
+ WL 'ME_4A9D51C4026F' '4A9D51C4026F.ms.model.script' // Contents
+ WL 'ME_4AA126C401AD' '4AA126C401AD.ms.model.script' // Document
+ WL 'ME_4AA126F9032A' '4AA126F9032A.ms.model.script' // DocumentWithFlash$FSF
+ WL 'ME_4AAFCF930362' '4AAFCF930362.ms.model.script' // Picture
+ WL 'ME_4AB12FA70146' '4AB12FA70146.ms.model.script' // PictureInfo
+ WL 'ME_4AB13348028C' '4AB13348028C.ms.model.script' // DocNumberQuery
+ WL 'ME_4AB1355B01EA' '4AB1355B01EA.ms.model.script' // Warning
+ WL 'ME_4AB1357D0253' '4AB1357D0253.ms.model.script' // Attributes
+ WL 'ME_4AB1359700D9' '4AB1359700D9.ms.model.script' // SynchroView
+ WL 'ME_4AB135BD01C2' '4AB135BD01C2.ms.model.script' // TurnOnTimeMachine
+ HWL ME_4B150A890212 // TnsOpenDocumentByNumber
+ WL 'ME_4EA58A3903B4' '4EA58A3903B4.ms.model.script' // WarningBaloon
+ WL 'ME_4EE223D80391' '4EE223D80391.ms.model.script' // SynchroView_WarningBaloon
+ WL 'ME_4EE22F340060' '4EE22F340060.ms.model.script' // Translation_WarningBaloon
+ WL 'ME_4EF47F2E0348' '4EF47F2E0348.ms.model.script' // UserCR1_WarningBaloon
+ WL 'ME_4EF47F5A02F7' '4EF47F5A02F7.ms.model.script' // UserCR2_WarningBaloon
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AF3E0560016 // Picture
+ ME_4B150ACD0270 // TnsOpenDocumentByNumber
+ ME_4E03378802DD // vcmMessagesSupport
+ ME_57A097C602E0 // TDocumentService
+ ME_4AA140E50070 // TDocumentPositionType
+ ME_4AA14027000E // SysUtils
+ ME_4AA1400500C5 // TdeDocInfo
+ ME_4AA133DC022E // CanNotFindData
+ ME_4AD444380271 // NotSaved
+ ME_57A09981024C // IdeDocInfo
+ ME_57A099870071 // Bookmark
+ ME_57A0998C008F // JournalBookmark
+ ME_4AA13F2E0352 // Ask
+ ME_4AA119B6016B // TsdsDocumentWithFlash
+ ME_4AA119A503AE // TsdsDocument
+ ME_4AA118660097 // DocumentType
+ ME_4AA1184102F0 // ProfilersManager
+ ME_4AB1346B006D // nsConst
+ ME_4AE821E4018D // TnsOpenDocOnNumberData
+ ME_4AB133FF037C // vcmParams
+ ME_4AD6E87C03C1 // afwFacade
+ ME_4AB134FB00F6 // nsUtils
+ ME_57A099FD0211 // InsOpenDocOnNumberData
+ ME_4AAFD5180062 // ExternalObject
+ ME_4AAFD4FD0076 // nsExternalObjectPrim
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '05.02.2009 19:28'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas'
+ UP extprop:pas:TypeName 'TDocumentModule'
+ UP extprop:rc:SelfName 'DocumentModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Document_Module'
+
+ENDME // ME_498B135601B6 Document

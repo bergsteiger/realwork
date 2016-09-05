@@ -1,0 +1,912 @@
+// CommonDictionInterfaces 492540AF02CD ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492540AF02CD
+
+FORWARD ME_556C2C0602F8
+
+ME ME_556C2C1D02EC
+ MEPROP UID '556C2C1D02EC'
+ MEPROP Name 'ns_dkDiction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_556C2C0602F8 // TnsDictionKind
+ ;
+
+ENDME // ME_556C2C1D02EC ns_dkDiction
+
+ME ME_556C2C3002F2
+ MEPROP UID '556C2C3002F2'
+ MEPROP Name 'ns_dkMedic'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_556C2C0602F8 // TnsDictionKind
+ ;
+
+ENDME // ME_556C2C3002F2 ns_dkMedic
+
+ME ME_5571B18902AB
+ MEPROP UID '5571B18902AB'
+ MEPROP Name 'ns_dkDayTips'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_556C2C0602F8 // TnsDictionKind
+ ;
+
+ENDME // ME_5571B18902AB ns_dkDayTips
+
+ME ME_556C2C0602F8
+ MEPROP UID '556C2C0602F8'
+ MEPROP Name 'TnsDictionKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492540AF02CD // CommonDictionInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_556C2C1D02EC // ns_dkDiction
+ HWL ME_556C2C3002F2 // ns_dkMedic
+ HWL ME_5571B18902AB // ns_dkDayTips
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_556C2C0602F8 TnsDictionKind
+
+FORWARD ME_492547040121
+
+ME ME_493402BC0160
+ MEPROP UID '493402BC0160'
+ MEPROP Name 'CurrentUpdated'
+ MEPROP Class class_Operation
+ %SUMMARY 'текущее значение изменилось' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_492547040121 // IbsCommonDictionListener
+ ;
+
+ENDME // ME_493402BC0160 CurrentUpdated
+
+ME ME_492547040121
+ MEPROP UID '492547040121'
+ MEPROP GUID 'BA1D839D-E310-4DFA-BC84-B2C940953694'
+ MEPROP Name 'IbsCommonDictionListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий бизнес объекта формы список словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492540AF02CD // CommonDictionInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.ms.model.script' // Il3Notify
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_493402BC0160 // CurrentUpdated
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'bsCommonDictionListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492547040121 IbsCommonDictionListener
+
+FORWARD ME_4947AD8201F6
+
+ME ME_4B1D15350358
+ MEPROP UID '4B1D15350358'
+ MEPROP Name 'Context'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4947AD8201F6 // IdeCommonDiction
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_4B1D15350358 Context
+
+ME ME_4B1D118000EA_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D118000EA' '4B1FC2FF03CD.ms.model.script' // IsSame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D118000EA_ME_4947AD8201F6 IsSame
+
+ME ME_4B1D11B00164_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D11B00164' '4B1FC2FF03CD.ms.model.script' // SetPosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D11B00164_ME_4947AD8201F6 SetPosition
+
+ME ME_4B1D11CF0265_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D11CF0265' '4B1FC2FF03CD.ms.model.script' // ChangeRedaction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D11CF0265_ME_4947AD8201F6 ChangeRedaction
+
+ME ME_4B1D11E00385_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D11E00385' '4B1FC2FF03CD.ms.model.script' // ChangeRedaction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D11E00385_ME_4947AD8201F6 ChangeRedaction
+
+ME ME_4B1D11F0033E_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D11F0033E' '4B1FC2FF03CD.ms.model.script' // ChangeRedaction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D11F0033E_ME_4947AD8201F6 ChangeRedaction
+
+ME ME_4B1D11FE0117_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D11FE0117' '4B1FC2FF03CD.ms.model.script' // InitListNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D11FE0117_ME_4947AD8201F6 InitListNode
+
+ME ME_4B1D121B03D0_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D121B03D0' '4B1FC2FF03CD.ms.model.script' // CorrectLanguage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D121B03D0_ME_4947AD8201F6 CorrectLanguage
+
+ME ME_4B1D12260038_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D12260038' '4B1FC2FF03CD.ms.model.script' // Clone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1D12260038_ME_4947AD8201F6 Clone
+
+ME ME_4B1D126203E6_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D126203E6' '4B1FC2FF03CD.ms.model.script' // Doc
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D126203E6_ME_4947AD8201F6 Doc
+
+ME ME_4B1D127600DC_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D127600DC' '4B1FC2FF03CD.ms.model.script' // DocumentState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D127600DC_ME_4947AD8201F6 DocumentState
+
+ME ME_4B1D12A30083_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D12A30083' '4B1FC2FF03CD.ms.model.script' // Pos
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D12A30083_ME_4947AD8201F6 Pos
+
+ME ME_4B1D12C103CC_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D12C103CC' '4B1FC2FF03CD.ms.model.script' // Language
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D12C103CC_ME_4947AD8201F6 Language
+
+ME ME_4B1D12F10074_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D12F10074' '4B1FC2FF03CD.ms.model.script' // List
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D12F10074_ME_4947AD8201F6 List
+
+ME ME_4B1D13200333_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D13200333' '4B1FC2FF03CD.ms.model.script' // ListNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D13200333_ME_4947AD8201F6 ListNode
+
+ME ME_4B1D137202D9_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D137202D9' '4B1FC2FF03CD.ms.model.script' // DocName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D137202D9_ME_4947AD8201F6 DocName
+
+ME ME_4B1D13AF006C_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D13AF006C' '4B1FC2FF03CD.ms.model.script' // DocShortName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D13AF006C_ME_4947AD8201F6 DocShortName
+
+ME ME_4B1D13C500CA_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D13C500CA' '4B1FC2FF03CD.ms.model.script' // CurEditionName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D13C500CA_ME_4947AD8201F6 CurEditionName
+
+ME ME_4B1D13D501CF_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D13D501CF' '4B1FC2FF03CD.ms.model.script' // DataSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D13D501CF_ME_4947AD8201F6 DataSize
+
+ME ME_4B1D13E30017_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D13E30017' '4B1FC2FF03CD.ms.model.script' // InternalNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D13E30017_ME_4947AD8201F6 InternalNumber
+
+ME ME_4B1D142201E3_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D142201E3' '4B1FC2FF03CD.ms.model.script' // ListRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D142201E3_ME_4947AD8201F6 ListRoot
+
+ME ME_4B1D144802C3_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D144802C3' '4B1FC2FF03CD.ms.model.script' // DocType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B1D144802C3_ME_4947AD8201F6 DocType
+
+ME ME_4B1D14B701DF_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D14B701DF' '4B1FC2FF03CD.ms.model.script' // SearchInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D14B701DF_ME_4947AD8201F6 SearchInfo
+
+ME ME_4B1D14CE0062_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1D14CE0062' '4B1FC2FF03CD.ms.model.script' // FilePosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4B1D14CE0062_ME_4947AD8201F6 FilePosition
+
+ME ME_4B1FA0B003E1_ME_4947AD8201F6
+ MELINK Original WL 'ME_4B1FA0B003E1' '4B1FC2FF03CD.ms.model.script' // ClearListNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1FA0B003E1_ME_4947AD8201F6 ClearListNode
+
+ME ME_4947AD8201F6
+ MEPROP UID '4947AD8201F6'
+ MEPROP GUID '10004A7E-6C16-48A3-B843-E8F957F1A586'
+ MEPROP Name 'IdeCommonDiction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные для сборки словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492540AF02CD // CommonDictionInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B1D15350358 // Context
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4B1D118000EA_ME_4947AD8201F6 // IsSame
+ ME_4B1D11B00164_ME_4947AD8201F6 // SetPosition
+ ME_4B1D11CF0265_ME_4947AD8201F6 // ChangeRedaction
+ ME_4B1D11E00385_ME_4947AD8201F6 // ChangeRedaction
+ ME_4B1D11F0033E_ME_4947AD8201F6 // ChangeRedaction
+ ME_4B1D11FE0117_ME_4947AD8201F6 // InitListNode
+ ME_4B1D121B03D0_ME_4947AD8201F6 // CorrectLanguage
+ ME_4B1D12260038_ME_4947AD8201F6 // Clone
+ ME_4B1D126203E6_ME_4947AD8201F6 // Doc
+ ME_4B1D127600DC_ME_4947AD8201F6 // DocumentState
+ ME_4B1D12A30083_ME_4947AD8201F6 // Pos
+ ME_4B1D12C103CC_ME_4947AD8201F6 // Language
+ ME_4B1D12F10074_ME_4947AD8201F6 // List
+ ME_4B1D13200333_ME_4947AD8201F6 // ListNode
+ ME_4B1D137202D9_ME_4947AD8201F6 // DocName
+ ME_4B1D13AF006C_ME_4947AD8201F6 // DocShortName
+ ME_4B1D13C500CA_ME_4947AD8201F6 // CurEditionName
+ ME_4B1D13D501CF_ME_4947AD8201F6 // DataSize
+ ME_4B1D13E30017_ME_4947AD8201F6 // InternalNumber
+ ME_4B1D142201E3_ME_4947AD8201F6 // ListRoot
+ ME_4B1D144802C3_ME_4947AD8201F6 // DocType
+ ME_4B1D14B701DF_ME_4947AD8201F6 // SearchInfo
+ ME_4B1D14CE0062_ME_4947AD8201F6 // FilePosition
+ ME_4B1FA0B003E1_ME_4947AD8201F6 // ClearListNode
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'deCommonDiction'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4947AD8201F6 IdeCommonDiction
+
+FORWARD ME_492545F700BF
+
+ME ME_49527BB50018
+ MEPROP UID '49527BB50018'
+ MEPROP Name 'CurrentNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492545F700BF // IdCommonDiction
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "pm" true
+
+ENDME // ME_49527BB50018 CurrentNode
+
+FORWARD ME_500D34960277
+
+ME ME_AB0AA05AFA56
+ MEPROP UID 'AB0AA05AFA56'
+ MEPROP Name 'dsContentsRef'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Ссылка на "список толкований"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492545F700BF // IdCommonDiction
+ ;
+ MELINK Target WL 'ME_47EB514C0336' '4982BE090383.ms.model.script' // IvcmFormDataSourceRef
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UPLINK extprop:CASTER HWL ME_500D34960277 // dsContents
+ ;
+
+ENDME // ME_AB0AA05AFA56 dsContentsRef
+
+ME ME_2C233EE5B42C_ME_492545F700BF
+ MELINK Original WL 'ME_2C233EE5B42C' '491B305A0096.ms.model.script' // dsDocumentRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_2C233EE5B42C_ME_492545F700BF dsDocumentRef
+
+ME ME_4939245D0171_ME_492545F700BF
+ MELINK Original WL 'ME_4939245D0171' '4D1B85BF03E4.ms.model.script' // ResetBooleans
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4939245D0171_ME_492545F700BF ResetBooleans
+
+ME ME_4995768F007A_ME_492545F700BF
+ MELINK Original WL 'ME_4995768F007A' '4683F37902CF.ms.model.script' // Clone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4995768F007A_ME_492545F700BF Clone
+
+ME ME_77EA326510B8_ME_492545F700BF
+ MELINK Original WL 'ME_77EA326510B8' '491B305A0096.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_77EA326510B8_ME_492545F700BF HasDocument
+
+ME ME_958F281A6FD6_ME_492545F700BF
+ MELINK Original WL 'ME_958F281A6FD6' '4D1B85BF03E4.ms.model.script' // dsAttributesRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_958F281A6FD6_ME_492545F700BF dsAttributesRef
+
+ME ME_CEA3A9CB4068_ME_492545F700BF
+ MELINK Original WL 'ME_CEA3A9CB4068' '491B305A0096.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_CEA3A9CB4068_ME_492545F700BF DocInfo
+
+ME ME_E1561B99CC62_ME_492545F700BF
+ MELINK Original WL 'ME_E1561B99CC62' '4D1B85BF03E4.ms.model.script' // HasAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_E1561B99CC62_ME_492545F700BF HasAttributes
+
+ME ME_492545F700BF
+ MEPROP UID '492545F700BF'
+ MEPROP GUID '4565D975-8C33-4E37-9E98-2FE4D005DA2F'
+ MEPROP Name 'IdCommonDiction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492540AF02CD // CommonDictionInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F085420325' '4D1B85BF03E4.ms.model.script' // IdBaseDocumentWithAttributes
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49527BB50018 // CurrentNode
+ HWL ME_AB0AA05AFA56 // dsContentsRef
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_2C233EE5B42C_ME_492545F700BF // dsDocumentRef
+ ME_4939245D0171_ME_492545F700BF // ResetBooleans
+ ME_4995768F007A_ME_492545F700BF // Clone
+ ME_77EA326510B8_ME_492545F700BF // HasDocument
+ ME_958F281A6FD6_ME_492545F700BF // dsAttributesRef
+ ME_CEA3A9CB4068_ME_492545F700BF // DocInfo
+ ME_E1561B99CC62_ME_492545F700BF // HasAttributes
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dCommonDiction'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492545F700BF IdCommonDiction
+
+ME ME_4D7A7A890101
+ MEPROP UID '4D7A7A890101'
+ MEPROP GUID '8EAC624A-FE2B-4D81-A453-6F995C5ED785'
+ MEPROP Name 'IdsChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492540AF02CD // CommonDictionInterfaces
+ ;
+ UP extprop:rc:SelfName 'dsChild'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D7A7A890101 IdsChild
+
+FORWARD ME_4925416003BC
+
+ME ME_492541AB020E
+ MEPROP UID '492541AB020E'
+ MEPROP Name 'Context'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4925416003BC // IdsCommonDiction
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_492541AB020E Context
+
+ME ME_52F4E72400C2
+ MEPROP UID '52F4E72400C2'
+ MEPROP Name 'ContextFilterState'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4925416003BC // IdsCommonDiction
+ ;
+ MELINK Target WL 'ME_4908393001C5' '490838E10313.ms.model.script' // InscContextFilterState
+ ;
+ UP "pm" false
+
+ENDME // ME_52F4E72400C2 ContextFilterState
+
+ME ME_5571E60901BC
+ MEPROP UID '5571E60901BC'
+ MEPROP Name 'DictionKind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4925416003BC // IdsCommonDiction
+ ;
+ MELINK Target HWL ME_556C2C0602F8 // TnsDictionKind
+ ;
+ UP "pm" false
+
+ENDME // ME_5571E60901BC DictionKind
+
+ME ME_492541D402A1
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_492541D402A1 aTree
+
+ME ME_492541BD01F3
+ MEPROP UID '492541BD01F3'
+ MEPROP Name 'MakeCurrentIndex'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить текущий узел. Коллеги, это правильная документация?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4925416003BC // IdsCommonDiction
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_492541D402A1 // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_492541BD01F3 MakeCurrentIndex
+
+ME ME_491DD57603A3_ME_4925416003BC
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_4925416003BC ImageList
+
+ME ME_491DD5A10199_ME_4925416003BC
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_4925416003BC SimpleTree
+
+ME ME_491DD5C90095_ME_4925416003BC
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_4925416003BC CurrentChanged
+
+ME ME_4925416003BC
+ MEPROP UID '4925416003BC'
+ MEPROP GUID '7B742BB0-94F2-4DD7-91B0-68DB3F7CFD1D'
+ MEPROP Name 'IdsCommonDiction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обобщённый словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492540AF02CD // CommonDictionInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.ms.model.script' // IdsSimpleTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_492541AB020E // Context
+ HWL ME_52F4E72400C2 // ContextFilterState
+ HWL ME_5571E60901BC // DictionKind
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_492541BD01F3 // MakeCurrentIndex
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_4925416003BC // ImageList
+ ME_491DD5A10199_ME_4925416003BC // SimpleTree
+ ME_491DD5C90095_ME_4925416003BC // CurrentChanged
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsCommonDiction'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4925416003BC IdsCommonDiction
+
+FORWARD ME_4936823400AE
+
+ME ME_4D78AFC702D5
+ MEPROP UID '4D78AFC702D5'
+ MEPROP Name 'dsSaveLoad'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4936823400AE // IsdsCommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4923F61A0112' '4AA5503000D7.ms.model.script' // IdsSaveLoad
+ )
+ ; // Inherits
+ UP "pm" true
+
+ENDME // ME_4D78AFC702D5 dsSaveLoad
+
+ME ME_4D7A7A9D016D
+ MEPROP UID '4D7A7A9D016D'
+ MEPROP Name 'dsChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4936823400AE // IsdsCommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D7A7A890101 // IdsChild
+ )
+ ; // Inherits
+ UP "pm" true
+
+ENDME // ME_4D7A7A9D016D dsChild
+
+ME ME_491DD57603A3_ME_500D34960277
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_500D34960277 ImageList
+
+ME ME_491DD5A10199_ME_500D34960277
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_500D34960277 SimpleTree
+
+ME ME_491DD5C90095_ME_500D34960277
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_500D34960277 CurrentChanged
+
+ME ME_492541AB020E_ME_500D34960277
+ MELINK Original HWL ME_492541AB020E // Context
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492541AB020E_ME_500D34960277 Context
+
+ME ME_492541BD01F3_ME_500D34960277
+ MELINK Original HWL ME_492541BD01F3 // MakeCurrentIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492541BD01F3_ME_500D34960277 MakeCurrentIndex
+
+ME ME_52F4E72400C2_ME_500D34960277
+ MELINK Original HWL ME_52F4E72400C2 // ContextFilterState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_52F4E72400C2_ME_500D34960277 ContextFilterState
+
+ME ME_5571E60901BC_ME_500D34960277
+ MELINK Original HWL ME_5571E60901BC // DictionKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_5571E60901BC_ME_500D34960277 DictionKind
+
+ME ME_500D34960277
+ MEPROP UID '500D34960277'
+ MEPROP Name 'dsContents'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список толкований' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4936823400AE // IsdsCommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4925416003BC // IdsCommonDiction
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_500D34960277 // ImageList
+ ME_491DD5A10199_ME_500D34960277 // SimpleTree
+ ME_491DD5C90095_ME_500D34960277 // CurrentChanged
+ ME_492541AB020E_ME_500D34960277 // Context
+ ME_492541BD01F3_ME_500D34960277 // MakeCurrentIndex
+ ME_52F4E72400C2_ME_500D34960277 // ContextFilterState
+ ME_5571E60901BC_ME_500D34960277 // DictionKind
+ )
+ ; // Implemented
+ UP "Need Has" false
+ UP "is reference" true
+ UP "pm" true
+
+ENDME // ME_500D34960277 dsContents
+
+ME ME_4B0EB10C02A3
+ MEPROP UID '4B0EB10C02A3'
+ MEPROP Name 'CurrentNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4936823400AE // IsdsCommonDiction
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "pm" false
+
+ENDME // ME_4B0EB10C02A3 CurrentNode
+
+ME ME_4B0EB7B10270
+ MEPROP UID '4B0EB7B10270'
+ MEPROP Name 'deCommonDiction'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4936823400AE // IsdsCommonDiction
+ ;
+ MELINK Target HWL ME_4947AD8201F6 // IdeCommonDiction
+ ;
+ UP "pm" false
+
+ENDME // ME_4B0EB7B10270 deCommonDiction
+
+ME ME_50129274026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_reflected_by::Dependency ;
+ MELINK Parent HWL ME_4936823400AE // IsdsCommonDiction
+ ;
+ MELINK Target HWL ME_492545F700BF // IdCommonDiction
+ ;
+ UP "needs default form" false
+
+ENDME // ME_50129274026B 
+
+ME ME_4925978F00FA_ME_4936823400AE
+ MELINK Original WL 'ME_4925978F00FA' '491B305A0096.ms.model.script' // ChangeDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925978F00FA_ME_4936823400AE ChangeDocument
+
+ME ME_492597A602F6_ME_4936823400AE
+ MELINK Original WL 'ME_492597A602F6' '491B305A0096.ms.model.script' // MakeGotoPointData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492597A602F6_ME_4936823400AE MakeGotoPointData
+
+ME ME_492598700162_ME_4936823400AE
+ MELINK Original WL 'ME_492598700162' '4D1B85BF03E4.ms.model.script' // OpenAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492598700162_ME_4936823400AE OpenAttributes
+
+ME ME_4DF9D63B0360_ME_4936823400AE
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_4936823400AE DocInfo
+
+ME ME_50002EC80001_ME_4936823400AE
+ MELINK Original WL 'ME_50002EC80001' '491B305A0096.ms.model.script' // dsDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is reference" true
+ UP "pm" true
+ENDME // ME_50002EC80001_ME_4936823400AE dsDocument
+
+ME ME_5009A78501A6_ME_4936823400AE
+ MELINK Original WL 'ME_5009A78501A6' '4D1B85BF03E4.ms.model.script' // dsAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is reference" true
+ UP "pm" true
+ENDME // ME_5009A78501A6_ME_4936823400AE dsAttributes
+
+ME ME_5111C2BAF24F_ME_4936823400AE
+ MELINK Original WL 'ME_5111C2BAF24F' '491B305A0096.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5111C2BAF24F_ME_4936823400AE HasDocument
+
+ME ME_6DBD21E52E04_ME_4936823400AE
+ MELINK Original WL 'ME_6DBD21E52E04' '4D1B85BF03E4.ms.model.script' // HasAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_6DBD21E52E04_ME_4936823400AE HasAttributes
+
+ME ME_4936823400AE
+ MEPROP UID '4936823400AE'
+ MEPROP GUID 'DC1DB35E-8793-4D82-87CE-97A2C50A25CF'
+ MEPROP Name 'IsdsCommonDiction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обобщенный словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492540AF02CD // CommonDictionInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F083E60105' '4D1B85BF03E4.ms.model.script' // IsdsBaseDocumentWithAttributes
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D78AFC702D5 // dsSaveLoad
+ HWL ME_4D7A7A9D016D // dsChild
+ HWL ME_500D34960277 // dsContents
+ HWL ME_4B0EB10C02A3 // CurrentNode
+ HWL ME_4B0EB7B10270 // deCommonDiction
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4925978F00FA_ME_4936823400AE // ChangeDocument
+ ME_492597A602F6_ME_4936823400AE // MakeGotoPointData
+ ME_492598700162_ME_4936823400AE // OpenAttributes
+ ME_4DF9D63B0360_ME_4936823400AE // DocInfo
+ ME_50002EC80001_ME_4936823400AE // dsDocument
+ ME_5009A78501A6_ME_4936823400AE // dsAttributes
+ ME_5111C2BAF24F_ME_4936823400AE // HasDocument
+ ME_6DBD21E52E04_ME_4936823400AE // HasAttributes
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50129274026B // IdCommonDiction
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'sdsCommonDiction'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4936823400AE IsdsCommonDiction
+
+ME ME_492540AF02CD
+ MEPROP UID '492540AF02CD'
+ MEPROP Name 'CommonDictionInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы обобщённого словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_494104850236' '494104850236.ms.model.script' // CommonDiction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_556C2C0602F8 // TnsDictionKind
+ HWL ME_492547040121 // IbsCommonDictionListener
+ HWL ME_4947AD8201F6 // IdeCommonDiction
+ HWL ME_492545F700BF // IdCommonDiction
+ HWL ME_4D7A7A890101 // IdsChild
+ HWL ME_4925416003BC // IdsCommonDiction
+ HWL ME_4936823400AE // IsdsCommonDiction
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_490838E10313' '490838E10313.ms.model.script' // nscNewInterfaces
+ WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_491DD2830110' '491DD2830110.ms.model.script' // TreeInterfaces
+ WL 'ME_4982BE090383' '4982BE090383.ms.model.script' // vcmControllers
+ WL 'ME_4AA5503000D7' '4AA5503000D7.ms.model.script' // QueryCardInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.ms.model.script' // DocumentInterfaces
+ WL 'ME_4D1B85BF03E4' '4D1B85BF03E4.ms.model.script' // BaseDocumentWithAttributesInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '20.11.2008 13:40'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\CommonDictionInterfaces.pas'
+
+ENDME // ME_492540AF02CD CommonDictionInterfaces

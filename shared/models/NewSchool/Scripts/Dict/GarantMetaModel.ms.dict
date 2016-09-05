@@ -1,0 +1,591 @@
+UNIT GarantMetaModel.ms.dict
+
+USES 
+ ElementsRTTI.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+BOOLEAN elem_func IsScriptKeyword
+ Self .IsStereotype st_ScriptKeyword 
+ >>> Result
+; // IsScriptKeyword
+
+BOOLEAN elem_func IsScriptKeywordsPack
+ Self .IsStereotype st_ScriptKeywordsPack 
+ >>> Result
+; // IsScriptKeywordsPack
+
+BOOLEAN elem_func IsAcceptableForScripts
+ Self .UPisTrue 'extprop:rc:isAcceptableForScripts' 
+ >>> Result
+; // IsAcceptableForScripts
+
+BOOLEAN elem_func IsVCMFormDefinition
+ Self .IsStereotype st_VCMFormDefinition
+ >>> Result
+; // IsVCMFormDefinition
+
+BOOLEAN elem_func IsAtom
+ Self .IsStereotype st_Atom
+ >>> Result
+; // IsAtom
+
+BOOLEAN elem_func IsTag
+ Self .IsStereotype st_Tag
+ >>> Result
+; // IsTag
+
+BOOLEAN elem_func IsMethod
+ Self .IsStereotype st_method 
+ >>> Result
+; // IsMethod
+
+BOOLEAN elem_func IsFacetMethod
+ Self .IsStereotype st_facetmethod
+ >>> Result
+; // IsFacetMethod
+
+BOOLEAN elem_func IsVCMOperations
+ Self .IsStereotype st_VCMOperations 
+ >>> Result
+; // IsVCMOperations
+
+BOOLEAN elem_func IsVCMOperationState
+ Self .IsStereotype st_VCMOperationState
+ >>> Result
+; // IsVCMOperationState
+
+BOOLEAN elem_func IsVCMControls
+ Self .IsStereotype st_VCMControls
+ >>> Result
+; // IsVCMControls
+
+BOOLEAN elem_func IsControlOverride
+ Self .IsStereotype st_ControlOverride 
+ >>> Result
+; // IsControlOverride
+
+BOOLEAN elem_func IsControlPrim
+ Self .IsStereotype st_ControlPrim 
+ >>> Result
+; // IsControlPrim
+
+BOOLEAN elem_func IsComponent
+ Self .IsStereotype st_Component
+ >>> Result
+; // IsComponent
+
+BOOLEAN elem_func IsGuiControl
+ Self .IsStereotype st_GuiControl
+ >>> Result
+; //IsGuiControl
+
+BOOLEAN elem_func IsImplements
+ Self .IsStereotype st_implements::Dependency 
+ >>> Result
+; // IsImplements
+
+BOOLEAN elem_func IsVCMFormSetFactory
+ Self .IsStereotype st_VCMFormSetFactory
+ >>> Result
+; // IsVCMFormSetFactory
+
+BOOLEAN elem_func IsFormSetFactory
+ Self .IsStereotype st_FormSetFactory 
+ >>> Result
+; // IsFormSetFactory
+
+BOOLEAN elem_func IsVCMFormsPack
+ Self .IsStereotype st_VCMFormsPack 
+ >>> Result
+; // IsVCMFormsPack
+
+BOOLEAN elem_func IsModuleOperationPrim
+ Self .IsStereotype st_ModuleOperationPrim
+ >>> Result
+; // IsModuleOperationPrim
+
+BOOLEAN elem_func IsFormFactory
+ Self .IsStereotype st_FormFactory
+ >>> Result
+; // IsFormFactory
+
+BOOLEAN elem_func IsVCMFormZone
+ Self .IsStereotype st_VCMFormZone
+ >>> Result
+; // IsVCMFormZone
+
+BOOLEAN elem_func IsVCMZone
+ Self .IsStereotype st_VCMZone
+ >>> Result
+; // IsVCMZone
+
+BOOLEAN elem_func IsVCMApplication
+ Self .IsStereotype st_VCMApplication
+ >>> Result
+; // IsVCMApplication
+
+BOOLEAN elem_func IsVCMTestApplication
+ Self .IsStereotype st_VCMTestApplication
+ >>> Result
+; // IsVCMTestApplication
+
+BOOLEAN elem_func IsTagTable
+ Self .IsStereotype st_TagTable
+ >>> Result
+; // IsTagTable
+
+BOOLEAN elem_func IsEVD
+ Self .IsStereotype st_EVD
+ >>> Result
+; // IsEVD
+
+BOOLEAN elem_func IsInterfaceFactory
+ Self .IsStereotype st_InterfaceFactory
+ >>> Result
+; // IsInterfaceFactory
+
+BOOLEAN elem_func IsVCMModuleContract
+ Self .IsStereotype st_VCMModuleContract
+ >>> Result
+; // IsVCMModuleContract
+
+BOOLEAN elem_func IsServiceImplementation
+ Self .IsStereotype st_ServiceImplementation
+ >>> Result
+; // IsServiceImplementation
+
+BOOLEAN elem_func IsService
+ Self .IsStereotype st_Service
+ >>> Result
+; // IsService
+
+USES
+ classRelations.ms.dict
+;
+
+ME st_VCMModuleContractImplementation Inherits ( st_ServiceImplementation )
+ MEPROP UID '51608214-1DEE-4129-A830-54EA7CBF601A'
+ MEPROP Name 'VCMModuleContractImplementation'
+ MEPROP Stereotype 'MDAClass'
+ENDME // st_VCMModuleContractImplementation
+
+ME st_ServiceAutoImplementation Inherits ( st_ServiceImplementation )
+ MEPROP UID 'E3D45A9E-A7B6-4842-9D78-075DC80BD6BC'
+ MEPROP Name 'ServiceAutoImplementation'
+ MEPROP Stereotype 'MDAClass'
+ENDME // st_ServiceAutoImplementation
+
+BOOLEAN elem_func IsVCMModuleContractImplementation
+ Self .IsStereotype st_VCMModuleContractImplementation
+ >>> Result
+; // IsVCMModuleContractImplementation
+
+BOOLEAN elem_func IsServiceAutoImplementation
+ Self .IsStereotype st_ServiceAutoImplementation
+ >>> Result
+; // IsServiceAutoImplementation
+
+BOOLEAN elem_func IsIni
+ Self .IsStereotype st_ini::Operation
+ >>> Result
+; // IsIni
+
+BOOLEAN elem_func IsFini
+ Self .IsStereotype st_fini::Operation
+ >>> Result
+; // IsFini
+
+BOOLEAN elem_func IsResponsibility
+ Self .IsStereotype st_responsibility::Operation
+ >>> Result
+; // IsResponsibility
+
+BOOLEAN elem_func IsPropertyAttribute
+ Self .IsStereotype st_property::Attribute
+ >>> Result
+; // IsPropertyAttribute
+
+BOOLEAN elem_func IsAfterAttribute
+ Self .IsStereotype st_after::Attribute
+ >>> Result
+; // IsAfterAttribute
+
+BOOLEAN elem_func IsUseCaseSetting
+ Self .IsStereotype st_UseCaseSetting
+ >>> Result
+; // IsUseCaseSetting
+
+BOOLEAN elem_func IsTestCase
+ Self .IsStereotype st_TestCase 
+ >>> Result
+; // IsTestCase
+
+BOOLEAN elem_func IsTestLibrary
+ Self .IsStereotype st_TestLibrary
+ >>> Result
+; // IsTestLibrary
+
+BOOLEAN elem_func IsTestUnit
+ Self .IsStereotype st_TestUnit
+ >>> Result
+; // IsTestUnit
+
+BOOLEAN elem_func IsUnit
+ Self .IsStereotype st_Unit
+ >>> Result
+; // IsUnit
+
+BOOLEAN elem_func IsImpl
+ Self .IsStereotype st_Impl
+ >>> Result
+; // IsImpl
+
+BOOLEAN elem_func IsLibrary
+ Self .IsStereotype st_Library
+ >>> Result
+; // IsLibrary
+
+BOOLEAN elem_func IsVCMModule
+ Self .IsStereotype st_VCMModule
+ >>> Result
+; // IsVCMModule
+
+BOOLEAN elem_func IsVCMCustomForm
+ Self .IsStereotype st_VCMCustomForm 
+ >>> Result
+; // IsVCMCustomForm
+
+BOOLEAN elem_func IsVCMDataModule
+ Self .IsStereotype st_VCMDataModule
+ >>> Result
+; // IsVCMDataModule
+
+BOOLEAN elem_func IsVCMForm
+ Self .IsStereotype st_VCMForm 
+ >>> Result
+; // IsVCMForm
+
+BOOLEAN elem_func IsVCMContainer
+ Self .IsStereotype st_VCMContainer
+ >>> Result
+; // IsVCMContainer
+
+BOOLEAN elem_func IsVCMMainForm
+ Self .IsStereotype st_VCMMainForm
+ >>> Result
+; // IsVCMMainForm
+
+BOOLEAN elem_func IsUseCaseController
+ Self .IsStereotype st_UseCaseController 
+ >>> Result
+; // IsUseCaseController
+
+BOOLEAN elem_func IsViewAreaController
+ Self .IsStereotype st_ViewAreaController 
+ >>> Result
+; // IsViewAreaController
+
+BOOLEAN elem_func IsUseCaseControllerImp
+ Self .IsStereotype st_UseCaseControllerImp 
+ >>> Result
+; // IsUseCaseControllerImp
+
+BOOLEAN elem_func IsViewAreaControllerImp
+ Self .IsStereotype st_ViewAreaControllerImp 
+ >>> Result
+; // IsViewAreaControllerImp
+
+BOOLEAN elem_func IsEvent
+ Self .IsStereotype st_Event
+ >>> Result
+; // IsEvent
+
+BOOLEAN elem_func IsSimpleClass
+ Cached:
+ (
+  RULES
+   ( Self .IsEvent )
+    true
+   ( Self .IsUseCaseControllerImp )
+    ( Self .Abstraction at_abstract != )
+   ( Self .IsViewAreaControllerImp )
+    ( Self .Abstraction at_abstract != )
+   ( Self .IsStereotype st_SimpleClass ) 
+    true
+   ( Self .IsStereotype st_ObjStub ) 
+    true
+   ( Self .IsService ) 
+    true
+   ( Self .IsServiceImplementation ) 
+    true
+   ( Self .IsScriptKeyword ) 
+    true
+   ( Self .IsTestCase ) 
+    true
+   ( Self .IsGuiControl ) 
+    true
+   ( Self .IsVCMForm ) 
+    true
+   ( Self .IsStereotype st_VCMFinalForm ) 
+    true
+   ( Self .IsVCMContainer ) 
+    true
+   ( Self .IsStereotype st_VCMFinalContainer ) 
+    true
+   DEFAULT
+    false 
+  ; // RULES
+ )  
+ >>> Result
+; // IsSimpleClass
+
+BOOLEAN elem_func IsInternalInterfaces
+ Self .IsStereotype st_InternalInterfaces
+ >>> Result
+; // IsInternalInterfaces
+
+BOOLEAN elem_func IsInterfaces
+ Cached:
+ (
+  RULES
+   ( Self .IsStereotype st_Interfaces ) 
+    true
+   ( Self .IsInternalInterfaces )
+    true
+   DEFAULT
+    false
+  ; // RULES 
+ )
+ >>> Result
+; // IsInterfaces
+
+BOOLEAN elem_func IsTypedef
+ Self .IsStereotype st_Typedef 
+ >>> Result
+; // IsTypedef
+
+BOOLEAN elem_func IsPointer
+ Self .UPisTrue "isPointer"
+ >>> Result
+; // IsPointer
+
+BOOLEAN elem_func IsPureMixIn
+ Self .IsStereotype st_PureMixIn
+ >>> Result
+; // IsPureMixIn
+
+BOOLEAN elem_func IsTestCaseMixIn
+ Self .IsStereotype st_TestCaseMixIn
+ >>> Result
+; // IsTestCaseMixIn
+
+BOOLEAN elem_func IsRange
+ Self .IsStereotype st_Range 
+ >>> Result
+; // IsRange
+
+BOOLEAN elem_func IsEnum
+ Self .IsStereotype st_Enum 
+ >>> Result
+; // IsEnum
+
+BOOLEAN elem_func IsFunction
+ Self .IsStereotype st_Function 
+ >>> Result
+; // IsFunction
+
+BOOLEAN elem_func IsDefine
+ Self .IsStereotype st_Define 
+ >>> Result
+; // IsDefine
+
+BOOLEAN elem_func IsUndef
+ Self .IsStereotype st_Undef 
+ >>> Result
+; // IsUndef
+
+BOOLEAN elem_func IsUnion
+ Self .IsStereotype st_Union 
+ >>> Result
+; // IsUnion
+
+BOOLEAN elem_func IsStaticObject
+ Self .IsStereotype st_StaticObject 
+ >>> Result
+; // IsStaticObject
+
+BOOLEAN elem_func IsElementProxy
+ Self .IsStereotype st_ElementProxy 
+ >>> Result
+; // IsElementProxy
+
+BOOLEAN elem_func IsSetOf
+ Self .IsStereotype st_SetOf 
+ >>> Result
+; // IsSetOf
+
+BOOLEAN elem_func IsException
+ Self .IsStereotype st_Exception 
+ >>> Result
+; // IsException
+
+BOOLEAN elem_func IsVCMGUI
+ Self .IsStereotype st_VCMGUI 
+ >>> Result
+; // IsVCMGUI
+
+BOOLEAN elem_func IsTestTarget
+ Self .IsStereotype st_TestTarget 
+ >>> Result
+; // IsTestTarget
+
+BOOLEAN elem_func IsVCMUseCaseRealization
+ Self .IsStereotype st_VCMUseCaseRealization
+ >>> Result
+; // IsVCMUseCaseRealization
+
+BOOLEAN elem_func IsVCMUseCase
+ Self .IsStereotype st_VCMUseCase
+ >>> Result
+; // IsVCMUseCase
+
+BOOLEAN elem_func IsVCMTestTarget
+ Self .IsStereotype st_VCMTestTarget 
+ >>> Result
+; // IsVCMTestTarget
+
+BOOLEAN elem_func IsExeTarget
+ Self .IsStereotype st_ExeTarget 
+ >>> Result
+; // IsExeTarget
+
+BOOLEAN elem_func IsExe
+ RULES
+  ( Self .IsExeTarget )
+   true
+  ( Self .IsTestTarget )
+   true 
+  ( Self .IsVCMGUI )
+   true 
+  DEFAULT
+   false
+ ; // RULES 
+ >>> Result
+; // IsExe
+
+BOOLEAN elem_func IsAdapterTarget
+ Self .IsStereotype st_AdapterTarget
+ >>> Result
+; // IsAdapterTarget
+
+BOOLEAN elem_func IsDLL
+ Self .IsAdapterTarget
+ >>> Result
+; // IsDLL
+
+BOOLEAN elem_func IsTarget
+ Cached:
+ (
+  RULES
+   ( Self .IsVCMGUI )
+    true
+   ( Self .IsExe )
+    true
+   ( Self .IsDLL )
+    true
+   DEFAULT
+    false
+  ; // RULES
+ )
+ >>> Result
+; // IsTarget
+
+BOOLEAN elem_func IsEvdSchemaElement
+ Self .IsAtom
+ >>> Result
+; // IsEvdSchemaElement
+
+BOOLEAN elem_func IsTestClass
+ Self .IsStereotype st_TestClass 
+ >>> Result
+; // IsTestClass
+
+BOOLEAN elem_func IsUserType
+ Self .IsStereotype st_UserType 
+ >>> Result
+; // IsUserType
+
+BOOLEAN elem_func IsScriptKeywords
+ Self .IsStereotype st_ScriptKeywords 
+ >>> Result
+; // IsScriptKeywords
+
+BOOLEAN elem_func IsTestResults
+ Self .IsStereotype st_TestResults 
+ >>> Result
+; // IsTestResults
+
+BOOLEAN elem_func IsVCMOperationPrim
+ RULES
+  ( Self .IsStereotype st_VCMOperationPrim )
+   true
+  ( 
+   ( Self .Parent .IsNotNil ) 
+   AND ( Self .Parent .IsVCMOperations )
+  ) 
+   true
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result
+; // IsVCMOperationPrim
+
+WordAlias .IsVCMOperation .IsVCMOperationPrim
+
+BOOLEAN elem_func IsMessageOperation
+ Self .IsStereotype st_message::Operation 
+ >>> Result
+; // IsMessageOperation
+
+BOOLEAN elem_func IsMessage
+ Self .IsStereotype st_Message 
+ >>> Result
+; // IsMessage
+
+BOOLEAN elem_func IsLocalMethod
+ Self .IsStereotype st_localmethod 
+ >>> Result
+; // IsLocalMethod
+
+ModelElement elem_func KeywordOperation
+ Self .SpelledFor
+ >>> Result
+; // KeywordOperation
+
+BOOLEAN elem_func IsKeyWord
+ Self .IsStereotype st_keyword::Operation 
+ >>> Result
+; // IsKeyWord
+
+BOOLEAN elem_func IsGlobalKeyWord
+ Self .IsStereotype st_globalkeyword::Operation 
+ >>> Result
+; // IsGlobalKeyWord
+
+BOOLEAN elem_func IsSomeKeyWord
+ RULES
+  ( Self .IsKeyWord )
+   true
+  ( Self .IsGlobalKeyWord )
+   true
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result
+; // IsSomeKeyWord
+
+

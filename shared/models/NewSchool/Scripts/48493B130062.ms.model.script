@@ -1,0 +1,161 @@
+// Implementation 48493B130062 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48493B130062
+
+FORWARD ME_48493B85025A
+
+ME ME_4936A202025D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48493B85025A // Wrapper
+ ;
+ MELINK Target WL 'ME_4721B0380203' '4936A16E0294.ms.model.script' // Range
+ ;
+
+ENDME // ME_4936A202025D 
+
+ME ME_4704C0E30186_ME_48493B85025A
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_48493B85025A constraint
+
+ME ME_48493B85025A
+ MEPROP UID '48493B85025A'
+ MEPROP Name 'Wrapper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обёртка EVD-тега'#13#10'---'#13#10'Класс, реализующий специфические аспекты поведения EVD-тега, при обработке в памяти, например преобразование к различным атомарным типам данных.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493B130062 // Implementation
+ ;
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_48493B85025A // constraint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4936A202025D // Range
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Implementation\Wrapper.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Implementation\Wrapper'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48493B85025A Wrapper
+
+FORWARD ME_484A925103A7
+
+ME ME_49A3E3DA028C
+ MEPROP UID '49A3E3DA028C'
+ MEPROP Name 'uses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование других элементов для реализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484A925103A7 // TagImplementator
+ ;
+ UP "personal label" 'code_dep'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Implementation\TagImplementator\uses'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49A3E3DA028C uses
+
+ME ME_46E6D4BB0339_ME_484A925103A7
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E6D4BB0339_ME_484A925103A7 wiki
+
+ME ME_4704C0E30186_ME_484A925103A7
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_484A925103A7 constraint
+
+ME ME_484A925103A7
+ MEPROP UID '484A925103A7'
+ MEPROP Name 'TagImplementator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс, реализующий тег'#13#10'---'#13#10'Связь реализации задаёт реализуемый тег. Связь наследования задаёт реализующий класс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493B130062 // Implementation
+ ;
+ MELIST Overridden
+   Seq: ( ME_46E6D4BB0339_ME_484A925103A7 // wiki
+ ME_4704C0E30186_ME_484A925103A7 // constraint
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_49A3E3DA028C // uses
+ )
+ ; // Children
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Implementation\TagImplementator.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Implementation\TagImplementator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_484A925103A7 TagImplementator
+
+FORWARD ME_4856767D006A
+
+ME ME_4704C0E30186_ME_4856767D006A
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_4856767D006A constraint
+
+ME ME_4856767D006A
+ MEPROP UID '4856767D006A'
+ MEPROP Name 'InterfaceFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика интерфейсов для тегов'#13#10'---'#13#10'Определяет класс для выбора конкретных экземпляров, реализующий интерфейс инструмента для тега.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48493B130062 // Implementation
+ ;
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_4856767D006A // constraint
+ )
+ ; // Overridden
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Implementation\InterfaceFactory.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Implementation\InterfaceFactory'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4856767D006A InterfaceFactory
+
+ME ME_48493B130062
+ MEPROP UID '48493B130062'
+ MEPROP Name 'Implementation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Реализация EVD структур в памяти.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_484918A30320' '484918A30320.ms.model.script' // Data Definition
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48493B85025A // Wrapper
+ HWL ME_484A925103A7 // TagImplementator
+ HWL ME_4856767D006A // InterfaceFactory
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4936A16E0294' '4936A16E0294.ms.model.script' // Delphi Specific
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\EVDTemplates\Data Definition\Implementation'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Implementation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48493B130062 Implementation

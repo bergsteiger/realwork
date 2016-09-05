@@ -1,0 +1,1877 @@
+// Impl 4CAC5A7402DE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CAC5A7402DE
+
+FORWARD ME_4CAC5B4900ED
+
+ME ME_4CAECDFE032A
+ MEPROP UID '4CAECDFE032A'
+ MEPROP Name 'f_Tree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELINK Target WL 'ME_476BF13201C4' '476BF10A0280.ms.model.script' // Il3Tree
+ ;
+
+ENDME // ME_4CAECDFE032A f_Tree
+
+ME ME_4CAED08C02BC
+ MEPROP UID '4CAED08C02BC'
+ MEPROP Name 'f_FilterType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELINK Target WL 'ME_4CADA33B0257' '4CAC58E50231.ms.model.script' // TnsFiltersType
+ ;
+
+ENDME // ME_4CAED08C02BC f_FilterType
+
+FORWARD ME_4CB30B4A0124
+
+ME ME_4CB30B6E0232
+ MEPROP Name 'aFilterType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CADA33B0257' '4CAC58E50231.ms.model.script' // TnsFiltersType
+ ;
+
+ENDME // ME_4CB30B6E0232 aFilterType
+
+ME ME_4CB30B66005B
+ MEPROP UID '4CB30B66005B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB30B4A0124 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB30B6E0232 // aFilterType
+ )
+ ; // Parameters
+
+ENDME // ME_4CB30B66005B DoIt
+
+ME ME_4CB30B4A0124
+ MEPROP UID '4CB30B4A0124'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB30B66005B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CB30B4A0124 Create
+
+ME ME_4CB30B7E0341
+ MEPROP UID '4CB30B7E0341'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CB30B4A0124 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_499184BF03C8' '4CAC58E50231.ms.model.script' // InsFiltersContainer
+ )
+ ; // Implements
+
+ENDME // ME_4CB30B7E0341 Make
+
+ME ME_4CADA09100FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4CADA09100FD 
+
+FORWARD ME_4CAEC809015D
+
+ME ME_4CAEC8200270
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELINK Target HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+
+ENDME // ME_4CAEC8200270 
+
+ME ME_4CB5903802AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CB5903802AD 
+
+ME ME_4CB592AB018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+ MELINK Target WL 'ME_4ADEEDB1033B' '47E246C90144.ms.model.script' // l3L2NA
+ ;
+
+ENDME // ME_4CB592AB018F 
+
+ME ME_4991850C0199_ME_4CAC5B4900ED
+ MELINK Original WL 'ME_4991850C0199' '4CAC58E50231.ms.model.script' // Tree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4991850C0199_ME_4CAC5B4900ED Tree
+
+ME ME_4991855E01FB_ME_4CAC5B4900ED
+ MELINK Original WL 'ME_4991855E01FB' '4CAC58E50231.ms.model.script' // PermanentFilters
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4991855E01FB_ME_4CAC5B4900ED PermanentFilters
+
+ME ME_479731C50290_ME_4CAC5B4900ED
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CAC5B4900ED Cleanup
+
+ME ME_4CAC5B4900ED
+ MEPROP UID '4CAC5B4900ED'
+ MEPROP Name 'TnsFiltersContainerPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CAC5A7402DE // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.ms.model.script' // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_499184BF03C8' '4CAC58E50231.ms.model.script' // InsFiltersContainer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CAECDFE032A // f_Tree
+ HWL ME_4CAED08C02BC // f_FilterType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB30B4A0124 // Create
+ HWL ME_4CB30B7E0341 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4991850C0199_ME_4CAC5B4900ED // Tree
+ ME_4991855E01FB_ME_4CAC5B4900ED // PermanentFilters
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CAC5B4900ED // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CADA09100FD // DataAdapter
+ ME_4CAEC8200270 // TnsFiltersTree
+ ME_4CB5903802AD // Supports
+ ME_4CB592AB018F // l3L2NA
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersContainerPrim.pas'
+ UP extprop:rc:SelfName 'FiltersContainerPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsFiltersContainerPrim'
+
+ENDME // ME_4CAC5B4900ED TnsFiltersContainerPrim
+
+FORWARD ME_4CAC5BD701BF
+
+ME ME_4CAD92D800A8
+ MEPROP UID '4CAD92D800A8'
+ MEPROP Name 'f_DocFilter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_499184BF03C8' '4CAC58E50231.ms.model.script' // InsFiltersContainer
+ ;
+
+ENDME // ME_4CAD92D800A8 f_DocFilter
+
+ME ME_4CAD9314034F
+ MEPROP UID '4CAD9314034F'
+ MEPROP Name 'f_DrugFilter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_499184BF03C8' '4CAC58E50231.ms.model.script' // InsFiltersContainer
+ ;
+
+ENDME // ME_4CAD9314034F f_DrugFilter
+
+FORWARD ME_4CAD6F700075
+
+ME ME_4CAD6FCA0152
+ MEPROP UID '4CAD6FCA0152'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAD6F700075 // Filters
+ ;
+ MELINK Target WL 'ME_47F5C59F0135' '47EA07FA02CE.ms.model.script' // TbsListType
+ ;
+
+ENDME // ME_4CAD6FCA0152 ListType
+
+ME ME_4CAD6F700075
+ MEPROP UID '4CAD6F700075'
+ MEPROP Name 'Filters'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_499184BF03C8' '4CAC58E50231.ms.model.script' // InsFiltersContainer
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CAD6FCA0152 // ListType
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4CAD6F700075 Filters
+
+ME ME_4CB5547B02F8
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4CB5547B02F8 aQuery
+
+ME ME_4CB5547B0327
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CB5547B0327 aName
+
+ME ME_4CB5545B0148
+ MEPROP UID '4CB5545B0148'
+ MEPROP Name 'ConvertToFilter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB5547B02F8 // aQuery
+ ME_4CB5547B0327 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5545B0148 ConvertToFilter
+
+ME ME_4CB6FCC00148
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_4CB6FCC00148 aFilter
+
+ME ME_4CB6FCC00186
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CB6FCC00186 aName
+
+ME ME_4CB5549500AD
+ MEPROP UID '4CB5549500AD'
+ MEPROP Name 'RenameFilter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6FCC00148 // aFilter
+ ME_4CB6FCC00186 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5549500AD RenameFilter
+
+ME ME_4CAD71C10281
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ ;
+
+ENDME // ME_4CAD71C10281 
+
+ME ME_4CB5641F014C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4CB5641F014C 
+
+ME ME_4CB56620022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '47F2170002B2.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4CB56620022C 
+
+ME ME_4CB5663B00F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CB5663B00F8 
+
+ME ME_4CB5665D01BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4CB5665D01BB 
+
+ME ME_4CB5666201C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ ;
+ MELINK Target WL 'ME_456EC7C300DA' '456EA56002BF.ms.model.script' // EntityStorage
+ ;
+
+ENDME // ME_4CB5666201C3 
+
+ME ME_479731C50290_ME_4CAC5BD701BF
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CAC5BD701BF Cleanup
+
+ME ME_4CAC5BD701BF
+ MEPROP UID '4CAC5BD701BF'
+ MEPROP Name 'TnsFiltersContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CAC5A7402DE // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.ms.model.script' // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CAD92D800A8 // f_DocFilter
+ HWL ME_4CAD9314034F // f_DrugFilter
+ HWL ME_4CAD6F700075 // Filters
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB5545B0148 // ConvertToFilter
+ HWL ME_4CB5549500AD // RenameFilter
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CAC5BD701BF // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CAD71C10281 // TnsFiltersContainerPrim
+ ME_4CB5641F014C // DataAdapter
+ ME_4CB56620022C // nsAStr
+ ME_4CB5663B00F8 // Supports
+ ME_4CB5665D01BB // EntityBase
+ ME_4CB5666201C3 // EntityStorage
+ )
+ ; // Dependencies
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersContainer.pas'
+ UP extprop:rc:SelfName 'FiltersContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsFiltersContainer'
+
+ENDME // ME_4CAC5BD701BF TnsFiltersContainer
+
+ME ME_4F96A7E901BD
+ MEPROP UID '4F96A7E901BD'
+ MEPROP Name 'f_DsList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_47E9F00100A2' '491B305A0096.ms.model.script' // IdsList
+ ;
+
+ENDME // ME_4F96A7E901BD f_DsList
+
+ME ME_4F99559302D2
+ MEPROP UID '4F99559302D2'
+ MEPROP Name 'f_FilterType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_4CADA33B0257' '4CAC58E50231.ms.model.script' // TnsFiltersType
+ ;
+
+ENDME // ME_4F99559302D2 f_FilterType
+
+ME ME_51A4D5800110
+ MEPROP UID '51A4D5800110'
+ MEPROP Name 'f_RebuildLockCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51A4D5800110 f_RebuildLockCount
+
+ME ME_51A4D5A60022
+ MEPROP UID '51A4D5A60022'
+ MEPROP Name 'f_NeedRebuild'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51A4D5A60022 f_NeedRebuild
+
+FORWARD ME_4F995492006C
+
+ME ME_4F9954B3030B
+ MEPROP Name 'aFilterType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CADA33B0257' '4CAC58E50231.ms.model.script' // TnsFiltersType
+ ;
+
+ENDME // ME_4F9954B3030B aFilterType
+
+ME ME_4FE979F6031E
+ MEPROP Name 'aDsList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E9F00100A2' '491B305A0096.ms.model.script' // IdsList
+ ;
+
+ENDME // ME_4FE979F6031E aDsList
+
+ME ME_4F9954AB031F
+ MEPROP UID '4F9954AB031F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F995492006C // Create$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F9954B3030B // aFilterType
+ ME_4FE979F6031E // aDsList
+ )
+ ; // Parameters
+
+ENDME // ME_4F9954AB031F Create
+
+ME ME_4F995492006C
+ MEPROP UID '4F995492006C'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F9954AB031F // Create
+ )
+ ; // Operations
+
+ENDME // ME_4F995492006C Create$1
+
+ME ME_4F9954BC025D
+ MEPROP UID '4F9954BC025D'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F995492006C // Create$1
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_476BF13201C4' '476BF10A0280.ms.model.script' // Il3Tree
+ )
+ ; // Implements
+
+ENDME // ME_4F9954BC025D Make$1
+
+FORWARD ME_4F9954DC015E
+
+ME ME_4F9954F00242
+ MEPROP Name 'aListType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F5C59F0135' '47EA07FA02CE.ms.model.script' // TbsListType
+ ;
+
+ENDME // ME_4F9954F00242 aListType
+
+ME ME_4FE979F30335
+ MEPROP Name 'aDsList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E9F00100A2' '491B305A0096.ms.model.script' // IdsList
+ ;
+
+ENDME // ME_4FE979F30335 aDsList
+
+ME ME_4F9954EE00E0
+ MEPROP UID '4F9954EE00E0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9954DC015E // Create$2
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F9954F00242 // aListType
+ ME_4FE979F30335 // aDsList
+ )
+ ; // Parameters
+
+ENDME // ME_4F9954EE00E0 Create
+
+ME ME_4F9954DC015E
+ MEPROP UID '4F9954DC015E'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F9954EE00E0 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4F9954DC015E Create$2
+
+ME ME_4F9954FF036B
+ MEPROP UID '4F9954FF036B'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9954DC015E // Create$2
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_476BF13201C4' '476BF10A0280.ms.model.script' // Il3Tree
+ )
+ ; // Implements
+
+ENDME // ME_4F9954FF036B Make$2
+
+FORWARD ME_4F9955200151
+
+ME ME_4F99553B0071
+ MEPROP UID '4F99553B0071'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9955200151 // LoadChildren
+ ;
+
+ENDME // ME_4F99553B0071 DoIt
+
+ME ME_4F9955200151
+ MEPROP UID '4F9955200151'
+ MEPROP Name 'LoadChildren'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F99553B0071 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F9955200151 LoadChildren
+
+ME ME_4CAED41A0353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_4A573D2F00C6' '47E246C90144.ms.model.script' // Tl3PlaceNode
+ ;
+
+ENDME // ME_4CAED41A0353 
+
+ME ME_4CAED5DC0302
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_4CAED5DC0302 
+
+ME ME_4CAED5EC000B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_4CAED5EC000B 
+
+ME ME_4CAEDAF3026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CAEDAF3026C 
+
+FORWARD ME_4CAEEE74038E
+
+ME ME_4CAEEE9500DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+
+ENDME // ME_4CAEEE9500DA 
+
+ME ME_4CAF0EC501A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4CAF0EC501A4 
+
+ME ME_4F97FEB900BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_47F5C59F0135' '47EA07FA02CE.ms.model.script' // TbsListType
+ ;
+
+ENDME // ME_4F97FEB900BE 
+
+ME ME_4F982B960396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_4F98447C0378' '4F9823DB021B.ms.model.script' // TnsFiltersListenersDocManager
+ ;
+
+ENDME // ME_4F982B960396 
+
+ME ME_4F9846B300FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_4F98440301D2' '4F9823DB021B.ms.model.script' // TnsFiltersListenersDrugsManager
+ ;
+
+ENDME // ME_4F9846B300FC 
+
+ME ME_4F9925B4017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_47723AA10142' '4682595B0268.ms.model.script' // flags in tree
+ ;
+
+ENDME // ME_4F9925B4017E 
+
+ME ME_4F992621035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_46A61AF500BE' '4677FBA70343.ms.model.script' // Tl3SetBitType
+ ;
+
+ENDME // ME_4F992621035C 
+
+ME ME_4F99264F01A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_4912DBE30091' '48FD8B2702F6.ms.model.script' // nsTreeUtils
+ ;
+
+ENDME // ME_4F99264F01A7 
+
+FORWARD ME_5061DE4402FD
+
+ME ME_5061DE5C038D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target HWL ME_5061DE4402FD // TnsFiltersRootNode
+ ;
+
+ENDME // ME_5061DE5C038D 
+
+ME ME_54D486CE00C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEC809015D // TnsFiltersTree
+ ;
+ MELINK Target WL 'ME_47F25741021C' '47E246C90144.ms.model.script' // l3Nodes
+ ;
+
+ENDME // ME_54D486CE00C2 
+
+ME ME_499044F60208_ME_4CAEC809015D
+ MELINK Original WL 'ME_499044F60208' '4CAC58E50231.ms.model.script' // FiltersType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499044F60208_ME_4CAEC809015D FiltersType
+
+ME ME_4CB2B26B0365_ME_4CAEC809015D
+ MELINK Original WL 'ME_4CB2B26B0365' '45EEA48F011F.ms.model.script' // filters_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CB2B26B0365_ME_4CAEC809015D filters_changed
+
+ME ME_4CB2B27F03C3_ME_4CAEC809015D
+ MELINK Original WL 'ME_4CB2B27F03C3' '45EEA48F011F.ms.model.script' // filter_name_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CB2B27F03C3_ME_4CAEC809015D filter_name_changed
+
+ME ME_4CB2B2910052_ME_4CAEC809015D
+ MELINK Original WL 'ME_4CB2B2910052' '45EEA48F011F.ms.model.script' // filter_permanence_changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CB2B2910052_ME_4CAEC809015D filter_permanence_changed
+
+ME ME_51A4D1810053_ME_4CAEC809015D
+ MELINK Original WL 'ME_51A4D1810053' '476BF10A0280.ms.model.script' // LockRebuild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_51A4D1810053_ME_4CAEC809015D LockRebuild
+
+ME ME_51A4D19100DD_ME_4CAEC809015D
+ MELINK Original WL 'ME_51A4D19100DD' '476BF10A0280.ms.model.script' // UnlockRebuild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_51A4D19100DD_ME_4CAEC809015D UnlockRebuild
+
+ME ME_51A4D19E0149_ME_4CAEC809015D
+ MELINK Original WL 'ME_51A4D19E0149' '476BF10A0280.ms.model.script' // IsRebuildLocked
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_51A4D19E0149_ME_4CAEC809015D IsRebuildLocked
+
+ME ME_479731C50290_ME_4CAEC809015D
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CAEC809015D Cleanup
+
+ME ME_4CAEC809015D
+ MEPROP UID '4CAEC809015D'
+ MEPROP Name 'TnsFiltersTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CAC5A7402DE // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4804BDA10127' '47E246C90144.ms.model.script' // Tl3Tree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_499044E00044' '4CAC58E50231.ms.model.script' // InsFiltersTree
+ WL 'ME_4F98240403BA' '4CAC58E50231.ms.model.script' // InsFiltersListener
+ WL 'ME_51A4D14602F5' '476BF10A0280.ms.model.script' // Il3TreeWithLockRebuild
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F96A7E901BD // f_DsList
+ HWL ME_4F99559302D2 // f_FilterType
+ HWL ME_51A4D5800110 // f_RebuildLockCount
+ HWL ME_51A4D5A60022 // f_NeedRebuild
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F995492006C // Create$1
+ HWL ME_4F9954BC025D // Make$1
+ HWL ME_4F9954DC015E // Create$2
+ HWL ME_4F9954FF036B // Make$2
+ HWL ME_4F9955200151 // LoadChildren
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499044F60208_ME_4CAEC809015D // FiltersType
+ ME_4CB2B26B0365_ME_4CAEC809015D // filters_changed
+ ME_4CB2B27F03C3_ME_4CAEC809015D // filter_name_changed
+ ME_4CB2B2910052_ME_4CAEC809015D // filter_permanence_changed
+ ME_51A4D1810053_ME_4CAEC809015D // LockRebuild
+ ME_51A4D19100DD_ME_4CAEC809015D // UnlockRebuild
+ ME_51A4D19E0149_ME_4CAEC809015D // IsRebuildLocked
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CAEC809015D // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CAED41A0353 // Tl3PlaceNode
+ ME_4CAED5DC0302 // FilterFromQuery
+ ME_4CAED5EC000B // FiltersFromQuery
+ ME_4CAEDAF3026C // Supports
+ ME_4CAEEE9500DA // TnsFiltersNode
+ ME_4CAF0EC501A4 // DataAdapter
+ ME_4F97FEB900BE // TbsListType
+ ME_4F982B960396 // TnsFiltersListenersDocManager
+ ME_4F9846B300FC // TnsFiltersListenersDrugsManager
+ ME_4F9925B4017E // flags in tree
+ ME_4F992621035C // Tl3SetBitType
+ ME_4F99264F01A7 // nsTreeUtils
+ ME_5061DE5C038D // TnsFiltersRootNode
+ ME_54D486CE00C2 // l3Nodes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersTree.pas'
+ UP extprop:rc:SelfName 'FiltersTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsFiltersTree'
+
+ENDME // ME_4CAEC809015D TnsFiltersTree
+
+ME ME_4CAEEEB802A5
+ MEPROP UID '4CAEEEB802A5'
+ MEPROP Name 'f_Filter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_4CAEEEB802A5 f_Filter
+
+ME ME_4CB2D316030E
+ MEPROP UID '4CB2D316030E'
+ MEPROP Name 'f_NameCache'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4CB2D316030E f_NameCache
+
+FORWARD ME_4CB30BE00217
+
+ME ME_4CB30C390225
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_4CB30C390225 aFilter
+
+ME ME_4CB30C3300E7
+ MEPROP UID '4CB30C3300E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB30BE00217 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB30C390225 // aFilter
+ )
+ ; // Parameters
+
+ENDME // ME_4CB30C3300E7 DoIt
+
+ME ME_4CB30BE00217
+ MEPROP UID '4CB30BE00217'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB30C3300E7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CB30BE00217 Create
+
+ME ME_4CB30BE802C6
+ MEPROP UID '4CB30BE802C6'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CB30BE00217 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ )
+ ; // Implements
+
+ENDME // ME_4CB30BE802C6 Make
+
+ME ME_4CAEF85C0246
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4CAEF85C0246 
+
+ME ME_4CAEF8770131
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CAEF8770131 
+
+ME ME_4CAEFA6D037A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAEEE74038E // TnsFiltersNode
+ ;
+ MELINK Target WL 'ME_4ADEE542029C' '47F2170002B2.ms.model.script' // nsWStr
+ ;
+
+ENDME // ME_4CAEFA6D037A 
+
+ME ME_499189000111_ME_4CAEEE74038E
+ MELINK Original WL 'ME_499189000111' '4CAC58E50231.ms.model.script' // UsedStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_499189000111_ME_4CAEEE74038E UsedStatus
+
+ME ME_4991890D03D6_ME_4CAEEE74038E
+ MELINK Original WL 'ME_4991890D03D6' '4CAC58E50231.ms.model.script' // DeletedStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4991890D03D6_ME_4CAEEE74038E DeletedStatus
+
+ME ME_4991891D0093_ME_4CAEEE74038E
+ MELINK Original WL 'ME_4991891D0093' '4CAC58E50231.ms.model.script' // AutoApplied
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4991891D0093_ME_4CAEEE74038E AutoApplied
+
+ME ME_4CAEEF3100F9_ME_4CAEEE74038E
+ MELINK Original WL 'ME_4CAEEF3100F9' '4CAC58E50231.ms.model.script' // CanModify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CAEEF3100F9_ME_4CAEEE74038E CanModify
+
+ME ME_4CB2FCFD029F_ME_4CAEEE74038E
+ MELINK Original WL 'ME_4CB2FCFD029F' '4CAC58E50231.ms.model.script' // MarkToDelete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CB2FCFD029F_ME_4CAEEE74038E MarkToDelete
+
+ME ME_4CB55A3101E0_ME_4CAEEE74038E
+ MELINK Original WL 'ME_4CB55A3101E0' '4CAC58E50231.ms.model.script' // ValidateName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CB55A3101E0_ME_4CAEEE74038E ValidateName
+
+ME ME_4FD9E3F900B3_ME_4CAEEE74038E
+ MELINK Original WL 'ME_4FD9E3F900B3' '4CAC58E50231.ms.model.script' // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4FD9E3F900B3_ME_4CAEEE74038E ID
+
+ME ME_479731C50290_ME_4CAEEE74038E
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CAEEE74038E Cleanup
+
+ME ME_47A869BB02DE_ME_4CAEEE74038E
+ MELINK Original WL 'ME_47A869BB02DE' '47913B47006E.ms.model.script' // GetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A869BB02DE_ME_4CAEEE74038E GetAsPCharLen
+
+ME ME_47A869D10074_ME_4CAEEE74038E
+ MELINK Original WL 'ME_47A869D10074' '47913B47006E.ms.model.script' // DoSetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A869D10074_ME_4CAEEE74038E DoSetAsPCharLen
+
+ME ME_4A60B23E00C3_ME_4CAEEE74038E
+ MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A60B23E00C3_ME_4CAEEE74038E COMQueryInterface
+
+ME ME_54C78D9201B9_ME_4CAEEE74038E
+ MELINK Original WL 'ME_54C78D9201B9' '47E246C90144.ms.model.script' // GetIsSame
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54C78D9201B9_ME_4CAEEE74038E GetIsSame
+
+ME ME_4CAEEE74038E
+ MEPROP UID '4CAEEE74038E'
+ MEPROP Name 'TnsFiltersNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CAC5A7402DE // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A573D2F00C6' '47E246C90144.ms.model.script' // Tl3PlaceNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4991887A031F' '4CAC58E50231.ms.model.script' // InsFilterNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CAEEEB802A5 // f_Filter
+ HWL ME_4CB2D316030E // f_NameCache
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB30BE00217 // Create
+ HWL ME_4CB30BE802C6 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_499189000111_ME_4CAEEE74038E // UsedStatus
+ ME_4991890D03D6_ME_4CAEEE74038E // DeletedStatus
+ ME_4991891D0093_ME_4CAEEE74038E // AutoApplied
+ ME_4CAEEF3100F9_ME_4CAEEE74038E // CanModify
+ ME_4CB2FCFD029F_ME_4CAEEE74038E // MarkToDelete
+ ME_4CB55A3101E0_ME_4CAEEE74038E // ValidateName
+ ME_4FD9E3F900B3_ME_4CAEEE74038E // ID
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CAEEE74038E // Cleanup
+ ME_47A869BB02DE_ME_4CAEEE74038E // GetAsPCharLen
+ ME_47A869D10074_ME_4CAEEE74038E // DoSetAsPCharLen
+ ME_4A60B23E00C3_ME_4CAEEE74038E // COMQueryInterface
+ ME_54C78D9201B9_ME_4CAEEE74038E // GetIsSame
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CAEF85C0246 // String
+ ME_4CAEF8770131 // Supports
+ ME_4CAEFA6D037A // nsWStr
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersNode.pas'
+ UP extprop:rc:SelfName 'FiltersNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsFiltersNode'
+
+ENDME // ME_4CAEEE74038E TnsFiltersNode
+
+ME ME_5061DE72023F
+ MEPROP UID '5061DE72023F'
+ MEPROP Name 'f_FiltersType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5061DE4402FD // TnsFiltersRootNode
+ ;
+ MELINK Target WL 'ME_4CADA33B0257' '4CAC58E50231.ms.model.script' // TnsFiltersType
+ ;
+
+ENDME // ME_5061DE72023F f_FiltersType
+
+FORWARD ME_5061DE910095
+
+ME ME_5061DEA303E1
+ MEPROP Name 'aFiltersType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CADA33B0257' '4CAC58E50231.ms.model.script' // TnsFiltersType
+ ;
+
+ENDME // ME_5061DEA303E1 aFiltersType
+
+ME ME_5061DE9C03B0
+ MEPROP UID '5061DE9C03B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5061DE910095 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5061DEA303E1 // aFiltersType
+ )
+ ; // Parameters
+
+ENDME // ME_5061DE9C03B0 DoIt
+
+ME ME_5061DE910095
+ MEPROP UID '5061DE910095'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5061DE4402FD // TnsFiltersRootNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5061DE9C03B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5061DE910095 Create
+
+ME ME_5061DEA9001C
+ MEPROP UID '5061DEA9001C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5061DE4402FD // TnsFiltersRootNode
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5061DE910095 // Create
+ )
+ ; // Inherits
+
+ENDME // ME_5061DEA9001C Make
+
+ME ME_5061E54901F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5061DE4402FD // TnsFiltersRootNode
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_5061E54901F8 
+
+ME ME_5061DE2D0275_ME_5061DE4402FD
+ MELINK Original WL 'ME_5061DE2D0275' '4CAC58E50231.ms.model.script' // FiltersType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_5061DE2D0275_ME_5061DE4402FD FiltersType
+
+ME ME_54C78D9201B9_ME_5061DE4402FD
+ MELINK Original WL 'ME_54C78D9201B9' '47E246C90144.ms.model.script' // GetIsSame
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54C78D9201B9_ME_5061DE4402FD GetIsSame
+
+ME ME_5061DE4402FD
+ MEPROP UID '5061DE4402FD'
+ MEPROP Name 'TnsFiltersRootNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CAC5A7402DE // Impl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A573D2F00C6' '47E246C90144.ms.model.script' // Tl3PlaceNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5061DE0D0252' '4CAC58E50231.ms.model.script' // InsFilterRootNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5061DE72023F // f_FiltersType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5061DE910095 // Create
+ HWL ME_5061DEA9001C // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5061DE2D0275_ME_5061DE4402FD // FiltersType
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_54C78D9201B9_ME_5061DE4402FD // GetIsSame
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5061E54901F8 // Supports
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersRootNode.pas'
+ UP extprop:rc:SelfName 'FiltersRootNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsFiltersRootNode'
+
+ENDME // ME_5061DE4402FD TnsFiltersRootNode
+
+FORWARD ME_56443D8E031A
+
+FORWARD ME_56443E71039A
+
+ME ME_56443F4A02D9
+ MEPROP UID '56443F4A02D9'
+ MEPROP Name 'f_CurrentIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56443E71039A // TnsFiltersEnumerator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56443F4A02D9 f_CurrentIndex
+
+ME ME_56443FC10221
+ MEPROP UID '56443FC10221'
+ MEPROP Name 'f_Filters'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56443E71039A // TnsFiltersEnumerator
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_56443FC10221 f_Filters
+
+FORWARD ME_56443E9B03A4
+
+ME ME_56443EAC0137
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_56443EAC0137 aFilters
+
+ME ME_56443EA102F1
+ MEPROP UID '56443EA102F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443E9B03A4 // Create$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_56443EAC0137 // aFilters
+ )
+ ; // Parameters
+
+ENDME // ME_56443EA102F1 DoIt
+
+ME ME_56443E9B03A4
+ MEPROP UID '56443E9B03A4'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443E71039A // TnsFiltersEnumerator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56443EA102F1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56443E9B03A4 Create$1
+
+ME ME_56443EB00018
+ MEPROP UID '56443EB00018'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443E71039A // TnsFiltersEnumerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56443E9B03A4 // Create$1
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_56443DCF0299' '4CAC58E50231.ms.model.script' // InsFiltersEnumerator
+ )
+ ; // Implements
+
+ENDME // ME_56443EB00018 Make$1
+
+FORWARD ME_56444038035E
+
+ME ME_564440580047
+ MEPROP Name 'aFirstFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_564440580047 aFirstFilters
+
+ME ME_564440580066
+ MEPROP Name 'aSecondFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_564440580066 aSecondFilters
+
+ME ME_56444042025D
+ MEPROP UID '56444042025D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56444038035E // Create$2
+ ;
+ MELIST Parameters
+   Seq: ( ME_564440580047 // aFirstFilters
+ ME_564440580066 // aSecondFilters
+ )
+ ; // Parameters
+
+ENDME // ME_56444042025D DoIt
+
+ME ME_56444038035E
+ MEPROP UID '56444038035E'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443E71039A // TnsFiltersEnumerator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56444042025D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56444038035E Create$2
+
+ME ME_5644405D0287
+ MEPROP UID '5644405D0287'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443E71039A // TnsFiltersEnumerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_56444038035E // Create$2
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_56443DCF0299' '4CAC58E50231.ms.model.script' // InsFiltersEnumerator
+ )
+ ; // Implements
+
+ENDME // ME_5644405D0287 Make$2
+
+ME ME_56443DDB0195_ME_56443E71039A
+ MELINK Original WL 'ME_56443DDB0195' '4CAC58E50231.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_56443DDB0195_ME_56443E71039A Reset
+
+ME ME_56443DE2025A_ME_56443E71039A
+ MELINK Original WL 'ME_56443DE2025A' '4CAC58E50231.ms.model.script' // MoveNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_56443DE2025A_ME_56443E71039A MoveNext
+
+ME ME_56443E470148_ME_56443E71039A
+ MELINK Original WL 'ME_56443E470148' '4CAC58E50231.ms.model.script' // Current
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_56443E470148_ME_56443E71039A Current
+
+ME ME_479731C50290_ME_56443E71039A
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_56443E71039A Cleanup
+
+ME ME_56443E71039A
+ MEPROP UID '56443E71039A'
+ MEPROP Name 'TnsFiltersEnumerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_56443DCF0299' '4CAC58E50231.ms.model.script' // InsFiltersEnumerator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_56443F4A02D9 // f_CurrentIndex
+ HWL ME_56443FC10221 // f_Filters
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56443E9B03A4 // Create$1
+ HWL ME_56443EB00018 // Make$1
+ HWL ME_56444038035E // Create$2
+ HWL ME_5644405D0287 // Make$2
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_56443DDB0195_ME_56443E71039A // Reset
+ ME_56443DE2025A_ME_56443E71039A // MoveNext
+ ME_56443E470148_ME_56443E71039A // Current
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_56443E71039A // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'FiltersEnumerator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56443E71039A TnsFiltersEnumerator
+
+FORWARD ME_564441680148
+
+ME ME_5644419003E6
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_5644419003E6 aFilters
+
+ME ME_56444191001D
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_56444191001D aFilter
+
+ME ME_5644418D001E
+ MEPROP UID '5644418D001E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564441680148 // HasFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5644419003E6 // aFilters
+ ME_56444191001D // aFilter
+ )
+ ; // Parameters
+
+ENDME // ME_5644418D001E DoIt
+
+ME ME_564441680148
+ MEPROP UID '564441680148'
+ MEPROP Name 'HasFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5644418D001E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_564441680148 HasFilter
+
+FORWARD ME_5644419601AD
+
+ME ME_564441CE012B
+ MEPROP Name 'aFirstFilterList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_564441CE012B aFirstFilterList
+
+ME ME_564441CE013A
+ MEPROP Name 'aSecondFilterList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_564441CE013A aSecondFilterList
+
+ME ME_564441AB00D5
+ MEPROP UID '564441AB00D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5644419601AD // CatFilters
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+ MELIST Parameters
+   Seq: ( ME_564441CE012B // aFirstFilterList
+ ME_564441CE013A // aSecondFilterList
+ )
+ ; // Parameters
+
+ENDME // ME_564441AB00D5 DoIt
+
+ME ME_5644419601AD
+ MEPROP UID '5644419601AD'
+ MEPROP Name 'CatFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_564441AB00D5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5644419601AD CatFilters
+
+FORWARD ME_5644424602DA
+
+ME ME_56444267013F
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_56444267013F aFilters
+
+ME ME_56444267014E
+ MEPROP Name 'aFilterToRemove'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_56444267014E aFilterToRemove
+
+ME ME_56444256021D
+ MEPROP UID '56444256021D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5644424602DA // RemoveFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_56444267013F // aFilters
+ ME_56444267014E // aFilterToRemove
+ )
+ ; // Parameters
+
+ENDME // ME_56444256021D DoIt
+
+ME ME_5644424602DA
+ MEPROP UID '5644424602DA'
+ MEPROP Name 'RemoveFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56444256021D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5644424602DA RemoveFilter
+
+ME ME_56444008025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_56444008025A 
+
+ME ME_5644400D01D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELINK Target WL 'ME_56443DCF0299' '4CAC58E50231.ms.model.script' // InsFiltersEnumerator
+ ;
+
+ENDME // ME_5644400D01D6 
+
+ME ME_564441300216
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_564441300216 
+
+ME ME_56443D8E031A
+ MEPROP UID '56443D8E031A'
+ MEPROP Name 'nsFiltersUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAC5A7402DE // Impl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_564441680148 // HasFilter
+ HWL ME_5644419601AD // CatFilters
+ HWL ME_5644424602DA // RemoveFilter
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_56443E71039A // TnsFiltersEnumerator
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_56444008025A // FiltersFromQuery
+ ME_5644400D01D6 // InsFiltersEnumerator
+ ME_564441300216 // DataAdapter
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersUtils.pas'
+ UP extprop:rc:SelfName 'FiltersUtils'
+
+ENDME // ME_56443D8E031A nsFiltersUtils
+
+ME ME_4CAC5A7402DE
+ MEPROP UID '4CAC5A7402DE'
+ MEPROP Name 'Impl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CAC58CB03A2' '4CAC58CB03A2.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CAC5B4900ED // TnsFiltersContainerPrim
+ HWL ME_4CAC5BD701BF // TnsFiltersContainer
+ HWL ME_4CAEC809015D // TnsFiltersTree
+ HWL ME_4CAEEE74038E // TnsFiltersNode
+ HWL ME_5061DE4402FD // TnsFiltersRootNode
+ HWL ME_56443D8E031A // nsFiltersUtils
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
+ WL 'ME_45EEA48F011F' '45EEA48F011F.ms.model.script' // Filters
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.ms.model.script' // bsTypes
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4CAC58E50231' '4CAC58E50231.ms.model.script' // nsFiltersInterfaces
+ WL 'ME_4F9823DB021B' '4F9823DB021B.ms.model.script' // FiltersNotification
+ )
+ ; // Depends
+
+ENDME // ME_4CAC5A7402DE Impl

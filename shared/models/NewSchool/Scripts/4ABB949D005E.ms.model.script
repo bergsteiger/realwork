@@ -1,0 +1,62 @@
+// MainMenuNew 4ABB949D005E VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABB949D005E
+
+ME ME_68565178E9D5
+ MEPROP UID '68565178E9D5'
+ MEPROP Name 'Ini_FormFactory_MainMenuNew'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MainMenuNew' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABB949D005E // MainMenuNew
+ ;
+ UPLINK SpelledFor HWL ME_4ABB949D005E // MainMenuNew
+ ;
+
+ENDME // ME_68565178E9D5 Ini_FormFactory_MainMenuNew
+
+ME ME_4ABB949D005E
+ MEPROP UID '4ABB949D005E'
+ MEPROP Name 'MainMenuNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA7A1F80027' '4AA7A1F80027.ms.model.script' // MainMenu$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4958E1F700C0' '4958E1F700C0.ms.model.script' // PrimMainMenuNew
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD9750B00C7' '4BD856E802F9.ms.model.script' // MainMenuNew
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_68565178E9D5 // Ini_FormFactory_MainMenuNew
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Parent'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "form name prefix" 'en_'
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '07.10.2009 18:44'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuNew_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms'
+ UP extprop:pas:TypeName 'Ten_MainMenuNew'
+ UP extprop:rc:SelfName 'en_MainMenuNew'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MainMenuNew_Form'
+
+ENDME // ME_4ABB949D005E MainMenuNew

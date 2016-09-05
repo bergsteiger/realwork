@@ -1,3 +1,8 @@
+//#UC START# *385066897B82_57A35C870031_impl*
+ TPrimF1Res.LogUserActivity(aKind);
+//#UC END# *385066897B82_57A35C870031_impl*
+//#UC START# *385066897B82_57A35C870031_var*
+//#UC END# *385066897B82_57A35C870031_var*
 //#UC START# *4A92BBDF0126_ext:FileName
 w:\garant6x\implementation\Garant\GbaNemesis\View\PrimF1Res.pas
 //#UC END# *4A92BBDF0126_ext:FileName
@@ -30,11 +35,11 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimF1Res.pas
    StartupPendingNotify;
    if (TryUnlockLogin or TrySwitchToOtherRunningCopy) then
    begin
-    StartupCompletedNotify;
+    StartupCompleteNotify;
     Result := false;
     Exit;
    end;//TryUnlockLogin or TrySwitchToOtherRunningCopy
-   StartupCompletedNotify;
+   StartupCompleteNotify;
   until (CheckAndCreateRunningCopyMutex);
   StartupPendingNotify;
  end;//with TnsStartupSupport
@@ -158,6 +163,7 @@ var
 
   // это надо здесь ! {
   MakeResources;
+  RegisterOperations;
   // } это надо здесь !
 
   if not CanRun(l_Logo) then
@@ -189,8 +195,8 @@ var
   FreeAndNil(l_Logo);
  end;//try..finally
 
- TnsStartupSupport.StartupCompletedNotify;
- Tf1StartupCompletedService.Instance.StartupComplete;
+ TnsStartupSupport.StartupCompleteNotify;
+ Tf1StartupCompleteNotificationService.Instance.Notify;
  Application.Run;
 //#UC END# *4F6AF5860291_4A92BBDF0126_impl*
 //#UC START# *4F6AF5860291_4A92BBDF0126_var*
@@ -200,6 +206,14 @@ var
 //#UC END# *4F6AF5860291_4A92BBDF0126_var*
 //#UC START# *4F6AF5F00058_4A92BBDF0126_impl*
  inherited;
+ Application.CreateForm(StdRes.TdmStdRes, StdRes.dmStdRes);
 //#UC END# *4F6AF5F00058_4A92BBDF0126_impl*
 //#UC START# *4F6AF5F00058_4A92BBDF0126_var*
 //#UC END# *4F6AF5F00058_4A92BBDF0126_var*
+//#UC START# *C9C96114AA0C_57A35CD90349_impl*
+ Result := false;
+ Assert(false);
+ //Result := TPrimF1Res.IsBatchMode;
+//#UC END# *C9C96114AA0C_57A35CD90349_impl*
+//#UC START# *C9C96114AA0C_57A35CD90349_var*
+//#UC END# *C9C96114AA0C_57A35CD90349_var*

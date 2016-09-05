@@ -1,5 +1,5 @@
 //#UC START# *4A6D71700008_4A6EA44C0038_impl*
- ProcessMessages(TdmStdRes.MakeChatDispatcher.GetMessages(UserID, -1));
+ ProcessMessages(TChatService.Instance.MakeChatDispatcher.GetMessages(UserID, -1));
  if not ContainsControl(FindControl(GetForegroundWindow)) then
  begin
   l3FillChar(l_Info, SizeOf(l_Info), 0); 
@@ -19,12 +19,12 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_Form
 //#UC START# *4A6EA44C0038impl_uses*
 //#UC END# *4A6EA44C0038impl_uses*
 //#UC START# *4A6EA5EA00CD_4A6EA44C0038_impl*
- TdmStdRes.MakeChatDispatcher.RegisterChatWindow(Self);
+ TChatService.Instance.MakeChatDispatcher.RegisterChatWindow(Self);
 //#UC END# *4A6EA5EA00CD_4A6EA44C0038_impl*
 //#UC START# *4A6EA5EA00CD_4A6EA44C0038_var*
 //#UC END# *4A6EA5EA00CD_4A6EA44C0038_var*
 //#UC START# *4A6EA6000339_4A6EA44C0038_impl*
- TdmStdRes.MakeChatDispatcher.UnRegisterChatWindow(Self);
+ TChatService.Instance.MakeChatDispatcher.UnRegisterChatWindow(Self);
 //#UC END# *4A6EA6000339_4A6EA44C0038_impl*
 //#UC START# *4A6EA6000339_4A6EA44C0038_var*
 //#UC END# *4A6EA6000339_4A6EA44C0038_var*
@@ -46,7 +46,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_Form
    Exit;
   end;
   try
-   l_Message := TdmStdRes.MakeChatDispatcher.SendMessage(UserID, l_Memory);
+   l_Message := TChatService.Instance.MakeChatDispatcher.SendMessage(UserID, l_Memory);
   except
    on EnsUnknownChatUser do
     SafeClose;

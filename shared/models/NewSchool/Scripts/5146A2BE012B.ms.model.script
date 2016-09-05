@@ -1,0 +1,72 @@
+// TableResize 5146A2BE012B TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5146A2BE012B
+
+ME ME_5146A2E8011E
+ MEPROP UID '5146A2E8011E'
+ MEPROP Name 'K437519030'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:437519030}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5146A2BE012B // TableResize
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DE4827600CA' '4DE3425B01DA.ms.model.script' // TArchiInsiderTest
+ )
+ ; // Inherits
+ UP intf.pas:Path 'archi\source\projects\Archi\Tests\K437519030.pas'
+ UP extprop:pas:TypeName 'TK437519030'
+ UP extprop:rc:SelfName 'K437519030'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5146A2E8011E K437519030
+
+ME ME_51AEE146019B
+ MEPROP UID '51AEE146019B'
+ MEPROP Name 'K358976813'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:358976813}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5146A2BE012B // TableResize
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DE4827600CA' '4DE3425B01DA.ms.model.script' // TArchiInsiderTest
+ )
+ ; // Inherits
+ UP intf.pas:Path 'archi\source\projects\Archi\Tests\K358976813.pas'
+ UP extprop:pas:TypeName 'TK358976813'
+ UP extprop:rc:SelfName 'K358976813'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51AEE146019B K358976813
+
+ME ME_5146A2BE012B
+ MEPROP UID '5146A2BE012B'
+ MEPROP Name 'TableResize'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DE765AE02EB' '4DE765AE02EB.ms.model.script' // ArchiInsiderTests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5146A2E8011E // K437519030
+ HWL ME_51AEE146019B // K358976813
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4DE3425B01DA' '4DE3425B01DA.ms.model.script' // ArchiScriptSupport
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_5146A2BE012B TableResize

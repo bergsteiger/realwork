@@ -1,0 +1,157 @@
+// Tools 55C1F58400F6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C1F58400F6
+
+FORWARD ME_55C1F59F001C
+
+FORWARD ME_55C1F5C100CC
+
+ME ME_55C1F5DB02B4
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_55C1F5DB02B4 aFileName
+
+ME ME_55C1F5D102FF
+ MEPROP UID '55C1F5D102FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C1F5C100CC // Make
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C1F5DB02B4 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_55C1F5D102FF DoIt
+
+ME ME_55C2040B0284
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C1F5C100CC // Make
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_55C2040B0284 
+
+ME ME_55C2053102E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C1F5C100CC // Make
+ ;
+ MELINK Target WL 'ME_4C1B475101C5' '4C1B474600AD.ms.model.script' // l3Parser
+ ;
+
+ENDME // ME_55C2053102E8 
+
+ME ME_55C2056B02B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C1F5C100CC // Make
+ ;
+ MELINK Target WL 'ME_52EF723E02D9' '52EF72190220.ms.model.script' // ItfwParser
+ ;
+
+ENDME // ME_55C2056B02B2 
+
+ME ME_55C1F5C100CC
+ MEPROP UID '55C1F5C100CC'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C1F59F001C // TtfwCOMaker
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C1F5D102FF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C2040B0284 // SysUtils
+ ME_55C2053102E8 // l3Parser
+ ME_55C2056B02B2 // ItfwParser
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_55C1F5C100CC Make
+
+ME ME_55C1F5AB0306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C1F59F001C // TtfwCOMaker
+ ;
+ MELINK Target WL 'ME_4F4735060149' '4F4734A40270.ms.model.script' // TtfwParser
+ ;
+
+ENDME // ME_55C1F5AB0306 
+
+ME ME_55C1F5B40343
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C1F59F001C // TtfwCOMaker
+ ;
+ MELINK Target WL 'ME_52F4E85300D4' '4F4734A40270.ms.model.script' // TtfwFileStreamFactory
+ ;
+
+ENDME // ME_55C1F5B40343 
+
+ME ME_55C1F59F001C
+ MEPROP UID '55C1F59F001C'
+ MEPROP Name 'TtfwCOMaker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C1F58400F6 // Tools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C1F5C100CC // Make
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C1F5AB0306 // TtfwParser
+ ME_55C1F5B40343 // TtfwFileStreamFactory
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCOMaker.pas'
+ UP extprop:rc:SelfName 'COMaker'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwCOMaker'
+
+ENDME // ME_55C1F59F001C TtfwCOMaker
+
+ME ME_55C1F58400F6
+ MEPROP UID '55C1F58400F6'
+ MEPROP Name 'Tools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.ms.model.script' // ScriptEngine$Parsing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55C1F59F001C // TtfwCOMaker
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4C1B474600AD' '4C1B474600AD.ms.model.script' // Parser
+ WL 'ME_4F4734A40270' '4F4734A40270.ms.model.script' // Parser
+ WL 'ME_52EF72190220' '52EF72190220.ms.model.script' // tfwParserInterfaces
+ )
+ ; // Depends
+
+ENDME // ME_55C1F58400F6 Tools

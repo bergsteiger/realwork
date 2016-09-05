@@ -10,6 +10,13 @@
 //#UC END# *47A6FEE600FC_4DAEED140007_impl*
 //#UC START# *47A6FEE600FC_4DAEED140007_var*
 //#UC END# *47A6FEE600FC_4DAEED140007_var*
+//#UC START# *49BFC98902FF_4DAEED140007_impl*
+ inherited;
+ if TtfwWordDeleteListeners.Exists then
+  TtfwWordDeleteListeners.Instance.Fire(Self);
+//#UC END# *49BFC98902FF_4DAEED140007_impl*
+//#UC START# *49BFC98902FF_4DAEED140007_var*
+//#UC END# *49BFC98902FF_4DAEED140007_var*
 //#UC START# *4DAEED140007_ext:ParentFileName
 w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC END# *4DAEED140007_ext:ParentFileName
@@ -143,7 +150,13 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC START# *4F43C9A10139_4DAEED140007set_var*
 //#UC END# *4F43C9A10139_4DAEED140007set_var*
 //#UC START# *4F46588B021E_4DAEED140007_impl*
- Result := DoCheckWord(aName);
+ TtfwCS.Instance.Lock;
+ try
+  Assert(Self <> nil);
+  Result := DoCheckWord(aName);
+ finally
+  TtfwCS.Instance.Unlock;
+ end;//try..finally
 //#UC END# *4F46588B021E_4DAEED140007_impl*
 //#UC START# *4F46588B021E_4DAEED140007_var*
 //#UC END# *4F46588B021E_4DAEED140007_var*
@@ -179,7 +192,7 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC END# *52D00B00031A_4DAEED140007_var*
 //#UC START# *52D399A00173_4DAEED140007_impl*
  RunnerError('Невозможно получить значение', aCtx);
- Result := nil;
+ Result := TtfwStackValue_E;
 //#UC END# *52D399A00173_4DAEED140007_impl*
 //#UC START# *52D399A00173_4DAEED140007_var*
 //#UC END# *52D399A00173_4DAEED140007_var*

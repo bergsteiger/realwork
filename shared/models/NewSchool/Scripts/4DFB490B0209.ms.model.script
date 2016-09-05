@@ -1,0 +1,44 @@
+// Main 4DFB490B0209 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4DFB490B0209
+ MEPROP UID '4DFB490B0209'
+ MEPROP Name 'Main'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Основные модули Арчи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DE7F62B000D' '4DE7F62B000D.ms.model.script' // archi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4E4B607802DB' '4E4B607802DB.ms.model.script' // Utils
+ WL 'ME_4DFB49C40350' '4DFB49C40350.ms.model.script' // MainWindows
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
+ WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ WL 'ME_4DE803840174' '4DE803840174.ms.model.script' // Dlg
+ WL 'ME_4DECDBE201FB' '4DECDBE201FB.ms.model.script' // Dialogs
+ WL 'ME_4E004D0B033A' '4E004D0B033A.ms.model.script' // Editor
+ WL 'ME_4E25512D01C0' '4E25512D01C0.ms.model.script' // Utils
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_4F8D735200EE' '4F8D735200EE.ms.model.script' // Frames
+ WL 'ME_550012C403C4' '550012C403C4.ms.model.script' // L3$AFW
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'prj'
+ UP "vendor" 'none'
+ UP intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ENDME // ME_4DFB490B0209 Main

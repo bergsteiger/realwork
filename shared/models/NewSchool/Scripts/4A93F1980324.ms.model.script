@@ -1,0 +1,604 @@
+// PrimProgressIndicator 4A93F1980324 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93F1980324
+
+ME ME_50F667D30021
+ MEPROP UID '50F667D30021'
+ MEPROP Name 'utProgressIndicator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ход выполнения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Ход выполнения'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_utProgressIndicator_UserType.pas'
+ UP extprop:pas:UnitName 'PrimProgressIndicator_utProgressIndicator_UserType'
+
+ENDME // ME_50F667D30021 utProgressIndicator
+
+FORWARD ME_50F988320278
+
+ME ME_50F98852031C
+ MEPROP UID '50F98852031C'
+ MEPROP Name 'WM_USER_SET_CURRENT'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50F988320278 // ProgressIndicatorConstants
+ ;
+ MEPROP Value 'WM_USER + $0101'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'WM_USER + $0101'
+
+ENDME // ME_50F98852031C WM_USER_SET_CURRENT
+
+ME ME_50F9885D0077
+ MEPROP UID '50F9885D0077'
+ MEPROP Name 'WM_USER_FINISH_PROCESS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50F988320278 // ProgressIndicatorConstants
+ ;
+ MEPROP Value 'WM_USER + $0102'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'WM_USER + $0102'
+
+ENDME // ME_50F9885D0077 WM_USER_FINISH_PROCESS
+
+ME ME_50F988320278
+ MEPROP UID '50F988320278'
+ MEPROP Name 'ProgressIndicatorConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50F98852031C // WM_USER_SET_CURRENT
+ HWL ME_50F9885D0077 // WM_USER_FINISH_PROCESS
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_50F988320278 ProgressIndicatorConstants
+
+FORWARD ME_50F97F89002A
+
+ME ME_50F98032028A
+ MEPROP UID '50F98032028A'
+ MEPROP Name 'CancelButtonCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50F97F89002A // ProgressIndicatorLocalConst
+ ;
+ UP "AutoInc" false
+ UP "Value" '''&Отмена'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_50F98032028A CancelButtonCaption
+
+ME ME_50F97F89002A
+ MEPROP UID '50F97F89002A'
+ MEPROP Name 'ProgressIndicatorLocalConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50F98032028A // CancelButtonCaption
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_50F97F89002A ProgressIndicatorLocalConst
+
+ME ME_4AC627D2039B
+ MEPROP UID '4AC627D2039B'
+ MEPROP Name 'ProgressBar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ UP "ControlClass" 'TProgressBar'
+ UP "pm" true
+ UP "put to dfm" true
+
+ENDME // ME_4AC627D2039B ProgressBar
+
+ME ME_4AC62689022F
+ MEPROP UID '4AC62689022F'
+ MEPROP Name 'f_Owner'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4991AAF4000A' '491DAF4202EE.ms.model.script' // InsProgressIndicator
+ ;
+
+ENDME // ME_4AC62689022F f_Owner
+
+ME ME_4AC626C902A9
+ MEPROP UID '4AC626C902A9'
+ MEPROP Name 'f_Caption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4AC626C902A9 f_Caption
+
+ME ME_4AC626E60338
+ MEPROP UID '4AC626E60338'
+ MEPROP Name 'f_SearchStarted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AC626E60338 f_SearchStarted
+
+ME ME_50F82ACB0256
+ MEPROP UID '50F82ACB0256'
+ MEPROP Name 'f_SearchFinished'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50F82ACB0256 f_SearchFinished
+
+ME ME_50F82ADF010F
+ MEPROP UID '50F82ADF010F'
+ MEPROP Name 'f_SearchFinishing'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50F82ADF010F f_SearchFinishing
+
+ME ME_50F83173019D
+ MEPROP UID '50F83173019D'
+ MEPROP Name 'f_CancelButton'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4D494D3601A8' '4B8E675402AB.ms.model.script' // TvtVGButton
+ ;
+
+ENDME // ME_50F83173019D f_CancelButton
+
+ME ME_50F927B30145
+ MEPROP UID '50F927B30145'
+ MEPROP Name 'f_Scene'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4CFFB562010C' '4CFCE51A00B0.ms.model.script' // TvgScene
+ ;
+
+ENDME // ME_50F927B30145 f_Scene
+
+ME ME_50F927BC0149
+ MEPROP UID '50F927BC0149'
+ MEPROP Name 'f_Background'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4FC762770058' '4CFCE51A00B0.ms.model.script' // TvgBackground
+ ;
+
+ENDME // ME_50F927BC0149 f_Background
+
+FORWARD ME_50F98967031E
+
+ME ME_50F989830047
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_50F989830047 Sender
+
+ME ME_50F989830066
+ MEPROP Name 'CanClose'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50F989830066 CanClose
+
+ME ME_50F989800152
+ MEPROP UID '50F989800152'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F98967031E // VcmEntityFormRefCloseQuery
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F989830047 // Sender
+ ME_50F989830066 // CanClose
+ )
+ ; // Parameters
+
+ENDME // ME_50F989800152 DoIt
+
+ME ME_50F98967031E
+ MEPROP UID '50F98967031E'
+ MEPROP Name 'VcmEntityFormRefCloseQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50F989800152 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50F98967031E VcmEntityFormRefCloseQuery
+
+ME ME_4AC62714014D
+ MEPROP Name 'aProgress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4991AAF4000A' '491DAF4202EE.ms.model.script' // InsProgressIndicator
+ ;
+
+ENDME // ME_4AC62714014D aProgress
+
+ME ME_4AC6271401A3
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4AC6271401A3 aCaption
+
+ME ME_4AC6271401F7
+ MEPROP Name 'aMaxCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AC6271401F7 aMaxCount
+
+ME ME_4AC6270C00E2
+ MEPROP UID '4AC6270C00E2'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC62714014D // aProgress
+ ME_4AC6271401A3 // aCaption
+ ME_4AC6271401F7 // aMaxCount
+ )
+ ; // Parameters
+
+ENDME // ME_4AC6270C00E2 Make
+
+ME ME_50F9879B01E1
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_50F9879B01E1 Message
+
+ME ME_50F98780007B
+ MEPROP UID '50F98780007B'
+ MEPROP Name 'WMUserSetCurrent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F9879B01E1 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_USER_SET_CURRENT'
+
+ENDME // ME_50F98780007B WMUserSetCurrent
+
+ME ME_50F987AC0371
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_50F987AC0371 Message
+
+ME ME_50F987AA03D9
+ MEPROP UID '50F987AA03D9'
+ MEPROP Name 'WMUserFinishProcess'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F987AC0371 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_USER_FINISH_PROCESS'
+
+ENDME // ME_50F987AA03D9 WMUserFinishProcess
+
+ME ME_50F9850803DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4799ED060093' '4799EC9300AF.ms.model.script' // l3Defaults
+ ;
+
+ENDME // ME_50F9850803DE 
+
+ME ME_50F9850B0087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4A8ADF9E0058' '47D0E1500033.ms.model.script' // vcmFmt
+ ;
+
+ENDME // ME_50F9850B0087 
+
+ME ME_50F9850D0082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_50F9850D0082 
+
+ME ME_50F9850F002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4D99E1E7012A' '4B8E675402AB.ms.model.script' // vtGetDlgBtnCaption
+ ;
+
+ENDME // ME_50F9850F002E 
+
+ME ME_50F9851203A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4F916D9B0033' '54B90AC6014B.ms.model.script' // l3WideString
+ ;
+
+ENDME // ME_50F9851203A9 
+
+ME ME_50F985140221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_47E0C36201C7' '537B83AD01F0.ms.model.script' // l3Math
+ ;
+
+ENDME // ME_50F985140221 
+
+ME ME_50F9851C01FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_50F9851C01FA 
+
+ME ME_50F9851E00E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_482B17100178' '4799D29F033F.ms.model.script' // TBorderStyle
+ ;
+
+ENDME // ME_50F9851E00E0 
+
+ME ME_50F9852003D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_49930A3703D8' '4799D29F033F.ms.model.script' // TMsgDlgButtons
+ ;
+
+ENDME // ME_50F9852003D8 
+
+ME ME_50F985220320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_50F928A102E2' '55C4AEC801CA.ms.model.script' // ColorToRGB
+ ;
+
+ENDME // ME_50F985220320 
+
+ME ME_50F98524015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93F1980324 // PrimProgressIndicator
+ ;
+ MELINK Target WL 'ME_4D494D090395' '4B8E675402AB.ms.model.script' // vtVGSceneRes
+ ;
+
+ENDME // ME_50F98524015D 
+
+ME ME_479731C50290_ME_4A93F1980324
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A93F1980324 Cleanup
+
+ME ME_4A8AE0FA03B2_ME_4A93F1980324
+ MELINK Original WL 'ME_4A8AE0FA03B2' '4AADF9450143.ms.model.script' // BecomeActive
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8AE0FA03B2_ME_4A93F1980324 BecomeActive
+
+ME ME_4A8E8F2E0195_ME_4A93F1980324
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A93F1980324 InitControls
+
+ME ME_4A93F1980324
+ MEPROP UID '4A93F1980324'
+ MEPROP Name 'PrimProgressIndicator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Индикатор прогресса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC627D2039B // ProgressBar
+ HWL ME_4AC62689022F // f_Owner
+ HWL ME_4AC626C902A9 // f_Caption
+ HWL ME_4AC626E60338 // f_SearchStarted
+ HWL ME_50F82ACB0256 // f_SearchFinished
+ HWL ME_50F82ADF010F // f_SearchFinishing
+ HWL ME_50F83173019D // f_CancelButton
+ HWL ME_50F927B30145 // f_Scene
+ HWL ME_50F927BC0149 // f_Background
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50F98967031E // VcmEntityFormRefCloseQuery
+ HWL ME_4AC6270C00E2 // Make
+ HWL ME_50F98780007B // WMUserSetCurrent
+ HWL ME_50F987AA03D9 // WMUserFinishProcess
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A93F1980324 // Cleanup
+ ME_4A8AE0FA03B2_ME_4A93F1980324 // BecomeActive
+ ME_4A8E8F2E0195_ME_4A93F1980324 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_50F667D30021 // utProgressIndicator
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_50F988320278 // ProgressIndicatorConstants
+ HWL ME_50F97F89002A // ProgressIndicatorLocalConst
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_50F9850803DE // l3Defaults
+ ME_50F9850B0087 // vcmFmt
+ ME_50F9850D0082 // StdRes
+ ME_50F9850F002E // vtGetDlgBtnCaption
+ ME_50F9851203A9 // l3WideString
+ ME_50F985140221 // l3Math
+ ME_50F9851C01FA // Controls
+ ME_50F9851E00E0 // TBorderStyle
+ ME_50F9852003D8 // TMsgDlgButtons
+ ME_50F985220320 // ColorToRGB
+ ME_50F98524015D // vtVGSceneRes
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '25.08.2009 18:14'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName 'TPrimProgressIndicatorForm'
+ UP extprop:rc:SelfName 'PrimProgressIndicatorForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimProgressIndicator_Form'
+
+ENDME // ME_4A93F1980324 PrimProgressIndicator

@@ -1,0 +1,57 @@
+//#UC START# *479731C50290_57ADBFD200CA_impl*
+ inherited;
+//#UC END# *479731C50290_57ADBFD200CA_impl*
+//#UC START# *479731C50290_57ADBFD200CA_var*
+//#UC END# *479731C50290_57ADBFD200CA_var*
+//#UC START# *57AB48A10046_57ADBFD200CA_impl*
+ if (f_Subscribers = nil) then
+  f_Subscribers := TImsmModelElementListenerList.Create;
+ f_Subscribers.Add(aListener);
+ aListener.Fire(ModelChangedEvent.Instance);
+//#UC END# *57AB48A10046_57ADBFD200CA_impl*
+//#UC START# *57AB48A10046_57ADBFD200CA_var*
+//#UC END# *57AB48A10046_57ADBFD200CA_var*
+//#UC START# *57AB48C100F0_57ADBFD200CA_impl*
+ if (f_Subscribers <> nil) then
+  f_Subscribers.Remove(aListener); 
+//#UC END# *57AB48C100F0_57ADBFD200CA_impl*
+//#UC START# *57AB48C100F0_57ADBFD200CA_var*
+//#UC END# *57AB48C100F0_57ADBFD200CA_var*
+//#UC START# *57ADBFD200CA_ext:FileName
+w:\common\components\gui\Garant\msm\msmModel.pas
+//#UC END# *57ADBFD200CA_ext:FileName
+//#UC START# *57ADBFD200CAimpl_uses*
+//#UC END# *57ADBFD200CAimpl_uses*
+//#UC START# *57ADE59000CB_57ADBFD200CA_impl*
+ if (f_Subscribers <> nil) then
+  for l_Index := 0 to Pred(f_Subscribers.Count) do
+   f_Subscribers.Items[l_Index].Fire(anEvent);
+//#UC END# *57ADE59000CB_57ADBFD200CA_impl*
+//#UC START# *57ADE59000CB_57ADBFD200CA_var*
+var
+ l_Index : Integer;
+//#UC END# *57ADE59000CB_57ADBFD200CA_var*
+//#UC START# *57B18AEE021C_57ADBFD200CAget_impl*
+ Result := Self;
+//#UC END# *57B18AEE021C_57ADBFD200CAget_impl*
+//#UC START# *57B18AEE021C_57ADBFD200CAget_var*
+//#UC END# *57B18AEE021C_57ADBFD200CAget_var*
+//#UC START# *57B18AEE021C_57ADBFD200CAset_impl*
+ Assert(false);
+//#UC END# *57B18AEE021C_57ADBFD200CAset_impl*
+//#UC START# *57B18AEE021C_57ADBFD200CAset_var*
+//#UC END# *57B18AEE021C_57ADBFD200CAset_var*
+//#UC START# *57B4228B001E_57ADBFD200CA_impl*
+ if (f_Subscribers = nil) then
+  f_Subscribers := TImsmModelElementListenerList.Create;
+ f_Subscribers.Add(aListener);
+ //aListener.Fire(ModelChangedEvent.Instance);
+//#UC END# *57B4228B001E_57ADBFD200CA_impl*
+//#UC START# *57B4228B001E_57ADBFD200CA_var*
+//#UC END# *57B4228B001E_57ADBFD200CA_var*
+//#UC START# *57B422AB0293_57ADBFD200CA_impl*
+ if (f_Subscribers <> nil) then
+  f_Subscribers.Remove(aListener); 
+//#UC END# *57B422AB0293_57ADBFD200CA_impl*
+//#UC START# *57B422AB0293_57ADBFD200CA_var*
+//#UC END# *57B422AB0293_57ADBFD200CA_var*

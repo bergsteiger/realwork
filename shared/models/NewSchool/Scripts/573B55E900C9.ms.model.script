@@ -1,0 +1,215 @@
+// TvtStyledFocusLabel 573B55E900C9 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_573B55E900C9
+
+ME ME_573B562D011B
+ MEPROP UID '573B562D011B'
+ MEPROP Name 'StyleId'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_5110DBDD0004' '47C695A10172.ms.model.script' // TevStyleId
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_573B562D011B StyleId
+
+ME ME_573DC5DE03C7
+ MEPROP UID '573DC5DE03C7'
+ MEPROP Name 'ActiveStyleId'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_5110DBDD0004' '47C695A10172.ms.model.script' // TevStyleId
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_573DC5DE03C7 ActiveStyleId
+
+ME ME_573DC799008E
+ MEPROP UID '573DC799008E'
+ MEPROP Name 'f_IsActive'
+ MEPROP Class class_Attribute
+ %SUMMARY 'мышь над ссылкой' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_573DC799008E f_IsActive
+
+ME ME_573DD172019F
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_573DD172019F Msg
+
+ME ME_573DD16B0002
+ MEPROP UID '573DD16B0002'
+ MEPROP Name 'WMMouseLeave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_573DD172019F // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_MOUSELEAVE'
+
+ENDME // ME_573DD16B0002 WMMouseLeave
+
+ME ME_573B561E03CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_47ECB297037D' '47ECB2870309.ms.model.script' // evStyleTableSpy
+ ;
+
+ENDME // ME_573B561E03CE 
+
+ME ME_573B562102B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ ;
+
+ENDME // ME_573B562102B6 
+
+ME ME_573B562302FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_573B562302FC 
+
+ME ME_573B56250234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_484D2CBA0213' '484A470100DD.ms.model.script' // TextStyle
+ ;
+
+ENDME // ME_573B56250234 
+
+ME ME_573DC81A030E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_573DC81A030E 
+
+ME ME_467D2CB10135_ME_573B55E900C9
+ MELINK Original WL 'ME_467D2CB10135' '467823B7002C.ms.model.script' // StyleTableChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_467D2CB10135_ME_573B55E900C9 StyleTableChanged
+
+ME ME_479731C50290_ME_573B55E900C9
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_573B55E900C9 Cleanup
+
+ME ME_47A042E100E2_ME_573B55E900C9
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_573B55E900C9 InitFields
+
+ME ME_48E22B250241_ME_573B55E900C9
+ MELINK Original WL 'ME_48E22B250241' '4799D29F033F.ms.model.script' // MouseMove
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E22B250241_ME_573B55E900C9 MouseMove
+
+ME ME_4B61371503B9_ME_573B55E900C9
+ MELINK Original WL 'ME_4B61371503B9' '4A9B9BC00258.ms.model.script' // NeedUnderLine
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B61371503B9_ME_573B55E900C9 NeedUnderLine
+
+ME ME_573B55E900C9
+ MEPROP UID '573B55E900C9'
+ MEPROP Name 'TvtStyledFocusLabel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.ms.model.script' // Labels
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A9B9BC00258' '4A9B9BC00258.ms.model.script' // TvtFocusLabel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_573B562D011B // StyleId
+ HWL ME_573DC5DE03C7 // ActiveStyleId
+ HWL ME_573DC799008E // f_IsActive
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_573DD16B0002 // WMMouseLeave
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_467D2CB10135_ME_573B55E900C9 // StyleTableChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_573B55E900C9 // Cleanup
+ ME_47A042E100E2_ME_573B55E900C9 // InitFields
+ ME_48E22B250241_ME_573B55E900C9 // MouseMove
+ ME_4B61371503B9_ME_573B55E900C9 // NeedUnderLine
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_573B561E03CE // evStyleTableSpy
+ ME_573B562102B6 // TevStyleInterface
+ ME_573B562302FC // TextPara
+ ME_573B56250234 // TextStyle
+ ME_573DC81A030E // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtStyledFocusLabel.pas'
+ UP extprop:rc:SelfName 'StyledFocusLabel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtStyledFocusLabel'
+
+ENDME // ME_573B55E900C9 TvtStyledFocusLabel

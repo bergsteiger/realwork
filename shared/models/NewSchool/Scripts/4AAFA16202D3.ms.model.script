@@ -1,0 +1,62 @@
+// PostingsList 4AAFA16202D3 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAFA16202D3
+
+ME ME_12A5052FDD0E
+ MEPROP UID '12A5052FDD0E'
+ MEPROP Name 'Ini_FormFactory_PostingsList'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы PostingsList' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAFA16202D3 // PostingsList
+ ;
+ UPLINK SpelledFor HWL ME_4AAFA16202D3 // PostingsList
+ ;
+
+ENDME // ME_12A5052FDD0E Ini_FormFactory_PostingsList
+
+ME ME_4AAFA16202D3
+ MEPROP UID '4AAFA16202D3'
+ MEPROP Name 'PostingsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA919B200AB' '4AA919B200AB.ms.model.script' // CommonPost
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DF789BF02EF' '4DF789BF02EF.ms.model.script' // PrimPostingsListOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD98AA402AC' '4BD98A8C0110.ms.model.script' // PostingsList
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_12A5052FDD0E // Ini_FormFactory_PostingsList
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "form name prefix" 'en'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '15.09.2009 18:15'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsList_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms'
+ UP extprop:pas:TypeName 'TenPostingsList'
+ UP extprop:rc:SelfName 'enPostingsList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PostingsList_Form'
+
+ENDME // ME_4AAFA16202D3 PostingsList

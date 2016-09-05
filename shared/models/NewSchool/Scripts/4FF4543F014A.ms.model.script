@@ -1,0 +1,86 @@
+// AACContentsContainer 4FF4543F014A VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF4543F014A
+
+ME ME_FEEE527549A8
+ MEPROP UID 'FEEE527549A8'
+ MEPROP GUID '3EBD2AC1-BEED-4678-BF35-5B80CE4A6852'
+ MEPROP Name 'AACContentsContainer'
+ MEPROP OriginalName 'AACContentsContainer$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы AACContentsContainer' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FF4543F014A // AACContentsContainer
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4FF4543F014A // AACContentsContainer
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'AACContentsContainerFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_FEEE527549A8 AACContentsContainer$Def
+
+ME ME_036308E4583B
+ MEPROP UID '036308E4583B'
+ MEPROP Name 'Ini_FormFactory_AACContentsContainer'
+ MEPROP OriginalName 'Ini_FormFactory_AACContentsContainer$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы AACContentsContainer' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF4543F014A // AACContentsContainer
+ ;
+ UPLINK SpelledFor HWL ME_4FF4543F014A // AACContentsContainer
+ ;
+
+ENDME // ME_036308E4583B Ini_FormFactory_AACContentsContainer$Def
+
+ME ME_4FF4543F014A
+ MEPROP UID '4FF4543F014A'
+ MEPROP Name 'AACContentsContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4FF2E5C70060' '4FF2E5C70060.ms.model.script' // AACPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FF2E935019A' '4FF2E935019A.ms.model.script' // AACContainerPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_FEEE527549A8 // AACContentsContainer$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_036308E4583B // Ini_FormFactory_AACContentsContainer$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_FEEE527549A8 // AACContentsContainer$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContentsContainer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms'
+ UP extprop:pas:TypeName 'TAACContentsContainerForm'
+ UP extprop:rc:SelfName 'AACContentsContainerForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'AACContentsContainer_Form'
+
+ENDME // ME_4FF4543F014A AACContentsContainer

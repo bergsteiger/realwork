@@ -18,7 +18,6 @@
 w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas
 //#UC END# *4A8ECF3001D2_ext:FileName
 //#UC START# *4A8ECF3001D2impl_uses*
- , SysUtils
  , StdRes
 //#UC END# *4A8ECF3001D2impl_uses*
 //#UC START# *4AA4B45E0101_4A8ECF3001D2_impl*
@@ -37,6 +36,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.
                                   CheckContainer(aContainer));
 //#UC END# *4AA4C0C500AA_4A8ECF3001D2_impl*
 //#UC START# *4AA4C0C500AA_4A8ECF3001D2_var*
+var
+ l_Document : IDocument;
 //#UC END# *4AA4C0C500AA_4A8ECF3001D2_var*
 //#UC START# *4AB76AD20100_4A8ECF3001D2_impl*
   l_NeedShowMainMenu := lp_IsContainerEmpty(TvcmTabbedContainerFormDispatcher.Instance.ActiveVCMContainer);
@@ -74,7 +75,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.
     begin
      if (l_Container = nil) then
       lp_CreateContainer(False);
-     TCommonPostModule.StartOpen(l_Container, False);
+     TCommonPostService.Instance.StartOpen(l_Container, False);
     end else
      Op_SearchSupport_ActivatePostingsListForm.Broadcast;
    end else
@@ -128,7 +129,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.
      lp_IsContainerEmpty(l_ContainerForMainMenu) then
   begin
    try
-    dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
     afw.ProcessMessages;
     UpdateWindow(l_ContainerForMainMenu.AsForm.VCLWinControl.Handle);
    finally
@@ -156,7 +157,7 @@ var
  l_NeedShowMainMenu: Boolean;
 //#UC END# *4AB76AD20100_4A8ECF3001D2_var*
 //#UC START# *4AB775AA0314_4A8ECF3001D2exec_impl*
- OpenNewsLine(False);
+ TMonitoringsService.Instance.OpenNewsLine(False);
  TnsOpenNewsLineEvent.Log;
 //#UC END# *4AB775AA0314_4A8ECF3001D2exec_impl*
 //#UC START# *4AB775AA0314_4A8ECF3001D2exec_var*
@@ -170,7 +171,7 @@ var
 //#UC END# *4AB775AA0314_4A8ECF3001D2test_var*
 //#UC START# *4AB77A0E0276_4A8ECF3001D2exec_impl*
  // Построение обзора законодателоьства
- TdmStdRes.OpenLegislationReview(nil);
+ TSearchService.Instance.OpenLegislationReview(nil);
 //#UC END# *4AB77A0E0276_4A8ECF3001D2exec_impl*
 //#UC START# *4AB77A0E0276_4A8ECF3001D2exec_var*
 //#UC END# *4AB77A0E0276_4A8ECF3001D2exec_var*
@@ -194,7 +195,7 @@ var
   if l_HasConnection then
   begin
    l_Cont := nsOpenNewWindowTabbed(CheckContainer(nil), vcm_okInCurrentTab);
-   TCommonPostModule.StartOpen(l_Cont, False);
+   TCommonPostService.Instance.StartOpen(l_Cont, False);
   end else
   begin
    //lp_OpenMainMenuIfNeeded;
@@ -218,7 +219,7 @@ var
   begin
    l_ContainerForMainMenu := CheckContainer(nil);
    try
-    dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
    finally
     l_ContainerForMainMenu := nil;
    end;

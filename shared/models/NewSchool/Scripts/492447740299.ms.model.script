@@ -1,0 +1,78 @@
+// TdsTreeAttributeFirstLevel 492447740299 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492447740299
+
+ME ME_492D864001BA
+ MEPROP UID '492D864001BA'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492447740299 // TdsTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_4924450800EC' '4AA5503000D7.ms.model.script' // IdsTreeAttributeFirstLevel
+ ;
+
+ENDME // ME_492D864001BA FormDataSourceType
+
+ME ME_492447CE01A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492447740299 // TdsTreeAttributeFirstLevel
+ ;
+ MELINK Target WL 'ME_4683698E01BC' '49006FAB024A.ms.model.script' // TnsAttributeOneLevelTreeStruct
+ ;
+
+ENDME // ME_492447CE01A6 
+
+ME ME_47F4C2B9014A_ME_492447740299
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_492447740299 MakeSimpleTree
+
+ME ME_492447740299
+ MEPROP UID '492447740299'
+ MEPROP Name 'TdsTreeAttributeFirstLevel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'бизнес объект формы выбранные атрибуты дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491DCA2C00A9' '491DCA2C00A9.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49242CB201D0' '49242CB201D0.ms.model.script' // dsSituation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4924450800EC' '4AA5503000D7.ms.model.script' // IdsTreeAttributeFirstLevel
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_492D864001BA // FormDataSourceType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F4C2B9014A_ME_492447740299 // MakeSimpleTree
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_492447CE01A6 // TnsAttributeOneLevelTreeStruct
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '2005/07/29 15:27:38'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\dsTreeAttributeFirstLevel.pas'
+ UP extprop:rc:SelfName 'dsTreeAttributeFirstLevel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsTreeAttributeFirstLevel'
+
+ENDME // ME_492447740299 TdsTreeAttributeFirstLevel

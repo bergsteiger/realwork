@@ -1,5 +1,5 @@
 //#UC START# *4DAEEDE10285_558D7FFE0092_impl*
- aCtx.rEngine.Push(f_Value);
+ TtfwThreadVar.Instance.PushValue(Self, @f_Value, aCtx);
 //#UC END# *4DAEEDE10285_558D7FFE0092_impl*
 //#UC START# *4DAEEDE10285_558D7FFE0092_var*
 //#UC END# *4DAEEDE10285_558D7FFE0092_var*
@@ -11,11 +11,11 @@
 //#UC START# *52D00B00031A_558D7FFE0092_impl*
  Case aValue.rType of
   tfw_vtVoid:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   tfw_vtNil:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   tfw_vtObj:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   else
    RunnerAssert(false, 'Требуется объект', aCtx);
  end;//aValue.rType
@@ -23,7 +23,7 @@
 //#UC START# *52D00B00031A_558D7FFE0092_var*
 //#UC END# *52D00B00031A_558D7FFE0092_var*
 //#UC START# *52D399A00173_558D7FFE0092_impl*
- Result := @f_Value;
+ Result := TtfwThreadVar.Instance.GetValue(Self, @f_Value);
 //#UC END# *52D399A00173_558D7FFE0092_impl*
 //#UC START# *52D399A00173_558D7FFE0092_var*
 //#UC END# *52D399A00173_558D7FFE0092_var*

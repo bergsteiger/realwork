@@ -1,0 +1,87 @@
+// StyleEditorExample 4ABA14A4011C VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABA14A4011C
+
+ME ME_838CE3057379
+ MEPROP UID '838CE3057379'
+ MEPROP GUID '941E9E1B-2C84-4067-938E-6CFE6F2614A7'
+ MEPROP Name 'StyleEditorExample'
+ MEPROP OriginalName 'StyleEditorExample$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы StyleEditorExample' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABA14A4011C // StyleEditorExample
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4ABA14A4011C // StyleEditorExample
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'StyleEditorExampleFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_838CE3057379 StyleEditorExample$Def
+
+ME ME_88019975820B
+ MEPROP UID '88019975820B'
+ MEPROP Name 'Ini_FormFactory_StyleEditorExample'
+ MEPROP OriginalName 'Ini_FormFactory_StyleEditorExample$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы StyleEditorExample' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABA14A4011C // StyleEditorExample
+ ;
+ UPLINK SpelledFor HWL ME_4ABA14A4011C // StyleEditorExample
+ ;
+
+ENDME // ME_88019975820B Ini_FormFactory_StyleEditorExample$Def
+
+ME ME_4ABA14A4011C
+ MEPROP UID '4ABA14A4011C'
+ MEPROP Name 'StyleEditorExample'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пример текста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA79F72010A' '4AA79F72010A.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AF8665A0079' '4AF8665A0079.ms.model.script' // PrimStyleEditorExample
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_838CE3057379 // StyleEditorExample$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_88019975820B // Ini_FormFactory_StyleEditorExample$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_838CE3057379 // StyleEditorExample$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Child'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorExample_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ UP extprop:pas:TypeName 'TStyleEditorExampleForm'
+ UP extprop:rc:SelfName 'StyleEditorExampleForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StyleEditorExample_Form'
+
+ENDME // ME_4ABA14A4011C StyleEditorExample

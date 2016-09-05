@@ -1,0 +1,164 @@
+// TevCustomEditorModelPart 4B877C5101C1 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B877C5101C1
+
+FORWARD ME_4B877F3C0242
+
+ME ME_4B877F7B0359
+ MEPROP UID '4B877F7B0359'
+ MEPROP Name 'Table'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ENDME // ME_4B877F7B0359 Table
+
+ME ME_4B877F8201B7
+ MEPROP UID '4B877F8201B7'
+ MEPROP Name 'SBS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ENDME // ME_4B877F8201B7 SBS
+
+ME ME_4B877F8700D0
+ MEPROP UID '4B877F8700D0'
+ MEPROP Name 'Picture'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ENDME // ME_4B877F8700D0 Picture
+
+ME ME_4B877F8C0386
+ MEPROP UID '4B877F8C0386'
+ MEPROP Name 'Formula'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ENDME // ME_4B877F8C0386 Formula
+
+ME ME_4B877F9A02DC
+ MEPROP UID '4B877F9A02DC'
+ MEPROP Name 'PageBreak'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B877F3C0242 // TevAllowParaType
+ ;
+
+ENDME // ME_4B877F9A02DC PageBreak
+
+ME ME_4B877F3C0242
+ MEPROP UID '4B877F3C0242'
+ MEPROP Name 'TevAllowParaType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Разрешённые типы параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B877C5101C1 // TevCustomEditorModelPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B877F7B0359 // Table
+ HWL ME_4B877F8201B7 // SBS
+ HWL ME_4B877F8700D0 // Picture
+ HWL ME_4B877F8C0386 // Formula
+ HWL ME_4B877F9A02DC // PageBreak
+ )
+ ; // Attributes
+ UP "children prefix" 'apt'
+ UP "elements prefix" 'ev'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefixBase 'ev'
+ UP extprop:pas:ElementPrefix 'ev_apt'
+
+ENDME // ME_4B877F3C0242 TevAllowParaType
+
+ME ME_4B8787B400F8
+ MEPROP UID '4B8787B400F8'
+ MEPROP Name 'TevAllowParaTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Множество типов разрешённых параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B877C5101C1 // TevCustomEditorModelPart
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B877F3C0242 // TevAllowParaType
+ )
+ ; // Inherits
+
+ENDME // ME_4B8787B400F8 TevAllowParaTypes
+
+ME ME_4B877E7B0330
+ MEPROP UID '4B877E7B0330'
+ MEPROP Name 'AllowParaType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B877C5101C1 // TevCustomEditorModelPart
+ ;
+ MELINK Target HWL ME_4B8787B400F8 // TevAllowParaTypes
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4B877E7B0330 AllowParaType
+
+ME ME_4B877C5101C1
+ MEPROP UID '4B877C5101C1'
+ MEPROP Name 'TevCustomEditorModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Часть TevCustomEditor перенесённая на модель' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D8C50010' '4829D8C50010.ms.model.script' // TevMultiSelectEditorWindow
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B877E7B0330 // AllowParaType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4B877F3C0242 // TevAllowParaType
+ HWL ME_4B8787B400F8 // TevAllowParaTypes
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.02.2010 10:54'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomEditorModelPart.pas'
+ UP extprop:rc:SelfName 'EditorModelPart'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomEditorModelPart'
+
+ENDME // ME_4B877C5101C1 TevCustomEditorModelPart

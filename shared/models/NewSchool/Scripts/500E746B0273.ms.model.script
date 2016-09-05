@@ -1,0 +1,65 @@
+// TdsAACDocumentLeft 500E746B0273 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_500E746B0273
+
+ME ME_500E769E005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500E746B0273 // TdsAACDocumentLeft
+ ;
+ MELINK Target WL 'ME_500E75A000B0' '4FF2E66802B4.ms.model.script' // TnsAACLeftDocumentContainer
+ ;
+
+ENDME // ME_500E769E005A 
+
+ME ME_500E74C30088_ME_500E746B0273
+ MELINK Original WL 'ME_500E74C30088' '500E749D0046.ms.model.script' // BlockViewKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_500E74C30088_ME_500E746B0273 BlockViewKind
+
+ME ME_4C6AB38800F3_ME_500E746B0273
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_500E746B0273 MakeContainer
+
+ME ME_500E746B0273
+ MEPROP UID '500E746B0273'
+ MEPROP Name 'TdsAACDocumentLeft'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FF2E66802B4' '4FF2E66802B4.ms.model.script' // AACImplementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_500E749D0046' '500E749D0046.ms.model.script' // TdsAACDocumentPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_500FF3E20023' '484FA67302D7.ms.model.script' // `Правые` блоки должны показываться в правой половине окна, а `левые` в левой
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_500E74C30088_ME_500E746B0273 // BlockViewKind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C6AB38800F3_ME_500E746B0273 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_500E769E005A // TnsAACLeftDocumentContainer
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentLeft.pas'
+ UP extprop:rc:SelfName 'dsAACDocumentLeft'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsAACDocumentLeft'
+
+ENDME // ME_500E746B0273 TdsAACDocumentLeft

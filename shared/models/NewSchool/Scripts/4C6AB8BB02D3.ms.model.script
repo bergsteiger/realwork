@@ -1,0 +1,53 @@
+// BaseDataObject 4C6AB8BB02D3 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C6AB8BB02D3
+
+ME ME_4B17D7FA023F
+ MEPROP UID '4B17D7FA023F'
+ MEPROP Name 'TbsBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс бизнес слоя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C6AB8BB02D3 // BaseDataObject
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ WL 'ME_4A60B2220398' '47BB24D30205.ms.model.script' // l3COMQueryInterface
+ )
+ ; // Inherits
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '12.12.2005 16.48'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\bsBase.pas'
+ UP extprop:rc:SelfName 'bsBase'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsBase'
+
+ENDME // ME_4B17D7FA023F TbsBase
+
+ME ME_4C6AB8BB02D3
+ MEPROP UID '4C6AB8BB02D3'
+ MEPROP Name 'BaseDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C6A65ED0374' '4C6A65ED0374.ms.model.script' // F1DocumentProcessing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B17D7FA023F // TbsBase
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ )
+ ; // Depends
+
+ENDME // ME_4C6AB8BB02D3 BaseDataObject

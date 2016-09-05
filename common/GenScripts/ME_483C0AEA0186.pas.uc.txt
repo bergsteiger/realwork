@@ -1,11 +1,11 @@
 //#UC START# *45EEDE9D01C5_4AC200650301_impl*
-  if (aNotify.GetId = f_NotifyType) then
+  if (Notify.GetId = f_NotifyType) then
   begin
     if f_NotifyType = NT_BASE_UPDATE_END then // запил
       TatGblAdapterWorker.Instance.ControlManager.UpdateStatus(false);
     //  
     Logger.Info('Нотификация с кодом ' + NTTypeToStr + ' получена.');
-    l_Notification := TatNotification.Create(aNotify);
+    l_Notification := TatNotification.Create(Notify);
     Trigger(Self, l_Notification);
   end;
 //#UC END# *45EEDE9D01C5_4AC200650301_impl*
@@ -48,6 +48,8 @@
 //#UC START# *483C0AEA0186_ext:FileName
 w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas
 //#UC END# *483C0AEA0186_ext:FileName
+//#UC START# *483C0AEA0186impl_uses*
+//#UC END# *483C0AEA0186impl_uses*
 //#UC START# *4AC1FEB6028B*
   TatGblAdapterWorker.InstanceFree;
 //#UC END# *4AC1FEB6028B*

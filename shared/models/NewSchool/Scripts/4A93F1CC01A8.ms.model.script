@@ -1,0 +1,66 @@
+// ProgressIndicator 4A93F1CC01A8 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93F1CC01A8
+
+ME ME_60BD30ED24A4
+ MEPROP UID '60BD30ED24A4'
+ MEPROP GUID '83193317-8438-475F-9F0C-1C44F08B2DA4'
+ MEPROP Name 'ProgressIndicator'
+ MEPROP OriginalName 'ProgressIndicator$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ProgressIndicator' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93F1CC01A8 // ProgressIndicator
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A93F1CC01A8 // ProgressIndicator
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ProgressIndicatorFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_60BD30ED24A4 ProgressIndicator$Def
+
+ME ME_4A93F1CC01A8
+ MEPROP UID '4A93F1CC01A8'
+ MEPROP Name 'ProgressIndicator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A93F1980324' '4A93F1980324.ms.model.script' // PrimProgressIndicator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_60BD30ED24A4 // ProgressIndicator$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_60BD30ED24A4 // ProgressIndicator$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "finished dfm" true
+ UP "form name prefix" 'ef'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\ProgressIndicator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName 'TefProgressIndicator'
+ UP extprop:rc:SelfName 'efProgressIndicator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ProgressIndicator_Form'
+
+ENDME // ME_4A93F1CC01A8 ProgressIndicator

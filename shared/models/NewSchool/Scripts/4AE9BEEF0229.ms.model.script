@@ -1,0 +1,181 @@
+// PrimFoldersInfo 4AE9BEEF0229 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE9BEEF0229
+
+ME ME_4C7E8E76029A
+ MEPROP UID '4C7E8E76029A'
+ MEPROP Name 'utFoldersInfoContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Свойства папок (модальный диалог)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE9BEEF0229 // PrimFoldersInfo
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersInfo_utFoldersInfoContainer_UserType.pas'
+ UP extprop:pas:UnitName 'PrimFoldersInfo_utFoldersInfoContainer_UserType'
+
+ENDME // ME_4C7E8E76029A utFoldersInfoContainer
+
+FORWARD ME_4C7E8BF702A1
+
+ME ME_528239480348
+ MEPROP UID '528239480348'
+ MEPROP Name 'Child'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE9BEEF0229 // PrimFoldersInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C7E8BF702A1 // ChildZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Child'
+
+ENDME // ME_528239480348 Child
+
+ME ME_4C7E8BF702A1
+ MEPROP UID '4C7E8BF702A1'
+ MEPROP Name 'ChildZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE9BEEF0229 // PrimFoldersInfo
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_528239480348 // Child
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C7E8BF702A1 ChildZone
+
+ME ME_4AE9C08F02EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE9BEEF0229 // PrimFoldersInfo
+ ;
+ MELINK Target WL 'ME_4AE9C07702B0' '48F747EC0073.ms.model.script' // cInfoCaptions
+ ;
+
+ENDME // ME_4AE9C08F02EB 
+
+ME ME_4AE9C0AB0261
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE9BEEF0229 // PrimFoldersInfo
+ ;
+ MELINK Target WL 'ME_4AC0B9CF018A' '47D0E1500033.ms.model.script' // vcmCStr
+ ;
+
+ENDME // ME_4AE9C0AB0261 
+
+ME ME_4AE9BF890271_ME_4AE9BEEF0229
+ MELINK Original WL 'ME_4AE9BF890271' '4A96A8C10357.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AE9BF890271_ME_4AE9BEEF0229 Close
+
+ME ME_4AE9C01201BA_ME_4AE9BEEF0229
+ MELINK Original WL 'ME_4AE9C01201BA' '4A96A8C10357.ms.model.script' // SetState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AE9C01201BA_ME_4AE9BEEF0229 SetState
+
+ME ME_4A8E8F2E0195_ME_4AE9BEEF0229
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AE9BEEF0229 InitControls
+
+ME ME_4AE9BEEF0229
+ MEPROP UID '4AE9BEEF0229'
+ MEPROP Name 'PrimFoldersInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497DCBF8017B' '497DCBF8017B.ms.model.script' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AE9BF190048' '4A96A8C10357.ms.model.script' // AdditionInfo$ForFoldersInfo
+ WL 'ME_4AE9BFEA0177' '4A96A8C10357.ms.model.script' // FolderElement$ForFoldersInfo
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C7E8BF702A1 // ChildZone
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4AE9BF890271_ME_4AE9BEEF0229 // Close
+ ME_4AE9C01201BA_ME_4AE9BEEF0229 // SetState
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4AE9BEEF0229 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4C7E8E76029A // utFoldersInfoContainer
+ HWL ME_528239480348 // Child
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AE9C08F02EB // cInfoCaptions
+ ME_4AE9C0AB0261 // vcmCStr
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '29.10.2009 19:12'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms'
+ UP extprop:pas:TypeName 'TPrimFoldersInfoForm'
+ UP extprop:rc:SelfName 'PrimFoldersInfoForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimFoldersInfo_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4AE9BEEF0229 PrimFoldersInfo

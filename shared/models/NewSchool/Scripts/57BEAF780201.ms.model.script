@@ -1,0 +1,162 @@
+// l3MarshalledTypes 57BEAF780201 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57BEAF780201
+
+FORWARD ME_578F46D3027D
+
+ME ME_472083B60039
+ MEPROP UID '472083B60039'
+ MEPROP Name 'm3_dsMain'
+ MEPROP Class class_Attribute
+ %SUMMARY 'основной поток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ENDME // ME_472083B60039 m3_dsMain
+
+ME ME_472083C00387
+ MEPROP UID '472083C00387'
+ MEPROP Name 'm3_dsAnno'
+ MEPROP Class class_Attribute
+ %SUMMARY 'аннотация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ENDME // ME_472083C00387 m3_dsAnno
+
+ME ME_472083CC0117
+ MEPROP UID '472083CC0117'
+ MEPROP Name 'm3_dsInfo'
+ MEPROP Class class_Attribute
+ %SUMMARY 'информация о документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ENDME // ME_472083CC0117 m3_dsInfo
+
+ME ME_486B7E4803A2
+ MEPROP UID '486B7E4803A2'
+ MEPROP Name 'm3_dsObject'
+ MEPROP Class class_Attribute
+ %SUMMARY 'объект в документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578F46D3027D // Tm3DocPartSelector
+ ;
+
+ENDME // ME_486B7E4803A2 m3_dsObject
+
+ME ME_578F46D3027D
+ MEPROP UID '578F46D3027D'
+ MEPROP Name 'Tm3DocPartSelector'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BEAF780201 // l3MarshalledTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_472083B60039 // m3_dsMain
+ HWL ME_472083C00387 // m3_dsAnno
+ HWL ME_472083CC0117 // m3_dsInfo
+ HWL ME_486B7E4803A2 // m3_dsObject
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_578F46D3027D Tm3DocPartSelector
+
+FORWARD ME_57BEB06902A1
+
+ME ME_57BEB0BC0381
+ MEPROP UID '57BEB0BC0381'
+ MEPROP Name 'dpDoc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BEB06902A1 // TDocPartSelector
+ ;
+
+ENDME // ME_57BEB0BC0381 dpDoc
+
+ME ME_57BEB0C40345
+ MEPROP UID '57BEB0C40345'
+ MEPROP Name 'dpSpr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BEB06902A1 // TDocPartSelector
+ ;
+
+ENDME // ME_57BEB0C40345 dpSpr
+
+ME ME_57BEB0D20062
+ MEPROP UID '57BEB0D20062'
+ MEPROP Name 'dpAnno'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BEB06902A1 // TDocPartSelector
+ ;
+
+ENDME // ME_57BEB0D20062 dpAnno
+
+ME ME_57BEB06902A1
+ MEPROP UID '57BEB06902A1'
+ MEPROP Name 'TDocPartSelector'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BEAF780201 // l3MarshalledTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57BEB0BC0381 // dpDoc
+ HWL ME_57BEB0C40345 // dpSpr
+ HWL ME_57BEB0D20062 // dpAnno
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57BEB06902A1 TDocPartSelector
+
+ME ME_57BEAF780201
+ MEPROP UID '57BEAF780201'
+ MEPROP Name 'l3MarshalledTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_578F46D3027D // Tm3DocPartSelector
+ HWL ME_57BEB06902A1 // TDocPartSelector
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
+
+ENDME // ME_57BEAF780201 l3MarshalledTypes

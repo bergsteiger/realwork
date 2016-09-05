@@ -1,0 +1,111 @@
+// TnscTreeComboWithHistory 4B97EE390310 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97EE390310
+
+FORWARD ME_53FF1F0503B4
+
+ME ME_53FF1F3A0175
+ MEPROP UID '53FF1F3A0175'
+ MEPROP Name 'cDefaultContextEmptyColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF1F0503B4 // TnscTreeComboWithHistory Default Values
+ ;
+ MEPROP Value 'cDefaultContextEmptyColor'
+ MELINK ValueType WL 'ME_4CFF747800AA' '49083E150027.ms.model.script' // nscConst
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'nscConst.cDefaultContextEmptyColor'
+
+ENDME // ME_53FF1F3A0175 cDefaultContextEmptyColor
+
+ME ME_53FF1F59035F
+ MEPROP UID '53FF1F59035F'
+ MEPROP Name 'clWindowText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF1F0503B4 // TnscTreeComboWithHistory Default Values
+ ;
+ MEPROP Value 'clWindowText'
+ MELINK ValueType WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'Graphics.clWindowText'
+
+ENDME // ME_53FF1F59035F clWindowText
+
+ME ME_53FF1F690298
+ MEPROP UID '53FF1F690298'
+ MEPROP Name 'clBlue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF1F0503B4 // TnscTreeComboWithHistory Default Values
+ ;
+ MEPROP Value 'clBlue'
+ MELINK ValueType WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'Graphics.clBlue'
+
+ENDME // ME_53FF1F690298 clBlue
+
+ME ME_53FF1F0503B4
+ MEPROP UID '53FF1F0503B4'
+ MEPROP Name 'TnscTreeComboWithHistory Default Values'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97EE390310 // TnscTreeComboWithHistory
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53FF1F3A0175 // cDefaultContextEmptyColor
+ HWL ME_53FF1F59035F // clWindowText
+ HWL ME_53FF1F690298 // clBlue
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_53FF1F0503B4 TnscTreeComboWithHistory Default Values
+
+ME ME_4B97EE390310
+ MEPROP UID '4B97EE390310'
+ MEPROP Name 'TnscTreeComboWithHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_495119A901CE' '495119A901CE.ms.model.script' // Editor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B97EDFB0057' '4B97EDFB0057.ms.model.script' // TnscCustomTreeComboWithHistory
+ )
+ ; // Inherits
+ MELIST Constants
+   Seq: ( HWL ME_53FF1F0503B4 // TnscTreeComboWithHistory Default Values
+ )
+ ; // Constants
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTreeComboWithHistory.pas'
+ UP extprop:rc:SelfName 'TreeComboWithHistory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscTreeComboWithHistory'
+
+ENDME // ME_4B97EE390310 TnscTreeComboWithHistory

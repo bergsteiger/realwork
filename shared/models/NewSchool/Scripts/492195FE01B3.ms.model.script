@@ -1,0 +1,103 @@
+// TdsFolderElement 492195FE01B3 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492195FE01B3
+
+ME ME_4921962A0165
+ MEPROP UID '4921962A0165'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492195FE01B3 // TdsFolderElement
+ ;
+ MELINK Target WL 'ME_4921928D038A' '492192300095.ms.model.script' // IdsFolderElement
+ ;
+
+ENDME // ME_4921962A0165 FormDataSourceType
+
+ME ME_49219642035C
+ MEPROP UID '49219642035C'
+ MEPROP Name 'f_SaveObject'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492195FE01B3 // TdsFolderElement
+ ;
+ MELINK Target WL 'ME_492192160370' '4990135D02F1.ms.model.script' // IdeSaveObject
+ ;
+
+ENDME // ME_49219642035C f_SaveObject
+
+ME ME_492196820127
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492195FE01B3 // TdsFolderElement
+ ;
+ MELINK Target WL 'ME_4921953602C1' '4921954E019B.ms.model.script' // TdeSaveObject
+ ;
+
+ENDME // ME_492196820127 
+
+ME ME_492192AA0144_ME_492195FE01B3
+ MELINK Original WL 'ME_492192AA0144' '492192300095.ms.model.script' // SaveObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492192AA0144_ME_492195FE01B3 SaveObject
+
+ME ME_479731C50290_ME_492195FE01B3
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_492195FE01B3 Cleanup
+
+ME ME_492195FE01B3
+ MEPROP UID '492195FE01B3'
+ MEPROP Name 'TdsFolderElement'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4921954E019B' '4921954E019B.ms.model.script' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4921928D038A' '492192300095.ms.model.script' // IdsFolderElement
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4921962A0165 // FormDataSourceType
+ HWL ME_49219642035C // f_SaveObject
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_492192AA0144_ME_492195FE01B3 // SaveObject
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_492195FE01B3 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_492196820127 // TdeSaveObject
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '03.05.2006'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\dsFolderElement.pas'
+ UP extprop:rc:SelfName 'dsFolderElement'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsFolderElement'
+
+ENDME // ME_492195FE01B3 TdsFolderElement

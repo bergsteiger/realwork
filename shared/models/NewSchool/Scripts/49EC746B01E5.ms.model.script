@@ -1,0 +1,1906 @@
+// PrimInternetAgent 49EC746B01E5 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EC746B01E5
+
+FORWARD ME_49EDAA740295
+
+FORWARD ME_49EDAAA601D9
+
+ME ME_49EDAAF403C0
+ MEPROP UID '49EDAAF403C0'
+ MEPROP Name 'URL'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Путь к странице' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49EDAAA601D9 // InsInternetAgentState
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+ UP "pm" false
+
+ENDME // ME_49EDAAF403C0 URL
+
+ME ME_5742C1CB030C
+ MEPROP UID '5742C1CB030C'
+ MEPROP Name 'ScrollPos'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49EDAAA601D9 // InsInternetAgentState
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_5742C1CB030C ScrollPos
+
+ME ME_49EDDCC000A8
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_49EDDCC000A8 anURL
+
+ME ME_5742D3B701F4
+ MEPROP Name 'aScrollPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5742D3B701F4 aScrollPos
+
+ME ME_49EDDC9F007A
+ MEPROP UID '49EDDC9F007A'
+ MEPROP Name 'SetParams'
+ MEPROP Class class_Operation
+ %SUMMARY 'Устанавливает новые параметры состояния Интернет-агента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49EDAAA601D9 // InsInternetAgentState
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EDDCC000A8 // anURL
+ ME_5742D3B701F4 // aScrollPos
+ )
+ ; // Parameters
+
+ENDME // ME_49EDDC9F007A SetParams
+
+ME ME_49EDAAA601D9
+ MEPROP UID '49EDAAA601D9'
+ MEPROP GUID 'D4ACF593-E6B2-403E-BF8B-88C3E553312B'
+ MEPROP Name 'InsInternetAgentState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Состояние Интернет-агента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49EDAAF403C0 // URL
+ HWL ME_5742C1CB030C // ScrollPos
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49EDDC9F007A // SetParams
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'InternetAgentState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49EDAAA601D9 InsInternetAgentState
+
+ME ME_49EDAB560377
+ MEPROP UID '49EDAB560377'
+ MEPROP Name 'f_URL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_49EDAB560377 f_URL
+
+ME ME_5742C2030270
+ MEPROP UID '5742C2030270'
+ MEPROP Name 'f_ScrollPos'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5742C2030270 f_ScrollPos
+
+FORWARD ME_5742CDC7015B
+
+ME ME_5742CDDA015C
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_5742CDDA015C anURL
+
+ME ME_5742CDDA017A
+ MEPROP Name 'aScrollPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5742CDDA017A aScrollPos
+
+ME ME_5742CDCE0345
+ MEPROP UID '5742CDCE0345'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5742CDC7015B // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5742CDDA015C // anURL
+ ME_5742CDDA017A // aScrollPos
+ )
+ ; // Parameters
+
+ENDME // ME_5742CDCE0345 DoIt
+
+ME ME_5742CDC7015B
+ MEPROP UID '5742CDC7015B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5742CDCE0345 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5742CDC7015B Create
+
+ME ME_5742CDE10213
+ MEPROP UID '5742CDE10213'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5742CDC7015B // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49EDAAA601D9 // InsInternetAgentState
+ )
+ ; // Implements
+
+ENDME // ME_5742CDE10213 Make
+
+ME ME_49EDAAF403C0_ME_49EDAA740295
+ MELINK Original HWL ME_49EDAAF403C0 // URL
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_49EDAAF403C0_ME_49EDAA740295 URL
+
+ME ME_49EDDC9F007A_ME_49EDAA740295
+ MELINK Original HWL ME_49EDDC9F007A // SetParams
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49EDDC9F007A_ME_49EDAA740295 SetParams
+
+ME ME_5742C1CB030C_ME_49EDAA740295
+ MELINK Original HWL ME_5742C1CB030C // ScrollPos
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_5742C1CB030C_ME_49EDAA740295 ScrollPos
+
+ME ME_49EDAA740295
+ MEPROP UID '49EDAA740295'
+ MEPROP Name 'TnsInternetAgentState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49EDAAA601D9 // InsInternetAgentState
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49EDAB560377 // f_URL
+ HWL ME_5742C2030270 // f_ScrollPos
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5742CDC7015B // Create
+ HWL ME_5742CDE10213 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49EDAAF403C0_ME_49EDAA740295 // URL
+ ME_49EDDC9F007A_ME_49EDAA740295 // SetParams
+ ME_5742C1CB030C_ME_49EDAA740295 // ScrollPos
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_49EDAAA601D9 // InsInternetAgentState
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '21.04.2009 15:14'
+ UP extprop:rc:SelfName 'InternetAgentState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49EDAA740295 TnsInternetAgentState
+
+FORWARD ME_4BB345E00184
+
+ME ME_4BB346630393
+ MEPROP UID '4BB346630393'
+ MEPROP Name 'pi_InternetAgent_Scale'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Идентификатор натройки "Масштаб"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BB345E00184 // Settings IDs
+ ;
+ MEPROP Value 'gi_Internal + ''/Новости онлайн/Масштаб'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'gi_Internal + ''/Новости онлайн/Масштаб'''
+
+ENDME // ME_4BB346630393 pi_InternetAgent_Scale
+
+ME ME_4BB345E00184
+ MEPROP UID '4BB345E00184'
+ MEPROP Name 'Settings IDs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификаторы настроек' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BB346630393 // pi_InternetAgent_Scale
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4BB345E00184 Settings IDs
+
+ME ME_4C6274C701D2
+ MEPROP UID '4C6274C701D2'
+ MEPROP Name 'utInternetAgent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Новости онлайн' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_utInternetAgent_UserType.pas'
+ UP extprop:pas:UnitName 'PrimInternetAgent_utInternetAgent_UserType'
+
+ENDME // ME_4C6274C701D2 utInternetAgent
+
+FORWARD ME_57592DAC0322
+
+ME ME_57592DC70393
+ MEPROP UID '57592DC70393'
+ MEPROP Name 'c_HTTP_OK'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57592DAC0322 // PrimInternetAgentConsts
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MEPROP Value 200
+ MELINK ValueType WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 200
+
+ENDME // ME_57592DC70393 c_HTTP_OK
+
+ME ME_57593B9C02FE
+ MEPROP UID '57593B9C02FE'
+ MEPROP Name 'c_PageNotFoundError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57592DAC0322 // PrimInternetAgentConsts
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MEPROP Value 404
+ MELINK ValueType WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 404
+
+ENDME // ME_57593B9C02FE c_PageNotFoundError
+
+ME ME_57592DAC0322
+ MEPROP UID '57592DAC0322'
+ MEPROP Name 'PrimInternetAgentConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57592DC70393 // c_HTTP_OK
+ HWL ME_57593B9C02FE // c_PageNotFoundError
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_57592DAC0322 PrimInternetAgentConsts
+
+ME ME_49EC9D2702BA
+ MEPROP UID '49EC9D2702BA'
+ MEPROP Name 'f_Browser'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_49ECB8E002B0' '49ECB8E002B0.ms.model.script' // TnsWebBrowser
+ ;
+
+ENDME // ME_49EC9D2702BA f_Browser
+
+ME ME_49EDA2390109
+ MEPROP UID '49EDA2390109'
+ MEPROP Name 'f_InInit'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49EDA2390109 f_InInit
+
+ME ME_49EDDF7C01C0
+ MEPROP UID '49EDDF7C01C0'
+ MEPROP Name 'f_URL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_49EDDF7C01C0 f_URL
+
+ME ME_49EDE8EA0384
+ MEPROP UID '49EDE8EA0384'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_49EC6E080148' '49EC6D9000EE.ms.model.script' // IdsInternetAgent
+ ;
+
+ENDME // ME_49EDE8EA0384 
+
+ME ME_49EDED8D0305
+ MEPROP UID '49EDED8D0305'
+ MEPROP Name 'f_CanBack'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49EDED8D0305 f_CanBack
+
+ME ME_49EDED9503D0
+ MEPROP UID '49EDED9503D0'
+ MEPROP Name 'f_CanForward'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49EDED9503D0 f_CanForward
+
+ME ME_4A11644A00DF
+ MEPROP UID '4A11644A00DF'
+ MEPROP Name 'f_NavigateErrorPass'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Признак, что мы "прошли" через обработчик ошибки навигации.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A11644A00DF f_NavigateErrorPass
+
+ME ME_4A11647D0225
+ MEPROP UID '4A11647D0225'
+ MEPROP Name 'f_NavigateErrorCode'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Содержит код ошибки, если мы "прошли" через обработчик ошибки навигации.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+
+ENDME // ME_4A11647D0225 f_NavigateErrorCode
+
+FORWARD ME_49ED882F0024
+
+ME ME_49ED9CBF01C1
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_49ED9CBF01C1 Sender
+
+ME ME_49ED9CBF0202
+ MEPROP Name 'pDisp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ ;
+
+ENDME // ME_49ED9CBF0202 pDisp
+
+ME ME_49ED9CBF0270
+ MEPROP Name 'URL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_49ED9CBF0270 URL
+
+ME ME_49ED9CBF02D8
+ MEPROP Name 'Flags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_49ED9CBF02D8 Flags
+
+ME ME_49ED9CBF0348
+ MEPROP Name 'TargetFrameName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_49ED9CBF0348 TargetFrameName
+
+ME ME_49ED9CBF03AA
+ MEPROP Name 'PostData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_49ED9CBF03AA PostData
+
+ME ME_49ED9CC00020
+ MEPROP Name 'Headers'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_49ED9CC00020 Headers
+
+ME ME_49ED9CC0008A
+ MEPROP Name 'Cancel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ ;
+
+ENDME // ME_49ED9CC0008A Cancel
+
+ME ME_49ED8850006F
+ MEPROP UID '49ED8850006F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
+ ;
+ MELIST Parameters
+   Seq: ( ME_49ED9CBF01C1 // Sender
+ ME_49ED9CBF0202 // pDisp
+ ME_49ED9CBF0270 // URL
+ ME_49ED9CBF02D8 // Flags
+ ME_49ED9CBF0348 // TargetFrameName
+ ME_49ED9CBF03AA // PostData
+ ME_49ED9CC00020 // Headers
+ ME_49ED9CC0008A // Cancel
+ )
+ ; // Parameters
+
+ENDME // ME_49ED8850006F DoIt
+
+ME ME_49EEEB700322
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
+ ;
+ MELINK Target WL 'ME_49EEF16603C9' '49F1CAA100B5.ms.model.script' // nsInternetUtils
+ ;
+
+ENDME // ME_49EEEB700322 
+
+ME ME_49EEEEDD03C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_49EEEEDD03C9 
+
+ME ME_49EF00A802B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
+ ;
+ MELINK Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.ms.model.script' // nsExternalObjectPrim
+ ;
+
+ENDME // ME_49EF00A802B1 
+
+ME ME_49EF050801C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_49EF050801C3 
+
+ME ME_49ED882F0024
+ MEPROP UID '49ED882F0024'
+ MEPROP Name 'BeforeNavigate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик события навигации' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49ED8850006F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_49EEEB700322 // nsInternetUtils
+ ME_49EEEEDD03C9 // StdRes
+ ME_49EF00A802B1 // nsExternalObjectPrim
+ ME_49EF050801C3 // l3Base
+ )
+ ; // Dependencies
+ UP "ifndef" 'XE'
+
+ENDME // ME_49ED882F0024 BeforeNavigate
+
+FORWARD ME_49ED8A6F01AE
+
+ME ME_49ED8A880293
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_49ED8A880293 Sender
+
+ME ME_49ED8A8802AC
+ MEPROP Name 'Text'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_49ED8A8802AC Text
+
+ME ME_49ED8A800300
+ MEPROP UID '49ED8A800300'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49ED8A6F01AE // TitleChange
+ ;
+ MELIST Parameters
+   Seq: ( ME_49ED8A880293 // Sender
+ ME_49ED8A8802AC // Text
+ )
+ ; // Parameters
+
+ENDME // ME_49ED8A800300 DoIt
+
+ME ME_49ED8A6F01AE
+ MEPROP UID '49ED8A6F01AE'
+ MEPROP Name 'TitleChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49ED8A800300 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_49ED8A6F01AE TitleChange
+
+FORWARD ME_49ED8AA0026E
+
+ME ME_49ED9CE10202
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_49ED9CE10202 Sender
+
+ME ME_49ED9CE1021E
+ MEPROP Name 'pDisp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ ;
+
+ENDME // ME_49ED9CE1021E pDisp
+
+ME ME_49ED9CE10239
+ MEPROP Name 'URL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_49ED9CE10239 URL
+
+ME ME_49ED8AB1009B
+ MEPROP UID '49ED8AB1009B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49ED8AA0026E // NavigateComplete
+ ;
+ MELIST Parameters
+   Seq: ( ME_49ED9CE10202 // Sender
+ ME_49ED9CE1021E // pDisp
+ ME_49ED9CE10239 // URL
+ )
+ ; // Parameters
+
+ENDME // ME_49ED8AB1009B DoIt
+
+ME ME_49ED8AA0026E
+ MEPROP UID '49ED8AA0026E'
+ MEPROP Name 'NavigateComplete'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49ED8AB1009B // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'XE'
+
+ENDME // ME_49ED8AA0026E NavigateComplete
+
+FORWARD ME_49EDE0FF002C
+
+ME ME_49EDE12A0036
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_49EDE12A0036 anURL
+
+ME ME_49EDE1220252
+ MEPROP UID '49EDE1220252'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EDE0FF002C // Navigate
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EDE12A0036 // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_49EDE1220252 DoIt
+
+ME ME_49EDE0FF002C
+ MEPROP UID '49EDE0FF002C'
+ MEPROP Name 'Navigate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Навигация на заданный адрес' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49EDE1220252 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_49EDE0FF002C Navigate
+
+FORWARD ME_49EDEDCE0015
+
+ME ME_49EDEDF9002F
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_49EDEDF9002F Sender
+
+ME ME_49EDEDF90056
+ MEPROP Name 'Command'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49EDEDF90056 Command
+
+ME ME_49EDEDF90089
+ MEPROP Name 'Enable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ ;
+
+ENDME // ME_49EDEDF90089 Enable
+
+ME ME_49EDEDED0358
+ MEPROP UID '49EDEDED0358'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EDEDCE0015 // CommandStateChange
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EDEDF9002F // Sender
+ ME_49EDEDF90056 // Command
+ ME_49EDEDF90089 // Enable
+ )
+ ; // Parameters
+
+ENDME // ME_49EDEDED0358 DoIt
+
+ME ME_49EDEDCE0015
+ MEPROP UID '49EDEDCE0015'
+ MEPROP Name 'CommandStateChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реакция на смену доступности команды' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49EDEDED0358 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_49EDEDCE0015 CommandStateChange
+
+FORWARD ME_4A1133EF0284
+
+ME ME_4A11353202D0
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4A11353202D0 Sender
+
+ME ME_4A11353202F9
+ MEPROP Name 'pDisp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ ;
+
+ENDME // ME_4A11353202F9 pDisp
+
+ME ME_4A1135320324
+ MEPROP Name 'URL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_4A1135320324 URL
+
+ME ME_4A113532034F
+ MEPROP Name 'Frame'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_4A113532034F Frame
+
+ME ME_4A1135320380
+ MEPROP Name 'StatusCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_4A1135320380 StatusCode
+
+ME ME_4A11353203AB
+ MEPROP Name 'Cancel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ ;
+
+ENDME // ME_4A11353203AB Cancel
+
+ME ME_4A1133EF0289
+ MEPROP UID '4A1133EF0289'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A1133EF0284 // NavigateError
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A11353202D0 // Sender
+ ME_4A11353202F9 // pDisp
+ ME_4A1135320324 // URL
+ ME_4A113532034F // Frame
+ ME_4A1135320380 // StatusCode
+ ME_4A11353203AB // Cancel
+ )
+ ; // Parameters
+
+ENDME // ME_4A1133EF0289 DoIt
+
+ME ME_4A1135F002F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A1133EF0284 // NavigateError
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4A1135F002F7 
+
+ME ME_4A113A3B0145
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A1133EF0284 // NavigateError
+ ;
+ MELINK Target WL 'ME_47F4EED50062' '4AADF9450143.ms.model.script' // vcmForm
+ ;
+
+ENDME // ME_4A113A3B0145 
+
+ME ME_4A1133EF0284
+ MEPROP UID '4A1133EF0284'
+ MEPROP Name 'NavigateError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик события ошибка навигации' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A1133EF0289 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A1135F002F7 // StdRes
+ ME_4A113A3B0145 // vcmForm
+ )
+ ; // Dependencies
+ UP "ifndef" 'XE'
+
+ENDME // ME_4A1133EF0284 NavigateError
+
+FORWARD ME_5175422C03AF
+
+ME ME_5175428F0388
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5175428F0388 Sender
+
+ME ME_5175428F03C3
+ MEPROP Name 'pDisp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ ;
+
+ENDME // ME_5175428F03C3 pDisp
+
+ME ME_517542900003
+ MEPROP Name 'URL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_517542900003 URL
+
+ME ME_517542900031
+ MEPROP Name 'Flags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_517542900031 Flags
+
+ME ME_517542900059
+ MEPROP Name 'TargetFrameName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_517542900059 TargetFrameName
+
+ME ME_517542900086
+ MEPROP Name 'PostData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_517542900086 PostData
+
+ME ME_5175429000B0
+ MEPROP Name 'Headers'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_5175429000B0 Headers
+
+ME ME_5175429000DC
+ MEPROP Name 'Cancel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ ;
+
+ENDME // ME_5175429000DC Cancel
+
+ME ME_517542510032
+ MEPROP UID '517542510032'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5175422C03AF // BeforeNavigateXE
+ ;
+ MELIST Parameters
+   Seq: ( ME_5175428F0388 // Sender
+ ME_5175428F03C3 // pDisp
+ ME_517542900003 // URL
+ ME_517542900031 // Flags
+ ME_517542900059 // TargetFrameName
+ ME_517542900086 // PostData
+ ME_5175429000B0 // Headers
+ ME_5175429000DC // Cancel
+ )
+ ; // Parameters
+
+ENDME // ME_517542510032 DoIt
+
+ME ME_5175422C03AF
+ MEPROP UID '5175422C03AF'
+ MEPROP Name 'BeforeNavigateXE'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_517542510032 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5175422C03AF BeforeNavigateXE
+
+FORWARD ME_517544400331
+
+ME ME_5175446D00FC
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5175446D00FC Sender
+
+ME ME_5175446D0130
+ MEPROP Name 'pDisp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ ;
+
+ENDME // ME_5175446D0130 pDisp
+
+ME ME_5175446D015B
+ MEPROP Name 'URL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_5175446D015B URL
+
+ME ME_5175445F00B2
+ MEPROP UID '5175445F00B2'
+ MEPROP Name '<<>> DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517544400331 // NavigateCompleteXE
+ ;
+ MELIST Parameters
+   Seq: ( ME_5175446D00FC // Sender
+ ME_5175446D0130 // pDisp
+ ME_5175446D015B // URL
+ )
+ ; // Parameters
+
+ENDME // ME_5175445F00B2 <<>> DoIt
+
+ME ME_517544400331
+ MEPROP UID '517544400331'
+ MEPROP Name 'NavigateCompleteXE'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5175445F00B2 // <<>> DoIt
+ )
+ ; // Operations
+
+ENDME // ME_517544400331 NavigateCompleteXE
+
+FORWARD ME_517544E2036E
+
+ME ME_517545180372
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_517545180372 Sender
+
+ME ME_51754518039D
+ MEPROP Name 'pDisp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ ;
+
+ENDME // ME_51754518039D pDisp
+
+ME ME_5175451803C3
+ MEPROP Name 'URL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_5175451803C3 URL
+
+ME ME_517545190004
+ MEPROP Name 'Frame'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_517545190004 Frame
+
+ME ME_51754519002C
+ MEPROP Name 'StatusCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ ;
+
+ENDME // ME_51754519002C StatusCode
+
+ME ME_517545190053
+ MEPROP Name 'Cancel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ ;
+
+ENDME // ME_517545190053 Cancel
+
+ME ME_517544F1032B
+ MEPROP UID '517544F1032B'
+ MEPROP Name '<<>> DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517544E2036E // NavigateErrorXE
+ ;
+ MELIST Parameters
+   Seq: ( ME_517545180372 // Sender
+ ME_51754518039D // pDisp
+ ME_5175451803C3 // URL
+ ME_517545190004 // Frame
+ ME_51754519002C // StatusCode
+ ME_517545190053 // Cancel
+ )
+ ; // Parameters
+
+ENDME // ME_517544F1032B <<>> DoIt
+
+ME ME_517544E2036E
+ MEPROP UID '517544E2036E'
+ MEPROP Name 'NavigateErrorXE'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_517544F1032B // <<>> DoIt
+ )
+ ; // Operations
+
+ENDME // ME_517544E2036E NavigateErrorXE
+
+FORWARD ME_5411790D0297
+
+ME ME_5411791E02E7
+ MEPROP UID '5411791E02E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5411790D0297 // MakeBrowser
+ ;
+
+ENDME // ME_5411791E02E7 DoIt
+
+ME ME_5411790D0297
+ MEPROP UID '5411790D0297'
+ MEPROP Name 'MakeBrowser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5411791E02E7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5411790D0297 MakeBrowser
+
+ME ME_49EC9D5A00ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49EC9D5A00ED 
+
+ME ME_49ECA57202DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_49ECA57202DD 
+
+ME ME_49EDB73B014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_4981AC530096' '4AB0997B00A2.ms.model.script' // EOleError
+ ;
+
+ENDME // ME_49EDB73B014A 
+
+ME ME_49EDCE2A015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_49EC9CF0030B' '49EC9CDD0093.ms.model.script' // shdocvw
+ ;
+
+ENDME // ME_49EDCE2A015C 
+
+ME ME_4A04301A0036
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_4A042F5D03B2' '4AB0C3F60375.ms.model.script' // UrlMon
+ ;
+
+ENDME // ME_4A04301A0036 
+
+ME ME_4A04306E0109
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_49EEFA91008E' '4799D29F033F.ms.model.script' // OleCtrls
+ ;
+
+ENDME // ME_4A04306E0109 
+
+ME ME_4A04308801B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4A04308801B6 
+
+ME ME_4BB344EC010F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4BB344EC010F 
+
+ME ME_4BB3461902E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4BB3461902E1 
+
+ME ME_4BEBD04302D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_4BEBD04302D4 
+
+ME ME_4CC91A0D03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4CC91A0D03DB 
+
+ME ME_4F7B187F0332
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_4F7B037D01FF' '4F6B66140294.ms.model.script' // nsSettingsConst
+ ;
+
+ENDME // ME_4F7B187F0332 
+
+ME ME_4F9BB969005D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_4F9BB17D03CD' '4F9BB1120134.ms.model.script' // Questions
+ ;
+
+ENDME // ME_4F9BB969005D 
+
+ME ME_545B47900355
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ ;
+
+ENDME // ME_545B47900355 
+
+ME ME_57C00907023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ MELINK Target WL 'ME_57BC06F603E1' '57BC0538037B.ms.model.script' // nsDownloader
+ ;
+
+ENDME // ME_57C00907023C 
+
+ME ME_494F89C30197_ME_49EC746B01E5
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_494F89C30197_ME_49EC746B01E5 Delete
+
+ME ME_4951284902BD_ME_49EC746B01E5
+ MELINK Original WL 'ME_4951284902BD' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4951284902BD_ME_49EC746B01E5 Copy
+
+ME ME_4951285702E1_ME_49EC746B01E5
+ MELINK Original WL 'ME_4951285702E1' '495127DD017C.ms.model.script' // Cut
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4951285702E1_ME_49EC746B01E5 Cut
+
+ME ME_49512B5D0009_ME_49EC746B01E5
+ MELINK Original WL 'ME_49512B5D0009' '495127DD017C.ms.model.script' // FindContext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49512B5D0009_ME_49EC746B01E5 FindContext
+
+ME ME_495130C40123_ME_49EC746B01E5
+ MELINK Original WL 'ME_495130C40123' '495127DD017C.ms.model.script' // FindNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_495130C40123_ME_49EC746B01E5 FindNext
+
+ME ME_49521D8E0295_ME_49EC746B01E5
+ MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49521D8E0295_ME_49EC746B01E5 Print
+
+ME ME_495220DE0298_ME_49EC746B01E5
+ MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_495220DE0298_ME_49EC746B01E5 PrintDialog
+
+ME ME_495220F2033A_ME_49EC746B01E5
+ MELINK Original WL 'ME_495220F2033A' '494F898C013E.ms.model.script' // PrintPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_495220F2033A_ME_49EC746B01E5 PrintPreview
+
+ME ME_495235F401C0_ME_49EC746B01E5
+ MELINK Original WL 'ME_495235F401C0' '494F898C013E.ms.model.script' // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_495235F401C0_ME_49EC746B01E5 Save
+
+ME ME_49EDFA3701B0_ME_49EC746B01E5
+ MELINK Original WL 'ME_49EDFA3701B0' '495127DD017C.ms.model.script' // Paste
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFA3701B0_ME_49EC746B01E5 Paste
+
+ME ME_49EDFCA2006D_ME_49EC746B01E5
+ MELINK Original WL 'ME_49EDFCA2006D' '495127DD017C.ms.model.script' // Undo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFCA2006D_ME_49EC746B01E5 Undo
+
+ME ME_49EDFCB100BC_ME_49EC746B01E5
+ MELINK Original WL 'ME_49EDFCB100BC' '495127DD017C.ms.model.script' // Redo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFCB100BC_ME_49EC746B01E5 Redo
+
+ME ME_49EE01AA02BE_ME_49EC746B01E5
+ MELINK Original WL 'ME_49EE01AA02BE' '495127DD017C.ms.model.script' // SelectAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EE01AA02BE_ME_49EC746B01E5 SelectAll
+
+ME ME_49EE01BC022E_ME_49EC746B01E5
+ MELINK Original WL 'ME_49EE01BC022E' '495127DD017C.ms.model.script' // Deselect
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EE01BC022E_ME_49EC746B01E5 Deselect
+
+ME ME_49FEDE4703B8_ME_49EC746B01E5
+ MELINK Original WL 'ME_49FEDE4703B8' '495127DD017C.ms.model.script' // FindPrev
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49FEDE4703B8_ME_49EC746B01E5 FindPrev
+
+ME ME_4BB32C1401C0_ME_49EC746B01E5
+ MELINK Original WL 'ME_4BB32C1401C0' '5278E45101D3.ms.model.script' // ChangeScale
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4BB32C1401C0_ME_49EC746B01E5 ChangeScale
+
+ME ME_4BB366A901D7_ME_49EC746B01E5
+ MELINK Original WL 'ME_4BB366A901D7' '5278E45101D3.ms.model.script' // CanChangeScale
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4BB366A901D7_ME_49EC746B01E5 CanChangeScale
+
+ME ME_4C7D0C7B0185_ME_49EC746B01E5
+ MELINK Original WL 'ME_4C7D0C7B0185' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0C7B0185_ME_49EC746B01E5 Copy
+
+ME ME_4C7D0CC90052_ME_49EC746B01E5
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0CC90052_ME_49EC746B01E5 Delete
+
+ME ME_479731C50290_ME_49EC746B01E5
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_49EC746B01E5 Cleanup
+
+ME ME_497469C90140_ME_49EC746B01E5
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_49EC746B01E5 NotifyDataSourceChanged
+
+ME ME_49803F5503AA_ME_49EC746B01E5
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_49EC746B01E5 DoInit
+
+ME ME_49806ED503D5_ME_49EC746B01E5
+ MELINK Original WL 'ME_49806ED503D5' '4AADF9450143.ms.model.script' // DoSaveState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49806ED503D5_ME_49EC746B01E5 DoSaveState
+
+ME ME_49807428008C_ME_49EC746B01E5
+ MELINK Original WL 'ME_49807428008C' '4AADF9450143.ms.model.script' // DoLoadState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49807428008C_ME_49EC746B01E5 DoLoadState
+
+ME ME_543E3AA801D0_ME_49EC746B01E5
+ MELINK Original WL 'ME_543E3AA801D0' '533D53FF00C2.ms.model.script' // DoGetTabImageIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_543E3AA801D0_ME_49EC746B01E5 DoGetTabImageIndex
+
+ME ME_49EC746B01E5
+ MEPROP UID '49EC746B01E5'
+ MEPROP Name 'PrimInternetAgent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базаовая форма для [Интернет-агента|$124453728]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49EC7167004C' '49EC7167004C.ms.model.script' // InternetAgent
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4951282D0269' '495127DD017C.ms.model.script' // Edit
+ WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+ WL 'ME_4BB32B8400B0' '5278E45101D3.ms.model.script' // Scalable
+ WL 'ME_543E3A600253' '533D53FF00C2.ms.model.script' // vcmChromeLikeTabIconUpdater
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49EC9D2702BA // f_Browser
+ HWL ME_49EDA2390109 // f_InInit
+ HWL ME_49EDDF7C01C0 // f_URL
+ HWL ME_49EDE8EA0384 // 
+ HWL ME_49EDED8D0305 // f_CanBack
+ HWL ME_49EDED9503D0 // f_CanForward
+ HWL ME_4A11644A00DF // f_NavigateErrorPass
+ HWL ME_4A11647D0225 // f_NavigateErrorCode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49ED882F0024 // BeforeNavigate
+ HWL ME_49ED8A6F01AE // TitleChange
+ HWL ME_49ED8AA0026E // NavigateComplete
+ HWL ME_49EDE0FF002C // Navigate
+ HWL ME_49EDEDCE0015 // CommandStateChange
+ HWL ME_4A1133EF0284 // NavigateError
+ HWL ME_5175422C03AF // BeforeNavigateXE
+ HWL ME_517544400331 // NavigateCompleteXE
+ HWL ME_517544E2036E // NavigateErrorXE
+ HWL ME_5411790D0297 // MakeBrowser
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_49EC746B01E5 // Delete
+ ME_4951284902BD_ME_49EC746B01E5 // Copy
+ ME_4951285702E1_ME_49EC746B01E5 // Cut
+ ME_49512B5D0009_ME_49EC746B01E5 // FindContext
+ ME_495130C40123_ME_49EC746B01E5 // FindNext
+ ME_49521D8E0295_ME_49EC746B01E5 // Print
+ ME_495220DE0298_ME_49EC746B01E5 // PrintDialog
+ ME_495220F2033A_ME_49EC746B01E5 // PrintPreview
+ ME_495235F401C0_ME_49EC746B01E5 // Save
+ ME_49EDFA3701B0_ME_49EC746B01E5 // Paste
+ ME_49EDFCA2006D_ME_49EC746B01E5 // Undo
+ ME_49EDFCB100BC_ME_49EC746B01E5 // Redo
+ ME_49EE01AA02BE_ME_49EC746B01E5 // SelectAll
+ ME_49EE01BC022E_ME_49EC746B01E5 // Deselect
+ ME_49FEDE4703B8_ME_49EC746B01E5 // FindPrev
+ ME_4BB32C1401C0_ME_49EC746B01E5 // ChangeScale
+ ME_4BB366A901D7_ME_49EC746B01E5 // CanChangeScale
+ ME_4C7D0C7B0185_ME_49EC746B01E5 // Copy
+ ME_4C7D0CC90052_ME_49EC746B01E5 // Delete
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49EC746B01E5 // Cleanup
+ ME_497469C90140_ME_49EC746B01E5 // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_49EC746B01E5 // DoInit
+ ME_49806ED503D5_ME_49EC746B01E5 // DoSaveState
+ ME_49807428008C_ME_49EC746B01E5 // DoLoadState
+ ME_543E3AA801D0_ME_49EC746B01E5 // DoGetTabImageIndex
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_49EDAA740295 // TnsInternetAgentState
+ HWL ME_4C6274C701D2 // utInternetAgent
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4BB345E00184 // Settings IDs
+ HWL ME_57592DAC0322 // PrimInternetAgentConsts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_49EC9D5A00ED // SysUtils
+ ME_49ECA57202DD // TAlign
+ ME_49EDB73B014A // EOleError
+ ME_49EDCE2A015C // shdocvw
+ ME_4A04301A0036 // UrlMon
+ ME_4A04306E0109 // OleCtrls
+ ME_4A04308801B6 // Windows
+ ME_4BB344EC010F // afwFacade
+ ME_4BB3461902E1 // nsConst
+ ME_4BEBD04302D4 // nsUtils
+ ME_4CC91A0D03DB // TDocumentPositionType
+ ME_4F7B187F0332 // nsSettingsConst
+ ME_4F9BB969005D // Questions
+ ME_545B47900355 // nsTabbedInterfaceTypes
+ ME_57C00907023C // nsDownloader
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ UP extprop:pas:TypeName 'TPrimInternetAgentForm'
+ UP extprop:rc:SelfName 'PrimInternetAgentForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimInternetAgent_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_49EC746B01E5 PrimInternetAgent

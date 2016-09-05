@@ -6,13 +6,18 @@
 //#UC START# *55AE5A8C035D_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryExWordsPack.pas
 //#UC END# *55AE5A8C035D_ext:FileName
+//#UC START# *55AE5A8C035Dimpl_uses*
+//#UC END# *55AE5A8C035Dimpl_uses*
 //#UC START# *55AE62910135_06E8451D9B30_impl*
  Result := aDictionaryEx.FileName;
 //#UC END# *55AE62910135_06E8451D9B30_impl*
 //#UC START# *55AE62910135_06E8451D9B30_var*
 //#UC END# *55AE62910135_06E8451D9B30_var*
 //#UC START# *55AE62910135_55AE62910135_559E8B2E0385_Word_impl*
- Result := aDictionaryEx.FileName;
+ if (aDictionaryEx = nil) then
+  Result := TtfwCStringFactory.C('')
+ else
+  Result := aDictionaryEx.FileName;
 //#UC END# *55AE62910135_55AE62910135_559E8B2E0385_Word_impl*
 //#UC START# *55AE62910135_55AE62910135_559E8B2E0385_Word_var*
 //#UC END# *55AE62910135_55AE62910135_559E8B2E0385_Word_var*

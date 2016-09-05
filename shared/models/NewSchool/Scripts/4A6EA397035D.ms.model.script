@@ -1,0 +1,90 @@
+// ChatHistory 4A6EA397035D VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EA397035D
+
+ME ME_32CFE852D886
+ MEPROP UID '32CFE852D886'
+ MEPROP GUID '5B6E40C6-04D1-47E4-B97A-0C7AB1B3D1F9'
+ MEPROP Name 'ChatHistory'
+ MEPROP OriginalName 'ChatHistory$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ChatHistory' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6EA397035D // ChatHistory
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A6EA397035D // ChatHistory
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ChatHistoryFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_32CFE852D886 ChatHistory$Def
+
+ME ME_A13E6A22E717
+ MEPROP UID 'A13E6A22E717'
+ MEPROP Name 'Ini_FormFactory_ChatHistory'
+ MEPROP OriginalName 'Ini_FormFactory_ChatHistory$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ChatHistory' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EA397035D // ChatHistory
+ ;
+ UPLINK SpelledFor HWL ME_4A6EA397035D // ChatHistory
+ ;
+
+ENDME // ME_A13E6A22E717 Ini_FormFactory_ChatHistory$Def
+
+ME ME_4A6EA397035D
+ MEPROP UID '4A6EA397035D'
+ MEPROP Name 'ChatHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'История переписки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A6971B802A6' '4A6971B802A6.ms.model.script' // BaseChat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6EA45C01C4' '4A6EA45C01C4.ms.model.script' // BaseHistoryWindow
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_32CFE852D886 // ChatHistory$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_A13E6A22E717 // Ini_FormFactory_ChatHistory$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_32CFE852D886 // ChatHistory$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'SimpleFloat'
+ UP "author" 'Лукьянец Р.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '2009/07/28 06:34:54'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatHistory_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ UP extprop:pas:TypeName 'TChatHistoryForm'
+ UP extprop:rc:SelfName 'ChatHistoryForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChatHistory_Form'
+
+ENDME // ME_4A6EA397035D ChatHistory

@@ -1,0 +1,138 @@
+// BaseChatWindowOptions 4C84CB6F0007 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C84CB6F0007
+
+ME ME_50228E0D0355
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ToolbarAtBottom::Dependency ;
+ MELINK Parent HWL ME_4C84CB6F0007 // BaseChatWindowOptions
+ ;
+ MELINK Target WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+ ;
+
+ENDME // ME_50228E0D0355 
+
+ME ME_579602BE0232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C84CB6F0007 // BaseChatWindowOptions
+ ;
+ MELINK Target WL 'ME_5795D6DC01F8' '5795D66F0385.ms.model.script' // TChatService
+ ;
+
+ENDME // ME_579602BE0232 
+
+ME ME_4C7D0CC90052_ME_4C84CB6F0007
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C7D0CC90052_ME_4C84CB6F0007 Delete
+
+ME ME_4C84CC2E0253_ME_4C84CB6F0007
+ MELINK Original WL 'ME_4C84CC2E0253' '4A8AE21B0210.ms.model.script' // History
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C84CC2E0253_ME_4C84CB6F0007 History
+
+ME ME_4C762C910358_ME_4C84CB6F0007
+ MELINK Original WL 'ME_4C762C910358' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C762C910358_ME_4C84CB6F0007 Cancel
+
+ME ME_4C762D9B0224_ME_4C84CB6F0007
+ MELINK Original WL 'ME_4C762D9B0224' '4A8AD3DE0008.ms.model.script' // OkExt
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C762D9B0224_ME_4C84CB6F0007 OkExt
+
+ME ME_4C84CB6F0007
+ MEPROP UID '4C84CB6F0007'
+ MEPROP Name 'BaseChatWindowOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.ms.model.script' // Chat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6EA44C0038' '4A6EA44C0038.ms.model.script' // BaseChatWindow
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C7D0CC90052_ME_4C84CB6F0007 // Delete
+ ME_4C84CC2E0253_ME_4C84CB6F0007 // History
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C762C910358_ME_4C84CB6F0007 // Cancel
+ ME_4C762D9B0224_ME_4C84CB6F0007 // OkExt
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50228E0D0355 // Chat$Contacts
+ ME_579602BE0232 // TChatService
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '06.09.2010 15:07'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindowOptions_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ UP extprop:pas:TypeName 'TBaseChatWindowOptionsForm'
+ UP extprop:rc:SelfName 'BaseChatWindowOptionsForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseChatWindowOptions_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4C84CB6F0007 BaseChatWindowOptions

@@ -1,0 +1,154 @@
+// Folders 4AD5B47F0278 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD5B47F0278
+
+FORWARD ME_4AD5B48E038A
+
+FORWARD ME_4AD5B4A90315
+
+ME ME_4AD5B4D0029C
+ MEPROP UID '4AD5B4D0029C'
+ MEPROP Name 'f_AcceptedRights'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AD5B4A90315 // TnsNodeWithRights
+ ;
+ MELINK Target WL 'ME_4990221803CE' '4990135D02F1.ms.model.script' // TFoldersActionsSet
+ ;
+
+ENDME // ME_4AD5B4D0029C f_AcceptedRights
+
+ME ME_4AD5B4D803B2
+ MEPROP UID '4AD5B4D803B2'
+ MEPROP Name 'f_RestrictedRights'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AD5B4A90315 // TnsNodeWithRights
+ ;
+ MELINK Target WL 'ME_4990221803CE' '4990135D02F1.ms.model.script' // TFoldersActionsSet
+ ;
+
+ENDME // ME_4AD5B4D803B2 f_RestrictedRights
+
+ME ME_4AD5B4A90315
+ MEPROP UID '4AD5B4A90315'
+ MEPROP Name 'TnsNodeWithRights'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AD5B48E038A // nsFolderNodes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AD5B4D0029C // f_AcceptedRights
+ HWL ME_4AD5B4D803B2 // f_RestrictedRights
+ )
+ ; // Attributes
+ UP "finished" false
+ UP extprop:rc:SelfName 'NodeWithRights'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AD5B4A90315 TnsNodeWithRights
+
+ME ME_4AD5B4E0036C
+ MEPROP UID '4AD5B4E0036C'
+ MEPROP Name 'TnsFoldersNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AD5B48E038A // nsFolderNodes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AD5B4A90315 // TnsNodeWithRights
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'FoldersNode'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AD5B4E0036C TnsFoldersNode
+
+ME ME_4C7E782B01A4
+ MEPROP UID '4C7E782B01A4'
+ MEPROP Name 'nsFindInsertPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5B48E038A // nsFolderNodes
+ ;
+ UP extprop:rc:SelfName 'FindInsertPosition'
+
+ENDME // ME_4C7E782B01A4 nsFindInsertPosition
+
+ME ME_4C7E785A02DA
+ MEPROP UID '4C7E785A02DA'
+ MEPROP Name 'nsHasNodeAnyFlag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5B48E038A // nsFolderNodes
+ ;
+ UP extprop:rc:SelfName 'HasNodeAnyFlag'
+
+ENDME // ME_4C7E785A02DA nsHasNodeAnyFlag
+
+ME ME_4AD5B48E038A
+ MEPROP UID '4AD5B48E038A'
+ MEPROP Name 'nsFolderNodes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5B47F0278 // Folders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7E782B01A4 // nsFindInsertPosition
+ HWL ME_4C7E785A02DA // nsHasNodeAnyFlag
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AD5B4A90315 // TnsNodeWithRights
+ HWL ME_4AD5B4E0036C // TnsFoldersNode
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsFolderNodes.pas'
+ UP extprop:rc:SelfName 'FolderNodes'
+
+ENDME // ME_4AD5B48E038A nsFolderNodes
+
+ME ME_4AD5B47F0278
+ MEPROP UID '4AD5B47F0278'
+ MEPROP Name 'Folders'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABB680E0218' '4ABB680E0218.ms.model.script' // Common$Lib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD5B48E038A // nsFolderNodes
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4990135D02F1' '4990135D02F1.ms.model.script' // FoldersDomainInterfaces
+ )
+ ; // Depends
+
+ENDME // ME_4AD5B47F0278 Folders

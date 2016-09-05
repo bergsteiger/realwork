@@ -1,0 +1,73 @@
+// TdsChildDocument 4958980300D5 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4958980300D5
+
+ME ME_49589F850343
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4958980300D5 // TdsChildDocument
+ ;
+ MELINK Target WL 'ME_4958968201A7' '47EA50050263.ms.model.script' // TnsDocInfoHAFMacroReplacer
+ ;
+
+ENDME // ME_49589F850343 
+
+ME ME_4958A01902A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4958980300D5 // TdsChildDocument
+ ;
+ MELINK Target WL 'ME_49589FF7027D' '493D465902FA.ms.model.script' // TnsChildDocInfoHAFMacroReplacer
+ ;
+
+ENDME // ME_4958A01902A4 
+
+ME ME_496A2D7C03CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4958980300D5 // TdsChildDocument
+ ;
+ MELINK Target WL 'ME_491D6701006E' '4D1B548F00EE.ms.model.script' // IsdsDocument
+ ;
+
+ENDME // ME_496A2D7C03CC 
+
+ME ME_49589C6203A6_ME_4958980300D5
+ MELINK Original WL 'ME_49589C6203A6' '47EA20430108.ms.model.script' // DoMakeHAFMacroReplacer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49589C6203A6_ME_4958980300D5 DoMakeHAFMacroReplacer
+
+ME ME_4958980300D5
+ MEPROP UID '4958980300D5'
+ MEPROP Name 'TdsChildDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493D465902FA' '493D465902FA.ms.model.script' // DocumentAndList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_493D63D20049' '493D63D20049.ms.model.script' // TdsDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49589C6203A6_ME_4958980300D5 // DoMakeHAFMacroReplacer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49589F850343 // TnsDocInfoHAFMacroReplacer
+ ME_4958A01902A4 // TnsChildDocInfoHAFMacroReplacer
+ ME_496A2D7C03CC // IsdsDocument
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsChildDocument.pas'
+ UP extprop:rc:SelfName 'dsChildDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsChildDocument'
+
+ENDME // ME_4958980300D5 TdsChildDocument

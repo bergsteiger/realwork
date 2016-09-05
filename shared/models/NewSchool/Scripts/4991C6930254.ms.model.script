@@ -1,0 +1,140 @@
+// DayTipsInterfaces 4991C6930254 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4991C6930254
+
+FORWARD ME_4991C6FF00C7
+
+ME ME_4991C75C00D5
+ MEPROP UID '4991C75C00D5'
+ MEPROP Name 'DontShow'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991C6FF00C7 // InsStartupTips
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4991C75C00D5 DontShow
+
+ME ME_4991C74701F8
+ MEPROP UID '4991C74701F8'
+ MEPROP Name 'TipCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991C6FF00C7 // InsStartupTips
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_4991C74701F8 TipCaption
+
+ME ME_4991C7680235
+ MEPROP UID '4991C7680235'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C6FF00C7 // InsStartupTips
+ ;
+
+ENDME // ME_4991C7680235 Next
+
+ME ME_4991C76E02ED
+ MEPROP UID '4991C76E02ED'
+ MEPROP Name 'Prev'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C6FF00C7 // InsStartupTips
+ ;
+
+ENDME // ME_4991C76E02ED Prev
+
+ME ME_4991C77601E9
+ MEPROP UID '4991C77601E9'
+ MEPROP Name 'ShowDetails'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C6FF00C7 // InsStartupTips
+ ;
+
+ENDME // ME_4991C77601E9 ShowDetails
+
+ME ME_4991C78200E7
+ MEPROP UID '4991C78200E7'
+ MEPROP Name 'GotoWeb'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C6FF00C7 // InsStartupTips
+ ;
+
+ENDME // ME_4991C78200E7 GotoWeb
+
+ME ME_4991C6FF00C7
+ MEPROP UID '4991C6FF00C7'
+ MEPROP GUID '620A7D19-668A-40BC-8A2F-F4AE63DE6C6A'
+ MEPROP Name 'InsStartupTips'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4991C6930254 // DayTipsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4991C75C00D5 // DontShow
+ HWL ME_4991C74701F8 // TipCaption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4991C7680235 // Next
+ HWL ME_4991C76E02ED // Prev
+ HWL ME_4991C77601E9 // ShowDetails
+ HWL ME_4991C78200E7 // GotoWeb
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'StartupTips'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4991C6FF00C7 InsStartupTips
+
+ME ME_4991C6930254
+ MEPROP UID '4991C6930254'
+ MEPROP Name 'DayTipsInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы работы с советами дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493FF75500F3' '493FF75500F3.ms.model.script' // DayTips
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4991C6FF00C7 // InsStartupTips
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '10.02.2009 21:25'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\DayTipsInterfaces.pas'
+
+ENDME // ME_4991C6930254 DayTipsInterfaces

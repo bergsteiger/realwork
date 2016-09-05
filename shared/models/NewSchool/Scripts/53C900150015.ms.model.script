@@ -1,0 +1,1550 @@
+// ServerAsyncExecution 53C900150015 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C900150015
+
+FORWARD ME_53D0E3330308
+
+ME ME_53D0E35C037E
+ MEPROP UID '53D0E35C037E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ;
+ MELINK Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ENDME // ME_53D0E35C037E ItemType
+
+ME ME_53D0E3330308
+ MEPROP UID '53D0E3330308'
+ MEPROP Name 'TalcuAsyncTaskFinishedNotifierList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53C900150015 // ServerAsyncExecution
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53D0E35C037E // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas'
+ UP extprop:rc:SelfName 'alcuAsyncTaskFinishedNotifierList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuAsyncTaskFinishedNotifierList'
+
+ENDME // ME_53D0E3330308 TalcuAsyncTaskFinishedNotifierList
+
+FORWARD ME_53CE0BD20380
+
+FORWARD ME_53C92B390005
+
+ME ME_53CDFA950212
+ MEPROP UID '53CDFA950212'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ ;
+ MELINK Target HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+
+ENDME // ME_53CDFA950212 ItemType
+
+ME ME_47B2C42A0163_ME_53CE0BD20380
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_53CE0BD20380 AssignItem
+
+ME ME_47B99D4503A2_ME_53CE0BD20380
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_53CE0BD20380 CompareExistingItems
+
+ME ME_53CE0BD20380
+ MEPROP UID '53CE0BD20380'
+ MEPROP Name 'TalcuSubmitterWorkThreadList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53C900150015 // ServerAsyncExecution
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53CDFA950212 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_53CE0BD20380 // AssignItem
+ ME_47B99D4503A2_ME_53CE0BD20380 // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkThreadList.pas'
+ UP extprop:rc:SelfName 'alcuSubmitterWorkThreadList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuSubmitterWorkThreadList'
+
+ENDME // ME_53CE0BD20380 TalcuSubmitterWorkThreadList
+
+FORWARD ME_53CDF9FE006B
+
+ME ME_53CE3DB10346
+ MEPROP UID '53CE3DB10346'
+ MEPROP Name 'HasWorkThreads'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53CE3DB10346 HasWorkThreads
+
+ME ME_5411745000ED
+ MEPROP UID '5411745000ED'
+ MEPROP Name 'f_LockSubmitTaskCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5411745000ED f_LockSubmitTaskCounter
+
+ME ME_5416C3670067
+ MEPROP UID '5416C3670067'
+ MEPROP Name 'WorkThreadCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5416C3670067 WorkThreadCount
+
+ME ME_53CE044D00A5
+ MEPROP UID '53CE044D00A5'
+ MEPROP Name 'Manager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_53CCB9880360' '53CCB94A02A5.ms.model.script' // IalcuAsyncSubmitterManager
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53CE044D00A5 Manager
+
+ME ME_53CE0BFC03C5
+ MEPROP UID '53CE0BFC03C5'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target HWL ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ ;
+
+ENDME // ME_53CE0BFC03C5 f_List
+
+ME ME_53D0E36C00AE
+ MEPROP UID '53D0E36C00AE'
+ MEPROP Name 'f_FinishNotifierList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target HWL ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ;
+
+ENDME // ME_53D0E36C00AE f_FinishNotifierList
+
+ME ME_55C2FE7C01F0
+ MEPROP UID '55C2FE7C01F0'
+ MEPROP Name 'f_SubmitGuard'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C2FE7C01F0 f_SubmitGuard
+
+FORWARD ME_53CDFAF10205
+
+ME ME_53CDFB3B0038
+ MEPROP Name 'aManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53CCB9880360' '53CCB94A02A5.ms.model.script' // IalcuAsyncSubmitterManager
+ ;
+
+ENDME // ME_53CDFB3B0038 aManager
+
+ME ME_53CDFAFC02CD
+ MEPROP UID '53CDFAFC02CD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDFAF10205 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CDFB3B0038 // aManager
+ )
+ ; // Parameters
+
+ENDME // ME_53CDFAFC02CD DoIt
+
+ME ME_53CDFAF10205
+ MEPROP UID '53CDFAF10205'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CDFAFC02CD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53CDFAF10205 Create
+
+FORWARD ME_53D0E7D8019F
+
+ME ME_53D0E804001C
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_53D0E804001C aTask
+
+ME ME_53D0E7EC00F2
+ MEPROP UID '53D0E7EC00F2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D0E7D8019F // NotifySubscribers
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D0E804001C // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_53D0E7EC00F2 DoIt
+
+ME ME_53D0E7D8019F
+ MEPROP UID '53D0E7D8019F'
+ MEPROP Name 'NotifySubscribers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53D0E7EC00F2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53D0E7D8019F NotifySubscribers
+
+ME ME_53CDFAD5008A
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_53CDFAD5008A aTask
+
+ME ME_53CDFABD0075
+ MEPROP UID '53CDFABD0075'
+ MEPROP Name 'SubmitTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CDFAD5008A // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_53CDFABD0075 SubmitTask
+
+ME ME_53F71EEF0278
+ MEPROP Name 'aServices'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53F7178501D3' '52F8C298005C.ms.model.script' // IcsRunTaskServices
+ ;
+
+ENDME // ME_53F71EEF0278 aServices
+
+ME ME_53CDFADC00B4
+ MEPROP UID '53CDFADC00B4'
+ MEPROP Name 'CheckExecution'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_53F71EEF0278 // aServices
+ )
+ ; // Parameters
+
+ENDME // ME_53CDFADC00B4 CheckExecution
+
+ME ME_573EC3200227
+ MEPROP Name 'aServices'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53F7178501D3' '52F8C298005C.ms.model.script' // IcsRunTaskServices
+ ;
+
+ENDME // ME_573EC3200227 aServices
+
+ME ME_573EC3200256
+ MEPROP Name 'CountAbortingTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_573EC3200256 CountAbortingTask
+
+ME ME_53CF9B060043
+ MEPROP UID '53CF9B060043'
+ MEPROP Name 'HasRunningTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_573EC3200227 // aServices
+ ME_573EC3200256 // CountAbortingTask
+ )
+ ; // Parameters
+
+ENDME // ME_53CF9B060043 HasRunningTask
+
+ME ME_53D0E3A701BD
+ MEPROP Name 'aNotifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ENDME // ME_53D0E3A701BD aNotifier
+
+ME ME_53D0E39102B2
+ MEPROP UID '53D0E39102B2'
+ MEPROP Name 'RegisterNotifier'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D0E3A701BD // aNotifier
+ )
+ ; // Parameters
+
+ENDME // ME_53D0E39102B2 RegisterNotifier
+
+ME ME_53D0E3B8011A
+ MEPROP Name 'aNotifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ENDME // ME_53D0E3B8011A aNotifier
+
+ME ME_53D0E3AE025B
+ MEPROP UID '53D0E3AE025B'
+ MEPROP Name 'UnRegisterNotifier'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D0E3B8011A // aNotifier
+ )
+ ; // Parameters
+
+ENDME // ME_53D0E3AE025B UnRegisterNotifier
+
+ME ME_541173D101EC
+ MEPROP UID '541173D101EC'
+ MEPROP Name 'AllowSubmitTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_541173D101EC AllowSubmitTask
+
+ME ME_541173EF01F8
+ MEPROP UID '541173EF01F8'
+ MEPROP Name 'LockSubmitTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+
+ENDME // ME_541173EF01F8 LockSubmitTask
+
+ME ME_541174030002
+ MEPROP UID '541174030002'
+ MEPROP Name 'UnLockSubmitTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+
+ENDME // ME_541174030002 UnLockSubmitTask
+
+ME ME_53CE100302E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+
+ENDME // ME_53CE100302E0 
+
+ME ME_53CE384300C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_47289B590038' '4678193C009C.ms.model.script' // PLong
+ ;
+
+ENDME // ME_53CE384300C2 
+
+ME ME_53CE3CBD02EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_4CED3B270143' '47913B47006E.ms.model.script' // l3L2IA
+ ;
+
+ENDME // ME_53CE3CBD02EE 
+
+ME ME_53CE3CE2038A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_53CE3CE2038A 
+
+ME ME_53CE3D7403C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53CE3D7403C2 
+
+ME ME_53CE3E92007A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_53CE3E92007A 
+
+ME ME_53D1000700AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_532047060349' '52FA49B901D3.ms.model.script' // TcsTaskStatus
+ ;
+
+ENDME // ME_53D1000700AC 
+
+ME ME_55C2FEB80349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_54B7B2F900C2' '537B83AD01F0.ms.model.script' // l3Interlocked
+ ;
+
+ENDME // ME_55C2FEB80349 
+
+ME ME_5735C11201C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ MELINK Target WL 'ME_551A7D9602DC' '54F85B2500FB.ms.model.script' // GlobalDataProvider
+ ;
+
+ENDME // ME_5735C11201C5 
+
+ME ME_53D0E2CD0227_ME_53CDF9FE006B
+ MELINK Original WL 'ME_53D0E2CD0227' '53CCB94A02A5.ms.model.script' // TaskFinished
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53D0E2CD0227_ME_53CDF9FE006B TaskFinished
+
+ME ME_479731C50290_ME_53CDF9FE006B
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53CDF9FE006B Cleanup
+
+ME ME_53CDF9FE006B
+ MEPROP UID '53CDF9FE006B'
+ MEPROP Name 'TalcuSubmitterWorkPool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллекция служебно-рабочих пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53C900150015 // ServerAsyncExecution
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53CE3DB10346 // HasWorkThreads
+ HWL ME_5411745000ED // f_LockSubmitTaskCounter
+ HWL ME_5416C3670067 // WorkThreadCount
+ HWL ME_53CE044D00A5 // Manager
+ HWL ME_53CE0BFC03C5 // f_List
+ HWL ME_53D0E36C00AE // f_FinishNotifierList
+ HWL ME_55C2FE7C01F0 // f_SubmitGuard
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53CDFAF10205 // Create
+ HWL ME_53D0E7D8019F // NotifySubscribers
+ HWL ME_53CDFABD0075 // SubmitTask
+ HWL ME_53CDFADC00B4 // CheckExecution
+ HWL ME_53CF9B060043 // HasRunningTask
+ HWL ME_53D0E39102B2 // RegisterNotifier
+ HWL ME_53D0E3AE025B // UnRegisterNotifier
+ HWL ME_541173D101EC // AllowSubmitTask
+ HWL ME_541173EF01F8 // LockSubmitTask
+ HWL ME_541174030002 // UnLockSubmitTask
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53D0E2CD0227_ME_53CDF9FE006B // TaskFinished
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53CDF9FE006B // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53CE100302E0 // TalcuSubmitterWorkThread
+ ME_53CE384300C2 // PLong
+ ME_53CE3CBD02EE // l3L2IA
+ ME_53CE3CE2038A // Windows
+ ME_53CE3D7403C2 // FreeAndNil
+ ME_53CE3E92007A // UserConsts
+ ME_53D1000700AC // TcsTaskStatus
+ ME_55C2FEB80349 // l3Interlocked
+ ME_5735C11201C5 // GlobalDataProvider
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkPool.pas'
+ UP extprop:rc:SelfName 'alcuSubmitterWorkPool'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuSubmitterWorkPool'
+
+ENDME // ME_53CDF9FE006B TalcuSubmitterWorkPool
+
+FORWARD ME_53C900CA012E
+
+FORWARD ME_53C9011903D6
+
+ME ME_53C9160C03A2
+ MEPROP UID '53C9160C03A2'
+ MEPROP Name 'ExitCode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Чем процесс завершился' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53C9160C03A2 ExitCode
+
+ME ME_53C9184901EB
+ MEPROP UID '53C9184901EB'
+ MEPROP Name 'f_TaskFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53C9184901EB f_TaskFileName
+
+ME ME_53C9185F03E6
+ MEPROP UID '53C9185F03E6'
+ MEPROP Name 'f_ServerHostName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53C9185F03E6 f_ServerHostName
+
+ME ME_53C91872034C
+ MEPROP UID '53C91872034C'
+ MEPROP Name 'f_UserName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53C91872034C f_UserName
+
+ME ME_53C9188002E9
+ MEPROP UID '53C9188002E9'
+ MEPROP Name 'f_Password'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53C9188002E9 f_Password
+
+ME ME_53C918A503C9
+ MEPROP UID '53C918A503C9'
+ MEPROP Name 'f_ServerPort'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53C918A503C9 f_ServerPort
+
+FORWARD ME_53CCF6F70264
+
+ME ME_53CCFD4901CB
+ MEPROP Name 'anHostName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53CCFD4901CB anHostName
+
+ME ME_53CCFD4901E1
+ MEPROP Name 'aPort'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53CCFD4901E1 aPort
+
+ME ME_53CCFD4901F8
+ MEPROP Name 'aUserName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53CCFD4901F8 aUserName
+
+ME ME_53CCFD490224
+ MEPROP Name 'aPassword'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53CCFD490224 aPassword
+
+ME ME_53CCFD3F01C3
+ MEPROP UID '53CCFD3F01C3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCF6F70264 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CCFD4901CB // anHostName
+ ME_53CCFD4901E1 // aPort
+ ME_53CCFD4901F8 // aUserName
+ ME_53CCFD490224 // aPassword
+ )
+ ; // Parameters
+
+ENDME // ME_53CCFD3F01C3 DoIt
+
+ME ME_53CCF6F70264
+ MEPROP UID '53CCF6F70264'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CCFD3F01C3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53CCF6F70264 Create
+
+ME ME_53D601230193
+ MEPROP Name 'aTaskFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53D601230193 aTaskFile
+
+ME ME_53C917C30155
+ MEPROP UID '53C917C30155'
+ MEPROP Name 'SubmitTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D601230193 // aTaskFile
+ )
+ ; // Parameters
+
+ENDME // ME_53C917C30155 SubmitTask
+
+ME ME_540475CA0270
+ MEPROP UID '540475CA0270'
+ MEPROP Name 'AssistantFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_540475CA0270 AssistantFileName
+
+ME ME_53CCFE53012B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '4AB0997B00A2.ms.model.script' // TStream
+ ;
+
+ENDME // ME_53CCFE53012B 
+
+ME ME_53CCFEA8008B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47913B47006E.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_53CCFEA8008B 
+
+ME ME_53CD0124016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_53CD0124016B 
+
+ME ME_53CD018F0044
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ MELINK Target WL 'ME_4B57004201BD' '47D0290B016D.ms.model.script' // l3FileUtils
+ ;
+
+ENDME // ME_53CD018F0044 
+
+ME ME_4911B69E037D_ME_53C9011903D6
+ MELINK Original WL 'ME_4911B69E037D' '47913B47006E.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4911B69E037D_ME_53C9011903D6 DoExecute
+
+ME ME_53C9011903D6
+ MEPROP UID '53C9011903D6'
+ MEPROP Name 'TalcuWorkThreadContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4911B24C01F6' '47913B47006E.ms.model.script' // Tl3ThreadContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53C9160C03A2 // ExitCode
+ HWL ME_53C9184901EB // f_TaskFileName
+ HWL ME_53C9185F03E6 // f_ServerHostName
+ HWL ME_53C91872034C // f_UserName
+ HWL ME_53C9188002E9 // f_Password
+ HWL ME_53C918A503C9 // f_ServerPort
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53CCF6F70264 // Create
+ HWL ME_53C917C30155 // SubmitTask
+ HWL ME_540475CA0270 // AssistantFileName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4911B69E037D_ME_53C9011903D6 // DoExecute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53CCFE53012B // TStream
+ ME_53CCFEA8008B // Tl3FileStream
+ ME_53CD0124016B // Tl3FileMode
+ ME_53CD018F0044 // l3FileUtils
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'alcuWorkThreadContainer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53C9011903D6 TalcuWorkThreadContainer
+
+ME ME_53C92BE10099
+ MEPROP UID '53C92BE10099'
+ MEPROP Name 'UserID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53C92BE10099 UserID
+
+ME ME_53C92C5F006F
+ MEPROP UID '53C92C5F006F'
+ MEPROP Name 'ActiveTask'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53C92C5F006F ActiveTask
+
+ME ME_53CCBDB70378
+ MEPROP UID '53CCBDB70378'
+ MEPROP Name 'Manager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_53CCB9880360' '53CCB94A02A5.ms.model.script' // IalcuAsyncSubmitterManager
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53CCBDB70378 Manager
+
+ME ME_5416C2D7005B
+ MEPROP UID '5416C2D7005B'
+ MEPROP Name 'Active'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Можно ли отцеплять утилиту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5416C2D7005B Active
+
+ME ME_53C92B530346
+ MEPROP UID '53C92B530346'
+ MEPROP Name 'f_Thread'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+
+ENDME // ME_53C92B530346 f_Thread
+
+ME ME_53D0E85802A9
+ MEPROP UID '53D0E85802A9'
+ MEPROP Name 'f_FinishNotifierList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target HWL ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ;
+
+ENDME // ME_53D0E85802A9 f_FinishNotifierList
+
+ME ME_53D5FD150327
+ MEPROP UID '53D5FD150327'
+ MEPROP Name 'f_TaskFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53D5FD150327 f_TaskFileName
+
+ME ME_55BF2BFF0282
+ MEPROP UID '55BF2BFF0282'
+ MEPROP Name 'f_SubmitGuard'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55BF2BFF0282 f_SubmitGuard
+
+ME ME_563C560B0083
+ MEPROP UID '563C560B0083'
+ MEPROP Name 'f_CheckExecutionGuard'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_563C560B0083 f_CheckExecutionGuard
+
+FORWARD ME_53CCF726039A
+
+ME ME_575FC53903B9
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_575FC53903B9 aUserID
+
+ME ME_575FC53903C8
+ MEPROP Name 'aManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53CCB9880360' '53CCB94A02A5.ms.model.script' // IalcuAsyncSubmitterManager
+ ;
+
+ENDME // ME_575FC53903C8 aManager
+
+ME ME_53CCFD5A0397
+ MEPROP UID '53CCFD5A0397'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCF726039A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_575FC53903B9 // aUserID
+ ME_575FC53903C8 // aManager
+ )
+ ; // Parameters
+
+ENDME // ME_53CCFD5A0397 DoIt
+
+ME ME_53CCF726039A
+ MEPROP UID '53CCF726039A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CCFD5A0397 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53CCF726039A Create
+
+ME ME_53CCF792037B
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_53CCF792037B aTask
+
+ME ME_53CCF77201EF
+ MEPROP UID '53CCF77201EF'
+ MEPROP Name 'SubmitTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CCF792037B // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_53CCF77201EF SubmitTask
+
+ME ME_53F71C5F02FC
+ MEPROP Name 'aServices'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53F7178501D3' '52F8C298005C.ms.model.script' // IcsRunTaskServices
+ ;
+
+ENDME // ME_53F71C5F02FC aServices
+
+ME ME_53CDF9B0012E
+ MEPROP UID '53CDF9B0012E'
+ MEPROP Name 'CheckExecution'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверить что процесс завершился и освободиться по необходимости' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_53F71C5F02FC // aServices
+ )
+ ; // Parameters
+
+ENDME // ME_53CDF9B0012E CheckExecution
+
+ME ME_53D0E888019C
+ MEPROP Name 'aNotifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ENDME // ME_53D0E888019C aNotifier
+
+ME ME_53D0E880001E
+ MEPROP UID '53D0E880001E'
+ MEPROP Name 'RegisterNotifier'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D0E888019C // aNotifier
+ )
+ ; // Parameters
+
+ENDME // ME_53D0E880001E RegisterNotifier
+
+ME ME_53D0E89400A5
+ MEPROP Name 'aNotifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ENDME // ME_53D0E89400A5 aNotifier
+
+ME ME_53D0E88D0368
+ MEPROP UID '53D0E88D0368'
+ MEPROP Name 'UnRegisterNotifier'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D0E89400A5 // aNotifier
+ )
+ ; // Parameters
+
+ENDME // ME_53D0E88D0368 UnRegisterNotifier
+
+ME ME_53D0E89C0113
+ MEPROP UID '53D0E89C0113'
+ MEPROP Name 'NotifySubscribers'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+
+ENDME // ME_53D0E89C0113 NotifySubscribers
+
+ME ME_5404732A00CC
+ MEPROP UID '5404732A00CC'
+ MEPROP Name 'AssistantExists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_5404732A00CC AssistantExists
+
+ME ME_573EC2F101A7
+ MEPROP Name 'CountAbortingTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_573EC2F101A7 CountAbortingTask
+
+ME ME_573EC2C80226
+ MEPROP UID '573EC2C80226'
+ MEPROP Name 'StillRunning'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_573EC2F101A7 // CountAbortingTask
+ )
+ ; // Parameters
+
+ENDME // ME_573EC2C80226 StillRunning
+
+ME ME_53CE2DD802CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_532047380399' '52FA49B901D3.ms.model.script' // TcsTaskTypes
+ ;
+
+ENDME // ME_53CE2DD802CB 
+
+ME ME_55BF2BDB0046
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_54B7B2F900C2' '537B83AD01F0.ms.model.script' // l3Interlocked
+ ;
+
+ENDME // ME_55BF2BDB0046 
+
+ME ME_55BF2FD60354
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_532047060349' '52FA49B901D3.ms.model.script' // TcsTaskStatus
+ ;
+
+ENDME // ME_55BF2FD60354 
+
+ME ME_55BF2FDB0252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ MELINK Target WL 'ME_53C916400254' '52FA49B901D3.ms.model.script' // TcsExecutionStatus
+ ;
+
+ENDME // ME_55BF2FDB0252 
+
+ME ME_53CF5E600196_ME_53C92B390005
+ MELINK Original WL 'ME_53CF5E600196' '52F8C298005C.ms.model.script' // ProcessAbort
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53CF5E600196_ME_53C92B390005 ProcessAbort
+
+ME ME_479731C50290_ME_53C92B390005
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53C92B390005 Cleanup
+
+ME ME_53C92B390005
+ MEPROP UID '53C92B390005'
+ MEPROP Name 'TalcuSubmitterWorkThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53CF5DC300E7' '52F8C298005C.ms.model.script' // IcsExternalTaskAbortProcessor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53C92BE10099 // UserID
+ HWL ME_53C92C5F006F // ActiveTask
+ HWL ME_53CCBDB70378 // Manager
+ HWL ME_5416C2D7005B // Active
+ HWL ME_53C92B530346 // f_Thread
+ HWL ME_53D0E85802A9 // f_FinishNotifierList
+ HWL ME_53D5FD150327 // f_TaskFileName
+ HWL ME_55BF2BFF0282 // f_SubmitGuard
+ HWL ME_563C560B0083 // f_CheckExecutionGuard
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53CCF726039A // Create
+ HWL ME_53CCF77201EF // SubmitTask
+ HWL ME_53CDF9B0012E // CheckExecution
+ HWL ME_53D0E880001E // RegisterNotifier
+ HWL ME_53D0E88D0368 // UnRegisterNotifier
+ HWL ME_53D0E89C0113 // NotifySubscribers
+ HWL ME_5404732A00CC // AssistantExists
+ HWL ME_573EC2C80226 // StillRunning
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53CF5E600196_ME_53C92B390005 // ProcessAbort
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53C92B390005 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53CE2DD802CB // TcsTaskTypes
+ ME_55BF2BDB0046 // l3Interlocked
+ ME_55BF2FD60354 // TcsTaskStatus
+ ME_55BF2FDB0252 // TcsExecutionStatus
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'alcuSubmitterWorkThread'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53C92B390005 TalcuSubmitterWorkThread
+
+ME ME_53CE37400077
+ MEPROP UID '53CE37400077'
+ MEPROP Name 'PalcuSubmitterWorkThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ )
+ ; // Inherits
+ UP "isPointer" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53CE37400077 PalcuSubmitterWorkThread
+
+ME ME_53C906D6006C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_53C906D6006C 
+
+ME ME_53C90BB501AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_53C90BB501AE 
+
+ME ME_53C915F600D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_53C915F600D3 
+
+ME ME_53C91B0C01D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELINK Target WL 'ME_4807744200AA' '4AB0C3C60310.ms.model.script' // System
+ ;
+
+ENDME // ME_53C91B0C01D2 
+
+ME ME_53C922CD02B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELINK Target WL 'ME_52304ABC01E7' '47913B47006E.ms.model.script' // l3Base64
+ ;
+
+ENDME // ME_53C922CD02B9 
+
+ME ME_53CE30FC01C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ MELINK Target WL 'ME_532046D302C2' '52FA49B901D3.ms.model.script' // csTaskTypes
+ ;
+
+ENDME // ME_53CE30FC01C8 
+
+ME ME_53C900CA012E
+ MEPROP UID '53C900CA012E'
+ MEPROP Name 'alcuAsyncSubmitter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Асинхронно посылает с сервера запросы на выполнение утилите.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C900150015 // ServerAsyncExecution
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53C9011903D6 // TalcuWorkThreadContainer
+ HWL ME_53C92B390005 // TalcuSubmitterWorkThread
+ HWL ME_53CE37400077 // PalcuSubmitterWorkThread
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53C906D6006C // l3Base
+ ME_53C90BB501AE // Windows
+ ME_53C915F600D3 // SysUtils
+ ME_53C91B0C01D2 // System
+ ME_53C922CD02B9 // l3Base64
+ ME_53CE30FC01C8 // csTaskTypes
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAsyncSubmitter.pas'
+
+ENDME // ME_53C900CA012E alcuAsyncSubmitter
+
+ME ME_53C900150015
+ MEPROP UID '53C900150015'
+ MEPROP Name 'ServerAsyncExecution'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ HWL ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ HWL ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ HWL ME_53C900CA012E // alcuAsyncSubmitter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
+ WL 'ME_52FBA554014B' '52FBA554014B.ms.model.script' // Users
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_53CCB94A02A5' '53CCB94A02A5.ms.model.script' // alcuServerAsyncExecutionInterfaces
+ WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
+ WL 'ME_5432518A0316' '5432518A0316.ms.model.script' // daInterfaces
+ WL 'ME_54F85B2500FB' '54F85B2500FB.ms.model.script' // Provider
+ )
+ ; // Depends
+ UP "ifdef" 'AppServerSide'
+
+ENDME // ME_53C900150015 ServerAsyncExecution

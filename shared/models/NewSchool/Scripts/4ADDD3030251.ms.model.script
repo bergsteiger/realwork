@@ -1,0 +1,267 @@
+// OfficeLikeMain 4ADDD3030251 VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADDD3030251
+
+FORWARD ME_4C8DDE6B01A6
+
+ME ME_4C8DDE9C03BA
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
+ ;
+
+ENDME // ME_4C8DDE9C03BA aParams
+
+ME ME_4C8DDE97021C
+ MEPROP UID '4C8DDE97021C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8DDE6B01A6 // DoBack
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C8DDE9C03BA // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4C8DDE97021C DoIt
+
+ME ME_4C8DDE6B01A6
+ MEPROP UID '4C8DDE6B01A6'
+ MEPROP Name 'DoBack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8DDE97021C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C8DDE6B01A6 DoBack
+
+FORWARD ME_4C8DDEA5007E
+
+ME ME_4C8DDEBA0062
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
+ ;
+
+ENDME // ME_4C8DDEBA0062 aParams
+
+ME ME_4C8DDEB30144
+ MEPROP UID '4C8DDEB30144'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8DDEA5007E // DoForward
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C8DDEBA0062 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4C8DDEB30144 DoIt
+
+ME ME_4C8DDEA5007E
+ MEPROP UID '4C8DDEA5007E'
+ MEPROP Name 'DoForward'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8DDEB30144 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C8DDEA5007E DoForward
+
+ME ME_4ADDD31E0091
+ MEPROP UID '4ADDD31E0091'
+ MEPROP Name 'NeedTerminateOnExit'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4ADDD31E0091 NeedTerminateOnExit
+
+ME ME_4ADDD5A30139
+ MEPROP UID '4ADDD5A30139'
+ MEPROP Name 'AskMayExit'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4ADDD5A30139 AskMayExit
+
+ME ME_4ADDD8B00259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4ADDD8B00259 
+
+ME ME_51E69A8100F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_51E69A8100F0 
+
+ME ME_51E69B3D019F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELINK Target WL 'ME_4683F5BC0213' '499EAAE502A8.ms.model.script' // TvcmOperationOption
+ ;
+
+ENDME // ME_51E69B3D019F 
+
+ME ME_57454D72022B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
+ ;
+ MELINK Target WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ ;
+
+ENDME // ME_57454D72022B 
+
+ME ME_4ADDD377028F_ME_4ADDD3030251
+ MELINK Original WL 'ME_4ADDD377028F' '494F898C013E.ms.model.script' // Exit
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4ADDD377028F_ME_4ADDD3030251 Exit
+
+ME ME_4ADDDC550118_ME_4ADDD3030251
+ MELINK Original WL 'ME_4ADDDC550118' '494F898C013E.ms.model.script' // Back
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4ADDDC550118_ME_4ADDD3030251 Back
+
+ME ME_4ADDDC630097_ME_4ADDD3030251
+ MELINK Original WL 'ME_4ADDDC630097' '494F898C013E.ms.model.script' // Forward
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4ADDDC630097_ME_4ADDD3030251 Forward
+
+ME ME_47D1602000C6_ME_4ADDD3030251
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4ADDD3030251 Create
+
+ME ME_4ADDD3030251
+ MEPROP UID '4ADDD3030251'
+ MEPROP Name 'OfficeLikeMain'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMMainForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ADDCE970294' '4ADDCE970294.ms.model.script' // OfficeLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A8ED77F0142' '494F898C013E.ms.model.script' // Common
+ WL 'ME_4ADDDC4C0255' '494F898C013E.ms.model.script' // History
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4C8DDE6B01A6 // DoBack
+ HWL ME_4C8DDEA5007E // DoForward
+ HWL ME_4ADDD31E0091 // NeedTerminateOnExit
+ HWL ME_4ADDD5A30139 // AskMayExit
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4ADDD377028F_ME_4ADDD3030251 // Exit
+ ME_4ADDDC550118_ME_4ADDD3030251 // Back
+ ME_4ADDDC630097_ME_4ADDD3030251 // Forward
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4ADDD3030251 // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADDD8B00259 // Windows
+ ME_51E69A8100F0 // TvcmBaseOperationsCollectionItem
+ ME_51E69B3D019F // TvcmOperationOption
+ ME_57454D72022B // IvcmHistory
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "UseNewGen" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas'
+ UP extprop:pas:TypeName 'TOfficeLikeMainForm'
+ UP extprop:rc:SelfName 'OfficeLikeMainForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'OfficeLikeMain_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4ADDD3030251 OfficeLikeMain

@@ -1,0 +1,28 @@
+// List 521DA5750380 VCMUseCase Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_521DA5750380
+ MEPROP UID '521DA5750380'
+ MEPROP Name 'List'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMUseCase ;
+ %SUMMARY 'Работа со списком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_521632B1034E' '521632B1034E.ms.model.script' // Shared Delphi Sand Box$UC
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_521DA5BA002C' '521DA5BA002C.ms.model.script' // List$UC
+ WL 'ME_521DA5E10048' '521DA5E10048.ms.model.script' // View
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4E31609B01A9' '4E31609B01A9.ms.model.script' // Печать
+ WL 'ME_4E3160C802DA' '4E3160C802DA.ms.model.script' // Печать документа
+ )
+ ; // Depends
+ UP "vendor" 'none'
+
+ENDME // ME_521DA5750380 List

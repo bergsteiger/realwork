@@ -1,0 +1,70 @@
+//#UC START# *57B167E2003A_57B189990202get_impl*
+ Result := f_List;
+//#UC END# *57B167E2003A_57B189990202get_impl*
+//#UC START# *57B167E2003A_57B189990202get_var*
+//#UC END# *57B167E2003A_57B189990202get_var*
+//#UC START# *57B167E2003A_57B189990202set_impl*
+ if (f_List <> aValue) then
+ begin
+  f_List := aValue;
+  Fire(ListChangedEvent.Instance);
+ end;//f_StringList <> aValue
+//#UC END# *57B167E2003A_57B189990202set_impl*
+//#UC START# *57B167E2003A_57B189990202set_var*
+//#UC END# *57B167E2003A_57B189990202set_var*
+//#UC START# *57B189990202_ext:FileName
+w:\common\components\gui\Garant\msm\msmListModel.imp.pas
+//#UC END# *57B189990202_ext:FileName
+//#UC START# *57B18AEE021C_57B189990202get_impl*
+ Result := Self;
+//#UC END# *57B18AEE021C_57B189990202get_impl*
+//#UC START# *57B18AEE021C_57B189990202get_var*
+//#UC END# *57B18AEE021C_57B189990202get_var*
+//#UC START# *57B18AEE021C_57B189990202set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57B18AEE021C_57B189990202set_impl*
+//#UC START# *57B18AEE021C_57B189990202set_var*
+//#UC END# *57B18AEE021C_57B189990202set_var*
+//#UC START# *57B1A3DA0382_57B189990202_impl*
+ Self.Set_List(TmsmModelElementDir.Make(aList.List[f_ElementView.rListName], f_ElementView.rTextName));
+//#UC END# *57B1A3DA0382_57B189990202_impl*
+//#UC START# *57B1A3DA0382_57B189990202_var*
+//#UC END# *57B1A3DA0382_57B189990202_var*
+//#UC START# *57B31CF301D2_57B189990202get_impl*
+ Result := f_CurrentElement;
+//#UC END# *57B31CF301D2_57B189990202get_impl*
+//#UC START# *57B31CF301D2_57B189990202get_var*
+//#UC END# *57B31CF301D2_57B189990202get_var*
+//#UC START# *57B31CF301D2_57B189990202set_impl*
+ if (f_CurrentElement <> aValue) then
+ begin
+  f_CurrentElement := aValue;
+  Fire(CurrentElementChangedEvent.Instance);
+ end;//f_CurrentElement <> aValue
+//#UC END# *57B31CF301D2_57B189990202set_impl*
+//#UC START# *57B31CF301D2_57B189990202set_var*
+//#UC END# *57B31CF301D2_57B189990202set_var*
+//#UC START# *57B32AEE0261_57B189990202_impl*
+ Self.Set_List(TmsmModelElementRelationList.Make(anElement, anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+//#UC END# *57B32AEE0261_57B189990202_impl*
+//#UC START# *57B32AEE0261_57B189990202_var*
+//#UC END# *57B32AEE0261_57B189990202_var*
+//#UC START# *57B4228B001E_57B189990202_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57B4228B001E_57B189990202_impl*
+//#UC START# *57B4228B001E_57B189990202_var*
+//#UC END# *57B4228B001E_57B189990202_var*
+//#UC START# *57B422AB0293_57B189990202_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57B422AB0293_57B189990202_impl*
+//#UC START# *57B422AB0293_57B189990202_var*
+//#UC END# *57B422AB0293_57B189990202_var*
+//#UC START# *57B49A8201E1_57B189990202get_impl*
+ Result := f_ElementView.rListName;
+ if (Result = '_NullList') then
+  Result := f_ElementView.rTextName;
+ if (Result = 'DocumentationNotEmpty') then
+  Result := 'Doc';
+//#UC END# *57B49A8201E1_57B189990202get_impl*
+//#UC START# *57B49A8201E1_57B189990202get_var*
+//#UC END# *57B49A8201E1_57B189990202get_var*

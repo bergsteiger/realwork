@@ -48,6 +48,8 @@ var
 //#UC START# *5108D3850245_ext:FileName
 w:\common\components\gui\Garant\Everest\evTableCursorPair.pas
 //#UC END# *5108D3850245_ext:FileName
+//#UC START# *5108D3850245impl_uses*
+//#UC END# *5108D3850245impl_uses*
 //#UC START# *5108D4820232_5108D3850245_impl*
  Result := (aPID >= f_B.rStart) AND (aPID <= f_B.rFinish);
  if Result then
@@ -365,3 +367,16 @@ var
 //#UC END# *52D50EFA0317_5108D3850245_impl*
 //#UC START# *52D50EFA0317_5108D3850245_var*
 //#UC END# *52D50EFA0317_5108D3850245_var*
+//#UC START# *57C6ADA002BE_5108D3850245_impl*
+ if aStart < anIndex then
+  if ev_soSelText in aSearcher.Options then
+    aSearcher.Options := aSearcher.Options + [ev_soSelTextWithWholeCell];
+//#UC END# *57C6ADA002BE_5108D3850245_impl*
+//#UC START# *57C6ADA002BE_5108D3850245_var*
+//#UC END# *57C6ADA002BE_5108D3850245_var*
+//#UC START# *57C6ADF00109_5108D3850245_impl*
+ if ev_soSelTextWithWholeCell in aSearcher.Options then
+  aSearcher.Options := aSearcher.Options - [ev_soSelTextWithWholeCell];
+//#UC END# *57C6ADF00109_5108D3850245_impl*
+//#UC START# *57C6ADF00109_5108D3850245_var*
+//#UC END# *57C6ADF00109_5108D3850245_var*

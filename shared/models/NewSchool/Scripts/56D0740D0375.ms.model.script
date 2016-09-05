@@ -1,0 +1,115 @@
+// EVD$Interfacefactories 56D0740D0375 LibraryST Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56D0740D0375
+
+ME ME_56D074460007
+ MEPROP UID '56D074460007'
+ MEPROP Name 'TevParaInterfaceFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactoryProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ )
+ ; // Implements
+ UP extprop:rc:SelfName 'ParaInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TevParaInterfaceFactory_Proxy'
+
+ENDME // ME_56D074460007 TevParaInterfaceFactory
+
+ME ME_56D0745503CA
+ MEPROP UID '56D0745503CA'
+ MEPROP Name 'TevLeafParaInterfaceFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactoryProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ )
+ ; // Implements
+ UP extprop:rc:SelfName 'LeafParaInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TevLeafParaInterfaceFactory_Proxy'
+
+ENDME // ME_56D0745503CA TevLeafParaInterfaceFactory
+
+ME ME_56D0746502DC
+ MEPROP UID '56D0746502DC'
+ MEPROP Name 'TevPageBreakInterfaceFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactoryProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_48566A8103C1' '484A470100DD.ms.model.script' // PageBreak
+ )
+ ; // Implements
+ UP extprop:rc:SelfName 'PageBreakInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TevPageBreakInterfaceFactory_Proxy'
+
+ENDME // ME_56D0746502DC TevPageBreakInterfaceFactory
+
+ME ME_56D0747401E4
+ MEPROP UID '56D0747401E4'
+ MEPROP Name 'TevSectionBreakInterfaceFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactoryProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56D0740D0375 // EVD$Interfacefactories
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_485673BA0364' '484A470100DD.ms.model.script' // SectionBreak
+ )
+ ; // Implements
+ UP extprop:rc:SelfName 'SectionBreakInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TevSectionBreakInterfaceFactory_Proxy'
+
+ENDME // ME_56D0747401E4 TevSectionBreakInterfaceFactory
+
+ME ME_56D0740D0375
+ MEPROP UID '56D0740D0375'
+ MEPROP Name 'EVD'
+ MEPROP OriginalName 'EVD$Interfacefactories'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_LibraryST ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56D074460007 // TevParaInterfaceFactory
+ HWL ME_56D0745503CA // TevLeafParaInterfaceFactory
+ HWL ME_56D0746502DC // TevPageBreakInterfaceFactory
+ HWL ME_56D0747401E4 // TevSectionBreakInterfaceFactory
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ )
+ ; // Depends
+ UP "defines" 'evdDefine.inc'
+ UP "ifdef" 'k2ForEditor'
+ UP "path prefix" 'rtl/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\EVD'
+
+ENDME // ME_56D0740D0375 EVD$Interfacefactories

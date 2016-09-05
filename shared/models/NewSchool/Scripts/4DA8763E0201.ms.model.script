@@ -1,0 +1,83 @@
+// WarningUserTypes 4DA8763E0201 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DA8763E0201
+
+ME ME_4BD6C31B03BC
+ MEPROP UID '4BD6C31B03BC'
+ MEPROP Name 'Warning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предупреждение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DA8763E0201 // WarningUserTypes
+ ;
+ UP "ImageIndex" 127
+ UP "NeedOnQueryClose" true
+ UP "SettingsCaption" 'Документ: Предупреждение'
+ UP "Weight" 10
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes_Warning_UserType.pas'
+ UP extprop:pas:UnitName 'WarningUserTypes_Warning_UserType'
+
+ENDME // ME_4BD6C31B03BC Warning
+
+ME ME_49AFC27C2BF0
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_49AFC27C2BF0 aSender
+
+ME ME_2FE2CD3A0C24
+ MEPROP UID '2FE2CD3A0C24'
+ MEPROP Name 'WarningQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события Warning.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DA8763E0201 // WarningUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_49AFC27C2BF0 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_2FE2CD3A0C24 WarningQueryClose
+
+ME ME_4DA8763E0201
+ MEPROP UID '4DA8763E0201'
+ MEPROP Name 'WarningUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_2FE2CD3A0C24 // WarningQueryClose
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4BD6C31B03BC // Warning
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes.imp.pas'
+ UP extprop:pas:TypeName '_WarningUserTypes_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'WarningUserTypes.imp'
+
+ENDME // ME_4DA8763E0201 WarningUserTypes

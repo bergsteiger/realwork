@@ -1,0 +1,64 @@
+// RTLConsts 479F1DEA0057 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_479F1DEA0057
+
+FORWARD ME_479F1E0803A0
+
+ME ME_479F1E110141
+ MEPROP UID '479F1E110141'
+ MEPROP Name 'SListIndexError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_479F1E0803A0 // Errors
+ ;
+ MEPROP Value '''List index out of bounds (%d)'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''List index out of bounds (%d)'''
+
+ENDME // ME_479F1E110141 SListIndexError
+
+ME ME_479F1E0803A0
+ MEPROP UID '479F1E0803A0'
+ MEPROP Name 'Errors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_479F1DEA0057 // RTLConsts
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_479F1E110141 // SListIndexError
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_479F1E0803A0 Errors
+
+ME ME_479F1DEA0057
+ MEPROP UID '479F1DEA0057'
+ MEPROP Name 'RTLConsts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_479F1E0803A0 // Errors
+ )
+ ; // Constants
+ UP "NoSpell" true
+ UP "is namespace" true
+ UP "path prefix" '/Common'
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\RTLConsts.pas'
+ UP intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+
+ENDME // ME_479F1DEA0057 RTLConsts

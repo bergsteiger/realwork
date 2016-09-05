@@ -1,0 +1,139 @@
+// InternalOperations 4A8EC95E015F VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8EC95E015F
+
+FORWARD ME_4A8EC9DC0375
+
+ME ME_4AE973900136
+ MEPROP Name 'aShotdown'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE973900136 aShotdown
+
+ME ME_4AE97390014D
+ MEPROP Name 'aCloseInterval'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE97390014D aCloseInterval
+
+ME ME_4A8EC9E902CD
+ MEPROP UID '4A8EC9E902CD'
+ MEPROP Name 'InitShutdown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Начать процесс завершения работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8EC9DC0375 // System
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE973900136 // aShotdown
+ ME_4AE97390014D // aCloseInterval
+ )
+ ; // Parameters
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_4A8EC9E902CD InitShutdown
+
+ME ME_4A8EC9DC0375
+ MEPROP UID '4A8EC9DC0375'
+ MEPROP Name 'System'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Система' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8EC95E015F // InternalOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A8EC9E902CD // InitShutdown
+ )
+ ; // Operations
+
+ENDME // ME_4A8EC9DC0375 System
+
+FORWARD ME_4C8A27C4035F
+
+ME ME_4C8A27DA0087
+ MEPROP UID '4C8A27DA0087'
+ MEPROP Name 'HelpTopics'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C8A27C4035F // Help
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C8A27DA0087 HelpTopics
+
+ME ME_4C8A27C4035F
+ MEPROP UID '4C8A27C4035F'
+ MEPROP Name 'Help'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8EC95E015F // InternalOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8A27DA0087 // HelpTopics
+ )
+ ; // Operations
+
+ENDME // ME_4C8A27C4035F Help
+
+ME ME_4A8EC95E015F
+ MEPROP UID '4A8EC95E015F'
+ MEPROP Name 'InternalOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Внутренние операции. Кандидаты на превращение в фасеты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4986ECDF01F4' '4986ECDF01F4.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A8EC9DC0375 // System
+ HWL ME_4C8A27C4035F // Help
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas'
+ UP extprop:pas:UnitName 'F1_Application_Template_InternalOperations_Controls'
+
+ENDME // ME_4A8EC95E015F InternalOperations

@@ -1,0 +1,109 @@
+//#UC START# *47A6FEE600FC_57B1674A02B6_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_57B1674A02B6_impl*
+//#UC START# *47A6FEE600FC_57B1674A02B6_var*
+//#UC END# *47A6FEE600FC_57B1674A02B6_var*
+//#UC START# *57AAD86403AD_57B1674A02B6get_impl*
+ if IsDir then
+  if (f_Parent <> nil) then
+  begin
+   if (anIndex = 0) then
+   begin
+    Result := f_Parent;
+    Exit;
+   end;//anIndex = 0
+   Dec(anIndex);
+  end;//f_Parent <> nil
+ Result := f_List[anIndex];
+//#UC END# *57AAD86403AD_57B1674A02B6get_impl*
+//#UC START# *57AAD86403AD_57B1674A02B6get_var*
+//#UC END# *57AAD86403AD_57B1674A02B6get_var*
+//#UC START# *57AAD89C0277_57B1674A02B6get_impl*
+ Result := f_List.Count;
+ if IsDir then
+  if (f_Parent <> nil) then
+   Inc(Result);
+//#UC END# *57AAD89C0277_57B1674A02B6get_impl*
+//#UC START# *57AAD89C0277_57B1674A02B6get_var*
+//#UC END# *57AAD89C0277_57B1674A02B6get_var*
+//#UC START# *57AE2E140297_57B1674A02B6get_impl*
+ Result := f_List.Owner;
+//#UC END# *57AE2E140297_57B1674A02B6get_impl*
+//#UC START# *57AE2E140297_57B1674A02B6get_var*
+//#UC END# *57AE2E140297_57B1674A02B6get_var*
+//#UC START# *57AEBED1018D_57B1674A02B6get_impl*
+ Result := Get_Item(anIndex).StringProp[f_TextName];
+ if IsDir then
+  if (anIndex = 0) AND (f_Parent <> nil) then
+  begin
+   if IsDir then
+    Result := l3Cat([l3CStr('.. '), Result]);
+  end;//(anIndex = 0) AND (f_Parent <> nil)
+//#UC END# *57AEBED1018D_57B1674A02B6get_impl*
+//#UC START# *57AEBED1018D_57B1674A02B6get_var*
+//#UC END# *57AEBED1018D_57B1674A02B6get_var*
+//#UC START# *57B1674A02B6_ext:FileName
+w:\common\components\gui\Garant\msm\msmModelElementDir.pas
+//#UC END# *57B1674A02B6_ext:FileName
+//#UC START# *57B1674A02B6impl_uses*
+ , StrUtils
+ , l3String
+ , l3Base
+//#UC END# *57B1674A02B6impl_uses*
+//#UC START# *57B1682902FF_57B1674A02B6_impl*
+ Assert(aList <> nil);
+ Assert(aTextName <> '');
+ Create(aList.Owner.Parent, aList, aTextName);
+//#UC END# *57B1682902FF_57B1674A02B6_impl*
+//#UC START# *57B1682902FF_57B1674A02B6_var*
+//#UC END# *57B1682902FF_57B1674A02B6_var*
+//#UC START# *57B1719901A0_57B1674A02B6_impl*
+ Create(anElement.Children);
+//#UC END# *57B1719901A0_57B1674A02B6_impl*
+//#UC START# *57B1719901A0_57B1674A02B6_var*
+//#UC END# *57B1719901A0_57B1674A02B6_var*
+//#UC START# *57B174ED00DA_57B1674A02B6get_impl*
+ if IsDir then
+  Result := Make(Get_Item(anIndex).List[Get_Name], f_TextName)
+ else
+ begin
+  //Result := Self;
+  // - это список не Children, а типа Depends - в нём не нужно внутрь элементов заходить
+  l_E := Get_Item(anIndex);
+  Result := Make(l_E, l_E.List[Get_Name], f_TextName);
+ end;//f_Parent.IsSame(Get_Owner.Parent)
+//#UC END# *57B174ED00DA_57B1674A02B6get_impl*
+//#UC START# *57B174ED00DA_57B1674A02B6get_var*
+var
+ l_E : ImsmModelElement;
+//#UC END# *57B174ED00DA_57B1674A02B6get_var*
+//#UC START# *57B2F5F40299_57B1674A02B6get_impl*
+ Result := f_List.Name;
+//#UC END# *57B2F5F40299_57B1674A02B6get_impl*
+//#UC START# *57B2F5F40299_57B1674A02B6get_var*
+//#UC END# *57B2F5F40299_57B1674A02B6get_var*
+//#UC START# *57B30B4A01BE_57B1674A02B6get_impl*
+ Result := f_TextName;
+//#UC END# *57B30B4A01BE_57B1674A02B6get_impl*
+//#UC START# *57B30B4A01BE_57B1674A02B6get_var*
+//#UC END# *57B30B4A01BE_57B1674A02B6get_var*
+//#UC START# *57B33A9E00C7_57B1674A02B6_impl*
+ Assert(aList <> nil);
+ Assert(aTextName <> '');
+ f_Parent := aParent;
+ f_List := aList;
+ f_TextName := aTextName;
+ inherited Create;
+//#UC END# *57B33A9E00C7_57B1674A02B6_impl*
+//#UC START# *57B33A9E00C7_57B1674A02B6_var*
+//#UC END# *57B33A9E00C7_57B1674A02B6_var*
+//#UC START# *57B57DE500CF_57B1674A02B6_impl*
+ Result := true;
+//#UC END# *57B57DE500CF_57B1674A02B6_impl*
+//#UC START# *57B57DE500CF_57B1674A02B6_var*
+//#UC END# *57B57DE500CF_57B1674A02B6_var*
+//#UC START# *57B6C7D40215_57B1674A02B6get_impl*
+ Result := Get_Item(anIndex).StringProp['DefaultSearchText'];
+//#UC END# *57B6C7D40215_57B1674A02B6get_impl*
+//#UC START# *57B6C7D40215_57B1674A02B6get_var*
+//#UC END# *57B6C7D40215_57B1674A02B6get_var*

@@ -1,0 +1,330 @@
+// PrintableBitmap 4CDACCDF0368 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDACCDF0368
+
+ME ME_4CDAD96402B1
+ MEPROP UID '4CDAD96402B1'
+ MEPROP Name 'Graphics_Bitmap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переопределение TBitmap, чтобы не нарваться на конфликт с Windows.TBitmap' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D15723038A' '55C4AEC801CA.ms.model.script' // TBitmap
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CDAD96402B1 Graphics_Bitmap
+
+ME ME_4CDACD8302DD
+ MEPROP UID '4CDACD8302DD'
+ MEPROP Name 'BitmapForPrint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELINK Target HWL ME_4CDAD96402B1 // Graphics_Bitmap
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4CDACD8302DD BitmapForPrint
+
+ME ME_5301CBAD0192
+ MEPROP UID '5301CBAD0192'
+ MEPROP Name 'f_Preview'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_5301CBAD0192 f_Preview
+
+FORWARD ME_4CDAD282005F
+
+ME ME_4CDAD28A0047
+ MEPROP UID '4CDAD28A0047'
+ MEPROP Name 'Get'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDAD282005F // Name
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDAD28A0047 Get
+
+ME ME_4CDAD282005F
+ MEPROP UID '4CDAD282005F'
+ MEPROP Name 'Name'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDAD28A0047 // Get
+ )
+ ; // Operations
+
+ENDME // ME_4CDAD282005F Name
+
+FORWARD ME_4CDAD29D0169
+
+ME ME_4CDAD2A80030
+ MEPROP UID '4CDAD2A80030'
+ MEPROP Name 'Get'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDAD29D0169 // ShortName
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDAD2A80030 Get
+
+ME ME_4CDAD29D0169
+ MEPROP UID '4CDAD29D0169'
+ MEPROP Name 'ShortName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDAD2A80030 // Get
+ )
+ ; // Operations
+
+ENDME // ME_4CDAD29D0169 ShortName
+
+FORWARD ME_4CDAE15C035B
+
+ME ME_4CDAE16503B9
+ MEPROP UID '4CDAE16503B9'
+ MEPROP Name 'Get'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDAE15C035B // DPI
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CDAE16503B9 Get
+
+ME ME_4CDAE15C035B
+ MEPROP UID '4CDAE15C035B'
+ MEPROP Name 'DPI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDAE16503B9 // Get
+ )
+ ; // Operations
+
+ENDME // ME_4CDAE15C035B DPI
+
+FORWARD ME_5301CBFE023E
+
+ME ME_5301CC170042
+ MEPROP UID '5301CC170042'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5301CBFE023E // MakePreview
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_5301CC170042 DoIt
+
+ME ME_5301CBFE023E
+ MEPROP UID '5301CBFE023E'
+ MEPROP Name 'MakePreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5301CC170042 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5301CBFE023E MakePreview
+
+FORWARD ME_5592655F00B2
+
+ME ME_5592657103A5
+ MEPROP UID '5592657103A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5592655F00B2 // ClearPreview
+ ;
+
+ENDME // ME_5592657103A5 DoIt
+
+ME ME_5592655F00B2
+ MEPROP UID '5592655F00B2'
+ MEPROP Name 'ClearPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5592657103A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5592655F00B2 ClearPreview
+
+ME ME_4CDACFF60016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELINK Target WL 'ME_4CDACFDB00AB' '47EA968D0155.ms.model.script' // TevBitmapDataObject
+ ;
+
+ENDME // ME_4CDACFF60016 
+
+ME ME_4CDAD078002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELINK Target WL 'ME_495878B40393' '491DCA2C00A9.ms.model.script' // TnsFixedHAFMacroReplacer
+ ;
+
+ENDME // ME_4CDAD078002E 
+
+ME ME_4CDAD0D00388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELINK Target WL 'ME_4CDAD0C70184' '4CDABA8F024B.ms.model.script' // TnsObjectPreview
+ ;
+
+ENDME // ME_4CDAD0D00388 
+
+ME ME_4CDAD0F30362
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELINK Target WL 'ME_49E615DB01E9' '4678209200A6.ms.model.script' // PreviewKeys
+ ;
+
+ENDME // ME_4CDAD0F30362 
+
+ME ME_4CDAD7360295
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
+ ;
+ MELINK Target WL 'ME_47F2317F015E' '491DCA2C00A9.ms.model.script' // TnsHAFPainter
+ ;
+
+ENDME // ME_4CDAD7360295 
+
+ME ME_4CDAC5E902FF_ME_4CDACCDF0368
+ MELINK Original WL 'ME_4CDAC5E902FF' '4CDABAD0032E.ms.model.script' // Preview
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4CDAC5E902FF_ME_4CDACCDF0368 Preview
+
+ME ME_4CDACCDF0368
+ MEPROP UID '4CDACCDF0368'
+ MEPROP Name 'PrintableBitmap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4CDABA8F024B' '4CDABA8F024B.ms.model.script' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CDABAD0032E' '4CDABAD0032E.ms.model.script' // Printable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CDACD8302DD // BitmapForPrint
+ HWL ME_5301CBAD0192 // f_Preview
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CDAD282005F // Name
+ HWL ME_4CDAD29D0169 // ShortName
+ HWL ME_4CDAE15C035B // DPI
+ HWL ME_5301CBFE023E // MakePreview
+ HWL ME_5592655F00B2 // ClearPreview
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CDAC5E902FF_ME_4CDACCDF0368 // Preview
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4CDAD96402B1 // Graphics_Bitmap
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4CDACFF60016 // TevBitmapDataObject
+ ME_4CDAD078002E // TnsFixedHAFMacroReplacer
+ ME_4CDAD0D00388 // TnsObjectPreview
+ ME_4CDAD0F30362 // PreviewKeys
+ ME_4CDAD7360295 // TnsHAFPainter
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '10.11.2010 19:48'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas'
+ UP extprop:pas:TypeName '_PrintableBitmap_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrintableBitmap.imp'
+
+ENDME // ME_4CDACCDF0368 PrintableBitmap

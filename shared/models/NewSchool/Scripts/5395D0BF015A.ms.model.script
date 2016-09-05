@@ -1,0 +1,32 @@
+// New Actions Test 5395D0BF015A TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_5395D0BF015A
+ MEPROP UID '5395D0BF015A'
+ MEPROP Name 'New Actions Test'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestLibrary ;
+ %SUMMARY 'Тесты для "новой коммуникации" через TcsAction' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E7727A101CF' '4E7727A101CF.ms.model.script' // archi$AutoPipeServer$Garant
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_5395D0F601A6' '5395D0F601A6.ms.model.script' // Tasked Actions
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'prj'
+ UP "ifdef" 'AppServerSide,InsiderTest'
+ UP "is namespace" true
+ UP "vendor" '/Tests'
+ UP intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests'
+ UP Version 0
+
+ENDME // ME_5395D0BF015A New Actions Test

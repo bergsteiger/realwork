@@ -1,0 +1,545 @@
+// PresentationInterfaces 49804E310263 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49804E310263
+
+FORWARD ME_49804E6D0363
+
+ME ME_49804E81039D
+ MEPROP UID '49804E81039D'
+ MEPROP Name 'ns_ontmDateOp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ ;
+
+ENDME // ME_49804E81039D ns_ontmDateOp
+
+ME ME_49804E8701E1
+ MEPROP UID '49804E8701E1'
+ MEPROP Name 'ns_ontmCurrentRedactionOp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ ;
+
+ENDME // ME_49804E8701E1 ns_ontmCurrentRedactionOp
+
+ME ME_49804E6D0363
+ MEPROP UID '49804E6D0363'
+ MEPROP Name 'TnsTurnOnTimeMachineOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операции используемые при включении машины времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49804E81039D // ns_ontmDateOp
+ HWL ME_49804E8701E1 // ns_ontmCurrentRedactionOp
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49804E6D0363 TnsTurnOnTimeMachineOperation
+
+ME ME_49804E940321
+ MEPROP UID '49804E940321'
+ MEPROP Name 'TnsTurnOnTimeMachineOperations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ )
+ ; // Inherits
+
+ENDME // ME_49804E940321 TnsTurnOnTimeMachineOperations
+
+FORWARD ME_49804EA70373
+
+ME ME_49805F2C0082
+ MEPROP UID '49805F2C0082'
+ MEPROP Name 'DisableOps'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'недоступные операции при работе с диалогом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49804EA70373 // InsTurnOnTimeMachine
+ ;
+ MELINK Target HWL ME_49804E940321 // TnsTurnOnTimeMachineOperations
+ ;
+ UP "pm" false
+
+ENDME // ME_49805F2C0082 DisableOps
+
+ME ME_4A76E3C50280
+ MEPROP Name 'aDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AEEF6160080' '46A5E026007E.ms.model.script' // RtlDateTime
+ ;
+
+ENDME // ME_4A76E3C50280 aDate
+
+ME ME_49804EB60303
+ MEPROP UID '49804EB60303'
+ MEPROP Name 'OnDate'
+ MEPROP Class class_Operation
+ %SUMMARY 'включить на дату' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49804EA70373 // InsTurnOnTimeMachine
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A76E3C50280 // aDate
+ )
+ ; // Parameters
+
+ENDME // ME_49804EB60303 OnDate
+
+ME ME_49804ED003A8
+ MEPROP UID '49804ED003A8'
+ MEPROP Name 'OnCurrentRedaction'
+ MEPROP Class class_Operation
+ %SUMMARY 'включить с начала действия текущей редакции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49804EA70373 // InsTurnOnTimeMachine
+ ;
+
+ENDME // ME_49804ED003A8 OnCurrentRedaction
+
+ME ME_49804EA70373
+ MEPROP UID '49804EA70373'
+ MEPROP GUID 'B8501E97-66C4-44E4-9B97-17CE6FD2F1CB'
+ MEPROP Name 'InsTurnOnTimeMachine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Включить машину времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49805F2C0082 // DisableOps
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49804EB60303 // OnDate
+ HWL ME_49804ED003A8 // OnCurrentRedaction
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'TurnOnTimeMachine'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49804EA70373 InsTurnOnTimeMachine
+
+FORWARD ME_49805E8F00F1
+
+ME ME_49805EA301FB
+ MEPROP UID '49805EA301FB'
+ MEPROP Name 'ns_offtmGotoActualRedaction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ ;
+
+ENDME // ME_49805EA301FB ns_offtmGotoActualRedaction
+
+ME ME_49805EAB02C5
+ MEPROP UID '49805EAB02C5'
+ MEPROP Name 'ns_offtmStayInCurrentRedaction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ ;
+
+ENDME // ME_49805EAB02C5 ns_offtmStayInCurrentRedaction
+
+ME ME_49805EB101F5
+ MEPROP UID '49805EB101F5'
+ MEPROP Name 'ns_offtmChangeDate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ ;
+
+ENDME // ME_49805EB101F5 ns_offtmChangeDate
+
+ME ME_49805E8F00F1
+ MEPROP UID '49805E8F00F1'
+ MEPROP Name 'TnsTurnOffTimeMachineOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операции используемые при выключении машины времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49805EA301FB // ns_offtmGotoActualRedaction
+ HWL ME_49805EAB02C5 // ns_offtmStayInCurrentRedaction
+ HWL ME_49805EB101F5 // ns_offtmChangeDate
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49805E8F00F1 TnsTurnOffTimeMachineOperation
+
+ME ME_49805EBE036E
+ MEPROP UID '49805EBE036E'
+ MEPROP Name 'TnsTurnOffTimeMachineOperations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ )
+ ; // Inherits
+
+ENDME // ME_49805EBE036E TnsTurnOffTimeMachineOperations
+
+FORWARD ME_49805ECD020F
+
+ME ME_49805F190314
+ MEPROP UID '49805F190314'
+ MEPROP Name 'DisableOps'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'операции недоступные при работе с машиной времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
+ ;
+ MELINK Target HWL ME_49805EBE036E // TnsTurnOffTimeMachineOperations
+ ;
+ UP "pm" false
+
+ENDME // ME_49805F190314 DisableOps
+
+ME ME_49805EED0054
+ MEPROP UID '49805EED0054'
+ MEPROP Name 'GotoActualRedaction'
+ MEPROP Class class_Operation
+ %SUMMARY 'выключить и перейти в актуальную редакцию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
+ ;
+
+ENDME // ME_49805EED0054 GotoActualRedaction
+
+ME ME_49805EFF013C
+ MEPROP UID '49805EFF013C'
+ MEPROP Name 'StayInCurrentRedaction'
+ MEPROP Class class_Operation
+ %SUMMARY 'выключить и остаться в текущей редакции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
+ ;
+
+ENDME // ME_49805EFF013C StayInCurrentRedaction
+
+ME ME_49805F170081
+ MEPROP Name 'aDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AEEF6160080' '46A5E026007E.ms.model.script' // RtlDateTime
+ ;
+
+ENDME // ME_49805F170081 aDate
+
+ME ME_49805F0D0221
+ MEPROP UID '49805F0D0221'
+ MEPROP Name 'ChangeDate'
+ MEPROP Class class_Operation
+ %SUMMARY 'изменить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49805ECD020F // InsTurnOffTimeMachine
+ ;
+ MELIST Parameters
+   Seq: ( ME_49805F170081 // aDate
+ )
+ ; // Parameters
+
+ENDME // ME_49805F0D0221 ChangeDate
+
+ME ME_49805ECD020F
+ MEPROP UID '49805ECD020F'
+ MEPROP GUID 'FEA19D46-7FA6-4BCD-B6DC-84118A36EDC4'
+ MEPROP Name 'InsTurnOffTimeMachine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выключить машину времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49805F190314 // DisableOps
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49805EED0054 // GotoActualRedaction
+ HWL ME_49805EFF013C // StayInCurrentRedaction
+ HWL ME_49805F0D0221 // ChangeDate
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'TurnOffTimeMachine'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49805ECD020F InsTurnOffTimeMachine
+
+FORWARD ME_496B58F900AA
+
+ME ME_49903718025B
+ MEPROP UID '49903718025B'
+ MEPROP Name 'ns_sdkSimple'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Обычный диалог' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_496B58F900AA // TnsSaveDialogKind
+ ;
+
+ENDME // ME_49903718025B ns_sdkSimple
+
+ME ME_4990372300D3
+ MEPROP UID '4990372300D3'
+ MEPROP Name 'ns_sdkDocument'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Для документа (дополнительный чекбокс "Сохранять выделение"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_496B58F900AA // TnsSaveDialogKind
+ ;
+
+ENDME // ME_4990372300D3 ns_sdkDocument
+
+ME ME_4990372C01D2
+ MEPROP UID '4990372C01D2'
+ MEPROP Name 'ns_sdkList'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Для списка - Радиогруппа что сохранять (названия, тексты) и пр. см ЦК25445' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_496B58F900AA // TnsSaveDialogKind
+ ;
+
+ENDME // ME_4990372C01D2 ns_sdkList
+
+ME ME_49903735020E
+ MEPROP UID '49903735020E'
+ MEPROP Name 'ns_sdkListInternal'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Для списка - Радиогруппа что сохранять (названия, тексты, номера топиков) и пр. см ЦК25445' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_496B58F900AA // TnsSaveDialogKind
+ ;
+
+ENDME // ME_49903735020E ns_sdkListInternal
+
+ME ME_496B58F900AA
+ MEPROP UID '496B58F900AA'
+ MEPROP Name 'TnsSaveDialogKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы диалогов сохранения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49903718025B // ns_sdkSimple
+ HWL ME_4990372300D3 // ns_sdkDocument
+ HWL ME_4990372C01D2 // ns_sdkList
+ HWL ME_49903735020E // ns_sdkListInternal
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_496B58F900AA TnsSaveDialogKind
+
+FORWARD ME_4990374602FC
+
+ME ME_499037520133
+ MEPROP UID '499037520133'
+ MEPROP Name 'ns_sdlkTitles'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Названия документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4990374602FC // TnsSaveDialogListTarget
+ ;
+
+ENDME // ME_499037520133 ns_sdlkTitles
+
+ME ME_4990375B0040
+ MEPROP UID '4990375B0040'
+ MEPROP Name 'ns_sdlkContents'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Тексты документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4990374602FC // TnsSaveDialogListTarget
+ ;
+
+ENDME // ME_4990375B0040 ns_sdlkContents
+
+ME ME_49903763029A
+ MEPROP UID '49903763029A'
+ MEPROP Name 'ns_sdlkIdentifiers'
+ MEPROP Class class_Attribute
+ %SUMMARY 'номера топиков' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4990374602FC // TnsSaveDialogListTarget
+ ;
+
+ENDME // ME_49903763029A ns_sdlkIdentifiers
+
+ME ME_4990374602FC
+ MEPROP UID '4990374602FC'
+ MEPROP Name 'TnsSaveDialogListTarget'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Что сохранять для списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499037520133 // ns_sdlkTitles
+ HWL ME_4990375B0040 // ns_sdlkContents
+ HWL ME_49903763029A // ns_sdlkIdentifiers
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4990374602FC TnsSaveDialogListTarget
+
+FORWARD ME_499037730242
+
+ME ME_4990378703C7
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4990378703C7 aHeight
+
+ME ME_499037820017
+ MEPROP UID '499037820017'
+ MEPROP Name 'CorrectHeight'
+ MEPROP Class class_Operation
+ %SUMMARY 'корректирует при необходимости высоту дочерней зоны' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499037730242 // InsMainFormChildZoneManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_4990378703C7 // aHeight
+ )
+ ; // Parameters
+
+ENDME // ME_499037820017 CorrectHeight
+
+ME ME_499037730242
+ MEPROP UID '499037730242'
+ MEPROP GUID '1B9C4E1F-5E93-4CFB-9E0C-034E51A2F1CE'
+ MEPROP Name 'InsMainFormChildZoneManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для управления дочерней зоной главной формой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49804E310263 // PresentationInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_499037820017 // CorrectHeight
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'MainFormChildZoneManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499037730242 InsMainFormChildZoneManager
+
+ME ME_49804E310263
+ MEPROP UID '49804E310263'
+ MEPROP Name 'PresentationInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для поддержки представления' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F6B660100D5' '4F6B660100D5.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ HWL ME_49804E940321 // TnsTurnOnTimeMachineOperations
+ HWL ME_49804EA70373 // InsTurnOnTimeMachine
+ HWL ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ HWL ME_49805EBE036E // TnsTurnOffTimeMachineOperations
+ HWL ME_49805ECD020F // InsTurnOffTimeMachine
+ HWL ME_496B58F900AA // TnsSaveDialogKind
+ HWL ME_4990374602FC // TnsSaveDialogListTarget
+ HWL ME_499037730242 // InsMainFormChildZoneManager
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '28.01.2009 15:34'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\PresentationInterfaces.pas'
+
+ENDME // ME_49804E310263 PresentationInterfaces

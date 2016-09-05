@@ -30,15 +30,13 @@ USES
  ArchiControls.script
 ;  
 
-TevEditor TYPE Редактор
-
-: "Установить Zoom" IN aZoom  
+PROCEDURE "Установить Zoom" INTEGER IN aZoom  
  "Установить фокус в контрол с именем" carZoomSpinEdit
  focused:control:push pop:SpinEdit:Value  := aZoom
  'Enter' key
 ;
 
-PROCEDURE "Перерисовать и сравнить с эталоном в редакторе" OBJECT IN anEditor
+PROCEDURE "Перерисовать и сравнить с эталоном в редакторе" Редактор IN anEditor
 	anEditor pop:editor:RepaintAndCheckWithEtalon     
 ;
 
@@ -93,7 +91,7 @@ USES
  TableUtils.script
 ;
 
-: "Выделение колонки и выравнивание по запятой" IN aColID
+PROCEDURE "Выделение колонки и выравнивание по запятой" INTEGER IN aColID
 	"Выделить колонку {(aColID)}"
 	"Выравнивание по запятой"
 ;
@@ -104,10 +102,6 @@ PROCEDURE "Копирование таблиц" IN aMoveToSecondTable
 	aMoveToSecondTable DO
 	"Применить ширины ячеек"	
 ;
-
-//USES
-// TestUtils.script
-//;
 
 PROCEDURE "Прокрутить документ вниз до конца стрелкой вниз"
     OBJECT VAR l_Editor
@@ -141,7 +135,7 @@ PROCEDURE "Разделить таблицу в текущем редакторе"
 	focused:control:push pop:editor:SplitTable
 ;
 
-PROCEDURE "Разделить таблицу" OBJECT IN anEditor
+PROCEDURE "Разделить таблицу" Редактор IN anEditor
 	anEditor pop:editor:SplitTable
 ;
 
@@ -156,7 +150,7 @@ PROCEDURE "Разделить ячейку по горизонтали" Редактор IN anEditor
 INTEGER VAR g_TimerNum
 [EXECUTE] ( 0 >>> g_TimerNum )
 
-: "Померять время" IN aProc
+PROCEDURE "Померять время" IN aProc
  ++! g_TimerNum
  VAR l_TimerNumS
  g_TimerNum IntToStr >>> l_TimerNumS
@@ -170,7 +164,7 @@ INTEGER VAR g_TimerNum
  END 
 ; // "Померять время"
 
-: "Сохранить текст, на котором стоит курсор" OBJECT IN anEditor
+PROCEDURE "Сохранить текст, на котором стоит курсор" Редактор IN anEditor
 	anEditor pop:Editor:PushParaFromCursor Para:Text .	
 ;
 
@@ -185,20 +179,9 @@ PROCEDURE "Экспортировать выборку в формате EVD" STRING IN anExportName
 	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа {(cnEVDTextItemIndex)} {(anExportName)}" )
 ;
 
-INTEGER FUNCTION "Получить номер документа"
-	cnDocument4TestAttribute >>> Result
-;
-
 USES
  @\TestParamsDefine.script
  @\TestExecuteCommand.script
-;
-
-PROCEDURE "Открыть документ с номером 12050764"
-	INTEGER VAR l_DocID
-	"Получить номер документа" >>> l_DocID
-	"Открывать {(l_DocID)}"	
-	"Создать или открыть"
 ;
 
 PROCEDURE "Сравнить вкладку Справка с эталоном"
@@ -210,76 +193,6 @@ PROCEDURE "Сравнить вкладку Справка с эталоном"
 	"Закрыть без сохранения"
  END
 ;
-
-WORDWORKER "Тест с изменением атрибута" 
-	INTEGER VAR l_DocID
-	STRING VAR l_DocName
-	"Получить номер документа" >>> l_DocID
-	"Сформировать имя документа NSR из полного имени скрипта" >>> l_DocName
-	"Открыть документ с номером 12050764"
-	"Подготовка"
-	"Перейти на вкладку Атрибуты"
-	TRY
-		TRY
-			WordToWork DO
-			"Закончить работу с документом"
-		EXCEPT
-			"Закрыть без сохранения"
-		END
-		"Создать выборку и добавить документ {(l_DocID)}"
-		TRY
-			"Экспортировать выборку в формате NSRC {(l_DocName)}"	
-		FINALLY 
-			Закрыть
-		END	
-		"Сравнить с эталоном NSRC {(l_DocName)}"
-	FINALLY
-		"Очистка тестовой базы"
-	END
-; 
-
-: "Экспортировать выборку и сравнить с эталоном в формате NSRC" INTEGER IN aDocID STRING IN aDocName 
-	"Создать выборку и добавить документ {(aDocID)}"
-	TRY
-		"Экспортировать выборку в формате NSRC {(aDocName)}"	
-	FINALLY 
-		Закрыть
-	END
-	"Сравнить с эталоном NSRC {(aDocName)}"
-;
-
- : "Экспортировать выборку в формате NSRC с аннотацией" STRING IN anExportName
-	"Инициализировать директорию экспорта"
-	"Почистить за собой"
-	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа {(cnNSRCItemIndex)} {(anExportName)} с аннотацией" )
- ;
-
-WORDWORKER "Тест с изменением атрибута с аннотацией" 
-	INTEGER VAR l_DocID
-	STRING VAR l_DocName
-	"Получить номер документа" >>> l_DocID
-	"Сформировать имя документа NSR из полного имени скрипта" >>> l_DocName
-	"Открыть документ с номером 12050764"
-	"Подготовка"
-	"Перейти на вкладку Атрибуты"
-	TRY
-		TRY
-		WordToWork DO
-			"Закончить работу с документом"
-		EXCEPT
-			"Закрыть без сохранения"
-		END
-		"Создать выборку и добавить документ {(l_DocID)}"
-		TRY
-			"Экспортировать выборку в формате NSRC {(l_DocName)} с аннотацией"	
-		FINALLY 
-			Закрыть
-		END	
-		"Сравнить с эталоном NSRC {(l_DocName)}"
-	FINALLY
-		"Очистка тестовой базы"
-	END
-; 
 
 PROCEDURE "Выключить невидимые символы у текущего редактора"
         focused:control:push pop:Editor:DrawSpecial := false
@@ -473,48 +386,48 @@ PROCEDURE "Заполнение текстом из 4-х строк"
  ;
 
 PROCEDURE "Записать в эталон доступность контрола" STRING IN aName
-				OBJECT VAR l_Control 
-				"Контрол по имени {( aName )}" >>> l_Control
-				'Имя контрола: ' l_Control pop:Component:Name Cat .
-				'Активность: ' l_Control pop:Control:Enabled ToPrintable Cat .	
+	OBJECT VAR l_Control 
+	"Контрол по имени {( aName )}" >>> l_Control
+	'Имя контрола: ' l_Control pop:Component:Name Cat .
+	'Активность: ' l_Control pop:Control:Enabled ToPrintable Cat .	
 ;
 
 PROCEDURE "Общая часть для тестов TK521610561"				
-				OBJECT VAR l_Editor				
-				"Контрол в фокусе" >>> l_Editor				
-				"Выделить весь документ {(l_Editor)}"
-				'f' emitstring
+	OBJECT VAR l_Editor				
+	"Контрол в фокусе" >>> l_Editor				
+	"Выделить весь документ {(l_Editor)}"
+	'f' emitstring
 ;
 
 PROCEDURE "Общая часть для тестов TK521610561_1"
-				"На слово вправо"
-				"Начать выделение"	
-				"На слово вправо"
-				"Закончить выделение"
-				'f' emitstring
+	"На слово вправо"
+	"Начать выделение"	
+	"На слово вправо"
+	"Закончить выделение"
+	'f' emitstring
 ;
 
 PROCEDURE "Выставить стиль с номером в окне поиска" INTEGER IN aID
-		 	@ ( "Контрол по имени {("Кнопка выбора типа поиска")}" pop:Control:Click ) MODAL ( "Нажать Down" "Нажать Enter" )
-			OBJECT VAR l_SearchCombobox
-			"Контрол по имени {("Выпадающий список выбора стиля для поиска")}" >>> l_SearchCombobox
-			// Иициализируем значения выпадающего списка:
-			true l_SearchCombobox pop:ComboBox:DropDown
-			false l_SearchCombobox pop:ComboBox:DropDown
-	        // Выбираем стиль			
-			aID l_SearchCombobox pop:ComboBox:SetItemIndex	
+	@ ( "Контрол по имени {("Кнопка выбора типа поиска")}" pop:Control:Click ) MODAL ( "Нажать Down" "Нажать Enter" )
+	OBJECT VAR l_SearchCombobox
+	"Контрол по имени {("Выпадающий список выбора стиля для поиска")}" >>> l_SearchCombobox
+	// Иициализируем значения выпадающего списка:
+	true l_SearchCombobox pop:ComboBox:DropDown
+	false l_SearchCombobox pop:ComboBox:DropDown
+	// Выбираем стиль			
+	aID l_SearchCombobox pop:ComboBox:SetItemIndex	
 ;
 
 PROCEDURE "Переключить на режим стиля поле 'Замена'"
-			@ ( "Контрол по имени {("Кнопка выбора типа замены")}" pop:Control:Click ) MODAL ( "Нажать Down" "Нажать Enter" )
+	@ ( "Контрол по имени {("Кнопка выбора типа замены")}" pop:Control:Click ) MODAL ( "Нажать Down" "Нажать Enter" )
 ;
 
 PROCEDURE "Нажать 'Заменить все'"
-		"Контрол по имени {("Заменить все")}" pop:Control:Click
+	"Контрол по имени {("Заменить все")}" pop:Control:Click
 ;
 
 PROCEDURE "Нажать 'Закрыть'"
-		"Контрол по имени {("Кнопка 'Закрыть'")}" pop:Control:Click	
+	"Контрол по имени {("Кнопка 'Закрыть'")}" pop:Control:Click	
 ;
 
 PROCEDURE "Установить тип 'ААК-текст' в Журнале"	
@@ -543,33 +456,33 @@ PROCEDURE "Меняем режим ориентации страницы на альбомную"
 ;
 
  BOOLEAN FUNCTION "Состояние чекбокса" OBJECT IN aCheckBox
-  'Checked' aCheckBox pop:object:GetOrdProp РАВНО 1 >>> Result
+	'Checked' aCheckBox pop:object:GetOrdProp РАВНО 1 >>> Result
 ;
 
 PROCEDURE "Убедиться, что текущий контрол" STRING IN aClass
- OBJECT VAR l_Control
- focused:control:push =: l_Control
- l_Control ЯВЛЯЕТСЯ aClass [ 'Фокус на контроле, который относится к другому классу: ' l_Control pop:object:ClassName ', а не: ' aClass ] strings:Cat ASSERTS
+	OBJECT VAR l_Control
+	focused:control:push =: l_Control
+	l_Control ЯВЛЯЕТСЯ aClass [ 'Фокус на контроле, который относится к другому классу: ' l_Control pop:object:ClassName ', а не: ' aClass ] strings:Cat ASSERTS
 ; 
 
 PROCEDURE "Поставить галочку в чекбоксе" 
- "Убедиться, что текущий контрол {( csCheckBox )}" 
- OBJECT VAR l_CheckBox
- "Контрол в фокусе" >>> l_CheckBox
- Если ( "Состояние чекбокса {(l_CheckBox)}" ! ) то
-  ( "Нажать {('Space')}" )
- иначе
-  ( 'Чекбокс уже отмечен!' . )
+	"Убедиться, что текущий контрол {( csCheckBox )}" 
+	OBJECT VAR l_CheckBox
+	"Контрол в фокусе" >>> l_CheckBox
+	Если ( "Состояние чекбокса {(l_CheckBox)}" ! ) то
+	( "Нажать {('Space')}" )
+	иначе
+	( 'Чекбокс уже отмечен!' . )
 ; 
 
 PROCEDURE "Снять галочку в чекбоксе" 
- "Убедиться, что текущий контрол {( csCheckBox )}" 
- OBJECT VAR l_CheckBox
- "Контрол в фокусе" >>> l_CheckBox
-Если ( "Состояние чекбокса {(l_CheckBox)}" ) то
-  ( "Нажать {('Space')}" )
- иначе
-  ( 'Чекбокс не был отмечен!' . )
+	"Убедиться, что текущий контрол {( csCheckBox )}" 
+	OBJECT VAR l_CheckBox
+	"Контрол в фокусе" >>> l_CheckBox
+	Если ( "Состояние чекбокса {(l_CheckBox)}" ) то
+		( "Нажать {('Space')}" )
+	иначе
+		( 'Чекбокс не был отмечен!' . )
 ;
 
 USES
@@ -1010,8 +923,7 @@ PROCEDURE "Проверить появление окна 'Пакетное изменение атрибутов' при пустой вы
 ;
 
 PROCEDURE "Выбрать шаблон 'Главный документ РФ'"
-	0 "Контрол по имени {('cbSavedTemplates')}" pop:ComboBox:SetItemIndex	
-
+	0 "Контрол по имени {('cbSavedTemplates')}" pop:ComboBox:SetItemIndex
 ;
 
 PROCEDURE "Нажать кнопку 'Завершить'" BOOLEAN IN aLast
@@ -1163,7 +1075,7 @@ PROCEDURE "Экспортировать выборку в формате NSRC и задать имя файла по имени тес
 	"Экспортировать выборку в формате NSRC {( l_ExportNSRName )}"
 ;
 
-: "Отрисовка с Zoom =" IN aZoom
+PROCEDURE "Отрисовка с Zoom =" INTEGER IN aZoom
  INTEGER VAR l_Zoom  
  IniRec:GetZoom >>> l_Zoom
  "Подготовка к отрисовке" 
@@ -1356,7 +1268,7 @@ OBJECT FUNCTION "Найти пункт контекстного меню с именем" OBJECT IN aMenu STRING 
   	( Result := nil )
 ;
 
-: "Нажать на пункт контекстного меню контрола" STRING IN aStr OBJECT IN aControl
+PROCEDURE "Нажать на пункт контекстного меню контрола" STRING IN aStr OBJECT IN aControl
 	OBJECT VAR l_Menu
  	OBJECT VAR l_Item
  		10 10 aControl pop:Control:GetPopupMenu >>> l_Menu
@@ -1789,5 +1701,102 @@ PROCEDURE "Выделить небольшую таблицу, cкопировать в буфер"
 	 4 раз "Нажать вниз"
 	"Выделить диапазон ячеек {(1 4 0 0)}"
 	"Скопировать в буфер"
+;
+
+PROCEDURE "Выделить таблицу в документе на вкладке Справка, скопировать в буфер"
+	9 раз "Нажать вниз"
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor
+	"Убедиться, что фокус в таблице {(l_Editor)}"
+	"Выделить таблицу {(l_Editor)}"
+	"Скопировать в буфер"
+;
+
+PROCEDURE "Выделить ячейку в документе с таблицей на вкладке Справка, скопировать в буфер"
+	8 раз "Нажать вниз"
+	OBJECT VAR l_Editor
+ 	focused:control:push >>> l_Editor
+	1 2 l_Editor pop:editor:SelectCellByMouse  
+ 	"Обработать сообщения"
+	"Скопировать в буфер"
+;
+
+PROCEDURE "Выделить столбец в документе на вкладке Справка, скопировать в буфер"
+	8 раз "Нажать вниз"
+	"Выделить диапазон ячеек {(0 0 0 4)}"
+	"Скопировать в буфер"	
+;
+
+PROCEDURE "Выделить таблицу на вкладке Справка, вырезать в буфер"
+	9 раз "Нажать вниз"
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor
+	"Убедиться, что фокус в таблице {(l_Editor)}"
+	"Выделить таблицу {(l_Editor)}"
+	"Нажать кнопку 'Удалить в буфер обмена'"
+;
+
+// Вызывать окно замены на вкладке Справка. Замена текста при поиске от курсора. С обработкой через MODAL (на вкладке Справка)
+PROCEDURE "Обработка. Замена текста при поиске от курсора (на вкладке Справка)" BOOLEAN IN aLast
+		Если ( aLast ! ) то (
+			g_ShowCount CASE
+				cnShowWindow (
+					OBJECT VAR l_Control
+					"Контрол по имени {("Диалог поиска")}" >>> l_Control
+					"От курсора" "Выбрать группу 'Точка начала'"
+					"Установить фокус в контрол с именем" "Поле 'Текст'"
+					"Набить текст {('актов')}"
+					"Обработать сообщения"
+					"Установить фокус в контрол с именем" "Поле 'Замена'"
+					"Набить текст {('правил')}"
+					"Контрол по имени {("Заменить в 'Поиске'")}" pop:Control:Click
+				)
+				cnFoundWord ( "Контрол по имени {("Заменить в 'Поиске'")}" pop:Control:Click )				
+				cnReplace ( "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click )
+			END
+			++! g_ShowCount		
+		)
+;
+
+PROCEDURE "Вызывать окно замены. Замена текста при поиске от курсора (на вкладке Справка)"
+		0 >>> g_ShowCount
+		@ ( "Вызывать окно замены" ) MODAL ( "Обработка. Замена текста при поиске от курсора (на вкладке Справка)" )
+		"Установить фокус в контрол с именем" "Контрол редактора текста"
+;
+
+PROCEDURE "Выделить таблицу в документе на вкладке Аннотация, скопировать в буфер"
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor
+	"Убедиться, что фокус в таблице {(l_Editor)}"
+	"Выделить таблицу {(l_Editor)}"
+	"Скопировать в буфер"
+;
+
+PROCEDURE "Выделить столбец в документе на вкладке Аннотация, скопировать в буфер"
+	"В начало документа"
+	"Выделить диапазон ячеек {(0 0 0 4)}"
+	"Скопировать в буфер"	
+;
+
+PROCEDURE "Выделить таблицу на вкладке Аннотация, вырезать в буфер"
+	OBJECT VAR l_Editor
+	focused:control:push >>> l_Editor
+	"Убедиться, что фокус в таблице {(l_Editor)}"
+	"Выделить таблицу {(l_Editor)}"
+	"Нажать кнопку 'Удалить в буфер обмена'"
+;
+
+WordAlias "Выделить текст в документе на вкладке Аннотация" "Вызывать 'Выделить заголовок'"
+
+PROCEDURE "Поиск текста в 'Область поиска' с повтором" STRING IN aFindString IN aIndexRadioGroup INTEGER IN aIndexReturn
+	 	"Вызывать окно поиска"
+ 		aIndexRadioGroup "Выбрать группу 'Область поиска'"
+	 TRY
+	 	"Набить текст {(aFindString)}"
+	 	"Обработать сообщения"
+	 	aIndexReturn раз ( "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click )
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 
 ;
 

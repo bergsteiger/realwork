@@ -1,0 +1,67 @@
+// Drag And Drop 4B8936150120 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8936150120
+
+ME ME_48C6827900D7
+ MEPROP UID '48C6827900D7'
+ MEPROP Name 'Tl3DropTarget'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B8936150120 // Drag And Drop
+ ;
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '04.04.2001 20:34'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3DropTarget.pas'
+ UP extprop:rc:SelfName 'DropTarget'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3DropTarget'
+
+ENDME // ME_48C6827900D7 Tl3DropTarget
+
+ME ME_48C68724011E
+ MEPROP UID '48C68724011E'
+ MEPROP Name 'Tl3DropSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B8936150120 // Drag And Drop
+ ;
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '06.04.2001 16:14'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3DropSource.pas'
+ UP extprop:rc:SelfName 'DropSource'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3DropSource'
+
+ENDME // ME_48C68724011E Tl3DropSource
+
+ME ME_4B8936150120
+ MEPROP UID '4B8936150120'
+ MEPROP Name 'Drag And Drop'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48C6827900D7 // Tl3DropTarget
+ HWL ME_48C68724011E // Tl3DropSource
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ )
+ ; // Depends
+
+ENDME // ME_4B8936150120 Drag And Drop

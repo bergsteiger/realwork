@@ -33,8 +33,6 @@
   Changed := TddBaseConfigItem(Source).Changed;
   Enabled := TddBaseConfigItem(Source).Enabled;
   Value := TddBaseConfigItem(Source).Value;
-  f_NotifyList.Assign(TddBaseConfigItem(Source).f_NotifyList);
-  OnNotify := TddBaseConfigItem(Source).f_OnNotify;
   f_ReadOnly := TddBaseConfigItem(Source).ReadOnly;
  end
  else
@@ -185,7 +183,6 @@ var
 //#UC END# *479731C50290_4E302F24003F_var*
 //#UC START# *479731C50290_4E302F4201D5_impl*
  FreeAndNil(f_Slaves);
- FreeAndNil(f_NotifyList);
  inherited;
 //#UC END# *479731C50290_4E302F4201D5_impl*
 //#UC START# *479731C50290_4E302F4201D5_var*
@@ -237,6 +234,8 @@ var
 //#UC START# *52161F2B00C4_ext:FileName
 w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
 //#UC END# *52161F2B00C4_ext:FileName
+//#UC START# *52161F2B00C4impl_uses*
+//#UC END# *52161F2B00C4impl_uses*
 //#UC START# *52161FC80131_522461B00212get_impl*
  if (f_ValueKind = dd_vkBoolean) or (f_MasterIndex = -1) then
   Result := inherited pm_GetBooleanValue
@@ -437,9 +436,6 @@ var
 //#UC END# *52171C8500C0_4E302F4201D5_var*
 //#UC START# *52171CBA0170_4E302F4201D5_impl*
  Changed := True;
- if not IsLocked then
-  for I := 0 to f_NotifyList.Hi do
-   TddBaseConfigItem(f_NotifyList.Items[I]).ProcessNotify(Self.Value);
 //#UC END# *52171CBA0170_4E302F4201D5_impl*
 //#UC START# *52171CBA0170_4E302F4201D5_var*
 var
@@ -516,8 +512,6 @@ var
    try
     l3Move(f_Value, l_Value, SizeOf(TddConfigValue));
     GetValueFromControl;
-    for I := 0 to f_NotifyList.Hi do
-     TddBaseConfigItem(f_NotifyList.Items[I]).ProcessNotify(Value);
     l3Move(l_Value, f_Value, SizeOf(TddConfigValue));
    finally
     UnLock;
@@ -959,7 +953,6 @@ var
 //#UC START# *5217273F000F_4E302F4201D5_impl*
  inherited Create;
  f_Slaves := Tl3ObjectList.Create;
- f_NotifyList := Tl3ObjectList.Create;
  f_Alias := aAlias;
  f_Caption := aCaption;
  f_Enabled := True;
@@ -2978,11 +2971,18 @@ var
 //#UC END# *521B277C02F3_51D547DD026Cset_impl*
 //#UC START# *521B277C02F3_51D547DD026Cset_var*
 //#UC END# *521B277C02F3_51D547DD026Cset_var*
+//#UC START# *521B285C035B_51D547DD026C_impl*
+ for I := 0 to Pred(ChildrenCount) do
+  IddConfigNode(Children[I]).ClearControls;
+//#UC END# *521B285C035B_51D547DD026C_impl*
+//#UC START# *521B285C035B_51D547DD026C_var*
+var
+ i: Integer;
+//#UC END# *521B285C035B_51D547DD026C_var*
 //#UC START# *521B285C035B_51D547F700AB_impl*
   for I := 0 to Pred(Count) do
    Items[I].ClearControl;
-  for I := 0 to Pred(ChildrenCount) do
-   IddConfigNode(Children[I]).ClearControls;
+  inherited;
 //#UC END# *521B285C035B_51D547F700AB_impl*
 //#UC START# *521B285C035B_51D547F700AB_var*
 var
@@ -3073,7 +3073,7 @@ var
       then l_Control.Left := l_ButtonLeft - l_Control.Width - 2 * c_ConfigItemTop - c_ScrollBarWidth
       else l_Control.Left := l_ButtonLeft - l_Control.Width - 2 * c_ConfigItemTop;
      {$ifdef nemesis}
-     l_Control.Anchors := l_Control.Anchors + [akRight];
+     l_Control.Anchors := l_Control.Anchors + [akRight] - [akLeft];
      {$endif}
      l_FirstButton := False;
      l_ButtonLeft := l_Control.Left;
@@ -3203,6 +3203,14 @@ var
    Inc(aH, aCI.FullControlHeight[aParent]);
   end;
 //#UC END# *521B28930009_51D547F700AB_var*
+//#UC START# *521B28BE015D_51D547DD026C_impl*
+ for I := 0 to Pred(ChildrenCount) do
+  IddConfigNode(Children[I]).GetControlValues;
+//#UC END# *521B28BE015D_51D547DD026C_impl*
+//#UC START# *521B28BE015D_51D547DD026C_var*
+var
+ I: Integer;
+//#UC END# *521B28BE015D_51D547DD026C_var*
 //#UC START# *521B28BE015D_51D547F700AB_impl*
  for I := 0 to Pred(Count) do
  begin
@@ -3216,8 +3224,7 @@ var
    end
   end
  end; // for I
- for I := 0 to Pred(ChildrenCount) do
-  IddConfigNode(Children[I]).GetControlValues;
+ inherited;
 //#UC END# *521B28BE015D_51D547F700AB_impl*
 //#UC START# *521B28BE015D_51D547F700AB_var*
 var
@@ -3262,6 +3269,14 @@ var
 //#UC END# *521B295A024F_51D547F700AB_impl*
 //#UC START# *521B295A024F_51D547F700AB_var*
 //#UC END# *521B295A024F_51D547F700AB_var*
+//#UC START# *521B298800F7_51D547DD026C_impl*
+ for I := 0 to Pred(ChildrenCount) do
+  IddConfigNode(Children[I]).SetControlValues(aDefault);
+//#UC END# *521B298800F7_51D547DD026C_impl*
+//#UC START# *521B298800F7_51D547DD026C_var*
+var
+  I: Integer;
+//#UC END# *521B298800F7_51D547DD026C_var*
 //#UC START# *521B298800F7_51D547F700AB_impl*
  for I := 0 to Pred(Count) do
  begin
@@ -3273,8 +3288,7 @@ var
    l_Item.UnLock;
   end; // l_Item.Control <> nil
  end;
- for I := 0 to Pred(ChildrenCount) do
-  IddConfigNode(Children[I]).SetControlValues(aDefault);
+ inherited;
 //#UC END# *521B298800F7_51D547F700AB_impl*
 //#UC START# *521B298800F7_51D547F700AB_var*
 var

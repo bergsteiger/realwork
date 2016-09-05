@@ -1,0 +1,335 @@
+// BaseDocumentWithAttributesInterfaces 4D1B85BF03E4 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D1B85BF03E4
+
+FORWARD ME_47F083E60105
+
+FORWARD ME_5009A78501A6
+
+ME ME_491DD57603A3_ME_5009A78501A6
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_5009A78501A6 ImageList
+
+ME ME_491DD5A10199_ME_5009A78501A6
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_5009A78501A6 SimpleTree
+
+ME ME_491DD5C90095_ME_5009A78501A6
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_5009A78501A6 CurrentChanged
+
+ME ME_49255D4A0215_ME_5009A78501A6
+ MELINK Original WL 'ME_49255D4A0215' '491B305A0096.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49255D4A0215_ME_5009A78501A6 DocInfo
+
+ME ME_5009A78501A6
+ MEPROP UID '5009A78501A6'
+ MEPROP Name 'dsAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'атрибуты документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49255D040142' '491B305A0096.ms.model.script' // IdsAttributes
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_5009A78501A6 // ImageList
+ ME_491DD5A10199_ME_5009A78501A6 // SimpleTree
+ ME_491DD5C90095_ME_5009A78501A6 // CurrentChanged
+ ME_49255D4A0215_ME_5009A78501A6 // DocInfo
+ )
+ ; // Implemented
+ UP "is reference" true
+ UP "pm" true
+
+ENDME // ME_5009A78501A6 dsAttributes
+
+ME ME_6DBD21E52E04
+ MEPROP UID '6DBD21E52E04'
+ MEPROP Name 'HasAttributes'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Определяет что есть данные для "атрибуты документа"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_6DBD21E52E04 HasAttributes
+
+ME ME_492598700162
+ MEPROP UID '492598700162'
+ MEPROP Name 'OpenAttributes'
+ MEPROP Class class_Operation
+ %SUMMARY 'атрибуты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ ;
+
+ENDME // ME_492598700162 OpenAttributes
+
+FORWARD ME_47F085420325
+
+ME ME_5011460E015E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_reflected_by::Dependency ;
+ MELINK Parent HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ ;
+ MELINK Target HWL ME_47F085420325 // IdBaseDocumentWithAttributes
+ ;
+ UP "needs default form" false
+
+ENDME // ME_5011460E015E 
+
+ME ME_4925978F00FA_ME_47F083E60105
+ MELINK Original WL 'ME_4925978F00FA' '491B305A0096.ms.model.script' // ChangeDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925978F00FA_ME_47F083E60105 ChangeDocument
+
+ME ME_492597A602F6_ME_47F083E60105
+ MELINK Original WL 'ME_492597A602F6' '491B305A0096.ms.model.script' // MakeGotoPointData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492597A602F6_ME_47F083E60105 MakeGotoPointData
+
+ME ME_4DF9D63B0360_ME_47F083E60105
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_47F083E60105 DocInfo
+
+ME ME_50002EC80001_ME_47F083E60105
+ MELINK Original WL 'ME_50002EC80001' '491B305A0096.ms.model.script' // dsDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is reference" true
+ UP "pm" true
+ENDME // ME_50002EC80001_ME_47F083E60105 dsDocument
+
+ME ME_5111C2BAF24F_ME_47F083E60105
+ MELINK Original WL 'ME_5111C2BAF24F' '491B305A0096.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5111C2BAF24F_ME_47F083E60105 HasDocument
+
+ME ME_47F083E60105
+ MEPROP UID '47F083E60105'
+ MEPROP GUID '22FB504D-14F4-47E7-9954-AAE03A834F76'
+ MEPROP Name 'IsdsBaseDocumentWithAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ с атрибутами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D1B85BF03E4 // BaseDocumentWithAttributesInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5009A78501A6 // dsAttributes
+ HWL ME_6DBD21E52E04 // HasAttributes
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_492598700162 // OpenAttributes
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4925978F00FA_ME_47F083E60105 // ChangeDocument
+ ME_492597A602F6_ME_47F083E60105 // MakeGotoPointData
+ ME_4DF9D63B0360_ME_47F083E60105 // DocInfo
+ ME_50002EC80001_ME_47F083E60105 // dsDocument
+ ME_5111C2BAF24F_ME_47F083E60105 // HasDocument
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5011460E015E // IdBaseDocumentWithAttributes
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'sdsBaseDocumentWithAttributes'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47F083E60105 IsdsBaseDocumentWithAttributes
+
+ME ME_958F281A6FD6
+ MEPROP UID '958F281A6FD6'
+ MEPROP Name 'dsAttributesRef'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Ссылка на "атрибуты документа"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47F085420325 // IdBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_47EB514C0336' '4982BE090383.ms.model.script' // IvcmFormDataSourceRef
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UPLINK extprop:CASTER HWL ME_5009A78501A6 // dsAttributes
+ ;
+
+ENDME // ME_958F281A6FD6 dsAttributesRef
+
+ME ME_E1561B99CC62
+ MEPROP UID 'E1561B99CC62'
+ MEPROP Name 'HasAttributes'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Есть ли "атрибуты документа"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47F085420325 // IdBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_491BF08F035F' '4678193C009C.ms.model.script' // Tl3Bool
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UPLINK extprop:CASTER HWL ME_5009A78501A6 // dsAttributes
+ ;
+
+ENDME // ME_E1561B99CC62 HasAttributes
+
+ME ME_4939245D0171
+ MEPROP UID '4939245D0171'
+ MEPROP Name 'ResetBooleans'
+ MEPROP Class class_Operation
+ %SUMMARY 'очистить логические поля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47F085420325 // IdBaseDocumentWithAttributes
+ ;
+
+ENDME // ME_4939245D0171 ResetBooleans
+
+ME ME_2C233EE5B42C_ME_47F085420325
+ MELINK Original WL 'ME_2C233EE5B42C' '491B305A0096.ms.model.script' // dsDocumentRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_2C233EE5B42C_ME_47F085420325 dsDocumentRef
+
+ME ME_4995768F007A_ME_47F085420325
+ MELINK Original WL 'ME_4995768F007A' '4683F37902CF.ms.model.script' // Clone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4995768F007A_ME_47F085420325 Clone
+
+ME ME_77EA326510B8_ME_47F085420325
+ MELINK Original WL 'ME_77EA326510B8' '491B305A0096.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_77EA326510B8_ME_47F085420325 HasDocument
+
+ME ME_CEA3A9CB4068_ME_47F085420325
+ MELINK Original WL 'ME_CEA3A9CB4068' '491B305A0096.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_CEA3A9CB4068_ME_47F085420325 DocInfo
+
+ME ME_47F085420325
+ MEPROP UID '47F085420325'
+ MEPROP GUID '86850BCB-4E5D-4473-B0C0-CD5481B863E4'
+ MEPROP Name 'IdBaseDocumentWithAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные документа с атрибутами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D1B85BF03E4 // BaseDocumentWithAttributesInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EB3BD9015F' '491B305A0096.ms.model.script' // IdBaseDocument
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_958F281A6FD6 // dsAttributesRef
+ HWL ME_E1561B99CC62 // HasAttributes
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4939245D0171 // ResetBooleans
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_2C233EE5B42C_ME_47F085420325 // dsDocumentRef
+ ME_4995768F007A_ME_47F085420325 // Clone
+ ME_77EA326510B8_ME_47F085420325 // HasDocument
+ ME_CEA3A9CB4068_ME_47F085420325 // DocInfo
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dBaseDocumentWithAttributes'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47F085420325 IdBaseDocumentWithAttributes
+
+ME ME_4D1B85BF03E4
+ MEPROP UID '4D1B85BF03E4'
+ MEPROP Name 'BaseDocumentWithAttributesInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D1B64E70031' '4D1B64E70031.ms.model.script' // BusinessInterfaces
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47F083E60105 // IsdsBaseDocumentWithAttributes
+ HWL ME_47F085420325 // IdBaseDocumentWithAttributes
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_4982BE090383' '4982BE090383.ms.model.script' // vcmControllers
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '29.12.2010 22:02'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\BaseDocumentWithAttributesInterfaces.pas'
+
+ENDME // ME_4D1B85BF03E4 BaseDocumentWithAttributesInterfaces

@@ -1,0 +1,284 @@
+// PrimForbidAutoregistration 497ED39B034F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497ED39B034F
+
+ME ME_51C3139D029E
+ MEPROP UID '51C3139D029E'
+ MEPROP Name 'lblReference'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51C3139D029E lblReference
+
+FORWARD ME_51C313FD00BF
+
+ME ME_51C3144301DA
+ MEPROP UID '51C3144301DA'
+ MEPROP Name 'lblPhone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Телефон' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51C3144301DA lblPhone
+
+ME ME_51C3147900E2
+ MEPROP UID '51C3147900E2'
+ MEPROP Name 'lblEmail'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'E-mail' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51C3147900E2 lblEmail
+
+ME ME_51C314A90356
+ MEPROP UID '51C314A90356'
+ MEPROP Name 'lblHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '(Заполнение одного из полей обязательно)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51C314A90356 lblHint
+
+ME ME_51C314CD03B6
+ MEPROP UID '51C314CD03B6'
+ MEPROP Name 'cbPhone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ UP "ControlClass" 'TnscEdit'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51C314CD03B6 cbPhone
+
+ME ME_51C314E50165
+ MEPROP UID '51C314E50165'
+ MEPROP Name 'cbEmail'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51C313FD00BF // gbInfo
+ ;
+ UP "ControlClass" 'TnscEdit'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51C314E50165 cbEmail
+
+ME ME_51C313FD00BF
+ MEPROP UID '51C313FD00BF'
+ MEPROP Name 'gbInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Администратор системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51C3144301DA // lblPhone
+ HWL ME_51C3147900E2 // lblEmail
+ HWL ME_51C314A90356 // lblHint
+ HWL ME_51C314CD03B6 // cbPhone
+ HWL ME_51C314E50165 // cbEmail
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtGroupBox'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51C313FD00BF gbInfo
+
+ME ME_497ED3E60038
+ MEPROP UID '497ED3E60038'
+ MEPROP Name 'dsForbidAutoregistration'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_491D962D01DA' '491D961C0122.ms.model.script' // IdsForbidAutoregistration
+ ;
+
+ENDME // ME_497ED3E60038 dsForbidAutoregistration
+
+ME ME_51C3165101B7
+ MEPROP UID '51C3165101B7'
+ MEPROP Name 'cbEmailChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_51C3165101B7 cbEmailChange
+
+ME ME_4AC4EB630347
+ MEPROP UID '4AC4EB630347'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+
+ENDME // ME_4AC4EB630347 Make
+
+ME ME_51C32C1102F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_51C32C1102F2 
+
+ME ME_51C32CD10196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_4C88F33402E6' '48F747EC0073.ms.model.script' // nsEmailVerify
+ ;
+
+ENDME // ME_51C32CD10196 
+
+ME ME_51C32D00033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_51C32D00033F 
+
+ME ME_51C32D030288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_51C32D030288 
+
+ME ME_497469C90140_ME_497ED39B034F
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_497ED39B034F NotifyDataSourceChanged
+
+ME ME_4A8E8F2E0195_ME_497ED39B034F
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_497ED39B034F InitControls
+
+ME ME_497ED39B034F
+ MEPROP UID '497ED39B034F'
+ MEPROP Name 'PrimForbidAutoregistration'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Используется при запрете авторегистрации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49480CD20303' '49480CD20303.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51C3139D029E // lblReference
+ HWL ME_51C313FD00BF // gbInfo
+ HWL ME_497ED3E60038 // dsForbidAutoregistration
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51C3165101B7 // cbEmailChange
+ HWL ME_4AC4EB630347 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_497469C90140_ME_497ED39B034F // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_497ED39B034F // InitControls
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51C32C1102F2 // Graphics
+ ME_51C32CD10196 // nsEmailVerify
+ ME_51C32D00033F // Controls
+ ME_51C32D030288 // Forms
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Modal'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '27.01.2009 12:28'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistration_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ UP extprop:pas:TypeName 'TPrimForbidAutoregistrationForm'
+ UP extprop:rc:SelfName 'PrimForbidAutoregistrationForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimForbidAutoregistration_Form'
+
+ENDME // ME_497ED39B034F PrimForbidAutoregistration

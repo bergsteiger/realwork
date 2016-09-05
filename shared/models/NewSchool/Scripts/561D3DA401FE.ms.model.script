@@ -1,0 +1,38 @@
+// Containers 561D3DA401FE Layer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561D3DA401FE
+
+ME ME_561D40470085
+ MEPROP UID '561D40470085'
+ MEPROP Name 'Tl3LongintList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ClassProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D3DA401FE // Containers
+ ;
+ UP extprop:rc:SelfName 'LongintList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Tl3LongintList_Proxy'
+
+ENDME // ME_561D40470085 Tl3LongintList
+
+ME ME_561D3DA401FE
+ MEPROP UID '561D3DA401FE'
+ MEPROP Name 'Containers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Layer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_561D37540316' '561D37540316.ms.model.script' // L3$Interface
+ ;
+ MELIST Children
+   Seq: ( HWL ME_561D40470085 // Tl3LongintList
+ )
+ ; // Children
+
+ENDME // ME_561D3DA401FE Containers

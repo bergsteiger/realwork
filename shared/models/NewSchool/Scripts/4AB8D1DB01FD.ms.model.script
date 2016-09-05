@@ -1,0 +1,62 @@
+// ConsultationMark 4AB8D1DB01FD VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB8D1DB01FD
+
+ME ME_E6AAA420F87A
+ MEPROP UID 'E6AAA420F87A'
+ MEPROP Name 'Ini_FormFactory_ConsultationMark'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ConsultationMark' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB8D1DB01FD // ConsultationMark
+ ;
+ UPLINK SpelledFor HWL ME_4AB8D1DB01FD // ConsultationMark
+ ;
+
+ENDME // ME_E6AAA420F87A Ini_FormFactory_ConsultationMark
+
+ME ME_4AB8D1DB01FD
+ MEPROP UID '4AB8D1DB01FD'
+ MEPROP Name 'ConsultationMark'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Оценка ответа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4ABCFB7F017B' '4ABCFB7F017B.ms.model.script' // Consultation$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C84E097023A' '4C84E097023A.ms.model.script' // PrimConsultationMarkOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFADD3502A1' '4BD856E802F9.ms.model.script' // ConsultationMark
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_E6AAA420F87A // Ini_FormFactory_ConsultationMark
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "form name prefix" 'en_'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '22.09.2009 16:49'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\ConsultationMark_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms'
+ UP extprop:pas:TypeName 'Ten_ConsultationMark'
+ UP extprop:rc:SelfName 'en_ConsultationMark'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ConsultationMark_Form'
+
+ENDME // ME_4AB8D1DB01FD ConsultationMark

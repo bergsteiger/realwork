@@ -8,8 +8,6 @@
   Changed := TddBaseConfigItem(Source).Changed;
   Enabled := TddBaseConfigItem(Source).Enabled;
   Value := TddBaseConfigItem(Source).Value;
-  f_NotifyList.Assign(TddBaseConfigItem(Source).f_NotifyList);
-  OnNotify := TddBaseConfigItem(Source).f_OnNotify;
   f_ReadOnly := TddBaseConfigItem(Source).ReadOnly;
  end
  else
@@ -19,7 +17,6 @@
 //#UC END# *478CF34E02CE_4E302F4201D5_var*
 //#UC START# *479731C50290_4E302F4201D5_impl*
  FreeAndNil(f_Slaves);
- FreeAndNil(f_NotifyList);
  inherited;
 //#UC END# *479731C50290_4E302F4201D5_impl*
 //#UC START# *479731C50290_4E302F4201D5_var*
@@ -39,9 +36,6 @@ w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
 //#UC END# *52171C8500C0_4E302F4201D5_var*
 //#UC START# *52171CBA0170_4E302F4201D5_impl*
  Changed := True;
- if not IsLocked then
-  for I := 0 to f_NotifyList.Hi do
-   TddBaseConfigItem(f_NotifyList.Items[I]).ProcessNotify(Self.Value);
 //#UC END# *52171CBA0170_4E302F4201D5_impl*
 //#UC START# *52171CBA0170_4E302F4201D5_var*
 var
@@ -285,12 +279,6 @@ var
 //#UC END# *521725C301A5_4E302F4201D5_impl*
 //#UC START# *521725C301A5_4E302F4201D5_var*
 //#UC END# *521725C301A5_4E302F4201D5_var*
-//#UC START# *521725E40234_4E302F4201D5_impl*
- if Assigned(f_OnNotify) then
-  f_OnNotify(Self, aValue);
-//#UC END# *521725E40234_4E302F4201D5_impl*
-//#UC START# *521725E40234_4E302F4201D5_var*
-//#UC END# *521725E40234_4E302F4201D5_var*
 //#UC START# *521726060214_4E302F4201D5_impl*
  Value := DefaultValue;
 //#UC END# *521726060214_4E302F4201D5_impl*
@@ -299,7 +287,6 @@ var
 //#UC START# *5217273F000F_4E302F4201D5_impl*
  inherited Create;
  f_Slaves := Tl3ObjectList.Create;
- f_NotifyList := Tl3ObjectList.Create;
  f_Alias := aAlias;
  f_Caption := aCaption;
  f_Enabled := True;
@@ -308,11 +295,6 @@ var
 //#UC END# *5217273F000F_4E302F4201D5_impl*
 //#UC START# *5217273F000F_4E302F4201D5_var*
 //#UC END# *5217273F000F_4E302F4201D5_var*
-//#UC START# *521727EA03C9_4E302F4201D5_impl*
- f_NotifyList.Add(aItem)
-//#UC END# *521727EA03C9_4E302F4201D5_impl*
-//#UC START# *521727EA03C9_4E302F4201D5_var*
-//#UC END# *521727EA03C9_4E302F4201D5_var*
 //#UC START# *5217286C0304_4E302F4201D5_impl*
  if aOnChange then
  case aValue.Kind of
@@ -382,11 +364,6 @@ var
 //#UC END# *52172BC5003D_4E302F4201D5_impl*
 //#UC START# *52172BC5003D_4E302F4201D5_var*
 //#UC END# *52172BC5003D_4E302F4201D5_var*
-//#UC START# *52172C2E00D0_4E302F4201D5_impl*
- f_NotifyList.Remove(aItem);
-//#UC END# *52172C2E00D0_4E302F4201D5_impl*
-//#UC START# *52172C2E00D0_4E302F4201D5_var*
-//#UC END# *52172C2E00D0_4E302F4201D5_var*
 //#UC START# *52172C50023A_4E302F4201D5_impl*
  { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
 //#UC END# *52172C50023A_4E302F4201D5_impl*

@@ -1,0 +1,61 @@
+// pi_int 4CA0D1FB01E0 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0D1FB01E0
+
+ME ME_4CA0D21F022E
+ MEPROP UID '4CA0D21F022E'
+ MEPROP GUID '120E9EB2-D621-4816-8998-92450A60DCC6'
+ MEPROP Name 'IORBInitInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0D1FB01E0 // pi_int
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'ORBInitInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CA0D21F022E IORBInitInfo
+
+ME ME_4CA0D4010019
+ MEPROP UID '4CA0D4010019'
+ MEPROP GUID '29495677-12CA-40E5-A99E-B8482D52AD32'
+ MEPROP Name 'IClientRequestInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0D1FB01E0 // pi_int
+ ;
+ UP extprop:rc:SelfName 'ClientRequestInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CA0D4010019 IClientRequestInfo
+
+ME ME_4CA0D1FB01E0
+ MEPROP UID '4CA0D1FB01E0'
+ MEPROP Name 'pi_int'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.ms.model.script' // MTDOrb
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA0D21F022E // IORBInitInfo
+ HWL ME_4CA0D4010019 // IClientRequestInfo
+ )
+ ; // Children
+ UP "finished" false
+ UP "is namespace" true
+ UP "path prefix" '/src/idl'
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_pi_int.pas'
+ UP intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+
+ENDME // ME_4CA0D1FB01E0 pi_int

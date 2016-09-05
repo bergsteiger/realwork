@@ -3,6 +3,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas
 //#UC END# *498B135601B6_ext:FileName
 //#UC START# *498B135601B6impl_uses*
  , StdRes
+ , nsTypes
 //#UC END# *498B135601B6impl_uses*
 //#UC START# *4AA11788033F_498B135601B6_impl*
  {$IfDef vcmUseProfilers}
@@ -17,34 +18,34 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas
    DT_EXPLANATORY:
    begin
     CheckAlive;
-    TdmStdRes.OpenDictionary(aDocInfo, CheckContainer(aContainer));
+    TDictionService.Instance.OpenDictionary(aDocInfo, CheckContainer(aContainer));
    end;//DT_EXPLANATORY
    DT_TIP:
    begin
     CheckAlive;
-    TdmStdRes.OpenTip(aDocInfo, CheckContainer(aContainer));
+    TDayTipsService.Instance.OpenTip(aDocInfo, CheckContainer(aContainer));
    end;//DT_TIP
    DT_MEDICAL_EXPLANATORY:
    begin
     CheckAlive;
-    TdmStdRes.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
+    TInpharmService.Instance.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_EXPLANATORY
    DT_MEDICAL_FIRM:
    begin
     CheckAlive;
-    TdmStdRes.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
+    TInpharmService.Instance.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_FIRM
    DT_MEDICAL_DOCUMENT:
    begin
-    TdmStdRes.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
+    TInpharmService.Instance.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
    end;//DT_MEDICAL_DOCUMENT
    DT_FLASH:
     Tfs_DocumentWithFlash.Make(TsdsDocumentWithFlash.Make(aDocInfo),
                                CheckContainer(aContainer));
    DT_ACTUAL_ANALYTICS:
-    TdmStdRes.MakeAAC(aDocInfo, CheckContainer(aContainer));
+    TAACService.Instance.MakeAAC(aDocInfo, CheckContainer(aContainer));
    DT_ACTUAL_ANALYTICS_CONTENTS:
-    TdmStdRes.MakeAACContents(aDocInfo, CheckContainer(aContainer));
+    TAACService.Instance.MakeAACContents(aDocInfo, CheckContainer(aContainer));
    else
     Assert(false);
   end//case l_DocInfo.Doc.GetDocType of
@@ -55,6 +56,11 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas
  {$EndIf vcmUseProfilers}
 //#UC END# *4AA11788033F_498B135601B6_impl*
 //#UC START# *4AA11788033F_498B135601B6_var*
+ procedure CheckAlive;
+ begin
+  if Assigned(aDocInfo.Doc) and not aDocInfo.Doc.IsAlive then
+   raise ETryOpenMissingDocument.Create('');
+ end;//CheckAlive
 //#UC END# *4AA11788033F_498B135601B6_var*
 //#UC START# *4AA118F20394__impl*
   if Assigned(aDocInfo.Doc) and not aDocInfo.Doc.IsAlive then
@@ -104,6 +110,9 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas
 //#UC START# *4AA1327E0334_498B135601B6_var*
 var
  l_Para : TParaId;
+ l_Bookmark : IBookmark;
+ l_DocInfo : IdeDocInfo;
+ l_JBookmark : IJournalBookmark;
 //#UC END# *4AA1327E0334_498B135601B6_var*
 //#UC START# *4AA13F010182_498B135601B6_impl*
  Result := OpenEntityAsDocument(aBaseEntity, nil);
@@ -193,6 +202,8 @@ var
  end;//try..finally
 //#UC END# *4AB133720122_498B135601B6exec_impl*
 //#UC START# *4AB133720122_498B135601B6exec_var*
+var
+ l_Data : InsOpenDocOnNumberData;
 //#UC END# *4AB133720122_498B135601B6exec_var*
 //#UC START# *4AB133720122_498B135601B6test_impl*
  aParams.Op.Flag[vcm_ofVisible] := False;

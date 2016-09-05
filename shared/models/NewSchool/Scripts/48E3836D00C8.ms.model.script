@@ -1,0 +1,4402 @@
+// evEditorInterfaces 48E3836D00C8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E3836D00C8
+
+FORWARD ME_4BBC61DD0368
+
+ME ME_4BBC620E004E
+ MEPROP UID '4BBC620E004E'
+ MEPROP Name 'Styles'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'список стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC61DD0368 // IedStyle
+ ;
+ MELINK Target WL 'ME_46A4745301A3' '4677FBA70343.ms.model.script' // Il3Strings
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC620E004E Styles
+
+ME ME_4BBC627B0232
+ MEPROP UID '4BBC627B0232'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Имя стиля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC61DD0368 // IedStyle
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC627B0232 Name
+
+ME ME_4BBC62A00029
+ MEPROP UID '4BBC62A00029'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'идентификатор стиля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC61DD0368 // IedStyle
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC62A00029 ID
+
+FORWARD ME_5534CB7003C6
+
+ME ME_5534CB8801A0
+ MEPROP UID '5534CB8801A0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5534CB7003C6 // GetStylesForBlock
+ ;
+ MELINK Target WL 'ME_46A4745301A3' '4677FBA70343.ms.model.script' // Il3Strings
+ ;
+
+ENDME // ME_5534CB8801A0 DoIt
+
+ME ME_5534CB7003C6
+ MEPROP UID '5534CB7003C6'
+ MEPROP Name 'GetStylesForBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC61DD0368 // IedStyle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5534CB8801A0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5534CB7003C6 GetStylesForBlock
+
+ME ME_4BBC61DD0368
+ MEPROP UID '4BBC61DD0368'
+ MEPROP GUID '821B4AA6-AAAB-40F8-8F95-E102524FD18D'
+ MEPROP Name 'IedStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стиль параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC620E004E // Styles
+ HWL ME_4BBC627B0232 // Name
+ HWL ME_4BBC62A00029 // ID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5534CB7003C6 // GetStylesForBlock
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Style'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC61DD0368 IedStyle
+
+FORWARD ME_4BBC803F0288
+
+ME ME_4BBC8058018D
+ MEPROP UID '4BBC8058018D'
+ MEPROP Name 'Undefined'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ENDME // ME_4BBC8058018D Undefined
+
+ME ME_4BBC806100AA
+ MEPROP UID '4BBC806100AA'
+ MEPROP Name 'Left'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ENDME // ME_4BBC806100AA Left
+
+ME ME_4BBC80690220
+ MEPROP UID '4BBC80690220'
+ MEPROP Name 'Right'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ENDME // ME_4BBC80690220 Right
+
+ME ME_4BBC8071029C
+ MEPROP UID '4BBC8071029C'
+ MEPROP Name 'Center'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ENDME // ME_4BBC8071029C Center
+
+ME ME_4BBC807A001C
+ MEPROP UID '4BBC807A001C'
+ MEPROP Name 'Justify'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ENDME // ME_4BBC807A001C Justify
+
+ME ME_4BBC80820257
+ MEPROP UID '4BBC80820257'
+ MEPROP Name 'Preformatted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+
+ENDME // ME_4BBC80820257 Preformatted
+
+ME ME_4BBC803F0288
+ MEPROP UID '4BBC803F0288'
+ MEPROP Name 'TedHorizontalAligment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выравнивание параграфа по горизонтали' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC8058018D // Undefined
+ HWL ME_4BBC806100AA // Left
+ HWL ME_4BBC80690220 // Right
+ HWL ME_4BBC8071029C // Center
+ HWL ME_4BBC807A001C // Justify
+ HWL ME_4BBC80820257 // Preformatted
+ )
+ ; // Attributes
+ UP "children prefix" 'hal'
+ UP "elements prefix" 'ed'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefixBase 'ed'
+ UP extprop:pas:ElementPrefix 'ed_hal'
+
+ENDME // ME_4BBC803F0288 TedHorizontalAligment
+
+FORWARD ME_4BBC4CD100F8
+
+ME ME_4BBC61A40199
+ MEPROP UID '4BBC61A40199'
+ MEPROP Name 'rStartRow'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BBC61A40199 rStartRow
+
+ME ME_4BBC61B400AC
+ MEPROP UID '4BBC61B400AC'
+ MEPROP Name 'rFinishRow'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BBC61B400AC rFinishRow
+
+ME ME_4BBC61BD01F2
+ MEPROP UID '4BBC61BD01F2'
+ MEPROP Name 'rStartCell'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BBC61BD01F2 rStartCell
+
+ME ME_4BBC61C501C3
+ MEPROP UID '4BBC61C501C3'
+ MEPROP Name 'rFinishCell'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC4CD100F8 // TedRangeIndexes
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BBC61C501C3 rFinishCell
+
+ME ME_4BBC4CD100F8
+ MEPROP UID '4BBC4CD100F8'
+ MEPROP Name 'TedRangeIndexes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC61A40199 // rStartRow
+ HWL ME_4BBC61B400AC // rFinishRow
+ HWL ME_4BBC61BD01F2 // rStartCell
+ HWL ME_4BBC61C501C3 // rFinishCell
+ )
+ ; // Attributes
+
+ENDME // ME_4BBC4CD100F8 TedRangeIndexes
+
+FORWARD ME_4BBC80A101EF
+
+ME ME_4BBC80B8018B
+ MEPROP UID '4BBC80B8018B'
+ MEPROP Name 'HorizontalAligment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Тип выравнивания параграфа по горизонтали' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ MELINK Target HWL ME_4BBC803F0288 // TedHorizontalAligment
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC80B8018B HorizontalAligment
+
+ME ME_4BBC8106012C
+ MEPROP UID '4BBC8106012C'
+ MEPROP Name 'HasDecimalAligment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Есть ли у параграфа выравнивание по разделителю' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC8106012C HasDecimalAligment
+
+ME ME_4BBC811E00EC
+ MEPROP UID '4BBC811E00EC'
+ MEPROP Name 'Visible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'виден параграф или нет' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC811E00EC Visible
+
+ME ME_4BBC813303A8
+ MEPROP UID '4BBC813303A8'
+ MEPROP Name 'FirstIndent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'отступ первой строки параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC813303A8 FirstIndent
+
+ME ME_4BBC814E00FA
+ MEPROP UID '4BBC814E00FA'
+ MEPROP Name 'LeftIndent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'левый отступ параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC814E00FA LeftIndent
+
+ME ME_4BBC816603A6
+ MEPROP UID '4BBC816603A6'
+ MEPROP Name 'Bullet'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'тип списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC816603A6 Bullet
+
+ME ME_4BBC80A101EF
+ MEPROP UID '4BBC80A101EF'
+ MEPROP GUID '1126D058-B6AE-4C8A-BB07-E83D175D379C'
+ MEPROP Name 'IedParagraphFormatting'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форматирование параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC80B8018B // HorizontalAligment
+ HWL ME_4BBC8106012C // HasDecimalAligment
+ HWL ME_4BBC811E00EC // Visible
+ HWL ME_4BBC813303A8 // FirstIndent
+ HWL ME_4BBC814E00FA // LeftIndent
+ HWL ME_4BBC816603A6 // Bullet
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'ParagraphFormatting'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC80A101EF IedParagraphFormatting
+
+FORWARD ME_4BBC818A01EA
+
+ME ME_4BBC81A00322
+ MEPROP UID '4BBC81A00322'
+ MEPROP Name 'Single'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC81A00322 Single
+
+ME ME_4BBC81A80396
+ MEPROP UID '4BBC81A80396'
+ MEPROP Name 'DashSmall'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC81A80396 DashSmall
+
+ME ME_4BBC81B10075
+ MEPROP UID '4BBC81B10075'
+ MEPROP Name 'DotDash'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC81B10075 DotDash
+
+ME ME_4BBC81B902B6
+ MEPROP UID '4BBC81B902B6'
+ MEPROP Name 'DotDotDash'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC81B902B6 DotDotDash
+
+ME ME_4BBC81C1026D
+ MEPROP UID '4BBC81C1026D'
+ MEPROP Name 'Triple'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC81C1026D Triple
+
+ME ME_4BBC81F302FD
+ MEPROP UID '4BBC81F302FD'
+ MEPROP Name 'ThickThinSmall'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC81F302FD ThickThinSmall
+
+ME ME_4BBC81FD03E4
+ MEPROP UID '4BBC81FD03E4'
+ MEPROP Name 'ThinThickSmall'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC81FD03E4 ThinThickSmall
+
+ME ME_4BBC82080287
+ MEPROP UID '4BBC82080287'
+ MEPROP Name 'ThinThickThinSmall'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82080287 ThinThickThinSmall
+
+ME ME_4BBC82110117
+ MEPROP UID '4BBC82110117'
+ MEPROP Name 'ThickThinMedium'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82110117 ThickThinMedium
+
+ME ME_4BBC823E0215
+ MEPROP UID '4BBC823E0215'
+ MEPROP Name 'ThinThickMedium'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC823E0215 ThinThickMedium
+
+ME ME_4BBC824702CD
+ MEPROP UID '4BBC824702CD'
+ MEPROP Name 'ThinThickThinMedium'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC824702CD ThinThickThinMedium
+
+ME ME_4BBC82520033
+ MEPROP UID '4BBC82520033'
+ MEPROP Name 'ThickThinLarge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82520033 ThickThinLarge
+
+ME ME_4BBC82590359
+ MEPROP UID '4BBC82590359'
+ MEPROP Name 'ThinThickLarge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82590359 ThinThickLarge
+
+ME ME_4BBC82630189
+ MEPROP UID '4BBC82630189'
+ MEPROP Name 'ThinThickThinLarge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82630189 ThinThickThinLarge
+
+ME ME_4BBC826B018D
+ MEPROP UID '4BBC826B018D'
+ MEPROP Name 'BlackGray'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC826B018D BlackGray
+
+ME ME_4BBC82730269
+ MEPROP UID '4BBC82730269'
+ MEPROP Name 'GrayBlack'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82730269 GrayBlack
+
+ME ME_4BBC827C02D5
+ MEPROP UID '4BBC827C02D5'
+ MEPROP Name 'GrayBlackGray'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC827C02D5 GrayBlackGray
+
+ME ME_4BBC828601D2
+ MEPROP UID '4BBC828601D2'
+ MEPROP Name 'Wavy'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC828601D2 Wavy
+
+ME ME_4BBC828F0136
+ MEPROP UID '4BBC828F0136'
+ MEPROP Name 'DoubleWavy'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC828F0136 DoubleWavy
+
+ME ME_4BBC82970062
+ MEPROP UID '4BBC82970062'
+ MEPROP Name 'Striped'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82970062 Striped
+
+ME ME_4BBC82A00305
+ MEPROP UID '4BBC82A00305'
+ MEPROP Name 'Emboss'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC82A00305 Emboss
+
+ME ME_4BBC83110109
+ MEPROP UID '4BBC83110109'
+ MEPROP Name 'Engrave'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC83110109 Engrave
+
+ME ME_4BBC83190183
+ MEPROP UID '4BBC83190183'
+ MEPROP Name 'Undefined'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+
+ENDME // ME_4BBC83190183 Undefined
+
+ME ME_4BBC818A01EA
+ MEPROP UID '4BBC818A01EA'
+ MEPROP Name 'TedLineStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC81A00322 // Single
+ HWL ME_4BBC81A80396 // DashSmall
+ HWL ME_4BBC81B10075 // DotDash
+ HWL ME_4BBC81B902B6 // DotDotDash
+ HWL ME_4BBC81C1026D // Triple
+ HWL ME_4BBC81F302FD // ThickThinSmall
+ HWL ME_4BBC81FD03E4 // ThinThickSmall
+ HWL ME_4BBC82080287 // ThinThickThinSmall
+ HWL ME_4BBC82110117 // ThickThinMedium
+ HWL ME_4BBC823E0215 // ThinThickMedium
+ HWL ME_4BBC824702CD // ThinThickThinMedium
+ HWL ME_4BBC82520033 // ThickThinLarge
+ HWL ME_4BBC82590359 // ThinThickLarge
+ HWL ME_4BBC82630189 // ThinThickThinLarge
+ HWL ME_4BBC826B018D // BlackGray
+ HWL ME_4BBC82730269 // GrayBlack
+ HWL ME_4BBC827C02D5 // GrayBlackGray
+ HWL ME_4BBC828601D2 // Wavy
+ HWL ME_4BBC828F0136 // DoubleWavy
+ HWL ME_4BBC82970062 // Striped
+ HWL ME_4BBC82A00305 // Emboss
+ HWL ME_4BBC83110109 // Engrave
+ HWL ME_4BBC83190183 // Undefined
+ )
+ ; // Attributes
+ UP "children prefix" 'ls'
+ UP "elements prefix" 'ed'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefixBase 'ed'
+ UP extprop:pas:ElementPrefix 'ed_ls'
+
+ENDME // ME_4BBC818A01EA TedLineStyle
+
+FORWARD ME_4BBC840D036C
+
+ME ME_4BBC84B001E0
+ MEPROP UID '4BBC84B001E0'
+ MEPROP Name 'PIedFramePart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BBC840D036C // IedFramePart
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC840D036C // IedFramePart
+ )
+ ; // Inherits
+ UP "isPointer" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC84B001E0 PIedFramePart
+
+ME ME_4BBC8428039B
+ MEPROP UID '4BBC8428039B'
+ MEPROP Name 'Style'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'стиль линии рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC840D036C // IedFramePart
+ ;
+ MELINK Target HWL ME_4BBC818A01EA // TedLineStyle
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBC8428039B Style
+
+ME ME_4BBC8476015A
+ MEPROP UID '4BBC8476015A'
+ MEPROP Name 'Visible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'видимость рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC840D036C // IedFramePart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBC8476015A Visible
+
+ME ME_4BBC84840004
+ MEPROP UID '4BBC84840004'
+ MEPROP Name 'Color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'цвет рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC840D036C // IedFramePart
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBC84840004 Color
+
+ME ME_4BBC84970173
+ MEPROP UID '4BBC84970173'
+ MEPROP Name 'Width'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC840D036C // IedFramePart
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBC84970173 Width
+
+ME ME_4BBC840D036C
+ MEPROP UID '4BBC840D036C'
+ MEPROP GUID '9142283A-2C6A-47CB-9932-4E122FE28663'
+ MEPROP Name 'IedFramePart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Часть рамки вокруг объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC8428039B // Style
+ HWL ME_4BBC8476015A // Visible
+ HWL ME_4BBC84840004 // Color
+ HWL ME_4BBC84970173 // Width
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4BBC84B001E0 // PIedFramePart
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'FramePart'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC840D036C IedFramePart
+
+FORWARD ME_4BBC84CF0094
+
+ME ME_4BBC84E30279
+ MEPROP UID '4BBC84E30279'
+ MEPROP Name 'Up'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ENDME // ME_4BBC84E30279 Up
+
+ME ME_4BBC84EA00CC
+ MEPROP UID '4BBC84EA00CC'
+ MEPROP Name 'Down'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ENDME // ME_4BBC84EA00CC Down
+
+ME ME_4BBC84F1027E
+ MEPROP UID '4BBC84F1027E'
+ MEPROP Name 'Left'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ENDME // ME_4BBC84F1027E Left
+
+ME ME_4BBC84F901FB
+ MEPROP UID '4BBC84F901FB'
+ MEPROP Name 'Right'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ENDME // ME_4BBC84F901FB Right
+
+ME ME_4BBC85010384
+ MEPROP UID '4BBC85010384'
+ MEPROP Name 'Vert'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ENDME // ME_4BBC85010384 Vert
+
+ME ME_4BBC850B0219
+ MEPROP UID '4BBC850B0219'
+ MEPROP Name 'Horz'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ENDME // ME_4BBC850B0219 Horz
+
+ME ME_4BBC84CF0094
+ MEPROP UID '4BBC84CF0094'
+ MEPROP Name 'TedFramePartIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Индекс части рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC84E30279 // Up
+ HWL ME_4BBC84EA00CC // Down
+ HWL ME_4BBC84F1027E // Left
+ HWL ME_4BBC84F901FB // Right
+ HWL ME_4BBC85010384 // Vert
+ HWL ME_4BBC850B0219 // Horz
+ )
+ ; // Attributes
+ UP "children prefix" 'fpi'
+ UP "elements prefix" 'ed'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefixBase 'ed'
+ UP extprop:pas:ElementPrefix 'ed_fpi'
+
+ENDME // ME_4BBC84CF0094 TedFramePartIndex
+
+FORWARD ME_4BBC89390312
+
+FORWARD ME_4BBC894E036B
+
+ME ME_4BBC89670083
+ MEPROP UID '4BBC89670083'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC894E036B // FramePart
+ ;
+ MELINK Target HWL ME_4BBC84CF0094 // TedFramePartIndex
+ ;
+
+ENDME // ME_4BBC89670083 anIndex
+
+ME ME_4BBC894E036B
+ MEPROP UID '4BBC894E036B'
+ MEPROP Name 'FramePart'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'части рамки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC89390312 // IedFrame
+ ;
+ MELINK Target HWL ME_4BBC840D036C // IedFramePart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC89670083 // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "pm" false
+
+ENDME // ME_4BBC894E036B FramePart
+
+ME ME_4BBC89390312
+ MEPROP UID '4BBC89390312'
+ MEPROP GUID 'BC8E5422-C4E6-41ED-A5AD-4485D6CE85C2'
+ MEPROP Name 'IedFrame'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Рамка вокруг объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC894E036B // FramePart
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'Frame'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC89390312 IedFrame
+
+FORWARD ME_4BBC8546036C
+
+ME ME_4BBC854F027A
+ MEPROP UID '4BBC854F027A'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ MEPROP Value 'Up'
+ MELINK ValueType HWL ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'ed_fpiUp'
+
+ENDME // ME_4BBC854F027A First
+
+ME ME_4BBC858003C7
+ MEPROP UID '4BBC858003C7'
+ MEPROP Name 'Last'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ MEPROP Value 'Right'
+ MELINK ValueType HWL ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'ed_fpiRight'
+
+ENDME // ME_4BBC858003C7 Last
+
+ME ME_4BBC8546036C
+ MEPROP UID '4BBC8546036C'
+ MEPROP Name 'TedNeighbourIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC84CF0094 // TedFramePartIndex
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC854F027A // First
+ HWL ME_4BBC858003C7 // Last
+ )
+ ; // Attributes
+ UP "children prefix" 'fpi'
+ UP "elements prefix" 'ed'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefixBase 'ed'
+ UP extprop:pas:ElementPrefix 'ed_fpi'
+
+ENDME // ME_4BBC8546036C TedNeighbourIndex
+
+ME ME_4BBC853502EF
+ MEPROP UID '4BBC853502EF'
+ MEPROP Name 'TedFramePartIndexes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC84CF0094 // TedFramePartIndex
+ )
+ ; // Inherits
+
+ENDME // ME_4BBC853502EF TedFramePartIndexes
+
+FORWARD ME_4BBC898C0320
+
+ME ME_4BBF42BF004D_ME_4BBC898C0320
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC898C0320 Processor
+
+ME ME_4BBC898C0320
+ MEPROP UID '4BBC898C0320'
+ MEPROP GUID '231B734F-E6ED-4B52-9B15-D06DD96CAE6C'
+ MEPROP Name 'IedProcessorObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4BBF4290001A' '4BC83B8301E5.ms.model.script' // Mk2ProcessorHolder
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC898C0320 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'ProcessorObject'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC898C0320 IedProcessorObject
+
+ME ME_4BBC85940221
+ MEPROP UID '4BBC85940221'
+ MEPROP Name 'edGridFrame'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC84CF0094 // TedFramePartIndex
+ )
+ ; // Inherits
+ UP "spell names" false
+ UP extprop:rc:SelfName 'GridFrame'
+
+ENDME // ME_4BBC85940221 edGridFrame
+
+ME ME_4BBC85A10217
+ MEPROP UID '4BBC85A10217'
+ MEPROP Name 'edBoxFrame'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC8546036C // TedNeighbourIndex
+ )
+ ; // Inherits
+ UP "spell names" false
+ UP extprop:rc:SelfName 'BoxFrame'
+
+ENDME // ME_4BBC85A10217 edBoxFrame
+
+FORWARD ME_4BBC85C1026E
+
+ME ME_4BBC85C802E9
+ MEPROP UID '4BBC85C802E9'
+ MEPROP Name 'edNoneFrame'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC85C1026E // Frame
+ ;
+ MEPROP Value '[]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[]'
+
+ENDME // ME_4BBC85C802E9 edNoneFrame
+
+ME ME_4BBC85C1026E
+ MEPROP UID '4BBC85C1026E'
+ MEPROP Name 'Frame'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC85C802E9 // edNoneFrame
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4BBC85C1026E Frame
+
+FORWARD ME_4BBC89CE035C
+
+ME ME_4BBF42BF004D_ME_4BBC89CE035C
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC89CE035C Processor
+
+ME ME_4BBC89CE035C
+ MEPROP UID '4BBC89CE035C'
+ MEPROP GUID '3D9193F4-9BA4-4C21-B9A4-444DCC0A605B'
+ MEPROP Name 'IedEditableObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC898C0320 // IedProcessorObject
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC89CE035C // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'EditableObject'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC89CE035C IedEditableObject
+
+FORWARD ME_4BBC89E20058
+
+ME ME_4BBC89F8009C
+ MEPROP UID '4BBC89F8009C'
+ MEPROP Name 'Frame'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'рамка вокруг объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC89E20058 // IedFramedObject
+ ;
+ MELINK Target HWL ME_4BBC89390312 // IedFrame
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBC89F8009C Frame
+
+ME ME_4BBF42BF004D_ME_4BBC89E20058
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC89E20058 Processor
+
+ME ME_4BBC89E20058
+ MEPROP UID '4BBC89E20058'
+ MEPROP GUID '19CCAA1B-ADF7-4200-B323-9DA865F6BC87'
+ MEPROP Name 'IedFramedObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий объект с рамкой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC89CE035C // IedEditableObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC89F8009C // Frame
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC89E20058 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'FramedObject'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC89E20058 IedFramedObject
+
+FORWARD ME_4BBC8A230393
+
+ME ME_4BBC89F8009C_ME_4BBC8A230393
+ MELINK Original HWL ME_4BBC89F8009C // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBC89F8009C_ME_4BBC8A230393 Frame
+
+ME ME_4BBF42BF004D_ME_4BBC8A230393
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC8A230393 Processor
+
+ME ME_4BBC8A230393
+ MEPROP UID '4BBC8A230393'
+ MEPROP GUID 'F713F3A6-2C9A-4939-A0B1-36A6DBFFCD44'
+ MEPROP Name 'IedParagraph'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфес для параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC89E20058 // IedFramedObject
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BBC89F8009C_ME_4BBC8A230393 // Frame
+ ME_4BBF42BF004D_ME_4BBC8A230393 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'Paragraph'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC8A230393 IedParagraph
+
+FORWARD ME_4BBC8A3903BE
+
+ME ME_4BBC8A550171
+ MEPROP UID '4BBC8A550171'
+ MEPROP Name 'Style'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'стиль, примененный к параграфу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+ MELINK Target HWL ME_4BBC61DD0368 // IedStyle
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC8A550171 Style
+
+ME ME_4BBC8A8003B8
+ MEPROP UID '4BBC8A8003B8'
+ MEPROP Name 'PrintFontSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'размер шрифта для печати' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC8A8003B8 PrintFontSize
+
+ME ME_4BBC89F8009C_ME_4BBC8A3903BE
+ MELINK Original HWL ME_4BBC89F8009C // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBC89F8009C_ME_4BBC8A3903BE Frame
+
+ME ME_4BBF42BF004D_ME_4BBC8A3903BE
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC8A3903BE Processor
+
+ME ME_4BBC8A3903BE
+ MEPROP UID '4BBC8A3903BE'
+ MEPROP GUID 'E56125B8-F4AE-48DB-9E28-6F56D45562A4'
+ MEPROP Name 'IedLeafParagraph'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Листьевой параграф' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC8A230393 // IedParagraph
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC8A550171 // Style
+ HWL ME_4BBC8A8003B8 // PrintFontSize
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BBC89F8009C_ME_4BBC8A3903BE // Frame
+ ME_4BBF42BF004D_ME_4BBC8A3903BE // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'LeafParagraph'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC8A3903BE IedLeafParagraph
+
+FORWARD ME_4B547F7801F3
+
+ME ME_4BBC8ACD0034
+ MEPROP UID '4BBC8ACD0034'
+ MEPROP Name 'Formatting'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'оформление параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B547F7801F3 // IedTextParagraph
+ ;
+ MELINK Target HWL ME_4BBC80A101EF // IedParagraphFormatting
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC8ACD0034 Formatting
+
+ME ME_4BBC8B1C00A7
+ MEPROP UID '4BBC8B1C00A7'
+ MEPROP Name 'Font'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'шрифт параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B547F7801F3 // IedTextParagraph
+ ;
+ MELINK Target WL 'ME_46A614A202CA' '4677FBA70343.ms.model.script' // Il3Font
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC8B1C00A7 Font
+
+ME ME_4BBC89F8009C_ME_4B547F7801F3
+ MELINK Original HWL ME_4BBC89F8009C // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBC89F8009C_ME_4B547F7801F3 Frame
+
+ME ME_4BBC8A550171_ME_4B547F7801F3
+ MELINK Original HWL ME_4BBC8A550171 // Style
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBC8A550171_ME_4B547F7801F3 Style
+
+ME ME_4BBC8A8003B8_ME_4B547F7801F3
+ MELINK Original HWL ME_4BBC8A8003B8 // PrintFontSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4BBC8A8003B8_ME_4B547F7801F3 PrintFontSize
+
+ME ME_4BBF42BF004D_ME_4B547F7801F3
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4B547F7801F3 Processor
+
+ME ME_4B547F7801F3
+ MEPROP UID '4B547F7801F3'
+ MEPROP GUID 'B5399F1F-CF3D-4AA3-85EF-D67C38E33202'
+ MEPROP Name 'IedTextParagraph'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC8A3903BE // IedLeafParagraph
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC8ACD0034 // Formatting
+ HWL ME_4BBC8B1C00A7 // Font
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BBC89F8009C_ME_4B547F7801F3 // Frame
+ ME_4BBC8A550171_ME_4B547F7801F3 // Style
+ ME_4BBC8A8003B8_ME_4B547F7801F3 // PrintFontSize
+ ME_4BBF42BF004D_ME_4B547F7801F3 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'TextParagraph'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B547F7801F3 IedTextParagraph
+
+FORWARD ME_4BBC910E0391
+
+FORWARD ME_4BBC90130064
+
+ME ME_4BBC91340257
+ MEPROP UID '4BBC91340257'
+ MEPROP Name 'Table'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таблица к которой принадлежит ячейка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target HWL ME_4BBC910E0391 // IedTable
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC91340257 Table
+
+FORWARD ME_4BBC914B03C3
+
+ME ME_4BBC91640022
+ MEPROP UID '4BBC91640022'
+ MEPROP Name 'aNeighbour'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC914B03C3 // Neighbour
+ ;
+ MELINK Target HWL ME_4BBC8546036C // TedNeighbourIndex
+ ;
+
+ENDME // ME_4BBC91640022 aNeighbour
+
+ME ME_4BBC914B03C3
+ MEPROP UID '4BBC914B03C3'
+ MEPROP Name 'Neighbour'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'соседи ячейки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC91640022 // aNeighbour
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_4BBC914B03C3 Neighbour
+
+ME ME_4BBC91960248
+ MEPROP UID '4BBC91960248'
+ MEPROP Name 'Width'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина ячейки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC91960248 Width
+
+ME ME_4BBC91DF0370
+ MEPROP UID '4BBC91DF0370'
+ MEPROP Name 'VerticalAligment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'выравнивание содержимого ячейки по вертикали' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_467BC89800B9' '469D0AC7005E.ms.model.script' // VerticalAligment
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC91DF0370 VerticalAligment
+
+ME ME_4F290E34016D
+ MEPROP UID '4F290E34016D'
+ MEPROP Name 'MergeStatus'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+ UP "pm" true
+
+ENDME // ME_4F290E34016D MergeStatus
+
+FORWARD ME_5112045801FF
+
+ME ME_511204600331
+ MEPROP UID '511204600331'
+ MEPROP Name 'GetCellType'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5112045801FF // GetCellType
+ ;
+ MELINK Target WL 'ME_511203F50077' '572305620264.ms.model.script' // TedCellType
+ ;
+
+ENDME // ME_511204600331 GetCellType
+
+ME ME_5112045801FF
+ MEPROP UID '5112045801FF'
+ MEPROP Name 'GetCellType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает тип содержимого ячейки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_511204600331 // GetCellType
+ )
+ ; // Operations
+
+ENDME // ME_5112045801FF GetCellType
+
+FORWARD ME_511B2BEC02F0
+
+ME ME_511B2F1E018B
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_511B2F1E018B anOp
+
+ME ME_511B2C0603A6
+ MEPROP UID '511B2C0603A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_511B2BEC02F0 // MakeCellContinue
+ ;
+ MELIST Parameters
+   Seq: ( ME_511B2F1E018B // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_511B2C0603A6 DoIt
+
+ME ME_511B2BEC02F0
+ MEPROP UID '511B2BEC02F0'
+ MEPROP Name 'MakeCellContinue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выставить тип ячейке (ev_msContinue) и очистить её содержимое.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_511B2C0603A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_511B2BEC02F0 MakeCellContinue
+
+FORWARD ME_511B2C39034C
+
+ME ME_511B2C440002
+ MEPROP UID '511B2C440002'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_511B2C39034C // CalcHeadCellHeghtInRow
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_511B2C440002 DoIt
+
+ME ME_511B2C39034C
+ MEPROP UID '511B2C39034C'
+ MEPROP Name 'CalcHeadCellHeghtInRow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Посчитать сколько занимает строк объедиенная ячейка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_511B2C440002 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_511B2C39034C CalcHeadCellHeghtInRow
+
+FORWARD ME_512CB1DC00D1
+
+ME ME_512CB2250393
+ MEPROP Name 'aNewWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_512CB2250393 aNewWidth
+
+ME ME_512CB22000FC
+ MEPROP UID '512CB22000FC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512CB1DC00D1 // UpdateWidth
+ ;
+ MELIST Parameters
+   Seq: ( ME_512CB2250393 // aNewWidth
+ )
+ ; // Parameters
+
+ENDME // ME_512CB22000FC DoIt
+
+ME ME_512CB1DC00D1
+ MEPROP UID '512CB1DC00D1'
+ MEPROP Name 'UpdateWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512CB22000FC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_512CB1DC00D1 UpdateWidth
+
+ME ME_4BBC9038028D
+ MEPROP Name 'aNewWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BBC9038028D aNewWidth
+
+ME ME_4BBC90300154
+ MEPROP UID '4BBC90300154'
+ MEPROP Name 'UpdateWidthAndCheckHead'
+ MEPROP Class class_Operation
+ %SUMMARY 'изменяет ширину ячейки, в том числе и объединенных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBC9038028D // aNewWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC90300154 UpdateWidthAndCheckHead
+
+ME ME_4BBC90800314
+ MEPROP Name 'aNeighbour'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ MEPROP Value 'Right'
+ MELINK ValueType HWL ME_4BBC8546036C // TedNeighbourIndex
+ ;
+ UP extprop:pas:Value 'ed_fpiRight'
+
+ENDME // ME_4BBC90800314 aNeighbour
+
+ME ME_4BBC906D00E8
+ MEPROP UID '4BBC906D00E8'
+ MEPROP Name 'Merge'
+ MEPROP Class class_Operation
+ %SUMMARY 'объединяет ячейку с соседом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBC90800314 // aNeighbour
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC906D00E8 Merge
+
+ME ME_4BBC909D0116
+ MEPROP Name 'aColNum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 2
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 2
+
+ENDME // ME_4BBC909D0116 aColNum
+
+ME ME_4BBC909D0145
+ MEPROP Name 'aRowNum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 1
+
+ENDME // ME_4BBC909D0145 aRowNum
+
+ME ME_4BBC908A0312
+ MEPROP UID '4BBC908A0312'
+ MEPROP Name 'Split'
+ MEPROP Class class_Operation
+ %SUMMARY 'разбивает ячейку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBC909D0116 // aColNum
+ ME_4BBC909D0145 // aRowNum
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC908A0312 Split
+
+ME ME_4BBC90AE00C5
+ MEPROP Name 'anOrientation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A47DE80309' '4677FBA70343.ms.model.script' // Tl3Orientation1
+ ;
+
+ENDME // ME_4BBC90AE00C5 anOrientation
+
+ME ME_4BBC90A5006F
+ MEPROP UID '4BBC90A5006F'
+ MEPROP Name 'Split'
+ MEPROP Class class_Operation
+ %SUMMARY 'разбивает ячейку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBC90AE00C5 // anOrientation
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC90A5006F Split
+
+ME ME_4BBC90B601A3
+ MEPROP UID '4BBC90B601A3'
+ MEPROP Name 'IsFirst'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает - первая ли это ячейка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBC90B601A3 IsFirst
+
+ME ME_4BBC90CB0396
+ MEPROP UID '4BBC90CB0396'
+ MEPROP Name 'IsLast'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает - последняя ли это ячейка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBC90CB0396 IsLast
+
+ME ME_4BBC90DE010C
+ MEPROP UID '4BBC90DE010C'
+ MEPROP Name 'IsBottom'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает - самая ли ячейка нижняя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBC90DE010C IsBottom
+
+ME ME_511B2F3E019D
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_511B2F3E019D anOp
+
+ME ME_511B2F3E01CB
+ MEPROP Name 'anInMerge'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_511B2F3E01CB anInMerge
+
+ME ME_4BBC90F1002D
+ MEPROP UID '4BBC90F1002D'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'удаляет ячейку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_511B2F3E019D // anOp
+ ME_511B2F3E01CB // anInMerge
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC90F1002D Delete
+
+ME ME_4FA4EEDF0370
+ MEPROP UID '4FA4EEDF0370'
+ MEPROP Name 'TextAsInteger'
+ MEPROP Class class_Operation
+ %SUMMARY 'Пытается преобразовать текст в ячейке к целому числу.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FA4EEDF0370 TextAsInteger
+
+ME ME_4FC728DF02A2
+ MEPROP UID '4FC728DF02A2'
+ MEPROP Name 'GetFirstLineText'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает первую строку ячейки. Использыется для тестов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4FC728DF02A2 GetFirstLineText
+
+ME ME_4FC764D402BF
+ MEPROP UID '4FC764D402BF'
+ MEPROP Name 'IsEmptyCell'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC764D402BF IsEmptyCell
+
+ME ME_502CAE3301E7
+ MEPROP UID '502CAE3301E7'
+ MEPROP Name 'IsFrameEmpty'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC90130064 // IedCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_502CAE3301E7 IsFrameEmpty
+
+ME ME_4A42196C01CE_ME_4BBC90130064
+ MELINK Original WL 'ME_4A42196C01CE' '47913B47006E.ms.model.script' // AsObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A42196C01CE_ME_4BBC90130064 AsObject
+
+ME ME_4BBC89F8009C_ME_4BBC90130064
+ MELINK Original HWL ME_4BBC89F8009C // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBC89F8009C_ME_4BBC90130064 Frame
+
+ME ME_4BBF42BF004D_ME_4BBC90130064
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC90130064 Processor
+
+ME ME_4BBC90130064
+ MEPROP UID '4BBC90130064'
+ MEPROP GUID '2E56A71D-AC99-4F61-B5EB-4EE95B33798E'
+ MEPROP Name 'IedCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий ячейку таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC89E20058 // IedFramedObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5346BD1D0373' '47913B47006E.ms.model.script' // Ml3TagBox
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC91340257 // Table
+ HWL ME_4BBC914B03C3 // Neighbour
+ HWL ME_4BBC91960248 // Width
+ HWL ME_4BBC91DF0370 // VerticalAligment
+ HWL ME_4F290E34016D // MergeStatus
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5112045801FF // GetCellType
+ HWL ME_511B2BEC02F0 // MakeCellContinue
+ HWL ME_511B2C39034C // CalcHeadCellHeghtInRow
+ HWL ME_512CB1DC00D1 // UpdateWidth
+ HWL ME_4BBC90300154 // UpdateWidthAndCheckHead
+ HWL ME_4BBC906D00E8 // Merge
+ HWL ME_4BBC908A0312 // Split
+ HWL ME_4BBC90A5006F // Split
+ HWL ME_4BBC90B601A3 // IsFirst
+ HWL ME_4BBC90CB0396 // IsLast
+ HWL ME_4BBC90DE010C // IsBottom
+ HWL ME_4BBC90F1002D // Delete
+ HWL ME_4FA4EEDF0370 // TextAsInteger
+ HWL ME_4FC728DF02A2 // GetFirstLineText
+ HWL ME_4FC764D402BF // IsEmptyCell
+ HWL ME_502CAE3301E7 // IsFrameEmpty
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A42196C01CE_ME_4BBC90130064 // AsObject
+ ME_4BBC89F8009C_ME_4BBC90130064 // Frame
+ ME_4BBF42BF004D_ME_4BBC90130064 // Processor
+ )
+ ; // Implemented
+ MELIST Forwarded
+   Seq: ( HWL ME_4BBC910E0391 // IedTable
+ )
+ ; // Forwarded
+ UP extprop:rc:SelfName 'Cell'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC90130064 IedCell
+
+FORWARD ME_4BBC95440333
+
+FORWARD ME_4BBC958A01C3
+
+FORWARD ME_4BBC95BF001F
+
+FORWARD ME_4BBC961903CD
+
+ME ME_4BBCB0470309
+ MEPROP UID '4BBCB0470309'
+ MEPROP Name 'Cell'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текущая ячейка таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target HWL ME_4BBC90130064 // IedCell
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBCB0470309 Cell
+
+ME ME_4BBCB05B0293
+ MEPROP UID '4BBCB05B0293'
+ MEPROP Name 'Cells'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'диапазон ячеек таблицы для выделения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target HWL ME_4BBC961903CD // IedCells
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBCB05B0293 Cells
+
+ME ME_4BBCB07702A8
+ MEPROP UID '4BBCB07702A8'
+ MEPROP Name 'Column'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текущая колонка таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target HWL ME_4BBC958A01C3 // IedColumn
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBCB07702A8 Column
+
+ME ME_4BBCB0890007
+ MEPROP UID '4BBCB0890007'
+ MEPROP Name 'ColumnsIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target HWL ME_4BBC95BF001F // IedColumnsIterator
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBCB0890007 ColumnsIterator
+
+ME ME_4BBCB0A0014A
+ MEPROP UID '4BBCB0A0014A'
+ MEPROP Name 'RowsIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target HWL ME_4BBC95440333 // IedRowsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCB0A0014A RowsIterator
+
+ME ME_4BBCB0BE004E
+ MEPROP UID '4BBCB0BE004E'
+ MEPROP Name 'OldNSRC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCB0BE004E OldNSRC
+
+FORWARD ME_4FC49AA30122
+
+ME ME_5342B7C902F2
+ MEPROP Name 'aRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_533D316E00BF' '4678137501EA.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5342B7C902F2 aRow
+
+ME ME_5342B7C90343
+ MEPROP Name 'aCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_5342B7C90343 aCell
+
+ME ME_4FC49AB602E7
+ MEPROP Name 'aTagIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4FC49AB602E7 aTagIndex
+
+ME ME_5342B7C903AD
+ MEPROP Name 'aLocation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+
+ENDME // ME_5342B7C903AD aLocation
+
+ME ME_4FC49AB60354
+ MEPROP Name 'anInitNeighbours'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC49AB60354 anInitNeighbours
+
+ME ME_4FC49AAE01A4
+ MEPROP UID '4FC49AAE01A4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC49AA30122 // GetTagCell
+ ;
+ MELINK Target HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Parameters
+   Seq: ( ME_5342B7C902F2 // aRow
+ ME_5342B7C90343 // aCell
+ ME_4FC49AB602E7 // aTagIndex
+ ME_5342B7C903AD // aLocation
+ ME_4FC49AB60354 // anInitNeighbours
+ )
+ ; // Parameters
+
+ENDME // ME_4FC49AAE01A4 DoIt
+
+ME ME_4FC49AA30122
+ MEPROP UID '4FC49AA30122'
+ MEPROP Name 'GetTagCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Времянка до переноса на модель evParaUtilClasses на модель.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC49AAE01A4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC49AA30122 GetTagCell
+
+FORWARD ME_50DD7CA901AD
+
+ME ME_50DD7CB203A7
+ MEPROP UID '50DD7CB203A7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50DD7CA901AD // GetTag
+ ;
+ MELINK Target WL 'ME_533D316E00BF' '4678137501EA.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_50DD7CB203A7 DoIt
+
+ME ME_50DD7CA901AD
+ MEPROP UID '50DD7CA901AD'
+ MEPROP Name 'GetTag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50DD7CB203A7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50DD7CA901AD GetTag
+
+ME ME_4BBCAF850333
+ MEPROP Name 'NumRows'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4BBCAF850333 NumRows
+
+ME ME_4BBCAF7B0203
+ MEPROP UID '4BBCAF7B0203'
+ MEPROP Name 'InsertRows'
+ MEPROP Class class_Operation
+ %SUMMARY 'втавляет NumRows строк в текущее место таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCAF850333 // NumRows
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCAF7B0203 InsertRows
+
+ME ME_4FCE121E032D
+ MEPROP Name 'anIndicator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47DA7D6003B8' '4678209200A6.ms.model.script' // InevProgress
+ ;
+
+ENDME // ME_4FCE121E032D anIndicator
+
+ME ME_4BBCAF9600F1
+ MEPROP UID '4BBCAF9600F1'
+ MEPROP Name 'Split'
+ MEPROP Class class_Operation
+ %SUMMARY 'разделяет таблицу на две, в текущем месте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FCE121E032D // anIndicator
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCAF9600F1 Split
+
+ME ME_4F6C329C0347
+ MEPROP Name 'anIndicator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47DA7D6003B8' '4678209200A6.ms.model.script' // InevProgress
+ ;
+
+ENDME // ME_4F6C329C0347 anIndicator
+
+ME ME_4BBCAFA802FB
+ MEPROP UID '4BBCAFA802FB'
+ MEPROP Name 'Merge'
+ MEPROP Class class_Operation
+ %SUMMARY 'объединяет таблицу со следующей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C329C0347 // anIndicator
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCAFA802FB Merge
+
+ME ME_4BBCAFBC0333
+ MEPROP UID '4BBCAFBC0333'
+ MEPROP Name 'FirstRowID'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает номер первой выделенной строки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4BBCAFBC0333 FirstRowID
+
+ME ME_4BBCAFD10171
+ MEPROP UID '4BBCAFD10171'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'удаляет таблицу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBCAFD10171 Delete
+
+ME ME_4BBCAFFE0032
+ MEPROP UID '4BBCAFFE0032'
+ MEPROP Name 'RowCount'
+ MEPROP Class class_Operation
+ %SUMMARY 'возварщает количество строк в таблице' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC910E0391 // IedTable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BBCAFFE0032 RowCount
+
+ME ME_4BBC89F8009C_ME_4BBC910E0391
+ MELINK Original HWL ME_4BBC89F8009C // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBC89F8009C_ME_4BBC910E0391 Frame
+
+ME ME_4BBF42BF004D_ME_4BBC910E0391
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC910E0391 Processor
+
+ME ME_4BBC910E0391
+ MEPROP UID '4BBC910E0391'
+ MEPROP GUID '310438B0-F1B6-4FC8-AEA9-1C2F3160482B'
+ MEPROP Name 'IedTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий таблицу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC89E20058 // IedFramedObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBCB0470309 // Cell
+ HWL ME_4BBCB05B0293 // Cells
+ HWL ME_4BBCB07702A8 // Column
+ HWL ME_4BBCB0890007 // ColumnsIterator
+ HWL ME_4BBCB0A0014A // RowsIterator
+ HWL ME_4BBCB0BE004E // OldNSRC
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FC49AA30122 // GetTagCell
+ HWL ME_50DD7CA901AD // GetTag
+ HWL ME_4BBCAF7B0203 // InsertRows
+ HWL ME_4BBCAF9600F1 // Split
+ HWL ME_4BBCAFA802FB // Merge
+ HWL ME_4BBCAFBC0333 // FirstRowID
+ HWL ME_4BBCAFD10171 // Delete
+ HWL ME_4BBCAFFE0032 // RowCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBC89F8009C_ME_4BBC910E0391 // Frame
+ ME_4BBF42BF004D_ME_4BBC910E0391 // Processor
+ )
+ ; // Implemented
+ MELIST Forwarded
+   Seq: ( HWL ME_4BBC95440333 // IedRowsIterator
+ HWL ME_4BBC958A01C3 // IedColumn
+ HWL ME_4BBC95BF001F // IedColumnsIterator
+ HWL ME_4BBC961903CD // IedCells
+ )
+ ; // Forwarded
+ UP extprop:rc:SelfName 'Table'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC910E0391 IedTable
+
+FORWARD ME_4BBC920100CB
+
+ME ME_4BBC922F02BE
+ MEPROP Name 'aNeedNeighbours'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBC922F02BE aNeedNeighbours
+
+ME ME_4BBC922302CA
+ MEPROP UID '4BBC922302CA'
+ MEPROP Name 'Last'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает последнюю ячейку и начинает перебор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC920100CB // IedBackCellsIterator
+ ;
+ MELINK Target HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBC922F02BE // aNeedNeighbours
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC922302CA Last
+
+ME ME_4BBC92390009
+ MEPROP UID '4BBC92390009'
+ MEPROP Name 'Prev'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает предыдущую ячейку или nil, если перебор закончен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC920100CB // IedBackCellsIterator
+ ;
+ MELINK Target HWL ME_4BBC90130064 // IedCell
+ ;
+
+ENDME // ME_4BBC92390009 Prev
+
+ME ME_4BBF42BF004D_ME_4BBC920100CB
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC920100CB Processor
+
+ME ME_4BBC920100CB
+ MEPROP UID '4BBC920100CB'
+ MEPROP GUID 'AC012527-AACB-4848-885E-AEF71CADE91D'
+ MEPROP Name 'IedBackCellsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий обратный перебор ячеек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC898C0320 // IedProcessorObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BBC922302CA // Last
+ HWL ME_4BBC92390009 // Prev
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC920100CB // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'BackCellsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC920100CB IedBackCellsIterator
+
+FORWARD ME_4BBC93F50176
+
+ME ME_4BBC9430038B
+ MEPROP UID '4BBC9430038B'
+ MEPROP Name 'BackIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC93F50176 // IedCellsIterator
+ ;
+ MELINK Target HWL ME_4BBC920100CB // IedBackCellsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC9430038B BackIterator
+
+ME ME_4BBC9454000D
+ MEPROP Name 'aNeedNeighbours'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBC9454000D aNeedNeighbours
+
+ME ME_4BBC944C0195
+ MEPROP UID '4BBC944C0195'
+ MEPROP Name 'First'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает первую ячейку и начинает перебор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC93F50176 // IedCellsIterator
+ ;
+ MELINK Target HWL ME_4BBC90130064 // IedCell
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBC9454000D // aNeedNeighbours
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC944C0195 First
+
+ME ME_4BBC94640082
+ MEPROP UID '4BBC94640082'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает следующую ячейку или nil, если перебор закончен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC93F50176 // IedCellsIterator
+ ;
+ MELINK Target HWL ME_4BBC90130064 // IedCell
+ ;
+
+ENDME // ME_4BBC94640082 Next
+
+ME ME_4BBC947B0399
+ MEPROP UID '4BBC947B0399'
+ MEPROP Name 'CellsCount'
+ MEPROP Class class_Operation
+ %SUMMARY 'Количество ячеек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC93F50176 // IedCellsIterator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BBC947B0399 CellsCount
+
+ME ME_4BBF42BF004D_ME_4BBC93F50176
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC93F50176 Processor
+
+ME ME_4BBC93F50176
+ MEPROP UID '4BBC93F50176'
+ MEPROP GUID 'D1687D4A-F58E-46BA-88AB-4D62B21EEB1A'
+ MEPROP Name 'IedCellsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий перебор ячеек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC898C0320 // IedProcessorObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC9430038B // BackIterator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BBC944C0195 // First
+ HWL ME_4BBC94640082 // Next
+ HWL ME_4BBC947B0399 // CellsCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC93F50176 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'CellsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC93F50176 IedCellsIterator
+
+FORWARD ME_4BBC94B70059
+
+ME ME_4BBC94CF038F
+ MEPROP UID '4BBC94CF038F'
+ MEPROP Name 'Table'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таблица, которой принадлежит строка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC94B70059 // IedRow
+ ;
+ MELINK Target HWL ME_4BBC910E0391 // IedTable
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC94CF038F Table
+
+ME ME_4BBC94F0016E
+ MEPROP UID '4BBC94F0016E'
+ MEPROP Name 'CellsIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC94B70059 // IedRow
+ ;
+ MELINK Target HWL ME_4BBC93F50176 // IedCellsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC94F0016E CellsIterator
+
+FORWARD ME_4FC49F620379
+
+ME ME_4FC49F6D0082
+ MEPROP UID '4FC49F6D0082'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC49F620379 // AnalizeRowCells
+ ;
+ MELINK Target WL 'ME_4FC5C77503C7' '572305620264.ms.model.script' // TedRowType
+ ;
+
+ENDME // ME_4FC49F6D0082 DoIt
+
+ME ME_4FC49F620379
+ MEPROP UID '4FC49F620379'
+ MEPROP Name 'AnalizeRowCells'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC94B70059 // IedRow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC49F6D0082 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC49F620379 AnalizeRowCells
+
+ME ME_4BBF42BF004D_ME_4BBC94B70059
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC94B70059 Processor
+
+ME ME_4BBC94B70059
+ MEPROP UID '4BBC94B70059'
+ MEPROP GUID '60F7CDBC-9E6C-4F05-900E-0CC7F8C8FD38'
+ MEPROP Name 'IedRow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Строка таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC89CE035C // IedEditableObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC94CF038F // Table
+ HWL ME_4BBC94F0016E // CellsIterator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FC49F620379 // AnalizeRowCells
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC94B70059 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'Row'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC94B70059 IedRow
+
+ME ME_4BBC95580242
+ MEPROP UID '4BBC95580242'
+ MEPROP Name 'First'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает первую строку и начинает перебор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC95440333 // IedRowsIterator
+ ;
+ MELINK Target HWL ME_4BBC94B70059 // IedRow
+ ;
+
+ENDME // ME_4BBC95580242 First
+
+ME ME_4BBC956B02B6
+ MEPROP UID '4BBC956B02B6'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает следующую строку или nil, если перебор закончен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC95440333 // IedRowsIterator
+ ;
+ MELINK Target HWL ME_4BBC94B70059 // IedRow
+ ;
+
+ENDME // ME_4BBC956B02B6 Next
+
+ME ME_4BBF42BF004D_ME_4BBC95440333
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC95440333 Processor
+
+ME ME_4BBC95440333
+ MEPROP UID '4BBC95440333'
+ MEPROP GUID '13948C52-C4D8-416A-8E30-B119F8218412'
+ MEPROP Name 'IedRowsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий перебор строк таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC898C0320 // IedProcessorObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BBC95580242 // First
+ HWL ME_4BBC956B02B6 // Next
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC95440333 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'RowsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC95440333 IedRowsIterator
+
+ME ME_4BBCAEC2034D
+ MEPROP UID '4BBCAEC2034D'
+ MEPROP Name 'CellsIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'итератор ячеек колонки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC958A01C3 // IedColumn
+ ;
+ MELINK Target HWL ME_4BBC93F50176 // IedCellsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCAEC2034D CellsIterator
+
+ME ME_4BBCAEF3001D
+ MEPROP UID '4BBCAEF3001D'
+ MEPROP Name 'Width'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'ширина колонки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC958A01C3 // IedColumn
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCAEF3001D Width
+
+ME ME_4BBCAF08019B
+ MEPROP UID '4BBCAF08019B'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'номер колонки по порядку от левого края таблицы (начиная с 0)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC958A01C3 // IedColumn
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCAF08019B ID
+
+ME ME_4BBF42BF004D_ME_4BBC958A01C3
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC958A01C3 Processor
+
+ME ME_4BBC958A01C3
+ MEPROP UID '4BBC958A01C3'
+ MEPROP GUID '8D87847B-CBCA-4E7E-84A5-ED2E50A16ADB'
+ MEPROP Name 'IedColumn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс представляющий колонку таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC89CE035C // IedEditableObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBCAEC2034D // CellsIterator
+ HWL ME_4BBCAEF3001D // Width
+ HWL ME_4BBCAF08019B // ID
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC958A01C3 // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'Column'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC958A01C3 IedColumn
+
+ME ME_4BBC95D40132
+ MEPROP UID '4BBC95D40132'
+ MEPROP Name 'First'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает первый столбец и начинает перебор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC95BF001F // IedColumnsIterator
+ ;
+ MELINK Target HWL ME_4BBC958A01C3 // IedColumn
+ ;
+
+ENDME // ME_4BBC95D40132 First
+
+ME ME_4BBC95E6029D
+ MEPROP UID '4BBC95E6029D'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает следующий столбец или nil, если перебор закончен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC95BF001F // IedColumnsIterator
+ ;
+ MELINK Target HWL ME_4BBC958A01C3 // IedColumn
+ ;
+
+ENDME // ME_4BBC95E6029D Next
+
+ME ME_4BBF42BF004D_ME_4BBC95BF001F
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC95BF001F Processor
+
+ME ME_4BBC95BF001F
+ MEPROP UID '4BBC95BF001F'
+ MEPROP GUID '4CB6AB7D-9813-4ED9-A207-5789E8645932'
+ MEPROP Name 'IedColumnsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс, обеспечивающий перебор столбцов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC898C0320 // IedProcessorObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BBC95D40132 // First
+ HWL ME_4BBC95E6029D // Next
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBC95BF001F // Processor
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'ColumnsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC95BF001F IedColumnsIterator
+
+FORWARD ME_4BBC96360015
+
+ME ME_4BBC966A02BA
+ MEPROP UID '4BBC966A02BA'
+ MEPROP Name 'All'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+
+ENDME // ME_4BBC966A02BA All
+
+ME ME_4BBC967303B5
+ MEPROP UID '4BBC967303B5'
+ MEPROP Name 'Horz'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+
+ENDME // ME_4BBC967303B5 Horz
+
+ME ME_4BBC967B0390
+ MEPROP UID '4BBC967B0390'
+ MEPROP Name 'Vert'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+
+ENDME // ME_4BBC967B0390 Vert
+
+ME ME_4BBC96360015
+ MEPROP UID '4BBC96360015'
+ MEPROP Name 'TedMergeAlgorythm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BBC961903CD // IedCells
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC966A02BA // All
+ HWL ME_4BBC967303B5 // Horz
+ HWL ME_4BBC967B0390 // Vert
+ )
+ ; // Attributes
+ UP "children prefix" 'ma'
+ UP "elements prefix" 'ed'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefixBase 'ed'
+ UP extprop:pas:ElementPrefix 'ed_ma'
+
+ENDME // ME_4BBC96360015 TedMergeAlgorythm
+
+ME ME_4BBC9D99015E
+ MEPROP UID '4BBC9D99015E'
+ MEPROP Name 'TableRange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'диапазон выделения в таблице' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC961903CD // IedCells
+ ;
+ MELINK Target WL 'ME_47C7DB3E03C1' '47C5207602D1.ms.model.script' // IevTableRange
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC9D99015E TableRange
+
+ME ME_4BBC9DB602BA
+ MEPROP UID '4BBC9DB602BA'
+ MEPROP Name 'Table'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таблица, к которому принадлежит данный диапазон ячеек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC961903CD // IedCells
+ ;
+ MELINK Target HWL ME_4BBC910E0391 // IedTable
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC9DB602BA Table
+
+ME ME_4BBC9DEE0322
+ MEPROP UID '4BBC9DEE0322'
+ MEPROP Name 'VerticalAligment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'выравнивание содержимого ячейки по вертикали' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBC961903CD // IedCells
+ ;
+ MELINK Target WL 'ME_467BC89800B9' '469D0AC7005E.ms.model.script' // VerticalAligment
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBC9DEE0322 VerticalAligment
+
+ME ME_4BFCC3740001
+ MEPROP Name 'aMergeAlg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+ MEPROP Value 'All'
+ MELINK ValueType HWL ME_4BBC96360015 // TedMergeAlgorythm
+ ;
+ UP extprop:pas:Value 'ed_maAll'
+
+ENDME // ME_4BFCC3740001 aMergeAlg
+
+ME ME_4BBC978B0203
+ MEPROP UID '4BBC978B0203'
+ MEPROP Name 'Merge'
+ MEPROP Class class_Operation
+ %SUMMARY 'объединить ячейки в диапазоне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC961903CD // IedCells
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BFCC3740001 // aMergeAlg
+ )
+ ; // Parameters
+
+ENDME // ME_4BBC978B0203 Merge
+
+ME ME_4BFCC6860038
+ MEPROP UID '4BFCC6860038'
+ MEPROP Name 'Translate2Text'
+ MEPROP Class class_Operation
+ %SUMMARY 'преобразуем диапазон ячеек в текст.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BBC961903CD // IedCells
+ ;
+
+ENDME // ME_4BFCC6860038 Translate2Text
+
+ME ME_4BBC89F8009C_ME_4BBC961903CD
+ MELINK Original HWL ME_4BBC89F8009C // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBC89F8009C_ME_4BBC961903CD Frame
+
+ME ME_4BBF42BF004D_ME_4BBC961903CD
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4BBF42BF004D_ME_4BBC961903CD Processor
+
+ME ME_4BBC961903CD
+ MEPROP UID '4BBC961903CD'
+ MEPROP GUID 'FD5C09F4-6DF7-472B-B7B7-4F07CDD1095E'
+ MEPROP Name 'IedCells'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейc представляющий диапазон ячеек таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC89E20058 // IedFramedObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBC9D99015E // TableRange
+ HWL ME_4BBC9DB602BA // Table
+ HWL ME_4BBC9DEE0322 // VerticalAligment
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BBC978B0203 // Merge
+ HWL ME_4BFCC6860038 // Translate2Text
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBC89F8009C_ME_4BBC961903CD // Frame
+ ME_4BBF42BF004D_ME_4BBC961903CD // Processor
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4BBC96360015 // TedMergeAlgorythm
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'Cells'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBC961903CD IedCells
+
+FORWARD ME_4BBCB1060196
+
+ME ME_4BBCB11B0108
+ MEPROP UID '4BBCB11B0108'
+ MEPROP Name 'Word'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBCB1060196 // TedRangePart
+ ;
+
+ENDME // ME_4BBCB11B0108 Word
+
+ME ME_4BBCB1240017
+ MEPROP UID '4BBCB1240017'
+ MEPROP Name 'ToLeftWord'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBCB1060196 // TedRangePart
+ ;
+
+ENDME // ME_4BBCB1240017 ToLeftWord
+
+ME ME_4BBCB12F02A4
+ MEPROP UID '4BBCB12F02A4'
+ MEPROP Name 'ToWordFinish'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBCB1060196 // TedRangePart
+ ;
+
+ENDME // ME_4BBCB12F02A4 ToWordFinish
+
+ME ME_4BBCB138023F
+ MEPROP UID '4BBCB138023F'
+ MEPROP Name 'ToRightWord'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBCB1060196 // TedRangePart
+ ;
+
+ENDME // ME_4BBCB138023F ToRightWord
+
+ME ME_4BBCB1430064
+ MEPROP UID '4BBCB1430064'
+ MEPROP Name 'WholeWordRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBCB1060196 // TedRangePart
+ ;
+
+ENDME // ME_4BBCB1430064 WholeWordRight
+
+ME ME_4BBCB1060196
+ MEPROP UID '4BBCB1060196'
+ MEPROP Name 'TedRangePart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBCB11B0108 // Word
+ HWL ME_4BBCB1240017 // ToLeftWord
+ HWL ME_4BBCB12F02A4 // ToWordFinish
+ HWL ME_4BBCB138023F // ToRightWord
+ HWL ME_4BBCB1430064 // WholeWordRight
+ )
+ ; // Attributes
+ UP "children prefix" 'rp'
+ UP "elements prefix" 'ed'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefixBase 'ed'
+ UP extprop:pas:ElementPrefix 'ed_rp'
+
+ENDME // ME_4BBCB1060196 TedRangePart
+
+FORWARD ME_48E38399034C
+
+ME ME_4BBCB16B01A8
+ MEPROP UID '4BBCB16B01A8'
+ MEPROP Name 'Paragraph'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'получает абстрактный параграф в диапазоне, если он в него входит' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target HWL ME_4BBC8A230393 // IedParagraph
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBCB16B01A8 Paragraph
+
+ME ME_4BBCB17D02BC
+ MEPROP UID '4BBCB17D02BC'
+ MEPROP Name 'Table'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'получает таблицу в диапазоне, если она в него входит' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target HWL ME_4BBC910E0391 // IedTable
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBCB17D02BC Table
+
+ME ME_4BBCB1E00074
+ MEPROP UID '4BBCB1E00074'
+ MEPROP Name 'Hyperlink'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'получает гиперссылку в диапазоне, если она в него входит' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+ UP "pm" false
+
+ENDME // ME_4BBCB1E00074 Hyperlink
+
+ME ME_4BBCB211030A
+ MEPROP UID '4BBCB211030A'
+ MEPROP Name 'Collapsed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'выделение или точка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCB211030A Collapsed
+
+ME ME_4BBCB22F02D6
+ MEPROP UID '4BBCB22F02D6'
+ MEPROP Name 'TextParagraph'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY '"текстовый" параграф в выделении' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target HWL ME_4B547F7801F3 // IedTextParagraph
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCB22F02D6 TextParagraph
+
+FORWARD ME_4BBCB24A0106
+
+ME ME_4BBCB263027C
+ MEPROP UID '4BBCB263027C'
+ MEPROP Name 'aPart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BBCB24A0106 // Part
+ ;
+ MELINK Target HWL ME_4BBCB1060196 // TedRangePart
+ ;
+
+ENDME // ME_4BBCB263027C aPart
+
+ME ME_4BBCB24A0106
+ MEPROP UID '4BBCB24A0106'
+ MEPROP Name 'Part'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'часть выделения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target HWL ME_48E38399034C // IedRange
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBCB263027C // aPart
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_4BBCB24A0106 Part
+
+ME ME_4BBCB28E02E6
+ MEPROP UID '4BBCB28E02E6'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_47C6B7BE0395' '47C5207602D1.ms.model.script' // IevDocument
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCB28E02E6 Document
+
+FORWARD ME_4BBDD4900292
+
+ME ME_4BBDD4E20330
+ MEPROP UID '4BBDD4E20330'
+ MEPROP Name 'aProgress'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_in::Attribute ;
+ %SUMMARY 'Индикатор прогресса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBDD4900292 // IterateLeafParagraphs
+ ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4BBDD4E20330 aProgress
+
+ME ME_4BBDD4F403D2
+ MEPROP UID '4BBDD4F403D2'
+ MEPROP Name 'anOpCode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_in::Attribute ;
+ %SUMMARY 'Идентификатор операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBDD4900292 // IterateLeafParagraphs
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP extprop:pas:Value 1
+
+ENDME // ME_4BBDD4F403D2 anOpCode
+
+ME ME_4BBDD4A600D7
+ MEPROP UID '4BBDD4A600D7'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBDD4900292 // IterateLeafParagraphs
+ ;
+ MELINK Target HWL ME_4BBC8A3903BE // IedLeafParagraph
+ ;
+
+ENDME // ME_4BBDD4A600D7 
+
+ME ME_4BBDD4900292
+ MEPROP UID '4BBDD4900292'
+ MEPROP Name 'IterateLeafParagraphs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Iterator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перебирает все листьевые параграфы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBDD4E20330 // aProgress
+ HWL ME_4BBDD4F403D2 // anOpCode
+ HWL ME_4BBDD4A600D7 // 
+ )
+ ; // Attributes
+ UP "needs index" false
+ UP "needs result" false
+
+ENDME // ME_4BBDD4900292 IterateLeafParagraphs
+
+ME ME_4BBCB2AD02B2
+ MEPROP UID '4BBCB2AD02B2'
+ MEPROP Name 'ContainsOneLeaf'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверяет содержит ли диапазон только один листьевой параграф' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBCB2AD02B2 ContainsOneLeaf
+
+ME ME_4BBCB2CB030C
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ MEPROP Value 'cf_Text'
+ MELINK ValueType WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ UP extprop:pas:Value 'cf_Text'
+
+ENDME // ME_4BBCB2CB030C aFormat
+
+ME ME_4BBCB2C003AE
+ MEPROP UID '4BBCB2C003AE'
+ MEPROP Name 'AsString'
+ MEPROP Class class_Operation
+ %SUMMARY 'получает текст в диапазоне' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCB2CB030C // aFormat
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCB2C003AE AsString
+
+ME ME_4BBCB3400051
+ MEPROP Name 'aMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6926702A2' '47C5207602D1.ms.model.script' // TevClearMode
+ ;
+ MEPROP Value 'ev_cmKeepOne'
+ MELINK ValueType WL 'ME_47C6926702A2' '47C5207602D1.ms.model.script' // TevClearMode
+ ;
+ UP extprop:pas:Value 'nevTools.ev_cmKeepOne'
+
+ENDME // ME_4BBCB3400051 aMode
+
+ME ME_4BBCB3350175
+ MEPROP UID '4BBCB3350175'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'удаляет содержимое диапазона' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCB3400051 // aMode
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCB3350175 Delete
+
+ME ME_4BBCB365013B
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+
+ENDME // ME_4BBCB365013B aFormat
+
+ME ME_4BBCB3650199
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_4BBCB3650199 aData
+
+ME ME_4BBCB36501F7
+ MEPROP Name 'aNeedClearOld'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4BBCB36501F7 aNeedClearOld
+
+ME ME_4BBCB34C003A
+ MEPROP UID '4BBCB34C003A'
+ MEPROP Name 'InsertData'
+ MEPROP Class class_Operation
+ %SUMMARY 'вставить данные из памяти в формате aFormat' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCB365013B // aFormat
+ ME_4BBCB3650199 // aData
+ ME_4BBCB36501F7 // aNeedClearOld
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCB34C003A InsertData
+
+ME ME_4BBCB38100C4
+ MEPROP Name 'aTextSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_4BBCB38100C4 aTextSource
+
+ME ME_4BBCB3810125
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_4BBCB3810125 aFilters
+
+ME ME_57BC238600B5
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_57BC238600B5 aBlock
+
+ME ME_4BBCB36D03B8
+ MEPROP UID '4BBCB36D03B8'
+ MEPROP Name 'InsertFrom'
+ MEPROP Class class_Operation
+ %SUMMARY 'вставить данные из другого источника текста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCB38100C4 // aTextSource
+ ME_4BBCB3810125 // aFilters
+ ME_57BC238600B5 // aBlock
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCB36D03B8 InsertFrom
+
+ME ME_4BBCB3A901A1
+ MEPROP Name 'aSt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A455F7018F' '4677FBA70343.ms.model.script' // Tl3PCharLenPrim
+ ;
+
+ENDME // ME_4BBCB3A901A1 aSt
+
+ME ME_4BBCB3A9020A
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ MEPROP Value 'cf_Text'
+ MELINK ValueType WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ UP extprop:pas:Value 'cf_Text'
+
+ENDME // ME_4BBCB3A9020A aFormat
+
+ME ME_4BBCB38B00C2
+ MEPROP UID '4BBCB38B00C2'
+ MEPROP Name 'InsertString'
+ MEPROP Class class_Operation
+ %SUMMARY 'вставить строку aSt в текущую позицию курсора.'#13#10'         |* Пример использования метода InsertString.'#13#10'          !begin'#13#10'          ! CurrentEditor.Range.InsertString(l3PCharLen(''Hello world!'', -1, CP_ANSI));'#13#10'          ! // - в текущую позицию курсора вставляется строка ''Hello word!'' в кодировке CP_ANSI.'#13#10'          !end;'#13#10'         |*' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCB3A901A1 // aSt
+ ME_4BBCB3A9020A // aFormat
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCB38B00C2 InsertString
+
+ME ME_4BBCB3C602AE
+ MEPROP Name 'aSt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4BBCB3C602AE aSt
+
+ME ME_4BBCB3C60315
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ MEPROP Value 'cf_Text'
+ MELINK ValueType WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ UP extprop:pas:Value 'cf_Text'
+
+ENDME // ME_4BBCB3C60315 aFormat
+
+ME ME_4BBCB3B2009F
+ MEPROP UID '4BBCB3B2009F'
+ MEPROP Name 'InsertString'
+ MEPROP Class class_Operation
+ %SUMMARY 'вставить строку aSt в текущую позицию курсора.'#13#10'         |* Пример использования метода InsertString.'#13#10'          !begin'#13#10'          ! CurrentEditor.Range.InsertString(''Hello world!'');'#13#10'          ! // - в текущую позицию курсора вставляется строка ''Hello word!'' в кодировке CP_ANSI.'#13#10'          !end;'#13#10'         |*' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCB3C602AE // aSt
+ ME_4BBCB3C60315 // aFormat
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCB3B2009F InsertString
+
+ME ME_4BBCB3D20184
+ MEPROP UID '4BBCB3D20184'
+ MEPROP Name 'InsertParaBreak'
+ MEPROP Class class_Operation
+ %SUMMARY 'вставляет разрыв параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBCB3D20184 InsertParaBreak
+
+ME ME_4BBCB3EB003D
+ MEPROP UID '4BBCB3EB003D'
+ MEPROP Name 'DeleteChar'
+ MEPROP Class class_Operation
+ %SUMMARY 'удаляет текущий символ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BBCB3EB003D DeleteChar
+
+ME ME_4BBCB42500CB
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+
+ENDME // ME_4BBCB42500CB aFormat
+
+ME ME_4BBCB425013D
+ MEPROP Name 'outPool'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4BBCB425013D outPool
+
+ME ME_4BBCB42501B0
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_4BBCB42501B0 aFilters
+
+ME ME_4BBCB4250221
+ MEPROP Name 'anInternal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4BBCB4250221 anInternal
+
+ME ME_4BBCB42502AC
+ MEPROP Name 'ChildrenOnly'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4BBCB42502AC ChildrenOnly
+
+ME ME_4BBCB3FE033D
+ MEPROP UID '4BBCB3FE033D'
+ MEPROP Name 'Save'
+ MEPROP Class class_Operation
+ %SUMMARY 'сохранить выделение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E38399034C // IedRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBCB42500CB // aFormat
+ ME_4BBCB425013D // outPool
+ ME_4BBCB42501B0 // aFilters
+ ME_4BBCB4250221 // anInternal
+ ME_4BBCB42502AC // ChildrenOnly
+ )
+ ; // Parameters
+
+ENDME // ME_4BBCB3FE033D Save
+
+ME ME_48E38399034C
+ MEPROP UID '48E38399034C'
+ MEPROP GUID 'A3735617-00AF-44F5-9D1A-1AEB1E5242C7'
+ MEPROP Name 'IedRange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Диапазон выделения параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBCB16B01A8 // Paragraph
+ HWL ME_4BBCB17D02BC // Table
+ HWL ME_4BBCB1E00074 // Hyperlink
+ HWL ME_4BBCB211030A // Collapsed
+ HWL ME_4BBCB22F02D6 // TextParagraph
+ HWL ME_4BBCB24A0106 // Part
+ HWL ME_4BBCB28E02E6 // Document
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BBDD4900292 // IterateLeafParagraphs
+ HWL ME_4BBCB2AD02B2 // ContainsOneLeaf
+ HWL ME_4BBCB2C003AE // AsString
+ HWL ME_4BBCB3350175 // Delete
+ HWL ME_4BBCB34C003A // InsertData
+ HWL ME_4BBCB36D03B8 // InsertFrom
+ HWL ME_4BBCB38B00C2 // InsertString
+ HWL ME_4BBCB3B2009F // InsertString
+ HWL ME_4BBCB3D20184 // InsertParaBreak
+ HWL ME_4BBCB3EB003D // DeleteChar
+ HWL ME_4BBCB3FE033D // Save
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Range'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_48E38399034C IedRange
+
+FORWARD ME_4BBCB43D018B
+
+ME ME_4BBCB44C0364
+ MEPROP UID '4BBCB44C0364'
+ MEPROP Name 'Range'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBCB43D018B // IedRangeSource
+ ;
+ MELINK Target HWL ME_48E38399034C // IedRange
+ ;
+ UP "pm" true
+
+ENDME // ME_4BBCB44C0364 Range
+
+ME ME_4F44AA1C00B4
+ MEPROP UID '4F44AA1C00B4'
+ MEPROP Name 'Cursor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BBCB43D018B // IedRangeSource
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ UP "pm" true
+
+ENDME // ME_4F44AA1C00B4 Cursor
+
+ME ME_4BBCB43D018B
+ MEPROP UID '4BBCB43D018B'
+ MEPROP GUID '0AA44E80-5CF7-4AB2-8298-6837804D9321'
+ MEPROP Name 'IedRangeSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Источник диапазона выделения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BBCB44C0364 // Range
+ HWL ME_4F44AA1C00B4 // Cursor
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'RangeSource'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBCB43D018B IedRangeSource
+
+FORWARD ME_4BBCB47D03AB
+
+ME ME_4BBCB49801F5
+ MEPROP UID '4BBCB49801F5'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BBCB47D03AB // TevCellNeighbours
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '47913B47006E.ms.model.script' // Il3TagRef
+ ;
+
+ENDME // ME_4BBCB49801F5 
+
+ME ME_4BBCB47D03AB
+ MEPROP UID '4BBCB47D03AB'
+ MEPROP Name 'TevCellNeighbours'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BBC8546036C // TedNeighbourIndex
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BBCB49801F5 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_4BBCB47D03AB TevCellNeighbours
+
+FORWARD ME_4FC76BD6005C
+
+ME ME_4FC76C2E0162
+ MEPROP UID '4FC76C2E0162'
+ MEPROP Name 'edSingleCell'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC76BD6005C // RowTypeSets
+ ;
+ MEPROP Value '[ed_rtPsevdoSingleCells, ed_rtSingleCell]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ed_rtPsevdoSingleCells, ed_rtSingleCell]'
+
+ENDME // ME_4FC76C2E0162 edSingleCell
+
+ME ME_4FC76C6E01C1
+ MEPROP UID '4FC76C6E01C1'
+ MEPROP Name 'edAllowCellInHeadRow'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC76BD6005C // RowTypeSets
+ ;
+ MEPROP Value '[ed_rtHasMergedCell, ed_rtSimpleCells, ed_rtSimpleWithoutEmpty]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ed_rtHasMergedCell, ed_rtSimpleCells, ed_rtSimpleWithoutEmpty]'
+
+ENDME // ME_4FC76C6E01C1 edAllowCellInHeadRow
+
+ME ME_4FC76BD6005C
+ MEPROP UID '4FC76BD6005C'
+ MEPROP Name 'RowTypeSets'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FC76C2E0162 // edSingleCell
+ HWL ME_4FC76C6E01C1 // edAllowCellInHeadRow
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4FC76BD6005C RowTypeSets
+
+FORWARD ME_5076AAD90277
+
+ME ME_5076AB0A0209
+ MEPROP UID '5076AB0A0209'
+ MEPROP Name 'ed_tsNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5076AAD90277 // TedTabelType
+ ;
+
+ENDME // ME_5076AB0A0209 ed_tsNone
+
+ME ME_5076AB1D0313
+ MEPROP UID '5076AB1D0313'
+ MEPROP Name 'ed_tsWithHeader'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Таблица с заголовоком.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5076AAD90277 // TedTabelType
+ ;
+
+ENDME // ME_5076AB1D0313 ed_tsWithHeader
+
+ME ME_5076AB450082
+ MEPROP UID '5076AB450082'
+ MEPROP Name 'ed_tsForm'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Таблица - форма.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5076AAD90277 // TedTabelType
+ ;
+
+ENDME // ME_5076AB450082 ed_tsForm
+
+ME ME_51598C0002D3
+ MEPROP UID '51598C0002D3'
+ MEPROP Name 'ed_tsChessTable'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Таблица - "шахматка".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5076AAD90277 // TedTabelType
+ ;
+
+ENDME // ME_51598C0002D3 ed_tsChessTable
+
+ME ME_5076AAD90277
+ MEPROP UID '5076AAD90277'
+ MEPROP Name 'TedTabelType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип таблицы - попытка заточить выравнивание для таблиц определенного вида.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5076AB0A0209 // ed_tsNone
+ HWL ME_5076AB1D0313 // ed_tsWithHeader
+ HWL ME_5076AB450082 // ed_tsForm
+ HWL ME_51598C0002D3 // ed_tsChessTable
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5076AAD90277 TedTabelType
+
+FORWARD ME_51594428017F
+
+ME ME_515944E8022D
+ MEPROP UID '515944E8022D'
+ MEPROP Name 'ed_bcNonEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ENDME // ME_515944E8022D ed_bcNonEqual
+
+ME ME_515944FE0096
+ MEPROP UID '515944FE0096'
+ MEPROP Name 'ed_bcRightEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ENDME // ME_515944FE0096 ed_bcRightEqual
+
+ME ME_5159451A0153
+ MEPROP UID '5159451A0153'
+ MEPROP Name 'ed_bcLeftEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ENDME // ME_5159451A0153 ed_bcLeftEqual
+
+ME ME_515945B000FD
+ MEPROP UID '515945B000FD'
+ MEPROP Name 'ed_bcEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51594428017F // TedBoundaryCorrespondence
+ ;
+
+ENDME // ME_515945B000FD ed_bcEqual
+
+ME ME_51594428017F
+ MEPROP UID '51594428017F'
+ MEPROP Name 'TedBoundaryCorrespondence'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_515944E8022D // ed_bcNonEqual
+ HWL ME_515944FE0096 // ed_bcRightEqual
+ HWL ME_5159451A0153 // ed_bcLeftEqual
+ HWL ME_515945B000FD // ed_bcEqual
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51594428017F TedBoundaryCorrespondence
+
+ME ME_572306910096
+ MEPROP UID '572306910096'
+ MEPROP Name 'TedRowType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FC5C77503C7' '572305620264.ms.model.script' // TedRowType
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_572306910096 TedRowType
+
+ME ME_5723162B0360
+ MEPROP UID '5723162B0360'
+ MEPROP Name 'TedCellType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3836D00C8 // evEditorInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_511203F50077' '572305620264.ms.model.script' // TedCellType
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5723162B0360 TedCellType
+
+ME ME_48E3836D00C8
+ MEPROP UID '48E3836D00C8'
+ MEPROP Name 'evEditorInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Модуль, описывающий работу с текстом на уровне "окна" редактора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BBC61DD0368 // IedStyle
+ HWL ME_4BBC803F0288 // TedHorizontalAligment
+ HWL ME_4BBC4CD100F8 // TedRangeIndexes
+ HWL ME_4BBC80A101EF // IedParagraphFormatting
+ HWL ME_4BBC818A01EA // TedLineStyle
+ HWL ME_4BBC840D036C // IedFramePart
+ HWL ME_4BBC84CF0094 // TedFramePartIndex
+ HWL ME_4BBC89390312 // IedFrame
+ HWL ME_4BBC8546036C // TedNeighbourIndex
+ HWL ME_4BBC853502EF // TedFramePartIndexes
+ HWL ME_4BBC898C0320 // IedProcessorObject
+ HWL ME_4BBC89CE035C // IedEditableObject
+ HWL ME_4BBC89E20058 // IedFramedObject
+ HWL ME_4BBC8A230393 // IedParagraph
+ HWL ME_4BBC8A3903BE // IedLeafParagraph
+ HWL ME_4B547F7801F3 // IedTextParagraph
+ HWL ME_4BBC90130064 // IedCell
+ HWL ME_4BBC910E0391 // IedTable
+ HWL ME_4BBC920100CB // IedBackCellsIterator
+ HWL ME_4BBC93F50176 // IedCellsIterator
+ HWL ME_4BBC94B70059 // IedRow
+ HWL ME_4BBC95440333 // IedRowsIterator
+ HWL ME_4BBC958A01C3 // IedColumn
+ HWL ME_4BBC95BF001F // IedColumnsIterator
+ HWL ME_4BBC961903CD // IedCells
+ HWL ME_4BBCB1060196 // TedRangePart
+ HWL ME_48E38399034C // IedRange
+ HWL ME_4BBCB43D018B // IedRangeSource
+ HWL ME_4BBCB47D03AB // TevCellNeighbours
+ HWL ME_5076AAD90277 // TedTabelType
+ HWL ME_51594428017F // TedBoundaryCorrespondence
+ HWL ME_572306910096 // TedRowType
+ HWL ME_5723162B0360 // TedCellType
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4BBC85940221 // edGridFrame
+ HWL ME_4BBC85A10217 // edBoxFrame
+ HWL ME_4BBC85C1026E // Frame
+ HWL ME_4FC76BD6005C // RowTypeSets
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.ms.model.script' // k2Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.ms.model.script' // nevNavigation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4BC83B8301E5' '4BC83B8301E5.ms.model.script' // k2PureMixIns
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ WL 'ME_572305620264' '572305620264.ms.model.script' // evEditorInterfacesTypes
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '03.05.2000 16:19'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evEditorInterfaces.pas'
+
+ENDME // ME_48E3836D00C8 evEditorInterfaces

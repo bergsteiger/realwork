@@ -1,0 +1,442 @@
+// PrimDocNumberQuery 4AC63602020E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC63602020E
+
+FORWARD ME_51B9F8700327
+
+ME ME_51B9F8990279
+ MEPROP UID '51B9F8990279'
+ MEPROP Name 'c_HistoryFormat'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51B9F8700327 // DocNumberQuery Const
+ ;
+ MEPROP Value '''DDDDDDDDDD'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''DDDDDDDDDD'''
+
+ENDME // ME_51B9F8990279 c_HistoryFormat
+
+ME ME_51B9F8A50042
+ MEPROP UID '51B9F8A50042'
+ MEPROP Name 'c_HistoryCapacity'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51B9F8700327 // DocNumberQuery Const
+ ;
+ MEPROP Value 10
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 10
+
+ENDME // ME_51B9F8A50042 c_HistoryCapacity
+
+ME ME_51B9F8700327
+ MEPROP UID '51B9F8700327'
+ MEPROP Name 'DocNumberQuery Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51B9F8990279 // c_HistoryFormat
+ HWL ME_51B9F8A50042 // c_HistoryCapacity
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_51B9F8700327 DocNumberQuery Const
+
+ME ME_51B9DC3300C5
+ MEPROP UID '51B9DC3300C5'
+ MEPROP Name 'Label1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Номер документа:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51B9DC3300C5 Label1
+
+ME ME_51B9DC6D0127
+ MEPROP UID '51B9DC6D0127'
+ MEPROP Name 'edNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ UP "ControlClass" 'TnscComboBox'
+ UP "pm" true
+ UP "put to dfm" false
+ UP extprop:rc:SelfName 'Number'
+
+ENDME // ME_51B9DC6D0127 edNumber
+
+ME ME_51B9DF2E024F
+ MEPROP UID '51B9DF2E024F'
+ MEPROP Name 'cbInternal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Внутренний номер в базе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ UP "ControlClass" 'TvtCheckBox'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_51B9DF2E024F cbInternal
+
+ME ME_4AC63719029F
+ MEPROP UID '4AC63719029F'
+ MEPROP Name 'f_Results'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_4AE760410074' '4ACF514E0337.ms.model.script' // InsOpenDocOnNumberData
+ ;
+
+ENDME // ME_4AC63719029F f_Results
+
+FORWARD ME_4C863FCD0121
+
+ME ME_4C863FD502C6
+ MEPROP UID '4C863FD502C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C863FCD0121 // Save
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C863FD502C6 DoIt
+
+ME ME_4C863FCD0121
+ MEPROP UID '4C863FCD0121'
+ MEPROP Name 'Save'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C863FD502C6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C863FCD0121 Save
+
+FORWARD ME_51B9E1A00192
+
+ME ME_51B9E1AB0306
+ MEPROP Name 'aHistory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_51B9E1AB0306 aHistory
+
+ME ME_51B9E1A70054
+ MEPROP UID '51B9E1A70054'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B9E1A00192 // LoadHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_51B9E1AB0306 // aHistory
+ )
+ ; // Parameters
+
+ENDME // ME_51B9E1A70054 DoIt
+
+ME ME_51B9E1A00192
+ MEPROP UID '51B9E1A00192'
+ MEPROP Name 'LoadHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B9E1A70054 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51B9E1A00192 LoadHistory
+
+FORWARD ME_51B9E27000CD
+
+ME ME_51B9E27C0116
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AE760410074' '4ACF514E0337.ms.model.script' // InsOpenDocOnNumberData
+ ;
+
+ENDME // ME_51B9E27C0116 aData
+
+ME ME_51B9E2780030
+ MEPROP UID '51B9E2780030'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B9E27000CD // Make
+ ;
+ MELIST Parameters
+   Seq: ( ME_51B9E27C0116 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_51B9E2780030 DoIt
+
+ME ME_51B9E27000CD
+ MEPROP UID '51B9E27000CD'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B9E2780030 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51B9E27000CD Make
+
+FORWARD ME_51B9E2AC030D
+
+ME ME_51B9E2C10258
+ MEPROP Name 'aLastNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_51B9E2C10258 aLastNumber
+
+ME ME_51B9E2C10298
+ MEPROP Name 'aHistory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_51B9E2C10298 aHistory
+
+ME ME_51B9E2B90352
+ MEPROP UID '51B9E2B90352'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B9E2AC030D // SaveHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_51B9E2C10258 // aLastNumber
+ ME_51B9E2C10298 // aHistory
+ )
+ ; // Parameters
+
+ENDME // ME_51B9E2B90352 DoIt
+
+ME ME_51B9E2AC030D
+ MEPROP UID '51B9E2AC030D'
+ MEPROP Name 'SaveHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B9E2B90352 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51B9E2AC030D SaveHistory
+
+ME ME_4AC637C90203
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_4AC637C90203 
+
+ME ME_4AC637E70094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_4AB882990057' '47F2170002B2.ms.model.script' // nsCStr
+ ;
+
+ENDME // ME_4AC637E70094 
+
+ME ME_4AC6386A0070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AC6386A0070 
+
+ME ME_4CC91832030A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4CC91832030A 
+
+ME ME_51B9FD930128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_51B9FD930128 
+
+ME ME_51B9FF8D01C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_51B9FF8D01C9 
+
+ME ME_51B9FF90017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC63602020E // PrimDocNumberQuery
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_51B9FF90017A 
+
+ME ME_49803F5503AA_ME_4AC63602020E
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4AC63602020E DoInit
+
+ME ME_4A8E8F2E0195_ME_4AC63602020E
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AC63602020E InitControls
+
+ME ME_4AC63602020E
+ MEPROP UID '4AC63602020E'
+ MEPROP Name 'PrimDocNumberQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D39876901E7' '4D39876901E7.ms.model.script' // OpenDocumentByNumber
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51B9DC3300C5 // Label1
+ HWL ME_51B9DC6D0127 // edNumber
+ HWL ME_51B9DF2E024F // cbInternal
+ HWL ME_4AC63719029F // f_Results
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C863FCD0121 // Save
+ HWL ME_51B9E1A00192 // LoadHistory
+ HWL ME_51B9E27000CD // Make
+ HWL ME_51B9E2AC030D // SaveHistory
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4AC63602020E // DoInit
+ ME_4A8E8F2E0195_ME_4AC63602020E // InitControls
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_51B9F8700327 // DocNumberQuery Const
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AC637C90203 // nsUtils
+ ME_4AC637E70094 // nsCStr
+ ME_4AC6386A0070 // SysUtils
+ ME_4CC91832030A // TDocumentPositionType
+ ME_51B9FD930128 // l3String
+ ME_51B9FF8D01C9 // Controls
+ ME_51B9FF90017A // Forms
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Modal'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '02.10.2009 21:19'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimDocNumberQuery_Form.pas'
+ UP extprop:pas:TypeName 'TPrimDocNumberQueryForm'
+ UP extprop:rc:SelfName 'PrimDocNumberQueryForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimDocNumberQuery_Form'
+
+ENDME // ME_4AC63602020E PrimDocNumberQuery

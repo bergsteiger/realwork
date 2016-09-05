@@ -1,0 +1,441 @@
+// lulin 4D52A63D0365 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D52A63D0365
+
+FORWARD ME_4D52A6B50343
+
+ME ME_4D52AACD032B
+ MEPROP UID '4D52AACD032B'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A6B50343 // TvgPersistent
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D52AACD032B l3Unknown_NoIUnknown
+
+ME ME_4D52C5D9030A
+ MEPROP UID '4D52C5D9030A'
+ MEPROP Name '_UnknownForDesign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A6B50343 // TvgPersistent
+ ;
+
+ENDME // ME_4D52C5D9030A _UnknownForDesign
+
+ME ME_4D52DB7B01D3
+ MEPROP Name 'Dummy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D52DB7B01D3 Dummy
+
+ME ME_4D52DB5D03BF
+ MEPROP UID '4D52DB5D03BF'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для ловли просто Free' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A6B50343 // TvgPersistent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D52DB7B01D3 // Dummy
+ )
+ ; // Parameters
+
+ENDME // ME_4D52DB5D03BF Free
+
+ME ME_4D52A6B50343
+ MEPROP UID '4D52A6B50343'
+ MEPROP Name 'TvgPersistent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D52A63D0365 // lulin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_478CF32A03B6' '4AB0997B00A2.ms.model.script' // TPersistent
+ WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D52DB5D03BF // Free
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4D52AACD032B // l3Unknown_NoIUnknown
+ HWL ME_4D52C5D9030A // _UnknownForDesign
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '09.02.2011 17:38'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgPersistent.pas'
+ UP extprop:rc:SelfName 'Persistent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgPersistent'
+
+ENDME // ME_4D52A6B50343 TvgPersistent
+
+FORWARD ME_4D52A881018B
+
+ME ME_4D52BFA10289
+ MEPROP UID '4D52BFA10289'
+ MEPROP Name '_UnknownIsComponent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A881018B // TvgComponent
+ ;
+
+ENDME // ME_4D52BFA10289 _UnknownIsComponent
+
+ME ME_4D54139602F9
+ MEPROP UID '4D54139602F9'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A881018B // TvgComponent
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D54139602F9 l3Unknown_NoIUnknown
+
+ME ME_4D52DB8D003A
+ MEPROP Name 'Dummy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D52DB8D003A Dummy
+
+ME ME_4D52DB7F0148
+ MEPROP UID '4D52DB7F0148'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для ловли просто Free' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A881018B // TvgComponent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D52DB8D003A // Dummy
+ )
+ ; // Parameters
+
+ENDME // ME_4D52DB7F0148 Free
+
+ME ME_4D52A881018B
+ MEPROP UID '4D52A881018B'
+ MEPROP Name 'TvgComponent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D52A63D0365 // lulin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D52DB7F0148 // Free
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4D52BFA10289 // _UnknownIsComponent
+ HWL ME_4D54139602F9 // l3Unknown_NoIUnknown
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '09.02.2011 17:45'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgComponent.pas'
+ UP extprop:rc:SelfName 'Component'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgComponent'
+
+ENDME // ME_4D52A881018B TvgComponent
+
+ME ME_4D52D82E0312
+ MEPROP UID '4D52D82E0312'
+ MEPROP Name 'TvgAnyObjectList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Списсок указателей на объект. НИЧЕГО не освобождает' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D52A63D0365 // lulin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4773DBBD000D' '47913B47006E.ms.model.script' // Tl3ObjectList
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '09.02.2011 21:09'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgAnyObjectList.pas'
+ UP extprop:rc:SelfName 'AnyObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgAnyObjectList'
+
+ENDME // ME_4D52D82E0312 TvgAnyObjectList
+
+ME ME_4D52D86D0330
+ MEPROP UID '4D52D86D0330'
+ MEPROP Name 'TvgPtrList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список указателей на куски памяти. Ничего не освобождает' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D52A63D0365 // lulin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4773DD2700DA' '47913B47006E.ms.model.script' // Tl3DataPtrList
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '09.02.2011 21:10'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgPtrList.pas'
+ UP extprop:rc:SelfName 'PtrList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgPtrList'
+
+ENDME // ME_4D52D86D0330 TvgPtrList
+
+FORWARD ME_4D5413C00089
+
+ME ME_4D5413F3033B
+ MEPROP UID '4D5413F3033B'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D5413F3033B l3Unknown_NoIUnknown
+
+ME ME_4D5414420341
+ MEPROP UID '4D5414420341'
+ MEPROP Name '_UnknownForDesign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+
+ENDME // ME_4D5414420341 _UnknownForDesign
+
+ME ME_4D54145903DE
+ MEPROP Name 'Dummy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D54145903DE Dummy
+
+ME ME_4D54144F020F
+ MEPROP UID '4D54144F020F'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для ловли Free' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5413C00089 // TvgInterfacedPersistent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D54145903DE // Dummy
+ )
+ ; // Parameters
+
+ENDME // ME_4D54144F020F Free
+
+ME ME_4D5413C00089
+ MEPROP UID '4D5413C00089'
+ MEPROP Name 'TvgInterfacedPersistent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D52A63D0365 // lulin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ WL 'ME_47E1214E00F2' '4AB0997B00A2.ms.model.script' // TInterfacedPersistent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D54144F020F // Free
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4D5413F3033B // l3Unknown_NoIUnknown
+ HWL ME_4D5414420341 // _UnknownForDesign
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '10.02.2011 19:35'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgInterfacedPersistent.pas'
+ UP extprop:rc:SelfName 'InterfacedPersistent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgInterfacedPersistent'
+
+ENDME // ME_4D5413C00089 TvgInterfacedPersistent
+
+FORWARD ME_4D5416AC01D1
+
+ME ME_4D5416D403C3
+ MEPROP UID '4D5416D403C3'
+ MEPROP Name '_UnknownIsComponent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5416AC01D1 // TvgCustomControl
+ ;
+
+ENDME // ME_4D5416D403C3 _UnknownIsComponent
+
+ME ME_4D5416E2012C
+ MEPROP UID '4D5416E2012C'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5416AC01D1 // TvgCustomControl
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D5416E2012C l3Unknown_NoIUnknown
+
+ME ME_4D54174B0316
+ MEPROP Name 'Dummy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D54174B0316 Dummy
+
+ME ME_4D54173D03B8
+ MEPROP UID '4D54173D03B8'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для ловли Free' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5416AC01D1 // TvgCustomControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D54174B0316 // Dummy
+ )
+ ; // Parameters
+
+ENDME // ME_4D54173D03B8 Free
+
+ME ME_4D5416AC01D1
+ MEPROP UID '4D5416AC01D1'
+ MEPROP Name 'TvgCustomControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D52A63D0365 // lulin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ WL 'ME_47E1388A03A7' '4799D29F033F.ms.model.script' // TCustomControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D54173D03B8 // Free
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4D5416D403C3 // _UnknownIsComponent
+ HWL ME_4D5416E2012C // l3Unknown_NoIUnknown
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '10.02.2011 19:47'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomControl.pas'
+ UP extprop:rc:SelfName 'Control'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgCustomControl'
+
+ENDME // ME_4D5416AC01D1 TvgCustomControl
+
+ME ME_4D52A63D0365
+ MEPROP UID '4D52A63D0365'
+ MEPROP Name 'lulin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.ms.model.script' // VGScene
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D52A6B50343 // TvgPersistent
+ HWL ME_4D52A881018B // TvgComponent
+ HWL ME_4D52D82E0312 // TvgAnyObjectList
+ HWL ME_4D52D86D0330 // TvgPtrList
+ HWL ME_4D5413C00089 // TvgInterfacedPersistent
+ HWL ME_4D5416AC01D1 // TvgCustomControl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+
+ENDME // ME_4D52A63D0365 lulin

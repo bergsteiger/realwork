@@ -1,0 +1,88 @@
+// ContactList 4A6971D00157 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6971D00157
+
+ME ME_578933EECBD8
+ MEPROP UID '578933EECBD8'
+ MEPROP GUID 'D9641B68-E586-4058-B9BC-9E246E9D0455'
+ MEPROP Name 'ContactList'
+ MEPROP OriginalName 'ContactList$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ContactList' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6971D00157 // ContactList
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A6971D00157 // ContactList
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ContactListFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_578933EECBD8 ContactList$Def
+
+ME ME_C5F7B5BDDA69
+ MEPROP UID 'C5F7B5BDDA69'
+ MEPROP Name 'Ini_FormFactory_ContactList'
+ MEPROP OriginalName 'Ini_FormFactory_ContactList$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ContactList' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6971D00157 // ContactList
+ ;
+ UPLINK SpelledFor HWL ME_4A6971D00157 // ContactList
+ ;
+
+ENDME // ME_C5F7B5BDDA69 Ini_FormFactory_ContactList$Def
+
+ME ME_4A6971D00157
+ MEPROP UID '4A6971D00157'
+ MEPROP Name 'ContactList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совещание онлайн' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A6971B802A6' '4A6971B802A6.ms.model.script' // BaseChat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C84D11E01E2' '4C84D11E01E2.ms.model.script' // PrimContactListOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_578933EECBD8 // ContactList$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_C5F7B5BDDA69 // Ini_FormFactory_ContactList$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_578933EECBD8 // ContactList$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Лукьянец Р.В.'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ContactList_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ UP extprop:pas:TypeName 'TContactListForm'
+ UP extprop:rc:SelfName 'ContactListForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ContactList_Form'
+
+ENDME // ME_4A6971D00157 ContactList

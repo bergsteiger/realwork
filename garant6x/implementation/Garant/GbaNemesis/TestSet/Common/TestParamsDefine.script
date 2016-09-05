@@ -58,6 +58,8 @@ INTEGER VAR g_TheBitnessOfTheSystem // На каких разрядностях выполнить тест
 
 BOOLEAN VAR  g_ClearJournalWork // Очистить журнал работы до теста?
 
+BOOLEAN VAR  g_BringMainWindowToFront // вернуть после теста окно на передний план?
+
 // ---------------Открыть ли документ до теста?----------------
 
 PROCEDURE "Не открывать документ" 
@@ -535,4 +537,14 @@ PROCEDURE "Не очищать журнал работы"
 
 PROCEDURE "Удалить журнал работы"
  true >>> g_ClearJournalWork
+;
+
+// ---------------- Главное окно после теста ---------------------
+
+PROCEDURE "Ничего не делаем с главным окном"
+ false >>> g_BringMainWindowToFront
+;
+
+PROCEDURE "Поставить окно оболочки на первый план"
+ true >>> g_BringMainWindowToFront
 ;

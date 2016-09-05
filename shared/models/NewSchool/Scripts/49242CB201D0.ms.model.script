@@ -1,0 +1,121 @@
+// dsSituation 49242CB201D0 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49242CB201D0
+
+ME ME_49242D5F00D1
+ MEPROP UID '49242D5F00D1'
+ MEPROP Name 'BlockNotification'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49242CB201D0 // dsSituation
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_49242D5F00D1 BlockNotification
+
+ME ME_4979BA550139
+ MEPROP UID '4979BA550139'
+ MEPROP Name 'CurrentChangedListener'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49242CB201D0 // dsSituation
+ ;
+ MELINK Target WL 'ME_492425D101B0' '491DAF4202EE.ms.model.script' // IbsCurrentChangedListener
+ ;
+
+ENDME // ME_4979BA550139 CurrentChangedListener
+
+ME ME_492D62CC0364
+ MEPROP UID '492D62CC0364'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49242CB201D0 // dsSituation
+ ;
+ MELINK Target WL 'ME_4922CE700041' '491DAF4202EE.ms.model.script' // IdeSearch
+ ;
+
+ENDME // ME_492D62CC0364 InitDataType
+
+ME ME_479731C50290_ME_49242CB201D0
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_49242CB201D0 Cleanup
+
+ME ME_47A042E100E2_ME_49242CB201D0
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_49242CB201D0 InitFields
+
+ME ME_47F0C1BF0314_ME_49242CB201D0
+ MELINK Original WL 'ME_47F0C1BF0314' '47F0C1410011.ms.model.script' // DoCurrentChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F0C1BF0314_ME_49242CB201D0 DoCurrentChanged
+
+ME ME_49242A4E0252_ME_49242CB201D0
+ MELINK Original WL 'ME_49242A4E0252' '4AA005310028.ms.model.script' // CurrentChangedNotification
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49242A4E0252_ME_49242CB201D0 CurrentChangedNotification
+
+ME ME_49242CB201D0
+ MEPROP UID '49242CB201D0'
+ MEPROP Name 'dsSituation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'отложенное обновление представлений при перемещении по деревьям ППС 6.х (CQ: OIT5-28303)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4AA005310028' '4AA005310028.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4924015202CD' '4924015202CD.ms.model.script' // dsTagSimpleTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492428D203A1' '4AA005310028.ms.model.script' // CurrentChangedListener
+ WL 'ME_49590A5E0315' '491DAF4202EE.ms.model.script' // IdsSituation
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49242D5F00D1 // BlockNotification
+ HWL ME_4979BA550139 // CurrentChangedListener
+ HWL ME_492D62CC0364 // InitDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49242CB201D0 // Cleanup
+ ME_47A042E100E2_ME_49242CB201D0 // InitFields
+ ME_47F0C1BF0314_ME_49242CB201D0 // DoCurrentChanged
+ ME_49242A4E0252_ME_49242CB201D0 // CurrentChangedNotification
+ )
+ ; // Overridden
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '2008/01/30 08:25:26 '
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas'
+ UP extprop:pas:TypeName '_dsSituation_'
+ UP extprop:pas:UnitName 'dsSituation.imp'
+
+ENDME // ME_49242CB201D0 dsSituation

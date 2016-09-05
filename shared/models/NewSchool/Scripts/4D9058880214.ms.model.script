@@ -1,0 +1,151 @@
+// TvtPopupFormModelPart 4D9058880214 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D9058880214
+
+FORWARD ME_4F86D8A903E2
+
+ME ME_4F86DBD6005C
+ MEPROP UID '4F86DBD6005C'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F86D8A903E2 // TTailRects
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_4F86DBD6005C 
+
+ME ME_4F86D8A903E2
+ MEPROP UID '4F86D8A903E2'
+ MEPROP Name 'TTailRects'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D9058880214 // TvtPopupFormModelPart
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F86D90400CD' '4D90583503C2.ms.model.script' // TvtTailPosition
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F86DBD6005C // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP "ifndef" 'NoVGScene'
+
+ENDME // ME_4F86D8A903E2 TTailRects
+
+FORWARD ME_4F86D7E8030F
+
+ME ME_4F86D80B00C1
+ MEPROP UID '4F86D80B00C1'
+ MEPROP Name 'rInited'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F86D7E8030F // TPopupFormBoundsRects
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F86D80B00C1 rInited
+
+ME ME_4F86D824037D
+ MEPROP UID '4F86D824037D'
+ MEPROP Name 'rV'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F86D7E8030F // TPopupFormBoundsRects
+ ;
+ MELINK Target HWL ME_4F86D8A903E2 // TTailRects
+ ;
+
+ENDME // ME_4F86D824037D rV
+
+ME ME_4F86D7E8030F
+ MEPROP UID '4F86D7E8030F'
+ MEPROP Name 'TPopupFormBoundsRects'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D9058880214 // TvtPopupFormModelPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F86D80B00C1 // rInited
+ HWL ME_4F86D824037D // rV
+ )
+ ; // Attributes
+ UP "ifndef" 'NoVGScene'
+
+ENDME // ME_4F86D7E8030F TPopupFormBoundsRects
+
+ME ME_4D905C2A0349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D9058880214 // TvtPopupFormModelPart
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D905C2A0349 
+
+ME ME_4D905A2A00D6_ME_4D9058880214
+ MELINK Original WL 'ME_4D905A2A00D6' '467BAB7F021E.ms.model.script' // DataSourceChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D905A2A00D6_ME_4D9058880214 DataSourceChanged
+
+ME ME_4D9058880214
+ MEPROP UID '4D9058880214'
+ MEPROP Name 'TvtPopupFormModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D90513F009C' '4D90513F009C.ms.model.script' // Reminders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D90583503C2' '4D90583503C2.ms.model.script' // TvtPopupForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D905A0F0316' '467BAB7F021E.ms.model.script' // IvcmDatasourceChangeListener
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4D905A2A00D6_ME_4D9058880214 // DataSourceChanged
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4F86D8A903E2 // TTailRects
+ HWL ME_4F86D7E8030F // TPopupFormBoundsRects
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D905C2A0349 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifndef" 'NoVGScene,NoVCM'
+ UP "no hands" true
+ UP "started" '28.03.2011 13:45'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtPopupFormModelPart.pas'
+ UP extprop:rc:SelfName 'PopupFormModelPart'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtPopupFormModelPart'
+
+ENDME // ME_4D9058880214 TvtPopupFormModelPart

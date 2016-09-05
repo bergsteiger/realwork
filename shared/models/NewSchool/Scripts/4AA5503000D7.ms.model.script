@@ -1,0 +1,589 @@
+// QueryCardInterfaces 4AA5503000D7 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA5503000D7
+
+ME ME_491DAE5C011F
+ MEPROP UID '491DAE5C011F'
+ MEPROP Name 'IdeQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные для инициализации форм поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'deQuery'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_491DAE5C011F IdeQuery
+
+FORWARD ME_491DC972029C
+
+ME ME_491DC9970093
+ MEPROP UID '491DC9970093'
+ MEPROP Name 'Query'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_491DC972029C // IdsQuery
+ ;
+ MELINK Target HWL ME_491DAE5C011F // IdeQuery
+ ;
+ UP "pm" true
+
+ENDME // ME_491DC9970093 Query
+
+ME ME_491DC9AE0355
+ MEPROP UID '491DC9AE0355'
+ MEPROP Name 'IsQuerySaved'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_491DC972029C // IdsQuery
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_491DC9AE0355 IsQuerySaved
+
+ME ME_491DC972029C
+ MEPROP UID '491DC972029C'
+ MEPROP GUID '51C5A41E-41B2-463E-8671-275D172E3B48'
+ MEPROP Name 'IdsQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОС для карточек запроса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_491DC9970093 // Query
+ HWL ME_491DC9AE0355 // IsQuerySaved
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'dsQuery'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_491DC972029C IdsQuery
+
+ME ME_4923F61A0112
+ MEPROP UID '4923F61A0112'
+ MEPROP GUID 'E5584C58-C6DF-42D0-B1AE-ACB317071F37'
+ MEPROP Name 'IdsSaveLoad'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект контейнера карточки поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ UP extprop:rc:SelfName 'dsSaveLoad'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4923F61A0112 IdsSaveLoad
+
+FORWARD ME_492EF6CD01FF
+
+ME ME_492EF70F0275
+ MEPROP UID '492EF70F0275'
+ MEPROP Name 'Search'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'информация для заполнения дерева реквизита' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492EF6CD01FF // IsdsAttributeSelect
+ ;
+ MELINK Target WL 'ME_4922CE700041' '491DAF4202EE.ms.model.script' // IdeSearch
+ ;
+ UP "pm" true
+
+ENDME // ME_492EF70F0275 Search
+
+ME ME_492EF6CD01FF
+ MEPROP UID '492EF6CD01FF'
+ MEPROP GUID 'DE5652A0-CBAC-4E05-863F-16A1F094E89B'
+ MEPROP Name 'IsdsAttributeSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма выбора реквизитов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_492EF70F0275 // Search
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'sdsAttributeSelect'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492EF6CD01FF IsdsAttributeSelect
+
+FORWARD ME_4924450800EC
+
+ME ME_491DD57603A3_ME_4924450800EC
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_4924450800EC ImageList
+
+ME ME_491DD5A10199_ME_4924450800EC
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_4924450800EC SimpleTree
+
+ME ME_491DD5C90095_ME_4924450800EC
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_4924450800EC CurrentChanged
+
+ME ME_4923FDA60287_ME_4924450800EC
+ MELINK Original WL 'ME_4923FDA60287' '491DAF4202EE.ms.model.script' // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDA60287_ME_4924450800EC Search
+
+ME ME_4923FDDB026F_ME_4924450800EC
+ MELINK Original WL 'ME_4923FDDB026F' '491DAF4202EE.ms.model.script' // Operations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDDB026F_ME_4924450800EC Operations
+
+ME ME_4923FDFA00F7_ME_4924450800EC
+ MELINK Original WL 'ME_4923FDFA00F7' '491DAF4202EE.ms.model.script' // IsOneOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDFA00F7_ME_4924450800EC IsOneOperation
+
+ME ME_49590D4802EE_ME_4924450800EC
+ MELINK Original WL 'ME_49590D4802EE' '491DAF4202EE.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49590D4802EE_ME_4924450800EC Process
+
+ME ME_4924450800EC
+ MEPROP UID '4924450800EC'
+ MEPROP GUID '5995C2CA-E6BD-4FB7-A029-94E0AB2A037C'
+ MEPROP Name 'IdsTreeAttributeFirstLevel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объекта формы "enTreeAttributeFirstLevel"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49590A5E0315' '491DAF4202EE.ms.model.script' // IdsSituation
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_4924450800EC // ImageList
+ ME_491DD5A10199_ME_4924450800EC // SimpleTree
+ ME_491DD5C90095_ME_4924450800EC // CurrentChanged
+ ME_4923FDA60287_ME_4924450800EC // Search
+ ME_4923FDDB026F_ME_4924450800EC // Operations
+ ME_4923FDFA00F7_ME_4924450800EC // IsOneOperation
+ ME_49590D4802EE_ME_4924450800EC // Process
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsTreeAttributeFirstLevel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4924450800EC IdsTreeAttributeFirstLevel
+
+FORWARD ME_49243C03023E
+
+ME ME_492EF8440252
+ MEPROP UID '492EF8440252'
+ MEPROP Name 'dsFilters'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'БОС формы фильтры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49243C03023E // IsdsSituation
+ ;
+ MELINK Target WL 'ME_4922D94500FB' '4922BFA000DD.ms.model.script' // IdsFilters
+ ;
+ UP "pm" true
+
+ENDME // ME_492EF8440252 dsFilters
+
+ME ME_492EF877026C
+ MEPROP UID '492EF877026C'
+ MEPROP Name 'dsTreeAttributeFirstLevel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'БОС формы "Ситуации первого уровня"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49243C03023E // IsdsSituation
+ ;
+ MELINK Target HWL ME_4924450800EC // IdsTreeAttributeFirstLevel
+ ;
+ UP "pm" true
+
+ENDME // ME_492EF877026C dsTreeAttributeFirstLevel
+
+ME ME_492EF8AA024F
+ MEPROP UID '492EF8AA024F'
+ MEPROP Name 'dsSaveLoad'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'БОС формы контейнер карточек запроса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49243C03023E // IsdsSituation
+ ;
+ MELINK Target HWL ME_4923F61A0112 // IdsSaveLoad
+ ;
+ UP "pm" true
+
+ENDME // ME_492EF8AA024F dsSaveLoad
+
+ME ME_492EF8E10244
+ MEPROP UID '492EF8E10244'
+ MEPROP Name 'dsSelectedAttributes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'БОС формы выбранные атрибуты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49243C03023E // IsdsSituation
+ ;
+ MELINK Target WL 'ME_49241CDE025D' '491DAF4202EE.ms.model.script' // IdsSelectedAttributes
+ ;
+ UP "pm" true
+
+ENDME // ME_492EF8E10244 dsSelectedAttributes
+
+ME ME_492EF8F20381
+ MEPROP UID '492EF8F20381'
+ MEPROP Name 'dsTreeAttributeSelect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'БОС формы выбора атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49243C03023E // IsdsSituation
+ ;
+ MELINK Target WL 'ME_4924352E01C3' '491DAF4202EE.ms.model.script' // IdsTreeAttributeSelect
+ ;
+ UP "pm" true
+
+ENDME // ME_492EF8F20381 dsTreeAttributeSelect
+
+ME ME_493027030386
+ MEPROP UID '493027030386'
+ MEPROP Name 'dsAttributeSelect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'Бизнес-объект формы cfAttributeSelect' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49243C03023E // IsdsSituation
+ ;
+ MELINK Target WL 'ME_4922CF920141' '491DAF4202EE.ms.model.script' // IdsAttributeSelect
+ ;
+ UP "pm" true
+
+ENDME // ME_493027030386 dsAttributeSelect
+
+ME ME_47FB2086026D_ME_49243C03023E
+ MELINK Original WL 'ME_47FB2086026D' '4922BFA000DD.ms.model.script' // Open
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FB2086026D_ME_49243C03023E Open
+
+ME ME_492EF70F0275_ME_49243C03023E
+ MELINK Original HWL ME_492EF70F0275 // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492EF70F0275_ME_49243C03023E Search
+
+ME ME_49590D4802EE_ME_49243C03023E
+ MELINK Original WL 'ME_49590D4802EE' '491DAF4202EE.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49590D4802EE_ME_49243C03023E Process
+
+ME ME_4959149300F9_ME_49243C03023E
+ MELINK Original WL 'ME_4959149300F9' '491DAF4202EE.ms.model.script' // UpdateSelectedAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4959149300F9_ME_49243C03023E UpdateSelectedAttributes
+
+ME ME_49243C03023E
+ MEPROP UID '49243C03023E'
+ MEPROP GUID '53453074-B221-4E0D-8FB1-538D5C3A930D'
+ MEPROP Name 'IsdsSituation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_492EF6CD01FF // IsdsAttributeSelect
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47FB1D7601A6' '4922BFA000DD.ms.model.script' // IucpFilters
+ WL 'ME_492425D101B0' '491DAF4202EE.ms.model.script' // IbsCurrentChangedListener
+ WL 'ME_4959145702D3' '491DAF4202EE.ms.model.script' // IbsSelectedAttributes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_492EF8440252 // dsFilters
+ HWL ME_492EF877026C // dsTreeAttributeFirstLevel
+ HWL ME_492EF8AA024F // dsSaveLoad
+ HWL ME_492EF8E10244 // dsSelectedAttributes
+ HWL ME_492EF8F20381 // dsTreeAttributeSelect
+ HWL ME_493027030386 // dsAttributeSelect
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47FB2086026D_ME_49243C03023E // Open
+ ME_492EF70F0275_ME_49243C03023E // Search
+ ME_49590D4802EE_ME_49243C03023E // Process
+ ME_4959149300F9_ME_49243C03023E // UpdateSelectedAttributes
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'sdsSituation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49243C03023E IsdsSituation
+
+FORWARD ME_49914E780185
+
+ME ME_49914E88006B
+ MEPROP UID '49914E88006B'
+ MEPROP Name 'ns_ffAttributeSearch'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ППР 6.х' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49914E780185 // TnsFilterForm
+ ;
+
+ENDME // ME_49914E88006B ns_ffAttributeSearch
+
+ME ME_49914E98023B
+ MEPROP UID '49914E98023B'
+ MEPROP Name 'ns_ffPublishSource'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ППиО' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49914E780185 // TnsFilterForm
+ ;
+
+ENDME // ME_49914E98023B ns_ffPublishSource
+
+ME ME_49914EA80123
+ MEPROP UID '49914EA80123'
+ MEPROP Name 'ns_ffSituation'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ППС' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49914E780185 // TnsFilterForm
+ ;
+
+ENDME // ME_49914EA80123 ns_ffSituation
+
+ME ME_49914EB1024D
+ MEPROP UID '49914EB1024D'
+ MEPROP Name 'ns_ffOldSituation'
+ MEPROP Class class_Attribute
+ %SUMMARY 'старая карточка ППС' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49914E780185 // TnsFilterForm
+ ;
+
+ENDME // ME_49914EB1024D ns_ffOldSituation
+
+ME ME_49914EBA01BA
+ MEPROP UID '49914EBA01BA'
+ MEPROP Name 'ns_ffBaseSearch'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Базовый поиск' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49914E780185 // TnsFilterForm
+ ;
+
+ENDME // ME_49914EBA01BA ns_ffBaseSearch
+
+ME ME_49914EC301FC
+ MEPROP UID '49914EC301FC'
+ MEPROP Name 'ns_ffInpharmSearch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49914E780185 // TnsFilterForm
+ ;
+
+ENDME // ME_49914EC301FC ns_ffInpharmSearch
+
+ME ME_49914E780185
+ MEPROP UID '49914E780185'
+ MEPROP Name 'TnsFilterForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы карточек используемых при редактировании фильтров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49914E88006B // ns_ffAttributeSearch
+ HWL ME_49914E98023B // ns_ffPublishSource
+ HWL ME_49914EA80123 // ns_ffSituation
+ HWL ME_49914EB1024D // ns_ffOldSituation
+ HWL ME_49914EBA01BA // ns_ffBaseSearch
+ HWL ME_49914EC301FC // ns_ffInpharmSearch
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49914E780185 TnsFilterForm
+
+FORWARD ME_4AA6590C0189
+
+ME ME_4AA6591A0331
+ MEPROP UID '4AA6591A0331'
+ MEPROP Name 'ns_sltWithoutClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA6590C0189 // TnsSearchListType
+ ;
+
+ENDME // ME_4AA6591A0331 ns_sltWithoutClass
+
+ME ME_4AA6592F0399
+ MEPROP UID '4AA6592F0399'
+ MEPROP Name 'ns_sltWithoutKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA6590C0189 // TnsSearchListType
+ ;
+
+ENDME // ME_4AA6592F0399 ns_sltWithoutKey
+
+ME ME_4AA6593B027A
+ MEPROP UID '4AA6593B027A'
+ MEPROP Name 'ns_sltWithoutInluded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA6590C0189 // TnsSearchListType
+ ;
+
+ENDME // ME_4AA6593B027A ns_sltWithoutInluded
+
+ME ME_4AA6590C0189
+ MEPROP UID '4AA6590C0189'
+ MEPROP Name 'TnsSearchListType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы используемые для получения списка в nsSearchManager' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA5503000D7 // QueryCardInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AA6591A0331 // ns_sltWithoutClass
+ HWL ME_4AA6592F0399 // ns_sltWithoutKey
+ HWL ME_4AA6593B027A // ns_sltWithoutInluded
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AA6590C0189 TnsSearchListType
+
+ME ME_4AA5503000D7
+ MEPROP UID '4AA5503000D7'
+ MEPROP Name 'QueryCardInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
+ ;
+ MELIST Children
+   Seq: ( HWL ME_491DAE5C011F // IdeQuery
+ HWL ME_491DC972029C // IdsQuery
+ HWL ME_4923F61A0112 // IdsSaveLoad
+ HWL ME_492EF6CD01FF // IsdsAttributeSelect
+ HWL ME_4924450800EC // IdsTreeAttributeFirstLevel
+ HWL ME_49243C03023E // IsdsSituation
+ HWL ME_49914E780185 // TnsFilterForm
+ HWL ME_4AA6590C0189 // TnsSearchListType
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_491DAF4202EE' '491DAF4202EE.ms.model.script' // SearchInterfaces
+ WL 'ME_4922BFA000DD' '4922BFA000DD.ms.model.script' // SimpleListInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '07.09.2009 22:26'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\QueryCardInterfaces.pas'
+
+ENDME // ME_4AA5503000D7 QueryCardInterfaces

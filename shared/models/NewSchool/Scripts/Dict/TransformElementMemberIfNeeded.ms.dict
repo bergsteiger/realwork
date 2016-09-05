@@ -1,0 +1,36 @@
+UNIT TransformElementMemberIfNeeded.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ WordNeedsTransform.ms.dict
+;
+
+: TransformElementMemberIfNeeded
+ // Принимает пару ( значение, переменная ) и возвращает пару ( значение, переменная )
+  TtfwWord IN aVar
+ if ( aVar WordNeedsTransform ) then
+ begin
+  Ctx:EnterCS
+  TRY
+   if ( aVar pop:Word:Parent .NotIsNil ) then
+   begin
+    //aVar pop:Word:Name Msg
+    DUP // - копируем значение
+    aVar pop:Word:Name false aVar pop:Word:Parent pop:NewWordDefinitor:CheckVarForce
+    // - создаём новую переменную
+    DUP aVar pop:Word:Producer SWAP pop:Word:SetProducer
+    // - устанавливаем ей стереотип
+    DUP // - копируем переменную
+    >>> aVar
+    pop:Word:SetValuePrim // - устанавливаем переменной значение
+   end // pop:Word:Parent .NotIsNil
+  FINALLY
+   Ctx:LeaveCS
+  END // TRY..FINALLY
+ end // ( aVar WordNeedsTransform )
+ 
+ aVar
+; // TransformElementMemberIfNeeded

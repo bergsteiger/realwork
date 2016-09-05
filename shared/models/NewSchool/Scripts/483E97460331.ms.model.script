@@ -1,0 +1,74 @@
+// XMLIntf 483E97460331 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483E97460331
+
+ME ME_483E97620058
+ MEPROP UID '483E97620058'
+ MEPROP GUID 'B26664A9-CAD7-4E09-95F2-64D526BAAFB7'
+ MEPROP Name 'IXMLNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483E97460331 // XMLIntf
+ ;
+ UP extprop:rc:SelfName 'XMLNode'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_483E97620058 IXMLNode
+
+ME ME_483E976B0393
+ MEPROP UID '483E976B0393'
+ MEPROP GUID 'EF4AA228-7FBC-4555-8EEC-1879F4BA536B'
+ MEPROP Name 'IXMLNodeList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483E97460331 // XMLIntf
+ ;
+ UP extprop:rc:SelfName 'XMLNodeList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_483E976B0393 IXMLNodeList
+
+ME ME_483E978A0380
+ MEPROP UID '483E978A0380'
+ MEPROP GUID '45F1A776-5349-490A-9B3B-78F8096F5097'
+ MEPROP Name 'IXMLDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483E97460331 // XMLIntf
+ ;
+ UP extprop:rc:SelfName 'XMLDocument'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_483E978A0380 IXMLDocument
+
+ME ME_483E97460331
+ MEPROP UID '483E97460331'
+ MEPROP Name 'XMLIntf'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_483E96C10305' '483E96C10305.ms.model.script' // Internet
+ ;
+ MELIST Children
+   Seq: ( HWL ME_483E97620058 // IXMLNode
+ HWL ME_483E976B0393 // IXMLNodeList
+ HWL ME_483E978A0380 // IXMLDocument
+ )
+ ; // Children
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Internet\XMLIntf.pas'
+
+ENDME // ME_483E97460331 XMLIntf

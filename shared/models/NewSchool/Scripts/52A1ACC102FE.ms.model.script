@@ -1,0 +1,53 @@
+// PopupMenu 52A1ACC102FE Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52A1ACC102FE
+
+ME ME_4C8E3AC40306
+ MEPROP UID '4C8E3AC40306'
+ MEPROP Name 'TvcmPopupMenuPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A1ACC102FE // PopupMenu
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49A5750A01E8' '4799D29F033F.ms.model.script' // TPopupMenu
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ )
+ ; // Implements
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\NOT_FINISHED_vcmPopupMenuPrim.pas'
+ UP extprop:rc:SelfName 'PopupMenuPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmPopupMenuPrim'
+
+ENDME // ME_4C8E3AC40306 TvcmPopupMenuPrim
+
+ME ME_52A1ACC102FE
+ MEPROP UID '52A1ACC102FE'
+ MEPROP Name 'PopupMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C8E3AC40306 // TvcmPopupMenuPrim
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ )
+ ; // Depends
+
+ENDME // ME_52A1ACC102FE PopupMenu

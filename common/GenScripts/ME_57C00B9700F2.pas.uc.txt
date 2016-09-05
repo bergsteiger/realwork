@@ -1,0 +1,53 @@
+//#UC START# *479731C50290_57C00B9700F2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *479731C50290_57C00B9700F2_impl*
+//#UC START# *479731C50290_57C00B9700F2_var*
+//#UC END# *479731C50290_57C00B9700F2_var*
+//#UC START# *54607DDC0159_57C00B9700F2_impl*
+ l_Counter.Reset;
+ l_Counter.Start;
+ l_Message := aContext.rMessage as TcsDownloadDocStream;
+ l_Reply := TcsDownloadDocStreamReply.Create(l_Message);
+ try
+  l_Reply.IsSuccess := False;
+  l_Reply.ErrorMessage := '';
+  try
+   l_Reply.IsSuccess := False;
+   l_Task := TalcuDownloadDocRequest.Create(usServerService);
+   try
+    l_Task.Message := l_Message;
+    l_Task.Reply := l_Reply;
+    IncomingList.Push(l_Task);
+    if Assigned(f_RequestImmidiateProcessProc) then
+     f_RequestImmidiateProcessProc;
+    l_Task.WaitForReady;
+   finally
+    FreeAndNil(l_Task);
+   end;
+  finally
+   aContext.rTransporter.Send(l_Reply);
+  end;
+ finally
+  FreeAndNil(l_Reply);
+ end;
+ l_Counter.Stop;
+ l3System.Msg2Log('Remote send document - %s', [FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
+//#UC END# *54607DDC0159_57C00B9700F2_impl*
+//#UC START# *54607DDC0159_57C00B9700F2_var*
+var
+ l_Message: TcsDownloadDocStream;
+ l_Reply: TcsDownloadDocStreamReply;
+ l_Task: TalcuDownloadDocRequest;
+ l_Counter: Tl3StopWatch;
+//#UC END# *54607DDC0159_57C00B9700F2_var*
+//#UC START# *57C00B9700F2_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocStreamExecutor.pas
+//#UC END# *57C00B9700F2_ext:FileName
+//#UC START# *57C00B9700F2impl_uses*
+//#UC END# *57C00B9700F2impl_uses*
+//#UC START# *57C00BDA02BA_57C00B9700F2_impl*
+ inherited Create(aList);
+ f_RequestImmidiateProcessProc := aProc;
+//#UC END# *57C00BDA02BA_57C00B9700F2_impl*
+//#UC START# *57C00BDA02BA_57C00B9700F2_var*
+//#UC END# *57C00BDA02BA_57C00B9700F2_var*

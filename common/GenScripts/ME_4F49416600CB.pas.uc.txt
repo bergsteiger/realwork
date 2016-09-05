@@ -28,6 +28,8 @@
 //#UC START# *4F49416600CB_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas
 //#UC END# *4F49416600CB_ext:FileName
+//#UC START# *4F49416600CBimpl_uses*
+//#UC END# *4F49416600CBimpl_uses*
 //#UC START# *4F49438E0354_4F49416600CB_impl*
  inherited Create;
 //#UC END# *4F49438E0354_4F49416600CB_impl*
@@ -61,7 +63,7 @@ var
      l_SV := TtfwStoredValues.Make;
     l_SVE := l_SV.Grow;
     l_SVE.rWord := l_W;
-    l_SVE.rValue := l_W.GetValue(aCtx)^;
+    l_SVE.rValue := l_W.GetValue(aCtx);
     if (l_SVE.rValue.rType = tfw_vtList) then
      l_W.SetValuePrim(TtfwStackValue_E, aCtx);
      //l_W.InitValue(aCtx);

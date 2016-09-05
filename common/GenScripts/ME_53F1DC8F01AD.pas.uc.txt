@@ -46,7 +46,7 @@ var
 //#UC END# *4831599C0300Stored_4831599C0300_var*
 //#UC START# *48BD5F8303C4_53EDF0B0003D_impl*
  inherited DoChanged;
- if Assigned(f_SubOwner) then
+ if not f_LockSelectChange and Assigned(f_SubOwner) then
   f_SubOwner.TreeChangedNotification;
 //#UC END# *48BD5F8303C4_53EDF0B0003D_impl*
 //#UC START# *48BD5F8303C4_53EDF0B0003D_var*
@@ -625,7 +625,7 @@ w:\common\components\gui\Garant\VT\ComboTree\DropDownTree.pas
  // Ѕезуспешна€ борьба с http://mdp.garant.ru/pages/viewpage.action?pageId=185828256
  if Supports(f_Tree, IvcmState, l_State) then
   // Supports никогда на самом деле не отработает ибо TSubTree не наследник TeeTreeViewExport
-  Result := l_State.LoadState(aState, aStateType)
+  Result := l_State.LoadState(aState, aStateType, aClone)
  else
   Result := False;
  //Result := inherited IvcmState_LoadState(aState, aStateType);

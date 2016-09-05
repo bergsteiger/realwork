@@ -1,0 +1,190 @@
+UNIT arrays.ms.dict
+
+USES
+ to.ms.dict
+ filter.ms.dict
+ map.ms.dict
+ reverted.ms.dict
+;
+
+EXPORTS
+ * 
+
+USES
+ macro.ms.dict
+;
+
+WordAlias array:AddTo >>>[]
+WordAlias .AddToArray: >>>[]
+
+PROCEDURE array:?AddTo
+  IN aValue
+  ^ IN anArray
+
+ ARRAY VAR l_Array
+ anArray DO >>> l_Array
+
+ aValue l_Array array:Has ! ? (
+  aValue array:AddTo l_Array
+ ) // aValue l_Array array:Has ! ?
+; // array:?AddTo
+
+FUNCTION .AddToArray?:
+  IN aValue
+  ^ IN anArray
+
+ false >>> Result
+ ARRAY VAR l_Array
+ anArray DO >>> l_Array
+
+ aValue l_Array array:Has ! ? (
+  aValue array:AddTo l_Array
+  true >>> Result
+ ) // aValue l_Array array:Has ! ?
+; // .AddToArray?:
+
+USES
+ axiom_push.ms.dict
+;
+
+MACRO .InArray:
+  ^ IN anArray
+ anArray CompileValue
+ axiom:PushSymbol array:Has
+; // .InArray:
+
+MACRO .NotInArray:
+  ^ IN anArray
+ anArray CompileValue
+ axiom:PushSymbol array:Has
+ axiom:PushSymbol !
+; // .NotInArray:
+
+MACRO .StringInArray:
+  ^ IN anArray
+ anArray CompileValue
+ axiom:PushSymbol SWAP
+ axiom:PushSymbol array:HasString
+; // .StringInArray:
+
+MACRO .StringNotInArray:
+  ^ IN anArray
+ anArray CompileValue
+ axiom:PushSymbol SWAP
+ axiom:PushSymbol array:HasString
+ axiom:PushSymbol !
+; // .StringNotInArray:
+
+MACRO .TextInArray:
+  ^ IN anArray
+ anArray CompileValue
+ axiom:PushSymbol SWAP
+ axiom:PushSymbol array:HasText
+; // .TextInArray:
+
+MACRO .TextNotInArray:
+  ^ IN anArray
+ anArray CompileValue
+ axiom:PushSymbol SWAP
+ axiom:PushSymbol array:HasText
+ axiom:PushSymbol !
+; // .TextNotInArray:
+
+USES
+ IsNil.ms.dict
+;
+
+CONST [nil] nil
+%REMARK 'ѕустой итератор.'
+CONST [empty] nil
+//ARRAY CompileTime-VAR [empty] []
+%REMARK 'ѕустой итератор'
+
+WordAlias .KeepInStack NOP
+
+ARRAY FUNCTION array:Copy
+  IN anArray
+ RULES
+  ( anArray .IsNil )
+   [nil]
+  DEFAULT 
+   (
+    VAR l_Empty
+    true >>> l_Empty
+    [ 
+     anArray .for> ( 
+      // .KeepInStack
+      // - это теперь не нужно, непустой функтор и так есть
+      false >>> l_Empty
+     ) // anArray .for>
+    ] 
+    RULES
+     l_Empty
+      ( DROP [nil] )
+    ; // RULES
+   ) 
+ ; // RULES 
+ >>> Result
+; // array:Copy
+
+ARRAY FUNCTION array:CopyIfNotView
+  IN anArray
+ RULES
+  ( anArray .IsNil )
+   [nil]
+  ( anArray Array:IsView ! )
+   anArray
+  DEFAULT
+   ( anArray array:Copy )
+ ; // RULES
+ >>> Result
+; // array:CopyIfNotView
+
+ARRAY FUNCTION array:CopyNotNil
+  IN anArray
+ [ anArray .for> .KeepInStack ] 
+ >>> Result
+; // array:CopyNotNil
+
+WordAlias array:UniqueCopy array:CopyNotNil
+
+WordAlias [[ [
+%REMARK 'Ќачинает определение константного массива. ѕока просто мапируетс€ на неконстантный.'
+WordAlias ]] ]
+%REMARK '«аканчивает определение константного массива. ѕока просто мапируетс€ на неконстантный.'
+
+ARRAY FUNCTION .filterNil>
+  ARRAY IN anArray
+ anArray
+ .filter> .IsNotNil
+ >>> Result
+; // .filterNil>
+
+ARRAY FUNCTION array:CopyWithoutDuplicates
+  IN anArray
+ RULES
+  ( anArray .IsNil )
+   [nil]
+  DEFAULT 
+   (
+    VAR l_Copy
+    [] >>> l_Copy
+    VAR l_Empty
+    true >>> l_Empty
+    anArray 
+    .filter> .AddToArray?: l_Copy
+    .for> ( 
+      IN anElement
+     false >>> l_Empty
+    ) // anArray .for>
+    RULES
+     l_Empty
+      [nil]
+     DEFAULT
+      l_Copy 
+    ; // RULES
+   ) 
+ ; // RULES 
+ >>> Result
+; // array:CopyWithoutDuplicates
+

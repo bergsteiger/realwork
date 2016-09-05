@@ -1,0 +1,87 @@
+// RememberPassword 4A93EC78039E VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93EC78039E
+
+ME ME_76478A82A459
+ MEPROP UID '76478A82A459'
+ MEPROP Name 'ut_RememberPassword'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Забыли пароль?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC78039E // RememberPassword
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RememberPassword_ut_RememberPassword_UserType.pas'
+ UP extprop:pas:UnitName 'RememberPassword_ut_RememberPassword_UserType'
+
+ENDME // ME_76478A82A459 ut_RememberPassword
+
+ME ME_C45CC130B0F1
+ MEPROP UID 'C45CC130B0F1'
+ MEPROP GUID '332C1743-EA95-4386-9F6E-677BF58FAE7D'
+ MEPROP Name 'RememberPassword'
+ MEPROP OriginalName 'RememberPassword$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы RememberPassword' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93EC78039E // RememberPassword
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A93EC78039E // RememberPassword
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'RememberPasswordFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_C45CC130B0F1 RememberPassword$Def
+
+ME ME_4A93EC78039E
+ MEPROP UID '4A93EC78039E'
+ MEPROP Name 'RememberPassword'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Забыли пароль?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A93EC4B03CC' '4A93EC4B03CC.ms.model.script' // PrimRememberPassword
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_C45CC130B0F1 // RememberPassword$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_76478A82A459 // ut_RememberPassword
+ HWL ME_C45CC130B0F1 // RememberPassword$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RememberPassword_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName 'TRememberPasswordForm'
+ UP extprop:rc:SelfName 'RememberPasswordForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'RememberPassword_Form'
+
+ENDME // ME_4A93EC78039E RememberPassword

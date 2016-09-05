@@ -1,0 +1,34 @@
+// Vcl 4684F91300DD Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4684F91300DD
+ MEPROP UID '4684F91300DD'
+ MEPROP Name 'Vcl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Visual Component Library.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49B1511700CA' '49B1511700CA.ms.model.script' // Shared Delphi Core
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_55C4AEB903E1' '55C4AEB903E1.ms.model.script' // Printing
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.ms.model.script' // Consts
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "finished" false
+ UP "gui" 'rtl'
+ UP "is namespace" true
+ UP "vendor" '/external/NotFinished/Borland/Delphi'
+ UP intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+
+ENDME // ME_4684F91300DD Vcl

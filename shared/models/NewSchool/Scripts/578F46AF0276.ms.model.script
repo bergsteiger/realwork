@@ -1,0 +1,68 @@
+// m3DBTypes 578F46AF0276 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_578F46AF0276
+
+ME ME_57BEB05300E0
+ MEPROP UID '57BEB05300E0'
+ MEPROP Name 'Tm3DocPartSelector'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F46AF0276 // m3DBTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_578F46D3027D' '57BEAF780201.ms.model.script' // Tm3DocPartSelector
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57BEB05300E0 Tm3DocPartSelector
+
+ME ME_578F4B0203B7
+ MEPROP UID '578F4B0203B7'
+ MEPROP Name 'm3_AllDocParts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F46AF0276 // m3DBTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57BEB05300E0 // Tm3DocPartSelector
+ )
+ ; // Inherits
+ UP "spell names" false
+
+ENDME // ME_578F4B0203B7 m3_AllDocParts
+
+ME ME_578F46AF0276
+ MEPROP UID '578F46AF0276'
+ MEPROP Name 'm3DBTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_548712F60101' '548712F60101.ms.model.script' // m3$DB
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57BEB05300E0 // Tm3DocPartSelector
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_578F4B0203B7 // m3_AllDocParts
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_57BEAF780201' '57BEAF780201.ms.model.script' // l3MarshalledTypes
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3DBTypes.pas'
+
+ENDME // ME_578F46AF0276 m3DBTypes

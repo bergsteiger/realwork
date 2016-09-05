@@ -1,0 +1,77 @@
+// Core 538DAE950337 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DAE950337
+
+ME ME_538DAED40203
+ MEPROP UID '538DAED40203'
+ MEPROP Name 'TIdIOHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_538DAE950337 // Core
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_IdIOHandler.pas'
+ UP extprop:rc:SelfName 'IdIOHandler'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'IdIOHandler'
+
+ENDME // ME_538DAED40203 TIdIOHandler
+
+ME ME_544A218703D0
+ MEPROP UID '544A218703D0'
+ MEPROP Name 'TidTCPClient'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_538DAE950337 // Core
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_idTCPClient.pas'
+ UP extprop:rc:SelfName 'idTCPClient'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'idTCPClient'
+
+ENDME // ME_544A218703D0 TidTCPClient
+
+ME ME_5405C40303D9
+ MEPROP UID '5405C40303D9'
+ MEPROP Name 'IdAssignedNumbers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DAE950337 // Core
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_IdAssignedNumbers.pas'
+
+ENDME // ME_5405C40303D9 IdAssignedNumbers
+
+ME ME_538DAE950337
+ MEPROP UID '538DAE950337'
+ MEPROP Name 'Core'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_537F460C034E' '537F460C034E.ms.model.script' // Indy
+ ;
+ MELIST Children
+   Seq: ( HWL ME_538DAED40203 // TIdIOHandler
+ HWL ME_544A218703D0 // TidTCPClient
+ HWL ME_5405C40303D9 // IdAssignedNumbers
+ )
+ ; // Children
+ UP "path prefix" '/Source/Core'
+ UP intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\Core'
+
+ENDME // ME_538DAE950337 Core

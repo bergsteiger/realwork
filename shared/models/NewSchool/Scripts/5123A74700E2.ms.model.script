@@ -1,0 +1,57 @@
+// AdminTest 5123A74700E2 VCMTestApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5123A74700E2
+
+ME ME_5123A769004F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5123A74700E2 // AdminTest
+ ;
+ MELINK Target WL 'ME_5123A75E00D5' '5123A72D03E5.ms.model.script' // toKAdmin
+ ;
+
+ENDME // ME_5123A769004F 
+
+ME ME_4F79BCC902C5_ME_5123A74700E2
+ MELINK Original WL 'ME_4F79BCC902C5' '51309A4A02FB.ms.model.script' // CalcBatchMode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDME // ME_4F79BCC902C5_ME_5123A74700E2 CalcBatchMode
+
+ME ME_5123A74700E2
+ MEPROP UID '5123A74700E2'
+ MEPROP Name 'AdminTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMTestApplication ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5123A72D03E5' '5123A72D03E5.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA517B5037A' '4AA517B5037A.ms.model.script' // AdminApp
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F79CD9F015F' '4F79CD2603DF.ms.model.script' // VCMAppTester
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4F79BCC902C5_ME_5123A74700E2 // CalcBatchMode
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5123A769004F // toKAdmin
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminTestRes.pas'
+ UP extprop:pas:TypeName 'TAdminTestRes'
+ UP extprop:rc:SelfName 'AdminTestRes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'AdminTestRes'
+
+ENDME // ME_5123A74700E2 AdminTest

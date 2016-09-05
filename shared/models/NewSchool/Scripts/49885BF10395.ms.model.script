@@ -1,0 +1,221 @@
+// F1Lite 49885BF10395 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49885BF10395
+
+FORWARD ME_4AFD421E02F7
+
+ME ME_4AFD4230031F
+ MEPROP UID '4AFD4230031F'
+ MEPROP Name 'ToggleFoundWords'
+ MEPROP Class class_Operation
+ %SUMMARY 'Подсвечивать найденный контекст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AFD421E02F7 // Edit
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4AFD4230031F ToggleFoundWords
+
+ME ME_4AFD421E02F7
+ MEPROP UID '4AFD421E02F7'
+ MEPROP Name 'Edit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49885BF10395 // F1Lite
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AFD4230031F // ToggleFoundWords
+ )
+ ; // Operations
+
+ENDME // ME_4AFD421E02F7 Edit
+
+FORWARD ME_4C3AFAA902D2
+
+FORWARD ME_4C7D39A7029B
+
+ME ME_4C7D39BD001B
+ MEPROP UID '4C7D39BD001B'
+ MEPROP Name 'RemoveFromControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Снять с контроля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D39A7029B // AddToControl
+ ;
+ UP "Checked" true
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7D39BD001B RemoveFromControl
+
+ME ME_4C7D39A7029B
+ MEPROP UID '4C7D39A7029B'
+ MEPROP Name 'AddToControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поставить на контроль' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3AFAA902D2 // Text$ForDocument
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7D39BD001B // RemoveFromControl
+ )
+ ; // Children
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C7D39A7029B AddToControl
+
+ME ME_4C3AFAD90234
+ MEPROP UID '4C3AFAD90234'
+ MEPROP Name 'AddToControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3AFAA902D2 // Text$ForDocument
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C3AFAD90234 AddToControl
+
+ME ME_4C3AFAA902D2
+ MEPROP UID '4C3AFAA902D2'
+ MEPROP Name 'Text'
+ MEPROP OriginalName 'Text$ForDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49885BF10395 // F1Lite
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7D39A7029B // AddToControl
+ HWL ME_4C3AFAD90234 // AddToControl
+ )
+ ; // Operations
+
+ENDME // ME_4C3AFAA902D2 Text$ForDocument
+
+FORWARD ME_4C3AFB320320
+
+ME ME_4C3AFB450234
+ MEPROP UID '4C3AFB450234'
+ MEPROP Name 'ShowCorrespondentListToPart'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3AFB320320 // Selection$ForDocument
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C3AFB450234 ShowCorrespondentListToPart
+
+ME ME_4C3AFB51020D
+ MEPROP UID '4C3AFB51020D'
+ MEPROP Name 'ShowRespondentListToPart'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3AFB320320 // Selection$ForDocument
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C3AFB51020D ShowRespondentListToPart
+
+ME ME_4C3AFB320320
+ MEPROP UID '4C3AFB320320'
+ MEPROP Name 'Selection'
+ MEPROP OriginalName 'Selection$ForDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49885BF10395 // F1Lite
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C3AFB450234 // ShowCorrespondentListToPart
+ HWL ME_4C3AFB51020D // ShowRespondentListToPart
+ )
+ ; // Operations
+
+ENDME // ME_4C3AFB320320 Selection$ForDocument
+
+ME ME_49885BF10395
+ MEPROP UID '49885BF10395'
+ MEPROP Name 'F1Lite'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Урезанные "сущности" для таких форм как документ-схема' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9F76D70283' '4A9F76D70283.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AFD421E02F7 // Edit
+ HWL ME_4C3AFAA902D2 // Text$ForDocument
+ HWL ME_4C3AFB320320 // Selection$ForDocument
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document_F1Lite_Controls.pas'
+ UP extprop:pas:UnitName 'Document_F1Lite_Controls'
+
+ENDME // ME_49885BF10395 F1Lite

@@ -1,0 +1,78 @@
+// VCL 495259B50283 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_495259B50283
+
+FORWARD ME_495259ED005C
+
+ME ME_49525A0F034B
+ MEPROP UID '49525A0F034B'
+ MEPROP Name 'Tl3Form'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс форм, поддерживающих счетчик ссылок и интерфейс IUnknown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495259ED005C // l3Forms
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A60B2220398' '47BB24D30205.ms.model.script' // l3COMQueryInterface
+ )
+ ; // Implements
+ UP "finished" false
+ UP extprop:rc:SelfName 'Form'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49525A0F034B Tl3Form
+
+ME ME_495259ED005C
+ MEPROP UID '495259ED005C'
+ MEPROP Name 'l3Forms'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс форм, поддерживающих счетчик ссылок и интерфейс IUnknown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_495259B50283 // VCL
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49525A0F034B // Tl3Form
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Forms.pas'
+ UP extprop:rc:SelfName 'Forms'
+
+ENDME // ME_495259ED005C l3Forms
+
+ME ME_495259B50283
+ MEPROP UID '495259B50283'
+ MEPROP Name 'VCL'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Расширения VCL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54F5AAED0073' '54F5AAED0073.ms.model.script' // L3$Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_495259ED005C // l3Forms
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ )
+ ; // Depends
+
+ENDME // ME_495259B50283 VCL

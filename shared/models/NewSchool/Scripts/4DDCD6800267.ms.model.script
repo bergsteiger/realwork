@@ -1,0 +1,90 @@
+// ChangesBetweenEditons 4DDCD6800267 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCD6800267
+
+ME ME_18DFDA8DC53A
+ MEPROP UID '18DFDA8DC53A'
+ MEPROP GUID 'E8402096-B641-4FAE-B341-69369D1BB399'
+ MEPROP Name 'ChangesBetweenEditons'
+ MEPROP OriginalName 'ChangesBetweenEditons$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ChangesBetweenEditons' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4DDCD6800267 // ChangesBetweenEditons
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ChangesBetweenEditonsFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_18DFDA8DC53A ChangesBetweenEditons$Def
+
+ME ME_1D5490FDD3CC
+ MEPROP UID '1D5490FDD3CC'
+ MEPROP Name 'Ini_FormFactory_ChangesBetweenEditons'
+ MEPROP OriginalName 'Ini_FormFactory_ChangesBetweenEditons$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ChangesBetweenEditons' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ UPLINK SpelledFor HWL ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+
+ENDME // ME_1D5490FDD3CC Ini_FormFactory_ChangesBetweenEditons$Def
+
+ME ME_4DDCD6800267
+ MEPROP UID '4DDCD6800267'
+ MEPROP Name 'ChangesBetweenEditons'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменения в документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DDBAF2B0028' '4DDBAF2B0028.ms.model.script' // ChangesBetweenEditions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DDCD636016C' '4DDCD636016C.ms.model.script' // PrimChangesBetweenEditons
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_18DFDA8DC53A // ChangesBetweenEditons$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_1D5490FDD3CC // Ini_FormFactory_ChangesBetweenEditons$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_18DFDA8DC53A // ChangesBetweenEditons$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '25.05.2011 14:14'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\ChangesBetweenEditons_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ UP extprop:pas:TypeName 'TChangesBetweenEditonsForm'
+ UP extprop:rc:SelfName 'ChangesBetweenEditonsForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChangesBetweenEditons_Form'
+
+ENDME // ME_4DDCD6800267 ChangesBetweenEditons

@@ -1,0 +1,31 @@
+UNIT WordsCache.ms.dict
+
+: UIDS_LIST
+;
+// - список загруженных элементов
+
+initialization (
+ @ UIDS_LIST DisableForHelp
+)
+
+: WordFromCache
+  STRING IN aWordName
+ VAR l_VAR
+ @ UIDS_LIST %% aWordName >>> l_VAR
+ if ( l_VAR IsNil ! ) then
+ begin
+  l_VAR DO
+  true
+ end // l_VAR IsNil !
+ else
+  false
+; // WordFromCache
+
+PROCEDURE WordToCache
+  STRING IN aWordName
+  TtfwWord IN aWord
+ VAR l_VAR 
+ aWordName false @ UIDS_LIST pop:NewWordDefinitor:CheckVar >>> l_VAR
+ l_VAR ^:= aWord
+; // WordToCache
+

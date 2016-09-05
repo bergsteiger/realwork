@@ -1,0 +1,132 @@
+// ConsultationInterfaces 491C3E540050 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491C3E540050
+
+FORWARD ME_492F005A02C7
+
+ME ME_492F006F00BE
+ MEPROP UID '492F006F00BE'
+ MEPROP Name 'dsQuery'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'для формы поискового запроса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492F005A02C7 // IsdsQuery
+ ;
+ MELINK Target WL 'ME_491DC972029C' '4AA5503000D7.ms.model.script' // IdsQuery
+ ;
+ UP "pm" true
+
+ENDME // ME_492F006F00BE dsQuery
+
+ME ME_492F00890059
+ MEPROP UID '492F00890059'
+ MEPROP Name 'dsSaveLoad'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'для контейнера поискового запроса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492F005A02C7 // IsdsQuery
+ ;
+ MELINK Target WL 'ME_4923F61A0112' '4AA5503000D7.ms.model.script' // IdsSaveLoad
+ ;
+ UP "pm" true
+
+ENDME // ME_492F00890059 dsSaveLoad
+
+ME ME_492F005A02C7
+ MEPROP UID '492F005A02C7'
+ MEPROP GUID '0D4BCBD4-AA04-45B7-AAF0-34CEFA6EE31C'
+ MEPROP Name 'IsdsQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект прецедентов "Поисковый запрос"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491C3E540050 // ConsultationInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_492F006F00BE // dsQuery
+ HWL ME_492F00890059 // dsSaveLoad
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'sdsQuery'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492F005A02C7 IsdsQuery
+
+FORWARD ME_492F01200192
+
+ME ME_492F006F00BE_ME_492F01200192
+ MELINK Original HWL ME_492F006F00BE // dsQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492F006F00BE_ME_492F01200192 dsQuery
+
+ME ME_492F00890059_ME_492F01200192
+ MELINK Original HWL ME_492F00890059 // dsSaveLoad
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492F00890059_ME_492F01200192 dsSaveLoad
+
+ME ME_492F01200192
+ MEPROP UID '492F01200192'
+ MEPROP GUID 'B788E478-BE1E-422D-85F0-0AF63DEFB0B9'
+ MEPROP Name 'IsdsSendConsultation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491C3E540050 // ConsultationInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_492F005A02C7 // IsdsQuery
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_492F006F00BE_ME_492F01200192 // dsQuery
+ ME_492F00890059_ME_492F01200192 // dsSaveLoad
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'sdsSendConsultation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492F01200192 IsdsSendConsultation
+
+ME ME_491C3E540050
+ MEPROP UID '491C3E540050'
+ MEPROP Name 'ConsultationInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы для работы с консультациями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493FCF1E03DC' '493FCF1E03DC.ms.model.script' // Consultation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_492F005A02C7 // IsdsQuery
+ HWL ME_492F01200192 // IsdsSendConsultation
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AA5503000D7' '4AA5503000D7.ms.model.script' // QueryCardInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '13.11.2008'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationInterfaces.pas'
+
+ENDME // ME_491C3E540050 ConsultationInterfaces

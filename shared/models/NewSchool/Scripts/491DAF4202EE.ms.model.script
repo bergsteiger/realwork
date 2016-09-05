@@ -1,0 +1,920 @@
+// SearchInterfaces 491DAF4202EE ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491DAF4202EE
+
+FORWARD ME_49590CE80397
+
+ME ME_49590D48032C
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49590D48032C aNode
+
+ME ME_49590D4802EE
+ MEPROP UID '49590D4802EE'
+ MEPROP Name 'Process'
+ MEPROP Class class_Operation
+ %SUMMARY 'обработать событие' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49590CE80397 // CurrentChangedListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_49590D48032C // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49590D4802EE Process
+
+ME ME_49590CE80397
+ MEPROP UID '49590CE80397'
+ MEPROP Name 'CurrentChangedListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель изменения текущей ноды' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49590D4802EE // Process
+ )
+ ; // Operations
+
+ENDME // ME_49590CE80397 CurrentChangedListener
+
+FORWARD ME_492425D101B0
+
+ME ME_49590D4802EE_ME_492425D101B0
+ MELINK Original HWL ME_49590D4802EE // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49590D4802EE_ME_492425D101B0 Process
+
+ME ME_492425D101B0
+ MEPROP UID '492425D101B0'
+ MEPROP GUID 'DFE81B68-ECAE-4E53-A037-41657C8FA8E9'
+ MEPROP Name 'IbsCurrentChangedListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель события смены текущего в дереве' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.ms.model.script' // Il3Notify
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_49590CE80397 // CurrentChangedListener
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_49590D4802EE_ME_492425D101B0 // Process
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'bsCurrentChangedListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492425D101B0 IbsCurrentChangedListener
+
+FORWARD ME_4922CE700041
+
+ME ME_4AE58AA10134
+ MEPROP UID '4AE58AA10134'
+ MEPROP Name 'Tag'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4922CE700041 // IdeSearch
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_4AE58AA10134 Tag
+
+ME ME_4AE58ABC034A
+ MEPROP UID '4AE58ABC034A'
+ MEPROP Name 'Query'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4922CE700041 // IdeSearch
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+ UP "pm" true
+
+ENDME // ME_4AE58ABC034A Query
+
+ME ME_4922CE700041
+ MEPROP UID '4922CE700041'
+ MEPROP GUID 'D976EB3D-D8B6-4FBB-82D1-7FEAD44D0BDC'
+ MEPROP Name 'IdeSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AE58AA10134 // Tag
+ HWL ME_4AE58ABC034A // Query
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'deSearch'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4922CE700041 IdeSearch
+
+FORWARD ME_4959143A00EB
+
+ME ME_4959149300F9
+ MEPROP UID '4959149300F9'
+ MEPROP Name 'UpdateSelectedAttributes'
+ MEPROP Class class_Operation
+ %SUMMARY 'обновить данные в форме выбранных атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4959143A00EB // SelectedAttributes
+ ;
+
+ENDME // ME_4959149300F9 UpdateSelectedAttributes
+
+ME ME_4959143A00EB
+ MEPROP UID '4959143A00EB'
+ MEPROP Name 'SelectedAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделенные атрибуты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4959149300F9 // UpdateSelectedAttributes
+ )
+ ; // Operations
+
+ENDME // ME_4959143A00EB SelectedAttributes
+
+FORWARD ME_4923FD8100B7
+
+ME ME_4923FDA60287
+ MEPROP UID '4923FDA60287'
+ MEPROP Name 'Search'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таг дерева реквизитов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4923FD8100B7 // IdsTagSimpleTree
+ ;
+ MELINK Target HWL ME_4922CE700041 // IdeSearch
+ ;
+ UP "pm" true
+
+ENDME // ME_4923FDA60287 Search
+
+ME ME_4923FDDB026F
+ MEPROP UID '4923FDDB026F'
+ MEPROP Name 'Operations'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'доступные операции для словарного атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4923FD8100B7 // IdsTagSimpleTree
+ ;
+ MELINK Target WL 'ME_49006BE702D7' '4990510C0026.ms.model.script' // TLogicOperationSet
+ ;
+ UP "pm" true
+
+ENDME // ME_4923FDDB026F Operations
+
+ME ME_4923FDFA00F7
+ MEPROP UID '4923FDFA00F7'
+ MEPROP Name 'IsOneOperation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'доступна только одна операция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4923FD8100B7 // IdsTagSimpleTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4923FDFA00F7 IsOneOperation
+
+ME ME_491DD57603A3_ME_4923FD8100B7
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_4923FD8100B7 ImageList
+
+ME ME_491DD5A10199_ME_4923FD8100B7
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_4923FD8100B7 SimpleTree
+
+ME ME_491DD5C90095_ME_4923FD8100B7
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_4923FD8100B7 CurrentChanged
+
+ME ME_4923FD8100B7
+ MEPROP UID '4923FD8100B7'
+ MEPROP GUID '1D3A604E-72E8-400E-B9A1-1F7FBB2D791A'
+ MEPROP Name 'IdsTagSimpleTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс бизнес объекта для словарных атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.ms.model.script' // IdsSimpleTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4923FDA60287 // Search
+ HWL ME_4923FDDB026F // Operations
+ HWL ME_4923FDFA00F7 // IsOneOperation
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_4923FD8100B7 // ImageList
+ ME_491DD5A10199_ME_4923FD8100B7 // SimpleTree
+ ME_491DD5C90095_ME_4923FD8100B7 // CurrentChanged
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsTagSimpleTree'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4923FD8100B7 IdsTagSimpleTree
+
+FORWARD ME_4991AAF4000A
+
+ME ME_4991AB02006C
+ MEPROP Name 'aProgressIndicator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4991AD08005B' '4683F37902CF.ms.model.script' // IvcmEntity
+ ;
+
+ENDME // ME_4991AB02006C aProgressIndicator
+
+ME ME_4991AAFE0367
+ MEPROP UID '4991AAFE0367'
+ MEPROP Name 'StartProcess'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991AAF4000A // InsProgressIndicator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991AB02006C // aProgressIndicator
+ )
+ ; // Parameters
+
+ENDME // ME_4991AAFE0367 StartProcess
+
+ME ME_4991AB07003B
+ MEPROP UID '4991AB07003B'
+ MEPROP Name 'StopProcess'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991AAF4000A // InsProgressIndicator
+ ;
+
+ENDME // ME_4991AB07003B StopProcess
+
+ME ME_4A39E134034B
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4A39E134034B aCaption
+
+ME ME_4A39E1340379
+ MEPROP Name 'aSearchEntity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_456ECA9603A9' '456EA56002BF.ms.model.script' // SearchEntity
+ ;
+
+ENDME // ME_4A39E1340379 aSearchEntity
+
+ME ME_4A39E1140024
+ MEPROP UID '4A39E1140024'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991AAF4000A // InsProgressIndicator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A39E134034B // aCaption
+ ME_4A39E1340379 // aSearchEntity
+ )
+ ; // Parameters
+
+ENDME // ME_4A39E1140024 Execute
+
+ME ME_4991AAF4000A
+ MEPROP UID '4991AAF4000A'
+ MEPROP GUID 'E143834D-F9AB-4E19-BE38-295974997825'
+ MEPROP Name 'InsProgressIndicator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4991AAFE0367 // StartProcess
+ HWL ME_4991AB07003B // StopProcess
+ HWL ME_4A39E1140024 // Execute
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ProgressIndicator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4991AAF4000A InsProgressIndicator
+
+FORWARD ME_4AE589BA0016
+
+ME ME_4AE589E702F9
+ MEPROP UID '4AE589E702F9'
+ MEPROP Name 'OrIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+ UP "pm" false
+
+ENDME // ME_4AE589E702F9 OrIterator
+
+ME ME_4AE58A0603A2
+ MEPROP UID '4AE58A0603A2'
+ MEPROP Name 'AndIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+ UP "pm" false
+
+ENDME // ME_4AE58A0603A2 AndIterator
+
+ME ME_4AE58A1203BE
+ MEPROP UID '4AE58A1203BE'
+ MEPROP Name 'NotIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+ UP "pm" false
+
+ENDME // ME_4AE58A1203BE NotIterator
+
+ME ME_4AE589BA0016
+ MEPROP UID '4AE589BA0016'
+ MEPROP GUID 'DD41838B-4B9B-4AC7-AF96-1C62DD92BE75'
+ MEPROP Name 'InsSelectedAttributesIterators'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AE589E702F9 // OrIterator
+ HWL ME_4AE58A0603A2 // AndIterator
+ HWL ME_4AE58A1203BE // NotIterator
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'SelectedAttributesIterators'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AE589BA0016 InsSelectedAttributesIterators
+
+FORWARD ME_4959145702D3
+
+ME ME_4959149300F9_ME_4959145702D3
+ MELINK Original HWL ME_4959149300F9 // UpdateSelectedAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4959149300F9_ME_4959145702D3 UpdateSelectedAttributes
+
+ME ME_4959145702D3
+ MEPROP UID '4959145702D3'
+ MEPROP GUID '02D0B494-46D1-4BF3-B0E6-8076D6E07E08'
+ MEPROP Name 'IbsSelectedAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделенные атрибуты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4959143A00EB // SelectedAttributes
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4959149300F9_ME_4959145702D3 // UpdateSelectedAttributes
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'bsSelectedAttributes'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4959145702D3 IbsSelectedAttributes
+
+FORWARD ME_49590A5E0315
+
+ME ME_491DD57603A3_ME_49590A5E0315
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_49590A5E0315 ImageList
+
+ME ME_491DD5A10199_ME_49590A5E0315
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_49590A5E0315 SimpleTree
+
+ME ME_491DD5C90095_ME_49590A5E0315
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_49590A5E0315 CurrentChanged
+
+ME ME_4923FDA60287_ME_49590A5E0315
+ MELINK Original HWL ME_4923FDA60287 // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDA60287_ME_49590A5E0315 Search
+
+ME ME_4923FDDB026F_ME_49590A5E0315
+ MELINK Original HWL ME_4923FDDB026F // Operations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDDB026F_ME_49590A5E0315 Operations
+
+ME ME_4923FDFA00F7_ME_49590A5E0315
+ MELINK Original HWL ME_4923FDFA00F7 // IsOneOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDFA00F7_ME_49590A5E0315 IsOneOperation
+
+ME ME_49590D4802EE_ME_49590A5E0315
+ MELINK Original HWL ME_49590D4802EE // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49590D4802EE_ME_49590A5E0315 Process
+
+ME ME_49590A5E0315
+ MEPROP UID '49590A5E0315'
+ MEPROP GUID 'ACBD2B86-E114-4DB8-A546-F4BBC4589AF4'
+ MEPROP Name 'IdsSituation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"Ситуация"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4923FD8100B7 // IdsTagSimpleTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_492425D101B0 // IbsCurrentChangedListener
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_49590A5E0315 // ImageList
+ ME_491DD5A10199_ME_49590A5E0315 // SimpleTree
+ ME_491DD5C90095_ME_49590A5E0315 // CurrentChanged
+ ME_4923FDA60287_ME_49590A5E0315 // Search
+ ME_4923FDDB026F_ME_49590A5E0315 // Operations
+ ME_4923FDFA00F7_ME_49590A5E0315 // IsOneOperation
+ ME_49590D4802EE_ME_49590A5E0315 // Process
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsSituation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49590A5E0315 IdsSituation
+
+FORWARD ME_4922CF920141
+
+ME ME_4922D0440266
+ MEPROP UID '4922D0440266'
+ MEPROP Name 'Search'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'таг дерева реквизитов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4922CF920141 // IdsAttributeSelect
+ ;
+ MELINK Target HWL ME_4922CE700041 // IdeSearch
+ ;
+ UP "pm" true
+
+ENDME // ME_4922D0440266 Search
+
+ME ME_4922CF920141
+ MEPROP UID '4922CF920141'
+ MEPROP GUID '47345B7D-E460-4710-BF6E-E471D35F2F1B'
+ MEPROP Name 'IdsAttributeSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'бизнес объект формы cfAttributeSelect' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4922D0440266 // Search
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'dsAttributeSelect'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4922CF920141 IdsAttributeSelect
+
+FORWARD ME_4924352E01C3
+
+ME ME_4924354D01CC
+ MEPROP UID '4924354D01CC'
+ MEPROP Name 'RefreshValues'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'данные необходимые для обновления формы выбранных атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4924352E01C3 // IdsTreeAttributeSelect
+ ;
+ MELINK Target HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ ;
+ UP "pm" true
+
+ENDME // ME_4924354D01CC RefreshValues
+
+ME ME_491DD57603A3_ME_4924352E01C3
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_4924352E01C3 ImageList
+
+ME ME_491DD5A10199_ME_4924352E01C3
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_4924352E01C3 SimpleTree
+
+ME ME_491DD5C90095_ME_4924352E01C3
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_4924352E01C3 CurrentChanged
+
+ME ME_4923FDA60287_ME_4924352E01C3
+ MELINK Original HWL ME_4923FDA60287 // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDA60287_ME_4924352E01C3 Search
+
+ME ME_4923FDDB026F_ME_4924352E01C3
+ MELINK Original HWL ME_4923FDDB026F // Operations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDDB026F_ME_4924352E01C3 Operations
+
+ME ME_4923FDFA00F7_ME_4924352E01C3
+ MELINK Original HWL ME_4923FDFA00F7 // IsOneOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDFA00F7_ME_4924352E01C3 IsOneOperation
+
+ME ME_49590D4802EE_ME_4924352E01C3
+ MELINK Original HWL ME_49590D4802EE // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49590D4802EE_ME_4924352E01C3 Process
+
+ME ME_4959149300F9_ME_4924352E01C3
+ MELINK Original HWL ME_4959149300F9 // UpdateSelectedAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4959149300F9_ME_4924352E01C3 UpdateSelectedAttributes
+
+ME ME_4924352E01C3
+ MEPROP UID '4924352E01C3'
+ MEPROP GUID '40B0AB8A-4B02-4E72-BCA4-85F85A5DEC14'
+ MEPROP Name 'IdsTreeAttributeSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объекта формы "enTreeAttributeSelectForm"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49590A5E0315 // IdsSituation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4959143A00EB // SelectedAttributes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4924354D01CC // RefreshValues
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_4924352E01C3 // ImageList
+ ME_491DD5A10199_ME_4924352E01C3 // SimpleTree
+ ME_491DD5C90095_ME_4924352E01C3 // CurrentChanged
+ ME_4923FDA60287_ME_4924352E01C3 // Search
+ ME_4923FDDB026F_ME_4924352E01C3 // Operations
+ ME_4923FDFA00F7_ME_4924352E01C3 // IsOneOperation
+ ME_49590D4802EE_ME_4924352E01C3 // Process
+ ME_4959149300F9_ME_4924352E01C3 // UpdateSelectedAttributes
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsTreeAttributeSelect'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4924352E01C3 IdsTreeAttributeSelect
+
+FORWARD ME_49241CDE025D
+
+ME ME_49241D5D01C0
+ MEPROP UID '49241D5D01C0'
+ MEPROP Name 'RefreshValues'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'данные для формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49241CDE025D // IdsSelectedAttributes
+ ;
+ MELINK Target HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ ;
+ UP "pm" true
+
+ENDME // ME_49241D5D01C0 RefreshValues
+
+ME ME_491DD57603A3_ME_49241CDE025D
+ MELINK Original WL 'ME_491DD57603A3' '491DD2830110.ms.model.script' // ImageList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD57603A3_ME_49241CDE025D ImageList
+
+ME ME_491DD5A10199_ME_49241CDE025D
+ MELINK Original WL 'ME_491DD5A10199' '491DD2830110.ms.model.script' // SimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491DD5A10199_ME_49241CDE025D SimpleTree
+
+ME ME_491DD5C90095_ME_49241CDE025D
+ MELINK Original WL 'ME_491DD5C90095' '491DD2830110.ms.model.script' // CurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491DD5C90095_ME_49241CDE025D CurrentChanged
+
+ME ME_4923FDA60287_ME_49241CDE025D
+ MELINK Original HWL ME_4923FDA60287 // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDA60287_ME_49241CDE025D Search
+
+ME ME_4923FDDB026F_ME_49241CDE025D
+ MELINK Original HWL ME_4923FDDB026F // Operations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDDB026F_ME_49241CDE025D Operations
+
+ME ME_4923FDFA00F7_ME_49241CDE025D
+ MELINK Original HWL ME_4923FDFA00F7 // IsOneOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4923FDFA00F7_ME_49241CDE025D IsOneOperation
+
+ME ME_49241CDE025D
+ MEPROP UID '49241CDE025D'
+ MEPROP GUID 'BEFD0C90-5EC9-4847-94E2-C98BA4754E58'
+ MEPROP Name 'IdsSelectedAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4923FD8100B7 // IdsTagSimpleTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49241D5D01C0 // RefreshValues
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491DD57603A3_ME_49241CDE025D // ImageList
+ ME_491DD5A10199_ME_49241CDE025D // SimpleTree
+ ME_491DD5C90095_ME_49241CDE025D // CurrentChanged
+ ME_4923FDA60287_ME_49241CDE025D // Search
+ ME_4923FDDB026F_ME_49241CDE025D // Operations
+ ME_4923FDFA00F7_ME_49241CDE025D // IsOneOperation
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'dsSelectedAttributes'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49241CDE025D IdsSelectedAttributes
+
+FORWARD ME_49241F6B00D7
+
+ME ME_4AE58AE200AC
+ MEPROP UID '4AE58AE200AC'
+ MEPROP Name 'RefreshValues'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49241F6B00D7 // IdeSelectedAttributes
+ ;
+ MELINK Target HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ ;
+ UP "pm" false
+
+ENDME // ME_4AE58AE200AC RefreshValues
+
+ME ME_4AE58AA10134_ME_49241F6B00D7
+ MELINK Original HWL ME_4AE58AA10134 // Tag
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4AE58AA10134_ME_49241F6B00D7 Tag
+
+ME ME_4AE58ABC034A_ME_49241F6B00D7
+ MELINK Original HWL ME_4AE58ABC034A // Query
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4AE58ABC034A_ME_49241F6B00D7 Query
+
+ME ME_49241F6B00D7
+ MEPROP UID '49241F6B00D7'
+ MEPROP GUID 'D77AAF2E-A5BF-4AD4-AEB7-E288C11E1782'
+ MEPROP Name 'IdeSelectedAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DAF4202EE // SearchInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4922CE700041 // IdeSearch
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AE58AE200AC // RefreshValues
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4AE58AA10134_ME_49241F6B00D7 // Tag
+ ME_4AE58ABC034A_ME_49241F6B00D7 // Query
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'deSelectedAttributes'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49241F6B00D7 IdeSelectedAttributes
+
+ME ME_491DAF4202EE
+ MEPROP UID '491DAF4202EE'
+ MEPROP Name 'SearchInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954FAA00232' '4954FAA00232.ms.model.script' // Search
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49590CE80397 // CurrentChangedListener
+ HWL ME_492425D101B0 // IbsCurrentChangedListener
+ HWL ME_4922CE700041 // IdeSearch
+ HWL ME_4959143A00EB // SelectedAttributes
+ HWL ME_4923FD8100B7 // IdsTagSimpleTree
+ HWL ME_4991AAF4000A // InsProgressIndicator
+ HWL ME_4AE589BA0016 // InsSelectedAttributesIterators
+ HWL ME_4959145702D3 // IbsSelectedAttributes
+ HWL ME_49590A5E0315 // IdsSituation
+ HWL ME_4922CF920141 // IdsAttributeSelect
+ HWL ME_4924352E01C3 // IdsTreeAttributeSelect
+ HWL ME_49241CDE025D // IdsSelectedAttributes
+ HWL ME_49241F6B00D7 // IdeSelectedAttributes
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_491DD2830110' '491DD2830110.ms.model.script' // TreeInterfaces
+ WL 'ME_4922BFA000DD' '4922BFA000DD.ms.model.script' // SimpleListInterfaces
+ WL 'ME_4990510C0026' '4990510C0026.ms.model.script' // SearchDomainInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '14.11.208 20:03'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\SearchInterfaces.pas'
+
+ENDME // ME_491DAF4202EE SearchInterfaces

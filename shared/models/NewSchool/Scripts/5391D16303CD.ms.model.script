@@ -1,0 +1,132 @@
+// DocumentsCacheOperations 5391D16303CD VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5391D16303CD
+
+FORWARD ME_5391D17C0073
+
+ME ME_5391D18801D6
+ MEPROP UID '5391D18801D6'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очистить кэш документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5391D17C0073 // DocumentsCache
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "ImageIndex" 5
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+
+ENDME // ME_5391D18801D6 Clear
+
+FORWARD ME_5391D193004A
+
+ME ME_5395AD850337
+ MEPROP UID '5395AD850337'
+ MEPROP Name 'Disable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391D193004A // Disable
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_5395AD850337 Disable
+
+ME ME_5395AD8D03A2
+ MEPROP UID '5395AD8D03A2'
+ MEPROP Name 'Enable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391D193004A // Disable
+ ;
+ UP "Checked" true
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_5395AD8D03A2 Enable
+
+ME ME_5391D193004A
+ MEPROP UID '5391D193004A'
+ MEPROP Name 'Disable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Запретить кэш документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5391D17C0073 // DocumentsCache
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5395AD850337 // Disable
+ HWL ME_5395AD8D03A2 // Enable
+ )
+ ; // Children
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "ImageIndex" 26
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" true
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_5391D193004A Disable
+
+ME ME_5391D17C0073
+ MEPROP UID '5391D17C0073'
+ MEPROP Name 'DocumentsCache'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5391D16303CD // DocumentsCacheOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5391D18801D6 // Clear
+ HWL ME_5391D193004A // Disable
+ )
+ ; // Operations
+
+ENDME // ME_5391D17C0073 DocumentsCache
+
+ME ME_5391D16303CD
+ MEPROP UID '5391D16303CD'
+ MEPROP Name 'DocumentsCacheOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F7D7B980383' '4F7D7B980383.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5391D17C0073 // DocumentsCache
+ )
+ ; // Children
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\F1_Without_Usecases_DocumentsCacheOperations_Controls.pas'
+ UP extprop:pas:UnitName 'F1_Without_Usecases_DocumentsCacheOperations_Controls'
+
+ENDME // ME_5391D16303CD DocumentsCacheOperations

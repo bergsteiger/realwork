@@ -1,0 +1,444 @@
+// vcmBaseTypes 528C93040132 InternalInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_528C93040132
+
+FORWARD ME_528C9354017B
+
+ME ME_528C938103E3
+ MEPROP UID '528C938103E3'
+ MEPROP Name 'rName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_528C9354017B // TvcmFormID
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_528C938103E3 rName
+
+ME ME_528C938D0129
+ MEPROP UID '528C938D0129'
+ MEPROP Name 'rID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_528C9354017B // TvcmFormID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_528C938D0129 rID
+
+FORWARD ME_528C93AC00EB
+
+ME ME_528C93BA029D
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_528C9354017B // TvcmFormID
+ ;
+
+ENDME // ME_528C93BA029D anOther
+
+ME ME_528C93B6011F
+ MEPROP UID '528C93B6011F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528C93AC00EB // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_528C93BA029D // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_528C93B6011F DoIt
+
+ME ME_528C93AC00EB
+ MEPROP UID '528C93AC00EB'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528C9354017B // TvcmFormID
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528C93B6011F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_528C93AC00EB EQ
+
+ME ME_528C9354017B
+ MEPROP UID '528C9354017B'
+ MEPROP Name 'TvcmFormID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528C93040132 // vcmBaseTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_528C938103E3 // rName
+ HWL ME_528C938D0129 // rID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_528C93AC00EB // EQ
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'FormID'
+
+ENDME // ME_528C9354017B TvcmFormID
+
+FORWARD ME_528C93FD01EA
+
+ME ME_528C940A03BD
+ MEPROP UID '528C940A03BD'
+ MEPROP Name 'Any'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C940A03BD Any
+
+ME ME_528C941101FC
+ MEPROP UID '528C941101FC'
+ MEPROP Name 'Main'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C941101FC Main
+
+ME ME_528C94160294
+ MEPROP UID '528C94160294'
+ MEPROP Name 'Navigator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C94160294 Navigator
+
+ME ME_528C941F00C5
+ MEPROP UID '528C941F00C5'
+ MEPROP Name 'Parent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C941F00C5 Parent
+
+ME ME_528C942500CF
+ MEPROP UID '528C942500CF'
+ MEPROP Name 'Child'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C942500CF Child
+
+ME ME_528C942A0139
+ MEPROP UID '528C942A0139'
+ MEPROP Name 'Reminder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C942A0139 Reminder
+
+ME ME_528C94300005
+ MEPROP UID '528C94300005'
+ MEPROP Name 'Floating'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C94300005 Floating
+
+ME ME_528C943B0211
+ MEPROP UID '528C943B0211'
+ MEPROP Name 'Modal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C943B0211 Modal
+
+ME ME_528C9441014B
+ MEPROP UID '528C9441014B'
+ MEPROP Name 'ManualModal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C9441014B ManualModal
+
+ME ME_528C9449015F
+ MEPROP UID '528C9449015F'
+ MEPROP Name 'ForToolbarsInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C9449015F ForToolbarsInfo
+
+ME ME_528C9451011B
+ MEPROP UID '528C9451011B'
+ MEPROP Name 'SimpleFloat'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C9451011B SimpleFloat
+
+ME ME_528C945901DA
+ MEPROP UID '528C945901DA'
+ MEPROP Name 'MainObjectForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C945901DA MainObjectForm
+
+ME ME_528C946201CF
+ MEPROP UID '528C946201CF'
+ MEPROP Name 'ForFocus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528C93FD01EA // TvcmZoneType
+ ;
+
+ENDME // ME_528C946201CF ForFocus
+
+ME ME_528C93FD01EA
+ MEPROP UID '528C93FD01EA'
+ MEPROP Name 'TvcmZoneType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528C93040132 // vcmBaseTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_528C940A03BD // Any
+ HWL ME_528C941101FC // Main
+ HWL ME_528C94160294 // Navigator
+ HWL ME_528C941F00C5 // Parent
+ HWL ME_528C942500CF // Child
+ HWL ME_528C942A0139 // Reminder
+ HWL ME_528C94300005 // Floating
+ HWL ME_528C943B0211 // Modal
+ HWL ME_528C9441014B // ManualModal
+ HWL ME_528C9449015F // ForToolbarsInfo
+ HWL ME_528C9451011B // SimpleFloat
+ HWL ME_528C945901DA // MainObjectForm
+ HWL ME_528C946201CF // ForFocus
+ )
+ ; // Attributes
+ UP "children prefix" 'zt'
+ UP "elements prefix" 'vcm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:ElementPrefixBase 'vcm'
+ UP extprop:pas:ElementPrefix 'vcm_zt'
+
+ENDME // ME_528C93FD01EA TvcmZoneType
+
+FORWARD ME_528D9F530036
+
+ME ME_528D9F70002F
+ MEPROP UID '528D9F70002F'
+ MEPROP Name 'vcm_nmForce'
+ MEPROP Class class_Attribute
+ %SUMMARY 'создавать не взирая ни на что' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528D9F530036 // TvcmNeedMakeDS
+ ;
+
+ENDME // ME_528D9F70002F vcm_nmForce
+
+ME ME_528D9F7A02F2
+ MEPROP UID '528D9F7A02F2'
+ MEPROP Name 'vcm_nmNo'
+ MEPROP Class class_Attribute
+ %SUMMARY 'нельзя создавать, например потому, что форма была закрыта пользователем и при обновлении сборки ее создавать не нужно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528D9F530036 // TvcmNeedMakeDS
+ ;
+
+ENDME // ME_528D9F7A02F2 vcm_nmNo
+
+ME ME_528D9F800248
+ MEPROP UID '528D9F800248'
+ MEPROP Name 'vcm_nmYes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'начальное состояние' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_528D9F530036 // TvcmNeedMakeDS
+ ;
+
+ENDME // ME_528D9F800248 vcm_nmYes
+
+ME ME_528D9F530036
+ MEPROP UID '528D9F530036'
+ MEPROP Name 'TvcmNeedMakeDS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перечислимый тип определяющий необходимость создания БОФ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528C93040132 // vcmBaseTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_528D9F70002F // vcm_nmForce
+ HWL ME_528D9F7A02F2 // vcm_nmNo
+ HWL ME_528D9F800248 // vcm_nmYes
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_528D9F530036 TvcmNeedMakeDS
+
+FORWARD ME_52A567390016
+
+ME ME_52A5674D033E
+ MEPROP UID '52A5674D033E'
+ MEPROP Name 'vcm_utAny'
+ MEPROP Class class_Attribute
+ %SUMMARY 'любой пользовательский тип' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A567390016 // UserTypes
+ ;
+ MEPROP Value 31
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 31
+
+ENDME // ME_52A5674D033E vcm_utAny
+
+ME ME_52A567390016
+ MEPROP UID '52A567390016'
+ MEPROP Name 'UserTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528C93040132 // vcmBaseTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A5674D033E // vcm_utAny
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_52A567390016 UserTypes
+
+ME ME_53D1DC0400B7
+ MEPROP UID '53D1DC0400B7'
+ MEPROP Name 'TvcmIteratorAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528C93040132 // vcmBaseTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_469FA03900D4' '4678193C009C.ms.model.script' // Tl3IteratorAction
+ )
+ ; // Inherits
+
+ENDME // ME_53D1DC0400B7 TvcmIteratorAction
+
+ME ME_528C93040132
+ MEPROP UID '528C93040132'
+ MEPROP Name 'vcmBaseTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_InternalInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_528C9354017B // TvcmFormID
+ HWL ME_528C93FD01EA // TvcmZoneType
+ HWL ME_528D9F530036 // TvcmNeedMakeDS
+ HWL ME_53D1DC0400B7 // TvcmIteratorAction
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_52A567390016 // UserTypes
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmBaseTypes.pas'
+
+ENDME // ME_528C93040132 vcmBaseTypes

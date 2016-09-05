@@ -6,14 +6,14 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.
 //#UC END# *4AA919B200ABimpl_uses*
 //#UC START# *4AA9304801B8_4AA919B200AB_impl*
  // Создание базового контейнера для КЗ
- l_Container := TdmStdRes.MakeSaveLoadForm(vcmMakeParams(anAggregate, aContainer),
+ l_Container := TCommonSearchService.Instance.MakeSaveLoadForm(vcmMakeParams(anAggregate, aContainer),
                                            vcm_ztParent,
                                            True,
                                            Ord(slqtPostingOrder));
  // Создание конкретной карточки запроса
  vcmDispatcher.FormDispatcher.Lock;
  try
-  Result := TdmStdRes.MakeQueryCardForm(false,
+  Result := TCommonSearchService.Instance.MakeQueryCardForm(false,
                                         vcmMakeParams(l_Container.Aggregate,
                                                   l_Container.AsContainer),
                                         vcm_ztParent,
@@ -43,11 +43,14 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.
  l_Cont.HasForm(fm_enPostingsList.rFormID, vcm_ztNavigator, True, @l_Form);
  Assert(l_Form <> nil);
  if (l_Form <> nil) then
-  Result := OpenPostingOrderForm(l_Form.Aggregate, l_Cont, aQuery)
+  Result := TCommonPostModule.OpenPostingOrderForm(l_Form.Aggregate, l_Cont, aQuery)
  else
-  Result := OpenPostingOrderForm(nil, l_Cont, aQuery);
+  Result := TCommonPostModule.OpenPostingOrderForm(nil, l_Cont, aQuery);
 //#UC END# *4AA93C87000C_4AA919B200AB_impl*
 //#UC START# *4AA93C87000C_4AA919B200AB_var*
+var
+ l_Form : IvcmEntityForm;
+ l_Cont : IvcmContainer;
 //#UC END# *4AA93C87000C_4AA919B200AB_var*
 //#UC START# *4AAF935E01A7_4AA919B200AB_impl*
   // сохранение XML на стороне сервера приложений
@@ -59,12 +62,12 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.
    with dmStdRes do
    begin
     repeat
-     Application.HookMainWindow(MessageHook);
+     Application.HookMainWindow(TCommonPostModule.MessageHook);
      try
       l_Result := SelectDirectory(vcmConstString(str_ChooseSaveSettingsFolder),
         '', l_PathName);
      finally
-      Application.UnhookMainWindow(MessageHook);
+      Application.UnhookMainWindow(TCommonPostModule.MessageHook);
      end; 
      l_MayExit := not l_Result; //Пользователь отказался от выбора - выходим
      if not l_MayExit then //Решил сохраниться, но это не так просто. :-)
@@ -94,6 +97,10 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.
   TnsPostingsTreeSingle.Instance.DataChanged := False;
 //#UC END# *4AAF935E01A7_4AA919B200AB_impl*
 //#UC START# *4AAF935E01A7_4AA919B200AB_var*
+var
+ l_PathName : AnsiString;
+ l_Result : Boolean;
+ l_MayExit : Boolean;
 //#UC END# *4AAF935E01A7_4AA919B200AB_var*
 //#UC START# *4AAF94F8009A_4AA919B200AB_impl*
  Result := False;
@@ -131,12 +138,13 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.
    else
     l_Cont := lp_CreateContainer;
 
-   l_Aggregate := vcmCheckAggregate(vcmMakeParams).Aggregate;
+   l_Aggregate := vcmCheckAggregate(vcmMakeParams, False).Aggregate;
    // Карточка
-   l_Owner := OpenPostingOrderForm(l_Aggregate, l_Cont, nil).VCLWinControl;
+   l_Owner := TCommonPostModule.OpenPostingOrderForm(l_Aggregate, l_Cont, nil).VCLWinControl;
    // Ленты
-   OpenPostingOrderList(l_Aggregate, l_Cont, True, l_Owner);
-  end else
+   TCommonPostModule.OpenPostingOrderList(l_Aggregate, l_Cont, True, l_Owner);
+  end//not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch)
+  else
    Op_SearchSupport_ActivatePostingsListForm.Broadcast; 
 //#UC END# *4AAFA52603B7_4AA919B200AB_impl*
 //#UC START# *4AAFA52603B7_4AA919B200AB_var*
@@ -165,6 +173,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.
 var
  l_Owner: TComponent;
  l_Cont: IvcmContainer;
+ l_Aggregate : IvcmAggregate;
 //#UC END# *4AAFA52603B7_4AA919B200AB_var*
 //#UC START# *4B71840A00D2_4AA919B200AB_impl*
   CheckHistory;
@@ -183,13 +192,13 @@ var
 //#UC START# *4B7184370035_4AA919B200AB_var*
 //#UC END# *4B7184370035_4AA919B200AB_var*
 //#UC START# *4B71847503BF_4AA919B200ABexec_impl*
- SavePostList;
+ TCommonPostService.Instance.SavePostList;
 //#UC END# *4B71847503BF_4AA919B200ABexec_impl*
 //#UC START# *4B71847503BF_4AA919B200ABexec_var*
 //#UC END# *4B71847503BF_4AA919B200ABexec_var*
 //#UC START# *4B71847503BF_4AA919B200ABtest_impl*
  {$if defined(Monitorings)}
- aParams.Op.Flag[vcm_ofEnabled] := CanSavePostList;
+ aParams.Op.Flag[vcm_ofEnabled] := TCommonPostService.Instance.CanSavePostList;
  {$else}
  aParams.Op.Flag[vcm_ofVisible] := False;
  {$ifend}

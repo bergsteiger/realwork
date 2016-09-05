@@ -1,0 +1,38 @@
+// MTDOrb 4CA0BEBC011E Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4CA0BEBC011E
+ MEPROP UID '4CA0BEBC011E'
+ MEPROP Name 'MTDOrb'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4CA0D1FB01E0' '4CA0D1FB01E0.ms.model.script' // pi_int
+ WL 'ME_4CA1C4660358' '4CA1C4660358.ms.model.script' // orb_int
+ WL 'ME_4CA0D33A02D6' '4CA0D33A02D6.ms.model.script' // orb
+ WL 'ME_4CA0D52900F5' '4CA0D52900F5.ms.model.script' // orbtypes
+ WL 'ME_4CA0DCFB017A' '4CA0DCFB017A.ms.model.script' // build
+ WL 'ME_4CA0D13D017F' '4CA0D13D017F.ms.model.script' // idl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "ifdef" 'nsTest,MTDORB'
+ UP "ifndef" 'NotTunedDUnit'
+ UP "is namespace" true
+ UP "vendor" '/external'
+ UP intf.pas:PathOnly '\common\components\rtl\external\MTDOrb'
+
+ENDME // ME_4CA0BEBC011E MTDOrb

@@ -4,21 +4,28 @@
 //#UC START# *4DB6CF7202CB_52EA594400DD_var*
 //#UC END# *4DB6CF7202CB_52EA594400DD_var*
 //#UC START# *4F22776902FC_52EA594400DD_impl*
- EtfwCheck.IsTrue(f_NestedCallsCount >= 0, 'Сломанный счётчик рекурсивных вызовов');
+ Assert(Integer(@f_NestedCallsCount) mod 4 = 0);
+ l_NestedCallsCount := l3InterlockedIncrement(f_NestedCallsCount);
  try
-  if (f_NestedCallsCount > 0) then
+  EtfwCheck.IsTrue(l_NestedCallsCount > 0, 'Сломанный счётчик рекурсивных вызовов');
+  try
    if IsCompiled then
    // - отсекаем некомпилированные слова, т.к. с ними наверное всё хорошо
    //   а иначе падает например на том же INCLUDE
+    if {$IfDef seThreadSafe}
+       true
+       {$Else  seThreadSafe}
+       (l_NestedCallsCount > 1)
+       {$EndIf seThreadSafe} then
     begin
      Self.StoreState(aCtx);
      try
-      Inc(f_NestedCallsCount);
+      //l3InterlockedIncrement(f_NestedCallsCount);
       try
-       TtfwWord(Self).RunnerAssert(f_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
+       TtfwWord(Self).RunnerAssert(l_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
        DoDoIt(aCtx);
       finally
-       Dec(f_NestedCallsCount);
+       //l3InterlockedDecrement(f_NestedCallsCount);
       end;//try..finally
      finally
       Self.RestoreState(aCtx);
@@ -27,27 +34,32 @@
      //raise EtfwRecursionNotSupportedYet.Create('Вложенные вызовы слов пока не поддерживаются');
      // - тут вообще говоря надо сложить значения переменных в стек, вызвать DoDoIt, а потом восстановит переменные
     end;//IsCompiled
-  Inc(f_NestedCallsCount);
-  try
+   //l3InterlockedIncrement(f_NestedCallsCount);
    try
-    DoDoIt(aCtx);
+    try
+     DoDoIt(aCtx);
+    finally
+     ClearState(aCtx);
+    end;///try..finally
    finally
-    ClearState(aCtx);
-   end;///try..finally
-  finally
-   Dec(f_NestedCallsCount);
-  end;//try..finally
- except
-  on EtfwExitOrBreak do
-   raise;
-  else
-  begin
-   aCtx.rEngine.WordFail(SourcePoint);
-   raise;
-  end;//else 
- end;//try..except
+    //l3InterlockedDecrement(f_NestedCallsCount);
+   end;//try..finally
+  except
+   on EtfwExitOrBreak do
+    raise;
+   else
+   begin
+    aCtx.rEngine.WordFail(SourcePoint);
+    raise;
+   end;//else
+  end;//try..except
+ finally
+  l3InterlockedDecrement(f_NestedCallsCount);
+ end;//try..finally
 //#UC END# *4F22776902FC_52EA594400DD_impl*
 //#UC START# *4F22776902FC_52EA594400DD_var*
+var
+ l_NestedCallsCount: Integer;
 //#UC END# *4F22776902FC_52EA594400DD_var*
 //#UC START# *4F49428A01EA_52EA594400DD_impl*
  // - ничего не делаем

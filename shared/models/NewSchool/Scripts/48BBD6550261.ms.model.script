@@ -1,0 +1,73 @@
+// TafwCustomCommonTextControl 48BBD6550261 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BBD6550261
+
+ME ME_48BBD6680379
+ MEPROP UID '48BBD6680379'
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48BBD6550261 // TafwCustomCommonTextControl
+ ;
+ MELINK Target WL 'ME_46A46A030333' '556F09AA036E.ms.model.script' // TCanvas
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_48BBD6680379 Canvas
+
+ME ME_48BBD6AB0328
+ MEPROP UID '48BBD6AB0328'
+ MEPROP Name 'Paint'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48BBD6550261 // TafwCustomCommonTextControl
+ ;
+
+ENDME // ME_48BBD6AB0328 Paint
+
+ME ME_48BBD37B034F_ME_48BBD6550261
+ MELINK Original WL 'ME_48BBD37B034F' '48BBD3480266.ms.model.script' // DoPaint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48BBD37B034F_ME_48BBD6550261 DoPaint
+
+ME ME_48BBD6550261
+ MEPROP UID '48BBD6550261'
+ MEPROP Name 'TafwCustomCommonTextControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48BBD3480266' '48BBD3480266.ms.model.script' // TafwCustomCommonTextControlPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48BBD6680379 // Canvas
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48BBD6AB0328 // Paint
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48BBD37B034F_ME_48BBD6550261 // DoPaint
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonTextControl.pas'
+ UP extprop:rc:SelfName 'afwCustomCommonTextControl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwCustomCommonTextControl'
+
+ENDME // ME_48BBD6550261 TafwCustomCommonTextControl

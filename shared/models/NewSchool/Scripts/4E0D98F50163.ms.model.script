@@ -1,0 +1,172 @@
+// ddTableConvTypes 4E0D98F50163 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E0D98F50163
+
+FORWARD ME_4E0D96DC0288
+
+ME ME_4E0D96EC0174
+ MEPROP UID '4E0D96EC0174'
+ MEPROP Name 'csGraphic'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ENDME // ME_4E0D96EC0174 csGraphic
+
+ME ME_4E0D96FA0305
+ MEPROP UID '4E0D96FA0305'
+ MEPROP Name 'csParagraph'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ENDME // ME_4E0D96FA0305 csParagraph
+
+ME ME_4E0D970200EE
+ MEPROP UID '4E0D970200EE'
+ MEPROP Name 'csTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ENDME // ME_4E0D970200EE csTab
+
+ME ME_4E0D970803BE
+ MEPROP UID '4E0D970803BE'
+ MEPROP Name 'csSemicolon'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ENDME // ME_4E0D970803BE csSemicolon
+
+ME ME_4E0D970F0374
+ MEPROP UID '4E0D970F0374'
+ MEPROP Name 'csSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ENDME // ME_4E0D970F0374 csSpace
+
+ME ME_4E0D97160126
+ MEPROP UID '4E0D97160126'
+ MEPROP Name 'csOther'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ENDME // ME_4E0D97160126 csOther
+
+ME ME_4E0D96DC0288
+ MEPROP UID '4E0D96DC0288'
+ MEPROP Name 'TddCellSeparator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0D98F50163 // ddTableConvTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E0D96EC0174 // csGraphic
+ HWL ME_4E0D96FA0305 // csParagraph
+ HWL ME_4E0D970200EE // csTab
+ HWL ME_4E0D970803BE // csSemicolon
+ HWL ME_4E0D970F0374 // csSpace
+ HWL ME_4E0D97160126 // csOther
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E0D96DC0288 TddCellSeparator
+
+FORWARD ME_4E0D97220074
+
+ME ME_4E0D972B0278
+ MEPROP UID '4E0D972B0278'
+ MEPROP Name 'afEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D97220074 // TddAutoFitBehavior
+ ;
+
+ENDME // ME_4E0D972B0278 afEqual
+
+ME ME_4E0D9732006C
+ MEPROP UID '4E0D9732006C'
+ MEPROP Name 'afContent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0D97220074 // TddAutoFitBehavior
+ ;
+
+ENDME // ME_4E0D9732006C afContent
+
+ME ME_4E0D97220074
+ MEPROP UID '4E0D97220074'
+ MEPROP Name 'TddAutoFitBehavior'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0D98F50163 // ddTableConvTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E0D972B0278 // afEqual
+ HWL ME_4E0D9732006C // afContent
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E0D97220074 TddAutoFitBehavior
+
+ME ME_4E0D98F50163
+ MEPROP UID '4E0D98F50163'
+ MEPROP Name 'ddTableConvTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E0D96DC0288 // TddCellSeparator
+ HWL ME_4E0D97220074 // TddAutoFitBehavior
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "defines" 'ddDefine.inc'
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTableConvTypes.pas'
+
+ENDME // ME_4E0D98F50163 ddTableConvTypes

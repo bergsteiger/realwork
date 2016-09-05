@@ -1,0 +1,62 @@
+// TreeAttributeSelect 4AAF487F03BC VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAF487F03BC
+
+ME ME_EBB9DAD3F287
+ MEPROP UID 'EBB9DAD3F287'
+ MEPROP Name 'Ini_FormFactory_TreeAttributeSelect'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы TreeAttributeSelect' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF487F03BC // TreeAttributeSelect
+ ;
+ UPLINK SpelledFor HWL ME_4AAF487F03BC // TreeAttributeSelect
+ ;
+
+ENDME // ME_EBB9DAD3F287 Ini_FormFactory_TreeAttributeSelect
+
+ME ME_4AAF487F03BC
+ MEPROP UID '4AAF487F03BC'
+ MEPROP Name 'TreeAttributeSelect'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выбор значений древовидного атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA0EA76017F' '4AA0EA76017F.ms.model.script' // LiteSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C443A570168' '4C443A570168.ms.model.script' // PrimTreeAttributeSelectOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D80CDFB03A2' '4D80CDE4033D.ms.model.script' // TreeAttributeSelect
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_EBB9DAD3F287 // Ini_FormFactory_TreeAttributeSelect
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Parent'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "form name prefix" 'ef'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '15.09.2009 11:56'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttributeSelect_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms'
+ UP extprop:pas:TypeName 'TefTreeAttributeSelect'
+ UP extprop:rc:SelfName 'efTreeAttributeSelect'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TreeAttributeSelect_Form'
+
+ENDME // ME_4AAF487F03BC TreeAttributeSelect

@@ -1,0 +1,1 @@
+for /R C:\Temp\GenBackup\ %%i in (*.*) do echo %%i>>C:\Temp\changed.lst

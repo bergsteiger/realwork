@@ -14,60 +14,61 @@ USES
  ArchiControls.script  
 ;
 
-: "Сохранить документ"
- acSave arMainActionList push:MainForm pop:form:ExecuteAction
+PROCEDURE "Сохранить документ"
+	acSave arMainActionList push:MainForm pop:form:ExecuteAction
 ; 
-: "Проверка орфографии"
- acSpellChecker arMainActionList push:MainForm pop:form:ExecuteAction
+
+PROCEDURE "Проверка орфографии"
+	acSpellChecker arMainActionList push:MainForm pop:form:ExecuteAction
 ;
 
-: "Показать РЕЕСТР ОБЪЕКТОВ" 
- acShowObjectExplorer arGeneralActionList push:MainForm pop:form:ExecuteAction
+PROCEDURE "Показать РЕЕСТР ОБЪЕКТОВ" 
+	acShowObjectExplorer arGeneralActionList push:MainForm pop:form:ExecuteAction
 ;
 
-: "Спрятать РЕЕСТР ОБЪЕКТОВ" 
- acHideObjectExplorer arGeneralActionList push:MainForm pop:form:ExecuteAction
+PROCEDURE "Спрятать РЕЕСТР ОБЪЕКТОВ" 
+	acHideObjectExplorer arGeneralActionList push:MainForm pop:form:ExecuteAction
 ;
 
-: "Фокус на РЕЕСТР ОБЪЕКТОВ"
- carObjectExplorer push:MainForm pop:Control:FindControlByName pop:Control:SetFocus ASSERT
+PROCEDURE "Фокус на РЕЕСТР ОБЪЕКТОВ"
+	carObjectExplorer push:MainForm pop:Control:FindControlByName pop:Control:SetFocus ASSERT
 ;
 
-: "Новая выборка"
- acNewDocExtracts arGeneralActionList push:MainForm pop:form:ExecuteAction	
+PROCEDURE "Новая выборка"
+	acNewDocExtracts arGeneralActionList push:MainForm pop:form:ExecuteAction	
 ;
 
-: "Добавить ID"
+PROCEDURE "Добавить ID"
 	acAddIDtoDocSet alDocList "Текущее родительское окно" pop:form:ExecuteAction	
 ;
 
-: "Экспорт документов"
+PROCEDURE "Экспорт документов"
 	actDocExport alSearchActions "Текущее родительское окно" pop:form:ExecuteAction	
 ;
 
-: "Открыть документ на чтение"
+PROCEDURE "Открыть документ на чтение"
 	acRunViewer arGeneralActionList push:MainForm pop:form:ExecuteAction
  ;
 
-: "Открыть документ на редактирование"
+PROCEDURE "Открыть документ на редактирование"
 	acRunEditor arGeneralActionList push:MainForm pop:form:ExecuteAction
 ;
  
-: "Попытаться из буфера обмена"
+PROCEDURE "Попытаться из буфера обмена"
 	acPaste arMainActionList push:MainForm pop:form:ExecuteAction
 ;
 
-: "Ввести имя выборки"
+PROCEDURE "Ввести имя выборки"
 	'Тестовая выборка' emitstring	
-	 "Контрол по имени {('OK')}" pop:Control:Click  
+	"Контрол по имени {('OK')}" pop:Control:Click  
 ;
 
-: "Заполнить ID" INTEGER IN anID
+PROCEDURE "Заполнить ID" INTEGER IN anID
 	anID IntToStr emitstring	
 	"Контрол по имени {('OKBtn')}" pop:Control:Click  	
 ;
  
- : "Создать выборку и добавить документ" INTEGER IN anID
+ PROCEDURE "Создать выборку и добавить документ" INTEGER IN anID
  	@ ( "Новая выборка" ) MODAL ( "Ввести имя выборки" )
 	"Развернуть окно"
 	@ ( "Добавить ID" ) MODAL ( "Заполнить ID {(anID)}" )

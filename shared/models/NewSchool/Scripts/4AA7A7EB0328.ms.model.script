@@ -1,0 +1,336 @@
+// Rubricator 4AA7A7EB0328 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA7A7EB0328
+
+FORWARD ME_46836A280235
+
+ME ME_46836AC503B7
+ MEPROP UID '46836AC503B7'
+ MEPROP Name 'f_FrozenRoot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_46836AC503B7 f_FrozenRoot
+
+ME ME_4E73878200DD
+ MEPROP UID '4E73878200DD'
+ MEPROP Name 'f_RootToKeep'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E73878200DD f_RootToKeep
+
+ME ME_4E7AFFD20303
+ MEPROP UID '4E7AFFD20303'
+ MEPROP Name 'f_MenuSectionItemToKeep'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
+ ;
+
+ENDME // ME_4E7AFFD20303 f_MenuSectionItemToKeep
+
+FORWARD ME_4E7387AE0021
+
+ME ME_4E738803029C
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E738803029C aRoot
+
+ME ME_4E7388030316
+ MEPROP Name 'aRootToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E7388030316 aRootToKeep
+
+ME ME_4E7B00060083
+ MEPROP Name 'aMenuSectionItemToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
+ ;
+
+ENDME // ME_4E7B00060083 aMenuSectionItemToKeep
+
+ME ME_4E7387DF02FB
+ MEPROP UID '4E7387DF02FB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7387AE0021 // CreateKeeped
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E738803029C // aRoot
+ ME_4E7388030316 // aRootToKeep
+ ME_4E7B00060083 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+
+ENDME // ME_4E7387DF02FB DoIt
+
+ME ME_4E7387AE0021
+ MEPROP UID '4E7387AE0021'
+ MEPROP Name 'CreateKeeped'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7387DF02FB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E7387AE0021 CreateKeeped
+
+ME ME_4E7387D50196
+ MEPROP UID '4E7387D50196'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E7387AE0021 // CreateKeeped
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E7AFF400116' '4E7AFECB03CB.ms.model.script' // InsRubricatorTree
+ )
+ ; // Implements
+
+ENDME // ME_4E7387D50196 Make
+
+ME ME_4908839502DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_490724F202F5' '4907236C0171.ms.model.script' // TnsRubricatorCache
+ ;
+
+ENDME // ME_4908839502DB 
+
+ME ME_490884EC0385
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_47F60E8E019C' '4908A8A20107.ms.model.script' // nsNodes
+ ;
+
+ENDME // ME_490884EC0385 
+
+ME ME_490885240168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_490885240168 
+
+ME ME_490885F20054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_490885C402F8' '521C9DA50125.ms.model.script' // Messages
+ ;
+
+ENDME // ME_490885F20054 
+
+ME ME_4908873902BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_4908873902BC 
+
+ME ME_4908875803DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_4908875803DA 
+
+ME ME_490887860339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_48FF63BC0129' '47F2170002B2.ms.model.script' // TnsResetTreeStatus
+ ;
+
+ENDME // ME_490887860339 
+
+ME ME_490887BA01EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836A280235 // TnsRubricatorList
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_490887BA01EA 
+
+ME ME_48FF64F60078_ME_46836A280235
+ MELINK Original WL 'ME_48FF64F60078' '48FD8B2702F6.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48FF64F60078_ME_46836A280235 ReAqurieUnfilteredRoot
+
+ME ME_4E7AFF540238_ME_46836A280235
+ MELINK Original WL 'ME_4E7AFF540238' '4E7AFECB03CB.ms.model.script' // RootToKeep
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4E7AFF540238_ME_46836A280235 RootToKeep
+
+ME ME_4E7AFFA700A6_ME_46836A280235
+ MELINK Original WL 'ME_4E7AFFA700A6' '4E7AFECB03CB.ms.model.script' // MenuSectionItemToKeep
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4E7AFFA700A6_ME_46836A280235 MenuSectionItemToKeep
+
+ME ME_48FDD9270194_ME_46836A280235
+ MELINK Original WL 'ME_48FDD9270194' '48FD8B2702F6.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48FDD9270194_ME_46836A280235 Create
+
+ME ME_46836A280235
+ MEPROP UID '46836A280235'
+ MEPROP Name 'TnsRubricatorList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Структура "одноуровневое дерево" для узла рубрикатора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7A7EB0328 // Rubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683692B0105' '48FD8B2702F6.ms.model.script' // TnsOneLevelTreeStruct
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+ WL 'ME_4E7AFF400116' '4E7AFECB03CB.ms.model.script' // InsRubricatorTree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_46836AC503B7 // f_FrozenRoot
+ HWL ME_4E73878200DD // f_RootToKeep
+ HWL ME_4E7AFFD20303 // f_MenuSectionItemToKeep
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E7387AE0021 // CreateKeeped
+ HWL ME_4E7387D50196 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48FF64F60078_ME_46836A280235 // ReAqurieUnfilteredRoot
+ ME_4E7AFF540238_ME_46836A280235 // RootToKeep
+ ME_4E7AFFA700A6_ME_46836A280235 // MenuSectionItemToKeep
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48FDD9270194_ME_46836A280235 // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4908839502DB // TnsRubricatorCache
+ ME_490884EC0385 // nsNodes
+ ME_490885240168 // vcmBase
+ ME_490885F20054 // Messages
+ ME_4908873902BC // Il3Node
+ ME_4908875803DA // Il3SimpleRootNode
+ ME_490887860339 // TnsResetTreeStatus
+ ME_490887BA01EA // SysUtils
+ )
+ ; // Dependencies
+ UP "author" 'Никитин А.'
+ UP "no hands" true
+ UP "started" '2003/06/10 12:57:53'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Rubricator\nsRubricatorList.pas'
+ UP extprop:rc:SelfName 'RubricatorList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsRubricatorList'
+
+ENDME // ME_46836A280235 TnsRubricatorList
+
+ME ME_4AA7A7EB0328
+ MEPROP UID '4AA7A7EB0328'
+ MEPROP Name 'Rubricator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA7A7D903AE' '4AA7A7D903AE.ms.model.script' // Rubricator
+ ;
+ MELIST Children
+   Seq: ( HWL ME_46836A280235 // TnsRubricatorList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_48563BA400A9' '48563BA400A9.ms.model.script' // Навигация
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ WL 'ME_4907236C0171' '4907236C0171.ms.model.script' // Rubricator
+ WL 'ME_4908A8A20107' '4908A8A20107.ms.model.script' // OldTree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4DD24BD40021' '4DD24BD40021.ms.model.script' // MainMenu
+ WL 'ME_4E7AFECB03CB' '4E7AFECB03CB.ms.model.script' // RubricatorInterfaces
+ WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
+ )
+ ; // Depends
+
+ENDME // ME_4AA7A7EB0328 Rubricator

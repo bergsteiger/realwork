@@ -1,0 +1,390 @@
+// PrimStyleEditorExample 4AF8665A0079 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AF8665A0079
+
+ME ME_4BD6DFC00310
+ MEPROP UID '4BD6DFC00310'
+ MEPROP Name 'utStyleEditorExample'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текстовое окно редактора стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorExample_utStyleEditorExample_UserType.pas'
+ UP extprop:pas:UnitName 'PrimStyleEditorExample_utStyleEditorExample_UserType'
+
+ENDME // ME_4BD6DFC00310 utStyleEditorExample
+
+ME ME_4AF866B401B1
+ MEPROP UID '4AF866B401B1'
+ MEPROP Name 'TextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ UP "ComponentClass" 'TnscTextSource'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4AF866B401B1 TextSource
+
+FORWARD ME_526A7EEA01AC
+
+ME ME_526A81CF0012
+ MEPROP UID '526A81CF0012'
+ MEPROP Name 'Editor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526A7EEA01AC // EditorPanel
+ ;
+ UP "ControlClass" 'TeeEditorWithoutOperations'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_526A81CF0012 Editor
+
+ME ME_526A7EEA01AC
+ MEPROP UID '526A7EEA01AC'
+ MEPROP Name 'EditorPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_526A81CF0012 // Editor
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_526A7EEA01AC EditorPanel
+
+ME ME_526A83CD00ED
+ MEPROP UID '526A83CD00ED'
+ MEPROP Name 'EditorGetHotSpotInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5049C6650272' '4829D92A037B.ms.model.script' // TevGetHotspotInfo
+ )
+ ; // Inherits
+
+ENDME // ME_526A83CD00ED EditorGetHotSpotInfo
+
+ME ME_4AF8686B0352
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ ;
+
+ENDME // ME_4AF8686B0352 
+
+ME ME_4AF8687A000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4AF8687A000F 
+
+ME ME_526A83F10388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_526A83F10388 
+
+ME ME_526A83F50081
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_526A83F50081 
+
+ME ME_526A97500319
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_467817DD0200' '47913B47006E.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_526A97500319 
+
+ME ME_526A978B024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_526A978B024D 
+
+ME ME_526A97DE018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47CFE7F00221' '47BB24D30205.ms.model.script' // l3InterfacesMisc
+ ;
+
+ENDME // ME_526A97DE018B 
+
+ME ME_526A97FD03DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_526A97FD03DF 
+
+ME ME_526A982401DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_484FDC4F013F' '484A470100DD.ms.model.script' // TextSegment
+ ;
+
+ENDME // ME_526A982401DE 
+
+ME ME_526A9890022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47AC759800AF' '47AC75550330.ms.model.script' // ExtTags
+ ;
+
+ENDME // ME_526A9890022D 
+
+ME ME_526A9923002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ ;
+
+ENDME // ME_526A9923002E 
+
+ME ME_526A995D026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_526A995D026C 
+
+ME ME_526A99780317
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_526A99780317 
+
+ME ME_526A99D5001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47AB1FDE03E4' '47913B47006E.ms.model.script' // l3Memory
+ ;
+
+ENDME // ME_526A99D5001A 
+
+ME ME_526A99D7032E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47A0686803A5' '47913B47006E.ms.model.script' // l3Filer
+ ;
+
+ENDME // ME_526A99D7032E 
+
+ME ME_526A99D9025F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47A080670100' '47913B47006E.ms.model.script' // l3Stream
+ ;
+
+ENDME // ME_526A99D9025F 
+
+ME ME_526A99E402F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_526A99E402F0 
+
+ME ME_526A99EF0199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_526A99EF0199 
+
+ME ME_526A9A0401FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF8665A0079 // PrimStyleEditorExample
+ ;
+ MELINK Target WL 'ME_48567D1900F6' '48492FC0029D.ms.model.script' // StyledLeafPara
+ ;
+
+ENDME // ME_526A9A0401FC 
+
+ME ME_4AF8660E0079_ME_4AF8665A0079
+ MELINK Original WL 'ME_4AF8660E0079' '4AE824CB035A.ms.model.script' // ReloadStyleTable
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AF8660E0079_ME_4AF8665A0079 ReloadStyleTable
+
+ME ME_47A042E100E2_ME_4AF8665A0079
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4AF8665A0079 InitFields
+
+ME ME_4A8E8F2E0195_ME_4AF8665A0079
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AF8665A0079 InitControls
+
+ME ME_4AF8665A0079
+ MEPROP UID '4AF8665A0079'
+ MEPROP Name 'PrimStyleEditorExample'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA79F630309' '4AA79F630309.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AF866010019' '4AE824CB035A.ms.model.script' // StyleEditor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AF866B401B1 // TextSource
+ HWL ME_526A7EEA01AC // EditorPanel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_526A83CD00ED // EditorGetHotSpotInfo
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AF8660E0079_ME_4AF8665A0079 // ReloadStyleTable
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4AF8665A0079 // InitFields
+ ME_4A8E8F2E0195_ME_4AF8665A0079 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD6DFC00310 // utStyleEditorExample
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AF8686B0352 // IafwStyleTableSpy
+ ME_4AF8687A000F // Supports
+ ME_526A83F10388 // Controls
+ ME_526A83F50081 // Forms
+ ME_526A97500319 // Ik2Tag
+ ME_526A978B024D // InevPoint
+ ME_526A97DE018B // l3InterfacesMisc
+ ME_526A97FD03DF // vcmBase
+ ME_526A982401DE // TextSegment
+ ME_526A9890022D // ExtTags
+ ME_526A9923002E // TevdNativeReader
+ ME_526A995D026C // Classes
+ ME_526A99780317 // afwFacade
+ ME_526A99D5001A // l3Memory
+ ME_526A99D7032E // l3Filer
+ ME_526A99D9025F // l3Stream
+ ME_526A99E402F0 // l3String
+ ME_526A99EF0199 // l3Base
+ ME_526A9A0401FC // StyledLeafPara
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "need UC" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorExample_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ UP extprop:pas:TypeName 'TPrimStyleEditorExampleForm'
+ UP extprop:rc:SelfName 'PrimStyleEditorExampleForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimStyleEditorExample_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4AF8665A0079 PrimStyleEditorExample

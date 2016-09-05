@@ -1,0 +1,35 @@
+// Monitorings 4A8ECF950254 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4A8ECF950254
+ MEPROP UID '4A8ECF950254'
+ MEPROP Name 'Monitorings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мониторинги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92CF230269' '4A92CF230269.ms.model.script' // Autoreferat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A8ECF3001D2' '4A8ECF3001D2.ms.model.script' // PrimMonitorings
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_484E635201F4' '484E610E0335.ms.model.script' // ПРАЙМ
+ )
+ ; // Implements
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '21.09.2009 17:20'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moMonitorings.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ UP extprop:pas:TypeName 'Tmo_Monitorings'
+ UP extprop:rc:SelfName 'mo_Monitorings'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'moMonitorings'
+
+ENDME // ME_4A8ECF950254 Monitorings

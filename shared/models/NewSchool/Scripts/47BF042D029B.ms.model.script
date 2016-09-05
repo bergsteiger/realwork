@@ -1,0 +1,245 @@
+// m2 47BF042D029B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BF042D029B
+
+FORWARD ME_47BF045E0138
+
+ME ME_47BF053D022C
+ MEPROP Name 'ADest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47BF053D022C ADest
+
+ME ME_47BF053D0244
+ MEPROP Name 'ASour'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47BF053D0244 ASour
+
+ME ME_47BF053D025D
+ MEPROP Name 'ASize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BF053D025D ASize
+
+ME ME_47BF05230001
+ MEPROP UID '47BF05230001'
+ MEPROP Name 'm2MEMCompare'
+ MEPROP Class class_Operation
+ %SUMMARY 'сравнивает два куска памяти.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF045E0138 // m2MemLib
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BF053D022C // ADest
+ ME_47BF053D0244 // ASour
+ ME_47BF053D025D // ASize
+ )
+ ; // Parameters
+
+ENDME // ME_47BF05230001 m2MEMCompare
+
+ME ME_47BF045E0138
+ MEPROP UID '47BF045E0138'
+ MEPROP Name 'm2MemLib'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47BF05230001 // m2MEMCompare
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2MemLib.pas'
+
+ENDME // ME_47BF045E0138 m2MemLib
+
+FORWARD ME_49B952CD03A6
+
+ME ME_49B952D90216
+ MEPROP UID '49B952D90216'
+ MEPROP Name 'm2COMGetSize'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49B952CD03A6 // m2COMLib
+ ;
+
+ENDME // ME_49B952D90216 m2COMGetSize
+
+ME ME_49B952CD03A6
+ MEPROP UID '49B952CD03A6'
+ MEPROP Name 'm2COMLib'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49B952D90216 // m2COMGetSize
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2COMLib.pas'
+
+ENDME // ME_49B952CD03A6 m2COMLib
+
+ME ME_53FE05DC02E7
+ MEPROP UID '53FE05DC02E7'
+ MEPROP Name 'm2AddPrc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2AddPrc.pas'
+
+ENDME // ME_53FE05DC02E7 m2AddPrc
+
+ME ME_53FE05EB019C
+ MEPROP UID '53FE05EB019C'
+ MEPROP Name 'm2AddDbg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2AddDbg.pas'
+
+ENDME // ME_53FE05EB019C m2AddDbg
+
+ME ME_53FF366C021B
+ MEPROP UID '53FF366C021B'
+ MEPROP Name 'm2HasLib'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2HasLib.pas'
+
+ENDME // ME_53FF366C021B m2HasLib
+
+ME ME_5448EB3E001C
+ MEPROP UID '5448EB3E001C'
+ MEPROP Name 'm2S32Lib'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2S32Lib.pas'
+
+ENDME // ME_5448EB3E001C m2S32Lib
+
+ME ME_5448EB690307
+ MEPROP UID '5448EB690307'
+ MEPROP Name 'm2S64Lib'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2S64Lib.pas'
+
+ENDME // ME_5448EB690307 m2S64Lib
+
+ME ME_5481A114014B
+ MEPROP UID '5481A114014B'
+ MEPROP Name 'm2TMPLib'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2TMPLib.pas'
+
+ENDME // ME_5481A114014B m2TMPLib
+
+ME ME_54C6422703E7
+ MEPROP UID '54C6422703E7'
+ MEPROP Name 'm2XLtLib'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF042D029B // m2
+ ;
+ UP "finished" false
+ UP "ifdef" 'l3Requires_m0'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2XLtLib.pas'
+
+ENDME // ME_54C6422703E7 m2XLtLib
+
+ME ME_47BF042D029B
+ MEPROP UID '47BF042D029B'
+ MEPROP Name 'm2'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47BF045E0138 // m2MemLib
+ HWL ME_49B952CD03A6 // m2COMLib
+ HWL ME_53FE05DC02E7 // m2AddPrc
+ HWL ME_53FE05EB019C // m2AddDbg
+ HWL ME_53FF366C021B // m2HasLib
+ HWL ME_5448EB3E001C // m2S32Lib
+ HWL ME_5448EB690307 // m2S64Lib
+ HWL ME_5481A114014B // m2TMPLib
+ HWL ME_54C6422703E7 // m2XLtLib
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4EFAE5C10224' '4EFAE5C10224.ms.model.script' // m2InternalInterfaces
+ )
+ ; // Depends
+ UP "defines" 'm2Define.inc'
+ UP "path prefix" '/m2'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\L3\m2'
+
+ENDME // ME_47BF042D029B m2

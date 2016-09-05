@@ -1,0 +1,587 @@
+// BaseChatWindow 4A6EA44C0038 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EA44C0038
+
+ME ME_4BD6D5500287
+ MEPROP UID '4BD6D5500287'
+ MEPROP Name 'cwChat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переписка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ UP "ImageIndex" 198
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_cwChat_UserType.pas'
+ UP extprop:pas:UnitName 'BaseChatWindow_cwChat_UserType'
+
+ENDME // ME_4BD6D5500287 cwChat
+
+FORWARD ME_502291C80370
+
+ME ME_5023B4610143
+ MEPROP UID '5023B4610143'
+ MEPROP Name 'Child'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_502291C80370 // BottomPanel
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Child'
+
+ENDME // ME_5023B4610143 Child
+
+FORWARD ME_502291D4007C
+
+ME ME_5023B478026C
+ MEPROP UID '5023B478026C'
+ MEPROP Name 'Parent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_502291D4007C // TopPanel
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" false
+ UP "MergeTopTollbarWithContainer" false
+ UP "ZoneType" 'Parent'
+
+ENDME // ME_5023B478026C Parent
+
+FORWARD ME_5022904603DF
+
+FORWARD ME_4A8A992D036A
+
+ME ME_494F89C30197_ME_4A8A992D036A
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_494F89C30197_ME_4A8A992D036A Delete
+
+ME ME_4C7D0CC90052_ME_4A8A992D036A
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0CC90052_ME_4A8A992D036A Delete
+
+ME ME_4A8A992D036A
+ MEPROP UID '4A8A992D036A'
+ MEPROP Name 'BottomEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502291C80370 // BottomPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A8A8739017D' '4A8A8739017D.ms.model.script' // TnscChatMemo
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_4A8A992D036A // Delete
+ ME_4C7D0CC90052_ME_4A8A992D036A // Delete
+ )
+ ; // Implemented
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4A8A992D036A BottomEditor
+
+ME ME_502291C80370
+ MEPROP UID '502291C80370'
+ MEPROP Name 'BottomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5022904603DF // BackgroundPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7961300264' '4A7961300264.ms.model.script' // TvtSizeablePanel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A8A992D036A // BottomEditor
+ )
+ ; // Attributes
+ MELIST Zones
+   Seq: ( HWL ME_5023B4610143 // Child
+ )
+ ; // Zones
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_502291C80370 BottomPanel
+
+FORWARD ME_5022910700E4
+
+ME ME_494F89C30197_ME_5022910700E4
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_494F89C30197_ME_5022910700E4 Delete
+
+ME ME_4C7D0CC90052_ME_5022910700E4
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0CC90052_ME_5022910700E4 Delete
+
+ME ME_5022910700E4
+ MEPROP UID '5022910700E4'
+ MEPROP Name 'HistoryEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502291D4007C // TopPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DEE1D6603C6' '4A6EA4310035.ms.model.script' // HistoryEditor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_5022910700E4 // Delete
+ ME_4C7D0CC90052_ME_5022910700E4 // Delete
+ )
+ ; // Implemented
+ UP "ControlClass" 'none'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5022910700E4 HistoryEditor
+
+ME ME_502291D4007C
+ MEPROP UID '502291D4007C'
+ MEPROP Name 'TopPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5022904603DF // BackgroundPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5022910700E4 // HistoryEditor
+ )
+ ; // Attributes
+ MELIST Zones
+   Seq: ( HWL ME_5023B478026C // Parent
+ )
+ ; // Zones
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_502291D4007C TopPanel
+
+ME ME_5022904603DF
+ MEPROP UID '5022904603DF'
+ MEPROP Name 'BackgroundPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7AD11C028B' '4A7AD11C028B.ms.model.script' // TvtProportionalPanel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_502291C80370 // BottomPanel
+ HWL ME_502291D4007C // TopPanel
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5022904603DF BackgroundPanel
+
+ME ME_4B34C0F40076
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4B34C15303B5' '476F78840219.ms.model.script' // TWMActivate
+ ;
+
+ENDME // ME_4B34C0F40076 Message
+
+ME ME_4B34C0B801B1
+ MEPROP UID '4B34C0B801B1'
+ MEPROP Name 'WMActivate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B34C0F40076 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_ACTIVATE'
+
+ENDME // ME_4B34C0B801B1 WMActivate
+
+ME ME_4A6ED18B0170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4A6ED18B0170 
+
+ME ME_4A82A1BA01B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4A82A1BA01B7 
+
+ME ME_4A8AA85F0195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_4A8AA85F0195 
+
+ME ME_4A8AD6CF02EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_4A66DD7401CD' '4A66DD3C01E8.ms.model.script' // InsChatMessage
+ ;
+
+ENDME // ME_4A8AD6CF02EC 
+
+ME ME_4A8AD6EC03BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_48F473650362' '47913B47006E.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_4A8AD6EC03BC 
+
+ME ME_4A8AD98101D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_4A8AD98101D1 
+
+ME ME_4A8ADE4E0079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A8ADE4E0079 
+
+ME ME_4A8ADFCD00C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_4A8ADF9E0058' '47D0E1500033.ms.model.script' // vcmFmt
+ ;
+
+ENDME // ME_4A8ADFCD00C0 
+
+ME ME_4A8AE00C01EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_4A66DDC1023C' '4A66DD3C01E8.ms.model.script' // InsChatMessages
+ ;
+
+ENDME // ME_4A8AE00C01EC 
+
+ME ME_4B2A16520184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4B2A16520184 
+
+ME ME_4C2C506200F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_4C2C503400B6' '4A66DD3C01E8.ms.model.script' // EnsUnknownChatUser
+ ;
+
+ENDME // ME_4C2C506200F9 
+
+ME ME_4F5E050F0001
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_4E8478090254' '47ECB8BD00A8.ms.model.script' // TevdAllDocumentSubsEliminator
+ ;
+
+ENDME // ME_4F5E050F0001 
+
+ME ME_5795F8C00172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA44C0038 // BaseChatWindow
+ ;
+ MELINK Target WL 'ME_5795D6DC01F8' '5795D66F0385.ms.model.script' // TChatService
+ ;
+
+ENDME // ME_5795F8C00172 
+
+ME ME_4A6D71700008_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4A6D71700008' '4A66DD3C01E8.ms.model.script' // NewMessagesReceived
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6D71700008_ME_4A6EA44C0038 NewMessagesReceived
+
+ME ME_4A6EA5EA00CD_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4A6EA5EA00CD' '4A6EA4310035.ms.model.script' // RegisterInDispatcher
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EA5EA00CD_ME_4A6EA44C0038 RegisterInDispatcher
+
+ME ME_4A6EA6000339_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4A6EA6000339' '4A6EA4310035.ms.model.script' // UnRegisterInDispatcher
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EA6000339_ME_4A6EA44C0038 UnRegisterInDispatcher
+
+ME ME_4A7C023702A5_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4A7C023702A5' '4A66DD3C01E8.ms.model.script' // HistoryCleaned
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A7C023702A5_ME_4A6EA44C0038 HistoryCleaned
+
+ME ME_4A8AD47D0357_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4A8AD47D0357' '4A8AD3DE0008.ms.model.script' // OkExt
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4A8AD47D0357_ME_4A6EA44C0038 OkExt
+
+ME ME_4C762D9B0224_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4C762D9B0224' '4A8AD3DE0008.ms.model.script' // OkExt
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762D9B0224_ME_4A6EA44C0038 OkExt
+
+ME ME_4A8E8F2E0195_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A6EA44C0038 InitControls
+
+ME ME_4AC5CD4402E7_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4AC5CD4402E7' '4A6EA4310035.ms.model.script' // InitEditors
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AC5CD4402E7_ME_4A6EA44C0038 InitEditors
+
+ME ME_4AC5CD9C02FA_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4AC5CD9C02FA' '4A6EA4310035.ms.model.script' // HistoryLimit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AC5CD9C02FA_ME_4A6EA44C0038 HistoryLimit
+
+ME ME_4B1633CF01C2_ME_4A6EA44C0038
+ MELINK Original WL 'ME_4B1633CF01C2' '4A6EA4310035.ms.model.script' // NeedClose
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B1633CF01C2_ME_4A6EA44C0038 NeedClose
+
+ME ME_4A6EA44C0038
+ MEPROP UID '4A6EA44C0038'
+ MEPROP Name 'BaseChatWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переписка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.ms.model.script' // Chat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6EA4310035' '4A6EA4310035.ms.model.script' // AbstractHistory
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A6D714D0252' '4A66DD3C01E8.ms.model.script' // IbsChatWindow
+ WL 'ME_4A8AD4260126' '4A8AD3DE0008.ms.model.script' // Result
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5022904603DF // BackgroundPanel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B34C0B801B1 // WMActivate
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A6D71700008_ME_4A6EA44C0038 // NewMessagesReceived
+ ME_4A6EA5EA00CD_ME_4A6EA44C0038 // RegisterInDispatcher
+ ME_4A6EA6000339_ME_4A6EA44C0038 // UnRegisterInDispatcher
+ ME_4A7C023702A5_ME_4A6EA44C0038 // HistoryCleaned
+ ME_4A8AD47D0357_ME_4A6EA44C0038 // OkExt
+ ME_4C762D9B0224_ME_4A6EA44C0038 // OkExt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4A6EA44C0038 // InitControls
+ ME_4AC5CD4402E7_ME_4A6EA44C0038 // InitEditors
+ ME_4AC5CD9C02FA_ME_4A6EA44C0038 // HistoryLimit
+ ME_4B1633CF01C2_ME_4A6EA44C0038 // NeedClose
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD6D5500287 // cwChat
+ HWL ME_5023B4610143 // Child
+ HWL ME_5023B478026C // Parent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A6ED18B0170 // Windows
+ ME_4A82A1BA01B7 // StdRes
+ ME_4A8AA85F0195 // TAlign
+ ME_4A8AD6CF02EC // InsChatMessage
+ ME_4A8AD6EC03BC // Tl3MemoryStream
+ ME_4A8AD98101D1 // Clipboard Formats
+ ME_4A8ADE4E0079 // SysUtils
+ ME_4A8ADFCD00C0 // vcmFmt
+ ME_4A8AE00C01EC // InsChatMessages
+ ME_4B2A16520184 // l3FillChar
+ ME_4C2C506200F9 // EnsUnknownChatUser
+ ME_4F5E050F0001 // TevdAllDocumentSubsEliminator
+ ME_5795F8C00172 // TChatService
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "author" 'Лукьянец Р.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ UP extprop:pas:TypeName 'TBaseChatWindowForm'
+ UP extprop:rc:SelfName 'BaseChatWindowForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseChatWindow_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4A6EA44C0038 BaseChatWindow

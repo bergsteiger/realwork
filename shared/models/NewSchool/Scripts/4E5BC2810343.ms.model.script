@@ -1,0 +1,39 @@
+// Shared Delphi Требования для F1 4E5BC2810343 Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4E5BC2810343
+ MEPROP UID '4E5BC2810343'
+ MEPROP Name 'Shared Delphi Требования для F1'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Project ;
+ %SUMMARY 'Требования и базовые понятия общих библиотек для F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELIST Children
+   Seq: ( WL 'ME_4E57BF810311' '4E57BF810311.ms.model.script' // Требования к системным библиотекам для F1
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_4E78C3EC018D' '4E78C3EC018D.ms.model.script' // Shared Delphi Требования
+ )
+ ; // Depends
+ UP "Full MDP" false
+ UP "UseNewGen" true
+ UP "create project" true
+ UP "fix version" 0
+ UP "force usage" true
+ UP "full constraint" true
+ UP "major version" 1
+ UP "minor version" 0
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/components'
+ UP "space key" 'SHD'
+ UP "space name" 'Shared (delphi)'
+ UP intf.pas:PathOnly '\common\components'
+
+ENDME // ME_4E5BC2810343 Shared Delphi Требования для F1

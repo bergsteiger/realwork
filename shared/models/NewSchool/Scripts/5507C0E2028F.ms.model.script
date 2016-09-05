@@ -1,0 +1,1079 @@
+// TChromeLikeTabSetControlPrim 5507C0E2028F GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5507C0E2028F
+
+FORWARD ME_5522506003AD
+
+ME ME_5522506C0224
+ MEPROP UID '5522506C0224'
+ MEPROP Name 'rNeedShowHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5522506003AD // TChromeLikeTabHintParams
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5522506C0224 rNeedShowHint
+
+ME ME_55225075010C
+ MEPROP UID '55225075010C'
+ MEPROP Name 'rHintText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5522506003AD // TChromeLikeTabHintParams
+ ;
+ MELINK Target WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_55225075010C rHintText
+
+ME ME_552250810260
+ MEPROP UID '552250810260'
+ MEPROP Name 'rRect'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5522506003AD // TChromeLikeTabHintParams
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_552250810260 rRect
+
+ME ME_5522509E002F
+ MEPROP Name 'aNeedShowHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5522509E002F aNeedShowHint
+
+ME ME_5522509E005D
+ MEPROP Name 'aHintText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_5522509E005D aHintText
+
+ME ME_5522509E00AB
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_5522509E00AB aRect
+
+ME ME_5522508F018E
+ MEPROP UID '5522508F018E'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5522506003AD // TChromeLikeTabHintParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_5522509E002F // aNeedShowHint
+ ME_5522509E005D // aHintText
+ ME_5522509E00AB // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_5522508F018E C
+
+ME ME_5522506003AD
+ MEPROP UID '5522506003AD'
+ MEPROP Name 'TChromeLikeTabHintParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5522506C0224 // rNeedShowHint
+ HWL ME_55225075010C // rHintText
+ HWL ME_552250810260 // rRect
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5522508F018E // C
+ )
+ ; // Operations
+
+ENDME // ME_5522506003AD TChromeLikeTabHintParams
+
+ME ME_5507C19A032F
+ MEPROP UID '5507C19A032F'
+ MEPROP Name 'BufferBitmap'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_47D15062022A' '473C3BEE0334.ms.model.script' // Tl3Bitmap
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_5507C19A032F BufferBitmap
+
+ME ME_5507C6F50210
+ MEPROP UID '5507C6F50210'
+ MEPROP Name 'Images'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5507C6F50210 Images
+
+ME ME_5512A07A01B0
+ MEPROP UID '5512A07A01B0'
+ MEPROP Name 'BackgroundBitmap'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_47D15062022A' '473C3BEE0334.ms.model.script' // Tl3Bitmap
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_5512A07A01B0 BackgroundBitmap
+
+FORWARD ME_5507C214017E
+
+ME ME_5507C2250257
+ MEPROP UID '5507C2250257'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C214017E // GetDrawingContext
+ ;
+ MELINK Target WL 'ME_5506A72B034B' '533E6F73014E.ms.model.script' // IChromeLkeTabSetDrawingContext
+ ;
+
+ENDME // ME_5507C2250257 DoIt
+
+ME ME_5507C214017E
+ MEPROP UID '5507C214017E'
+ MEPROP Name 'GetDrawingContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C2250257 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C214017E GetDrawingContext
+
+FORWARD ME_5507C239016D
+
+ME ME_5507C6A903A6
+ MEPROP Name 'aNewWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5507C6A903A6 aNewWidth
+
+ME ME_5507C6A903BC
+ MEPROP Name 'aNewHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5507C6A903BC aNewHeight
+
+ME ME_5507C6950268
+ MEPROP UID '5507C6950268'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C239016D // ResizeBuffer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C6A903A6 // aNewWidth
+ ME_5507C6A903BC // aNewHeight
+ )
+ ; // Parameters
+
+ENDME // ME_5507C6950268 DoIt
+
+ME ME_5507C239016D
+ MEPROP UID '5507C239016D'
+ MEPROP Name 'ResizeBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C6950268 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C239016D ResizeBuffer
+
+FORWARD ME_5507C24300FB
+
+ME ME_5507C6B500C5
+ MEPROP UID '5507C6B500C5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C24300FB // PaintBuffer
+ ;
+
+ENDME // ME_5507C6B500C5 DoIt
+
+ME ME_5507C24300FB
+ MEPROP UID '5507C24300FB'
+ MEPROP Name 'PaintBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C6B500C5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C24300FB PaintBuffer
+
+FORWARD ME_5507C24E035D
+
+ME ME_5507D38501AC
+ MEPROP Name 'aDC'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A46A35004F' '4AB0C3F60375.ms.model.script' // hDC
+ ;
+
+ENDME // ME_5507D38501AC aDC
+
+ME ME_5507D38501C1
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_5507D38501C1 aRect
+
+ME ME_5507C28B010A
+ MEPROP UID '5507C28B010A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C24E035D // FlushBuffer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507D38501AC // aDC
+ ME_5507D38501C1 // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_5507C28B010A DoIt
+
+ME ME_5507C24E035D
+ MEPROP UID '5507C24E035D'
+ MEPROP Name 'FlushBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C28B010A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C24E035D FlushBuffer
+
+FORWARD ME_5507C5090199
+
+ME ME_5507C51A0206
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_5507C51A0206 aPoint
+
+ME ME_5507C5140046
+ MEPROP UID '5507C5140046'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C5090199 // IsTransparentPoint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C51A0206 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_5507C5140046 DoIt
+
+ME ME_5507C5090199
+ MEPROP UID '5507C5090199'
+ MEPROP Name 'IsTransparentPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C5140046 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C5090199 IsTransparentPoint
+
+FORWARD ME_5507C601033E
+
+ME ME_5507C62E0047
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5506A72B034B' '533E6F73014E.ms.model.script' // IChromeLkeTabSetDrawingContext
+ ;
+
+ENDME // ME_5507C62E0047 aContext
+
+ME ME_5507C6120147
+ MEPROP UID '5507C6120147'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C601033E // Paint
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C62E0047 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_5507C6120147 DoIt
+
+ME ME_5507C601033E
+ MEPROP UID '5507C601033E'
+ MEPROP Name 'Paint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C6120147 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C601033E Paint
+
+FORWARD ME_5507C63E02AD
+
+ME ME_5512A0B3001A
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_515581580039' '55C4AEC801CA.ms.model.script' // TCanvas
+ ;
+
+ENDME // ME_5512A0B3001A aCanvas
+
+ME ME_5507C64F00AD
+ MEPROP UID '5507C64F00AD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C63E02AD // PaintBackground
+ ;
+ MELIST Parameters
+   Seq: ( ME_5512A0B3001A // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_5507C64F00AD DoIt
+
+ME ME_5507C63E02AD
+ MEPROP UID '5507C63E02AD'
+ MEPROP Name 'PaintBackground'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C64F00AD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C63E02AD PaintBackground
+
+FORWARD ME_5507DE800105
+
+ME ME_02C18B8F9835
+ MEPROP UID '02C18B8F9835'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoOnMouseLeave' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507DE800105 // DoOnMouseLeave
+ ;
+
+ENDME // ME_02C18B8F9835 DoIt
+
+ME ME_5507DE800105
+ MEPROP UID '5507DE800105'
+ MEPROP Name 'DoOnMouseLeave'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_02C18B8F9835 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507DE800105 DoOnMouseLeave
+
+FORWARD ME_5507DE9302F6
+
+ME ME_0A7F498560A2
+ MEPROP UID '0A7F498560A2'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoOnMouseEnter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507DE9302F6 // DoOnMouseEnter
+ ;
+
+ENDME // ME_0A7F498560A2 DoIt
+
+ME ME_5507DE9302F6
+ MEPROP UID '5507DE9302F6'
+ MEPROP Name 'DoOnMouseEnter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_0A7F498560A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507DE9302F6 DoOnMouseEnter
+
+FORWARD ME_551133AE010A
+
+ME ME_A7B9FBE9AB01
+ MEPROP UID 'A7B9FBE9AB01'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoOnResize' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551133AE010A // DoOnResize
+ ;
+
+ENDME // ME_A7B9FBE9AB01 DoIt
+
+ME ME_551133AE010A
+ MEPROP UID '551133AE010A'
+ MEPROP Name 'DoOnResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_A7B9FBE9AB01 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_551133AE010A DoOnResize
+
+FORWARD ME_5507C54801DB
+
+ME ME_552250BB008D
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_552250BB008D aPoint
+
+ME ME_5507C5630177
+ MEPROP UID '5507C5630177'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C54801DB // GetHintParams
+ ;
+ MELINK Target HWL ME_5522506003AD // TChromeLikeTabHintParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_552250BB008D // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_5507C5630177 DoIt
+
+ME ME_5507C54801DB
+ MEPROP UID '5507C54801DB'
+ MEPROP Name 'GetHintParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507C5630177 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5507C54801DB GetHintParams
+
+ME ME_5507C407012F
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50291A30019C' '476F78840219.ms.model.script' // TWMNCHitTest
+ ;
+
+ENDME // ME_5507C407012F aMessage
+
+ME ME_5507C2E301DB
+ MEPROP UID '5507C2E301DB'
+ MEPROP Name 'WMNCHitTest'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C407012F // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCHITTEST'
+
+ENDME // ME_5507C2E301DB WMNCHitTest
+
+ME ME_5507C42C029F
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E7B4F6B0021' '476F78840219.ms.model.script' // TWMMouseActivate
+ ;
+
+ENDME // ME_5507C42C029F aMessage
+
+ME ME_5507C4170179
+ MEPROP UID '5507C4170179'
+ MEPROP Name 'WMMouseActivate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C42C029F // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_MOUSEACTIVATE'
+
+ENDME // ME_5507C4170179 WMMouseActivate
+
+ME ME_550904AE033C
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_482C4385025D' '476F78840219.ms.model.script' // TWMEraseBkGnd
+ ;
+
+ENDME // ME_550904AE033C aMessage
+
+ME ME_5507C43301ED
+ MEPROP UID '5507C43301ED'
+ MEPROP Name 'WMEraseBkgnd'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_550904AE033C // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_ERASEBKGND'
+
+ENDME // ME_5507C43301ED WMEraseBkgnd
+
+ME ME_5507C46300AF
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_482C43A60274' '476F78840219.ms.model.script' // TWMPaint
+ ;
+
+ENDME // ME_5507C46300AF aMessage
+
+ME ME_5507C4560295
+ MEPROP UID '5507C4560295'
+ MEPROP Name 'WMPaint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C46300AF // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_PAINT'
+
+ENDME // ME_5507C4560295 WMPaint
+
+ME ME_5507C475019F
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E9574A2008E' '476F78840219.ms.model.script' // TWMSize
+ ;
+
+ENDME // ME_5507C475019F aMessage
+
+ME ME_5507C4690029
+ MEPROP UID '5507C4690029'
+ MEPROP Name 'WMSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C475019F // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SIZE'
+
+ENDME // ME_5507C4690029 WMSize
+
+ME ME_5507C4910247
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_5507C4910247 aMessage
+
+ME ME_5507C47E00FD
+ MEPROP UID '5507C47E00FD'
+ MEPROP Name 'CMMouseLeave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C4910247 // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_MOUSELEAVE'
+
+ENDME // ME_5507C47E00FD CMMouseLeave
+
+ME ME_5507C4AA0087
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_5507C4AA0087 aMessage
+
+ME ME_5507C49701E2
+ MEPROP UID '5507C49701E2'
+ MEPROP Name 'CMHintShow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507C4AA0087 // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_HINTSHOW'
+
+ENDME // ME_5507C49701E2 CMHintShow
+
+ME ME_5507DECC01F7
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_5507DECC01F7 aMessage
+
+ME ME_5507DEAF02CE
+ MEPROP UID '5507DEAF02CE'
+ MEPROP Name 'CMMouseEnter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507DECC01F7 // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_MOUSEENTER'
+
+ENDME // ME_5507DEAF02CE CMMouseEnter
+
+ME ME_5507C1DE01B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_5506A72B034B' '533E6F73014E.ms.model.script' // IChromeLkeTabSetDrawingContext
+ ;
+
+ENDME // ME_5507C1DE01B7 
+
+ME ME_5507C7A403A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_4B34C15303B5' '476F78840219.ms.model.script' // TWMActivate
+ ;
+
+ENDME // ME_5507C7A403A8 
+
+ME ME_5507C7A90187
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5507C7A90187 
+
+ME ME_5507C7AD007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5507C7AD007F 
+
+ME ME_5507C7B00347
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_4AB0F6DB029C' '4799D29F033F.ms.model.script' // ImgList
+ ;
+
+ENDME // ME_5507C7B00347 
+
+ME ME_5507C7B403B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_482C43A60274' '476F78840219.ms.model.script' // TWMPaint
+ ;
+
+ENDME // ME_5507C7B403B8 
+
+ME ME_5507C7B803C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_5507C7B803C7 
+
+ME ME_5507C7BC0227
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_5507C7BC0227 
+
+ME ME_5507C7C602B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_50291A30019C' '476F78840219.ms.model.script' // TWMNCHitTest
+ ;
+
+ENDME // ME_5507C7C602B7 
+
+ME ME_5507C81601A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_5507C7FA00EE' '533E6F73014E.ms.model.script' // TChromeLikeDrawingContext
+ ;
+
+ENDME // ME_5507C81601A7 
+
+ME ME_5507C8330068
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_5506A5EE013A' '533E6F73014E.ms.model.script' // ChromeLikeTabSetTypes
+ ;
+
+ENDME // ME_5507C8330068 
+
+ME ME_5507CFAA03C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_47D15062022A' '473C3BEE0334.ms.model.script' // Tl3Bitmap
+ ;
+
+ENDME // ME_5507CFAA03C7 
+
+ME ME_5507CFCA037F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_46A46A35004F' '4AB0C3F60375.ms.model.script' // hDC
+ ;
+
+ENDME // ME_5507CFCA037F 
+
+ME ME_5507D3A301BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_4F86F32B0299' '476F78840219.ms.model.script' // TWMEraseBkgnd
+ ;
+
+ENDME // ME_5507D3A301BF 
+
+ME ME_5507DB2A0217
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5507DB2A0217 
+
+ME ME_550FA25A03A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_5507DFA9031E' '533E6F73014E.ms.model.script' // ChromeLikeTabSetUtils
+ ;
+
+ENDME // ME_550FA25A03A5 
+
+ME ME_550FA6B2006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C0E2028F // TChromeLikeTabSetControlPrim
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_550FA6B2006D 
+
+ME ME_47D1602000C6_ME_5507C0E2028F
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_5507C0E2028F Create
+
+ME ME_48077504027E_ME_5507C0E2028F
+ MELINK Original WL 'ME_48077504027E' '4AB0C3C60310.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_5507C0E2028F Destroy
+
+ME ME_5507C0E2028F
+ MEPROP UID '5507C0E2028F'
+ MEPROP Name 'TChromeLikeTabSetControlPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533E6F73014E' '533E6F73014E.ms.model.script' // ChromeLikeTabSet
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5507C19A032F // BufferBitmap
+ HWL ME_5507C6F50210 // Images
+ HWL ME_5512A07A01B0 // BackgroundBitmap
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5507C214017E // GetDrawingContext
+ HWL ME_5507C239016D // ResizeBuffer
+ HWL ME_5507C24300FB // PaintBuffer
+ HWL ME_5507C24E035D // FlushBuffer
+ HWL ME_5507C5090199 // IsTransparentPoint
+ HWL ME_5507C601033E // Paint
+ HWL ME_5507C63E02AD // PaintBackground
+ HWL ME_5507DE800105 // DoOnMouseLeave
+ HWL ME_5507DE9302F6 // DoOnMouseEnter
+ HWL ME_551133AE010A // DoOnResize
+ HWL ME_5507C54801DB // GetHintParams
+ HWL ME_5507C2E301DB // WMNCHitTest
+ HWL ME_5507C4170179 // WMMouseActivate
+ HWL ME_5507C43301ED // WMEraseBkgnd
+ HWL ME_5507C4560295 // WMPaint
+ HWL ME_5507C4690029 // WMSize
+ HWL ME_5507C47E00FD // CMMouseLeave
+ HWL ME_5507C49701E2 // CMHintShow
+ HWL ME_5507DEAF02CE // CMMouseEnter
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_5507C0E2028F // Create
+ ME_48077504027E_ME_5507C0E2028F // Destroy
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5522506003AD // TChromeLikeTabHintParams
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5507C1DE01B7 // IChromeLkeTabSetDrawingContext
+ ME_5507C7A403A8 // TWMActivate
+ ME_5507C7A90187 // Controls
+ ME_5507C7AD007F // Forms
+ ME_5507C7B00347 // ImgList
+ ME_5507C7B403B8 // TWMPaint
+ ME_5507C7B803C7 // TMessage
+ ME_5507C7BC0227 // TRect
+ ME_5507C7C602B7 // TWMNCHitTest
+ ME_5507C81601A7 // TChromeLikeDrawingContext
+ ME_5507C8330068 // ChromeLikeTabSetTypes
+ ME_5507CFAA03C7 // Tl3Bitmap
+ ME_5507CFCA037F // hDC
+ ME_5507D3A301BF // TWMEraseBkgnd
+ ME_5507DB2A0217 // SysUtils
+ ME_550FA25A03A5 // ChromeLikeTabSetUtils
+ ME_550FA6B2006D // Graphics
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlPrim.pas'
+ UP extprop:rc:SelfName 'ChromeLikeTabSetControlPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChromeLikeTabSetControlPrim'
+
+ENDME // ME_5507C0E2028F TChromeLikeTabSetControlPrim

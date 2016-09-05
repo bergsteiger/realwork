@@ -1,0 +1,62 @@
+CONST cControls 'none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscComboLabel|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtImageLabel|TvtLabel|TvtLister|TvtPanel|TvtProportionalPanel|TvtRadioButton|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtStyledLabel|TvtStyledFocusLabel|TBevel|TBitBtn|TComboBox|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox|TProgressBar|TnscNavigator'
+CONST cComponents 'none|TevTextSource|TImageEnIO|TImageEnProc|TnscTextSource|TTimer'
+
+USES
+ string.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ CollectElements.ms.dict
+;
+
+USES
+ SaveVarAndDo.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+USES
+ Chars.ms.dict
+;
+
+USES
+ Out.ms.dict
+;
+
+VAR l_Names
+[ cControls '|' string:Split:for> NOP ]
+.join> [ cComponents '|' string:Split:for> NOP ]
+>>> l_Names
+
+'Controls.ms.dict' .ProcessOut: (
+ [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
+ OutLn
+ 'AllModelControls' .OutWord: (
+  OutSeq: (
+   ProcessAllDictionaries: (
+     IN aDict
+    aDict .ProcessDictionary: (
+      IN aWord
+      IN aDictFileName
+     if ( aWord .IsStereotype st_SimpleClass ) then
+     begin
+      if ( aWord .Name .InArray: l_Names ) then
+      begin
+       aWord aDictFileName .OutWordLink
+      end // ( aWord .Name .InArray: l_Names )
+     end // ( aWord .IsStereotype st_SimpleClass )
+    ) // aDict .ProcessDictionary:
+   ) // ProcessAllDictionaries:
+  ) // OutSeq:
+ ) // 'AllModelControls' .OutWord:
+) // 'Controls.ms.dict' .ProcessOut:

@@ -1,0 +1,167 @@
+// PrimTextLoad 4C9B20790302 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C9B20790302
+
+ME ME_4B322C0803CE
+ MEPROP UID '4B322C0803CE'
+ MEPROP Name 'LoadManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9B20790302 // PrimTextLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B322B9C0326' '4B322B67038B.ms.model.script' // TevLoadDocumentManager
+ )
+ ; // Inherits
+ UP "ComponentClass" 'none'
+ UP "need Caption" false
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4B322C0803CE LoadManager
+
+ME ME_4C9B21D20187
+ MEPROP UID '4C9B21D20187'
+ MEPROP Name 'TextSource'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C9B20790302 // PrimTextLoad
+ ;
+ MELINK Target WL 'ME_482BFB7C00B6' '482BFB50007B.ms.model.script' // TevCustomTextSource
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4C9B21D20187 TextSource
+
+ME ME_4C9B21E400A4
+ MEPROP UID '4C9B21E400A4'
+ MEPROP Name 'Text'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C9B20790302 // PrimTextLoad
+ ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4C9B21E400A4 Text
+
+FORWARD ME_4F15435202B5
+
+ME ME_4F154366025B
+ MEPROP UID '4F154366025B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F15435202B5 // AfterLoad
+ ;
+
+ENDME // ME_4F154366025B DoIt
+
+ME ME_4F15435202B5
+ MEPROP UID '4F15435202B5'
+ MEPROP Name 'AfterLoad'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C9B20790302 // PrimTextLoad
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F154366025B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F15435202B5 AfterLoad
+
+ME ME_4C9B212A02F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9B20790302 // PrimTextLoad
+ ;
+ MELINK Target WL 'ME_476A77110209' '4799D29F033F.ms.model.script' // TWindowState
+ ;
+
+ENDME // ME_4C9B212A02F8 
+
+ME ME_4C9B212E03BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9B20790302 // PrimTextLoad
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_4C9B212E03BB 
+
+ME ME_4A8E8F2E0195_ME_4C9B20790302
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4C9B20790302 InitControls
+
+ME ME_4C9B20790302
+ MEPROP UID '4C9B20790302'
+ MEPROP Name 'PrimTextLoad'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B30C72000B3' '4B30C72000B3.ms.model.script' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B322C0803CE // LoadManager
+ HWL ME_4C9B21D20187 // TextSource
+ HWL ME_4C9B21E400A4 // Text
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F15435202B5 // AfterLoad
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4C9B20790302 // InitControls
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C9B212A02F8 // TWindowState
+ ME_4C9B212E03BB // TAlign
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '23.09.2010 13:40'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\PrimTextLoad_Form.pas'
+ UP extprop:pas:TypeName 'TPrimTextLoadForm'
+ UP extprop:rc:SelfName 'PrimTextLoadForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimTextLoad_Form'
+
+ENDME // ME_4C9B20790302 PrimTextLoad

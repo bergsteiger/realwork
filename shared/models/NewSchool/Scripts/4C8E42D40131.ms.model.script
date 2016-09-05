@@ -1,0 +1,76 @@
+// CustomizeTools 4C8E42D40131 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8E42D40131
+
+ME ME_5787C08EFD86
+ MEPROP UID '5787C08EFD86'
+ MEPROP Name 'ut_CustomizeTools'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'CustomizeTools' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E42D40131 // CustomizeTools
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeTools_ut_CustomizeTools_UserType.pas'
+ UP extprop:pas:UnitName 'CustomizeTools_ut_CustomizeTools_UserType'
+
+ENDME // ME_5787C08EFD86 ut_CustomizeTools
+
+ME ME_549067B800D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E42D40131 // CustomizeTools
+ ;
+ MELINK Target WL 'ME_549067A702BE' '549067A702BE.ms.model.script' // TeeShortCutEdit
+ ;
+
+ENDME // ME_549067B800D7 
+
+ME ME_4C8E42D40131
+ MEPROP UID '4C8E42D40131'
+ MEPROP Name 'CustomizeTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4C8E340C0148' '4C8E340C0148.ms.model.script' // PrimToolbarMenu
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8E42AC03B8' '4C8E42AC03B8.ms.model.script' // PrimCustomizeTools
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_5787C08EFD86 // ut_CustomizeTools
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_549067B800D7 // TeeShortCutEdit
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '13.09.2010 19:27'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\NOT_FINISHED_CustomizeTools_Form.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms'
+ UP extprop:pas:TypeName 'TCustomizeToolsForm'
+ UP extprop:rc:SelfName 'CustomizeToolsForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CustomizeTools_Form'
+
+ENDME // ME_4C8E42D40131 CustomizeTools

@@ -7,6 +7,8 @@
 //#UC START# *5540D3060300_ext:FileName
 w:\common\components\rtl\Garant\HT\htJournal.pas
 //#UC END# *5540D3060300_ext:FileName
+//#UC START# *5540D3060300impl_uses*
+//#UC END# *5540D3060300impl_uses*
 //#UC START# *5540D6BB015A_5540D3060300_impl*
  inherited Create(aFactory);
 //#UC END# *5540D6BB015A_5540D3060300_impl*
@@ -62,7 +64,7 @@ Var
    // ≈сли нет, то получаем этого пользовател€
    if UserGr then
    begin
-    l_ResultSab := UserManager.xxxGetUserGroupsList(UserOrGroupID);
+    l_ResultSab := xxxUserManager.xxxGetUserGroupsList(UserOrGroupID);
     l_ResultSab.TransferToPhoto(bbID_Ext, MakePhoto(BigBrother));
     l_ResultSab.RecordsByKey;
    end

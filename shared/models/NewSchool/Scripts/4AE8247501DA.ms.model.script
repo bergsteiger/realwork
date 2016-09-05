@@ -1,0 +1,617 @@
+// PrimStyleEditorNavigator 4AE8247501DA VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE8247501DA
+
+ME ME_50F562DF02DB
+ MEPROP UID '50F562DF02DB'
+ MEPROP Name 'utStyleEditorNavigator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Дерево стилей'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_utStyleEditorNavigator_UserType.pas'
+ UP extprop:pas:UnitName 'PrimStyleEditorNavigator_utStyleEditorNavigator_UserType'
+
+ENDME // ME_50F562DF02DB utStyleEditorNavigator
+
+FORWARD ME_527249EF015F
+
+ME ME_527249FD0352
+ MEPROP UID '527249FD0352'
+ MEPROP Name 'WM_AFTERINSERT'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_527249EF015F // WM_AFTERINSERT const
+ ;
+ MEPROP Value 'WM_USER  + 111'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'WM_USER  + 111'
+
+ENDME // ME_527249FD0352 WM_AFTERINSERT
+
+ME ME_527249EF015F
+ MEPROP UID '527249EF015F'
+ MEPROP Name 'WM_AFTERINSERT const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_527249FD0352 // WM_AFTERINSERT
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_527249EF015F WM_AFTERINSERT const
+
+ME ME_4AE826530324
+ MEPROP UID '4AE826530324'
+ MEPROP Name 'StyleTreeView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4AE826530324 StyleTreeView
+
+ME ME_527214490340
+ MEPROP UID '527214490340'
+ MEPROP Name 'StyleTreeViewGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_527214490340 StyleTreeViewGetItemImage
+
+ME ME_527214520382
+ MEPROP UID '527214520382'
+ MEPROP Name 'StyleTreeViewCurrentChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A9D4FB0034A' '494B949E022B.ms.model.script' // TeeCurrentChanged
+ )
+ ; // Inherits
+
+ENDME // ME_527214520382 StyleTreeViewCurrentChanged
+
+ME ME_5272145F0183
+ MEPROP UID '5272145F0183'
+ MEPROP Name 'StyleTreeViewRootChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AE825FC019D' '499C0B7B012E.ms.model.script' // TeeRootChangedEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5272145F0183 StyleTreeViewRootChanged
+
+FORWARD ME_52721E5102E7
+
+ME ME_52721E5B029D
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52721E5B029D aIndex
+
+ME ME_52721E580288
+ MEPROP UID '52721E580288'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52721E5102E7 // GetStyleIdFromTreeByIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52721E5B029D // aIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52721E580288 DoIt
+
+ME ME_52721E5102E7
+ MEPROP UID '52721E5102E7'
+ MEPROP Name 'GetStyleIdFromTreeByIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52721E580288 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52721E5102E7 GetStyleIdFromTreeByIndex
+
+FORWARD ME_52721E70013B
+
+ME ME_52721E780227
+ MEPROP Name 'aStyleId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52721E780227 aStyleId
+
+ME ME_52721E750294
+ MEPROP UID '52721E750294'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52721E70013B // SendToAggregateSetNewContentNotify
+ ;
+ MELIST Parameters
+   Seq: ( ME_52721E780227 // aStyleId
+ )
+ ; // Parameters
+
+ENDME // ME_52721E750294 DoIt
+
+ME ME_52721E70013B
+ MEPROP UID '52721E70013B'
+ MEPROP Name 'SendToAggregateSetNewContentNotify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52721E750294 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52721E70013B SendToAggregateSetNewContentNotify
+
+FORWARD ME_52721E8E00BF
+
+ME ME_52721E9A0079
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_52721E9A0079 aNode
+
+ME ME_52721E9302A2
+ MEPROP UID '52721E9302A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52721E8E00BF // GetStyleIdFromNode
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52721E9A0079 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_52721E9302A2 DoIt
+
+ME ME_52721E8E00BF
+ MEPROP UID '52721E8E00BF'
+ MEPROP Name 'GetStyleIdFromNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52721E9302A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52721E8E00BF GetStyleIdFromNode
+
+ME ME_5272648C0364
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_5272648C0364 aMsg
+
+ME ME_52724A1F0013
+ MEPROP UID '52724A1F0013'
+ MEPROP Name 'WMAfterInsert'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELIST Parameters
+   Seq: ( ME_5272648C0364 // aMsg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_AFTERINSERT'
+
+ENDME // ME_52724A1F0013 WMAfterInsert
+
+ME ME_4AE825A20291
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ ;
+
+ENDME // ME_4AE825A20291 
+
+ME ME_4AE825E9006F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_4AE825E9006F 
+
+ME ME_4AE826BF01DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_4AE8269E010D' '4ADDF337033E.ms.model.script' // TeeNode
+ ;
+
+ENDME // ME_4AE826BF01DA 
+
+ME ME_4AE826EB02A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_4AE826DB0089' '47E246C90144.ms.model.script' // l3SearchByName
+ ;
+
+ENDME // ME_4AE826EB02A6 
+
+ME ME_4AE8276E0291
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_4ABA13880316' '4F7D8B3A03A0.ms.model.script' // nsStyleEditor
+ ;
+
+ENDME // ME_4AE8276E0291 
+
+ME ME_4AE829BE0329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_4AE829BE0329 
+
+ME ME_4AE82FB3006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4AE82FB3006D 
+
+ME ME_4AF9260600FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4AF9260600FB 
+
+ME ME_4AF9260902D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ ;
+
+ENDME // ME_4AF9260902D0 
+
+ME ME_4E367C4A0003
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_4E367C340334' '47913B47006E.ms.model.script' // l3CatLongArray
+ ;
+
+ENDME // ME_4E367C4A0003 
+
+ME ME_4E367CA202A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4E367CA202A6 
+
+ME ME_5242B5B60256
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_4727223D039C' '4678193C009C.ms.model.script' // TLongArray
+ ;
+
+ENDME // ME_5242B5B60256 
+
+ME ME_527214B50225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_527214B50225 
+
+ME ME_527214B80224
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_527214B80224 
+
+ME ME_527249E30279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_527249E30279 
+
+ME ME_527249E7001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_527249E7001D 
+
+ME ME_52725F4D03BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_52725F2C0069' '4ABA137C00E5.ms.model.script' // StyleTableRes
+ ;
+
+ENDME // ME_52725F4D03BB 
+
+ME ME_5272602900BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_46827C88016E' '4682595B0268.ms.model.script' // Il3HandleNode
+ ;
+
+ENDME // ME_5272602900BA 
+
+ME ME_5272609E02DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AE8247501DA // PrimStyleEditorNavigator
+ ;
+ MELINK Target WL 'ME_484D2CBA0213' '484A470100DD.ms.model.script' // TextStyle
+ ;
+
+ENDME // ME_5272609E02DA 
+
+ME ME_4AE8250D03D5_ME_4AE8247501DA
+ MELINK Original WL 'ME_4AE8250D03D5' '4AE824CB035A.ms.model.script' // ReloadStylesTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AE8250D03D5_ME_4AE8247501DA ReloadStylesTree
+
+ME ME_4AF8660E0079_ME_4AE8247501DA
+ MELINK Original WL 'ME_4AF8660E0079' '4AE824CB035A.ms.model.script' // ReloadStyleTable
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AF8660E0079_ME_4AE8247501DA ReloadStyleTable
+
+ME ME_47A042E100E2_ME_4AE8247501DA
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4AE8247501DA InitFields
+
+ME ME_4A8E8F2E0195_ME_4AE8247501DA
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AE8247501DA InitControls
+
+ME ME_4F7C65380244_ME_4AE8247501DA
+ MELINK Original WL 'ME_4F7C65380244' '4F22CB1E0009.ms.model.script' // FormInsertedIntoContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F7C65380244_ME_4AE8247501DA FormInsertedIntoContainer
+
+ME ME_4AE8247501DA
+ MEPROP UID '4AE8247501DA'
+ MEPROP Name 'PrimStyleEditorNavigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA79F630309' '4AA79F630309.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AE824F703B7' '4AE824CB035A.ms.model.script' // StyleEditor$ReloadStylesTree
+ WL 'ME_4AF866010019' '4AE824CB035A.ms.model.script' // StyleEditor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AE826530324 // StyleTreeView
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_527214490340 // StyleTreeViewGetItemImage
+ HWL ME_527214520382 // StyleTreeViewCurrentChanged
+ HWL ME_5272145F0183 // StyleTreeViewRootChanged
+ HWL ME_52721E5102E7 // GetStyleIdFromTreeByIndex
+ HWL ME_52721E70013B // SendToAggregateSetNewContentNotify
+ HWL ME_52721E8E00BF // GetStyleIdFromNode
+ HWL ME_52724A1F0013 // WMAfterInsert
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AE8250D03D5_ME_4AE8247501DA // ReloadStylesTree
+ ME_4AF8660E0079_ME_4AE8247501DA // ReloadStyleTable
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4AE8247501DA // InitFields
+ ME_4A8E8F2E0195_ME_4AE8247501DA // InitControls
+ ME_4F7C65380244_ME_4AE8247501DA // FormInsertedIntoContainer
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_50F562DF02DB // utStyleEditorNavigator
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_527249EF015F // WM_AFTERINSERT const
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AE825A20291 // TevStyleInterface
+ ME_4AE825E9006F // IeeNode
+ ME_4AE826BF01DA // TeeNode
+ ME_4AE826EB02A6 // l3SearchByName
+ ME_4AE8276E0291 // nsStyleEditor
+ ME_4AE829BE0329 // Il3Node
+ ME_4AE82FB3006D // afwFacade
+ ME_4AF9260600FB // Supports
+ ME_4AF9260902D0 // IafwStyleTableSpy
+ ME_4E367C4A0003 // l3CatLongArray
+ ME_4E367CA202A6 // Standard
+ ME_5242B5B60256 // TLongArray
+ ME_527214B50225 // Controls
+ ME_527214B80224 // Forms
+ ME_527249E30279 // Msg Codes
+ ME_527249E7001D // Windows
+ ME_52725F4D03BB // StyleTableRes
+ ME_5272602900BA // Il3HandleNode
+ ME_5272609E02DA // TextStyle
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Navigator'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '28.10.2009 14:01'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ UP extprop:pas:TypeName 'TPrimStyleEditorNavigatorForm'
+ UP extprop:rc:SelfName 'PrimStyleEditorNavigatorForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimStyleEditorNavigator_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4AE8247501DA PrimStyleEditorNavigator

@@ -34,6 +34,13 @@
 //#UC END# *47A869D10074_4DAEF23D00EE_impl*
 //#UC START# *47A869D10074_4DAEF23D00EE_var*
 //#UC END# *47A869D10074_4DAEF23D00EE_var*
+//#UC START# *49BFC98902FF_4DAEED140007_impl*
+ inherited;
+ if TtfwWordDeleteListeners.Exists then
+  TtfwWordDeleteListeners.Instance.Fire(Self);
+//#UC END# *49BFC98902FF_4DAEED140007_impl*
+//#UC START# *49BFC98902FF_4DAEED140007_var*
+//#UC END# *49BFC98902FF_4DAEED140007_var*
 //#UC START# *4DAF19F600C5_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC END# *4DAF19F600C5_ext:FileName
@@ -172,21 +179,28 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC START# *4EF4AE480303_4DAEED140007_var*
 //#UC END# *4EF4AE480303_4DAEED140007_var*
 //#UC START# *4F22776902FC_52EA594400DD_impl*
- EtfwCheck.IsTrue(f_NestedCallsCount >= 0, 'Сломанный счётчик рекурсивных вызовов');
+ Assert(Integer(@f_NestedCallsCount) mod 4 = 0);
+ l_NestedCallsCount := l3InterlockedIncrement(f_NestedCallsCount);
  try
-  if (f_NestedCallsCount > 0) then
+  EtfwCheck.IsTrue(l_NestedCallsCount > 0, 'Сломанный счётчик рекурсивных вызовов');
+  try
    if IsCompiled then
    // - отсекаем некомпилированные слова, т.к. с ними наверное всё хорошо
    //   а иначе падает например на том же INCLUDE
+    if {$IfDef seThreadSafe}
+       true
+       {$Else  seThreadSafe}
+       (l_NestedCallsCount > 1)
+       {$EndIf seThreadSafe} then
     begin
      Self.StoreState(aCtx);
      try
-      Inc(f_NestedCallsCount);
+      //l3InterlockedIncrement(f_NestedCallsCount);
       try
-       TtfwWord(Self).RunnerAssert(f_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
+       TtfwWord(Self).RunnerAssert(l_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
        DoDoIt(aCtx);
       finally
-       Dec(f_NestedCallsCount);
+       //l3InterlockedDecrement(f_NestedCallsCount);
       end;//try..finally
      finally
       Self.RestoreState(aCtx);
@@ -195,27 +209,32 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
      //raise EtfwRecursionNotSupportedYet.Create('Вложенные вызовы слов пока не поддерживаются');
      // - тут вообще говоря надо сложить значения переменных в стек, вызвать DoDoIt, а потом восстановит переменные
     end;//IsCompiled
-  Inc(f_NestedCallsCount);
-  try
+   //l3InterlockedIncrement(f_NestedCallsCount);
    try
-    DoDoIt(aCtx);
+    try
+     DoDoIt(aCtx);
+    finally
+     ClearState(aCtx);
+    end;///try..finally
    finally
-    ClearState(aCtx);
-   end;///try..finally
-  finally
-   Dec(f_NestedCallsCount);
-  end;//try..finally
- except
-  on EtfwExitOrBreak do
-   raise;
-  else
-  begin
-   aCtx.rEngine.WordFail(SourcePoint);
-   raise;
-  end;//else 
- end;//try..except
+    //l3InterlockedDecrement(f_NestedCallsCount);
+   end;//try..finally
+  except
+   on EtfwExitOrBreak do
+    raise;
+   else
+   begin
+    aCtx.rEngine.WordFail(SourcePoint);
+    raise;
+   end;//else
+  end;//try..except
+ finally
+  l3InterlockedDecrement(f_NestedCallsCount);
+ end;//try..finally
 //#UC END# *4F22776902FC_52EA594400DD_impl*
 //#UC START# *4F22776902FC_52EA594400DD_var*
+var
+ l_NestedCallsCount: Integer;
 //#UC END# *4F22776902FC_52EA594400DD_var*
 //#UC START# *4F3AB3600008_4DAEED140007_impl*
  Result := false;
@@ -271,7 +290,13 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC START# *4F46550C03E5_4DAEF23D00EE_var*
 //#UC END# *4F46550C03E5_4DAEF23D00EE_var*
 //#UC START# *4F46588B021E_4DAEED140007_impl*
- Result := DoCheckWord(aName);
+ TtfwCS.Instance.Lock;
+ try
+  Assert(Self <> nil);
+  Result := DoCheckWord(aName);
+ finally
+  TtfwCS.Instance.Unlock;
+ end;//try..finally
 //#UC END# *4F46588B021E_4DAEED140007_impl*
 //#UC START# *4F46588B021E_4DAEED140007_var*
 //#UC END# *4F46588B021E_4DAEED140007_var*
@@ -325,6 +350,12 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC END# *5161317A0219_5596255801C5_impl*
 //#UC START# *5161317A0219_5596255801C5_var*
 //#UC END# *5161317A0219_5596255801C5_var*
+//#UC START# *5161317A0219_57C96D4B03E3_impl*
+ if l3System.IsDown then
+  inherited;
+//#UC END# *5161317A0219_57C96D4B03E3_impl*
+//#UC START# *5161317A0219_57C96D4B03E3_var*
+//#UC END# *5161317A0219_57C96D4B03E3_var*
 //#UC START# *52B43311021D_4DAEED140007get_impl*
  Result := nil;
 //#UC END# *52B43311021D_4DAEED140007get_impl*
@@ -347,7 +378,7 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
 //#UC END# *52D00B00031A_4DAEED140007_var*
 //#UC START# *52D399A00173_4DAEED140007_impl*
  RunnerError('Невозможно получить значение', aCtx);
- Result := nil;
+ Result := TtfwStackValue_E;
 //#UC END# *52D399A00173_4DAEED140007_impl*
 //#UC START# *52D399A00173_4DAEED140007_var*
 //#UC END# *52D399A00173_4DAEED140007_var*
@@ -1028,6 +1059,7 @@ var
  end//ExtractFileDrive(aFile) <> ''
  else
   Result := rCaller.ResolveIncludedFilePath(aFile);
+ Result := TtfwParserService.Instance.ResolveIncludedFilePath(Result);
 //#UC END# *55C89C5C015C_4DB0091E033E_impl*
 //#UC START# *55C89C5C015C_4DB0091E033E_var*
 //#UC END# *55C89C5C015C_4DB0091E033E_var*
@@ -1135,3 +1167,29 @@ var
 //#UC END# *57500A22001C_4DAEED140007_impl*
 //#UC START# *57500A22001C_4DAEED140007_var*
 //#UC END# *57500A22001C_4DAEED140007_var*
+//#UC START# *57C96DA0016C_57C96D4B03E3_impl*
+ inherited Create(GetMessage);
+//#UC END# *57C96DA0016C_57C96D4B03E3_impl*
+//#UC START# *57C96DA0016C_57C96D4B03E3_var*
+//#UC END# *57C96DA0016C_57C96D4B03E3_var*
+//#UC START# *57C96DA90314_57C96D4B03E3_impl*
+ raise GetInstance;
+//#UC END# *57C96DA90314_57C96D4B03E3_impl*
+//#UC START# *57C96DA90314_57C96D4B03E3_var*
+//#UC END# *57C96DA90314_57C96D4B03E3_var*
+//#UC START# *57C96DBC00FE_57C81130017D_impl*
+ Result := Instance;
+//#UC END# *57C96DBC00FE_57C81130017D_impl*
+//#UC START# *57C96DBC00FE_57C81130017D_var*
+//#UC END# *57C96DBC00FE_57C81130017D_var*
+//#UC START# *57C96DF30021_57C81130017D_impl*
+ Result := 'Не реализовано';
+//#UC END# *57C96DF30021_57C81130017D_impl*
+//#UC START# *57C96DF30021_57C81130017D_var*
+//#UC END# *57C96DF30021_57C81130017D_var*
+//#UC START# *57C971BD0206_57C96D4B03E3_impl*
+ if not aCondition then
+  Fail;
+//#UC END# *57C971BD0206_57C96D4B03E3_impl*
+//#UC START# *57C971BD0206_57C96D4B03E3_var*
+//#UC END# *57C971BD0206_57C96D4B03E3_var*

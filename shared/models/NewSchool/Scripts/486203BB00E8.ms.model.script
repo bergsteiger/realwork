@@ -1,0 +1,435 @@
+// Meta 486203BB00E8 EVD Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_486203BB00E8
+
+FORWARD ME_486203CB0282
+
+FORWARD ME_486203E80240
+
+ME ME_486203FC00BF
+ MEPROP UID '486203FC00BF'
+ MEPROP Name 'public'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_486203E80240 // Visibility
+ ;
+
+ENDME // ME_486203FC00BF public
+
+ME ME_48620403031B
+ MEPROP UID '48620403031B'
+ MEPROP Name 'private'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_486203E80240 // Visibility
+ ;
+
+ENDME // ME_48620403031B private
+
+ME ME_486204080279
+ MEPROP UID '486204080279'
+ MEPROP Name 'protected'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_486203E80240 // Visibility
+ ;
+
+ENDME // ME_486204080279 protected
+
+ME ME_486203E80240
+ MEPROP UID '486203E80240'
+ MEPROP Name 'Visibility'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_486203FC00BF // public
+ HWL ME_48620403031B // private
+ HWL ME_486204080279 // protected
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_486203E80240 Visibility
+
+FORWARD ME_4862041F0039
+
+ME ME_4862042E00FA
+ MEPROP UID '4862042E00FA'
+ MEPROP Name 'regular'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4862041F0039 // Abstract
+ ;
+
+ENDME // ME_4862042E00FA regular
+
+ME ME_4862043302EA
+ MEPROP UID '4862043302EA'
+ MEPROP Name 'abstract'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4862041F0039 // Abstract
+ ;
+
+ENDME // ME_4862043302EA abstract
+
+ME ME_4862043902D2
+ MEPROP UID '4862043902D2'
+ MEPROP Name 'final'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4862041F0039 // Abstract
+ ;
+
+ENDME // ME_4862043902D2 final
+
+ME ME_4862041F0039
+ MEPROP UID '4862041F0039'
+ MEPROP Name 'Abstract'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4862042E00FA // regular
+ HWL ME_4862043302EA // abstract
+ HWL ME_4862043902D2 // final
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4862041F0039 Abstract
+
+FORWARD ME_48620752019C
+
+ME ME_486207D800AF
+ MEPROP UID '486207D800AF'
+ MEPROP Name 'Stereotype'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48620752019C // Inner
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ UP extprop:evd:NewTypeName 'Inner_Stereotype'
+
+ENDME // ME_486207D800AF Stereotype
+
+ME ME_48620752019C
+ MEPROP UID '48620752019C'
+ MEPROP Name 'Inner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_486207D800AF // Stereotype
+ )
+ ; // Attributes
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\SandBox\Inner_Const.pas'
+ UP extprop:pas:TypeName 'InnerTag'
+ UP extprop:pas:UnitName 'Inner_Const'
+
+ENDME // ME_48620752019C Inner
+
+FORWARD ME_4862082002FA
+
+ME ME_486209270039
+ MEPROP UID '486209270039'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4862082002FA // Element
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ UP extprop:evd:NewTypeName 'Element_Name'
+
+ENDME // ME_486209270039 Name
+
+ME ME_486204110050
+ MEPROP UID '486204110050'
+ MEPROP Name 'Visisbility'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4862082002FA // Element
+ ;
+ MELINK Target HWL ME_486203E80240 // Visibility
+ ;
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'Element_Visisbility'
+
+ENDME // ME_486204110050 Visisbility
+
+ME ME_48620441002E
+ MEPROP UID '48620441002E'
+ MEPROP Name 'Abstract'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4862082002FA // Element
+ ;
+ MELINK Target HWL ME_4862041F0039 // Abstract
+ ;
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'Element_Abstract'
+
+ENDME // ME_48620441002E Abstract
+
+ME ME_4862082002FA
+ MEPROP UID '4862082002FA'
+ MEPROP Name 'Element'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48620752019C // Inner
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_486209270039 // Name
+ HWL ME_486204110050 // Visisbility
+ HWL ME_48620441002E // Abstract
+ )
+ ; // Attributes
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\SandBox\Element_Const.pas'
+ UP extprop:pas:TypeName 'ElementTag'
+ UP extprop:pas:UnitName 'Element_Const'
+
+ENDME // ME_4862082002FA Element
+
+ME ME_486207E800A1
+ MEPROP UID '486207E800A1'
+ MEPROP Name 'dependency'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48620752019C // Inner
+ )
+ ; // Inherits
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\SandBox\dependency_Const.pas'
+ UP extprop:pas:TypeName 'dependencyTag'
+ UP extprop:pas:UnitName 'dependency_Const'
+
+ENDME // ME_486207E800A1 dependency
+
+FORWARD ME_486203DF0044
+
+ME ME_4862047602E7
+ MEPROP UID '4862047602E7'
+ MEPROP Name 'Extends'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_array::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_486203DF0044 // Class
+ ;
+ MELINK Target HWL ME_486203DF0044 // Class
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'Class_Extends'
+
+ENDME // ME_4862047602E7 Extends
+
+ME ME_4862049302DB
+ MEPROP UID '4862049302DB'
+ MEPROP Name 'Implements'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_486203DF0044 // Class
+ ;
+ MELINK Target HWL ME_486203DF0044 // Class
+ ;
+ UP extprop:evd:NewTypeName 'Class_Implements'
+
+ENDME // ME_4862049302DB Implements
+
+ME ME_48620766035F
+ MEPROP UID '48620766035F'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_children::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_486203DF0044 // Class
+ ;
+ MELINK Target HWL ME_48620752019C // Inner
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'Class_Children'
+
+ENDME // ME_48620766035F 
+
+ME ME_486203DF0044
+ MEPROP UID '486203DF0044'
+ MEPROP Name 'Class'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4862082002FA // Element
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4862047602E7 // Extends
+ HWL ME_4862049302DB // Implements
+ HWL ME_48620766035F // 
+ )
+ ; // Attributes
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\SandBox\Class_Const.pas'
+ UP extprop:pas:TypeName 'ClassTag'
+ UP extprop:pas:UnitName 'Class_Const'
+
+ENDME // ME_486203DF0044 Class
+
+ME ME_4862086900D2
+ MEPROP UID '4862086900D2'
+ MEPROP Name 'operation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4862082002FA // Element
+ )
+ ; // Inherits
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\SandBox\operation_Const.pas'
+ UP extprop:pas:TypeName 'operationTag'
+ UP extprop:pas:UnitName 'operation_Const'
+
+ENDME // ME_4862086900D2 operation
+
+ME ME_4862088A0128
+ MEPROP UID '4862088A0128'
+ MEPROP Name 'attribute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_486203CB0282 // Meta
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4862082002FA // Element
+ )
+ ; // Inherits
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\SandBox\attribute_Const.pas'
+ UP extprop:pas:TypeName 'attributeTag'
+ UP extprop:pas:UnitName 'attribute_Const'
+
+ENDME // ME_4862088A0128 attribute
+
+ME ME_486203CB0282
+ MEPROP UID '486203CB0282'
+ MEPROP Name 'Meta'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TagTable ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_486203BB00E8 // Meta
+ ;
+ MELIST Children
+   Seq: ( HWL ME_486203E80240 // Visibility
+ HWL ME_4862041F0039 // Abstract
+ HWL ME_48620752019C // Inner
+ HWL ME_4862082002FA // Element
+ HWL ME_486207E800A1 // dependency
+ HWL ME_486203DF0044 // Class
+ HWL ME_4862086900D2 // operation
+ HWL ME_4862088A0128 // attribute
+ )
+ ; // Children
+ UP intf.pas:Path 'common\components\SandBox\Meta_Schema.pas'
+ UP extprop:pas:TypeName 'TMetaSchema'
+ UP extprop:pas:UnitName 'Meta_Schema'
+
+ENDME // ME_486203CB0282 Meta
+
+ME ME_486203BB00E8
+ MEPROP UID '486203BB00E8'
+ MEPROP Name 'Meta'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_EVD ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.ms.model.script' // SandBox
+ ;
+ MELIST Children
+   Seq: ( HWL ME_486203CB0282 // Meta
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+
+ENDME // ME_486203BB00E8 Meta

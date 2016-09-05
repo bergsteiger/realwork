@@ -517,6 +517,7 @@ f _is_inherit_includes
 ? генератор
 ? определяет конкретный целевой генератор
 = Мета-MDA::MDAGenerator
+= MDAGeneratorInner::Class
 
 // Параметры стереотипа
 a ar
@@ -592,6 +593,8 @@ r {""=""}: {}
 : MDAGenerator::Class::Operation
 ? функция стереотипа
 ? определяет пользовательскую функцию принадлежащую стереотипу
+= MDAGeneratorInner::Class
+
 // Параметры стереотипа
 a ar
 / - тип абстракции
@@ -632,6 +635,8 @@ m t
 : MDAGenerator::Class::transformator::Operation
 ? Трансформатор
 ? Задает пользовательский трансформатор принадлежащий стереотипу
+= MDAGeneratorInner::Class
+
 // Параметры стереотипа
 a ar
 / - тип абстракции
@@ -667,6 +672,7 @@ m t
 : MDAGenerator::Class::UserProperty::Attribute
 ? базовый класс для пользовательских свойств
 = Мета-MDA::MDAGenerator
+= MDAGeneratorInner::Class
 
 // Параметры стереотипа
 Y code_mda_attr_up.gif
@@ -762,6 +768,8 @@ m f
 : MDAGenerator::Class::include::ClassDependency
 ? Разрешение использования
 ? Связь разрешающая использование одного стереотипра (цель связи) внутри другого (рожитель связи).
+= MDAGeneratorInner::Class
+
 // Параметры стереотипа
 Y code_mda_dep_include.gif
 L code_mda_dep_include
@@ -792,6 +800,8 @@ p internal:b=false ? определяет, что пользователь не может использовать стереоти
 : MDAGenerator::Class::group::ClassDependency
 ? Родительская группа
 ? Определяет родительскую "группу" для генераторов
+= MDAGeneratorInner::Class
+
 // Параметры стереотипа
 Y code_mda_dep_group.gif
 L code_mda_dep_group
@@ -887,6 +897,8 @@ m f
 : MDAGenerator::Class::main hierarchy::ClassDependency
 ? Основная ветка иерархии
 ? цель данной связи определяет основного предка для стереотипа, этот основной элемент будет использоваться при разрешении неоднозначности при вызове метода на стереотипе-источнике
+= MDAGeneratorInner::Class
+
 // Параметры стереотипа
 Y code_mda_dep_main_hierarchy.gif
 L code_mda_dep_main_hierarchy
@@ -909,6 +921,8 @@ L code_mda_dep_main_hierarchy
 
 : MDAGenerator::Class::exclude auto copy::ClassDependency
 ? элементы, на которые указывают такие связи не копируется из родителя
+= MDAGeneratorInner::Class
+
 // Параметры стереотипа
 Y code_mda_dep.gif
 L code_mda_dep

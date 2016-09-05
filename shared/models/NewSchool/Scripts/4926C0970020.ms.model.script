@@ -1,0 +1,76 @@
+// TdsMainList 4926C0970020 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4926C0970020
+
+ME ME_47F0D913030D_ME_4926C0970020
+ MELINK Original WL 'ME_47F0D913030D' '47E9EDA800FE.ms.model.script' // NotifyAboutChangeCurrent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F0D913030D_ME_4926C0970020 NotifyAboutChangeCurrent
+
+ME ME_47FB00640212_ME_4926C0970020
+ MELINK Original WL 'ME_47FB00640212' '47E9EDA800FE.ms.model.script' // DoIsMain
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47FB00640212_ME_4926C0970020 DoIsMain
+
+ME ME_4A2D0838019C_ME_4926C0970020
+ MELINK Original WL 'ME_4A2D0838019C' '47E9EDC602B2.ms.model.script' // DoGet_IsShortList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A2D0838019C_ME_4926C0970020 DoGet_IsShortList
+
+ME ME_4A4074FB0192_ME_4926C0970020
+ MELINK Original WL 'ME_4A4074FB0192' '47E9EDA800FE.ms.model.script' // DoSetupNewSimpleTree
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A4074FB0192_ME_4926C0970020 DoSetupNewSimpleTree
+
+ME ME_4A796F46039D_ME_4926C0970020
+ MELINK Original WL 'ME_4A796F46039D' '47E9EDC602B2.ms.model.script' // DoGet_IsSnippet
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A796F46039D_ME_4926C0970020 DoGet_IsSnippet
+
+ME ME_4AA0F2E70398_ME_4926C0970020
+ MELINK Original WL 'ME_4AA0F2E70398' '47E9EDC602B2.ms.model.script' // DoCanAnalize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AA0F2E70398_ME_4926C0970020 DoCanAnalize
+
+ME ME_4926C0970020
+ MEPROP UID '4926C0970020'
+ MEPROP Name 'TdsMainList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список документов прецедента "Список". Списков в системе много, а сообщать о смене текущего прецеденту должен только один - список документов прецедента "Cписок". Для этой цели создан dsMainList с перекрытым NotifyAboutChangeCurrent' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9F90B7029E' '4A9F90B7029E.ms.model.script' // List
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492D73D80122' '492D73D80122.ms.model.script' // TdsDocumentList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F0D913030D_ME_4926C0970020 // NotifyAboutChangeCurrent
+ ME_47FB00640212_ME_4926C0970020 // DoIsMain
+ ME_4A2D0838019C_ME_4926C0970020 // DoGet_IsShortList
+ ME_4A4074FB0192_ME_4926C0970020 // DoSetupNewSimpleTree
+ ME_4A796F46039D_ME_4926C0970020 // DoGet_IsSnippet
+ ME_4AA0F2E70398_ME_4926C0970020 // DoCanAnalize
+ )
+ ; // Overridden
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '2007/04/06 13:04:11'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\List\dsMainList.pas'
+ UP extprop:rc:SelfName 'dsMainList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsMainList'
+
+ENDME // ME_4926C0970020 TdsMainList

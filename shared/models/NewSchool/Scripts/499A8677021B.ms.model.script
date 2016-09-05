@@ -1,0 +1,183 @@
+// ComboTree 499A8677021B TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499A8677021B
+
+FORWARD ME_499A86AA0326
+
+ME ME_499A86B50355
+ MEPROP UID '499A86B50355'
+ MEPROP Name 'ItemIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499A86AA0326 // TFakeBox
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499A86B50355 ItemIndex
+
+ME ME_499A86AA0326
+ MEPROP UID '499A86AA0326'
+ MEPROP Name 'TFakeBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499A8677021B // ComboTree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483158FD0155' '483158FD0155.ms.model.script' // TFakeBox
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499A86B50355 // ItemIndex
+ )
+ ; // Attributes
+ UP "is friend" false
+ UP intf.pas:Path 'common\components\gui\Garant\VT\FakeBox_p.pas'
+ UP extprop:pas:UnitName 'FakeBox_p'
+
+ENDME // ME_499A86AA0326 TFakeBox
+
+FORWARD ME_499AE0580291
+
+ME ME_499AE6750165
+ MEPROP UID '499AE6750165'
+ MEPROP Name 'CurrentNodeLevel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499AE0580291 // TSubTree
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499AE6750165 CurrentNodeLevel
+
+ME ME_499AE7600051
+ MEPROP UID '499AE7600051'
+ MEPROP Name 'CurrentNodeIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499AE0580291 // TSubTree
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499AE7600051 CurrentNodeIndex
+
+ME ME_499AE76A0273
+ MEPROP UID '499AE76A0273'
+ MEPROP Name 'CurrentNodeExpanded'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499AE0580291 // TSubTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_499AE76A0273 CurrentNodeExpanded
+
+ME ME_499AE07B0052
+ MEPROP UID '499AE07B0052'
+ MEPROP Name 'ExpandCurrentNode'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499AE0580291 // TSubTree
+ ;
+
+ENDME // ME_499AE07B0052 ExpandCurrentNode
+
+ME ME_499AE507018E
+ MEPROP UID '499AE507018E'
+ MEPROP Name 'GoToBeginNode'
+ MEPROP Class class_Operation
+ %SUMMARY 'этот метод нужен потому что дерево не реагирует на нажатие Home, и вообще не получается перейти на его начало с клавиатуры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499AE0580291 // TSubTree
+ ;
+
+ENDME // ME_499AE507018E GoToBeginNode
+
+ME ME_46A5AA4B003C_ME_499AE0580291
+ MELINK Original WL 'ME_46A5AA4B003C' '4677FBA70343.ms.model.script' // Invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5AA4B003C_ME_499AE0580291 Invalidate
+
+ME ME_499AE0580291
+ MEPROP UID '499AE0580291'
+ MEPROP Name 'TSubTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499A8677021B // ComboTree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53EDF0B0003D' '53F1DC8F01AD.ms.model.script' // TSubTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499AE6750165 // CurrentNodeLevel
+ HWL ME_499AE7600051 // CurrentNodeIndex
+ HWL ME_499AE76A0273 // CurrentNodeExpanded
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_499AE07B0052 // ExpandCurrentNode
+ HWL ME_499AE507018E // GoToBeginNode
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A5AA4B003C_ME_499AE0580291 // Invalidate
+ )
+ ; // Implemented
+ UP "is friend" false
+ UP intf.pas:Path 'common\components\gui\Garant\VT\SubTree_p.pas'
+ UP extprop:pas:UnitName 'SubTree_p'
+
+ENDME // ME_499AE0580291 TSubTree
+
+ME ME_499A8677021B
+ MEPROP UID '499A8677021B'
+ MEPROP Name 'ComboTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ %SUMMARY 'Тесты для выпадающих деревьев' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499A86490253' '499A86490253.ms.model.script' // VTTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499A86AA0326 // TFakeBox
+ HWL ME_499AE0580291 // TSubTree
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_48297E42011A' '48297E42011A.ms.model.script' // ComboTree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_499A8677021B ComboTree

@@ -1,0 +1,175 @@
+// sdsBaseDocumentWithAttributes 47F0849400D0 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F0849400D0
+
+ME ME_47FDDACC0101
+ MEPROP UID '47FDDACC0101'
+ MEPROP Name 'DoOpenAttributes'
+ MEPROP Class class_Operation
+ %SUMMARY '- атрибуты.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+
+ENDME // ME_47FDDACC0101 DoOpenAttributes
+
+ME ME_47FE03AE0225
+ MEPROP UID '47FE03AE0225'
+ MEPROP Name 'NeedMakeDSAttributes'
+ MEPROP Class class_Operation
+ %SUMMARY '- необходимость создания БОФ атрибутов.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47FE03AE0225 NeedMakeDSAttributes
+
+ME ME_49352CEF0222
+ MEPROP UID '49352CEF0222'
+ MEPROP Name 'GetHasAttributes'
+ MEPROP Class class_Operation
+ %SUMMARY 'Реализация HasAttributes' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49352CEF0222 GetHasAttributes
+
+ME ME_49351EC70398
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49351EC70398 
+
+ME ME_493520270150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_49255F4302EE' '49255F4302EE.ms.model.script' // TdsAttributes
+ ;
+
+ENDME // ME_493520270150 
+
+ME ME_4935283B009A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_491BF08F035F' '4678193C009C.ms.model.script' // Tl3Bool
+ ;
+
+ENDME // ME_4935283B009A 
+
+ME ME_4935286F00BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_4935286F00BC 
+
+ME ME_493528A802FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F0849400D0 // sdsBaseDocumentWithAttributes
+ ;
+ MELINK Target WL 'ME_480F78BC0146' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+
+ENDME // ME_493528A802FF 
+
+ME ME_492598700162_ME_47F0849400D0
+ MELINK Original WL 'ME_492598700162' '4D1B85BF03E4.ms.model.script' // OpenAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492598700162_ME_47F0849400D0 OpenAttributes
+
+ME ME_5009A78501A6_ME_47F0849400D0
+ MELINK Original WL 'ME_5009A78501A6' '4D1B85BF03E4.ms.model.script' // dsAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is reference" true
+ UP "pm" true
+ENDME // ME_5009A78501A6_ME_47F0849400D0 dsAttributes
+
+ME ME_6DBD21E52E04_ME_47F0849400D0
+ MELINK Original WL 'ME_6DBD21E52E04' '4D1B85BF03E4.ms.model.script' // HasAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_6DBD21E52E04_ME_47F0849400D0 HasAttributes
+
+ME ME_4925B7F00156_ME_47F0849400D0
+ MELINK Original WL 'ME_4925B7F00156' '47EA106D035E.ms.model.script' // ClearAllDS
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4925B7F00156_ME_47F0849400D0 ClearAllDS
+
+ME ME_47F0849400D0
+ MEPROP UID '47F0849400D0'
+ MEPROP Name 'sdsBaseDocumentWithAttributes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ с атрибутами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA106D035E' '47EA106D035E.ms.model.script' // sdsBaseDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47F083E60105' '4D1B85BF03E4.ms.model.script' // IsdsBaseDocumentWithAttributes
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_47FDDACC0101 // DoOpenAttributes
+ HWL ME_47FE03AE0225 // NeedMakeDSAttributes
+ HWL ME_49352CEF0222 // GetHasAttributes
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_492598700162_ME_47F0849400D0 // OpenAttributes
+ ME_5009A78501A6_ME_47F0849400D0 // dsAttributes
+ ME_6DBD21E52E04_ME_47F0849400D0 // HasAttributes
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4925B7F00156_ME_47F0849400D0 // ClearAllDS
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49351EC70398 // SysUtils
+ ME_493520270150 // TdsAttributes
+ ME_4935283B009A // Tl3Bool
+ ME_4935286F00BC // bsUtils
+ ME_493528A802FF // l3Utils
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '2007/06/14 08:06:12'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas'
+ UP extprop:pas:TypeName '_sdsBaseDocumentWithAttributes_'
+ UP extprop:pas:UnitName 'sdsBaseDocumentWithAttributes.imp'
+
+ENDME // ME_47F0849400D0 sdsBaseDocumentWithAttributes

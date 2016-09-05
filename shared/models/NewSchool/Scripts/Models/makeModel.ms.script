@@ -1,0 +1,64 @@
+PROGRAM makeModel.ms.script
+
+USES
+ Chars.ms.dict
+ IsNil.ms.dict
+ Out.ms.dict
+ SaveVarAndDo.ms.dict
+;
+
+VAR l_ElemName
+2 sysutils:ParamStr >>> l_ElemName
+ if ( l_ElemName .IsNil ) then
+ begin
+  'garant' >>> l_ElemName
+ end // ( l_ElemName .IsNil )
+
+[ l_ElemName '.ms.model.script' ] strings:Cat
+.ProcessOut: (
+ [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
+ OutLn
+
+ [ 'ME_' l_ElemName ] strings:Cat
+ .OutMEWord: (
+  [ 'MEPROP Name ' cQuote l_ElemName cQuote ] .Out
+  [ 'MEPROP UID ' cQuote l_ElemName cQuote ] .Out
+  [ 'MEPROP Class class_Category' ] .Out
+  [ 'MELINK Stereotype st_ModelRoot ;' ] .Out
+  [ 'MEPROP IsSubRoot true' ] .Out
+  [ 'MELIST Children' ] .Out
+  Indented: (
+   OutSeq: (
+    [ l_ElemName '.model' ] strings:Cat
+    .ProcessIn: (
+      IN aStr
+     if ( aStr .NotIsNil ) then
+     begin
+      VAR l_Name
+      VAR l_Head
+      '' >>> l_Head
+      aStr Ctx:ResolveIncludedFilePath >>> l_Name
+      if ( l_Name sysutils:FileExists ) then
+      begin
+       FILE VAR l_In
+       nil >>> l_In
+       TF l_In (
+        l_Name File:OpenRead >>> l_In
+        l_In File:ReadLn >>> l_Head
+        l_Head '//' '' string:Replace >>> l_Head
+       ) // TF l_F
+      end // ( l_Name sysutils:FileExists )
+      [ 
+       'WL ' cQuote 'ME_' aStr '.' string:Split DROP cQuote ' ' cQuote aStr cQuote 
+       if ( l_Head .NotIsNil ) then
+       begin
+        [ ' //' l_Head ]
+       end // ( l_Head .NotIsNil )
+      ] .Out
+     end // ( aStr .NotIsNil )
+    ) // .ProcessIn:
+   ) // OutSeq:
+  ) // Indented:
+  [ '; // Children' ] .Out
+ ) // .OutWord:
+) // .ProcessOut:

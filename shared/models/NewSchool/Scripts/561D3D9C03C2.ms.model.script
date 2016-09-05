@@ -1,0 +1,73 @@
+// Core 561D3D9C03C2 Layer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561D3D9C03C2
+
+ME ME_561D403603DA
+ MEPROP UID '561D403603DA'
+ MEPROP Name 'Tl3ProtoObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ClassProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D3D9C03C2 // Core
+ ;
+ UP extprop:rc:SelfName 'ProtoObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Tl3ProtoObject_Proxy'
+
+ENDME // ME_561D403603DA Tl3ProtoObject
+
+ME ME_561E5682024D
+ MEPROP UID '561E5682024D'
+ MEPROP GUID 'C0616F17-E6AA-47F2-B92C-4DBCC8B21FEF'
+ MEPROP Name 'Il3CString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D3D9C03C2 // Core
+ ;
+ UP extprop:rc:SelfName 'String'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Il3CString_Proxy'
+
+ENDME // ME_561E5682024D Il3CString
+
+ME ME_561E56EA011E
+ MEPROP UID '561E56EA011E'
+ MEPROP Name 'Tl3ProtoDataContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ClassProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D3D9C03C2 // Core
+ ;
+ UP extprop:rc:SelfName 'ProtoDataContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Tl3ProtoDataContainer_Proxy'
+
+ENDME // ME_561E56EA011E Tl3ProtoDataContainer
+
+ME ME_561D3D9C03C2
+ MEPROP UID '561D3D9C03C2'
+ MEPROP Name 'Core'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Layer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_561D37540316' '561D37540316.ms.model.script' // L3$Interface
+ ;
+ MELIST Children
+   Seq: ( HWL ME_561D403603DA // Tl3ProtoObject
+ HWL ME_561E5682024D // Il3CString
+ HWL ME_561E56EA011E // Tl3ProtoDataContainer
+ )
+ ; // Children
+
+ENDME // ME_561D3D9C03C2 Core

@@ -1,0 +1,30 @@
+// PharmFirmList_i 47E8E0BE00F1 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_47E8E0BE00F1
+ MEPROP UID '47E8E0BE00F1'
+ MEPROP Name 'PharmFirmList_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ %SUMMARY 'Пакет реализации списка-фирм' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEA4490239' '45EEA4490239.ms.model.script' // DynamicTree_i
+ WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ WL 'ME_4628939B0216' '4628939B0216.ms.model.script' // DocumentHelper
+ WL 'ME_47E8DDB10253' '47E8DDB10253.ms.model.script' // PharmFirmList
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\PharmFirmList_i'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\PharmFirmList_i\PharmFirmList_i.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\PharmFirmList_i'
+
+ENDME // ME_47E8E0BE00F1 PharmFirmList_i

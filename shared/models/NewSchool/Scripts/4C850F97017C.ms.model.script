@@ -1,0 +1,184 @@
+// Strange 4C850F97017C VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C850F97017C
+
+FORWARD ME_4C850FC30205
+
+ME ME_4C850FD40034
+ MEPROP UID '4C850FD40034'
+ MEPROP Name 'Russian'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C850FC30205 // Lang
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C850FD40034 Russian
+
+ME ME_4C850FFB01EF
+ MEPROP UID '4C850FFB01EF'
+ MEPROP Name 'English'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C850FC30205 // Lang
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C850FFB01EF English
+
+ME ME_4C85100D0398
+ MEPROP UID '4C85100D0398'
+ MEPROP Name 'French'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C850FC30205 // Lang
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C85100D0398 French
+
+ME ME_4C85101F0258
+ MEPROP UID '4C85101F0258'
+ MEPROP Name 'Deutch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C850FC30205 // Lang
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C85101F0258 Deutch
+
+ME ME_4C851041010D
+ MEPROP UID '4C851041010D'
+ MEPROP Name 'Italian'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C850FC30205 // Lang
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C851041010D Italian
+
+ME ME_4C8510570231
+ MEPROP UID '4C8510570231'
+ MEPROP Name 'Spanish'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C850FC30205 // Lang
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4C8510570231 Spanish
+
+ME ME_4C850FC30205
+ MEPROP UID '4C850FC30205'
+ MEPROP Name 'Lang'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C850F97017C // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C850FD40034 // Russian
+ HWL ME_4C850FFB01EF // English
+ HWL ME_4C85100D0398 // French
+ HWL ME_4C85101F0258 // Deutch
+ HWL ME_4C851041010D // Italian
+ HWL ME_4C8510570231 // Spanish
+ )
+ ; // Operations
+
+ENDME // ME_4C850FC30205 Lang
+
+ME ME_4C850F97017C
+ MEPROP UID '4C850F97017C'
+ MEPROP Name 'Strange'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4979D3680163' '4979D3680163.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C850FC30205 // Lang
+ )
+ ; // Children
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '06.09.2010 19:58'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction_Strange_Controls.pas'
+ UP extprop:pas:UnitName 'Diction_Strange_Controls'
+
+ENDME // ME_4C850F97017C Strange

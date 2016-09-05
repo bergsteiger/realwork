@@ -1,0 +1,60 @@
+// NewsLine 4A8ECFCD0174 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8ECFCD0174
+
+ME ME_4CAA38D5E807
+ MEPROP UID '4CAA38D5E807'
+ MEPROP Name 'Ini_FormFactory_NewsLine'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы NewsLine' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8ECFCD0174 // NewsLine
+ ;
+ UPLINK SpelledFor HWL ME_4A8ECFCD0174 // NewsLine
+ ;
+
+ENDME // ME_4CAA38D5E807 Ini_FormFactory_NewsLine
+
+ME ME_4A8ECFCD0174
+ MEPROP UID '4A8ECFCD0174'
+ MEPROP Name 'NewsLine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A8ECF3001D2' '4A8ECF3001D2.ms.model.script' // PrimMonitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C87BB9C0143' '4C87BB9C0143.ms.model.script' // PrimNewsLineOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EC3A4A80189' '4BD856E802F9.ms.model.script' // NewsLine
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4CAA38D5E807 // Ini_FormFactory_NewsLine
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "form name prefix" 'en'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLine_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ UP extprop:pas:TypeName 'TenNewsLine'
+ UP extprop:rc:SelfName 'enNewsLine'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'NewsLine_Form'
+
+ENDME // ME_4A8ECFCD0174 NewsLine

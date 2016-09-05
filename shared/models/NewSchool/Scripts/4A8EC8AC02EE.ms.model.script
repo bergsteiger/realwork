@@ -1,0 +1,624 @@
+// PrimShutDown 4A8EC8AC02EE VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8EC8AC02EE
+
+ME ME_4C9851E00246
+ MEPROP UID '4C9851E00246'
+ MEPROP Name 'sftNone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предупреждение о закрытии приложения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_sftNone_UserType.pas'
+ UP extprop:pas:UnitName 'PrimShutDown_sftNone_UserType'
+
+ENDME // ME_4C9851E00246 sftNone
+
+ME ME_4AE97A1D0302
+ MEPROP UID '4AE97A1D0302'
+ MEPROP Name 'ShutdownTimer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ UP "ComponentClass" 'TTimer'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4AE97A1D0302 ShutdownTimer
+
+FORWARD ME_5267AE390124
+
+FORWARD ME_5267AE9102AC
+
+ME ME_5267AEEF0373
+ MEPROP UID '5267AEEF0373'
+ MEPROP Name 'Image'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5267AE9102AC // LeftPanel
+ ;
+ UP "ControlClass" 'TImage'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AEEF0373 Image
+
+ME ME_5267AE9102AC
+ MEPROP UID '5267AE9102AC'
+ MEPROP Name 'LeftPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5267AE390124 // vtPanel1
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5267AEEF0373 // Image
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AE9102AC LeftPanel
+
+FORWARD ME_5267AEAB0074
+
+ME ME_5267AF090399
+ MEPROP UID '5267AF090399'
+ MEPROP Name 'TopSpacerPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5267AEAB0074 // CenterPanel
+ ;
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AF090399 TopSpacerPanel
+
+ME ME_5267AF1C002B
+ MEPROP UID '5267AF1C002B'
+ MEPROP Name 'WarningText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5267AEAB0074 // CenterPanel
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AF1C002B WarningText
+
+ME ME_5267AEAB0074
+ MEPROP UID '5267AEAB0074'
+ MEPROP Name 'CenterPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5267AE390124 // vtPanel1
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5267AF090399 // TopSpacerPanel
+ HWL ME_5267AF1C002B // WarningText
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AEAB0074 CenterPanel
+
+ME ME_5267AED10104
+ MEPROP UID '5267AED10104'
+ MEPROP Name 'RightSpacerPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5267AE390124 // vtPanel1
+ ;
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AED10104 RightSpacerPanel
+
+ME ME_5267AE390124
+ MEPROP UID '5267AE390124'
+ MEPROP Name 'vtPanel1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5267AE9102AC // LeftPanel
+ HWL ME_5267AEAB0074 // CenterPanel
+ HWL ME_5267AED10104 // RightSpacerPanel
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+ UP extprop:rc:SelfName 'Panel1'
+
+ENDME // ME_5267AE390124 vtPanel1
+
+FORWARD ME_5267AE6800E3
+
+ME ME_5267AF3D006C
+ MEPROP UID '5267AF3D006C'
+ MEPROP Name 'CloseButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выход' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5267AE6800E3 // pnlBottom
+ ;
+ UP "ControlClass" 'TvtButton'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AF3D006C CloseButton
+
+ME ME_5267AE6800E3
+ MEPROP UID '5267AE6800E3'
+ MEPROP Name 'pnlBottom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5267AF3D006C // CloseButton
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5267AE6800E3 pnlBottom
+
+ME ME_4AE973F102DB
+ MEPROP UID '4AE973F102DB'
+ MEPROP Name 'f_InShutdown'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE973F102DB f_InShutdown
+
+ME ME_4AE974120121
+ MEPROP UID '4AE974120121'
+ MEPROP Name 'f_CloseInterval'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AE974120121 f_CloseInterval
+
+ME ME_4AE974220121
+ MEPROP UID '4AE974220121'
+ MEPROP Name 'f_CloseCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4AE974220121 f_CloseCaption
+
+ME ME_5267AF7901AC
+ MEPROP UID '5267AF7901AC'
+ MEPROP Name 'ShutdownTimerTimer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5267AF7901AC ShutdownTimerTimer
+
+ME ME_5267AF870367
+ MEPROP UID '5267AF870367'
+ MEPROP Name 'CloseButtonClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5267AF870367 CloseButtonClick
+
+ME ME_5267AF9600C5
+ MEPROP UID '5267AF9600C5'
+ MEPROP Name 'vcmEntityFormCloseQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_523AD9CB02EC' '4799D29F033F.ms.model.script' // TCloseQueryEvent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EntityFormCloseQuery'
+
+ENDME // ME_5267AF9600C5 vcmEntityFormCloseQuery
+
+ME ME_5267AFA601F6
+ MEPROP UID '5267AFA601F6'
+ MEPROP Name 'UpdateCloseButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+
+ENDME // ME_5267AFA601F6 UpdateCloseButton
+
+ME ME_5267AFB4031F
+ MEPROP UID '5267AFB4031F'
+ MEPROP Name 'ShutdownAll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+
+ENDME // ME_5267AFB4031F ShutdownAll
+
+ME ME_5267AFC1022B
+ MEPROP UID '5267AFC1022B'
+ MEPROP Name 'UpdateSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+
+ENDME // ME_5267AFC1022B UpdateSize
+
+ME ME_4AE97CCB0063
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_4A8ADF9E0058' '47D0E1500033.ms.model.script' // vcmFmt
+ ;
+
+ENDME // ME_4AE97CCB0063 
+
+ME ME_5267B168008C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5267B168008C 
+
+ME ME_5267B16B02F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_5267B16B02F0 
+
+ME ME_5267B16E0072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_5267B16E0072 
+
+ME ME_5267B1700271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_5267B1700271 
+
+ME ME_5267B1740305
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_5267B1740305 
+
+ME ME_5267B19E0379
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_4799F84900DD' '473C3BEE0334.ms.model.script' // l3ScreenIC
+ ;
+
+ENDME // ME_5267B19E0379 
+
+ME ME_5267B1E20348
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5267B1E20348 
+
+ME ME_5267B1E502B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5267B1E502B1 
+
+ME ME_5267B1E80152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_48C78D5402A6' '4799D29F033F.ms.model.script' // StdCtrls
+ ;
+
+ENDME // ME_5267B1E80152 
+
+ME ME_54F5DA8201B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_54F5D5E002E0' '54F5D55D00C6.ms.model.script' // Tf1NotificationManager
+ ;
+
+ENDME // ME_54F5DA8201B0 
+
+ME ME_5549D0AB00F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_5549D0AB00F4 
+
+ME ME_5576DEDB02A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC8AC02EE // PrimShutDown
+ ;
+ MELINK Target WL 'ME_4F636139008F' '4F635E1901E5.ms.model.script' // Tl3ListenersManager
+ ;
+
+ENDME // ME_5576DEDB02A5 
+
+ME ME_4A8EC9E902CD_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_4A8EC9E902CD' '4A8EC95E015F.ms.model.script' // InitShutdown
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4A8EC9E902CD_ME_4A8EC8AC02EE InitShutdown
+
+ME ME_4F79CF9200A0_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_4F79CF9200A0' '4677FBA70343.ms.model.script' // WndProcRetListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CF9200A0_ME_4A8EC8AC02EE WndProcRetListenerNotify
+
+ME ME_479731C50290_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A8EC8AC02EE Cleanup
+
+ME ME_47A042E100E2_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4A8EC8AC02EE InitFields
+
+ME ME_4A8E8F2E0195_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A8EC8AC02EE InitControls
+
+ME ME_4B321D1301DD_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_4B321D1301DD' '4799D29F033F.ms.model.script' // DoShow
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B321D1301DD_ME_4A8EC8AC02EE DoShow
+
+ME ME_529332B40230_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_529332B40230' '4AADF9450143.ms.model.script' // SetupFormLayout
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_529332B40230_ME_4A8EC8AC02EE SetupFormLayout
+
+ME ME_5576E05C0204_ME_4A8EC8AC02EE
+ MELINK Original WL 'ME_5576E05C0204' '4799D29F033F.ms.model.script' // DoClose
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5576E05C0204_ME_4A8EC8AC02EE DoClose
+
+ME ME_4A8EC8AC02EE
+ MEPROP UID '4A8EC8AC02EE'
+ MEPROP Name 'PrimShutDown'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предупреждение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A924BCA0092' '4A924BCA0092.ms.model.script' // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A8EC9DC0375' '4A8EC95E015F.ms.model.script' // System
+ WL 'ME_4F7321C602DF' '4677FBA70343.ms.model.script' // Il3WndProcRetListener
+ WL 'ME_4F79CE2902DD' '4677FBA70343.ms.model.script' // Il3Listener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AE97A1D0302 // ShutdownTimer
+ HWL ME_5267AE390124 // vtPanel1
+ HWL ME_5267AE6800E3 // pnlBottom
+ HWL ME_4AE973F102DB // f_InShutdown
+ HWL ME_4AE974120121 // f_CloseInterval
+ HWL ME_4AE974220121 // f_CloseCaption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5267AF7901AC // ShutdownTimerTimer
+ HWL ME_5267AF870367 // CloseButtonClick
+ HWL ME_5267AF9600C5 // vcmEntityFormCloseQuery
+ HWL ME_5267AFA601F6 // UpdateCloseButton
+ HWL ME_5267AFB4031F // ShutdownAll
+ HWL ME_5267AFC1022B // UpdateSize
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A8EC9E902CD_ME_4A8EC8AC02EE // InitShutdown
+ ME_4F79CF9200A0_ME_4A8EC8AC02EE // WndProcRetListenerNotify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A8EC8AC02EE // Cleanup
+ ME_47A042E100E2_ME_4A8EC8AC02EE // InitFields
+ ME_4A8E8F2E0195_ME_4A8EC8AC02EE // InitControls
+ ME_4B321D1301DD_ME_4A8EC8AC02EE // DoShow
+ ME_529332B40230_ME_4A8EC8AC02EE // SetupFormLayout
+ ME_5576E05C0204_ME_4A8EC8AC02EE // DoClose
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4C9851E00246 // sftNone
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AE97CCB0063 // vcmFmt
+ ME_5267B168008C // l3Base
+ ME_5267B16B02F0 // DataAdapter
+ ME_5267B16E0072 // Il3InfoCanvas
+ ME_5267B1700271 // l3String
+ ME_5267B1740305 // l3MinMax
+ ME_5267B19E0379 // l3ScreenIC
+ ME_5267B1E20348 // Windows
+ ME_5267B1E502B1 // Controls
+ ME_5267B1E80152 // StdCtrls
+ ME_54F5DA8201B0 // Tf1NotificationManager
+ ME_5549D0AB00F4 // Msg Codes
+ ME_5576DEDB02A5 // Tl3ListenersManager
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Floating'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '21.08.2009 21:18'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms'
+ UP extprop:pas:TypeName 'TPrimShutDownForm'
+ UP extprop:rc:SelfName 'PrimShutDownForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimShutDown_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4A8EC8AC02EE PrimShutDown

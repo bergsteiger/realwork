@@ -1,0 +1,990 @@
+// WinUtils 4F85480A00D9 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F85480A00D9
+
+FORWARD ME_4F854878032F
+
+FORWARD ME_510AB608018E
+
+ME ME_510AB6830353
+ MEPROP Name 'hWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_510AB6830353 hWindow
+
+ME ME_510AB683036F
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_510AB714000E' '4DAF19F600C5.ms.model.script' // PtfwWordCallContext
+ ;
+
+ENDME // ME_510AB683036F aData
+
+ME ME_510AB64C0093
+ MEPROP UID '510AB64C0093'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_510AB608018E // IterateWindowsMethod
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_510AB6830353 // hWindow
+ ME_510AB683036F // aData
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_510AB64C0093 DoIt
+
+ME ME_510AB608018E
+ MEPROP UID '510AB608018E'
+ MEPROP Name 'IterateWindowsMethod'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_510AB64C0093 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_510AB608018E IterateWindowsMethod
+
+FORWARD ME_551D697C0023
+
+ME ME_551D69F3014C
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_551D69F3014C aWnd
+
+ME ME_551D69F3016A
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_551D69F3016A aRect
+
+ME ME_551D69F30192
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_551D69F30192 aFileName
+
+ME ME_551D69F301A6
+ MEPROP Name 'aWithCheck'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_551D69F301A6 aWithCheck
+
+ME ME_551D69F301F6
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_551D69F301F6 aCtx
+
+ME ME_551D69F3021E
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_551D69F3021E aCaller
+
+ME ME_551D69EE0033
+ MEPROP UID '551D69EE0033'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551D697C0023 // MakeScreenshot
+ ;
+ MELIST Parameters
+   Seq: ( ME_551D69F3014C // aWnd
+ ME_551D69F3016A // aRect
+ ME_551D69F30192 // aFileName
+ ME_551D69F301A6 // aWithCheck
+ ME_551D69F301F6 // aCtx
+ ME_551D69F3021E // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_551D69EE0033 DoIt
+
+ME ME_551D697C0023
+ MEPROP UID '551D697C0023'
+ MEPROP Name 'MakeScreenshot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551D69EE0033 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_551D697C0023 MakeScreenshot
+
+ME ME_55192F91026F
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_55192F91026F aWnd
+
+ME ME_55192F7C0078
+ MEPROP UID '55192F7C0078'
+ MEPROP Name 'wnd_IsVisible'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55192F91026F // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_55192F7C0078 wnd_IsVisible
+
+ME ME_55192FA901C7
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_55192FA901C7 aWnd
+
+ME ME_55192F980349
+ MEPROP UID '55192F980349'
+ MEPROP Name 'wnd_GetClassName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_55192FA901C7 // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_55192F980349 wnd_GetClassName
+
+ME ME_55192FC301A7
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_55192FC301A7 aWnd
+
+ME ME_55192FAF01D3
+ MEPROP UID '55192FAF01D3'
+ MEPROP Name 'wnd_GetWindowText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_55192FC301A7 // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_55192FAF01D3 wnd_GetWindowText
+
+ME ME_5519301001B0
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_5519301001B0 aWnd
+
+ME ME_5519300102ED
+ MEPROP UID '5519300102ED'
+ MEPROP Name 'wnd_CloseWindow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_5519301001B0 // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_5519300102ED wnd_CloseWindow
+
+ME ME_55193057011D
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_55193057011D aWnd
+
+ME ME_55193045008D
+ MEPROP UID '55193045008D'
+ MEPROP Name 'wnd_WindowIsMine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55193057011D // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_55193045008D wnd_WindowIsMine
+
+ME ME_5519308C01C5
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_5519308C01C5 aWnd
+
+ME ME_5519307103E4
+ MEPROP UID '5519307103E4'
+ MEPROP Name 'wnd_SetForeground'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_5519308C01C5 // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_5519307103E4 wnd_SetForeground
+
+ME ME_551930B80295
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_551930B80295 aWnd
+
+ME ME_551930A001DF
+ MEPROP UID '551930A001DF'
+ MEPROP Name 'WinTreeGetCurrentText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_551930B80295 // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_551930A001DF WinTreeGetCurrentText
+
+ME ME_551942B703B5
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_551942B703B5 aWnd
+
+ME ME_551942B80015
+ MEPROP Name 'aLambda'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_551942B80015 aLambda
+
+ME ME_551941E30047
+ MEPROP UID '551941E30047'
+ MEPROP Name 'IterateChildWindows'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_551942B703B5 // aWnd
+ ME_551942B80015 // aLambda
+ )
+ ; // Parameters
+
+ENDME // ME_551941E30047 IterateChildWindows
+
+ME ME_5519429C0205
+ MEPROP Name 'aLambda'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_5519429C0205 aLambda
+
+ME ME_5519427E00F3
+ MEPROP UID '5519427E00F3'
+ MEPROP Name 'IterateWindows'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_5519429C0205 // aLambda
+ )
+ ; // Parameters
+
+ENDME // ME_5519427E00F3 IterateWindows
+
+ME ME_55194333032B
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_55194333032B aPoint
+
+ME ME_551943280118
+ MEPROP UID '551943280118'
+ MEPROP Name 'WindowFromPoint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+ MELIST Parameters
+   Seq: ( ME_55194333032B // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_551943280118 WindowFromPoint
+
+ME ME_5519434F0000
+ MEPROP UID '5519434F0000'
+ MEPROP Name 'GetForegroundWindow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_5519434F0000 GetForegroundWindow
+
+ME ME_55194397033B
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_55194397033B aCaption
+
+ME ME_551943860248
+ MEPROP UID '551943860248'
+ MEPROP Name 'FindWindowByCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+ MELIST Parameters
+   Seq: ( ME_55194397033B // aCaption
+ )
+ ; // Parameters
+
+ENDME // ME_551943860248 FindWindowByCaption
+
+ME ME_551944070113
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551944070113 aValue
+
+ME ME_551943FD0148
+ MEPROP UID '551943FD0148'
+ MEPROP Name 'SetFuzzInPercent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_551944070113 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_551943FD0148 SetFuzzInPercent
+
+ME ME_551D5FE00397
+ MEPROP UID '551D5FE00397'
+ MEPROP Name 'desktop_Height'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D5FE00397 desktop_Height
+
+ME ME_551D5FF00393
+ MEPROP UID '551D5FF00393'
+ MEPROP Name 'desktop_Width'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D5FF00393 desktop_Width
+
+ME ME_551D601903AB
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D601903AB anIndex
+
+ME ME_551D5FFF03A1
+ MEPROP UID '551D5FFF03A1'
+ MEPROP Name 'screen_Width'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_551D601903AB // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_551D5FFF03A1 screen_Width
+
+ME ME_551D602D0236
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D602D0236 anIndex
+
+ME ME_551D60220051
+ MEPROP UID '551D60220051'
+ MEPROP Name 'screen_Height'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_551D602D0236 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_551D60220051 screen_Height
+
+ME ME_551D605302AE
+ MEPROP UID '551D605302AE'
+ MEPROP Name 'MainScreen_Width'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D605302AE MainScreen_Width
+
+ME ME_551D606401C1
+ MEPROP UID '551D606401C1'
+ MEPROP Name 'MainScreen_Height'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D606401C1 MainScreen_Height
+
+ME ME_551D607202D0
+ MEPROP UID '551D607202D0'
+ MEPROP Name 'ScreenCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D607202D0 ScreenCount
+
+ME ME_551D60B402D3
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_551D60B402D3 aWnd
+
+ME ME_551D60A60370
+ MEPROP UID '551D60A60370'
+ MEPROP Name 'AskWindowToCloseItself'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_551D60B402D3 // aWnd
+ )
+ ; // Parameters
+
+ENDME // ME_551D60A60370 AskWindowToCloseItself
+
+ME ME_551D6A74002B
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_551D6A74002B aWnd
+
+ME ME_551D6A740085
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A740085 aLeft
+
+ME ME_551D6A7400E9
+ MEPROP Name 'aTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A7400E9 aTop
+
+ME ME_551D6A740143
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A740143 aWidth
+
+ME ME_551D6A74019D
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A74019D aHeight
+
+ME ME_551D6A740201
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_551D6A740201 aFileName
+
+ME ME_551D6A28026C
+ MEPROP UID '551D6A28026C'
+ MEPROP Name 'ScreenShot2File'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Описание: снимает скриншот с передаваемого контрола и сохраняет его в файл bmp. Формат:'#13#10'{code}'#13#10'aFileName aHeight aWidth aTop aLeft aHandle ScreenShot2File'#13#10'{code}'#13#10'где aFileName - имя файла с расширением bmp, в который сохранять скриншот'#13#10'aHandle - хендл контрола, с которого снимаем скриншот (0 - для снятия скриншота с десктопа).'#13#10'aLeft, aTop, aWidth, aHeight - начальные координаты и размеры прямоугольной области, с которой снимаем скриншот.'#13#10'Пример:'#13#10'{code}'#13#10'  INTEGER VAR l_Handle'#13#10'  "Контрол в фокусе" pop:control:GetHandle >>> l_Handle'#13#10'  STRING VAR l_FileName'#13#10'  script:FileName ''.bmp'' sysutils:ChangeFileExt'#13#10'  sysutils:ExtractFileName >>> l_FileName  '#13#10'  l_FileName 200 200 0 0 l_Handle ScreenShot2File'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_551D6A74002B // aWnd
+ ME_551D6A740085 // aLeft
+ ME_551D6A7400E9 // aTop
+ ME_551D6A740143 // aWidth
+ ME_551D6A74019D // aHeight
+ ME_551D6A740201 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_551D6A28026C ScreenShot2File
+
+ME ME_551D6A8F0144
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_551D6A8F0144 aWnd
+
+ME ME_551D6A8F019E
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A8F019E aLeft
+
+ME ME_551D6A8F0202
+ MEPROP Name 'aTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A8F0202 aTop
+
+ME ME_551D6A8F0266
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A8F0266 aWidth
+
+ME ME_551D6A8F02CA
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D6A8F02CA aHeight
+
+ME ME_551D6A8F032E
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_551D6A8F032E aFileName
+
+ME ME_551D6A850205
+ MEPROP UID '551D6A850205'
+ MEPROP Name 'ScreenShot2FileWithCheck'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Описание: снимает скриншот с передаваемого контрола и сохраняет его в файл bmp. После окончания теста производится сравнение с эталоном.'#13#10'Формат:'#13#10'{code}'#13#10'aFileName aHeight aWidth aTop aLeft aHandle ScreenShot2FileWithCheck'#13#10'{code}'#13#10'где aFileName - имя файла с расширением bmp, в который сохранять скриншот'#13#10'aHandle - хендл контрола, с которого снимаем скриншот (0 - для снятия скриншота с десктопа).'#13#10'aLeft, aTop, aWidth, aHeight - начальные координаты и размеры прямоугольной области, с которой снимаем скриншот.'#13#10'Пример:'#13#10'{code}'#13#10'  INTEGER VAR l_Handle'#13#10'  "Контрол в фокусе" pop:control:GetHandle >>> l_Handle'#13#10'  STRING VAR l_FileName'#13#10'  script:FileName ''.bmp'' sysutils:ChangeFileExt'#13#10'  sysutils:ExtractFileName >>> l_FileName  '#13#10'  l_FileName 200 200 0 0 l_Handle ScreenShot2FileWithCheck'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_551D6A8F0144 // aWnd
+ ME_551D6A8F019E // aLeft
+ ME_551D6A8F0202 // aTop
+ ME_551D6A8F0266 // aWidth
+ ME_551D6A8F02CA // aHeight
+ ME_551D6A8F032E // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_551D6A850205 ScreenShot2FileWithCheck
+
+ME ME_55192FE403A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_55192FE403A1 
+
+ME ME_55192FE902D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_55192FE902D0 
+
+ME ME_5519302F01C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_5519302F01C9 
+
+ME ME_5519414302FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_528E0FF703A5' '4AB0C3F60375.ms.model.script' // CommCtrl
+ ;
+
+ENDME // ME_5519414302FF 
+
+ME ME_551943ED0062
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_5375BF35034C' '47D0290B016D.ms.model.script' // l3SetFuzzValueInPercent
+ ;
+
+ENDME // ME_551943ED0062 
+
+ME ME_551D604901BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_551D604901BE 
+
+ME ME_551D60C50396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_551D60C50396 
+
+ME ME_551D685A01F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_55014D810077' '55001317029B.ms.model.script' // Tl3CloseFormHelper
+ ;
+
+ENDME // ME_551D685A01F7 
+
+ME ME_551D68AA01A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_536A38A7037C' '47D0290B016D.ms.model.script' // l3MakeScreenShot
+ ;
+
+ENDME // ME_551D68AA01A7 
+
+ME ME_551D68C3012F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_47D15723038A' '55C4AEC801CA.ms.model.script' // TBitmap
+ ;
+
+ENDME // ME_551D68C3012F 
+
+ME ME_55241157010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F854878032F // WinUtilsPack
+ ;
+ MELINK Target WL 'ME_552406830331' '552405FA0066.ms.model.script' // Tl3PicturePathService
+ ;
+
+ENDME // ME_55241157010C 
+
+ME ME_4F854878032F
+ MEPROP UID '4F854878032F'
+ MEPROP Name 'WinUtilsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F85480A00D9 // WinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_510AB608018E // IterateWindowsMethod
+ HWL ME_551D697C0023 // MakeScreenshot
+ HWL ME_55192F7C0078 // wnd_IsVisible
+ HWL ME_55192F980349 // wnd_GetClassName
+ HWL ME_55192FAF01D3 // wnd_GetWindowText
+ HWL ME_5519300102ED // wnd_CloseWindow
+ HWL ME_55193045008D // wnd_WindowIsMine
+ HWL ME_5519307103E4 // wnd_SetForeground
+ HWL ME_551930A001DF // WinTreeGetCurrentText
+ HWL ME_551941E30047 // IterateChildWindows
+ HWL ME_5519427E00F3 // IterateWindows
+ HWL ME_551943280118 // WindowFromPoint
+ HWL ME_5519434F0000 // GetForegroundWindow
+ HWL ME_551943860248 // FindWindowByCaption
+ HWL ME_551943FD0148 // SetFuzzInPercent
+ HWL ME_551D5FE00397 // desktop_Height
+ HWL ME_551D5FF00393 // desktop_Width
+ HWL ME_551D5FFF03A1 // screen_Width
+ HWL ME_551D60220051 // screen_Height
+ HWL ME_551D605302AE // MainScreen_Width
+ HWL ME_551D606401C1 // MainScreen_Height
+ HWL ME_551D607202D0 // ScreenCount
+ HWL ME_551D60A60370 // AskWindowToCloseItself
+ HWL ME_551D6A28026C // ScreenShot2File
+ HWL ME_551D6A850205 // ScreenShot2FileWithCheck
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55192FE403A1 // Windows
+ ME_55192FE902D0 // SysUtils
+ ME_5519302F01C9 // Msg Codes
+ ME_5519414302FF // CommCtrl
+ ME_551943ED0062 // l3SetFuzzValueInPercent
+ ME_551D604901BE // Forms
+ ME_551D60C50396 // TWinControl
+ ME_551D685A01F7 // Tl3CloseFormHelper
+ ME_551D68AA01A7 // l3MakeScreenShot
+ ME_551D68C3012F // TBitmap
+ ME_55241157010C // Tl3PicturePathService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas'
+
+ENDME // ME_4F854878032F WinUtilsPack
+
+ME ME_4F85480A00D9
+ MEPROP UID '4F85480A00D9'
+ MEPROP Name 'WinUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54DB92A80279' '54DB92A80279.ms.model.script' // ScriptEngine$RTLandVCL
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F854878032F // WinUtilsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_55001317029B' '55001317029B.ms.model.script' // VCLHelpers
+ WL 'ME_552405FA0066' '552405FA0066.ms.model.script' // ScreenShots
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts,NoWindows'
+
+ENDME // ME_4F85480A00D9 WinUtils

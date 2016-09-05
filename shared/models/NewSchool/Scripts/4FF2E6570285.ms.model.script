@@ -1,0 +1,24 @@
+// AACInterfaces 4FF2E6570285 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4FF2E6570285
+ MEPROP UID '4FF2E6570285'
+ MEPROP Name 'AACInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы контроллеров прецедента "Актуальная аналитика"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FF2E61D00CA' '4FF2E61D00CA.ms.model.script' // AAC$DataSources
+ ;
+ MELIST Depends
+   Seq: ( WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_4D1B548F00EE' '4D1B548F00EE.ms.model.script' // WorkWithDocumentInterfaces
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AAC\AACInterfaces.pas'
+
+ENDME // ME_4FF2E6570285 AACInterfaces

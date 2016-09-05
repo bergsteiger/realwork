@@ -1,0 +1,68 @@
+// Visual Component Model 4E31266501ED UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E31266501ED
+
+FORWARD ME_484FA73B0391
+
+ME ME_484FA73B0391
+ MEPROP UID '484FA73B0391'
+ MEPROP Name 'VCM'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Библиотека для конструирования GUI' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E31266501ED // Visual Component Model
+ ;
+
+ENDME // ME_484FA73B0391 VCM
+
+ME ME_484FA7AF00B0
+ MEPROP UID '484FA7AF00B0'
+ MEPROP Name 'Операции'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отображение основной функциональности системы через меню и панели инструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E31266501ED // Visual Component Model
+ ;
+
+ENDME // ME_484FA7AF00B0 Операции
+
+ME ME_484FA780003A
+ MEPROP UID '484FA780003A'
+ MEPROP Name 'Горячие клавиши'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование горячих клавишь для доступа к операциям системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E31266501ED // Visual Component Model
+ ;
+
+ENDME // ME_484FA780003A Горячие клавиши
+
+ME ME_4E31266501ED
+ MEPROP UID '4E31266501ED'
+ MEPROP Name 'Visual Component Model'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E3125FB02A1' '4E3125FB02A1.ms.model.script' // Базовые механизмы построения приложений
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484FA73B0391 // VCM
+ HWL ME_484FA7AF00B0 // Операции
+ HWL ME_484FA780003A // Горячие клавиши
+ )
+ ; // Children
+
+ENDME // ME_4E31266501ED Visual Component Model

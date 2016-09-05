@@ -1,0 +1,203 @@
+// StoredValues 54F0735F0179 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F0735F0179
+
+FORWARD ME_4F49408A03C0
+
+ME ME_4F49409F0363
+ MEPROP UID '4F49409F0363'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ MELINK Target WL 'ME_4F493FAE01C7' '4DAF19F600C5.ms.model.script' // TtfwStoredValue
+ ;
+
+ENDME // ME_4F49409F0363 ItemType
+
+FORWARD ME_4F4947D50241
+
+ME ME_4F4947E502AF
+ MEPROP UID '4F4947E502AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4947D50241 // Create
+ ;
+
+ENDME // ME_4F4947E502AF DoIt
+
+ME ME_4F4947D50241
+ MEPROP UID '4F4947D50241'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F4947E502AF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F4947D50241 Create
+
+ME ME_4F4947F30251
+ MEPROP UID '4F4947F30251'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4947D50241 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F494729028E' '4DAF19F600C5.ms.model.script' // ItfwStoredValues
+ )
+ ; // Implements
+
+ENDME // ME_4F4947F30251 Make
+
+ME ME_4F494F6D0304
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F49408A03C0 // TtfwStoredValues
+ ;
+ MELINK Target WL 'ME_4DBB04B6014C' '54F079B5035C.ms.model.script' // TkwCompiledVar
+ ;
+
+ENDME // ME_4F494F6D0304 
+
+ME ME_47B07CF403D0_ME_4F49408A03C0
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4F49408A03C0 IsSameItems
+
+ME ME_47B2C42A0163_ME_4F49408A03C0
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4F49408A03C0 AssignItem
+
+ME ME_47B94A5C006E_ME_4F49408A03C0
+ MELINK Original WL 'ME_47B94A5C006E' '47BB24D30205.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B94A5C006E_ME_4F49408A03C0 FreeItem
+
+ME ME_47B99D4503A2_ME_4F49408A03C0
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4F49408A03C0 CompareExistingItems
+
+ME ME_4F494C0D009A_ME_4F49408A03C0
+ MELINK Original WL 'ME_4F494C0D009A' '4DAF19F600C5.ms.model.script' // Restore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F494C0D009A_ME_4F49408A03C0 Restore
+
+ME ME_56012ACE02B2_ME_4F49408A03C0
+ MELINK Original WL 'ME_56012ACE02B2' '4DAF19F600C5.ms.model.script' // Grow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_56012ACE02B2_ME_4F49408A03C0 Grow
+
+ME ME_47A6FEE600FC_ME_4F49408A03C0
+ MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_47A6FEE600FC_ME_4F49408A03C0 IsCacheable
+
+ME ME_4F49408A03C0
+ MEPROP UID '4F49408A03C0'
+ MEPROP Name 'TtfwStoredValues'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54F0735F0179 // StoredValues
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4E5506F6007E' '47913B47006E.ms.model.script' // l3RecordListPrimPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F494729028E' '4DAF19F600C5.ms.model.script' // ItfwStoredValues
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F49409F0363 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F4947D50241 // Create
+ HWL ME_4F4947F30251 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4F49408A03C0 // IsSameItems
+ ME_47B2C42A0163_ME_4F49408A03C0 // AssignItem
+ ME_47B94A5C006E_ME_4F49408A03C0 // FreeItem
+ ME_47B99D4503A2_ME_4F49408A03C0 // CompareExistingItems
+ ME_4F494C0D009A_ME_4F49408A03C0 // Restore
+ ME_56012ACE02B2_ME_4F49408A03C0 // Grow
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4F49408A03C0 // IsCacheable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F494F6D0304 // TkwCompiledVar
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
+ UP extprop:rc:SelfName 'StoredValues'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwStoredValues'
+
+ENDME // ME_4F49408A03C0 TtfwStoredValues
+
+ME ME_54F0735F0179
+ MEPROP UID '54F0735F0179'
+ MEPROP Name 'StoredValues'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F49408A03C0 // TtfwStoredValues
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ )
+ ; // Depends
+
+ENDME // ME_54F0735F0179 StoredValues

@@ -1,0 +1,87 @@
+// StyleEditorNavigator 4ABA14480078 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABA14480078
+
+ME ME_289E9A9CE961
+ MEPROP UID '289E9A9CE961'
+ MEPROP GUID 'CA4048B0-89BD-4120-9949-4497958117C6'
+ MEPROP Name 'StyleEditorNavigator'
+ MEPROP OriginalName 'StyleEditorNavigator$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы StyleEditorNavigator' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABA14480078 // StyleEditorNavigator
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4ABA14480078 // StyleEditorNavigator
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'StyleEditorNavigatorFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_289E9A9CE961 StyleEditorNavigator$Def
+
+ME ME_970D1C6CF7F2
+ MEPROP UID '970D1C6CF7F2'
+ MEPROP Name 'Ini_FormFactory_StyleEditorNavigator'
+ MEPROP OriginalName 'Ini_FormFactory_StyleEditorNavigator$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы StyleEditorNavigator' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABA14480078 // StyleEditorNavigator
+ ;
+ UPLINK SpelledFor HWL ME_4ABA14480078 // StyleEditorNavigator
+ ;
+
+ENDME // ME_970D1C6CF7F2 Ini_FormFactory_StyleEditorNavigator$Def
+
+ME ME_4ABA14480078
+ MEPROP UID '4ABA14480078'
+ MEPROP Name 'StyleEditorNavigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA79F72010A' '4AA79F72010A.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AE8247501DA' '4AE8247501DA.ms.model.script' // PrimStyleEditorNavigator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_289E9A9CE961 // StyleEditorNavigator$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_970D1C6CF7F2 // Ini_FormFactory_StyleEditorNavigator$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_289E9A9CE961 // StyleEditorNavigator$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Navigator'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorNavigator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ UP extprop:pas:TypeName 'TStyleEditorNavigatorForm'
+ UP extprop:rc:SelfName 'StyleEditorNavigatorForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StyleEditorNavigator_Form'
+
+ENDME // ME_4ABA14480078 StyleEditorNavigator

@@ -1,0 +1,173 @@
+// PrimTasksPanelMenu 4C8DD8C602D3 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8DD8C602D3
+
+ME ME_4C8F77E7000A
+ MEPROP UID '4C8F77E7000A'
+ MEPROP Name 'g_dmTasksPanelMenu'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4C8F77E7000A g_dmTasksPanelMenu
+
+ME ME_4C8F78BC0331
+ MEPROP UID '4C8F78BC0331'
+ MEPROP Name 'PopupMenu'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_4C8E3AC40306' '52A1ACC102FE.ms.model.script' // TvcmPopupMenuPrim
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_4C8F78BC0331 PopupMenu
+
+ME ME_4C8E565A00B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_49940B180124' '49940C8E00DA.ms.model.script' // IvcmMainForm
+ ;
+
+ENDME // ME_4C8E565A00B6 
+
+ME ME_4C8E572C0371
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_47F2108E028C' '4683F37902CF.ms.model.script' // IvcmExecuteParams
+ ;
+
+ENDME // ME_4C8E572C0371 
+
+ME ME_4C8E573C03C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_4AD89C420296' '47D0E1500033.ms.model.script' // vcmMakeParams
+ ;
+
+ENDME // ME_4C8E573C03C1 
+
+ME ME_4C8E58F1021D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4C8E58F1021D 
+
+ME ME_4C8F7909009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_4C8F78FC0067' '4AADF9450143.ms.model.script' // vcmMakeModuleMenu
+ ;
+
+ENDME // ME_4C8F7909009C 
+
+ME ME_4F829E1501F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4F829E1501F9 
+
+ME ME_5792245800CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4C8DD8C602D3 // PrimTasksPanelMenu
+ ;
+ MELINK Target WL 'ME_578E02D603D1' '578E02C50241.ms.model.script' // TTaskPanelService
+ ;
+
+ENDME // ME_5792245800CD 
+
+ME ME_479731C50290_ME_4C8DD8C602D3
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4C8DD8C602D3 Cleanup
+
+ME ME_47D1602000C6_ME_4C8DD8C602D3
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4C8DD8C602D3 Create
+
+ME ME_4C8DD8C602D3
+ MEPROP UID '4C8DD8C602D3'
+ MEPROP Name 'PrimTasksPanelMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4C8DD8B8006C' '4C8DD8B8006C.ms.model.script' // TasksPanel
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4C8F785C005B' '47D0E1500033.ms.model.script' // MvcmModule
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C8F77E7000A // g_dmTasksPanelMenu
+ HWL ME_4C8F78BC0331 // PopupMenu
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4C8DD8C602D3 // Cleanup
+ ME_47D1602000C6_ME_4C8DD8C602D3 // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( WL 'ME_4C8E4D4F027D' '4C8E4D4F027D.ms.model.script' // CustomizeTasksPanel
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C8E565A00B6 // IvcmMainForm
+ ME_4C8E572C0371 // IvcmExecuteParams
+ ME_4C8E573C03C1 // vcmMakeParams
+ ME_4C8E58F1021D // Supports
+ ME_4C8F7909009C // vcmMakeModuleMenu
+ ME_4F829E1501F9 // Forms
+ ME_5792245800CD // TTaskPanelService
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '13.09.2010 11:55'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\PrimTasksPanelMenu_Module.pas'
+ UP extprop:pas:TypeName 'TPrimTasksPanelMenuModule'
+ UP extprop:rc:SelfName 'PrimTasksPanelMenuModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimTasksPanelMenu_Module'
+
+ENDME // ME_4C8DD8C602D3 PrimTasksPanelMenu

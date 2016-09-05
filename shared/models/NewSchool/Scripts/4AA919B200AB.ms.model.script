@@ -1,0 +1,629 @@
+// CommonPost 4AA919B200AB VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA919B200AB
+
+FORWARD ME_4AA9304801B8
+
+ME ME_4AA9361500A9
+ MEPROP UID '4AA9361500A9'
+ MEPROP Name 'Container'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA9304801B8 // OpenPostingOrderForm
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4AA9361500A9 Container
+
+ME ME_4AAFAA330338
+ MEPROP Name 'anAggregate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_4AAFAA330338 anAggregate
+
+ME ME_4AAFAA33035E
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AAFAA33035E aContainer
+
+ME ME_4AAFAA330385
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4AAFAA330385 aQuery
+
+ME ME_4AA9305C0201
+ MEPROP UID '4AA9305C0201'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA9304801B8 // OpenPostingOrderForm
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AAFAA330338 // anAggregate
+ ME_4AAFAA33035E // aContainer
+ ME_4AAFAA330385 // aQuery
+ )
+ ; // Parameters
+
+ENDME // ME_4AA9305C0201 DoIt
+
+ME ME_4AA936F603D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA9304801B8 // OpenPostingOrderForm
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_4AA936F603D0 
+
+ME ME_4AA937A601E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA9304801B8 // OpenPostingOrderForm
+ ;
+ MELINK Target WL 'ME_4AA9378C03B4' '47D0E1500033.ms.model.script' // vcmToAggregate
+ ;
+
+ENDME // ME_4AA937A601E1 
+
+ME ME_4AA9381A0287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA9304801B8 // OpenPostingOrderForm
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AA9381A0287 
+
+ME ME_4AE99BD2000E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA9304801B8 // OpenPostingOrderForm
+ ;
+ MELINK Target WL 'ME_4AE8A0D10108' '4AE89F8A004B.ms.model.script' // Query
+ ;
+
+ENDME // ME_4AE99BD2000E 
+
+ME ME_4AA9304801B8
+ MEPROP UID '4AA9304801B8'
+ MEPROP Name 'OpenPostingOrderForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AA9361500A9 // Container
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AA9305C0201 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AA936F603D0 // vcmDispatcher
+ ME_4AA937A601E1 // vcmToAggregate
+ ME_4AA9381A0287 // SysUtils
+ ME_4AE99BD2000E // Query
+ )
+ ; // Dependencies
+
+ENDME // ME_4AA9304801B8 OpenPostingOrderForm
+
+FORWARD ME_4AAF94F8009A
+
+ME ME_4AAF950A03BE
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4AAF950A03BE Msg
+
+ME ME_4AAF9507032D
+ MEPROP UID '4AAF9507032D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF94F8009A // MessageHook
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AAF950A03BE // Msg
+ )
+ ; // Parameters
+
+ENDME // ME_4AAF9507032D DoIt
+
+ME ME_4AAF952603B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF94F8009A // MessageHook
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4AAF952603B8 
+
+ME ME_4AAF95300396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF94F8009A // MessageHook
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4AAF95300396 
+
+ME ME_4AAF99F3037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF94F8009A // MessageHook
+ ;
+ MELINK Target WL 'ME_4AAF996900DC' '4AA9196700EB.ms.model.script' // nsFindSelectDialog
+ ;
+
+ENDME // ME_4AAF99F3037E 
+
+ME ME_4AAF94F8009A
+ MEPROP UID '4AAF94F8009A'
+ MEPROP Name 'MessageHook'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAF9507032D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AAF952603B8 // Windows
+ ME_4AAF95300396 // Msg Codes
+ ME_4AAF99F3037E // nsFindSelectDialog
+ )
+ ; // Dependencies
+
+ENDME // ME_4AAF94F8009A MessageHook
+
+FORWARD ME_4AAFA0B10356
+
+ME ME_4AAFA1C0023D
+ MEPROP Name 'anAggregate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_4AAFA1C0023D anAggregate
+
+ME ME_4AAFA1C00274
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AAFA1C00274 aContainer
+
+ME ME_4AAFA1C002A9
+ MEPROP Name 'anActive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AAFA1C002A9 anActive
+
+ME ME_54241247000B
+ MEPROP Name 'aOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_54241247000B aOwner
+
+ME ME_4AAFA0BD0104
+ MEPROP UID '4AAFA0BD0104'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAFA0B10356 // OpenPostingOrderList
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AAFA1C0023D // anAggregate
+ ME_4AAFA1C00274 // aContainer
+ ME_4AAFA1C002A9 // anActive
+ ME_54241247000B // aOwner
+ )
+ ; // Parameters
+
+ENDME // ME_4AAFA0BD0104 DoIt
+
+ME ME_4AAFA0F801DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAFA0B10356 // OpenPostingOrderList
+ ;
+ MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ ;
+
+ENDME // ME_4AAFA0F801DD 
+
+ME ME_4AAFA0B10356
+ MEPROP UID '4AAFA0B10356'
+ MEPROP Name 'OpenPostingOrderList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAFA0BD0104 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AAFA0F801DD // vcmParams
+ )
+ ; // Dependencies
+
+ENDME // ME_4AAFA0B10356 OpenPostingOrderList
+
+ME ME_4AF3172001AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4AE879C5022F' '4AE831B30019.ms.model.script' // SearchParameters
+ ;
+
+ENDME // ME_4AF3172001AE 
+
+ME ME_4BD5C95702D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4BD5BC59017D' '4F5DFE09009E.ms.model.script' // slqtPostingOrder
+ ;
+
+ENDME // ME_4BD5C95702D1 
+
+ME ME_4BD5C972003F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4BD5C3510339' '497EBA4301CA.ms.model.script' // utqcPostingOrder
+ ;
+
+ENDME // ME_4BD5C972003F 
+
+ME ME_4BD98A6D0052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4BD989CB0049' '4BD97FDB031A.ms.model.script' // Preview
+ ;
+
+ENDME // ME_4BD98A6D0052 
+
+ME ME_4BD98A7D0041
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4BD97FFF0005' '4BD97FDB031A.ms.model.script' // QueryCard
+ ;
+
+ENDME // ME_4BD98A7D0041 
+
+ME ME_4BD98AC2036C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4BD98AA402AC' '4BD98A8C0110.ms.model.script' // PostingsList
+ ;
+
+ENDME // ME_4BD98AC2036C 
+
+ME ME_4E0354A90049
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4E0354A90049 
+
+ME ME_57A2E8B70280
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57A2E8B70280 
+
+ME ME_57A2E8BB00CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_57A2E8BB00CF 
+
+ME ME_57A2E8FC02AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_57A2E8FC02AD 
+
+ME ME_4AAF947600E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4A9D129E00FA' '4AADF9450143.ms.model.script' // Say
+ ;
+
+ENDME // ME_4AAF947600E9 
+
+ME ME_4AAF94DB018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4AAF94DB018B 
+
+ME ME_4AAF955A03B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_47ECE41C00D2' '4799D29F033F.ms.model.script' // TApplication
+ ;
+
+ENDME // ME_4AAF955A03B5 
+
+ME ME_4AAF96700032
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4AAF965F0187' '4799D29F033F.ms.model.script' // SelectDirectory
+ ;
+
+ENDME // ME_4AAF96700032 
+
+ME ME_4AAF96900062
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4AA7F1CB012C' '47D0E1500033.ms.model.script' // vcmConstString
+ ;
+
+ENDME // ME_4AAF96900062 
+
+ME ME_4AAF96B30380
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AAF96B30380 
+
+ME ME_4AAF96D4032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4AAF96D4032D 
+
+ME ME_4AAF96EF01B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_496DF8D80017' '47BECCB801BE.ms.model.script' // UnknownExportError
+ ;
+
+ENDME // ME_4AAF96EF01B3 
+
+ME ME_4AAF9737008F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '47F2170002B2.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4AAF9737008F 
+
+ME ME_4AAF94230352
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_4AAF9400011C' '5267C3880201.ms.model.script' // TnsPostingsTreeSingle
+ ;
+
+ENDME // ME_4AAF94230352 
+
+ME ME_57A2E93C0218
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_57A2E93C0218 
+
+ME ME_57A2E940034A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57A2E940034A 
+
+ME ME_57A2E9810204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_49895C3C02D6' '48F747EC0073.ms.model.script' // nsOpenUtils
+ ;
+
+ENDME // ME_57A2E9810204 
+
+ME ME_57A2E9830197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_553FAEB0033D' '4C84EDB403D2.ms.model.script' // SearchSupport
+ ;
+
+ENDME // ME_57A2E9830197 
+
+ME ME_57A2E985027C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_537AEC5E03DD' '533D53FF00C2.ms.model.script' // TvcmTabbedContainerFormDispatcher
+ ;
+
+ENDME // ME_57A2E985027C 
+
+ME ME_57A2E9EF00FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4AA919B200AB // CommonPost
+ ;
+ MELINK Target WL 'ME_57A2E82A0124' '57A2E803024D.ms.model.script' // TCommonPostService
+ ;
+
+ENDME // ME_57A2E9EF00FC 
+
+ME ME_4AA919B200AB
+ MEPROP UID '4AA919B200AB'
+ MEPROP Name 'CommonPost'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA9196700EB' '4AA9196700EB.ms.model.script' // Monitorings
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA9304801B8 // OpenPostingOrderForm
+ HWL ME_4AAF94F8009A // MessageHook
+ HWL ME_4AAFA0B10356 // OpenPostingOrderList
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( WL 'ME_4AAFA16202D3' '4AAFA16202D3.ms.model.script' // PostingsList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AF3172001AE // SearchParameters
+ ME_4BD5C95702D1 // slqtPostingOrder
+ ME_4BD5C972003F // utqcPostingOrder
+ ME_4BD98A6D0052 // Preview
+ ME_4BD98A7D0041 // QueryCard
+ ME_4BD98AC2036C // PostingsList
+ ME_4E0354A90049 // vcmMessagesSupport
+ ME_57A2E8B70280 // IvcmContainer
+ ME_57A2E8BB00CF // IvcmEntityForm
+ ME_57A2E8FC02AD // IvcmAggregate
+ ME_4AAF947600E9 // Say
+ ME_4AAF94DB018B // l3String
+ ME_4AAF955A03B5 // TApplication
+ ME_4AAF96700032 // SelectDirectory
+ ME_4AAF96900062 // vcmConstString
+ ME_4AAF96B30380 // SysUtils
+ ME_4AAF96D4032D // DataAdapter
+ ME_4AAF96EF01B3 // UnknownExportError
+ ME_4AAF9737008F // nsAStr
+ ME_4AAF94230352 // TnsPostingsTreeSingle
+ ME_57A2E93C0218 // String
+ ME_57A2E940034A // Boolean
+ ME_57A2E9810204 // nsOpenUtils
+ ME_57A2E9830197 // SearchSupport
+ ME_57A2E985027C // TvcmTabbedContainerFormDispatcher
+ ME_57A2E9EF00FC // TCommonPostService
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.09.2009 19:22'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas'
+ UP extprop:pas:TypeName 'TCommonPostModule'
+ UP extprop:rc:SelfName 'CommonPostModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CommonPost_Module'
+
+ENDME // ME_4AA919B200AB CommonPost

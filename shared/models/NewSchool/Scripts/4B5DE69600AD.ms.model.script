@@ -1,0 +1,747 @@
+// FormOperations 4B5DE69600AD MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B5DE69600AD
+
+FORWARD ME_494F818000E6
+
+ME ME_49537DEF0202
+ MEPROP UID '49537DEF0202'
+ MEPROP Name 'no prefix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нет префикса у имени. Костыль для [$133891300]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_49537DEF0202 no prefix
+
+ME ME_49899E1603A0
+ MEPROP UID '49899E1603A0'
+ MEPROP Name 'is FormActivate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Это операция переключения активных форм. [$136258958]. Или операция контрола. Не генерируется Execute' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_49899E1603A0 is FormActivate
+
+ME ME_4989BAE60150
+ MEPROP UID '4989BAE60150'
+ MEPROP Name 'has states'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что операция имеет состояния, текущее из которых должна определять форма. См. OnGetState' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4989BAE60150 has states
+
+ME ME_4989DAC800A4
+ MEPROP UID '4989DAC800A4'
+ MEPROP Name 'is query'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определает, что операция является запросом к агрегации о возможности сделать что-то. Или операция контрола. Не генерируется Test' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4989DAC800A4 is query
+
+ME ME_4C7D4EE70305
+ MEPROP UID '4C7D4EE70305'
+ MEPROP Name 'LongProcess'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4C7D4EE70305 LongProcess
+
+ME ME_4C7D4EF400A1
+ MEPROP UID '4C7D4EF400A1'
+ MEPROP Name 'AutoLock'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4C7D4EF400A1 AutoLock
+
+ME ME_4C7F83F0031F
+ MEPROP UID '4C7F83F0031F'
+ MEPROP Name 'AutoFocus'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4C7F83F0031F AutoFocus
+
+ME ME_494FCCFC00A6
+ MEPROP UID '494FCCFC00A6'
+ MEPROP Name 'IsVCMOperation'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+
+ENDME // ME_494FCCFC00A6 IsVCMOperation
+
+ME ME_4A96B425021A
+ MEPROP UID '4A96B425021A'
+ MEPROP Name 'IsInternalVCMOperation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A96B425021A IsInternalVCMOperation
+
+ME ME_4C80E64501B5
+ MEPROP UID '4C80E64501B5'
+ MEPROP Name 'NeedsOpCode'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нужен ли код операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F818000E6 // VCMOperationPrim
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4C80E64501B5 NeedsOpCode
+
+ME ME_46E6D4BB0339_ME_494F818000E6
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_494F818000E6 wiki
+
+ME ME_470484D50138_ME_494F818000E6
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_494F818000E6 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_494F818000E6
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_494F818000E6 constraint
+
+ME ME_4705CBD6003E_ME_494F818000E6
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_494F818000E6 wiki_child_kind
+
+ME ME_494F818000E6
+ MEPROP UID '494F818000E6'
+ MEPROP Name 'VCMOperationPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B5DE69600AD // FormOperations
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49537DEF0202 // no prefix
+ HWL ME_49899E1603A0 // is FormActivate
+ HWL ME_4989BAE60150 // has states
+ HWL ME_4989DAC800A4 // is query
+ HWL ME_4C7D4EE70305 // LongProcess
+ HWL ME_4C7D4EF400A1 // AutoLock
+ HWL ME_4C7F83F0031F // AutoFocus
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_494FCCFC00A6 // IsVCMOperation
+ HWL ME_4A96B425021A // IsInternalVCMOperation
+ HWL ME_4C80E64501B5 // NeedsOpCode
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_494F818000E6 // wiki
+ ME_470484D50138_ME_494F818000E6 // wiki_up_add_gen
+ ME_4704C0E30186_ME_494F818000E6 // constraint
+ ME_4705CBD6003E_ME_494F818000E6 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "abstraction type" 'a'
+ UP "implementable" true
+ UP "personal label" 'code_vcm_operation'
+ UP "visability type" '+'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperationPrim.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperationPrim'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_494F818000E6 VCMOperationPrim
+
+FORWARD ME_4C751E7E0064
+
+ME ME_4C3F29EF009B
+ MEPROP UID '4C3F29EF009B'
+ MEPROP Name 'ShowInContextMenu'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C751E7E0064 // VCMOperationBase
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4C3F29EF009B ShowInContextMenu
+
+ME ME_4C3F2A1401EE
+ MEPROP UID '4C3F2A1401EE'
+ MEPROP Name 'ShowInToolbar'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C751E7E0064 // VCMOperationBase
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4C3F2A1401EE ShowInToolbar
+
+ME ME_4EC4CB730285
+ MEPROP UID '4EC4CB730285'
+ MEPROP Name 'ImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C751E7E0064 // VCMOperationBase
+ ;
+
+ENDME // ME_4EC4CB730285 ImageIndex
+
+ME ME_51D1324E00C8
+ MEPROP UID '51D1324E00C8'
+ MEPROP Name 'ContextMenuWeight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C751E7E0064 // VCMOperationBase
+ ;
+
+ENDME // ME_51D1324E00C8 ContextMenuWeight
+
+ME ME_4C751E7E0064
+ MEPROP UID '4C751E7E0064'
+ MEPROP Name 'VCMOperationBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B5DE69600AD // FormOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_494F818000E6 // VCMOperationPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C3F29EF009B // ShowInContextMenu
+ HWL ME_4C3F2A1401EE // ShowInToolbar
+ HWL ME_4EC4CB730285 // ImageIndex
+ HWL ME_51D1324E00C8 // ContextMenuWeight
+ )
+ ; // Attributes
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperationBase.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperationBase'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4C751E7E0064 VCMOperationBase
+
+FORWARD ME_494F808C01DB
+
+ME ME_4C3F21D003DD
+ MEPROP UID '4C3F21D003DD'
+ MEPROP Name 'Operation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F808C01DB // VCMOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C751E7E0064 // VCMOperationBase
+ )
+ ; // Inherits
+ UP "empty target" true
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperations\Operation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4C3F21D003DD Operation
+
+ME ME_494FCCEC019F
+ MEPROP UID '494FCCEC019F'
+ MEPROP Name 'IsVCMOperations'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F808C01DB // VCMOperations
+ ;
+
+ENDME // ME_494FCCEC019F IsVCMOperations
+
+FORWARD ME_4C75214E0366
+
+ME ME_4C7521720194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_494F808C01DB // VCMOperations
+ ;
+ MELINK Target HWL ME_4C75214E0366 // VCMOperation
+ ;
+
+ENDME // ME_4C7521720194 
+
+ME ME_4704C0E30186_ME_494F808C01DB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_494F808C01DB constraint
+
+ME ME_494F808C01DB
+ MEPROP UID '494F808C01DB'
+ MEPROP Name 'VCMOperations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Набор операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DE69600AD // FormOperations
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_494FCCEC019F // IsVCMOperations
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_494F808C01DB // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4C3F21D003DD // Operation
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C7521720194 // VCMOperation
+ )
+ ; // Dependencies
+ UP "personal label" 'code_vcm_operations'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 16744448
+ UP "visualization f-line color" 16744448
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperations.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperations'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_494F808C01DB VCMOperations
+
+FORWARD ME_4A96A6C3006A
+
+FORWARD ME_4A9801640116
+
+ME ME_56E2D094019F
+ MEPROP UID '56E2D094019F'
+ MEPROP Name 'Param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9801640116 // InternalOperation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4976EB82018C' '46E80398003B.ms.model.script' // Ifdef
+ )
+ ; // Inherits
+ UP "personal label" 'code_param'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMFacet\InternalOperation\Param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_56E2D094019F Param
+
+ME ME_4A9801CC034F
+ MEPROP UID '4A9801CC034F'
+ MEPROP Name 'is query'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определает, что операция является запросом к агрегации о возможности сделать что-то' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A9801640116 // InternalOperation
+ ;
+ MEPROP Value true
+ UP extprop:pas:Value true
+
+ENDME // ME_4A9801CC034F is query
+
+ME ME_4C74FEE30244
+ MEPROP UID '4C74FEE30244'
+ MEPROP Name 'Needs Broadcast'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужен ли метод Broadcast' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A9801640116 // InternalOperation
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_4C74FEE30244 Needs Broadcast
+
+ME ME_4A9801640116
+ MEPROP UID '4A9801640116'
+ MEPROP Name 'InternalOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Внутренняя операция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A96A6C3006A // VCMFacet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_494F818000E6 // VCMOperationPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A9801CC034F // is query
+ HWL ME_4C74FEE30244 // Needs Broadcast
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_56E2D094019F // Param
+ )
+ ; // Children
+ UP "empty target" true
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMFacet\InternalOperation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A9801640116 InternalOperation
+
+ME ME_4A96A6C3006A
+ MEPROP UID '4A96A6C3006A'
+ MEPROP Name 'VCMFacet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'VCM "Facet"'#13#10'---'#13#10'Набор операций, который надо заменить на Facet' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DE69600AD // FormOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_494F808C01DB // VCMOperations
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4A9801640116 // InternalOperation
+ )
+ ; // Children
+ UP "visualization bg color" 15510336
+ UP "visualization f-font color" 12584240
+ UP "visualization f-line color" 12584240
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMFacet.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMFacet'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A96A6C3006A VCMFacet
+
+ME ME_4C7BAD370224
+ MEPROP UID '4C7BAD370224'
+ MEPROP Name 'has states'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C75214E0366 // VCMOperation
+ ;
+ MEPROP Value true
+ UP extprop:pas:Value true
+
+ENDME // ME_4C7BAD370224 has states
+
+FORWARD ME_4C7657C500E9
+
+ME ME_4C7657E300E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4C75214E0366 // VCMOperation
+ ;
+ MELINK Target HWL ME_4C7657C500E9 // VCMOperationState
+ ;
+
+ENDME // ME_4C7657E300E1 
+
+ME ME_470484D50138_ME_4C75214E0366
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_470484D50138_ME_4C75214E0366 wiki_up_add_gen
+
+ME ME_4705CBD6003E_ME_4C75214E0366
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4705CBD6003E_ME_4C75214E0366 wiki_child_kind
+
+ME ME_4C75214E0366
+ MEPROP UID '4C75214E0366'
+ MEPROP Name 'VCMOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DE69600AD // FormOperations
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ HWL ME_4C751E7E0064 // VCMOperationBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C7BAD370224 // has states
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_470484D50138_ME_4C75214E0366 // wiki_up_add_gen
+ ME_4705CBD6003E_ME_4C75214E0366 // wiki_child_kind
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C7657E300E1 // VCMOperationState
+ )
+ ; // Dependencies
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 9342520
+ UP "visualization f-line color" 9342520
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperation.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4C75214E0366 VCMOperation
+
+ME ME_4C7657F10355
+ MEPROP UID '4C7657F10355'
+ MEPROP Name 'Hint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C7657C500E9 // VCMOperationState
+ ;
+
+ENDME // ME_4C7657F10355 Hint
+
+ME ME_4C76580500EB
+ MEPROP UID '4C76580500EB'
+ MEPROP Name 'Enabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C7657C500E9 // VCMOperationState
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4C76580500EB Enabled
+
+ME ME_4C76582D0215
+ MEPROP UID '4C76582D0215'
+ MEPROP Name 'ImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C7657C500E9 // VCMOperationState
+ ;
+
+ENDME // ME_4C76582D0215 ImageIndex
+
+ME ME_4C76585B0223
+ MEPROP UID '4C76585B0223'
+ MEPROP Name 'Checked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C7657C500E9 // VCMOperationState
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4C76585B0223 Checked
+
+ME ME_4C7BD46503E3
+ MEPROP UID '4C7BD46503E3'
+ MEPROP Name 'Visible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C7657C500E9 // VCMOperationState
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4C7BD46503E3 Visible
+
+ME ME_4704C0E30186_ME_4C7657C500E9
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4C7657C500E9 constraint
+
+ME ME_4C7657C500E9
+ MEPROP UID '4C7657C500E9'
+ MEPROP Name 'VCMOperationState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Состояние операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DE69600AD // FormOperations
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C7657F10355 // Hint
+ HWL ME_4C76580500EB // Enabled
+ HWL ME_4C76582D0215 // ImageIndex
+ HWL ME_4C76585B0223 // Checked
+ HWL ME_4C7BD46503E3 // Visible
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4C7657C500E9 // constraint
+ )
+ ; // Implemented
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_vcm_operationstate'
+ UP "visability type" '+'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 12623485
+ UP "visualization f-line color" 12614523
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperationState.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMOperationState'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4C7657C500E9 VCMOperationState
+
+ME ME_4B5DE69600AD
+ MEPROP UID '4B5DE69600AD'
+ MEPROP Name 'FormOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Операции форм VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B62EC84020F' '4B62EC84020F.ms.model.script' // VCMViewInterfacesLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_494F818000E6 // VCMOperationPrim
+ HWL ME_4C751E7E0064 // VCMOperationBase
+ HWL ME_494F808C01DB // VCMOperations
+ HWL ME_4A96A6C3006A // VCMFacet
+ HWL ME_4C75214E0366 // VCMOperation
+ HWL ME_4C7657C500E9 // VCMOperationState
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_4A95156202EB' '4A95156202EB.ms.model.script' // MixIns
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B5DE69600AD FormOperations

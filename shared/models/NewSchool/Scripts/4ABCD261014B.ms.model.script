@@ -1,0 +1,90 @@
+// FoldersInfo 4ABCD261014B VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABCD261014B
+
+ME ME_59DEA5360CB3
+ MEPROP UID '59DEA5360CB3'
+ MEPROP GUID 'A7FC5777-8418-45E1-9EE1-511BCC3B18B5'
+ MEPROP Name 'FoldersInfo'
+ MEPROP OriginalName 'FoldersInfo$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы FoldersInfo' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABCD261014B // FoldersInfo
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4ABCD261014B // FoldersInfo
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'FoldersInfoFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_59DEA5360CB3 FoldersInfo$Def
+
+ME ME_5E535BA61B45
+ MEPROP UID '5E535BA61B45'
+ MEPROP Name 'Ini_FormFactory_FoldersInfo'
+ MEPROP OriginalName 'Ini_FormFactory_FoldersInfo$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы FoldersInfo' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABCD261014B // FoldersInfo
+ ;
+ UPLINK SpelledFor HWL ME_4ABCD261014B // FoldersInfo
+ ;
+
+ENDME // ME_5E535BA61B45 Ini_FormFactory_FoldersInfo$Def
+
+ME ME_4ABCD261014B
+ MEPROP UID '4ABCD261014B'
+ MEPROP Name 'FoldersInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A96B68A03B1' '4A96B68A03B1.ms.model.script' // PrimFolders$UC
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7E89D702ED' '4C7E89D702ED.ms.model.script' // PrimFoldersInfoOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_59DEA5360CB3 // FoldersInfo$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5E535BA61B45 // Ini_FormFactory_FoldersInfo$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_59DEA5360CB3 // FoldersInfo$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "author" 'Тучнин Д.А.'
+ UP "finished dfm" true
+ UP "form name prefix" 'cf'
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '2004/07/05 08:05:59'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms'
+ UP extprop:pas:TypeName 'TcfFoldersInfo'
+ UP extprop:rc:SelfName 'cfFoldersInfo'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'FoldersInfo_Form'
+
+ENDME // ME_4ABCD261014B FoldersInfo

@@ -1,0 +1,184 @@
+// tfwScriptingExceptions 55BB9712001F InternalInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55BB9712001F
+
+ME ME_54F994E10154
+ MEPROP UID '54F994E10154'
+ MEPROP Name 'EtfwException'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55BB9712001F // tfwScriptingExceptions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_54F994E10154 EtfwException
+
+FORWARD ME_54F873F5009A
+
+FORWARD ME_54F8741B021E
+
+ME ME_54F874490155
+ MEPROP Name 'aCondition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54F874490155 aCondition
+
+ME ME_54F874490191
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_54F874490191 aMessage
+
+ME ME_54F874340321
+ MEPROP UID '54F874340321'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F8741B021E // IsTrue
+ ;
+ MELIST Parameters
+   Seq: ( ME_54F874490155 // aCondition
+ ME_54F874490191 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_54F874340321 DoIt
+
+ME ME_54F8741B021E
+ MEPROP UID '54F8741B021E'
+ MEPROP Name 'IsTrue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F873F5009A // EtfwCheckPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F874340321 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_54F8741B021E IsTrue
+
+FORWARD ME_550C432A0223
+
+ME ME_550C433E026F
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_550C433E026F aMessage
+
+ME ME_550C433A0188
+ MEPROP UID '550C433A0188'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550C432A0223 // Fail
+ ;
+ MELIST Parameters
+   Seq: ( ME_550C433E026F // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_550C433A0188 DoIt
+
+ME ME_550C432A0223
+ MEPROP UID '550C432A0223'
+ MEPROP Name 'Fail'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F873F5009A // EtfwCheckPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550C433A0188 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_550C432A0223 Fail
+
+ME ME_54F873F5009A
+ MEPROP UID '54F873F5009A'
+ MEPROP Name 'EtfwCheckPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55BB9712001F // tfwScriptingExceptions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54F994E10154 // EtfwException
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54F8741B021E // IsTrue
+ HWL ME_550C432A0223 // Fail
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54F873F5009A EtfwCheckPrim
+
+ME ME_54F99536034A
+ MEPROP UID '54F99536034A'
+ MEPROP Name 'EtfwCheck'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55BB9712001F // tfwScriptingExceptions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54F873F5009A // EtfwCheckPrim
+ )
+ ; // Inherits
+
+ENDME // ME_54F99536034A EtfwCheck
+
+ME ME_55BB9712001F
+ MEPROP UID '55BB9712001F'
+ MEPROP Name 'tfwScriptingExceptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_InternalInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54F994E10154 // EtfwException
+ HWL ME_54F873F5009A // EtfwCheckPrim
+ HWL ME_54F99536034A // EtfwCheck
+ )
+ ; // Children
+ UP "UseNewGen" true
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptingExceptions.pas'
+
+ENDME // ME_55BB9712001F tfwScriptingExceptions

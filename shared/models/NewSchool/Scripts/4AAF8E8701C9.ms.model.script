@@ -1,0 +1,143 @@
+// PrimPrintDialog 4AAF8E8701C9 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAF8E8701C9
+
+ME ME_4AC6224F01B8
+ MEPROP UID '4AC6224F01B8'
+ MEPROP Name 'f_Preview'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AAF8E8701C9 // PrimPrintDialog
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_4AC6224F01B8 f_Preview
+
+ME ME_4AC6228101B1
+ MEPROP UID '4AC6228101B1'
+ MEPROP Name 'UpdateState'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AAF8E8701C9 // PrimPrintDialog
+ ;
+
+ENDME // ME_4AC6228101B1 UpdateState
+
+ME ME_4AC622950208
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_4AC622950208 aData
+
+ME ME_4AC6228E018B
+ MEPROP UID '4AC6228E018B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF8E8701C9 // PrimPrintDialog
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC622950208 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AC6228E018B Make
+
+ME ME_4AF8271C0033
+ MEPROP UID '4AF8271C0033'
+ MEPROP Name 'UpdatePrintersList'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AAF8E8701C9 // PrimPrintDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AF8271C0033 UpdatePrintersList
+
+ME ME_4AF82660008B_ME_4AAF8E8701C9
+ MELINK Original WL 'ME_4AF82660008B' '4AE89F8A004B.ms.model.script' // UpdatePrinter
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AF82660008B_ME_4AAF8E8701C9 UpdatePrinter
+
+ME ME_479731C50290_ME_4AAF8E8701C9
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AAF8E8701C9 Cleanup
+
+ME ME_4AAF8E8701C9
+ MEPROP UID '4AAF8E8701C9'
+ MEPROP Name 'PrimPrintDialog'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AF8265602EC' '4AE89F8A004B.ms.model.script' // PrintParams
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AC6224F01B8 // f_Preview
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC6228101B1 // UpdateState
+ HWL ME_4AC6228E018B // Make
+ HWL ME_4AF8271C0033 // UpdatePrintersList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AF82660008B_ME_4AAF8E8701C9 // UpdatePrinter
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AAF8E8701C9 // Cleanup
+ )
+ ; // Overridden
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '15.09.2009 16:54'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPrintDialog_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+ UP extprop:pas:TypeName 'TPrimPrintDialogForm'
+ UP extprop:rc:SelfName 'PrimPrintDialogForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimPrintDialog_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4AAF8E8701C9 PrimPrintDialog

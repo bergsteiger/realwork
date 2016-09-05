@@ -1,0 +1,445 @@
+// PrimAttributes 4979DA14019A VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4979DA14019A
+
+FORWARD ME_4B150CFE01CB
+
+ME ME_4B150D3B00BE
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B150D3B00BE aDoc
+
+ME ME_4B150D310061
+ MEPROP UID '4B150D310061'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B150CFE01CB // TnsViewDocumentAttributesEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B150D3B00BE // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4B150D310061 Log
+
+ME ME_4B150D50010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B150CFE01CB // TnsViewDocumentAttributesEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B150D50010A 
+
+ME ME_4B150CFE01CB
+ MEPROP UID '4B150CFE01CB'
+ MEPROP Name 'TnsViewDocumentAttributesEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4979DA14019A // PrimAttributes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B150D310061 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B150D50010A // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'ViewDocumentAttributesEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B150CFE01CB TnsViewDocumentAttributesEvent
+
+FORWARD ME_4C864E34020B
+
+ME ME_4951284902BD_ME_4C864E34020B
+ MELINK Original WL 'ME_4951284902BD' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4951284902BD_ME_4C864E34020B Copy
+
+ME ME_4951285702E1_ME_4C864E34020B
+ MELINK Original WL 'ME_4951285702E1' '495127DD017C.ms.model.script' // Cut
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4951285702E1_ME_4C864E34020B Cut
+
+ME ME_49512B5D0009_ME_4C864E34020B
+ MELINK Original WL 'ME_49512B5D0009' '495127DD017C.ms.model.script' // FindContext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49512B5D0009_ME_4C864E34020B FindContext
+
+ME ME_495130C40123_ME_4C864E34020B
+ MELINK Original WL 'ME_495130C40123' '495127DD017C.ms.model.script' // FindNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_495130C40123_ME_4C864E34020B FindNext
+
+ME ME_49EDFA3701B0_ME_4C864E34020B
+ MELINK Original WL 'ME_49EDFA3701B0' '495127DD017C.ms.model.script' // Paste
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFA3701B0_ME_4C864E34020B Paste
+
+ME ME_49EDFCA2006D_ME_4C864E34020B
+ MELINK Original WL 'ME_49EDFCA2006D' '495127DD017C.ms.model.script' // Undo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFCA2006D_ME_4C864E34020B Undo
+
+ME ME_49EDFCB100BC_ME_4C864E34020B
+ MELINK Original WL 'ME_49EDFCB100BC' '495127DD017C.ms.model.script' // Redo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EDFCB100BC_ME_4C864E34020B Redo
+
+ME ME_49EE01AA02BE_ME_4C864E34020B
+ MELINK Original WL 'ME_49EE01AA02BE' '495127DD017C.ms.model.script' // SelectAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EE01AA02BE_ME_4C864E34020B SelectAll
+
+ME ME_49EE01BC022E_ME_4C864E34020B
+ MELINK Original WL 'ME_49EE01BC022E' '495127DD017C.ms.model.script' // Deselect
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49EE01BC022E_ME_4C864E34020B Deselect
+
+ME ME_49FEDE4703B8_ME_4C864E34020B
+ MELINK Original WL 'ME_49FEDE4703B8' '495127DD017C.ms.model.script' // FindPrev
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_49FEDE4703B8_ME_4C864E34020B FindPrev
+
+ME ME_4BDAF7880236_ME_4C864E34020B
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7880236_ME_4C864E34020B ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4C864E34020B
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7A2005C_ME_4C864E34020B CollapseAll
+
+ME ME_4BDAF7B803CF_ME_4C864E34020B
+ MELINK Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.ms.model.script' // Wrap
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7B803CF_ME_4C864E34020B Wrap
+
+ME ME_4C7D0C7B0185_ME_4C864E34020B
+ MELINK Original WL 'ME_4C7D0C7B0185' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0C7B0185_ME_4C864E34020B Copy
+
+ME ME_4C864E34020B
+ MEPROP UID '4C864E34020B'
+ MEPROP Name 'tvAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4979DA14019A // PrimAttributes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4951282D0269' '495127DD017C.ms.model.script' // Edit
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4951284902BD_ME_4C864E34020B // Copy
+ ME_4951285702E1_ME_4C864E34020B // Cut
+ ME_49512B5D0009_ME_4C864E34020B // FindContext
+ ME_495130C40123_ME_4C864E34020B // FindNext
+ ME_49EDFA3701B0_ME_4C864E34020B // Paste
+ ME_49EDFCA2006D_ME_4C864E34020B // Undo
+ ME_49EDFCB100BC_ME_4C864E34020B // Redo
+ ME_49EE01AA02BE_ME_4C864E34020B // SelectAll
+ ME_49EE01BC022E_ME_4C864E34020B // Deselect
+ ME_49FEDE4703B8_ME_4C864E34020B // FindPrev
+ ME_4BDAF7880236_ME_4C864E34020B // ExpandAll
+ ME_4BDAF7A2005C_ME_4C864E34020B // CollapseAll
+ ME_4BDAF7B803CF_ME_4C864E34020B // Wrap
+ ME_4C7D0C7B0185_ME_4C864E34020B // Copy
+ )
+ ; // Implemented
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C864E34020B tvAttributes
+
+ME ME_4979DA630067
+ MEPROP UID '4979DA630067'
+ MEPROP Name 'CoDS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4979DA14019A // PrimAttributes
+ ;
+ MELINK Target WL 'ME_49255D040142' '491B305A0096.ms.model.script' // IdsAttributes
+ ;
+
+ENDME // ME_4979DA630067 CoDS
+
+ME ME_4B1418C9027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4979DA14019A // PrimAttributes
+ ;
+ MELINK Target WL 'ME_48F72B630069' '48F5EE2702FF.ms.model.script' // TnsSingleAttributeData
+ ;
+
+ENDME // ME_4B1418C9027B 
+
+ME ME_4B150D2803AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4979DA14019A // PrimAttributes
+ ;
+ MELINK Target HWL ME_4B150CFE01CB // TnsViewDocumentAttributesEvent
+ ;
+
+ENDME // ME_4B150D2803AA 
+
+ME ME_4BD6BAB001E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4979DA14019A // PrimAttributes
+ ;
+ MELINK Target WL 'ME_4AE836C303BC' '4F71AD0E01FE.ms.model.script' // Switcher$SetCaption
+ ;
+
+ENDME // ME_4BD6BAB001E7 
+
+ME ME_4BD6BADC007A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4979DA14019A // PrimAttributes
+ ;
+ MELINK Target WL 'ME_498874FD012C' '4AEEE2A40281.ms.model.script' // Document$MangleForSpell
+ ;
+
+ENDME // ME_4BD6BADC007A 
+
+ME ME_37BE60CD03ED_ME_4979DA14019A
+ MELINK Original WL 'ME_37BE60CD03ED' '4D776CFE031E.ms.model.script' // fDocAttributeQueryClose
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_37BE60CD03ED_ME_4979DA14019A fDocAttributeQueryClose
+
+ME ME_497F16AC015A_ME_4979DA14019A
+ MELINK Original WL 'ME_497F16AC015A' '4A7C0BB70162.ms.model.script' // DoTabActivate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_497F16AC015A_ME_4979DA14019A DoTabActivate
+
+ME ME_4979DA14019A
+ MEPROP UID '4979DA14019A'
+ MEPROP Name 'PrimAttributes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибуты документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D39AD3200C1' '4D39AD3200C1.ms.model.script' // Attributes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_497F142501FA' '497F142501FA.ms.model.script' // BaseDocumentForDocumentModule
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_497F0F17036D' '4A7C0BB70162.ms.model.script' // PageControlNotification
+ WL 'ME_4D776CFE031E' '4D776CFE031E.ms.model.script' // AttributesUserTypes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C864E34020B // tvAttributes
+ HWL ME_4979DA630067 // CoDS
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_37BE60CD03ED_ME_4979DA14019A // fDocAttributeQueryClose
+ ME_497F16AC015A_ME_4979DA14019A // DoTabActivate
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4B150CFE01CB // TnsViewDocumentAttributesEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B1418C9027B // TnsSingleAttributeData
+ ME_4B150D2803AA // TnsViewDocumentAttributesEvent
+ ME_4BD6BAB001E7 // Switcher$SetCaption
+ ME_4BD6BADC007A // Document$MangleForSpell
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '23.01.2009 18:18'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimAttributes_Form.pas'
+ UP extprop:pas:TypeName 'TPrimAttributesForm'
+ UP extprop:rc:SelfName 'PrimAttributesForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimAttributes_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4979DA14019A PrimAttributes

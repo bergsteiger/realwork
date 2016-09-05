@@ -1,0 +1,361 @@
+// l3Except 4787B0A8007B Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4787B0A8007B
+
+ME ME_4787B0FD0379
+ MEPROP UID '4787B0FD0379'
+ MEPROP Name 'El3Exception'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B0FD0379 El3Exception
+
+ME ME_4787B10A00A3
+ MEPROP UID '4787B10A00A3'
+ MEPROP Name 'El3CannotModify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B10A00A3 El3CannotModify
+
+ME ME_4787B117012D
+ MEPROP UID '4787B117012D'
+ MEPROP Name 'El3Error'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B117012D El3Error
+
+ME ME_4787B12303D6
+ MEPROP UID '4787B12303D6'
+ MEPROP Name 'El3Warning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B12303D6 El3Warning
+
+ME ME_4787B12F02DF
+ MEPROP UID '4787B12F02DF'
+ MEPROP Name 'El3NotFound'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B117012D // El3Error
+ )
+ ; // Inherits
+
+ENDME // ME_4787B12F02DF El3NotFound
+
+ME ME_4787B153031D
+ MEPROP UID '4787B153031D'
+ MEPROP Name 'El3Abort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B117012D // El3Error
+ )
+ ; // Inherits
+
+ENDME // ME_4787B153031D El3Abort
+
+ME ME_4787B164020E
+ MEPROP UID '4787B164020E'
+ MEPROP Name 'El3AbortLoad'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B153031D // El3Abort
+ )
+ ; // Inherits
+
+ENDME // ME_4787B164020E El3AbortLoad
+
+ME ME_4787B1730240
+ MEPROP UID '4787B1730240'
+ MEPROP Name 'El3FilerError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B117012D // El3Error
+ )
+ ; // Inherits
+
+ENDME // ME_4787B1730240 El3FilerError
+
+ME ME_4787B1840013
+ MEPROP UID '4787B1840013'
+ MEPROP Name 'El3ReadError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B1730240 // El3FilerError
+ )
+ ; // Inherits
+
+ENDME // ME_4787B1840013 El3ReadError
+
+ME ME_4787B1960023
+ MEPROP UID '4787B1960023'
+ MEPROP Name 'El3NoLoggedException'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'предок ошибок, которые в лог не попадают (см. l3ExceptionsLog)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B1960023 El3NoLoggedException
+
+ME ME_4787B1A70282
+ MEPROP UID '4787B1A70282'
+ MEPROP Name 'El3InfoException'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'предок ошибок для информационных целей (внутренее использование)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B1A70282 El3InfoException
+
+ME ME_4787B1BA031F
+ MEPROP UID '4787B1BA031F'
+ MEPROP Name 'El3DuplicateItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'дублирование элемента в списке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B1BA031F El3DuplicateItem
+
+ME ME_4787B1D60282
+ MEPROP UID '4787B1D60282'
+ MEPROP Name 'El3ConvertError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4787B1D60282 El3ConvertError
+
+FORWARD ME_4787B1F20043
+
+ME ME_4787B1FE01AA
+ MEPROP UID '4787B1FE01AA'
+ MEPROP Name 'l3_excAbortLoad'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4787B1F20043 // Error Messages
+ ;
+ MEPROP Value '''Прервана загрузка документа.'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Прервана загрузка документа.'''
+
+ENDME // ME_4787B1FE01AA l3_excAbortLoad
+
+ME ME_4787B1F20043
+ MEPROP UID '4787B1F20043'
+ MEPROP Name 'Error Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сообщения об ошибках.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4787B1FE01AA // l3_excAbortLoad
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4787B1F20043 Error Messages
+
+ME ME_4E8316290291
+ MEPROP UID '4E8316290291'
+ MEPROP Name 'El3BadPictureFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B117012D // El3Error
+ )
+ ; // Inherits
+
+ENDME // ME_4E8316290291 El3BadPictureFormat
+
+ME ME_53FC91F501F6
+ MEPROP UID '53FC91F501F6'
+ MEPROP Name 'El3AbortLoadFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B164020E // El3AbortLoad
+ )
+ ; // Inherits
+
+ENDME // ME_53FC91F501F6 El3AbortLoadFilter
+
+ME ME_540EE8C0039E
+ MEPROP UID '540EE8C0039E'
+ MEPROP Name 'El3BadDataInPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4787B0A8007B // l3Except
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_540EE8C0039E El3BadDataInPara
+
+ME ME_4787B0A8007B
+ MEPROP UID '4787B0A8007B'
+ MEPROP Name 'l3Except'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Базовые исключения L3.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4787B0FD0379 // El3Exception
+ HWL ME_4787B10A00A3 // El3CannotModify
+ HWL ME_4787B117012D // El3Error
+ HWL ME_4787B12303D6 // El3Warning
+ HWL ME_4787B12F02DF // El3NotFound
+ HWL ME_4787B153031D // El3Abort
+ HWL ME_4787B164020E // El3AbortLoad
+ HWL ME_4787B1730240 // El3FilerError
+ HWL ME_4787B1840013 // El3ReadError
+ HWL ME_4787B1960023 // El3NoLoggedException
+ HWL ME_4787B1A70282 // El3InfoException
+ HWL ME_4787B1BA031F // El3DuplicateItem
+ HWL ME_4787B1D60282 // El3ConvertError
+ HWL ME_4E8316290291 // El3BadPictureFormat
+ HWL ME_53FC91F501F6 // El3AbortLoadFilter
+ HWL ME_540EE8C0039E // El3BadDataInPara
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4787B1F20043 // Error Messages
+ )
+ ; // Constants
+ UP "UseNewGen" true
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '22.04.1998 11:18'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Except.pas'
+
+ENDME // ME_4787B0A8007B l3Except

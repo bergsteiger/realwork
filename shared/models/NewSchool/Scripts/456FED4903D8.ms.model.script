@@ -1,0 +1,326 @@
+// ContextSearchSupport 456FED4903D8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_456FED4903D8
+
+FORWARD ME_456FED7A008C
+
+ME ME_456FED7A008D
+ MEPROP UID '456FED7A008D'
+ MEPROP Name 'start'
+ MEPROP Class class_Attribute
+ %SUMMARY 'начало выделения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED7A008C // HighlightPosition
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_456FED7A008D start
+
+ME ME_456FED7A008E
+ MEPROP UID '456FED7A008E'
+ MEPROP Name 'finish'
+ MEPROP Class class_Attribute
+ %SUMMARY 'конец выделения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED7A008C // HighlightPosition
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_456FED7A008E finish
+
+ME ME_456FED7A008C
+ MEPROP UID '456FED7A008C'
+ MEPROP Name 'HighlightPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Позиции для подсветки найденных слов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FED4903D8 // ContextSearchSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_456FED7A008D // start
+ HWL ME_456FED7A008E // finish
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'THighlightPosition'
+
+ENDME // ME_456FED7A008C HighlightPosition
+
+FORWARD ME_456FED7501C5
+
+ME ME_456FEDD402AF
+ MEPROP UID '456FEDD402AF'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_456FED7501C5 // HighlightPositionList
+ ;
+ MELINK Target HWL ME_456FED7A008C // HighlightPosition
+ ;
+
+ENDME // ME_456FEDD402AF 
+
+ME ME_456FED7501C5
+ MEPROP UID '456FED7501C5'
+ MEPROP Name 'HighlightPositionList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список позиций для подсветки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FED4903D8 // ContextSearchSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_456FEDD402AF // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IHighlightPositionList'
+
+ENDME // ME_456FED7501C5 HighlightPositionList
+
+FORWARD ME_456FED6B00BB
+
+ME ME_456FED6B00BC
+ MEPROP UID '456FED6B00BC'
+ MEPROP Name 'item_index'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Индекс найденного элемента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED6B00BB // ContextSearchResult
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_456FED6B00BC item_index
+
+ME ME_456FEDC20222
+ MEPROP UID '456FEDC20222'
+ MEPROP Name 'positions'
+ MEPROP Class class_Attribute
+ %SUMMARY 'позиции, найденные в результате поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED6B00BB // ContextSearchResult
+ ;
+ MELINK Target HWL ME_456FED7501C5 // HighlightPositionList
+ ;
+
+ENDME // ME_456FEDC20222 positions
+
+ME ME_456FED6B00BB
+ MEPROP UID '456FED6B00BB'
+ MEPROP Name 'ContextSearchResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат поиска по контексту.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FED4903D8 // ContextSearchSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_456FED6B00BC // item_index
+ HWL ME_456FEDC20222 // positions
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TContextSearchResult'
+
+ENDME // ME_456FED6B00BB ContextSearchResult
+
+FORWARD ME_456FED850222
+
+ME ME_456FED850223
+ MEPROP UID '456FED850223'
+ MEPROP Name 'SS_GLOBAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Поиск по всему объекту.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED850222 // SearchStatus
+ ;
+
+ENDME // ME_456FED850223 SS_GLOBAL
+
+ME ME_456FED850224
+ MEPROP UID '456FED850224'
+ MEPROP Name 'SS_CURENT'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Поиск от текущего элемента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED850222 // SearchStatus
+ ;
+
+ENDME // ME_456FED850224 SS_CURENT
+
+ME ME_456FED850222
+ MEPROP UID '456FED850222'
+ MEPROP Name 'SearchStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Зона поиска.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FED4903D8 // ContextSearchSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_456FED850223 // SS_GLOBAL
+ HWL ME_456FED850224 // SS_CURENT
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TSearchStatus'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_456FED850222 SearchStatus
+
+FORWARD ME_456FED8901F4
+
+ME ME_456FED8901F5
+ MEPROP UID '456FED8901F5'
+ MEPROP Name 'SD_UP'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Поис вверх.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED8901F4 // SearchDirection
+ ;
+
+ENDME // ME_456FED8901F5 SD_UP
+
+ME ME_456FED8901F6
+ MEPROP UID '456FED8901F6'
+ MEPROP Name 'SD_DOWN'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Поиск вниз.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED8901F4 // SearchDirection
+ ;
+
+ENDME // ME_456FED8901F6 SD_DOWN
+
+ME ME_456FED8901F4
+ MEPROP UID '456FED8901F4'
+ MEPROP Name 'SearchDirection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Направление поиска.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FED4903D8 // ContextSearchSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_456FED8901F5 // SD_UP
+ HWL ME_456FED8901F6 // SD_DOWN
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TSearchDirection'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_456FED8901F4 SearchDirection
+
+FORWARD ME_456FED800399
+
+ME ME_456FEDDE02BF
+ MEPROP UID '456FEDDE02BF'
+ MEPROP Name 'status'
+ MEPROP Class class_Attribute
+ %SUMMARY 'результат поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED800399 // SearchMode
+ ;
+ MELINK Target HWL ME_456FED850222 // SearchStatus
+ ;
+
+ENDME // ME_456FEDDE02BF status
+
+ME ME_456FEDE902BF
+ MEPROP UID '456FEDE902BF'
+ MEPROP Name 'direction'
+ MEPROP Class class_Attribute
+ %SUMMARY 'направление поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FED800399 // SearchMode
+ ;
+ MELINK Target HWL ME_456FED8901F4 // SearchDirection
+ ;
+
+ENDME // ME_456FEDE902BF direction
+
+ME ME_456FED800399
+ MEPROP UID '456FED800399'
+ MEPROP Name 'SearchMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перечислимый тип, определяющий способ поиска в линейных структурах (списках, текстах и т.п.).'#13#10'Сочетание ss_Global + sd_Up - поиск с конца вверх.'#13#10'Сочетание ss_Global + sd_Down - поиск сначала вниз.'#13#10'Сочетание c ss_Current - поиск от текущего элемента вверх или вниз.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FED4903D8 // ContextSearchSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_456FEDDE02BF // status
+ HWL ME_456FEDE902BF // direction
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TSearchMode'
+
+ENDME // ME_456FED800399 SearchMode
+
+ME ME_456FED4903D8
+ MEPROP UID '456FED4903D8'
+ MEPROP Name 'ContextSearchSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_456FED7A008C // HighlightPosition
+ HWL ME_456FED7501C5 // HighlightPositionList
+ HWL ME_456FED6B00BB // ContextSearchResult
+ HWL ME_456FED850222 // SearchStatus
+ HWL ME_456FED8901F4 // SearchDirection
+ HWL ME_456FED800399 // SearchMode
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ContextSearchSupport'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ContextSearchSupport\ContextSearchSupport.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ContextSearchSupport'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContextSearchSupportUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\ContextSearchSupportUnit.pas'
+ UP extprop:pas:UnitName 'ContextSearchSupportUnit'
+
+ENDME // ME_456FED4903D8 ContextSearchSupport

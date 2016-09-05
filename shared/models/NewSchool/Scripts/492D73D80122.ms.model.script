@@ -1,0 +1,50 @@
+// TdsDocumentList 492D73D80122 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492D73D80122
+
+ME ME_492D74AA0337
+ MEPROP UID '492D74AA0337'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492D73D80122 // TdsDocumentList
+ ;
+ MELINK Target WL 'ME_47F274F101E1' '4B1D394B00E5.ms.model.script' // IdeDocumentList
+ ;
+
+ENDME // ME_492D74AA0337 InitDataType
+
+ME ME_492D73D80122
+ MEPROP UID '492D73D80122'
+ MEPROP Name 'TdsDocumentList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47EA5024034B' '47EA5024034B.ms.model.script' // ListDataSources
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E9EDC602B2' '47E9EDC602B2.ms.model.script' // dsDocumentList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_492D74AA0337 // InitDataType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.11.2008 19:06'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.pas'
+ UP extprop:rc:SelfName 'dsDocumentList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsDocumentList'
+
+ENDME // ME_492D73D80122 TdsDocumentList

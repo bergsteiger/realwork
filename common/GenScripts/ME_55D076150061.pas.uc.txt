@@ -25,7 +25,7 @@
  if (f_Name <> aValue) then
  begin
   {$IfDef DesignTimeLibrary}
-  if (aName <> '') and not IsValidIdent(aValue) then
+  if (aValue <> '') and not IsValidIdent(aValue) then
     raise EComponentError.CreateResFmt(@SInvalidName, [aValue]);
   {$EndIf DesignTimeLibrary}
   ChangeName(f_Name, aValue);

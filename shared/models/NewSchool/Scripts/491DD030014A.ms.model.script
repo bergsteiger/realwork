@@ -1,0 +1,29 @@
+// TdsSendConsultation 491DD030014A ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_491DD030014A
+ MEPROP UID '491DD030014A'
+ MEPROP Name 'TdsSendConsultation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект "Запрос на консультацию"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_491DCCE101F3' '491DCCE101F3.ms.model.script' // TdsQuery
+ )
+ ; // Inherits
+ UP "author" 'Морозов М.А'
+ UP "no hands" true
+ UP "started" '06.04.2006 17.27'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsSendConsultation.pas'
+ UP extprop:rc:SelfName 'dsSendConsultation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsSendConsultation'
+
+ENDME // ME_491DD030014A TdsSendConsultation

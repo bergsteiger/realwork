@@ -1,0 +1,49 @@
+// AdapterFacade 4AC207650135 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC207650135
+
+ME ME_4AC203A500FD
+ MEPROP UID '4AC203A500FD'
+ MEPROP Name 'AdapterDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип дат адаптера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC207650135 // AdapterFacade
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_456EA6F00109' '456EA56002BF.ms.model.script' // Date
+ )
+ ; // Inherits
+
+ENDME // ME_4AC203A500FD AdapterDate
+
+ME ME_4AC207650135
+ MEPROP UID '4AC207650135'
+ MEPROP Name 'AdapterFacade'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Фасадные определения типов адаптера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AC203A500FD // AdapterDate
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '29.09.2009 17:11'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\AdapterFacade.pas'
+
+ENDME // ME_4AC207650135 AdapterFacade

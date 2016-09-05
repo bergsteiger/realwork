@@ -1,0 +1,130 @@
+// UserTypes 5006A46B015B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5006A46B015B
+
+FORWARD ME_5006A4A6003D
+
+ME ME_5006A52C0211
+ MEPROP UID '5006A52C0211'
+ MEPROP Name 'CanHaveToolbars'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5006A52C0211 CanHaveToolbars
+
+ME ME_47A042E100E2_ME_5006A4A6003D
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_5006A4A6003D InitFields
+
+ME ME_5006A4A6003D
+ MEPROP UID '5006A4A6003D'
+ MEPROP Name 'TvcmUserTypesCollectionItemPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5006A46B015B // UserTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FFC3347011F' '4FFC33380166.ms.model.script' // TvcmBaseCollectionItem
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5006A52C0211 // CanHaveToolbars
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_5006A4A6003D // InitFields
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmUserTypesCollectionItemPrim.pas'
+ UP extprop:rc:SelfName 'UserTypesCollectionItemPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmUserTypesCollectionItemPrim'
+
+ENDME // ME_5006A4A6003D TvcmUserTypesCollectionItemPrim
+
+ME ME_5006A4C80386
+ MEPROP UID '5006A4C80386'
+ MEPROP Name 'TvcmBaseUserTypesCollectionItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5006A46B015B // UserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseUserTypesCollectionItem.pas'
+ UP extprop:rc:SelfName 'UserTypesCollectionItem'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmBaseUserTypesCollectionItem'
+
+ENDME // ME_5006A4C80386 TvcmBaseUserTypesCollectionItem
+
+ME ME_5006A4E003AB
+ MEPROP UID '5006A4E003AB'
+ MEPROP Name 'TvcmUserTypesCollectionItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5006A46B015B // UserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
+ )
+ ; // Inherits
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmUserTypesCollectionItem.pas'
+ UP extprop:rc:SelfName 'UserTypesCollectionItem'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmUserTypesCollectionItem'
+
+ENDME // ME_5006A4E003AB TvcmUserTypesCollectionItem
+
+ME ME_5006A46B015B
+ MEPROP UID '5006A46B015B'
+ MEPROP Name 'UserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
+ HWL ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
+ HWL ME_5006A4E003AB // TvcmUserTypesCollectionItem
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4FFC33380166' '4FFC33380166.ms.model.script' // Collections
+ )
+ ; // Depends
+ UP "path prefix" '/implementation/Components'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+
+ENDME // ME_5006A46B015B UserTypes

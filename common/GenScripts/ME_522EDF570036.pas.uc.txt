@@ -64,18 +64,6 @@ var
 var
  I: Integer;
 //#UC END# *522EE0A00116_522EDF570036_var*
-//#UC START# *522EE0C502CE_522EDF570036_impl*
- l_Node:= MakeItem;
- try
-  Result:= f_Items.Add(l_Node);
- finally
-  l3Free(l_Node);
- end;
-//#UC END# *522EE0C502CE_522EDF570036_impl*
-//#UC START# *522EE0C502CE_522EDF570036_var*
-var
- l_Node: TddAppConfigNode;
-//#UC END# *522EE0C502CE_522EDF570036_var*
 //#UC START# *522EE0DF0080_522EDF570036_impl*
  Result := Self;
 //#UC END# *522EE0DF0080_522EDF570036_impl*
@@ -83,28 +71,22 @@ var
 //#UC END# *522EE0DF0080_522EDF570036_var*
 //#UC START# *522EE0FB0163_522EDF570036_impl*
  Result := True;
- f_Items.Delete(anIndex);
+ f_EditItems.Delete(anIndex);
 //#UC END# *522EE0FB0163_522EDF570036_impl*
 //#UC START# *522EE0FB0163_522EDF570036_var*
 //#UC END# *522EE0FB0163_522EDF570036_var*
-//#UC START# *522EE15F026E_522EDF570036_impl*
- Result := True;
- f_Items.Exchange(anIndex, Succ(anIndex));
-//#UC END# *522EE15F026E_522EDF570036_impl*
-//#UC START# *522EE15F026E_522EDF570036_var*
-//#UC END# *522EE15F026E_522EDF570036_var*
 //#UC START# *522EE19901B6_522EDF570036_impl*
  if anIndex < 0 then
   // Новый элемент
   l_Node:= MakeItem
  else
-  l_Node:= TddAppConfigNode(f_Items.Items[anIndex]);
+  l_Node:= TddAppConfigNode(f_EditItems.Items[anIndex]);
  Result:= ExecuteNodeDialog(l_Node);
  if Result then
  begin
   l_Node.Caption:= l_Node.Items[0].StringValue;
   if anIndex < 0 then
-   f_Items.Add(l_Node);
+   f_EditItems.Add(l_Node);
  end;
  if anIndex < 0 then
   l3Free(l_Node);
@@ -143,12 +125,6 @@ var
 var
  I: Integer;
 //#UC END# *522EE1D7016D_522EDF570036_var*
-//#UC START# *522EE1F7018F_522EDF570036_impl*
- Result:= True;
- f_Items.Exchange(anIndex, Pred(anIndex));
-//#UC END# *522EE1F7018F_522EDF570036_impl*
-//#UC START# *522EE1F7018F_522EDF570036_var*
-//#UC END# *522EE1F7018F_522EDF570036_var*
 //#UC START# *522EE27A017F_522EDF570036set_impl*
  l3Free(f_DataConfig);
  f_DataConfig:= aValue;
@@ -196,3 +172,69 @@ var
 //#UC END# *56D93DBD039D_522EDF570036_impl*
 //#UC START# *56D93DBD039D_522EDF570036_var*
 //#UC END# *56D93DBD039D_522EDF570036_var*
+//#UC START# *57A05EC4018F_522EDF570036_impl*
+ l_Node:= MakeItem;
+ try
+  Result:= f_Items.Add(l_Node);
+ finally
+  l3Free(l_Node);
+ end;
+//#UC END# *57A05EC4018F_522EDF570036_impl*
+//#UC START# *57A05EC4018F_522EDF570036_var*
+var
+ l_Node: TddAppConfigNode;
+//#UC END# *57A05EC4018F_522EDF570036_var*
+//#UC START# *57A316CA0116_522EDF570036_impl*
+ f_EditItems := Tl3ProtoPersistentRefList.Make;
+ for l_IDX := 0 to Count - 1 do
+ begin
+  l_Item := TddAppConfigNode(Objects[l_IDX]).Clone;
+  try
+   f_EditItems.Add(l_Item);
+  finally
+   FreeAndNil(l_Item);
+  end;
+ end;
+//#UC END# *57A316CA0116_522EDF570036_impl*
+//#UC START# *57A316CA0116_522EDF570036_var*
+var
+ l_IDX: Integer;
+ l_Item: TddAppConfigNode;
+//#UC END# *57A316CA0116_522EDF570036_var*
+//#UC START# *57A316E00019_522EDF570036_impl*
+ FreeAndNil(f_EditItems);
+//#UC END# *57A316E00019_522EDF570036_impl*
+//#UC START# *57A316E00019_522EDF570036_var*
+//#UC END# *57A316E00019_522EDF570036_var*
+//#UC START# *57A316F503DF_522EDF570036_impl*
+ f_Items.Clear;
+ for l_IDX := 0 to EditCount - 1 do
+ begin
+  l_Item := TddAppConfigNode(EditObjects[l_IDX]).Clone;
+  try
+   f_Items.Add(l_Item);
+  finally
+   FreeAndNil(l_Item);
+  end;
+ end;
+//#UC END# *57A316F503DF_522EDF570036_impl*
+//#UC START# *57A316F503DF_522EDF570036_var*
+var
+ l_IDX: Integer;
+ l_Item: TddAppConfigNode;
+//#UC END# *57A316F503DF_522EDF570036_var*
+//#UC START# *57A438DA0057_522EDF570036get_impl*
+ Result := f_EditItems.Count;
+//#UC END# *57A438DA0057_522EDF570036get_impl*
+//#UC START# *57A438DA0057_522EDF570036get_var*
+//#UC END# *57A438DA0057_522EDF570036get_var*
+//#UC START# *57A439130358_522EDF570036get_impl*
+ Result := f_EditItems[anIndex];
+//#UC END# *57A439130358_522EDF570036get_impl*
+//#UC START# *57A439130358_522EDF570036get_var*
+//#UC END# *57A439130358_522EDF570036get_var*
+//#UC START# *57A4394A01DA_522EDF570036get_impl*
+ Result := TddAppConfigNode(f_EditItems.Items[anIndex]).Caption;
+//#UC END# *57A4394A01DA_522EDF570036get_impl*
+//#UC START# *57A4394A01DA_522EDF570036get_var*
+//#UC END# *57A4394A01DA_522EDF570036get_var*

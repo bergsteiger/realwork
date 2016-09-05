@@ -1,0 +1,17 @@
+UNIT WordsCache.ms.dict
+
+USES
+ axiom:msm
+;
+
+: WordFromCache
+  STRING IN aWordName
+ aWordName msm:WordFromCache
+; // WordFromCache
+
+PROCEDURE WordToCache
+  STRING IN aWordName
+  TtfwWord IN aWord
+ aWordName aWord msm:WordToCache 
+; // WordToCache
+

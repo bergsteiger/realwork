@@ -23,10 +23,19 @@ a f
 / - тип абстракции
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p auto translate to alien:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
 
 %f _st_space_key
 	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{auto translate to alien}"!="%S{!auto translate to alien}"}%f_up_prefix(%S) *auto translate to alien* = *%S{auto translate to alien}*
+	]
 
 %f _CheckMixin
 //#UC START# *5502CBF50065for5502BABC0193*
@@ -87,6 +96,8 @@ a f
 	%{Op_Instance}%f_set_abstraction_type(abstract)\
 	%{Op_Instance}%f_set_up(ifdef,%C{ifdef})\
 	%{Op_Instance}%f_set_up(ifndef,%C{ifndef})\
+	%{Op_Instance}%f_set_up(OriginalStereotype,%CS)\
+	%{Op_Instance}%f_set_var(Speller,C)\
 	]\
 	>\
 
@@ -108,6 +119,7 @@ a f
 	%{Op_Instance}%f_set_up(ifndef,%C{ifndef})\
 	%{Op_Instance}%f_set_up(needs index,%C{needs index})\
 	%{Op_Instance}%f_set_up(needs result,%C{needs result})\
+	%{Op_Instance}%f_set_up(OriginalStereotype,%CS)\
 	%{Op_Instance}%f_set_var(Speller,C)\
 	]\
 	>\
@@ -212,6 +224,21 @@ R
 %f _wiki_up_add_gen
 //#UC START# *470484D50138for5502BBDB02C9*
 //#UC END# *470484D50138for5502BBDB02C9*
+
+: Service::Class::implements::ClassDependency
+= ServicePrim::Class::implements::ClassDependency
+
+// Пользовательские свойства
+p auto implements:tribool=undefined ? 
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{auto implements}"!="%S{!auto implements}"}%f_up_prefix(%S) *auto implements* = *%S{auto implements}*
+	]
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

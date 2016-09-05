@@ -1,0 +1,58 @@
+// DocumentWithFlash 4989E67D00C0 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4989E67D00C0
+
+ME ME_4FC00629655A
+ MEPROP UID '4FC00629655A'
+ MEPROP Name 'Ini_FormFactory_DocumentWithFlash'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы DocumentWithFlash' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4989E67D00C0 // DocumentWithFlash
+ ;
+ UPLINK SpelledFor HWL ME_4989E67D00C0 // DocumentWithFlash
+ ;
+
+ENDME // ME_4FC00629655A Ini_FormFactory_DocumentWithFlash
+
+ME ME_4989E67D00C0
+ MEPROP UID '4989E67D00C0'
+ MEPROP Name 'DocumentWithFlash'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C87849303A6' '4C87849303A6.ms.model.script' // PrimDocumentWithFlashOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFAB8460228' '4BD856E802F9.ms.model.script' // DocumentWithFlash
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4FC00629655A // Ini_FormFactory_DocumentWithFlash
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocumentWithFlash_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ UP extprop:pas:TypeName 'TDocumentWithFlashForm'
+ UP extprop:rc:SelfName 'DocumentWithFlashForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'DocumentWithFlash_Form'
+
+ENDME // ME_4989E67D00C0 DocumentWithFlash

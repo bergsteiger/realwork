@@ -1329,3 +1329,16 @@ OBJECT FUNCTION "Выпадающий список с подсказками контекстов в БП"
 OBJECT FUNCTION "Выпадающий список для выбора профменю в БП"
  "Выпадающий список класса {(class::TnscLabelSubTree)}" >>> Result
 ;
+
+PROCEDURE "Вывести окно оболочки на первый план"
+ "Главное окно" pop:Control:Handle wnd:SetForeground
+;
+
+PROCEDURE "Предварительный просмотр фрагмента оглавления с эталонами"
+ BeginWait:Print
+ TRY
+  "Предварительный просмотр печати фрагмента пунктов оглавления"
+ FINALLY
+  EndWait:Print
+ END
+;

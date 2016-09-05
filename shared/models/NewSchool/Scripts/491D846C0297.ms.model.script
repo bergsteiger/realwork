@@ -1,0 +1,40 @@
+// dsBaseDrugDocument 491D846C0297 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D846C0297
+
+ME ME_491C264C02C2_ME_491D846C0297
+ MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C264C02C2_ME_491D846C0297 GetTimeMachineOff
+
+ME ME_491D846C0297
+ MEPROP UID '491D846C0297'
+ MEPROP Name 'dsBaseDrugDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ-препарат' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA20430108' '47EA20430108.ms.model.script' // dsBaseDocumentPrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_491C264C02C2_ME_491D846C0297 // GetTimeMachineOff
+ )
+ ; // Overridden
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '2008/04/03 13:44:46'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsBaseDrugDocument.imp.pas'
+ UP extprop:pas:TypeName '_dsBaseDrugDocument_'
+ UP extprop:pas:UnitName 'dsBaseDrugDocument.imp'
+
+ENDME // ME_491D846C0297 dsBaseDrugDocument

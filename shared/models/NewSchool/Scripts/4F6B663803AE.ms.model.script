@@ -1,0 +1,27 @@
+// ParentAndChild 4F6B663803AE VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4F6B663803AE
+ MEPROP UID '4F6B663803AE'
+ MEPROP Name 'ParentAndChild'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка работы с родительской и дочерней зонами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6B66140294' '4F6B66140294.ms.model.script' // ParentAndChild
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F6B66260326' '4F6B66260326.ms.model.script' // ParentAndChildPrim
+ )
+ ; // Inherits
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas'
+ UP extprop:pas:TypeName 'Tmo_ParentAndChild'
+ UP extprop:rc:SelfName 'mo_ParentAndChild'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'moParentAndChild'
+
+ENDME // ME_4F6B663803AE ParentAndChild

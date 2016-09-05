@@ -1,0 +1,37 @@
+// Tables 519B75D1009E Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_519B75D1009E
+
+ME ME_519B75E200C7
+ MEPROP UID '519B75E200C7'
+ MEPROP Name 'dt_Renum'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519B75D1009E // Tables
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Renum.pas'
+
+ENDME // ME_519B75E200C7 dt_Renum
+
+ME ME_519B75D1009E
+ MEPROP UID '519B75D1009E'
+ MEPROP Name 'Tables'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.ms.model.script' // DT
+ ;
+ MELIST Children
+   Seq: ( HWL ME_519B75E200C7 // dt_Renum
+ )
+ ; // Children
+
+ENDME // ME_519B75D1009E Tables

@@ -1,0 +1,37 @@
+// TeeEditorWithoutOperations 4CFFD8F603A0 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFFD8F603A0
+
+ME ME_48735C4A03C3_ME_4CFFD8F603A0
+ MELINK Original WL 'ME_48735C4A03C3' '4829D85C03C1.ms.model.script' // DefineProvideOperations
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48735C4A03C3_ME_4CFFD8F603A0 DefineProvideOperations
+
+ME ME_4CFFD8F603A0
+ MEPROP UID '4CFFD8F603A0'
+ MEPROP Name 'TeeEditorWithoutOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_495268900201' '495268900201.ms.model.script' // TeeEditor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48735C4A03C3_ME_4CFFD8F603A0 // DefineProvideOperations
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeEditorWithoutOperations.pas'
+ UP extprop:rc:SelfName 'eeEditorWithoutOperations'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeEditorWithoutOperations'
+
+ENDME // ME_4CFFD8F603A0 TeeEditorWithoutOperations

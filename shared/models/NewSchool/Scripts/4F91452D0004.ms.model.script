@@ -1,0 +1,258 @@
+// TvcmMessageFormPrim 4F91452D0004 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F91452D0004
+
+ME ME_4F9161C303A6
+ MEPROP UID '4F9161C303A6'
+ MEPROP Name 'TCustomCheckBoxHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F9161AE00F2' '4799D29F033F.ms.model.script' // TCustomCheckBox
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'CheckBoxHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F9161C303A6 TCustomCheckBoxHack
+
+ME ME_4F9161E00120
+ MEPROP UID '4F9161E00120'
+ MEPROP Name 'TvgVisualObjectHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D49562A01B7' '4CFCE51A00B0.ms.model.script' // TvgVisualObject
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'VisualObjectHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F9161E00120 TvgVisualObjectHack
+
+ME ME_4F9165E503C3
+ MEPROP UID '4F9165E503C3'
+ MEPROP Name 'f_HasButtons'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4F9165E503C3 f_HasButtons
+
+ME ME_4F916617012E
+ MEPROP UID '4F916617012E'
+ MEPROP Name 'f_CancelButton'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_49930A4803E7' '4799D29F033F.ms.model.script' // TMsgDlgBtn
+ ;
+
+ENDME // ME_4F916617012E f_CancelButton
+
+ME ME_4F91661E0122
+ MEPROP UID '4F91661E0122'
+ MEPROP Name 'f_DefaultButton'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_49930A4803E7' '4799D29F033F.ms.model.script' // TMsgDlgBtn
+ ;
+
+ENDME // ME_4F91661E0122 f_DefaultButton
+
+ME ME_4F9169060090
+ MEPROP UID '4F9169060090'
+ MEPROP Name 'Scene'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_4CFFB562010C' '4CFCE51A00B0.ms.model.script' // TvgScene
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4F9169060090 Scene
+
+ME ME_4F9145D60072
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4F914CD400A4' '4799D29F033F.ms.model.script' // TCMDialogKey
+ ;
+
+ENDME // ME_4F9145D60072 Message
+
+ME ME_4F9145B5023E
+ MEPROP UID '4F9145B5023E'
+ MEPROP Name 'CMDialogKey'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F9145D60072 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_DIALOGKEY'
+
+ENDME // ME_4F9145B5023E CMDialogKey
+
+ME ME_4F9163CC007C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4F9163CC007C 
+
+ME ME_4F9167370050
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_4F91672600DC' '4CFCE51A00B0.ms.model.script' // TvgCheckBox
+ ;
+
+ENDME // ME_4F9167370050 
+
+ME ME_4F91678B01AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_4F91677002D7' '4799D29F033F.ms.model.script' // TCheckBox
+ ;
+
+ENDME // ME_4F91678B01AA 
+
+ME ME_4F9167B0035E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_4CFF5690033D' '4CFCE51A00B0.ms.model.script' // TvgButton
+ ;
+
+ENDME // ME_4F9167B0035E 
+
+ME ME_4F9167C301B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_4D49562A01B7' '4CFCE51A00B0.ms.model.script' // TvgVisualObject
+ ;
+
+ENDME // ME_4F9167C301B3 
+
+ME ME_4F916AA500A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_4D99E2050245' '4B8E675402AB.ms.model.script' // vtGetDlgBtnResult
+ ;
+
+ENDME // ME_4F916AA500A5 
+
+ME ME_543BAC000204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_543BAC000204 
+
+ME ME_4FC38C4C0119_ME_4F91452D0004
+ MELINK Original WL 'ME_4FC38C4C0119' '4AADF9450143.ms.model.script' // NeedSaveInSettings
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4FC38C4C0119_ME_4F91452D0004 NeedSaveInSettings
+
+ME ME_4F91452D0004
+ MEPROP UID '4F91452D0004'
+ MEPROP Name 'TvcmMessageFormPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F9165E503C3 // f_HasButtons
+ HWL ME_4F916617012E // f_CancelButton
+ HWL ME_4F91661E0122 // f_DefaultButton
+ HWL ME_4F9169060090 // Scene
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F9145B5023E // CMDialogKey
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4FC38C4C0119_ME_4F91452D0004 // NeedSaveInSettings
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F9161C303A6 // TCustomCheckBoxHack
+ HWL ME_4F9161E00120 // TvgVisualObjectHack
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F9163CC007C // Windows
+ ME_4F9167370050 // TvgCheckBox
+ ME_4F91678B01AA // TCheckBox
+ ME_4F9167B0035E // TvgButton
+ ME_4F9167C301B3 // TvgVisualObject
+ ME_4F916AA500A5 // vtGetDlgBtnResult
+ ME_543BAC000204 // Forms
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoVGScene'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMessageFormPrim.pas'
+ UP extprop:rc:SelfName 'MessageFormPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmMessageFormPrim'
+
+ENDME // ME_4F91452D0004 TvcmMessageFormPrim

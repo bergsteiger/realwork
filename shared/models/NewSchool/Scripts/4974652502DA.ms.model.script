@@ -1,0 +1,104 @@
+// TreeAttribute 4974652502DA VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4974652502DA
+
+ME ME_497465FB0290
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_497465FB0290 aNode
+
+ME ME_497465F501B7
+ MEPROP UID '497465F501B7'
+ MEPROP Name 'CurrentChangedNotification'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4974652502DA // TreeAttribute
+ ;
+ MELIST Parameters
+   Seq: ( ME_497465FB0290 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_497465F501B7 CurrentChangedNotification
+
+ME ME_49746AE0018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4974652502DA // TreeAttribute
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_49746AE0018B 
+
+ME ME_49590D4802EE_ME_4974652502DA
+ MELINK Original WL 'ME_49590D4802EE' '491DAF4202EE.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49590D4802EE_ME_4974652502DA Process
+
+ME ME_497469C90140_ME_4974652502DA
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_4974652502DA NotifyDataSourceChanged
+
+ME ME_4974652502DA
+ MEPROP UID '4974652502DA'
+ MEPROP Name 'TreeAttribute'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма выбора атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A85282C0252' '4A85282C0252.ms.model.script' // LiteSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492425D101B0' '491DAF4202EE.ms.model.script' // IbsCurrentChangedListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_497465F501B7 // CurrentChangedNotification
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49590D4802EE_ME_4974652502DA // Process
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_497469C90140_ME_4974652502DA // NotifyDataSourceChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49746AE0018B // nsUtils
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '19.01.2009 14:34'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttribute_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms'
+ UP extprop:pas:TypeName 'TTreeAttributeForm'
+ UP extprop:rc:SelfName 'TreeAttributeForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TreeAttribute_Form'
+
+ENDME // ME_4974652502DA TreeAttribute

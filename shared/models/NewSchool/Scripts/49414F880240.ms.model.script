@@ -1,0 +1,89 @@
+// TsdsMedicFirmDocument 49414F880240 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49414F880240
+
+ME ME_494167F003B7
+ MEPROP UID '494167F003B7'
+ MEPROP Name 'SetDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49414F880240 // TsdsMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_4939260B019C' '491D7C9603B2.ms.model.script' // IdMedicFirmDocument
+ ;
+
+ENDME // ME_494167F003B7 SetDataType
+
+ME ME_49415013021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49414F880240 // TsdsMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_493965B600E9' '491D7CDC0221.ms.model.script' // dMedicFirmDocument
+ ;
+
+ENDME // ME_49415013021A 
+
+ME ME_4B22181A02EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49414F880240 // TsdsMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_4B2217FA02BD' '491D7CDC0221.ms.model.script' // TdMedicFirmDocument
+ ;
+
+ENDME // ME_4B22181A02EB 
+
+ME ME_47F3778403D9_ME_49414F880240
+ MELINK Original WL 'ME_47F3778403D9' '47D0E1500033.ms.model.script' // MakeData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F3778403D9_ME_49414F880240 MakeData
+
+ME ME_49414F880240
+ MEPROP UID '49414F880240'
+ MEPROP Name 'TsdsMedicFirmDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ-фирма' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4939633A025D' '4939633A025D.ms.model.script' // sdsMedicFirmDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5016D8D0005D' '491D7C9603B2.ms.model.script' // IsdsMedicFirmDocument
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_494167F003B7 // SetDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F3778403D9_ME_49414F880240 // MakeData
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49415013021A // dMedicFirmDocument
+ ME_4B22181A02EB // TdMedicFirmDocument
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '11.12.2008 20:36'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.pas'
+ UP extprop:rc:SelfName 'sdsMedicFirmDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'sdsMedicFirmDocument'
+
+ENDME // ME_49414F880240 TsdsMedicFirmDocument

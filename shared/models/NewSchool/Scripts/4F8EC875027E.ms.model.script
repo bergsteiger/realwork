@@ -1,0 +1,958 @@
+// MouseInput 4F8EC875027E ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F8EC875027E
+
+FORWARD ME_4F8EC88A01F2
+
+FORWARD ME_4F71C11F02F2
+
+ME ME_4F967B48010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4F71C11F02F2 // Mouse_LeftDown
+ ;
+
+ENDME // ME_4F967B48010A 
+
+FORWARD ME_4F71C14601E6
+
+ME ME_4F967B4B0348
+ MEPROP Name 'l'
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4F71C14601E6 // Mouse_LeftUp
+ ;
+
+ENDME // ME_4F967B4B0348 l
+
+FORWARD ME_4F967CDF0244
+
+ME ME_4F967D0300AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4F967CDF0244 // Mouse_MiddleUp
+ ;
+
+ENDME // ME_4F967D0300AF 
+
+FORWARD ME_4F967CF70162
+
+ME ME_4F967D060072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4F967CF70162 // Mouse_MiddleDown
+ ;
+
+ENDME // ME_4F967D060072 
+
+FORWARD ME_4F967CBF016D
+
+ME ME_4F967D08006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4F967CBF016D // Mouse_RightUp
+ ;
+
+ENDME // ME_4F967D08006D 
+
+FORWARD ME_4F967CAE02C4
+
+ME ME_4F967D0B011E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4F967CAE02C4 // Mouse_RightDown
+ ;
+
+ENDME // ME_4F967D0B011E 
+
+FORWARD ME_4EF0939D025E
+
+ME ME_50769963023E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4EF0939D025E // mouse_SetCursorPosition
+ ;
+
+ENDME // ME_50769963023E 
+
+FORWARD ME_4EEB67C500AE
+
+ME ME_5076996603B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4EEB67C500AE // mouse_GetCursorIndex
+ ;
+
+ENDME // ME_5076996603B5 
+
+FORWARD ME_4EF09324028B
+
+ME ME_507699690204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4EF09324028B // mouse_GetCursorNameByIndex
+ ;
+
+ENDME // ME_507699690204 
+
+FORWARD ME_4EF0937D000A
+
+ME ME_5076996C01EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_4EF0937D000A // mouse_GetCursorPosition
+ ;
+
+ENDME // ME_5076996C01EE 
+
+FORWARD ME_50C8531900E4
+
+ME ME_50C853380020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_50C8531900E4 // Mouse_WheelUp
+ ;
+
+ENDME // ME_50C853380020 
+
+FORWARD ME_50C8532700B0
+
+ME ME_50C8533B0077
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8EC88A01F2 // MouseInputPack
+ ;
+ MELINK Target HWL ME_50C8532700B0 // Mouse_WheelDown
+ ;
+
+ENDME // ME_50C8533B0077 
+
+ME ME_4F8EC88A01F2
+ MEPROP UID '4F8EC88A01F2'
+ MEPROP Name 'MouseInputPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F967B48010A // Mouse_LeftDown
+ ME_4F967B4B0348 // l:Mouse_LeftUp
+ ME_4F967D0300AF // Mouse_MiddleUp
+ ME_4F967D060072 // Mouse_MiddleDown
+ ME_4F967D08006D // Mouse_RightUp
+ ME_4F967D0B011E // Mouse_RightDown
+ ME_50769963023E // mouse_SetCursorPosition
+ ME_5076996603B5 // mouse_GetCursorIndex
+ ME_507699690204 // mouse_GetCursorNameByIndex
+ ME_5076996C01EE // mouse_GetCursorPosition
+ ME_50C853380020 // Mouse_WheelUp
+ ME_50C8533B0077 // Mouse_WheelDown
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas'
+
+ENDME // ME_4F8EC88A01F2 MouseInputPack
+
+FORWARD ME_54D4C520030A
+
+ME ME_54D4C52D0365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D4C520030A // kwSendInputSupportUses
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_54D4C52D0365 
+
+ME ME_54D4C520030A
+ MEPROP UID '54D4C520030A'
+ MEPROP Name 'kwSendInputSupportUses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54D4C52D0365 // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas'
+ UP extprop:pas:TypeName '_kwSendInputSupportUses_'
+ UP extprop:pas:UnitName 'kwSendInputSupportUses.imp'
+
+ENDME // ME_54D4C520030A kwSendInputSupportUses
+
+FORWARD ME_4F71A8080094
+
+FORWARD ME_4F71A8960347
+
+ME ME_50C865EC02F0
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50C865EC02F0 aCtx
+
+ME ME_4F71A8B800EA
+ MEPROP UID '4F71A8B800EA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F71A8960347 // GetInputStruct
+ ;
+ MELINK Target WL 'ME_4F7197540233' '4AB0C3F60375.ms.model.script' // TInput
+ ;
+ MELIST Parameters
+   Seq: ( ME_50C865EC02F0 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4F71A8B800EA DoIt
+
+ME ME_4F71A8960347
+ MEPROP UID '4F71A8960347'
+ MEPROP Name 'GetInputStruct'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F71A8080094 // TkwSendInputSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F71A8B800EA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F71A8960347 GetInputStruct
+
+ME ME_50C8680200CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F71A8080094 // TkwSendInputSupport
+ ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50C8680200CF 
+
+ME ME_4DAEEDE10285_ME_4F71A8080094
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_4F71A8080094 DoDoIt
+
+ME ME_4F71A8080094
+ MEPROP UID '4F71A8080094'
+ MEPROP Name 'TkwSendInputSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.ms.model.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_54D4C520030A // kwSendInputSupportUses
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F71A8960347 // GetInputStruct
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4F71A8080094 // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50C8680200CF // TtfwContext
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSendInputSupport.pas'
+ UP extprop:rc:SelfName 'SendInputSupport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSendInputSupport'
+
+ENDME // ME_4F71A8080094 TkwSendInputSupport
+
+FORWARD ME_4F967BAD0127
+
+FORWARD ME_4F967BED0186
+
+ME ME_4F967C1202F6
+ MEPROP UID '4F967C1202F6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F967BED0186 // GetMouseEventFlag
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F967C1202F6 DoIt
+
+ME ME_4F967BED0186
+ MEPROP UID '4F967BED0186'
+ MEPROP Name 'GetMouseEventFlag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F967C1202F6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F967BED0186 GetMouseEventFlag
+
+ME ME_4F967C820382
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4F967C820382 
+
+ME ME_4F71A8960347_ME_4F967BAD0127
+ MELINK Original HWL ME_4F71A8960347 // GetInputStruct
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F71A8960347_ME_4F967BAD0127 GetInputStruct
+
+ME ME_4F967BAD0127
+ MEPROP UID '4F967BAD0127'
+ MEPROP Name 'TkwMouseUpDownSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F71A8080094 // TkwSendInputSupport
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F967BED0186 // GetMouseEventFlag
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F71A8960347_ME_4F967BAD0127 // GetInputStruct
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F967C820382 // l3FillChar
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseUpDownSupport.pas'
+ UP extprop:rc:SelfName 'MouseUpDownSupport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseUpDownSupport'
+
+ENDME // ME_4F967BAD0127 TkwMouseUpDownSupport
+
+ME ME_4F967BED0186_ME_4F71C14601E6
+ MELINK Original HWL ME_4F967BED0186 // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F967BED0186_ME_4F71C14601E6 GetMouseEventFlag
+
+ME ME_4F71C14601E6
+ MEPROP UID '4F71C14601E6'
+ MEPROP Name 'Mouse_LeftUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F71C14601E6 // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseLeftUp.pas'
+ UP extprop:pas:TypeName 'TkwMouseLeftUp'
+ UP extprop:rc:SelfName 'MouseLeftUp'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseLeftUp'
+
+ENDME // ME_4F71C14601E6 Mouse_LeftUp
+
+ME ME_4F967BED0186_ME_4F967CAE02C4
+ MELINK Original HWL ME_4F967BED0186 // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F967BED0186_ME_4F967CAE02C4 GetMouseEventFlag
+
+ME ME_4F967CAE02C4
+ MEPROP UID '4F967CAE02C4'
+ MEPROP Name 'Mouse_RightDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F967CAE02C4 // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseRightDown.pas'
+ UP extprop:pas:TypeName 'TkwMouseRightDown'
+ UP extprop:rc:SelfName 'MouseRightDown'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseRightDown'
+
+ENDME // ME_4F967CAE02C4 Mouse_RightDown
+
+ME ME_4F967BED0186_ME_4F967CBF016D
+ MELINK Original HWL ME_4F967BED0186 // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F967BED0186_ME_4F967CBF016D GetMouseEventFlag
+
+ME ME_4F967CBF016D
+ MEPROP UID '4F967CBF016D'
+ MEPROP Name 'Mouse_RightUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F967CBF016D // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseRightUp.pas'
+ UP extprop:pas:TypeName 'TkwMouseRightUp'
+ UP extprop:rc:SelfName 'MouseRightUp'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseRightUp'
+
+ENDME // ME_4F967CBF016D Mouse_RightUp
+
+ME ME_4F967BED0186_ME_4F967CDF0244
+ MELINK Original HWL ME_4F967BED0186 // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F967BED0186_ME_4F967CDF0244 GetMouseEventFlag
+
+ME ME_4F967CDF0244
+ MEPROP UID '4F967CDF0244'
+ MEPROP Name 'Mouse_MiddleUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F967CDF0244 // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseMiddleUp.pas'
+ UP extprop:pas:TypeName 'TkwMouseMiddleUp'
+ UP extprop:rc:SelfName 'MouseMiddleUp'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseMiddleUp'
+
+ENDME // ME_4F967CDF0244 Mouse_MiddleUp
+
+ME ME_4F967BED0186_ME_4F967CF70162
+ MELINK Original HWL ME_4F967BED0186 // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F967BED0186_ME_4F967CF70162 GetMouseEventFlag
+
+ME ME_4F967CF70162
+ MEPROP UID '4F967CF70162'
+ MEPROP Name 'Mouse_MiddleDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F967CF70162 // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseMiddleDown.pas'
+ UP extprop:pas:TypeName 'TkwMouseMiddleDown'
+ UP extprop:rc:SelfName 'MouseMiddleDown'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseMiddleDown'
+
+ENDME // ME_4F967CF70162 Mouse_MiddleDown
+
+ME ME_4EEB6804034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EEB67C500AE // mouse_GetCursorIndex
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4EEB6804034D 
+
+ME ME_4EEB6810018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EEB67C500AE // mouse_GetCursorIndex
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4EEB6810018F 
+
+ME ME_4EEB681B01B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EEB67C500AE // mouse_GetCursorIndex
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4EEB681B01B2 
+
+ME ME_4EF0956E0258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EEB67C500AE // mouse_GetCursorIndex
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_4EF0956E0258 
+
+ME ME_4EEB67C500AE
+ MEPROP UID '4EEB67C500AE'
+ MEPROP Name 'mouse_GetCursorIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4EEB6804034D // Msg Codes
+ ME_4EEB6810018F // Windows
+ ME_4EEB681B01B2 // Forms
+ ME_4EF0956E0258 // Controls
+ )
+ ; // Dependencies
+ UP "author" 'Костицын М.'
+ UP "started" '16.12.2011'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorIndex.pas'
+ UP extprop:pas:TypeName 'TkwMouseGetCursorIndex'
+ UP extprop:rc:SelfName 'MouseGetCursorIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseGetCursorIndex'
+
+ENDME // ME_4EEB67C500AE mouse_GetCursorIndex
+
+ME ME_4F22B19D0060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF09324028B // mouse_GetCursorNameByIndex
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_4F22B19D0060 
+
+ME ME_4EF09324028B
+ MEPROP UID '4EF09324028B'
+ MEPROP Name 'mouse_GetCursorNameByIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22B19D0060 // Controls
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorNameByIndex.pas'
+ UP extprop:pas:TypeName 'TkwMouseGetCursorNameByIndex'
+ UP extprop:rc:SelfName 'MouseGetCursorNameByIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseGetCursorNameByIndex'
+
+ENDME // ME_4EF09324028B mouse_GetCursorNameByIndex
+
+ME ME_4F22A7BC0324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF0937D000A // mouse_GetCursorPosition
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4F22A7BC0324 
+
+ME ME_4EF0937D000A
+ MEPROP UID '4EF0937D000A'
+ MEPROP Name 'mouse_GetCursorPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22A7BC0324 // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorPosition.pas'
+ UP extprop:pas:TypeName 'TkwMouseGetCursorPosition'
+ UP extprop:rc:SelfName 'MouseGetCursorPosition'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseGetCursorPosition'
+
+ENDME // ME_4EF0937D000A mouse_GetCursorPosition
+
+ME ME_4F22AC5E01A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF0939D025E // mouse_SetCursorPosition
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4F22AC5E01A7 
+
+ME ME_4EF0939D025E
+ MEPROP UID '4EF0939D025E'
+ MEPROP Name 'mouse_SetCursorPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22AC5E01A7 // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseSetCursorPosition.pas'
+ UP extprop:pas:TypeName 'TkwMouseSetCursorPosition'
+ UP extprop:rc:SelfName 'MouseSetCursorPosition'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseSetCursorPosition'
+
+ENDME // ME_4EF0939D025E mouse_SetCursorPosition
+
+FORWARD ME_50C852B30225
+
+FORWARD ME_50C861750031
+
+ME ME_50C86608000D
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50C86608000D aCtx
+
+ME ME_50C861810289
+ MEPROP UID '50C861810289'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C861750031 // GetLineCount
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_50C86608000D // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_50C861810289 DoIt
+
+ME ME_50C861750031
+ MEPROP UID '50C861750031'
+ MEPROP Name 'GetLineCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50C852B30225 // TkwMouseWheelSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50C861810289 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50C861750031 GetLineCount
+
+ME ME_50C852DA019F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C852B30225 // TkwMouseWheelSupport
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_50C852DA019F 
+
+ME ME_4F71A8960347_ME_50C852B30225
+ MELINK Original HWL ME_4F71A8960347 // GetInputStruct
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F71A8960347_ME_50C852B30225 GetInputStruct
+
+ME ME_50C852B30225
+ MEPROP UID '50C852B30225'
+ MEPROP Name 'TkwMouseWheelSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F71A8080094 // TkwSendInputSupport
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_50C861750031 // GetLineCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F71A8960347_ME_50C852B30225 // GetInputStruct
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50C852DA019F // l3FillChar
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseWheelSupport.pas'
+ UP extprop:rc:SelfName 'MouseWheelSupport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseWheelSupport'
+
+ENDME // ME_50C852B30225 TkwMouseWheelSupport
+
+ME ME_50C861750031_ME_50C8531900E4
+ MELINK Original HWL ME_50C861750031 // GetLineCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50C861750031_ME_50C8531900E4 GetLineCount
+
+ME ME_50C8531900E4
+ MEPROP UID '50C8531900E4'
+ MEPROP Name 'Mouse_WheelUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50C852B30225 // TkwMouseWheelSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50C861750031_ME_50C8531900E4 // GetLineCount
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseWheelUp.pas'
+ UP extprop:pas:TypeName 'TkwMouseWheelUp'
+ UP extprop:rc:SelfName 'MouseWheelUp'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseWheelUp'
+
+ENDME // ME_50C8531900E4 Mouse_WheelUp
+
+ME ME_50C861750031_ME_50C8532700B0
+ MELINK Original HWL ME_50C861750031 // GetLineCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50C861750031_ME_50C8532700B0 GetLineCount
+
+ME ME_50C8532700B0
+ MEPROP UID '50C8532700B0'
+ MEPROP Name 'Mouse_WheelDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50C852B30225 // TkwMouseWheelSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50C861750031_ME_50C8532700B0 // GetLineCount
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseWheelDown.pas'
+ UP extprop:pas:TypeName 'TkwMouseWheelDown'
+ UP extprop:rc:SelfName 'MouseWheelDown'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseWheelDown'
+
+ENDME // ME_50C8532700B0 Mouse_WheelDown
+
+ME ME_4F967BED0186_ME_4F71C11F02F2
+ MELINK Original HWL ME_4F967BED0186 // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F967BED0186_ME_4F71C11F02F2 GetMouseEventFlag
+
+ME ME_4F71C11F02F2
+ MEPROP UID '4F71C11F02F2'
+ MEPROP Name 'Mouse_LeftDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EC875027E // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F71C11F02F2 // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseLeftDown.pas'
+ UP extprop:pas:TypeName 'TkwMouseLeftDown'
+ UP extprop:rc:SelfName 'MouseLeftDown'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseLeftDown'
+
+ENDME // ME_4F71C11F02F2 Mouse_LeftDown
+
+ME ME_4F8EC875027E
+ MEPROP UID '4F8EC875027E'
+ MEPROP Name 'MouseInput'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8EC88A01F2 // MouseInputPack
+ HWL ME_54D4C520030A // kwSendInputSupportUses
+ HWL ME_4F71A8080094 // TkwSendInputSupport
+ HWL ME_4F967BAD0127 // TkwMouseUpDownSupport
+ HWL ME_4F71C14601E6 // Mouse_LeftUp
+ HWL ME_4F967CAE02C4 // Mouse_RightDown
+ HWL ME_4F967CBF016D // Mouse_RightUp
+ HWL ME_4F967CDF0244 // Mouse_MiddleUp
+ HWL ME_4F967CF70162 // Mouse_MiddleDown
+ HWL ME_4EEB67C500AE // mouse_GetCursorIndex
+ HWL ME_4EF09324028B // mouse_GetCursorNameByIndex
+ HWL ME_4EF0937D000A // mouse_GetCursorPosition
+ HWL ME_4EF0939D025E // mouse_SetCursorPosition
+ HWL ME_50C852B30225 // TkwMouseWheelSupport
+ HWL ME_50C8531900E4 // Mouse_WheelUp
+ HWL ME_50C8532700B0 // Mouse_WheelDown
+ HWL ME_4F71C11F02F2 // Mouse_LeftDown
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.ms.model.script' // PrimitiveWords
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_4F8EC875027E MouseInput

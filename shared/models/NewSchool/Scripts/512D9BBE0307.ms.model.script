@@ -1,0 +1,418 @@
+// EverestLiteKeyWords 512D9BBE0307 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512D9BBE0307
+
+FORWARD ME_512D9BE30122
+
+FORWARD ME_512D9C2D013F
+
+ME ME_512D9C4D0158
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9BE30122 // EverestLiteKeyWords
+ ;
+ MELINK Target HWL ME_512D9C2D013F // Create
+ ;
+
+ENDME // ME_512D9C4D0158 
+
+FORWARD ME_512D9C56000B
+
+ME ME_512D9C5F0321
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9BE30122 // EverestLiteKeyWords
+ ;
+ MELINK Target HWL ME_512D9C56000B // Open
+ ;
+
+ENDME // ME_512D9C5F0321 
+
+FORWARD ME_512DD1330118
+
+ME ME_512DD14D01C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9BE30122 // EverestLiteKeyWords
+ ;
+ MELINK Target HWL ME_512DD1330118 // CloseActiveWindow
+ ;
+
+ENDME // ME_512DD14D01C9 
+
+FORWARD ME_512DD336009D
+
+ME ME_512DD36C0343
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9BE30122 // EverestLiteKeyWords
+ ;
+ MELINK Target HWL ME_512DD336009D // SaveWithOtherExtention
+ ;
+
+ENDME // ME_512DD36C0343 
+
+FORWARD ME_5143073402A1
+
+ME ME_5143078B01AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9BE30122 // EverestLiteKeyWords
+ ;
+ MELINK Target HWL ME_5143073402A1 // OpenWith
+ ;
+
+ENDME // ME_5143078B01AB 
+
+FORWARD ME_5321724703A5
+
+ME ME_5321725B03C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9BE30122 // EverestLiteKeyWords
+ ;
+ MELINK Target HWL ME_5321724703A5 // IsPreviewInProgress
+ ;
+
+ENDME // ME_5321725B03C9 
+
+FORWARD ME_55B665AE01A8
+
+ME ME_55B665D90050
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9BE30122 // EverestLiteKeyWords
+ ;
+ MELINK Target HWL ME_55B665AE01A8 // archiEditorWindowWordsPack
+ ;
+
+ENDME // ME_55B665D90050 
+
+ME ME_512D9BE30122
+ MEPROP UID '512D9BE30122'
+ MEPROP Name 'EverestLiteKeyWords'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512D9C4D0158 // Create
+ ME_512D9C5F0321 // Open
+ ME_512DD14D01C9 // CloseActiveWindow
+ ME_512DD36C0343 // SaveWithOtherExtention
+ ME_5143078B01AB // OpenWith
+ ME_5321725B03C9 // IsPreviewInProgress
+ ME_55B665D90050 // archiEditorWindowWordsPack
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\EverestLiteKeyWords.pas'
+
+ENDME // ME_512D9BE30122 EverestLiteKeyWords
+
+ME ME_512DBBDC00E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9C2D013F // Create
+ ;
+ MELINK Target WL 'ME_512DBB8A00BE' '512DBB1F005F.ms.model.script' // CreateNewDocument
+ ;
+
+ENDME // ME_512DBBDC00E4 
+
+ME ME_512D9C2D013F
+ MEPROP UID '512D9C2D013F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  Create'#13#10'*Описание:* Создает новый документ в редакторе.'#13#10' *Пример:*'#13#10' {code}'#13#10'Create'#13#10' {code}'#13#10' *Результат:* Будет создан новый документ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DBBDC00E4 // CreateNewDocument
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCreate.pas'
+ UP extprop:pas:TypeName 'TkwCreate'
+ UP extprop:rc:SelfName 'Create'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCreate'
+
+ENDME // ME_512D9C2D013F Create
+
+ME ME_512DBBF902B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9C56000B // Open
+ ;
+ MELINK Target WL 'ME_512DBBB003CE' '512DBB1F005F.ms.model.script' // OpenDocument
+ ;
+
+ENDME // ME_512DBBF902B1 
+
+ME ME_512DC8E103CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9C56000B // Open
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '4AB0C3C60310.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_512DC8E103CA 
+
+ME ME_512D9C56000B
+ MEPROP UID '512D9C56000B'
+ MEPROP Name 'Open'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  Open'#13#10'*Описание:* Отрывает документ с расширением .evd и именем теста в новом окне редактора.'#13#10' *Пример:*'#13#10' {code}'#13#10'Open'#13#10' {code}'#13#10' *Результат:* Будет открыт новый документ с именем файла и расширением .evd' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DBBF902B1 // OpenDocument
+ ME_512DC8E103CA // ChangeFileExt
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwOpen.pas'
+ UP extprop:pas:TypeName 'TkwOpen'
+ UP extprop:rc:SelfName 'Open'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwOpen'
+
+ENDME // ME_512D9C56000B Open
+
+ME ME_512DD1D00230
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD1330118 // CloseActiveWindow
+ ;
+ MELINK Target WL 'ME_512DD17201EC' '512DBB1F005F.ms.model.script' // CloseDocument
+ ;
+
+ENDME // ME_512DD1D00230 
+
+ME ME_512DD1330118
+ MEPROP UID '512DD1330118'
+ MEPROP Name 'CloseActiveWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  CloseActiveWindow'#13#10'*Описание:* Закрывает текущее открытое окно редактора.'#13#10' *Пример:*'#13#10' {code}'#13#10'CloseActiveWindow'#13#10' {code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DD1D00230 // CloseDocument
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCloseActiveWindow.pas'
+ UP extprop:pas:TypeName 'TkwCloseActiveWindow'
+ UP extprop:rc:SelfName 'CloseActiveWindow'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCloseActiveWindow'
+
+ENDME // ME_512DD1330118 CloseActiveWindow
+
+ME ME_512DD3AC03C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD336009D // SaveWithOtherExtention
+ ;
+ MELINK Target WL 'ME_512DD27F0187' '512DBB1F005F.ms.model.script' // SaveDocumentAs
+ ;
+
+ENDME // ME_512DD3AC03C9 
+
+ME ME_512DD95C0349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD336009D // SaveWithOtherExtention
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '4AB0C3C60310.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_512DD95C0349 
+
+ME ME_512DD336009D
+ MEPROP UID '512DD336009D'
+ MEPROP Name 'SaveWithOtherExtention'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  расширение SaveWithOtherExtention'#13#10'*Описание:*  Сохраняет текущий открытый файл в редакторе под тем же именем, но с другим расширеним, заданынм через параметр "расширение" '#13#10' *Пример:*'#13#10' {code}'#13#10'''.nsr'' SaveWithOtherExtention'#13#10' {code}'#13#10'*Результат:* Открытый файл в редакторе будет сохранен с расширением nsr (с преобразованием в формат NSRC, если нужно).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DD3AC03C9 // SaveDocumentAs
+ ME_512DD95C0349 // ChangeFileExt
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwSaveWithOtherExtention.pas'
+ UP extprop:pas:TypeName 'TkwSaveWithOtherExtention'
+ UP extprop:rc:SelfName 'SaveWithOtherExtention'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSaveWithOtherExtention'
+
+ENDME // ME_512DD336009D SaveWithOtherExtention
+
+ME ME_514307F9004B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5143073402A1 // OpenWith
+ ;
+ MELINK Target WL 'ME_512DBBB003CE' '512DBB1F005F.ms.model.script' // OpenDocument
+ ;
+
+ENDME // ME_514307F9004B 
+
+ME ME_514310840147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5143073402A1 // OpenWith
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '4AB0C3C60310.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_514310840147 
+
+ME ME_5143073402A1
+ MEPROP UID '5143073402A1'
+ MEPROP Name 'OpenWith'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  OpenWith aFileName'#13#10'*Описание:* Отрывает документ с именем aFileName в новом окне редактора.'#13#10' *Пример:*'#13#10' {code}'#13#10'OpenWith ''MyEvd.doc'''#13#10' {code}'#13#10' *Результат:* Будет открыт новый документ с именем файла ''MyEvd.doc''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_514307F9004B // OpenDocument
+ ME_514310840147 // ChangeFileExt
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwOpenWith.pas'
+ UP extprop:pas:TypeName 'TkwOpenWith'
+ UP extprop:rc:SelfName 'OpenWith'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwOpenWith'
+
+ENDME // ME_5143073402A1 OpenWith
+
+ME ME_532172770248
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5321724703A5 // IsPreviewInProgress
+ ;
+ MELINK Target WL 'ME_532171DE00C1' '512DBB1F005F.ms.model.script' // IsPreviewInProcess
+ ;
+
+ENDME // ME_532172770248 
+
+ME ME_5321724703A5
+ MEPROP UID '5321724703A5'
+ MEPROP Name 'IsPreviewInProgress'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_532172770248 // IsPreviewInProcess
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwIsPreviewInProgress.pas'
+ UP extprop:pas:TypeName 'TkwIsPreviewInProgress'
+ UP extprop:rc:SelfName 'IsPreviewInProgress'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwIsPreviewInProgress'
+
+ENDME // ME_5321724703A5 IsPreviewInProgress
+
+ME ME_55B665ED0380
+ MEPROP UID '55B665ED0380'
+ MEPROP Name 'IsNeedSaveDocument'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B665AE01A8 // archiEditorWindowWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55B665ED0380 IsNeedSaveDocument
+
+ME ME_55B665AE01A8
+ MEPROP UID '55B665AE01A8'
+ MEPROP Name 'archiEditorWindowWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512D9BBE0307 // EverestLiteKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5146CA34003E' '512DBAE001FA.ms.model.script' // TEditorWindow
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B665ED0380 // IsNeedSaveDocument
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP "no class name" true
+ UP "no_pop" true
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\archiEditorWindowWordsPack.pas'
+
+ENDME // ME_55B665AE01A8 archiEditorWindowWordsPack
+
+ME ME_512D9BBE0307
+ MEPROP UID '512D9BBE0307'
+ MEPROP Name 'EverestLiteKeyWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_512D9BA302E0' '512D9BA302E0.ms.model.script' // EverestTestSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_512D9BE30122 // EverestLiteKeyWords
+ HWL ME_512D9C2D013F // Create
+ HWL ME_512D9C56000B // Open
+ HWL ME_512DD1330118 // CloseActiveWindow
+ HWL ME_512DD336009D // SaveWithOtherExtention
+ HWL ME_5143073402A1 // OpenWith
+ HWL ME_5321724703A5 // IsPreviewInProgress
+ HWL ME_55B665AE01A8 // archiEditorWindowWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ WL 'ME_50741A080229' '50741A080229.ms.model.script' // FormsProcessing
+ WL 'ME_512DBAE001FA' '512DBAE001FA.ms.model.script' // MainUnits
+ WL 'ME_512DBB1F005F' '512DBB1F005F.ms.model.script' // EverestLiteTestUnit
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_512D9BBE0307 EverestLiteKeyWords

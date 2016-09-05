@@ -1,0 +1,31 @@
+// GblAdapter 47397FF900B6 AdapterTargetUnion Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_47397FF900B6
+ MEPROP UID '47397FF900B6'
+ MEPROP Name 'GblAdapter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_AdapterTargetUnion ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_442BEDF00290' '442BEDF00290.ms.model.script' // garant6x
+ ;
+ MELIST Depends
+   Seq: ( WL 'ME_47397F650051' '47397F650051.ms.model.script' // GblAdapterServer
+ WL 'ME_4785DFB00230' '4785DFB00230.ms.model.script' // GblAdapterClient
+ )
+ ; // Depends
+ UP "load strategy" 'static'
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.dpr'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.pas'
+ UP pas:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ UP Version 311
+
+ENDME // ME_47397FF900B6 GblAdapter

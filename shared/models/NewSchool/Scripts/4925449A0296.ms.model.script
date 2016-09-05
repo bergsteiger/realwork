@@ -1,0 +1,304 @@
+// dsCommonDiction 4925449A0296 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4925449A0296
+
+ME ME_492545A5017B
+ MEPROP UID '492545A5017B'
+ MEPROP Name 'Current'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий язык списка толкований' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_492545A5017B Current
+
+ME ME_4978A1E40101
+ MEPROP UID '4978A1E40101'
+ MEPROP Name 'BaseDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ ;
+
+ENDME // ME_4978A1E40101 BaseDocument
+
+ME ME_4B0EAE8A0062
+ MEPROP UID '4B0EAE8A0062'
+ MEPROP Name 'CommonDiction'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_4936823400AE' '492540AF02CD.ms.model.script' // IsdsCommonDiction
+ ;
+
+ENDME // ME_4B0EAE8A0062 CommonDiction
+
+ME ME_52F4E5E80283
+ MEPROP UID '52F4E5E80283'
+ MEPROP Name 'f_ContextFilterState'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_4908393001C5' '490838E10313.ms.model.script' // InscContextFilterState
+ ;
+
+ENDME // ME_52F4E5E80283 f_ContextFilterState
+
+ME ME_5571EB84007F
+ MEPROP UID '5571EB84007F'
+ MEPROP Name 'DictionKind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_556C2C0602F8' '492540AF02CD.ms.model.script' // TnsDictionKind
+ ;
+ UP "pm" true
+
+ENDME // ME_5571EB84007F DictionKind
+
+ME ME_4925451B02E7
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4925451B02E7 aDoc
+
+ME ME_49254515003C
+ MEPROP UID '49254515003C'
+ MEPROP Name 'MakeDocInfoForCurrentChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4925451B02E7 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_49254515003C MakeDocInfoForCurrentChanged
+
+ME ME_4925454602E4
+ MEPROP Name 'aNotifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_492547040121' '492540AF02CD.ms.model.script' // IbsCommonDictionListener
+ ;
+
+ENDME // ME_4925454602E4 aNotifier
+
+ME ME_492545420326
+ MEPROP UID '492545420326'
+ MEPROP Name 'DictionNotify'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4925454602E4 // aNotifier
+ )
+ ; // Parameters
+
+ENDME // ME_492545420326 DictionNotify
+
+ME ME_492546330316
+ MEPROP UID '492546330316'
+ MEPROP Name 'AfterChangeCurrent'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+
+ENDME // ME_492546330316 AfterChangeCurrent
+
+ME ME_492547310144
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_492547310144 aNode
+
+ME ME_4925465102FB
+ MEPROP UID '4925465102FB'
+ MEPROP Name 'ChangeCurrent'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELIST Parameters
+   Seq: ( ME_492547310144 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4925465102FB ChangeCurrent
+
+ME ME_4A9E6599035A
+ MEPROP UID '4A9E6599035A'
+ MEPROP Name 'ForceChangeInCurrentChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A9E6599035A ForceChangeInCurrentChanged
+
+ME ME_492549500192
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_492549500192 
+
+ME ME_4978A282025E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4925449A0296 // dsCommonDiction
+ ;
+ MELINK Target WL 'ME_4807744200AA' '4AB0C3C60310.ms.model.script' // System
+ ;
+
+ENDME // ME_4978A282025E 
+
+ME ME_492541AB020E_ME_4925449A0296
+ MELINK Original WL 'ME_492541AB020E' '492540AF02CD.ms.model.script' // Context
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_492541AB020E_ME_4925449A0296 Context
+
+ME ME_492541BD01F3_ME_4925449A0296
+ MELINK Original WL 'ME_492541BD01F3' '492540AF02CD.ms.model.script' // MakeCurrentIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492541BD01F3_ME_4925449A0296 MakeCurrentIndex
+
+ME ME_52F4E72400C2_ME_4925449A0296
+ MELINK Original WL 'ME_52F4E72400C2' '492540AF02CD.ms.model.script' // ContextFilterState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_52F4E72400C2_ME_4925449A0296 ContextFilterState
+
+ME ME_5571E60901BC_ME_4925449A0296
+ MELINK Original WL 'ME_5571E60901BC' '492540AF02CD.ms.model.script' // DictionKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_5571E60901BC_ME_4925449A0296 DictionKind
+
+ME ME_47F0C1BF0314_ME_4925449A0296
+ MELINK Original WL 'ME_47F0C1BF0314' '47F0C1410011.ms.model.script' // DoCurrentChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F0C1BF0314_ME_4925449A0296 DoCurrentChanged
+
+ME ME_491482DC0216_ME_4925449A0296
+ MELINK Original WL 'ME_491482DC0216' '47D0E1500033.ms.model.script' // FormSetDataChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491482DC0216_ME_4925449A0296 FormSetDataChanged
+
+ME ME_4925449A0296
+ MEPROP UID '4925449A0296'
+ MEPROP Name 'dsCommonDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обобщенный словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_492543E30278' '492543E30278.ms.model.script' // CommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4925416003BC' '492540AF02CD.ms.model.script' // IdsCommonDiction
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_492545A5017B // Current
+ HWL ME_4978A1E40101 // BaseDocument
+ HWL ME_4B0EAE8A0062 // CommonDiction
+ HWL ME_52F4E5E80283 // f_ContextFilterState
+ HWL ME_5571EB84007F // DictionKind
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49254515003C // MakeDocInfoForCurrentChanged
+ HWL ME_492545420326 // DictionNotify
+ HWL ME_492546330316 // AfterChangeCurrent
+ HWL ME_4925465102FB // ChangeCurrent
+ HWL ME_4A9E6599035A // ForceChangeInCurrentChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_492541AB020E_ME_4925449A0296 // Context
+ ME_492541BD01F3_ME_4925449A0296 // MakeCurrentIndex
+ ME_52F4E72400C2_ME_4925449A0296 // ContextFilterState
+ ME_5571E60901BC_ME_4925449A0296 // DictionKind
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47F0C1BF0314_ME_4925449A0296 // DoCurrentChanged
+ ME_491482DC0216_ME_4925449A0296 // FormSetDataChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_492549500192 // EntityBase
+ ME_4978A282025E // System
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '2008/03/05 08:04:14'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas'
+ UP extprop:pas:TypeName '_dsCommonDiction_'
+ UP extprop:pas:UnitName 'dsCommonDiction.imp'
+
+ENDME // ME_4925449A0296 dsCommonDiction

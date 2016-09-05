@@ -1,0 +1,37 @@
+// L3$Visual 54F5AAED0073 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_54F5AAED0073
+ MEPROP UID '54F5AAED0073'
+ MEPROP Name 'L3'
+ MEPROP OriginalName 'L3$Visual'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_495259B50283' '495259B50283.ms.model.script' // VCL
+ WL 'ME_47E21C730035' '47E21C730035.ms.model.script' // l3VCLExtensions
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_4E5BBA78010E' '4E5BBA78010E.ms.model.script' // Отображение объектов
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "defines" 'l3Define.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "is namespace" true
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+
+ENDME // ME_54F5AAED0073 L3$Visual

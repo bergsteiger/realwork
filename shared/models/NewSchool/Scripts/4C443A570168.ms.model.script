@@ -1,0 +1,567 @@
+// PrimTreeAttributeSelectOptions 4C443A570168 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C443A570168
+
+FORWARD ME_4F88607901F5
+
+ME ME_4F88608D0210
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4F88608D0210 aControl
+
+ME ME_4F88608D024E
+ MEPROP Name 'aX'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F88608D024E aX
+
+ME ME_4F88608D028D
+ MEPROP Name 'aY'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F88608D028D aY
+
+ME ME_4F88608D02D0
+ MEPROP Name 'theTarget'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A451250363' '4AB0C3C60310.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_4F88608D02D0 theTarget
+
+ME ME_4F886088036D
+ MEPROP UID '4F886088036D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F88607901F5 // EntitiesenSelectionGetTarget
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F88608D0210 // aControl
+ ME_4F88608D024E // aX
+ ME_4F88608D028D // aY
+ ME_4F88608D02D0 // theTarget
+ )
+ ; // Parameters
+
+ENDME // ME_4F886088036D DoIt
+
+ME ME_4F88607901F5
+ MEPROP UID '4F88607901F5'
+ MEPROP Name 'EntitiesenSelectionGetTarget'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4C44452402C9' '4AE831B30019.ms.model.script' // Selection
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F886088036D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F88607901F5 EntitiesenSelectionGetTarget
+
+ME ME_4C4440550343
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4C4440550343 
+
+ME ME_4C4441F3014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4C4441F3014F 
+
+ME ME_4C444222002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_49006BB201CB' '4990510C0026.ms.model.script' // TLogicOperation
+ ;
+
+ENDME // ME_4C444222002E 
+
+ME ME_4C4449DB019E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_49243E5C035C' '47F282AE0082.ms.model.script' // nsLogicOperationToFlags
+ ;
+
+ENDME // ME_4C4449DB019E 
+
+ME ME_51DFB79C01E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_51DFB79C01E0 
+
+ME ME_51DFBE250358
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_4683F5BC0213' '499EAAE502A8.ms.model.script' // TvcmOperationOption
+ ;
+
+ENDME // ME_51DFBE250358 
+
+ME ME_5278CE0401AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ContextMenuWeight::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ ;
+ UP "Value" 50
+
+ENDME // ME_5278CE0401AA 
+
+ME ME_55A64DCE028F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C443A570168 // PrimTreeAttributeSelectOptions
+ ;
+ MELINK Target WL 'ME_4BD6F97301F4' '497ECC0E0325.ms.model.script' // astFirstLevel
+ ;
+
+ENDME // ME_55A64DCE028F 
+
+ME ME_494F89C30197_ME_4C443A570168
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_494F89C30197_ME_4C443A570168 Delete
+
+ME ME_4951284902BD_ME_4C443A570168
+ MELINK Original WL 'ME_4951284902BD' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4951284902BD_ME_4C443A570168 Copy
+
+ME ME_4951285702E1_ME_4C443A570168
+ MELINK Original WL 'ME_4951285702E1' '495127DD017C.ms.model.script' // Cut
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4951285702E1_ME_4C443A570168 Cut
+
+ME ME_49512B5D0009_ME_4C443A570168
+ MELINK Original WL 'ME_49512B5D0009' '495127DD017C.ms.model.script' // FindContext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_49512B5D0009_ME_4C443A570168 FindContext
+
+ME ME_495130C40123_ME_4C443A570168
+ MELINK Original WL 'ME_495130C40123' '495127DD017C.ms.model.script' // FindNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_495130C40123_ME_4C443A570168 FindNext
+
+ME ME_49EDFA3701B0_ME_4C443A570168
+ MELINK Original WL 'ME_49EDFA3701B0' '495127DD017C.ms.model.script' // Paste
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_49EDFA3701B0_ME_4C443A570168 Paste
+
+ME ME_49EDFCA2006D_ME_4C443A570168
+ MELINK Original WL 'ME_49EDFCA2006D' '495127DD017C.ms.model.script' // Undo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_49EDFCA2006D_ME_4C443A570168 Undo
+
+ME ME_49EDFCB100BC_ME_4C443A570168
+ MELINK Original WL 'ME_49EDFCB100BC' '495127DD017C.ms.model.script' // Redo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_49EDFCB100BC_ME_4C443A570168 Redo
+
+ME ME_49EE01AA02BE_ME_4C443A570168
+ MELINK Original WL 'ME_49EE01AA02BE' '495127DD017C.ms.model.script' // SelectAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_49EE01AA02BE_ME_4C443A570168 SelectAll
+
+ME ME_49EE01BC022E_ME_4C443A570168
+ MELINK Original WL 'ME_49EE01BC022E' '495127DD017C.ms.model.script' // Deselect
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_49EE01BC022E_ME_4C443A570168 Deselect
+
+ME ME_49FEDE4703B8_ME_4C443A570168
+ MELINK Original WL 'ME_49FEDE4703B8' '495127DD017C.ms.model.script' // FindPrev
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_49FEDE4703B8_ME_4C443A570168 FindPrev
+
+ME ME_4A97EBE702F8_ME_4C443A570168
+ MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4A97EBE702F8_ME_4C443A570168 Ok
+
+ME ME_4AFAFB4602D9_ME_4C443A570168
+ MELINK Original WL 'ME_4AFAFB4602D9' '4AE831B30019.ms.model.script' // LogicOr
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4AFAFB4602D9_ME_4C443A570168 LogicOr
+
+ME ME_4AFAFB5800B9_ME_4C443A570168
+ MELINK Original WL 'ME_4AFAFB5800B9' '4AE831B30019.ms.model.script' // LogicAnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4AFAFB5800B9_ME_4C443A570168 LogicAnd
+
+ME ME_4AFAFB7002B5_ME_4C443A570168
+ MELINK Original WL 'ME_4AFAFB7002B5' '4AE831B30019.ms.model.script' // LogicNot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4AFAFB7002B5_ME_4C443A570168 LogicNot
+
+ME ME_4BDAF7880236_ME_4C443A570168
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7880236_ME_4C443A570168 ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4C443A570168
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7A2005C_ME_4C443A570168 CollapseAll
+
+ME ME_4C44444E0066_ME_4C443A570168
+ MELINK Original WL 'ME_4C44444E0066' '4AE831B30019.ms.model.script' // LogicOrShortcut
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C44444E0066_ME_4C443A570168 LogicOrShortcut
+
+ME ME_4C4445300216_ME_4C443A570168
+ MELINK Original WL 'ME_4C4445300216' '4AE831B30019.ms.model.script' // DropSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C4445300216_ME_4C443A570168 DropSelection
+
+ME ME_4C762A1501FC_ME_4C443A570168
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762A1501FC_ME_4C443A570168 Ok
+
+ME ME_47D1602000C6_ME_4C443A570168
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4C443A570168 Create
+
+ME ME_4C2B1B9100B5_ME_4C443A570168
+ MELINK Original WL 'ME_4C2B1B9100B5' '4AE831B30019.ms.model.script' // FindFirstSelected
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" true
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C2B1B9100B5_ME_4C443A570168 FindFirstSelected
+
+ME ME_4C443A570168
+ MEPROP UID '4C443A570168'
+ MEPROP Name 'PrimTreeAttributeSelectOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A85282C0252' '4A85282C0252.ms.model.script' // LiteSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_497ECC0E0325' '497ECC0E0325.ms.model.script' // PrimTreeAttributeSelect
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4951282D0269' '495127DD017C.ms.model.script' // Edit
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ WL 'ME_4C44452402C9' '4AE831B30019.ms.model.script' // Selection
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F88607901F5 // EntitiesenSelectionGetTarget
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_4C443A570168 // Delete
+ ME_4951284902BD_ME_4C443A570168 // Copy
+ ME_4951285702E1_ME_4C443A570168 // Cut
+ ME_49512B5D0009_ME_4C443A570168 // FindContext
+ ME_495130C40123_ME_4C443A570168 // FindNext
+ ME_49EDFA3701B0_ME_4C443A570168 // Paste
+ ME_49EDFCA2006D_ME_4C443A570168 // Undo
+ ME_49EDFCB100BC_ME_4C443A570168 // Redo
+ ME_49EE01AA02BE_ME_4C443A570168 // SelectAll
+ ME_49EE01BC022E_ME_4C443A570168 // Deselect
+ ME_49FEDE4703B8_ME_4C443A570168 // FindPrev
+ ME_4A97EBE702F8_ME_4C443A570168 // Ok
+ ME_4AFAFB4602D9_ME_4C443A570168 // LogicOr
+ ME_4AFAFB5800B9_ME_4C443A570168 // LogicAnd
+ ME_4AFAFB7002B5_ME_4C443A570168 // LogicNot
+ ME_4BDAF7880236_ME_4C443A570168 // ExpandAll
+ ME_4BDAF7A2005C_ME_4C443A570168 // CollapseAll
+ ME_4C44444E0066_ME_4C443A570168 // LogicOrShortcut
+ ME_4C4445300216_ME_4C443A570168 // DropSelection
+ ME_4C762A1501FC_ME_4C443A570168 // Ok
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4C443A570168 // Create
+ ME_4C2B1B9100B5_ME_4C443A570168 // FindFirstSelected
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C4440550343 // NodeBase
+ ME_4C4441F3014F // Supports
+ ME_4C444222002E // TLogicOperation
+ ME_4C4449DB019E // nsLogicOperationToFlags
+ ME_51DFB79C01E0 // TvcmBaseOperationsCollectionItem
+ ME_51DFBE250358 // TvcmOperationOption
+ ME_5278CE0401AA // Tree
+ ME_55A64DCE028F // astFirstLevel
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelectOptions_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms'
+ UP extprop:pas:TypeName 'TPrimTreeAttributeSelectOptionsForm'
+ UP extprop:rc:SelfName 'PrimTreeAttributeSelectOptionsForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimTreeAttributeSelectOptions_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4C443A570168 PrimTreeAttributeSelectOptions

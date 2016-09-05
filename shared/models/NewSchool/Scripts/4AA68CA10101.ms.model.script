@@ -1,0 +1,1434 @@
+// PrimRubricator 4AA68CA10101 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA68CA10101
+
+FORWARD ME_4AA78CFE01EF
+
+ME ME_4AA78D1501FF
+ MEPROP UID '4AA78D1501FF'
+ MEPROP Name 'NewDocLabelVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AA78CFE01EF // InsRubricatorState
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_4AA78D1501FF NewDocLabelVisible
+
+ME ME_4AA78D2C012A
+ MEPROP UID '4AA78D2C012A'
+ MEPROP Name 'LinkType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AA78CFE01EF // InsRubricatorState
+ ;
+ MELINK Target WL 'ME_456EC91500FA' '456EA56002BF.ms.model.script' // NavigatorMenuItemType
+ ;
+ UP "pm" false
+
+ENDME // ME_4AA78D2C012A LinkType
+
+ME ME_4AA78CFE01EF
+ MEPROP UID '4AA78CFE01EF'
+ MEPROP GUID 'E4FB5DDB-8888-4F1E-8408-E4D56CCB1FBD'
+ MEPROP Name 'InsRubricatorState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AA78D1501FF // NewDocLabelVisible
+ HWL ME_4AA78D2C012A // LinkType
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'RubricatorState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AA78CFE01EF InsRubricatorState
+
+FORWARD ME_4AA78D4B020B
+
+ME ME_4AA78EB60143
+ MEPROP UID '4AA78EB60143'
+ MEPROP Name 'f_NewDocLabelVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA78D4B020B // TnsRubricatorState
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AA78EB60143 f_NewDocLabelVisible
+
+ME ME_4AA78EC00102
+ MEPROP UID '4AA78EC00102'
+ MEPROP Name 'f_LinkType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA78D4B020B // TnsRubricatorState
+ ;
+ MELINK Target WL 'ME_456EC91500FA' '456EA56002BF.ms.model.script' // NavigatorMenuItemType
+ ;
+
+ENDME // ME_4AA78EC00102 f_LinkType
+
+ME ME_4AA78D8B0149
+ MEPROP Name 'aNewDocLabelVisible'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AA78D8B0149 aNewDocLabelVisible
+
+ME ME_4AA78D8B0175
+ MEPROP Name 'aLinkType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EC91500FA' '456EA56002BF.ms.model.script' // NavigatorMenuItemType
+ ;
+
+ENDME // ME_4AA78D8B0175 aLinkType
+
+ME ME_4AA78D81011E
+ MEPROP UID '4AA78D81011E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA78D4B020B // TnsRubricatorState
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA78D8B0149 // aNewDocLabelVisible
+ ME_4AA78D8B0175 // aLinkType
+ )
+ ; // Parameters
+
+ENDME // ME_4AA78D81011E Create
+
+ME ME_4AA78D9F02B6
+ MEPROP Name 'aNewDocLabelVisible'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AA78D9F02B6 aNewDocLabelVisible
+
+ME ME_4AA78D9F02E0
+ MEPROP Name 'aLinkType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EC91500FA' '456EA56002BF.ms.model.script' // NavigatorMenuItemType
+ ;
+
+ENDME // ME_4AA78D9F02E0 aLinkType
+
+ME ME_4AA78D99037A
+ MEPROP UID '4AA78D99037A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA78D4B020B // TnsRubricatorState
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA78D9F02B6 // aNewDocLabelVisible
+ ME_4AA78D9F02E0 // aLinkType
+ )
+ ; // Parameters
+
+ENDME // ME_4AA78D99037A Make
+
+ME ME_4AA78D1501FF_ME_4AA78D4B020B
+ MELINK Original HWL ME_4AA78D1501FF // NewDocLabelVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4AA78D1501FF_ME_4AA78D4B020B NewDocLabelVisible
+
+ME ME_4AA78D2C012A_ME_4AA78D4B020B
+ MELINK Original HWL ME_4AA78D2C012A // LinkType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4AA78D2C012A_ME_4AA78D4B020B LinkType
+
+ME ME_4AA78D4B020B
+ MEPROP UID '4AA78D4B020B'
+ MEPROP Name 'TnsRubricatorState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4AA78CFE01EF // InsRubricatorState
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AA78EB60143 // f_NewDocLabelVisible
+ HWL ME_4AA78EC00102 // f_LinkType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AA78D81011E // Create
+ HWL ME_4AA78D99037A // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AA78D1501FF_ME_4AA78D4B020B // NewDocLabelVisible
+ ME_4AA78D2C012A_ME_4AA78D4B020B // LinkType
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'RubricatorState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AA78D4B020B TnsRubricatorState
+
+ME ME_4BD728AC00C0
+ MEPROP UID '4BD728AC00C0'
+ MEPROP Name 'utRubricatorList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правовой навигатор (линейное представление)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Правовой навигатор'
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\PrimRubricator_utRubricatorList_UserType.pas'
+ UP extprop:pas:UnitName 'PrimRubricator_utRubricatorList_UserType'
+
+ENDME // ME_4BD728AC00C0 utRubricatorList
+
+FORWARD ME_4AA782860041
+
+ME ME_494F89C30197_ME_4AA782860041
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_494F89C30197_ME_4AA782860041 Delete
+
+ME ME_4BDAF7880236_ME_4AA782860041
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7880236_ME_4AA782860041 ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4AA782860041
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7A2005C_ME_4AA782860041 CollapseAll
+
+ME ME_4BDAF7B803CF_ME_4AA782860041
+ MELINK Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.ms.model.script' // Wrap
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4BDAF7B803CF_ME_4AA782860041 Wrap
+
+ME ME_4C7D0CC90052_ME_4AA782860041
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0CC90052_ME_4AA782860041 Delete
+
+ME ME_4AA782860041
+ MEPROP UID '4AA782860041'
+ MEPROP Name 'RubricatorList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_4AA782860041 // Delete
+ ME_4BDAF7880236_ME_4AA782860041 // ExpandAll
+ ME_4BDAF7A2005C_ME_4AA782860041 // CollapseAll
+ ME_4BDAF7B803CF_ME_4AA782860041 // Wrap
+ ME_4C7D0CC90052_ME_4AA782860041 // Delete
+ )
+ ; // Implemented
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4AA782860041 RubricatorList
+
+FORWARD ME_525D4AF401FF
+
+ME ME_525D4B0E0001
+ MEPROP UID '525D4B0E0001'
+ MEPROP Name 'PaintBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525D4AF401FF // TopPanel
+ ;
+ UP "ControlClass" 'TPaintBox'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D4B0E0001 PaintBox
+
+ME ME_525D4B260004
+ MEPROP UID '525D4B260004'
+ MEPROP Name 'NewDocLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525D4AF401FF // TopPanel
+ ;
+ UP "ControlClass" 'TnscSimpleEditor'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D4B260004 NewDocLabel
+
+ME ME_525D4AF401FF
+ MEPROP UID '525D4AF401FF'
+ MEPROP Name 'TopPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_525D4B0E0001 // PaintBox
+ HWL ME_525D4B260004 // NewDocLabel
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D4AF401FF TopPanel
+
+ME ME_525D4B46019C
+ MEPROP UID '525D4B46019C'
+ MEPROP Name 'DelimiterPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D4B46019C DelimiterPanel
+
+ME ME_525D4F390256
+ MEPROP UID '525D4F390256'
+ MEPROP Name 'ExampleTextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ UP "ComponentClass" 'TnscTextSource'
+ UP "need Caption" false
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D4F390256 ExampleTextSource
+
+ME ME_4AA7836F03AB
+ MEPROP UID '4AA7836F03AB'
+ MEPROP Name 'f_SetCurrentLock'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AA7836F03AB f_SetCurrentLock
+
+ME ME_525D5E56011D
+ MEPROP UID '525D5E56011D'
+ MEPROP Name 'f_LinkType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_456EC91500FA' '456EA56002BF.ms.model.script' // NavigatorMenuItemType
+ ;
+
+ENDME // ME_525D5E56011D f_LinkType
+
+FORWARD ME_4AA781EA039B
+
+ME ME_4AA7848A02C5
+ MEPROP UID '4AA7848A02C5'
+ MEPROP Name 'Node'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA781EA039B // InternalInitRoot
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4AA7848A02C5 Node
+
+ME ME_4AA7820C028F
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4AA7820C028F aNode
+
+ME ME_4E7B00FC027C
+ MEPROP Name 'aRootToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E7B00FC027C aRootToKeep
+
+ME ME_4E7B00FC02AD
+ MEPROP Name 'aMenuSectionItemToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
+ ;
+
+ENDME // ME_4E7B00FC02AD aMenuSectionItemToKeep
+
+ME ME_4AA782070244
+ MEPROP UID '4AA782070244'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA781EA039B // InternalInitRoot
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA7820C028F // aNode
+ ME_4E7B00FC027C // aRootToKeep
+ ME_4E7B00FC02AD // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+
+ENDME // ME_4AA782070244 DoIt
+
+ME ME_4AA788020390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA781EA039B // InternalInitRoot
+ ;
+ MELINK Target WL 'ME_46836A280235' '4AA7A7EB0328.ms.model.script' // TnsRubricatorList
+ ;
+
+ENDME // ME_4AA788020390 
+
+ME ME_4AA788AE0128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA781EA039B // InternalInitRoot
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4AA788AE0128 
+
+ME ME_4AA781EA039B
+ MEPROP UID '4AA781EA039B'
+ MEPROP Name 'InternalInitRoot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AA7848A02C5 // Node
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AA782070244 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AA788020390 // TnsRubricatorList
+ ME_4AA788AE0128 // l3CStr
+ )
+ ; // Dependencies
+
+ENDME // ME_4AA781EA039B InternalInitRoot
+
+FORWARD ME_4AA7824B03DF
+
+ME ME_4AA782640205
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4AA782640205 aNode
+
+ME ME_4E7B012B03AC
+ MEPROP Name 'aRootToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E7B012B03AC aRootToKeep
+
+ME ME_4E7B012B03D7
+ MEPROP Name 'aMenuSectionItemToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
+ ;
+
+ENDME // ME_4E7B012B03D7 aMenuSectionItemToKeep
+
+ME ME_4AA78260016B
+ MEPROP UID '4AA78260016B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA7824B03DF // InternalSetRoot
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA782640205 // aNode
+ ME_4E7B012B03AC // aRootToKeep
+ ME_4E7B012B03D7 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+
+ENDME // ME_4AA78260016B DoIt
+
+ME ME_4AA7824B03DF
+ MEPROP UID '4AA7824B03DF'
+ MEPROP Name 'InternalSetRoot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA78260016B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AA7824B03DF InternalSetRoot
+
+ME ME_525D4BD701CF
+ MEPROP UID '525D4BD701CF'
+ MEPROP Name 'RubricatorListActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_525D4BD701CF RubricatorListActionElement
+
+ME ME_525D4BE202AC
+ MEPROP UID '525D4BE202AC'
+ MEPROP Name 'RubricatorListGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_525D4BE202AC RubricatorListGetItemImage
+
+ME ME_525D4CF902DC
+ MEPROP UID '525D4CF902DC'
+ MEPROP Name 'RubricatorListTreeChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5146EBE00019' '515DA5860015.ms.model.script' // TvtTreeChangedEvent
+ )
+ ; // Inherits
+
+ENDME // ME_525D4CF902DC RubricatorListTreeChanged
+
+ME ME_525D4D05018C
+ MEPROP UID '525D4D05018C'
+ MEPROP Name 'NewDocLabelJumpTo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ )
+ ; // Inherits
+
+ENDME // ME_525D4D05018C NewDocLabelJumpTo
+
+ME ME_525D4D190205
+ MEPROP UID '525D4D190205'
+ MEPROP Name 'ExampleTextSourceMakeDocumentContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51C1A49003E5' '47542EA70394.ms.model.script' // TeeMakeDocumentContainerEvent
+ )
+ ; // Inherits
+
+ENDME // ME_525D4D190205 ExampleTextSourceMakeDocumentContainer
+
+ME ME_525D4D28010E
+ MEPROP UID '525D4D28010E'
+ MEPROP Name 'NewDocLabelBreakingPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5018F93C01CC' '4CFF6CF60266.ms.model.script' // TBreakingParaEvent
+ )
+ ; // Inherits
+
+ENDME // ME_525D4D28010E NewDocLabelBreakingPara
+
+ME ME_525D4D3402A7
+ MEPROP UID '525D4D3402A7'
+ MEPROP Name 'PaintBoxPaint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_525D4D3402A7 PaintBoxPaint
+
+ME ME_525D4D3F0361
+ MEPROP UID '525D4D3F0361'
+ MEPROP Name 'NewDocLabelGetHotSpotInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5049C6650272' '4829D92A037B.ms.model.script' // TevGetHotspotInfo
+ )
+ ; // Inherits
+
+ENDME // ME_525D4D3F0361 NewDocLabelGetHotSpotInfo
+
+ME ME_525D4D500351
+ MEPROP UID '525D4D500351'
+ MEPROP Name 'CallGarant'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+
+ENDME // ME_525D4D500351 CallGarant
+
+ME ME_525D4DC500E2
+ MEPROP UID '525D4DC500E2'
+ MEPROP Name 'RubricExecute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+
+ENDME // ME_525D4DC500E2 RubricExecute
+
+FORWARD ME_525D4DF700DE
+
+ME ME_525D4E040173
+ MEPROP Name 'aNodeType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EC91500FA' '456EA56002BF.ms.model.script' // NavigatorMenuItemType
+ ;
+
+ENDME // ME_525D4E040173 aNodeType
+
+ME ME_525D4E0102F0
+ MEPROP UID '525D4E0102F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525D4DF700DE // UpdateTopPanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_525D4E040173 // aNodeType
+ )
+ ; // Parameters
+
+ENDME // ME_525D4E0102F0 DoIt
+
+ME ME_525D4DF700DE
+ MEPROP UID '525D4DF700DE'
+ MEPROP Name 'UpdateTopPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525D4E0102F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525D4DF700DE UpdateTopPanel
+
+FORWARD ME_525E7A2D0076
+
+ME ME_525E7A400281
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4992FC0C02CA' '4683F37902CF.ms.model.script' // IvcmBase
+ ;
+
+ENDME // ME_525E7A400281 aState
+
+ME ME_525E7A4002A6
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_525E7A4002A6 aStateType
+
+ME ME_525E7A4002CC
+ MEPROP Name 'Saved'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_525E7A4002CC Saved
+
+ME ME_525E7A3E0051
+ MEPROP UID '525E7A3E0051'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E7A2D0076 // vcmEntityFormSaveState
+ ;
+ MELIST Parameters
+   Seq: ( ME_525E7A400281 // aState
+ ME_525E7A4002A6 // aStateType
+ ME_525E7A4002CC // Saved
+ )
+ ; // Parameters
+
+ENDME // ME_525E7A3E0051 DoIt
+
+ME ME_525E7A2D0076
+ MEPROP UID '525E7A2D0076'
+ MEPROP Name 'vcmEntityFormSaveState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E7A3E0051 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'EntityFormSaveState'
+
+ENDME // ME_525E7A2D0076 vcmEntityFormSaveState
+
+FORWARD ME_525E7A6300A6
+
+ME ME_525E7A6A0268
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4992FC0C02CA' '4683F37902CF.ms.model.script' // IvcmBase
+ ;
+
+ENDME // ME_525E7A6A0268 aState
+
+ME ME_525E7A6A028D
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_525E7A6A028D aStateType
+
+ME ME_525E7A6A02B2
+ MEPROP Name 'Loaded'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_525E7A6A02B2 Loaded
+
+ME ME_525E7A67039B
+ MEPROP UID '525E7A67039B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E7A6300A6 // vcmEntityFormLoadState
+ ;
+ MELIST Parameters
+   Seq: ( ME_525E7A6A0268 // aState
+ ME_525E7A6A028D // aStateType
+ ME_525E7A6A02B2 // Loaded
+ )
+ ; // Parameters
+
+ENDME // ME_525E7A67039B DoIt
+
+ME ME_525E7A6300A6
+ MEPROP UID '525E7A6300A6'
+ MEPROP Name 'vcmEntityFormLoadState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E7A67039B // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'EntityFormLoadState'
+
+ENDME // ME_525E7A6300A6 vcmEntityFormLoadState
+
+ME ME_4AA784E70191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AA784E70191 
+
+ME ME_4AA7859E0020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ ;
+
+ENDME // ME_4AA7859E0020 
+
+ME ME_4AA790EF02C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_4AA790E300D4' '4AA66B460175.ms.model.script' // RubricatorRes
+ ;
+
+ENDME // ME_4AA790EF02C7 
+
+ME ME_4AF306EC0386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_4AEEE2C402DC' '4AEEE2A40281.ms.model.script' // Navigator
+ ;
+
+ENDME // ME_4AF306EC0386 
+
+ME ME_4E7B005B0148
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_4E7AFF400116' '4E7AFECB03CB.ms.model.script' // InsRubricatorTree
+ ;
+
+ENDME // ME_4E7B005B0148 
+
+ME ME_4F54ACD80391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_485FB71E0374' '484A470100DD.ms.model.script' // TxtNormalANSI
+ ;
+
+ENDME // ME_4F54ACD80391 
+
+ME ME_525D525D0297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_525D525D0297 
+
+ME ME_525D526F0299
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_525D526F0299 
+
+ME ME_525D52720303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_525D52720303 
+
+ME ME_525D529200E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_48C78D5402A6' '4799D29F033F.ms.model.script' // StdCtrls
+ ;
+
+ENDME // ME_525D529200E9 
+
+ME ME_525E535F00B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47AB1FDE03E4' '47913B47006E.ms.model.script' // l3Memory
+ ;
+
+ENDME // ME_525E535F00B1 
+
+ME ME_525E536200AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.ms.model.script' // IevHyperlink
+ ;
+
+ENDME // ME_525E536200AF 
+
+ME ME_525E5378005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_525E5378005F 
+
+ME ME_525E539B011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_525E539B011A 
+
+ME ME_525E53C3005D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.ms.model.script' // nsExternalObjectPrim
+ ;
+
+ENDME // ME_525E53C3005D 
+
+ME ME_525E53DF0130
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_525E53DF0130 
+
+ME ME_525E53F80293
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_525E53F80293 
+
+ME ME_525E53FB03E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_525E53FB03E2 
+
+ME ME_525E54260212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_525E54260212 
+
+ME ME_525E5429015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_525E5429015C 
+
+ME ME_525E544202B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_525E544202B5 
+
+ME ME_525E545B0232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_47F5C59F0135' '47EA07FA02CE.ms.model.script' // TbsListType
+ ;
+
+ENDME // ME_525E545B0232 
+
+ME ME_525E54840132
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.ms.model.script' // TdeDocInfo
+ ;
+
+ENDME // ME_525E54840132 
+
+ME ME_525E6024019B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ContextMenuWeight::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ ;
+ UP "Value" 10
+
+ENDME // ME_525E6024019B 
+
+ME ME_525E83980351
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_525E83980351 
+
+ME ME_543E528302D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
+ ;
+ MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ ;
+
+ENDME // ME_543E528302D3 
+
+ME ME_4AA7805301DC_ME_4AA68CA10101
+ MELINK Original WL 'ME_4AA7805301DC' '4AA7800100B4.ms.model.script' // SetListRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AA7805301DC_ME_4AA68CA10101 SetListRoot
+
+ME ME_4AA7806601AE_ME_4AA68CA10101
+ MELINK Original WL 'ME_4AA7806601AE' '4AA7800100B4.ms.model.script' // InitListRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AA7806601AE_ME_4AA68CA10101 InitListRoot
+
+ME ME_4AA7809901AE_ME_4AA68CA10101
+ MELINK Original WL 'ME_4AA7809901AE' '4AA7800100B4.ms.model.script' // Synchronize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4AA7809901AE_ME_4AA68CA10101 Synchronize
+
+ME ME_4B02CFA303DA_ME_4AA68CA10101
+ MELINK Original WL 'ME_4B02CFA303DA' '4AA7800100B4.ms.model.script' // GetRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "Needs Broadcast" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4B02CFA303DA_ME_4AA68CA10101 GetRoot
+
+ME ME_4C4433150077_ME_4AA68CA10101
+ MELINK Original WL 'ME_4C4433150077' '4C4432FA016A.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" true
+ UP "no prefix" false
+ENDME // ME_4C4433150077_ME_4AA68CA10101 Execute
+
+ME ME_479731C50290_ME_4AA68CA10101
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AA68CA10101 Cleanup
+
+ME ME_47A042E100E2_ME_4AA68CA10101
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4AA68CA10101 InitFields
+
+ME ME_4A8E8F2E0195_ME_4AA68CA10101
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AA68CA10101 InitControls
+
+ME ME_543E3AA801D0_ME_4AA68CA10101
+ MELINK Original WL 'ME_543E3AA801D0' '533D53FF00C2.ms.model.script' // DoGetTabImageIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_543E3AA801D0_ME_4AA68CA10101 DoGetTabImageIndex
+
+ME ME_4AA68CA10101
+ MEPROP UID '4AA68CA10101'
+ MEPROP Name 'PrimRubricator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правовой навигатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA66B460175' '4AA66B460175.ms.model.script' // Rubricator
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ WL 'ME_4AA7803101E2' '4AA7800100B4.ms.model.script' // Rubricator
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ WL 'ME_4C44330A0062' '4C4432FA016A.ms.model.script' // Rubric
+ WL 'ME_4F54B0740014' '4E365B6002CA.ms.model.script' // Рубрикатор должен показываться стилем Текст
+ WL 'ME_543E3A600253' '533D53FF00C2.ms.model.script' // vcmChromeLikeTabIconUpdater
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AA782860041 // RubricatorList
+ HWL ME_525D4AF401FF // TopPanel
+ HWL ME_525D4B46019C // DelimiterPanel
+ HWL ME_525D4F390256 // ExampleTextSource
+ HWL ME_4AA7836F03AB // f_SetCurrentLock
+ HWL ME_525D5E56011D // f_LinkType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AA781EA039B // InternalInitRoot
+ HWL ME_4AA7824B03DF // InternalSetRoot
+ HWL ME_525D4BD701CF // RubricatorListActionElement
+ HWL ME_525D4BE202AC // RubricatorListGetItemImage
+ HWL ME_525D4CF902DC // RubricatorListTreeChanged
+ HWL ME_525D4D05018C // NewDocLabelJumpTo
+ HWL ME_525D4D190205 // ExampleTextSourceMakeDocumentContainer
+ HWL ME_525D4D28010E // NewDocLabelBreakingPara
+ HWL ME_525D4D3402A7 // PaintBoxPaint
+ HWL ME_525D4D3F0361 // NewDocLabelGetHotSpotInfo
+ HWL ME_525D4D500351 // CallGarant
+ HWL ME_525D4DC500E2 // RubricExecute
+ HWL ME_525D4DF700DE // UpdateTopPanel
+ HWL ME_525E7A2D0076 // vcmEntityFormSaveState
+ HWL ME_525E7A6300A6 // vcmEntityFormLoadState
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AA7805301DC_ME_4AA68CA10101 // SetListRoot
+ ME_4AA7806601AE_ME_4AA68CA10101 // InitListRoot
+ ME_4AA7809901AE_ME_4AA68CA10101 // Synchronize
+ ME_4B02CFA303DA_ME_4AA68CA10101 // GetRoot
+ ME_4C4433150077_ME_4AA68CA10101 // Execute
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AA68CA10101 // Cleanup
+ ME_47A042E100E2_ME_4AA68CA10101 // InitFields
+ ME_4A8E8F2E0195_ME_4AA68CA10101 // InitControls
+ ME_543E3AA801D0_ME_4AA68CA10101 // DoGetTabImageIndex
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4AA78CFE01EF // InsRubricatorState
+ HWL ME_4AA78D4B020B // TnsRubricatorState
+ HWL ME_4BD728AC00C0 // utRubricatorList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AA784E70191 // SysUtils
+ ME_4AA7859E0020 // vcmParams
+ ME_4AA790EF02C7 // RubricatorRes
+ ME_4AF306EC0386 // Navigator
+ ME_4E7B005B0148 // InsRubricatorTree
+ ME_4F54ACD80391 // TxtNormalANSI
+ ME_525D525D0297 // Graphics
+ ME_525D526F0299 // Controls
+ ME_525D52720303 // Forms
+ ME_525D529200E9 // StdCtrls
+ ME_525E535F00B1 // l3Memory
+ ME_525E536200AF // IevHyperlink
+ ME_525E5378005F // afwFacade
+ ME_525E539B011A // l3String
+ ME_525E53C3005D // nsExternalObjectPrim
+ ME_525E53DF0130 // nsTypes
+ ME_525E53F80293 // nsConst
+ ME_525E53FB03E2 // DataAdapter
+ ME_525E54260212 // DynList
+ ME_525E5429015C // Document
+ ME_525E544202B5 // nsUtils
+ ME_525E545B0232 // TbsListType
+ ME_525E54840132 // TdeDocInfo
+ ME_525E6024019B // Tree
+ ME_525E83980351 // Standard
+ ME_543E528302D3 // nsTabbedInterfaceTypes
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Parent'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '08.09.2009 20:56'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\PrimRubricator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms'
+ UP extprop:pas:TypeName 'TPrimRubricatorForm'
+ UP extprop:rc:SelfName 'PrimRubricatorForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimRubricator_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4AA68CA10101 PrimRubricator

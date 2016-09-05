@@ -1,0 +1,179 @@
+// BaseSearch 4CC97D020011 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CC97D020011
+
+ME ME_F75B4A9B4CD0
+ MEPROP UID 'F75B4A9B4CD0'
+ MEPROP Name 'Ini_FormFactory_NewBaseSearch_NewBaseSearch'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы NewBaseSearch' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ UPLINK SpelledFor WL 'ME_4CF4BE9C035F' '4CF4BE9C035F.ms.model.script' // NewBaseSearch
+ ;
+
+ENDME // ME_F75B4A9B4CD0 Ini_FormFactory_NewBaseSearch_NewBaseSearch
+
+ME ME_57973DAD0034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_57973D75032B' '5795D66F0385.ms.model.script' // TBaseSearchService
+ ;
+
+ENDME // ME_57973DAD0034 
+
+ME ME_4AB7A5E902CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AB7A5E902CC 
+
+ME ME_57973EAA032B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_496B533F00AE' '4A9F98B901A5.ms.model.script' // InsBaseSearchQueryDataProcessor
+ ;
+
+ENDME // ME_57973EAA032B 
+
+ME ME_57973EE90258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_496B4F6303E5' '4A9F98B901A5.ms.model.script' // InsBaseSearchDataReadyChecker
+ ;
+
+ENDME // ME_57973EE90258 
+
+ME ME_56F4EBF600E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_563875050317' '563874EF0183.ms.model.script' // TnsBaseSearchService
+ ;
+
+ENDME // ME_56F4EBF600E1 
+
+ME ME_4AE989BB0286
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_4AE831E70016' '4AE831B30019.ms.model.script' // AttributeTree$Select
+ ;
+
+ENDME // ME_4AE989BB0286 
+
+ME ME_4AE986FB0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_4AE8A0D10108' '4AE89F8A004B.ms.model.script' // Query
+ ;
+
+ENDME // ME_4AE986FB0290 
+
+ME ME_57973F470315
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57973F470315 
+
+ME ME_57973F6A0391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_495132860112' '4D7A0528021A.ms.model.script' // InsBaseSearchResultProcessor
+ ;
+
+ENDME // ME_57973F6A0391 
+
+ME ME_4D7A324700CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_4D7A26C701BE' '4F5DA09300C5.ms.model.script' // slqtBaseSearch
+ ;
+
+ENDME // ME_4D7A324700CC 
+
+ME ME_4AB7A30D01EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC97D020011 // BaseSearch
+ ;
+ MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ ;
+
+ENDME // ME_4AB7A30D01EC 
+
+ME ME_4CC97D020011
+ MEPROP UID '4CC97D020011'
+ MEPROP Name 'BaseSearch'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый поиск' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.ms.model.script' // BaseSearch$Module
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AB33E14004E' '47D0E1500033.ms.model.script' // TvcmModule
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_F75B4A9B4CD0 // Ini_FormFactory_NewBaseSearch_NewBaseSearch
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( WL 'ME_4AB7A34401D0' '4AB7A34401D0.ms.model.script' // BaseSearchCard
+ WL 'ME_4CF4BE9C035F' '4CF4BE9C035F.ms.model.script' // NewBaseSearch
+ WL 'ME_4D7A458300CB' '4D7A458300CB.ms.model.script' // BaseSearchContainer
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_57973DAD0034 // TBaseSearchService
+ ME_4AB7A5E902CC // SysUtils
+ ME_57973EAA032B // InsBaseSearchQueryDataProcessor
+ ME_57973EE90258 // InsBaseSearchDataReadyChecker
+ ME_56F4EBF600E1 // TnsBaseSearchService
+ ME_4AE989BB0286 // AttributeTree$Select
+ ME_4AE986FB0290 // Query
+ ME_57973F470315 // IvcmContainer
+ ME_57973F6A0391 // InsBaseSearchResultProcessor
+ ME_4D7A324700CC // slqtBaseSearch
+ ME_4AB7A30D01EC // vcmParams
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearch_Module.pas'
+ UP extprop:pas:TypeName 'TBaseSearchModule'
+ UP extprop:rc:SelfName 'BaseSearchModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseSearch_Module'
+
+ENDME // ME_4CC97D020011 BaseSearch

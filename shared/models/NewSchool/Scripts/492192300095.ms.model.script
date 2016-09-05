@@ -1,0 +1,659 @@
+// FoldersInterfaces 492192300095 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492192300095
+
+FORWARD ME_4921928D038A
+
+ME ME_492192AA0144
+ MEPROP UID '492192AA0144'
+ MEPROP Name 'SaveObject'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'сохраняемый объект' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4921928D038A // IdsFolderElement
+ ;
+ MELINK Target WL 'ME_492192160370' '4990135D02F1.ms.model.script' // IdeSaveObject
+ ;
+ UP "pm" true
+
+ENDME // ME_492192AA0144 SaveObject
+
+ME ME_4921928D038A
+ MEPROP UID '4921928D038A'
+ MEPROP GUID '548ADA55-9255-4D0E-B131-BEF738D30194'
+ MEPROP Name 'IdsFolderElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент папок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492192300095 // FoldersInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_492192AA0144 // SaveObject
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'dsFolderElement'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4921928D038A IdsFolderElement
+
+ME ME_49219A640243
+ MEPROP UID '49219A640243'
+ MEPROP Name 'EdsConsultationInProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'консультация находится в процессе обработки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492192300095 // FoldersInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_49219A640243 EdsConsultationInProcess
+
+ME ME_49219A730061
+ MEPROP UID '49219A730061'
+ MEPROP Name 'EdsConsultationSending'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'консультация отправляется в службу консультаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492192300095 // FoldersInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_49219A730061 EdsConsultationSending
+
+ME ME_492EBE2802A6
+ MEPROP UID '492EBE2802A6'
+ MEPROP Name 'EdsOldRefusalConsultationFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'пользователь отказался оплатить консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492192300095 // FoldersInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_492EBE2802A6 EdsOldRefusalConsultationFormat
+
+FORWARD ME_49219A930293
+
+ME ME_49219AED021B
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219AED021B aNode
+
+ME ME_49219AE20118
+ MEPROP UID '49219AE20118'
+ MEPROP Name 'CanBeOpen'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли открыть элемент.'#13#10'           Возможные исключения:'#13#10'             - EdsConsultationInProcess;'#13#10'             - EdsConsultationSending;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_49219A640243 // EdsConsultationInProcess
+ HWL ME_49219A730061 // EdsConsultationSending
+ HWL ME_492EBE2802A6 // EdsOldRefusalConsultationFormat
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_49219AED021B // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219AE20118 CanBeOpen
+
+ME ME_49219B15005A
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219B15005A aNode
+
+ME ME_49219B0B0108
+ MEPROP UID '49219B0B0108'
+ MEPROP Name 'CanBeOpenAsConsultation'
+ MEPROP Class class_Operation
+ %SUMMARY 'определяет возможность открытия объекта без типизации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219B15005A // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219B0B0108 CanBeOpenAsConsultation
+
+ME ME_49219B2702F1
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219B2702F1 aNode
+
+ME ME_49219B1D02A0
+ MEPROP UID '49219B1D02A0'
+ MEPROP Name 'CanGiveMarkOnConsultation'
+ MEPROP Class class_Operation
+ %SUMMARY 'определяет возможность оценки на консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219B2702F1 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219B1D02A0 CanGiveMarkOnConsultation
+
+ME ME_49219B560268
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219B560268 aNode
+
+ME ME_49219B4D029C
+ MEPROP UID '49219B4D029C'
+ MEPROP Name 'CanDelete'
+ MEPROP Class class_Operation
+ %SUMMARY 'можено удалить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219B560268 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219B4D029C CanDelete
+
+ME ME_49219B670060
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219B670060 aNode
+
+ME ME_49219B5E0026
+ MEPROP UID '49219B5E0026'
+ MEPROP Name 'IsConsultation'
+ MEPROP Class class_Operation
+ %SUMMARY 'узел является консультацией' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219B670060 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219B5E0026 IsConsultation
+
+ME ME_49219B7402EE
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219B7402EE aNode
+
+ME ME_49219B6D00F7
+ MEPROP UID '49219B6D00F7'
+ MEPROP Name 'DeleteConsultation'
+ MEPROP Class class_Operation
+ %SUMMARY 'удалить консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219B7402EE // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219B6D00F7 DeleteConsultation
+
+ME ME_49219B8801C2
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219B8801C2 aNode
+
+ME ME_49219B7D0122
+ MEPROP UID '49219B7D0122'
+ MEPROP Name 'CanImportConsultation'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли импортировать консультацию. Возможно только если aNode ='#13#10'           "Мои консультации"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219B8801C2 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219B7D0122 CanImportConsultation
+
+ME ME_49219B9B0008
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_49219B9B0008 aFileName
+
+ME ME_49219B9101C6
+ MEPROP UID '49219B9101C6'
+ MEPROP Name 'ImportConsultation'
+ MEPROP Class class_Operation
+ %SUMMARY 'испортировать консультацию.'#13#10'           Исключения:'#13#10'           - EAccessDenied;'#13#10'           - EInvalidXMLType;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219B9B0008 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_49219B9101C6 ImportConsultation
+
+ME ME_49219BB5018F
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219BB5018F aNode
+
+ME ME_49219BAA0308
+ MEPROP UID '49219BAA0308'
+ MEPROP Name 'CanExportForIntegration'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли экспортировать полученный ответ на консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219BB5018F // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219BAA0308 CanExportForIntegration
+
+ME ME_49219BC701C2
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219BC701C2 aNode
+
+ME ME_49219BBE035D
+ MEPROP UID '49219BBE035D'
+ MEPROP Name 'ExportForIntegration'
+ MEPROP Class class_Operation
+ %SUMMARY 'экспортировать консультацию.'#13#10'           Исключения:'#13#10'           - EInvalidEntityType;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219BC701C2 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219BBE035D ExportForIntegration
+
+ME ME_49219BD90082
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219BD90082 aNode
+
+ME ME_49219BD0007C
+ MEPROP UID '49219BD0007C'
+ MEPROP Name 'CanExportToXML'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли экспортировать ноду из папок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219BD90082 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219BD0007C CanExportToXML
+
+ME ME_49219BEF0204
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219BEF0204 aNode
+
+ME ME_49219BEF0242
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_49219BEF0242 aFileName
+
+ME ME_49219BE201A9
+ MEPROP UID '49219BE201A9'
+ MEPROP Name 'ExportToXML'
+ MEPROP Class class_Operation
+ %SUMMARY 'экспортировать ноду из папок.'#13#10'           Исключения:'#13#10'           - EAccessDenied;'#13#10'           - EInvalidEntityType;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219BEF0204 // aNode
+ ME_49219BEF0242 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_49219BE201A9 ExportToXML
+
+ME ME_49219C070003
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219C070003 aNode
+
+ME ME_49219BFC01FD
+ MEPROP UID '49219BFC01FD'
+ MEPROP Name 'CanImportFromXML'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли импортировать ноду в папки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219C070003 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49219BFC01FD CanImportFromXML
+
+ME ME_49219C1A0213
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49219C1A0213 aNode
+
+ME ME_49219C1A0255
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_49219C1A0255 aFileName
+
+ME ME_49219C0C0077
+ MEPROP UID '49219C0C0077'
+ MEPROP Name 'ImportFromXML'
+ MEPROP Class class_Operation
+ %SUMMARY 'импортировать ноду в папки.'#13#10'           Исключения:'#13#10'           - EAccessDenied;'#13#10'           - EInvalidEntityType;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_49219C1A0213 // aNode
+ ME_49219C1A0255 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_49219C0C0077 ImportFromXML
+
+ME ME_49219A930293
+ MEPROP UID '49219A930293'
+ MEPROP GUID 'CC61DE67-AEBA-462A-AF71-619D900AD879'
+ MEPROP Name 'IdsFoldersTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево папок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492192300095 // FoldersInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49219AE20118 // CanBeOpen
+ HWL ME_49219B0B0108 // CanBeOpenAsConsultation
+ HWL ME_49219B1D02A0 // CanGiveMarkOnConsultation
+ HWL ME_49219B4D029C // CanDelete
+ HWL ME_49219B5E0026 // IsConsultation
+ HWL ME_49219B6D00F7 // DeleteConsultation
+ HWL ME_49219B7D0122 // CanImportConsultation
+ HWL ME_49219B9101C6 // ImportConsultation
+ HWL ME_49219BAA0308 // CanExportForIntegration
+ HWL ME_49219BBE035D // ExportForIntegration
+ HWL ME_49219BD0007C // CanExportToXML
+ HWL ME_49219BE201A9 // ExportToXML
+ HWL ME_49219BFC01FD // CanImportFromXML
+ HWL ME_49219C0C0077 // ImportFromXML
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'dsFoldersTree'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49219A930293 IdsFoldersTree
+
+ME ME_49340A8D0243
+ MEPROP UID '49340A8D0243'
+ MEPROP GUID '5ADA9092-6221-45BE-9FD5-6C946A72ED72'
+ MEPROP Name 'IdsFolders'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Папки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492192300095 // FoldersInterfaces
+ ;
+ UP extprop:rc:SelfName 'dsFolders'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49340A8D0243 IdsFolders
+
+FORWARD ME_492EAE13002A
+
+ME ME_492EAE8B01AC
+ MEPROP UID '492EAE8B01AC'
+ MEPROP Name 'dsFolders'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'бизнес объект папки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492EAE13002A // IsdsFolders
+ ;
+ MELINK Target HWL ME_49340A8D0243 // IdsFolders
+ ;
+ UP "pm" true
+
+ENDME // ME_492EAE8B01AC dsFolders
+
+ME ME_492EB06D013C
+ MEPROP UID '492EB06D013C'
+ MEPROP Name 'dsFoldersTree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'бизнес объект дерево папок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492EAE13002A // IsdsFolders
+ ;
+ MELINK Target HWL ME_49219A930293 // IdsFoldersTree
+ ;
+ UP "pm" true
+
+ENDME // ME_492EB06D013C dsFoldersTree
+
+ME ME_492EB098008A
+ MEPROP UID '492EB098008A'
+ MEPROP Name 'dsFolderElement'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_area::Attribute ;
+ %SUMMARY 'бизнес объект элемент папок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492EAE13002A // IsdsFolders
+ ;
+ MELINK Target HWL ME_4921928D038A // IdsFolderElement
+ ;
+ UP "pm" true
+
+ENDME // ME_492EB098008A dsFolderElement
+
+ME ME_492EAE13002A
+ MEPROP UID '492EAE13002A'
+ MEPROP GUID 'DF21D078-F373-4C50-A25C-C43CC69116A5'
+ MEPROP Name 'IsdsFolders'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прецедент папки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492192300095 // FoldersInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_492EAE8B01AC // dsFolders
+ HWL ME_492EB06D013C // dsFoldersTree
+ HWL ME_492EB098008A // dsFolderElement
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'sdsFolders'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492EAE13002A IsdsFolders
+
+ME ME_492192300095
+ MEPROP UID '492192300095'
+ MEPROP Name 'FoldersInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы для работы с папками' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493FCEBB018B' '493FCEBB018B.ms.model.script' // Folders
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4921928D038A // IdsFolderElement
+ HWL ME_49219A640243 // EdsConsultationInProcess
+ HWL ME_49219A730061 // EdsConsultationSending
+ HWL ME_492EBE2802A6 // EdsOldRefusalConsultationFormat
+ HWL ME_49219A930293 // IdsFoldersTree
+ HWL ME_49340A8D0243 // IdsFolders
+ HWL ME_492EAE13002A // IsdsFolders
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4922BFA000DD' '4922BFA000DD.ms.model.script' // SimpleListInterfaces
+ WL 'ME_4990135D02F1' '4990135D02F1.ms.model.script' // FoldersDomainInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ABCF04F00DF' '4ABCF04F00DF.ms.model.script' // ConsultationDomainInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '17.11.2008 18:48'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\FoldersInterfaces.pas'
+
+ENDME // ME_492192300095 FoldersInterfaces

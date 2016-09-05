@@ -1,0 +1,104 @@
+// Monitorings 4AA9038C0387 VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA9038C0387
+
+FORWARD ME_4F79AF74026A
+
+ME ME_4F79AF7C02CC
+ MEPROP UID '4F79AF7C02CC'
+ MEPROP Name 'MonitoringTitle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F79AF74026A // MonitoringTitle
+ ;
+ MEPROP Value '''ГАРАНТ аэро'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''ГАРАНТ аэро'''
+
+ENDME // ME_4F79AF7C02CC MonitoringTitle
+
+ME ME_4F79AF74026A
+ MEPROP UID '4F79AF74026A'
+ MEPROP Name 'MonitoringTitle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA9038C0387 // Monitorings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F79AF7C02CC // MonitoringTitle
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4F79AF74026A MonitoringTitle
+
+ME ME_4AA919EF02D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA9038C0387 // Monitorings
+ ;
+ MELINK Target WL 'ME_4AA919DA010C' '4AA919DA010C.ms.model.script' // CommonPost
+ ;
+
+ENDME // ME_4AA919EF02D4 
+
+ME ME_4AA7E4DC0047_ME_4AA9038C0387
+ MELINK Original WL 'ME_4AA7E4DC0047' '4A92BBDF0126.ms.model.script' // DoRun
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AA7E4DC0047_ME_4AA9038C0387 DoRun
+
+ME ME_4AA9038C0387
+ MEPROP UID '4AA9038C0387'
+ MEPROP Name 'Monitorings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мониторинги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA9032A002B' '4AA9032A002B.ms.model.script' // Monitoring
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA42BF0267' '4AAA42BF0267.ms.model.script' // ShellAndMonitorings
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4AA7E4DC0047_ME_4AA9038C0387 // DoRun
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( WL 'ME_4AA919040176' '4AA919040176.ms.model.script' // PrimMonitoringsMain
+ WL 'ME_4F7C2E78015C' '4F7C2E78015C.ms.model.script' // MonitoringsMain
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4F79AF74026A // MonitoringTitle
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AA919EF02D4 // CommonPost
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.09.2009 17:48'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MonitoringsRes.pas'
+ UP extprop:pas:TypeName 'TMonitoringsRes'
+ UP extprop:rc:SelfName 'MonitoringsRes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MonitoringsRes'
+
+ENDME // ME_4AA9038C0387 Monitorings

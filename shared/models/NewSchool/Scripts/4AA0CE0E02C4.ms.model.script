@@ -1,0 +1,66 @@
+// ListAnalizer 4AA0CE0E02C4 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0CE0E02C4
+
+ME ME_BBDBB6B3AB03
+ MEPROP UID 'BBDBB6B3AB03'
+ MEPROP GUID '534B1ADF-ACC6-4DD9-AF54-C92914E3CBA4'
+ MEPROP Name 'ListAnalizer'
+ MEPROP OriginalName 'ListAnalizer$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ListAnalizer' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA0CE0E02C4 // ListAnalizer
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AA0CE0E02C4 // ListAnalizer
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ListAnalizerFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_BBDBB6B3AB03 ListAnalizer$Def
+
+ME ME_4AA0CE0E02C4
+ MEPROP UID '4AA0CE0E02C4'
+ MEPROP Name 'ListAnalizer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A9BF42601A9' '4A9BF42601A9.ms.model.script' // List$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA0CE2B0073' '4AA0CE2B0073.ms.model.script' // PrimListAnalizer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_BBDBB6B3AB03 // ListAnalizer$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_BBDBB6B3AB03 // ListAnalizer$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Modal'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+ UP extprop:pas:TypeName 'TListAnalizerForm'
+ UP extprop:rc:SelfName 'ListAnalizerForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ListAnalizer_Form'
+
+ENDME // ME_4AA0CE0E02C4 ListAnalizer

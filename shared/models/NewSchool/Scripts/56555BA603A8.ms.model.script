@@ -1,0 +1,527 @@
+// evSubCompareInterfaces 56555BA603A8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56555BA603A8
+
+FORWARD ME_56555BFF0284
+
+ME ME_56555C4800ED
+ MEPROP UID '56555C4800ED'
+ MEPROP Name 'sca_Class'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56555BFF0284 // TevSCAttrType
+ ;
+
+ENDME // ME_56555C4800ED sca_Class
+
+ME ME_56555C5103E1
+ MEPROP UID '56555C5103E1'
+ MEPROP Name 'sca_Type'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56555BFF0284 // TevSCAttrType
+ ;
+
+ENDME // ME_56555C5103E1 sca_Type
+
+ME ME_56555C5C030C
+ MEPROP UID '56555C5C030C'
+ MEPROP Name 'sca_Link'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56555BFF0284 // TevSCAttrType
+ ;
+
+ENDME // ME_56555C5C030C sca_Link
+
+ME ME_565F14A50307
+ MEPROP UID '565F14A50307'
+ MEPROP Name 'sca_Keyword'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56555BFF0284 // TevSCAttrType
+ ;
+
+ENDME // ME_565F14A50307 sca_Keyword
+
+ME ME_56555BFF0284
+ MEPROP UID '56555BFF0284'
+ MEPROP Name 'TevSCAttrType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56555BA603A8 // evSubCompareInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56555C4800ED // sca_Class
+ HWL ME_56555C5103E1 // sca_Type
+ HWL ME_56555C5C030C // sca_Link
+ HWL ME_565F14A50307 // sca_Keyword
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56555BFF0284 TevSCAttrType
+
+FORWARD ME_56556E5B0080
+
+ME ME_5655780E0080
+ MEPROP UID '5655780E0080'
+ MEPROP Name 'AttrType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56556E5B0080 // IevSCAttrElement
+ ;
+ MELINK Target HWL ME_56555BFF0284 // TevSCAttrType
+ ;
+ UP "pm" false
+
+ENDME // ME_5655780E0080 AttrType
+
+ME ME_5655789501D8
+ MEPROP UID '5655789501D8'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56556E5B0080 // IevSCAttrElement
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_5655789501D8 ID
+
+ME ME_565578A702AE
+ MEPROP UID '565578A702AE'
+ MEPROP Name 'SubID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56556E5B0080 // IevSCAttrElement
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_565578A702AE SubID
+
+ME ME_56556E5B0080
+ MEPROP UID '56556E5B0080'
+ MEPROP GUID '9AFC7D71-5025-4849-8A85-3F5C37BD246E'
+ MEPROP Name 'IevSCAttrElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56555BA603A8 // evSubCompareInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5655780E0080 // AttrType
+ HWL ME_5655789501D8 // ID
+ HWL ME_565578A702AE // SubID
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'SCAttrElement'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56556E5B0080 IevSCAttrElement
+
+FORWARD ME_565F14180230
+
+ME ME_565F1436015A
+ MEPROP UID '565F1436015A'
+ MEPROP Name 'sct_Block'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_565F14180230 // TevSCSubType
+ ;
+
+ENDME // ME_565F1436015A sct_Block
+
+ME ME_565F147101FE
+ MEPROP UID '565F147101FE'
+ MEPROP Name 'sct_Label'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_565F14180230 // TevSCSubType
+ ;
+
+ENDME // ME_565F147101FE sct_Label
+
+ME ME_565F14180230
+ MEPROP UID '565F14180230'
+ MEPROP Name 'TevSCSubType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56555BA603A8 // evSubCompareInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_565F1436015A // sct_Block
+ HWL ME_565F147101FE // sct_Label
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_565F14180230 TevSCSubType
+
+FORWARD ME_56558580035A
+
+ME ME_5655859F00A0
+ MEPROP UID '5655859F00A0'
+ MEPROP Name 'Handle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56558580035A // IevSCSub
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_5655859F00A0 Handle
+
+ME ME_565585AD02F0
+ MEPROP UID '565585AD02F0'
+ MEPROP Name 'AttrCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56558580035A // IevSCSub
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" false
+
+ENDME // ME_565585AD02F0 AttrCount
+
+ME ME_565F158700B1
+ MEPROP UID '565F158700B1'
+ MEPROP Name 'SubType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56558580035A // IevSCSub
+ ;
+ MELINK Target HWL ME_565F14180230 // TevSCSubType
+ ;
+ UP "pm" false
+
+ENDME // ME_565F158700B1 SubType
+
+FORWARD ME_5655864201F6
+
+ME ME_565586470225
+ MEPROP UID '565586470225'
+ MEPROP Name 'aIdx'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5655864201F6 // Attr
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_565586470225 aIdx
+
+ME ME_5655864201F6
+ MEPROP UID '5655864201F6'
+ MEPROP Name 'Attr'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56558580035A // IevSCSub
+ ;
+ MELINK Target HWL ME_56556E5B0080 // IevSCAttrElement
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_565586470225 // aIdx
+ )
+ ; // Attributes
+ UP "pm" false
+
+ENDME // ME_5655864201F6 Attr
+
+FORWARD ME_565586C401C8
+
+ME ME_565586EB01C4
+ MEPROP Name 'aAttr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_56556E5B0080 // IevSCAttrElement
+ ;
+
+ENDME // ME_565586EB01C4 aAttr
+
+ME ME_565586D1002F
+ MEPROP UID '565586D1002F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_565586C401C8 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_565586EB01C4 // aAttr
+ )
+ ; // Parameters
+
+ENDME // ME_565586D1002F DoIt
+
+ME ME_565586C401C8
+ MEPROP UID '565586C401C8'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56558580035A // IevSCSub
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_565586D1002F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_565586C401C8 Add
+
+ME ME_56558580035A
+ MEPROP UID '56558580035A'
+ MEPROP GUID 'A18F81ED-02C6-4669-A68B-A51383DB7795'
+ MEPROP Name 'IevSCSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56555BA603A8 // evSubCompareInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5655859F00A0 // Handle
+ HWL ME_565585AD02F0 // AttrCount
+ HWL ME_565F158700B1 // SubType
+ HWL ME_5655864201F6 // Attr
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_565586C401C8 // Add
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'SCSub'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56558580035A IevSCSub
+
+FORWARD ME_566822C60000
+
+ME ME_566822F200A5
+ MEPROP UID '566822F200A5'
+ MEPROP Name 'sca_Class'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_566822C60000 // cSCAttrTypeName
+ ;
+ MEPROP Value '''класс'''
+ UP extprop:pas:Value '''класс'''
+
+ENDME // ME_566822F200A5 sca_Class
+
+ME ME_5668232700EF
+ MEPROP UID '5668232700EF'
+ MEPROP Name 'sca_Type'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_566822C60000 // cSCAttrTypeName
+ ;
+ MEPROP Value '''тип'''
+ UP extprop:pas:Value '''тип'''
+
+ENDME // ME_5668232700EF sca_Type
+
+ME ME_56682336004C
+ MEPROP UID '56682336004C'
+ MEPROP Name 'sca_Link'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_566822C60000 // cSCAttrTypeName
+ ;
+ MEPROP Value '''ссылка'''
+ UP extprop:pas:Value '''ссылка'''
+
+ENDME // ME_56682336004C sca_Link
+
+ME ME_56682343023A
+ MEPROP UID '56682343023A'
+ MEPROP Name 'sca_Keyword'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_566822C60000 // cSCAttrTypeName
+ ;
+ MEPROP Value '''ключевое слово'''
+ UP extprop:pas:Value '''ключевое слово'''
+
+ENDME // ME_56682343023A sca_Keyword
+
+ME ME_566822C60000
+ MEPROP UID '566822C60000'
+ MEPROP Name 'cSCAttrTypeName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56555BA603A8 // evSubCompareInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_56555BFF0284 // TevSCAttrType
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_566822F200A5 // sca_Class
+ HWL ME_5668232700EF // sca_Type
+ HWL ME_56682336004C // sca_Link
+ HWL ME_56682343023A // sca_Keyword
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+
+ENDME // ME_566822C60000 cSCAttrTypeName
+
+FORWARD ME_5668239B01EA
+
+ME ME_566823B90368
+ MEPROP UID '566823B90368'
+ MEPROP Name 'sct_Block'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5668239B01EA // cSCSubTypeName
+ ;
+ MEPROP Value '''блок'''
+ UP extprop:pas:Value '''блок'''
+
+ENDME // ME_566823B90368 sct_Block
+
+ME ME_566823CE02B0
+ MEPROP UID '566823CE02B0'
+ MEPROP Name 'sct_Label'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5668239B01EA // cSCSubTypeName
+ ;
+ MEPROP Value '''метка'''
+ UP extprop:pas:Value '''метка'''
+
+ENDME // ME_566823CE02B0 sct_Label
+
+ME ME_5668239B01EA
+ MEPROP UID '5668239B01EA'
+ MEPROP Name 'cSCSubTypeName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56555BA603A8 // evSubCompareInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_565F14180230 // TevSCSubType
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_566823B90368 // sct_Block
+ HWL ME_566823CE02B0 // sct_Label
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+
+ENDME // ME_5668239B01EA cSCSubTypeName
+
+ME ME_56555BA603A8
+ MEPROP UID '56555BA603A8'
+ MEPROP Name 'evSubCompareInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56555BFF0284 // TevSCAttrType
+ HWL ME_56556E5B0080 // IevSCAttrElement
+ HWL ME_565F14180230 // TevSCSubType
+ HWL ME_56558580035A // IevSCSub
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_566822C60000 // cSCAttrTypeName
+ HWL ME_5668239B01EA // cSCSubTypeName
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSubCompareInterfaces.pas'
+
+ENDME // ME_56555BA603A8 evSubCompareInterfaces

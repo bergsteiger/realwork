@@ -1,0 +1,47 @@
+// TnscPreviewPanel 4AC6113D038A GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC6113D038A
+
+ME ME_4CFFD93B0065
+ MEPROP UID '4CFFD93B0065'
+ MEPROP Name 'TnscCustomPreviewPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC6113D038A // TnscPreviewPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFFD98700DD' '4CFFD97801C0.ms.model.script' // TeeCustomPreviewPanel
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'PreviewPanel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFFD93B0065 TnscCustomPreviewPanel
+
+ME ME_4AC6113D038A
+ MEPROP UID '4AC6113D038A'
+ MEPROP Name 'TnscPreviewPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_495119A901CE' '495119A901CE.ms.model.script' // Editor
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFFD93B0065 // TnscCustomPreviewPanel
+ )
+ ; // Children
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscPreviewPanel.pas'
+ UP extprop:rc:SelfName 'PreviewPanel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscPreviewPanel'
+
+ENDME // ME_4AC6113D038A TnscPreviewPanel

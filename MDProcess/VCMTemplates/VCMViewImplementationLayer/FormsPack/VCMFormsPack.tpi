@@ -18,14 +18,11 @@
 ? Пачка форм
 ? Аналог TvcmModule. По историческим причинам VCMModule стал папкой. Может содержать только финальные формы
 > VCMFinalForm::Class
-> FormSetFactory::Class
-> FormFactory::Class
-> FactoryMethod::Class
 > VCMFormSetFactory::Class
-> ModuleMethod::Class
 > VCMFinalContainer::Class
 > ScriptKeyword::Class
 > ScriptKeywordsPack::Class
+> ModuleMethod::Class
 
 = SimpleClass::Class
 
@@ -90,53 +87,6 @@ r {""=""}: {}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Вложенные стереотипы
-
-: VCMFormsPack::Class::ModuleOperation::Operation
-? Операция модуля
-= ClassBase::Class::Operation
-= ModuleOperationPrim::Class
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Основная ветка наследования
-! ModuleOperationPrim::Class
-
-// Параметры стереотипа
-v #
-/ - типы видимости
-a f
-/ - тип абстракции
-
-// Генераторы
-// Генерация модели в MDKnow
-+ wiki
-//#UC START# *46E6D4BB0339for49F6F6E60362*
-//#UC END# *46E6D4BB0339for49F6F6E60362*
-
-// генератор реализации фабрик интерфейсов на java (.java)
-+ fctr.java
-//#UC START# *470321C1038Afor49F6F6E60362*
-//#UC END# *470321C1038Afor49F6F6E60362*
-
-// Функции стереотипа
-%f _st_space_key
-	SHD
-
-%f _wiki_up_print
-	%S%[ClassBase::Class::Operation]f_wiki_up_print()[{"%S{no test}"!="%S{!no test}"}%f_up_prefix(%S) *no test* = *%S{no test}* - Отключает OnTest
-	][{"%S{no prefix}"!="%S{!no prefix}"}%f_up_prefix(%S) *no prefix* = *%S{no prefix}* - Нет префикса у имени. Костыль для \[$133891300\]
-	][{"%S{ShowInToolbar}"!="%S{!ShowInToolbar}"}%f_up_prefix(%S) *ShowInToolbar* = *%S{ShowInToolbar}*
-	][{"%S{ShortCut}"!="%S{!ShortCut}"}%f_up_prefix(%S) *ShortCut* = *%S{ShortCut}*
-	]
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Унаследованная реализация
-
-// реализация абстрактного стереотипа Документация::MDAGenerator
-// вывод описание авто-генерируемых методов в wiki
-%f _wiki_up_add_gen
-//#UC START# *470484D50138for49F6F6E60362*
-//#UC END# *470484D50138for49F6F6E60362*
 
 : VCMFormsPack::Class::implements::ClassDependency
 = Delphi интерфейсы и реализация::MDAGenerator

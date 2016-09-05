@@ -1,0 +1,62 @@
+// Text 4A7709C70002 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7709C70002
+
+ME ME_3EA1F7334B30
+ MEPROP UID '3EA1F7334B30'
+ MEPROP Name 'Ini_FormFactory_Text'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Text' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A7709C70002 // Text
+ ;
+ UPLINK SpelledFor HWL ME_4A7709C70002 // Text
+ ;
+
+ENDME // ME_3EA1F7334B30 Ini_FormFactory_Text
+
+ME ME_4A7709C70002
+ MEPROP UID '4A7709C70002'
+ MEPROP Name 'Text'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalContainer ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7F801D0304' '4C7F801D0304.ms.model.script' // ExTextOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD8574A03A5' '4BD856E802F9.ms.model.script' // Text
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_3EA1F7334B30 // Ini_FormFactory_Text
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Parent'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '03.08.2009 20:05'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Text_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ UP extprop:pas:TypeName 'TTextForm'
+ UP extprop:rc:SelfName 'TextForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Text_Form'
+
+ENDME // ME_4A7709C70002 Text

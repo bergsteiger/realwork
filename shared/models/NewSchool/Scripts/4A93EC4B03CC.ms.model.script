@@ -1,0 +1,372 @@
+// PrimRememberPassword 4A93EC4B03CC VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93EC4B03CC
+
+FORWARD ME_525D13510088
+
+ME ME_525D136F021E
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484529DC0276' '4799D29F033F.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_525D136F021E aSender
+
+ME ME_525D13660340
+ MEPROP UID '525D13660340'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525D13510088 // TnsSendAction
+ ;
+ MELINK Target WL 'ME_47FE430F0088' '4799D29F033F.ms.model.script' // TModalResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_525D136F021E // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_525D13660340 DoIt
+
+ME ME_525D13510088
+ MEPROP UID '525D13510088'
+ MEPROP Name 'TnsSendAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525D13660340 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_525D13510088 TnsSendAction
+
+ME ME_525D11C703D3
+ MEPROP UID '525D11C703D3'
+ MEPROP Name 'EMailLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Электронная почта:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D11C703D3 EMailLabel
+
+ME ME_525D120102A6
+ MEPROP UID '525D120102A6'
+ MEPROP Name 'HintLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Адрес электронной почты, указанный при регистрации. На этот адрес будет выслано письмо, содержащее Ваши регистрационное имя и пароль.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D120102A6 HintLabel
+
+ME ME_525D1235018E
+ MEPROP UID '525D1235018E'
+ MEPROP Name 'btnCancel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отмена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ UP "ControlClass" 'TElPopupButton'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D1235018E btnCancel
+
+ME ME_525D125B02CB
+ MEPROP UID '525D125B02CB'
+ MEPROP Name 'btnSend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отправить запрос' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ UP "ControlClass" 'TElPopupButton'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_525D125B02CB btnSend
+
+ME ME_525D127703B4
+ MEPROP UID '525D127703B4'
+ MEPROP Name 'edEmail'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ UP "ControlClass" 'TnscEdit'
+ UP "pm" true
+ UP "put to dfm" false
+ UP extprop:rc:SelfName 'Email'
+
+ENDME // ME_525D127703B4 edEmail
+
+ME ME_525D1318002B
+ MEPROP UID '525D1318002B'
+ MEPROP Name 'EMail'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+
+ENDME // ME_525D1318002B EMail
+
+ME ME_525D137401E5
+ MEPROP UID '525D137401E5'
+ MEPROP Name 'SendAction'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELINK Target HWL ME_525D13510088 // TnsSendAction
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_525D137401E5 SendAction
+
+ME ME_525D12A30273
+ MEPROP UID '525D12A30273'
+ MEPROP Name 'EMailEditChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_525D12A30273 EMailEditChange
+
+ME ME_525D12C2011A
+ MEPROP UID '525D12C2011A'
+ MEPROP Name 'btnSendClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_525D12C2011A btnSendClick
+
+ME ME_525D13F30292
+ MEPROP UID '525D13F30292'
+ MEPROP Name 'DoSend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+
+ENDME // ME_525D13F30292 DoSend
+
+ME ME_525D38F40219
+ MEPROP UID '525D38F40219'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+
+ENDME // ME_525D38F40219 Make
+
+ME ME_525D144D02DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_525D144D02DD 
+
+ME ME_525D147301B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELINK Target WL 'ME_4C88F30900A7' '48F747EC0073.ms.model.script' // nsVerifyValue
+ ;
+
+ENDME // ME_525D147301B9 
+
+ME ME_525D43CF003F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_525D43CF003F 
+
+ME ME_525D43D2020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_525D43D2020E 
+
+ME ME_574DC8F800A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93EC4B03CC // PrimRememberPassword
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_574DC8F800A3 
+
+ME ME_47A042E100E2_ME_4A93EC4B03CC
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4A93EC4B03CC InitFields
+
+ME ME_48C7925A02E5_ME_4A93EC4B03CC
+ MELINK Original WL 'ME_48C7925A02E5' '4799D29F033F.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7925A02E5_ME_4A93EC4B03CC CreateParams
+
+ME ME_4A8E8F2E0195_ME_4A93EC4B03CC
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A93EC4B03CC InitControls
+
+ME ME_4B0E846D022B_ME_4A93EC4B03CC
+ MELINK Original WL 'ME_4B0E846D022B' '4799D29F033F.ms.model.script' // IsRealInstance
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B0E846D022B_ME_4A93EC4B03CC IsRealInstance
+
+ME ME_4A93EC4B03CC
+ MEPROP UID '4A93EC4B03CC'
+ MEPROP Name 'PrimRememberPassword'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Забыли пароль?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_525D11C703D3 // EMailLabel
+ HWL ME_525D120102A6 // HintLabel
+ HWL ME_525D1235018E // btnCancel
+ HWL ME_525D125B02CB // btnSend
+ HWL ME_525D127703B4 // edEmail
+ HWL ME_525D1318002B // EMail
+ HWL ME_525D137401E5 // SendAction
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_525D12A30273 // EMailEditChange
+ HWL ME_525D12C2011A // btnSendClick
+ HWL ME_525D13F30292 // DoSend
+ HWL ME_525D38F40219 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4A93EC4B03CC // InitFields
+ ME_48C7925A02E5_ME_4A93EC4B03CC // CreateParams
+ ME_4A8E8F2E0195_ME_4A93EC4B03CC // InitControls
+ ME_4B0E846D022B_ME_4A93EC4B03CC // IsRealInstance
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_525D13510088 // TnsSendAction
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_525D144D02DD // l3String
+ ME_525D147301B9 // nsVerifyValue
+ ME_525D43CF003F // Windows
+ ME_525D43D2020E // Graphics
+ ME_574DC8F800A3 // Classes
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'ManualModal'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '25.08.2009 17:51'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimRememberPassword_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+ UP extprop:pas:TypeName 'TPrimRememberPasswordForm'
+ UP extprop:rc:SelfName 'PrimRememberPasswordForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimRememberPassword_Form'
+
+ENDME // ME_4A93EC4B03CC PrimRememberPassword

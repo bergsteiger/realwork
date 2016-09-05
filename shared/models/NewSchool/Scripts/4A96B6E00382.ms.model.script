@@ -1,0 +1,109 @@
+// Folders$UC 4A96B6E00382 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A96B6E00382
+
+ME ME_4A9BBD950162
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ MELINK Target WL 'ME_4A431CD00395' '484900780017.ms.model.script' // Сравнение редакций документов
+ ;
+
+ENDME // ME_4A9BBD950162 
+
+ME ME_4A9BBF2902B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ MELINK Target WL 'ME_48490152021B' '484900780017.ms.model.script' // Просмотр документа
+ ;
+
+ENDME // ME_4A9BBF2902B4 
+
+ME ME_4A9BFBAA0375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ MELINK Target WL 'ME_484CE5E503D4' '484CE48E02E6.ms.model.script' // Просмотр списка
+ ;
+
+ENDME // ME_4A9BFBAA0375 
+
+ME ME_4ABCEF8D03B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ MELINK Target WL 'ME_484E635201F4' '484E610E0335.ms.model.script' // ПРАЙМ
+ ;
+
+ENDME // ME_4ABCEF8D03B9 
+
+ME ME_4ABCFA1A017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ MELINK Target WL 'ME_484E638701D9' '484E610E0335.ms.model.script' // Консультации
+ ;
+
+ENDME // ME_4ABCFA1A017A 
+
+ME ME_4CBEBBAB0150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A96B6E00382 // Folders$UC
+ ;
+ MELINK Target WL 'ME_484D04FC007B' '484CE48E02E6.ms.model.script' // Фильтрация сохраненными запросами
+ ;
+
+ENDME // ME_4CBEBBAB0150 
+
+ME ME_4A96B6E00382
+ MEPROP UID '4A96B6E00382'
+ MEPROP Name 'Folders'
+ MEPROP OriginalName 'Folders$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Папки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A69C0F70136' '4A69C0F70136.ms.model.script' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A96B68A03B1' '4A96B68A03B1.ms.model.script' // PrimFolders$UC
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_484E2FF10125' '484E2D92034B.ms.model.script' // Управление папками
+ WL 'ME_484E301C00F0' '484E2D92034B.ms.model.script' // Сохранение в папку
+ WL 'ME_484E5B8902BA' '484900780017.ms.model.script' // Документы на контроле
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_4A9BBD950162 // Сравнение редакций документов
+ ME_4A9BBF2902B4 // Просмотр документа
+ ME_4A9BFBAA0375 // Просмотр списка
+ ME_4ABCEF8D03B9 // ПРАЙМ
+ ME_4ABCFA1A017A // Консультации
+ ME_4CBEBBAB0150 // Фильтрация сохраненными запросами
+ )
+ ; // Dependencies
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" true
+ UP "started" '2003/08/06 08:30:27'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ UP extprop:pas:TypeName 'Tmo_Folders'
+ UP extprop:rc:SelfName 'mo_Folders'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'moFolders'
+
+ENDME // ME_4A96B6E00382 Folders$UC

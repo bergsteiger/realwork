@@ -1,0 +1,158 @@
+// TasksRegistering 53BA8F9B01F5 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BA8F9B01F5
+
+FORWARD ME_53BAA54900F6
+
+FORWARD ME_53BAA563023C
+
+ME ME_53BAA56A030E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_5395B29D0177' '538DA26C020A.ms.model.script' // TCsReplyProcedures
+ ;
+
+ENDME // ME_53BAA56A030E 
+
+ME ME_53BAA59100FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_537F6306025B' '538DA26C020A.ms.model.script' // TCsProcWithId
+ ;
+
+ENDME // ME_53BAA59100FC 
+
+ME ME_53BAA607031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_53BAA607031B 
+
+ME ME_53BAA6340183
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_53BAA6340183 
+
+ME ME_53BAA8C70239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_53BAA8C70239 
+
+ME ME_53BAA8CA00A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53BAA8CA00A6 
+
+ME ME_53BAA919037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BAA563023C // DoIt
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_53BAA919037E 
+
+ME ME_53BAA563023C
+ MEPROP UID '53BAA563023C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BAA54900F6 // TRegisteredRepliesTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53BAA56A030E // TCsReplyProcedures
+ ME_53BAA59100FC // TCsProcWithId
+ ME_53BAA607031B // TCsQueryId
+ ME_53BAA6340183 // Classes
+ ME_53BAA8C70239 // Tl3CustomFiler
+ ME_53BAA8CA00A6 // FreeAndNil
+ ME_53BAA919037E // TTypeInfo
+ )
+ ; // Dependencies
+
+ENDME // ME_53BAA563023C DoIt
+
+ME ME_53BAA54900F6
+ MEPROP UID '53BAA54900F6'
+ MEPROP Name 'TRegisteredRepliesTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53BA8F9B01F5 // TasksRegistering
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53BAA563023C // DoIt
+ )
+ ; // Operations
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\RegisteredRepliesTest.pas'
+ UP extprop:rc:SelfName 'RegisteredRepliesTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'RegisteredRepliesTest'
+
+ENDME // ME_53BAA54900F6 TRegisteredRepliesTest
+
+ME ME_53BA8F9B01F5
+ MEPROP UID '53BA8F9B01F5'
+ MEPROP Name 'TasksRegistering'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52F275D40238' '52F275D40238.ms.model.script' // Low Level Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53BAA54900F6 // TRegisteredRepliesTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.ms.model.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
+ WL 'ME_52FBB2FC0386' '52FBB2FC0386.ms.model.script' // Core
+ WL 'ME_538DA26C020A' '538DA26C020A.ms.model.script' // ServerSide
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_53BA8F9B01F5 TasksRegistering

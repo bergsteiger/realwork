@@ -1,0 +1,2434 @@
+// EditorTests 4C4FDBF703DB TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C4FDBF703DB
+
+FORWARD ME_4C9214C80098
+
+ME ME_4C92164901AE
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4C92164901AE aText
+
+ME ME_4C92181603DD
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F7AC50332' '47913B47006E.ms.model.script' // Il3OpPack
+ ;
+
+ENDME // ME_4C92181603DD anOp
+
+ME ME_4C9214F6002C
+ MEPROP UID '4C9214F6002C'
+ MEPROP Name 'DoProcess'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C92164901AE // aText
+ ME_4C92181603DD // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4C9214F6002C DoProcess
+
+ME ME_4BE13147032C_ME_4C9214C80098
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE13147032C_ME_4C9214C80098 Process
+
+ME ME_4C9214C80098
+ MEPROP UID '4C9214C80098'
+ MEPROP Name 'TTextViaEditorProcessorWithNavigate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.ms.model.script' // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C9210B70244' '4C500D470030.ms.model.script' // Navigator
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4C9214F6002C // DoProcess
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4C9214C80098 // Process
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '16.09.2010 17:00'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TextViaEditorProcessorWithNavigate.pas'
+ UP extprop:rc:SelfName 'TextViaEditorProcessorWithNavigate'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TextViaEditorProcessorWithNavigate'
+
+ENDME // ME_4C9214C80098 TTextViaEditorProcessorWithNavigate
+
+FORWARD ME_4C4FDC620374
+
+ME ME_4C4FDCBA002F
+ MEPROP UID '4C4FDCBA002F'
+ MEPROP Name 'TextForInsert'
+ MEPROP Class class_Operation
+ %SUMMARY 'Текст для вставки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4C4FDCBA002F TextForInsert
+
+ME ME_4C4FDF2100E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ MELINK Target WL 'ME_46A626BC0145' '4677FBA70343.ms.model.script' // ClipboardFormats
+ ;
+
+ENDME // ME_4C4FDF2100E2 
+
+ME ME_4C4FDF59039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ MELINK Target WL 'ME_499D47A502DE' '47913B47006E.ms.model.script' // Tl3ConstMemoryStream
+ ;
+
+ENDME // ME_4C4FDF59039C 
+
+ME ME_4C4FE31D00D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C4FDC620374 // TInsertStreamTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C4FE31D00D2 
+
+ME ME_4C9214F6002C_ME_4C4FDC620374
+ MELINK Original HWL ME_4C9214F6002C // DoProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C9214F6002C_ME_4C4FDC620374 DoProcess
+
+ME ME_4C4FDC620374
+ MEPROP UID '4C4FDC620374'
+ MEPROP Name 'TInsertStreamTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест вставки в редактор текста при помощи InsertStream' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C4FDCBA002F // TextForInsert
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C9214F6002C_ME_4C4FDC620374 // DoProcess
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C4FDF2100E2 // ClipboardFormats
+ ME_4C4FDF59039C // Tl3ConstMemoryStream
+ ME_4C4FE31D00D2 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '28.07.2010 11:30'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\InsertStreamTest.pas'
+ UP extprop:rc:SelfName 'InsertStreamTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'InsertStreamTest'
+
+ENDME // ME_4C4FDC620374 TInsertStreamTest
+
+FORWARD ME_4C920D930026
+
+ME ME_4C920DFC0394
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C920D930026 // TMoveSubTest
+ ;
+ MELINK Target WL 'ME_47C6B03200AF' '47C5207602D1.ms.model.script' // IevSub
+ ;
+
+ENDME // ME_4C920DFC0394 
+
+ME ME_4C4FE56300FB_ME_4C920D930026
+ MELINK Original WL 'ME_4C4FE56300FB' '4C500D470030.ms.model.script' // Navigate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C4FE56300FB_ME_4C920D930026 Navigate
+
+ME ME_4C9214F6002C_ME_4C920D930026
+ MELINK Original HWL ME_4C9214F6002C // DoProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C9214F6002C_ME_4C920D930026 DoProcess
+
+ME ME_4C920D930026
+ MEPROP UID '4C920D930026'
+ MEPROP Name 'TMoveSubTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C4FE56300FB_ME_4C920D930026 // Navigate
+ ME_4C9214F6002C_ME_4C920D930026 // DoProcess
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C920DFC0394 // IevSub
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '16.09.2010 16:29'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MoveSubTest.pas'
+ UP extprop:rc:SelfName 'MoveSubTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MoveSubTest'
+
+ENDME // ME_4C920D930026 TMoveSubTest
+
+FORWARD ME_4C501582010E
+
+ME ME_4C4FE56300FB_ME_4C501582010E
+ MELINK Original WL 'ME_4C4FE56300FB' '4C500D470030.ms.model.script' // Navigate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C4FE56300FB_ME_4C501582010E Navigate
+
+ME ME_4C501582010E
+ MEPROP UID '4C501582010E'
+ MEPROP Name 'TInsertStreamTestWithImplementedNavigate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'То же что и TInsertStreamTest, но с пустым Navigate' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C4FDC620374 // TInsertStreamTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C4FE56300FB_ME_4C501582010E // Navigate
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '28.07.2010 15:34'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\InsertStreamTestWithImplementedNavigate.pas'
+ UP extprop:rc:SelfName 'InsertStreamTestWithImplementedNavigate'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'InsertStreamTestWithImplementedNavigate'
+
+ENDME // ME_4C501582010E TInsertStreamTestWithImplementedNavigate
+
+FORWARD ME_4C93529B018C
+
+FORWARD ME_4C93538E0218
+
+ME ME_4C9353BD0212
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4C9353BD0212 aText
+
+ME ME_4C9353BD0234
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F7AC50332' '47913B47006E.ms.model.script' // Il3OpPack
+ ;
+
+ENDME // ME_4C9353BD0234 anOp
+
+ME ME_4C9353B70163
+ MEPROP UID '4C9353B70163'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C93538E0218 // DoSelect
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9353BD0212 // aText
+ ME_4C9353BD0234 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4C9353B70163 DoIt
+
+ME ME_4C93538E0218
+ MEPROP UID '4C93538E0218'
+ MEPROP Name 'DoSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделяет текст в редакторе' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C9353B70163 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C93538E0218 DoSelect
+
+ME ME_4C9355CD01B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4C9355CD01B9 
+
+ME ME_4C9355EB0326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELINK Target WL 'ME_53317DDB0223' '4A4DE16302A2.ms.model.script' // Il3OpPack
+ ;
+
+ENDME // ME_4C9355EB0326 
+
+ME ME_4C93571C039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C93529B018C // TCopyPasteTest
+ ;
+ MELINK Target WL 'ME_47C695D90332' '47C695A10172.ms.model.script' // TevSelectTarget
+ ;
+
+ENDME // ME_4C93571C039A 
+
+ME ME_4BE13147032C_ME_4C93529B018C
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE13147032C_ME_4C93529B018C Process
+
+ME ME_4C93529B018C
+ MEPROP UID '4C93529B018C'
+ MEPROP Name 'TCopyPasteTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест копирования/вставки через буфер обмена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.ms.model.script' // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ WL 'ME_4CE1344403AC' '4E1C0134031B.ms.model.script' // ClipboardOperations
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4C93538E0218 // DoSelect
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4C93529B018C // Process
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C9355CD01B9 // InevSelection
+ ME_4C9355EB0326 // Il3OpPack
+ ME_4C93571C039A // TevSelectTarget
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '17.09.2010 15:36'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\CopyPasteTest.pas'
+ UP extprop:rc:SelfName 'CopyPasteTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CopyPasteTest'
+
+ENDME // ME_4C93529B018C TCopyPasteTest
+
+FORWARD ME_4CA30546032E
+
+FORWARD ME_4DF781CB0217
+
+ME ME_4DF781D803D4
+ MEPROP UID '4DF781D803D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF781CB0217 // CharCount
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DF781D803D4 DoIt
+
+ME ME_4DF781CB0217
+ MEPROP UID '4DF781CB0217'
+ MEPROP Name 'CharCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA30546032E // TDeleteCharTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DF781D803D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DF781CB0217 CharCount
+
+ME ME_4C4FE56300FB_ME_4CA30546032E
+ MELINK Original WL 'ME_4C4FE56300FB' '4C500D470030.ms.model.script' // Navigate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C4FE56300FB_ME_4CA30546032E Navigate
+
+ME ME_4C9214F6002C_ME_4CA30546032E
+ MELINK Original HWL ME_4C9214F6002C // DoProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C9214F6002C_ME_4CA30546032E DoProcess
+
+ME ME_4CA30546032E
+ MEPROP UID '4CA30546032E'
+ MEPROP Name 'TDeleteCharTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DF781CB0217 // CharCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C4FE56300FB_ME_4CA30546032E // Navigate
+ ME_4C9214F6002C_ME_4CA30546032E // DoProcess
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '28.09.2010 13:22'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\DeleteCharTest.pas'
+ UP extprop:rc:SelfName 'DeleteCharTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'DeleteCharTest'
+
+ENDME // ME_4CA30546032E TDeleteCharTest
+
+FORWARD ME_4CB6E426014A
+
+ME ME_4BE419AF0217_ME_4CB6E426014A
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE419AF0217_ME_4CB6E426014A DoVisit
+
+ME ME_4CB6E426014A
+ MEPROP UID '4CB6E426014A'
+ MEPROP Name 'TScrollByLineTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест прокрутки вниз построчно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.ms.model.script' // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4CB6E426014A // DoVisit
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByLineTest.pas'
+ UP extprop:rc:SelfName 'ScrollByLineTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollByLineTest'
+
+ENDME // ME_4CB6E426014A TScrollByLineTest
+
+FORWARD ME_4CC6E92E0233
+
+ME ME_4CC6EC0E01AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ MELINK Target WL 'ME_48453B7601F9' '47F1F38601A3.ms.model.script' // evCursorTools
+ ;
+
+ENDME // ME_4CC6EC0E01AD 
+
+ME ME_4CC6ED7002A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4CC6ED7002A0 
+
+ME ME_4BE13147032C_ME_4CC6E92E0233
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE13147032C_ME_4CC6E92E0233 Process
+
+ME ME_4CC6E92E0233
+ MEPROP UID '4CC6E92E0233'
+ MEPROP Name 'TDeleteColumnToolTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест удаления колонки через редактор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.ms.model.script' // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4CC6E92E0233 // Process
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CC6EC0E01AD // evCursorTools
+ ME_4CC6ED7002A0 // InevSelection
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\DeleteColumnToolTest.pas'
+ UP extprop:rc:SelfName 'DeleteColumnToolTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'DeleteColumnToolTest'
+
+ENDME // ME_4CC6E92E0233 TDeleteColumnToolTest
+
+FORWARD ME_4CC7F3170362
+
+ME ME_4CAC45AE011E_ME_4CC7F3170362
+ MELINK Original WL 'ME_4CAC45AE011E' '4B30C89F035F.ms.model.script' // DoBeforeDrawing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CAC45AE011E_ME_4CC7F3170362 DoBeforeDrawing
+
+ME ME_4C937013031D_ME_4CC7F3170362
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4CC7F3170362 GetFolder
+
+ME ME_4DA2F7900393_ME_4CC7F3170362
+ MELINK Original WL 'ME_4DA2F7900393' '4BCE9EA0028A.ms.model.script' // UseFormExtentAsClientSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DA2F7900393_ME_4CC7F3170362 UseFormExtentAsClientSize
+
+ME ME_4CC7F3170362
+ MEPROP UID '4CC7F3170362'
+ MEPROP Name 'TDrawTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест вида: нарисовали и сравнили с эталоном.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CAC405703AE' '4B30C89F035F.ms.model.script' // TDrawTestPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CAC405703AE' '4B30C89F035F.ms.model.script' // TDrawTestPrim
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4CAC45AE011E_ME_4CC7F3170362 // DoBeforeDrawing
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4CC7F3170362 // GetFolder
+ ME_4DA2F7900393_ME_4CC7F3170362 // UseFormExtentAsClientSize
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\DrawTest.pas'
+ UP extprop:rc:SelfName 'DrawTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'DrawTest'
+
+ENDME // ME_4CC7F3170362 TDrawTest
+
+FORWARD ME_4CC8196F0219
+
+ME ME_4CAC45AE011E_ME_4CC8196F0219
+ MELINK Original WL 'ME_4CAC45AE011E' '4B30C89F035F.ms.model.script' // DoBeforeDrawing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CAC45AE011E_ME_4CC8196F0219 DoBeforeDrawing
+
+ME ME_4C937013031D_ME_4CC8196F0219
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4CC8196F0219 GetFolder
+
+ME ME_4CC81D4101AC_ME_4CC8196F0219
+ MELINK Original WL 'ME_4CC81D4101AC' '4E1C0134031B.ms.model.script' // GetSelectParam
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC81D4101AC_ME_4CC8196F0219 GetSelectParam
+
+ME ME_4CC8196F0219
+ MEPROP UID '4CC8196F0219'
+ MEPROP Name 'TMergeAndCheck'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест объединения ячеек и сравнения отрисованного' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CAC405703AE' '4B30C89F035F.ms.model.script' // TDrawTestPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CC815A00031' '4E1C0134031B.ms.model.script' // SelectTablePart
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4CAC45AE011E_ME_4CC8196F0219 // DoBeforeDrawing
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4CC8196F0219 // GetFolder
+ ME_4CC81D4101AC_ME_4CC8196F0219 // GetSelectParam
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MergeAndCheck.pas'
+ UP extprop:rc:SelfName 'MergeAndCheck'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MergeAndCheck'
+
+ENDME // ME_4CC8196F0219 TMergeAndCheck
+
+FORWARD ME_4CD7EBBB02D3
+
+ME ME_4CD7F9BC03C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_4CD7F9BC03C1 
+
+ME ME_4C4FE56300FB_ME_4CD7EBBB02D3
+ MELINK Original WL 'ME_4C4FE56300FB' '4C500D470030.ms.model.script' // Navigate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C4FE56300FB_ME_4CD7EBBB02D3 Navigate
+
+ME ME_4C9214F6002C_ME_4CD7EBBB02D3
+ MELINK Original HWL ME_4C9214F6002C // DoProcess
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C9214F6002C_ME_4CD7EBBB02D3 DoProcess
+
+ME ME_4CD7EBBB02D3
+ MEPROP UID '4CD7EBBB02D3'
+ MEPROP Name 'TInsertBreakInTextTableTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вставка текста в моноширинную таблицу в режиме рисования текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C4FE56300FB_ME_4CD7EBBB02D3 // Navigate
+ ME_4C9214F6002C_ME_4CD7EBBB02D3 // DoProcess
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CD7F9BC03C1 // InevOp
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\InsertBreakInTextTableTest.pas'
+ UP extprop:rc:SelfName 'InsertBreakInTextTableTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'InsertBreakInTextTableTest'
+
+ENDME // ME_4CD7EBBB02D3 TInsertBreakInTextTableTest
+
+FORWARD ME_4C345A91014E
+
+ME ME_4C9999C50326_ME_4C345A91014E
+ MELINK Original WL 'ME_4C9999C50326' '4B30C89F035F.ms.model.script' // CheckOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C9999C50326_ME_4C345A91014E CheckOperation
+
+ME ME_4BE13147032C_ME_4C345A91014E
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE13147032C_ME_4C345A91014E Process
+
+ME ME_4C937013031D_ME_4C345A91014E
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4C345A91014E GetFolder
+
+ME ME_4C345A91014E
+ MEPROP UID '4C345A91014E'
+ MEPROP Name 'TTableToolsTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тесты инструментов работы с таблицами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CE38AD60265' '4B30C89F035F.ms.model.script' // TTableToolsTestPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ WL 'ME_4CC815A00031' '4E1C0134031B.ms.model.script' // SelectTablePart
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C9999C50326_ME_4C345A91014E // CheckOperation
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BE13147032C_ME_4C345A91014E // Process
+ ME_4C937013031D_ME_4C345A91014E // GetFolder
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TableToolsTest.pas'
+ UP extprop:rc:SelfName 'TableToolsTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TableToolsTest'
+
+ENDME // ME_4C345A91014E TTableToolsTest
+
+FORWARD ME_4CE282AD019D
+
+ME ME_4BE419AF0217_ME_4CE282AD019D
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE419AF0217_ME_4CE282AD019D DoVisit
+
+ME ME_4CE282AD019D
+ MEPROP UID '4CE282AD019D'
+ MEPROP Name 'TScrollByArrow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прокрутка документа стрелкой на клавиатуре.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C9899150030' '4B30C89F035F.ms.model.script' // TPrimScrollTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ WL 'ME_4CE2958803D0' '4C500D470030.ms.model.script' // ScrollSupport
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4CE282AD019D // DoVisit
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByArrow.pas'
+ UP extprop:rc:SelfName 'ScrollByArrow'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollByArrow'
+
+ENDME // ME_4CE282AD019D TScrollByArrow
+
+FORWARD ME_4C123E8103B3
+
+ME ME_4C345B580083_ME_4C123E8103B3
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4C123E8103B3 ApplyTools
+
+ME ME_4C937013031D_ME_4C123E8103B3
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4C123E8103B3 GetFolder
+
+ME ME_4C123E8103B3
+ MEPROP UID '4C123E8103B3'
+ MEPROP Name 'TMergeCellsTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объединение ячеек в таблице.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4C123E8103B3 // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C123E8103B3 // GetFolder
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MergeCellsTest.pas'
+ UP extprop:rc:SelfName 'MergeCellsTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MergeCellsTest'
+
+ENDME // ME_4C123E8103B3 TMergeCellsTest
+
+FORWARD ME_4C3463D800E5
+
+ME ME_4C345B580083_ME_4C3463D800E5
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4C3463D800E5 ApplyTools
+
+ME ME_4C937013031D_ME_4C3463D800E5
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4C3463D800E5 GetFolder
+
+ME ME_4C3463D800E5
+ MEPROP UID '4C3463D800E5'
+ MEPROP Name 'TTranslate2TextTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Преобразовать таблицу или её часть в текст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4C3463D800E5 // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C3463D800E5 // GetFolder
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\Translate2TextTest.pas'
+ UP extprop:rc:SelfName 'Translate2TextTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Translate2TextTest'
+
+ENDME // ME_4C3463D800E5 TTranslate2TextTest
+
+FORWARD ME_4C99945800BC
+
+ME ME_4CE3B52E02E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ MELINK Target WL 'ME_47FB31D1033A' '47C5207602D1.ms.model.script' // InevLeafPoint
+ ;
+
+ENDME // ME_4CE3B52E02E8 
+
+ME ME_4C345B580083_ME_4C99945800BC
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4C99945800BC ApplyTools
+
+ME ME_4C937013031D_ME_4C99945800BC
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4C99945800BC GetFolder
+
+ME ME_4C9999C50326_ME_4C99945800BC
+ MELINK Original WL 'ME_4C9999C50326' '4B30C89F035F.ms.model.script' // CheckOperation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C9999C50326_ME_4C99945800BC CheckOperation
+
+ME ME_4C99945800BC
+ MEPROP UID '4C99945800BC'
+ MEPROP Name 'TSelectColumnAndDelete'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест выделения и удаления колонки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4C99945800BC // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C99945800BC // GetFolder
+ ME_4C9999C50326_ME_4C99945800BC // CheckOperation
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CE3B52E02E8 // InevLeafPoint
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SelectColumnAndDelete.pas'
+ UP extprop:rc:SelfName 'SelectColumnAndDelete'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SelectColumnAndDelete'
+
+ENDME // ME_4C99945800BC TSelectColumnAndDelete
+
+FORWARD ME_4C3C2BE800AF
+
+ME ME_4C345B580083_ME_4C3C2BE800AF
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4C3C2BE800AF ApplyTools
+
+ME ME_4C937013031D_ME_4C3C2BE800AF
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4C3C2BE800AF GetFolder
+
+ME ME_4C3C2BE800AF
+ MEPROP UID '4C3C2BE800AF'
+ MEPROP Name 'TColumnAlignHorisontallyTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выравнивание текста в колонке горизотально.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4C3C2BE800AF // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C3C2BE800AF // GetFolder
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ColumnAlignHorisontallyTest.pas'
+ UP extprop:rc:SelfName 'ColumnAlignHorisontallyTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ColumnAlignHorisontallyTest'
+
+ENDME // ME_4C3C2BE800AF TColumnAlignHorisontallyTest
+
+FORWARD ME_4CE133F801BA
+
+ME ME_4C9999C50326_ME_4CE133F801BA
+ MELINK Original WL 'ME_4C9999C50326' '4B30C89F035F.ms.model.script' // CheckOperation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C9999C50326_ME_4CE133F801BA CheckOperation
+
+ME ME_4CC8189D02DF_ME_4CE133F801BA
+ MELINK Original WL 'ME_4CC8189D02DF' '4E1C0134031B.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8189D02DF_ME_4CE133F801BA NeedSelection
+
+ME ME_4CE133F801BA
+ MEPROP UID '4CE133F801BA'
+ MEPROP Name 'TMergeAndCheckSelectionTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест проверки выделения после объединения ячеек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C123E8103B3 // TMergeCellsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CE1344403AC' '4E1C0134031B.ms.model.script' // ClipboardOperations
+ WL 'ME_4D4137E30326' '4C500D470030.ms.model.script' // SelectOperation
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4C9999C50326_ME_4CE133F801BA // CheckOperation
+ ME_4CC8189D02DF_ME_4CE133F801BA // NeedSelection
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MergeAndCheckSelectionTest.pas'
+ UP extprop:rc:SelfName 'MergeAndCheckSelectionTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MergeAndCheckSelectionTest'
+
+ENDME // ME_4CE133F801BA TMergeAndCheckSelectionTest
+
+FORWARD ME_4C3AF74701A6
+
+ME ME_4C345B580083_ME_4C3AF74701A6
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4C3AF74701A6 ApplyTools
+
+ME ME_4C937013031D_ME_4C3AF74701A6
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4C3AF74701A6 GetFolder
+
+ME ME_4CC8189D02DF_ME_4C3AF74701A6
+ MELINK Original WL 'ME_4CC8189D02DF' '4E1C0134031B.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8189D02DF_ME_4C3AF74701A6 NeedSelection
+
+ME ME_4C3AF74701A6
+ MEPROP UID '4C3AF74701A6'
+ MEPROP Name 'TMergeTablesTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тестирование объединения таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4C3AF74701A6 // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C3AF74701A6 // GetFolder
+ ME_4CC8189D02DF_ME_4C3AF74701A6 // NeedSelection
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MergeTablesTest.pas'
+ UP extprop:rc:SelfName 'MergeTablesTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MergeTablesTest'
+
+ENDME // ME_4C3AF74701A6 TMergeTablesTest
+
+FORWARD ME_4C6CF18001AE
+
+ME ME_4C6CFAE20264
+ MEPROP UID '4C6CFAE20264'
+ MEPROP Name 'GetLineCount'
+ MEPROP Class class_Operation
+ %SUMMARY 'Количество строчек (текста), на которое нужно сдинуть курсор перед разбиванием табилцы на две.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C6CF18001AE // TSplitTableTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C6CFAE20264 GetLineCount
+
+ME ME_4C345B580083_ME_4C6CF18001AE
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4C6CF18001AE ApplyTools
+
+ME ME_4BE419AF0217_ME_4C6CF18001AE
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE419AF0217_ME_4C6CF18001AE DoVisit
+
+ME ME_4C937013031D_ME_4C6CF18001AE
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4C6CF18001AE GetFolder
+
+ME ME_4CC8189D02DF_ME_4C6CF18001AE
+ MELINK Original WL 'ME_4CC8189D02DF' '4E1C0134031B.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8189D02DF_ME_4C6CF18001AE NeedSelection
+
+ME ME_4C6CF18001AE
+ MEPROP UID '4C6CF18001AE'
+ MEPROP Name 'TSplitTableTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тесты разбиения таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4C6CFAE20264 // GetLineCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4C6CF18001AE // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4C6CF18001AE // DoVisit
+ ME_4C937013031D_ME_4C6CF18001AE // GetFolder
+ ME_4CC8189D02DF_ME_4C6CF18001AE // NeedSelection
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SplitTableTest.pas'
+ UP extprop:rc:SelfName 'SplitTableTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SplitTableTest'
+
+ENDME // ME_4C6CF18001AE TSplitTableTest
+
+FORWARD ME_4CE3E5F3012B
+
+ME ME_4BE13147032C_ME_4CE3E5F3012B
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE13147032C_ME_4CE3E5F3012B Process
+
+ME ME_4C937013031D_ME_4CE3E5F3012B
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4CE3E5F3012B GetFolder
+
+ME ME_4CC8189D02DF_ME_4CE3E5F3012B
+ MELINK Original WL 'ME_4CC8189D02DF' '4E1C0134031B.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8189D02DF_ME_4CE3E5F3012B NeedSelection
+
+ME ME_4CC81D4101AC_ME_4CE3E5F3012B
+ MELINK Original WL 'ME_4CC81D4101AC' '4E1C0134031B.ms.model.script' // GetSelectParam
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC81D4101AC_ME_4CE3E5F3012B GetSelectParam
+
+ME ME_4CE3E5F3012B
+ MEPROP UID '4CE3E5F3012B'
+ MEPROP Name 'TSelectRowAndDeleteTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделить строку и удалить.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.ms.model.script' // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CC815A00031' '4E1C0134031B.ms.model.script' // SelectTablePart
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4CE3E5F3012B // Process
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4CE3E5F3012B // GetFolder
+ ME_4CC8189D02DF_ME_4CE3E5F3012B // NeedSelection
+ ME_4CC81D4101AC_ME_4CE3E5F3012B // GetSelectParam
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SelectRowAndDeleteTest.pas'
+ UP extprop:rc:SelfName 'SelectRowAndDeleteTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SelectRowAndDeleteTest'
+
+ENDME // ME_4CE3E5F3012B TSelectRowAndDeleteTest
+
+FORWARD ME_4BF4E6650245
+
+ME ME_4BF4E7CC01B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BF4E6650245 // TSelectPtTest
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4BF4E7CC01B7 
+
+ME ME_4BE419AF0217_ME_4BF4E6650245
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE419AF0217_ME_4BF4E6650245 DoVisit
+
+ME ME_4BF4E6650245
+ MEPROP UID '4BF4E6650245'
+ MEPROP Name 'TSelectPtTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест вида - загрузили и ткнули в точку со смещением относительно какого-нибудь параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.ms.model.script' // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CED0194038A' '4C500D470030.ms.model.script' // Para2Point
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4BF4E6650245 // DoVisit
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4BF4E7CC01B7 // Tl3Point
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SelectPtTest.pas'
+ UP extprop:rc:SelfName 'SelectPtTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SelectPtTest'
+
+ENDME // ME_4BF4E6650245 TSelectPtTest
+
+FORWARD ME_4BFE38A8006A
+
+FORWARD ME_4E44C98700AE
+
+ME ME_4E44C9A20188
+ MEPROP UID '4E44C9A20188'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E44C98700AE // NeedScrollUp
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E44C9A20188 DoIt
+
+ME ME_4E44C98700AE
+ MEPROP UID '4E44C98700AE'
+ MEPROP Name 'NeedScrollUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E44C9A20188 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E44C98700AE NeedScrollUp
+
+FORWARD ME_4E44C9B00324
+
+ME ME_4E44C9C10187
+ MEPROP UID '4E44C9C10187'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E44C9B00324 // NeedScrollByLine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E44C9C10187 DoIt
+
+ME ME_4E44C9B00324
+ MEPROP UID '4E44C9B00324'
+ MEPROP Name 'NeedScrollByLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E44C9C10187 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E44C9B00324 NeedScrollByLine
+
+ME ME_4BFE40CD0337
+ MEPROP UID '4BFE40CD0337'
+ MEPROP Name 'GetScrollCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BFE40CD0337 GetScrollCount
+
+ME ME_4C9B259F00C2
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C49600CD' '47C5207602D1.ms.model.script' // InevInputView
+ ;
+
+ENDME // ME_4C9B259F00C2 aView
+
+ME ME_4C3C80AF002D
+ MEPROP UID '4C3C80AF002D'
+ MEPROP Name 'CheckAfterScroll'
+ MEPROP Class class_Operation
+ %SUMMARY 'Операции после прокрутки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B259F00C2 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4C3C80AF002D CheckAfterScroll
+
+ME ME_4BE419AF0217_ME_4BFE38A8006A
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE419AF0217_ME_4BFE38A8006A DoVisit
+
+ME ME_4BFE38A8006A
+ MEPROP UID '4BFE38A8006A'
+ MEPROP Name 'TScrollAndSelectPtTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тесты вида - загрузили, прокрутили и ткнули' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BF4E6650245 // TSelectPtTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E44C98700AE // NeedScrollUp
+ HWL ME_4E44C9B00324 // NeedScrollByLine
+ HWL ME_4BFE40CD0337 // GetScrollCount
+ HWL ME_4C3C80AF002D // CheckAfterScroll
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4BFE38A8006A // DoVisit
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollAndSelectPtTest.pas'
+ UP extprop:rc:SelfName 'ScrollAndSelectPtTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollAndSelectPtTest'
+
+ENDME // ME_4BFE38A8006A TScrollAndSelectPtTest
+
+FORWARD ME_4C3C771A002D
+
+ME ME_4C3C79020323
+ MEPROP UID '4C3C79020323'
+ MEPROP Name 'f_PrevTopAnchor'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Предыдущее значение TopAnchor''а.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C3C771A002D // TCheckTopAnchorTest
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4C3C79020323 f_PrevTopAnchor
+
+ME ME_4B2F40FD0088_ME_4C3C771A002D
+ MELINK Original WL 'ME_4B2F40FD0088' '4B2A0D6A0077.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2F40FD0088_ME_4C3C771A002D Cleanup
+
+ME ME_4BE419AF0217_ME_4C3C771A002D
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE419AF0217_ME_4C3C771A002D DoVisit
+
+ME ME_4C3C80AF002D_ME_4C3C771A002D
+ MELINK Original HWL ME_4C3C80AF002D // CheckAfterScroll
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C3C80AF002D_ME_4C3C771A002D CheckAfterScroll
+
+ME ME_4C3C771A002D
+ MEPROP UID '4C3C771A002D'
+ MEPROP Name 'TCheckTopAnchorTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест для выбора точки после прокрутки и проверки изменился ли TopAnchor' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C3C79020323 // f_PrevTopAnchor
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4B2F40FD0088_ME_4C3C771A002D // Cleanup
+ ME_4BE419AF0217_ME_4C3C771A002D // DoVisit
+ ME_4C3C80AF002D_ME_4C3C771A002D // CheckAfterScroll
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\CheckTopAnchorTest.pas'
+ UP extprop:rc:SelfName 'CheckTopAnchorTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CheckTopAnchorTest'
+
+ENDME // ME_4C3C771A002D TCheckTopAnchorTest
+
+FORWARD ME_4CED2FCF0081
+
+ME ME_4CEFC4F4037F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED2FCF0081 // TCellMouseSelectionTest
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4CEFC4F4037F 
+
+ME ME_4BF4E6A00093_ME_4CED2FCF0081
+ MELINK Original WL 'ME_4BF4E6A00093' '4C500D470030.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BF4E6A00093_ME_4CED2FCF0081 GetInnerPara
+
+ME ME_4C3C927B027E_ME_4CED2FCF0081
+ MELINK Original WL 'ME_4C3C927B027E' '4C500D470030.ms.model.script' // GetPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C3C927B027E_ME_4CED2FCF0081 GetPoint
+
+ME ME_4C937013031D_ME_4CED2FCF0081
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4CED2FCF0081 GetFolder
+
+ME ME_4CED2FCF0081
+ MEPROP UID '4CED2FCF0081'
+ MEPROP Name 'TCellMouseSelectionTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделение ячейки с помощью мыши.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CED106503D0' '4D02566F01E6.ms.model.script' // THotSpotSelectionTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4CED2FCF0081 // GetInnerPara
+ ME_4C3C927B027E_ME_4CED2FCF0081 // GetPoint
+ ME_4C937013031D_ME_4CED2FCF0081 // GetFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CEFC4F4037F // evL3CoreConsts
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\CellMouseSelectionTest.pas'
+ UP extprop:rc:SelfName 'CellMouseSelectionTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CellMouseSelectionTest'
+
+ENDME // ME_4CED2FCF0081 TCellMouseSelectionTest
+
+FORWARD ME_4D19DD6A0378
+
+ME ME_4BE13147032C_ME_4D19DD6A0378
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE13147032C_ME_4D19DD6A0378 Process
+
+ME ME_4C937013031D_ME_4D19DD6A0378
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D19DD6A0378 GetFolder
+
+ME ME_4D19DD6A0378
+ MEPROP UID '4D19DD6A0378'
+ MEPROP Name 'TTextMetricsAfterCopyPasteTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверка метрик после вставки-копирования текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D076A0C03C4' '4D02566F01E6.ms.model.script' // TTextMetricsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CE1344403AC' '4E1C0134031B.ms.model.script' // ClipboardOperations
+ WL 'ME_4D4137E30326' '4C500D470030.ms.model.script' // SelectOperation
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4BE13147032C_ME_4D19DD6A0378 // Process
+ ME_4C937013031D_ME_4D19DD6A0378 // GetFolder
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TextMetricsAfterCopyPasteTest.pas'
+ UP extprop:rc:SelfName 'TextMetricsAfterCopyPasteTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TextMetricsAfterCopyPasteTest'
+
+ENDME // ME_4D19DD6A0378 TTextMetricsAfterCopyPasteTest
+
+FORWARD ME_4D1B16D302DD
+
+ME ME_4BE13147032C_ME_4D1B16D302DD
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE13147032C_ME_4D1B16D302DD Process
+
+ME ME_4C937013031D_ME_4D1B16D302DD
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D1B16D302DD GetFolder
+
+ME ME_4CC8189D02DF_ME_4D1B16D302DD
+ MELINK Original WL 'ME_4CC8189D02DF' '4E1C0134031B.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8189D02DF_ME_4D1B16D302DD NeedSelection
+
+ME ME_4D1B16D302DD
+ MEPROP UID '4D1B16D302DD'
+ MEPROP Name 'TTextMericsAfterDeleteTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверка метрик после удаления.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D076A0C03C4' '4D02566F01E6.ms.model.script' // TTextMetricsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4CC815A00031' '4E1C0134031B.ms.model.script' // SelectTablePart
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4BE13147032C_ME_4D1B16D302DD // Process
+ ME_4C937013031D_ME_4D1B16D302DD // GetFolder
+ ME_4CC8189D02DF_ME_4D1B16D302DD // NeedSelection
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TextMericsAfterDeleteTest.pas'
+ UP extprop:rc:SelfName 'TextMericsAfterDeleteTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TextMericsAfterDeleteTest'
+
+ENDME // ME_4D1B16D302DD TTextMericsAfterDeleteTest
+
+FORWARD ME_4D3D429001F4
+
+ME ME_4D3D51E60211
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4D3D51E60211 
+
+ME ME_4BF4E6A00093_ME_4D3D429001F4
+ MELINK Original WL 'ME_4BF4E6A00093' '4C500D470030.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BF4E6A00093_ME_4D3D429001F4 GetInnerPara
+
+ME ME_4C3C927B027E_ME_4D3D429001F4
+ MELINK Original WL 'ME_4C3C927B027E' '4C500D470030.ms.model.script' // GetPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C3C927B027E_ME_4D3D429001F4 GetPoint
+
+ME ME_4C937013031D_ME_4D3D429001F4
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D3D429001F4 GetFolder
+
+ME ME_4D3D429001F4
+ MEPROP UID '4D3D429001F4'
+ MEPROP Name 'TMouseMoveCellsSelectTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест выделения с помощью мыши диапазона ячеек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D3D40C70045' '4D02566F01E6.ms.model.script' // TMouseMoveSelectionTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4D3D429001F4 // GetInnerPara
+ ME_4C3C927B027E_ME_4D3D429001F4 // GetPoint
+ ME_4C937013031D_ME_4D3D429001F4 // GetFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D3D51E60211 // evL3CoreConsts
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MouseMoveCellsSelectTest.pas'
+ UP extprop:rc:SelfName 'MouseMoveCellsSelectTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MouseMoveCellsSelectTest'
+
+ENDME // ME_4D3D429001F4 TMouseMoveCellsSelectTest
+
+FORWARD ME_4D413AD401BD
+
+ME ME_4BE13147032C_ME_4D413AD401BD
+ MELINK Original WL 'ME_4BE13147032C' '4B30C89F035F.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE13147032C_ME_4D413AD401BD Process
+
+ME ME_4D413AD401BD
+ MEPROP UID '4D413AD401BD'
+ MEPROP Name 'TSelectionCellTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест на выделение ячейки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE111D30229' '4B30C89F035F.ms.model.script' // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ WL 'ME_4CE1344403AC' '4E1C0134031B.ms.model.script' // ClipboardOperations
+ WL 'ME_4D4137E30326' '4C500D470030.ms.model.script' // SelectOperation
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4D413AD401BD // Process
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SelectionCellTest.pas'
+ UP extprop:rc:SelfName 'SelectionCellTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SelectionCellTest'
+
+ENDME // ME_4D413AD401BD TSelectionCellTest
+
+FORWARD ME_4D53D6AA0038
+
+ME ME_4C937013031D_ME_4D53D6AA0038
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D53D6AA0038 GetFolder
+
+ME ME_4E32CA120170_ME_4D53D6AA0038
+ MELINK Original WL 'ME_4E32CA120170' '4C500D470030.ms.model.script' // GetKeys
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E32CA120170_ME_4D53D6AA0038 GetKeys
+
+ME ME_4D53D6AA0038
+ MEPROP UID '4D53D6AA0038'
+ MEPROP Name 'TColumnResizeWithCtrl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменение размера колонки с зажатым Ctrl' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D53D6170280' '4D02566F01E6.ms.model.script' // TColumnResizeByMousePrimTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4D53D6AA0038 // GetFolder
+ ME_4E32CA120170_ME_4D53D6AA0038 // GetKeys
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ColumnResizeWithCtrl.pas'
+ UP extprop:rc:SelfName 'ColumnResizeWithCtrl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ColumnResizeWithCtrl'
+
+ENDME // ME_4D53D6AA0038 TColumnResizeWithCtrl
+
+FORWARD ME_4D5A63ED011A
+
+ME ME_4D5A6EE600D3
+ MEPROP UID '4D5A6EE600D3'
+ MEPROP Name 'GetLineCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A63ED011A // TSplitCellTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5A6EE600D3 GetLineCount
+
+ME ME_4D5A6F4802CB
+ MEPROP UID '4D5A6F4802CB'
+ MEPROP Name 'GetTabCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A63ED011A // TSplitCellTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5A6F4802CB GetTabCount
+
+ME ME_4C345B580083_ME_4D5A63ED011A
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4D5A63ED011A ApplyTools
+
+ME ME_4BE419AF0217_ME_4D5A63ED011A
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE419AF0217_ME_4D5A63ED011A DoVisit
+
+ME ME_4C937013031D_ME_4D5A63ED011A
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D5A63ED011A GetFolder
+
+ME ME_4CC8189D02DF_ME_4D5A63ED011A
+ MELINK Original WL 'ME_4CC8189D02DF' '4E1C0134031B.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8189D02DF_ME_4D5A63ED011A NeedSelection
+
+ME ME_4D5A63ED011A
+ MEPROP UID '4D5A63ED011A'
+ MEPROP Name 'TSplitCellTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест разделения ячеек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D5A6EE600D3 // GetLineCount
+ HWL ME_4D5A6F4802CB // GetTabCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4D5A63ED011A // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4D5A63ED011A // DoVisit
+ ME_4C937013031D_ME_4D5A63ED011A // GetFolder
+ ME_4CC8189D02DF_ME_4D5A63ED011A // NeedSelection
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SplitCellTest.pas'
+ UP extprop:rc:SelfName 'SplitCellTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SplitCellTest'
+
+ENDME // ME_4D5A63ED011A TSplitCellTest
+
+FORWARD ME_4D6B85E6037B
+
+ME ME_4BE419AF0217_ME_4D6B85E6037B
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE419AF0217_ME_4D6B85E6037B DoVisit
+
+ME ME_4C9B31F6015E_ME_4D6B85E6037B
+ MELINK Original WL 'ME_4C9B31F6015E' '4B30C89F035F.ms.model.script' // F1Like
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C9B31F6015E_ME_4D6B85E6037B F1Like
+
+ME ME_4D6B85E6037B
+ MEPROP UID '4D6B85E6037B'
+ MEPROP Name 'TScrollAndCheckCursorTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.ms.model.script' // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4D6B85E6037B // DoVisit
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C9B31F6015E_ME_4D6B85E6037B // F1Like
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollAndCheckCursorTest.pas'
+ UP extprop:rc:SelfName 'ScrollAndCheckCursorTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollAndCheckCursorTest'
+
+ENDME // ME_4D6B85E6037B TScrollAndCheckCursorTest
+
+FORWARD ME_4D7777390386
+
+ME ME_4D777A0303A1
+ MEPROP Name 'aFirst'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D777A0303A1 aFirst
+
+ME ME_4D7779F503A4
+ MEPROP UID '4D7779F503A4'
+ MEPROP Name 'GetSubNumber'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D7777390386 // TComplexScrollParams
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D777A0303A1 // aFirst
+ )
+ ; // Parameters
+
+ENDME // ME_4D7779F503A4 GetSubNumber
+
+ME ME_4DAEBBCE009E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D7777390386 // TComplexScrollParams
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DAEBBCE009E 
+
+ME ME_4BE419AF0217_ME_4D7777390386
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BE419AF0217_ME_4D7777390386 DoVisit
+
+ME ME_4DAEB0DE00D1_ME_4D7777390386
+ MELINK Original WL 'ME_4DAEB0DE00D1' '4811D4EC0237.ms.model.script' // OpenLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEB0DE00D1_ME_4D7777390386 OpenLog
+
+ME ME_4DAEB0F30186_ME_4D7777390386
+ MELINK Original WL 'ME_4DAEB0F30186' '4811D4EC0237.ms.model.script' // CloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEB0F30186_ME_4D7777390386 CloseLog
+
+ME ME_4B4F588B0241_ME_4D7777390386
+ MELINK Original WL 'ME_4B4F588B0241' '4B2A112B011A.ms.model.script' // FileForOutput
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B4F588B0241_ME_4D7777390386 FileForOutput
+
+ME ME_4C08CF700318_ME_4D7777390386
+ MELINK Original WL 'ME_4C08CF700318' '4BCE9EA0028A.ms.model.script' // FormExtent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C08CF700318_ME_4D7777390386 FormExtent
+
+ME ME_4C937013031D_ME_4D7777390386
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D7777390386 GetFolder
+
+ME ME_4D7777390386
+ MEPROP UID '4D7777390386'
+ MEPROP Name 'TComplexScrollParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.ms.model.script' // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4DAEB0CB0134' '4811D4EC0237.ms.model.script' // InevVScrollerPosLogger
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D7779F503A4 // GetSubNumber
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4D7777390386 // DoVisit
+ ME_4DAEB0DE00D1_ME_4D7777390386 // OpenLog
+ ME_4DAEB0F30186_ME_4D7777390386 // CloseLog
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B4F588B0241_ME_4D7777390386 // FileForOutput
+ ME_4C08CF700318_ME_4D7777390386 // FormExtent
+ ME_4C937013031D_ME_4D7777390386 // GetFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DAEBBCE009E // FreeAndNil
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ComplexScrollParams.pas'
+ UP extprop:rc:SelfName 'ComplexScrollParams'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ComplexScrollParams'
+
+ENDME // ME_4D7777390386 TComplexScrollParams
+
+FORWARD ME_4D80B9060123
+
+ME ME_4D80BB670151
+ MEPROP UID '4D80BB670151'
+ MEPROP Name 'GetScrollCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D80BB670151 GetScrollCount
+
+ME ME_4CAC45AE011E_ME_4D80B9060123
+ MELINK Original WL 'ME_4CAC45AE011E' '4B30C89F035F.ms.model.script' // DoBeforeDrawing
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CAC45AE011E_ME_4D80B9060123 DoBeforeDrawing
+
+ME ME_4D80B9060123
+ MEPROP UID '4D80B9060123'
+ MEPROP Name 'TScrollByArrowAndCheckShapesTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прокрутить стрелкой до определенной позиции и сравнить "картинку".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CC7F3170362 // TDrawTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ WL 'ME_4CE2958803D0' '4C500D470030.ms.model.script' // ScrollSupport
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D80BB670151 // GetScrollCount
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4CAC45AE011E_ME_4D80B9060123 // DoBeforeDrawing
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByArrowAndCheckShapesTest.pas'
+ UP extprop:rc:SelfName 'ScrollByArrowAndCheckShapesTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollByArrowAndCheckShapesTest'
+
+ENDME // ME_4D80B9060123 TScrollByArrowAndCheckShapesTest
+
+FORWARD ME_4D9AE118015C
+
+ME ME_4D9AE20F0229
+ MEPROP Name 'aUp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D9AE20F0229 aUp
+
+ME ME_4D9AE1F40181
+ MEPROP UID '4D9AE1F40181'
+ MEPROP Name 'GetScrollCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D9AE20F0229 // aUp
+ )
+ ; // Parameters
+
+ENDME // ME_4D9AE1F40181 GetScrollCount
+
+ME ME_4C937013031D_ME_4D9AE118015C
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4D9AE118015C GetFolder
+
+ME ME_4CAC45AE011E_ME_4D9AE118015C
+ MELINK Original WL 'ME_4CAC45AE011E' '4B30C89F035F.ms.model.script' // DoBeforeDrawing
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CAC45AE011E_ME_4D9AE118015C DoBeforeDrawing
+
+ME ME_4D9AE118015C
+ MEPROP UID '4D9AE118015C'
+ MEPROP Name 'TScrollUpAndDownAndCheckShapes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прокрутка вниз, потом вверх и сравнение разультатов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CC7F3170362 // TDrawTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C500D6101D8' '4C500D470030.ms.model.script' // CursorMover
+ WL 'ME_4CE2958803D0' '4C500D470030.ms.model.script' // ScrollSupport
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D9AE1F40181 // GetScrollCount
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4D9AE118015C // GetFolder
+ ME_4CAC45AE011E_ME_4D9AE118015C // DoBeforeDrawing
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollUpAndDownAndCheckShapes.pas'
+ UP extprop:rc:SelfName 'ScrollUpAndDownAndCheckShapes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollUpAndDownAndCheckShapes'
+
+ENDME // ME_4D9AE118015C TScrollUpAndDownAndCheckShapes
+
+FORWARD ME_4DCA1D3D034A
+
+ME ME_4C345B580083_ME_4DCA1D3D034A
+ MELINK Original WL 'ME_4C345B580083' '4B30C89F035F.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4C345B580083_ME_4DCA1D3D034A ApplyTools
+
+ME ME_4DCA1D3D034A
+ MEPROP UID '4DCA1D3D034A'
+ MEPROP Name 'THorzMergeCells'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объединение ячеек по горизонтали.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C345A91014E // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4DCA1D3D034A // ApplyTools
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\HorzMergeCells.pas'
+ UP extprop:rc:SelfName 'HorzMergeCells'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'HorzMergeCells'
+
+ENDME // ME_4DCA1D3D034A THorzMergeCells
+
+FORWARD ME_4E44C60E0060
+
+ME ME_4E44D18E0379
+ MEPROP UID '4E44D18E0379'
+ MEPROP Name 'f_PrevAnchor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E44D18E0379 f_PrevAnchor
+
+ME ME_4BE419AF0217_ME_4E44C60E0060
+ MELINK Original WL 'ME_4BE419AF0217' '4B30C89F035F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4BE419AF0217_ME_4E44C60E0060 DoVisit
+
+ME ME_4C3C80AF002D_ME_4E44C60E0060
+ MELINK Original HWL ME_4C3C80AF002D // CheckAfterScroll
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C3C80AF002D_ME_4E44C60E0060 CheckAfterScroll
+
+ME ME_4C937013031D_ME_4E44C60E0060
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4E44C60E0060 GetFolder
+
+ME ME_4DAED6F60146_ME_4E44C60E0060
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_4E44C60E0060 GetModelElementGUID
+
+ME ME_4E44C98700AE_ME_4E44C60E0060
+ MELINK Original HWL ME_4E44C98700AE // NeedScrollUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E44C98700AE_ME_4E44C60E0060 NeedScrollUp
+
+ME ME_4E44C9B00324_ME_4E44C60E0060
+ MELINK Original HWL ME_4E44C9B00324 // NeedScrollByLine
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E44C9B00324_ME_4E44C60E0060 NeedScrollByLine
+
+ME ME_4E44C60E0060
+ MEPROP UID '4E44C60E0060'
+ MEPROP Name 'TScrollByLineBackAndSelectPt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C4FDBF703DB // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E44D18E0379 // f_PrevAnchor
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4E44C60E0060 // DoVisit
+ ME_4C3C80AF002D_ME_4E44C60E0060 // CheckAfterScroll
+ ME_4C937013031D_ME_4E44C60E0060 // GetFolder
+ ME_4DAED6F60146_ME_4E44C60E0060 // GetModelElementGUID
+ ME_4E44C98700AE_ME_4E44C60E0060 // NeedScrollUp
+ ME_4E44C9B00324_ME_4E44C60E0060 // NeedScrollByLine
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByLineBackAndSelectPt.pas'
+ UP extprop:rc:SelfName 'ScrollByLineBackAndSelectPt'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollByLineBackAndSelectPt'
+
+ENDME // ME_4E44C60E0060 TScrollByLineBackAndSelectPt
+
+ME ME_4C4FDBF703DB
+ MEPROP UID '4C4FDBF703DB'
+ MEPROP Name 'EditorTests'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ %SUMMARY 'Шаблонные тесты редактора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B2A15810261' '4B2A15810261.ms.model.script' // DailyTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C9214C80098 // TTextViaEditorProcessorWithNavigate
+ HWL ME_4C4FDC620374 // TInsertStreamTest
+ HWL ME_4C920D930026 // TMoveSubTest
+ HWL ME_4C501582010E // TInsertStreamTestWithImplementedNavigate
+ HWL ME_4C93529B018C // TCopyPasteTest
+ HWL ME_4CA30546032E // TDeleteCharTest
+ HWL ME_4CB6E426014A // TScrollByLineTest
+ HWL ME_4CC6E92E0233 // TDeleteColumnToolTest
+ HWL ME_4CC7F3170362 // TDrawTest
+ HWL ME_4CC8196F0219 // TMergeAndCheck
+ HWL ME_4CD7EBBB02D3 // TInsertBreakInTextTableTest
+ HWL ME_4C345A91014E // TTableToolsTest
+ HWL ME_4CE282AD019D // TScrollByArrow
+ HWL ME_4C123E8103B3 // TMergeCellsTest
+ HWL ME_4C3463D800E5 // TTranslate2TextTest
+ HWL ME_4C99945800BC // TSelectColumnAndDelete
+ HWL ME_4C3C2BE800AF // TColumnAlignHorisontallyTest
+ HWL ME_4CE133F801BA // TMergeAndCheckSelectionTest
+ HWL ME_4C3AF74701A6 // TMergeTablesTest
+ HWL ME_4C6CF18001AE // TSplitTableTest
+ HWL ME_4CE3E5F3012B // TSelectRowAndDeleteTest
+ HWL ME_4BF4E6650245 // TSelectPtTest
+ HWL ME_4BFE38A8006A // TScrollAndSelectPtTest
+ HWL ME_4C3C771A002D // TCheckTopAnchorTest
+ HWL ME_4CED2FCF0081 // TCellMouseSelectionTest
+ HWL ME_4D19DD6A0378 // TTextMetricsAfterCopyPasteTest
+ HWL ME_4D1B16D302DD // TTextMericsAfterDeleteTest
+ HWL ME_4D3D429001F4 // TMouseMoveCellsSelectTest
+ HWL ME_4D413AD401BD // TSelectionCellTest
+ HWL ME_4D53D6AA0038 // TColumnResizeWithCtrl
+ HWL ME_4D5A63ED011A // TSplitCellTest
+ HWL ME_4D6B85E6037B // TScrollAndCheckCursorTest
+ HWL ME_4D7777390386 // TComplexScrollParams
+ HWL ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ HWL ME_4D9AE118015C // TScrollUpAndDownAndCheckShapes
+ HWL ME_4DCA1D3D034A // THorzMergeCells
+ HWL ME_4E44C60E0060 // TScrollByLineBackAndSelectPt
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_476BEA0B0103' '476BEA0B0103.ms.model.script' // evConst
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47C695A10172' '47C695A10172.ms.model.script' // evTypes
+ WL 'ME_47F086170200' '47F086170200.ms.model.script' // DocumentContainers
+ WL 'ME_47F0893F0220' '47F0893F0220.ms.model.script' // nevInternalInterfaces
+ WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ WL 'ME_4811D4EC0237' '4811D4EC0237.ms.model.script' // Views
+ WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ WL 'ME_4A1FCBA0014C' '4A1FCBA0014C.ms.model.script' // nevGUIInterfaces
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.ms.model.script' // k2Core
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B30C89F035F' '4B30C89F035F.ms.model.script' // Everest
+ WL 'ME_4B322B67038B' '4B322B67038B.ms.model.script' // ext
+ WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ WL 'ME_4D02566F01E6' '4D02566F01E6.ms.model.script' // EditorTests
+ WL 'ME_4E1C0134031B' '4E1C0134031B.ms.model.script' // MixIns
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_4C4FDBF703DB EditorTests

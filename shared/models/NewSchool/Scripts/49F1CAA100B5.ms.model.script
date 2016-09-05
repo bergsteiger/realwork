@@ -1,0 +1,857 @@
+// Internet 49F1CAA100B5 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F1CAA100B5
+
+FORWARD ME_49EEF16603C9
+
+FORWARD ME_553A2B570033
+
+ME ME_553A2BE0020B
+ MEPROP UID '553A2BE0020B'
+ MEPROP Name 'GarantMainURL'
+ MEPROP Class class_Attribute
+ %SUMMARY '"Новости онлайн"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_553A2B570033 // InternalBrowserURLArr
+ ;
+ MEPROP Value '''www.garant.ru'''
+ UP extprop:pas:Value '''www.garant.ru'''
+
+ENDME // ME_553A2BE0020B GarantMainURL
+
+ME ME_55543C180070
+ MEPROP UID '55543C180070'
+ MEPROP Name 'BooksAndImagesURL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Книги и образа официальных публикаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_553A2B570033 // InternalBrowserURLArr
+ ;
+ MEPROP Value '''mirror2.garant.ru'''
+ UP extprop:pas:Value '''mirror2.garant.ru'''
+
+ENDME // ME_55543C180070 BooksAndImagesURL
+
+ME ME_569F64FA0009
+ MEPROP UID '569F64FA0009'
+ MEPROP Name 'ForumURL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Форум' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_553A2B570033 // InternalBrowserURLArr
+ ;
+ MEPROP Value '''forum.garant.ru'''
+ UP extprop:pas:Value '''forum.garant.ru'''
+
+ENDME // ME_569F64FA0009 ForumURL
+
+ME ME_570F644B0132
+ MEPROP UID '570F644B0132'
+ MEPROP Name 'ProfNewsURL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_553A2B570033 // InternalBrowserURLArr
+ ;
+ MEPROP Value '''profnews.garant.ru'''
+ UP extprop:pas:Value '''profnews.garant.ru'''
+
+ENDME // ME_570F644B0132 ProfNewsURL
+
+ME ME_553A2B570033
+ MEPROP UID '553A2B570033'
+ MEPROP Name 'InternalBrowserURLArr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'URL адреса, открываемые во встроенном браузере' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_553A2BE0020B // GarantMainURL
+ HWL ME_55543C180070 // BooksAndImagesURL
+ HWL ME_569F64FA0009 // ForumURL
+ HWL ME_570F644B0132 // ProfNewsURL
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+
+ENDME // ME_553A2B570033 InternalBrowserURLArr
+
+FORWARD ME_49EEF1BA019B
+
+ME ME_49EEF21F01DC
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_49EEF21F01DC anURL
+
+ME ME_49EEF20E0004
+ MEPROP UID '49EEF20E0004'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF1BA019B // IsGarantURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EEF21F01DC // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_49EEF20E0004 DoIt
+
+ME ME_49EEF2050269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EEF1BA019B // IsGarantURL
+ ;
+ MELINK Target WL 'ME_483D7D8C001A' '47EA946A0315.ms.model.script' // l3RegEx
+ ;
+
+ENDME // ME_49EEF2050269 
+
+ME ME_49EEF56C03DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EEF1BA019B // IsGarantURL
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_49EEF56C03DC 
+
+ME ME_49EEF1BA019B
+ MEPROP UID '49EEF1BA019B'
+ MEPROP Name 'IsGarantURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Определяет, что адрес в домене Гаранта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49EEF20E0004 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_49EEF2050269 // l3RegEx
+ ME_49EEF56C03DC // l3String
+ )
+ ; // Dependencies
+
+ENDME // ME_49EEF1BA019B IsGarantURL
+
+FORWARD ME_4BEBC370007F
+
+ME ME_4BEBC3A403D3
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_4BEBC3A403D3 anURL
+
+ME ME_4BEBC3A001E7
+ MEPROP UID '4BEBC3A001E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BEBC370007F // IsLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BEBC3A403D3 // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_4BEBC3A001E7 DoIt
+
+ME ME_4BEBC3C50219
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC370007F // IsLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_483D7D8C001A' '47EA946A0315.ms.model.script' // l3RegEx
+ ;
+
+ENDME // ME_4BEBC3C50219 
+
+ME ME_4BEBC370007F
+ MEPROP UID '4BEBC370007F'
+ MEPROP Name 'IsLocalDocumentURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Определяет, что ссылка на внутренний документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BEBC3A001E7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BEBC3C50219 // l3RegEx
+ )
+ ; // Dependencies
+
+ENDME // ME_4BEBC370007F IsLocalDocumentURL
+
+FORWARD ME_4BEBC4090016
+
+ME ME_4BEBC866009A
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_4BEBC866009A anURL
+
+ME ME_4BEBC86600C9
+ MEPROP Name 'DocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BEBC86600C9 DocID
+
+ME ME_4BEBC86600E8
+ MEPROP Name 'SubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BEBC86600E8 SubID
+
+ME ME_4BEBC83F009A
+ MEPROP UID '4BEBC83F009A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BEBC866009A // anURL
+ ME_4BEBC86600C9 // DocID
+ ME_4BEBC86600E8 // SubID
+ )
+ ; // Parameters
+
+ENDME // ME_4BEBC83F009A DoIt
+
+ME ME_4BEBC4380086
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4BEBC4380086 
+
+ME ME_4BEBF6C5034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_4BEBF6C5034C 
+
+ME ME_4BEBF6DA0388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4BEBF6DA0388 
+
+ME ME_4BEBF7DD010F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4BEBF7DD010F 
+
+ME ME_4BEC00D202DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_4BEC00D202DF 
+
+ME ME_4BEC025A033A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4BEC025A033A 
+
+ME ME_56E80DC9034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_56E80DC9034D 
+
+ME ME_4BEBC4090016
+ MEPROP UID '4BEBC4090016'
+ MEPROP Name 'ParseLocalDocumentURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Разобрать локальную ссылку на документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BEBC83F009A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BEBC4380086 // l3String
+ ME_4BEBF6C5034C // L3 Core Consts
+ ME_4BEBF6DA0388 // Il3CString
+ ME_4BEBF7DD010F // l3CStr
+ ME_4BEC00D202DF // Tl3PCharLen
+ ME_4BEC025A033A // SysUtils
+ ME_56E80DC9034D // Tl3LongintList
+ )
+ ; // Dependencies
+
+ENDME // ME_4BEBC4090016 ParseLocalDocumentURL
+
+FORWARD ME_52315BE902FD
+
+ME ME_52315C0E036E
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_52315C0E036E anURL
+
+ME ME_52315C000354
+ MEPROP UID '52315C000354'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52315BE902FD // IsContractConstructorURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52315C0E036E // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_52315C000354 DoIt
+
+ME ME_52315C5E03BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52315BE902FD // IsContractConstructorURL
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_52315C5E03BE 
+
+ME ME_52315BE902FD
+ MEPROP UID '52315BE902FD'
+ MEPROP Name 'IsContractConstructorURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52315C000354 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52315C5E03BE // l3String
+ )
+ ; // Dependencies
+
+ENDME // ME_52315BE902FD IsContractConstructorURL
+
+FORWARD ME_523ADD1803CC
+
+ME ME_523ADD6F00E5
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_523ADD6F00E5 anURL
+
+ME ME_523ADD630258
+ MEPROP UID '523ADD630258'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523ADD1803CC // IsMobileGarantOnlineURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_523ADD6F00E5 // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_523ADD630258 DoIt
+
+ME ME_523ADD7A0115
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_523ADD1803CC // IsMobileGarantOnlineURL
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_523ADD7A0115 
+
+ME ME_523ADD1803CC
+ MEPROP UID '523ADD1803CC'
+ MEPROP Name 'IsMobileGarantOnlineURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523ADD630258 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_523ADD7A0115 // l3String
+ )
+ ; // Dependencies
+
+ENDME // ME_523ADD1803CC IsMobileGarantOnlineURL
+
+FORWARD ME_523FE5580232
+
+ME ME_523FE5A60244
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_523FE5A60244 anURL
+
+ME ME_523FE59C020B
+ MEPROP UID '523FE59C020B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523FE5580232 // NeedOpenLinkInExternalBrowser
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_523FE5A60244 // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_523FE59C020B DoIt
+
+ME ME_523FE5580232
+ MEPROP UID '523FE5580232'
+ MEPROP Name 'NeedOpenLinkInExternalBrowser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523FE59C020B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523FE5580232 NeedOpenLinkInExternalBrowser
+
+FORWARD ME_524E5895037F
+
+ME ME_524E58D10271
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_524E58D10271 anURL
+
+ME ME_524E58C7008E
+ MEPROP UID '524E58C7008E'
+ MEPROP Name 'Dot'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524E5895037F // IsObtainRequisitesForMobileAccessURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_524E58D10271 // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_524E58C7008E Dot
+
+ME ME_524E58E700BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_524E5895037F // IsObtainRequisitesForMobileAccessURL
+ ;
+ MELINK Target WL 'ME_483D7D8C001A' '47EA946A0315.ms.model.script' // l3RegEx
+ ;
+
+ENDME // ME_524E58E700BA 
+
+ME ME_524E5895037F
+ MEPROP UID '524E5895037F'
+ MEPROP Name 'IsObtainRequisitesForMobileAccessURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_524E58C7008E // Dot
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_524E58E700BA // l3RegEx
+ )
+ ; // Dependencies
+
+ENDME // ME_524E5895037F IsObtainRequisitesForMobileAccessURL
+
+FORWARD ME_5524E8BE0065
+
+ME ME_5524E8FF0080
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_5524E8FF0080 anURL
+
+ME ME_5524E8F402BE
+ MEPROP UID '5524E8F402BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5524E8BE0065 // IsMunicipalDecisionsArchiveURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5524E8FF0080 // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_5524E8F402BE DoIt
+
+ME ME_5524E8EE018E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5524E8BE0065 // IsMunicipalDecisionsArchiveURL
+ ;
+ MELINK Target WL 'ME_483D7D8C001A' '47EA946A0315.ms.model.script' // l3RegEx
+ ;
+
+ENDME // ME_5524E8EE018E 
+
+ME ME_5524E8BE0065
+ MEPROP UID '5524E8BE0065'
+ MEPROP Name 'IsMunicipalDecisionsArchiveURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5524E8F402BE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5524E8EE018E // l3RegEx
+ )
+ ; // Dependencies
+
+ENDME // ME_5524E8BE0065 IsMunicipalDecisionsArchiveURL
+
+FORWARD ME_553A26CA015B
+
+ME ME_553A272302CF
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_553A272302CF anURL
+
+ME ME_553A271B012A
+ MEPROP UID '553A271B012A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553A26CA015B // NeedOpenLinkInInternalBrowser
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_553A272302CF // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_553A271B012A DoIt
+
+ME ME_553A26CA015B
+ MEPROP UID '553A26CA015B'
+ MEPROP Name 'NeedOpenLinkInInternalBrowser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_553A271B012A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_553A26CA015B NeedOpenLinkInInternalBrowser
+
+FORWARD ME_56F37FFB010E
+
+ME ME_56F38016029E
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_56F38016029E anURL
+
+ME ME_56F3800E022C
+ MEPROP UID '56F3800E022C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56F37FFB010E // IsMailtoURL
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_56F38016029E // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_56F3800E022C DoIt
+
+ME ME_56F37FFB010E
+ MEPROP UID '56F37FFB010E'
+ MEPROP Name 'IsMailtoURL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56F3800E022C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56F37FFB010E IsMailtoURL
+
+FORWARD ME_574C00B1021A
+
+ME ME_574C00EF0360
+ MEPROP Name 'anURL'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+
+ENDME // ME_574C00EF0360 anURL
+
+ME ME_574C00E703AB
+ MEPROP UID '574C00E703AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C00B1021A // IsFileFromMobileGarant
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_574C00EF0360 // anURL
+ )
+ ; // Parameters
+
+ENDME // ME_574C00E703AB DoIt
+
+ME ME_574C00B1021A
+ MEPROP UID '574C00B1021A'
+ MEPROP Name 'IsFileFromMobileGarant'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEF16603C9 // nsInternetUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_574C00E703AB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574C00B1021A IsFileFromMobileGarant
+
+ME ME_49EEF16603C9
+ MEPROP UID '49EEF16603C9'
+ MEPROP Name 'nsInternetUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вспомогательные функции для Интернет-агента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F1CAA100B5 // Internet
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49EEF1BA019B // IsGarantURL
+ HWL ME_4BEBC370007F // IsLocalDocumentURL
+ HWL ME_4BEBC4090016 // ParseLocalDocumentURL
+ HWL ME_52315BE902FD // IsContractConstructorURL
+ HWL ME_523ADD1803CC // IsMobileGarantOnlineURL
+ HWL ME_523FE5580232 // NeedOpenLinkInExternalBrowser
+ HWL ME_524E5895037F // IsObtainRequisitesForMobileAccessURL
+ HWL ME_5524E8BE0065 // IsMunicipalDecisionsArchiveURL
+ HWL ME_553A26CA015B // NeedOpenLinkInInternalBrowser
+ HWL ME_56F37FFB010E // IsMailtoURL
+ HWL ME_574C00B1021A // IsFileFromMobileGarant
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_553A2B570033 // InternalBrowserURLArr
+ )
+ ; // Constants
+ UP "author" 'Люлин А.В.'
+ UP "children prefix" 'ns'
+ UP "no hands" true
+ UP "started" '22.04.2009 14:29'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nsInternetUtils.pas'
+ UP extprop:rc:SelfName 'InternetUtils'
+ UP extprop:pas:ElementPrefix 'ns'
+
+ENDME // ME_49EEF16603C9 nsInternetUtils
+
+ME ME_49F1CAA100B5
+ MEPROP UID '49F1CAA100B5'
+ MEPROP Name 'Internet'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Утилиты для работы с Интернетом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_490838AA02D0' '490838AA02D0.ms.model.script' // Nemesis
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49EEF16603C9 // nsInternetUtils
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ WL 'ME_47EA946A0315' '47EA946A0315.ms.model.script' // l3Misc
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ )
+ ; // Depends
+ UP "UseNewGen" true
+
+ENDME // ME_49F1CAA100B5 Internet

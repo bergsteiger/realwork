@@ -1,0 +1,871 @@
+// Prime 47BECCB801BE Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BECCB801BE
+
+ME ME_47C29B0102D5
+ MEPROP UID '47C29B0102D5'
+ MEPROP Name 'PrimeKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TPrimeKey'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47C29B0102D5 PrimeKey
+
+FORWARD ME_47BECCE501B5
+
+ME ME_47BED5ED00BC
+ MEPROP UID '47BED5ED00BC'
+ MEPROP Name 'name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BECCE501B5 // Prime
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_47BED5ED00BC name
+
+ME ME_47BED62B0318
+ MEPROP UID '47BED62B0318'
+ MEPROP Name 'query'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47BECCE501B5 // Prime
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+ UP "pm" false
+
+ENDME // ME_47BED62B0318 query
+
+ME ME_47C29BAB018A
+ MEPROP UID '47C29BAB018A'
+ MEPROP Name 'id'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BECCE501B5 // Prime
+ ;
+ MELINK Target HWL ME_47C29B0102D5 // PrimeKey
+ ;
+ UP "pm" false
+
+ENDME // ME_47C29BAB018A id
+
+ME ME_47C2B6EE0128
+ MEPROP Name 'key'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47C29B0102D5 // PrimeKey
+ ;
+
+ENDME // ME_47C2B6EE0128 key
+
+ME ME_47C2B6EE0157
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_47C2B6EE0157 name
+
+ME ME_47C2B7760318
+ MEPROP Name 'query'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47C2B7760318 query
+
+ME ME_47BEE4840213
+ MEPROP UID '47BEE4840213'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BECCE501B5 // Prime
+ ;
+ MELIST Parameters
+   Seq: ( ME_47C2B6EE0128 // key
+ ME_47C2B6EE0157 // name
+ ME_47C2B7760318 // query
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" false
+
+ENDME // ME_47BEE4840213 make
+
+ME ME_47BECCE501B5
+ MEPROP UID '47BECCE501B5'
+ MEPROP GUID '12FF4660-2E81-43B8-963E-4F3099DB73F1'
+ MEPROP Name 'Prime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47BED5ED00BC // name
+ HWL ME_47BED62B0318 // query
+ HWL ME_47C29BAB018A // id
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47BEE4840213 // make
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IPrime'
+ UP extprop:rc:SelfName 'Prime'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47BECCE501B5 Prime
+
+FORWARD ME_47BEE49E0351
+
+ME ME_47BEE4B10362
+ MEPROP UID '47BEE4B10362'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47BEE49E0351 // PrimeList
+ ;
+ MELINK Target HWL ME_47BECCE501B5 // Prime
+ ;
+
+ENDME // ME_47BEE4B10362 
+
+ME ME_47BEE49E0351
+ MEPROP UID '47BEE49E0351'
+ MEPROP Name 'PrimeList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47BEE4B10362 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IPrimeList'
+
+ENDME // ME_47BEE49E0351 PrimeList
+
+ME ME_496DF8D80017
+ MEPROP UID '496DF8D80017'
+ MEPROP Name 'UnknownExportError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+
+ENDME // ME_496DF8D80017 UnknownExportError
+
+FORWARD ME_4BE3CED001A4
+
+ME ME_4BE3CEEB002C
+ MEPROP UID '4BE3CEEB002C'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BE3CED001A4 // KeysList
+ ;
+ MELINK Target HWL ME_47C29B0102D5 // PrimeKey
+ ;
+
+ENDME // ME_4BE3CEEB002C 
+
+ME ME_4BE3CED001A4
+ MEPROP UID '4BE3CED001A4'
+ MEPROP Name 'KeysList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список ключей рассылок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BE3CEEB002C // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IKeysList'
+
+ENDME // ME_4BE3CED001A4 KeysList
+
+FORWARD ME_47BED66B0384
+
+ME ME_54118609033D
+ MEPROP UID '54118609033D'
+ MEPROP Name 'has_online_access'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'есть ли доступ к онлайн редактированию анкет прайма' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_54118609033D has_online_access
+
+ME ME_47C2CF1700BC
+ MEPROP UID '47C2CF1700BC'
+ MEPROP Name 'list'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELINK Target HWL ME_47BEE49E0351 // PrimeList
+ ;
+ UP "pm" false
+
+ENDME // ME_47C2CF1700BC list
+
+ME ME_47BEE1810005
+ MEPROP UID '47BEE1810005'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MEPROP TargetStereotype 'cached'
+ UP "const_type" 'read-write'
+
+ENDME // ME_47BEE1810005 make
+
+ME ME_47C29C200219
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_47C29C200219 name
+
+ME ME_47C29C200257
+ MEPROP Name 'query'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_47C29C200257 query
+
+ME ME_47C29A6A0154
+ MEPROP UID '47C29A6A0154'
+ MEPROP Name 'add'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'сохраняет на сервере свеже созданный запрос для рассылок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELINK Target HWL ME_47BECCE501B5 // Prime
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_47C80D8E019B' '456EA56002BF.ms.model.script' // DuplicateName
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_47C29C200219 // name
+ ME_47C29C200257 // query
+ )
+ ; // Parameters
+
+ENDME // ME_47C29A6A0154 add
+
+ME ME_47C29DC30328
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47C29B0102D5 // PrimeKey
+ ;
+
+ENDME // ME_47C29DC30328 id
+
+ME ME_47C29C2001FA
+ MEPROP UID '47C29C2001FA'
+ MEPROP Name 'remove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_47C29DC30328 // id
+ )
+ ; // Parameters
+
+ENDME // ME_47C29C2001FA remove
+
+ME ME_47C586280155
+ MEPROP Name 'xml_file_path'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_47C586280155 xml_file_path
+
+ME ME_47C5860401E8
+ MEPROP UID '47C5860401E8'
+ MEPROP Name 'save_mail_delivery_task'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_496DF8D80017 // UnknownExportError
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_47C586280155 // xml_file_path
+ )
+ ; // Parameters
+
+ENDME // ME_47C5860401E8 save_mail_delivery_task
+
+ME ME_47D4FEDA03DC
+ MEPROP UID '47D4FEDA03DC'
+ MEPROP Name 'share_prime_for_file_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_496DF8D80017 // UnknownExportError
+ )
+ ; // CanRaise
+
+ENDME // ME_47D4FEDA03DC share_prime_for_file_server
+
+ME ME_4BE3DC300102
+ MEPROP Name 'keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4BE3CED001A4 // KeysList
+ ;
+
+ENDME // ME_4BE3DC300102 keys
+
+ME ME_4BE3CF9201B2
+ MEPROP Name 'xml_file_path'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4BE3CF9201B2 xml_file_path
+
+ME ME_4BE3CF5C02CB
+ MEPROP UID '4BE3CF5C02CB'
+ MEPROP Name 'save_list_to_xml'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_496DF8D80017 // UnknownExportError
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4BE3DC300102 // keys
+ ME_4BE3CF9201B2 // xml_file_path
+ )
+ ; // Parameters
+
+ENDME // ME_4BE3CF5C02CB save_list_to_xml
+
+ME ME_4C88A58B02D8
+ MEPROP UID '4C88A58B02D8'
+ MEPROP Name 'update'
+ MEPROP Class class_Operation
+ %SUMMARY 'обновить данные о новостных лентах у всех клиентов. Должен быть вызван перед выходом из утилиты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+
+ENDME // ME_4C88A58B02D8 update
+
+ME ME_5411BC740155
+ MEPROP UID '5411BC740155'
+ MEPROP Name 'save_and_send_to_online_server'
+ MEPROP Class class_Operation
+ %SUMMARY 'рассылку в локальных настройках и отправить на сервер праймов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+
+ENDME // ME_5411BC740155 save_and_send_to_online_server
+
+ME ME_5416C35E015D
+ MEPROP UID '5416C35E015D'
+ MEPROP Name 'check_connection_to_online_server'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверить соединение с онлайн сервисом праймов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47BED66B0384 // PrimeManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_5416C35E015D check_connection_to_online_server
+
+ME ME_47BED66B0384
+ MEPROP UID '47BED66B0384'
+ MEPROP GUID 'A47D57BE-0B61-4917-9929-F2092A1C872F'
+ MEPROP Name 'PrimeManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54118609033D // has_online_access
+ HWL ME_47C2CF1700BC // list
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47BEE1810005 // make
+ HWL ME_47C29A6A0154 // add
+ HWL ME_47C29C2001FA // remove
+ HWL ME_47C5860401E8 // save_mail_delivery_task
+ HWL ME_47D4FEDA03DC // share_prime_for_file_server
+ HWL ME_4BE3CF5C02CB // save_list_to_xml
+ HWL ME_4C88A58B02D8 // update
+ HWL ME_5411BC740155 // save_and_send_to_online_server
+ HWL ME_5416C35E015D // check_connection_to_online_server
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IPrimeManager'
+ UP extprop:rc:SelfName 'PrimeManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47BED66B0384 PrimeManager
+
+FORWARD ME_4C98A5F102DA
+
+ME ME_4C98A6130388
+ MEPROP UID '4C98A6130388'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C98A5F102DA // PrimeSettingsManager
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_4C98A6130388 make
+
+ME ME_4AC4990B0238_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC4990B0238' '45EEAA69036E.ms.model.script' // get_bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4990B0238_ME_4C98A5F102DA get_bool
+
+ME ME_4AC4990F037A_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC4990F037A' '45EEAA69036E.ms.model.script' // get_int64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4990F037A_ME_4C98A5F102DA get_int64
+
+ME ME_4AC49912024A_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC49912024A' '45EEAA69036E.ms.model.script' // get_long
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC49912024A_ME_4C98A5F102DA get_long
+
+ME ME_4AC499150301_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC499150301' '45EEAA69036E.ms.model.script' // get_string
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499150301_ME_4C98A5F102DA get_string
+
+ME ME_4AC49919002B_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC49919002B' '45EEAA69036E.ms.model.script' // get_ulong
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC49919002B_ME_4C98A5F102DA get_ulong
+
+ME ME_4AC4991C01E1_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC4991C01E1' '45EEAA69036E.ms.model.script' // set_bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4991C01E1_ME_4C98A5F102DA set_bool
+
+ME ME_4AC4991F02F1_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC4991F02F1' '45EEAA69036E.ms.model.script' // set_int64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4991F02F1_ME_4C98A5F102DA set_int64
+
+ME ME_4AC499220301_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC499220301' '45EEAA69036E.ms.model.script' // set_long
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499220301_ME_4C98A5F102DA set_long
+
+ME ME_4AC4992601BC_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC4992601BC' '45EEAA69036E.ms.model.script' // set_string
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4992601BC_ME_4C98A5F102DA set_string
+
+ME ME_4AC499290308_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC499290308' '45EEAA69036E.ms.model.script' // set_ulong
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499290308_ME_4C98A5F102DA set_ulong
+
+ME ME_4AC4993302A8_ME_4C98A5F102DA
+ MELINK Original WL 'ME_4AC4993302A8' '45EEAA69036E.ms.model.script' // is_exist
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4993302A8_ME_4C98A5F102DA is_exist
+
+ME ME_4C98A5F102DA
+ MEPROP UID '4C98A5F102DA'
+ MEPROP GUID '418BE07D-88DB-419E-A625-51BE867DC212'
+ MEPROP Name 'PrimeSettingsManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'настройки для утилиты настройки новостных лент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC498EC0056' '45EEAA69036E.ms.model.script' // BaseSettingsManager
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C98A6130388 // make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AC4990B0238_ME_4C98A5F102DA // get_bool
+ ME_4AC4990F037A_ME_4C98A5F102DA // get_int64
+ ME_4AC49912024A_ME_4C98A5F102DA // get_long
+ ME_4AC499150301_ME_4C98A5F102DA // get_string
+ ME_4AC49919002B_ME_4C98A5F102DA // get_ulong
+ ME_4AC4991C01E1_ME_4C98A5F102DA // set_bool
+ ME_4AC4991F02F1_ME_4C98A5F102DA // set_int64
+ ME_4AC499220301_ME_4C98A5F102DA // set_long
+ ME_4AC4992601BC_ME_4C98A5F102DA // set_string
+ ME_4AC499290308_ME_4C98A5F102DA // set_ulong
+ ME_4AC4993302A8_ME_4C98A5F102DA // is_exist
+ )
+ ; // Implemented
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IPrimeSettingsManager'
+ UP extprop:rc:SelfName 'PrimeSettingsManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C98A5F102DA PrimeSettingsManager
+
+FORWARD ME_4D381A3202D6
+
+ME ME_4D381D7400F6
+ MEPROP UID '4D381D7400F6'
+ MEPROP Name 'info_kind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D381D7400F6 info_kind
+
+ME ME_4D3820A10341
+ MEPROP UID '4D3820A10341'
+ MEPROP Name 'themes_name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D3820A10341 themes_name
+
+ME ME_4D38213D0203
+ MEPROP UID '4D38213D0203'
+ MEPROP Name 'client_name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D38213D0203 client_name
+
+ME ME_4D38215702F9
+ MEPROP UID '4D38215702F9'
+ MEPROP Name 'profession'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D38215702F9 profession
+
+ME ME_4D38216C0345
+ MEPROP UID '4D38216C0345'
+ MEPROP Name 'organisation_type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D38216C0345 organisation_type
+
+ME ME_4D38217F0388
+ MEPROP UID '4D38217F0388'
+ MEPROP Name 'area'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D38217F0388 area
+
+ME ME_4D38219201DA
+ MEPROP UID '4D38219201DA'
+ MEPROP Name 'taxes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D38219201DA taxes
+
+ME ME_4D3821A6016B
+ MEPROP UID '4D3821A6016B'
+ MEPROP Name 'email'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4D3821A6016B email
+
+ME ME_4D383E650050
+ MEPROP Name 'query'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4D383E650050 query
+
+ME ME_4D381CAD0282
+ MEPROP UID '4D381CAD0282'
+ MEPROP Name 'get_contract_data'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'получить данные для заполнения печатной формы Прайма' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D383E650050 // query
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+
+ENDME // ME_4D381CAD0282 get_contract_data
+
+ME ME_4D38192E0375
+ MEPROP UID '4D38192E0375'
+ MEPROP Name 'get_contract_evd_form'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить шаблон для печатной формы Прайма' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D381A3202D6 // PrimeContractData
+ ;
+ MELINK Target WL 'ME_4423FB5903D8' '4423F94903C8.ms.model.script' // Stream
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+
+ENDME // ME_4D38192E0375 get_contract_evd_form
+
+ME ME_4D381A3202D6
+ MEPROP UID '4D381A3202D6'
+ MEPROP GUID 'DF3E6A6C-4229-4DFB-8ECB-CF4D7FC1DE95'
+ MEPROP Name 'PrimeContractData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'данные для печатной формы прайма.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47BECCB801BE // Prime
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D381D7400F6 // info_kind
+ HWL ME_4D3820A10341 // themes_name
+ HWL ME_4D38213D0203 // client_name
+ HWL ME_4D38215702F9 // profession
+ HWL ME_4D38216C0345 // organisation_type
+ HWL ME_4D38217F0388 // area
+ HWL ME_4D38219201DA // taxes
+ HWL ME_4D3821A6016B // email
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D381CAD0282 // get_contract_data
+ HWL ME_4D38192E0375 // get_contract_evd_form
+ )
+ ; // Operations
+ UP "single impl" false
+ UP extprop:pas:TypeName 'IPrimeContractData'
+ UP extprop:rc:SelfName 'PrimeContractData'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D381A3202D6 PrimeContractData
+
+ME ME_47BECCB801BE
+ MEPROP UID '47BECCB801BE'
+ MEPROP Name 'Prime'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47C29B0102D5 // PrimeKey
+ HWL ME_47BECCE501B5 // Prime
+ HWL ME_47BEE49E0351 // PrimeList
+ HWL ME_496DF8D80017 // UnknownExportError
+ HWL ME_4BE3CED001A4 // KeysList
+ HWL ME_47BED66B0384 // PrimeManager
+ HWL ME_4C98A5F102DA // PrimeSettingsManager
+ HWL ME_4D381A3202D6 // PrimeContractData
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45EEAA69036E' '45EEAA69036E.ms.model.script' // Settings
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Prime\Prime.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Prime'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Prime\Prime.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Prime'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PrimeUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\PrimeUnit.pas'
+ UP extprop:pas:UnitName 'PrimeUnit'
+
+ENDME // ME_47BECCB801BE Prime

@@ -1,0 +1,154 @@
+// BaseChat 4A6971B802A6 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6971B802A6
+
+ME ME_4A97C20101E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_4A97C20101E6 
+
+ME ME_4A97C2030179
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4A97C2030179 
+
+ME ME_4A97C204025F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A97C204025F 
+
+ME ME_4A97C205039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4A97C205039F 
+
+ME ME_4A97C208017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_4683D6ED03C5' '467BAB7F021E.ms.model.script' // TvcmOpFlag
+ ;
+
+ENDME // ME_4A97C208017B 
+
+ME ME_4BD5B7A5035D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_4BD5B5C8019F' '4AC4EF5600B4.ms.model.script' // chatAddContact
+ ;
+
+ENDME // ME_4BD5B7A5035D 
+
+ME ME_4BD5B7AD019B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_4BD5B59500D6' '4AC4EF5600B4.ms.model.script' // chatContacts
+ ;
+
+ENDME // ME_4BD5B7AD019B 
+
+ME ME_4BD5B8DB00D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_4BD5B8B90175' '4A6EA45C01C4.ms.model.script' // utChatHistory
+ ;
+
+ENDME // ME_4BD5B8DB00D8 
+
+ME ME_4BD6D57F01AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_4BD6D5500287' '4A6EA44C0038.ms.model.script' // cwChat
+ ;
+
+ENDME // ME_4BD6D57F01AC 
+
+ME ME_5795D72A0128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_5795D6DC01F8' '5795D66F0385.ms.model.script' // TChatService
+ ;
+
+ENDME // ME_5795D72A0128 
+
+ME ME_4A82A9DC01CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6971B802A6 // BaseChat
+ ;
+ MELINK Target WL 'ME_4A683EC401BB' '4A66EB280367.ms.model.script' // TbsChatDispatcher
+ ;
+
+ENDME // ME_4A82A9DC01CE 
+
+ME ME_4A6971B802A6
+ MEPROP UID '4A6971B802A6'
+ MEPROP Name 'BaseChat'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.ms.model.script' // Chat
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4A6971D00157' '4A6971D00157.ms.model.script' // ContactList
+ WL 'ME_4A6971E802F5' '4A6971E802F5.ms.model.script' // ChatWindow
+ WL 'ME_4A6EA397035D' '4A6EA397035D.ms.model.script' // ChatHistory
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A97C20101E6 // vcmBase
+ ME_4A97C2030179 // StdRes
+ ME_4A97C204025F // SysUtils
+ ME_4A97C205039F // Forms
+ ME_4A97C208017B // TvcmOpFlag
+ ME_4BD5B7A5035D // chatAddContact
+ ME_4BD5B7AD019B // chatContacts
+ ME_4BD5B8DB00D8 // utChatHistory
+ ME_4BD6D57F01AC // cwChat
+ ME_5795D72A0128 // TChatService
+ ME_4A82A9DC01CE // TbsChatDispatcher
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\BaseChat_Module.pas'
+ UP extprop:pas:TypeName 'TBaseChatModule'
+ UP extprop:rc:SelfName 'BaseChatModule'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'BaseChat_Module'
+
+ENDME // ME_4A6971B802A6 BaseChat

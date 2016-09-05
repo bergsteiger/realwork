@@ -1,0 +1,55 @@
+// Требования к диалоговым окнам 4E8587AE01D0 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E8587AE01D0
+
+FORWARD ME_4E8587C303B8
+
+ME ME_4E8587E00132
+ MEPROP UID '4E8587E00132'
+ MEPROP Name 'Шрифт диалоговых окон не должен меняться'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278841000}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E8587C303B8 // Диалоговые окна
+ ;
+
+ENDME // ME_4E8587E00132 Шрифт диалоговых окон не должен меняться
+
+ME ME_4E8587C303B8
+ MEPROP UID '4E8587C303B8'
+ MEPROP Name 'Диалоговые окна'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E8587AE01D0 // Требования к диалоговым окнам
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E8587E00132 // Шрифт диалоговых окон не должен меняться
+ )
+ ; // Children
+
+ENDME // ME_4E8587C303B8 Диалоговые окна
+
+ME ME_4E8587AE01D0
+ MEPROP UID '4E8587AE01D0'
+ MEPROP Name 'Требования к диалоговым окнам'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E8587C303B8 // Диалоговые окна
+ )
+ ; // Children
+
+ENDME // ME_4E8587AE01D0 Требования к диалоговым окнам

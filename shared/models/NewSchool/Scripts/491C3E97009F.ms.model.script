@@ -1,0 +1,167 @@
+// TdsConsultation 491C3E97009F ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491C3E97009F
+
+ME ME_491C3F400031
+ MEPROP UID '491C3F400031'
+ MEPROP Name 'f_ShowingStatus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491C3E97009F // TdsConsultation
+ ;
+ MELINK Target WL 'ME_491C3F2F000F' '47EA07FA02CE.ms.model.script' // TbsConsultationStatuses
+ ;
+
+ENDME // ME_491C3F400031 f_ShowingStatus
+
+ME ME_491C439C0297
+ MEPROP UID '491C439C0297'
+ MEPROP Name 'Consultation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_491C3E97009F // TdsConsultation
+ ;
+ MELINK Target WL 'ME_4921732002D9' '4ABCF04F00DF.ms.model.script' // IsdsConsultation
+ ;
+
+ENDME // ME_491C439C0297 Consultation
+
+ME ME_4926CDDA00C5
+ MEPROP UID '4926CDDA00C5'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491C3E97009F // TdsConsultation
+ ;
+ MELINK Target WL 'ME_491C3F68021E' '4ABCF04F00DF.ms.model.script' // IdsConsultation
+ ;
+
+ENDME // ME_4926CDDA00C5 FormDataSourceType
+
+ME ME_491C403B0011
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491C3E97009F // TdsConsultation
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_491C403B0011 
+
+ME ME_491C44CD0277
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491C3E97009F // TdsConsultation
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_491C44CD0277 
+
+ME ME_491D47F6023F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491C3E97009F // TdsConsultation
+ ;
+ MELINK Target WL 'ME_457008050157' '457007DB002E.ms.model.script' // Consultation
+ ;
+
+ENDME // ME_491D47F6023F 
+
+ME ME_4CF37AF1004E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491C3E97009F // TdsConsultation
+ ;
+ MELINK Target WL 'ME_4CF37A0400FB' '491C3E40007B.ms.model.script' // TnsConsultationDocumentContainerNew
+ ;
+
+ENDME // ME_4CF37AF1004E 
+
+ME ME_491C3FAA009D_ME_491C3E97009F
+ MELINK Original WL 'ME_491C3FAA009D' '4ABCF04F00DF.ms.model.script' // ShowingStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_491C3FAA009D_ME_491C3E97009F ShowingStatus
+
+ME ME_47A042E100E2_ME_491C3E97009F
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_491C3E97009F InitFields
+
+ME ME_4A60B23E00C3_ME_491C3E97009F
+ MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A60B23E00C3_ME_491C3E97009F COMQueryInterface
+
+ME ME_4C6AB38800F3_ME_491C3E97009F
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_491C3E97009F MakeContainer
+
+ME ME_491C3E97009F
+ MEPROP UID '491C3E97009F'
+ MEPROP Name 'TdsConsultation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОС запроса на консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA20430108' '47EA20430108.ms.model.script' // dsBaseDocumentPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_491C3F68021E' '4ABCF04F00DF.ms.model.script' // IdsConsultation
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_491C3F400031 // f_ShowingStatus
+ HWL ME_491C439C0297 // Consultation
+ HWL ME_4926CDDA00C5 // FormDataSourceType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491C3FAA009D_ME_491C3E97009F // ShowingStatus
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_491C3E97009F // InitFields
+ ME_4A60B23E00C3_ME_491C3E97009F // COMQueryInterface
+ ME_4C6AB38800F3_ME_491C3E97009F // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_491C403B0011 // l3Base
+ ME_491C44CD0277 // SysUtils
+ ME_491D47F6023F // Consultation
+ ME_4CF37AF1004E // TnsConsultationDocumentContainerNew
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А'
+ UP "no hands" true
+ UP "started" '06.04.2006 17.27'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultation.pas'
+ UP extprop:rc:SelfName 'dsConsultation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsConsultation'
+
+ENDME // ME_491C3E97009F TdsConsultation

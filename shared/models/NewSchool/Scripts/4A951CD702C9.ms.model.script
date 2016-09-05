@@ -1,0 +1,134 @@
+// UseCases 4A951CD702C9 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A951CD702C9
+
+FORWARD ME_4A891EB000DB
+
+FORWARD ME_4A951D4900CF
+
+ME ME_4A951D7E01C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A891EB000DB // VCMUseCase
+ ;
+ MELINK Target HWL ME_4A951D4900CF // VCMUseCaseRealization
+ ;
+
+ENDME // ME_4A951D7E01C3 
+
+ME ME_4A9524170370
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A891EB000DB // VCMUseCase
+ ;
+ MELINK Target WL 'ME_498AFF8101F5' '4947E25703A8.ms.model.script' // VCMFormsPack
+ ;
+
+ENDME // ME_4A9524170370 
+
+ME ME_4E31231802D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A891EB000DB // VCMUseCase
+ ;
+ MELINK Target WL 'ME_47047244009C' '470335E60290.ms.model.script' // Requirements
+ ;
+
+ENDME // ME_4E31231802D0 
+
+ME ME_4A891EB000DB
+ MEPROP UID '4A891EB000DB'
+ MEPROP Name 'VCMUseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация прецедента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A951CD702C9 // UseCases
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4953E0360081' '492E958E03AF.ms.model.script' // VCMSubsystem
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4A951D7E01C3 // VCMUseCaseRealization
+ ME_4A9524170370 // VCMFormsPack
+ ME_4E31231802D0 // Requirements
+ )
+ ; // Dependencies
+ UP "abstraction type" 'fa'
+ UP "personal label" 'code_vcm_usecase'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 1989310
+ UP "visualization f-line color" 1989310
+ UP mda:Path 'MDProcess\VCMTemplates\VCMSubsystemLayer\UseCases\VCMUseCase.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\UseCases\VCMUseCase'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A891EB000DB VCMUseCase
+
+ME ME_4704C0E30186_ME_4A951D4900CF
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_4A951D4900CF constraint
+
+ME ME_4A951D4900CF
+ MEPROP UID '4A951D4900CF'
+ MEPROP Name 'VCMUseCaseRealization'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация прецедента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A951CD702C9 // UseCases
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_498AFF8101F5' '4947E25703A8.ms.model.script' // VCMFormsPack
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_4A951D4900CF // constraint
+ )
+ ; // Overridden
+ UP "abstraction type" 'fra'
+ UP "personal label" 'code_vcm_usecase_realization'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 1989310
+ UP "visualization f-line color" 1989310
+ UP mda:Path 'MDProcess\VCMTemplates\VCMSubsystemLayer\UseCases\VCMUseCaseRealization.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\UseCases\VCMUseCaseRealization'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A951D4900CF VCMUseCaseRealization
+
+ME ME_4A951CD702C9
+ MEPROP UID '4A951CD702C9'
+ MEPROP Name 'UseCases'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_492E952D02A0' '492E952D02A0.ms.model.script' // VCMSubsystemLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A891EB000DB // VCMUseCase
+ HWL ME_4A951D4900CF // VCMUseCaseRealization
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_470335E60290' '470335E60290.ms.model.script' // Requirements
+ WL 'ME_492E958E03AF' '492E958E03AF.ms.model.script' // SubsystemLevel
+ WL 'ME_4947E25703A8' '4947E25703A8.ms.model.script' // FormsPack
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\UseCases'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\UseCases'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A951CD702C9 UseCases

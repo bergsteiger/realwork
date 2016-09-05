@@ -83,6 +83,8 @@
 //#UC START# *4F4735060149_ext:FileName
 w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas
 //#UC END# *4F4735060149_ext:FileName
+//#UC START# *4F4735060149impl_uses*
+//#UC END# *4F4735060149impl_uses*
 //#UC START# *52EF72FE00AB_4F4735060149_impl*
  inherited Create;
  f_CompiledCodeName := '';
@@ -93,7 +95,7 @@ w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas
  begin
   if FileExists(f_FileName) then
   begin
-   f_CompiledCodeName := f_FileName + '.co';
+   f_CompiledCodeName := TtfwParserService.Instance.MakeCompiledCodeName(f_FileName, '.co');
    l_FileTime := cSig + cVersion + ' ' + l3DateTimeToStr(aFiler.FileDateTime);
 
    if FileExists(f_CompiledCodeName) then

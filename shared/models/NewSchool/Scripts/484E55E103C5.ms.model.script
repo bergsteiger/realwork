@@ -1,0 +1,69 @@
+// Настройки 484E55E103C5 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484E55E103C5
+
+FORWARD ME_484E586F03CD
+
+ME ME_484E586F03CD
+ MEPROP UID '484E586F03CD'
+ MEPROP Name 'Настройка системы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конфигурирование поведения и внешнего вида системы пользователем для максимального удовлетворения его индивидуальных потребностей и вкусов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E55E103C5 // Настройки
+ ;
+
+ENDME // ME_484E586F03CD Настройка системы
+
+ME ME_484E58A00295
+ MEPROP UID '484E58A00295'
+ MEPROP Name 'Настройка панелей инструментов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прецедент описывает процесс настройки расположения и состава панелей инструментов системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E55E103C5 // Настройки
+ ;
+
+ENDME // ME_484E58A00295 Настройка панелей инструментов
+
+ME ME_48904D0900EF
+ MEPROP UID '48904D0900EF'
+ MEPROP Name 'Настройка шрифтов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка стилей отображения текстов документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E55E103C5 // Настройки
+ ;
+
+ENDME // ME_48904D0900EF Настройка шрифтов
+
+ME ME_484E55E103C5
+ MEPROP UID '484E55E103C5'
+ MEPROP Name 'Настройки'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Изменение внешнего вида системы под нужды конкретного пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484E586F03CD // Настройка системы
+ HWL ME_484E58A00295 // Настройка панелей инструментов
+ HWL ME_48904D0900EF // Настройка шрифтов
+ )
+ ; // Children
+
+ENDME // ME_484E55E103C5 Настройки

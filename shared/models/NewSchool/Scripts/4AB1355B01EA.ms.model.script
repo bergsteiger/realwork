@@ -1,0 +1,77 @@
+// Warning 4AB1355B01EA VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB1355B01EA
+
+ME ME_64EDCB1E3189
+ MEPROP UID '64EDCB1E3189'
+ MEPROP Name 'Ini_FormFactory_Warning'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Warning' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB1355B01EA // Warning
+ ;
+ UPLINK SpelledFor HWL ME_4AB1355B01EA // Warning
+ ;
+
+ENDME // ME_64EDCB1E3189 Ini_FormFactory_Warning
+
+ME ME_4DAC3F130187
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AB1355B01EA // Warning
+ ;
+ MELINK Target WL 'ME_4DAC3D400271' '51B09C1D0367.ms.model.script' // WarningConst
+ ;
+
+ENDME // ME_4DAC3F130187 
+
+ME ME_4AB1355B01EA
+ MEPROP UID '4AB1355B01EA'
+ MEPROP Name 'Warning'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предупреждение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA59DA70226' '4EA59DA70226.ms.model.script' // PrimDockedWarning
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD877A3035C' '4BD856E802F9.ms.model.script' // Warning
+ WL 'ME_4E76FC4000A4' '484FA67302D7.ms.model.script' // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_64EDCB1E3189 // Ini_FormFactory_Warning
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DAC3F130187 // WarningConst
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '2003/11/28 13:36:55'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Warning_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+ UP extprop:pas:TypeName 'TWarningForm'
+ UP extprop:rc:SelfName 'WarningForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Warning_Form'
+
+ENDME // ME_4AB1355B01EA Warning

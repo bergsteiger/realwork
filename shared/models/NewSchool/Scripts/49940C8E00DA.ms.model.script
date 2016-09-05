@@ -1,0 +1,1745 @@
+// vcmTaskPanelInterfaces 49940C8E00DA Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49940C8E00DA
+
+ME ME_49940DAA0114
+ MEPROP UID '49940DAA0114'
+ MEPROP Name 'IvcmBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4992FC0C02CA' '4683F37902CF.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ UP "is default ancestor" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49940DAA0114 IvcmBase
+
+FORWARD ME_4992FCF401BC
+
+ME ME_4992FD01012E
+ MEPROP UID '4992FD01012E'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'позиция группы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FCF401BC // IvcmCustOpsItem
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FD01012E Position
+
+ME ME_4992FCF401BC
+ MEPROP UID '4992FCF401BC'
+ MEPROP GUID '56FD909E-7A46-4B87-95BD-C4665936F003'
+ MEPROP Name 'IvcmCustOpsItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4992FD01012E // Position
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'CustOpsItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FCF401BC IvcmCustOpsItem
+
+FORWARD ME_4992FA6A03C1
+
+ME ME_4992FAFE027C
+ MEPROP UID '4992FAFE027C'
+ MEPROP Name 'Action'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FA6A03C1 // IvcmCustOpsOperation
+ ;
+ MELINK Target WL 'ME_47E7626B0083' '4799D29F033F.ms.model.script' // TCustomAction
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FAFE027C Action
+
+ME ME_4992FA6A03C1
+ MEPROP UID '4992FA6A03C1'
+ MEPROP GUID '8CD16C4E-DF54-42AB-B126-5D70990F2486'
+ MEPROP Name 'IvcmCustOpsOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операция панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4992FAFE027C // Action
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'CustOpsOperation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FA6A03C1 IvcmCustOpsOperation
+
+FORWARD ME_4992FD760178
+
+ME ME_4992FF64034E
+ MEPROP UID '4992FF64034E'
+ MEPROP Name 'Id'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'идентификатор группы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FF64034E Id
+
+ME ME_4992FF4F02E2
+ MEPROP UID '4992FF4F02E2'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'название группы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FF4F02E2 Caption
+
+ME ME_46A44F6B035E_ME_4992FD760178
+ MELINK Original WL 'ME_46A44F6B035E' '4677FBA70343.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44F6B035E_ME_4992FD760178 Subscribe
+
+ME ME_46A44FFE0143_ME_4992FD760178
+ MELINK Original WL 'ME_46A44FFE0143' '4677FBA70343.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44FFE0143_ME_4992FD760178 Unsubscribe
+
+ME ME_4992FD760178
+ MEPROP UID '4992FD760178'
+ MEPROP GUID '2C68A810-1BA3-4BD0-B1B6-CE85EF94F232'
+ MEPROP Name 'IvcmCustOpsRepGroup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4992FF64034E // Id
+ HWL ME_4992FF4F02E2 // Caption
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46A44F6B035E_ME_4992FD760178 // Subscribe
+ ME_46A44FFE0143_ME_4992FD760178 // Unsubscribe
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'CustOpsRepGroup'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FD760178 IvcmCustOpsRepGroup
+
+FORWARD ME_4992FB48004C
+
+FORWARD ME_4992FB1F0246
+
+ME ME_4992FB5B038D
+ MEPROP UID '4992FB5B038D'
+ MEPROP Name 'Group'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'группа репозитария к которой привязана операция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ ;
+ MELINK Target HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FB5B038D Group
+
+ME ME_4992FB8001C7
+ MEPROP UID '4992FB8001C7'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'название используемое для отображения в репозитории' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FB8001C7 Caption
+
+ME ME_4992FB9502EA
+ MEPROP UID '4992FB9502EA'
+ MEPROP Name 'UserCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'пользовательское название операции. Вычитывается из настроек, если'#13#10'             в настройках название не определено, то используется название'#13#10'             операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FB9502EA UserCaption
+
+ME ME_46A44F6B035E_ME_4992FB1F0246
+ MELINK Original WL 'ME_46A44F6B035E' '4677FBA70343.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44F6B035E_ME_4992FB1F0246 Subscribe
+
+ME ME_46A44FFE0143_ME_4992FB1F0246
+ MELINK Original WL 'ME_46A44FFE0143' '4677FBA70343.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44FFE0143_ME_4992FB1F0246 Unsubscribe
+
+ME ME_4992FAFE027C_ME_4992FB1F0246
+ MELINK Original HWL ME_4992FAFE027C // Action
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4992FAFE027C_ME_4992FB1F0246 Action
+
+ME ME_4992FB1F0246
+ MEPROP UID '4992FB1F0246'
+ MEPROP GUID '44463149-8063-468F-871D-3BA37B9822A0'
+ MEPROP Name 'IvcmCustOpsRepOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операция репозитария панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4992FA6A03C1 // IvcmCustOpsOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4992FB5B038D // Group
+ HWL ME_4992FB8001C7 // Caption
+ HWL ME_4992FB9502EA // UserCaption
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46A44F6B035E_ME_4992FB1F0246 // Subscribe
+ ME_46A44FFE0143_ME_4992FB1F0246 // Unsubscribe
+ ME_4992FAFE027C_ME_4992FB1F0246 // Action
+ )
+ ; // Implemented
+ MELIST Forwarded
+   Seq: ( HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ )
+ ; // Forwarded
+ UP extprop:rc:SelfName 'CustOpsRepOperation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FB1F0246 IvcmCustOpsRepOperation
+
+FORWARD ME_4992FEA1018B
+
+ME ME_4992FEDB0052
+ MEPROP UID '4992FEDB0052'
+ MEPROP Name 'Operations'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ ;
+ MELINK Target HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FEDB0052 Operations
+
+ME ME_4992FEFB00E2
+ MEPROP UID '4992FEFB00E2'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FEFB00E2 Caption
+
+ME ME_4992FB48004C
+ MEPROP UID '4992FB48004C'
+ MEPROP GUID '4A9EFCF7-628E-4FD8-A957-5C209C73A51E'
+ MEPROP Name 'IvcmCustOpsRepGroupOperations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Доступная для выбора группа операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4992FEDB0052 // Operations
+ HWL ME_4992FEFB00E2 // Caption
+ )
+ ; // Attributes
+ MELIST Forwarded
+   Seq: ( HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ )
+ ; // Forwarded
+ UP extprop:rc:SelfName 'CustOpsRepGroupOperations'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FB48004C IvcmCustOpsRepGroupOperations
+
+ME ME_4992FEAC01DC
+ MEPROP UID '4992FEAC01DC'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ ;
+ MELINK Target HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ ;
+
+ENDME // ME_4992FEAC01DC Next
+
+ME ME_4992FEA1018B
+ MEPROP UID '4992FEA1018B'
+ MEPROP GUID '1D6A46A0-95B8-437F-8841-18A0F178F522'
+ MEPROP Name 'IvcmCustOpsRepOperationsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4992FEAC01DC // Next
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CustOpsRepOperationsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FEA1018B IvcmCustOpsRepOperationsIterator
+
+FORWARD ME_4992FDB10225
+
+FORWARD ME_4992FCD700DB
+
+ME ME_4992FCE3035B
+ MEPROP UID '4992FCE3035B'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
+ ;
+ MELINK Target HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+
+ENDME // ME_4992FCE3035B Next
+
+ME ME_4992FCD700DB
+ MEPROP UID '4992FCD700DB'
+ MEPROP GUID 'F8641F87-ABC9-41BA-88D9-DBD1BCA6929D'
+ MEPROP Name 'IvcmCustOpsGroupOperationsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4992FCE3035B // Next
+ )
+ ; // Operations
+ MELIST Forwarded
+   Seq: ( HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ )
+ ; // Forwarded
+ UP extprop:rc:SelfName 'CustOpsGroupOperationsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FCD700DB IvcmCustOpsGroupOperationsIterator
+
+FORWARD ME_4992FD1902A5
+
+ME ME_4992FD530270
+ MEPROP UID '4992FD530270'
+ MEPROP Name 'Operations'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+ MELINK Target HWL ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FD530270 Operations
+
+ME ME_4992FD8302D9
+ MEPROP UID '4992FD8302D9'
+ MEPROP Name 'RepGroup'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+ MELINK Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FD8302D9 RepGroup
+
+ME ME_4D346D3403BD
+ MEPROP UID '4D346D3403BD'
+ MEPROP Name 'IsLinkToExistingControl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Является ли группа ссылкой на существующий контрол' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_4D346D3403BD IsLinkToExistingControl
+
+ME ME_4D346D830170
+ MEPROP UID '4D346D830170'
+ MEPROP Name 'Control'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+ UP "pm" false
+
+ENDME // ME_4D346D830170 Control
+
+ME ME_4992FD4903DA
+ MEPROP Name 'aRepOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ ;
+
+ENDME // ME_4992FD4903DA aRepOp
+
+ME ME_4992FD4A0025
+ MEPROP Name 'aForAllUseCases'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4992FD4A0025 aForAllUseCases
+
+ME ME_4992FD4A0057
+ MEPROP Name 'aPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4992FD4A0057 aPosition
+
+ME ME_4992FD4A008F
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_4992FD4A008F aCaption
+
+ME ME_4992FD32031B
+ MEPROP UID '4992FD32031B'
+ MEPROP Name 'AddOperation'
+ MEPROP Class class_Operation
+ %SUMMARY 'добавить операцию в панель задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+ MELINK Target HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FD4903DA // aRepOp
+ ME_4992FD4A0025 // aForAllUseCases
+ ME_4992FD4A0057 // aPosition
+ ME_4992FD4A008F // aCaption
+ )
+ ; // Parameters
+
+ENDME // ME_4992FD32031B AddOperation
+
+ME ME_46A44F6B035E_ME_4992FD1902A5
+ MELINK Original WL 'ME_46A44F6B035E' '4677FBA70343.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44F6B035E_ME_4992FD1902A5 Subscribe
+
+ME ME_46A44FFE0143_ME_4992FD1902A5
+ MELINK Original WL 'ME_46A44FFE0143' '4677FBA70343.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44FFE0143_ME_4992FD1902A5 Unsubscribe
+
+ME ME_4992FD01012E_ME_4992FD1902A5
+ MELINK Original HWL ME_4992FD01012E // Position
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4992FD01012E_ME_4992FD1902A5 Position
+
+ME ME_4992FD1902A5
+ MEPROP UID '4992FD1902A5'
+ MEPROP GUID '20AB3710-368D-46ED-9DBD-11E91295D283'
+ MEPROP Name 'IvcmCustOpsGroup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группа панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4992FCF401BC // IvcmCustOpsItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4992FD530270 // Operations
+ HWL ME_4992FD8302D9 // RepGroup
+ HWL ME_4D346D3403BD // IsLinkToExistingControl
+ HWL ME_4D346D830170 // Control
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4992FD32031B // AddOperation
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A44F6B035E_ME_4992FD1902A5 // Subscribe
+ ME_46A44FFE0143_ME_4992FD1902A5 // Unsubscribe
+ ME_4992FD01012E_ME_4992FD1902A5 // Position
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'CustOpsGroup'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FD1902A5 IvcmCustOpsGroup
+
+FORWARD ME_4992FF770054
+
+ME ME_4992FF88003B
+ MEPROP UID '4992FF88003B'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
+ ;
+ MELINK Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ ;
+
+ENDME // ME_4992FF88003B Next
+
+ME ME_4992FF770054
+ MEPROP UID '4992FF770054'
+ MEPROP GUID '79CE7472-FEC0-41E9-8592-83A7F14085CC'
+ MEPROP Name 'IvcmCustOpsRepGroupsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Итератор доступных для выбора групп' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4992FF88003B // Next
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CustOpsRepGroupsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FF770054 IvcmCustOpsRepGroupsIterator
+
+ME ME_4992FE050327
+ MEPROP UID '4992FE050327'
+ MEPROP Name 'ForAllUseCases'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'всегда показывать в панели при наличии операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FE050327 ForAllUseCases
+
+ME ME_4992FE5E0203
+ MEPROP UID '4992FE5E0203'
+ MEPROP Name 'GroupId'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FE5E0203 GroupId
+
+ME ME_4992FE700358
+ MEPROP UID '4992FE700358'
+ MEPROP Name 'IsDefaultCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'определяет была ли переименована операция для панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FE700358 IsDefaultCaption
+
+ME ME_4992FE1500E3
+ MEPROP UID '4992FE1500E3'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FE1500E3 Caption
+
+ME ME_4992FDF00191
+ MEPROP UID '4992FDF00191'
+ MEPROP Name 'RepOp'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+ MELINK Target HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FDF00191 RepOp
+
+ME ME_4992FE4F0173
+ MEPROP UID '4992FE4F0173'
+ MEPROP Name 'Group'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+ MELINK Target HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+ UP "pm" true
+
+ENDME // ME_4992FE4F0173 Group
+
+ME ME_4992FDE1028F
+ MEPROP UID '4992FDE1028F'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ %SUMMARY 'удалить операцию из панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ ;
+
+ENDME // ME_4992FDE1028F Delete
+
+ME ME_46A44F6B035E_ME_4992FDB10225
+ MELINK Original WL 'ME_46A44F6B035E' '4677FBA70343.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44F6B035E_ME_4992FDB10225 Subscribe
+
+ME ME_46A44FFE0143_ME_4992FDB10225
+ MELINK Original WL 'ME_46A44FFE0143' '4677FBA70343.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44FFE0143_ME_4992FDB10225 Unsubscribe
+
+ME ME_4992FD01012E_ME_4992FDB10225
+ MELINK Original HWL ME_4992FD01012E // Position
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4992FD01012E_ME_4992FDB10225 Position
+
+ME ME_4992FDB10225
+ MEPROP UID '4992FDB10225'
+ MEPROP GUID '5211675E-9243-4C15-A5E7-CD120F79E96B'
+ MEPROP Name 'IvcmCustOpsGroupOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операции панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4992FCF401BC // IvcmCustOpsItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4992FE050327 // ForAllUseCases
+ HWL ME_4992FE5E0203 // GroupId
+ HWL ME_4992FE700358 // IsDefaultCaption
+ HWL ME_4992FE1500E3 // Caption
+ HWL ME_4992FDF00191 // RepOp
+ HWL ME_4992FE4F0173 // Group
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4992FDE1028F // Delete
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A44F6B035E_ME_4992FDB10225 // Subscribe
+ ME_46A44FFE0143_ME_4992FDB10225 // Unsubscribe
+ ME_4992FD01012E_ME_4992FDB10225 // Position
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'CustOpsGroupOperation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FDB10225 IvcmCustOpsGroupOperation
+
+FORWARD ME_4992FE7D0230
+
+ME ME_4992FE89024F
+ MEPROP UID '4992FE89024F'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
+ ;
+ MELINK Target HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+
+ENDME // ME_4992FE89024F Next
+
+ME ME_4992FE7D0230
+ MEPROP UID '4992FE7D0230'
+ MEPROP GUID '92CE1BEA-AC70-49CC-A7B3-F4F0624B5C6D'
+ MEPROP Name 'IvcmCustOpsGroupsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4992FE89024F // Next
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CustOpsGroupsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FE7D0230 IvcmCustOpsGroupsIterator
+
+FORWARD ME_4992FF0B03D4
+
+ME ME_4992FF1F02ED
+ MEPROP UID '4992FF1F02ED'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
+ ;
+ MELINK Target HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ ;
+
+ENDME // ME_4992FF1F02ED Next
+
+ME ME_4992FF0B03D4
+ MEPROP UID '4992FF0B03D4'
+ MEPROP GUID 'B1EE3B82-0816-485D-93A5-4D32F7A12697'
+ MEPROP Name 'IvcmCustOpsRepGroupsOperationsIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Итератор групп доступных операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4992FF1F02ED // Next
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CustOpsRepGroupsOperationsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FF0B03D4 IvcmCustOpsRepGroupsOperationsIterator
+
+FORWARD ME_4992FF9A0273
+
+ME ME_49930056007C
+ MEPROP UID '49930056007C'
+ MEPROP Name 'BaseSettingId'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'базовый идентификатор настроек панели задач. Используется для'#13#10'              записи данных связанных с панелью задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+ UP "pm" true
+
+ENDME // ME_49930056007C BaseSettingId
+
+ME ME_4993000E000A
+ MEPROP UID '4993000E000A'
+ MEPROP Name 'RepGroupsOperations'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'группы операций доступные для выбора в панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELINK Target HWL ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4993000E000A RepGroupsOperations
+
+ME ME_4993002B01F4
+ MEPROP UID '4993002B01F4'
+ MEPROP Name 'RepGroups'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'репозиторий групп панели задач. При формирование панели задач'#13#10'              пользователь может использовать уже созданные группы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELINK Target HWL ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4993002B01F4 RepGroups
+
+ME ME_4993004300B5
+ MEPROP UID '4993004300B5'
+ MEPROP Name 'Groups'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'группы панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELINK Target HWL ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
+ ;
+ UP "pm" true
+
+ENDME // ME_4993004300B5 Groups
+
+ME ME_4F619F340358
+ MEPROP UID '4F619F340358'
+ MEPROP Name 'EnableSaveToSettings'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Разрешаем/запрещаем запись, делаем запись только в режиме редактирования ПЗ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4F619F340358 EnableSaveToSettings
+
+ME ME_4992FFC001E0
+ MEPROP Name 'aGroup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_4992FFC001E0 aGroup
+
+ME ME_4992FFB7015F
+ MEPROP UID '4992FFB7015F'
+ MEPROP Name 'AddRepGroup'
+ MEPROP Class class_Operation
+ %SUMMARY 'добавить группу репозитория' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELINK Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FFC001E0 // aGroup
+ )
+ ; // Parameters
+
+ENDME // ME_4992FFB7015F AddRepGroup
+
+ME ME_4992FFD002F7
+ MEPROP Name 'aGroup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ ;
+
+ENDME // ME_4992FFD002F7 aGroup
+
+ME ME_4992FFC802A3
+ MEPROP UID '4992FFC802A3'
+ MEPROP Name 'DeleteRepGroup'
+ MEPROP Class class_Operation
+ %SUMMARY 'удалить группу репозитория' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FFD002F7 // aGroup
+ )
+ ; // Parameters
+
+ENDME // ME_4992FFC802A3 DeleteRepGroup
+
+ME ME_4992FFE3035E
+ MEPROP Name 'aRepGroup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ ;
+
+ENDME // ME_4992FFE3035E aRepGroup
+
+ME ME_4992FFE3039F
+ MEPROP Name 'aPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4992FFE3039F aPosition
+
+ME ME_4992FFD700FC
+ MEPROP UID '4992FFD700FC'
+ MEPROP Name 'AddGroup'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ MELINK Target HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FFE3035E // aRepGroup
+ ME_4992FFE3039F // aPosition
+ )
+ ; // Parameters
+
+ENDME // ME_4992FFD700FC AddGroup
+
+ME ME_4992FFEF01FB
+ MEPROP UID '4992FFEF01FB'
+ MEPROP Name 'Refresh'
+ MEPROP Class class_Operation
+ %SUMMARY 'полностью перечитать операции панели задач. Используется при'#13#10'              переключении конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+
+ENDME // ME_4992FFEF01FB Refresh
+
+ME ME_46A44F6B035E_ME_4992FF9A0273
+ MELINK Original WL 'ME_46A44F6B035E' '4677FBA70343.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44F6B035E_ME_4992FF9A0273 Subscribe
+
+ME ME_46A44FFE0143_ME_4992FF9A0273
+ MELINK Original WL 'ME_46A44FFE0143' '4677FBA70343.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44FFE0143_ME_4992FF9A0273 Unsubscribe
+
+ME ME_4992FF9A0273
+ MEPROP UID '4992FF9A0273'
+ MEPROP GUID '908DF1BA-5F0A-4BB9-B7C9-3B2BE6B87E93'
+ MEPROP Name 'IvcmCustOps'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Панель задач для работы с одной сущностью' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49930056007C // BaseSettingId
+ HWL ME_4993000E000A // RepGroupsOperations
+ HWL ME_4993002B01F4 // RepGroups
+ HWL ME_4993004300B5 // Groups
+ HWL ME_4F619F340358 // EnableSaveToSettings
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4992FFB7015F // AddRepGroup
+ HWL ME_4992FFC802A3 // DeleteRepGroup
+ HWL ME_4992FFD700FC // AddGroup
+ HWL ME_4992FFEF01FB // Refresh
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A44F6B035E_ME_4992FF9A0273 // Subscribe
+ ME_46A44FFE0143_ME_4992FF9A0273 // Unsubscribe
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'CustOps'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4992FF9A0273 IvcmCustOps
+
+FORWARD ME_4993008E00DA
+
+ME ME_499300AB0231
+ MEPROP UID '499300AB0231'
+ MEPROP Name 'Form'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'редактируемая формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4993008E00DA // IvcmCustAvailableToolbarOps
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ UP "pm" true
+
+ENDME // ME_499300AB0231 Form
+
+ME ME_46A44F6B035E_ME_4993008E00DA
+ MELINK Original WL 'ME_46A44F6B035E' '4677FBA70343.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44F6B035E_ME_4993008E00DA Subscribe
+
+ME ME_46A44FFE0143_ME_4993008E00DA
+ MELINK Original WL 'ME_46A44FFE0143' '4677FBA70343.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44FFE0143_ME_4993008E00DA Unsubscribe
+
+ME ME_4992FFB7015F_ME_4993008E00DA
+ MELINK Original HWL ME_4992FFB7015F // AddRepGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4992FFB7015F_ME_4993008E00DA AddRepGroup
+
+ME ME_4992FFC802A3_ME_4993008E00DA
+ MELINK Original HWL ME_4992FFC802A3 // DeleteRepGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4992FFC802A3_ME_4993008E00DA DeleteRepGroup
+
+ME ME_4992FFD700FC_ME_4993008E00DA
+ MELINK Original HWL ME_4992FFD700FC // AddGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4992FFD700FC_ME_4993008E00DA AddGroup
+
+ME ME_4992FFEF01FB_ME_4993008E00DA
+ MELINK Original HWL ME_4992FFEF01FB // Refresh
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4992FFEF01FB_ME_4993008E00DA Refresh
+
+ME ME_4993000E000A_ME_4993008E00DA
+ MELINK Original HWL ME_4993000E000A // RepGroupsOperations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4993000E000A_ME_4993008E00DA RepGroupsOperations
+
+ME ME_4993002B01F4_ME_4993008E00DA
+ MELINK Original HWL ME_4993002B01F4 // RepGroups
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4993002B01F4_ME_4993008E00DA RepGroups
+
+ME ME_4993004300B5_ME_4993008E00DA
+ MELINK Original HWL ME_4993004300B5 // Groups
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4993004300B5_ME_4993008E00DA Groups
+
+ME ME_49930056007C_ME_4993008E00DA
+ MELINK Original HWL ME_49930056007C // BaseSettingId
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49930056007C_ME_4993008E00DA BaseSettingId
+
+ME ME_4F619F340358_ME_4993008E00DA
+ MELINK Original HWL ME_4F619F340358 // EnableSaveToSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4F619F340358_ME_4993008E00DA EnableSaveToSettings
+
+ME ME_4993008E00DA
+ MEPROP UID '4993008E00DA'
+ MEPROP GUID '7C9BF0BD-5C30-46AA-B93E-0D9E6B6B53A9'
+ MEPROP Name 'IvcmCustAvailableToolbarOps'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настроить доступные для выбора операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4992FF9A0273 // IvcmCustOps
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499300AB0231 // Form
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46A44F6B035E_ME_4993008E00DA // Subscribe
+ ME_46A44FFE0143_ME_4993008E00DA // Unsubscribe
+ ME_4992FFB7015F_ME_4993008E00DA // AddRepGroup
+ ME_4992FFC802A3_ME_4993008E00DA // DeleteRepGroup
+ ME_4992FFD700FC_ME_4993008E00DA // AddGroup
+ ME_4992FFEF01FB_ME_4993008E00DA // Refresh
+ ME_4993000E000A_ME_4993008E00DA // RepGroupsOperations
+ ME_4993002B01F4_ME_4993008E00DA // RepGroups
+ ME_4993004300B5_ME_4993008E00DA // Groups
+ ME_49930056007C_ME_4993008E00DA // BaseSettingId
+ ME_4F619F340358_ME_4993008E00DA // EnableSaveToSettings
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'CustAvailableToolbarOps'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4993008E00DA IvcmCustAvailableToolbarOps
+
+FORWARD ME_49940B180124
+
+ME ME_49940B79009F
+ MEPROP UID '49940B79009F'
+ MEPROP Name 'History'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49940B180124 // IvcmMainForm
+ ;
+ MELINK Target WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ ;
+ UP "pm" true
+
+ENDME // ME_49940B79009F History
+
+ME ME_49940B9401BF
+ MEPROP UID '49940B9401BF'
+ MEPROP Name 'TasksPanel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49940B180124 // IvcmMainForm
+ ;
+ MELINK Target HWL ME_4992FF9A0273 // IvcmCustOps
+ ;
+ UP "pm" true
+
+ENDME // ME_49940B9401BF TasksPanel
+
+ME ME_49940B6400D0
+ MEPROP Name 'aEntityForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_49940B6400D0 aEntityForm
+
+ME ME_49940B5C0118
+ MEPROP UID '49940B5C0118'
+ MEPROP Name 'AddFormToTasksPanel'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49940B180124 // IvcmMainForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_49940B6400D0 // aEntityForm
+ )
+ ; // Parameters
+
+ENDME // ME_49940B5C0118 AddFormToTasksPanel
+
+ME ME_49940B720221
+ MEPROP Name 'aEntityForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_49940B720221 aEntityForm
+
+ME ME_49940B6C01A2
+ MEPROP UID '49940B6C01A2'
+ MEPROP Name 'RemoveFormFromTasksPanel'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49940B180124 // IvcmMainForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_49940B720221 // aEntityForm
+ )
+ ; // Parameters
+
+ENDME // ME_49940B6C01A2 RemoveFormFromTasksPanel
+
+ME ME_49940B180124
+ MEPROP UID '49940B180124'
+ MEPROP GUID '11B54167-2B27-46A7-8D30-0529B1A2CDFF'
+ MEPROP Name 'IvcmMainForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Основная форма' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49940B79009F // History
+ HWL ME_49940B9401BF // TasksPanel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49940B5C0118 // AddFormToTasksPanel
+ HWL ME_49940B6C01A2 // RemoveFormFromTasksPanel
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'MainForm'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49940B180124 IvcmMainForm
+
+FORWARD ME_499300FB015F
+
+ME ME_4993011501BE
+ MEPROP Name 'aModule'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499303E502C9' '4683F37902CF.ms.model.script' // IvcmModuleDef
+ ;
+
+ENDME // ME_4993011501BE aModule
+
+ME ME_4993010D009D
+ MEPROP UID '4993010D009D'
+ MEPROP Name 'AddModule'
+ MEPROP Class class_Operation
+ %SUMMARY 'зарегистрировать операции модуля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499300FB015F // IvcmCustOpsRepository
+ ;
+ MELIST Parameters
+   Seq: ( ME_4993011501BE // aModule
+ )
+ ; // Parameters
+
+ENDME // ME_4993010D009D AddModule
+
+ME ME_4993012303A6
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4993012303A6 aForm
+
+ME ME_4993011D0121
+ MEPROP UID '4993011D0121'
+ MEPROP Name 'AddForm'
+ MEPROP Class class_Operation
+ %SUMMARY 'зарегистрировать форму' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499300FB015F // IvcmCustOpsRepository
+ ;
+ MELIST Parameters
+   Seq: ( ME_4993012303A6 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4993011D0121 AddForm
+
+ME ME_4993013101CD
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4993013101CD aForm
+
+ME ME_4993012A00C2
+ MEPROP UID '4993012A00C2'
+ MEPROP Name 'RemoveForm'
+ MEPROP Class class_Operation
+ %SUMMARY 'удалить форму' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499300FB015F // IvcmCustOpsRepository
+ ;
+ MELIST Parameters
+   Seq: ( ME_4993013101CD // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4993012A00C2 RemoveForm
+
+ME ME_499300FB015F
+ MEPROP UID '499300FB015F'
+ MEPROP GUID 'F2006978-4DCD-4F97-B3A9-5D796E7E214B'
+ MEPROP Name 'IvcmCustOpsRepository'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Панель задач для публикации операций нескольких сущностей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4993010D009D // AddModule
+ HWL ME_4993011D0121 // AddForm
+ HWL ME_4993012A00C2 // RemoveForm
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CustOpsRepository'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499300FB015F IvcmCustOpsRepository
+
+FORWARD ME_50ADEDD600C6
+
+ME ME_50ADEDEF0127
+ MEPROP UID '50ADEDEF0127'
+ MEPROP Name 'cvcm_tpOperationRemove'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEDEF0127 cvcm_tpOperationRemove
+
+ME ME_50ADEDFA0143
+ MEPROP UID '50ADEDFA0143'
+ MEPROP Name 'cvcm_tpOpPosChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEDFA0143 cvcm_tpOpPosChanged
+
+ME ME_50ADEE0202A8
+ MEPROP UID '50ADEE0202A8'
+ MEPROP Name 'cvcm_tpOpCaptionChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE0202A8 cvcm_tpOpCaptionChanged
+
+ME ME_50ADEE0B0093
+ MEPROP UID '50ADEE0B0093'
+ MEPROP Name 'cvcm_tpGroupRemove'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE0B0093 cvcm_tpGroupRemove
+
+ME ME_50ADEE120121
+ MEPROP UID '50ADEE120121'
+ MEPROP Name 'cvcm_tpOperationAdded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE120121 cvcm_tpOperationAdded
+
+ME ME_50ADEE1903B7
+ MEPROP UID '50ADEE1903B7'
+ MEPROP Name 'cvcm_tpGroupAdded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE1903B7 cvcm_tpGroupAdded
+
+ME ME_50ADEE2101B4
+ MEPROP UID '50ADEE2101B4'
+ MEPROP Name 'cvcm_tpGroupCaptionChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE2101B4 cvcm_tpGroupCaptionChanged
+
+ME ME_50ADEE2801B2
+ MEPROP UID '50ADEE2801B2'
+ MEPROP Name 'cvcm_tpGroupPosChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE2801B2 cvcm_tpGroupPosChanged
+
+ME ME_50ADEE2F025F
+ MEPROP UID '50ADEE2F025F'
+ MEPROP Name 'cvcm_tpBeforeUpdate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE2F025F cvcm_tpBeforeUpdate
+
+ME ME_50ADEE360325
+ MEPROP UID '50ADEE360325'
+ MEPROP Name 'cvcm_tpAfterUpdate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_50ADEE360325 cvcm_tpAfterUpdate
+
+ME ME_50ADEDD600C6
+ MEPROP UID '50ADEDD600C6'
+ MEPROP Name 'TvcmTaskPanelOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50ADEDEF0127 // cvcm_tpOperationRemove
+ HWL ME_50ADEDFA0143 // cvcm_tpOpPosChanged
+ HWL ME_50ADEE0202A8 // cvcm_tpOpCaptionChanged
+ HWL ME_50ADEE0B0093 // cvcm_tpGroupRemove
+ HWL ME_50ADEE120121 // cvcm_tpOperationAdded
+ HWL ME_50ADEE1903B7 // cvcm_tpGroupAdded
+ HWL ME_50ADEE2101B4 // cvcm_tpGroupCaptionChanged
+ HWL ME_50ADEE2801B2 // cvcm_tpGroupPosChanged
+ HWL ME_50ADEE2F025F // cvcm_tpBeforeUpdate
+ HWL ME_50ADEE360325 // cvcm_tpAfterUpdate
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50ADEDD600C6 TvcmTaskPanelOperation
+
+FORWARD ME_46A450A102C3
+
+ME ME_46A450FA02B7
+ MEPROP Name 'aNotifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ ;
+
+ENDME // ME_46A450FA02B7 aNotifier
+
+ME ME_46A450FA02E9
+ MEPROP Name 'aOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ ;
+
+ENDME // ME_46A450FA02E9 aOperation
+
+ME ME_46A450FA031C
+ MEPROP Name 'aInterface'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4992FCF401BC // IvcmCustOpsItem
+ ;
+
+ENDME // ME_46A450FA031C aInterface
+
+ME ME_46A450C703AE
+ MEPROP UID '46A450C703AE'
+ MEPROP Name 'TaskPanelNotify'
+ MEPROP Class class_Operation
+ %SUMMARY 'прошла операция.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
+ ;
+ MELIST Parameters
+   Seq: ( ME_46A450FA02B7 // aNotifier
+ ME_46A450FA02E9 // aOperation
+ ME_46A450FA031C // aInterface
+ )
+ ; // Parameters
+
+ENDME // ME_46A450C703AE TaskPanelNotify
+
+ME ME_46A450A102C3
+ MEPROP UID '46A450A102C3'
+ MEPROP GUID '4DD3FE7D-D6D0-4D92-845E-10BBD39C46EE'
+ MEPROP Name 'IvcmTaskPanelNotifyRecipient'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подписчик для получения нотификации об операции.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49940C8E00DA // vcmTaskPanelInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.ms.model.script' // Il3Notify
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_46A450C703AE // TaskPanelNotify
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'TaskPanelNotifyRecipient'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_46A450A102C3 IvcmTaskPanelNotifyRecipient
+
+ME ME_49940C8E00DA
+ MEPROP UID '49940C8E00DA'
+ MEPROP Name 'vcmTaskPanelInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для поддержки "Панели задач"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49940DAA0114 // IvcmBase
+ HWL ME_4992FCF401BC // IvcmCustOpsItem
+ HWL ME_4992FA6A03C1 // IvcmCustOpsOperation
+ HWL ME_4992FD760178 // IvcmCustOpsRepGroup
+ HWL ME_4992FB1F0246 // IvcmCustOpsRepOperation
+ HWL ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ HWL ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ HWL ME_4992FCD700DB // IvcmCustOpsGroupOperationsIterator
+ HWL ME_4992FD1902A5 // IvcmCustOpsGroup
+ HWL ME_4992FF770054 // IvcmCustOpsRepGroupsIterator
+ HWL ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ HWL ME_4992FE7D0230 // IvcmCustOpsGroupsIterator
+ HWL ME_4992FF0B03D4 // IvcmCustOpsRepGroupsOperationsIterator
+ HWL ME_4992FF9A0273 // IvcmCustOps
+ HWL ME_4993008E00DA // IvcmCustAvailableToolbarOps
+ HWL ME_49940B180124 // IvcmMainForm
+ HWL ME_499300FB015F // IvcmCustOpsRepository
+ HWL ME_50ADEDD600C6 // TvcmTaskPanelOperation
+ HWL ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '12.02.2008 14:49'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmTaskPanelInterfaces.pas'
+
+ENDME // ME_49940C8E00DA vcmTaskPanelInterfaces

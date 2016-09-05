@@ -1,0 +1,714 @@
+// TvtColorBox 5270BBC702C7 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5270BBC702C7
+
+FORWARD ME_5538E639019E
+
+ME ME_5538E6500082
+ MEPROP UID '5538E6500082'
+ MEPROP Name 'cbStandardColors'
+ MEPROP Class class_Attribute
+ %SUMMARY 'first sixteen RGBI colors' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E6500082 cbStandardColors
+
+ME ME_5538E660030A
+ MEPROP UID '5538E660030A'
+ MEPROP Name 'cbExtendedColors'
+ MEPROP Class class_Attribute
+ %SUMMARY 'four additional reserved colors' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E660030A cbExtendedColors
+
+ME ME_5538E6700384
+ MEPROP UID '5538E6700384'
+ MEPROP Name 'cbSystemColors'
+ MEPROP Class class_Attribute
+ %SUMMARY 'system managed/defined colors' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E6700384 cbSystemColors
+
+ME ME_5538E67E00CB
+ MEPROP UID '5538E67E00CB'
+ MEPROP Name 'cbIncludeNone'
+ MEPROP Class class_Attribute
+ %SUMMARY 'include clNone color, must be used with cbSystemColors' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E67E00CB cbIncludeNone
+
+ME ME_5538E69002EC
+ MEPROP UID '5538E69002EC'
+ MEPROP Name 'cbIncludeDefault'
+ MEPROP Class class_Attribute
+ %SUMMARY 'include clDefault color, must be used with cbSystemColors' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E69002EC cbIncludeDefault
+
+ME ME_5538E69F03AB
+ MEPROP UID '5538E69F03AB'
+ MEPROP Name 'cbCustomColor'
+ MEPROP Class class_Attribute
+ %SUMMARY 'first color is customizable' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E69F03AB cbCustomColor
+
+ME ME_5538E6AF031E
+ MEPROP UID '5538E6AF031E'
+ MEPROP Name 'cbPrettyNames'
+ MEPROP Class class_Attribute
+ %SUMMARY 'instead of ''clColorNames'' you get ''Color Names''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E6AF031E cbPrettyNames
+
+ME ME_5538E6BE0205
+ MEPROP UID '5538E6BE0205'
+ MEPROP Name 'cbNoName'
+ MEPROP Class class_Attribute
+ %SUMMARY 'show only color rect' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E639019E // TvtColorBoxStyles
+ ;
+
+ENDME // ME_5538E6BE0205 cbNoName
+
+ME ME_5538E639019E
+ MEPROP UID '5538E639019E'
+ MEPROP Name 'TvtColorBoxStyles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5538E6500082 // cbStandardColors
+ HWL ME_5538E660030A // cbExtendedColors
+ HWL ME_5538E6700384 // cbSystemColors
+ HWL ME_5538E67E00CB // cbIncludeNone
+ HWL ME_5538E69002EC // cbIncludeDefault
+ HWL ME_5538E69F03AB // cbCustomColor
+ HWL ME_5538E6AF031E // cbPrettyNames
+ HWL ME_5538E6BE0205 // cbNoName
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5538E639019E TvtColorBoxStyles
+
+ME ME_5538E6D503B4
+ MEPROP UID '5538E6D503B4'
+ MEPROP Name 'TvtColorBoxStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5538E639019E // TvtColorBoxStyles
+ )
+ ; // Inherits
+
+ENDME // ME_5538E6D503B4 TvtColorBoxStyle
+
+FORWARD ME_5538E709017E
+
+ME ME_5538EF8B0385
+ MEPROP UID '5538EF8B0385'
+ MEPROP Name 'ColorStyle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target HWL ME_5538E6D503B4 // TvtColorBoxStyle
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5538EF8B0385 ColorStyle
+
+FORWARD ME_5538F01F01D6
+
+ME ME_5538F06D01D0
+ MEPROP UID '5538F06D01D0'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538F01F01D6 // Colors
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5538F06D01D0 anIndex
+
+ME ME_5538F01F01D6
+ MEPROP UID '5538F01F01D6'
+ MEPROP Name 'Colors'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5538F06D01D0 // anIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_5538F01F01D6 Colors
+
+FORWARD ME_5538F0A00111
+
+ME ME_5538F0B9016F
+ MEPROP UID '5538F0B9016F'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538F0A00111 // ColorNames
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5538F0B9016F anIndex
+
+ME ME_5538F0A00111
+ MEPROP UID '5538F0A00111'
+ MEPROP Name 'ColorNames'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5538F0B9016F // anIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_5538F0A00111 ColorNames
+
+ME ME_5538F0F4031D
+ MEPROP UID '5538F0F4031D'
+ MEPROP Name 'Selected'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_5538F0F4031D Selected
+
+ME ME_5538F2C90308
+ MEPROP UID '5538F2C90308'
+ MEPROP Name 'DefaultColorColor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5538F2C90308 DefaultColorColor
+
+ME ME_5538F2DD02EF
+ MEPROP UID '5538F2DD02EF'
+ MEPROP Name 'NoneColorColor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5538F2DD02EF NoneColorColor
+
+ME ME_5538F348002C
+ MEPROP UID '5538F348002C'
+ MEPROP Name 'f_NeedToPopulate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5538F348002C f_NeedToPopulate
+
+ME ME_5538F3550015
+ MEPROP UID '5538F3550015'
+ MEPROP Name 'f_LockPickCustomColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5538F3550015 f_LockPickCustomColor
+
+FORWARD ME_5538F3810270
+
+ME ME_5538F38F0091
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51546CAE03B7' '4AB0C3C60310.ms.model.script' // String$XE
+ ;
+
+ENDME // ME_5538F38F0091 aName
+
+ME ME_5538F38900B4
+ MEPROP UID '5538F38900B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538F3810270 // ColorCallBack
+ ;
+ MELIST Parameters
+   Seq: ( ME_5538F38F0091 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_5538F38900B4 DoIt
+
+ME ME_5538F3810270
+ MEPROP UID '5538F3810270'
+ MEPROP Name 'ColorCallBack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5538F38900B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5538F3810270 ColorCallBack
+
+FORWARD ME_5538F39B01D0
+
+ME ME_5538F3A402D0
+ MEPROP Name 'aColor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+
+ENDME // ME_5538F3A402D0 aColor
+
+ME ME_5538F3A20155
+ MEPROP UID '5538F3A20155'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538F39B01D0 // IndexOfColor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5538F3A402D0 // aColor
+ )
+ ; // Parameters
+
+ENDME // ME_5538F3A20155 DoIt
+
+ME ME_5538F39B01D0
+ MEPROP UID '5538F39B01D0'
+ MEPROP Name 'IndexOfColor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5538F3A20155 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5538F39B01D0 IndexOfColor
+
+FORWARD ME_5538F3B8006F
+
+ME ME_5538F3C20062
+ MEPROP UID '5538F3C20062'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538F3B8006F // PickCustomColor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5538F3C20062 DoIt
+
+ME ME_5538F3B8006F
+ MEPROP UID '5538F3B8006F'
+ MEPROP Name 'PickCustomColor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5538F3C20062 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5538F3B8006F PickCustomColor
+
+ME ME_5538F3D60102
+ MEPROP UID '5538F3D60102'
+ MEPROP Name 'PopulateList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+
+ENDME // ME_5538F3D60102 PopulateList
+
+FORWARD ME_5538F3E80193
+
+ME ME_5538F3EF0075
+ MEPROP UID '5538F3EF0075'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538F3E80193 // DrawNames
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5538F3EF0075 DoIt
+
+ME ME_5538F3E80193
+ MEPROP UID '5538F3E80193'
+ MEPROP Name 'DrawNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538E709017E // TvtCustomColorBox
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5538F3EF0075 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5538F3E80193 DrawNames
+
+ME ME_47D1602000C6_ME_5538E709017E
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_5538E709017E Create
+
+ME ME_482AE42802AE_ME_5538E709017E
+ MELINK Original WL 'ME_482AE42802AE' '482ACC330173.ms.model.script' // Change
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482AE42802AE_ME_5538E709017E Change
+
+ME ME_484516C00214_ME_5538E709017E
+ MELINK Original WL 'ME_484516C00214' '4AB0997B00A2.ms.model.script' // Loaded
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484516C00214_ME_5538E709017E Loaded
+
+ME ME_4CC8414403B8_ME_5538E709017E
+ MELINK Original WL 'ME_4CC8414403B8' '4799D29F033F.ms.model.script' // CreateWnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8414403B8_ME_5538E709017E CreateWnd
+
+ME ME_53EE012C0211_ME_5538E709017E
+ MELINK Original WL 'ME_53EE012C0211' '53F1DC8F01AD.ms.model.script' // RecreateTreeIfNeeded
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53EE012C0211_ME_5538E709017E RecreateTreeIfNeeded
+
+ME ME_53EE0A730393_ME_5538E709017E
+ MELINK Original WL 'ME_53EE0A730393' '53F1DC8F01AD.ms.model.script' // ProcessTreeSelect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53EE0A730393_ME_5538E709017E ProcessTreeSelect
+
+ME ME_53F45F9F030D_ME_5538E709017E
+ MELINK Original WL 'ME_53F45F9F030D' '483158FD0155.ms.model.script' // DoCreateStrings
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53F45F9F030D_ME_5538E709017E DoCreateStrings
+
+ME ME_5538F4D60240_ME_5538E709017E
+ MELINK Original WL 'ME_5538F4D60240' '4829D92A037B.ms.model.script' // DoDrawDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5538F4D60240_ME_5538E709017E DoDrawDocument
+
+ME ME_5538E709017E
+ MEPROP UID '5538E709017E'
+ MEPROP Name 'TvtCustomColorBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5538EF8B0385 // ColorStyle
+ HWL ME_5538F01F01D6 // Colors
+ HWL ME_5538F0A00111 // ColorNames
+ HWL ME_5538F0F4031D // Selected
+ HWL ME_5538F2C90308 // DefaultColorColor
+ HWL ME_5538F2DD02EF // NoneColorColor
+ HWL ME_5538F348002C // f_NeedToPopulate
+ HWL ME_5538F3550015 // f_LockPickCustomColor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5538F3810270 // ColorCallBack
+ HWL ME_5538F39B01D0 // IndexOfColor
+ HWL ME_5538F3B8006F // PickCustomColor
+ HWL ME_5538F3D60102 // PopulateList
+ HWL ME_5538F3E80193 // DrawNames
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_5538E709017E // Create
+ ME_482AE42802AE_ME_5538E709017E // Change
+ ME_484516C00214_ME_5538E709017E // Loaded
+ ME_4CC8414403B8_ME_5538E709017E // CreateWnd
+ ME_53EE012C0211_ME_5538E709017E // RecreateTreeIfNeeded
+ ME_53EE0A730393_ME_5538E709017E // ProcessTreeSelect
+ ME_53F45F9F030D_ME_5538E709017E // DoCreateStrings
+ ME_5538F4D60240_ME_5538E709017E // DoDrawDocument
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'ColorBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5538E709017E TvtCustomColorBox
+
+FORWARD ME_5538E74100C3
+
+ME ME_5538E75000FA
+ MEPROP UID '5538E75000FA'
+ MEPROP Name 'NoColorSelected'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E74100C3 // vtColorBox Consts
+ ;
+ MEPROP Value 'TColor($FF000000)'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'TColor($FF000000)'
+
+ENDME // ME_5538E75000FA NoColorSelected
+
+ME ME_5538E74100C3
+ MEPROP UID '5538E74100C3'
+ MEPROP Name 'vtColorBox Consts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5538E75000FA // NoColorSelected
+ )
+ ; // Attributes
+ UP "spell names" false
+ UP extprop:rc:SelfName 'ColorBox Consts'
+
+ENDME // ME_5538E74100C3 vtColorBox Consts
+
+ME ME_5539067D0136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5539067D0136 
+
+ME ME_5539068302A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5539068302A3 
+
+ME ME_5539068600B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELINK Target WL 'ME_4AB0EE02004E' '4799D29F033F.ms.model.script' // Dialogs
+ ;
+
+ENDME // ME_5539068600B3 
+
+ME ME_553906880245
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELINK Target WL 'ME_4C2D9FF00326' '55C4AF3F02EE.ms.model.script' // Consts
+ ;
+
+ENDME // ME_553906880245 
+
+ME ME_553908140014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5270BBC702C7 // TvtColorBox
+ ;
+ MELINK Target WL 'ME_553907A4021C' '4A83EE0E0002.ms.model.script' // TvtColorBoxStrings
+ ;
+
+ENDME // ME_553908140014 
+
+ME ME_5270BBC702C7
+ MEPROP UID '5270BBC702C7'
+ MEPROP Name 'TvtColorBox'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A83EE0E0002' '4A83EE0E0002.ms.model.script' // Combos
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5538E709017E // TvtCustomColorBox
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_5538E639019E // TvtColorBoxStyles
+ HWL ME_5538E6D503B4 // TvtColorBoxStyle
+ HWL ME_5538E709017E // TvtCustomColorBox
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_5538E74100C3 // vtColorBox Consts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_5539067D0136 // Tk2TagID
+ ME_5539068302A3 // l3Base
+ ME_5539068600B3 // Dialogs
+ ME_553906880245 // Consts
+ ME_553908140014 // TvtColorBoxStrings
+ )
+ ; // Dependencies
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtColorBox.pas'
+ UP extprop:rc:SelfName 'ColorBox'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtColorBox'
+
+ENDME // ME_5270BBC702C7 TvtColorBox

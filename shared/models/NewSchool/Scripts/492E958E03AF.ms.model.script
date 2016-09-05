@@ -1,0 +1,325 @@
+// SubsystemLevel 492E958E03AF MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492E958E03AF
+
+FORWARD ME_492E95D1017C
+
+ME ME_492E971C0056
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_492E95D1017C // VCMControllers
+ ;
+ MELINK Target WL 'ME_492E96FD00A7' '4B62E09600D1.ms.model.script' // ControllerInterfaces
+ ;
+
+ENDME // ME_492E971C0056 
+
+ME ME_492E97690228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_492E95D1017C // VCMControllers
+ ;
+ MELINK Target WL 'ME_492E97410321' '4B62E3510166.ms.model.script' // ControllerUnit
+ ;
+
+ENDME // ME_492E97690228 
+
+ME ME_492E95D1017C
+ MEPROP UID '492E95D1017C'
+ MEPROP Name 'VCMControllers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Библиотека содержащая бизнес объекты (контроллеры логики прецедентов)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492E958E03AF // SubsystemLevel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4947E36801B6' '4B62DE9C006C.ms.model.script' // VCMLibrary
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_492E971C0056 // ControllerInterfaces
+ ME_492E97690228 // ControllerUnit
+ )
+ ; // Dependencies
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_vcm_controllers'
+ UP "visualization bg color" 12623485
+ UP "visualization f-font color" 16711808
+ UP "visualization f-line color" 16711808
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda:Path 'MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel\VCMControllers.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel\VCMControllers'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_492E95D1017C VCMControllers
+
+FORWARD ME_4947E343031C
+
+ME ME_4947E7C30383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947E343031C // VCMViews
+ ;
+ MELINK Target WL 'ME_4947E799017D' '4B62F77B031E.ms.model.script' // VCMForms
+ ;
+
+ENDME // ME_4947E7C30383 
+
+ME ME_4948C3980324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947E343031C // VCMViews
+ ;
+ MELINK Target WL 'ME_4948C382021A' '4B62F77B031E.ms.model.script' // VCMModule
+ ;
+
+ENDME // ME_4948C3980324 
+
+ME ME_494F7F53034E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947E343031C // VCMViews
+ ;
+ MELINK Target WL 'ME_494F7EF903BC' '4B62F51F0182.ms.model.script' // VCMControls
+ ;
+
+ENDME // ME_494F7F53034E 
+
+ME ME_4958D0FA0185
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947E343031C // VCMViews
+ ;
+ MELINK Target WL 'ME_4958D0CD0287' '4A95178301AC.ms.model.script' // VCMApplication
+ ;
+
+ENDME // ME_4958D0FA0185 
+
+ME ME_5791D76C00EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947E343031C // VCMViews
+ ;
+ MELINK Target WL 'ME_5791D6D50045' '4B62F51F0182.ms.model.script' // VCMContracts
+ ;
+
+ENDME // ME_5791D76C00EF 
+
+ME ME_4947E343031C
+ MEPROP UID '4947E343031C'
+ MEPROP Name 'VCMViews'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Библиотека, содержащая объекты представления' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492E958E03AF // SubsystemLevel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4947E36801B6' '4B62DE9C006C.ms.model.script' // VCMLibrary
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4947E7C30383 // VCMForms
+ ME_4948C3980324 // VCMModule
+ ME_494F7F53034E // VCMControls
+ ME_4958D0FA0185 // VCMApplication
+ ME_5791D76C00EF // VCMContracts
+ )
+ ; // Dependencies
+ UP "personal label" 'code_vcm_views'
+ UP "visualization bg color" 16033019
+ UP "visualization f-font color" 12731311
+ UP "visualization f-line color" 2124031
+ UP mda:Path 'MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel\VCMViews.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel\VCMViews'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4947E343031C VCMViews
+
+FORWARD ME_4953E0360081
+
+ME ME_4954C5E702CB
+ MEPROP UID '4954C5E702CB'
+ MEPROP Name 'defines'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет файл с условиями компиляции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+
+ENDME // ME_4954C5E702CB defines
+
+ME ME_4954C610010C
+ MEPROP UID '4954C610010C'
+ MEPROP Name 'vendor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет префикс разработчика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+
+ENDME // ME_4954C610010C vendor
+
+ME ME_4A9699C803A3
+ MEPROP UID '4A9699C803A3'
+ MEPROP Name 'IsVCMSubsystem'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A9699C803A3 IsVCMSubsystem
+
+ME ME_4AA8B17E0178
+ MEPROP UID '4AA8B17E0178'
+ MEPROP Name 'pas_OutUnitFile'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+
+ENDME // ME_4AA8B17E0178 pas_OutUnitFile
+
+ME ME_4953E0530157
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+ MELINK Target HWL ME_492E95D1017C // VCMControllers
+ ;
+
+ENDME // ME_4953E0530157 
+
+ME ME_4953E05C032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+ MELINK Target HWL ME_4947E343031C // VCMViews
+ ;
+
+ENDME // ME_4953E05C032F 
+
+ME ME_4953E06B0271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+ MELINK Target WL 'ME_484915CD0184' '4732AE850271.ms.model.script' // Library
+ ;
+
+ENDME // ME_4953E06B0271 
+
+ME ME_4A95240600C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4953E0360081 // VCMSubsystem
+ ;
+ MELINK Target WL 'ME_498AFF8101F5' '4947E25703A8.ms.model.script' // VCMFormsPack
+ ;
+
+ENDME // ME_4A95240600C5 
+
+ME ME_4953E0360081
+ MEPROP UID '4953E0360081'
+ MEPROP Name 'VCMSubsystem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подсистема' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492E958E03AF // SubsystemLevel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4954C5E702CB // defines
+ HWL ME_4954C610010C // vendor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A9699C803A3 // IsVCMSubsystem
+ HWL ME_4AA8B17E0178 // pas_OutUnitFile
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4953E0530157 // VCMControllers
+ ME_4953E05C032F // VCMViews
+ ME_4953E06B0271 // Library
+ ME_4A95240600C5 // VCMFormsPack
+ )
+ ; // Dependencies
+ UP "abstraction type" 'af'
+ UP "personal label" 'code_vcm_subsystem'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 3329330
+ UP "visualization f-line color" 3329330
+ UP mda:Path 'MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel\VCMSubsystem.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel\VCMSubsystem'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4953E0360081 VCMSubsystem
+
+ME ME_492E958E03AF
+ MEPROP UID '492E958E03AF'
+ MEPROP Name 'SubsystemLevel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_492E952D02A0' '492E952D02A0.ms.model.script' // VCMSubsystemLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_492E95D1017C // VCMControllers
+ HWL ME_4947E343031C // VCMViews
+ HWL ME_4953E0360081 // VCMSubsystem
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_4729C4880157' '4729C4880157.ms.model.script' // Interface
+ WL 'ME_4732AE850271' '4732AE850271.ms.model.script' // Redefinitions
+ WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ WL 'ME_492EC605004C' '492EC605004C.ms.model.script' // ControllersImplementation
+ WL 'ME_4947E25703A8' '4947E25703A8.ms.model.script' // FormsPack
+ WL 'ME_49CB456E025C' '49CB456E025C.ms.model.script' // ClassInner
+ WL 'ME_4A95178301AC' '4A95178301AC.ms.model.script' // ApplicationLevel
+ WL 'ME_4B5DE69600AD' '4B5DE69600AD.ms.model.script' // FormOperations
+ WL 'ME_4B5F24920336' '4B5F24920336.ms.model.script' // CustomForms
+ WL 'ME_4B5F322B004D' '4B5F322B004D.ms.model.script' // VCMForms
+ WL 'ME_4B62DE9C006C' '4B62DE9C006C.ms.model.script' // StandardLikePackages
+ WL 'ME_4B62E09600D1' '4B62E09600D1.ms.model.script' // ModelPackages
+ WL 'ME_4B62E3510166' '4B62E3510166.ms.model.script' // ControllersImplementationPackages
+ WL 'ME_4B62F51F0182' '4B62F51F0182.ms.model.script' // VCMUserInteraction
+ WL 'ME_4B62F77B031E' '4B62F77B031E.ms.model.script' // VCMFormsPackages
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMSubsystemLayer\SubsystemLevel'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_492E958E03AF SubsystemLevel

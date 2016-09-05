@@ -1,0 +1,71 @@
+// Version Info 4C1B915E0261 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C1B915E0261
+
+FORWARD ME_4C1B918900FD
+
+ME ME_4C1B91970313
+ MEPROP UID '4C1B91970313'
+ MEPROP Name 'VersionConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B918900FD // Ver
+ ;
+ UP "spell names" false
+ UP extprop:pas:TypeName 'TevdVersionConstants'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_4C1B91970313 VersionConstants
+
+ME ME_4C1B918900FD
+ MEPROP UID '4C1B918900FD'
+ MEPROP Name 'Ver'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C1B915E0261 // Version Info
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4C1B91970313 // VersionConstants
+ )
+ ; // Constants
+ UP "finished" false
+ UP h:Path 'common\components\rtl\Garant\EVD\Version Info\Ver.h'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_evdVer.pas'
+ UP extprop:pas:TypeName 'TevdVer'
+ UP extprop:pas:UnitName 'evdVer'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_4C1B918900FD Ver
+
+ME ME_4C1B915E0261
+ MEPROP UID '4C1B915E0261'
+ MEPROP Name 'Version Info'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Информация о версии формата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C1B918900FD // Ver
+ )
+ ; // Children
+ UP "UseNewGen" true
+ UP cpp:PathOnly '\common\components\rtl\Garant\EVD\Version Info'
+ UP h:PathOnly '\common\components\rtl\Garant\EVD\Version Info'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_4C1B915E0261 Version Info

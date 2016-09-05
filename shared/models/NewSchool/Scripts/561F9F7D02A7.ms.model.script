@@ -1,0 +1,60 @@
+// ScriptEngine 561F9F7D02A7 LibraryST Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561F9F7D02A7
+
+ME ME_561F9F9400BC
+ MEPROP UID '561F9F9400BC'
+ MEPROP Name 'TtfwClassRef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ClassProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561F9F7D02A7 // ScriptEngine
+ ;
+ UP extprop:rc:SelfName 'ClassRef'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TtfwClassRef_Proxy'
+
+ENDME // ME_561F9F9400BC TtfwClassRef
+
+ME ME_572C98D2039D
+ MEPROP UID '572C98D2039D'
+ MEPROP Name 'TtfwTypeRegistrator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ClassProxy ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561F9F7D02A7 // ScriptEngine
+ ;
+ UP extprop:rc:SelfName 'TypeRegistrator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TtfwTypeRegistrator_Proxy'
+
+ENDME // ME_572C98D2039D TtfwTypeRegistrator
+
+ME ME_561F9F7D02A7
+ MEPROP UID '561F9F7D02A7'
+ MEPROP Name 'ScriptEngine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_LibraryST ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B63155B0328' '4B63155B0328.ms.model.script' // MDProcess$ForDelphi
+ ;
+ MELIST Children
+   Seq: ( HWL ME_561F9F9400BC // TtfwClassRef
+ HWL ME_572C98D2039D // TtfwTypeRegistrator
+ )
+ ; // Children
+ UP "UseNewGen" true
+ UP "defines" 'seDefine.inc'
+ UP "ifndef" 'NoScripts'
+ UP "path prefix" 'components/rtl/Garant'
+ UP intf.pas:PathOnly '\MDProcess\components\rtl\Garant\ScriptEngine'
+
+ENDME // ME_561F9F7D02A7 ScriptEngine

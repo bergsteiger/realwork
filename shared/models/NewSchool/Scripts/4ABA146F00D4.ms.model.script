@@ -1,0 +1,74 @@
+// ConfigurationList 4ABA146F00D4 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABA146F00D4
+
+ME ME_1F7E11DA67FF
+ MEPROP UID '1F7E11DA67FF'
+ MEPROP Name 'Ini_FormFactory_ConfigurationList'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ConfigurationList' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABA146F00D4 // ConfigurationList
+ ;
+ UPLINK SpelledFor HWL ME_4ABA146F00D4 // ConfigurationList
+ ;
+
+ENDME // ME_1F7E11DA67FF Ini_FormFactory_ConfigurationList
+
+ME ME_4C8A3E830263
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ABA146F00D4 // ConfigurationList
+ ;
+ MELINK Target WL 'ME_4C762C910358' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+
+ENDME // ME_4C8A3E830263 
+
+ME ME_4ABA146F00D4
+ MEPROP UID '4ABA146F00D4'
+ MEPROP Name 'ConfigurationList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA79F72010A' '4AA79F72010A.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BD7279101C5' '4BD7279101C5.ms.model.script' // PrimConfigurationList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD971260355' '4BD856E802F9.ms.model.script' // ConfigurationList
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_1F7E11DA67FF // Ini_FormFactory_ConfigurationList
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C8A3E830263 // Cancel
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Navigator'
+ UP "finished dfm" true
+ UP "form name prefix" 'en_'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\ConfigurationList_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+ UP extprop:pas:TypeName 'Ten_ConfigurationList'
+ UP extprop:rc:SelfName 'en_ConfigurationList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ConfigurationList_Form'
+
+ENDME // ME_4ABA146F00D4 ConfigurationList

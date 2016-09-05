@@ -1,0 +1,156 @@
+// AutoTestSupport 4E2955E50377 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E2955E50377
+
+FORWARD ME_509A43E800C8
+
+ME ME_509A443703A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4D6CB4B7035F' '4D6CB4B7035F.ms.model.script' // F1LikeFormWithBS
+ ;
+
+ENDME // ME_509A443703A4 
+
+ME ME_509A443F002D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4C9B31190392' '4C9B31190392.ms.model.script' // F1LikeTextLoad
+ ;
+
+ENDME // ME_509A443F002D 
+
+ME ME_509A444203DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4CA090120212' '4CA090120212.ms.model.script' // QFLikeTextLoad
+ ;
+
+ENDME // ME_509A444203DF 
+
+ME ME_509A444700B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4B30C7E800EE' '4B30C7E800EE.ms.model.script' // TextLoad
+ ;
+
+ENDME // ME_509A444700B1 
+
+ME ME_509A445B0038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4AD89C420296' '47D0E1500033.ms.model.script' // vcmMakeParams
+ ;
+
+ENDME // ME_509A445B0038 
+
+ME ME_509A43E800C8
+ MEPROP UID '509A43E800C8'
+ MEPROP Name 'FormUnits'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E2955E50377 // AutoTestSupport
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509A443703A4 // F1LikeFormWithBS
+ ME_509A443F002D // F1LikeTextLoad
+ ME_509A444203DF // QFLikeTextLoad
+ ME_509A444700B1 // TextLoad
+ ME_509A445B0038 // vcmMakeParams
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\FormUnits.imp.pas'
+ UP extprop:pas:TypeName '_FormUnits_'
+ UP extprop:pas:UnitName 'FormUnits.imp'
+
+ENDME // ME_509A43E800C8 FormUnits
+
+FORWARD ME_509B4CC20221
+
+ME ME_509B4D0502BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B4CC20221 // LoadUnits
+ ;
+ MELINK Target WL 'ME_4C9B20790302' '4C9B20790302.ms.model.script' // PrimTextLoad
+ ;
+
+ENDME // ME_509B4D0502BE 
+
+ME ME_509B506A0297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B4CC20221 // LoadUnits
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_509B506A0297 
+
+ME ME_509B4CC20221
+ MEPROP UID '509B4CC20221'
+ MEPROP Name 'LoadUnits'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E2955E50377 // AutoTestSupport
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509B4D0502BE // PrimTextLoad
+ ME_509B506A0297 // Document
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\LoadUnits.imp.pas'
+ UP extprop:pas:TypeName '_LoadUnits_'
+ UP extprop:pas:UnitName 'LoadUnits.imp'
+
+ENDME // ME_509B4CC20221 LoadUnits
+
+ME ME_4E2955E50377
+ MEPROP UID '4E2955E50377'
+ MEPROP Name 'AutoTestSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Поддержка создания форм для автотестов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B30C5FF0172' '4B30C5FF0172.ms.model.script' // TestFormsTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_509A43E800C8 // FormUnits
+ HWL ME_509B4CC20221 // LoadUnits
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4B30C6E3023C' '4B30C6E3023C.ms.model.script' // Forms
+ WL 'ME_4B30C72000B3' '4B30C72000B3.ms.model.script' // Everest
+ WL 'ME_4B30FC850092' '4B30FC850092.ms.model.script' // VCM_TFW
+ WL 'ME_4D469729019F' '4D469729019F.ms.model.script' // Outliner
+ )
+ ; // Depends
+ UP "ifdef" 'nsTest'
+ UP "ifndef" 'InsiderTest'
+
+ENDME // ME_4E2955E50377 AutoTestSupport

@@ -1,0 +1,1473 @@
+// Support 46E8051A0106 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46E8051A0106
+
+FORWARD ME_46E6D087000C
+
+ME ME_46E6D0A70210
+ MEPROP UID '46E6D0A70210'
+ MEPROP Name 'docs'
+ MEPROP Class class_Operation
+ %SUMMARY 'форматирует и выводит документацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_46E6D0A70210 docs
+
+ME ME_46E83157007A
+ MEPROP UID '46E83157007A'
+ MEPROP Name 'k_link'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерирует ссылку на элемент для представления в wiki (с расширением выидимости родителя, иконками и т.д.)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_46E83157007A k_link
+
+ME ME_46E832A1003B
+ MEPROP UID '46E832A1003B'
+ MEPROP Name 'k_link_wp'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация ссылки для wiki (аналогично k_link но с вместе префиксом сслыкой на родителя)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_46E832A1003B k_link_wp
+
+ME ME_46E93AEF00B8
+ MEPROP UID '46E93AEF00B8'
+ MEPROP Name 'k_method_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит ссылку и краткое описание метода для wiki' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_46E93AEF00B8 k_method_dump
+
+ME ME_46E93B3500C8
+ MEPROP UID '46E93B3500C8'
+ MEPROP Name 'k_attr_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит ссылку и краткое описание атрибута для wiki' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_46E93B3500C8 k_attr_dump
+
+ME ME_46E93B460200
+ MEPROP UID '46E93B460200'
+ MEPROP Name 'k_type_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит ссылку и краткое описание вложенного типа для wiki' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_46E93B460200 k_type_dump
+
+ME ME_471F0A37033C
+ MEPROP UID '471F0A37033C'
+ MEPROP Name 'need_source_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'определяет нужно ли генерить список исходников в шапке wiki страницы (результат выичлсяется на основании того, генерится ли с элемента хоть один исходник всеми возвожмными генераторами (кроме wiki))' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_471F0A37033C need_source_list
+
+ME ME_4725D77C00EA
+ MEPROP UID '4725D77C00EA'
+ MEPROP Name 'k_st_def_link'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит ссылку на страницу с описанием стереотипа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_4725D77C00EA k_st_def_link
+
+ME ME_4728392D032C
+ MEPROP UID '4728392D032C'
+ MEPROP Name 'k_source_link'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит ссылку на файл-исходник, генерируемый элементом текущим генератором (если  сам элемент не создаёт файла, то генерится ссылка на файл родителя)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_4728392D032C k_source_link
+
+ME ME_472839800196
+ MEPROP UID '472839800196'
+ MEPROP Name 'k_link_nearest_parent_with_output'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит ссылку на ближайшего родителя имеющего собственный файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_472839800196 k_link_nearest_parent_with_output
+
+ME ME_47382E3203B9
+ MEPROP UID '47382E3203B9'
+ MEPROP Name 'header'
+ MEPROP Class class_Operation
+ %SUMMARY 'Стандартный шаблон-заголовок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_47382E3203B9 header
+
+ME ME_47382E3D0186
+ MEPROP UID '47382E3D0186'
+ MEPROP Name 'footer'
+ MEPROP Class class_Operation
+ %SUMMARY 'стандартный финальный шаблон' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_47382E3D0186 footer
+
+ME ME_47382E4B0280
+ MEPROP UID '47382E4B0280'
+ MEPROP Name 'wiki_header'
+ MEPROP Class class_Operation
+ %SUMMARY 'Стандартный шаблон-заголовок (для генерации в wiki)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_47382E4B0280 wiki_header
+
+ME ME_47382E66008C
+ MEPROP UID '47382E66008C'
+ MEPROP Name 'wiki_footer'
+ MEPROP Class class_Operation
+ %SUMMARY 'стандартный финальный шаблон (для генерации в wiki)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_47382E66008C wiki_footer
+
+ME ME_48CE54FE0156
+ MEPROP UID '48CE54FE0156'
+ MEPROP Name 'k_text_convert'
+ MEPROP Class class_Operation
+ %SUMMARY 'Конвертирует переданную строку, заменяя спец. символы wiki-разметки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_48CE54FE0156 k_text_convert
+
+ME ME_4B20FF510325
+ MEPROP UID '4B20FF510325'
+ MEPROP Name 'N'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имя без суффикса с $' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6D087000C // CommonFunc
+ ;
+
+ENDME // ME_4B20FF510325 N
+
+ME ME_46E6D087000C
+ MEPROP UID '46E6D087000C'
+ MEPROP Name 'CommonFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Общие функции пакета' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E8051A0106 // Support
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_46E6D0A70210 // docs
+ HWL ME_46E83157007A // k_link
+ HWL ME_46E832A1003B // k_link_wp
+ HWL ME_46E93AEF00B8 // k_method_dump
+ HWL ME_46E93B3500C8 // k_attr_dump
+ HWL ME_46E93B460200 // k_type_dump
+ HWL ME_471F0A37033C // need_source_list
+ HWL ME_4725D77C00EA // k_st_def_link
+ HWL ME_4728392D032C // k_source_link
+ HWL ME_472839800196 // k_link_nearest_parent_with_output
+ HWL ME_47382E3203B9 // header
+ HWL ME_47382E3D0186 // footer
+ HWL ME_47382E4B0280 // wiki_header
+ HWL ME_47382E66008C // wiki_footer
+ HWL ME_48CE54FE0156 // k_text_convert
+ HWL ME_4B20FF510325 // N
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CoreTemplates\Core\Support\CommonFunc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Support\CommonFunc'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6D087000C CommonFunc
+
+FORWARD ME_4714BF2B000F
+
+ME ME_4714BF400203
+ MEPROP UID '4714BF400203'
+ MEPROP Name 'fixed_type'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает true, если тип фиксированного размера, иначе false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714BF400203 fixed_type
+
+ME ME_4714BF48007D
+ MEPROP UID '4714BF48007D'
+ MEPROP Name 'interface'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'определяет интерфейсный тип или нет' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714BF48007D interface
+
+ME ME_4714BF500203
+ MEPROP UID '4714BF500203'
+ MEPROP Name 'n'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит имя типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714BF500203 n
+
+ME ME_4714BF57002E
+ MEPROP UID '4714BF57002E'
+ MEPROP Name 'target'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'Определяет является ли аргумент стеротипов цели (для бинарной сборки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714BF57002E target
+
+ME ME_4714BF5D00FA
+ MEPROP UID '4714BF5D00FA'
+ MEPROP Name 'simple'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'определяет простой тип или нет' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714BF5D00FA simple
+
+ME ME_4714BF62037A
+ MEPROP UID '4714BF62037A'
+ MEPROP Name 'target_ex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'Определяет является ли аргумент стеротипов цели (для бинарной сборки). Расширяет t_target дополнительными стеротипами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714BF62037A target_ex
+
+ME ME_4714C3DA005D
+ MEPROP UID '4714C3DA005D'
+ MEPROP Name 'tn_cpp_impl_class'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит имя типа для класса реализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C3DA005D tn_cpp_impl_class
+
+ME ME_4714C42A00AB
+ MEPROP UID '4714C42A00AB'
+ MEPROP Name 'need_server_type_decl'
+ MEPROP Class class_Operation
+ %SUMMARY 'определяет нужно ли использовать "сервеный" тип для элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C42A00AB need_server_type_decl
+
+ME ME_4714C479032C
+ MEPROP UID '4714C479032C'
+ MEPROP Name 'tn'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит имя типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C479032C tn
+
+ME ME_4714C4BB01B5
+ MEPROP UID '4714C4BB01B5'
+ MEPROP Name 'simple_class'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'определяет является ли тип SimpleClass''ом (или typedef на него или InstanceDef)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C4BB01B5 simple_class
+
+ME ME_4714C50100BB
+ MEPROP UID '4714C50100BB'
+ MEPROP Name 'refcounted'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'опредяеляет имеет ли должен ли элемент заданного типа иметь счётчик ссылок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C50100BB refcounted
+
+ME ME_4714C5340271
+ MEPROP UID '4714C5340271'
+ MEPROP Name 'impl_class'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'определяет ли тип типом реализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C5340271 impl_class
+
+ME ME_4714C5B902BF
+ MEPROP UID '4714C5B902BF'
+ MEPROP Name 'dump_first_not_fixed_attr'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит тип первого атрибута не фиксированного размера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C5B902BF dump_first_not_fixed_attr
+
+ME ME_4714C5C1031C
+ MEPROP UID '4714C5C1031C'
+ MEPROP Name 'has_not_fixed_complex'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если элемент имеет атрибуты не фиксированнаго размера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C5C1031C has_not_fixed_complex
+
+ME ME_4714C5CD0196
+ MEPROP UID '4714C5CD0196'
+ MEPROP Name 'class_type'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'class-like types' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C5CD0196 class_type
+
+ME ME_4714C5DE004E
+ MEPROP UID '4714C5DE004E'
+ MEPROP Name 'struct_type'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'struct-like types' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C5DE004E struct_type
+
+ME ME_4714C5F300DA
+ MEPROP UID '4714C5F300DA'
+ MEPROP Name 'is_server_type'
+ MEPROP Class class_Operation
+ %SUMMARY 'определяет является ли тип элемента серверным' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C5F300DA is_server_type
+
+ME ME_4714C612004E
+ MEPROP UID '4714C612004E'
+ MEPROP Name 'use_as_srv_type'
+ MEPROP Class class_Operation
+ %SUMMARY 'поределяет использует ли элемент как серверный' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C612004E use_as_srv_type
+
+ME ME_4714C679003E
+ MEPROP UID '4714C679003E'
+ MEPROP Name 'beaccessed'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если для атрибута можно сгенерить НЕ константный get-акцессор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C679003E beaccessed
+
+ME ME_4714C6B6001F
+ MEPROP UID '4714C6B6001F'
+ MEPROP Name 'has_less'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'определяет будет ли элемент заданного типа иметь  "оператор меньше"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C6B6001F has_less
+
+ME ME_4714C6E40119
+ MEPROP UID '4714C6E40119'
+ MEPROP Name 'dll_direct'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает true, если не требуется дополнительный маппинг  для DLL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C6E40119 dll_direct
+
+ME ME_4714C72601A5
+ MEPROP UID '4714C72601A5'
+ MEPROP Name 'tied_elem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает true, если элемент имеет tie - обёртку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C72601A5 tied_elem
+
+ME ME_4714C74200AB
+ MEPROP UID '4714C74200AB'
+ MEPROP Name 'need_tie'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если нужна tie-обёртка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C74200AB need_tie
+
+ME ME_4714C7670148
+ MEPROP UID '4714C7670148'
+ MEPROP Name 'is_fixed_simple'
+ MEPROP Class class_Operation
+ %SUMMARY 'является ли тип фиксированным простым (по сути это все примитивные типы такие как long, short, boolean и т.д.)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C7670148 is_fixed_simple
+
+ME ME_4714C796001F
+ MEPROP UID '4714C796001F'
+ MEPROP Name 'is_fixed_complex'
+ MEPROP Class class_Operation
+ %SUMMARY 'является ли элемент составным типом, но ведущим себя как примитивный тип (обладающий свойством атомарности), это все структуры состоящие из fixedsimple или fixedcomplex и два типа строки a-string и c-string (константная строка).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C796001F is_fixed_complex
+
+ME ME_4714C7C600AB
+ MEPROP UID '4714C7C600AB'
+ MEPROP Name 'is_not_fixed_simple'
+ MEPROP Class class_Operation
+ %SUMMARY 'является ли тип примитивным, не фиксированного размера, например указатель на массив символов (string) или указатель на блок памяти (pointer)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C7C600AB is_not_fixed_simple
+
+ME ME_4714C7DF0119
+ MEPROP UID '4714C7DF0119'
+ MEPROP Name 'is_not_fixed_complex'
+ MEPROP Class class_Operation
+ %SUMMARY 'является ли тип составным типом содержащим в себе не фиксированные агрегаты, а так же СимплКлассы без счетчика ссылок.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C7DF0119 is_not_fixed_complex
+
+ME ME_4714C8180196
+ MEPROP UID '4714C8180196'
+ MEPROP Name 'arg'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация аргумента функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C8180196 arg
+
+ME ME_4714C82B007D
+ MEPROP UID '4714C82B007D'
+ MEPROP Name 'ret'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация типа возвращаемого значения функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C82B007D ret
+
+ME ME_4714C843005D
+ MEPROP UID '4714C843005D'
+ MEPROP Name 'attr'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация типа атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C843005D attr
+
+ME ME_4714C851032C
+ MEPROP UID '4714C851032C'
+ MEPROP Name 'iget_attr'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация константного get-метода доустпа к атрибуту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C851032C iget_attr
+
+ME ME_4714C8800000
+ MEPROP UID '4714C8800000'
+ MEPROP Name 'igetnc_attr'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация НЕ константного get-метода доустпа к атрибуту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C8800000 igetnc_attr
+
+ME ME_4714C89002FD
+ MEPROP UID '4714C89002FD'
+ MEPROP Name 'iset_attr'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация set-акцессора атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C89002FD iset_attr
+
+ME ME_4714C8CA01A5
+ MEPROP UID '4714C8CA01A5'
+ MEPROP Name 'type'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит тип элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C8CA01A5 type
+
+ME ME_4714C8DB02DE
+ MEPROP UID '4714C8DB02DE'
+ MEPROP Name 'var'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация Var''а для элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C8DB02DE var
+
+ME ME_4714C8F100DA
+ MEPROP UID '4714C8F100DA'
+ MEPROP Name 'cvar'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация константного Var''а для элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C8F100DA cvar
+
+ME ME_4714C9150280
+ MEPROP UID '4714C9150280'
+ MEPROP Name 'arg_full_decl'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация параметра операции, дополнительно генерит значение по умолчанию (если есть)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C9150280 arg_full_decl
+
+ME ME_4714C9780109
+ MEPROP UID '4714C9780109'
+ MEPROP Name 'cpp_ret'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращаемое значение функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C9780109 cpp_ret
+
+ME ME_4714C98F0242
+ MEPROP UID '4714C98F0242'
+ MEPROP Name 'cpp_type'
+ MEPROP Class class_Operation
+ %SUMMARY 'тип элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C98F0242 cpp_type
+
+ME ME_4714C9A0031C
+ MEPROP UID '4714C9A0031C'
+ MEPROP Name 'arg'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит аргумент функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C9A0031C arg
+
+ME ME_4714C9C5004E
+ MEPROP UID '4714C9C5004E'
+ MEPROP Name 'decl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'деларация типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C9C5004E decl
+
+ME ME_4714C9CD0177
+ MEPROP UID '4714C9CD0177'
+ MEPROP Name 'ret'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип возвращаемого значения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C9CD0177 ret
+
+ME ME_4714C9ED0232
+ MEPROP UID '4714C9ED0232'
+ MEPROP Name 'attr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714C9ED0232 attr
+
+ME ME_4714CFDA00AB
+ MEPROP UID '4714CFDA00AB'
+ MEPROP Name 'arg_dll_cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип аргумента (dll.cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714CFDA00AB arg_dll_cpp
+
+ME ME_4714CFF3001F
+ MEPROP UID '4714CFF3001F'
+ MEPROP Name 'arg_cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип агрумента (cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714CFF3001F arg_cpp
+
+ME ME_4714D03A0157
+ MEPROP UID '4714D03A0157'
+ MEPROP Name 'arg_idl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип агрумента (idl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D03A0157 arg_idl
+
+ME ME_4714D0DE0196
+ MEPROP UID '4714D0DE0196'
+ MEPROP Name 'arg_java'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип аргумента (java)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D0DE0196 arg_java
+
+ME ME_4714D0F60186
+ MEPROP UID '4714D0F60186'
+ MEPROP Name 'arg_delphi'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип аргумента (delphi)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D0F60186 arg_delphi
+
+ME ME_4714D12300CB
+ MEPROP UID '4714D12300CB'
+ MEPROP Name 'cstr_nconst'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит сигнатуру для типа c-string, когда этот тип используется как НЕ константный' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D12300CB cstr_nconst
+
+ME ME_4714D13001F4
+ MEPROP UID '4714D13001F4'
+ MEPROP Name 'decl_cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'декларация тип (cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D13001F4 decl_cpp
+
+ME ME_4714D1420119
+ MEPROP UID '4714D1420119'
+ MEPROP Name 'decl_delphi'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'декларация типа (delphi)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D1420119 decl_delphi
+
+ME ME_4714D1510251
+ MEPROP UID '4714D1510251'
+ MEPROP Name 'decl_idl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'декларация типа (idl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D1510251 decl_idl
+
+ME ME_4714D16A02EE
+ MEPROP UID '4714D16A02EE'
+ MEPROP Name 'decl_java'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'декларация типа (java)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D16A02EE decl_java
+
+ME ME_4714D183003E
+ MEPROP UID '4714D183003E'
+ MEPROP Name 'ret_cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип возвращаемого значения функции (cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D183003E ret_cpp
+
+ME ME_4714D197000F
+ MEPROP UID '4714D197000F'
+ MEPROP Name 'ret_delphi'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип возвращаемого значения функции (delphi)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D197000F ret_delphi
+
+ME ME_4714D1AE02BF
+ MEPROP UID '4714D1AE02BF'
+ MEPROP Name 'ret_idl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип возвращаемого значения функции (idl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D1AE02BF ret_idl
+
+ME ME_4714D1D701E4
+ MEPROP UID '4714D1D701E4'
+ MEPROP Name 'ret_java'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип возвращаемого значения функции (java)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D1D701E4 ret_java
+
+ME ME_4714D205002E
+ MEPROP UID '4714D205002E'
+ MEPROP Name 'nfc_cret'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит константный тип возвращаемого значения функции для нефиксированного типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D205002E nfc_cret
+
+ME ME_4714D2A300DA
+ MEPROP UID '4714D2A300DA'
+ MEPROP Name 'nfs_cret'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит сигнатуру НЕ фиксированого типа, используемого как возвращаемое НЕ константное значение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D2A300DA nfs_cret
+
+ME ME_4714D345037A
+ MEPROP UID '4714D345037A'
+ MEPROP Name 'var_type'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип Var''а' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D345037A var_type
+
+ME ME_4714D363031C
+ MEPROP UID '4714D363031C'
+ MEPROP Name 'attr_cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип атрибута (cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D363031C attr_cpp
+
+ME ME_4714D372000F
+ MEPROP UID '4714D372000F'
+ MEPROP Name 'attr_idl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип атрибута (idl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D372000F attr_idl
+
+ME ME_4714D3900399
+ MEPROP UID '4714D3900399'
+ MEPROP Name 'pointer_attr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип атрибута как указатель' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D3900399 pointer_attr
+
+ME ME_4714D3C103B9
+ MEPROP UID '4714D3C103B9'
+ MEPROP Name 'can_be_init'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если атрибут можно инициализировать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D3C103B9 can_be_init
+
+ME ME_4714D3FB03D8
+ MEPROP UID '4714D3FB03D8'
+ MEPROP Name 'attr_init_java'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'генерит код инициализации атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D3FB03D8 attr_init_java
+
+ME ME_4714D45C005D
+ MEPROP UID '4714D45C005D'
+ MEPROP Name 'attr_init_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит код инициализации атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D45C005D attr_init_java
+
+ME ME_4714D4CD0251
+ MEPROP UID '4714D4CD0251'
+ MEPROP Name 'key_dump_java'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'генерация ключа ассоциативного контэйнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D4CD0251 key_dump_java
+
+ME ME_4714D4ED01E4
+ MEPROP UID '4714D4ED01E4'
+ MEPROP Name 'attr_java'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит тип атрибута (java)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D4ED01E4 attr_java
+
+ME ME_4714D508002E
+ MEPROP UID '4714D508002E'
+ MEPROP Name 'refc_agr'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит сигнатуру агрегированного типа со счетчиком ссылок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D508002E refc_agr
+
+ME ME_4714D54502FD
+ MEPROP UID '4714D54502FD'
+ MEPROP Name 'init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит значение по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D54502FD init
+
+ME ME_4714D55C01F4
+ MEPROP UID '4714D55C01F4'
+ MEPROP Name 'init'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит значение по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D55C01F4 init
+
+ME ME_4714D573034B
+ MEPROP UID '4714D573034B'
+ MEPROP Name 'nested_scope_def'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает true, если тип определяет scope' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D573034B nested_scope_def
+
+ME ME_4714D58000CB
+ MEPROP UID '4714D58000CB'
+ MEPROP Name 'tn_prefix'
+ MEPROP Class class_Operation
+ %SUMMARY 'префикс имени типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D58000CB tn_prefix
+
+ME ME_4714D59D0196
+ MEPROP UID '4714D59D0196'
+ MEPROP Name 'has_impl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает true, если элемент имеет реализацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D59D0196 has_impl
+
+ME ME_4714D5C001B5
+ MEPROP UID '4714D5C001B5'
+ MEPROP Name 'count_template_params'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает количество шаблонных параметров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D5C001B5 count_template_params
+
+ME ME_4714D5F80213
+ MEPROP UID '4714D5F80213'
+ MEPROP Name 'template_specify'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если элемент %S определяет все шаблонные параметры %1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D5F80213 template_specify
+
+ME ME_4714D61001D4
+ MEPROP UID '4714D61001D4'
+ MEPROP Name 'dump_parameterized_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит список шаблонных параметров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D61001D4 dump_parameterized_list
+
+ME ME_4714D63F00CB
+ MEPROP UID '4714D63F00CB'
+ MEPROP Name 'is_parent_parameterized'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true если хотя бы один из родителей является параметризированным' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D63F00CB is_parent_parameterized
+
+ME ME_4714D6810251
+ MEPROP UID '4714D6810251'
+ MEPROP Name 'dump_normalized_scope'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит массив родительских элементов необходимых и достаточных для указания полного имени элемента, относительно текущего элемента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D6810251 dump_normalized_scope
+
+ME ME_4714D6B502BF
+ MEPROP UID '4714D6B502BF'
+ MEPROP Name 'find_template_param'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит тип шаблонного параметра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D6B502BF find_template_param
+
+ME ME_4714D6BE000F
+ MEPROP UID '4714D6BE000F'
+ MEPROP Name 'dump_param'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит тип параметра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D6BE000F dump_param
+
+ME ME_4714D70C038A
+ MEPROP UID '4714D70C038A'
+ MEPROP Name 'have_k_page'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'может ли элемент иметь страницу в К' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D70C038A have_k_page
+
+ME ME_4714D7240290
+ MEPROP UID '4714D7240290'
+ MEPROP Name 'check_type'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'функция проверяет имеет ли элемент указанный тип (с учетом Typedef''а) или нет (нужный тип передаётся как второй параметр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4714D7240290 check_type
+
+ME ME_476657160244
+ MEPROP UID '476657160244'
+ MEPROP Name 'size_of'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает размер типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_476657160244 size_of
+
+ME ME_47C3C70D03AD
+ MEPROP UID '47C3C70D03AD'
+ MEPROP Name 'can_be_accessed'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'Возвращает true, если для атрибута можно сгенерить акцессоры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_47C3C70D03AD can_be_accessed
+
+ME ME_4869B10300EE
+ MEPROP UID '4869B10300EE'
+ MEPROP Name 'is_string'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true - если элемент является строкой (string, a-string)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4869B10300EE is_string
+
+ME ME_4869B1290176
+ MEPROP UID '4869B1290176'
+ MEPROP Name 'is_wstring'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если элемент является "расширенной" строкой (wstring, a-wstring)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_4869B1290176 is_wstring
+
+ME ME_49F871160053
+ MEPROP UID '49F871160053'
+ MEPROP Name 'is_container'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'проверяет является ли стереотип контейнером' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714BF2B000F // TypeSupport
+ ;
+
+ENDME // ME_49F871160053 is_container
+
+ME ME_4714BF2B000F
+ MEPROP UID '4714BF2B000F'
+ MEPROP Name 'TypeSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Методы (функции и трансформаторы) для типизации стеротипов, преобразования имен для различных генераторов, и т.д.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E8051A0106 // Support
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4714BF400203 // fixed_type
+ HWL ME_4714BF48007D // interface
+ HWL ME_4714BF500203 // n
+ HWL ME_4714BF57002E // target
+ HWL ME_4714BF5D00FA // simple
+ HWL ME_4714BF62037A // target_ex
+ HWL ME_4714C3DA005D // tn_cpp_impl_class
+ HWL ME_4714C42A00AB // need_server_type_decl
+ HWL ME_4714C479032C // tn
+ HWL ME_4714C4BB01B5 // simple_class
+ HWL ME_4714C50100BB // refcounted
+ HWL ME_4714C5340271 // impl_class
+ HWL ME_4714C5B902BF // dump_first_not_fixed_attr
+ HWL ME_4714C5C1031C // has_not_fixed_complex
+ HWL ME_4714C5CD0196 // class_type
+ HWL ME_4714C5DE004E // struct_type
+ HWL ME_4714C5F300DA // is_server_type
+ HWL ME_4714C612004E // use_as_srv_type
+ HWL ME_4714C679003E // beaccessed
+ HWL ME_4714C6B6001F // has_less
+ HWL ME_4714C6E40119 // dll_direct
+ HWL ME_4714C72601A5 // tied_elem
+ HWL ME_4714C74200AB // need_tie
+ HWL ME_4714C7670148 // is_fixed_simple
+ HWL ME_4714C796001F // is_fixed_complex
+ HWL ME_4714C7C600AB // is_not_fixed_simple
+ HWL ME_4714C7DF0119 // is_not_fixed_complex
+ HWL ME_4714C8180196 // arg
+ HWL ME_4714C82B007D // ret
+ HWL ME_4714C843005D // attr
+ HWL ME_4714C851032C // iget_attr
+ HWL ME_4714C8800000 // igetnc_attr
+ HWL ME_4714C89002FD // iset_attr
+ HWL ME_4714C8CA01A5 // type
+ HWL ME_4714C8DB02DE // var
+ HWL ME_4714C8F100DA // cvar
+ HWL ME_4714C9150280 // arg_full_decl
+ HWL ME_4714C9780109 // cpp_ret
+ HWL ME_4714C98F0242 // cpp_type
+ HWL ME_4714C9A0031C // arg
+ HWL ME_4714C9C5004E // decl
+ HWL ME_4714C9CD0177 // ret
+ HWL ME_4714C9ED0232 // attr
+ HWL ME_4714CFDA00AB // arg_dll_cpp
+ HWL ME_4714CFF3001F // arg_cpp
+ HWL ME_4714D03A0157 // arg_idl
+ HWL ME_4714D0DE0196 // arg_java
+ HWL ME_4714D0F60186 // arg_delphi
+ HWL ME_4714D12300CB // cstr_nconst
+ HWL ME_4714D13001F4 // decl_cpp
+ HWL ME_4714D1420119 // decl_delphi
+ HWL ME_4714D1510251 // decl_idl
+ HWL ME_4714D16A02EE // decl_java
+ HWL ME_4714D183003E // ret_cpp
+ HWL ME_4714D197000F // ret_delphi
+ HWL ME_4714D1AE02BF // ret_idl
+ HWL ME_4714D1D701E4 // ret_java
+ HWL ME_4714D205002E // nfc_cret
+ HWL ME_4714D2A300DA // nfs_cret
+ HWL ME_4714D345037A // var_type
+ HWL ME_4714D363031C // attr_cpp
+ HWL ME_4714D372000F // attr_idl
+ HWL ME_4714D3900399 // pointer_attr
+ HWL ME_4714D3C103B9 // can_be_init
+ HWL ME_4714D3FB03D8 // attr_init_java
+ HWL ME_4714D45C005D // attr_init_java
+ HWL ME_4714D4CD0251 // key_dump_java
+ HWL ME_4714D4ED01E4 // attr_java
+ HWL ME_4714D508002E // refc_agr
+ HWL ME_4714D54502FD // init
+ HWL ME_4714D55C01F4 // init
+ HWL ME_4714D573034B // nested_scope_def
+ HWL ME_4714D58000CB // tn_prefix
+ HWL ME_4714D59D0196 // has_impl
+ HWL ME_4714D5C001B5 // count_template_params
+ HWL ME_4714D5F80213 // template_specify
+ HWL ME_4714D61001D4 // dump_parameterized_list
+ HWL ME_4714D63F00CB // is_parent_parameterized
+ HWL ME_4714D6810251 // dump_normalized_scope
+ HWL ME_4714D6B502BF // find_template_param
+ HWL ME_4714D6BE000F // dump_param
+ HWL ME_4714D70C038A // have_k_page
+ HWL ME_4714D7240290 // check_type
+ HWL ME_476657160244 // size_of
+ HWL ME_47C3C70D03AD // can_be_accessed
+ HWL ME_4869B10300EE // is_string
+ HWL ME_4869B1290176 // is_wstring
+ HWL ME_49F871160053 // is_container
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CoreTemplates\Core\Support\TypeSupport.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Support\TypeSupport'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4714BF2B000F TypeSupport
+
+ME ME_46E8051A0106
+ MEPROP UID '46E8051A0106'
+ MEPROP Name 'Support'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Вспомогательный функции и шаблоны' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_46E6D087000C // CommonFunc
+ HWL ME_4714BF2B000F // TypeSupport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CoreTemplates\Core\Support'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\Support'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E8051A0106 Support

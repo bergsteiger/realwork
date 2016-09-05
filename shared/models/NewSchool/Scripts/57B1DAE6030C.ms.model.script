@@ -1,0 +1,38 @@
+// msm$MVC 57B1DAE6030C Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_57B1DAE6030C
+ MEPROP UID '57B1DAE6030C'
+ MEPROP Name 'msm'
+ MEPROP OriginalName 'msm$MVC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57B1B9C5035D' '57B1B9C5035D.ms.model.script' // Shared Delphi MSM
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_57B5730D0123' '57B5730D0123.ms.model.script' // msmEvents
+ WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+ WL 'ME_57B1B48C00F8' '57B1B48C00F8.ms.model.script' // Models
+ WL 'ME_57B1B6AE0204' '57B1B6AE0204.ms.model.script' // UseCases
+ WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_515AC89F01E1' '515AC89F01E1.ms.model.script' // L3$Basic Concepts
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'gui'
+ UP "is namespace" true
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\msm'
+
+ENDME // ME_57B1DAE6030C msm$MVC

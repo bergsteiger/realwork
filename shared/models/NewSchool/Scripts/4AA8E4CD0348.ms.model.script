@@ -1,0 +1,60 @@
+// GroupList 4AA8E4CD0348 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA8E4CD0348
+
+ME ME_643A9366DF65
+ MEPROP UID '643A9366DF65'
+ MEPROP Name 'Ini_FormFactory_GroupList'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы GroupList' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA8E4CD0348 // GroupList
+ ;
+ UPLINK SpelledFor HWL ME_4AA8E4CD0348 // GroupList
+ ;
+
+ENDME // ME_643A9366DF65 Ini_FormFactory_GroupList
+
+ME ME_4AA8E4CD0348
+ MEPROP UID '4AA8E4CD0348'
+ MEPROP Name 'GroupList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группы пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA5120303E5' '4AA5120303E5.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8A09A40104' '4C8A09A40104.ms.model.script' // PrimGroupListOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFBFF7B0180' '4FFBFDCA01DE.ms.model.script' // GroupList
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_643A9366DF65 // Ini_FormFactory_GroupList
+ )
+ ; // Operations
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Navigator'
+ UP "finished dfm" true
+ UP "form name prefix" 'ef'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupList_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ UP extprop:pas:TypeName 'TefGroupList'
+ UP extprop:rc:SelfName 'efGroupList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'GroupList_Form'
+
+ENDME // ME_4AA8E4CD0348 GroupList

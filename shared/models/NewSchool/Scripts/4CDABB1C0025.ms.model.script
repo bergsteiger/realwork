@@ -1,0 +1,123 @@
+// PrintableFlash 4CDABB1C0025 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDABB1C0025
+
+ME ME_4CDACDBE00B2
+ MEPROP UID '4CDACDBE00B2'
+ MEPROP Name 'FlashForPrint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDABB1C0025 // PrintableFlash
+ ;
+ MELINK Target WL 'ME_4981A4AE0282' '4981A49103DD.ms.model.script' // TvtShockwaveFlashEx
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4CDACDBE00B2 FlashForPrint
+
+ME ME_4CDAD18E02AF
+ MEPROP UID '4CDAD18E02AF'
+ MEPROP Name 'f_Bitmap'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDABB1C0025 // PrintableFlash
+ ;
+ MELINK Target WL 'ME_47D15062022A' '473C3BEE0334.ms.model.script' // Tl3Bitmap
+ ;
+
+ENDME // ME_4CDAD18E02AF f_Bitmap
+
+ME ME_4CDAD3A60047
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDABB1C0025 // PrintableFlash
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CDAD3A60047 
+
+ME ME_4CDAD8E90130
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDABB1C0025 // PrintableFlash
+ ;
+ MELINK Target WL 'ME_46A46A35004F' '4AB0C3F60375.ms.model.script' // hDC
+ ;
+
+ENDME // ME_4CDAD8E90130 
+
+ME ME_4CDACD8302DD_ME_4CDABB1C0025
+ MELINK Original WL 'ME_4CDACD8302DD' '4CDACCDF0368.ms.model.script' // BitmapForPrint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4CDACD8302DD_ME_4CDABB1C0025 BitmapForPrint
+
+ME ME_479731C50290_ME_4CDABB1C0025
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CDABB1C0025 Cleanup
+
+ME ME_4CDAE15C035B_ME_4CDABB1C0025
+ MELINK Original WL 'ME_4CDAE15C035B' '4CDACCDF0368.ms.model.script' // DPI
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CDAE15C035B_ME_4CDABB1C0025 DPI
+
+ME ME_4CDABB1C0025
+ MEPROP UID '4CDABB1C0025'
+ MEPROP Name 'PrintableFlash'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Печать флеш-схем. {RequestLink:228689255}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4CDABA8F024B' '4CDABA8F024B.ms.model.script' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CDACCDF0368' '4CDACCDF0368.ms.model.script' // PrintableBitmap
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CDACDBE00B2 // FlashForPrint
+ HWL ME_4CDAD18E02AF // f_Bitmap
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4CDACD8302DD_ME_4CDABB1C0025 // BitmapForPrint
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CDABB1C0025 // Cleanup
+ ME_4CDAE15C035B_ME_4CDABB1C0025 // DPI
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CDAD3A60047 // FreeAndNil
+ ME_4CDAD8E90130 // hDC
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas'
+ UP extprop:pas:TypeName '_PrintableFlash_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrintableFlash.imp'
+
+ENDME // ME_4CDABB1C0025 PrintableFlash

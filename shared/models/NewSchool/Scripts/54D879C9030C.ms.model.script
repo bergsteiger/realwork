@@ -1,0 +1,237 @@
+// PrintableFlashWithInfo 54D879C9030C VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54D879C9030C
+
+ME ME_54D886BC0229
+ MEPROP UID '54D886BC0229'
+ MEPROP Name 'InfoPreview'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_54D886BC0229 InfoPreview
+
+ME ME_54D886F20388
+ MEPROP UID '54D886F20388'
+ MEPROP Name 'FlashPreview'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_54D886F20388 FlashPreview
+
+FORWARD ME_54D879F001C4
+
+ME ME_54D87A1C0199
+ MEPROP UID '54D87A1C0199'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54D879F001C4 // MakeDocumentPreview
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_54D87A1C0199 DoIt
+
+ME ME_54D879F001C4
+ MEPROP UID '54D879F001C4'
+ MEPROP Name 'MakeDocumentPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54D87A1C0199 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54D879F001C4 MakeDocumentPreview
+
+FORWARD ME_54D87A03022C
+
+ME ME_54D87A300174
+ MEPROP UID '54D87A300174'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54D87A03022C // MakeInfoPreview
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_54D87A300174 DoIt
+
+ME ME_54D87A03022C
+ MEPROP UID '54D87A03022C'
+ MEPROP Name 'MakeInfoPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54D87A300174 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54D87A03022C MakeInfoPreview
+
+FORWARD ME_54D8913B03A6
+
+ME ME_54D89156012D
+ MEPROP UID '54D89156012D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54D8913B03A6 // GetDocumentForInfo
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_54D89156012D DoIt
+
+ME ME_54D8913B03A6
+ MEPROP UID '54D8913B03A6'
+ MEPROP Name 'GetDocumentForInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54D89156012D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54D8913B03A6 GetDocumentForInfo
+
+ME ME_54D87AA001FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELINK Target WL 'ME_47F22D5701A7' '491DCA2C00A9.ms.model.script' // TnsDocumentPreview
+ ;
+
+ENDME // ME_54D87AA001FE 
+
+ME ME_54D890D20030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_54D890D20030 
+
+ME ME_54D894ED0298
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELINK Target WL 'ME_47F61C4C0040' '47F260DC003F.ms.model.script' // nsDocumentTools
+ ;
+
+ENDME // ME_54D894ED0298 
+
+ME ME_54D98F7F00FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
+ ;
+ MELINK Target WL 'ME_47DF8F0402F7' '474144E20301.ms.model.script' // TafwComplexDocumentPreview
+ ;
+
+ENDME // ME_54D98F7F00FB 
+
+ME ME_5301CBFE023E_ME_54D879C9030C
+ MELINK Original WL 'ME_5301CBFE023E' '4CDACCDF0368.ms.model.script' // MakePreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5301CBFE023E_ME_54D879C9030C MakePreview
+
+ME ME_5592655F00B2_ME_54D879C9030C
+ MELINK Original WL 'ME_5592655F00B2' '4CDACCDF0368.ms.model.script' // ClearPreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5592655F00B2_ME_54D879C9030C ClearPreview
+
+ME ME_54D879C9030C
+ MEPROP UID '54D879C9030C'
+ MEPROP Name 'PrintableFlashWithInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4CDABA8F024B' '4CDABA8F024B.ms.model.script' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CDABB1C0025' '4CDABB1C0025.ms.model.script' // PrintableFlash
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54D886BC0229 // InfoPreview
+ HWL ME_54D886F20388 // FlashPreview
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54D879F001C4 // MakeDocumentPreview
+ HWL ME_54D87A03022C // MakeInfoPreview
+ HWL ME_54D8913B03A6 // GetDocumentForInfo
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_5301CBFE023E_ME_54D879C9030C // MakePreview
+ ME_5592655F00B2_ME_54D879C9030C // ClearPreview
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54D87AA001FE // TnsDocumentPreview
+ ME_54D890D20030 // IdeDocInfo
+ ME_54D894ED0298 // nsDocumentTools
+ ME_54D98F7F00FB // TafwComplexDocumentPreview
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "finished dfm" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas'
+ UP extprop:pas:TypeName '_PrintableFlashWithInfo_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrintableFlashWithInfo.imp'
+
+ENDME // ME_54D879C9030C PrintableFlashWithInfo

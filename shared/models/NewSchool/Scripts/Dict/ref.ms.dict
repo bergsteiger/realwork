@@ -1,0 +1,61 @@
+UNIT ref.ms.dict
+
+USES 
+ axiom_push.ms.dict
+ WordsRTTI.ms.dict
+;
+
+IMMEDIATE VOID operator ME
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'axiom:operator' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // ME
+
+IMMEDIATE VOID operator MELINK
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'axiom:operator' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // MELINK
+
+IMMEDIATE VOID operator MELIST
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'axiom:operator' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // MELIST
+
+IMMEDIATE VOID operator MEPROP
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'CONST' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // MEPROP
+
+IMMEDIATE VOID operator UP
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'CONST' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // UP
+
+IMMEDIATE VOID operator UPLINK
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'axiom:operator' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // UPLINK
+
+//WordAlias ME :
+//WordAlias MELINK :
+//WordAlias MELIST :
+//WordAlias MEPROP CONST
+//WordAlias UP CONST
+//WordAlias UPLINK :
+
+MACRO ref;
+ %SUMMARY 'Выводит ссылку на слово и заканчивает его определение' ;
+ axiom:PushSymbol @SELF
+ axiom:PushSymbol ;
+; // ref;

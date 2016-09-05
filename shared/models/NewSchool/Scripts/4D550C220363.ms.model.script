@@ -1,0 +1,1049 @@
+// vgInterfaces 4D550C220363 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D550C220363
+
+FORWARD ME_4D550C5B0341
+
+ME ME_4D550CFC0244
+ MEPROP Name 'AObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550CFC0244 AObject
+
+ME ME_4D550CFB029F
+ MEPROP UID '4D550CFB029F'
+ MEPROP Name 'AddObject'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550CFC0244 // AObject
+ )
+ ; // Parameters
+
+ENDME // ME_4D550CFB029F AddObject
+
+ME ME_4D550D130364
+ MEPROP Name 'AObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550D130364 AObject
+
+ME ME_4D550D1300CE
+ MEPROP UID '4D550D1300CE'
+ MEPROP Name 'RemoveObject'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550D130364 // AObject
+ )
+ ; // Parameters
+
+ENDME // ME_4D550D1300CE RemoveObject
+
+ME ME_4D550D1C01FC
+ MEPROP UID '4D550D1C01FC'
+ MEPROP Name 'BeginDrag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+
+ENDME // ME_4D550D1C01FC BeginDrag
+
+ME ME_4D550D2D0250
+ MEPROP UID '4D550D2D0250'
+ MEPROP Name 'BeginResize'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+
+ENDME // ME_4D550D2D0250 BeginResize
+
+ME ME_4D550D41003B
+ MEPROP Name 'R'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D5421A80032' '4D5420EC039D.ms.model.script' // TvgRect
+ ;
+
+ENDME // ME_4D550D41003B R
+
+ME ME_4D550D3C0043
+ MEPROP UID '4D550D3C0043'
+ MEPROP Name 'AddUpdateRect'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550D41003B // R
+ )
+ ; // Parameters
+
+ENDME // ME_4D550D3C0043 AddUpdateRect
+
+ME ME_4D550D51007A
+ MEPROP Name 'ClassName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4D550D51007A ClassName
+
+ME ME_4D550D4B00A9
+ MEPROP UID '4D550D4B00A9'
+ MEPROP Name 'InsertObject'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550D51007A // ClassName
+ )
+ ; // Parameters
+ UP "ifdef" 'vgDesign'
+
+ENDME // ME_4D550D4B00A9 InsertObject
+
+ME ME_4D550D5F0167
+ MEPROP UID '4D550D5F0167'
+ MEPROP Name 'GetActiveControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550D5F0167 GetActiveControl
+
+ME ME_4D550D6A0205
+ MEPROP UID '4D550D6A0205'
+ MEPROP Name 'GetDisableUpdate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4D550D6A0205 GetDisableUpdate
+
+ME ME_4D550D7C0190
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4D550D7C0190 Value
+
+ME ME_4D550D780131
+ MEPROP UID '4D550D780131'
+ MEPROP Name 'SetDisableUpdate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550D7C0190 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4D550D780131 SetDisableUpdate
+
+ME ME_4D550D94001B
+ MEPROP UID '4D550D94001B'
+ MEPROP Name 'GetDesignTime'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "ifdef" 'vgDesign'
+
+ENDME // ME_4D550D94001B GetDesignTime
+
+ME ME_4D550DA002A9
+ MEPROP UID '4D550DA002A9'
+ MEPROP Name 'GetCanvas'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D5435820356' '4D542052038D.ms.model.script' // TvgCustomCanvas
+ ;
+
+ENDME // ME_4D550DA002A9 GetCanvas
+
+ME ME_4D550DB102FE
+ MEPROP UID '4D550DB102FE'
+ MEPROP Name 'GetRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550DB102FE GetRoot
+
+ME ME_4D550DBD026F
+ MEPROP UID '4D550DBD026F'
+ MEPROP Name 'GetOwner'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4D550DBD026F GetOwner
+
+ME ME_4D550DCB00CC
+ MEPROP UID '4D550DCB00CC'
+ MEPROP Name 'GetComponent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4D550DCB00CC GetComponent
+
+ME ME_4D550DDC0210
+ MEPROP UID '4D550DDC0210'
+ MEPROP Name 'GetStyle'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D54299F035D' '4D542052038D.ms.model.script' // TvgCustomResources
+ ;
+
+ENDME // ME_4D550DDC0210 GetStyle
+
+ME ME_4D550DF4033B
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D54299F035D' '4D542052038D.ms.model.script' // TvgCustomResources
+ ;
+
+ENDME // ME_4D550DF4033B Value
+
+ME ME_4D550DF103B0
+ MEPROP UID '4D550DF103B0'
+ MEPROP Name 'SetStyle'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550DF4033B // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4D550DF103B0 SetStyle
+
+ME ME_4D550DFE00F6
+ MEPROP UID '4D550DFE00F6'
+ MEPROP Name 'GetTransparency'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4D550DFE00F6 GetTransparency
+
+ME ME_4D550E0F00A3
+ MEPROP UID '4D550E0F00A3'
+ MEPROP Name 'UpdateResource'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+
+ENDME // ME_4D550E0F00A3 UpdateResource
+
+ME ME_4D550E20021F
+ MEPROP Name 'AComponent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4D550E20021F AComponent
+
+ME ME_4D550E200280
+ MEPROP Name 'Operation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D55109C0309' '4AB0997B00A2.ms.model.script' // TOperation
+ ;
+
+ENDME // ME_4D550E200280 Operation
+
+ME ME_4D550E1C03A3
+ MEPROP UID '4D550E1C03A3'
+ MEPROP Name 'Notification'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550E20021F // AComponent
+ ME_4D550E200280 // Operation
+ )
+ ; // Parameters
+
+ENDME // ME_4D550E1C03A3 Notification
+
+ME ME_4D550E2B0389
+ MEPROP UID '4D550E2B0389'
+ MEPROP Name 'GetSelected'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+ UP "ifdef" 'vgDesign'
+
+ENDME // ME_4D550E2B0389 GetSelected
+
+ME ME_4D550E380297
+ MEPROP UID '4D550E380297'
+ MEPROP Name 'GetDesignPlaceObject'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+ UP "ifdef" 'vgDesign'
+
+ENDME // ME_4D550E380297 GetDesignPlaceObject
+
+ME ME_4D550E470234
+ MEPROP UID '4D550E470234'
+ MEPROP Name 'GetUpdateRectsCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+
+ENDME // ME_4D550E470234 GetUpdateRectsCount
+
+ME ME_4D550E5702DE
+ MEPROP Name 'Index'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+
+ENDME // ME_4D550E5702DE Index
+
+ME ME_4D550E5403DC
+ MEPROP UID '4D550E5403DC'
+ MEPROP Name 'GetUpdateRect'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D5421A80032' '4D5420EC039D.ms.model.script' // TvgRect
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550E5702DE // Index
+ )
+ ; // Parameters
+
+ENDME // ME_4D550E5403DC GetUpdateRect
+
+ME ME_4D550E61026F
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550E61026F Value
+
+ME ME_4D550E600298
+ MEPROP UID '4D550E600298'
+ MEPROP Name 'SetCaptured'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550E61026F // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4D550E600298 SetCaptured
+
+ME ME_4D550E6B0247
+ MEPROP UID '4D550E6B0247'
+ MEPROP Name 'GetCaptured'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550E6B0247 GetCaptured
+
+ME ME_4D550E7C00D9
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550E7C00D9 Value
+
+ME ME_4D550E7901D5
+ MEPROP UID '4D550E7901D5'
+ MEPROP Name 'SetFocused'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550E7C00D9 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4D550E7901D5 SetFocused
+
+ME ME_4D550E8703BA
+ MEPROP UID '4D550E8703BA'
+ MEPROP Name 'GetFocused'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550E8703BA GetFocused
+
+ME ME_4D550E9B0076
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550E9B0076 Value
+
+ME ME_4D550E990086
+ MEPROP UID '4D550E990086'
+ MEPROP Name 'SetDesignRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550E9B0076 // Value
+ )
+ ; // Parameters
+ UP "ifdef" 'vgDesign'
+
+ENDME // ME_4D550E990086 SetDesignRoot
+
+ME ME_4D550EA30324
+ MEPROP UID '4D550EA30324'
+ MEPROP Name 'GetMousePos'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D5422330322' '4D5420EC039D.ms.model.script' // TvgPoint
+ ;
+
+ENDME // ME_4D550EA30324 GetMousePos
+
+ME ME_4D550EB901C3
+ MEPROP Name 'Point'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D5422330322' '4D5420EC039D.ms.model.script' // TvgPoint
+ ;
+
+ENDME // ME_4D550EB901C3 Point
+
+ME ME_4D550EB50056
+ MEPROP UID '4D550EB50056'
+ MEPROP Name 'LocalToScreen'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D5422330322' '4D5420EC039D.ms.model.script' // TvgPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550EB901C3 // Point
+ )
+ ; // Parameters
+
+ENDME // ME_4D550EB50056 LocalToScreen
+
+ME ME_4D550EC70154
+ MEPROP Name 'Source'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D550EC70154 Source
+
+ME ME_4D550EC701D7
+ MEPROP Name 'ABitmap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542A150195' '4D542052038D.ms.model.script' // TvgCustomBitmap
+ ;
+
+ENDME // ME_4D550EC701D7 ABitmap
+
+ME ME_4D550EC50042
+ MEPROP UID '4D550EC50042'
+ MEPROP Name 'BeginVCLDrag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550EC70154 // Source
+ ME_4D550EC701D7 // ABitmap
+ )
+ ; // Parameters
+
+ENDME // ME_4D550EC50042 BeginVCLDrag
+
+ME ME_4D550ED70350
+ MEPROP Name 'AObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D550ED70350 AObject
+
+ME ME_4D550ED5014D
+ MEPROP UID '4D550ED5014D'
+ MEPROP Name 'DoDesignSelect'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550ED70350 // AObject
+ )
+ ; // Parameters
+ UP "ifdef" 'vgDesign'
+
+ENDME // ME_4D550ED5014D DoDesignSelect
+
+ME ME_4D550EE303DA
+ MEPROP UID '4D550EE303DA'
+ MEPROP Name 'GetAnimatedCaret'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4D550EE303DA GetAnimatedCaret
+
+ME ME_4D550EF003E1
+ MEPROP Name 'AObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550EF003E1 AObject
+
+ME ME_4D550EF00002
+ MEPROP UID '4D550EF00002'
+ MEPROP Name 'ShowKeyboardForControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550EF003E1 // AObject
+ )
+ ; // Parameters
+
+ENDME // ME_4D550EF00002 ShowKeyboardForControl
+
+ME ME_4D550EFE0095
+ MEPROP Name 'AObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D550EFE0095 AObject
+
+ME ME_4D550EFB034B
+ MEPROP UID '4D550EFB034B'
+ MEPROP Name 'HideKeyboardForControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D550EFE0095 // AObject
+ )
+ ; // Parameters
+
+ENDME // ME_4D550EFB034B HideKeyboardForControl
+
+ME ME_4D5D02BC00F6
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4D5D02BC00F6 aControl
+
+ME ME_4D5D02BC017D
+ MEPROP Name 'aShift'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D5D02BC017D aShift
+
+ME ME_4D5D02B90284
+ MEPROP UID '4D5D02B90284'
+ MEPROP Name 'DoTab'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5D02BC00F6 // aControl
+ ME_4D5D02BC017D // aShift
+ )
+ ; // Parameters
+
+ENDME // ME_4D5D02B90284 DoTab
+
+ME ME_4D5E7F6C0016
+ MEPROP UID '4D5E7F6C0016'
+ MEPROP Name 'SetFocus'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+
+ENDME // ME_4D5E7F6C0016 SetFocus
+
+ME ME_4D5E7FE0001E
+ MEPROP Name 'Key'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+
+ENDME // ME_4D5E7FE0001E Key
+
+ME ME_4D5E7FE000A1
+ MEPROP Name 'Char'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4D5E80EF01B7' '4AB0C3C60310.ms.model.script' // WideChar
+ ;
+
+ENDME // ME_4D5E7FE000A1 Char
+
+ME ME_4D5E7FE00123
+ MEPROP Name 'Shift'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728CE680258' '4AB0997B00A2.ms.model.script' // TShiftState
+ ;
+
+ENDME // ME_4D5E7FE00123 Shift
+
+ME ME_4D5E7FD70051
+ MEPROP UID '4D5E7FD70051'
+ MEPROP Name 'UnicodeKeyDown'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5E7FE0001E // Key
+ ME_4D5E7FE000A1 // Char
+ ME_4D5E7FE00123 // Shift
+ )
+ ; // Parameters
+
+ENDME // ME_4D5E7FD70051 UnicodeKeyDown
+
+ME ME_4D6286060338
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4D6286060338 aControl
+
+ME ME_4D6285E60219
+ MEPROP UID '4D6285E60219'
+ MEPROP Name 'IsAcceptableControlForTabNavigation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6286060338 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4D6285E60219 IsAcceptableControlForTabNavigation
+
+ME ME_4D8B88A10154
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4D8B88A10154 aControl
+
+ME ME_4D8B88A10202
+ MEPROP Name 'aGot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D8B88A10202 aGot
+
+ME ME_4D8B889E03D0
+ MEPROP UID '4D8B889E03D0'
+ MEPROP Name 'FocusHook'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D8B88A10154 // aControl
+ ME_4D8B88A10202 // aGot
+ )
+ ; // Parameters
+
+ENDME // ME_4D8B889E03D0 FocusHook
+
+ME ME_4DA724EA008B
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4DA724EA008B aControl
+
+ME ME_4DA724EA015F
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4DA724EA015F aMessage
+
+ME ME_4DA724DD0394
+ MEPROP UID '4DA724DD0394'
+ MEPROP Name 'ControlMessageHook'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DA724EA008B // aControl
+ ME_4DA724EA015F // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_4DA724DD0394 ControlMessageHook
+
+ME ME_533E852C026B
+ MEPROP Name 'Point'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D5422330322' '4D5420EC039D.ms.model.script' // TvgPoint
+ ;
+
+ENDME // ME_533E852C026B Point
+
+ME ME_533E81870210
+ MEPROP UID '533E81870210'
+ MEPROP Name 'ScreenToLocal'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_4D5422330322' '4D5420EC039D.ms.model.script' // TvgPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_533E852C026B // Point
+ )
+ ; // Parameters
+
+ENDME // ME_533E81870210 ScreenToLocal
+
+ME ME_538DBFB202DE
+ MEPROP UID '538DBFB202DE'
+ MEPROP Name 'GetSceneControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D550C5B0341 // IvgScene
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+
+ENDME // ME_538DBFB202DE GetSceneControl
+
+ME ME_4D550C5B0341
+ MEPROP UID '4D550C5B0341'
+ MEPROP GUID '90B0431B-6C80-49C0-AD27-124E5D0CE4D6'
+ MEPROP Name 'IvgScene'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D550C220363 // vgInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D550CFB029F // AddObject
+ HWL ME_4D550D1300CE // RemoveObject
+ HWL ME_4D550D1C01FC // BeginDrag
+ HWL ME_4D550D2D0250 // BeginResize
+ HWL ME_4D550D3C0043 // AddUpdateRect
+ HWL ME_4D550D4B00A9 // InsertObject
+ HWL ME_4D550D5F0167 // GetActiveControl
+ HWL ME_4D550D6A0205 // GetDisableUpdate
+ HWL ME_4D550D780131 // SetDisableUpdate
+ HWL ME_4D550D94001B // GetDesignTime
+ HWL ME_4D550DA002A9 // GetCanvas
+ HWL ME_4D550DB102FE // GetRoot
+ HWL ME_4D550DBD026F // GetOwner
+ HWL ME_4D550DCB00CC // GetComponent
+ HWL ME_4D550DDC0210 // GetStyle
+ HWL ME_4D550DF103B0 // SetStyle
+ HWL ME_4D550DFE00F6 // GetTransparency
+ HWL ME_4D550E0F00A3 // UpdateResource
+ HWL ME_4D550E1C03A3 // Notification
+ HWL ME_4D550E2B0389 // GetSelected
+ HWL ME_4D550E380297 // GetDesignPlaceObject
+ HWL ME_4D550E470234 // GetUpdateRectsCount
+ HWL ME_4D550E5403DC // GetUpdateRect
+ HWL ME_4D550E600298 // SetCaptured
+ HWL ME_4D550E6B0247 // GetCaptured
+ HWL ME_4D550E7901D5 // SetFocused
+ HWL ME_4D550E8703BA // GetFocused
+ HWL ME_4D550E990086 // SetDesignRoot
+ HWL ME_4D550EA30324 // GetMousePos
+ HWL ME_4D550EB50056 // LocalToScreen
+ HWL ME_4D550EC50042 // BeginVCLDrag
+ HWL ME_4D550ED5014D // DoDesignSelect
+ HWL ME_4D550EE303DA // GetAnimatedCaret
+ HWL ME_4D550EF00002 // ShowKeyboardForControl
+ HWL ME_4D550EFB034B // HideKeyboardForControl
+ HWL ME_4D5D02B90284 // DoTab
+ HWL ME_4D5E7F6C0016 // SetFocus
+ HWL ME_4D5E7FD70051 // UnicodeKeyDown
+ HWL ME_4D6285E60219 // IsAcceptableControlForTabNavigation
+ HWL ME_4D8B889E03D0 // FocusHook
+ HWL ME_4DA724DD0394 // ControlMessageHook
+ HWL ME_533E81870210 // ScreenToLocal
+ HWL ME_538DBFB202DE // GetSceneControl
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Scene'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D550C5B0341 IvgScene
+
+FORWARD ME_4D5EB67A030E
+
+ME ME_4D5EB6950126
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4D5EB6950126 Sender
+
+ME ME_4D5EB6950154
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D5435820356' '4D542052038D.ms.model.script' // TvgCustomCanvas
+ ;
+
+ENDME // ME_4D5EB6950154 Canvas
+
+ME ME_4D5EB695018E
+ MEPROP Name 'ARect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D5421A80032' '4D5420EC039D.ms.model.script' // TvgRect
+ ;
+
+ENDME // ME_4D5EB695018E ARect
+
+ME ME_4D5EB68A03CA
+ MEPROP UID '4D5EB68A03CA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5EB67A030E // TOnPaintEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5EB6950126 // Sender
+ ME_4D5EB6950154 // Canvas
+ ME_4D5EB695018E // ARect
+ )
+ ; // Parameters
+
+ENDME // ME_4D5EB68A03CA DoIt
+
+ME ME_4D5EB67A030E
+ MEPROP UID '4D5EB67A030E'
+ MEPROP Name 'TOnPaintEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D550C220363 // vgInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5EB68A03CA // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_4D5EB67A030E TOnPaintEvent
+
+ME ME_4D550C220363
+ MEPROP UID '4D550C220363'
+ MEPROP Name 'vgInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.ms.model.script' // VGScene
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D550C5B0341 // IvgScene
+ HWL ME_4D5EB67A030E // TOnPaintEvent
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4D542052038D' '4D542052038D.ms.model.script' // Core
+ WL 'ME_4D5420EC039D' '4D5420EC039D.ms.model.script' // vgTypes
+ )
+ ; // Depends
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '11.02.2011 13:15'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgInterfaces.pas'
+
+ENDME // ME_4D550C220363 vgInterfaces

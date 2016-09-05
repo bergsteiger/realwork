@@ -1,0 +1,81 @@
+// TdsAttributeSelect 4922D2780153 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4922D2780153
+
+ME ME_4922D2BB007C
+ MEPROP UID '4922D2BB007C'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4922D2780153 // TdsAttributeSelect
+ ;
+ MELINK Target WL 'ME_4922CF920141' '491DAF4202EE.ms.model.script' // IdsAttributeSelect
+ ;
+
+ENDME // ME_4922D2BB007C FormDataSourceType
+
+ME ME_4922D2F50378
+ MEPROP UID '4922D2F50378'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4922D2780153 // TdsAttributeSelect
+ ;
+ MELINK Target WL 'ME_4922CE700041' '491DAF4202EE.ms.model.script' // IdeSearch
+ ;
+
+ENDME // ME_4922D2F50378 InitDataType
+
+ME ME_4922D0440266_ME_4922D2780153
+ MELINK Original WL 'ME_4922D0440266' '491DAF4202EE.ms.model.script' // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_4922D0440266_ME_4922D2780153 Search
+
+ME ME_4922D2780153
+ MEPROP UID '4922D2780153'
+ MEPROP Name 'TdsAttributeSelect'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'бизнес объект формы выбранные атрибуты дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491DCA2C00A9' '491DCA2C00A9.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.ms.model.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4922CF920141' '491DAF4202EE.ms.model.script' // IdsAttributeSelect
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4922D2BB007C // FormDataSourceType
+ HWL ME_4922D2F50378 // InitDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4922D0440266_ME_4922D2780153 // Search
+ )
+ ; // Implemented
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '29.07.2005 17.07'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\dsAttributeSelect.pas'
+ UP extprop:rc:SelfName 'dsAttributeSelect'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsAttributeSelect'
+
+ENDME // ME_4922D2780153 TdsAttributeSelect

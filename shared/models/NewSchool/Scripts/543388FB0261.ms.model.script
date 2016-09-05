@@ -1,0 +1,40 @@
+// PG 543388FB0261 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_543388FB0261
+ MEPROP UID '543388FB0261'
+ MEPROP Name 'PG'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Реализация доступа к PostgreSQL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABA2360025A' '4ABA2360025A.ms.model.script' // Shared Delphi For Archi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_556C438C0230' '556C438C0230.ms.model.script' // NativeSupport
+ WL 'ME_55DAD4150001' '55DAD4150001.ms.model.script' // pgInterfaces
+ WL 'ME_55D6CF3B014B' '55D6CF3B014B.ms.model.script' // Provider
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_5214D28E024C' '5214D28E024C.ms.model.script' // dd$AppConfig
+ WL 'ME_543244050044' '543244050044.ms.model.script' // DA
+ )
+ ; // Depends
+ UP "defines" 'pgDefine.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "ifdef" 'UsePostgres'
+ UP "is namespace" true
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+
+ENDME // ME_543388FB0261 PG

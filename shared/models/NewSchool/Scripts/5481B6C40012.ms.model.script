@@ -1,0 +1,66 @@
+// eeConst 5481B6C40012 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5481B6C40012
+
+FORWARD ME_54817F3503D2
+
+ME ME_54817F4402A1
+ MEPROP UID '54817F4402A1'
+ MEPROP Name 'ee_SubAutoID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54817F3503D2 // eeInterfaces Const
+ ;
+ MEPROP Value '-3'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '-3'
+
+ENDME // ME_54817F4402A1 ee_SubAutoID
+
+ME ME_54817F3503D2
+ MEPROP UID '54817F3503D2'
+ MEPROP Name 'eeInterfaces Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5481B6C40012 // eeConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54817F4402A1 // ee_SubAutoID
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_54817F3503D2 eeInterfaces Const
+
+ME ME_5481B6C40012
+ MEPROP UID '5481B6C40012'
+ MEPROP Name 'eeConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4680E7D50168' '4680E7D50168.ms.model.script' // Everest Engine
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_54817F3503D2 // eeInterfaces Const
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "UseNewGen" true
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeConst.pas'
+
+ENDME // ME_5481B6C40012 eeConst

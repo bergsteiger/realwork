@@ -1,0 +1,88 @@
+// ForbidAutoregistration 4AA8E405032A VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA8E405032A
+
+ME ME_5E9859CE8259
+ MEPROP UID '5E9859CE8259'
+ MEPROP Name 'ut_ForbidAutoregistration'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Запретить авторегистрацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA8E405032A // ForbidAutoregistration
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\ForbidAutoregistration_ut_ForbidAutoregistration_UserType.pas'
+ UP extprop:pas:UnitName 'ForbidAutoregistration_ut_ForbidAutoregistration_UserType'
+
+ENDME // ME_5E9859CE8259 ut_ForbidAutoregistration
+
+ME ME_79B951455BC4
+ MEPROP UID '79B951455BC4'
+ MEPROP GUID '5D4153F1-D087-4AF8-A4ED-39411EB7A1A3'
+ MEPROP Name 'ForbidAutoregistration'
+ MEPROP OriginalName 'ForbidAutoregistration$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ForbidAutoregistration' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA8E405032A // ForbidAutoregistration
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AA8E405032A // ForbidAutoregistration
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ForbidAutoregistrationFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_79B951455BC4 ForbidAutoregistration$Def
+
+ME ME_4AA8E405032A
+ MEPROP UID '4AA8E405032A'
+ MEPROP Name 'ForbidAutoregistration'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Запретить авторегистрацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA5120303E5' '4AA5120303E5.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C88F1C30376' '4C88F1C30376.ms.model.script' // PrimForbidAutoregistrationOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_79B951455BC4 // ForbidAutoregistration$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_5E9859CE8259 // ut_ForbidAutoregistration
+ HWL ME_79B951455BC4 // ForbidAutoregistration$Def
+ )
+ ; // Children
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Modal'
+ UP "finished dfm" true
+ UP "form name prefix" 'ef'
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\ForbidAutoregistration_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+ UP extprop:pas:TypeName 'TefForbidAutoregistration'
+ UP extprop:rc:SelfName 'efForbidAutoregistration'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ForbidAutoregistration_Form'
+
+ENDME // ME_4AA8E405032A ForbidAutoregistration

@@ -1,0 +1,94 @@
+// Memory 51DAE6B102EB TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DAE6B102EB
+
+FORWARD ME_51DAE6E20300
+
+ME ME_51DAE7030012
+ MEPROP UID '51DAE7030012'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DAE6E20300 // MemorySizeTest
+ ;
+
+ENDME // ME_51DAE7030012 DoIt
+
+ME ME_51DAE6ED0180
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DAE6E20300 // MemorySizeTest
+ ;
+ MELINK Target WL 'ME_51DAD8180236' '51DAD7EA02D0.ms.model.script' // l3MemorySizeUtils
+ ;
+
+ENDME // ME_51DAE6ED0180 
+
+ME ME_51DAEAC80178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DAE6E20300 // MemorySizeTest
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ ;
+
+ENDME // ME_51DAEAC80178 
+
+ME ME_51DAE6E20300
+ MEPROP UID '51DAE6E20300'
+ MEPROP Name 'MemorySizeTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DAE6B102EB // Memory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.ms.model.script' // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_51DAE7030012 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_51DAE6ED0180 // l3MemorySizeUtils
+ ME_51DAEAC80178 // Format
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\SandBox\MemorySizeTest.pas'
+ UP extprop:pas:TypeName 'TMemorySizeTest'
+ UP extprop:rc:SelfName 'MemorySizeTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51DAE6E20300 MemorySizeTest
+
+ME ME_51DAE6B102EB
+ MEPROP UID '51DAE6B102EB'
+ MEPROP Name 'Memory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5155865B01B6' '5155865B01B6.ms.model.script' // SandBoxTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51DAE6E20300 // MemorySizeTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
+ WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.ms.model.script' // MemoryUtils
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_51DAE6B102EB Memory

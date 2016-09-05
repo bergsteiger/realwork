@@ -1,0 +1,155 @@
+// msgen 57B6E36B01C8 ExeTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B6E36B01C8
+
+FORWARD ME_57B6E3BA005F
+
+ME ME_57BB1439021C
+ MEPROP UID '57BB1439021C'
+ MEPROP Name 'g_ModelOnly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_57BB1439021C g_ModelOnly
+
+ME ME_57BF48CB03B2
+ MEPROP UID '57BF48CB03B2'
+ MEPROP Name 'g_NullOnly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_57BF48CB03B2 g_NullOnly
+
+ME ME_57BFE5C1028C
+ MEPROP UID '57BFE5C1028C'
+ MEPROP Name 'g_SpellOnly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_57BFE5C1028C g_SpellOnly
+
+ME ME_57B6EB2C01F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_57B2D68E035D' '57B2D67D038F.ms.model.script' // msmWordsCachePack
+ ;
+
+ENDME // ME_57B6EB2C01F6 
+
+ME ME_55C483850136_ME_57B6E3BA005F
+ MELINK Original WL 'ME_55C483850136' '55C482960214.ms.model.script' // Run
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDME // ME_55C483850136_ME_57B6E3BA005F Run
+
+ME ME_57B6E409029C_ME_57B6E3BA005F
+ MELINK Original WL 'ME_57B6E409029C' '55C482960214.ms.model.script' // DoRunScript
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDME // ME_57B6E409029C_ME_57B6E3BA005F DoRunScript
+
+ME ME_57B6F81500E3_ME_57B6E3BA005F
+ MELINK Original WL 'ME_57B6F81500E3' '55C482960214.ms.model.script' // CheckFileExists
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDME // ME_57B6F81500E3_ME_57B6E3BA005F CheckFileExists
+
+ME ME_57B6E3BA005F
+ MEPROP UID '57B6E3BA005F'
+ MEPROP Name 'TmsGenRunner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B6E36B01C8 // msgen
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55C482EC023E' '55C482960214.ms.model.script' // TcallMSSRunner
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57BB1439021C // g_ModelOnly
+ HWL ME_57BF48CB03B2 // g_NullOnly
+ HWL ME_57BFE5C1028C // g_SpellOnly
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_55C483850136_ME_57B6E3BA005F // Run
+ ME_57B6E409029C_ME_57B6E3BA005F // DoRunScript
+ ME_57B6F81500E3_ME_57B6E3BA005F // CheckFileExists
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57B6EB2C01F6 // msmWordsCachePack
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\msgen\msGenRunner.pas'
+ UP extprop:rc:SelfName 'msGenRunner'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msGenRunner'
+
+ENDME // ME_57B6E3BA005F TmsGenRunner
+
+ME ME_57B6E36B01C8
+ MEPROP UID '57B6E36B01C8'
+ MEPROP Name 'msgen'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ExeTarget ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57B1B9C5035D' '57B1B9C5035D.ms.model.script' // Shared Delphi MSM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57B6E3BA005F // TmsGenRunner
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_55C482960214' '55C482960214.ms.model.script' // callMSS
+ WL 'ME_57B2D254018F' '57B2D254018F.ms.model.script' // msm$ScriptCalling
+ WL 'ME_57B2D67D038F' '57B2D67D038F.ms.model.script' // WordsCache
+ )
+ ; // Depends
+ UP "console" true
+ UP "defines" 'msgen.inc'
+ UP "need UC in project" true
+ UP "path suffix" '/msgen'
+ UP intf.pas:Path 'common\components\msgen\msgen.dpr'
+ UP intf.pas:PathOnly '\common\components\msgen'
+ UP Version 38
+
+ENDME // ME_57B6E36B01C8 msgen

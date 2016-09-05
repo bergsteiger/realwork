@@ -1,0 +1,115 @@
+// Tree 4BDAF7510113 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BDAF7510113
+
+FORWARD ME_4BDAF7790158
+
+ME ME_4BDAF7880236
+ MEPROP UID '4BDAF7880236'
+ MEPROP Name 'ExpandAll'
+ MEPROP Class class_Operation
+ %SUMMARY 'Развернуть все' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BDAF7790158 // Tree
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4BDAF7880236 ExpandAll
+
+ME ME_4BDAF7A2005C
+ MEPROP UID '4BDAF7A2005C'
+ MEPROP Name 'CollapseAll'
+ MEPROP Class class_Operation
+ %SUMMARY 'Свернуть все' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BDAF7790158 // Tree
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4BDAF7A2005C CollapseAll
+
+ME ME_4BDAF7B803CF
+ MEPROP UID '4BDAF7B803CF'
+ MEPROP Name 'Wrap'
+ MEPROP Class class_Operation
+ %SUMMARY 'Перенос по словам' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BDAF7790158 // Tree
+ ;
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+
+ENDME // ME_4BDAF7B803CF Wrap
+
+ME ME_4BDAF7790158
+ MEPROP UID '4BDAF7790158'
+ MEPROP Name 'Tree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BDAF7510113 // Tree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BDAF7880236 // ExpandAll
+ HWL ME_4BDAF7A2005C // CollapseAll
+ HWL ME_4BDAF7B803CF // Wrap
+ )
+ ; // Operations
+
+ENDME // ME_4BDAF7790158 Tree
+
+ME ME_4BDAF7510113
+ MEPROP UID '4BDAF7510113'
+ MEPROP Name 'Tree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Представление в виде дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BDAF7790158 // Tree
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas'
+ UP extprop:pas:UnitName 'OfficeLike_Tree_Controls'
+
+ENDME // ME_4BDAF7510113 Tree

@@ -1,0 +1,355 @@
+// TelCustomButtonEdit 482ACFA703C2 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482ACFA703C2
+
+ME ME_482C48B403C3
+ MEPROP UID '482C48B403C3'
+ MEPROP Name 'TElEditBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482C468C00F7' '48342A280198.ms.model.script' // TCustomElGraphicButton
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ElEditBtn'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_482C48B403C3 TElEditBtn
+
+ME ME_482C46240069
+ MEPROP UID '482C46240069'
+ MEPROP Name 'OnButtonClick'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_482C46240069 OnButtonClick
+
+ME ME_482C46460006
+ MEPROP UID '482C46460006'
+ MEPROP Name 'ButtonWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" false
+
+ENDME // ME_482C46460006 ButtonWidth
+
+ME ME_482C46AC00A0
+ MEPROP UID '482C46AC00A0'
+ MEPROP Name 'Button'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_482C468C00F7' '48342A280198.ms.model.script' // TCustomElGraphicButton
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_482C46AC00A0 Button
+
+FORWARD ME_4F2AA6F20181
+
+ME ME_4F2AA6F903E6
+ MEPROP UID '4F2AA6F903E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2AA6F20181 // AdjustWidth
+ ;
+
+ENDME // ME_4F2AA6F903E6 DoIt
+
+ME ME_4F2AA6F20181
+ MEPROP UID '4F2AA6F20181'
+ MEPROP Name 'AdjustWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2AA6F903E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2AA6F20181 AdjustWidth
+
+ME ME_482C45C40117
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_482C45D3015C' '476F78840219.ms.model.script' // TWMKey
+ ;
+
+ENDME // ME_482C45C40117 Message
+
+ME ME_482C45BB0247
+ MEPROP UID '482C45BB0247'
+ MEPROP Name 'WMKeyDown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELIST Parameters
+   Seq: ( ME_482C45C40117 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_KEYDOWN'
+
+ENDME // ME_482C45BB0247 WMKeyDown
+
+ME ME_482C460D00ED
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F793C0385' '46A5E026007E.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_482C460D00ED Msg
+
+ME ME_482C45FF0183
+ MEPROP UID '482C45FF0183'
+ MEPROP Name 'CMEnabledChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELIST Parameters
+   Seq: ( ME_482C460D00ED // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_ENABLEDCHANGED'
+
+ENDME // ME_482C45FF0183 CMEnabledChanged
+
+ME ME_482C466C021A
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_482C466C021A Sender
+
+ME ME_482C4664002B
+ MEPROP UID '482C4664002B'
+ MEPROP Name 'ButtonClickTransfer'
+ MEPROP Class class_Operation
+ %SUMMARY 'TNotifyEvent.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELIST Parameters
+   Seq: ( ME_482C466C021A // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_482C4664002B ButtonClickTransfer
+
+ME ME_4B6C695B0084
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4B6C68FF03BB' '476F78840219.ms.model.script' // TWMWindowPosChanged
+ ;
+
+ENDME // ME_4B6C695B0084 Message
+
+ME ME_4B6C695B0031
+ MEPROP UID '4B6C695B0031'
+ MEPROP Name 'WMWindowPosChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B6C695B0084 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_WindowPosChanged'
+
+ENDME // ME_4B6C695B0031 WMWindowPosChanged
+
+ME ME_482C47F40054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_482C47F40054 
+
+ME ME_482C4F690091
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_47D00B7F0171' '4AB0C3F60375.ms.model.script' // Key Codes
+ ;
+
+ENDME // ME_482C4F690091 
+
+ME ME_482C4FE602CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_482C4FE602CA 
+
+ME ME_482C50F2004F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ ;
+
+ENDME // ME_482C50F2004F 
+
+ME ME_4B6C5774031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_4B6C5774031B 
+
+ME ME_4B6C697800BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482ACFA703C2 // TelCustomButtonEdit
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4B6C697800BB 
+
+ME ME_479731C50290_ME_482ACFA703C2
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_482ACFA703C2 Cleanup
+
+ME ME_47D1602000C6_ME_482ACFA703C2
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_482ACFA703C2 Create
+
+ME ME_482BFA6D022D_ME_482ACFA703C2
+ MELINK Original WL 'ME_482BFA6D022D' '4829D92A037B.ms.model.script' // SetEditRect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFA6D022D_ME_482ACFA703C2 SetEditRect
+
+ME ME_482C4E0E01E4_ME_482ACFA703C2
+ MELINK Original WL 'ME_482C4E0E01E4' '4799D29F033F.ms.model.script' // KeyPress
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482C4E0E01E4_ME_482ACFA703C2 KeyPress
+
+ME ME_482ACFA703C2
+ MEPROP UID '482ACFA703C2'
+ MEPROP Name 'TelCustomButtonEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48342A280198' '48342A280198.ms.model.script' // elClone
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482ACC330173' '482ACC330173.ms.model.script' // TelCustomEdit
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_482C46240069 // OnButtonClick
+ HWL ME_482C46460006 // ButtonWidth
+ HWL ME_482C46AC00A0 // Button
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F2AA6F20181 // AdjustWidth
+ HWL ME_482C45BB0247 // WMKeyDown
+ HWL ME_482C45FF0183 // CMEnabledChanged
+ HWL ME_482C4664002B // ButtonClickTransfer
+ HWL ME_4B6C695B0031 // WMWindowPosChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_482ACFA703C2 // Cleanup
+ ME_47D1602000C6_ME_482ACFA703C2 // Create
+ ME_482BFA6D022D_ME_482ACFA703C2 // SetEditRect
+ ME_482C4E0E01E4_ME_482ACFA703C2 // KeyPress
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_482C48B403C3 // TElEditBtn
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_482C47F40054 // SysUtils
+ ME_482C4F690091 // Key Codes
+ ME_482C4FE602CA // Forms
+ ME_482C50F2004F // Colors
+ ME_4B6C5774031B // Tafw
+ ME_4B6C697800BB // afwFacade
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "register in scripts" true
+ UP "started" '14.05.2008 15:41'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\elCustomButtonEdit.pas'
+ UP extprop:rc:SelfName 'elCustomButtonEdit'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'elCustomButtonEdit'
+
+ENDME // ME_482ACFA703C2 TelCustomButtonEdit

@@ -1,0 +1,111 @@
+// TdsMedicFirmDocument 491D7D660107 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D7D660107
+
+ME ME_4926CE8D018D
+ MEPROP UID '4926CE8D018D'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D7D660107 // TdsMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_491D7D1B026C' '4AC241AC01FC.ms.model.script' // IdsMedicFirmDocument
+ ;
+
+ENDME // ME_4926CE8D018D FormDataSourceType
+
+ME ME_4979B5530239
+ MEPROP UID '4979B5530239'
+ MEPROP Name 'MedicFirmDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_491D7D660107 // TdsMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_4937A59101D3' '491D7C9603B2.ms.model.script' // IsdsMedicFirmDocumentPrim
+ ;
+
+ENDME // ME_4979B5530239 MedicFirmDocument
+
+ME ME_4D35796C03E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D7D660107 // TdsMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ ;
+
+ENDME // ME_4D35796C03E2 
+
+ME ME_491D7D2A02E0_ME_491D7D660107
+ MELINK Original WL 'ME_491D7D2A02E0' '4AC241AC01FC.ms.model.script' // OpenDrugList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491D7D2A02E0_ME_491D7D660107 OpenDrugList
+
+ME ME_491C264C02C2_ME_491D7D660107
+ MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C264C02C2_ME_491D7D660107 GetTimeMachineOff
+
+ME ME_4C6AB38800F3_ME_491D7D660107
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_491D7D660107 MakeContainer
+
+ME ME_491D7D660107
+ MEPROP UID '491D7D660107'
+ MEPROP Name 'TdsMedicFirmDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ описания фирмы-производителя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA20430108' '47EA20430108.ms.model.script' // dsBaseDocumentPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_491D7D1B026C' '4AC241AC01FC.ms.model.script' // IdsMedicFirmDocument
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4926CE8D018D // FormDataSourceType
+ HWL ME_4979B5530239 // MedicFirmDocument
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491D7D2A02E0_ME_491D7D660107 // OpenDrugList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_491C264C02C2_ME_491D7D660107 // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491D7D660107 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D35796C03E2 // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '2008/03/26 14:05:01'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmDocument.pas'
+ UP extprop:rc:SelfName 'dsMedicFirmDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsMedicFirmDocument'
+
+ENDME // ME_491D7D660107 TdsMedicFirmDocument

@@ -1,0 +1,298 @@
+// sdsBaseDocument 47EA106D035E UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47EA106D035E
+
+ME ME_4925B1EC0100
+ MEPROP UID '4925B1EC0100'
+ MEPROP Name 'BaseDocumentClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_47EA0356011B' '491B305A0096.ms.model.script' // IdsBaseDocument
+ ;
+
+ENDME // ME_4925B1EC0100 BaseDocumentClass
+
+ME ME_4925B4AD0340
+ MEPROP UID '4925B4AD0340'
+ MEPROP Name 'DocumentData'
+ MEPROP Class class_Operation
+ %SUMMARY 'данные для инициализации бизнес объекта документа' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_4925B4AD0340 DocumentData
+
+ME ME_4925B7F00156
+ MEPROP UID '4925B7F00156'
+ MEPROP Name 'ClearAllDS'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+
+ENDME // ME_4925B7F00156 ClearAllDS
+
+ME ME_4925B93F0195
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_4925B93F0195 aDoc
+
+ME ME_4925B9370022
+ MEPROP UID '4925B9370022'
+ MEPROP Name 'DoChangeDocument'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4925B93F0195 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4925B9370022 DoChangeDocument
+
+ME ME_4925BE5F0106
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4925BE5F0106 aDocument
+
+ME ME_4925BE5F0143
+ MEPROP Name 'aRefType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4925BE5F0143 aRefType
+
+ME ME_4925BE5F017F
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD996601CE' '4AB0C3C60310.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4925BE5F017F aPos
+
+ME ME_4925BE3E0260
+ MEPROP UID '4925BE3E0260'
+ MEPROP Name 'DoMakeGotoPointData'
+ MEPROP Class class_Operation
+ %SUMMARY 'открыть ссылку. Если ссылка требует пересоздания сборки, то данные для'#13#10'           новой сборки вернуться как результат для вызова операции модуля' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4925BE5F0106 // aDocument
+ ME_4925BE5F0143 // aRefType
+ ME_4925BE5F017F // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_4925BE3E0260 DoMakeGotoPointData
+
+ME ME_493D1BE601B1
+ MEPROP UID '493D1BE601B1'
+ MEPROP Name 'NeedMakeDocument'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет - нужно ли создавать область ввода для документа' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_493D1BE601B1 NeedMakeDocument
+
+ME ME_493D51ED0329
+ MEPROP UID '493D51ED0329'
+ MEPROP Name 'FillState'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+
+ENDME // ME_493D51ED0329 FillState
+
+ME ME_47FDCDE50020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_47EB900B0216' '4683F37902CF.ms.model.script' // IvcmFormDataSource
+ ;
+
+ENDME // ME_47FDCDE50020 
+
+ME ME_4925B1AB0052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4925B1AB0052 
+
+ME ME_4925B2050027
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_47EB3E2202E6' '47EA50050263.ms.model.script' // dBaseDocument
+ ;
+
+ENDME // ME_4925B2050027 
+
+ME ME_4925B612039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.ms.model.script' // TdeDocInfo
+ ;
+
+ENDME // ME_4925B612039C 
+
+ME ME_4925B75F0191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4925B75F0191 
+
+ME ME_4925978F00FA_ME_47EA106D035E
+ MELINK Original WL 'ME_4925978F00FA' '491B305A0096.ms.model.script' // ChangeDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925978F00FA_ME_47EA106D035E ChangeDocument
+
+ME ME_492597A602F6_ME_47EA106D035E
+ MELINK Original WL 'ME_492597A602F6' '491B305A0096.ms.model.script' // MakeGotoPointData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492597A602F6_ME_47EA106D035E MakeGotoPointData
+
+ME ME_4DF9D63B0360_ME_47EA106D035E
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reflectable" true
+ENDME // ME_4DF9D63B0360_ME_47EA106D035E DocInfo
+
+ME ME_50002EC80001_ME_47EA106D035E
+ MELINK Original WL 'ME_50002EC80001' '491B305A0096.ms.model.script' // dsDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is reference" true
+ UP "pm" true
+ENDME // ME_50002EC80001_ME_47EA106D035E dsDocument
+
+ME ME_5111C2BAF24F_ME_47EA106D035E
+ MELINK Original WL 'ME_5111C2BAF24F' '491B305A0096.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5111C2BAF24F_ME_47EA106D035E HasDocument
+
+ME ME_47F37DF001FE_ME_47EA106D035E
+ MELINK Original WL 'ME_47F37DF001FE' '47D0E1500033.ms.model.script' // DataExchange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F37DF001FE_ME_47EA106D035E DataExchange
+
+ME ME_4A60B23E00C3_ME_47EA106D035E
+ MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A60B23E00C3_ME_47EA106D035E COMQueryInterface
+
+ME ME_47EA106D035E
+ MEPROP UID '47EA106D035E'
+ MEPROP Name 'sdsBaseDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОС, базовый для прецедента с документом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F37723017A' '47D0E1500033.ms.model.script' // vcmFormSetDataSource
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4925B1EC0100 // BaseDocumentClass
+ HWL ME_4925B4AD0340 // DocumentData
+ HWL ME_4925B7F00156 // ClearAllDS
+ HWL ME_4925B9370022 // DoChangeDocument
+ HWL ME_4925BE3E0260 // DoMakeGotoPointData
+ HWL ME_493D1BE601B1 // NeedMakeDocument
+ HWL ME_493D51ED0329 // FillState
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4925978F00FA_ME_47EA106D035E // ChangeDocument
+ ME_492597A602F6_ME_47EA106D035E // MakeGotoPointData
+ ME_4DF9D63B0360_ME_47EA106D035E // DocInfo
+ ME_50002EC80001_ME_47EA106D035E // dsDocument
+ ME_5111C2BAF24F_ME_47EA106D035E // HasDocument
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47F37DF001FE_ME_47EA106D035E // DataExchange
+ ME_4A60B23E00C3_ME_47EA106D035E // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47FDCDE50020 // IvcmFormDataSource
+ ME_4925B1AB0052 // SysUtils
+ ME_4925B2050027 // dBaseDocument
+ ME_4925B612039C // TdeDocInfo
+ ME_4925B75F0191 // Windows
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '06.10.2005 13:22'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocument.imp.pas'
+ UP extprop:pas:TypeName '_sdsBaseDocument_'
+ UP extprop:pas:UnitName 'sdsBaseDocument.imp'
+
+ENDME // ME_47EA106D035E sdsBaseDocument

@@ -1,0 +1,216 @@
+// TextLoad 4B30C7E800EE VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B30C7E800EE
+
+ME ME_A419F118ED8E
+ MEPROP UID 'A419F118ED8E'
+ MEPROP Name 'ut_TextLoad'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для загрузки документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" false
+ UP "Weight" '-1'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\TextLoad_ut_TextLoad_UserType.pas'
+ UP extprop:pas:UnitName 'TextLoad_ut_TextLoad_UserType'
+
+ENDME // ME_A419F118ED8E ut_TextLoad
+
+ME ME_247EE1BD7B9F
+ MEPROP UID '247EE1BD7B9F'
+ MEPROP GUID '0D52D59A-6EBD-46A6-AA44-2467ABBFDC5C'
+ MEPROP Name 'TextLoad'
+ MEPROP OriginalName 'TextLoad$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы TextLoad' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4B30C7E800EE // TextLoad
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'TextLoadFormDef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_247EE1BD7B9F TextLoad$Def
+
+ME ME_4B322A36019F
+ MEPROP UID '4B322A36019F'
+ MEPROP Name 'Text'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_484544370206' '484544370206.ms.model.script' // TevEditor
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4B322A36019F Text
+
+ME ME_4B322AC50048
+ MEPROP UID '4B322AC50048'
+ MEPROP Name 'TextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482D98DE00A9' '482BFB50007B.ms.model.script' // TevTextSource
+ )
+ ; // Inherits
+ UP "ComponentClass" 'none'
+ UP "need Caption" false
+ UP "needs field" true
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4B322AC50048 TextSource
+
+ME ME_92ED638D8A30
+ MEPROP UID '92ED638D8A30'
+ MEPROP Name 'Ini_FormFactory_TextLoad'
+ MEPROP OriginalName 'Ini_FormFactory_TextLoad$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы TextLoad' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ UPLINK SpelledFor HWL ME_4B30C7E800EE // TextLoad
+ ;
+
+ENDME // ME_92ED638D8A30 Ini_FormFactory_TextLoad$Def
+
+ME ME_4B32392A023A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_4B32392A023A 
+
+ME ME_4B323A55004A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ MELINK Target WL 'ME_476A77110209' '4799D29F033F.ms.model.script' // TWindowState
+ ;
+
+ENDME // ME_4B323A55004A 
+
+ME ME_4B98F827038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30C7E800EE // TextLoad
+ ;
+ MELINK Target WL 'ME_4B98D9FD038B' '47D0E1500033.ms.model.script' // TvcmStringIDExHelper
+ ;
+ UP "isHighPriority" true
+
+ENDME // ME_4B98F827038E 
+
+ME ME_4C9B21D20187_ME_4B30C7E800EE
+ MELINK Original WL 'ME_4C9B21D20187' '4C9B20790302.ms.model.script' // TextSource
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4C9B21D20187_ME_4B30C7E800EE TextSource
+
+ME ME_4C9B21E400A4_ME_4B30C7E800EE
+ MELINK Original WL 'ME_4C9B21E400A4' '4C9B20790302.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDME // ME_4C9B21E400A4_ME_4B30C7E800EE Text
+
+ME ME_4B30C7E800EE
+ MEPROP UID '4B30C7E800EE'
+ MEPROP Name 'TextLoad'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для загрузки документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B30C72000B3' '4B30C72000B3.ms.model.script' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C9B20790302' '4C9B20790302.ms.model.script' // PrimTextLoad
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_247EE1BD7B9F // TextLoad$Def
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B322A36019F // Text
+ HWL ME_4B322AC50048 // TextSource
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_92ED638D8A30 // Ini_FormFactory_TextLoad$Def
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C9B21D20187_ME_4B30C7E800EE // TextSource
+ ME_4C9B21E400A4_ME_4B30C7E800EE // Text
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_A419F118ED8E // ut_TextLoad
+ HWL ME_247EE1BD7B9F // TextLoad$Def
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B32392A023A // TAlign
+ ME_4B323A55004A // TWindowState
+ ME_4B98F827038E // TvcmStringIDExHelper
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" true
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '22.12.2009 16:32'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\TextLoad_Form.pas'
+ UP extprop:pas:TypeName 'TTextLoadForm'
+ UP extprop:rc:SelfName 'TextLoadForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TextLoad_Form'
+
+ENDME // ME_4B30C7E800EE TextLoad

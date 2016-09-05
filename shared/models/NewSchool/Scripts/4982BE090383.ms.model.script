@@ -1,0 +1,279 @@
+// vcmControllers 4982BE090383 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4982BE090383
+
+ME ME_47FB5A0F0375
+ MEPROP UID '47FB5A0F0375'
+ MEPROP Name 'TvcmNeedMakeDS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перечислимый тип определяющий необходимость создания БОФ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4982BE090383 // vcmControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_528D9F530036' '528C93040132.ms.model.script' // TvcmNeedMakeDS
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47FB5A0F0375 TvcmNeedMakeDS
+
+FORWARD ME_47EB514C0336
+
+ME ME_4982B4940122
+ MEPROP UID '4982B4940122'
+ MEPROP Name 'IsEmpty'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'определяет наличие источника данных.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4982B4940122 IsEmpty
+
+ME ME_4982B4A501A0
+ MEPROP UID '4982B4A501A0'
+ MEPROP Name 'CanBeClosed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'можно ли закрыть' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_4982B4A501A0 CanBeClosed
+
+ME ME_4982B449023F
+ MEPROP UID '4982B449023F'
+ MEPROP Name 'Referred'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Ссылка на контроллер области вывода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ MELINK Target WL 'ME_47EB900B0216' '4683F37902CF.ms.model.script' // IvcmFormDataSource
+ ;
+ UP "pm" true
+
+ENDME // ME_4982B449023F Referred
+
+ME ME_4982B4600057
+ MEPROP UID '4982B4600057'
+ MEPROP Name 'NeedMake'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'определяет необходимость создания БОФ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ MELINK Target HWL ME_47FB5A0F0375 // TvcmNeedMakeDS
+ ;
+ UP "pm" true
+
+ENDME // ME_4982B4600057 NeedMake
+
+ME ME_4982B3B10155
+ MEPROP UID '4982B3B10155'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ %SUMMARY 'сбрасывает ссылку на _DataSource и NeedMake устанавливает как vcm_nmNo' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+
+ENDME // ME_4982B3B10155 Clear
+
+ME ME_4982B41402C7
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47FB5A0F0375 // TvcmNeedMakeDS
+ ;
+
+ENDME // ME_4982B41402C7 aValue
+
+ME ME_4982B40202EE
+ MEPROP UID '4982B40202EE'
+ MEPROP Name 'SetIfNeedMakeNo'
+ MEPROP Class class_Operation
+ %SUMMARY 'устанавливаем флаг если его значение vcm_nmNo' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_4982B41402C7 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4982B40202EE SetIfNeedMakeNo
+
+ME ME_4982B4350056
+ MEPROP Name 'aSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+
+ENDME // ME_4982B4350056 aSource
+
+ME ME_4982B4280318
+ MEPROP UID '4982B4280318'
+ MEPROP Name 'Assign'
+ MEPROP Class class_Operation
+ %SUMMARY 'скопировать данные aSource' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_4982B4350056 // aSource
+ )
+ ; // Parameters
+
+ENDME // ME_4982B4280318 Assign
+
+ME ME_47EB514C0336
+ MEPROP UID '47EB514C0336'
+ MEPROP GUID 'F5C8B83F-1541-4055-A90B-32A85E5C3969'
+ MEPROP Name 'IvcmFormDataSourceRef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Самоочищаемая ссылка на бизнес объект формы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4982BE090383 // vcmControllers
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4982B4940122 // IsEmpty
+ HWL ME_4982B4A501A0 // CanBeClosed
+ HWL ME_4982B449023F // Referred
+ HWL ME_4982B4600057 // NeedMake
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4982B3B10155 // Clear
+ HWL ME_4982B40202EE // SetIfNeedMakeNo
+ HWL ME_4982B4280318 // Assign
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'FormDataSourceRef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47EB514C0336 IvcmFormDataSourceRef
+
+ME ME_4982B4D00032
+ MEPROP UID '4982B4D00032'
+ MEPROP Name 'IvcmViewAreaControllerRef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4982BE090383 // vcmControllers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ViewAreaControllerRef'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4982B4D00032 IvcmViewAreaControllerRef
+
+ME ME_497841510139
+ MEPROP UID '497841510139'
+ MEPROP Name 'IvcmViewAreaController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылка на IvcmFormDataSource. Для использования в автоматичексом кода. В ручном коде применять НЕЛЬЗЯ, надо применять IvcmFormDataSource' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4982BE090383 // vcmControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EB900B0216' '4683F37902CF.ms.model.script' // IvcmFormDataSource
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ViewAreaController'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_497841510139 IvcmViewAreaController
+
+ME ME_4981E70101D7
+ MEPROP UID '4981E70101D7'
+ MEPROP Name 'IvcmUseCaseController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылка на IvcmFormSetDataSource. Для использования в автоматичексом кода. В ручном коде применять НЕЛЬЗЯ, надо применять IvcmFormSetDataSource' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4982BE090383 // vcmControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F252870299' '4683F37902CF.ms.model.script' // IvcmFormSetDataSource
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'UseCaseController'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4981E70101D7 IvcmUseCaseController
+
+ME ME_4982BE090383
+ MEPROP UID '4982BE090383'
+ MEPROP Name 'vcmControllers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы контроллеров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47FB5A0F0375 // TvcmNeedMakeDS
+ HWL ME_47EB514C0336 // IvcmFormDataSourceRef
+ HWL ME_4982B4D00032 // IvcmViewAreaControllerRef
+ HWL ME_497841510139 // IvcmViewAreaController
+ HWL ME_4981E70101D7 // IvcmUseCaseController
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_528C93040132' '528C93040132.ms.model.script' // vcmBaseTypes
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" true
+ UP "no hands" true
+ UP "started" '30.01.2009 11:45'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmControllers.pas'
+
+ENDME // ME_4982BE090383 vcmControllers

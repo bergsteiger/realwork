@@ -1,0 +1,136 @@
+UNIT LoadOnDemand.ms.dict
+
+USES
+ Log.ms.dict
+;
+
+USES
+ WordsCache.ms.dict
+;
+
+USES
+ Chars.ms.dict
+;
+
+TtfwWord FUNCTION LoadWord
+  STRING IN aWordName
+  STRING IN aDictName
+ Ctx:EnterCS
+ TRY
+  if ( aWordName WordFromCache ) then
+  begin
+   >>> Result
+  end // ( aWordName WordFromCache )
+  else
+  begin
+   STRING VAR l_Code 
+   BOOLEAN VAR l_WasException
+   false >>> l_WasException
+   
+   aDictName Ctx:ResolveIncludedFilePath >>> aDictName
+   if ( aDictName sysutils:FileExists ) then
+   begin
+    //Log: aWordName 
+    [ 'INCLUDE ' cQuote aDictName cQuote ' @ ' aWordName ] strings:Cat >>> l_Code
+    VAR l_N
+    [ 'C:\Temp\Scripts\WL\' aDictName sysutils:ExtractFilePath ':' '' string:Replace ] '\' strings:CatSep >>> l_N
+    l_N sysutils:ForceDirectories DROP
+    [ l_N aWordName '.wl.script' ] strings:Cat >>> l_N
+    VAR l_N1
+    [ l_N '.tmp' ] strings:Cat >>> l_N1
+    FILE VAR l_Out
+    l_N1 File:OpenWrite >>> l_Out
+    TRY
+     l_Code l_Out File:WriteStr
+    FINALLY
+     nil >>> l_Out
+    END // TRY..FINALLY
+    if (
+        ( l_N sysutils:FileExists ! )
+        OR ( cEmptyStr l_N l_N1 CompareFiles ! )
+       ) then
+    begin
+     VAR l_TryCount
+     30 >>> l_TryCount
+     while ( l_TryCount > 0 )
+     begin
+      TRY
+       $20 l_N l_N1 CopyFile
+       0 >>> l_TryCount
+      EXCEPT
+       Dec l_TryCount
+       if ( l_TryCount <= 0 ) then
+        RAISE
+       100 SLEEP 
+      END // TRY..EXCEPT 
+     end // while ( l_TryCount > 0 )
+    end // ( l_N sysutils:FileExists ! )
+    TRY
+     l_N script:CompileAndProcess DO
+     //l_Code script:CompileStringAndProcess DO
+    EXCEPT
+     current:exception:Message Say
+     [ 'Возможно элемент ' aWordName ' : ' aDictName ' удалён' ] strings:Cat Say
+     true >>> l_WasException
+     nil >>> Result
+    END
+    if ( l_WasException ! ) then
+    begin
+     TRY
+      >>> Result
+      Result pop:Word:Name aWordName == ?ASSURE [ 'Вернулось неверное слово ' Result pop:Word:Name ' вместо ' aWordName ]
+     EXCEPT
+      current:exception:Message Say
+      [ 'Возможно элемент ' aWordName ' : ' aDictName ' удалён' ] strings:Cat Say
+      nil >>> Result
+     END 
+    end // l_WasException !
+   end // ( aDictName sysutils:FileExists )
+   else
+   begin
+    nil >>> Result
+   end // ( aDictName sysutils:FileExists )
+   
+   aWordName Result WordToCache
+  end // ( aWordName WordFromCache )
+ FINALLY
+  Ctx:LeaveCS
+ END // TRY..FINALLY 
+; // LoadWord 
+
+WordAlias LW LoadWord
+
+USES
+ CompileTimeVar.ms.dict
+;
+
+CompileTime-VAR g_TransformWord nil
+
+PROCEDURE TransformWord
+  TtfwWord IN aWord
+ if ( g_TransformWord IsNil ! ) then
+ begin
+  aWord g_TransformWord DO
+ end // ( g_TransformWord IsNil ! )
+; // TransformWord
+
+TtfwWord FUNCTION WordLink
+  ^ IN aWordName
+  ^ IN aDictName
+ aWordName DO aDictName DO LoadWord 
+ >>> Result
+ Result TransformWord
+; // WordLink
+
+TtfwWord FUNCTION HardWordLink
+  ^ IN aWord
+ //aWord DO
+ //aWord |^@
+ aWord |^
+ >>> Result
+ Result TransformWord
+; // HardWordLink
+
+WordAlias WL WordLink
+
+WordAlias HWL HardWordLink

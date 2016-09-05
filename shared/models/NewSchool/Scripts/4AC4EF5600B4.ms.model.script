@@ -1,0 +1,1473 @@
+// PrimContactList 4AC4EF5600B4 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC4EF5600B4
+
+ME ME_4BD5B59500D6
+ MEPROP UID '4BD5B59500D6'
+ MEPROP Name 'chatContacts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совещание онлайн' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ UP "CanClose" true
+ UP "ImageIndex" 195
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_chatContacts_UserType.pas'
+ UP extprop:pas:UnitName 'PrimContactList_chatContacts_UserType'
+
+ENDME // ME_4BD5B59500D6 chatContacts
+
+ME ME_4BD5B5C8019F
+ MEPROP UID '4BD5B5C8019F'
+ MEPROP Name 'chatAddContact'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Добавить контакт' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5B59500D6 // chatContacts
+ )
+ ; // Inherits
+ UP "ImageIndex" 196
+ UP "Weight" '-1'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_chatAddContact_UserType.pas'
+ UP extprop:pas:UnitName 'PrimContactList_chatAddContact_UserType'
+
+ENDME // ME_4BD5B5C8019F chatAddContact
+
+FORWARD ME_4C2B24B800D0
+
+ME ME_4C2B245F01F2_ME_4C2B24B800D0
+ MELINK Original WL 'ME_4C2B245F01F2' '4A8AE21B0210.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C2B245F01F2_ME_4C2B24B800D0 Add
+
+ME ME_4C84CC2E0253_ME_4C2B24B800D0
+ MELINK Original WL 'ME_4C84CC2E0253' '4A8AE21B0210.ms.model.script' // History
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C84CC2E0253_ME_4C2B24B800D0 History
+
+ME ME_4C2B24B800D0
+ MEPROP UID '4C2B24B800D0'
+ MEPROP Name 'ExcludeAddAndHistoryForAddContact'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ExcludeUserTypes ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5B5C8019F // chatAddContact
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4C2B245F01F2_ME_4C2B24B800D0 // Add
+ ME_4C84CC2E0253_ME_4C2B24B800D0 // History
+ )
+ ; // Implemented
+
+ENDME // ME_4C2B24B800D0 ExcludeAddAndHistoryForAddContact
+
+FORWARD ME_4C2B2EAC0190
+
+ME ME_4A8AD46D0226_ME_4C2B2EAC0190
+ MELINK Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4A8AD46D0226_ME_4C2B2EAC0190 Cancel
+
+ME ME_4A97EBE702F8_ME_4C2B2EAC0190
+ MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4A97EBE702F8_ME_4C2B2EAC0190 Ok
+
+ME ME_4C762A1501FC_ME_4C2B2EAC0190
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762A1501FC_ME_4C2B2EAC0190 Ok
+
+ME ME_4C762AB601E1_ME_4C2B2EAC0190
+ MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762AB601E1_ME_4C2B2EAC0190 Cancel
+
+ME ME_4C2B2EAC0190
+ MEPROP UID '4C2B2EAC0190'
+ MEPROP Name 'ExcludeOkAndCancelForContacts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ExcludeUserTypes ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5B59500D6 // chatContacts
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A8AD46D0226_ME_4C2B2EAC0190 // Cancel
+ ME_4A97EBE702F8_ME_4C2B2EAC0190 // Ok
+ ME_4C762A1501FC_ME_4C2B2EAC0190 // Ok
+ ME_4C762AB601E1_ME_4C2B2EAC0190 // Cancel
+ )
+ ; // Implemented
+
+ENDME // ME_4C2B2EAC0190 ExcludeOkAndCancelForContacts
+
+FORWARD ME_4C2B33F40028
+
+ME ME_4C2B34C00291
+ MEPROP UID '4C2B34C00291'
+ MEPROP Name 'AllUsers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C2B33F40028 // ContactType
+ ;
+ MEPROP Value '''Все пользователи'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Все пользователи'''
+
+ENDME // ME_4C2B34C00291 AllUsers
+
+ME ME_4C2B34D50059
+ MEPROP UID '4C2B34D50059'
+ MEPROP Name 'ActiveUsers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C2B33F40028 // ContactType
+ ;
+ MEPROP Value '''Активные пользователи'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Активные пользователи'''
+
+ENDME // ME_4C2B34D50059 ActiveUsers
+
+ME ME_4C2B33F40028
+ MEPROP UID '4C2B33F40028'
+ MEPROP Name 'ContactType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C2B34C00291 // AllUsers
+ HWL ME_4C2B34D50059 // ActiveUsers
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" true
+ UP "children prefix" 'culf'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'culf'
+
+ENDME // ME_4C2B33F40028 ContactType
+
+FORWARD ME_5199DD8C0345
+
+ME ME_5199DDBD0381
+ MEPROP UID '5199DDBD0381'
+ MEPROP Name 'SelectUser'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5199DD8C0345 // ContactList Strings
+ ;
+ MEPROP Value '''Выберите пользователей для переписки'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Выберите пользователей для переписки'''
+
+ENDME // ME_5199DDBD0381 SelectUser
+
+ME ME_5199DD8C0345
+ MEPROP UID '5199DD8C0345'
+ MEPROP Name 'ContactList Strings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5199DDBD0381 // SelectUser
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_5199DD8C0345 ContactList Strings
+
+FORWARD ME_519A11F80011
+
+ME ME_519A125E0377
+ MEPROP UID '519A125E0377'
+ MEPROP Name 'CurrentFlagFilter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_519A11F80011 // IContactListFormState
+ ;
+ MELINK Target WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ ;
+ UP "pm" false
+
+ENDME // ME_519A125E0377 CurrentFlagFilter
+
+ME ME_519A11F80011
+ MEPROP UID '519A11F80011'
+ MEPROP GUID '69B1BEB1-B8BB-47FD-8500-9AAB83EAA919'
+ MEPROP Name 'IContactListFormState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_519A125E0377 // CurrentFlagFilter
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'ContactListFormState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_519A11F80011 IContactListFormState
+
+FORWARD ME_519A11C801A1
+
+ME ME_519A13780260
+ MEPROP UID '519A13780260'
+ MEPROP Name 'f_CurrentFlagFilter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_519A11C801A1 // TContactListFormState
+ ;
+ MELINK Target WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ ;
+
+ENDME // ME_519A13780260 f_CurrentFlagFilter
+
+FORWARD ME_519A138E01CC
+
+ME ME_519A13A5002C
+ MEPROP Name 'aCurrentFlagFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ ;
+
+ENDME // ME_519A13A5002C aCurrentFlagFilter
+
+ME ME_519A13A103E6
+ MEPROP UID '519A13A103E6'
+ MEPROP Name 'Do'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519A138E01CC // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_519A13A5002C // aCurrentFlagFilter
+ )
+ ; // Parameters
+
+ENDME // ME_519A13A103E6 Do
+
+ME ME_519A138E01CC
+ MEPROP UID '519A138E01CC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519A11C801A1 // TContactListFormState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_519A13A103E6 // Do
+ )
+ ; // Operations
+
+ENDME // ME_519A138E01CC Create
+
+ME ME_519A13AE026D
+ MEPROP UID '519A13AE026D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519A11C801A1 // TContactListFormState
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_519A138E01CC // Create
+ )
+ ; // Inherits
+
+ENDME // ME_519A13AE026D Make
+
+ME ME_519A125E0377_ME_519A11C801A1
+ MELINK Original HWL ME_519A125E0377 // CurrentFlagFilter
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_519A125E0377_ME_519A11C801A1 CurrentFlagFilter
+
+ME ME_519A11C801A1
+ MEPROP UID '519A11C801A1'
+ MEPROP Name 'TContactListFormState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_519A130C00B6' '47D0E1500033.ms.model.script' // TvcmCacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_519A11F80011 // IContactListFormState
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_519A13780260 // f_CurrentFlagFilter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_519A138E01CC // Create
+ HWL ME_519A13AE026D // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_519A125E0377_ME_519A11C801A1 // CurrentFlagFilter
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'ContactListFormState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_519A11C801A1 TContactListFormState
+
+FORWARD ME_8AC15E5F85C4
+
+ME ME_D4B399B3DACC
+ MEPROP UID 'D4B399B3DACC'
+ MEPROP Name 'AllUsers'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Все пользователи''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_8AC15E5F85C4 // LCImplContactType
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''culfAllUsers''; rValue : ''Все пользователи'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''culfAllUsers''; rValue : ''Все пользователи'')'
+ UPLINK Speller HWL ME_4C2B34C00291 // AllUsers
+ ;
+
+ENDME // ME_D4B399B3DACC AllUsers
+
+ME ME_D1E0DE3A30E8
+ MEPROP UID 'D1E0DE3A30E8'
+ MEPROP Name 'ActiveUsers'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Активные пользователи''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_8AC15E5F85C4 // LCImplContactType
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''culfActiveUsers''; rValue : ''Активные пользователи'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''culfActiveUsers''; rValue : ''Активные пользователи'')'
+ UPLINK Speller HWL ME_4C2B34D50059 // ActiveUsers
+ ;
+
+ENDME // ME_D1E0DE3A30E8 ActiveUsers
+
+ME ME_8AC15E5F85C4
+ MEPROP UID '8AC15E5F85C4'
+ MEPROP Name 'LCImplContactType'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки ContactType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_D4B399B3DACC // AllUsers
+ HWL ME_D1E0DE3A30E8 // ActiveUsers
+ )
+ ; // Attributes
+ UP "children prefix" 'culf'
+ UP "elements prefix" 'str'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefixBase 'str'
+ UP extprop:pas:ElementPrefix 'str_culf'
+ UPLINK Speller HWL ME_4C2B33F40028 // ContactType
+ ;
+
+ENDME // ME_8AC15E5F85C4 LCImplContactType
+
+FORWARD ME_7AAC84FA6DB8
+
+ME ME_74B101611B39
+ MEPROP UID '74B101611B39'
+ MEPROP Name 'AllUsers'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_7AAC84FA6DB8 // ContactTypeMap
+ ;
+ MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
+ ;
+ MEPROP Value 'AllUsers'
+ MELINK ValueType HWL ME_8AC15E5F85C4 // LCImplContactType
+ ;
+ UP extprop:pas:Value 'str_culfAllUsers'
+
+ENDME // ME_74B101611B39 AllUsers
+
+ME ME_BBE31F3E1E40
+ MEPROP UID 'BBE31F3E1E40'
+ MEPROP Name 'ActiveUsers'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_7AAC84FA6DB8 // ContactTypeMap
+ ;
+ MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
+ ;
+ MEPROP Value 'ActiveUsers'
+ MELINK ValueType HWL ME_8AC15E5F85C4 // LCImplContactType
+ ;
+ UP extprop:pas:Value 'str_culfActiveUsers'
+
+ENDME // ME_BBE31F3E1E40 ActiveUsers
+
+ME ME_7AAC84FA6DB8
+ MEPROP UID '7AAC84FA6DB8'
+ MEPROP Name 'ContactTypeMap'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Карта преобразования локализованных строк ContactType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_74B101611B39 // AllUsers
+ HWL ME_BBE31F3E1E40 // ActiveUsers
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" true
+
+ENDME // ME_7AAC84FA6DB8 ContactTypeMap
+
+FORWARD ME_8EEA1E00C0C3
+
+ME ME_15AFD0949380
+ MEPROP Name 'aStrings'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
+ ;
+
+ENDME // ME_15AFD0949380 aStrings
+
+ME ME_641F3EC9C833
+ MEPROP UID '641F3EC9C833'
+ MEPROP Name 'FillStrings'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Заполнение списка строк значениями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_8EEA1E00C0C3 // ContactTypeMapHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_15AFD0949380 // aStrings
+ )
+ ; // Parameters
+
+ENDME // ME_641F3EC9C833 FillStrings
+
+ME ME_605E2BC1FB0E
+ MEPROP Name 'aDisplayName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_605E2BC1FB0E aDisplayName
+
+ME ME_8E02C0CC146E
+ MEPROP UID '8E02C0CC146E'
+ MEPROP Name 'DisplayNameToValue'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Преобразование строкового значения к порядковому' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_8EEA1E00C0C3 // ContactTypeMapHelper
+ ;
+ MELINK Target WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_605E2BC1FB0E // aDisplayName
+ )
+ ; // Parameters
+
+ENDME // ME_8E02C0CC146E DisplayNameToValue
+
+ME ME_8EEA1E00C0C3
+ MEPROP UID '8EEA1E00C0C3'
+ MEPROP Name 'ContactTypeMapHelper'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилитный класс для преобразования значений ContactTypeMap' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_641F3EC9C833 // FillStrings
+ HWL ME_8E02C0CC146E // DisplayNameToValue
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts true
+ UPLINK SpelledFor HWL ME_7AAC84FA6DB8 // ContactTypeMap
+ ;
+
+ENDME // ME_8EEA1E00C0C3 ContactTypeMapHelper
+
+FORWARD ME_5199D121037F
+
+ME ME_4C84D6E9011A
+ MEPROP UID '4C84D6E9011A'
+ MEPROP Name 'ContextFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5199D121037F // BackgroundPanel
+ ;
+ UP "ControlClass" 'TnscContextFilter'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C84D6E9011A ContextFilter
+
+FORWARD ME_4C2B270E010F
+
+ME ME_494F89C30197_ME_4C2B270E010F
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_494F89C30197_ME_4C2B270E010F Delete
+
+ME ME_4C7D0CC90052_ME_4C2B270E010F
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C7D0CC90052_ME_4C2B270E010F Delete
+
+ME ME_4C2B270E010F
+ MEPROP UID '4C2B270E010F'
+ MEPROP Name 'trContactList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5199D121037F // BackgroundPanel
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_4C2B270E010F // Delete
+ ME_4C7D0CC90052_ME_4C2B270E010F // Delete
+ )
+ ; // Implemented
+ UP "ControlClass" 'TeeTreeView'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_4C2B270E010F trContactList
+
+ME ME_5199D121037F
+ MEPROP UID '5199D121037F'
+ MEPROP Name 'BackgroundPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C84D6E9011A // ContextFilter
+ HWL ME_4C2B270E010F // trContactList
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" true
+ UP "put to dfm" false
+
+ENDME // ME_5199D121037F BackgroundPanel
+
+ME ME_4C84D5FD014C
+ MEPROP UID '4C84D5FD014C'
+ MEPROP Name 'f_NeedFillFilterList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C84D5FD014C f_NeedFillFilterList
+
+ME ME_4C84D6280132
+ MEPROP UID '4C84D6280132'
+ MEPROP Name 'f_CurrentFlagFilter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ ;
+
+ENDME // ME_4C84D6280132 f_CurrentFlagFilter
+
+FORWARD ME_4C2B2B220052
+
+ME ME_4C2B2B3003A5
+ MEPROP UID '4C2B2B3003A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C2B2B220052 // AddingContact
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C2B2B3003A5 DoIt
+
+ME ME_4C2B2B220052
+ MEPROP UID '4C2B2B220052'
+ MEPROP Name 'AddingContact'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C2B2B3003A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C2B2B220052 AddingContact
+
+ME ME_4C2B2FEE01AB
+ MEPROP UID '4C2B2FEE01AB'
+ MEPROP Name 'DoAddContact'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+
+ENDME // ME_4C2B2FEE01AB DoAddContact
+
+ME ME_5199D7B40201
+ MEPROP UID '5199D7B40201'
+ MEPROP Name 'ContextFilterChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5199D7B40201 ContextFilterChange
+
+ME ME_5199D7C7035C
+ MEPROP UID '5199D7C7035C'
+ MEPROP Name 'ContextFilterWrongContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5199D7C7035C ContextFilterWrongContext
+
+ME ME_5199D9F30296
+ MEPROP UID '5199D9F30296'
+ MEPROP Name 'trContactListMakeTreeSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5199D8F700DB' '494B949E022B.ms.model.script' // TeeMakeTreeSource
+ )
+ ; // Inherits
+
+ENDME // ME_5199D9F30296 trContactListMakeTreeSource
+
+ME ME_5199DAAF00FD
+ MEPROP UID '5199DAAF00FD'
+ MEPROP Name 'trContactListGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_5199DAAF00FD trContactListGetItemImage
+
+ME ME_5199DAFF0296
+ MEPROP UID '5199DAFF0296'
+ MEPROP Name 'trContactListActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_5199DAFF0296 trContactListActionElement
+
+ME ME_5199DBBE021D
+ MEPROP UID '5199DBBE021D'
+ MEPROP Name 'trContactListFormatStatusInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5143245F0209' '499C0B7B012E.ms.model.script' // TeeFormatStatusInfo
+ )
+ ; // Inherits
+
+ENDME // ME_5199DBBE021D trContactListFormatStatusInfo
+
+ME ME_5199DC120058
+ MEPROP UID '5199DC120058'
+ MEPROP Name 'trContactListNewCharPressed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5143230F01E4' '494B949E022B.ms.model.script' // TeeNewCharPressed
+ )
+ ; // Inherits
+
+ENDME // ME_5199DC120058 trContactListNewCharPressed
+
+ME ME_5199DC98012F
+ MEPROP UID '5199DC98012F'
+ MEPROP Name 'trContactListFooterClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5199DC98012F trContactListFooterClick
+
+ME ME_4AC4EFA302F9
+ MEPROP UID '4AC4EFA302F9'
+ MEPROP Name 'MakeSingleChild'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+
+ENDME // ME_4AC4EFA302F9 MakeSingleChild
+
+ME ME_4AD5B25F02FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4A66B9D20178' '4A66B9840002.ms.model.script' // TnsContactType
+ ;
+
+ENDME // ME_4AD5B25F02FA 
+
+ME ME_4C2B318B029D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4C2B318B029D 
+
+ME ME_4C84D6630057
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4C84D6630057 
+
+ME ME_4C84D67C00F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_46835C050374' '4682595B0268.ms.model.script' // Il3FilterableTree
+ ;
+
+ENDME // ME_4C84D67C00F8 
+
+ME ME_4C84D6950295
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4901E66D024F' '47ECAAF901F8.ms.model.script' // InsUserFlagsFilters
+ ;
+
+ENDME // ME_4C84D6950295 
+
+ME ME_4C84D6A001AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4901E64C0042' '47ECAAF901F8.ms.model.script' // InsUserFlagsFilter
+ ;
+
+ENDME // ME_4C84D6A001AA 
+
+ME ME_4C84D6C20213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4901E8E20154' '4ACF68160358.ms.model.script' // TnsUserFlagsFilter
+ ;
+
+ENDME // ME_4C84D6C20213 
+
+ME ME_4C84D87802A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_45EED47801AA' '45EEAA96039C.ms.model.script' // UserFilterFlags
+ ;
+
+ENDME // ME_4C84D87802A4 
+
+ME ME_519A0EF8033B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_519A0EF8033B 
+
+ME ME_519A11340033
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_519A11280120' '4A66D6BF0190.ms.model.script' // ChatRes
+ ;
+
+ENDME // ME_519A11340033 
+
+ME ME_519B2E70023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_519B2E70023C 
+
+ME ME_519CADFF00DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ToolbarAtBottom::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ ;
+
+ENDME // ME_519CADFF00DD 
+
+ME ME_51A5EE0802FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_51A5EE0802FA 
+
+ME ME_5795E78703E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_5795D6DC01F8' '5795D66F0385.ms.model.script' // TChatService
+ ;
+
+ENDME // ME_5795E78703E5 
+
+ME ME_9F4244A5C387
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_9F4244A5C387 
+
+ME ME_5E9BD8848D4C
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_5E9BD8848D4C 
+
+ME ME_D5F144F8B9B9
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_D5F144F8B9B9 
+
+ME ME_97DB904DF9B4
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
+ ;
+ MELINK Target WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ ;
+
+ENDME // ME_97DB904DF9B4 
+
+ME ME_4A728A4900FD_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4A728A4900FD' '4A66DD3C01E8.ms.model.script' // NotifyContactListChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A728A4900FD_ME_4AC4EF5600B4 NotifyContactListChanged
+
+ME ME_4A8AD46D0226_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4A8AD46D0226_ME_4AC4EF5600B4 Cancel
+
+ME ME_4A97EBE702F8_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4A97EBE702F8_ME_4AC4EF5600B4 Ok
+
+ME ME_4C2B245F01F2_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4C2B245F01F2' '4A8AE21B0210.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C2B245F01F2_ME_4AC4EF5600B4 Add
+
+ME ME_4C762A1501FC_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762A1501FC_ME_4AC4EF5600B4 Ok
+
+ME ME_4C762AB601E1_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" true
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C762AB601E1_ME_4AC4EF5600B4 Cancel
+
+ME ME_4C84CC2E0253_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4C84CC2E0253' '4A8AE21B0210.ms.model.script' // History
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C84CC2E0253_ME_4AC4EF5600B4 History
+
+ME ME_4C84D2AD01D0_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4C84D2AD01D0' '4A8AE21B0210.ms.model.script' // UserFilter
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" false
+ UP "ShowInToolbar" true
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C84D2AD01D0_ME_4AC4EF5600B4 UserFilter
+
+ME ME_4C84D2C001D5_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4C84D2C001D5' '4A8AE21B0210.ms.model.script' // OpenChatWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" false
+ UP "AutoLock" false
+ UP "LongProcess" false
+ UP "ShowInContextMenu" true
+ UP "ShowInToolbar" false
+ UP "has states" false
+ UP "is FormActivate" false
+ UP "is query" false
+ UP "no prefix" false
+ENDME // ME_4C84D2C001D5_ME_4AC4EF5600B4 OpenChatWindow
+
+ME ME_479731C50290_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AC4EF5600B4 Cleanup
+
+ME ME_49806ED503D5_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_49806ED503D5' '4AADF9450143.ms.model.script' // DoSaveState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49806ED503D5_ME_4AC4EF5600B4 DoSaveState
+
+ME ME_49807428008C_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_49807428008C' '4AADF9450143.ms.model.script' // DoLoadState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49807428008C_ME_4AC4EF5600B4 DoLoadState
+
+ME ME_4A8E8F2E0195_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AC4EF5600B4 InitControls
+
+ME ME_4D78E2BB0211_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4D78E2BB0211' '4AADF9450143.ms.model.script' // NotifyUserTypeSet
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4D78E2BB0211_ME_4AC4EF5600B4 NotifyUserTypeSet
+
+ME ME_4F7C65380244_ME_4AC4EF5600B4
+ MELINK Original WL 'ME_4F7C65380244' '4F22CB1E0009.ms.model.script' // FormInsertedIntoContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
+
+ME ME_4AC4EF5600B4
+ MEPROP UID '4AC4EF5600B4'
+ MEPROP Name 'PrimContactList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совещание онлайн' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.ms.model.script' // Chat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A728A3C01FC' '4A66DD3C01E8.ms.model.script' // IbsContactList
+ WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5199D121037F // BackgroundPanel
+ HWL ME_4C84D5FD014C // f_NeedFillFilterList
+ HWL ME_4C84D6280132 // f_CurrentFlagFilter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C2B2B220052 // AddingContact
+ HWL ME_4C2B2FEE01AB // DoAddContact
+ HWL ME_5199D7B40201 // ContextFilterChange
+ HWL ME_5199D7C7035C // ContextFilterWrongContext
+ HWL ME_5199D9F30296 // trContactListMakeTreeSource
+ HWL ME_5199DAAF00FD // trContactListGetItemImage
+ HWL ME_5199DAFF0296 // trContactListActionElement
+ HWL ME_5199DBBE021D // trContactListFormatStatusInfo
+ HWL ME_5199DC120058 // trContactListNewCharPressed
+ HWL ME_5199DC98012F // trContactListFooterClick
+ HWL ME_4AC4EFA302F9 // MakeSingleChild
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A728A4900FD_ME_4AC4EF5600B4 // NotifyContactListChanged
+ ME_4A8AD46D0226_ME_4AC4EF5600B4 // Cancel
+ ME_4A97EBE702F8_ME_4AC4EF5600B4 // Ok
+ ME_4C2B245F01F2_ME_4AC4EF5600B4 // Add
+ ME_4C762A1501FC_ME_4AC4EF5600B4 // Ok
+ ME_4C762AB601E1_ME_4AC4EF5600B4 // Cancel
+ ME_4C84CC2E0253_ME_4AC4EF5600B4 // History
+ ME_4C84D2AD01D0_ME_4AC4EF5600B4 // UserFilter
+ ME_4C84D2C001D5_ME_4AC4EF5600B4 // OpenChatWindow
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AC4EF5600B4 // Cleanup
+ ME_49806ED503D5_ME_4AC4EF5600B4 // DoSaveState
+ ME_49807428008C_ME_4AC4EF5600B4 // DoLoadState
+ ME_4A8E8F2E0195_ME_4AC4EF5600B4 // InitControls
+ ME_4D78E2BB0211_ME_4AC4EF5600B4 // NotifyUserTypeSet
+ ME_4F7C65380244_ME_4AC4EF5600B4 // FormInsertedIntoContainer
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD5B59500D6 // chatContacts
+ HWL ME_4BD5B5C8019F // chatAddContact
+ HWL ME_4C2B24B800D0 // ExcludeAddAndHistoryForAddContact
+ HWL ME_4C2B2EAC0190 // ExcludeOkAndCancelForContacts
+ HWL ME_519A11F80011 // IContactListFormState
+ HWL ME_519A11C801A1 // TContactListFormState
+ HWL ME_8EEA1E00C0C3 // ContactTypeMapHelper
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4C2B33F40028 // ContactType
+ HWL ME_5199DD8C0345 // ContactList Strings
+ HWL ME_8AC15E5F85C4 // LCImplContactType
+ HWL ME_7AAC84FA6DB8 // ContactTypeMap
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AD5B25F02FA // TnsContactType
+ ME_4C2B318B029D // ModalResults
+ ME_4C84D6630057 // Il3SimpleTree
+ ME_4C84D67C00F8 // Il3FilterableTree
+ ME_4C84D6950295 // InsUserFlagsFilters
+ ME_4C84D6A001AA // InsUserFlagsFilter
+ ME_4C84D6C20213 // TnsUserFlagsFilter
+ ME_4C84D87802A4 // UserFilterFlags
+ ME_519A0EF8033B // nsUtils
+ ME_519A11340033 // ChatRes
+ ME_519B2E70023C // Forms
+ ME_519CADFF00DD // Result$Ok
+ ME_51A5EE0802FA // Windows
+ ME_5795E78703E5 // TChatService
+ ME_9F4244A5C387 // Tl3StringIDEx
+ ME_5E9BD8848D4C // Tl3MessageID
+ ME_D5F144F8B9B9 // l3String
+ ME_97DB904DF9B4 // Exception
+ )
+ ; // Dependencies
+ UP "NeedsHackRef" false
+ UP "ZoneType" 'Any'
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" true
+ UP "no hands" true
+ UP "resizeable" false
+ UP "restrict form def" 'undefined'
+ UP "started" '01.10.2009 2:05'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+ UP extprop:pas:TypeName 'TPrimContactListForm'
+ UP extprop:rc:SelfName 'PrimContactListForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PrimContactList_Form'
+ UP extprop:NeedsInitEntities true
+
+ENDME // ME_4AC4EF5600B4 PrimContactList

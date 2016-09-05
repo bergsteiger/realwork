@@ -1,0 +1,279 @@
+// Readers 48EA3D1F0232 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48EA3D1F0232
+
+ME ME_48EA3D2E0054
+ MEPROP UID '48EA3D2E0054'
+ MEPROP Name 'TddHTMLReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48EA3D1F0232 // Readers
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLReader.pas'
+ UP extprop:rc:SelfName 'ddHTMLReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddHTMLReader'
+
+ENDME // ME_48EA3D2E0054 TddHTMLReader
+
+FORWARD ME_4C971BD4031B
+
+FORWARD ME_56BB204702E6
+
+ME ME_56BB20610303
+ MEPROP UID '56BB20610303'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56BB204702E6 // GetdestNormClass
+ ;
+ MELINK Target WL 'ME_56BB200D01EE' '5190A3470397.ms.model.script' // RdestNorm
+ ;
+
+ENDME // ME_56BB20610303 DoIt
+
+ME ME_56BB204702E6
+ MEPROP UID '56BB204702E6'
+ MEPROP Name 'GetdestNormClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C971BD4031B // TddRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56BB20610303 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56BB204702E6 GetdestNormClass
+
+ME ME_534F8F4D0317_ME_4C971BD4031B
+ MELINK Original WL 'ME_534F8F4D0317' '5190A3470397.ms.model.script' // BeforeClosePara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_534F8F4D0317_ME_4C971BD4031B BeforeClosePara
+
+ME ME_5624D5E80387_ME_4C971BD4031B
+ MELINK Original WL 'ME_5624D5E80387' '5190A3470397.ms.model.script' // AddFooterHyperlink
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5624D5E80387_ME_4C971BD4031B AddFooterHyperlink
+
+ME ME_562616AD01DF_ME_4C971BD4031B
+ MELINK Original WL 'ME_562616AD01DF' '5190A3470397.ms.model.script' // FootNoteSymbol
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_562616AD01DF_ME_4C971BD4031B FootNoteSymbol
+
+ME ME_4C971BD4031B
+ MEPROP UID '4C971BD4031B'
+ MEPROP Name 'TddRTFReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48EA3D1F0232 // Readers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51E7BF4200C0' '5190A3470397.ms.model.script' // TddCustomRTFReader
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_56BB204702E6 // GetdestNormClass
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_534F8F4D0317_ME_4C971BD4031B // BeforeClosePara
+ ME_5624D5E80387_ME_4C971BD4031B // AddFooterHyperlink
+ ME_562616AD01DF_ME_4C971BD4031B // FootNoteSymbol
+ )
+ ; // Implemented
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFReader.pas'
+ UP extprop:rc:SelfName 'ddRTFReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddRTFReader'
+
+ENDME // ME_4C971BD4031B TddRTFReader
+
+FORWARD ME_4C9CD11901BD
+
+ME ME_4C9CD12A0116
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_4C9CD0E8038A' '4C9CD07701E6.ms.model.script' // dt_AttrSchema
+ ;
+
+ENDME // ME_4C9CD12A0116 
+
+ME ME_55DC6B43007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DC6B2E0347' '55DC6B0D020D.ms.model.script' // ddNSRCSegments
+ ;
+
+ENDME // ME_55DC6B43007E 
+
+ME ME_55DEE585032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEE5100096' '55DC6B0D020D.ms.model.script' // TddNSRCSub
+ ;
+
+ENDME // ME_55DEE585032F 
+
+ME ME_55DEE58902CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEE52F00AC' '55DC6B0D020D.ms.model.script' // TddNSRCSubList
+ ;
+
+ENDME // ME_55DEE58902CE 
+
+ME ME_55DEF44201A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEF41D03C4' '55DC6B0D020D.ms.model.script' // ddNSRCConst
+ ;
+
+ENDME // ME_55DEF44201A9 
+
+ME ME_55DEF45200C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEEAFF0079' '55DC6B0D020D.ms.model.script' // TddTk2TypeList
+ ;
+
+ENDME // ME_55DEF45200C9 
+
+ME ME_55DF02000346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DF01D8011D' '55DC6B0D020D.ms.model.script' // TddDoc2DocLinkRecList
+ ;
+
+ENDME // ME_55DF02000346 
+
+ME ME_4C9CD11901BD
+ MEPROP UID '4C9CD11901BD'
+ MEPROP Name 'ddNSRC_r'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EA3D1F0232 // Readers
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4C9CD12A0116 // dt_AttrSchema
+ ME_55DC6B43007E // ddNSRCSegments
+ ME_55DEE585032F // TddNSRCSub
+ ME_55DEE58902CE // TddNSRCSubList
+ ME_55DEF44201A9 // ddNSRCConst
+ ME_55DEF45200C9 // TddTk2TypeList
+ ME_55DF02000346 // TddDoc2DocLinkRecList
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddNSRC_r.pas'
+
+ENDME // ME_4C9CD11901BD ddNSRC_r
+
+FORWARD ME_56BB14B90213
+
+ME ME_56BB20BB024B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56BB14B90213 // TddRTFReaderSpec
+ ;
+ MELINK Target WL 'ME_56BB14F503A0' '5190A3470397.ms.model.script' // TdestNormSpec
+ ;
+
+ENDME // ME_56BB20BB024B 
+
+ME ME_56BB204702E6_ME_56BB14B90213
+ MELINK Original HWL ME_56BB204702E6 // GetdestNormClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56BB204702E6_ME_56BB14B90213 GetdestNormClass
+
+ME ME_56BB14B90213
+ MEPROP UID '56BB14B90213'
+ MEPROP Name 'TddRTFReaderSpec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Читалка со специальынми заточками.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48EA3D1F0232 // Readers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C971BD4031B // TddRTFReader
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_56BB204702E6_ME_56BB14B90213 // GetdestNormClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56BB20BB024B // TdestNormSpec
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFReaderSpec.pas'
+ UP extprop:rc:SelfName 'ddRTFReaderSpec'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddRTFReaderSpec'
+
+ENDME // ME_56BB14B90213 TddRTFReaderSpec
+
+ME ME_48EA3D1F0232
+ MEPROP UID '48EA3D1F0232'
+ MEPROP Name 'Readers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48EA3D2E0054 // TddHTMLReader
+ HWL ME_4C971BD4031B // TddRTFReader
+ HWL ME_4C9CD11901BD // ddNSRC_r
+ HWL ME_56BB14B90213 // TddRTFReaderSpec
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_4C9CD07701E6' '4C9CD07701E6.ms.model.script' // AttrSchema
+ WL 'ME_5190A3470397' '5190A3470397.ms.model.script' // RTFSupport
+ WL 'ME_55DC6B0D020D' '55DC6B0D020D.ms.model.script' // NSRCReaderCore
+ )
+ ; // Depends
+
+ENDME // ME_48EA3D1F0232 Readers

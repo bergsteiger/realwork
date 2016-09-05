@@ -1,0 +1,45 @@
+// TsdsDocumentWithFlash 493E754301C8 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493E754301C8
+
+ME ME_496F437400A6_ME_493E754301C8
+ MELINK Original WL 'ME_496F437400A6' '493E5C580280.ms.model.script' // DoCanRunBaseSearch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_496F437400A6_ME_493E754301C8 DoCanRunBaseSearch
+
+ME ME_493E754301C8
+ MEPROP UID '493E754301C8'
+ MEPROP Name 'TsdsDocumentWithFlash'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОС документа-схемы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9F83AD0235' '4A9F83AD0235.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_493E5C580280' '493E5C580280.ms.model.script' // sdsDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4937DA84024B' '4D1B548F00EE.ms.model.script' // IsdsDocumentWithFlash
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_496F437400A6_ME_493E754301C8 // DoCanRunBaseSearch
+ )
+ ; // Overridden
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '2008/06/19 11:30:02'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Document\sdsDocumentWithFlash.pas'
+ UP extprop:rc:SelfName 'sdsDocumentWithFlash'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'sdsDocumentWithFlash'
+
+ENDME // ME_493E754301C8 TsdsDocumentWithFlash

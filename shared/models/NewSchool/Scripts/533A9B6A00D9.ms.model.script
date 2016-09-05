@@ -1,0 +1,332 @@
+// TvcmChromeLikeTabbedContainerForm 533A9B6A00D9 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533A9B6A00D9
+
+ME ME_54B4B8D50155
+ MEPROP UID '54B4B8D50155'
+ MEPROP Name 'Decorator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_54211E830399' '54211E830399.ms.model.script' // TFormFrameDecorator
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_54B4B8D50155 Decorator
+
+FORWARD ME_54B4B92D0212
+
+ME ME_54B4B93900BB
+ MEPROP UID '54B4B93900BB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B4B92D0212 // RecreateButtons
+ ;
+
+ENDME // ME_54B4B93900BB DoIt
+
+ME ME_54B4B92D0212
+ MEPROP UID '54B4B92D0212'
+ MEPROP Name 'RecreateButtons'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B4B93900BB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B4B92D0212 RecreateButtons
+
+FORWARD ME_54B4B94903C5
+
+ME ME_54B4B95303B6
+ MEPROP UID '54B4B95303B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B4B94903C5 // GetClientControl
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_54B4B95303B6 DoIt
+
+ME ME_54B4B94903C5
+ MEPROP UID '54B4B94903C5'
+ MEPROP Name 'GetClientControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B4B95303B6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B4B94903C5 GetClientControl
+
+FORWARD ME_54B4B9E2025C
+
+ME ME_54B4BA030152
+ MEPROP Name 'aDecorator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_54211E830399' '54211E830399.ms.model.script' // TFormFrameDecorator
+ ;
+
+ENDME // ME_54B4BA030152 aDecorator
+
+ME ME_54B4B9FA00E6
+ MEPROP UID '54B4B9FA00E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B4B9E2025C // DoOnNeedRecreateButtons
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B4BA030152 // aDecorator
+ )
+ ; // Parameters
+
+ENDME // ME_54B4B9FA00E6 DoIt
+
+ME ME_54B4B9E2025C
+ MEPROP UID '54B4B9E2025C'
+ MEPROP Name 'DoOnNeedRecreateButtons'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B4B9FA00E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B4B9E2025C DoOnNeedRecreateButtons
+
+ME ME_54B4B91A035D
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_523AC52E0120' '476F78840219.ms.model.script' // TWMSysCommand
+ ;
+
+ENDME // ME_54B4B91A035D aMessage
+
+ME ME_54B4B8FF023D
+ MEPROP UID '54B4B8FF023D'
+ MEPROP Name 'WMSysCommand'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B4B91A035D // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SYSCOMMAND'
+
+ENDME // ME_54B4B8FF023D WMSysCommand
+
+ME ME_533BD1DB0128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_533BD1DB0128 
+
+ME ME_5342889103E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_5342880603B6' '533E6F73014E.ms.model.script' // ChromeLikeTabSetRes
+ ;
+
+ENDME // ME_5342889103E7 
+
+ME ME_534292950066
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_534292950066 
+
+ME ME_54211F1700A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_54211E830399' '54211E830399.ms.model.script' // TFormFrameDecorator
+ ;
+
+ENDME // ME_54211F1700A2 
+
+ME ME_54211F2C03AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_54211E9E038E' '54211E53007C.ms.model.script' // TChromeLikeFormFramePainter
+ ;
+
+ENDME // ME_54211F2C03AB 
+
+ME ME_54B4BB4000BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_523AC52E0120' '476F78840219.ms.model.script' // TWMSysCommand
+ ;
+
+ENDME // ME_54B4BB4000BD 
+
+ME ME_54B4BB9F00CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_533D01CB01B1' '533D01CB01B1.ms.model.script' // TChromeLikeBaseWindowCaptionButton
+ ;
+
+ENDME // ME_54B4BB9F00CD 
+
+ME ME_54B4BBBB012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_54B4BBBB012D 
+
+ME ME_54B4BBC80225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_54B4BBC80225 
+
+ME ME_54B4C062013D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533A9B6A00D9 // TvcmChromeLikeTabbedContainerForm
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_54B4C062013D 
+
+ME ME_479731C50290_ME_533A9B6A00D9
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_533A9B6A00D9 Cleanup
+
+ME ME_47A042E100E2_ME_533A9B6A00D9
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_533A9B6A00D9 InitFields
+
+ME ME_4A8E8F2E0195_ME_533A9B6A00D9
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_533A9B6A00D9 InitControls
+
+ME ME_500004A60200_ME_533A9B6A00D9
+ MELINK Original WL 'ME_500004A60200' '5000041101C8.ms.model.script' // MakeControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_500004A60200_ME_533A9B6A00D9 MakeControls
+
+ME ME_533A9B6A00D9
+ MEPROP UID '533A9B6A00D9'
+ MEPROP Name 'TvcmChromeLikeTabbedContainerForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53C65E480231' '533D53FF00C2.ms.model.script' // TvcmChromeLikeTabbedContainerFormPrim
+ WL 'ME_550A7D5C01BC' '533E6F73014E.ms.model.script' // ChromeLikeTabbedContainerForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54B4B8D50155 // Decorator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54B4B92D0212 // RecreateButtons
+ HWL ME_54B4B94903C5 // GetClientControl
+ HWL ME_54B4B9E2025C // DoOnNeedRecreateButtons
+ HWL ME_54B4B8FF023D // WMSysCommand
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_533A9B6A00D9 // Cleanup
+ ME_47A042E100E2_ME_533A9B6A00D9 // InitFields
+ ME_4A8E8F2E0195_ME_533A9B6A00D9 // InitControls
+ ME_500004A60200_ME_533A9B6A00D9 // MakeControls
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_533BD1DB0128 // SysUtils
+ ME_5342889103E7 // ChromeLikeTabSetRes
+ ME_534292950066 // TvcmEntityForm
+ ME_54211F1700A2 // TFormFrameDecorator
+ ME_54211F2C03AB // TChromeLikeFormFramePainter
+ ME_54B4BB4000BD // TWMSysCommand
+ ME_54B4BB9F00CD // TChromeLikeBaseWindowCaptionButton
+ ME_54B4BBBB012D // Forms
+ ME_54B4BBC80225 // Windows
+ ME_54B4C062013D // Classes
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabbedContainerForm.pas'
+ UP extprop:rc:SelfName 'ChromeLikeTabbedContainerForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmChromeLikeTabbedContainerForm'
+
+ENDME // ME_533A9B6A00D9 TvcmChromeLikeTabbedContainerForm

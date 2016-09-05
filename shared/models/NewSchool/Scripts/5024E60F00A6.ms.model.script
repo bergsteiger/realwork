@@ -1,0 +1,62 @@
+// TdsSynchroViewDocument 5024E60F00A6 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5024E60F00A6
+
+ME ME_5024E62302DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5024E60F00A6 // TdsSynchroViewDocument
+ ;
+ MELINK Target WL 'ME_5024E55600ED' '4C6A7BA001A5.ms.model.script' // TnsAACDocumentSynchroViewContainer
+ ;
+
+ENDME // ME_5024E62302DD 
+
+ME ME_5024E6C20323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5024E60F00A6 // TdsSynchroViewDocument
+ ;
+ MELINK Target WL 'ME_45EEB6520208' '4570511E038A.ms.model.script' // DocumentType
+ ;
+
+ENDME // ME_5024E6C20323 
+
+ME ME_4C6AB38800F3_ME_5024E60F00A6
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_5024E60F00A6 MakeContainer
+
+ME ME_5024E60F00A6
+ MEPROP UID '5024E60F00A6'
+ MEPROP Name 'TdsSynchroViewDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9F90B7029E' '4A9F90B7029E.ms.model.script' // List
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_493D63D20049' '493D63D20049.ms.model.script' // TdsDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C6AB38800F3_ME_5024E60F00A6 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5024E62302DD // TnsAACDocumentSynchroViewContainer
+ ME_5024E6C20323 // DocumentType
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\List\dsSynchroViewDocument.pas'
+ UP extprop:rc:SelfName 'dsSynchroViewDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dsSynchroViewDocument'
+
+ENDME // ME_5024E60F00A6 TdsSynchroViewDocument

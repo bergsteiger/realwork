@@ -1,0 +1,252 @@
+INCLUDE 'ME.ms.dict'
+
+ME gen_spell
+ MEPROP UID '4A41A13D03D5'
+ MEPROP Name 'spell'
+ MEPROP Stereotype 'generator'
+
+ENDME // gen_spell
+
+ME gen_wiki
+ MEPROP UID '46E6D4BB0339'
+ MEPROP Name 'wiki'
+ MEPROP Stereotype 'generator'
+
+ENDME // gen_wiki
+
+ME st_WikiPackageImpl
+ MEPROP UID '471738DF00DA'
+ MEPROP Name 'WikiPackageImpl'
+ MEPROP Stereotype 'MDACategory'
+
+ENDME // st_WikiPackageImpl
+
+ME st_WikiImplClass
+ MEPROP UID '471723E1037A'
+ MEPROP Name 'WikiImplClass'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_WikiImplClass
+
+ME st_UMLModule
+ MEPROP UID '4704814501D4'
+ MEPROP Name 'UMLModule'
+ MEPROP Stereotype 'MDACategory'
+ UP "can be main" true
+ UP "personal label" 'code_uml_module'
+ UP "visualization bg color" 13427169
+
+ENDME // st_UMLModule
+
+ME st_UMLPrimitive
+ MEPROP UID '4704818D00DA'
+ MEPROP Name 'UMLPrimitive'
+ MEPROP Stereotype 'MDAClass'
+ UP "disable forward decl" true
+ UP "personal label" 'code_uml_primitive'
+ UP "visualization bg color" 13427169
+
+ENDME // st_UMLPrimitive
+
+ME st_Requirements
+ MEPROP UID '47047244009C'
+ MEPROP Name 'Requirements'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'requirements'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 6566600
+ UP "visualization f-line color" 6566600
+
+ENDME // st_Requirements
+
+ME st_UseCases
+ MEPROP UID '470472F6005D'
+ MEPROP Name 'UseCases'
+ MEPROP Stereotype 'MDACategory'
+ UP "personal label" 'usecases'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 8568555
+ UP "visualization f-line color" 6584470
+
+ENDME // st_UseCases
+
+ME st_Features
+ MEPROP UID '470473D60213'
+ MEPROP Name 'Features'
+ MEPROP Stereotype 'MDACategory'
+ UP "disable forward decl" true
+ UP "personal label" 'features'
+ UP "visualization bg color" 11531715
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+
+ENDME // st_Features
+
+ME st_Problems
+ MEPROP UID '4704742800BB'
+ MEPROP Name 'Problems'
+ MEPROP Stereotype 'MDACategory'
+ UP "disable forward decl" true
+ UP "personal label" 'problems'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 5911215
+ UP "visualization f-line color" 5911215
+
+ENDME // st_Problems
+
+ME st_Actor
+ MEPROP UID '4704752002AF'
+ MEPROP Name 'Actor'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_actor'
+ UP "visability type" '+'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP "visualization f-line color" 16714250
+ UP "visualization type" 'd'
+
+ENDME // st_Actor
+
+ME st_ClassDependency::Dependency
+ MEPROP UID '470475BF032C'
+ MEPROP Name 'ClassDependency::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ UP "personal label" 'code_dep'
+ UP "unstereotyped" true
+
+ENDME // st_ClassDependency::Dependency
+
+ME st_UserNeeds
+ MEPROP UID '470476510157'
+ MEPROP Name 'UserNeeds'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'r'
+ UP "personal label" 'userneeds'
+ UP "visability type" '+'
+ UP "visualization bg color" 12824565
+ UP "visualization f-font color" 5911215
+ UP "visualization f-line color" 5911215
+
+ENDME // st_UserNeeds
+
+ME st_Feature
+ MEPROP UID '47047810029F'
+ MEPROP Name 'Feature'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'feature'
+ UP "visability type" '+'
+ UP "visualization bg color" 11531715
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+ UP "visualization type" 'i'
+
+ENDME // st_Feature
+
+ME st_UseCase
+ MEPROP UID '470478900251'
+ MEPROP Name 'UseCase'
+ MEPROP Stereotype 'MDAClass'
+ UP "abstraction type" 'ra'
+ UP "personal label" 'usecase'
+ UP "visability type" '+'
+ UP "visualization bg color" 12510975
+ UP "visualization f-font color" 1989310
+ UP "visualization f-line color" 1989310
+ UP "visualization type" 'i'
+
+ENDME // st_UseCase
+
+ME st_include::Dependency
+ MEPROP UID '470479110280'
+ MEPROP Name 'include::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ UP "personal label" 'code_dep_include'
+
+ENDME // st_include::Dependency
+
+ME st_extend::Dependency Inherits ( st_include::Dependency )
+ MEPROP UID '47047929006D'
+ MEPROP Name 'extend::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ UP "personal label" 'code_dep_extend'
+
+ENDME // st_extend::Dependency
+
+ME st_notify::Dependency
+ MEPROP UID '4704795200AB'
+ MEPROP Name 'notify::Dependency'
+ MEPROP Stereotype 'MDADependency'
+ UP "personal label" 'code_dep_notify'
+
+ENDME // st_notify::Dependency
+
+ME st_follow::Dependency
+ MEPROP UID '48E35B39018E'
+ MEPROP Name 'follow::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_follow::Dependency
+
+ME st_UseCaseRequirement Inherits ( st_UseCase )
+ MEPROP UID '4E3021A70212'
+ MEPROP Name 'UseCaseRequirement'
+ MEPROP Stereotype 'MDAClass'
+ UP "inherite constraints" false
+
+ENDME // st_UseCaseRequirement
+
+ME st_realized_by::Dependency
+ MEPROP UID '4E9F0231024F'
+ MEPROP Name 'realized_by::Dependency'
+ MEPROP Stereotype 'MDADependency'
+
+ENDME // st_realized_by::Dependency
+
+ME st_UseCaseSetting Inherits ( st_UseCaseRequirement )
+ MEPROP UID '4E3022100248'
+ MEPROP Name 'UseCaseSetting'
+ MEPROP Stereotype 'MDAClass'
+
+ENDME // st_UseCaseSetting
+
+ME st_UseCaseSettingValue
+ MEPROP UID '4E30271A0247'
+ MEPROP Name 'UseCaseSettingValue'
+ MEPROP Stereotype 'MDAClass'
+ UP "personal label" 'usecase'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 7451452
+ UP "visualization f-line color" 7451452
+
+ENDME // st_UseCaseSettingValue
+
+ME st_UseCaseTagRequirement Inherits ( st_UseCaseRequirement )
+ MEPROP UID '4E5D084401FE'
+ MEPROP Name 'UseCaseTagRequirement'
+ MEPROP Stereotype 'MDAClass'
+ UP "inherite constraints" false
+
+ENDME // st_UseCaseTagRequirement
+
+ME st_UseCaseTagValueRequirement Inherits ( st_UseCaseRequirement )
+ MEPROP UID '4E5D0C7A0101'
+ MEPROP Name 'UseCaseTagValueRequirement'
+ MEPROP Stereotype 'MDAClass'
+ UP "inherite constraints" false
+
+ENDME // st_UseCaseTagValueRequirement
+
+ME st_Project
+ MEPROP UID '49F99EB100B2'
+ MEPROP Name 'Project'
+ MEPROP Stereotype 'MDACategory'
+ UP "can be main" true
+ UP "personal label" 'code_project'
+ UP "visualization bg color" 12842435
+ UP "visualization f-font color" 5961040
+ UP "visualization f-line color" 5961040
+
+ENDME // st_Project
+
