@@ -1,0 +1,209 @@
+// Dictionary 4F463D910318 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F463D910318
+
+FORWARD ME_4F4DF07602DD
+
+ME ME_4F4DF0B100B7
+ MEPROP UID '4F4DF0B100B7'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_4F4DF0B100B7 l3Items_NeedsBeforeFreeItem
+
+ME ME_4F4DF0BE0053
+ MEPROP UID '4F4DF0BE0053'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4F4DF0BE0053 l3Items_NoSort
+
+ME ME_4F4DF0D00212
+ MEPROP UID '4F4DF0D00212'
+ MEPROP Name 'l3Items_CaseUnsensitive'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ ;
+ UP extprop:rc:SelfName 'Items_CaseUnsensitive'
+
+ENDME // ME_4F4DF0D00212 l3Items_CaseUnsensitive
+
+ME ME_4F4DF07602DD
+ MEPROP UID '4F4DF07602DD'
+ MEPROP Name 'TtfwDictionaryPrimPrimPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F463D910318 // Dictionary
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B88F8D6025A' '47913B47006E.ms.model.script' // l3StringList
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4F4DF0B100B7 // l3Items_NeedsBeforeFreeItem
+ HWL ME_4F4DF0BE0053 // l3Items_NoSort
+ HWL ME_4F4DF0D00212 // l3Items_CaseUnsensitive
+ )
+ ; // Children
+ UP extprop:pas:UnitName 'tfwDictionaryPrimPrimPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionaryPrimPrimPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
+
+ENDME // ME_4F4DF07602DD TtfwDictionaryPrimPrimPrim
+
+ME ME_4F463DDB0108
+ MEPROP UID '4F463DDB0108'
+ MEPROP Name 'TtfwDictionaryPrimPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F463D910318 // Dictionary
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ WL 'ME_5304D68D03B2' '47913B47006E.ms.model.script' // l3DelphiStringSearcher
+ )
+ ; // Inherits
+ UP extprop:pas:UnitName 'tfwDictionaryPrimPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionaryPrimPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
+
+ENDME // ME_4F463DDB0108 TtfwDictionaryPrimPrim
+
+FORWARD ME_4F4659980048
+
+ME ME_4F4659EC0192
+ MEPROP UID '4F4659EC0192'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4F4659EC0192 FindDataType
+
+ME ME_4F465F900266
+ MEPROP UID '4F465F900266'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ MELINK Target WL 'ME_47A8693601A1' '47913B47006E.ms.model.script' // Tl3PrimString
+ ;
+
+ENDME // ME_4F465F900266 ItemType
+
+ME ME_4F465F5E02CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4F465F5E02CD 
+
+ME ME_47B9BAFD01F4_ME_4F4659980048
+ MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47B9BAFD01F4_ME_4F4659980048 CompareItemWithData
+
+ME ME_4F4659980048
+ MEPROP UID '4F4659980048'
+ MEPROP Name 'TtfwDictionaryPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F463D910318 // Dictionary
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+ HWL ME_4F463DDB0108 // TtfwDictionaryPrimPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F4659EC0192 // FindDataType
+ HWL ME_4F465F900266 // ItemType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_4F4659980048 // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F465F5E02CD // l3String
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'tfwDictionaryPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionaryPrim'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
+
+ENDME // ME_4F4659980048 TtfwDictionaryPrim
+
+ME ME_4F463D910318
+ MEPROP UID '4F463D910318'
+ MEPROP Name 'Dictionary'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
+ HWL ME_4F463DDB0108 // TtfwDictionaryPrimPrim
+ HWL ME_4F4659980048 // TtfwDictionaryPrim
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ )
+ ; // Depends
+ UP "UseNewGen" True
+
+ENDME // ME_4F463D910318 Dictionary

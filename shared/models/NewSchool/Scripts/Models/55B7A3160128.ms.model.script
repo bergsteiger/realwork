@@ -1,0 +1,255 @@
+// ScriptedAxiomatics 55B7A3160128 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B7A3160128
+
+FORWARD ME_55B7A33101AF
+
+ME ME_55B7B2D2039D
+ MEPROP UID '55B7B2D2039D'
+ MEPROP Name 'RtfwAxiomaticsResNameGetter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_55B7B2D2039D RtfwAxiomaticsResNameGetter
+
+FORWARD ME_55B7A3AF0359
+
+ME ME_55B7A3C7002A
+ MEPROP UID '55B7A3C7002A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B7A3AF0359 // ResName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_55B7A3C7002A DoIt
+
+ME ME_55B7A3AF0359
+ MEPROP UID '55B7A3AF0359'
+ MEPROP Name 'ResName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B7A3C7002A // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_55B7A3AF0359 ResName
+
+FORWARD ME_55B8C6800184
+
+ME ME_55B8C68B0388
+ MEPROP UID '55B8C68B0388'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B8C6800184 // Register
+ ;
+
+ENDME // ME_55B8C68B0388 DoIt
+
+ME ME_55B8C6800184
+ MEPROP UID '55B8C6800184'
+ MEPROP Name 'Register'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B8C68B0388 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_55B8C6800184 Register
+
+FORWARD ME_55B7A39F0035
+
+ME ME_55B8C673004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ;
+ MELINK Target HWL ME_55B7A39F0035 // TtfwAxiomaticsResNameGetters
+ ;
+
+ENDME // ME_55B8C673004C 
+
+ME ME_55B7A33101AF
+ MEPROP UID '55B7A33101AF'
+ MEPROP Name 'TtfwAxiomaticsResNameGetter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B7A3AF0359 // ResName
+ HWL ME_55B8C6800184 // Register
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_55B7B2D2039D // RtfwAxiomaticsResNameGetter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55B8C673004C // TtfwAxiomaticsResNameGetters
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'tfwAxiomaticsResNameGetter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AxiomaticsResNameGetter'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetter.pas'
+
+ENDME // ME_55B7A33101AF TtfwAxiomaticsResNameGetter
+
+FORWARD ME_55B7A37F010E
+
+ME ME_55B7A38E028C
+ MEPROP UID '55B7A38E028C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ ;
+ MELINK Target HWL ME_55B7B2D2039D // RtfwAxiomaticsResNameGetter
+ ;
+
+ENDME // ME_55B7A38E028C ItemType
+
+ME ME_47B99D4503A2_ME_55B7A37F010E
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_55B7A37F010E CompareExistingItems
+
+ME ME_55B7A37F010E
+ MEPROP UID '55B7A37F010E'
+ MEPROP Name 'TtfwAxiomaticsResNameGetterList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B992F60244' '47913B47006E.ms.model.script' // l3UnrefcountedList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55B7A38E028C // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_55B7A37F010E // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'tfwAxiomaticsResNameGetterList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AxiomaticsResNameGetterList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetterList.pas'
+
+ENDME // ME_55B7A37F010E TtfwAxiomaticsResNameGetterList
+
+ME ME_55B7A39F0035
+ MEPROP UID '55B7A39F0035'
+ MEPROP Name 'TtfwAxiomaticsResNameGetters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ )
+ ; // Inherits
+ UP "singleton" True
+ UP extprop:pas:UnitName 'tfwAxiomaticsResNameGetters'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AxiomaticsResNameGetters'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetters.pas'
+
+ENDME // ME_55B7A39F0035 TtfwAxiomaticsResNameGetters
+
+ME ME_55BA0CA0035A
+ MEPROP UID '55BA0CA0035A'
+ MEPROP Name 'TtfwCompiledAxiomaticsRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B7A3160128 // ScriptedAxiomatics
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.ms.model.script' // Tl3StringList
+ )
+ ; // Inherits
+ UP "singleton" True
+ UP extprop:pas:UnitName 'tfwCompiledAxiomaticsRes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CompiledAxiomaticsRes'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCompiledAxiomaticsRes.pas'
+
+ENDME // ME_55BA0CA0035A TtfwCompiledAxiomaticsRes
+
+ME ME_55B7A3160128
+ MEPROP UID '55B7A3160128'
+ MEPROP Name 'ScriptedAxiomatics'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Аксиоматика порождаемая скриптами же. Всякие обёртки, алиасы, декораторы и т.д. и .п.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ HWL ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ HWL ME_55B7A39F0035 // TtfwAxiomaticsResNameGetters
+ HWL ME_55BA0CA0035A // TtfwCompiledAxiomaticsRes
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ )
+ ; // Depends
+ UP "UseNewGen" True
+
+ENDME // ME_55B7A3160128 ScriptedAxiomatics

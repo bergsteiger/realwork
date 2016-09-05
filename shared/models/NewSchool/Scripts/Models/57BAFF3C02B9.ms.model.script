@@ -1,0 +1,226 @@
+// WordsListening 57BAFF3C02B9 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57BAFF3C02B9
+
+FORWARD ME_57BAFF5F01D5
+
+ME ME_57BAFF6A0278
+ MEPROP UID '57BAFF6A0278'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BAFF5F01D5 // TItfwWordListenerList
+ ;
+ MELINK Target WL 'ME_57BAFEA70030' '4DAF19F600C5.ms.model.script' // ItfwWordListener
+ ;
+
+ENDME // ME_57BAFF6A0278 ItemType
+
+FORWARD ME_57BB00560345
+
+FORWARD ME_57BB00640113
+
+ME ME_57BB006B0350
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57BAFEA70030' '4DAF19F600C5.ms.model.script' // ItfwWordListener
+ ;
+
+ENDME // ME_57BB006B0350 aListener
+
+ME ME_57BB00640113
+ MEPROP UID '57BB00640113'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57BB00560345 // Subscribe
+ ;
+ MELIST Parameters
+   Seq: ( ME_57BB006B0350 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_57BB00640113 DoIt
+
+ME ME_57BB00560345
+ MEPROP UID '57BB00560345'
+ MEPROP Name 'Subscribe'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57BAFF5F01D5 // TItfwWordListenerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57BB00640113 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57BB00560345 Subscribe
+
+ME ME_57BB007302F3
+ MEPROP UID '57BB007302F3'
+ MEPROP Name 'Unsubscribe'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57BAFF5F01D5 // TItfwWordListenerList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57BB00560345 // Subscribe
+ )
+ ; // Inherits
+
+ENDME // ME_57BB007302F3 Unsubscribe
+
+FORWARD ME_57BB027A01CD
+
+FORWARD ME_57BB02810356
+
+ME ME_57BB028B0390
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57BB028B0390 aWord
+
+ME ME_57BB02810356
+ MEPROP UID '57BB02810356'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57BB027A01CD // Fire
+ ;
+ MELIST Parameters
+   Seq: ( ME_57BB028B0390 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_57BB02810356 DoIt
+
+ME ME_57BB027A01CD
+ MEPROP UID '57BB027A01CD'
+ MEPROP Name 'Fire'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57BAFF5F01D5 // TItfwWordListenerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57BB02810356 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57BB027A01CD Fire
+
+ME ME_57BAFF5F01D5
+ MEPROP UID '57BAFF5F01D5'
+ MEPROP Name 'TItfwWordListenerList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BAFF3C02B9 // WordsListening
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57BAFF6A0278 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57BB00560345 // Subscribe
+ HWL ME_57BB007302F3 // Unsubscribe
+ HWL ME_57BB027A01CD // Fire
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'ItfwWordListenerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ItfwWordListenerList'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ItfwWordListenerList.pas'
+
+ENDME // ME_57BAFF5F01D5 TItfwWordListenerList
+
+FORWARD ME_57BB002402E9
+
+ME ME_57BB003E00D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57BB002402E9 // TtfwWordDeleteListeners
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_57BB003E00D5 
+
+ME ME_57BB002402E9
+ MEPROP UID '57BB002402E9'
+ MEPROP Name 'TtfwWordDeleteListeners'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BAFF3C02B9 // WordsListening
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57BAFF5F01D5 // TItfwWordListenerList
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57BB003E00D5 // TtfwWord
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:pas:UnitName 'tfwWordDeleteListeners'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WordDeleteListeners'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordDeleteListeners.pas'
+
+ENDME // ME_57BB002402E9 TtfwWordDeleteListeners
+
+ME ME_57BAFF3C02B9
+ MEPROP UID '57BAFF3C02B9'
+ MEPROP Name 'WordsListening'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57BAFF5F01D5 // TItfwWordListenerList
+ HWL ME_57BB002402E9 // TtfwWordDeleteListeners
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ )
+ ; // Depends
+
+ENDME // ME_57BAFF3C02B9 WordsListening
