@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , csSendTask_Const
+ //#UC START# *54855C2F0088impl_uses*
+ //#UC END# *54855C2F0088impl_uses*
 ;
 
 function TncsSendTask.pm_GetData: Tk2RawData;

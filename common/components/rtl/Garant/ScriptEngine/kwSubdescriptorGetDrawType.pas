@@ -41,6 +41,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52D65F690396impl_uses*
+ //#UC END# *52D65F690396impl_uses*
 ;
 
 procedure TkwSubdescriptorGetDrawType.DoWithSubDescriptor(aControl: TevSubDescriptor;

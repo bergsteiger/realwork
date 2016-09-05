@@ -29,6 +29,8 @@ implementation
 {$If Defined(AppClientSide)}
 uses
  l3ImplUses
+ //#UC START# *549A9AB80233impl_uses*
+ //#UC END# *549A9AB80233impl_uses*
 ;
 {$IfEnd} // Defined(AppClientSide)
 

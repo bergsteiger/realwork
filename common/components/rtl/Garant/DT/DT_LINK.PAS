@@ -1,8 +1,14 @@
 Unit Dt_Link;
 
-{ $Id: DT_LINK.PAS,v 1.193 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: DT_LINK.PAS,v 1.195 2016/08/12 12:59:20 voba Exp $ }
 
 // $Log: DT_LINK.PAS,v $
+// Revision 1.195  2016/08/12 12:59:20  voba
+// -bf
+//
+// Revision 1.194  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.193  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -514,6 +520,7 @@ interface
 
 Uses WinTypes, Classes,
      HT_Const,
+     daTypes,
      dtIntf,
      dt_aTbl, dt_Sab,
      dt_Types, dt_Const,
@@ -581,7 +588,7 @@ type
   procedure Cleanup; override;
 
  public
-  constructor Create(aFamily    : TFamilyID;
+  constructor Create(aFamily    : TdaFamilyID;
                      aTblID     : Integer;
                      aTblPart   : TdtAttrTblPart = atpMain;
                      aWithFlush : boolean = false);
@@ -591,19 +598,19 @@ type
 
  TDocAttrTbl = Class(TTblUtil {TPrometTbl})
   private
-   f_Family: TFamilyID;
+   f_Family: TdaFamilyID;
   protected
    fAttribute : TdtAttribute;
   protected
    function DocLinkField : ThtField;
 
   public
-   constructor Create(aFamily : TFamilyID; aAttr : TdtAttribute); overload; virtual;
+   constructor Create(aFamily : TdaFamilyID; aAttr : TdtAttribute); overload; virtual;
 
    function  DelAllLinkItems(const aDocIDs: ISab) : integer;  overload;
     {* - удаляет все линки из пачки документов, возвращает количество удаленных}
    procedure DelAllLinkItems(aDocID : TDocID); overload;
-   property Family: TFamilyID read f_Family write f_Family;
+   property Family: TdaFamilyID read f_Family write f_Family;
     {* - удаляет все линки для документа}
 
  end;
@@ -642,7 +649,7 @@ end;
    fUniKey_fld : SmallInt;
 
   public
-   constructor Create(aFamily : TFamilyID; aAttr : TdtAttribute); override;
+   constructor Create(aFamily : TdaFamilyID; aAttr : TdtAttribute); override;
 
    procedure   AddNode(aDoc : TDocID;var aBody); override;
    procedure   DelNode(aDoc : TDocID;var aBody); override;
@@ -660,7 +667,6 @@ end;
 
 implementation
 uses SysUtils, WinProcs,
-     daTypes,
      daSchemeConsts,
      HT_Dll,
      Dt_Err, Dt_Misc,
@@ -670,7 +676,7 @@ uses SysUtils, WinProcs,
      l3MinMax, l3Nodes, dt_DictConst;
 
 {TTblUtil}
-constructor TTblUtil.Create(aFamily    : TFamilyID;
+constructor TTblUtil.Create(aFamily    : TdaFamilyID;
                             aTblID     : Integer;
                             aTblPart   : TdtAttrTblPart = atpMain;
                             aWithFlush : boolean = false);
@@ -688,7 +694,7 @@ begin
 end;
 
 {TDocAttrTbl}
-constructor TDocAttrTbl.Create(aFamily : TFamilyID; aAttr : TdtAttribute);
+constructor TDocAttrTbl.Create(aFamily : TdaFamilyID; aAttr : TdtAttribute);
 begin
  Assert(aFamily <> MainTblsFamily);
  fAttribute := aAttr;
@@ -722,7 +728,7 @@ begin
     DeleteFromTable;
    end;
 
- fTable.DeleteRecsByKeys(aDocIDs, DocLinkField);
+ Result := fTable.DeleteRecsByKeys(aDocIDs, DocLinkField);
 end;
 
 procedure TDocAttrTbl.DelAllLinkItems(aDocID : TDocID);
@@ -939,7 +945,7 @@ begin
 end;
 
 { TSubLinkTbl }
-constructor TSubLinkTbl.Create(aFamily : TFamilyID; aAttr : TdtAttribute);
+constructor TSubLinkTbl.Create(aFamily : TdaFamilyID; aAttr : TdtAttribute);
 begin
  inherited;
  fUniKey_fld := tlnkUniKey;

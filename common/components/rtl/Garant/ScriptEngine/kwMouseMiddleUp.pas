@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *4F967CDF0244impl_uses*
+ //#UC END# *4F967CDF0244impl_uses*
 ;
 
 function TkwMouseMiddleUp.GetMouseEventFlag: Integer;

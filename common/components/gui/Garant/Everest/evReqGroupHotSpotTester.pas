@@ -64,6 +64,8 @@ uses
  , l3MinMax
  , ReqGroup_Const
  , SysUtils
+ //#UC START# *4D64068D027Bimpl_uses*
+ //#UC END# *4D64068D027Bimpl_uses*
 ;
 
 type _Instance_R_ = TevReqGroupHotSpot;

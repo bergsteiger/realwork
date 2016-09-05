@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55A4B3E800A7impl_uses*
+ //#UC END# *55A4B3E800A7impl_uses*
 ;
 
 type _Instance_R_ = TvcmFormSetHistoryItemList;

@@ -108,6 +108,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *47E122F001A4impl_uses*
+ //#UC END# *47E122F001A4impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}

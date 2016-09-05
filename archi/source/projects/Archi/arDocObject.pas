@@ -1,8 +1,20 @@
 unit arDocObject;
 
-{ $Id: arDocObject.pas,v 1.24 2015/11/25 14:01:28 lukyanets Exp $ }
+{ $Id: arDocObject.pas,v 1.28 2016/08/30 14:11:44 lukyanets Exp $ }
 
 // $Log: arDocObject.pas,v $
+// Revision 1.28  2016/08/30 14:11:44  lukyanets
+// Пытаемся отдавать файл
+//
+// Revision 1.27  2016/08/10 10:10:53  lulin
+// - была вероятность перетереть картинку в теле документа.
+//
+// Revision 1.26  2016/08/10 10:02:57  lulin
+// - была вероятность перетереть картинку в теле документа.
+//
+// Revision 1.25  2016/06/16 05:38:41  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.24  2015/11/25 14:01:28  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -106,7 +118,8 @@ uses
 
  //ddObjProxyStream,
 
- DT_Types
+ daTypes,
+ dt_Types
  ;
 
 type
@@ -118,7 +131,7 @@ type
   f_ObjType: TarDocObjectType;
   f_StreamHandle: Integer;
   //f_Bitmap: Il3Bitmap;
-  f_DocFamily: TFamilyID;
+  f_DocFamily: TdaFamilyID;
   //f_DocID    : TDocID;
   f_DocContainer : InevDocumentContainer;
 
@@ -153,22 +166,6 @@ type
   property DataStream : IStream read pm_GetDataStream write pm_SetDataStream;
   property Document: Tl3Variant read pm_GetDocument;
   property Para : Tl3Variant read pm_GetPara;
- end;
-
- // "Подкладывает" доп поток с "картинкой" в evd-поток
- TarDocObjectMixer = class(Tk2TagFilter)
- private
-  fDocId      : TDocID;
-  fDataHandle : Integer;
-  fProcessed  : boolean;
- protected
-        {-}
-  procedure AddAtomEx(AtomIndex : Long; const Value : Tk2Variant); override;
-  procedure DoCloseStructure(NeedUndo: Boolean); override;
- public
-  {* - создает экземпляр класа и цепляет его к генератору. }
-  //class function SetTo(var theGenerator: Tk2TagGenerator; aDocObject: TarDocObject): Tk2TagGenerator; overload;
-  //property DocObject: TarDocObject read f_DocObject write f_DocObject;
  end;
 
 
@@ -528,67 +525,6 @@ begin
  finally
   l3Free(lStream);
  end;
-end;
-
-{TarDocObjectMixer}
-procedure TarDocObjectMixer.AddAtomEx(AtomIndex : Long; const Value : Tk2Variant);
-begin
- if TopType[0].IsKindOf(k2_typDocument) then {заполнение элементарных полей документа}
- begin
-  if (AtomIndex = k2_tiInternalHandle) then
-   fDocID := TDocID(Value.AsInteger);
- end
- else
-  if TopType[0].IsKindOf([k2_typBitMapPara, k2_typExtDataPara]) then
-  begin
-   if (AtomIndex = k2_tiData) then
-    fProcessed := True;
-
-   if (AtomIndex = k2_tiInternalHandle) then
-    fDataHandle := Value.AsInteger;
-  end;
- Inherited;
-end;
-
-procedure TarDocObjectMixer.DoCloseStructure(NeedUndo: Boolean);
-  //virtual;
-  {-вызывается на закрывающуюся скобку}
- procedure lStreamLoad;
- var
-  l_IStream : IStream;
-  l_Stream  : TStream;
-
- begin
-  l_IStream := dtGetObjectStream(CurrentFamily, fDocID, fDataHandle, m3_saRead);
-
-  l3IStream2Stream(l_IStream, l_Stream);
-  try
-   AddStreamAtom(k2_tiData, l_Stream);
-  finally
-   l3Free(l_Stream);
-  end;
- end;
-
-begin
- if not fProcessed and CurrentType.IsKindOf([k2_typBitMapPara, k2_typExtDataPara]) then
- begin
-  lStreamLoad;
-  fProcessed := True;
- end
- else
- if not fProcessed and CurrentType.IsKindOf(k2_typDocument) then
- begin
-  {if DocObject.ObjType = dotImage then
-   StartChild(k2_typBitmapPara)
-  else}
-   StartChild(k2_typExtDataPara);
-  try
-   lStreamLoad;
-  finally
-   Finish;
-  end;
- end;
- inherited;
 end;
 
 {TarObject_CheckExtNumber}

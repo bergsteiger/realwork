@@ -64,6 +64,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4CAC405703AEimpl_uses*
+ //#UC END# *4CAC405703AEimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}

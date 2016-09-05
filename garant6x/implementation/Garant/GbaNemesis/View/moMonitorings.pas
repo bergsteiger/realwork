@@ -26,9 +26,6 @@ type
  Tmo_Monitorings = {final} class(TPrimMonitoringsModule)
   {* Мониторинги }
  end;//Tmo_Monitorings
-
-var g_module_opcode_Monitorings_OpenNewsLine: TvcmMOPID = (rMoID : -1; rOpID : -1);
-var g_module_opcode_Monitorings_OpenLegislationReview: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -42,12 +39,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Monitorings, 'Мониторинги'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Monitorings, 'OpenNewsLine', 'Новостная лента', False, g_module_opcode_Monitorings_OpenNewsLine));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Monitorings, 'OpenLegislationReview', 'Обзор изменений законодательства', False, g_module_opcode_Monitorings_OpenLegislationReview));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Monitorings, 'OpenLegislationReview', 'Обзор изменений законодательства', False, mod_opcode_MonitoringsService_OpenLegislationReview));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Monitorings, 'OpenNewsLine', 'Новостная лента', False, mod_opcode_MonitoringsService_OpenNewsLine));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

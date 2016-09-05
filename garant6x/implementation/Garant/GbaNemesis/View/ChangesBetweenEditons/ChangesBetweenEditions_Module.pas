@@ -13,7 +13,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , DocumentUnit
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -35,11 +34,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class procedure ViewChangedFragments(const aLeft: IDocument;
-    const aRight: IDocument);
-   class procedure ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
-    {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
  end;//TChangesBetweenEditionsModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -48,29 +42,85 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
+ , DocumentUnit
  , l3MessageID
  , DataAdapter
- , sdsChangesBetweenEditions
  , nsChangesBetweenEditionsInfo
- , fsViewChangedFragments
+ , sdsChangesBetweenEditions
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
+ , fsViewChangedFragments
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3Base
  , ChangesBetweenEditons_Form
  //#UC START# *4DDBAF2B0028impl_uses*
  //#UC END# *4DDBAF2B0028impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
+type
+ TChangesBetweenEditionsServiceImpl = {final} class(TvcmModuleContractImplementation, IChangesBetweenEditionsService)
+  public
+   procedure ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
+    {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
+   procedure ViewChangedFragments(const aLeft: IDocument;
+    const aRight: IDocument);
+   class function Instance: TChangesBetweenEditionsServiceImpl;
+    {* Метод получения экземпляра синглетона TChangesBetweenEditionsServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TChangesBetweenEditionsServiceImpl
+
+var g_TChangesBetweenEditionsServiceImpl: TChangesBetweenEditionsServiceImpl = nil;
+ {* Экземпляр синглетона TChangesBetweenEditionsServiceImpl }
+
 const
  {* Локализуемые строки Local }
  str_CannotShowChanges: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'CannotShowChanges'; rValue : 'Изменения не могут быть отображены в сводном обзоре');
   {* 'Изменения не могут быть отображены в сводном обзоре' }
 
-class procedure TChangesBetweenEditionsModule.ViewChangedFragments(const aLeft: IDocument;
+procedure TChangesBetweenEditionsServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TChangesBetweenEditionsServiceImpl }
+begin
+ l3Free(g_TChangesBetweenEditionsServiceImpl);
+end;//TChangesBetweenEditionsServiceImplFree
+
+procedure TChangesBetweenEditionsServiceImpl.ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
+ {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
+var
+ __WasEnter : Boolean;
+//#UC START# *4DE513C202B3_4DDBAF2B0028_var*
+var
+ l_PrevState : IDocumentState;
+ l_State : IDocumentState;
+ l_Prev  : IDocument;
+//#UC END# *4DE513C202B3_4DDBAF2B0028_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4DE513C202B3_4DDBAF2B0028_impl*
+  aDocument.GetCurrentState(l_PrevState);
+  l_PrevState.Clone(l_State);
+  l_State.SetPrevRedaction;
+  aDocument.CreateView(l_State, l_Prev);
+  Assert(l_Prev <> nil);
+  ViewChangedFragments(l_Prev, aDocument);
+//#UC END# *4DE513C202B3_4DDBAF2B0028_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TChangesBetweenEditionsServiceImpl.ViewChangedFragmentsForPrevEdition
+
+procedure TChangesBetweenEditionsServiceImpl.ViewChangedFragments(const aLeft: IDocument;
  const aRight: IDocument);
 var
  __WasEnter : Boolean;
@@ -100,34 +150,24 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TChangesBetweenEditionsModule.ViewChangedFragments
+end;//TChangesBetweenEditionsServiceImpl.ViewChangedFragments
 
-class procedure TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition(const aDocument: IDocument);
- {* Просмотр изменёных фрагментов в сравнении с предыдущей редакцией }
-var
- __WasEnter : Boolean;
-//#UC START# *4DE513C202B3_4DDBAF2B0028_var*
-var
- l_PrevState : IDocumentState;
- l_State : IDocumentState;
- l_Prev  : IDocument;
-//#UC END# *4DE513C202B3_4DDBAF2B0028_var*
+class function TChangesBetweenEditionsServiceImpl.Instance: TChangesBetweenEditionsServiceImpl;
+ {* Метод получения экземпляра синглетона TChangesBetweenEditionsServiceImpl }
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4DE513C202B3_4DDBAF2B0028_impl*
-  aDocument.GetCurrentState(l_PrevState);
-  l_PrevState.Clone(l_State);
-  l_State.SetPrevRedaction;
-  aDocument.CreateView(l_State, l_Prev);
-  Assert(l_Prev <> nil);
-  ViewChangedFragments(l_Prev, aDocument);
-//#UC END# *4DE513C202B3_4DDBAF2B0028_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition
+ if (g_TChangesBetweenEditionsServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TChangesBetweenEditionsServiceImplFree);
+  g_TChangesBetweenEditionsServiceImpl := Create;
+ end;
+ Result := g_TChangesBetweenEditionsServiceImpl;
+end;//TChangesBetweenEditionsServiceImpl.Instance
+
+class function TChangesBetweenEditionsServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TChangesBetweenEditionsServiceImpl <> nil;
+end;//TChangesBetweenEditionsServiceImpl.Exists
 
 class procedure TChangesBetweenEditionsModule.GetEntityForms(aList: TvcmClassList);
 begin
@@ -139,6 +179,8 @@ initialization
  str_CannotShowChanges.Init;
  str_CannotShowChanges.SetDlgType(mtWarning);
  {* Инициализация str_CannotShowChanges }
+ TChangesBetweenEditionsService.Instance.Alien := TChangesBetweenEditionsServiceImpl.Instance;
+ {* Регистрация TChangesBetweenEditionsServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

@@ -94,6 +94,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *4A2CFFA30282impl_uses*
+ //#UC END# *4A2CFFA30282impl_uses*
 ;
 
 function TevdBlockInfo_C(const aName: Il3CString): TevdBlockInfo;

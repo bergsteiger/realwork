@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , SysUtils
  , tfwDictionary
+ //#UC START# *55E9ABFB03AAimpl_uses*
+ //#UC END# *55E9ABFB03AAimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.imp.pas}

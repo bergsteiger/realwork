@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *51F25A530083impl_uses*
+ //#UC END# *51F25A530083impl_uses*
 ;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}

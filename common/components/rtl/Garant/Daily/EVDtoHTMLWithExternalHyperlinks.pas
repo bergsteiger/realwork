@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *56D9305C01DDimpl_uses*
+ //#UC END# *56D9305C01DDimpl_uses*
 ;
 
 function TEVDtoHTMLWithExternalHyperlinks.GetFolder: AnsiString;

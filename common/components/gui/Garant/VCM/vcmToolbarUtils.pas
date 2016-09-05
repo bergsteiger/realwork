@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *502BC6DC00F4impl_uses*
+ //#UC END# *502BC6DC00F4impl_uses*
 ;
 
 var g_TvcmToolbarDockListManager: TvcmToolbarDockListManager = nil;

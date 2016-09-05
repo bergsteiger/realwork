@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *482D988102ECimpl_uses*
+ //#UC END# *482D988102ECimpl_uses*
 ;
 
 function TevCustomEditTextSource.DoMakeDocumentContainer: InevDocumentContainer;

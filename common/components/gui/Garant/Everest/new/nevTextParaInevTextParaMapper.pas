@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , nevTools
+ //#UC START# *53D78F15032Bimpl_uses*
+ //#UC END# *53D78F15032Bimpl_uses*
 ;
 
 class function TnevTextParaInevTextParaMapper.Make(aTag: Tl3Variant;

@@ -60,6 +60,8 @@ uses
  , evdNativeReader
  , k2DocumentBuffer
  , CourtDescription_Const
+ //#UC START# *53EDB1000048impl_uses*
+ //#UC END# *53EDB1000048impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}

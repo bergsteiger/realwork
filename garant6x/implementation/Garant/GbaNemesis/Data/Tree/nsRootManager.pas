@@ -43,6 +43,8 @@ uses
  , l3Types
  , SysUtils
  , l3InterfacesMisc
+ //#UC START# *46835AE40039impl_uses*
+ //#UC END# *46835AE40039impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}

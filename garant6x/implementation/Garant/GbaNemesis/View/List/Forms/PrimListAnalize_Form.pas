@@ -69,6 +69,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4E369558035Dimpl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4E369558035Dimpl_uses*
 ;
 
@@ -93,7 +94,7 @@ begin
 //#UC START# *4E36B63D016B_4E369558035D_impl*
  if not Self.FocusLocked then
  // http://mdp.garant.ru/pages/viewpage.action?pageId=356848399
-  TdmStdRes.MakeListAnalizer(sdsList.dsList.MakeAnalizeTree);
+  TListService.Instance.MakeListAnalizer(sdsList.dsList.MakeAnalizeTree);
 //#UC END# *4E36B63D016B_4E369558035D_impl*
 end;//TPrimListAnalizeForm.ExecuteTabAction
 
@@ -124,7 +125,7 @@ begin
  inherited;
  Assert(false);
  //SetInactiveInParent;
- // TdmStdRes.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
+ // TListService.Instance.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
 //#UC END# *4A8AE0FA03B2_4E369558035D_impl*
 end;//TPrimListAnalizeForm.BecomeActive
 

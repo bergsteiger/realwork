@@ -41,7 +41,8 @@ type
  IvcmFormState = interface(IvcmBase)
   ['{BB487EA1-7432-4B8B-B634-114A5634FE7D}']
   procedure LoadState(aForm: TvcmEntityForm;
-   aStateType: TvcmStateType);
+   aStateType: TvcmStateType;
+   aClone: Boolean);
  end;//IvcmFormState
 
  IvcmStateItem = interface
@@ -178,6 +179,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *49525B34022Aimpl_uses*
+ //#UC END# *49525B34022Aimpl_uses*
 ;
 
 type
@@ -188,7 +191,8 @@ type
  TvcmFormState = class(_l3InterfaceRefList_, IvcmBase, IvcmFormState)
   protected
    procedure LoadState(aForm: TvcmEntityForm;
-    aStateType: TvcmStateType);
+    aStateType: TvcmStateType;
+    aClone: Boolean);
   public
    procedure AddState(const aName: AnsiString;
     const aState: IUnknown);
@@ -209,7 +213,8 @@ begin
 end;//TvcmFormState.AddState
 
 procedure TvcmFormState.LoadState(aForm: TvcmEntityForm;
- aStateType: TvcmStateType);
+ aStateType: TvcmStateType;
+ aClone: Boolean);
 //#UC START# *55C1F7D50220_55C1F803015D_var*
 //#UC END# *55C1F7D50220_55C1F803015D_var*
 begin

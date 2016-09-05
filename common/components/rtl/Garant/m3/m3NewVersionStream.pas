@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49BFE43D019Fimpl_uses*
+ //#UC END# *49BFE43D019Fimpl_uses*
 ;
 
 function Tm3NewVersionStream.pm_GetIsNewVersion: Boolean;

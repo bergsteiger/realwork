@@ -1,9 +1,15 @@
 unit ddDocumentCopy;
 { Объект для создания недействующей копии документа }
 
-{ $Id: ddDocumentCopy.pas,v 1.64 2015/10/27 07:32:05 lukyanets Exp $ }
+{ $Id: ddDocumentCopy.pas,v 1.66 2016/08/11 10:47:44 lukyanets Exp $ }
 
 // $Log: ddDocumentCopy.pas,v $
+// Revision 1.66  2016/08/11 10:47:44  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.65  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.64  2015/10/27 07:32:05  lukyanets
 // Подставляем пользователя от задачи
 //
@@ -224,6 +230,7 @@ interface
 Uses
  l3Base, l3Filer, l3Types,
  evdWriter, evEvdRd,
+ daTypes,
  dt_Types, Dt_Const,
  m3DBInterfaces;
 
@@ -233,7 +240,7 @@ type
  TddDocumentCopier = class(Tl3Base)
  {* Объект для создания недействующей копии документа }
  private
-  f_Family: TFamilyID;
+  f_Family: TdaFamilyID;
   f_UserID: TDictID;
   f_CustomID: Longint;
   f_evWriter: TevdNativeWriter;
@@ -263,7 +270,7 @@ type
 
   procedure ReadFromFile(const aFileName: AnsiString);
  public
-  property Family: TFamilyID
+  property Family: TdaFamilyID
   {* семейство }
    read f_Family
    write f_Family;
@@ -282,7 +289,7 @@ implementation
 Uses
  daDataProvider,
  dt_AttrSchema,
- dt_User, dt_EditionFltr, dt_IFltr,
+ dt_EditionFltr, dt_IFltr,
  dt_Serv, dt_EGen, dt_EFltr, ddFixFilter,
  evExportGenerator,  evHndFlt,
  SysUtils,

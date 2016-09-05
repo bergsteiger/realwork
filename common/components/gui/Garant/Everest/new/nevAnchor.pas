@@ -161,6 +161,8 @@ uses
  , afwInterfaces
  , k2Tags
  , SysUtils
+ //#UC START# *49DE393900D3impl_uses*
+ //#UC END# *49DE393900D3impl_uses*
 ;
 
 type _Instance_R_ = TnevAnchor;

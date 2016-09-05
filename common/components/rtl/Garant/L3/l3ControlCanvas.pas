@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , l3Units
+ //#UC START# *48C68AC60396impl_uses*
+ //#UC END# *48C68AC60396impl_uses*
 ;
 
 constructor Tl3ControlCanvas.Create(aControl: TControl;

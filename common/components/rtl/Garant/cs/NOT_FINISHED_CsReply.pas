@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , CsReplyTool
+ //#UC START# *538DEBDF0374impl_uses*
+ //#UC END# *538DEBDF0374impl_uses*
 ;
 {$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 

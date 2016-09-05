@@ -33,6 +33,8 @@ uses
  , evCustomMemo
  , evDefaultContext
  , nevTools
+ //#UC START# *4864C01000A7impl_uses*
+ //#UC END# *4864C01000A7impl_uses*
 ;
 
 function TevMemoProcessor.pm_GetMemo: TComponent;

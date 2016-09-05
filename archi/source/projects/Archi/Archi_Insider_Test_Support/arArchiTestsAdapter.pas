@@ -102,6 +102,8 @@ uses
  , dt_Mail
  {$IfEnd} // NOT Defined(Nemesis)
  , l3Base
+ //#UC START# *4DE60853015Aimpl_uses*
+ //#UC END# *4DE60853015Aimpl_uses*
 ;
 
 var g_TarTestConfig: TarTestConfig = nil;

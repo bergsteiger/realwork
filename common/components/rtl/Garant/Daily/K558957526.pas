@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *53DA29FE019Eimpl_uses*
+ //#UC END# *53DA29FE019Eimpl_uses*
 ;
 
 function TK558957526.TreatExceptionAsSuccess: Boolean;

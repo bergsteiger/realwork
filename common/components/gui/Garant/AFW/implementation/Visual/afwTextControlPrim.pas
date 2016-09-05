@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48BBD30803C5impl_uses*
+ //#UC END# *48BBD30803C5impl_uses*
 ;
 
 procedure TafwTextControlPrim.pm_SetCCaption(const aValue: IafwCString);

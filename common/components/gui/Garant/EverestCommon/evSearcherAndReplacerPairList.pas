@@ -49,6 +49,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4E56306403C2impl_uses*
+ //#UC END# *4E56306403C2impl_uses*
 ;
 
 function TevSearcherAndReplacerPair_C(const aSearcher: IevSearcher;

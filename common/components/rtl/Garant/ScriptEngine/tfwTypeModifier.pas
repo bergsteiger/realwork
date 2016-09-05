@@ -46,6 +46,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5571AC8301BEimpl_uses*
+ //#UC END# *5571AC8301BEimpl_uses*
 ;
 
 constructor TtfwClassModifier.Create(aClass: TClass);

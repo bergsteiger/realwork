@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *53C7C4BF03D9impl_uses*
+ //#UC END# *53C7C4BF03D9impl_uses*
 ;
 
 class procedure TtfwIntegerConstantRegistrator.Register(const aName: AnsiString;

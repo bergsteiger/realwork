@@ -1,8 +1,20 @@
 unit ddDocStruct;
 
-{ $Id: ddDocStruct.pas,v 1.25 2015/05/20 16:28:43 lulin Exp $ }
+{ $Id: ddDocStruct.pas,v 1.28 2016/08/30 13:04:03 fireton Exp $ }
 
 // $Log: ddDocStruct.pas,v $
+// Revision 1.28  2016/08/30 13:04:03  fireton
+// - автопростановка ссылок, рефакторинг и доработка
+//
+// Revision 1.27  2016/08/24 09:11:13  fireton
+// - автопростановка ссылок, рефакторинг и доработка
+//
+// Revision 1.26  2016/07/18 10:49:49  fireton
+// переделка автолинкера
+//
+// Revision 1.25.8.1  2016/07/18 10:48:54  fireton
+// переделка автолинкера
+//
 // Revision 1.25  2015/05/20 16:28:43  lulin
 // - чистим код.
 //
@@ -128,6 +140,7 @@ interface
 
 uses
  l3Base,
+ l3ProtoObject,
  l3Types,
  l3Variant,
  l3PrimString,
@@ -180,42 +193,54 @@ type
  public
  end;
 
- TddProtoStructCache = class(Tl3Base)
+ TddProtoStructCache = class(Tl3ProtoObject)
+ private
+  f_BuildFilter: TddDocStructBuildFilter;
+ protected
+  f_Docs: Tl3FieldSortRecList;
+  procedure Cleanup; override;
+  function CreateDocRec(aDocID: TDocID): Integer;
+  procedure DoOnDocumentAdded; virtual;
+  function GetIndexOfDoc(const aDocID: TDocID): Integer; virtual;
+ public
+  constructor Create;
+  procedure ClearMemCache;
+  function FindBlock(const aDocID: TDocID; const aEntryAddr: TddDocStructElementRec): Longint;
+  function FindBlockSmart(const aExtDocID: TDocID; const anAddress: TddDocStructElementRec): Longint;
+  function GetAddressArr(aDocID: TDocID): Tl3FieldSortRecList;
+  property BuildFilter: TddDocStructBuildFilter read f_BuildFilter;
+ end;
+
+ TddProtoFiledStructCache = class(TddProtoStructCache)
  private
   f_BaseName: AnsiString;
  protected
   f_BaseMainDateTime: TDateTime;
-  f_BuildFilter: TddDocStructBuildFilter;
   f_BuildPipe: TSewerPipe;
-  f_Docs: Tl3FieldSortRecList;
   f_FileCacheName: AnsiString;
-  procedure Cleanup; override;
-  function CreateDocRec(aDocID: TDocID): Integer;
   function GetWriteStorage: Im3IndexedStorage;
   procedure SaveOneToCache(const aIdx: Integer; const aIS: Im3IndexedStorage);
-  procedure DoOnDocumentAdded; virtual;
  public
   constructor Create(const aFileCacheName, aBaseName: AnsiString);
-  procedure ClearMemCache;
-  function GetAddressArr(aDocID: TDocID): Tl3FieldSortRecList;
-  property  BaseName: AnsiString read f_BaseName write f_BaseName;
+  property BaseName: AnsiString read f_BaseName write f_BaseName;
  end;
 
- TddDocStructCache = class(TddProtoStructCache)
+ TddDocStructCache = class(TddProtoFiledStructCache)
  private
   f_CanUpdate: Boolean;
   function GetDocChangeDate(const aDocID: TDocID): TDateTime;
   function LoadDocToMemCache(aDocID: TDocID): Integer;
   function LoadFromDiskCache(const aDocID: TDocID; out theIndex: Integer): Boolean;
   procedure SaveToDiskCache(const aDocID: TDocID);
+ protected
+  function GetIndexOfDoc(const aDocID: TDocID): Integer; override;
  public
   constructor Create(const aFileCacheName, aBaseName: AnsiString; aCanUpdate: Boolean = True);
   function BuildDocStruct(aDocID: TDocID): Integer; overload;
-  function FindBlock(const aDocID: TDocID; const aEntryAddr: TddDocStructElementRec): Longint;
   property CanUpdate: Boolean read f_CanUpdate write f_CanUpdate;
  end;
 
- TddDocStructBuilder = class(TddProtoStructCache)
+ TddDocStructBuilder = class(TddProtoFiledStructCache)
  private
   f_Counter: Integer;
   f_OnProgress: Tl3ProgressProc;
@@ -249,14 +274,19 @@ uses
 
  m3StgMgr,
  m3BackupTools,
- m3DB
+ m3DB,
+
+ ddAutolinkConst
  ;
 
 const
- c_NoEdition     = High(TDocID);
-
  cFlushThreshold    = 1000;
  cProgressThreshold = 25;
+
+function IsElementEmpty(const aElem: TddElementNumRec): Boolean;
+begin
+ Result := (aElem.rNum = 0) and (aElem.rSubnum = 0) and (aElem.rSubSubNum = 0);
+end;
 
 procedure TddDocStructBuildFilter.Cleanup;
 begin
@@ -493,38 +523,21 @@ begin
  end;
 end;
 
-constructor TddProtoStructCache.Create(const aFileCacheName, aBaseName: AnsiString);
+constructor TddProtoStructCache.Create;
 var
  l_MainName: AnsiString;
 begin
  inherited Create;
- f_FileCacheName := aFileCacheName;
-
- f_BaseName := aBaseName;
- l_MainName := ChangeFileExt(aBaseName, m3_cMainExt);
- if FileExists(l_MainName) then
-  f_BaseMainDateTime := FileDateTime(l_MainName)
- else
-  f_BaseMainDateTime := BadDateTime; 
-
  f_Docs := Tl3FieldSortRecList.Create(SizeOf(TddDocBlocksRec), [SizeOf(TDocID)], [1]);
  f_Docs.Sorted := True;
- f_BuildPipe := TSewerPipe.Create;
  f_BuildFilter := TddDocStructBuildFilter.Create(nil);
-
  f_BuildFilter.Cache := Self;
-
- f_BuildPipe.Writer := f_BuildFilter;
- f_BuildPipe.ExportDocument:= True;
- 
- f_BuildPipe.ExportDocTypes := [dtText];
 end;
 
 procedure TddProtoStructCache.Cleanup;
 begin
  ClearMemCache;
  l3Free(f_Docs);
- l3Free(f_BuildPipe);
  l3Free(f_BuildFilter);
  inherited Cleanup;
 end;
@@ -552,6 +565,73 @@ begin
  // ничего не делаем в базовом классе
 end;
 
+function TddProtoStructCache.FindBlock(const aDocID: TDocID; const aEntryAddr: TddDocStructElementRec): Longint;
+var
+ l_Idx  : Integer;
+ l_BIdx : Integer;
+ l_DocRec: PddDocBlocksRec;
+begin
+ Result := -1;
+ if (aDocID = 0) or (aDocID = c_NoEdition) then
+  Exit;
+ l_Idx := GetIndexOfDoc(aDocID);
+ if l_Idx < 0 then
+  Exit;
+ l_DocRec := PddDocBlocksRec(f_Docs.ItemSlot(l_Idx));
+ if l_DocRec^.rCache.FindRecord(aEntryAddr, l_BIdx) then
+  Result := PddDocEntryAddrRec(l_DocRec^.rCache.ItemSlot(l_BIdx))^.rSubID;
+
+ // Для тестовых целей, пусть каждый раз документ парсится заново
+ (*
+ l3Free(l_DocRec^.rCache);
+ f_Docs.Delete(l_Idx);
+ *)
+end;
+
+function TddProtoStructCache.FindBlockSmart(const aExtDocID: TDocID; const anAddress: TddDocStructElementRec): Longint;
+var
+ l_Addr: TddDocStructElementRec;
+ l_TriedItemTrick: Boolean;
+begin
+ // функция умеет "огрублять" адрес; если, скажем, подпункт не найден, то поищем без него
+ l_Addr := anAddress;
+ l_TriedItemTrick := False;
+ while True do
+ begin
+  Result := FindBlock(aExtDocID, l_Addr);  // !!! везде внешние номера документов !!!
+  if (Result < 0) and (l_Addr.rType = stEntry) then
+  begin
+   // Если статья пустая, то вполне вероятно, что в кэше наши пункты лежат как подпункты, как например в ПДД.
+   // Поэтому надо проверить эту вероятность.
+   if (not l_TriedItemTrick) and IsElementEmpty(l_Addr.rEntry) and IsElementEmpty(l_Addr.rSubItem) then
+   begin
+    l_Addr.rSubItem := l_Addr.rItem;
+    l_Addr.rItem.rSubnum := 0;
+    l_Addr.rItem.rSubSubNum := 0;
+    Result := FindBlock(aExtDocID, l_Addr);
+    l_TriedItemTrick := True;
+    if Result >= 0 then
+     Break;
+    l_Addr := anAddress;
+   end;
+
+   if l_Addr.rSubItem.rNum <> 0 then
+   begin
+    l3FillChar(l_Addr.rSubItem, SizeOf(TddElementNumRec));
+    Continue;
+   end;
+   if l_Addr.rItem.rNum <> 0 then
+   begin
+    l3FillChar(l_Addr.rItem, SizeOf(TddElementNumRec));
+    Continue;
+   end;
+   Break;
+  end
+  else
+   Break;
+ end;
+end;
+
 function TddProtoStructCache.GetAddressArr(aDocID: TDocID): Tl3FieldSortRecList;
 var
  l_Idx: Integer;
@@ -564,42 +644,10 @@ begin
  Result := PddDocBlocksRec(f_Docs.ItemSlot(l_Idx))^.rCache;
 end;
 
-function TddProtoStructCache.GetWriteStorage: Im3IndexedStorage;
+function TddProtoStructCache.GetIndexOfDoc(const aDocID: TDocID): Integer;
 begin
- Result := Tm3FullModeExclusiveStorageManager.MakeInterface(f_FileCacheName)
-end;
-
-procedure TddProtoStructCache.SaveOneToCache(const aIdx: Integer; const aIS: Im3IndexedStorage);
-var
- l_Intf: Tm3Store;
- l_Str: IStream;
- l_DT: TDateTime;
- l_W: Longint;
- l_RecList: Tl3FieldSortRecList;
- l_Count: Integer;
- I: Integer;
- l_Res: HResult;
- l_DocRec: PddDocBlocksRec;
-begin
- if (aIS <> nil) then
- begin
-  l_DocRec := PddDocBlocksRec(f_Docs.ItemSlot(aIdx));
-  l_Res := aIS.CreateStore(l_DocRec^.rDocID, m3_saReadWrite, m3_stStream, l_Intf, true);
-  if (l_Res = STG_E_FILEALREADYEXISTS) then
-   l_Res := aIS.OpenStore(l_DocRec^.rDocID, m3_saReadWrite, m3_stStream, l_Intf, true);
-  if l_Res <> S_Ok then
-   Exit;
-  l_Str := l_Intf.rStream;
-  if (l_Str = nil) then
-   Exit;
-  l_DT := Now;
-  l_Str.Write(@l_DT, SizeOf(TDateTime),  @l_W);
-  l_RecList := l_DocRec^.rCache;
-  l_Count := l_RecList.Count;
-  l_Str.Write(@l_Count, SizeOf(Integer),  @l_W);
-  for I := 0 to Pred(l_Count) do
-   l_Str.Write(l_RecList.ItemSlot(I), SizeOf(TddDocEntryAddrRec), @l_W);
- end;
+ if not f_Docs.FindRecord(aDocID, Result) then
+  Result := -1;
 end;
 
 constructor TddDocStructCache.Create(const aFileCacheName, aBaseName: AnsiString; aCanUpdate: Boolean = True);
@@ -622,35 +670,18 @@ begin
   Result := -1;
 end;
 
-function TddDocStructCache.FindBlock(const aDocID: TDocID; const aEntryAddr: TddDocStructElementRec): Longint;
-var
- l_Idx  : Integer;
- l_BIdx : Integer;
- l_DocRec: PddDocBlocksRec;
-begin
- Result := -1;
- if (aDocID = 0) or (aDocID = c_NoEdition) then
-  Exit;
- if not f_Docs.FindRecord(aDocID, l_Idx) then
-  l_Idx := LoadDocToMemCache(aDocID);
- if l_Idx < 0 then
-  Exit;
- l_DocRec := PddDocBlocksRec(f_Docs.ItemSlot(l_Idx));
- if l_DocRec^.rCache.FindRecord(aEntryAddr, l_BIdx) then
-  Result := PddDocEntryAddrRec(l_DocRec^.rCache.ItemSlot(l_BIdx))^.rSubID;
-
- // Для тестовых целей, пусть каждый раз документ парсится заново
- (*
- l3Free(l_DocRec^.rCache);
- f_Docs.Delete(l_Idx);
- *)
-end;
-
 function TddDocStructCache.GetDocChangeDate(const aDocID: TDocID): TDateTime;
 begin
  Result := Tm3DB.Make(f_BaseName).GetDocument(aDocID).GetVersion.DateTime;
  if Result = BadDateTime then
   Result := f_BaseMainDateTime;
+end;
+
+function TddDocStructCache.GetIndexOfDoc(const aDocID: TDocID): Integer;
+begin
+ Result := inherited GetIndexOfDoc(aDocID);
+ if Result < 0 then
+  Result := LoadDocToMemCache(aDocID);
 end;
 
 function TddDocStructCache.LoadDocToMemCache(aDocID: TDocID): Integer;
@@ -796,6 +827,65 @@ begin
  for I := 0 to f_Docs.Count - 1 do
   SaveOneToCache(I, l_IS);
  ClearMemCache;
+end;
+
+constructor TddProtoFiledStructCache.Create(const aFileCacheName, aBaseName: AnsiString);
+var
+ l_MainName: AnsiString;
+begin
+ inherited Create;
+ f_FileCacheName := aFileCacheName;
+
+ f_BaseName := aBaseName;
+ l_MainName := ChangeFileExt(aBaseName, m3_cMainExt);
+ if FileExists(l_MainName) then
+  f_BaseMainDateTime := FileDateTime(l_MainName)
+ else
+  f_BaseMainDateTime := BadDateTime; 
+
+ f_BuildPipe := TSewerPipe.Create;
+ f_BuildFilter.Cache := Self;
+ f_BuildPipe.Writer := f_BuildFilter;
+ f_BuildPipe.ExportDocument:= True;
+ f_BuildPipe.ExportDocTypes := [dtText];
+end;
+
+function TddProtoFiledStructCache.GetWriteStorage: Im3IndexedStorage;
+begin
+ Result := Tm3FullModeExclusiveStorageManager.MakeInterface(f_FileCacheName)
+end;
+
+procedure TddProtoFiledStructCache.SaveOneToCache(const aIdx: Integer; const aIS: Im3IndexedStorage);
+var
+ l_Intf: Tm3Store;
+ l_Str: IStream;
+ l_DT: TDateTime;
+ l_W: Longint;
+ l_RecList: Tl3FieldSortRecList;
+ l_Count: Integer;
+ I: Integer;
+ l_Res: HResult;
+ l_DocRec: PddDocBlocksRec;
+begin
+ if (aIS <> nil) then
+ begin
+  l_DocRec := PddDocBlocksRec(f_Docs.ItemSlot(aIdx));
+  l_Res := aIS.CreateStore(l_DocRec^.rDocID, m3_saReadWrite, m3_stStream, l_Intf, true);
+  if (l_Res = STG_E_FILEALREADYEXISTS) then
+   l_Res := aIS.OpenStore(l_DocRec^.rDocID, m3_saReadWrite, m3_stStream, l_Intf, true);
+  if l_Res <> S_Ok then
+   Exit;
+  l_Str := l_Intf.rStream;
+  if (l_Str = nil) then
+   Exit;
+  l_DT := Now;
+  l_Str.Write(@l_DT, SizeOf(TDateTime),  @l_W);
+  l_RecList := l_DocRec^.rCache;
+  l_Count := l_RecList.Count;
+  l_Str.Write(@l_Count, SizeOf(Integer),  @l_W);
+  for I := 0 to Pred(l_Count) do
+   l_Str.Write(l_RecList.ItemSlot(I), SizeOf(TddDocEntryAddrRec), @l_W);
+ end;
 end;
 
 end.

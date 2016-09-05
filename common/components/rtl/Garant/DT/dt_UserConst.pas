@@ -4,7 +4,7 @@ interface
 
 uses
   evdTaskTypes,
-  dt_Types
+  daTypes
   ;
 
 Const
@@ -23,20 +23,6 @@ Const
  grImportPriorityField = 4;
  grExportPriorityField = 5;
 
-function IsWrongUser(anUserID: TUserID): Boolean;
-
 implementation
 
-uses
- daInterfaces;
-
-function IsWrongUser(anUserID: TUserID): Boolean;
-begin
- Result := (anUserID = 0) or
-   (anUserID = usWrongClient) or
-   (anUserID = usDuplicateClient) or
-   (anUserID = usDeadClient)
-end;
-
 end.
- 

@@ -48,6 +48,8 @@ uses
  , Classes
  , Messages
  , l3MessagesService
+ //#UC START# *4DB1A01E01F4impl_uses*
+ //#UC END# *4DB1A01E01F4impl_uses*
 ;
 
 class function TkwKey.GetWordNameForRegister: AnsiString;

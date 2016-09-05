@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *545CBED90193impl_uses*
+ //#UC END# *545CBED90193impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}

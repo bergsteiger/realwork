@@ -39,7 +39,6 @@ type
     procedure WriteBreak(const aBreak: TddBreak); override;
     procedure WriteColorTable(aDefault: Boolean = False); override;
     procedure WriteDocumentEnd; override;
-    procedure WriteDocumentHeader; override;
     procedure WriteDocumentStart; override;
     procedure WriteFontTable(aDefault: Boolean = False); override;
     procedure WriteHeader(aDefault: Boolean = False); override;
@@ -144,17 +143,12 @@ end;
 
 procedure TddPrimeHTMLWriter.WriteDocumentEnd;
 begin
-   OutStringLn('</div>')
-end;
-
-procedure TddPrimeHTMLWriter.WriteDocumentHeader;
-begin
-  OutStringLn('<a name="0"></a>');
+ OutStringLn('</div>')
 end;
 
 procedure TddPrimeHTMLWriter.WriteDocumentStart;
 begin
-   OutStringLn('<div id="primeDocs">')
+ OutStringLn('<div id="primeDocs">')
 end;
 
 procedure TddPrimeHTMLWriter.WriteFontTable(aDefault: Boolean = False);

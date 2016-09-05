@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , nsAppTitleData
+ //#UC START# *540E9DE4024Cimpl_uses*
+ //#UC END# *540E9DE4024Cimpl_uses*
 ;
 
 function TnsHAFPainterPrim.GetAppTitle: AnsiString;

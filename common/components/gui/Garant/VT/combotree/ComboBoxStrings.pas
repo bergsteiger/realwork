@@ -75,6 +75,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , l3NodesKeyWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48721FA80370impl_uses*
+ //#UC END# *48721FA80370impl_uses*
 ;
 
 function TComboBoxStrings.DoMakeChild: Il3SimpleNode;

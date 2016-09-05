@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4C971C2203DDimpl_uses*
+ //#UC END# *4C971C2203DDimpl_uses*
 ;
 
 procedure TRTFtoEVDWriterTest.DoIt;

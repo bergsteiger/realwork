@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , DeleteDocsQuery_Const
+ //#UC START# *53B6A54A0181impl_uses*
+ //#UC END# *53B6A54A0181impl_uses*
 ;
 
 class function TcsDeleteDocsQueryPrim.GetTaggedDataType: Tk2Type;

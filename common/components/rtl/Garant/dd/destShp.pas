@@ -62,6 +62,8 @@ uses
  , ddRTFShape
  , ddPicture
  , SysUtils
+ //#UC START# *5461CBCB01F3impl_uses*
+ //#UC END# *5461CBCB01F3impl_uses*
 ;
 
 procedure TdestShp.pm_SetShapeTxt(aValue: TdestShapeTxt);

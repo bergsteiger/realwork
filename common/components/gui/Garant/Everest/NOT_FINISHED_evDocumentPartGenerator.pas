@@ -33,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48030DE6002Fimpl_uses*
+ //#UC END# *48030DE6002Fimpl_uses*
 ;
 
 procedure TevDocumentPartGenerator.SetInsertionPoint(const aPoint: InevBasePoint;

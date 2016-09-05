@@ -35,6 +35,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , kwArchiEverestWordsPack
  , l3ComponentInfoHelper
+ //#UC START# *4DE342FA0300impl_uses*
+ //#UC END# *4DE342FA0300impl_uses*
 ;
 
 class procedure TArchiAutoTestSuite.Register;

@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4EAFC7190370impl_uses*
+ //#UC END# *4EAFC7190370impl_uses*
 ;
 
 class function TkwSetActivePage.GetWordNameForRegister: AnsiString;

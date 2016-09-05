@@ -36,6 +36,8 @@ implementation
 {$If Defined(evNeedPainters)}
 uses
  l3ImplUses
+ //#UC START# *48C9390D0155impl_uses*
+ //#UC END# *48C9390D0155impl_uses*
 ;
 
 function TevSBSPainter.GetColorArray: Tl3LinesColorArray;

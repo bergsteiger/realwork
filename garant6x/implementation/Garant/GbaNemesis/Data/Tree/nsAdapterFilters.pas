@@ -65,6 +65,8 @@ uses
  l3ImplUses
  , IOUnit
  , DataAdapter
+ //#UC START# *48FF5126011Cimpl_uses*
+ //#UC END# *48FF5126011Cimpl_uses*
 ;
 
 class function TnsAdapterFilters.Make: InsAdapterFilters;

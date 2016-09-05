@@ -19,6 +19,8 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *54F359B70148impl_uses*
+ //#UC END# *54F359B70148impl_uses*
 ;
 {$IfEnd} // NOT Defined(Admin)
 

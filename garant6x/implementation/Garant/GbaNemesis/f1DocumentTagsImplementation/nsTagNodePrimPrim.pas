@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , k2BaseStruct
+ //#UC START# *4C6D0FD10112impl_uses*
+ //#UC END# *4C6D0FD10112impl_uses*
 ;
 
 function TnsTagNodePrimPrim.BaseGetSubAtom(aProp: Tk2Prop;

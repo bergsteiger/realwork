@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4CE67D90013Bimpl_uses*
+ //#UC END# *4CE67D90013Bimpl_uses*
 ;
 
 procedure TNSRCtoNSRCTest.DoIt;

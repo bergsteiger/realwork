@@ -39,6 +39,8 @@ uses
  , SysUtils
  , nsNativeCommentPara
  , k2Tags
+ //#UC START# *4CEFD73403E4impl_uses*
+ //#UC END# *4CEFD73403E4impl_uses*
 ;
 
 constructor TnsLeafParaDecorationsHolder.Create;

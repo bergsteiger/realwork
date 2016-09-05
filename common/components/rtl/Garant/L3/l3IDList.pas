@@ -178,6 +178,11 @@ begin
    else
     Dec(J);
  end;
+ while I >= 0 do
+ begin
+  Delete(I);
+  Dec(I);
+ end;
 end;
 
 procedure Tl3IDList.MergeList(aAddList : Il3IDList);

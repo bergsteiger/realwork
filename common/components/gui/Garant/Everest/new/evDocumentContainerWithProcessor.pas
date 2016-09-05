@@ -53,6 +53,8 @@ uses
  l3ImplUses
  , l3Base
  , evDefaultContext
+ //#UC START# *47F3513A017Fimpl_uses*
+ //#UC END# *47F3513A017Fimpl_uses*
 ;
 
 function TevDocumentContainerWithProcessor.pm_GetProcessor: TevCustomUndoProcessor;

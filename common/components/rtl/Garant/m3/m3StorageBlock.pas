@@ -120,6 +120,8 @@ uses
  , l3Base
  , m3Exceptions
  , m2MemLib
+ //#UC START# *5411C54C0194impl_uses*
+ //#UC END# *5411C54C0194impl_uses*
 ;
 
 function Tm3LockedRegion_C(aForRead: Boolean;

@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , kwEND
+ //#UC START# *4DB9BB8D0388impl_uses*
+ //#UC END# *4DB9BB8D0388impl_uses*
 ;
 
 function TkwBEGIN.EndBracket(const aContext: TtfwContext;

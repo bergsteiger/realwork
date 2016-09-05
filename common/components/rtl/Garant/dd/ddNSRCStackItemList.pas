@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55DC85CA02E3impl_uses*
+ //#UC END# *55DC85CA02E3impl_uses*
 ;
 
 type _Instance_R_ = TddNSRCStackItemList;

@@ -22,6 +22,7 @@ type
    procedure SetItem(anIndex: Integer;
     const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
+   function GetItem(anIndex: Integer): TtfwStackValue; override;
   public
    class function Make(aDictionary: TtfwDictionaryPrim): ItfwValueList; reintroduce;
    procedure ForEach(aLambda: TtfwWordPrim;
@@ -36,6 +37,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55ED4BC100BBimpl_uses*
+ //#UC END# *55ED4BC100BBimpl_uses*
 ;
 
 class function TtfwKeywordsIterator.Make(aDictionary: TtfwDictionaryPrim): ItfwValueList;
@@ -124,6 +127,15 @@ begin
  Result := 1;
 //#UC END# *55E849210175_55ED4BC100BB_impl*
 end;//TtfwKeywordsIterator.ItemsCountInSlice
+
+function TtfwKeywordsIterator.GetItem(anIndex: Integer): TtfwStackValue;
+//#UC START# *57C8146602DB_55ED4BC100BB_var*
+//#UC END# *57C8146602DB_55ED4BC100BB_var*
+begin
+//#UC START# *57C8146602DB_55ED4BC100BB_impl*
+ Result := TtfwStackValue_C(Dictionary.Items[anIndex]);
+//#UC END# *57C8146602DB_55ED4BC100BB_impl*
+end;//TtfwKeywordsIterator.GetItem
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

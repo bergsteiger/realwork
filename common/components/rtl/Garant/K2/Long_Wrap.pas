@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Const
+ //#UC START# *4849423C0299impl_uses*
+ //#UC END# *4849423C0299impl_uses*
 ;
 
 function WLong.AsString(A: Tl3Variant): AnsiString;

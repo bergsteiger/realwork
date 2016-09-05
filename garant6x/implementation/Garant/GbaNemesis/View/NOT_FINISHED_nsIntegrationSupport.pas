@@ -32,6 +32,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , IntegrationWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F86C0140332impl_uses*
+ //#UC END# *4F86C0140332impl_uses*
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

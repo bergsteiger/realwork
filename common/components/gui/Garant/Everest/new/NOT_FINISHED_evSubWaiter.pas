@@ -30,6 +30,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4988405001B5impl_uses*
+ //#UC END# *4988405001B5impl_uses*
 ;
 
 function TevSubWaiter.TrySelectSub(const aContainer: InevDocumentContainer;

@@ -30,6 +30,8 @@ uses
  , Graphics
  , k2Tags
  , ReqGroup_Const
+ //#UC START# *4D63FD5001D5impl_uses*
+ //#UC END# *4D63FD5001D5impl_uses*
 ;
 
 function WevReqGroup.PreGetAtomData(AE: Tl3Variant;

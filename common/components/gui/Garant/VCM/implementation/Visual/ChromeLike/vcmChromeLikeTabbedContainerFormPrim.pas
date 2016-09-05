@@ -31,6 +31,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *53C65E480231impl_uses*
+ //#UC END# *53C65E480231impl_uses*
 ;
 
 function TvcmChromeLikeTabbedContainerFormPrim.pm_GetCanChangeSize: Boolean;

@@ -42,6 +42,9 @@ uses
  , kwCompiledIncluded
  , tfwParser
  , tfwParserInterfaces
+ //#UC START# *4E207A0002B2impl_uses*
+ , tfwCS
+ //#UC END# *4E207A0002B2impl_uses*
 ;
 
 procedure TkwIncludedPrim.DoFiler(aFiler: TtfwStreamFactory;
@@ -66,12 +69,17 @@ begin
     l_Ctx.rCompiler := nil; {!!! - чтобы слова попадали в ScriptEngine}
     l_Ctx.rParser := l_P;
     FillContext(aCtx, l_Ctx);
-    l_NeedCompile := aCtx.rEngine.OpenDictionary(l_Ctx);
+    TtfwCS.Instance.Lock;
     try
-     if l_NeedCompile then
-      inherited DoDoIt(l_Ctx);
+     l_NeedCompile := aCtx.rEngine.OpenDictionary(l_Ctx);
+     try
+      if l_NeedCompile then
+       inherited DoDoIt(l_Ctx);
+     finally
+      aCtx.rEngine.CloseDictionary(l_Ctx);
+     end;//try..finally
     finally
-     aCtx.rEngine.CloseDictionary(l_Ctx);
+     TtfwCS.Instance.Unlock;
     end;//try..finally
    finally
     l_Ctx.rKeyWords := nil;

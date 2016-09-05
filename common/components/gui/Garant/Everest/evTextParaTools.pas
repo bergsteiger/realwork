@@ -143,6 +143,8 @@ uses
  , nevFacade
  , evChangeCodePage
  , LeafParaDecorationsHolder_Const
+ //#UC START# *48D3AF8E024Bimpl_uses*
+ //#UC END# *48D3AF8E024Bimpl_uses*
 ;
 
 function GetD2S(var WC: Integer;

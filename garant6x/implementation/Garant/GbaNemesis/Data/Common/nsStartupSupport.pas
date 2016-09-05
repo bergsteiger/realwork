@@ -144,9 +144,9 @@ type
    class procedure CreateRunningCopyMutex;
    class procedure ReleaseRunningCopyMutex;
    class procedure ShutdownPendingNotify;
-   class procedure ShutdownCompletedNotify;
+   class procedure ShutdownCompleteNotify;
    class procedure StartupPendingNotify;
-   class procedure StartupCompletedNotify;
+   class procedure StartupCompleteNotify;
    class procedure WaitForDataInstallerExit;
    class procedure WaitForDataUpdaterExit;
    class procedure WaitForDownloaderExit;
@@ -179,6 +179,8 @@ uses
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
+ //#UC START# *55B26A1C0277impl_uses*
+ //#UC END# *55B26A1C0277impl_uses*
 ;
 
 var g_TnsStartupSupport: TnsStartupSupport = nil;
@@ -1851,7 +1853,7 @@ begin
 //#UC END# *55B26CE500AC_4AA7C26401C4_impl*
 end;//TnsStartupSupport.ShutdownPendingNotify
 
-class procedure TnsStartupSupport.ShutdownCompletedNotify;
+class procedure TnsStartupSupport.ShutdownCompleteNotify;
 //#UC START# *55B26CF2025B_4AA7C26401C4_var*
 //#UC END# *55B26CF2025B_4AA7C26401C4_var*
 begin
@@ -1860,7 +1862,7 @@ begin
  //
  DoneEvent(g_ShutdownEvent, g_ShutdownEventOpenCount);
 //#UC END# *55B26CF2025B_4AA7C26401C4_impl*
-end;//TnsStartupSupport.ShutdownCompletedNotify
+end;//TnsStartupSupport.ShutdownCompleteNotify
 
 class procedure TnsStartupSupport.StartupPendingNotify;
 //#UC START# *55B26D010246_4AA7C26401C4_var*
@@ -1871,14 +1873,14 @@ begin
 //#UC END# *55B26D010246_4AA7C26401C4_impl*
 end;//TnsStartupSupport.StartupPendingNotify
 
-class procedure TnsStartupSupport.StartupCompletedNotify;
+class procedure TnsStartupSupport.StartupCompleteNotify;
 //#UC START# *55B26D0D013E_4AA7C26401C4_var*
 //#UC END# *55B26D0D013E_4AA7C26401C4_var*
 begin
 //#UC START# *55B26D0D013E_4AA7C26401C4_impl*
  DoneMutex(g_StartupMutex, g_StartupMutexHoldCount);
 //#UC END# *55B26D0D013E_4AA7C26401C4_impl*
-end;//TnsStartupSupport.StartupCompletedNotify
+end;//TnsStartupSupport.StartupCompleteNotify
 
 class procedure TnsStartupSupport.WaitForDataInstallerExit;
 //#UC START# *55B26D1903D3_4AA7C26401C4_var*
@@ -1933,7 +1935,7 @@ begin
  begin
   RunDataInstallerProcess(GetDataInstallerCommandLine);
   //
-  StartupCompletedNotify;
+  StartupCompleteNotify;
   try
    LockLogin;
    WaitWhileLoginIsLocked(IsDataInstallerProcessRunning);
@@ -1948,7 +1950,7 @@ begin
   begin
    RunDataUpdaterProcess(GetDataUpdaterCommandLine);
    //
-   StartupCompletedNotify;
+   StartupCompleteNotify;
    try
     LockLogin;
     WaitWhileLoginIsLocked(IsDataUpdaterProcessRunning);
@@ -1963,7 +1965,7 @@ begin
    begin
     RunDownloaderProcess(GetDownloaderCommandLine);
     //
-    StartupCompletedNotify;
+    StartupCompleteNotify;
     try
      LockLogin;
      WaitWhileLoginIsLocked(IsDownloaderProcessRunning);

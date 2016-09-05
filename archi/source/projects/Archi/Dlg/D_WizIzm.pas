@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   TabBBtnDlg, StdCtrls, vtSpin, ComCtrls, Buttons, ExtCtrls,
-  Dt_Types, DT_Const, Dt_Dict, Mask, vtCombo, vtDateEdit;
+  daTypes, DT_Const, Dt_Dict, Mask, vtCombo, vtDateEdit;
 
 type
   TIzmWizardDlg = class(TTabBBtnDlg)
@@ -38,10 +38,10 @@ type
     procedure sbChangeDocIDNameClick(Sender: TObject);
     procedure OKClick(Sender: TObject);
   private
-   fFamily : TFamilyID;
+    fFamily : TdaFamilyID;
     function GetChangeDocNum : string;
   public
-    function Execute(aFamily : TFamilyID) : boolean; reintroduce;
+    function Execute(aFamily : TdaFamilyID) : boolean; reintroduce;
     property ChangeDocNum : String read GetChangeDocNum;
   end;
 
@@ -62,7 +62,7 @@ uses
  vtDialogs,
  Main, dt_DictTypes;
 
-function TIzmWizardDlg.Execute(aFamily : TFamilyID) : boolean;
+function TIzmWizardDlg.Execute(aFamily : TdaFamilyID) : boolean;
  begin
   fFamily := aFamily;
   {edtChangingDocID.Value := 674493;

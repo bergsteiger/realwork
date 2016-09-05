@@ -26,6 +26,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4D5963D4032Dimpl_uses*
+ //#UC END# *4D5963D4032Dimpl_uses*
 ;
 
 function TnevControlsBlock.TreatCollapsedAsHidden: Boolean;

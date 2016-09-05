@@ -210,6 +210,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4AB7A3210135impl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4AB7A3210135impl_uses*
 ;
 
@@ -608,7 +609,7 @@ procedure TPrimBaseSearchCardForm.Cleanup;
 begin
 //#UC START# *479731C50290_4AB7A3210135_impl*
  Tl3ListenersManager.Remove(Self as Il3Listener);
- TdmStdRes.MakeWorkJournal.UnRegisterListener(Self);
+ TWorkJournalService.Instance.MakeWorkJournal.UnRegisterListener(Self);
  vcmFree(f_qhBaseSearch.rH);
  inherited;
 //#UC END# *479731C50290_4AB7A3210135_impl*
@@ -622,7 +623,7 @@ begin
  inherited;
  hfBaseSearch.StyleId := evd_saColorSelectionForBaseSearch;
  hfBaseSearch.Images := dmStdRes.LargeImageList;
- TdmStdRes.MakeWorkJournal.RegisterListener(Self);
+ TWorkJournalService.Instance.MakeWorkJournal.RegisterListener(Self);
  LoadQueryHistory;
  {$IfOpt D+}
  //CardTextLabel.DrawSpecial := true;

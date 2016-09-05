@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *4DEFC4AE0296impl_uses*
+ //#UC END# *4DEFC4AE0296impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}

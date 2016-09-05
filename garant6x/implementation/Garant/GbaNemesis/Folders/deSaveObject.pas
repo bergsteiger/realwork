@@ -37,6 +37,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4921953602C1impl_uses*
+ //#UC END# *4921953602C1impl_uses*
 ;
 
 constructor TdeSaveObject.Create(aType: TFoldersElementType;

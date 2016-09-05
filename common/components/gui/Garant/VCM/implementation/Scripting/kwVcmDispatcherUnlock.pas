@@ -38,6 +38,8 @@ uses
  , StdRes
  , vcmBase
  , afwAnswer
+ //#UC START# *4F69B9AD0040impl_uses*
+ //#UC END# *4F69B9AD0040impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}

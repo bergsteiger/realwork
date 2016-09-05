@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *516E734901D3impl_uses*
+ //#UC END# *516E734901D3impl_uses*
 ;
 
 procedure TEVDtoHTMLTest.DoIt;

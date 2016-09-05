@@ -44,6 +44,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47ECBF8502B7impl_uses*
+ //#UC END# *47ECBF8502B7impl_uses*
 ;
 
 procedure Tl3ProgressIndicator.Start(Count: Integer;

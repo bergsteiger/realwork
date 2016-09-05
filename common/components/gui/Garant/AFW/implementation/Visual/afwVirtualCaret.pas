@@ -46,6 +46,8 @@ implementation
 uses
  l3ImplUses
  , l3Units
+ //#UC START# *474154CE0081impl_uses*
+ //#UC END# *474154CE0081impl_uses*
 ;
 
 constructor TafwVirtualCaret.Create(const anExtent: TafwSPoint);

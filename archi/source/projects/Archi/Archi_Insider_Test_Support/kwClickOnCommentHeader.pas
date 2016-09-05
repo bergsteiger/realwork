@@ -42,6 +42,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *4DE740FA0192impl_uses*
+ //#UC END# *4DE740FA0192impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}

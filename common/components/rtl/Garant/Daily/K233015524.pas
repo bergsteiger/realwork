@@ -48,6 +48,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C6CF445008Dimpl_uses*
+ //#UC END# *4C6CF445008Dimpl_uses*
 ;
 
 function TK233015524.GetLineCount: Integer;

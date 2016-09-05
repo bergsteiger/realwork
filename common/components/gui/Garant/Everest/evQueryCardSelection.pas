@@ -27,6 +27,8 @@ uses
  , k2Tags
  , evOp
  , LeafPara_Const
+ //#UC START# *48E2466300B3impl_uses*
+ //#UC END# *48E2466300B3impl_uses*
 ;
 
 function TevQueryCardSelection.DoGetBlock(const aDocument: InevObject): InevRange;

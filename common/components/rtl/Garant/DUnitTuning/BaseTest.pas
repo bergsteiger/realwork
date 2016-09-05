@@ -131,6 +131,8 @@ uses
  , Windows
  , l3Types
  , StrUtils
+ //#UC START# *4B2A11BC0255impl_uses*
+ //#UC END# *4B2A11BC0255impl_uses*
 ;
 
 procedure TBaseTest.ToLog(const aSt: AnsiString);

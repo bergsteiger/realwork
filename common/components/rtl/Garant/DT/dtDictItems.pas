@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , dtCustomDictItem
  , l3Memory
+ //#UC START# *47BC55C00240impl_uses*
+ //#UC END# *47BC55C00240impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

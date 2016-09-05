@@ -8,8 +8,23 @@ unit nsUtils;
 { Описание   : Общие функции проекта Немезис.                                  }
 {------------------------------------------------------------------------------}
 
-// $Id: nsUtils.pas,v 1.45 2016/04/14 12:13:34 morozov Exp $
+// $Id: nsUtils.pas,v 1.50 2016/08/03 13:13:06 lulin Exp $
 // $Log: nsUtils.pas,v $
+// Revision 1.50  2016/08/03 13:13:06  lulin
+// - перегенерация.
+//
+// Revision 1.49  2016/08/02 17:12:48  lulin
+// - перегенерация.
+//
+// Revision 1.48  2016/07/26 12:56:07  lulin
+// - перегенерация.
+//
+// Revision 1.47  2016/07/15 11:25:37  lulin
+// - выпрямляем зависимости.
+//
+// Revision 1.46  2016/07/14 11:31:38  morozov
+// {RequestLink: 627015303}
+//
 // Revision 1.45  2016/04/14 12:13:34  morozov
 // {RequestLink: 621277863}
 //
@@ -686,7 +701,8 @@ function nsOpenDocumentByNumber(aDocId: Integer;
                                  aPosType: TDocumentPositionType;
                                  aFaultMessage: Boolean = True;
                                  aIgnoreRefDoc: Boolean = False;
-                                 aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab): Boolean;
+                                 aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab;
+                                 aShowFaultMessageOnInvalidRef: Boolean = False): Boolean;
   overload;
   {* - открыть документ по номеру. }
 function nsOpenDocumentByNumber(aDocId: Integer;
@@ -854,6 +870,7 @@ uses
   l3SimpleObject,
   nsLogManager,
   nsLogEventData
+  , Base_Operations_F1Services_Contracts
   ;
 
 {$If not (defined(Monitorings) or defined(Admin))}
@@ -1064,7 +1081,8 @@ function  nsOpenDocumentByNumber(aDocId: Integer;
                                  aPosType: TDocumentPositionType;
                                  aFaultMessage: Boolean = True;
                                  aIgnoreRefDoc: Boolean = False;
-                                 aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab): Boolean; overload;
+                                 aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab;
+                                 aShowFaultMessageOnInvalidRef: Boolean = False): Boolean; overload;
   // overload;
   {* - открыть документ по номеру. }
 var
@@ -1076,6 +1094,8 @@ begin
  if Result and ((l_Document.GetDocType = DT_REF) and (not aIgnoreRefDoc)) then
  begin
   Result := False;
+  if aShowFaultMessageOnInvalidRef then
+   TbsDocumentMissingMessage.Show;
   Exit;
  end;
  if Result then
@@ -1090,7 +1110,7 @@ begin
   finally
    l_ContainerMaker := nil;
   end;
-  TdmStdRes.OpenDocument(TdeDocInfo.Make(l_Document,
+  TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_Document,
                                          TbsDocPos_C(aPosType,
                                                      Longword(aPosID))),
                          l_Container);
@@ -1220,7 +1240,7 @@ begin
    l_UrlWStr := l3WideString(l_UrlStr);
    // http://mdp.garant.ru/pages/viewpage.action?pageId=484018812
    if aShowMainMenu and nsNeedOpenLinkInExternalBrowser(l_UrlWStr) then
-    TdmStdRes.OpenMainMenuIfNeeded(nil);
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(nil);
    if Result then
     Result := nsDoShellExecute(l_UrlStr);
   end;//l3IsNil(l_UrlStr)
@@ -1649,7 +1669,7 @@ procedure nsOpenList(const aDynList           : IDynList;
 
 begin
  if Assigned(aDynList) then
-  TdmStdRes.OpenList(lp_MakeListData, aMainForm);
+  TListService.Instance.OpenList(lp_MakeListData, aMainForm);
 end;
 {$IfEnd}
 

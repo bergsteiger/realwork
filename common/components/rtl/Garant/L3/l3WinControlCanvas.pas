@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , l3CanvasPrim
  , l3Base
+ //#UC START# *48C68AA40296impl_uses*
+ //#UC END# *48C68AA40296impl_uses*
 ;
 
 type

@@ -1,8 +1,11 @@
 unit ddAutoLinker;
 
-{ $Id: ddAutoLinker.pas,v 1.22 2015/11/25 14:01:46 lukyanets Exp $ }
+{ $Id: ddAutoLinker.pas,v 1.23 2016/07/26 09:26:00 fireton Exp $ }
 
 // $Log: ddAutoLinker.pas,v $
+// Revision 1.23  2016/07/26 09:26:00  fireton
+// - переделка автолинкера
+//
 // Revision 1.22  2015/11/25 14:01:46  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -129,7 +132,8 @@ uses
  evdWriter,
  evEvdRd,
 
- k2Reader, evdLeafParaFilter;
+ k2Reader, evdLeafParaFilter,
+ ddGeneralLawsLinkFinder;
 
 const
  g_AutoLinker: TddAutoLinker = nil;
@@ -166,7 +170,8 @@ procedure TddAutoLinker.MakePipe(aClearLinks: Boolean);
 begin
  f_OutPipe := TSewerPipe.Create;
  f_InPipe  := TddImportPipeFilter.Create(CurrentFamily);
- f_LinkFilter := GetAutoLinkFilter.Use;
+ f_LinkFilter := TddAutoLinkFilter.Create(nil);
+ f_LinkFilter.AddLinkFinder(ddGetGeneralLawsLinkFinderDef);
 
  if aClearLinks then
  begin

@@ -48,6 +48,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D5A644B03A8impl_uses*
+ //#UC END# *4D5A644B03A8impl_uses*
 ;
 
 function TK253668263.GetLineCount: Integer;

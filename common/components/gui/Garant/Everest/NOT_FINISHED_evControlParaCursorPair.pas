@@ -24,6 +24,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *53D64B7400B9impl_uses*
+ //#UC END# *53D64B7400B9impl_uses*
 ;
 {$IfEnd} // Defined(evUseVisibleCursors)
 

@@ -24,6 +24,8 @@ type
    procedure SetItem(anIndex: Integer;
     const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
+   function GetCount: Integer; override;
+   function GetItem(anIndex: Integer): TtfwStackValue; override;
    procedure ClearFields; override;
   public
    constructor Create(const aLeft: ItfwValueList;
@@ -42,6 +44,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55E02B5D0129impl_uses*
+ //#UC END# *55E02B5D0129impl_uses*
 ;
 
 constructor TtfwJoinIterator.Create(const aLeft: ItfwValueList;
@@ -110,9 +114,31 @@ begin
 //#UC END# *55E849210175_55E02B5D0129_impl*
 end;//TtfwJoinIterator.ItemsCountInSlice
 
+function TtfwJoinIterator.GetCount: Integer;
+//#UC START# *57C811A30375_55E02B5D0129_var*
+//#UC END# *57C811A30375_55E02B5D0129_var*
+begin
+//#UC START# *57C811A30375_55E02B5D0129_impl*
+ Result := f_Left.Count + f_Right.Count;
+//#UC END# *57C811A30375_55E02B5D0129_impl*
+end;//TtfwJoinIterator.GetCount
+
+function TtfwJoinIterator.GetItem(anIndex: Integer): TtfwStackValue;
+//#UC START# *57C8146602DB_55E02B5D0129_var*
+//#UC END# *57C8146602DB_55E02B5D0129_var*
+begin
+//#UC START# *57C8146602DB_55E02B5D0129_impl*
+ if (anIndex < f_Left.Count) then
+  Result := f_Left[anIndex]
+ else
+  Result := f_Right[anIndex - f_Left.Count];
+//#UC END# *57C8146602DB_55E02B5D0129_impl*
+end;//TtfwJoinIterator.GetItem
+
 procedure TtfwJoinIterator.ClearFields;
 begin
  f_Left := nil;
+ f_Right := nil;
  inherited;
 end;//TtfwJoinIterator.ClearFields
 {$IfEnd} // NOT Defined(NoScripts)

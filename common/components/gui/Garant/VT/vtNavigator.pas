@@ -45,6 +45,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3MsgList
  //#UC START# *4C8A252E01C2intf_uses*
  //#UC END# *4C8A252E01C2intf_uses*
 ;
@@ -560,6 +561,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    f_ParentMainForm: TCustomForm;
    {$IfEnd} // Defined(Nemesis)
    f_SizeNormalLoaded: Boolean;
+   f_PostedMsgList: Tl3MsgList;
    f_SizeMini: Integer;
    f_Swim: Boolean;
    f_Activate: Boolean;
@@ -690,6 +692,8 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    procedure NormalUpdateSize;
    procedure ModeShow;
    procedure DoActivate(aActive: Boolean);
+   procedure SavePostedMessages;
+   procedure RepostMessages;
    procedure CMnpChangeActivate(var Message: TMessage); message CM_npChangeActivate;
    procedure CMAfterUndock(var Message: TMessage); message CM_npAfterUndock;
    procedure CMDelNavFromList(var Message: TMessage); message CM_npDeleteFromList;
@@ -753,7 +757,8 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    function SaveState(out theState: IUnknown;
     aStateType: TvcmStateType): Boolean;
    function LoadState(const theState: IUnknown;
-    aStateType: TvcmStateType): Boolean;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean;
    procedure PageInactive;
     {* активная закладка стала не активной. }
    procedure PageActive;
@@ -977,6 +982,13 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
   {* - управляет стыковкой(отстыковкой) закладок;
 - управляет режимом автоскрытия; минимизирует навигатор;
 - изменяет размер навигатора; }
+  protected
+   {$If NOT Defined(NoVCL)}
+   procedure CreateWnd; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure DestroyWnd; override;
+   {$IfEnd} // NOT Defined(NoVCL)
  //#UC START# *4C8A252E01C2publ*
  protected
    property Swim default True;
@@ -6246,6 +6258,39 @@ begin
 //#UC END# *5448CCD000FF_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.DoActivate
 
+procedure TvtNavigatorPrim.SavePostedMessages;
+//#UC START# *57C53884000E_52BAD1C40174_var*
+const
+ PM_QS_POSTMESSAGE: LongInt = (QS_POSTMESSAGE or QS_HOTKEY or QS_TIMER) shl 16; 
+var
+ l_Msg: TMsg; 
+//#UC END# *57C53884000E_52BAD1C40174_var*
+begin
+//#UC START# *57C53884000E_52BAD1C40174_impl*
+ l3FillChar(l_Msg, SizeOf(l_Msg), 0);
+ while PeekMessage(l_Msg, Handle, CM_npDockToFloatWindow, CM_npDockToFloatWindow,
+  PM_REMOVE or PM_QS_POSTMESSAGE) do
+  f_PostedMsgList.Add(l_Msg);
+//#UC END# *57C53884000E_52BAD1C40174_impl*
+end;//TvtNavigatorPrim.SavePostedMessages
+
+procedure TvtNavigatorPrim.RepostMessages;
+//#UC START# *57C5389402B2_52BAD1C40174_var*
+var
+ l_Index: integer;
+ l_Msg: TMsg;
+//#UC END# *57C5389402B2_52BAD1C40174_var*
+begin
+//#UC START# *57C5389402B2_52BAD1C40174_impl*
+ for l_Index := 0 to Pred(f_PostedMsgList.Count) do
+ begin
+  l_Msg := f_PostedMsgList[l_Index]; 
+  SendMessage(Handle, l_Msg.Message, l_Msg.WParam, l_Msg.LParam);
+ end;
+ f_PostedMsgList.Clear; 
+//#UC END# *57C5389402B2_52BAD1C40174_impl*
+end;//TvtNavigatorPrim.RepostMessages
+
 procedure TvtNavigatorPrim.CMnpChangeActivate(var Message: TMessage);
 //#UC START# *52BAD30B01CD_52BAD1C40174_var*
 var
@@ -6403,13 +6448,14 @@ begin
 end;//TvtNavigatorPrim.SaveState
 
 function TvtNavigatorPrim.LoadState(const theState: IUnknown;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
 //#UC START# *4683E79D0331_52BAD1C40174_var*
 //#UC END# *4683E79D0331_52BAD1C40174_var*
 begin
 //#UC START# *4683E79D0331_52BAD1C40174_impl*
 {$ifdef Nemesis}
- Result := f_PageControl.LoadState(theState, aStateType);
+ Result := f_PageControl.LoadState(theState, aStateType, aClone);
 {$endif Nemesis}
 //#UC END# *4683E79D0331_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.LoadState
@@ -6536,7 +6582,7 @@ begin
   end;//f_Header.Navigator <> nil
  end;//f_Header <> nil
  FreeAndNil(f_Header);
-
+ FreeAndNil(f_PostedMsgList); 
  inherited;
 //#UC END# *479731C50290_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.Cleanup
@@ -6600,6 +6646,7 @@ begin
  f_MinimizedOffHint := str_vtMinimizedOffHint.AsStr;
  f_MinimizedOnHint := str_vtMinimizedOnHint.AsStr;
  f_FormWasMinimized := False;
+ f_PostedMsgList := Tl3MsgList.Create; 
 //#UC END# *47D1602000C6_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.Create
 
@@ -6871,6 +6918,30 @@ end;//TvtNavigatorPrim.ClearFields
 
 //#UC START# *52BAC7A10261impl*
 //#UC END# *52BAC7A10261impl*
+
+{$If NOT Defined(NoVCL)}
+procedure TvtNavigator.CreateWnd;
+//#UC START# *4CC8414403B8_4C8A252E01C2_var*
+//#UC END# *4CC8414403B8_4C8A252E01C2_var*
+begin
+//#UC START# *4CC8414403B8_4C8A252E01C2_impl*
+ inherited;
+ RepostMessages; // http://mdp.garant.ru/pages/viewpage.action?pageId=615707101
+//#UC END# *4CC8414403B8_4C8A252E01C2_impl*
+end;//TvtNavigator.CreateWnd
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TvtNavigator.DestroyWnd;
+//#UC START# *4CC841540158_4C8A252E01C2_var*
+//#UC END# *4CC841540158_4C8A252E01C2_var*
+begin
+//#UC START# *4CC841540158_4C8A252E01C2_impl*
+ SavePostedMessages; // http://mdp.garant.ru/pages/viewpage.action?pageId=615707101
+ inherited;
+//#UC END# *4CC841540158_4C8A252E01C2_impl*
+end;//TvtNavigator.DestroyWnd
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *4C8A252E01C2impl*
 {$R *.RES}

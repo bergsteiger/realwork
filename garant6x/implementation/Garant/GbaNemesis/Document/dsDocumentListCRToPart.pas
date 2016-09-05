@@ -28,6 +28,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *492D78650003impl_uses*
+ //#UC END# *492D78650003impl_uses*
 ;
 
 function TdsDocumentListCRToPart.ToPart: Boolean;

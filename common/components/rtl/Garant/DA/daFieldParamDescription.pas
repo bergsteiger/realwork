@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *566E71FA000Fimpl_uses*
+ //#UC END# *566E71FA000Fimpl_uses*
 ;
 
 constructor TdaFieldParamDescription.Create(const aFieldDescription: IdaFieldDescription);

@@ -58,6 +58,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A825E02010Eimpl_uses*
+ //#UC END# *4A825E02010Eimpl_uses*
 ;
 
 class function TbsWorkJournalPrim.Make: IbsWorkJournal;

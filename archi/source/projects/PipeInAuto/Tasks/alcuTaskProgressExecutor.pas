@@ -50,6 +50,8 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , Messages
  , Windows
+ //#UC START# *54748E8A0085impl_uses*
+ //#UC END# *54748E8A0085impl_uses*
 ;
 
 class function TalcuTaskProgressExecutor.Make(aTaskList: TalcuTaskList): IncsExecutor;

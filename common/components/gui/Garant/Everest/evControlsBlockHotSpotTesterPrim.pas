@@ -54,6 +54,8 @@ uses
  l3ImplUses
  , SysUtils
  , evControlsBlockConst
+ //#UC START# *4A27B51303A7impl_uses*
+ //#UC END# *4A27B51303A7impl_uses*
 ;
 
 function TevControlsBlockHotSpotTesterPrim.pm_GetCommonControl: IevCommonControl;

@@ -67,6 +67,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C7E89D702EDimpl_uses*
+ , Folders_Result_Controls
  //#UC END# *4C7E89D702EDimpl_uses*
 ;
 
@@ -81,7 +82,7 @@ begin
 //#UC START# *4C762A1501FC_4C7E89D702EDtest_impl*
  if HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmTestParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Ok, aParams As IvcmTestParams);
    aParams.Op.Flag[vcm_ofVisible] := True;
   finally
    l_Form := nil;
@@ -106,7 +107,7 @@ begin
 //#UC START# *4C762A1501FC_4C7E89D702EDexec_impl*
  if HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmExecuteParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Ok, aParams As IvcmExecuteParams);
   finally
    l_Form := nil;
   end;
@@ -138,7 +139,7 @@ begin
 //#UC START# *4C762C910358_4C7E89D702EDexec_impl*
  if HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Cancel, aParams As IvcmExecuteParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Cancel, aParams As IvcmExecuteParams);
   finally
    l_Form := nil;
   end;

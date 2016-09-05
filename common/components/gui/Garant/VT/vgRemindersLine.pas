@@ -410,6 +410,8 @@ uses
  , ReminderWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVCM)
  , RTLConsts
+ //#UC START# *532322D901A3impl_uses*
+ //#UC END# *532322D901A3impl_uses*
 ;
 
 procedure TvgReminder.pm_SetImageIndex(aValue: TImageIndex);

@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4B88F0F00211impl_uses*
+ //#UC END# *4B88F0F00211impl_uses*
 ;
 
 var g_Tl3FontManagerEx: Tl3FontManagerEx = nil;

@@ -394,6 +394,8 @@ uses
  , nsHyperlinkToDocumentProducerConst
  //#UC START# *4C46AA3401DBimpl_uses*
  , Document_F1Lite_Controls
+ , Base_Operations_F1Services_Contracts
+ , Search_Services
  //#UC END# *4C46AA3401DBimpl_uses*
 ;
 
@@ -902,7 +904,7 @@ begin
  l_Preview := MakePreview(False);
  if dsList <> nil then
   TnsListPrintPreviewEvent.Log(dsList.List, ApproxExportCount(l_Preview.ContentKind =  afw_pckSelection), l_Preview.ContentKind =  afw_pckSelection);
- TdmStdRes.MakePreview(l_Preview);
+ TPrintingService.Instance.MakePreview(l_Preview);
 //#UC END# *495220F2033A_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)
@@ -1112,7 +1114,7 @@ begin
  begin
   l_Bookmark := dsList.CreateBookmark;
   if (l_Bookmark <> nil) then
-   TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+   TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                       MakeFilterInfo(ffBookmark),
                       lp_FolderElementType,
                       l_Bookmark,
@@ -1371,7 +1373,7 @@ var
   end;
 
  begin
-  TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+  TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                      MakeFilterInfo(ffListAndBookMarks),
                      lp_FolderElementType,
                      l_CurEntity,
@@ -1458,7 +1460,7 @@ procedure TPrimListOptionsForm.List_OrAnotherList_Execute(const aParams: IvcmExe
 //#UC END# *4C46E1A20174_4C46AA3401DBexec_var*
 begin
 //#UC START# *4C46E1A20174_4C46AA3401DBexec_impl*
- TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpenWithOperation(Self.as_IvcmEntityForm,
                                    MakeFilterInfo(ffList),
                                    str_ListAppend,
                                    LLO_OR);
@@ -1481,7 +1483,7 @@ procedure TPrimListOptionsForm.List_AndAnotherList_Execute(const aParams: IvcmEx
 //#UC END# *4C46E1BD0315_4C46AA3401DBexec_var*
 begin
 //#UC START# *4C46E1BD0315_4C46AA3401DBexec_impl*
- TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpenWithOperation(Self.as_IvcmEntityForm,
                                    MakeFilterInfo(ffList),
                                    str_ListIntersect,
                                    LLO_AND);
@@ -1504,7 +1506,7 @@ procedure TPrimListOptionsForm.List_AndNotAnotherList_Execute(const aParams: Ivc
 //#UC END# *4C46E1E302A8_4C46AA3401DBexec_var*
 begin
 //#UC START# *4C46E1E302A8_4C46AA3401DBexec_impl*
- TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpenWithOperation(Self.as_IvcmEntityForm,
                                    MakeFilterInfo(ffList),
                                    str_ListSubtract,
                                    LLO_AND_NOT);
@@ -1613,7 +1615,7 @@ procedure TPrimListOptionsForm.Document_PrintPreview_Execute(const aParams: Ivcm
 begin
 //#UC START# *4C52860A017C_4C46AA3401DBexec_impl*
  if Assigned(dsList) then
-  TdmStdRes.MakePreview(dsList.MakeDocumentPreview);
+  TPrintingService.Instance.MakePreview(dsList.MakeDocumentPreview);
 //#UC END# *4C52860A017C_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Document_PrintPreview_Execute
 
@@ -1768,11 +1770,11 @@ procedure TPrimListOptionsForm.List_WorkWithList_Test(const aParams: IvcmTestPar
    f_ListOpsList := TvcmItems.Make;
   if (f_ListOpsList.Count = 0) then
   begin
-   f_ListOpsList.AddOp(TdmStdRes.opcode_Selection_Analize);
-   f_ListOpsList.AddOp(TdmStdRes.opcode_List_SwitchToFullList);
-   f_ListOpsList.AddOp(TdmStdRes.opcode_Filters_FiltersListOpen, vcmCStr(str_ApplyFilters));
-   f_ListOpsList.AddOp(TdmStdRes.opcode_LocalList_SearchInList);
-   f_ListOpsList.AddOp(TdmStdRes.opcode_List_Sort);
+   f_ListOpsList.AddOp(opcode_Selection_Analize);
+   f_ListOpsList.AddOp(opcode_List_SwitchToFullList);
+   f_ListOpsList.AddOp(opcode_Filters_FiltersListOpen, vcmCStr(str_ApplyFilters));
+   f_ListOpsList.AddOp(opcode_LocalList_SearchInList);
+   f_ListOpsList.AddOp(opcode_List_Sort);
   end;//f_ListOpsList.Count = 0
   Result := f_ListOpsList;
  end;//lp_MakeAvailableOps

@@ -111,6 +111,8 @@ uses
  , nsQuery
  , l3Base
  , evdVer
+ //#UC START# *4CF37A0400FBimpl_uses*
+ //#UC END# *4CF37A0400FBimpl_uses*
 ;
 
 {$If Defined(Nemesis)}

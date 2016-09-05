@@ -32,6 +32,8 @@ uses
  , k2Tags
  , evdTypes
  , l3Variant
+ //#UC START# *4E7071FD01E9impl_uses*
+ //#UC END# *4E7071FD01E9impl_uses*
 ;
 
 procedure TnevReqRowFormatInfo.Cleanup;

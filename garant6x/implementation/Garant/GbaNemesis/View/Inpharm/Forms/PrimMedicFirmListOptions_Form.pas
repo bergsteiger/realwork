@@ -78,6 +78,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C7E3A320074impl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4C7E3A320074impl_uses*
 ;
 
@@ -148,7 +149,7 @@ begin
   l_Container := nsNewWindow(NativeMainForm);
   if (l_Container <> nil) then
   try
-   TdmStdRes.OpenDocument(dsMedicFirmList.MakeNewDocInfo, l_Container);
+   TDocumentService.Instance.OpenDocument(dsMedicFirmList.MakeNewDocInfo, l_Container);
   finally
    l_Container := nil;
   end;
@@ -229,7 +230,7 @@ begin
   l_Container := nsNewWindow(NativeMainForm, vcm_okInNewTab);
   if (l_Container <> nil) then
   try
-   TdmStdRes.OpenDocument(dsMedicFirmList.MakeNewDocInfo, l_Container);
+   TDocumentService.Instance.OpenDocument(dsMedicFirmList.MakeNewDocInfo, l_Container);
   finally
    l_Container := nil;
   end;

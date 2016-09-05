@@ -31,6 +31,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *468275E600B1impl_uses*
+ //#UC END# *468275E600B1impl_uses*
 ;
 
 function TnsINodeOneLevelWrap.DoGetChild: Il3SimpleNode;

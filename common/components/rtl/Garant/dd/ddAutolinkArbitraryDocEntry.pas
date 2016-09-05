@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *51F258B701B2impl_uses*
+ //#UC END# *51F258B701B2impl_uses*
 ;
 
 constructor TddAutolinkArbitraryDocEntry.Create(aDocID: TDocID;

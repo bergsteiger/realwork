@@ -39,6 +39,20 @@ type
     N10: TMenuItem;
     sbDelete: TSpeedButton;
     acDelete: TAction;
+    FormDocAct: TAction;
+    FromDocSpravAct: TAction;
+    ThisSubInOtherAct: TAction;
+    AnyAct: TAction;
+    SubInVinitAcrt: TAction;
+    SubInRoditPadAct: TAction;
+    SubNumAct: TAction;
+    SubNameAct: TAction;
+    FirstWordFromSubAct: TAction;
+    NumberFromTopicAct: TAction;
+    NumberSubFromTopicAct: TAction;
+    SubNameFromAct: TAction;
+    FirstWordInFromSubAct: TAction;
+    AnyValudAct: TAction;
     procedure acDeleteExecute(Sender: TObject);
     procedure acSaveExecute(Sender: TObject);
     procedure cbSavedTemplatesSelect(Sender: TObject);
@@ -157,7 +171,7 @@ procedure TTemplateEditor.InsertMacros(Sender: TObject);
 var
  l_Idx: Integer;
 begin
- l_Idx := TMenuItem(Sender).Tag;
+ l_Idx := TComponent(Sender).Tag;
  case l_Idx of
   1: DoInsertMacros('%subnum%');
   2: DoInsertMacros('%subname%');

@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , EverestLiteAdapter
+ //#UC START# *5321724703A5impl_uses*
+ //#UC END# *5321724703A5impl_uses*
 ;
 
 class function TkwIsPreviewInProgress.GetWordNameForRegister: AnsiString;

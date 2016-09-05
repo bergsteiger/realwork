@@ -22,6 +22,8 @@ implementation
 uses
  l3ImplUses
  , k2Facade
+ //#UC START# *4A69D7830067impl_uses*
+ //#UC END# *4A69D7830067impl_uses*
 ;
 
 end.

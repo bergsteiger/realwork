@@ -40,6 +40,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , nsMainMenu2011Node
  , DataAdapter
+ //#UC START# *490B0E9A02A2impl_uses*
+ //#UC END# *490B0E9A02A2impl_uses*
 ;
 
 procedure TsmTree.AddItems2011(const aRoot: Il3RootNode;

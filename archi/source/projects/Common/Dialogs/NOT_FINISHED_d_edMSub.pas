@@ -24,6 +24,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TNewSubDlgWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4DFB50900299impl_uses*
+ //#UC END# *4DFB50900299impl_uses*
 ;
 
 end.

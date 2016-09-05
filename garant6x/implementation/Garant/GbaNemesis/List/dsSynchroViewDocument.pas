@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , nsAACDocumentSynchroViewContainer
  , DocumentUnit
+ //#UC START# *5024E60F00A6impl_uses*
+ //#UC END# *5024E60F00A6impl_uses*
 ;
 
 function TdsSynchroViewDocument.MakeContainer: InevDocumentContainer;

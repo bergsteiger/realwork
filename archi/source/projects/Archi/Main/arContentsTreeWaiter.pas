@@ -39,6 +39,8 @@ uses
  , Editwin
  , l3Interfaces
  , l3Base
+ //#UC START# *4E00671D02B5impl_uses*
+ //#UC END# *4E00671D02B5impl_uses*
 ;
 
 class function TarContentsTreeWaiter.Make(const aControl: InevControl): InevWaiter;

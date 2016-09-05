@@ -54,6 +54,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *552609F40060impl_uses*
+ //#UC END# *552609F40060impl_uses*
 ;
 
 type

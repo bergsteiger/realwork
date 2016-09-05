@@ -42,6 +42,8 @@ uses
  {$If Defined(ServerTasks)}
  , alcuMdpSyncImport
  {$IfEnd} // Defined(ServerTasks)
+ //#UC START# *52F8C95A006Eimpl_uses*
+ //#UC END# *52F8C95A006Eimpl_uses*
 ;
 {$IfEnd} // Defined(AppServerSide)
 

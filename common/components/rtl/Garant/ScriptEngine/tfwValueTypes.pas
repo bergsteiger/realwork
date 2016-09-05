@@ -69,6 +69,8 @@ uses
  , SysUtils
  , l3String
  , tfwCStringFactory
+ //#UC START# *55BF2B000047impl_uses*
+ //#UC END# *55BF2B000047impl_uses*
 ;
 
 function TtfwValueTypes.Has(const aType: TtfwTypeInfo): Boolean;

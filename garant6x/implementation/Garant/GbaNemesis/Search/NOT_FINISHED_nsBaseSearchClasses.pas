@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , nsBaseSearchClassList
+ //#UC START# *5625F9E3015Fimpl_uses*
+ //#UC END# *5625F9E3015Fimpl_uses*
 ;
 
 type

@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , bsConvert
+ //#UC START# *47F230A0012Cimpl_uses*
+ //#UC END# *47F230A0012Cimpl_uses*
 ;
 
 constructor TnsINodesClipboardDataObject.Create(const aData: INodesClipboard;

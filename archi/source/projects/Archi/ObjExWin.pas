@@ -1,6 +1,6 @@
 unit ObjExWin;
 
-{ $Id: ObjExWin.pas,v 1.81 2016/06/08 13:05:00 lukyanets Exp $ }
+{ $Id: ObjExWin.pas,v 1.84 2016/08/11 10:41:59 lukyanets Exp $ }
 
 interface
 
@@ -51,13 +51,13 @@ type
     // IdaUserStatusChangedSubscriber
     procedure UserStatusChanged(UserID: TdaUserID; Active: Boolean);
    private
-    DDHLink   : TGlobalCoordinateRec;
+    DDHLink   : TdaGlobalCoordinateRec;
     fInMailArrivedShowing : Boolean;
 
     procedure SaveMRU;
     procedure LoadMRU(aList : Tl3StringDataList);
     procedure ShowMailArrived(Sender: TObject; aMailID : LongInt);
-//    procedure UserStatusChange(UserId : TUserID; Active : Boolean);
+//    procedure UserStatusChange(UserId : TdaUserID; Active : Boolean);
     function  GetNodeType(aNode : Il3Node): Byte;
     function  ChildNodeClass(aObjectType : TExplorerObjType) : Tl3NodeClass;
    public
@@ -86,7 +86,7 @@ Uses
      daSchemeConsts,
      daDataProvider,
      dtIntf, DT_Sab,
-     DT_Doc, DT_AskList, DT_User, DT_Mail,
+     DT_Doc, DT_AskList, DT_Mail,
      VConst, ObjList, l3String, l3Date, l3Languages,
      vtDialogs, vtMenus,
      DocIntf,
@@ -98,7 +98,7 @@ Type
  PSaveItemData = ^TSaveItemData;
  TSaveItemData = packed record
                   rID     : TDocID;
-                  rFamID  : TFamilyID;
+                  rFamID  : TdaFamilyID;
                   rIconID : integer;
                  end;
 
@@ -136,13 +136,13 @@ procedure TObjectExplorerWin.LoadStruct;
 
    With TUsersListNode((lCN as Il3NodeWrap).GetSelf) do
     begin
-     lCurUsList := Tl3StringDataList.CreateSize(SizeOf(TUserID));
+     lCurUsList := Tl3StringDataList.CreateSize(SizeOf(TdaUserID));
      lCurUsList.NeedAllocStr := True;
      try
       Items := lCurUsList;
       lCurUsList.Changing;
       try
-       UserManager.GetUserListOnGroup(aIndex, Items, True);
+       GlobalDataProvider.UserManager.GetUserListOnGroup(aIndex, Items, True);
       finally
        lCurUsList.Changed;
       end;
@@ -649,7 +649,7 @@ procedure TObjectExplorerWin.piHideExplorerClick(Sender: TObject);
 
 procedure TObjectExplorerWin.piInsertDocToObjListClick(Sender: TObject);
  var
-  ItDataRec  : TGlobalCoordinateRec;
+  ItDataRec  : TdaGlobalCoordinateRec;
   ItDataRecS : TSrchObjAddr absolute ItDataRec;
   lNode      : Il3Node;
  begin
@@ -728,7 +728,7 @@ procedure TObjectExplorerWin.FormClose(Sender: TObject; var Action: TCloseAction
     //ShowDockPanel(HostDockSite as TPanel, False, nil);
  end;
 (*
-procedure TObjectExplorerWin.UserStatusChange(UserId : TUserID; Active : Boolean);
+procedure TObjectExplorerWin.UserStatusChange(UserId : TdaUserID; Active : Boolean);
  var
   lCN  : Il3Node;
   lCN2 : Il3Node;

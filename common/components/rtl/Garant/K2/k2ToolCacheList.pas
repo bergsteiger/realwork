@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *531EFB040349impl_uses*
+ //#UC END# *531EFB040349impl_uses*
 ;
 
 function Tk2ToolCacheList.GetFree: Tk2ToolPrim;

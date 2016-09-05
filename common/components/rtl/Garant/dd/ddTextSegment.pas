@@ -102,6 +102,8 @@ uses
  l3ImplUses
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *5111FC5402AAimpl_uses*
+ //#UC END# *5111FC5402AAimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}

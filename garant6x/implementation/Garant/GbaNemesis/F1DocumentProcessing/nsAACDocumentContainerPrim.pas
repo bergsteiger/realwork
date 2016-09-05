@@ -72,6 +72,8 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , Sub_Const
  , LeafPara_Const
+ //#UC START# *500E758002C7impl_uses*
+ //#UC END# *500E758002C7impl_uses*
 ;
 
 function TnsAACDocumentContainerPrim.GotPos: TbsDocPos;

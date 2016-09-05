@@ -185,6 +185,8 @@ uses
  , ControlPara_Const
  , ControlsBlock_Const
  , evControlGroup
+ //#UC START# *47CFEE9E02E1impl_uses*
+ //#UC END# *47CFEE9E02E1impl_uses*
 ;
 
 type

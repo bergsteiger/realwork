@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4C44675A0269impl_uses*
+ //#UC END# *4C44675A0269impl_uses*
 ;
 
 var g_TExcludedTests: TExcludedTests = nil;

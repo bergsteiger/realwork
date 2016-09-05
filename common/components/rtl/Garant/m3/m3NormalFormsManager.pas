@@ -35,6 +35,8 @@ uses
  , l3SimpleMM
  , SysUtils
  , l3Base
+ //#UC START# *545A1B76019Bimpl_uses*
+ //#UC END# *545A1B76019Bimpl_uses*
 ;
 
 var g_Tm3NormalFormsManager: Tm3NormalFormsManager = nil;

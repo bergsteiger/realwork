@@ -72,6 +72,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *54E1900902C9impl_uses*
+ //#UC END# *54E1900902C9impl_uses*
 ;
 
 function TddFontTable.pm_GetFonts(anIndex: Integer): TddFontEntry;

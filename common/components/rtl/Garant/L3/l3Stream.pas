@@ -5,11 +5,17 @@ unit l3Stream;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Stream - описание стандартных потоков }
 { Начат: 28.01.1999 18:24             }
-{ $Id: l3Stream.pas,v 1.98 2016/04/06 20:24:12 lulin Exp $ }
+{ $Id: l3Stream.pas,v 1.100 2016/08/30 12:19:37 lulin Exp $ }
 { Комментарии: Часть кода взята из примеров к книге Рэя Лишнера }
 {               "Секреты Delphi 2"                              }
 
 // $Log: l3Stream.pas,v $
+// Revision 1.100  2016/08/30 12:19:37  lulin
+// - подтачиваем.
+//
+// Revision 1.99  2016/08/05 09:42:08  lulin
+// - делаем слово CreateDOSProcessRedirected.
+//
 // Revision 1.98  2016/04/06 20:24:12  lulin
 // - обрабатываем ошибки открытия файла с логом.
 //
@@ -1438,7 +1444,7 @@ begin
                                    0, 0);
     l3_fmAppend :
      FHandle := Windows.CreateFile(PChar(l_FileName), GENERIC_WRITE,
-                                   FILE_SHARE_READ, nil,
+                                   FILE_SHARE_READ or FILE_SHARE_WRITE, nil,
                                    OPEN_ALWAYS,
                                    0, 0);
     l3_fmExclusiveAppend :
@@ -1808,11 +1814,10 @@ function l3Stream2IStream(aStream: TStream): IStream;
 begin
  if (aStream = nil) then
   Result := nil
- else
- if l3BQueryInterface(aStream, IStream, Result) then
+ else if l3BQueryInterface(aStream, IStream, Result) then
   Exit
  else
-  Result := TStreamAdapter.Create(aStream) {$IfDef DelphiX} As IStream{$EndIf};
+  Result := TStreamAdapter.Create(aStream);
 end;
 
 function l3CopyStream(anInStream, anOutStream: TStream): Large;
@@ -1930,9 +1935,9 @@ var
  l_S1 : TStream;
  l_S2 : TStream;
 begin
- l_S1 := Tl3TextStream.Create(aStream1, l3_fmRead);
+ l_S1 := {Tl3TextStream}Tl3FileStream.Create(aStream1, l3_fmRead);
  try
-  l_S2 := Tl3TextStream.Create(aStream2, l3_fmRead);
+  l_S2 := {Tl3TextStream}Tl3FileStream.Create(aStream2, l3_fmRead);
   try
    Result := l3CompareStreams(l_S1, l_S2, aHeaderBegin);
   finally

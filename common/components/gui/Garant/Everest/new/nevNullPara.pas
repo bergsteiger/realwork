@@ -28,6 +28,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *48E0BD200269impl_uses*
+ //#UC END# *48E0BD200269impl_uses*
 ;
 
 class function TnevNullPara.Make: InevPara;

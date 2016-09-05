@@ -18,9 +18,18 @@ uses
  , nevTools
  , evdInterfaces
  , l3Variant
+ , Classes
 ;
 
 const
+ {* Алиасы для значений Classes.TShiftState }
+ ssShift = Classes.ssShift;
+ ssAlt = Classes.ssAlt;
+ ssCtrl = Classes.ssCtrl;
+ ssLeft = Classes.ssLeft;
+ ssRight = Classes.ssRight;
+ ssMiddle = Classes.ssMiddle;
+ ssDouble = Classes.ssDouble;
  ev_mbLeft = l3_mbLeft;
  ev_mbMiddle = l3_mbMiddle;
  ev_mbRight = l3_mbRight;

@@ -159,6 +159,7 @@ uses
  //#UC START# *4AC9A3F801F3impl_uses*
  , vtOutliner
  , l3ControlsTypes
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4AC9A3F801F3impl_uses*
 ;
 
@@ -354,7 +355,7 @@ begin
  try
   if IsBookmark(l_Node) and Supports(l_Node, InsJournalBookmarkNode, l_MyNode) then
   try
-   l_Document := TdmStdRes.SafeOpenDocument(l_MyNode.Bookmark);
+   l_Document := TDocumentService.Instance.SafeOpenDocument(l_MyNode.Bookmark);
    // –егистрируем открытие документа из истории:
    if l_Document <> nil then
    try
@@ -553,7 +554,7 @@ begin
 //#UC START# *559BC7B5001A_559BC4A30149_impl*
  Clear;
  try
-  l_List := TdmStdRes.MakeWorkJournal.MakeQueryHistory(f_QueryType, f_MaxCount);
+  l_List := TWorkJournalService.Instance.MakeWorkJournal.MakeQueryHistory(f_QueryType, f_MaxCount);
   if Assigned(l_List) then
    for l_Index := 0 to Pred(l_List.Count) do
    begin

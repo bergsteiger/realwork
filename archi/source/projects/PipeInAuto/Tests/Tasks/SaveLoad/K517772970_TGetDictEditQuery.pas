@@ -46,6 +46,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *532186F3030Bimpl_uses*
+ //#UC END# *532186F3030Bimpl_uses*
 ;
 
 function TK517772970_TGetDictEditQuery.TaskClass: TddTaskClass;

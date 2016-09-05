@@ -29,6 +29,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4958986800FEimpl_uses*
+ //#UC END# *4958986800FEimpl_uses*
 ;
 
 function TdsTranslation.DoGet_PreviewCaleeArea: TafwPreviewCaleeArea;

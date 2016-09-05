@@ -47,6 +47,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *53214EEB036Dimpl_uses*
+ //#UC END# *53214EEB036Dimpl_uses*
 ;
 
 function TK517772970_TUserEditQuery.TaskClass: TddTaskClass;

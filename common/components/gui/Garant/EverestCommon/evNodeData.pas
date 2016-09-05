@@ -45,6 +45,8 @@ uses
  , l3Types
  , Document_Const
  , TextPara_Const
+ //#UC START# *48F7014003A5impl_uses*
+ //#UC END# *48F7014003A5impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas}

@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , QueryListPrim
+ //#UC START# *52FCB4700035impl_uses*
+ //#UC END# *52FCB4700035impl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

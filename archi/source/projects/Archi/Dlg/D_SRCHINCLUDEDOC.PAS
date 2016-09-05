@@ -1,6 +1,6 @@
 unit d_SrchIncludeDoc;
 
-{ $Id: D_SRCHINCLUDEDOC.PAS,v 1.3 2016/04/18 08:39:30 lukyanets Exp $ }
+{ $Id: D_SRCHINCLUDEDOC.PAS,v 1.4 2016/08/10 12:48:40 lukyanets Exp $ }
 
 interface
 
@@ -36,11 +36,11 @@ implementation
 {$R *.DFM}
 
 Uses
-  DT_User;
+  daDataProvider;
 
 procedure TSrchIncludeDocDlg.FormCreate(Sender: TObject);
 begin
- UserManager.GetFiltredUserList(cbUser.Items);
+ GlobalDataProvider.UserManager.GetFiltredUserList(cbUser.Items);
  cbUser.Items.Insert(0, '[бяе]');
  cbUser.ItemIndex := 0;
 end;

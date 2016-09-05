@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *53A2C9290311impl_uses*
+ //#UC END# *53A2C9290311impl_uses*
 ;
 
 function Tl3MultiThreadSortedIntegerList.NeedSort: Boolean;

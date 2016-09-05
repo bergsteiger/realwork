@@ -49,6 +49,8 @@ uses
  , l3Interlocked
  , Consts
  , l3MetafileHeader
+ //#UC START# *47DFD79200BDimpl_uses*
+ //#UC END# *47DFD79200BDimpl_uses*
 ;
 
 type

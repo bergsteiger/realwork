@@ -72,6 +72,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *4922C66D0013impl_uses*
+ //#UC END# *4922C66D0013impl_uses*
 ;
 
 type _Instance_R_ = TdsMedicFirmSynchroView;

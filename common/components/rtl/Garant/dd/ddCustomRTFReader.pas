@@ -98,6 +98,8 @@ implementation
 uses
  l3ImplUses
  , ddConst
+ //#UC START# *51E7BF4200C0impl_uses*
+ //#UC END# *51E7BF4200C0impl_uses*
 ;
 
 procedure TddCustomRTFReader.pm_SetMinPicWidth(aValue: Integer);

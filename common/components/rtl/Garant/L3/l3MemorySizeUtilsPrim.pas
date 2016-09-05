@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , l3MemorySizeUtils
+ //#UC START# *51DADE55035Eimpl_uses*
+ //#UC END# *51DADE55035Eimpl_uses*
 ;
 
 {$If NOT Defined(XE)}

@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4914266C02BEimpl_uses*
+ //#UC END# *4914266C02BEimpl_uses*
 ;
 
 type _Instance_R_ = TnsLangList;

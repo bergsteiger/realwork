@@ -49,6 +49,8 @@ uses
  , Block_Const
  , l3MinMax
  , TableCell_Const
+ //#UC START# *48D0F828032Eimpl_uses*
+ //#UC END# *48D0F828032Eimpl_uses*
 ;
 
 class function TnevLeafPara.Make(aTag: Tl3Variant): InevLeafPara;

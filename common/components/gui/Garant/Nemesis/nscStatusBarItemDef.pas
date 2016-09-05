@@ -63,6 +63,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *4FEC3C34003Fimpl_uses*
+ //#UC END# *4FEC3C34003Fimpl_uses*
 ;
 
 constructor TnscStatusBarItemDef.Create(aShowCaption: Boolean;

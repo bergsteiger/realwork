@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *481D76A4005Dimpl_uses*
+ //#UC END# *481D76A4005Dimpl_uses*
 ;
 
 function EvDrawPara(const anArea: TnevShapeArea;

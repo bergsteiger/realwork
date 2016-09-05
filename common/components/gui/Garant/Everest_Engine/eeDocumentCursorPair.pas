@@ -46,6 +46,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evCursorTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *54BE50DC0032impl_uses*
+ //#UC END# *54BE50DC0032impl_uses*
 ;
 
 {$If Defined(evUseVisibleCursors)}

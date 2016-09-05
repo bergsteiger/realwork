@@ -45,6 +45,8 @@ uses
  , kwCompiledFunction
  , kwCompiledProcedureWithStackChecking
  , kwInlinedWord
+ //#UC START# *4F37B27502EEimpl_uses*
+ //#UC END# *4F37B27502EEimpl_uses*
 ;
 
 const

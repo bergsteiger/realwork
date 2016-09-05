@@ -5,9 +5,15 @@ unit vcmModule;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmModule -     }
 { Начат: 24.02.2003 14:21 }
-{ $Id: vcmModule.pas,v 1.88 2015/07/09 09:54:20 kostitsin Exp $ }
+{ $Id: vcmModule.pas,v 1.90 2016/08/02 17:48:04 lulin Exp $ }
 
 // $Log: vcmModule.pas,v $
+// Revision 1.90  2016/08/02 17:48:04  lulin
+// - перегенерация.
+//
+// Revision 1.89  2016/08/02 16:02:22  lulin
+// - перегенерация.
+//
 // Revision 1.88  2015/07/09 09:54:20  kostitsin
 // чтобы не мешалось.
 //
@@ -543,10 +549,11 @@ type
         { Возвращает количество зарегистрированных модулей. }
       class function GetModule(const anIndex: Integer): IvcmModule;
         {* - возвращает модуль по индексу. }
+    protected
       class function DefaultContainer: IvcmContainer;
         {-}
       class function CheckContainer(const aCont: IvcmContainer): IvcmContainer;
-        {-}  
+        {-}
     public
     // public properties
       property ID: TvcmControlID
@@ -580,6 +587,8 @@ uses
   vcmInternalConst,
   vcmBaseOperationsCollectionItem,
   vcmBaseCollectionItem
+
+  , vcmModuleContractImplementation
   ;
 
 {$IfNDef DesignTimeLibrary}
@@ -920,16 +929,13 @@ end;
 class function TvcmModule.DefaultContainer: IvcmContainer;
   {-}
 begin
- Result := vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer;
+ Result := TvcmModuleContractImplementation.DefaultContainer;
 end;
 
 class function TvcmModule.CheckContainer(const aCont: IvcmContainer): IvcmContainer;
   {-}
 begin
- if (aCont = nil) then
-  Result := DefaultContainer
- else
-  Result := aCont;
+ Result := TvcmModuleContractImplementation.CheckContainer(aCont);
 end;
 
 initialization

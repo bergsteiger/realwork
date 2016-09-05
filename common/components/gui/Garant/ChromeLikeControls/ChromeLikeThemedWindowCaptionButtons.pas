@@ -48,6 +48,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *533D1518032Fimpl_uses*
+ //#UC END# *533D1518032Fimpl_uses*
 ;
 
 function TChromeLikeThemedCloseCaptionButton.GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams;

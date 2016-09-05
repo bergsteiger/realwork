@@ -52,6 +52,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B8693630365impl_uses*
+ //#UC END# *4B8693630365impl_uses*
 ;
 
 procedure FillItem(var aPlace: _ItemType_;

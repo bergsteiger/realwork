@@ -23,6 +23,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4ABA13880316impl_uses*
+ //#UC END# *4ABA13880316impl_uses*
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

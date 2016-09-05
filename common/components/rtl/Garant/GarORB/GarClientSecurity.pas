@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , orbtypes
  , Windows
+ //#UC START# *4CA0D4C90266impl_uses*
+ //#UC END# *4CA0D4C90266impl_uses*
 ;
 
 constructor TGarClientSecurity.Create(const info: IORBInitInfo);

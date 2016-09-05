@@ -65,6 +65,8 @@ uses
  , SysUtils
  , pgField
  , l3Types
+ //#UC START# *560B961401E4impl_uses*
+ //#UC END# *560B961401E4impl_uses*
 ;
 
 constructor TpgResultSet.Create(aConnection: TpgConnection;
@@ -92,7 +94,7 @@ begin
  for l_IDX := 0 to aParams.Count - 1 do
  begin
   l_ParamsValue[l_IDX] := aParams[l_IDX].AsString;
-  l_ParamsValuePtr[l_IDX] := @l_ParamsValue[l_IDX][1];
+  l_ParamsValuePtr[l_IDX] := PAnsiChar(l_ParamsValue[l_IDX]);
  end;
  
  f_Result := PQexecPrepared(aConnection.Handle, PAnsiChar(aQueryName), aParams.Count, l_ParamsValuePtr, nil, 0, 0);

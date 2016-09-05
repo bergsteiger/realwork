@@ -24,6 +24,8 @@ uses
  {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
  , archiEditorWindowWordsPack
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ //#UC START# *5146CA0A03DEimpl_uses*
+ //#UC END# *5146CA0A03DEimpl_uses*
 ;
 
 function TEditorWindow.IsNeedSave: Boolean;

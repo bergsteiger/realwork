@@ -44,6 +44,8 @@ uses
  , nevTools
  , evSectionPara
  , evConst
+ //#UC START# *4E70655403BDimpl_uses*
+ //#UC END# *4E70655403BDimpl_uses*
 ;
 
 function TnevSBSRowFormatInfo.CalcNewWidth(aParentWidth: Integer;

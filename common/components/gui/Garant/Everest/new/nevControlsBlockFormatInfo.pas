@@ -33,6 +33,8 @@ uses
  , evTextStyle_Const
  , l3Types
  , l3String
+ //#UC START# *4E5F54E500AAimpl_uses*
+ //#UC END# *4E5F54E500AAimpl_uses*
 ;
 
 function TnevControlsBlockFormatInfo.pm_GetlocSpacing: TnevRect;

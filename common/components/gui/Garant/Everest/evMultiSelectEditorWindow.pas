@@ -41,6 +41,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4829D8C50010impl_uses*
+ //#UC END# *4829D8C50010impl_uses*
 ;
 
 function TevMultiSelectEditorWindow.pm_GetAllowMultiSelect: Boolean;

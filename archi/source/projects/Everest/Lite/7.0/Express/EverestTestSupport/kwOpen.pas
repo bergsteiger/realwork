@@ -43,6 +43,8 @@ uses
  l3ImplUses
  , EverestLiteAdapter
  , SysUtils
+ //#UC START# *512D9C56000Bimpl_uses*
+ //#UC END# *512D9C56000Bimpl_uses*
 ;
 
 class function TkwOpen.GetWordNameForRegister: AnsiString;

@@ -28,6 +28,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4CFFD8F603A0impl_uses*
+ //#UC END# *4CFFD8F603A0impl_uses*
 ;
 
 function TeeEditorWithoutOperations.DefineProvideOperations: TevEditorProvideOperationTypes;

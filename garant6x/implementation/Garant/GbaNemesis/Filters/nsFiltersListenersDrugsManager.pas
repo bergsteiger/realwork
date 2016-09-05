@@ -38,6 +38,8 @@ uses
  , DataAdapter
  , SysUtils
  , l3Base
+ //#UC START# *4F98440301D2impl_uses*
+ //#UC END# *4F98440301D2impl_uses*
 ;
 
 var g_TnsFiltersListenersDrugsManager: TnsFiltersListenersDrugsManager = nil;

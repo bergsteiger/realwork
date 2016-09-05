@@ -44,6 +44,8 @@ uses
  , testCConstDelphiString
  , l3Interfaces
  , TestFrameWork
+ //#UC START# *55784B4C022Cimpl_uses*
+ //#UC END# *55784B4C022Cimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -38,6 +38,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E68DD3B01A2impl_uses*
+ //#UC END# *4E68DD3B01A2impl_uses*
 ;
 
 type

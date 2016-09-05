@@ -46,6 +46,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C288B4D012Fimpl_uses*
+ //#UC END# *4C288B4D012Fimpl_uses*
 ;
 
 procedure TSearchAndReplacePrimTest.Process(aForm: TPrimTextLoadForm);

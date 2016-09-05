@@ -54,6 +54,8 @@ uses
  , evStyleHeaderAdder
  , evdScriptHyperlinkEliminator
  , l3Memory
+ //#UC START# *4B72B41502F5impl_uses*
+ //#UC END# *4B72B41502F5impl_uses*
 ;
 
 function DoEVDtoRTF(const aEVD: IStream;

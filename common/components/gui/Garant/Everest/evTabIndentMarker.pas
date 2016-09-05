@@ -56,6 +56,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4A390E9702B9impl_uses*
+ //#UC END# *4A390E9702B9impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}

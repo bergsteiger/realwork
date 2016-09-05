@@ -85,6 +85,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *51371A9402FAimpl_uses*
+ //#UC END# *51371A9402FAimpl_uses*
 ;
 
 function GarantShowLink(aRef: PAnsiChar;

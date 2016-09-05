@@ -37,6 +37,8 @@ uses
  , l3String
  , l3Variant
  , l3Memory
+ //#UC START# *47AC79EA0132impl_uses*
+ //#UC END# *47AC79EA0132impl_uses*
 ;
 
 type _Instance_R_ = Tl3Dictionary;

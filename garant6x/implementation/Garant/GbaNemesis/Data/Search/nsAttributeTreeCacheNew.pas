@@ -55,6 +55,8 @@ uses
  , l3Memory
  , SysUtils
  , l3Base
+ //#UC START# *4912AB3A01EDimpl_uses*
+ //#UC END# *4912AB3A01EDimpl_uses*
 ;
 
 var g_TnsAttributeTreeCacheNew: TnsAttributeTreeCacheNew = nil;

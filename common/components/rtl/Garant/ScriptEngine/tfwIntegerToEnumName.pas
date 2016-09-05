@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , SysUtils
  , tfwStringToEnumValue
+ //#UC START# *553128CE018Dimpl_uses*
+ //#UC END# *553128CE018Dimpl_uses*
 ;
 
 class procedure TtfwIntegerToEnumName.Register(aTypeInfo: PTypeInfo);

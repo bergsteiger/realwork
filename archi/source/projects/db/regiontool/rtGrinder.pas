@@ -1,8 +1,17 @@
 unit rtGrinder;
 
-{ $Id: rtGrinder.pas,v 1.26 2016/04/25 11:23:21 lukyanets Exp $}
+{ $Id: rtGrinder.pas,v 1.29 2016/08/11 11:40:24 lukyanets Exp $}
 
 // $Log: rtGrinder.pas,v $
+// Revision 1.29  2016/08/11 11:40:24  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.28  2016/08/11 10:42:03  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.27  2016/06/16 05:38:52  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.26  2016/04/25 11:23:21  lukyanets
 // Пересаживаем UserManager на новые рельсы
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -95,8 +104,7 @@ uses
  daTypes,
 
  DT_Types,
- DT_Const,
- DT_UserConst
+ DT_Const
  ;
 
 type
@@ -157,7 +165,8 @@ uses
  DT_Misc,
  DT_Stage,
  DT_Log,
- DT_Free;
+ DT_Free,
+ dt_UserConst;
 
 const
  MAX_DWRD = $FFFFFFFF;
@@ -265,7 +274,7 @@ var
  l_Fam    : TFamTbls;
  l_Passw  : TPassStr;
  l_Name   : TTblNameStr;
- l_Family : TFamilyID;
+ l_Family : TdaFamilyID;
  l_BBOper : Word;
  l_TmpID  : TdaUserID;
  l_ZeroUserID  : TdaUserID;

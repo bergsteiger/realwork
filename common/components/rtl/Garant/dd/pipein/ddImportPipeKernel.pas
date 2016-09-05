@@ -3,9 +3,12 @@ unit ddImportPipeKernel;
 { Внутренняя часть трубы, которая ничего не знает о внешних данных. }
 { Начата 12.05.2003 }
 
-{ $Id: ddImportPipeKernel.pas,v 1.103 2015/11/25 14:01:49 lukyanets Exp $ }
+{ $Id: ddImportPipeKernel.pas,v 1.104 2016/06/16 05:40:08 lukyanets Exp $ }
 
 // $Log: ddImportPipeKernel.pas,v $
+// Revision 1.104  2016/06/16 05:40:08  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.103  2015/11/25 14:01:49  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -417,7 +420,7 @@ type
    //function GetCloseStages: Boolean;
    function GetDeleteCondition: TDeleteConditionSet;
    function GetDocumentReaction: TSameDocReact;
-   function GetFamily: TFamilyID;
+   function GetFamily: TdaFamilyID;
    function GetInternalFormat: Boolean;
    function GetIsEnglish: Boolean;
    function GetOnSkipDocument: TSkipDocNotify;
@@ -433,7 +436,7 @@ type
    //procedure SetCloseStages(const Value: Boolean);
    procedure SetDeleteCondition(const Value: TDeleteConditionSet);
    procedure SetDocumentReaction(const Value: TSameDocReact);
-   procedure SetFamily(aValue: TFamilyID);
+   procedure SetFamily(aValue: TdaFamilyID);
    procedure SetInternalFormat(const Value: Boolean);
    procedure SetIsEnglish(const Value: Boolean);
    procedure SetOnSkipDocument(const Value: TSkipDocNotify);
@@ -472,7 +475,7 @@ type
    property DocumentReaction: TSameDocReact
     read GetDocumentReaction
     write SetDocumentReaction;
-   property Family: TFamilyID
+   property Family: TdaFamilyID
     read GetFamily
     write SetFamily;
    property InternalFormat: Boolean
@@ -663,7 +666,7 @@ begin
  Result:= f_BaseGen.SameDocumentReaction;
 end;
 
-function TddImportPipeFilter.GetFamily: TFamilyID;
+function TddImportPipeFilter.GetFamily: TdaFamilyID;
 begin
  Result:= f_BaseGen.Family
 end;
@@ -812,7 +815,7 @@ begin
   f_BaseGen.SameDocumentReaction:= Value;
 end;
 
-procedure TddImportPipeFilter.SetFamily(aValue: TFamilyID);
+procedure TddImportPipeFilter.SetFamily(aValue: TdaFamilyID);
 begin
  if aValue <> f_BaseGen.Family then
  begin

@@ -45,6 +45,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0FA8D701F6impl_uses*
+ //#UC END# *4B0FA8D701F6impl_uses*
 ;
 
 constructor TnsListPrintEvent.Create(const aList: IDynList;

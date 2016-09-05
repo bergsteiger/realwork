@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , ApplicationHelper
+ //#UC START# *5748213B02F2impl_uses*
+ //#UC END# *5748213B02F2impl_uses*
 ;
 
 procedure SectionImpl.GetCaption;

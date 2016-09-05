@@ -129,7 +129,7 @@ type
     procedure ProgressUpdate(Sender: TObject; aState: Byte);
     procedure TotalProgress(aState: Byte; aValue: Longint; const aMsg: string);
     procedure FillAbout;
-    procedure CheckAutoImport(UserID : TUserID; Const Catalog : String);
+    procedure CheckAutoImport(UserID : TdaUserID; Const Catalog : String);
     procedure UpdateTables(makeProgressor: Boolean = False);
   protected
     // IdaLongProcessSubscriber
@@ -158,7 +158,7 @@ Uses
   daInterfaces,
   daProgressProcHolder,
   daDataProvider,
-  DT_Serv, dt_Const, dt_IFltr, {dt_Conn,} dt_User, dt_Prior, dt_Doc,
+  DT_Serv, dt_Const, dt_IFltr, dt_Prior, dt_Doc,
   mgJouSrv, l3FileUtils, m4DB, m4DBInterfaces, m3StorageInterfaces,
   D_Pass, D_ImpPrg, ddHTInit, ht_Const, l3Types,
   l3Filer,  k2TagGen, ddDocReader, ddExtAnnoPipe, l3Stream,
@@ -750,7 +750,7 @@ begin
  CancelAutoImport:= True;
 end;
 
-procedure TSpyForm.CheckAutoImport(UserID : TUserID; Const Catalog : String);
+procedure TSpyForm.CheckAutoImport(UserID : TdaUserID; Const Catalog : String);
 var
   S: Tl3String;
 begin

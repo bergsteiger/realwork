@@ -93,7 +93,8 @@ type
   function SaveState(out theState: IUnknown;
    aStateType: TvcmStateType): Boolean;
   function LoadState(const theState: IUnknown;
-   aStateType: TvcmStateType): Boolean;
+   aStateType: TvcmStateType;
+   aClone: Boolean): Boolean;
  end;//IvcmState
 
  TvcmDoneStatus = (

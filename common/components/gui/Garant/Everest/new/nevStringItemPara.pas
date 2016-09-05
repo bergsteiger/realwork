@@ -37,6 +37,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *48D1184C02B9impl_uses*
+ //#UC END# *48D1184C02B9impl_uses*
 ;
 
 constructor TnevStringItemPara.Create(aTag: Tl3Variant;

@@ -54,6 +54,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *555C88FF0236impl_uses*
+ //#UC END# *555C88FF0236impl_uses*
 ;
 
 constructor Tm3DBFiler.Create(const aDB: Im3DB;

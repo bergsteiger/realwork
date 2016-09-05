@@ -37,6 +37,8 @@ uses
  , l3Types
  , SysUtils
  , evEmptyTableEliminator
+ //#UC START# *4CE3998200D9impl_uses*
+ //#UC END# *4CE3998200D9impl_uses*
 ;
 
 class procedure TevAdjustNSRCToPage.ProcessFile(const aFile: AnsiString);

@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *478778030195impl_uses*
+ //#UC END# *478778030195impl_uses*
 ;
 
 function Tl3BaseLocaleInfo.pm_GetId: LCID;

@@ -41,6 +41,8 @@ uses
  , tfwDictionaryEx
  , SysUtils
  , l3Base
+ //#UC START# *55A3DF0603C6impl_uses*
+ //#UC END# *55A3DF0603C6impl_uses*
 ;
 
 var g_TtfwDictionaryCache: TtfwDictionaryCache = nil;
@@ -95,10 +97,15 @@ var
 //#UC END# *559E857A037A_55A3DF0603C6_var*
 begin
 //#UC START# *559E857A037A_55A3DF0603C6_impl*
- if FindData(l3PCharLen(aFileName), l_Index) then
-  Result := Items[l_Index]
- else
-  Result := nil;
+ Lock;
+ try
+  if FindData(l3PCharLen(aFileName), l_Index) then
+   Result := Items[l_Index]
+  else
+   Result := nil;
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *559E857A037A_55A3DF0603C6_impl*
 end;//TtfwDictionaryCache.FindDictionary
 
@@ -107,8 +114,13 @@ procedure TtfwDictionaryCache.Remove(const anItem: _ItemType_);
 //#UC END# *55A663000019_55A3DF0603C6_var*
 begin
 //#UC START# *55A663000019_55A3DF0603C6_impl*
- TtfwMainDictionaryCache.Instance.RemoveUsersOf(anItem);
- inherited;
+ Lock;
+ try
+  TtfwMainDictionaryCache.Instance.RemoveUsersOf(anItem);
+  inherited;
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *55A663000019_55A3DF0603C6_impl*
 end;//TtfwDictionaryCache.Remove
 {$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)

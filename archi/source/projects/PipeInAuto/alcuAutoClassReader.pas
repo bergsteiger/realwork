@@ -3,9 +3,12 @@ unit alcuAutoClassReader;
 { Специальная читалка данных рубрицирования }
 
 
-{ $Id: alcuAutoClassReader.pas,v 1.10 2015/11/26 08:45:26 lukyanets Exp $ }
+{ $Id: alcuAutoClassReader.pas,v 1.11 2016/06/16 05:38:39 lukyanets Exp $ }
 
 // $Log: alcuAutoClassReader.pas,v $
+// Revision 1.11  2016/06/16 05:38:39  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.10  2015/11/26 08:45:26  lukyanets
 // КОнстанты переехали
 //
@@ -65,14 +68,14 @@ Uses
  Classes,
  k2Reader, k2TagGen,
  l3Date, l3Base, l3LongintList,
- dt_Types, dt_AttrSchema;
+ daTypes, dt_AttrSchema;
 
 type
  TalcuClassifiedReader = class(Tk2CustomFileParser)
  private
   f_DocumentList: Tl3LongintList;
   f_Errors: TStrings;
-  f_Family: TFamilyID;
+  f_Family: TdaFamilyID;
  protected
   procedure Cleanup; override;
  public
@@ -82,7 +85,7 @@ type
    read f_DocumentList;
   // Список обработанных документов (внутренние номера)
   property Errors: TStrings read f_Errors;
-  property Family: TFamilyID
+  property Family: TdaFamilyID
    read f_Family
    write f_Family;
  end;
@@ -105,8 +108,8 @@ const
 implementation
 
 Uses
- daTypes, daInterfaces, daSchemeConsts,
- dt_Link, dt_Const, dt_Serv, dt_Dict,
+ daInterfaces, daSchemeConsts,
+ dt_Types, dt_Link, dt_Const, dt_Serv, dt_Dict,
  l3Parser, l3Bits, l3String,
  SysUtils, Dt_ReNum, dt_DictConst, dt_LinkServ, l3Interfaces;
 

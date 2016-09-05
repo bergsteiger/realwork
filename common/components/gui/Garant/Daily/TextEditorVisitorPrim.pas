@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4BE418BB001Fimpl_uses*
+ //#UC END# *4BE418BB001Fimpl_uses*
 ;
 
 procedure TTextEditorVisitorPrim.VisitText(const aStr: AnsiString = 'Load');

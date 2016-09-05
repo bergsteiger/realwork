@@ -43,6 +43,8 @@ uses
  , SysUtils
  , nsMedicFirmListFilters
  , nsTypes
+ //#UC START# *490711B101F9impl_uses*
+ //#UC END# *490711B101F9impl_uses*
 ;
 
 constructor TnsMedicFirmsTreeBase.Create;

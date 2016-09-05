@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , evdStyles
  , k2Tags
+ //#UC START# *4E5F3389001Dimpl_uses*
+ //#UC END# *4E5F3389001Dimpl_uses*
 ;
 
 procedure TnevCommentFormatInfo.TuneFrameText(aText: Tl3Variant);

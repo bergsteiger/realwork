@@ -48,6 +48,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4BE04F030356impl_uses*
+ //#UC END# *4BE04F030356impl_uses*
 ;
 
 function TSearchAndReplaceTest.Searcher: IevSearcher;

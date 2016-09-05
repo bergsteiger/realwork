@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *537076040297impl_uses*
+ //#UC END# *537076040297impl_uses*
 ;
 
 class function TkwSearchWinSaveDocumentList.GetWordNameForRegister: AnsiString;

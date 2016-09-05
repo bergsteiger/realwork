@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4C9386230151impl_uses*
+ //#UC END# *4C9386230151impl_uses*
 ;
 
 var g_TExcludedTestsFolders: TExcludedTestsFolders = nil;

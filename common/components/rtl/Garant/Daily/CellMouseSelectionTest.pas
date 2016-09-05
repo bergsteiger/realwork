@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4CED2FCF0081impl_uses*
+ //#UC END# *4CED2FCF0081impl_uses*
 ;
 
 function TCellMouseSelectionTest.GetInnerPara(const aView: InevInputView;

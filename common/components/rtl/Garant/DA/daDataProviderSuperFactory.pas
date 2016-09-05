@@ -85,6 +85,8 @@ uses
  , l3Types
  , ddAppConfigTypes
  , l3Base
+ //#UC START# *54F85B590251impl_uses*
+ //#UC END# *54F85B590251impl_uses*
 ;
 
 var g_TdaDataProviderSuperFactory: TdaDataProviderSuperFactory = nil;

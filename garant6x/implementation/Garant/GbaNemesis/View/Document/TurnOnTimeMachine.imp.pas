@@ -46,7 +46,7 @@ procedure _TurnOnTimeMachine_.OnCurrentRedaction;
 //#UC END# *49804ED003A8_49805ACC01CF_var*
 begin
 //#UC START# *49804ED003A8_49805ACC01CF_impl*
- nsTimeMachineOn(Document, TdmStdRes.GetCurEditionDate(Document));
+ nsTimeMachineOn(Document, TCommonService.Instance.GetCurEditionDate(Document));
 //#UC END# *49804ED003A8_49805ACC01CF_impl*
 end;//_TurnOnTimeMachine_.OnCurrentRedaction
 

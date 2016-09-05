@@ -44,6 +44,8 @@ uses
  , tfwRTTIProperty
  , tfwEnumRegistrator
  , tfwTypeRegistrator
+ //#UC START# *508528D10384impl_uses*
+ //#UC END# *508528D10384impl_uses*
 ;
 
 constructor TtfwClassRef.Create(aClass: TClass);

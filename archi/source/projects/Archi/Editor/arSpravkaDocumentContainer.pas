@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , evdStyles
+ //#UC START# *4F9501970235impl_uses*
+ //#UC END# *4F9501970235impl_uses*
 ;
 
 procedure TarSpravkaDocumentContainer.MakeProcessor(out theProcessor: TevCustomUndoProcessor);

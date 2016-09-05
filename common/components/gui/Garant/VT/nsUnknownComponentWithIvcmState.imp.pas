@@ -21,7 +21,8 @@
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function LoadState(const theState: IUnknown;
-    aStateType: TvcmStateType): Boolean;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    function DoLoadState(const theState: IUnknown;
@@ -80,7 +81,8 @@ end;//_nsUnknownComponentWithIvcmState_.SaveState
 
 {$If NOT Defined(NoVCM)}
 function _nsUnknownComponentWithIvcmState_.LoadState(const theState: IUnknown;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
 //#UC START# *4683E79D0331_4F9A6F66035C_var*
 //#UC END# *4683E79D0331_4F9A6F66035C_var*
 begin

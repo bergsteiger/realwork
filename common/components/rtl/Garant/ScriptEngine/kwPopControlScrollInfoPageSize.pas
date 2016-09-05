@@ -32,6 +32,8 @@ uses
  , Windows
  , Controls
  , Forms
+ //#UC START# *51793B1402E2impl_uses*
+ //#UC END# *51793B1402E2impl_uses*
 ;
 
 procedure TkwPopControlScrollInfoPageSize.DoScrollInfo(const aCtx: TtfwContext);

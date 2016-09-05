@@ -44,6 +44,8 @@ uses
  , k2Tags
  , HyperLink_Const
  , evdTextStyle_Const
+ //#UC START# *55CC33ED010Bimpl_uses*
+ //#UC END# *55CC33ED010Bimpl_uses*
 ;
 
 procedure TevAACTextPainter.CheckDrawFocused;

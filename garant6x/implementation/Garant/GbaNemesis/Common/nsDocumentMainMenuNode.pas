@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , nsDocumentTools
+ //#UC START# *4ADDF4FA01C8impl_uses*
+ //#UC END# *4ADDF4FA01C8impl_uses*
 ;
 
 constructor TnsDocumentMainMenuNode.Create(aType: Integer;

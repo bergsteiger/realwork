@@ -42,6 +42,8 @@ uses
  , k2Tags
  , Document_Const
  , SysUtils
+ //#UC START# *55B9C9EA0370impl_uses*
+ //#UC END# *55B9C9EA0370impl_uses*
 ;
 
 procedure TevExpandedTextFilter.Cleanup;

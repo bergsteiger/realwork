@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *53208F54004Fimpl_uses*
+ //#UC END# *53208F54004Fimpl_uses*
 ;
 
 function Tk2DictRecTag.GetAsPCharLen: Tl3WString;

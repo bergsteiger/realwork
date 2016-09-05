@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *550C09E20148impl_uses*
+ //#UC END# *550C09E20148impl_uses*
 ;
 
 procedure TChromeLikeBaseVisualObject.Cleanup;

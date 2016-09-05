@@ -61,6 +61,8 @@ uses
  , l3Base
  , evDef
  , Font_Const
+ //#UC START# *482D888D039Eimpl_uses*
+ //#UC END# *482D888D039Eimpl_uses*
 ;
 
 function TevCustomMemoContainer.pm_GetMemo: TComponent;

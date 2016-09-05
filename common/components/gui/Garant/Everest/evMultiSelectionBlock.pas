@@ -49,6 +49,8 @@ uses
  , Block_Const
  , Document_Const
  , k2Tags
+ //#UC START# *48E3B83B0187impl_uses*
+ //#UC END# *48E3B83B0187impl_uses*
 ;
 
 procedure TevMultiSelectionBlock.DoStore(const aView: InevView;

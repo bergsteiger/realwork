@@ -19,6 +19,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *546F0E690374impl_uses*
+ //#UC END# *546F0E690374impl_uses*
 ;
 
 function l3CalcCRC32(aStream: TStream): Cardinal;

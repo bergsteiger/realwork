@@ -23,6 +23,8 @@ uses
  l3ImplUses
  , l3IntegerValueMapManager
  , l3StringValueMapManager
+ //#UC START# *478E36460273impl_uses*
+ //#UC END# *478E36460273impl_uses*
 ;
 
 function afwIntegerMapManager: IafwIntegerValueMapManager;

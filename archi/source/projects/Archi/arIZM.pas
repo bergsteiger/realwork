@@ -1,8 +1,11 @@
 unit arIZM;
 
-{ $Id: arIZM.pas,v 1.28 2015/11/25 14:01:28 lukyanets Exp $ }
+{ $Id: arIZM.pas,v 1.29 2016/06/16 05:38:41 lukyanets Exp $ }
 
 // $Log: arIZM.pas,v $
+// Revision 1.29  2016/06/16 05:38:41  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.28  2015/11/25 14:01:28  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -40,7 +43,7 @@ unit arIZM;
 // - K:358358627
 //
 // Revision 1.16  2011/06/10 13:12:10  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.15  2010/09/24 12:15:31  voba
 // - k : 235046326

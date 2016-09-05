@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *51F0DBD202B0impl_uses*
+ //#UC END# *51F0DBD202B0impl_uses*
 ;
 
 type _Instance_R_ = TddJustList;

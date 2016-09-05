@@ -67,6 +67,8 @@ uses
  , SysUtils
  , l3Types
  , l3String
+ //#UC START# *51DD039F01CFimpl_uses*
+ //#UC END# *51DD039F01CFimpl_uses*
 ;
 
 procedure TdestLevelText.Close(aState: TddRTFState;

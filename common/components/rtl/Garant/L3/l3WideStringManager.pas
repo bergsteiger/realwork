@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *5459EE930103impl_uses*
+ //#UC END# *5459EE930103impl_uses*
 ;
 
 constructor Tl3WideStringManager.Create(aBlockSize: Integer);

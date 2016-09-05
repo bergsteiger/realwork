@@ -68,6 +68,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
+ //#UC START# *573A0A7E0387impl_uses*
+ //#UC END# *573A0A7E0387impl_uses*
 ;
 
 var g_TnsSaveDialogExecutor: TnsSaveDialogExecutor = nil;

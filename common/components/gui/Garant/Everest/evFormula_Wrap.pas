@@ -29,6 +29,8 @@ uses
  , l3InternalInterfaces
  , SysUtils
  , Formula_Const
+ //#UC START# *485792EE01CBimpl_uses*
+ //#UC END# *485792EE01CBimpl_uses*
 ;
 
 end.

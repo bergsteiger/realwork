@@ -49,6 +49,8 @@ uses
  , IOUnit
  , nsTypes
  , BaseTypesUnit
+ //#UC START# *4ADDF4D901D1impl_uses*
+ //#UC END# *4ADDF4D901D1impl_uses*
 ;
 
 constructor TnsJournalBookmarkNode.Create(const aBookmark: IJournalBookmark;

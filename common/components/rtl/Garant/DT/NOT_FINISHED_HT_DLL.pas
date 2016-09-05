@@ -21,6 +21,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *55533C7600A0impl_uses*
+ //#UC END# *55533C7600A0impl_uses*
 ;
 
 procedure htClearResults;

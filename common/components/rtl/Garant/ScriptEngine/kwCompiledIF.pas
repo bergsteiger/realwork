@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4DB6EE250251impl_uses*
+ //#UC END# *4DB6EE250251impl_uses*
 ;
 
 procedure TkwCompiledIF.DoDoIt(const aCtx: TtfwContext);

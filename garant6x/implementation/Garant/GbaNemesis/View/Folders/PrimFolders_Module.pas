@@ -82,7 +82,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , eeInterfaces
  , BaseTreeSupportUnit
@@ -127,7 +129,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TFoldersServiceImpl = {final} class(Tl3ProtoObject, IFoldersService)
+ TFoldersServiceImpl = {final} class(TvcmModuleContractImplementation, IFoldersService)
   public
    procedure CloseFolders(const aContainer: IvcmContainer);
    procedure SelectOpenWithOperation(const aForm: IvcmEntityForm;
@@ -214,7 +216,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AC0BA2301AC_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -234,6 +236,9 @@ function TFoldersServiceImpl.EditInfoOpen(aIsNewFolder: Boolean;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0AB11030C_4A96B68A03B1_var*
+var
+ l_Container : IvcmEntityForm;
+ l_Form : IvcmEntityForm;
 //#UC END# *4AC0AB11030C_4A96B68A03B1_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -274,7 +279,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AC0BAEB012F_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -297,7 +302,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AC0B7BA003B_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aData,
                       nil,
@@ -323,7 +328,7 @@ begin
 //#UC START# *4ABCE3C2032A_4A96B68A03B1_impl*
  if not defDataAdapter.AdministratorLogin then
  begin
-  l_Container := Open(CheckContainer(aContainer), true);
+  l_Container := TPrimFoldersModule.Open(CheckContainer(aContainer), true);
   op_Folders_TryOpenConsultationAnswer.Call(l_Container.Aggregate);
  end;//not defDataAdapter.AdministratorLogin
 //#UC END# *4ABCE3C2032A_4A96B68A03B1_impl*
@@ -368,7 +373,7 @@ begin
  try
 //#UC START# *4ABCDBC0002F_4A96B68A03B1_impl*
  if not defDataAdapter.AdministratorLogin then
-  Result := Open(aContainer, aCanCreate)
+  Result := TPrimFoldersModule.Open(aContainer, aCanCreate)
  else
   Result := nil; 
 //#UC END# *4ABCDBC0002F_4A96B68A03B1_impl*
@@ -386,6 +391,11 @@ function TFoldersServiceImpl.SaveOpen(const aForm: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AC0CBE300FC_4A96B68A03B1_var*
+var
+ l_Params : IvcmMakeParams;
+ l_Folders : IsdsFolders;
+ l_Container : IvcmEntityForm; 
+ l_Form : IvcmEntityForm; 
 //#UC END# *4AC0CBE300FC_4A96B68A03B1_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -451,7 +461,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AC0B94902C7_4A96B68A03B1_impl*
- OpenFoldersForSelect(CheckContainer(nil),
+  TPrimFoldersModule.OpenFoldersForSelect(CheckContainer(nil),
                       aForm,
                       aFilterInfo,
                       vcmCStr(aCaption),
@@ -623,14 +633,14 @@ procedure TPrimFoldersModule.opMyInformationTest(const aParams: IvcmTestParamsPr
    f_InfoTypeList := TvcmItems.Make;
    with f_InfoTypeList do
    begin
-    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Folders_OpenFrmAct);
-    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Folders_UnderControlOpenFrmAct);
-    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Monitorings_OpenNewsLine);
-    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Folders_MyConsultations);
-    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_WorkJournal_OpenJournal);
-    f_InfoTypeList.AddOp(TdmStdRes.mod_opcode_Chat_OpenContactList);
+    f_InfoTypeList.AddOp(mod_opcode_FoldersService_OpenFrmAct);
+    f_InfoTypeList.AddOp(mod_opcode_FoldersService_UnderControlOpenFrmAct);
+    f_InfoTypeList.AddOp(mod_opcode_MonitoringsService_OpenNewsLine);
+    f_InfoTypeList.AddOp(mod_opcode_FoldersService_MyConsultations);
+    f_InfoTypeList.AddOp(mod_opcode_WorkJournalService_OpenJournal);
+    f_InfoTypeList.AddOp(mod_opcode_ChatService_OpenContactList);
    end;
-  end;//f_SearchTypeList = nil
+  end;//f_InfoTypeList = nil
   Result := f_InfoTypeList;
  end;
 
@@ -674,7 +684,7 @@ procedure TPrimFoldersModule.opUnderControlOpenFrmActExecute(const aParams: Ivcm
 //#UC END# *4AC093B801EE_4A96B68A03B1exec_var*
 begin
 //#UC START# *4AC093B801EE_4A96B68A03B1exec_impl*
- TdmStdRes.OpenUnderControl(nil);
+ TUnderControlService.Instance.OpenUnderControl(nil);
 //#UC END# *4AC093B801EE_4A96B68A03B1exec_impl*
 end;//TPrimFoldersModule.opUnderControlOpenFrmActExecute
 

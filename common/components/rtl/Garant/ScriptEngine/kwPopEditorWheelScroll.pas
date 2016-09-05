@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F4F5A730085impl_uses*
+ //#UC END# *4F4F5A730085impl_uses*
 ;
 
 procedure TkwPopEditorWheelScroll.DoWithEditor(const aCtx: TtfwContext;

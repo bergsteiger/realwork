@@ -24,6 +24,8 @@ uses
  l3ImplUses
  , ncsMessageFactory
  , ncsMessage
+ //#UC START# *547C34C500F7impl_uses*
+ //#UC END# *547C34C500F7impl_uses*
 ;
 
 procedure ncsServerRegister;

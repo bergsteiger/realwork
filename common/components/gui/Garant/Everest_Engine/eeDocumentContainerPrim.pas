@@ -36,6 +36,8 @@ uses
  , evDefaultContext
  , eeDocumentPartGenerator
  , eeSubExport
+ //#UC START# *4D9357060196impl_uses*
+ //#UC END# *4D9357060196impl_uses*
 ;
 
 function TeeDocumentContainerPrim.DoGetSubEx(anID: Integer;

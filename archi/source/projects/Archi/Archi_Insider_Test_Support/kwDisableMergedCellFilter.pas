@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , evCommonUtils
+ //#UC START# *517FA8840360impl_uses*
+ //#UC END# *517FA8840360impl_uses*
 ;
 
 class function TkwDisableMergedCellFilter.GetWordNameForRegister: AnsiString;

@@ -33,6 +33,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4EA515800122impl_uses*
+ //#UC END# *4EA515800122impl_uses*
 ;
 
 procedure TCustomFolderTestSuite.AddTests(aTestClass: TTestCaseClass);

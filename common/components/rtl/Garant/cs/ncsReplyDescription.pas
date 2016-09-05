@@ -49,6 +49,8 @@ uses
  , SysUtils
  , l3Base
  , l3Utils
+ //#UC START# *5461D6C30025impl_uses*
+ //#UC END# *5461D6C30025impl_uses*
 ;
 
 procedure TncsReplyDescription.pm_SetReply(aValue: TncsMessage);

@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , vcmEntityFormModelPart
+ //#UC START# *4F22CFD70209impl_uses*
+ //#UC END# *4F22CFD70209impl_uses*
 ;
 
 function TvcmEntityFormImplementationModelPart.Get_VCMClosing: Boolean;

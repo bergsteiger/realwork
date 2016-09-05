@@ -54,6 +54,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *514BFA8902C0impl_uses*
+ //#UC END# *514BFA8902C0impl_uses*
 ;
 
 procedure TkwPopEditorBlockResizeEX.CorrectBlockPoint(const aCtx: TtfwContext;

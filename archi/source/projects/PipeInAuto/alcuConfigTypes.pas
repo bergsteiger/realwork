@@ -1,9 +1,24 @@
 unit alcuConfigTypes;
 { Специальные типы для настройки Парня }
 
-{ $Id: alcuConfigTypes.pas,v 1.58 2016/03/04 09:34:31 lukyanets Exp $ }
+{ $Id: alcuConfigTypes.pas,v 1.63 2016/08/10 12:48:39 lukyanets Exp $ }
 
 // $Log: alcuConfigTypes.pas,v $
+// Revision 1.63  2016/08/10 12:48:39  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.62  2016/08/05 12:01:35  lukyanets
+// Редактируем отложенные данные
+//
+// Revision 1.61  2016/08/04 12:00:43  lukyanets
+// Готовимся редактировать отложенные в сторону данные
+//
+// Revision 1.60  2016/08/02 13:05:47  lukyanets
+// Cleanup
+//
+// Revision 1.59  2016/08/02 10:14:56  lukyanets
+// Cleanup
+//
 // Revision 1.58  2016/03/04 09:34:31  lukyanets
 // Отвалились вложенные задания
 //
@@ -202,15 +217,27 @@ uses
 
 type
   TalcuEmailAdapter = class(TddBaseConfigDataAdapter)
+  private
+    f_EditList: TStrings;
+    procedure ClearList(const aList: TStrings);
+    procedure DoLoad(const aList: TStrings; const aStorage: IddConfigStorage; const anAlias: AnsiString);
+    procedure DoSave(const aList: TStrings; const aStorage: IddConfigStorage; const anAlias: AnsiString);
   protected
     function pm_GetCount: Integer; override;
-    function pm_GetStrings(Index: Integer): string; override;
+    function pm_GetObjects(anIndex: Integer): TObject; override;
+    function pm_GetStrings(anIndex: Integer): string; override;
+    function pm_GetEditCount: Integer; override;
+    function pm_GetEditObjects(anIndex: Integer): TObject; override;
+    function pm_GetEditStrings(anIndex: Integer): AnsiString; override;
+    procedure DoBeginEdit; override;
+    procedure DoEndEdit; override;
+    procedure DoPostChanges; override;
+    procedure Cleanup; override;
   public
     function DeleteItem(Index: Integer): Boolean; override;
     function EditItem(Index: Integer): Boolean; override;
-    procedure ClearItems; override;
-    procedure Load(const aStorage: IddConfigStorage; const aAlias: AnsiString); override;
-    procedure Save(const aStorage: IddConfigStorage; const aAlias: AnsiString); override;
+    procedure Load(const aStorage: IddConfigStorage; const anAlias: AnsiString); override;
+    procedure Save(const aStorage: IddConfigStorage; const anAlias: AnsiString); override;
   end;
 
   TalcuUserListMap = class(Tl3IntegerValueMap)
@@ -420,15 +447,19 @@ uses
  ddUtils,
  {$IFNDEF Service}
  daSchemeConsts,
+ daDataProvider,
  dt_Dict,
  {$ENDIF}
  alcuMailServer, alcuEmailNotifyDlg, alcuRegionEditDlg, ExtCtrls, Windows, Graphics,
  l3VCLStrings, vtOutliner, rxStrUtils, vtLister, l3Nodes, daInterfaces,
  l3Tree, {AbstractDropDown,} ctTypes, FakeBox, StrUtils, ddAppConfigStrings, alcuTypes,
  dt_Serv, ddAppConfig, l3ObjectRefList1, dt_DictIntf, csTaskTypes, ddServerTask,
- ddTaskClassManager, k2Facade, k2Base, dt_User,
+ ddTaskClassManager, k2Facade, k2Base, 
  vtComboTree
  ;
+
+const
+ cTempAlias = 'TempAlias';
 
 function DictComboItem(aAlias, aCaption: String; aDict: TdaDictionaryType; aMultiSelect: Boolean):
     TalcuDictionaryComboItem;
@@ -467,9 +498,10 @@ type
 
 function TalcuEmailAdapter.DeleteItem(Index: Integer): Boolean;
 begin
+  Assert(f_EditList <> nil);
   Result:= True;
-  alcuMail.EmailNotifyList.Objects[Index].Free;
-  alcuMail.EmailNotifyList.Delete(Index);
+  f_EditList.Objects[Index].Free;
+  f_EditList.Delete(Index);
 end;
 
 function TalcuEmailAdapter.EditItem(Index: Integer): Boolean;
@@ -478,10 +510,11 @@ var
   l_Index: Integer;
   l_S: string;
 begin
+  Assert(f_EditList <> nil);
   if Index < 0 then
    l_Email:= TddEmailNotify.Create
   else
-   l_Email:= TddEmailNotify(alcuMail.EmailNotifyList.Objects[Index]);
+   l_Email:= TddEmailNotify(f_EditList.Objects[Index]);
 
   with TEmailNotifyDialog.Create(nil) do
   try
@@ -506,9 +539,9 @@ begin
     else
      l_S:= l_Email.Address;
     if Index < 0 then
-     alcuMail.EmailNotifyList.AddObject(l_S, l_Email)
+     f_EditList.AddObject(l_S, l_Email)
     else
-     alcuMail.EmailNotifyList.Strings[Index]:= l_S;
+     f_EditList.Strings[Index]:= l_S;
    end // ShowModal
    else
    if Index < 0 then
@@ -523,69 +556,19 @@ begin
   Result:= alcuMail.EmailNotifyList.Count;
 end;
 
-function TalcuEmailAdapter.pm_GetStrings(Index: Integer): string;
+function TalcuEmailAdapter.pm_GetStrings(anIndex: Integer): string;
 begin
-  Result:= alcuMail.EmailNotifyList.Strings[Index];
+  Result:= alcuMail.EmailNotifyList.Strings[anIndex];
 end;
 
-procedure TalcuEmailAdapter.Load(const aStorage: IddConfigStorage; const aAlias: AnsiString);
-var
-  i, l_Count: Integer;
-  l_S: string;
-  l_Email: TddEmailNotify;
+procedure TalcuEmailAdapter.Load(const aStorage: IddConfigStorage; const anAlias: AnsiString);
 begin
-  with aStorage do
-  begin
-   Section:= aAlias;
-   l_Count:= ReadInteger('EmailCount', 0);
-   for i:= 0 to Pred(l_Count) do
-   begin
-    Section:= aAlias;
-    l_S:= l3Str(ReadString(IntToStr(Succ(i)), ''));
-    if l_S <> '' then
-    begin
-     l_Email:= TddEmailNotify.Create;
-     Section:= l_S;
-     l_Email.Address:= l3Str(ReadString('Address', ''));
-     l_Email.Comment:= l3Str(ReadString('Comment', ''));
-     l_Email.Events:= ReadInteger('Events', 0);
-     l_Email.OnlyErrors:= ReadBool('OnlyErrors', True);
-     if l_Email.Address <> '' then
-     begin
-      if l_Email.Comment <> '' then
-       alcuMail.EmailNotifyList.AddObject(l_Email.Comment, l_EMail)
-      else
-       alcuMail.EmailNotifyList.AddObject(l_Email.Address, l_EMail)
-     end
-     else
-      l3Free(l_Email);
-    end; // l_S <> ''
-   end; // i
-  end;
+  DoLoad(alcuMail.EmailNotifyList, aStorage, anAlias);
 end;
 
-procedure TalcuEmailAdapter.Save(const aStorage: IddConfigStorage; const aAlias: AnsiString);
-var
-  i, l_Count: Integer;
-  l_S: string;
-  l_Email: TddEmailNotify;
+procedure TalcuEmailAdapter.Save(const aStorage: IddConfigStorage; const anAlias: AnsiString);
 begin
-  with aStorage do
-  begin
-   Section:= aAlias;
-   WriteInteger('EmailCount', alcuMail.EmailNotifyList.Count);
-   for i:= 0 to Pred(alcuMail.EmailNotifyList.Count) do
-   begin
-    Section:= aAlias;
-    l_Email:= TddEmailNotify(alcuMail.EmailNotifyList.Objects[i]);
-    WriteString(IntToStr(Succ(i)), l_Email.Address);
-    Section:= l_Email.Address;
-    WriteString('Address', l_Email.Address);
-    WriteString('Comment', l_Email.Comment);
-    WriteInteger('Events', l_Email.Events);
-    WriteBool('OnlyErrors', l_Email.OnlyErrors);
-   end; // i
-  end; // with aIni
+  DoSave(alcuMail.EmailNotifyList, aStorage, anAlias);
 end;
 
 { TalcuEmailAdapter }
@@ -1052,6 +1035,7 @@ end;
 procedure TalcuSchedulerNode.DoClearControls;
 begin
   f_Frame:= nil;
+  inherited;
 end;
 
 function TalcuSchedulerNode.DoCreateFrame(aOwner: TComponent; aTag: Integer): TCustomFrame;
@@ -1071,6 +1055,7 @@ procedure TalcuSchedulerNode.DoGetControlValues;
 {1 Считывание списка заданий из окна конфигурации }
 begin
   f_Scheduler.Assign(f_Frame.ConfigScheduler);
+  inherited;
 end;
 
 function TalcuSchedulerNode.pm_GetValue: TddConfigValue;
@@ -1126,6 +1111,7 @@ procedure TalcuSchedulerNode.DoSetControlValues(aDefault: Boolean);
 {1 Установка списка заданий в окно конфигурации }
 begin
   f_Frame.ConfigScheduler:= f_Scheduler;
+  inherited;
 end;
 
 procedure TalcuSchedulerNode.pm_SetValue(const Value: TddConfigValue);
@@ -1240,9 +1226,129 @@ begin
  inherited;
 end;
 
-procedure TalcuEmailAdapter.ClearItems;
+procedure TalcuEmailAdapter.DoLoad(const aList: TStrings;
+  const aStorage: IddConfigStorage; const anAlias: AnsiString);
+var
+  i, l_Count: Integer;
+  l_S: string;
+  l_Email: TddEmailNotify;
 begin
- Assert(False, 'ClearItems don''t implemented');
+  ClearList(aList);
+  with aStorage do
+  begin
+   Section:= anAlias;
+   l_Count:= ReadInteger('EmailCount', 0);
+   for i:= 0 to Pred(l_Count) do
+   begin
+    Section:= anAlias;
+    l_S:= l3Str(ReadString(IntToStr(Succ(i)), ''));
+    if l_S <> '' then
+    begin
+     l_Email:= TddEmailNotify.Create;
+     Section:= l_S;
+     l_Email.Address:= l3Str(ReadString('Address', ''));
+     l_Email.Comment:= l3Str(ReadString('Comment', ''));
+     l_Email.Events:= ReadInteger('Events', 0);
+     l_Email.OnlyErrors:= ReadBool('OnlyErrors', True);
+     if l_Email.Address <> '' then
+     begin
+      if l_Email.Comment <> '' then
+       aList.AddObject(l_Email.Comment, l_EMail)
+      else
+       aList.AddObject(l_Email.Address, l_EMail);
+     end
+     else
+      l3Free(l_Email);
+    end; // l_S <> ''
+   end; // i
+  end;
+end;
+
+procedure TalcuEmailAdapter.DoSave(const aList: TStrings;
+  const aStorage: IddConfigStorage; const anAlias: AnsiString);
+var
+  i, l_Count: Integer;
+  l_S: string;
+  l_Email: TddEmailNotify;
+begin
+  with aStorage do
+  begin
+   Section:= anAlias;
+   WriteInteger('EmailCount', aList.Count);
+   for i:= 0 to Pred(aList.Count) do
+   begin
+    Section:= anAlias;
+    l_Email:= TddEmailNotify(aList.Objects[i]);
+    WriteString(IntToStr(Succ(i)), l_Email.Address);
+    Section:= l_Email.Address;
+    WriteString('Address', l_Email.Address);
+    WriteString('Comment', l_Email.Comment);
+    WriteInteger('Events', l_Email.Events);
+    WriteBool('OnlyErrors', l_Email.OnlyErrors);
+   end; // i
+  end; // with aIni
+end;
+
+procedure TalcuEmailAdapter.ClearList(const aList: TStrings);
+var
+ l_IDX: Integer;
+begin
+ If Assigned(aList) then
+ begin
+  for l_IDX := 0 to aList.Count - 1 do
+   TObject(aList.Objects[l_IDX]).Free;
+  aList.Clear;
+ end; 
+end;
+
+procedure TalcuEmailAdapter.Cleanup;
+begin
+ Assert(f_EditList = nil);
+ inherited Cleanup;
+end;
+
+procedure TalcuEmailAdapter.DoBeginEdit;
+var
+ l_IDX: Integer;
+begin
+ f_EditList := TStringList.Create;
+ for l_IDX := 0 to Count - 1 do
+  f_EditList.AddObject(Strings[l_IDX], TddEmailNotify(Objects[l_IDX]).Clone);
+end;
+
+procedure TalcuEmailAdapter.DoEndEdit;
+begin
+ ClearList(f_EditList);
+ FreeAndNil(f_EditList);
+end;
+
+procedure TalcuEmailAdapter.DoPostChanges;
+var
+ l_IDX: Integer;
+begin
+ ClearList(alcuMail.EmailNotifyList);
+ for l_IDX := 0 to EditCount - 1 do
+  alcuMail.EmailNotifyList.AddObject(EditStrings[l_IDX], TddEmailNotify(EditObjects[l_IDX]).Clone);
+end;
+
+function TalcuEmailAdapter.pm_GetObjects(anIndex: Integer): TObject;
+begin
+  Result:= alcuMail.EmailNotifyList.Objects[anIndex];
+end;
+
+function TalcuEmailAdapter.pm_GetEditCount: Integer;
+begin
+  Result:= f_EditList.Count;
+end;
+
+function TalcuEmailAdapter.pm_GetEditObjects(anIndex: Integer): TObject;
+begin
+  Result:= f_EditList.Objects[anIndex];
+end;
+
+function TalcuEmailAdapter.pm_GetEditStrings(anIndex: Integer): AnsiString;
+begin
+  Result:= f_EditList.Strings[anIndex];
 end;
 
 { TalcuAsyncRunTaskItem }
@@ -1688,8 +1794,8 @@ end;
 
 procedure TalcuUserListMap.RefreshList;
 begin
- if UserManager <> nil then
-  UserManager.GetFiltredUserList(f_UserList);
+ if GlobalDataProvider <> nil then
+  GlobalDataProvider.UserManager.GetFiltredUserList(f_UserList);
 end;
 
 { TalcuUserListComboItem }

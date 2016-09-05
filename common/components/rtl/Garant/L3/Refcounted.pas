@@ -23,6 +23,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *516137AD0362impl_uses*
+ //#UC END# *516137AD0362impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}

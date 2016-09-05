@@ -90,6 +90,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *4FFC337003AFimpl_uses*
+ //#UC END# *4FFC337003AFimpl_uses*
 ;
 
 procedure TvcmFormSetFormsCollectionItemPrim.Cleanup;

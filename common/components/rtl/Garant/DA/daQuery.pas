@@ -56,6 +56,8 @@ uses
  , SysUtils
  , daParam
  , daTypes
+ //#UC START# *566A7DCD0151impl_uses*
+ //#UC END# *566A7DCD0151impl_uses*
 ;
 
 function TdaQuery.MakeParamList: TdaParamList;

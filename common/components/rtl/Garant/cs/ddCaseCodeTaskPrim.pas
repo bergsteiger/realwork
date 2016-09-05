@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , CaseCodeTask_Const
+ //#UC START# *53BA6C3000F7impl_uses*
+ //#UC END# *53BA6C3000F7impl_uses*
 ;
 
 class function TddCaseCodeTaskPrim.GetTaggedDataType: Tk2Type;

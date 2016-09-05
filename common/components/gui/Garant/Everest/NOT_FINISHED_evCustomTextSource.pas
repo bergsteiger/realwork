@@ -39,6 +39,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *482BFB7C00B6impl_uses*
+ //#UC END# *482BFB7C00B6impl_uses*
 ;
 
 function TevCustomTextSource.DoMakeDocumentContainer: InevDocumentContainer;

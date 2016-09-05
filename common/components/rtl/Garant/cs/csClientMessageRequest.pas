@@ -4,7 +4,7 @@ interface
 
 uses
   Classes, CsDataPipe, csRequestTask, CsNotification,
-  DT_types,
+  daTypes,
   ddServerTask,
   ddClientMessagePrim
   ;
@@ -19,8 +19,8 @@ type
  protected
   procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); override;
  public
-  constructor Create(aUserID: TUserID; aData: Integer; aType: TCsNotificationType; const aText: AnsiString); reintroduce; overload;
-  constructor Create(aUserID: TUserID; aStream: TStream; aIsPipe: Boolean); reintroduce; overload;
+  constructor Create(aUserID: TdaUserID; aData: Integer; aType: TCsNotificationType; const aText: AnsiString); reintroduce; overload;
+  constructor Create(aUserID: TdaUserID; aStream: TStream; aIsPipe: Boolean); reintroduce; overload;
   function CompareWith(anObject: TddClientMessage): Integer; //override;
         {* - функция сравнения объекта с различного рода значениями. }
 (*  procedure FromPipe(aDataPipe: TcsDataPipe);*)
@@ -36,11 +36,10 @@ implementation
 uses
   Math,
   SysUtils,
-  dt_UserConst,
   evdTaskTypes
   ;
 
-constructor TddClientMessage.Create(aUserID: TUserID; aData: Integer; aType: TCsNotificationType; const aText: AnsiString);
+constructor TddClientMessage.Create(aUserID: TdaUserID; aData: Integer; aType: TCsNotificationType; const aText: AnsiString);
 begin
  inherited Create(aUserID, SomeFixedDate);
  //TaskType := cs_ttClientMessage;
@@ -52,7 +51,7 @@ begin
  Self.Text := aText;
 end;
 
-constructor TddClientMessage.Create(aUserID: TUserID; aStream: TStream; aIsPipe: Boolean);
+constructor TddClientMessage.Create(aUserID: TdaUserID; aStream: TStream; aIsPipe: Boolean);
 begin
  Create(aUserID, 0, ntEmpty, '');
  LoadFrom(aStream, aIsPipe);

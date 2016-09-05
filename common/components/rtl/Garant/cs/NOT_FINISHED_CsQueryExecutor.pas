@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , CsReplyProcedures
+ //#UC START# *5395BF930007impl_uses*
+ //#UC END# *5395BF930007impl_uses*
 ;
 
 {$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)

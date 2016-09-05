@@ -52,6 +52,8 @@ uses
  , l3ListenersManager
  , SysUtils
  , l3Base
+ //#UC START# *52A7FD0E002Dimpl_uses*
+ //#UC END# *52A7FD0E002Dimpl_uses*
 ;
 
 var g_TarEditorDebugInfo: TarEditorDebugInfo = nil;

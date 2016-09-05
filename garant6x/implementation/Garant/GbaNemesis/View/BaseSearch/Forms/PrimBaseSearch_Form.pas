@@ -858,7 +858,8 @@ begin
  else
  if f_BaseSearcher.Presentation.CanCloseWindow then
  begin
-  UnregisterFromSearcher;
+  CloseWindow;
+//  UnregisterFromSearcher;
 
   l_Container := Get_Container;
   try
@@ -1483,13 +1484,12 @@ begin
    Assert(f_BaseSearcher <> nil, 'Форма БП, которую пытаемся писать в историю не была корретно инициализирована или находится в процессе уничтожения');
   // - нельзя так пока, не проходит тест K265406789, если перед ним что-то с БП
   //   делали. Повод для разборок на самом деле.
-
-  if (f_BaseSearcher = nil) then
+   if (f_BaseSearcher = nil) then
    Result := false
   else
   if (f_BaseSearcher.Presentation <> nil) AND
-     f_BaseSearcher.Presentation.FormCloseWasRequested then
-  begin
+      f_BaseSearcher.Presentation.FormCloseWasRequested then
+ begin
    // Боремся с:
    // http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330698655#comment-330698655
    // bq. А иначе окно БП закрывается слишком поздно  Когда начнут крутится ProcessMessages. Ну и - привет. Окно БП уже сохранилось в историю для КЗ. А потом оно будет пытаться восстанавливаться. Ну и - бабах.
@@ -1508,11 +1508,9 @@ begin
    end
    else
     l_ClassToSave := f_BaseSearcher.WindowData.ActiveClassForSaveState;
-
-   theState := TnsBaseSearchFormState.Make(f_BaseSearcher.WindowData,
+    theState := TnsBaseSearchFormState.Make(f_BaseSearcher.WindowData,
     l_ClassToSave).As_IvcmBase;
-
-   Result := true;
+    Result := true;
   end;//f_BaseSearcher = nil
  end//aStateType = vcm_stContent
  else
@@ -1559,7 +1557,7 @@ begin
   end;//l_State = nil
  end//aStateType = vcm_stContent
  else
-  Result := inherited DoLoadState(aState, aStateType);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoLoadState
 

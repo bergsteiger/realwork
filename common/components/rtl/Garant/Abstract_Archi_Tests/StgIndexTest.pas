@@ -61,6 +61,8 @@ uses
  , l3Base
  , m3StgMgr
  , TestFrameWork
+ //#UC START# *4F193294011Fimpl_uses*
+ //#UC END# *4F193294011Fimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

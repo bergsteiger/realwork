@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , ApplicationHelper
+ //#UC START# *47ED11E002A7impl_uses*
+ //#UC END# *47ED11E002A7impl_uses*
 ;
 
 function ServerDocumentToKey(const document): TFactoryKey;

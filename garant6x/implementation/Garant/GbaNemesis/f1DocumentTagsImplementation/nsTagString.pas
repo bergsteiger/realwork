@@ -75,6 +75,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *467FCA0F01C6impl_uses*
+ //#UC END# *467FCA0F01C6impl_uses*
 ;
 
 type _Instance_R_ = TnsTagString;

@@ -87,7 +87,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3ProtoObject
+ , vcmModuleContractImplementation
  , VCMCustomization_Customization_Contracts
  , afwFacade
  , vcmToolbarMenuRes
@@ -112,7 +112,7 @@ uses
 ;
 
 type
- TToolbarMenuServiceImpl = {final} class(Tl3ProtoObject, IToolbarMenuService)
+ TToolbarMenuServiceImpl = {final} class(TvcmModuleContractImplementation, IToolbarMenuService)
   public
    class function Instance: TToolbarMenuServiceImpl;
     {* Метод получения экземпляра синглетона TToolbarMenuServiceImpl }
@@ -293,11 +293,7 @@ begin
   Assert(l_Toolbar.Owner is TvcmEntityForm);
   if not Supports(l_Toolbar.Owner, IvcmEntityForm, l_Form) then
    Assert(False);
-  {$IfDef Nemesis}
-  TdmStdRes.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
-  {$Else}
-  Assert(false);
-  {$EndIf Nemesis}
+  TTaskPanelService.Instance.CustomizePanel(TvcmCustAvailableToolbarOps.Make(l_Form));
  end;//l_Toolbar <> nil
  {$EndIf Monitorings}
  {$EndIf Admin}

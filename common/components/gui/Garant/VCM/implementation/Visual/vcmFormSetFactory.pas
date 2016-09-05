@@ -166,6 +166,8 @@ uses
  , vcmFormSetFactoryFacade
  , vcmFormDataSourceList
  , vcmZoneTypeList
+ //#UC START# *47B97312006Dimpl_uses*
+ //#UC END# *47B97312006Dimpl_uses*
 ;
 
 procedure TvcmFormSetFactory.pm_SetOwnerForm(aValue: Integer);

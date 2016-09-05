@@ -34,6 +34,8 @@ uses
  , ncsGetTaskDescriptionReply
  , ncsGetFilePartReply
  , ncsPushFilePart
+ //#UC START# *54645E360193impl_uses*
+ //#UC END# *54645E360193impl_uses*
 ;
 
 procedure ncsServerRegister;

@@ -58,6 +58,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5786541F0012impl_uses*
+ //#UC END# *5786541F0012impl_uses*
 ;
 
 var g_TvcmModulesForRegister: TvcmModulesForRegister = nil;

@@ -103,7 +103,7 @@ implementation
 Uses
  csUserRequestManager, ddAppConfig,
  csQueryTypes,
- StrUtils, l3ObjectRefList1, ActnList, math, {dt_User,}
+ StrUtils, l3ObjectRefList1, ActnList, math, 
  alcuConfig, ddIniStorage, alcuStrings,
  Dialogs, WinSvc, ddConfigStorages, csTaskTypes;
 

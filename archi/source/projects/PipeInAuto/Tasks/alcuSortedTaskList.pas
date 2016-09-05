@@ -32,6 +32,8 @@ implementation
 {$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
  l3ImplUses
+ //#UC START# *53A196B800ADimpl_uses*
+ //#UC END# *53A196B800ADimpl_uses*
 ;
 
 procedure TalcuSortedTaskList.Remove(anItem: TddProcessTask);

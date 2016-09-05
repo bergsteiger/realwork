@@ -66,6 +66,8 @@ uses
  , SysUtils
  , l3Base
  , deDocInfo
+ //#UC START# *4DDCDD68019Eimpl_uses*
+ //#UC END# *4DDCDD68019Eimpl_uses*
 ;
 
 const

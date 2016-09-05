@@ -1,18 +1,18 @@
-unit csDIsconnect_Const;
+unit csDisconnect_Const;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/csDIsconnect_Const.pas"
+// Модуль: "w:/common/components/rtl/Garant/EVD/csDisconnect_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::csDIsconnect
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::csDisconnect
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Константы для значений тега csDIsconnect .
+// Константы для значений тега csDisconnect .
 // ! Полностью генерируется с модели. Править руками - нельзя. !
 
 {$Include ..\EVD\evdDefine.inc}
@@ -24,7 +24,7 @@ uses
   evdTasks_Schema
   ;
 
-function k2_typcsDIsconnect: csDIsconnectTag;
+function k2_typcsDisconnect: csDisconnectTag;
 
 implementation
 
@@ -34,18 +34,18 @@ uses
   ;
 
 var
- g_csDIsconnect : csDIsconnectTag = nil;
+ g_csDisconnect : csDisconnectTag = nil;
 
-// start class csDIsconnectTag
+// start class csDisconnectTag
 
-function k2_typcsDIsconnect: csDIsconnectTag;
+function k2_typcsDisconnect: csDisconnectTag;
 begin
- if (g_csDIsconnect = nil) then
+ if (g_csDisconnect = nil) then
  begin
   Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
-  g_csDIsconnect := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csDIsconnect;
- end;//g_csDIsconnect = nil
- Result := g_csDIsconnect;
+  g_csDisconnect := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csDisconnect;
+ end;//g_csDisconnect = nil
+ Result := g_csDisconnect;
 end;
 
 end.

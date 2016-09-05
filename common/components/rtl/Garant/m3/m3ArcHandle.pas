@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *54539D300254impl_uses*
+ //#UC END# *54539D300254impl_uses*
 ;
 
 procedure Tm3ArcHandle.Load(const aStream: IStream);

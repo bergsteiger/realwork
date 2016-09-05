@@ -80,6 +80,8 @@ uses
  , Table_Const
  , k2Tags
  , evdTypes
+ //#UC START# *50751A0A0164impl_uses*
+ //#UC END# *50751A0A0164impl_uses*
 ;
 
 function TevTableTextSearcher.CheckCellType(aCell: Tl3Variant): Boolean;

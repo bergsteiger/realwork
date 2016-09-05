@@ -351,6 +351,7 @@ uses
  , evdStyles
  , k2Tags
  , BitmapPara_Const
+ , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -385,7 +386,6 @@ uses
  , nsExternalObjectModelPart
  , nsSaveDialogExecutor
  , l3BatchService
- , Base_Operations_F1Services_Contracts
  , eeInterfacesEx
  {$If Defined(Nemesis)}
  , eePara
@@ -614,10 +614,10 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=477647712
  l_Para := GetParaForPositionning;
  if l_Doc.IsAlive then
-  TdmStdRes.OpenDocument(TdeDocInfo.Make(l_Doc, TbsDocPos_C(dptPara, l_Para.ID)), nil);
+  TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_Doc, TbsDocPos_C(dptPara, l_Para.ID)), nil);
  l_Doc := nil;
  l_Para := nil;
- (* TdmStdRes.OpenEntityAsDocument(l_Doc{HyperlinkDocument}, nil); *)
+ (* TDocumentService.Instance.OpenEntityAsDocument(l_Doc{HyperlinkDocument}, nil); *)
 //#UC END# *4A9BAFD300BB_4A6EBE900233_impl*
 end;//TDiffForm.OpenEditionInFullWindow
 
@@ -675,11 +675,11 @@ begin
 //#UC START# *4B1E39750337_4A6EBE900233_impl*
  Assert(EditionDiff.DocumentForReturn.rDoc <> nil);
  if (EditionDiff.DocumentForReturn.rPara <> nil) then
-  TdmStdRes.OpenDocument(TdeDocInfo.Make(EditionDiff.DocumentForReturn.rDoc,
+  TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(EditionDiff.DocumentForReturn.rDoc,
                                          TbsDocPos_P(EditionDiff.DocumentForReturn.rPara)),
                          nil)
  else
-  TdmStdRes.OpenEntityAsDocument(EditionDiff.DocumentForReturn.rDoc, nil);
+  TDocumentService.Instance.OpenEntityAsDocument(EditionDiff.DocumentForReturn.rDoc, nil);
 //#UC END# *4B1E39750337_4A6EBE900233_impl*
 end;//TDiffForm.ReturnToDocument
 
@@ -996,7 +996,7 @@ procedure TDiffForm.DocumentTextChanged(aSender: TObject;
 //#UC END# *4C93246B01B8_4A6EBE900233_var*
 begin
 //#UC START# *4C93246B01B8_4A6EBE900233_impl*
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
 //#UC END# *4C93246B01B8_4A6EBE900233_impl*
 end;//TDiffForm.DocumentTextChanged
 
@@ -1034,7 +1034,7 @@ begin
  l_Container := MakeContainerForBehaviour(aBehaviour);
  l_LeftDocument := CompareEditions.Left.Document;
  l_RightDocument := CompareEditions.Right.Document;
- TdmStdRes.MakeCompareEditions(l_LeftDocument, l_RightDocument,
+ TEditionsService.Instance.MakeCompareEditions(l_LeftDocument, l_RightDocument,
   aPos, HyperlinkDocument, GetParaForPositionning, l_Container);
 //#UC END# *55B081D50048_4A6EBE900233_impl*
 end;//TDiffForm.OpenDiffInNewContainer

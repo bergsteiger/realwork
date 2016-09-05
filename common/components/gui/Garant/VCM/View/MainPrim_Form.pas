@@ -304,7 +304,7 @@ begin
     else
     begin
      // Создаем контейнер для основных объектов и вставляем форму уже в него:
-     l_IForm := TdmStdRes.MakeParent(Self);
+     l_IForm := TvcmParentAndChildService.Instance.MakeParent(Self);
      l_IForm.AsContainer.InsertForm(aForm);
     end;//HasForm(fm_ParentForm, vcm_ztParent, false, @l_IForm)
    end//not aForm.SameName(fm_ParentForm)
@@ -322,7 +322,7 @@ begin
     else
     if HasForm(fm_ParentForm.rFormID, vcm_ztParent, false, @l_IForm) then
      // Создаем контейнер для зависимых объектов и вставляем форму уже в него:
-     TdmStdRes.MakeChild(Self, l_IForm.VCLWinControl As TvcmEntityForm).AsContainer.InsertForm(aForm)
+     TvcmParentAndChildService.Instance.MakeChild(Self, l_IForm.VCLWinControl As TvcmEntityForm).AsContainer.InsertForm(aForm)
     else
      raise Exception.Create('Дочерняя зона создаётся раньше родительской');
    end//not aForm.SameName(fm_ChildForm)

@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , TaskResultRequest_Const
+ //#UC START# *53B6855302D9impl_uses*
+ //#UC END# *53B6855302D9impl_uses*
 ;
 
 class function TddTaskResultRequestPrim.GetTaggedDataType: Tk2Type;

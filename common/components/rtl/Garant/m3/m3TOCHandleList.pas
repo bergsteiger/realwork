@@ -53,6 +53,8 @@ uses
  , m2COMLib
  , m3BuffStream
  , m2S32Lib
+ //#UC START# *54219FC800B5impl_uses*
+ //#UC END# *54219FC800B5impl_uses*
 ;
 
 type _Instance_R_ = Tm3TOCHandleList;

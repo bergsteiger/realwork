@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *56F1354A0235impl_uses*
+ //#UC END# *56F1354A0235impl_uses*
 ;
 
 function TK620241155_Hk0800412.GetFolder: AnsiString;

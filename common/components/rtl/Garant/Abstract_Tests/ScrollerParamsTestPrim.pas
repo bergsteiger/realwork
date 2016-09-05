@@ -53,6 +53,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D720B6900FCimpl_uses*
+ //#UC END# *4D720B6900FCimpl_uses*
 ;
 
 procedure TScrollerParamsTestPrim.DoSave(aForm: TPrimTextLoadForm;

@@ -56,6 +56,8 @@ implementation
 uses
  l3ImplUses
  , l3ExceptionHandler
+ //#UC START# *55890A550297impl_uses*
+ //#UC END# *55890A550297impl_uses*
 ;
 
 procedure Tl3Timer.pm_SetEnabled(aValue: Boolean);

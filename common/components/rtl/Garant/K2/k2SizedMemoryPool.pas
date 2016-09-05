@@ -111,6 +111,8 @@ uses
  , k2List
  , ComObj
  , l3BaseStream
+ //#UC START# *53B5469D0049impl_uses*
+ //#UC END# *53B5469D0049impl_uses*
 ;
 
 type _Instance_R_ = Tk2SizedMemoryPool;
@@ -124,6 +126,8 @@ begin
 //#UC START# *530770EB0342_53076BA10113_impl*
  inherited Create;
  Assert(aType = k2_typRawData);
+ f_InternalID := -1;
+ f_ExternalID := -1;
 //#UC END# *530770EB0342_53076BA10113_impl*
 end;//Tk2SizedMemoryPool.Create
 
@@ -133,6 +137,8 @@ constructor Tk2SizedMemoryPool.Create;
 begin
 //#UC START# *530B592503D3_53076BA10113_impl*
  inherited Create;
+ f_InternalID := -1;
+ f_ExternalID := -1;
 //#UC END# *530B592503D3_53076BA10113_impl*
 end;//Tk2SizedMemoryPool.Create
 

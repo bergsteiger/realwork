@@ -58,6 +58,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *47AC5ED302A1impl_uses*
+ //#UC END# *47AC5ED302A1impl_uses*
 ;
 
 type _Instance_R_ = Tk2DictRec;

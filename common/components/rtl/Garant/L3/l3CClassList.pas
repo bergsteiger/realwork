@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4773DC3502A7impl_uses*
+ //#UC END# *4773DC3502A7impl_uses*
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}

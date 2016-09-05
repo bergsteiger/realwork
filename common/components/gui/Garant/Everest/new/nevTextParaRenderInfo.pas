@@ -78,6 +78,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evAACContentUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *481F174D01BFimpl_uses*
+ //#UC END# *481F174D01BFimpl_uses*
 ;
 
 function TnevTextParaRenderInfo.GetBlockHeaderIndent: Integer;

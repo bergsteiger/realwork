@@ -4,7 +4,7 @@ interface
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
-uses Classes, csProcessTask, ddImportPipe, DT_types, ddProgressObj, l3Base, csImport,
+uses Classes, csProcessTask, ddImportPipe, daTypes, ddProgressObj, l3Base, csImport,
  l3LongintList,
 
  ddProcessTaskPrim,
@@ -35,7 +35,7 @@ type
     function AllowSimultaneousRun: Boolean; override;
   public
     class function CanAsyncRun: Boolean; override;
-    constructor Create({aOwner: TObject; }aUserID: TUserID); override;
+    constructor Create({aOwner: TObject; }aUserID: TdaUserID); override;
     procedure TopicSkip(aTopicNo: Longint; const aMessage: String);
     procedure TopicStart(aTopicNo: Longint; const aMessage: String);
   {$If defined(AppServerSide)}
@@ -52,8 +52,8 @@ type
 implementation
 
 uses
- csTaskTypes, DT_Const, DT_IFltr, {$IfDef AppServerSide} ddAppConfig, alcuMailServer, {$EndIf AppServerSide} SysUtils,
- l3FileUtils, ddUtils, daUtils, daTypes, daSchemeConsts, StrUtils, DT_Mail, dt_Utils, DT_Doc, l3Types,
+ csTaskTypes, dt_Types, DT_Const, DT_IFltr, {$IfDef AppServerSide} ddAppConfig, alcuMailServer, {$EndIf AppServerSide} SysUtils,
+ l3FileUtils, ddUtils, daUtils, daSchemeConsts, StrUtils, DT_Mail, dt_Utils, DT_Doc, l3Types,
  l3Stream, ddServerTask, ddFileIterator, dtIntf, DT_Sab, DT_Query,
  dt_AttrSchema, l3Chars, dt_LinkServ, alcuStrings;
 
@@ -77,7 +77,7 @@ resourcestring
 {
 ****************************** TddImportTaskItem *******************************
 }
-constructor TalcuImport.Create({aOwner: TObject; }aUserID: TUserID);
+constructor TalcuImport.Create({aOwner: TObject; }aUserID: TdaUserID);
 begin
  inherited;
  f_SkipMessages := TStringList.Create;

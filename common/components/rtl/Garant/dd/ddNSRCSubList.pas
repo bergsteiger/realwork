@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55DEE52F00ACimpl_uses*
+ //#UC END# *55DEE52F00ACimpl_uses*
 ;
 
 type _Instance_R_ = TddNSRCSubList;

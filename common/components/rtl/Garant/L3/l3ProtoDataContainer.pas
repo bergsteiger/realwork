@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4A54DD4E036Fimpl_uses*
+ //#UC END# *4A54DD4E036Fimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3DataContainer.imp.pas}

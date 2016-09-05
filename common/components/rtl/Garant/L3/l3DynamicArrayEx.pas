@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *479DFD65024Dimpl_uses*
+ //#UC END# *479DFD65024Dimpl_uses*
 ;
 
 constructor Tl3DynamicArrayEx.Create(anItemSize: Integer);

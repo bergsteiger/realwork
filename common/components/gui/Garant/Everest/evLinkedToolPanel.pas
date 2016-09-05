@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *547DA4F701F9impl_uses*
+ //#UC END# *547DA4F701F9impl_uses*
 ;
 
 function TevCustomLinkedToolPanel.pm_GetControl: TWinControl;

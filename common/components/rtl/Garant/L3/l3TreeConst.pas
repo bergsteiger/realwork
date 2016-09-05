@@ -23,6 +23,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *48F4B5300085impl_uses*
+ //#UC END# *48F4B5300085impl_uses*
 ;
 
 initialization

@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , destNormSpec
+ //#UC START# *56BB14B90213impl_uses*
+ //#UC END# *56BB14B90213impl_uses*
 ;
 
 function TddRTFReaderSpec.GetdestNormClass: RdestNorm;

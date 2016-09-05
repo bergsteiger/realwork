@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , l3String
  , nevInterfaces
+ //#UC START# *4DFEF94101DFimpl_uses*
+ //#UC END# *4DFEF94101DFimpl_uses*
 ;
 
 procedure TevDocumentNode.Cleanup;

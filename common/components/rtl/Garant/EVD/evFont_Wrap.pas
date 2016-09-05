@@ -31,6 +31,8 @@ uses
  , k2Tags
  , k2FontName_Const
  , Font_Const
+ //#UC START# *484CEEC803ADimpl_uses*
+ //#UC END# *484CEEC803ADimpl_uses*
 ;
 
 function WevFont.ObjToTag(aValue: TObject): Il3TagRef;

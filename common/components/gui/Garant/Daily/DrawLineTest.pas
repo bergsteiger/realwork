@@ -44,6 +44,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C46F52A0317impl_uses*
+ //#UC END# *4C46F52A0317impl_uses*
 ;
 
 procedure TDrawLineTest.Process(aForm: TPrimTextLoadForm);

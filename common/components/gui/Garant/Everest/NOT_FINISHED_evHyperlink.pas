@@ -52,6 +52,8 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ //#UC START# *4A269BB40125impl_uses*
+ //#UC END# *4A269BB40125impl_uses*
 ;
 
 function TevHyperlink.Exists: Boolean;

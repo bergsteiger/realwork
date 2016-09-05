@@ -57,6 +57,8 @@ uses
  , Controls
  , SysUtils
  , l3Base
+ //#UC START# *5522D7A90252impl_uses*
+ //#UC END# *5522D7A90252impl_uses*
 ;
 
 var g_Tl3GetComponentBoundsHelper: Tl3GetComponentBoundsHelper = nil;

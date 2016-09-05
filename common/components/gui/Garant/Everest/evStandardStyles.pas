@@ -75,6 +75,8 @@ uses
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *4E54CF7E0143impl_uses*
+ //#UC END# *4E54CF7E0143impl_uses*
 ;
 
 var g_TevStandardStyles: TevStandardStyles = nil;

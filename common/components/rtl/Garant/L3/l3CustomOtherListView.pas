@@ -52,6 +52,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4DEFAF740194impl_uses*
+ //#UC END# *4DEFAF740194impl_uses*
 ;
 
 constructor Tl3OtherListSorter.Create(aView: Tl3CustomOtherListView);

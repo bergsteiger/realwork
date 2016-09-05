@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , DailyAutoTest
  , TestFrameWork
+ //#UC START# *4DC24756009Aimpl_uses*
+ //#UC END# *4DC24756009Aimpl_uses*
 ;
 
 class procedure TAutoTestsSuite.Register;

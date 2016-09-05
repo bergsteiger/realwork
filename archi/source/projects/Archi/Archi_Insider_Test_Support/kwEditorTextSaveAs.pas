@@ -43,6 +43,8 @@ uses
  l3ImplUses
  , arArchiTestAdapter2
  , SysUtils
+ //#UC START# *537D968501B2impl_uses*
+ //#UC END# *537D968501B2impl_uses*
 ;
 
 class function TkwEditorTextSaveAs.GetWordNameForRegister: AnsiString;

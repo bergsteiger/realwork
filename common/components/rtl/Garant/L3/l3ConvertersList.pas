@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4DD4F30E00C6impl_uses*
+ //#UC END# *4DD4F30E00C6impl_uses*
 ;
 
 var g_Tl3ConvertersList: Tl3ConvertersList = nil;

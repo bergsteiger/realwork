@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , csGetTaskDescriptionReply_Const
+ //#UC START# *546B442D0343impl_uses*
+ //#UC END# *546B442D0343impl_uses*
 ;
 
 function TncsGetTaskDescriptionReply.pm_GetLocalFolder: AnsiString;

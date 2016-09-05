@@ -39,6 +39,8 @@ uses
  , f1DocumentTagDataFromDTP
  , SysUtils
  , f1DocumentTagDataFromDTPHandle
+ //#UC START# *4C6A750F024Eimpl_uses*
+ //#UC END# *4C6A750F024Eimpl_uses*
 ;
 
 constructor TnsF1DocumentTagNode.Create(const aProvider: IDocumentTextProvider);

@@ -61,6 +61,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4CE133F801BAimpl_uses*
+ //#UC END# *4CE133F801BAimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}

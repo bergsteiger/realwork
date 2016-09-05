@@ -384,6 +384,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4979DFB700F8impl_uses*
+ , Common_Strange_Controls
  //#UC END# *4979DFB700F8impl_uses*
 ;
 
@@ -1681,7 +1682,7 @@ begin
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if (ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID) then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct)
+   Aggregate.Operation(opcode_Document_GetCorrespondentListExFrmAct)
   else
   begin
    l_PositionList := MakePositionList;
@@ -1718,7 +1719,7 @@ begin
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if (ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID) then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct)
+   Aggregate.Operation(opcode_Document_GetRespondentListExFrmAct)
   else
   begin
    l_PositionList := MakePositionList;
@@ -1754,7 +1755,7 @@ begin
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct, aParams As IvcmExecuteParams)
+   Aggregate.Operation(opcode_Document_GetCorrespondentListExFrmAct, aParams As IvcmExecuteParams)
   else
   begin
    l_PositionList := MakePositionList;
@@ -1799,7 +1800,7 @@ begin
  if (Aggregate <> nil) and (ContentsTree.TreeView.Current <> -1) then
  begin
   if ContentsTree.TreeView.CurrentNode.ID = c_DocumentSubID then
-   Aggregate.Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct, aParams As IvcmExecuteParams)
+   Aggregate.Operation(opcode_Document_GetRespondentListExFrmAct, aParams As IvcmExecuteParams)
   else
   begin
    l_PositionList := MakePositionList;

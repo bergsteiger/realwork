@@ -111,6 +111,8 @@ uses
  , evMsgCode
  , evCellsCharOffsets
  , edCellTypesList
+ //#UC START# *4F2B767D015Eimpl_uses*
+ //#UC END# *4F2B767D015Eimpl_uses*
 ;
 
 procedure TevCellsWidthCorrecter.ApplyChanges(const anOp: InevOp;

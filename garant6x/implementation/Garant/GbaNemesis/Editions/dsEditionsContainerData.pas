@@ -53,6 +53,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *4A717F6E0327impl_uses*
+ //#UC END# *4A717F6E0327impl_uses*
 ;
 
 type _Instance_R_ = TdsEditionsContainerData;

@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , bsUserDataObject
  , bsUserTreeData
+ //#UC START# *49F16EBF02ADimpl_uses*
+ //#UC END# *49F16EBF02ADimpl_uses*
 ;
 
 function TnsUserTreeStructWithDrag.DoMakeDataObject(const aData: Il3SimpleNode;

@@ -45,6 +45,8 @@ uses
  , evPreviewForTestsTuning
  , afwFacade
  , SysUtils
+ //#UC START# *4CB586140150impl_uses*
+ //#UC END# *4CB586140150impl_uses*
 ;
 
 constructor TnevDocumentProviderEx.Create(const aStorable: InevStorable;

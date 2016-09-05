@@ -1,6 +1,6 @@
 unit DocAttrImpl2;
 
-{ $Id: DocAttrImpl2.pas,v 1.49 2015/11/11 14:29:04 voba Exp $ }
+{ $Id: DocAttrImpl2.pas,v 1.51 2016/08/11 10:41:59 lukyanets Exp $ }
 
 {$I l3Define.inc}
 {$R-}
@@ -22,6 +22,7 @@ uses
   //mgCHDSel,
   {GMP_Slct,}
   ddPictConvertor, ddRTFwriter, ddDocumentCopy,
+  daTypes,
   dt_AttrSchema, //DictsSup,
   DT_Const, DT_Types,
   dtIntf, DT_Sab,
@@ -273,8 +274,8 @@ TCustomDocAttribute
     procedure SetEndDate  (aIndex : Integer; aDate : TstDate);
     function  GetStartDate(aIndex : Integer) : TstDate;
     function  GetEndDate  (aIndex : Integer) : TstDate;
-    function  GetAuthor   (aIndex : Integer) : TUserID;
-    procedure SetAuthor   (aIndex : Integer; aUserID : TUserID);
+    function  GetAuthor   (aIndex : Integer) : TdaUserID;
+    procedure SetAuthor   (aIndex : Integer; aUserID : TdaUserID);
     function  CheckEditEnable(aStageType : TStageType; aDateKind : Byte) : Boolean;
   end;
 
@@ -465,7 +466,7 @@ uses
   ActiveX,
   Forms, Printers, Dialogs, vtDialogs,
   StrShop, IniShop, VConst, Com_Cnst,
-  DT_Serv, Dt_CFltr, Dt_RecalcHLinkFilter, DT_User,
+  DT_Serv, Dt_CFltr, Dt_RecalcHLinkFilter, 
   //mgBasStr, mgExFStr, mgLnkStr,
   //mgHasPar,
   //m2COMLib,
@@ -489,7 +490,6 @@ uses
   l3Languages,
 
   daDataProvider,
-  daTypes,
 
   DT_TblCache,
   Dt_DocImages,
@@ -2804,12 +2804,12 @@ begin
  Result := Child[aIndex].IntA[k2_tiFinish];
 end;
 
-function TStagesDocAttribute.GetAuthor(aIndex : Integer) : TUserID;
+function TStagesDocAttribute.GetAuthor(aIndex : Integer) : TdaUserID;
 begin
- Result := TUserID(Child[aIndex].IntA[k2_tiUser]);
+ Result := TdaUserID(Child[aIndex].IntA[k2_tiUser]);
 end;
 
-procedure TStagesDocAttribute.SetAuthor(aIndex : Integer; aUserID : TUserID);
+procedure TStagesDocAttribute.SetAuthor(aIndex : Integer; aUserID : TdaUserID);
 begin
  with Child[aIndex].CAtom(k2_tiUser) do
   IntA[k2_tiHandle] := Integer(aUserID);

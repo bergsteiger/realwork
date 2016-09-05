@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , BaseTypesUnit
+ //#UC START# *4683614C02F2impl_uses*
+ //#UC END# *4683614C02F2impl_uses*
 ;
 
 constructor TnsDocAttributeTreeStruct.Create(const aDoc: IDocument;

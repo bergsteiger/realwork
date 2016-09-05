@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *54D9ACA500F5impl_uses*
+ //#UC END# *54D9ACA500F5impl_uses*
 ;
 
 function TddPictureSegment.Clone: TddTextSegment;

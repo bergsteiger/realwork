@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , evQueryCardInt
  , SysUtils
+ //#UC START# *53D64CA801F6impl_uses*
+ //#UC END# *53D64CA801F6impl_uses*
 ;
 
 class function TnevControlParaIevControlFriendMapper.Make(aTag: Tl3Variant;

@@ -1,7 +1,16 @@
 Unit Dt_Free;
 
-{ $Id: DT_FREE.PAS,v 1.78 2015/11/30 11:31:05 lukyanets Exp $ }
+{ $Id: DT_FREE.PAS,v 1.81 2016/07/13 09:41:59 lukyanets Exp $ }
 // $Log: DT_FREE.PAS,v $
+// Revision 1.81  2016/07/13 09:41:59  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.80  2016/06/29 13:09:06  lukyanets
+// Отладка
+//
+// Revision 1.79  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.78  2015/11/30 11:31:05  lukyanets
 // Реанимируем починку интервалов
 //
@@ -223,6 +232,7 @@ Unit Dt_Free;
 Interface
 
 Uses
+ daTypes,
  Dt_Types,
  Dt_ATbl,
  HT_Const,
@@ -422,7 +432,7 @@ Type
     procedure   ExcludeFreeNumsFromTable(aName : TTblNameStr; aNums: Tl3LongintList); overload;
     procedure   ExcludeFreeNumsFromTable(aName: TTblNameStr; aNums: ISab); overload;
 
-    Constructor Create(aFamily : TFamilyID); Reintroduce;
+    Constructor Create(aFamily : TdaFamilyID); Reintroduce;
     procedure   AddInterval(aName: TTblNameStr;
                             aLowNum: LongWord = 1;
                             aHiNum: LongWord = NO_LIMIT);
@@ -439,14 +449,14 @@ Type
      // возвращает пачку свободных номеров
     Procedure   PutFree(aName : TTblNameStr; aFreeNum : LongWord);
     Procedure   PutFrees(aName : TTblNameStr;aFreeNums : SAB;aWordSized : Boolean);
-    Procedure   CheckNumber(aName : TTblNameStr;aNum : LongWord);
+    Procedure   ExcludeFree(aName : TTblNameStr;aNum : LongWord);
      // "забирает aNum из множества свободных"  и, ИНОГДА, немного тех, "что левее"
      // См. коммент-ии к ExcludeFreeFromTable
-    Procedure   CheckDiapasonOfNumbers(aName : TTblNameStr; aLowNum, aHiNum: LongWord);
+    Procedure   ExcludeFreeNums(aName : TTblNameStr; aLowNum, aHiNum: LongWord);
      // "забирает диапазон номеров из множества свободных" и, опять же, ИНОГДА, немного тех, "что левее"
      // См. коммент-ии к ExcludeFreeFromTable
 
-    Procedure   CheckFreeNumbers(aName : TTblNameStr;aNums : Sab); // -"-
+//    Procedure   CheckFreeNumbers(aName : TTblNameStr;aNums : Sab); // -"-
     procedure   DeleteAllIntervals(const aName: TTblNameStr);
     Procedure   ResetFreeTblNum(aName: TTblNameStr;
                                 aStartNum: LongWord = 1;
@@ -462,7 +472,7 @@ implementation
 
 uses
   daSchemeConsts,
-  
+
   HT_Dll,
 
   SysUtils,
@@ -480,6 +490,8 @@ uses
 
 const
  c_CaptureMark = '$';
+ ATTEMPT_AMOUNT = 20;
+ PAUSE_SIZE = 500; // 0,5 сек
 
 type
  PDataForAddingNumsToFree = ^TDataForAddingNumsToFree;
@@ -492,7 +504,7 @@ type
 
 (************************* TFreeTbl *******************************)
 
-Constructor TFreeTbl.Create(aFamily : TFamilyID);
+Constructor TFreeTbl.Create(aFamily : TdaFamilyID);
 Begin
  if aFamily = MainTblsFamily then
   inherited Create(aFamily, Ord(mtFree), atpMain {$IfDef FlushTbl}, True {$endIf FlushTbl})
@@ -599,9 +611,6 @@ end;
 
 function TFreeTbl.GetFreeFromTable(aName : TTblNameStr;
                                    var aResultValue: LongWord): Boolean;
-const
- ATTEMPT_AMOUNT = 20;
- PAUSE_SIZE = 500; // 0,5 сек
 var
  SrchStr : TNameArr;
  l_FoundRec: TFreeFullRec;
@@ -842,12 +851,12 @@ begin
 {$EndIf}
 end;
 
-Procedure TFreeTbl.CheckNumber(aName : TTblNameStr;aNum : LongWord);
+Procedure TFreeTbl.ExcludeFree(aName : TTblNameStr;aNum : LongWord);
 begin
  if not ExcludeFreeFromReplica(aName, aNum) then
   ExcludeFreeFromTable(aName, aNum);
 end;
-
+(*
 Procedure TFreeTbl.CheckFreeNumbers(aName : TTblNameStr;aNums : Sab);
 var
  l_Nums: Tl3LongintList;
@@ -879,7 +888,7 @@ Begin
   UnLockTbl;
  end;
 end;
-
+*)
 Procedure TFreeTbl.ResetFreeTblNum(aName: TTblNameStr;
                                    aStartNum: LongWord = 1;
                                    aMaxNum: LongWord = NO_LIMIT);
@@ -1976,7 +1985,7 @@ Begin
   SetLength(Result, Length(aTableName) - 3);
 end;
 
-procedure TFreeTbl.CheckDiapasonOfNumbers(aName: TTblNameStr;
+procedure TFreeTbl.ExcludeFreeNums(aName: TTblNameStr;
                                           aLowNum,
                                           aHiNum: LongWord);
 begin
@@ -2205,9 +2214,6 @@ function TFreeTbl.GetFreeNumsFromTable(aName: TTblNameStr;
                                        aMinAmount: Integer;
                                        aMaxAmount: Integer;
                                        aResultSet: TNumSet): Boolean;
-const
- ATTEMPT_AMOUNT = 20;
- PAUSE_SIZE = 500; // 0,5 сек
 var
  SrchStr : TNameArr;
  l_AttemptNo: Integer;

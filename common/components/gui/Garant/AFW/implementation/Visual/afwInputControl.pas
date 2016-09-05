@@ -40,6 +40,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47E1382301A5impl_uses*
+ //#UC END# *47E1382301A5impl_uses*
 ;
 
 function TafwInputControl.MouseAction(const aPt: Tl3Point;

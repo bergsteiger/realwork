@@ -357,7 +357,7 @@ procedure _PrimText_.RequestCheckFragmentsCount;
 //#UC END# *4A1FEF160285_495118ED00F6_var*
 begin
 //#UC START# *4A1FEF160285_495118ED00F6_impl*
- TdmStdRes.BaseSearchCheckFragmentsCount(NativeMainForm);
+ TBaseSearchService.Instance.BaseSearchCheckFragmentsCount(NativeMainForm);
 //#UC END# *4A1FEF160285_495118ED00F6_impl*
 end;//_PrimText_.RequestCheckFragmentsCount
 
@@ -384,7 +384,7 @@ begin
  begin
   l_ParaID := GetParaIDForSaveInWorkJournal;
   Document.CreateJournalBookmark(l_ParaID, l_Bookmark);
-  TdmStdRes.MakeWorkJournal.AddBookMark(l_Bookmark);
+  TWorkJournalService.Instance.MakeWorkJournal.AddBookMark(l_Bookmark);
  end;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=589874196
 //#UC END# *500D5D3C0051_495118ED00F6_impl*
@@ -476,7 +476,7 @@ procedure _PrimText_.File_LoadFromFolder_Execute(const aParams: IvcmExecuteParam
 //#UC END# *49885D59018D_495118ED00F6exec_var*
 begin
 //#UC START# *49885D59018D_495118ED00F6exec_impl*
- TdmStdRes.SelectOpen(self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(self.as_IvcmEntityForm,
                       FilterInfoFactory.MakeFilterInfo(ffBookmark),
                       str_OpenBookmark);
 //#UC END# *49885D59018D_495118ED00F6exec_impl*
@@ -622,7 +622,7 @@ begin
    l_TextFormHistory := nil;
   end;//try..finally
  end;//aStateType = vcm_stContent
- Result := inherited DoLoadState(aState, aStateType);
+ Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_495118ED00F6_impl*
 end;//_PrimText_.DoLoadState
 {$IfEnd} // NOT Defined(NoVCM)

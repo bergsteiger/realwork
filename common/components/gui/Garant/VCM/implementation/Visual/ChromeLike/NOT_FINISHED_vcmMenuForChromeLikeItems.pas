@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , vcmMainMenuForChromeLikeTypes
+ //#UC START# *545C535201B3impl_uses*
+ //#UC END# *545C535201B3impl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 

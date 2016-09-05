@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4ECB504D000Bimpl_uses*
+ //#UC END# *4ECB504D000Bimpl_uses*
 ;
 
 class function TkwEditorSetTOC.GetWordNameForRegister: AnsiString;

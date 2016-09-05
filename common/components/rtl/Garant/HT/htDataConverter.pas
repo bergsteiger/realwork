@@ -61,6 +61,8 @@ uses
  , l3Base
  , l3String
  , SysUtils
+ //#UC START# *55599B5C014Aimpl_uses*
+ //#UC END# *55599B5C014Aimpl_uses*
 ;
 
 constructor ThtDataConverter.Create;
@@ -105,24 +107,28 @@ begin
  case aDescription.DataType of
   da_dtChar:
    l3System.GetLocalMem(Result, aDescription.Size + 1);
+  da_dtByte:
+   l3System.GetLocalMem(Result, SizeOf(Byte));
   da_dtDWord:
    l3System.GetLocalMem(Result, SizeOf(LongInt));
   da_dtQWord:
    l3System.GetLocalMem(Result, SizeOf(LargeInt));
-  da_dtDate:                                           
+  da_dtDate:
    l3System.GetLocalMem(Result, SizeOf(TStDate));
   da_dtTime:
    l3System.GetLocalMem(Result, SizeOf(TStTime));
   da_dtWord:
    l3System.GetLocalMem(Result, SizeOf(Word));
+  da_dtInteger:
+   l3System.GetLocalMem(Result, SizeOf(Integer));
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
 
@@ -145,7 +151,7 @@ begin
   da_dtChar:
    case ClientBufferFormat of
     da_dtDWord:
-     StrPLCopy(PAnsiChar(aServerBuffer), PAnsiChar(IntToStr(PLongInt(aClientBuffer)^)), aDescription.Size);
+     StrPLCopy(PAnsiChar(aServerBuffer), PAnsiChar(IntToStr(PLongWord(aClientBuffer)^)), aDescription.Size);
     da_dtQWord:
      StrPLCopy(PAnsiChar(aServerBuffer), PAnsiChar(IntToStr(PLargeInt(aClientBuffer)^)), aDescription.Size);
     da_dtChar:
@@ -156,46 +162,54 @@ begin
      StrPLCopy(PAnsiChar(aServerBuffer), PAnsiChar(IntToStr(PStTime(aClientBuffer)^)), aDescription.Size);
     da_dtWord:
      StrPLCopy(PAnsiChar(aServerBuffer), PAnsiChar(IntToStr(PWord(aClientBuffer)^)), aDescription.Size);
+    da_dtInteger:
+     StrPLCopy(PAnsiChar(aServerBuffer), PAnsiChar(IntToStr(PInteger(aClientBuffer)^)), aDescription.Size);
+    da_dtByte:
+     StrPLCopy(PAnsiChar(aServerBuffer), PAnsiChar(IntToStr(PByte(aClientBuffer)^)), aDescription.Size);
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtDWord
   da_dtDWord:
    case ClientBufferFormat of
     da_dtDWord:
-     PLongInt(aServerBuffer)^ := PLongInt(aClientBuffer)^;
+     PLongWord(aServerBuffer)^ := PLongWord(aClientBuffer)^;
     da_dtQWord:
-     PLongInt(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
+     PLongWord(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
     da_dtChar:
-     PLongInt(aServerBuffer)^ := StrToInt(PAnsiString(aClientBuffer)^);
+     PLongWord(aServerBuffer)^ := StrToInt(PAnsiString(aClientBuffer)^);
     da_dtDate:
-     PLongInt(aServerBuffer)^ := PStDate(aClientBuffer)^;
+     PLongWord(aServerBuffer)^ := PStDate(aClientBuffer)^;
     da_dtTime:
-     PLongInt(aServerBuffer)^ := PStTime(aClientBuffer)^;
+     PLongWord(aServerBuffer)^ := PStTime(aClientBuffer)^;
     da_dtWord:
-     PLongInt(aServerBuffer)^ := PWord(aClientBuffer)^;
+     PLongWord(aServerBuffer)^ := PWord(aClientBuffer)^;
+    da_dtInteger:
+     PLongWord(aServerBuffer)^ := PInteger(aClientBuffer)^;
+    da_dtByte:
+     PLongWord(aServerBuffer)^ := PByte(aClientBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtDWord
   da_dtQWord:
    case ClientBufferFormat of
     da_dtDWord:
-     PLargeInt(aServerBuffer)^ := PLongInt(aClientBuffer)^;
+     PLargeInt(aServerBuffer)^ := PLongWord(aClientBuffer)^;
     da_dtQWord:
      PLargeInt(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
     da_dtChar:
@@ -206,14 +220,18 @@ begin
      PLargeInt(aServerBuffer)^ := PStTime(aClientBuffer)^;
     da_dtWord:
      PLargeInt(aServerBuffer)^ := PWord(aClientBuffer)^;
+    da_dtInteger:
+     PLargeInt(aServerBuffer)^ := PInteger(aClientBuffer)^;
+    da_dtByte:
+     PLargeInt(aServerBuffer)^ := PByte(aClientBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtQWord
@@ -221,7 +239,7 @@ begin
   da_dtDate:
    case ClientBufferFormat of
     da_dtDWord:
-     PStDate(aServerBuffer)^ := PLongInt(aClientBuffer)^;
+     PStDate(aServerBuffer)^ := PLongWord(aClientBuffer)^;
     da_dtQWord:
      PStDate(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
     da_dtChar:
@@ -232,14 +250,18 @@ begin
      PStDate(aServerBuffer)^ := PStTime(aClientBuffer)^;
     da_dtWord:
      PStDate(aServerBuffer)^ := PWord(aClientBuffer)^;
+    da_dtInteger:
+     PStDate(aServerBuffer)^ := PInteger(aClientBuffer)^;
+    da_dtByte:
+     PStDate(aServerBuffer)^ := PByte(aClientBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtQWord
@@ -247,7 +269,7 @@ begin
   da_dtTime:
    case ClientBufferFormat of
     da_dtDWord:
-     PStTime(aServerBuffer)^ := PLongInt(aClientBuffer)^;
+     PStTime(aServerBuffer)^ := PLongWord(aClientBuffer)^;
     da_dtQWord:
      PStTime(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
     da_dtChar:
@@ -258,14 +280,18 @@ begin
      PStTime(aServerBuffer)^ := PStTime(aClientBuffer)^;
     da_dtWord:
      PStTime(aServerBuffer)^ := PWord(aClientBuffer)^;
+    da_dtInteger:
+     PStTime(aServerBuffer)^ := PInteger(aClientBuffer)^;
+    da_dtByte:
+     PStTime(aServerBuffer)^ := PByte(aClientBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
   end;
@@ -273,7 +299,7 @@ begin
   da_dtWord:
    case ClientBufferFormat of
     da_dtDWord:
-     PWord(aServerBuffer)^ := PLongInt(aClientBuffer)^;
+     PWord(aServerBuffer)^ := PLongWord(aClientBuffer)^;
     da_dtQWord:
      PWord(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
     da_dtChar:
@@ -284,25 +310,89 @@ begin
      PWord(aServerBuffer)^ := PStTime(aClientBuffer)^;
     da_dtWord:
      PWord(aServerBuffer)^ := PWord(aClientBuffer)^;
+    da_dtInteger:
+     PWord(aServerBuffer)^ := PInteger(aClientBuffer)^;
+    da_dtByte:
+     PWord(aServerBuffer)^ := PByte(aClientBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
+ , da_dtBoolean
+++ , da_dtQWord*)
+   end; // Client case da_dtQWord
+
+  da_dtInteger:
+   case ClientBufferFormat of
+    da_dtDWord:
+     PInteger(aServerBuffer)^ := PLongWord(aClientBuffer)^;
+    da_dtQWord:
+     PInteger(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
+    da_dtChar:
+     PInteger(aServerBuffer)^ := StrToInt(PAnsiString(aClientBuffer)^);
+    da_dtDate:
+     PInteger(aServerBuffer)^ := PStDate(aClientBuffer)^;
+    da_dtTime:
+     PInteger(aServerBuffer)^ := PStTime(aClientBuffer)^;
+    da_dtWord:
+     PInteger(aServerBuffer)^ := PWord(aClientBuffer)^;
+    da_dtInteger:
+     PInteger(aServerBuffer)^ := PInteger(aClientBuffer)^;
+    da_dtByte:
+     PInteger(aServerBuffer)^ := PByte(aClientBuffer)^;
+(*
+++   da_dtChar
+++ , da_dtByte
+++ , da_dtDate
+++ , da_dtTime
+++ , da_dtDWord
+++ , da_dtWord
+++ , da_dtInteger
+ , da_dtBoolean
+++ , da_dtQWord*)
+   end; // Client case da_dtQWord
+
+  da_dtByte:
+   case ClientBufferFormat of
+    da_dtDWord:
+     PByte(aServerBuffer)^ := PLongWord(aClientBuffer)^;
+    da_dtQWord:
+     PByte(aServerBuffer)^ := PLargeInt(aClientBuffer)^;
+    da_dtChar:
+     PByte(aServerBuffer)^ := StrToInt(PAnsiString(aClientBuffer)^);
+    da_dtDate:
+     PByte(aServerBuffer)^ := PStDate(aClientBuffer)^;
+    da_dtTime:
+     PByte(aServerBuffer)^ := PStTime(aClientBuffer)^;
+    da_dtWord:
+     PByte(aServerBuffer)^ := PWord(aClientBuffer)^;
+    da_dtInteger:
+     PByte(aServerBuffer)^ := PInteger(aClientBuffer)^;
+    da_dtByte:
+     PByte(aServerBuffer)^ := PByte(aClientBuffer)^;
+(*
+++   da_dtChar
+++ , da_dtByte
+++ , da_dtDate
+++ , da_dtTime
+++ , da_dtDWord
+++ , da_dtWord
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtQWord
 
 (*   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
 
@@ -327,7 +417,7 @@ begin
     da_dtChar:
      PString(aClientBuffer)^ := StrPas(PAnsiChar(aServerBuffer));
     da_dtDWord:
-     PString(aClientBuffer)^ := IntToStr(PLongInt(aServerBuffer)^);
+     PString(aClientBuffer)^ := IntToStr(PLongWord(aServerBuffer)^);
     da_dtQWord:
      PString(aClientBuffer)^ := IntToStr(PLargeInt(aServerBuffer)^);
     da_dtDate:
@@ -336,14 +426,18 @@ begin
      PAnsiString(aClientBuffer)^ := IntToStr(PStTime(aServerBuffer)^);
     da_dtWord:
      PAnsiString(aClientBuffer)^ := IntToStr(PWord(aServerBuffer)^);
+    da_dtInteger:
+     PAnsiString(aClientBuffer)^ := IntToStr(PInteger(aServerBuffer)^);
+    da_dtByte:
+     PAnsiString(aClientBuffer)^ := IntToStr(PByte(aServerBuffer)^);
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtDWord
@@ -351,25 +445,29 @@ begin
   da_dtDWord:
    case aDescription.DataType of
     da_dtChar:
-     PLongInt(aClientBuffer)^ := StrToInt(PAnsiChar(aServerBuffer)^);
+     PLongWord(aClientBuffer)^ := StrToInt(PAnsiChar(aServerBuffer)^);
     da_dtDWord:
-     PLongInt(aClientBuffer)^ := PLongInt(aServerBuffer)^;
+     PLongWord(aClientBuffer)^ := PLongWord(aServerBuffer)^;
     da_dtQWord:
-     PLongInt(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
+     PLongWord(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
     da_dtDate:
-     PLongInt(aClientBuffer)^ := PStDate(aServerBuffer)^;
+     PLongWord(aClientBuffer)^ := PStDate(aServerBuffer)^;
     da_dtTime:
-     PLongInt(aClientBuffer)^ := PStTime(aServerBuffer)^;
+     PLongWord(aClientBuffer)^ := PStTime(aServerBuffer)^;
     da_dtWord:
-     PLongInt(aClientBuffer)^ := PWord(aServerBuffer)^;
+     PLongWord(aClientBuffer)^ := PWord(aServerBuffer)^;
+    da_dtInteger:
+     PLongWord(aClientBuffer)^ := PInteger(aServerBuffer)^;
+    da_dtByte:
+     PLongWord(aClientBuffer)^ := PByte(aServerBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtDWord
@@ -378,7 +476,7 @@ begin
     da_dtChar:
      PLargeInt(aClientBuffer)^ := StrToInt64(PAnsiChar(aServerBuffer)^);
     da_dtDWord:
-     PLargeInt(aClientBuffer)^ := PLongInt(aServerBuffer)^;
+     PLargeInt(aClientBuffer)^ := PLongWord(aServerBuffer)^;
     da_dtQWord:
      PLargeInt(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
     da_dtDate:
@@ -387,14 +485,18 @@ begin
      PLargeInt(aClientBuffer)^ := PStTime(aServerBuffer)^;
     da_dtWord:
      PLargeInt(aClientBuffer)^ := PWord(aServerBuffer)^;
+    da_dtInteger:
+     PLargeInt(aClientBuffer)^ := PInteger(aServerBuffer)^;
+    da_dtByte:
+     PLargeInt(aClientBuffer)^ := PByte(aServerBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtQWord
@@ -404,7 +506,7 @@ begin
     da_dtChar:
      PStDate(aClientBuffer)^ := StrToInt(PAnsiChar(aServerBuffer)^);
     da_dtDWord:
-     PStDate(aClientBuffer)^ := PLongInt(aServerBuffer)^;
+     PStDate(aClientBuffer)^ := PLongWord(aServerBuffer)^;
     da_dtQWord:
      PStDate(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
     da_dtDate:
@@ -413,14 +515,18 @@ begin
      PStDate(aClientBuffer)^ := PStTime(aServerBuffer)^;
     da_dtWord:
      PStDate(aClientBuffer)^ := PWord(aServerBuffer)^;
+    da_dtInteger:
+     PStDate(aClientBuffer)^ := PInteger(aServerBuffer)^;
+    da_dtByte:
+     PStDate(aClientBuffer)^ := PByte(aServerBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtQWord
@@ -430,7 +536,7 @@ begin
     da_dtChar:
      PStTime(aClientBuffer)^ := StrToInt(PAnsiChar(aServerBuffer)^);
     da_dtDWord:
-     PStTime(aClientBuffer)^ := PLongInt(aServerBuffer)^;
+     PStTime(aClientBuffer)^ := PLongWord(aServerBuffer)^;
     da_dtQWord:
      PStTime(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
     da_dtDate:
@@ -439,14 +545,18 @@ begin
      PStTime(aClientBuffer)^ := PStTime(aServerBuffer)^;
     da_dtWord:
      PStTime(aClientBuffer)^ := PWord(aServerBuffer)^;
+    da_dtInteger:
+     PStTime(aClientBuffer)^ := PInteger(aServerBuffer)^;
+    da_dtByte:
+     PStTime(aClientBuffer)^ := PByte(aServerBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end;
@@ -456,7 +566,7 @@ begin
     da_dtChar:
      PWord(aClientBuffer)^ := StrToInt(PAnsiChar(aServerBuffer)^);
     da_dtDWord:
-     PWord(aClientBuffer)^ := PLongInt(aServerBuffer)^;
+     PWord(aClientBuffer)^ := PLongWord(aServerBuffer)^;
     da_dtQWord:
      PWord(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
     da_dtDate:
@@ -465,25 +575,89 @@ begin
      PWord(aClientBuffer)^ := PStTime(aServerBuffer)^;
     da_dtWord:
      PWord(aClientBuffer)^ := PWord(aServerBuffer)^;
+    da_dtInteger:
+     PWord(aClientBuffer)^ := PInteger(aServerBuffer)^;
+    da_dtByte:
+     PWord(aClientBuffer)^ := PByte(aServerBuffer)^;
 (*
 ++   da_dtChar
- , da_dtByte
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
    end; // Client case da_dtQWord
 
-(*   da_dtChar
- , da_dtByte
+  da_dtInteger:
+   case ClientBufferFormat of
+    da_dtChar:
+     PInteger(aClientBuffer)^ := StrToInt(PAnsiChar(aServerBuffer)^);
+    da_dtDWord:
+     PInteger(aClientBuffer)^ := PLongWord(aServerBuffer)^;
+    da_dtQWord:
+     PInteger(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
+    da_dtDate:
+     PInteger(aClientBuffer)^ := PStDate(aServerBuffer)^;
+    da_dtTime:
+     PInteger(aClientBuffer)^ := PStTime(aServerBuffer)^;
+    da_dtWord:
+     PInteger(aClientBuffer)^ := PWord(aServerBuffer)^;
+    da_dtInteger:
+     PInteger(aClientBuffer)^ := PInteger(aServerBuffer)^;
+    da_dtByte:
+     PInteger(aClientBuffer)^ := PByte(aServerBuffer)^;
+(*
+++   da_dtChar
+++ , da_dtByte
 ++ , da_dtDate
 ++ , da_dtTime
 ++ , da_dtDWord
 ++ , da_dtWord
- , da_dtInteger
+++ , da_dtInteger
+ , da_dtBoolean
+++ , da_dtQWord*)
+   end; // Client case da_dtQWord
+
+  da_dtByte:
+   case ClientBufferFormat of
+    da_dtChar:
+     PByte(aClientBuffer)^ := StrToInt(PAnsiChar(aServerBuffer)^);
+    da_dtDWord:
+     PByte(aClientBuffer)^ := PLongWord(aServerBuffer)^;
+    da_dtQWord:
+     PByte(aClientBuffer)^ := PLargeInt(aServerBuffer)^;
+    da_dtDate:
+     PByte(aClientBuffer)^ := PStDate(aServerBuffer)^;
+    da_dtTime:
+     PByte(aClientBuffer)^ := PStTime(aServerBuffer)^;
+    da_dtWord:
+     PByte(aClientBuffer)^ := PWord(aServerBuffer)^;
+    da_dtInteger:
+     PByte(aClientBuffer)^ := PInteger(aServerBuffer)^;
+    da_dtByte:
+     PByte(aClientBuffer)^ := PByte(aServerBuffer)^;
+(*
+++   da_dtChar
+++ , da_dtByte
+++ , da_dtDate
+++ , da_dtTime
+++ , da_dtDWord
+++ , da_dtWord
+++ , da_dtInteger
+ , da_dtBoolean
+++ , da_dtQWord*)
+   end; // Client case da_dtQWord
+
+(*++   da_dtChar
+++ , da_dtByte
+++ , da_dtDate
+++ , da_dtTime
+++ , da_dtDWord
+++ , da_dtWord
+++ , da_dtInteger
  , da_dtBoolean
 ++ , da_dtQWord*)
  else
@@ -523,7 +697,7 @@ begin
 //  ET_DATE = 5;   (* Дата    - целое без знака *)
 //  ET_NMBR = 6;   (* Номер   - 3-х байтовое целое без знака *)
   ET_LONG:
-   Result := PLongInt(aData)^;   (* Элемент - длинное целое со знаком *)
+   Result := PLongWord(aData)^;   (* Элемент - длинное целое со знаком *)
   ET_DWRD:
    Result := PLongWord(aData)^;   (* Элемент - длинное целое без знака *)
 //  ET_FLOA = 9;   (* Элемент - single *)
@@ -555,7 +729,7 @@ begin
 //  ET_DATE = 5;   (* Дата    - целое без знака *)
 //  ET_NMBR = 6;   (* Номер   - 3-х байтовое целое без знака *)
   ET_LONG:
-   Result := PLongInt(aData)^;   (* Элемент - длинное целое со знаком *)
+   Result := PLongWord(aData)^;   (* Элемент - длинное целое со знаком *)
   ET_DWRD:
    Result := PLongWord(aData)^;   (* Элемент - длинное целое без знака *)
 //  ET_FLOA = 9;   (* Элемент - single *)
@@ -587,7 +761,7 @@ begin
 //  ET_DATE = 5;   (* Дата    - целое без знака *)
 //  ET_NMBR = 6;   (* Номер   - 3-х байтовое целое без знака *)
   ET_LONG:
-   Result := PLongInt(aData)^;   (* Элемент - длинное целое со знаком *)
+   Result := PLongWord(aData)^;   (* Элемент - длинное целое со знаком *)
   ET_DWRD:
    Result := PLongWord(aData)^;   (* Элемент - длинное целое без знака *)
 //  ET_FLOA = 9;   (* Элемент - single *)
@@ -619,7 +793,7 @@ begin
 //  ET_DATE = 5;   (* Дата    - целое без знака *)
 //  ET_NMBR = 6;   (* Номер   - 3-х байтовое целое без знака *)
   ET_LONG:
-   Result := PLongInt(aData)^;   (* Элемент - длинное целое со знаком *)
+   Result := PLongWord(aData)^;   (* Элемент - длинное целое со знаком *)
   ET_DWRD:
    Result := PLongWord(aData)^;   (* Элемент - длинное целое без знака *)
 //  ET_FLOA = 9;   (* Элемент - single *)
@@ -651,7 +825,7 @@ begin
 //  ET_DATE = 5;   (* Дата    - целое без знака *)
 //  ET_NMBR = 6;   (* Номер   - 3-х байтовое целое без знака *)
   ET_LONG:
-   Result := IntToStr(PLongInt(aData)^);   (* Элемент - длинное целое со знаком *)
+   Result := IntToStr(PLongWord(aData)^);   (* Элемент - длинное целое со знаком *)
   ET_DWRD:
    Result := IntToStr(PLongWord(aData)^);   (* Элемент - длинное целое без знака *)
 //  ET_FLOA = 9;   (* Элемент - single *)
@@ -683,7 +857,7 @@ begin
 //  ET_DATE = 5;   (* Дата    - целое без знака *)
 //  ET_NMBR = 6;   (* Номер   - 3-х байтовое целое без знака *)
   ET_LONG:
-   Result := PLongInt(aData)^;   (* Элемент - длинное целое со знаком *)
+   Result := PLongWord(aData)^;   (* Элемент - длинное целое со знаком *)
   ET_DWRD:
    Result := PLongWord(aData)^;   (* Элемент - длинное целое без знака *)
 //  ET_FLOA = 9;   (* Элемент - single *)

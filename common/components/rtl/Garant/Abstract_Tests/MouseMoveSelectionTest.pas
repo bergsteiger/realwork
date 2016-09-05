@@ -61,6 +61,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4D3D40C70045impl_uses*
+ //#UC END# *4D3D40C70045impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

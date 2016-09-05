@@ -33,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F5DAEB0007impl_uses*
+ //#UC END# *47F5DAEB0007impl_uses*
 ;
 
 procedure Tk2ToolPrim.Assign(Source: Tk2ToolPrim);

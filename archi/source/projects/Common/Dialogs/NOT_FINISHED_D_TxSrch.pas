@@ -23,6 +23,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TTextSearchDlgWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F8D618800E7impl_uses*
+ //#UC END# *4F8D618800E7impl_uses*
 ;
 
 end.

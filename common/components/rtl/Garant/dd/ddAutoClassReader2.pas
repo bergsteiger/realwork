@@ -3,9 +3,12 @@ unit ddAutoClassReader2;
 { Специальная читалка данных рубрицирования }
 
 
-{ $Id: ddAutoClassReader2.pas,v 1.8 2015/07/02 11:41:28 lukyanets Exp $ }
+{ $Id: ddAutoClassReader2.pas,v 1.9 2016/06/16 05:40:04 lukyanets Exp $ }
 
 // $Log: ddAutoClassReader2.pas,v $
+// Revision 1.9  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.8  2015/07/02 11:41:28  lukyanets
 // Описываем словари
 //
@@ -42,7 +45,7 @@ type
  private
   f_DocumentList: Tl3LongintList;
   f_Errors: TStrings;
-  f_Family: TFamilyID;
+  f_Family: TdaFamilyID;
  protected
   procedure Cleanup; override;
  public
@@ -52,7 +55,7 @@ type
    read f_DocumentList;
   // Список обработанных документов (внутренние номера)
   property Errors: TStrings read f_Errors;
-  property Family: TFamilyID
+  property Family: TdaFamilyID
    read f_Family
    write f_Family;
  end;

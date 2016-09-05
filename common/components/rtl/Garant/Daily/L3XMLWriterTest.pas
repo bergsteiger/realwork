@@ -45,6 +45,8 @@ uses
  , l3Filer
  , l3Types
  , TestFrameWork
+ //#UC START# *55AE3EAE00F3impl_uses*
+ //#UC END# *55AE3EAE00F3impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

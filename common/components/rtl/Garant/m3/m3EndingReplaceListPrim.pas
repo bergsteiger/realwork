@@ -50,6 +50,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F4CB5140310impl_uses*
+ //#UC END# *4F4CB5140310impl_uses*
 ;
 
 function Tm3EndingReplaceItem_C(const anEndingFind: AnsiString;

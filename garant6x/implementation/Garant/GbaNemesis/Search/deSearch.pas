@@ -38,6 +38,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4AE593970016impl_uses*
+ //#UC END# *4AE593970016impl_uses*
 ;
 
 constructor TdeSearch.Create(const aTag: Il3CString;

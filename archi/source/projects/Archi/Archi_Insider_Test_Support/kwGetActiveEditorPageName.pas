@@ -48,6 +48,8 @@ uses
  {$If Defined(AppClientSide)}
  , Main
  {$IfEnd} // Defined(AppClientSide)
+ //#UC START# *4E60CB00004Fimpl_uses*
+ //#UC END# *4E60CB00004Fimpl_uses*
 ;
 
 class function TkwGetActiveEditorPageName.GetWordNameForRegister: AnsiString;

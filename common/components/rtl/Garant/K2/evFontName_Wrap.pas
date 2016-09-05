@@ -33,6 +33,8 @@ uses
  , l3LogFont
  , k2FontManager
  , k2FontName_Const
+ //#UC START# *484CEA1E0104impl_uses*
+ //#UC END# *484CEA1E0104impl_uses*
 ;
 
 function WevFontName.StrToTag(const aValue: AnsiString): Tl3Tag;

@@ -55,6 +55,8 @@ uses
  , pgParamList
  , pgResultSet
  , daFromTable
+ //#UC START# *55F960D502F6impl_uses*
+ //#UC END# *55F960D502F6impl_uses*
 ;
 
 constructor TpgTabledQuery.Create(const aFactory: IdaTableQueryFactory;
@@ -105,7 +107,6 @@ begin
  l_Result := PQprepare(f_Connection.Handle, PAnsiChar(f_QueryName),  PAnsiChar(BuildSQL), Params.Count, nil);
  try
   pgCheckStatus(l_Result);
-  f_Connection.CommitTransaction;
  finally
   PQclear(l_Result);
  end;

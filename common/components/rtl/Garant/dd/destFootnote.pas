@@ -60,6 +60,8 @@ uses
  , l3String
  , ddTextParagraph
  , ddTypes
+ //#UC START# *51E8E8770374impl_uses*
+ //#UC END# *51E8E8770374impl_uses*
 ;
 
 procedure TdestFootnote.Try2AddFootNote(anInClose: Boolean);

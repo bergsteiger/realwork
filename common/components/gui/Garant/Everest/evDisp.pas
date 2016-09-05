@@ -4,9 +4,12 @@ unit evDisp;
 { Автор: Люлин А.В.     }
 { Модуль: evDisp - }
 { Начат: 08.10.98 15:02 }
-{ $Id: evDisp.pas,v 1.55 2014/02/13 16:13:11 lulin Exp $ }
+{ $Id: evDisp.pas,v 1.56 2016/07/01 13:13:35 dinishev Exp $ }
 
 // $Log: evDisp.pas,v $
+// Revision 1.56  2016/07/01 13:13:35  dinishev
+// {Requestlink:623484518}
+//
 // Revision 1.55  2014/02/13 16:13:11  lulin
 // - рефакторим безликие списки.
 //
@@ -209,6 +212,11 @@ uses
   {$EndIf l3ConsoleApp}
   ,
   l3ProtoObjectWithHandle
+  {$IfDef evNeedClipboardSpy}
+  ,
+  vtClipSpyService,
+  l3ClipboardSpy
+  {$EndIf evNeedClipboardSpy}
   ;
 
 type
@@ -236,9 +244,6 @@ type
       constructor Create(anOpCode : TevOperation);
         reintroduce;
         {-}
-(*      procedure Assign(P: TPersistent);
-        override;
-        {-}*)
       procedure SetIntegerData(Value: Long);
         {-}
       procedure AddControl(Control: TObject);
@@ -261,7 +266,11 @@ type
   PevOperationDescriptor = ^TevOperationDescriptor;
   RevOperationDescriptor = class of TevOperationDescriptor;
 
-  TevOperationDispatcher = class(Tl3ProtoObject)
+  TevOperationDispatcher = class(Tl3ProtoObject
+ {$IfDef evNeedClipboardSpy}
+  , Il3ClipListner
+ {$EndIf evNeedClipboardSpy}
+  )
     private
     {internal fields}
       f_OperationList : Tl3ObjectWithHandleRefList;
@@ -277,6 +286,10 @@ type
       procedure Cleanup;
         override;
         {-}
+ {$IfDef evNeedClipboardSpy}
+      procedure Change;
+        {-}
+ {$EndIf evNeedClipboardSpy}
     public
     {public methods}
       function  AddOperationDescriptor(anOpCode  : TevOperation;
@@ -301,10 +314,6 @@ type
       function  GetAction(anOpCode: TevOperation): TevCustomAction;
         {-}
       {$EndIf l3ConsoleApp}
-      {$IfDef evNeedClipboardSpy}
-      procedure ClipboardViewerChange(Sender: TObject);
-        {-}
-      {$EndIf evNeedClipboardSpy}
     public
     {public properties}
       property OperationEnabled[Op: TevOperation]: Bool
@@ -345,12 +354,13 @@ uses
   ,
   evMenu
   {$EndIf l3ConsoleApp}
-  {$IfDef evNeedClipboardSpy}
-  ,
-  vtClipSpy
-  {$EndIf evNeedClipboardSpy}
   ,
   evOperationDispatcherEx
+  {$IfDef evNeedClipboardSpy}
+  ,
+  vtClipSpy,
+  l3ClipSpyService
+  {$EndIf evNeedClipboardSpy}
   ;
 
 { start class TevOperationDispatcher }
@@ -422,8 +432,8 @@ procedure TevOperationDispatcher.Cleanup;
   {-}
 begin
  {$IfDef evNeedClipboardSpy}
- if (ClipboardSpy <> nil) then 
-  ClipboardSpy.OnChange := nil;  
+ if Tl3ClipSpyService.Exists then
+  Tl3ClipSpyService.Instance.Unsubscribe(Self);                                             
  {$EndIf evNeedClipboardSpy}
  l3Free(f_OperationList);
  inherited;
@@ -559,11 +569,15 @@ end;
 procedure TevOperationDispatcher.RemoveControl(Op: TevOperation; Control: TObject);
   {-}
 var
- i : Long;
+ i    : Long;
+ l_Des: TevOperationDescriptor;
 begin
  if (Op <> ev_ccNone) AND (f_OperationList <> nil) AND
     f_OperationList.FindData(Long(Op), i) then
-  TevOperationDescriptor(f_OperationList.Items[i]).RemoveControl(Control);
+ begin
+  l_Des := TevOperationDescriptor(f_OperationList.Items[i]);
+  l_Des.RemoveControl(Control);
+ end;
 end;
 
 procedure TevOperationDispatcher.IncludeOperations(Ops: TevOperationSet);
@@ -660,15 +674,6 @@ begin
 end;
 {$EndIf l3ConsoleApp}
 
-{$IfDef evNeedClipboardSpy}
-procedure TevOperationDispatcher.ClipboardViewerChange(Sender: TObject);
-  {-}
-begin
- OperationEnabled[ev_ccPaste] := not ClipboardIsEmpty;
- OperationEnabled[ev_ccSpecialPaste] := not ClipboardIsEmpty;
-end;
-{$EndIf evNeedClipboardSpy}
-
 { dispatcher routines }
 
 function evOperationDispatcher: TevOperationDispatcher;
@@ -693,23 +698,6 @@ begin
  l3Free(f_ControlList);
  inherited;
 end;
-
-(*procedure TevOperationDescriptor.Assign(P: TPersistent);
-  //override;
-  {-}
-begin
- if (P Is TevOperationDescriptor) then begin
-  f_Code := TevOperationDescriptor(P).Code;
-  f_Enabled := TevOperationDescriptor(P).Enabled;
-  if TevOperationDescriptor(P).f_ControlList.Empty then
-   l3Free(f_ControlList)
-  else begin
-   if (f_ControlList = nil) then f_ControlList := Tl3LongintList.MakeSorted;
-   f_ControlList.Assign(TevOperationDescriptor(P).f_ControlList);
-  end;
- end else
-  inherited;
-end;*)
 
 procedure TevOperationDescriptor.SetIntegerData(Value: Long);
   {-}
@@ -849,12 +837,22 @@ begin
 end;
 
 {$IfDef evNeedClipboardSpy}
-initialization
-{!touched!}{$IfDef LogInit} WriteLn('W:\common\components\gui\Garant\Everest\evDisp.pas initialization enter'); {$EndIf}
- ClipboardSpy.OnChange := evOperationDispatcher.ClipboardViewerChange;
+procedure TevOperationDispatcher.Change;
+begin
+ OperationEnabled[ev_ccPaste] := not ClipboardIsEmpty;
+ OperationEnabled[ev_ccSpecialPaste] := not ClipboardIsEmpty;
+end;
 {$EndIf evNeedClipboardSpy}
 
+initialization
+{!touched!}{$IfDef LogInit} WriteLn('W:\common\components\gui\Garant\Everest\evDisp.pas initialization enter'); {$EndIf}
+ {$IfDef evNeedClipboardSpy}
+ if Tl3ClipSpyService.Exists then
+  Tl3ClipSpyService.Instance.Subscribe(evOperationDispatcher);
+ {$EndIf evNeedClipboardSpy}
+
 {!touched!}{$IfDef LogInit} WriteLn('W:\common\components\gui\Garant\Everest\evDisp.pas initialization leave'); {$EndIf}
+
 end.
 
 

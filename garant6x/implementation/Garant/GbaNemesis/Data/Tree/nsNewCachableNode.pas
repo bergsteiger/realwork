@@ -51,6 +51,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *490AF9B0039Bimpl_uses*
+ //#UC END# *490AF9B0039Bimpl_uses*
 ;
 
 constructor TnsNewCachableNode.Create(const aNode: INodeBase);

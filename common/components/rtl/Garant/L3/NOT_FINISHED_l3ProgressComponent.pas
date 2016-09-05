@@ -47,6 +47,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4754200F029Eimpl_uses*
+ //#UC END# *4754200F029Eimpl_uses*
 ;
 
 procedure Tl3ProgressComponent.Start(Count: Integer;

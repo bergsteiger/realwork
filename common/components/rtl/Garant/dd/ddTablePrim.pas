@@ -154,6 +154,8 @@ uses
  , ddBase
  , ddBorder
  , ddConst
+ //#UC START# *4FACE16602E1impl_uses*
+ //#UC END# *4FACE16602E1impl_uses*
 ;
 
 function TddTablePrim.pm_GetLastRow: TddTableRow;

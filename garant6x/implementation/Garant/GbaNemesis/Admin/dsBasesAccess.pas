@@ -27,6 +27,8 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *495504A000F2impl_uses*
+ //#UC END# *495504A000F2impl_uses*
 ;
 
 function TdsBasesAccess.GetOperations: TLogicOperationSet;

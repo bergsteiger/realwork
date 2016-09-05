@@ -72,6 +72,8 @@ uses
  , l3StringIDEx
  , SysUtils
  , l3Base
+ //#UC START# *4AA4B2ED00FEimpl_uses*
+ //#UC END# *4AA4B2ED00FEimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

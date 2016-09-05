@@ -45,6 +45,8 @@ uses
  , l3FileUtils
  , SysUtils
  , TestFrameWork
+ //#UC START# *51B1ADF20017impl_uses*
+ //#UC END# *51B1ADF20017impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

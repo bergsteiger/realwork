@@ -587,7 +587,7 @@ begin
 //#UC START# *4937C5250138_493D2F7B031D_impl*
  if (pm_GetDocInfo <> nil) then
  begin
-  TdmStdRes.AddDocumentToControl(pm_GetDocInfo.Doc);
+  TCommonService.Instance.AddDocumentToControl(pm_GetDocInfo.Doc);
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C5250138_493D2F7B031D_impl*
@@ -600,7 +600,7 @@ begin
 //#UC START# *4937C55101B2_493D2F7B031D_impl*
  if (pm_GetDocInfo <> nil) then
  begin
-  TdmStdRes.DeleteDocumentFromControl(pm_GetDocInfo.Doc);
+  TCommonService.Instance.DeleteDocumentFromControl(pm_GetDocInfo.Doc);
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C55101B2_493D2F7B031D_impl*
@@ -654,7 +654,7 @@ begin
  if (pm_GetDocInfo <> nil) and
     not l3BoolCheck(SetData.IsUnderControl, Result) then
  begin
-  Result := l3BoolSet(TdmStdRes.IsUnderControl(pm_GetDocInfo.Doc), l_Temp);
+  Result := l3BoolSet(TCommonService.Instance.IsUnderControl(pm_GetDocInfo.Doc), l_Temp);
   SetData.IsUnderControl := l_Temp;
  end;
 //#UC END# *4937C61C0270_493D2F7B031Dget_impl*

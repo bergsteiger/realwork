@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , RegionImportTaskResult_Const
+ //#UC START# *540867800117impl_uses*
+ //#UC END# *540867800117impl_uses*
 ;
 
 function TalcuRegionImportTaskResult.pm_GetHasMoreFilesToProcess: Boolean;

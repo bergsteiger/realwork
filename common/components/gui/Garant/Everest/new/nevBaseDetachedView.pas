@@ -75,6 +75,8 @@ uses
  , k2Facade
  , k2Base
  , TextPara_Const
+ //#UC START# *48120C1C0060impl_uses*
+ //#UC END# *48120C1C0060impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}

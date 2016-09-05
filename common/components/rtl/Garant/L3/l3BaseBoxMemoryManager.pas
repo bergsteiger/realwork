@@ -48,6 +48,8 @@ implementation
 uses
  l3ImplUses
  , l3MinMax
+ //#UC START# *54B69F9700DEimpl_uses*
+ //#UC END# *54B69F9700DEimpl_uses*
 ;
 
 constructor Tl3BaseBoxMemoryManager.Create(aBlockSize: Cardinal);

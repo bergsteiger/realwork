@@ -109,6 +109,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evAACContentUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *49DA30D901B6impl_uses*
+ //#UC END# *49DA30D901B6impl_uses*
 ;
 
 procedure TevTextParaPainterEx.ValidateParaFont;

@@ -47,6 +47,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *49ECA9AA0000impl_uses*
+ //#UC END# *49ECA9AA0000impl_uses*
 ;
 
 type _Instance_R_ = TdsInternetAgent;

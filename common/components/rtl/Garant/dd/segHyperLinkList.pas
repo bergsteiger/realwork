@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55DC908902FCimpl_uses*
+ //#UC END# *55DC908902FCimpl_uses*
 ;
 
 type _Instance_R_ = TsegHyperLinkList;

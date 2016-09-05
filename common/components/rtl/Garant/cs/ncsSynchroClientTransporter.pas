@@ -55,6 +55,8 @@ uses
  , IdException
  , SysUtils
  , ncsMessage
+ //#UC START# *54E339B500F7impl_uses*
+ //#UC END# *54E339B500F7impl_uses*
 ;
 
 constructor TncsSynchroClientTransporter.Create;

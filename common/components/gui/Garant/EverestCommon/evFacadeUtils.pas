@@ -58,6 +58,8 @@ uses
  , nevTools
  , evdTypes
  , evMsgCode
+ //#UC START# *48EEF98B01FFimpl_uses*
+ //#UC END# *48EEF98B01FFimpl_uses*
 ;
 
 procedure evInsertFile(aTextSource: TevCustomTextSource;

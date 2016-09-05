@@ -99,7 +99,7 @@ begin
 //#UC START# *51A451E20376_4CDABAD0032E_impl*
  l_Preview := Preview;
  if (l_Preview <> nil) then
-  TdmStdRes.MakePreview(l_Preview);
+  TPrintingService.Instance.MakePreview(l_Preview);
 //#UC END# *51A451E20376_4CDABAD0032E_impl*
 end;//_Printable_.DoPreviewExecute
 

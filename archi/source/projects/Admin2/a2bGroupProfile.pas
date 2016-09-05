@@ -1,8 +1,26 @@
 unit a2bGroupProfile;
 
-{ $Id: a2bGroupProfile.pas,v 1.29 2016/04/27 13:07:25 lukyanets Exp $}
+{ $Id: a2bGroupProfile.pas,v 1.35 2016/08/11 10:41:53 lukyanets Exp $}
 
 // $Log: a2bGroupProfile.pas,v $
+// Revision 1.35  2016/08/11 10:41:53  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.34  2016/08/11 08:36:33  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.33  2016/07/12 08:15:50  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.32  2016/06/23 13:10:47  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.31  2016/06/17 09:03:05  lukyanets
+// Отладка
+//
+// Revision 1.30  2016/06/16 05:38:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.29  2016/04/27 13:07:25  lukyanets
 // Пересаживаем UserManager на новые рельсы
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -107,7 +125,6 @@ uses
  l3Base,
 
  daTypes,
- Dt_User,
 
  a2Interfaces,
  a2Base,
@@ -219,10 +236,10 @@ begin
  begin
   l_FamilyList:=Tl3StringDataList.Create;
   try
-   UserManager.GetDocGroupData(f_ID, MainTblsFamily, l_FamilyList);
+   GlobalDataProvider.UserManager.GetDocGroupData(f_ID, MainTblsFamily, l_FamilyList);
    if l_FamilyList.Count = 0 then
     raise Ea2GroupDataLoadError.Create(Sa2NoFamilyError);
-   l_SelfMask:=PUGAccessMask(l_FamilyList.Data[l_FamilyList.IndexOfData(f_CurFamily, SizeOf(f_CurFamily), 0)])^.MaskRec;
+   l_SelfMask:=PdaUserGroupAccessMask(l_FamilyList.Data[l_FamilyList.IndexOfData(f_CurFamily, SizeOf(f_CurFamily), 0)])^.MaskRec;
    if GlobalDataProvider.UserManager.GetUserPriorities(f_ID, l_IPriority, l_EPriority) then
    begin
     f_ImportPriority := Priority2a2Priority(l_IPriority);
@@ -233,7 +250,7 @@ begin
   end; {try..finally}
   f_CanChangeDataGroup := GetSelectStateFromMask(l_SelfMask, 0);
   f_CanDelete := GetSelectStateFromMask(l_SelfMask, 1);
-  l_Tmp := GlobalDataProvider.UserManager.AllGroups.IndexOfData(f_ID, SizeOf(TUserGrID));
+  l_Tmp := GlobalDataProvider.UserManager.AllGroups.IndexOfData(f_ID, SizeOf(TdaUserGroupID));
   f_Name := GlobalDataProvider.UserManager.AllGroups.PasStr[l_Tmp];
  end
  else
@@ -253,7 +270,6 @@ procedure Ta2UserGroupProfile.DoSave;
 var
  l_Ind: Integer;
  l_FamilyList: Tl3StringDataList;
- l_Name : ShortString;
  l_Mask : TTblMaskRec;
  l_Task : TUserEditQuery;
 
@@ -271,11 +287,10 @@ var
 begin
  if not Modified then
   Exit;
- l_Name := f_Name;
  CheckBBUserID;
  if f_ID = a2cNewItemID then
-  f_ID := UserManager.AddUserGroup(l_Name);
- UserManager.EditUserGroup(f_ID, l_Name, a2Priority2Priority(f_ImportPriority),
+  f_ID := GlobalDataProvider.UserManager.AddUserGroup(f_Name);
+ GlobalDataProvider.UserManager.EditUserGroup(f_ID, f_Name, a2Priority2Priority(f_ImportPriority),
      a2Priority2Priority(f_ExportPriority));
  l_Mask.AllowMask := 0;
  l_Mask.DenyMask := 0;
@@ -283,20 +298,20 @@ begin
  SetSelectStateToMask(l_Mask, 1, f_CanDelete);
  l_FamilyList:=Tl3StringDataList.Create;
  try
-  UserManager.GetDocGroupData(f_ID, MainTblsFamily, l_FamilyList);
+  GlobalDataProvider.UserManager.GetDocGroupData(f_ID, MainTblsFamily, l_FamilyList);
   l_Ind:=l_FamilyList.IndexOfData(f_CurFamily, SizeOf(f_CurFamily), 0);
   If l_Ind < 0 then
    raise Ea2GroupDataLoadError.Create(Sa2NoFamilyError);
-  PUGAccessMask(l_FamilyList.Data[l_Ind])^.MaskRec := l_Mask;
+  PdaUserGroupAccessMask(l_FamilyList.Data[l_Ind])^.MaskRec := l_Mask;
   l_FamilyList.Flags[l_Ind]:=l_FamilyList.Flags[l_Ind] or lfItemModified;
-  UserManager.PutDocGroupData(f_ID, MainTblsFamily, l_FamilyList);
+  GlobalDataProvider.UserManager.PutDocGroupData(f_ID, MainTblsFamily, l_FamilyList);
  finally
   l3Free(l_FamilyList);
  end; {try..finally}
  SaveRightsList;
  if Assigned(f_UserList) and f_UserList.Modified then
  begin
-  UserManager.SetHostUserListOnGroup(f_ID, f_UserList);
+  GlobalDataProvider.UserManager.SetHostUserListOnGroup(f_ID, f_UserList);
   f_UserList.Modified := False;
  end;
  if Assigned(g_BaseEngine.CSClient) and g_BaseEngine.CSClient.IsStarted then
@@ -327,7 +342,7 @@ function Ta2UserGroupProfile.GetUserList: Ia2MarkedList;
 begin
  if not Assigned(f_UserList) then
  begin
-  f_UserList := Ta2MarkedList.Create(Self as Ia2Persistent);
+  f_UserList := Ta2MarkedList.Create(Self as Ia2Persistent, cUserIDSize);
   ReloadUserList;
  end; 
  Result := f_UserList;
@@ -400,12 +415,12 @@ var
  lSrchData: Integer;
  l_TempList: Tl3StringDataList;
  l_Rights  : Ta2GroupRightsObject;
- l_Mask    : TUGAccessMask;
+ l_Mask    : TdaUserGroupAccessMask;
  l_ID      : TDictID;
 begin
  l_TempList := Tl3StringDataList.Create;
  try
-  UserManager.GetDocGroupData(f_ID, f_CurFamily, l_TempList);
+  GlobalDataProvider.UserManager.GetDocGroupData(f_ID, f_CurFamily, l_TempList);
   with l_TempList do
   begin
    Sorted := False;
@@ -419,7 +434,7 @@ begin
   f_RightsList.Clear;
   for I := 0 to l_TempList.Count-1 do
   begin
-   l_Mask := PUGAccessMask(l_TempList.Data[I])^;
+   l_Mask := PdaUserGroupAccessMask(l_TempList.Data[I])^;
    l_Rights := Ta2GroupRightsObject.Create(Self, l_Mask);
    try
     f_RightsList.Add(l_TempList.PasStr[I], l_Rights);
@@ -437,7 +452,7 @@ var
  I: Integer;
 begin
  if f_ID <> a2cNewItemID then
-  UserManager.GetHostUserListOnGroup(f_ID, f_UserList, True)
+  GlobalDataProvider.UserManager.GetHostUserListOnGroup(f_ID, f_UserList, True)
  else
  begin
   f_UserList.Clear;

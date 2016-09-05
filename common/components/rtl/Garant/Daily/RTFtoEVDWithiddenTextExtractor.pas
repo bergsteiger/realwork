@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , dd_lcHiddenTextExtractor
  , TestFrameWork
+ //#UC START# *538C2F3502BBimpl_uses*
+ //#UC END# *538C2F3502BBimpl_uses*
 ;
 
 procedure TRTFtoEVDWithiddenTextExtractor.SetFilters(var theGenerator: Ik2TagGenerator);

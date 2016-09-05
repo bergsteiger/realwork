@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4E2448BD014Dimpl_uses*
+ //#UC END# *4E2448BD014Dimpl_uses*
 ;
 
 class function TkwOpenInsDWin.GetWordNameForRegister: AnsiString;

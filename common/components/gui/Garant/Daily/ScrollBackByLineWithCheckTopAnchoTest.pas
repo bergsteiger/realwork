@@ -44,6 +44,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C46BB2A02BDimpl_uses*
+ //#UC END# *4C46BB2A02BDimpl_uses*
 ;
 
 procedure TScrollBackByLineWithCheckTopAnchoTest.Cleanup;

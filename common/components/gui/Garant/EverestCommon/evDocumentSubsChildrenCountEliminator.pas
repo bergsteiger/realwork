@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , Document_Const
  , k2Tags
+ //#UC START# *4E7754BD01BAimpl_uses*
+ //#UC END# *4E7754BD01BAimpl_uses*
 ;
 
 procedure TevDocumentSubsChildrenCountEliminator.DoAddAtomEx(AtomIndex: Integer;

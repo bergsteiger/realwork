@@ -110,6 +110,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *480DD00B02E8impl_uses*
+ //#UC END# *480DD00B02E8impl_uses*
 ;
 
 procedure TafwSingleCaret.pm_SetCellHeight(aValue: Integer);

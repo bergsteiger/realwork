@@ -166,6 +166,8 @@ uses
  , vcmTabsWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoTabs)
  , l3Base
+ //#UC START# *5538940C00DDimpl_uses*
+ //#UC END# *5538940C00DDimpl_uses*
 ;
 
 var g_TvcmTabbedContainersDispatcher: TvcmTabbedContainersDispatcher = nil;

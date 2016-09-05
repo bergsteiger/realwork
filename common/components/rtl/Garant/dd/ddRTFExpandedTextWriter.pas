@@ -96,6 +96,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *55BB1F310213impl_uses*
+ //#UC END# *55BB1F310213impl_uses*
 ;
 
 procedure TddBlockInfo.Cleanup;

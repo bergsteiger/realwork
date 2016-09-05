@@ -43,6 +43,8 @@ uses
  , SysUtils
  , StrUtils
  , l3Except
+ //#UC START# *4DDBBDB00019impl_uses*
+ //#UC END# *4DDBBDB00019impl_uses*
 ;
 
 class procedure TkwEntityOperation.Register(anEn: TvcmBaseEntitiesCollectionItem;

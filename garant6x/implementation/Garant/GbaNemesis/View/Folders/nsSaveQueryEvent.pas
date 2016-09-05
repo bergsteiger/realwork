@@ -31,6 +31,8 @@ uses
  , nsLogManager
  , LoggingUnit
  , LoggingWrapperInterfaces
+ //#UC START# *51BEFA6F00E3impl_uses*
+ //#UC END# *51BEFA6F00E3impl_uses*
 ;
 
 class procedure TnsSaveQueryEvent.Log(const aQuery: IQuery);

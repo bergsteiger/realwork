@@ -114,6 +114,8 @@ uses
  , hyiedefs
  {$IfEnd} // NOT Defined(NoImageEn)
  , vtPngImgList
+ //#UC START# *4FD1F6B00129impl_uses*
+ //#UC END# *4FD1F6B00129impl_uses*
 ;
 
 var g_TvtilCreators: TvtilCreators = nil;

@@ -114,6 +114,8 @@ uses
  , TestFrameWork
  , vcmBase
  , l3Base
+ //#UC START# *4BE429BA0233impl_uses*
+ //#UC END# *4BE429BA0233impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}

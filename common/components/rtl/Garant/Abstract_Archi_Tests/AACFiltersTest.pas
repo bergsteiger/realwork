@@ -63,6 +63,8 @@ uses
  , dd_lcTextStyleCorrector
  , dd_lcTextSplitter
  , TestFrameWork
+ //#UC START# *4EA5222A020Eimpl_uses*
+ //#UC END# *4EA5222A020Eimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

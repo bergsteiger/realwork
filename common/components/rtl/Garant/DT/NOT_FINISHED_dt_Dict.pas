@@ -26,6 +26,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *55E6DBED01B3impl_uses*
+ //#UC END# *55E6DBED01B3impl_uses*
 ;
 
 function DictServer(aFamily: TdaFamilyID): TDictionaryServer;

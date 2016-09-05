@@ -10,12 +10,19 @@ interface
 
 uses
  l3IntfUses
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type
  TcallMSSRunner = class
+  protected
+   class procedure DoRunScript(const aFileName: AnsiString;
+    const aCaller: ItfwScriptCaller); virtual;
+   class function CheckFileExists(const aFileName: AnsiString): Boolean; virtual;
   public
-   class procedure Run;
+   class procedure Run; virtual;
  end;//TcallMSSRunner
 
 implementation
@@ -47,6 +54,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwOutToFileScriptCaller
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *55C482EC023Eimpl_uses*
+ //#UC END# *55C482EC023Eimpl_uses*
 ;
 
 class procedure TcallMSSRunner.Run;
@@ -57,7 +66,7 @@ var
  procedure RunScript(const aFileName: AnsiString);
  begin//RunScript
   try
-   TtfwScriptEngine.ScriptFromFile(aFileName, TtfwConsoleScriptCaller.Make);
+   DoRunScript(aFileName, TtfwConsoleScriptCaller.Make);
   except
    on E: Exception do
    begin
@@ -73,7 +82,7 @@ var
  begin//RunScriptWithOutput
   l_OutName := aFileName + '.out';
   try
-   TtfwScriptEngine.ScriptFromFile(aFileName, TtfwOutToFileScriptCaller.Make(l_OutName));
+   DoRunScript(aFileName, TtfwOutToFileScriptCaller.Make(l_OutName));
   except
    on E: Exception do
    begin
@@ -160,7 +169,7 @@ var
        if (Pos(cMask, aFileName) <= 0) then
        begin
         l_S := TtfwConsoleScriptCaller.DoResolveIncludedFilePath(l_S);
-        if FileExists(l_S) then
+        if CheckFileExists(l_S) then
          RunScriptWithOutput(l_S)
         else
          l3System.Msg2Log('Не найден файл: ' + l_S);
@@ -212,5 +221,24 @@ begin
   Halt(2);
 //#UC END# *55C483850136_55C482EC023E_impl*
 end;//TcallMSSRunner.Run
+
+class procedure TcallMSSRunner.DoRunScript(const aFileName: AnsiString;
+ const aCaller: ItfwScriptCaller);
+//#UC START# *57B6E409029C_55C482EC023E_var*
+//#UC END# *57B6E409029C_55C482EC023E_var*
+begin
+//#UC START# *57B6E409029C_55C482EC023E_impl*
+ TtfwScriptEngine.ScriptFromFile(aFileName, aCaller);
+//#UC END# *57B6E409029C_55C482EC023E_impl*
+end;//TcallMSSRunner.DoRunScript
+
+class function TcallMSSRunner.CheckFileExists(const aFileName: AnsiString): Boolean;
+//#UC START# *57B6F81500E3_55C482EC023E_var*
+//#UC END# *57B6F81500E3_55C482EC023E_var*
+begin
+//#UC START# *57B6F81500E3_55C482EC023E_impl*
+ Result := FileExists(aFileName);
+//#UC END# *57B6F81500E3_55C482EC023E_impl*
+end;//TcallMSSRunner.CheckFileExists
 
 end.

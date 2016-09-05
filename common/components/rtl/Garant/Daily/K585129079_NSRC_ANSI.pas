@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , l3Chars
  , TestFrameWork
+ //#UC START# *5491ABF802C6impl_uses*
+ //#UC END# *5491ABF802C6impl_uses*
 ;
 
 function TK585129079_NSRC_ANSI.NSRCCodePage: Integer;

@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , mdpSyncDicts_Const
+ //#UC START# *55E9759603C8impl_uses*
+ //#UC END# *55E9759603C8impl_uses*
 ;
 
 function TcsMdpSyncDicts.pm_GetSyncFolderMask: AnsiString;

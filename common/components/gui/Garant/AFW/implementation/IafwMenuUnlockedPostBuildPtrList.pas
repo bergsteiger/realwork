@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B0529C501F5impl_uses*
+ //#UC END# *4B0529C501F5impl_uses*
 ;
 
 type _Instance_R_ = TIafwMenuUnlockedPostBuildPtrList;

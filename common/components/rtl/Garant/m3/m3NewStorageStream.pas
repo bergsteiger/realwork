@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , m3StoreHeader
  , SysUtils
+ //#UC START# *54182F58013Bimpl_uses*
+ //#UC END# *54182F58013Bimpl_uses*
 ;
 
 class function Tm3NewStorageStream.Make(anAccess: Tm3StoreAccess;

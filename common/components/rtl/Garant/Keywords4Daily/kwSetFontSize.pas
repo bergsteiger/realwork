@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , evStyleInterface
  , SysUtils
+ //#UC START# *509B8C5A0200impl_uses*
+ //#UC END# *509B8C5A0200impl_uses*
 ;
 
 class function TkwSetFontSize.GetWordNameForRegister: AnsiString;

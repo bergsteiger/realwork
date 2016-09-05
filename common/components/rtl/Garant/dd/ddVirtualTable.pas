@@ -45,6 +45,8 @@ uses
  , l3Base
  , ddTableRow
  , ddTextParagraph
+ //#UC START# *4F683CE400D6impl_uses*
+ //#UC END# *4F683CE400D6impl_uses*
 ;
 
 function TddVirtualTable.pm_GetTotalCellCount: Integer;

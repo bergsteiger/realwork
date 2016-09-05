@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *56408DB303B7impl_uses*
+ //#UC END# *56408DB303B7impl_uses*
 ;
 
 function TdaCondition.BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;

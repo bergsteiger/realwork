@@ -54,6 +54,8 @@ uses
  , afwVirtualCaret
  , l3MinMax
  , l3Units
+ //#UC START# *481201700007impl_uses*
+ //#UC END# *481201700007impl_uses*
 ;
 
 constructor TnevMeasureView.Create(const aControl: InevControl);

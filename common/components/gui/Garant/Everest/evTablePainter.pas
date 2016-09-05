@@ -68,6 +68,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *48C9377502A0impl_uses*
+ //#UC END# *48C9377502A0impl_uses*
 ;
 
 function TevTablePainter.CellsOffsets: TevCellsOffsets;

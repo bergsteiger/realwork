@@ -58,6 +58,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4C9CA365006Cimpl_uses*
+ //#UC END# *4C9CA365006Cimpl_uses*
 ;
 
 procedure TCommentAndScrollTest.MoveCursor4Insert(aForm: TPrimTextLoadForm);

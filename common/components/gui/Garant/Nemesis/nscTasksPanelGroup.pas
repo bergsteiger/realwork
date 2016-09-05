@@ -92,6 +92,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4D34310D0115impl_uses*
+ //#UC END# *4D34310D0115impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

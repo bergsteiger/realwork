@@ -272,6 +272,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , dsChronology
+ , Common_F1CommonServices_Contracts
  , dsAttributes
  , Windows
  {$If NOT Defined(NoVCM)}

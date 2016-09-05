@@ -83,10 +83,13 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , DocumentInterfaces
  , PrimPrimListInterfaces
+ , Common_F1CommonServices_Contracts
  , InpharmMainMenu_ut_mmmMain_UserType
  , PrimMedicFirmList_mflMain_UserType
  , PrimCommonDiction_utMedicDiction_UserType
@@ -98,8 +101,8 @@ uses
  , sdsMedicDiction
  , sdsMedicFirmDocument
  , deListSet
- , DataAdapter
  , DynamicDocListUnit
+ , DataAdapter
  , LoggingUnit
  , SysUtils
  , l3Base
@@ -119,7 +122,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TInpharmServiceImpl = {final} class(Tl3ProtoObject, IInpharmService)
+ TInpharmServiceImpl = {final} class(TvcmModuleContractImplementation, IInpharmService)
   public
    procedure OpenDrugListIfNeeded(const aContainer: IvcmContainer);
    procedure OpenInpharmMainMenu(const aContainer: IvcmContainer);
@@ -138,14 +141,30 @@ type
     {* Проверяет создан экземпляр синглетона или нет }
  end;//TInpharmServiceImpl
 
+ TInpharmOperationsImpl = {final} class(TvcmModuleContractImplementation, IInpharmOperations)
+  public
+   class function Instance: TInpharmOperationsImpl;
+    {* Метод получения экземпляра синглетона TInpharmOperationsImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TInpharmOperationsImpl
+
 var g_TInpharmServiceImpl: TInpharmServiceImpl = nil;
  {* Экземпляр синглетона TInpharmServiceImpl }
+var g_TInpharmOperationsImpl: TInpharmOperationsImpl = nil;
+ {* Экземпляр синглетона TInpharmOperationsImpl }
 
 procedure TInpharmServiceImplFree;
  {* Метод освобождения экземпляра синглетона TInpharmServiceImpl }
 begin
  l3Free(g_TInpharmServiceImpl);
 end;//TInpharmServiceImplFree
+
+procedure TInpharmOperationsImplFree;
+ {* Метод освобождения экземпляра синглетона TInpharmOperationsImpl }
+begin
+ l3Free(g_TInpharmOperationsImpl);
+end;//TInpharmOperationsImplFree
 
 class procedure TnsOpenPharmFirmDocumentEvent.Log(const aDoc: IDocument);
 //#UC START# *4B14D8D10222_4B14D8AE00D4_var*
@@ -200,7 +219,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *530513060354_4AA0D66F0159_impl*
- TdmStdRes.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
+ TListService.Instance.OpenList(TdeListSet.Make(defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), aContainer);
 //#UC END# *530513060354_4AA0D66F0159_impl*
  finally
   if __WasEnter then
@@ -307,7 +326,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AA11B7A0009_4AA0D66F0159_impl*
- OpenMedicDictionPrim(TsdsMedicDiction.Make(aDocInfo), aContainer);
+ TInpharmModule.OpenMedicDictionPrim(TsdsMedicDiction.Make(aDocInfo), aContainer);
 //#UC END# *4AA11B7A0009_4AA0D66F0159_impl*
  finally
   if __WasEnter then
@@ -352,6 +371,23 @@ begin
  Result := g_TInpharmServiceImpl <> nil;
 end;//TInpharmServiceImpl.Exists
 
+class function TInpharmOperationsImpl.Instance: TInpharmOperationsImpl;
+ {* Метод получения экземпляра синглетона TInpharmOperationsImpl }
+begin
+ if (g_TInpharmOperationsImpl = nil) then
+ begin
+  l3System.AddExitProc(TInpharmOperationsImplFree);
+  g_TInpharmOperationsImpl := Create;
+ end;
+ Result := g_TInpharmOperationsImpl;
+end;//TInpharmOperationsImpl.Instance
+
+class function TInpharmOperationsImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TInpharmOperationsImpl <> nil;
+end;//TInpharmOperationsImpl.Exists
+
 class procedure TInpharmModule.OpenMedicDictionPrim(const aSDS: IsdsCommonDiction;
  const aContainer: IvcmContainer);
 //#UC START# *4AA52C670101_4AA0D66F0159_var*
@@ -379,7 +415,7 @@ procedure TInpharmModule.opDrugListExecute(const aParams: IvcmExecuteParamsPrim)
 //#UC END# *4AB9FD0601CF_4AA0D66F0159exec_var*
 begin
 //#UC START# *4AB9FD0601CF_4AA0D66F0159exec_impl*
- TdmStdRes.OpenList(
+ TListService.Instance.OpenList(
   TdeListSet.Make(
    defDataAdapter.NativeAdapter.MakeDynList(SLK_ALL_ALLOWED_DRUGS)), nil);
 //#UC END# *4AB9FD0601CF_4AA0D66F0159exec_impl*
@@ -406,18 +442,13 @@ procedure TInpharmModule.opMedicDictionExecute(const aParams: IvcmExecuteParamsP
                                         True, nil, Ord(utMedicDiction));
  end;//lp_HasTipsForm
 
-(*var
- l_SDS: IsdsCommonDiction;*)
 //#UC END# *4AB9FC8F027A_4AA0D66F0159exec_var*
 begin
 //#UC START# *4AB9FC8F027A_4AA0D66F0159exec_impl*
  Assert(((aParams As IvcmExecuteParams).Data = nil),
         'Пользуйтесь фабрикой OpenMedicDictionPrim');
-(* if Supports(aParams.Data, IsdsCommonDiction, l_SDS) AND (l_SDS <> nil) then
-  OpenMedicDictionPrim(l_SDS, aParams.Container)
- else*)
- if {(l_SDS = nil) AND} not lp_HasDictionForm {or Assigned(l_SDS)} then
-  OpenMedicDiction(nil, CheckContainer(nil));
+ if not lp_HasDictionForm then
+  TInpharmService.Instance.OpenMedicDiction(nil, CheckContainer(nil));
 //#UC END# *4AB9FC8F027A_4AA0D66F0159exec_impl*
 end;//TInpharmModule.opMedicDictionExecute
 
@@ -437,7 +468,7 @@ procedure TInpharmModule.opMedicFirmsExecute(const aParams: IvcmExecuteParamsPri
 //#UC END# *4AB9FCE902EC_4AA0D66F0159exec_var*
 begin
 //#UC START# *4AB9FCE902EC_4AA0D66F0159exec_impl*
- MedicFirms(nil);
+ TInpharmService.Instance.MedicFirms(nil);
 //#UC END# *4AB9FCE902EC_4AA0D66F0159exec_impl*
 end;//TInpharmModule.opMedicFirmsExecute
 
@@ -447,7 +478,7 @@ procedure TInpharmModule.opMedicMainMenuExecute(const aParams: IvcmExecuteParams
 //#UC END# *4AB9FD6F017A_4AA0D66F0159exec_var*
 begin
 //#UC START# *4AB9FD6F017A_4AA0D66F0159exec_impl*
- OpenInpharmMainMenu(nil);
+ TInpharmService.Instance.OpenInpharmMainMenu(nil);
 //#UC END# *4AB9FD6F017A_4AA0D66F0159exec_impl*
 end;//TInpharmModule.opMedicMainMenuExecute
 
@@ -471,6 +502,8 @@ end;//TInpharmModule.GetEntityForms
 initialization
  TInpharmService.Instance.Alien := TInpharmServiceImpl.Instance;
  {* Регистрация TInpharmServiceImpl }
+ TInpharmOperations.Instance.Alien := TInpharmOperationsImpl.Instance;
+ {* Регистрация TInpharmOperationsImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

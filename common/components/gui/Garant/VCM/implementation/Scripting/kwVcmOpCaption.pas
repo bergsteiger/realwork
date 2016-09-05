@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *5230180F029Aimpl_uses*
+ //#UC END# *5230180F029Aimpl_uses*
 ;
 
 procedure TkwVcmOpCaption.DoParams(const aParams: IvcmTestParams;

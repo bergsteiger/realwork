@@ -30,6 +30,8 @@ implementation
 {$If Defined(evNeedPainters)}
 uses
  l3ImplUses
+ //#UC START# *49DA43AA01B9impl_uses*
+ //#UC END# *49DA43AA01B9impl_uses*
 ;
 
 function TevSBSCellPainter.pm_GetInvisibleFrameColor: TnevColor;

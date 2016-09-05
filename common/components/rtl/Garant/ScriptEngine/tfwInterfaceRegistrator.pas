@@ -31,6 +31,8 @@ uses
  , tfwScriptingInterfaces
  , SysUtils
  , tfwTypeModifier
+ //#UC START# *55311C9F022Cimpl_uses*
+ //#UC END# *55311C9F022Cimpl_uses*
 ;
 
 class function TtfwInterfaceRegistrator.RegisterInterface(aTypeInfo: PTypeInfo): Boolean;

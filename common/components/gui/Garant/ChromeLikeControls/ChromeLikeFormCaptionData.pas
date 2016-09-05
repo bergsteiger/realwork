@@ -55,6 +55,8 @@ uses
  , ChromeLikeWinUtils
  , l3Base
  , ChromeLikeTypes
+ //#UC START# *533D343C02FFimpl_uses*
+ //#UC END# *533D343C02FFimpl_uses*
 ;
 
 function TChromeLikeFormCaptionData.MakeRelativeRect(const aWndRect: TRect;

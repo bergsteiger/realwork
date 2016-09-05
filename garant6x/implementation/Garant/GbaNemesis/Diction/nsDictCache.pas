@@ -38,6 +38,8 @@ uses
  , nsTypes
  , SysUtils
  , l3Base
+ //#UC START# *556B32D900CDimpl_uses*
+ //#UC END# *556B32D900CDimpl_uses*
 ;
 
 var g_TnsDictCache: TnsDictCache = nil;

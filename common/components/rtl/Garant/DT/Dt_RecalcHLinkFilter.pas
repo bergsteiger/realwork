@@ -6,8 +6,11 @@ unit Dt_RecalcHLinkFilter;
             на адреса, найденные в HLINK (для указанных ID и SourDoc).
             Иначе - адреса пропускаются без изменений.}
 
-{ $Id: Dt_RecalcHLinkFilter.pas,v 1.46 2014/03/28 06:13:29 dinishev Exp $ }
+{ $Id: Dt_RecalcHLinkFilter.pas,v 1.47 2016/06/16 05:40:06 lukyanets Exp $ }
 // $Log: Dt_RecalcHLinkFilter.pas,v $
+// Revision 1.47  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.46  2014/03/28 06:13:29  dinishev
 // Bug fix: не собиралось почити ничего.
 //
@@ -167,14 +170,16 @@ uses
   
   k2TagFilter,
 
-  Dt_Types;
+  daTypes,
+
+  dt_Types;
 
 type
   TRecalcAction = (raUndefined, raPassThru, raReplace);
 
   TRecalcHLinksFilter = class(Tk2TagFilter)
   private
-   f_Family       : TFamilyID;
+   f_Family       : TdaFamilyID;
    f_DocID        : TDocID;
    f_Links        : Tl3BaseWithIDList;
    f_Addresses    : Tl3ObjectRefList;
@@ -201,7 +206,7 @@ type
    function  GetLinks : Tl3BaseWithIDList;
    function  GetAddresses : Tl3ObjectRefList;
 
-   procedure SetFamily(aValue : TFamilyID);
+   procedure SetFamily(aValue : TdaFamilyID);
    procedure SetDocIDPrim(aValue: TDocID);
    procedure SetDocID(aValue : TDocID);
   protected
@@ -215,14 +220,14 @@ type
    procedure AddAtomEx(AtomIndex: Long; const Value: Tk2Variant); override;
 
    class function SetTo(var theGenerator : Tk2TagGenerator;
-                            aDocFamily   : TFamilyID;
+                            aDocFamily   : TdaFamilyID;
                             aDocID       : TDocID): Pointer;
       overload;
 
    property  Addresses : Tl3ObjectRefList read GetAddresses;
    property  Links    : Tl3BaseWithIDList read GetLinks;
 
-   property  Family : TFamilyID read f_Family write SetFamily;
+   property  Family : TdaFamilyID read f_Family write SetFamily;
    property  DocID  : TDocID read f_DocID write SetDocID;
   end;
 
@@ -399,7 +404,7 @@ begin
  end;
 end;
 
-procedure TRecalcHLinksFilter.SetFamily(aValue: TFamilyID);
+procedure TRecalcHLinksFilter.SetFamily(aValue: TdaFamilyID);
 begin
  if f_Family <> aValue then
  begin
@@ -608,7 +613,7 @@ begin
 end;
 
 class function TRecalcHLinksFilter.SetTo(var theGenerator : Tk2TagGenerator;
-                                             aDocFamily   : TFamilyID;
+                                             aDocFamily   : TdaFamilyID;
                                              aDocID       : TDocID): Pointer;
 begin
  Result := inherited SetTo(theGenerator);

@@ -61,6 +61,8 @@ implementation
 uses
  l3ImplUses
  , nsBaseSearchWindowDataListenerList
+ //#UC START# *5628BBF40355impl_uses*
+ //#UC END# *5628BBF40355impl_uses*
 ;
 
 function TnsBaseSearcherWindowData.pm_GetContextKind: TnsBaseSearchKind;

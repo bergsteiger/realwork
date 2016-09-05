@@ -168,6 +168,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48E0E5C1032Aimpl_uses*
+ //#UC END# *48E0E5C1032Aimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}

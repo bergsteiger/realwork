@@ -60,6 +60,8 @@ uses
  , nsTreeUtils
  , nsAttributeTreeStruct
  , nsINodeWrap
+ //#UC START# *4CCEACEC0101impl_uses*
+ //#UC END# *4CCEACEC0101impl_uses*
 ;
 
 constructor Tf1QueryDocumentContainer.Create(aCardType: TlgQueryType;

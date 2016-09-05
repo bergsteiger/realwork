@@ -129,7 +129,6 @@
    function Get_TableRowPainter: IevTableRowPainter;
    function HackK235870994(const aMap: InevMap): Boolean;
    function Get_Obj: InevObjectPrim;
-   function IsSelectedOneWholePara(const aPara: InevPara): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -1389,30 +1388,6 @@ begin
  Result := ParaX;
 //#UC END# *4E25BC360220_4804A2C101A5get_impl*
 end;//_evParaPainter_.Get_Obj
-
-function _evParaPainter_.IsSelectedOneWholePara(const aPara: InevPara): Boolean;
-//#UC START# *50A5EEEA0040_4804A2C101A5_var*
-var
- l_Point  : InevBasePoint;
- l_Start  : InevBasePoint;
- l_Finish : InevBasePoint;
-//#UC END# *50A5EEEA0040_4804A2C101A5_var*
-begin
-//#UC START# *50A5EEEA0040_4804A2C101A5_impl*
- Result := False;
- if SelRange <> nil then
- begin
-  SelRange.GetBorderPoints(l_Start, l_Finish);
-  l_Point := aPara.MakePoint;
-  l_Point.SetAtStart(Area.rView.As_InevView, True);
-  if l_Start.HasInner and l_Start.Inner.AsObject.IsSame(aPara.AsObject) and (l_Start.Inner.Diff(Area.rView.As_InevView, l_Point, FormatInfo) = 0) then
-  begin
-   l_Point.SetAtEnd(Area.rView.As_InevView, True);
-   Result := l_Finish.HasInner and l_Finish.Inner.AsObject.IsSame(aPara.AsObject) and (l_Finish.Inner.Diff(Area.rView.As_InevView, l_Point, FormatInfo) = 0);
-  end; // if l_Start.Diff(Area.rView.As_InevView, l_Point, FormatInfo) = 0 then
- end; // if SelRange <> nil then
-//#UC END# *50A5EEEA0040_4804A2C101A5_impl*
-end;//_evParaPainter_.IsSelectedOneWholePara
 
 procedure _evParaPainter_.Cleanup;
  {* Функция очистки полей объекта. }

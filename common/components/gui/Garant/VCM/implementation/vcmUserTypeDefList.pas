@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *559CEE5A000Eimpl_uses*
+ //#UC END# *559CEE5A000Eimpl_uses*
 ;
 
 type _Instance_R_ = TvcmUserTypeDefList;

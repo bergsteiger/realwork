@@ -48,6 +48,8 @@ implementation
 uses
  l3ImplUses
  , nsHyperlinkProcessorTypes
+ //#UC START# *5417E71801D2impl_uses*
+ //#UC END# *5417E71801D2impl_uses*
 ;
 
 function TbsHyperlinkProcessorContainerMaker.DoMakeContainer: IvcmContainer;

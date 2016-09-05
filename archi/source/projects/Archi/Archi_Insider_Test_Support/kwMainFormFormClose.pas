@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *53EB19070285impl_uses*
+ //#UC END# *53EB19070285impl_uses*
 ;
 
 class function TkwMainFormFormClose.GetWordNameForRegister: AnsiString;

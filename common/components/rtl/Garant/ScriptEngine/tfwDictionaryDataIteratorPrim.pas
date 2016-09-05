@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *55AE5B950148impl_uses*
+ //#UC END# *55AE5B950148impl_uses*
 ;
 
 constructor TtfwDictionaryDataIteratorPrim.Create(aDictionary: TtfwDictionaryEx);

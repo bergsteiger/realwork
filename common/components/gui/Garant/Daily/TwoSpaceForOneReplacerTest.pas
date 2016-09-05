@@ -44,6 +44,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C3C4853033Eimpl_uses*
+ //#UC END# *4C3C4853033Eimpl_uses*
 ;
 
 function TTwoSpaceForOneReplacerTest.Searcher: IevSearcher;

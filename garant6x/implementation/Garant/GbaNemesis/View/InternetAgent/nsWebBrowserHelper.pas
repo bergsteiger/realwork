@@ -25,6 +25,8 @@ uses
  l3ImplUses
  , StrUtils
  , Messages
+ //#UC START# *4E9574DB0120impl_uses*
+ //#UC END# *4E9574DB0120impl_uses*
 ;
 
 function EnumChildWindowProc(hwnd: HWND;

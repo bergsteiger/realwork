@@ -118,6 +118,8 @@ uses
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *48185C4002DCimpl_uses*
+ //#UC END# *48185C4002DCimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}

@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , l3String
  , l3Memory
+ //#UC START# *5314807A0393impl_uses*
+ //#UC END# *5314807A0393impl_uses*
 ;
 
 function ItemToWStr(const anItem: _ItemType_): Tl3WString;

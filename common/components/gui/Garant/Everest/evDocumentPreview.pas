@@ -37,6 +37,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49CBD11A02CFimpl_uses*
+ //#UC END# *49CBD11A02CFimpl_uses*
 ;
 
 class function TevDocumentPreview.Make(const aText: InevStorable;

@@ -92,6 +92,8 @@ uses
  , l3Base
  , SysUtils
  , Windows
+ //#UC START# *4E304DD10316impl_uses*
+ //#UC END# *4E304DD10316impl_uses*
 ;
 
 function EmptyConfigValue: TddConfigValue;

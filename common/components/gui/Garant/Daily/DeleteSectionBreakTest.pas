@@ -45,6 +45,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4CAC461C016Cimpl_uses*
+ //#UC END# *4CAC461C016Cimpl_uses*
 ;
 
 procedure TDeleteSectionBreakTest.DoBeforeDrawing(aForm: TPrimTextLoadForm);

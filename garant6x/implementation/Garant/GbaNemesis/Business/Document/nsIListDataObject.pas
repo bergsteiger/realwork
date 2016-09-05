@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , bsConvert
+ //#UC START# *47F23C2A0219impl_uses*
+ //#UC END# *47F23C2A0219impl_uses*
 ;
 
 constructor TnsIListDataObject.Create(const aData: IDynList;

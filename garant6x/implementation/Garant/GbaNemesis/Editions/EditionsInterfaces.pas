@@ -21,6 +21,7 @@ uses
  , eeInterfaces
  , DocumentAndListInterfaces
  , DocumentInterfaces
+ , Base_Operations_F1Services_Contracts
  , evCustomEditorWindowModelPart
  , FoldersDomainInterfaces
  , bsTypesNew
@@ -74,11 +75,7 @@ type
    {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
  end;//InsVScrollListener
 
- TnsDocumentForReturnInfo = {$IfDef XE4}record{$Else}object{$EndIf}
-  public
-   rDoc: IDocument;
-   rPara: IeeLeafPara;
- end;//TnsDocumentForReturnInfo
+ TnsDocumentForReturnInfo = Base_Operations_F1Services_Contracts.TnsDocumentForReturnInfo;
 
  (*
  MnsDocument = interface
@@ -317,8 +314,6 @@ function TnsParaCoord_C(const aPara: IeePara;
  aLine: Integer;
  anEditor: TevCustomEditorWindowModelPart): TnsParaCoord;
  {* Создаёт координату }
-function TnsDocumentForReturnInfo_C(const aDoc: IDocument;
- const aPara: IeeLeafPara): TnsDocumentForReturnInfo;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -349,19 +344,6 @@ begin
  Result.rEditor := anEditor;
 //#UC END# *4A79BB650298_4A79BB0800E4_impl*
 end;//TnsParaCoord_C
-
-function TnsDocumentForReturnInfo_C(const aDoc: IDocument;
- const aPara: IeeLeafPara): TnsDocumentForReturnInfo;
-//#UC START# *4B6074C60325_4B60748400F9_var*
-//#UC END# *4B6074C60325_4B60748400F9_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4B6074C60325_4B60748400F9_impl*
- Result.rDoc := aDoc;
- Result.rPara := aPara;
-//#UC END# *4B6074C60325_4B60748400F9_impl*
-end;//TnsDocumentForReturnInfo_C
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -6,9 +6,30 @@ unit nsAppConfig;
  Назначение: Отображение и редактирование настроек проекта.
  История:
 
- $Id: nsAppConfig.pas,v 1.333 2016/05/30 13:49:34 kostitsin Exp $
+ $Id: nsAppConfig.pas,v 1.340 2016/08/05 12:05:11 lukyanets Exp $
 
  $Log: nsAppConfig.pas,v $
+ Revision 1.340  2016/08/05 12:05:11  lukyanets
+ Редактируем отложенные данные
+
+ Revision 1.339  2016/08/04 17:10:30  lulin
+ - перегенерация.
+
+ Revision 1.338  2016/08/04 11:35:51  lulin
+ - перегенерация.
+
+ Revision 1.337  2016/08/04 10:01:45  lulin
+ - перегенерация.
+
+ Revision 1.336  2016/08/02 10:14:39  lukyanets
+ Cleanup
+
+ Revision 1.335  2016/08/01 16:20:47  lulin
+ - перегенерация.
+
+ Revision 1.334  2016/07/15 11:30:59  lulin
+ - выпрямляем зависимости.
+
  Revision 1.333  2016/05/30 13:49:34  kostitsin
  {requestlink: 623926944 }
 
@@ -1076,9 +1097,6 @@ type
                        const aConfig  : InsConfigSettingsInfo = nil);
       reintroduce;
       {-}
-    procedure DoClearControls;
-      override;
-      {-}
     function DoCreateFrame(aOwner: TComponent; aTag: Integer): TCustomFrame;
       override;
       {-}
@@ -1153,7 +1171,7 @@ type
     procedure SetDefaultValuesOperation(const aValue: Boolean);
   protected
    procedure Cleanup;
-    override;
+    override;                        
   public
   // public methods
     constructor Create(const aSettings : IvcmSettings = nil{;
@@ -1161,34 +1179,24 @@ type
       reintroduce;
       {-}
     function Get_Section: AnsiString;
-      stdcall;
       {-}
     function ReadBool(const Alias: AnsiString; Default: Boolean): Boolean;
-      stdcall;
       {-}
     function ReadDateTime(const Alias: AnsiString; Default: System.TDateTime): System.TDateTime;
-      stdcall;
       {-}
     function ReadInteger(const Alias: AnsiString; Default: Integer): Integer;
-      stdcall;
       {-}
     function ReadString(const Alias: AnsiString; const Default: AnsiString): Il3CString;
-      stdcall;
       {-}
     procedure Set_Section(const Value: AnsiString);
-      stdcall;
       {-}
     procedure WriteBool(const Alias: AnsiString; B: Boolean);
-      stdcall;
       {-}
     procedure WriteDateTime(const Alias: AnsiString; DT: System.TDateTime);
-      stdcall;
       {-}
     procedure WriteInteger(const Alias: AnsiString; I: Integer);
-      stdcall;
       {-}
     procedure WriteString(const Alias: AnsiString; const S: AnsiString);
-      stdcall;
       {-}
   end;//TnsConfigStorage
 
@@ -1561,7 +1569,7 @@ uses
 
   vcmMessagesSupport,
 
-  stDocumentShowChangesInfoItem,
+  //stDocumentShowChangesInfoItem,
   //stDocumentUseFixedFontForPrintAndExportItem,
 
   ControlStatusUtils,
@@ -1576,7 +1584,9 @@ uses
   stevStylesPrintAndExportFontSizeItem,
   evStylesPrintAndExportSettingRes,
   evStyles_SH,
-  afwSettingsChangePublisher
+  afwSettingsChangePublisher,
+  Base_Operations_F1Services_Contracts
+  , Search_Services
   ;
 
 {$Include afwSettingChanged.imp.pas}
@@ -1675,10 +1685,6 @@ end;
 
 { TnsConfInfoNode }
 
-procedure TnsConfInfoNode.DoClearControls;
-begin
-end;
-
 constructor TnsConfInfoNode.Create(const aAlias   : AnsiString;
                                    const aCaption : AnsiString;
                                    const aConfig  : InsConfigSettingsInfo = nil);
@@ -1758,6 +1764,7 @@ begin
    if (f_ConfName.Modified and not l3IsNil(f_ConfName.Text)) or
     (f_ConfHint.Modified and not l3IsNil(f_ConfHint.Text)) then
     InsConfigSettingsInfo(f_Config).RenameConfig(nsWStr(f_ConfName.Text), nsWStr(f_ConfHint.Text));
+  inherited;
  except
   on e: EDuplicateConfName do
    vcmSay(err_DublicateConfName, [e.ConfName])
@@ -1820,6 +1827,7 @@ begin
   f_ConfName.Text := ConfigName;
   f_ConfHint.Text := ConfigHint;
  end;//with InsConfigSettingsInfo(f_Config)
+ inherited;
  Changed := False;
 end;
 
@@ -2795,7 +2803,7 @@ end;
 procedure TnsConfigSettingsInfo.PageSetupNotify(aSender: TObject);
 begin
  {$IfNDef Admin}
- if TdmStdRes.MakePageSetup(TnsPageSetup.Make(Configuration)) = mrOk then
+ if TPrintingService.Instance.MakePageSetup(TnsPageSetup.Make(Configuration)) = mrOk then
   f_DialogsCalled := True;
  {$EndIf  Admin} 
 end;
@@ -2947,7 +2955,7 @@ end;
 procedure TnsConfigSettingsInfo.StyleEditorNotify(aSender: TObject);
 begin
  {$If not Defined(Admin) AND not Defined(Monitorings)}
- if (TdmStdRes.OpenStyleEditorAsModal(TnsStyleTableSettingsInfo.Make(Configuration)) = mrOk) then
+ if (TSettingsService.Instance.OpenStyleEditorAsModal(TnsStyleTableSettingsInfo.Make(Configuration)) = mrOk) then
   f_DialogsCalled := True;
  {$Else}
  Assert(false); 
@@ -3363,7 +3371,7 @@ var
     Hint := str_pi_Document_ShowVersionsComment_Hint.AsStr;
    end;
 
-   l_Item := TstDocumentShowChangesInfoItem.Create;
+   l_Item := TstTDocumentServiceShowChangesInfoItem.Create;
    AddItem(l_Node, l_Item);
 
    // Масштаб картинки

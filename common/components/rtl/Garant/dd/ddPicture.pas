@@ -176,6 +176,8 @@ uses
  , ddHexCharReader
  , Windows
  , ddPicturePathListner
+ //#UC START# *51E8DC3E0361impl_uses*
+ //#UC END# *51E8DC3E0361impl_uses*
 ;
 
 procedure TddPicture.pm_SetIsBinary(aValue: Boolean);

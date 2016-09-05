@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E60749A01C2impl_uses*
+ //#UC END# *4E60749A01C2impl_uses*
 ;
 
 procedure TkwPopEditorSetTextParaStyle.DoPara(const aCtx: TtfwContext;

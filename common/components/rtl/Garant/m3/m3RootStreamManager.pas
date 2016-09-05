@@ -85,6 +85,8 @@ uses
  , l3Logger
  , l3SysUtils
  , Windows
+ //#UC START# *540EE8E40271impl_uses*
+ //#UC END# *540EE8E40271impl_uses*
 ;
 
 constructor Tm3RootStreamManager.Create(aStream: Tm3RootStream);

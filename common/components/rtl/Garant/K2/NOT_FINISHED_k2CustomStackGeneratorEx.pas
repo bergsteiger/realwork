@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4836BFF2026Bimpl_uses*
+ //#UC END# *4836BFF2026Bimpl_uses*
 ;
 
 end.

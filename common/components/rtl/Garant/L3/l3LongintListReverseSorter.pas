@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4DEFC02E01CFimpl_uses*
+ //#UC END# *4DEFC02E01CFimpl_uses*
 ;
 
 function Tl3LongintListReverseSorter.CompareData(const anItem1: _ItemType_;

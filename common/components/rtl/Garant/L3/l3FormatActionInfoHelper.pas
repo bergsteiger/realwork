@@ -55,6 +55,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *551442110069impl_uses*
+ //#UC END# *551442110069impl_uses*
 ;
 
 var g_Tl3FormatActionInfoHelper: Tl3FormatActionInfoHelper = nil;

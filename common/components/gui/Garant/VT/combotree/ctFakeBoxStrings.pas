@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *487268A90374impl_uses*
+ //#UC END# *487268A90374impl_uses*
 ;
 
 constructor TctFakeBoxStrings.Create(anOwner: TFakeBox);

@@ -32,6 +32,8 @@ uses
  , k2Tags
  , l3Bits
  , Block_Const
+ //#UC START# *535F5A0E0098impl_uses*
+ //#UC END# *535F5A0E0098impl_uses*
 ;
 
 function TarSubImplementation.DoGetFlags(aTag: Tl3Variant;

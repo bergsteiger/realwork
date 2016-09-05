@@ -41,6 +41,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C3FEBB500B2impl_uses*
+ //#UC END# *4C3FEBB500B2impl_uses*
 ;
 
 procedure TOldNSRCFlagCnahge.ApplyEditorTool(aEditor: TevCustomEditor);

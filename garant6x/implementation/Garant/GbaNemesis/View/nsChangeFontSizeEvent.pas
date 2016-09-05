@@ -31,6 +31,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0BAFB9012Bimpl_uses*
+ //#UC END# *4B0BAFB9012Bimpl_uses*
 ;
 
 class procedure TnsChangeFontSizeEvent.Log(aInc: Boolean;

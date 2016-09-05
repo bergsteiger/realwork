@@ -38,6 +38,8 @@ uses
  , kwEntityOperation
  , SysUtils
  , l3Base
+ //#UC START# *52A73D1701B9impl_uses*
+ //#UC END# *52A73D1701B9impl_uses*
 ;
 
 var g_TkwOperationsRegistrar: TkwOperationsRegistrar = nil;

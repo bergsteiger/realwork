@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5641ED5A01D1impl_uses*
+ //#UC END# *5641ED5A01D1impl_uses*
 ;
 
 constructor TdaSubQueryCondition.Create(const aTableAlias: AnsiString;

@@ -66,6 +66,8 @@ uses
  , l3String
  , l3Interfaces
  , l3Base
+ //#UC START# *4FC701EC00C0impl_uses*
+ //#UC END# *4FC701EC00C0impl_uses*
 ;
 
 var g_TevCellWidthCorrecterSpy: TevCellWidthCorrecterSpy = nil;

@@ -37,6 +37,8 @@ uses
  , l3Base
  , SysUtils
  , l3Memory
+ //#UC START# *4860AF86034Fimpl_uses*
+ //#UC END# *4860AF86034Fimpl_uses*
 ;
 
 function ItemToWStr(const anItem: _ItemType_): Tl3WString;

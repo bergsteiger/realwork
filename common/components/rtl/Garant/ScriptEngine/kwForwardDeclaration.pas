@@ -55,6 +55,8 @@ uses
  , SysUtils
  , tfwClassRef
  , kwForwardDeclarationHolder
+ //#UC START# *4F4BB70D0144impl_uses*
+ //#UC END# *4F4BB70D0144impl_uses*
 ;
 
 procedure TkwForwardDeclaration.pm_SetRealWord(aValue: TtfwWord);
@@ -186,7 +188,10 @@ function TkwForwardDeclaration.WordName: Il3CString;
 //#UC END# *55AFD7DA0258_4F4BB70D0144_var*
 begin
 //#UC START# *55AFD7DA0258_4F4BB70D0144_impl*
- Result := f_RealWord.WordName;
+ if (f_RealWord = nil) then
+  Result := inherited WordName
+ else
+  Result := f_RealWord.WordName;
 //#UC END# *55AFD7DA0258_4F4BB70D0144_impl*
 end;//TkwForwardDeclaration.WordName
 

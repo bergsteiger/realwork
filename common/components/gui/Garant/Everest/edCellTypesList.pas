@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *511205FA00E2impl_uses*
+ //#UC END# *511205FA00E2impl_uses*
 ;
 
 type _Instance_R_ = TedCellTypesList;

@@ -104,6 +104,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *47F4A2F801D8impl_uses*
+ //#UC END# *47F4A2F801D8impl_uses*
 ;
 
 type _Instance_R_ = TsdsDrugDocument;

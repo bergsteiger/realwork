@@ -37,6 +37,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *51F65A1A03D3impl_uses*
+ //#UC END# *51F65A1A03D3impl_uses*
 ;
 
 class function TFoldersChangeUserInteraction.AskAllowMerge: TnsListMergeKind;

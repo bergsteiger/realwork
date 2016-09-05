@@ -49,6 +49,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *481213C903A2impl_uses*
+ //#UC END# *481213C903A2impl_uses*
 ;
 
 constructor TnevVirtualDrawView.Create(const aText: InevObject;

@@ -1,8 +1,11 @@
 unit Dt_TblCache;
 
-{ $Id: Dt_TblCache.pas,v 1.102 2016/05/26 14:01:24 voba Exp $ }
+{ $Id: Dt_TblCache.pas,v 1.103 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: Dt_TblCache.pas,v $
+// Revision 1.103  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.102  2016/05/26 14:01:24  voba
 // -k:623267081
 //
@@ -88,7 +91,7 @@ unit Dt_TblCache;
 // Борьба с расходом памяти
 //
 // Revision 1.74  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.73  2011/05/31 12:31:56  voba
 // - k : 236721575
@@ -470,7 +473,7 @@ type
    function  GetFieldsCount : Word; override;
    function  GetFieldLength(aField : Word) : Word; override;
   public
-   constructor Create(aFamily : TFamilyID); reintroduce;
+   constructor Create(aFamily : TdaFamilyID); reintroduce;
    procedure Save; override;
    procedure AddRecord(const aRecordArr: array of const); override;
    procedure  AddAnno(aDocID : TDocID); virtual;
@@ -518,7 +521,7 @@ type
   function  GetUniqFieldNum : Byte; override;
   procedure DoOnEraseRecords(const aSab : ISab);
  public
-  constructor Create(aFamily : TFamilyID; aAttrType : TCacheType); reintroduce; virtual;
+  constructor Create(aFamily : TdaFamilyID; aAttrType : TCacheType); reintroduce; virtual;
   procedure   CloseDoc(aDocID : TDocID); virtual;
   procedure   UndoDoc(aDocID : TDocID); virtual;
   property    OnEraseRecords : TOnEraseRecords read fOnEraseRecords write SetOnEraseRecords;
@@ -533,7 +536,7 @@ type
 
   procedure Cleanup; override;
  public
-  constructor Create(aFamily : TFamilyID; aAttrType : TCacheType); override;
+  constructor Create(aFamily : TdaFamilyID; aAttrType : TCacheType); override;
   procedure AddRecord(const aRecordArr: array of const); override;
   procedure Save; override;
  end;
@@ -568,7 +571,7 @@ type
    property  NewRecListIndex : Tl3RecList read GetListIndex;
 
   public
-   constructor Create(aFamily : TFamilyID; aAttrType : TCacheType); override;
+   constructor Create(aFamily : TdaFamilyID; aAttrType : TCacheType); override;
    procedure Save; override;
    procedure AddRecord(const aRecordArr: array of const); override;
    procedure CloseDoc(aDocID : TDocID); override;
@@ -810,7 +813,7 @@ begin
 end;
 
 {TCustomCacheAttrData}
-constructor TCustomCacheAttrData.Create(aFamily : TFamilyID; aAttrType : TCacheType);
+constructor TCustomCacheAttrData.Create(aFamily : TdaFamilyID; aAttrType : TCacheType);
 var
  lDictType : TdaDictionaryType;
 begin
@@ -1029,7 +1032,7 @@ begin
 end;
 
 {TCacheDirectAddAttrData}
-constructor TCacheDirectAddAttrData.Create(aFamily : TFamilyID; aAttrType : TCacheType);
+constructor TCacheDirectAddAttrData.Create(aFamily : TdaFamilyID; aAttrType : TCacheType);
 begin
  inherited;
  l3System.GetLocalMem(fDataBuffer, GetRecSize);
@@ -1059,7 +1062,7 @@ begin
 end;
 
 {TCacheDiffAttrData}
-constructor TCacheDiffAttrData.Create(aFamily : TFamilyID; aAttrType : TCacheType);
+constructor TCacheDiffAttrData.Create(aFamily : TdaFamilyID; aAttrType : TCacheType);
 begin
  inherited Create(aFamily, aAttrType);
 
@@ -1842,7 +1845,7 @@ begin
 end;
 
 {TCacheMainDataSimple}
-constructor TCacheMainDataSimple.Create(aFamily : TFamilyID);
+constructor TCacheMainDataSimple.Create(aFamily : TdaFamilyID);
 var
  lDictType : TdaDictionaryType;
 begin

@@ -44,6 +44,8 @@ uses
  , l3String
  , l3Variant
  , l3Memory
+ //#UC START# *4B8BC059018Cimpl_uses*
+ //#UC END# *4B8BC059018Cimpl_uses*
 ;
 
 type _Instance_R_ = Tl3StringMap;

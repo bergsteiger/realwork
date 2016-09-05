@@ -54,6 +54,8 @@ uses
  , ddUtils
  , SysUtils
  , HyTechProviderParams_Const
+ //#UC START# *54F9AF6B00DDimpl_uses*
+ //#UC END# *54F9AF6B00DDimpl_uses*
 ;
 
 function ThtDataProviderParams.pm_GetStationName: AnsiString;

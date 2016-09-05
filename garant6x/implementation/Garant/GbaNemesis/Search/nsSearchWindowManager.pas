@@ -55,6 +55,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *56163B0902D7impl_uses*
+ //#UC END# *56163B0902D7impl_uses*
 ;
 
 var g_TnsSearchWindowManager: TnsSearchWindowManager = nil;

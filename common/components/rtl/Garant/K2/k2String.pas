@@ -72,6 +72,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *53073D3D00BEimpl_uses*
+ //#UC END# *53073D3D00BEimpl_uses*
 ;
 
 type _Instance_R_ = Tk2String;

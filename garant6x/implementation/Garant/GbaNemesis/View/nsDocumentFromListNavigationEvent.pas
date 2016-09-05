@@ -34,6 +34,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B1658140144impl_uses*
+ //#UC END# *4B1658140144impl_uses*
 ;
 
 class procedure TnsDocumentFromListNavigationEvent.Log(aNext: Boolean;

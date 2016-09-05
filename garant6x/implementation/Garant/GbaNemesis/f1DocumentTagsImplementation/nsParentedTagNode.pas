@@ -65,6 +65,8 @@ uses
  , nsBlockNodePrim
  , l3BitArr
  , nsStyleParser
+ //#UC START# *467FCD4401BDimpl_uses*
+ //#UC END# *467FCD4401BDimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}

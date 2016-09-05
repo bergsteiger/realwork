@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *542AA47B0241impl_uses*
+ //#UC END# *542AA47B0241impl_uses*
 ;
 
 class function Tm3LZODeflateStreamNew.HeaderID: TCLSID;

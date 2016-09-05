@@ -41,6 +41,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4AC4B82802E1impl_uses*
+ //#UC END# *4AC4B82802E1impl_uses*
 ;
 
 type _Instance_R_ = TvcmIEntityFormPtrList;

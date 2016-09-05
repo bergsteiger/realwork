@@ -1,6 +1,6 @@
 unit D_HndDoc;
 
-{ $Id: d_HndDoc.pas,v 1.8 2016/04/18 08:39:30 lukyanets Exp $ }
+{ $Id: d_HndDoc.pas,v 1.9 2016/08/10 12:48:40 lukyanets Exp $ }
 
 interface
 
@@ -38,10 +38,11 @@ implementation
 
 {$R *.DFM}
 Uses
+ daDataProvider,
+
  DT_Types,
  DT_Doc,
  DT_Dict,
- DT_User,
  DT_Stage,
 
  l3Date;
@@ -52,7 +53,7 @@ procedure THandlingDocDlg.FormCreate(Sender: TObject);
   I : integer;
 
  begin
-  UserManager.GetFiltredUserList(cbUser.Items);
+  GlobalDataProvider.UserManager.GetFiltredUserList(cbUser.Items);
   cbUser.Items.Insert(0, '[бяе]');
   cbStage.Items.Insert(0, '[бяе]');
   for I := Low(cStagesStringUserOrder) to High(cStagesStringUserOrder) do

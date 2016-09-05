@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4DE643F100CBimpl_uses*
+ //#UC END# *4DE643F100CBimpl_uses*
 ;
 
 procedure TarEditorControl.DoDoIt(const aCtx: TtfwContext);

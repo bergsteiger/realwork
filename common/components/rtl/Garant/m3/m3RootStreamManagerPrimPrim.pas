@@ -71,6 +71,8 @@ uses
  , m2COMLib
  , SysUtils
  , l3Base
+ //#UC START# *543F7EF202C6impl_uses*
+ //#UC END# *543F7EF202C6impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}

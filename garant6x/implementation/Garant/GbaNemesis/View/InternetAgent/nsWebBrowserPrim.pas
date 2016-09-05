@@ -37,6 +37,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *49F0573B0332impl_uses*
+ //#UC END# *49F0573B0332impl_uses*
 ;
 
 procedure TnsWebBrowserPrim.InitFields;

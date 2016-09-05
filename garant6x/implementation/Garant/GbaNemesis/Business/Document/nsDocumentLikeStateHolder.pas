@@ -44,6 +44,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *51ED304D0068impl_uses*
+ //#UC END# *51ED304D0068impl_uses*
 ;
 
 constructor TnsDocumentLikeStateHolder.Create;

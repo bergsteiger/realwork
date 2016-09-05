@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4DBAC32F02B5impl_uses*
+ //#UC END# *4DBAC32F02B5impl_uses*
 ;
 
 procedure TtfwDualWord.AfterCompile(var theNewContext: TtfwContext;

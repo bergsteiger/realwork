@@ -1,8 +1,11 @@
 unit ddMDPIntegration;
 
-{ $Id: ddMDPIntegration.pas,v 1.82 2016/05/23 13:17:10 fireton Exp $ }
+{ $Id: ddMDPIntegration.pas,v 1.83 2016/07/12 16:10:05 fireton Exp $ }
 
 // $Log: ddMDPIntegration.pas,v $
+// Revision 1.83  2016/07/12 16:10:05  fireton
+// - обкладываем логами
+//
 // Revision 1.82  2016/05/23 13:17:10  fireton
 // - синхронизация этапов в Гардок
 //
@@ -1121,6 +1124,7 @@ var
  l_WStr: Tl3WString;
  l_Str: IString;
  l_Log: TLogBookTbl;
+ l_Num: AnsiString;
  l_OnlyTextImage: Integer;
 
 const
@@ -1154,6 +1158,7 @@ begin
       if l_Node <> nil then
       begin
        l_PubSource := (l_Node as IDictItem).Handle;
+       l3System.Msg2Log('   Источник опубликования: %s', [l3Str(l_L3Str)]);
       end
       else
       begin
@@ -1202,7 +1207,7 @@ begin
        end;
       end;
      end
-     else
+     else                                                                       
      begin
       l_TempFN := '';
       l3System.Msg2Log('Получены пустые данные (nil)', cVerboseMsgLevel);
@@ -1212,9 +1217,11 @@ begin
      if DocImageServer <> nil then
      begin
       l_Pages := l3Str(l3CStr(l_Img.rSrcPage));
+      l_Num := l3Str(l3CStr(l_Img.rSrcNumber));
+      l3System.Msg2Log('   Номер: %s     Стр: %s', [l_Num, l_Pages]);
       l3System.Msg2Log('Добавляем запись об опубликовании в базу (и образ)', cVerboseMsgLevel);
       DocImageServer.Add(aIntDocID, l_TempFN, [l_PubSource], l_Pages,
-                         l3Str(l3CStr(l_Img.rSrcNumber)), l3BoxToStDate(l_Img.rSrcDateStart),
+                         l_Num, l3BoxToStDate(l_Img.rSrcDateStart),
                          l3BoxToStDate(l_Img.rSrcDateEnd), False);
       l_Log.PutLogRec(aIntDocID, acPublInWork);
       // Суть такова. Эта запись попадает в базу, даже если документ новый. Но так как в evd потоке нет записей лога, то

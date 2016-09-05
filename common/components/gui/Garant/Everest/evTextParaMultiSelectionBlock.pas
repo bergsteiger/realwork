@@ -41,6 +41,8 @@ uses
  , l3_String
  , k2BaseTypes
  , l3Base
+ //#UC START# *48ECD68E0010impl_uses*
+ //#UC END# *48ECD68E0010impl_uses*
 ;
 
 function TevTextParaMultiSelectionBlock.pm_GetPairsCount: Integer;

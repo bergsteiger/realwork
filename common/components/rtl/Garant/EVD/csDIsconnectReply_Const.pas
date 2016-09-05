@@ -1,18 +1,18 @@
-unit csDIsconnectReply_Const;
+unit csDisconnectReply_Const;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/csDIsconnectReply_Const.pas"
+// Модуль: "w:/common/components/rtl/Garant/EVD/csDisconnectReply_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::csDIsconnectReply
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::csDisconnectReply
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Константы для значений тега csDIsconnectReply .
+// Константы для значений тега csDisconnectReply .
 // ! Полностью генерируется с модели. Править руками - нельзя. !
 
 {$Include ..\EVD\evdDefine.inc}
@@ -24,7 +24,7 @@ uses
   evdTasks_Schema
   ;
 
-function k2_typcsDIsconnectReply: csDIsconnectReplyTag;
+function k2_typcsDisconnectReply: csDisconnectReplyTag;
 
 implementation
 
@@ -34,18 +34,18 @@ uses
   ;
 
 var
- g_csDIsconnectReply : csDIsconnectReplyTag = nil;
+ g_csDisconnectReply : csDisconnectReplyTag = nil;
 
-// start class csDIsconnectReplyTag
+// start class csDisconnectReplyTag
 
-function k2_typcsDIsconnectReply: csDIsconnectReplyTag;
+function k2_typcsDisconnectReply: csDisconnectReplyTag;
 begin
- if (g_csDIsconnectReply = nil) then
+ if (g_csDisconnectReply = nil) then
  begin
   Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
-  g_csDIsconnectReply := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csDIsconnectReply;
- end;//g_csDIsconnectReply = nil
- Result := g_csDIsconnectReply;
+  g_csDisconnectReply := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csDisconnectReply;
+ end;//g_csDisconnectReply = nil
+ Result := g_csDisconnectReply;
 end;
 
 end.

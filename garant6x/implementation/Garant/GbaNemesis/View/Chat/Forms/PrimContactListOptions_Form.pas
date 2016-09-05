@@ -96,7 +96,7 @@ begin
  if aParams.Control = trContactList then
  begin
   if trContactList.GetCurrentNode <> nil then
-   TdmStdRes.MakeChatDispatcher.DeleteUser(trContactList.GetCurrentNode);
+   TChatService.Instance.MakeChatDispatcher.DeleteUser(trContactList.GetCurrentNode);
  end
  else
   aParams.CallControl;

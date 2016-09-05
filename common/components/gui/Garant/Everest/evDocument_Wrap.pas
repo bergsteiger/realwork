@@ -31,6 +31,8 @@ uses
  , evdTypes
  , Para_Const
  , Document_Const
+ //#UC START# *4857B5D901D7impl_uses*
+ //#UC END# *4857B5D901D7impl_uses*
 ;
 
 function WevDocument.GetAtomData(AE: Tl3Variant;

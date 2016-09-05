@@ -62,6 +62,8 @@ uses
  , evBlocksButNotCommentsEliminator
  , evStrictContentsElementEliminator
  , l3Interfaces
+ //#UC START# *4680E83D00C8impl_uses*
+ //#UC END# *4680E83D00C8impl_uses*
 ;
 
 function TeeDocumentContainer.GetGeneratorPrim(const aView: InevView;

@@ -89,6 +89,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *54DDD58A004Aimpl_uses*
+ //#UC END# *54DDD58A004Aimpl_uses*
 ;
 
 function TddColorEntry.pm_GetColor: LongInt;

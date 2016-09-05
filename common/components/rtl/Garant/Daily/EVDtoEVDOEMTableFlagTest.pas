@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , evOEMTableFlagFilter
  , TestFrameWork
+ //#UC START# *4C3FEDDA034Aimpl_uses*
+ //#UC END# *4C3FEDDA034Aimpl_uses*
 ;
 
 procedure TEVDtoEVDOEMTableFlagTest.SetFilters(var theGenerator: Ik2TagGenerator);

@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *49071C6300FFimpl_uses*
+ //#UC END# *49071C6300FFimpl_uses*
 ;
 
 type _Instance_R_ = TnsMedicFirmsSubscribersList;

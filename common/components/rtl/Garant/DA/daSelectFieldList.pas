@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , SysUtils
  , daInterfaces
+ //#UC START# *55C84D190010impl_uses*
+ //#UC END# *55C84D190010impl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = IdaSelectField;{$IfEnd}

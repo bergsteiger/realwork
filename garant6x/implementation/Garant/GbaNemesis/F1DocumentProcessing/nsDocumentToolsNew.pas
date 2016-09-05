@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , nsF1DocumentTagNode
  , SysUtils
+ //#UC START# *4CB2EE9F02FEimpl_uses*
+ //#UC END# *4CB2EE9F02FEimpl_uses*
 ;
 
 procedure nsGetText(const aDocument: IDocument;

@@ -96,6 +96,8 @@ uses
  , SysUtils
  , l3String
  , l3VCLStrings
+ //#UC START# *4AD6FDC802F3impl_uses*
+ //#UC END# *4AD6FDC802F3impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}

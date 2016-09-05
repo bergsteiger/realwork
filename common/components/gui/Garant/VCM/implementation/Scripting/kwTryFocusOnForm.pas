@@ -46,6 +46,8 @@ uses
  , StdRes
  , vcmBase
  , afwAnswer
+ //#UC START# *507BDC31028Bimpl_uses*
+ //#UC END# *507BDC31028Bimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}

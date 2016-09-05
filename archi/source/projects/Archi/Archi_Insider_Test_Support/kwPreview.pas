@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *530B30360258impl_uses*
+ //#UC END# *530B30360258impl_uses*
 ;
 
 class function TkwPreview.GetWordNameForRegister: AnsiString;

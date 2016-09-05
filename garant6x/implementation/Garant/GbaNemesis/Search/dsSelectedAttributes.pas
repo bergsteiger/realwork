@@ -70,6 +70,8 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ //#UC START# *49241B9903B7impl_uses*
+ //#UC END# *49241B9903B7impl_uses*
 ;
 
 type _Instance_R_ = TdsSelectedAttributes;

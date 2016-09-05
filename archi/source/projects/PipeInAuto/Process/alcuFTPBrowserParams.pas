@@ -74,6 +74,8 @@ uses
  , evdNativeReader
  , k2DocumentBuffer
  , FTPBrowser_Const
+ //#UC START# *54041EBF03C6impl_uses*
+ //#UC END# *54041EBF03C6impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}

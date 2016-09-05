@@ -25,6 +25,8 @@ uses
  l3ImplUses
  , csMessageRecepientListPrim
  , csMessageRecepientList
+ //#UC START# *52FB9F99018Dimpl_uses*
+ //#UC END# *52FB9F99018Dimpl_uses*
 ;
 {$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 

@@ -34,6 +34,8 @@ uses
  , tfwScriptingTypes
  //#UC START# *571A254F038Aimpl_uses*
  , nsQueryInterfaces
+ , Base_Operations_F1Services_Contracts
+ , F1_Application_Template_Services
  //#UC END# *571A254F038Aimpl_uses*
 ;
 
@@ -86,7 +88,7 @@ procedure TkwOpenSituationCard.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_4F27EAF200E5_var*
 begin
 //#UC START# *4DAEEDE10285_4F27EAF200E5_impl*
- TdmStdRes.OpenSituationCard(nil);
+ TSearchService.Instance.OpenSituationCard(nil);
 //#UC END# *4DAEEDE10285_4F27EAF200E5_impl*
 end;//TkwOpenSituationCard.DoDoIt
 
@@ -100,7 +102,7 @@ procedure TkwOpenOldSituationCard.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_4F27EB56012C_var*
 begin
 //#UC START# *4DAEEDE10285_4F27EB56012C_impl*
- TdmStdRes.OpenOldSituationCard(nil, nil);
+ TSearchService.Instance.OpenOldSituationCard(nil, nil);
 //#UC END# *4DAEEDE10285_4F27EB56012C_impl*
 end;//TkwOpenOldSituationCard.DoDoIt
 
@@ -114,7 +116,7 @@ procedure TkwAttributeSearch.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_4DAF069D0072_var*
 begin
 //#UC START# *4DAEEDE10285_4DAF069D0072_impl*
- TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil);
+ TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, nil, nil);
 //#UC END# *4DAEEDE10285_4DAF069D0072_impl*
 end;//TkwAttributeSearch.DoDoIt
 

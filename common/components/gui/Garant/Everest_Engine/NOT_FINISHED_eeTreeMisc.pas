@@ -22,6 +22,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4912E178000Bimpl_uses*
+ //#UC END# *4912E178000Bimpl_uses*
 ;
 
 procedure eeL2NA;

@@ -44,6 +44,8 @@ uses
  , Document_Const
  , k2Tags
  , l3Variant
+ //#UC START# *4E1DD8400344impl_uses*
+ //#UC END# *4E1DD8400344impl_uses*
 ;
 
 constructor TevDecorHyperlink.Create(const aPara: InevPara;

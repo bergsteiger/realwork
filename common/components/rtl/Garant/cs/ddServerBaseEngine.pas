@@ -44,7 +44,7 @@ implementation
 
 Uses
  dt_Serv, l3IniFile, l3Base, ddFileIterator, ht_dll, StrUtils, SysUtils,
- DT_UserConst, daDataProvider, htDataProviderParams, daDataProviderSuperFactory,
+ daDataProvider, htDataProviderParams, daDataProviderSuperFactory,
  m3StgMgr
  ;
 

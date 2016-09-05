@@ -24,6 +24,7 @@ type
    function ItemsCountInSlice: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function GetItem(anIndex: Integer): TtfwStackValue; override;
   public
    class function Make(aDictionary: TtfwDictionaryPrim): ItfwValueList; reintroduce;
    procedure ForEach(aLambda: TtfwWordPrim;
@@ -39,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *52E29F1A037Eimpl_uses*
+ //#UC END# *52E29F1A037Eimpl_uses*
 ;
 
 class function TtfwMembersIterator.Make(aDictionary: TtfwDictionaryPrim): ItfwValueList;
@@ -147,6 +150,15 @@ begin
  inherited;
 //#UC END# *479731C50290_52E29F1A037E_impl*
 end;//TtfwMembersIterator.Cleanup
+
+function TtfwMembersIterator.GetItem(anIndex: Integer): TtfwStackValue;
+//#UC START# *57C8146602DB_52E29F1A037E_var*
+//#UC END# *57C8146602DB_52E29F1A037E_var*
+begin
+//#UC START# *57C8146602DB_52E29F1A037E_impl*
+ Result := TtfwStackValue_C(TtfwKeyWord(Dictionary.Items[anIndex]).Word);
+//#UC END# *57C8146602DB_52E29F1A037E_impl*
+end;//TtfwMembersIterator.GetItem
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

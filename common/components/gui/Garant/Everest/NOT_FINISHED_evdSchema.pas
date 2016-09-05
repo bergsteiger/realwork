@@ -27,6 +27,8 @@ uses
  {$If Defined(DesignTimeLibrary)}
  , Design_Schema
  {$IfEnd} // Defined(DesignTimeLibrary)
+ //#UC START# *4B322E2E0270impl_uses*
+ //#UC END# *4B322E2E0270impl_uses*
 ;
 
 end.

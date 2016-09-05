@@ -14,10 +14,6 @@ interface
 uses
  l3IntfUses
  , PrimF1Res
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , AdminInterfaces
  , l3StringIDEx
 ;
 
@@ -31,9 +27,6 @@ type
   {* Оболочка Admin }
   protected
    class procedure DoRun(var theSplash: IUnknown); override;
-  public
-   class procedure OpenUserList(const aContainer: IvcmContainer);
-   class function ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
  end;//TAdminAppRes
 {$IfEnd} // Defined(Admin)
 
@@ -44,10 +37,6 @@ uses
  l3ImplUses
  , moAdmin
  , nsStartupSupport
- , Admin_Module
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimAdminMain_Form
  , AdminMain_Form
  , evExtFormat
@@ -58,16 +47,6 @@ uses
  , Forms
  //#UC END# *4AA517B5037Aimpl_uses*
 ;
-
-class procedure TAdminAppRes.OpenUserList(const aContainer: IvcmContainer);
-begin
- TAdminModule.OpenUserList(aContainer);
-end;//TAdminAppRes.OpenUserList
-
-class function TAdminAppRes.ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
-begin
- Result := TAdminModule.ShowRenameGroupDialog(aData);
-end;//TAdminAppRes.ShowRenameGroupDialog
 
 class procedure TAdminAppRes.DoRun(var theSplash: IUnknown);
 //#UC START# *4AA7E4DC0047_4AA517B5037A_var*

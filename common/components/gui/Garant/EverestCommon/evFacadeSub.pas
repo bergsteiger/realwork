@@ -34,6 +34,8 @@ uses
  , nevBase
  , evStubs
  , evMsgCode
+ //#UC START# *48EEF8D0004Aimpl_uses*
+ //#UC END# *48EEF8D0004Aimpl_uses*
 ;
 
 function evDeleteSub(anEditor: TevCustomEditorWindow;

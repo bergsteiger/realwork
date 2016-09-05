@@ -5,9 +5,12 @@ unit vcmBase;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmBase -       }
 { Начат: 21.02.2003 16:19 }
-{ $Id: vcmBase.pas,v 1.264 2015/08/11 16:23:53 kostitsin Exp $ }
+{ $Id: vcmBase.pas,v 1.265 2016/07/19 08:57:47 morozov Exp $ }
 
 // $Log: vcmBase.pas,v $
+// Revision 1.265  2016/07/19 08:57:47  morozov
+// {RequestLink: 604485202}
+//
 // Revision 1.264  2015/08/11 16:23:53  kostitsin
 // {requestlink: 605157327 }
 //
@@ -1237,7 +1240,8 @@ function  vcmSetAggregate(const anAggregate : IvcmAggregate;
     
     Note
     Если переданная структура равна nil, создается новая. }
-function  vcmCheckAggregate(const aParams: IvcmMakeParams): IvcmMakeParams;
+function  vcmCheckAggregate(const aParams: IvcmMakeParams;
+                            aCanDuplicate: Boolean = True): IvcmMakeParams;
   {-}
 
 function vcmDispatcher: IvcmDispatcher;
@@ -1600,16 +1604,17 @@ begin
   Result := vcmBase.vcmMakeParams(anAggregate, aParams.Container, aParams.Owner);
 end;
 
-function vcmCheckAggregate(const aParams: IvcmMakeParams): IvcmMakeParams;
+function vcmCheckAggregate(const aParams: IvcmMakeParams;
+                           aCanDuplicate: Boolean = True): IvcmMakeParams;
   {-}
 begin
  if (aParams = nil) then
-  Result := vcmBase.vcmMakeParams(TvcmAggregate.Make, nil, nil)
+  Result := vcmBase.vcmMakeParams(TvcmAggregate.Make(nil, aCanDuplicate), nil, nil)
  else
  if (aParams.Aggregate <> nil) then
   Result := aParams
  else
-  Result := vcmBase.vcmMakeParams(TvcmAggregate.Make, aParams.Container, aParams.Owner);
+  Result := vcmBase.vcmMakeParams(TvcmAggregate.Make(nil, aCanDuplicate), aParams.Container, aParams.Owner);
 end;
 
 function  vcmParams: IvcmExecuteParams;

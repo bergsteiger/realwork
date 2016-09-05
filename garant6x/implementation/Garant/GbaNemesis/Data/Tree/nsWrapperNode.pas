@@ -42,6 +42,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *4AC230590004impl_uses*
+ //#UC END# *4AC230590004impl_uses*
 ;
 
 function TnsWrapperNode.pm_GetName: Tl3WString;

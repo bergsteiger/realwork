@@ -57,6 +57,8 @@ uses
  , Math
  , tfwDictionaryWordsPack
  , SysUtils
+ //#UC START# *4DAEECD90016impl_uses*
+ //#UC END# *4DAEECD90016impl_uses*
 ;
 
 function TtfwDictionary.pm_GetDRbyCName(const aName: Il3CString): TtfwKeyWord;

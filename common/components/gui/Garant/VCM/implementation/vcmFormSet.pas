@@ -100,6 +100,8 @@ uses
  , SysUtils
  , vcmFormSetRefreshParams
  , vcmFormSetContainerRegistry
+ //#UC START# *5087BD37023Eimpl_uses*
+ //#UC END# *5087BD37023Eimpl_uses*
 ;
 
 function TvcmFormSet.pm_GetRefreshStack: TvcmFormSetRefreshDataParamsList;

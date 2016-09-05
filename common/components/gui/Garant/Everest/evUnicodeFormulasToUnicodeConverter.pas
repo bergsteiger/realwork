@@ -41,6 +41,8 @@ uses
  , ObjectSegment_Const
  , SysUtils
  , StrUtils
+ //#UC START# *561E7E4B0034impl_uses*
+ //#UC END# *561E7E4B0034impl_uses*
 ;
 
 function TevUnicodeFormulasToUnicodeConverter.ParaTypeForFiltering: Tk2Type;

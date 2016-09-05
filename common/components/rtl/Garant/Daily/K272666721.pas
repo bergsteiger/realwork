@@ -47,6 +47,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4E158C2C0116impl_uses*
+ //#UC END# *4E158C2C0116impl_uses*
 ;
 
 function TK272666721.MoveCursorCount: Integer;

@@ -153,6 +153,8 @@ uses
  l3ImplUses
  , l3Base
  , ddBase
+ //#UC START# *5111FEC00247impl_uses*
+ //#UC END# *5111FEC00247impl_uses*
 ;
 
 function TddCellProperty.pm_GetIsBorder: Boolean;

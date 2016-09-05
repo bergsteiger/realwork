@@ -59,6 +59,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *53AABE1F0383impl_uses*
+ //#UC END# *53AABE1F0383impl_uses*
 ;
 
 var g_TevCustomStyleManager: TevCustomStyleManager = nil;

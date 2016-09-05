@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5625FA0902EEimpl_uses*
+ //#UC END# *5625FA0902EEimpl_uses*
 ;
 
 type _Instance_R_ = TnsBaseSearchClassList;

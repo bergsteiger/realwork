@@ -57,6 +57,9 @@ type
   procedure AfterConnect;
   procedure BeforeDisconnect;
  end;//IpgConnectionListener
+
+ EpgInnerTransactionFailed = class(EPgError)
+ end;//EpgInnerTransactionFailed
 {$IfEnd} // Defined(UsePostgres)
 
 implementation
@@ -77,6 +80,10 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(EpgLockError));
  {* Регистрация типа EpgLockError }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EpgInnerTransactionFailed));
+ {* Регистрация типа EpgInnerTransactionFailed }
 {$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(UsePostgres)
 

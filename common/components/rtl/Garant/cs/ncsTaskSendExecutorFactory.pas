@@ -41,6 +41,8 @@ uses
  , ncsGetFilePart
  , ncsGetPartialTaskDescriptionExecutor
  , ncsGetFilePartExecutor
+ //#UC START# *5481B39101AFimpl_uses*
+ //#UC END# *5481B39101AFimpl_uses*
 ;
 
 constructor TncsTaskSendExecutorFactory.Create(aTask: TddProcessTask);

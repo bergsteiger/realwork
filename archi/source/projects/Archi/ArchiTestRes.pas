@@ -49,6 +49,8 @@ uses
  , ArchiAutoTestSuite
  {$IfEnd} // NOT Defined(NoScripts)
  , toKT
+ //#UC START# *4DE3420B030Cimpl_uses*
+ //#UC END# *4DE3420B030Cimpl_uses*
 ;
 
 class function TArchiTestRes.GetResultsPlaces: TResultsPlaces;

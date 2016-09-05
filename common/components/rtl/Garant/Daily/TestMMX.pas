@@ -38,6 +38,8 @@ uses
  l3ImplUses
  , l3Base
  , TestFrameWork
+ //#UC START# *4B2A1D3E0376impl_uses*
+ //#UC END# *4B2A1D3E0376impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

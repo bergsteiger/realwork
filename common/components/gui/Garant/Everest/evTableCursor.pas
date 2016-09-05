@@ -64,6 +64,8 @@ uses
  , evdTypes
  , SysUtils
  , k2Tags
+ //#UC START# *4EF9B84C0137impl_uses*
+ //#UC END# *4EF9B84C0137impl_uses*
 ;
 
 function TevTableCursor.CorrectPosition(const aView: InevView;

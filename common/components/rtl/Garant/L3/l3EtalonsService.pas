@@ -68,6 +68,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *555F49A0015Bimpl_uses*
+ //#UC END# *555F49A0015Bimpl_uses*
 ;
 
 var g_Tl3EtalonsService: Tl3EtalonsService = nil;

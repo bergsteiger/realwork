@@ -253,7 +253,7 @@ procedure TPrimLoginForm.FormShow(Sender: TObject);
 //#UC END# *520B3FAB012D_4A93D80F014F_var*
 begin
 //#UC START# *520B3FAB012D_4A93D80F014F_impl*
- TnsStartupSupport.StartupCompletedNotify;
+ TnsStartupSupport.StartupCompleteNotify;
  nsFlashWindowByHandle(Handle);
  if f_NeedRelogin then
  begin
@@ -376,7 +376,7 @@ procedure TPrimLoginForm.vcmEntityFormRefPaint(Sender: TObject);
 begin
 //#UC START# *520B4075004C_4A93D80F014F_impl*
  {$IfDef InsiderTest}
- if TdmStdRes.IsBatchMode then
+ if TvcmApplicationRunner.IsBatchMode then
   Save;
  {$EndIf InsiderTest}
 //#UC END# *520B4075004C_4A93D80F014F_impl*
@@ -570,6 +570,8 @@ begin
   OnClick := HelpLabelClick;
  end;
 
+ VCMScaleControls;
+
  l_Delta := HelpLabel.Left + HelpLabel.Width + c_ControlBorder - HelpPanel.Width;
  if l_Delta > 0 then
   with HelpPanel do
@@ -622,7 +624,7 @@ begin
  f_ForgetPasswordChosen := False;
  f_NewUserChosen := False;
  {$IfDef InsiderTest}
- if TdmStdRes.IsBatchMode then
+ if TvcmApplicationRunner.IsBatchMode then
  begin
   {$IfDef Admin}
   edUserName.Text := l3CStr('ADMIN');
@@ -631,13 +633,13 @@ begin
   edUserName.Text := l3CStr('tester');
   edPassword.Text := l3CStr('tester');
   {$EndIf Admin}
- end//TdmStdRes.IsBatchMode
+ end//TvcmApplicationRunner.IsBatchMode
  else
  {$EndIf InsiderTest}
  begin
   edUserName.Text := aLogin;
   //edPassword.Text := aPassword;
- end;//TdmStdRes.IsBatchMode
+ end;//TvcmApplicationRunner.IsBatchMode
  {$IfDef nsAutoLoginDisable}
  cbAutoLogin.Enabled := False;
  lblForgetPassword.Enabled := False;

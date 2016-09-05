@@ -45,7 +45,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3ProtoObject
+ , vcmModuleContractImplementation
  , VCMCustomization_Customization_Contracts
  {$If NOT Defined(NoVCL)}
  , Menus
@@ -64,7 +64,7 @@ uses
 ;
 
 type
- TTaskPanelServiceImpl = {final} class(Tl3ProtoObject, ITaskPanelService)
+ TTaskPanelServiceImpl = {final} class(TvcmModuleContractImplementation, ITaskPanelService)
   public
    procedure CustomizePanel(const aPanel: IvcmCustOps);
     {* Настроить панель иструментов }
@@ -167,7 +167,7 @@ var
 begin
 //#UC START# *4C8DD91901C8_4C8DD8C602D3exec_impl*
  if Supports((aParams As IvcmExecuteParams).Container.NativeMainForm, IvcmMainForm, l_MainForm) then
-  CustomizePanel(l_MainForm.TasksPanel)
+  TTaskPanelService.Instance.CustomizePanel(l_MainForm.TasksPanel)
  else
   Assert(False);
 //#UC END# *4C8DD91901C8_4C8DD8C602D3exec_impl*

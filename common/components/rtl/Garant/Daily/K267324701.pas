@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4DDF8309020Eimpl_uses*
+ //#UC END# *4DDF8309020Eimpl_uses*
 ;
 
 function TK267324701.IsNSRCPlus: Boolean;

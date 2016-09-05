@@ -95,6 +95,8 @@ uses
  , l3Base
  , l3FrameLine
  , l3MinMax
+ //#UC START# *48CA64150378impl_uses*
+ //#UC END# *48CA64150378impl_uses*
 ;
 
 function Tl3FrameObject.pm_GetLineWidth: Integer;

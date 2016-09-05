@@ -37,6 +37,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4AC0ABB70051impl_uses*
+ //#UC END# *4AC0ABB70051impl_uses*
 ;
 
 constructor TnsFormCoordinates.Create(const aRect: TRect);

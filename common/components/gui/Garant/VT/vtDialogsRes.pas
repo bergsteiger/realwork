@@ -72,6 +72,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4B8E6793024Bimpl_uses*
+ //#UC END# *4B8E6793024Bimpl_uses*
 ;
 
 initialization

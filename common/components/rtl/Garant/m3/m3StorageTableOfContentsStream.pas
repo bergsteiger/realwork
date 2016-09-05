@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *544924BF0331impl_uses*
+ //#UC END# *544924BF0331impl_uses*
 ;
 
 class function Tm3StorageTableOfContentsStream.Make(anAccess: Tm3StoreAccess;

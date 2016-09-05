@@ -51,6 +51,8 @@ uses
  , l3Base
  , TestFrameWork
  , elCustomEdit_ut_elCustomEdit_UserType
+ //#UC START# *4BCE9DB603BBimpl_uses*
+ //#UC END# *4BCE9DB603BBimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}

@@ -37,6 +37,8 @@ type
    function KPage: AnsiString;
    procedure ToLog(const aSt: AnsiString);
    function CompileOnly: Boolean;
+   procedure ScriptDone(const aCtx: TtfwContext);
+   procedure ScriptWillRun(const aCtx: TtfwContext);
    procedure Cleanup; override;
    procedure InitFields; override;
    function EtalonNeedsComputerName: Boolean; override;
@@ -98,6 +100,8 @@ uses
  , l3_String
  , l3Chars
  , tfwScriptEngine
+ //#UC START# *4DAECE5D0060impl_uses*
+ //#UC END# *4DAECE5D0060impl_uses*
 ;
 
 type _Instance_R_ = TvcmInsiderTest;
@@ -479,6 +483,24 @@ begin
  Result := g_CompileOnly;
 //#UC END# *52EBC5BB0300_4DAECE5D0060_impl*
 end;//TvcmInsiderTest.CompileOnly
+
+procedure TvcmInsiderTest.ScriptDone(const aCtx: TtfwContext);
+//#UC START# *57A9DF60030B_4DAECE5D0060_var*
+//#UC END# *57A9DF60030B_4DAECE5D0060_var*
+begin
+//#UC START# *57A9DF60030B_4DAECE5D0060_impl*
+ // - ничего не делаем
+//#UC END# *57A9DF60030B_4DAECE5D0060_impl*
+end;//TvcmInsiderTest.ScriptDone
+
+procedure TvcmInsiderTest.ScriptWillRun(const aCtx: TtfwContext);
+//#UC START# *57A9F99A01C4_4DAECE5D0060_var*
+//#UC END# *57A9F99A01C4_4DAECE5D0060_var*
+begin
+//#UC START# *57A9F99A01C4_4DAECE5D0060_impl*
+ // - ничего не делаем
+//#UC END# *57A9F99A01C4_4DAECE5D0060_impl*
+end;//TvcmInsiderTest.ScriptWillRun
 
 procedure TvcmInsiderTest.Cleanup;
 //#UC START# *4B2F40FD0088_4DAECE5D0060_var*

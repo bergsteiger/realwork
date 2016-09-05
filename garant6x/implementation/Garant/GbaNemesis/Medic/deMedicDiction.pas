@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *492559970076impl_uses*
+ //#UC END# *492559970076impl_uses*
 ;
 
 function TdeMedicDiction.DefaultDocType: TDocumentType;

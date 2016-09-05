@@ -58,6 +58,8 @@ implementation
 uses
  l3ImplUses
  , ProcessTask_Const
+ //#UC START# *53AC09FE03C7impl_uses*
+ //#UC END# *53AC09FE03C7impl_uses*
 ;
 
 function TddRunContext_C(aProgressor: TddProgressObject): TddRunContext;

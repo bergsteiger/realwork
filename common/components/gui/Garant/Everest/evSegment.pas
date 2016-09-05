@@ -36,6 +36,8 @@ uses
  , k2BaseTypes
  , k2Base
  , l3Types
+ //#UC START# *4A3919200142impl_uses*
+ //#UC END# *4A3919200142impl_uses*
 ;
 
 {$If NOT Defined(Nemesis)}

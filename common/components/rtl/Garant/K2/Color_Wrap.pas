@@ -30,6 +30,8 @@ uses
  , Graphics
  , k2Base
  , SysUtils
+ //#UC START# *4849457201A4impl_uses*
+ //#UC END# *4849457201A4impl_uses*
 ;
 
 function WColor.AsString(A: Tl3Variant): AnsiString;

@@ -47,6 +47,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *550C0DA5022Eimpl_uses*
+ //#UC END# *550C0DA5022Eimpl_uses*
 ;
 
 type _Instance_R_ = TdsInpharmMainMenu;

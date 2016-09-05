@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47BC391D0259impl_uses*
+ //#UC END# *47BC391D0259impl_uses*
 ;
 
 constructor Tl3SimpleObject.Create;

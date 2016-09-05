@@ -125,6 +125,8 @@ uses
  , evdTypes
  , l3UnitsTools
  , evdStyles
+ //#UC START# *4DCA3A7302B1impl_uses*
+ //#UC END# *4DCA3A7302B1impl_uses*
 ;
 
 procedure ConvertText2Table(anEditor: TevCustomEditor);

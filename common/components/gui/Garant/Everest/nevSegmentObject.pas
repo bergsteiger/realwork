@@ -52,6 +52,8 @@ uses
  l3ImplUses
  , l3String
  , TextSegment_Const
+ //#UC START# *4E5FAE1700D5impl_uses*
+ //#UC END# *4E5FAE1700D5impl_uses*
 ;
 
 constructor TnevSegmentObject.Create(aTag: Tl3Variant);

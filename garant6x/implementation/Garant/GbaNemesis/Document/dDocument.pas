@@ -101,6 +101,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , bsUserCRListInfo
  , l3Utils
+ //#UC START# *493E5E7202F1impl_uses*
+ //#UC END# *493E5E7202F1impl_uses*
 ;
 
 type _Instance_R_ = TdDocument;

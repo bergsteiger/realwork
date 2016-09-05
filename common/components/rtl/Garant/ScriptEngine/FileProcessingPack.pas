@@ -64,6 +64,8 @@ uses
  , l3Stream
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F4FD7EA00EBimpl_uses*
+ //#UC END# *4F4FD7EA00EBimpl_uses*
 ;
 
 type
@@ -439,6 +441,7 @@ begin
 //#UC START# *4F4FD85F033A_4F4FD77B03CC_impl*
  inherited Create;
  f_Filer := Tl3CustomDosFiler.Make(aFileName, l3_fmWrite, false, 1000);
+ f_Filer.SoftEnterAsEOL := true;
  f_Filer.Open;
 //#UC END# *4F4FD85F033A_4F4FD77B03CC_impl*
 end;//TtfwFile.CreateWrite

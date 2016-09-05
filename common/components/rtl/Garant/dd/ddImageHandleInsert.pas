@@ -1,8 +1,14 @@
 unit ddImageHandleInsert;
 
-{ $Id: ddImageHandleInsert.pas,v 1.9 2015/11/25 14:01:46 lukyanets Exp $ }
+{ $Id: ddImageHandleInsert.pas,v 1.11 2016/07/28 08:45:38 lulin Exp $ }
 
 // $Log: ddImageHandleInsert.pas,v $
+// Revision 1.11  2016/07/28 08:45:38  lulin
+// - удал€ем ненужное.
+//
+// Revision 1.10  2016/07/27 14:48:31  lulin
+// - вычищаем устаревшее.
+//
 // Revision 1.9  2015/11/25 14:01:46  lukyanets
 // «аготовки дл€ выдачи номеров+переезд констант
 //
@@ -44,7 +50,7 @@ uses
 
  evdBufferedFilter;
 
-type
+(*type
  TddImageHandleInsertFilter = class(TevdBufferedFilter)
  private
   f_OnError: TNotifyEvent;
@@ -55,9 +61,9 @@ type
  public
   class function SetTo(var theGenerator: Tk2TagGenerator; aOnError: TNotifyEvent = nil): Pointer; overload;
   property OnError: TNotifyEvent read f_OnError write f_OnError;
- end;
+ end;*)
 
- function CheckExternalHandlesInBitmapParagraphs(aDocRoot: Tl3Variant): Boolean;
+(* function CheckExternalHandlesInBitmapParagraphs(aDocRoot: Tl3Variant): Boolean;*)
 
 implementation
 uses
@@ -123,7 +129,7 @@ begin
   f_HasExternalHandle := True;
  inherited;
 end;*)
-
+(*
 procedure TddImageHandleInsertFilter.DoFlushBuffer(aLeaf: Tl3Variant; aTagId: Integer; aNeedCloseBracket : Boolean);
 var
  l_Handle: LongWord;
@@ -167,6 +173,7 @@ begin
  end;//try..finally
  Result := theGenerator;
 end;
+*)
 
 function TMissingExternalHandleInBitmapSearcher.DoCheckBitmap(aBitmapPara: Tl3Variant): Boolean;
 begin

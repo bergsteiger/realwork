@@ -117,6 +117,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C7F5A5800CDimpl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4C7F5A5800CDimpl_uses*
 ;
 
@@ -274,9 +275,9 @@ var
 begin
 //#UC START# *4C7F5CBD0071_4C7F5A5800CDexec_impl*
  if Supports(FiltersList.TreeStruct, InsFiltersTree, l_Tree) then
-  TdmStdRes.MakeNewFilter(l_Tree.FiltersType)
+  TSearchService.Instance.MakeNewFilter(l_Tree.FiltersType)
  else
-  TdmStdRes.MakeNewFilter(bs_ltDocument);
+  TSearchService.Instance.MakeNewFilter(bs_ltDocument);
 //#UC END# *4C7F5CBD0071_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Filters_New_Execute
 
@@ -332,7 +333,7 @@ begin
   l_Data := TdeFilter.Make(l_Filter)
  else
   l_Data := nil;
- TdmStdRes.EditFilter(l_Data, aParams.ItemIndex);
+ TSearchService.Instance.EditFilter(l_Data, aParams.ItemIndex);
 //#UC END# *4C7F5E030232_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Filter_Edit_Execute
 
@@ -389,7 +390,7 @@ var
 begin
 //#UC START# *4CB7004603CF_4C7F5A5800CDexec_impl*
  if Supports(FiltersList.GetCurrentNode, IFilterFromQuery, l_Filter) then
-  TdmStdRes.RenameFilter(l_Filter);
+  TFiltersService.Instance.RenameFilter(l_Filter);
 //#UC END# *4CB7004603CF_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Filter_RenameFilter_Execute
 

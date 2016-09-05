@@ -28,6 +28,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D6BAF110364impl_uses*
+ //#UC END# *4D6BAF110364impl_uses*
 ;
 
 function TnscSimpleEditorForDialogsTextSource.DoMakeDocumentContainer: InevDocumentContainer;

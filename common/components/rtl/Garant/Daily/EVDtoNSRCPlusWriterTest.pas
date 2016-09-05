@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4B853E7501DFimpl_uses*
+ //#UC END# *4B853E7501DFimpl_uses*
 ;
 
 function TEVDtoNSRCPlusWriterTest.IsNSRCPlus: Boolean;

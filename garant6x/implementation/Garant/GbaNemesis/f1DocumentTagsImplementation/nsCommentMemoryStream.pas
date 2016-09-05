@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , l3Interfaces
+ //#UC START# *4CED41A900AAimpl_uses*
+ //#UC END# *4CED41A900AAimpl_uses*
 ;
 
 function TnsCommentMemoryStream.COMQueryInterface(const IID: Tl3GUID;

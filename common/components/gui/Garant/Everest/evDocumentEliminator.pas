@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , Document_Const
+ //#UC START# *4E2836190160impl_uses*
+ //#UC END# *4E2836190160impl_uses*
 ;
 
 function TevDocumentEliminator.NeedTranslateChildToNext: Boolean;

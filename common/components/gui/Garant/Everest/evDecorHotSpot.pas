@@ -50,6 +50,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , nevNavigation
+ //#UC START# *4E1D961D02D6impl_uses*
+ //#UC END# *4E1D961D02D6impl_uses*
 ;
 
 constructor TevDecorHotSpot.Create(const aPara: InevPara;

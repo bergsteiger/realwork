@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , tfwClassRef
+ //#UC START# *4F37CBBE015Aimpl_uses*
+ //#UC END# *4F37CBBE015Aimpl_uses*
 ;
 
 function TkwCompiledMain.pm_GetParentWord: TtfwWord;

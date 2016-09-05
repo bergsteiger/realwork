@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4D8A2C1700FDimpl_uses*
+ //#UC END# *4D8A2C1700FDimpl_uses*
 ;
 
 function TnsFoundRangeCollector.ReplaceFunc(const aView: InevView;

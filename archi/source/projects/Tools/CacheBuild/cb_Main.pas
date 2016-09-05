@@ -25,6 +25,7 @@ type
     edOneDoc: TEdit;
     rbCleanupCache: TRadioButton;
     rbService: TRadioButton;
+    cbUpdateTables: TCheckBox;
     procedure btnStartClick(Sender: TObject);
     procedure RadiobuttonClick(Sender: TObject);
   private
@@ -41,6 +42,8 @@ var
 implementation
 uses
  l3Interfaces,
+ daSchemeConsts,
+ daInterfaces,
  ddAutolinkCache,
  dtIntf,
  dt_Sab,
@@ -99,18 +102,19 @@ begin
   if rbUpdate.Checked then
   begin
    if not cbOneDoc.Checked then
-    UpdateAutolinkCache(DoProgress)
+    UpdateAutolinkCache(DoProgress, cbUpdateTables.Checked)
    else
    begin
     l_DocID := StrToIntDef(edOneDoc.Text, -1);
+    
     if l_DocID > 0 then
     begin
      l_DocID := LinkServer(CurrentFamily).Renum.ConvertToRealNumber(l_DocID);
      if l_DocID <> cUndefDocID then
      begin
       l_Sab := MakeValueSet(DocumentServer(CurrentFamily).FileTbl, fId_Fld, @l_DocID, 1);
-      BuildActualDocsCache(DoProgress, l_Sab);
-      BuildEditionsCache(DoProgress, l_Sab);
+      BuildActualDocsCache(DoProgress, l_Sab, cbUpdateTables.Checked);
+      BuildEditionsCache(DoProgress, l_Sab, cbUpdateTables.Checked);
       BuildStructCache(DoProgress, l_Sab);
      end
      else
@@ -126,9 +130,9 @@ begin
   if rbCreate.Checked then
   begin
    if cbDocs.Checked then
-    BuildActualDocsCache(DoProgress);
+    BuildActualDocsCache(DoProgress, nil, True);
    if cbEditions.Checked then
-    BuildEditionsCache(DoProgress);
+    BuildEditionsCache(DoProgress, nil, True);
    if cbStruct.Checked then
     BuildStructCache(DoProgress);
    TouchAutolinkCache;
@@ -173,6 +177,7 @@ begin
 
  cbOneDoc.Enabled := rbUpdate.Checked;
  edOneDoc.Enabled := cbOneDoc.Enabled and cbOneDoc.Checked;
+ cbUpdateTables.Enabled := rbUpdate.Checked;
 end;
 
 end.

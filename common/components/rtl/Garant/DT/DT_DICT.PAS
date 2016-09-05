@@ -1,9 +1,18 @@
 
 unit Dt_Dict;
 
-{ $Id: DT_DICT.PAS,v 1.437 2016/06/09 15:14:58 fireton Exp $ }
+{ $Id: DT_DICT.PAS,v 1.440 2016/07/05 13:31:20 lukyanets Exp $ }
 
 // $Log: DT_DICT.PAS,v $
+// Revision 1.440  2016/07/05 13:31:20  lukyanets
+// Cleanup
+//
+// Revision 1.439  2016/06/30 12:34:15  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.438  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.437  2016/06/09 15:14:58  fireton
 // - кеширование образов документов
 //
@@ -1349,7 +1358,7 @@ Type
    function    GetDataSize : Word;
    function    MaxIdValue: LongWord;
   public
-   constructor Create(aFamily    : TFamilyID;
+   constructor Create(aFamily    : TdaFamilyID;
                       aType      : TdaDictionaryType;
                       aTable: Integer = 0); reintroduce; virtual;
 
@@ -1419,7 +1428,6 @@ Type
 
    function  dip_Get_LinkNode : Il3Node;
    procedure dip_Set_LinkNode(const Value : Il3Node);
-   function  dip_IsLastEntry : Boolean;
    function  dip_RefCount : Longint;
    procedure dip_LinkDisconnect;
 
@@ -1492,14 +1500,12 @@ Type
    function    ReceiveGetNode(aID : TDictID) : IDictItem;
    procedure   ReceiveDelNode(aID : TDictID);
 
-   function    LastInItemList(aID : TDictID) : Boolean;
-
    procedure   RegetItemList;
    procedure   CheckDictType(aAllowedTypes: TDLTypeSet); // выбрасывает исключение
    function    pm_GetIsLoaded: Boolean;
 
   public
-   constructor Create(aFamily    : TFamilyID;
+   constructor Create(aFamily    : TdaFamilyID;
                       aType      : TdaDictionaryType;
                       aTable: Integer = 0); override;
 
@@ -1799,7 +1805,7 @@ Type
    fEquals   : TEqualItemsTbl;
    fDeferDeleletedItems : Tl3FieldSortRecList;
 
-   fFamily : TFamilyID;
+   fFamily : TdaFamilyID;
    fDictType : TdaDictionaryType;
 
    function GetTbl : TCustomDictTbl;
@@ -1848,7 +1854,7 @@ Type
   function  LoadExtItemsToTree : boolean;
   function  GetExtItemDataSize : Integer;
  public
-  constructor Create(aFamily : TFamilyID; aDictType : TdaDictionaryType); Reintroduce;
+  constructor Create(aFamily : TdaFamilyID; aDictType : TdaDictionaryType); Reintroduce;
   procedure   Update; // не вызывается, все делается с таблицами напрямую по имени (что неправильно)
   //procedure   Save;
 
@@ -1933,11 +1939,11 @@ Type
   protected
    fNotifiedObjList : Tl3LongintList;
 
-   fFamily       : TFamilyID;
+   fFamily       : TdaFamilyID;
    fDicts        : Array[da_dlSources..High(TdaDictionaryType)] of TDictionary;
    fPocketModify : LongInt;
 
-   procedure SetFamily(aValue : TFamilyID);
+   procedure SetFamily(aValue : TdaFamilyID);
    function  GetDict(aDictType : TdaDictionaryType) : TDictionary;
    function  GetDictRootNode(DictType : TdaDictionaryType) : TDictRootNode;
    function  GetDictList(DictType : TdaDictionaryType) : Tl3StringDataList;
@@ -2029,7 +2035,7 @@ Type
 (*   function   IdByShortNameInAccGroupsTable(const aShName: AnsiString; out aFoundId: TDictID): Boolean;*)
    procedure  SendNotify(theDictRec: TDictMessageRec; ExcludeUser: Integer);
 
-   property   Family : TFamilyID read fFamily write SetFamily;
+   property   Family : TdaFamilyID read fFamily write SetFamily;
    property   Dict[aDictType : TdaDictionaryType] : TDictionary read GetDict;
    property   DictList[DictType : TdaDictionaryType] : Tl3StringDataList read GetDictList; default;
    property   DictRootNode[DictType : TdaDictionaryType] : TDictRootNode read GetDictRootNode;
@@ -2068,7 +2074,7 @@ Type
     префиксами в конкретный класс *)
 (* procedure CountPrefixesOnClasses;*)
 
-function DictServer(aFamily: TFamilyID = CurrentFamily): TDictionaryServer;
+function DictServer(aFamily: TdaFamilyID = CurrentFamily): TDictionaryServer;
 
 procedure FreeDictServer;
 
@@ -2109,6 +2115,8 @@ uses
  daDataProvider,
  daInterfaces,
 
+ htDataProvider,
+
  HT_Dll,
  DT_Misc,
  Dt_Serv,
@@ -2136,7 +2144,7 @@ uses
 
 // start class TCustomDictTbl
 
-constructor TCustomDictTbl.Create(aFamily : TFamilyID; aType : TdaDictionaryType; aTable: Integer = 0);
+constructor TCustomDictTbl.Create(aFamily : TdaFamilyID; aType : TdaDictionaryType; aTable: Integer = 0);
 var
  l_FTbl: TFamTbls;
  l_MTbl: TMainTbls;
@@ -2354,6 +2362,7 @@ end;
 procedure TCustomDictTbl.DeleteItems(aIDs : Sab);
 begin
  DeleteRecsByKeys(aIDs, dtIDFld);
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoDelete);
 end;
 
@@ -2390,18 +2399,21 @@ end;
 procedure THandledRecordTblwithLog.AddData(var theID : TDictID;aData : PAnsiChar);
 begin
  Inherited;
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoAdd);
 end;
 
 procedure THandledRecordTblwithLog.EditData(aID : TDictID;aData : PAnsiChar);
 begin
  Inherited;
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoEdit);
 end;
 
 procedure THandledRecordTblwithLog.DelData(aID : TDictID);
 begin
  Inherited;
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoDelete);
 end;
 
@@ -2475,11 +2487,6 @@ end;
 procedure TDictItem.dip_Set_LinkNode(const Value : Il3Node);
 begin
  fLinkNode:=Pointer(Value);
-end;
-
-function TDictItem.dip_IsLastEntry : Boolean;
-begin
- Result:= True; //refCount = 1; <- данная проверка некорректна
 end;
 
 function TDictItem.dip_RefCount : LongInt;
@@ -2559,7 +2566,7 @@ end;
 
 { TDictionaryTbl }
 
-Constructor TDictionaryTbl.Create(aFamily : TFamilyID; aType : TdaDictionaryType; aTable: Integer = 0);
+Constructor TDictionaryTbl.Create(aFamily : TdaFamilyID; aType : TdaDictionaryType; aTable: Integer = 0);
 begin
  inherited;
 
@@ -3060,7 +3067,8 @@ begin
 
  AddFRec;
 
- GlobalDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoAdd);
+//!! !!! Возможно тут нужен GlobalHTDataProvider
+ GlobalHTDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoAdd);
 
  tmpItem:=fDictItemClass.Create;
  Try
@@ -3143,6 +3151,7 @@ begin
   else
    raise EHtErrors.CreateInt(ecNotFound);
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoEdit);
 
  if Assigned(fItemList) then
@@ -3293,10 +3302,7 @@ var
  lIndex : Longint;
 begin
  if ItemList.FindData(aID, lIndex) then
-  if Not TDictItem(fItemList.Items[lIndex]).dip_IsLastEntry then
-   exit
-  else
-   fItemList.Delete(lIndex);
+  fItemList.Delete(lIndex);
 
  Inherited;
 end;
@@ -3370,21 +3376,8 @@ procedure TDictionaryTbl.ReceiveDelNode(aID : TDictID);
 var
  tmpIndex : LongInt;
 begin
- if Assigned(fItemList) then
-  if fItemList.FindData(aID,tmpIndex) then
-   if Not TDictItem(fItemList.Items[tmpIndex]).dip_IsLastEntry then
-    exit
-   else
-    fItemList.Delete(tmpIndex);
-end;
-
-function TDictionaryTbl.LastInItemList(aID : TDictID) : Boolean;
-var
- tmpIndex : LongInt;
-begin
- Result:=True;
- if ItemList.FindData(aID,tmpIndex) then
-  Result:=TDictItem(fItemList.Items[tmpIndex]).dip_IsLastEntry;
+ if Assigned(fItemList) and fItemList.FindData(aID,tmpIndex) then
+  fItemList.Delete(tmpIndex);
 end;
 
 procedure TDictionaryTbl.SetDelNumber(aID : TDictID);
@@ -4345,7 +4338,7 @@ end;
 //   fRootNode : TDictRootNode;
 //   fEquals   : TEqualItemsTbl;
 
-constructor TDictionary.Create(aFamily : TFamilyID; aDictType : TdaDictionaryType);
+constructor TDictionary.Create(aFamily : TdaFamilyID; aDictType : TdaDictionaryType);
 begin
  inherited Create;
  fFamily := aFamily;
@@ -5257,59 +5250,56 @@ var
  end; // procedure
 
 begin
- if (not IsDictClass(fDictType)) or DictTbl.LastInItemList(aID) then
+ if aID = aNewID then
+  raise EHtErrors.CreateInt(ecNotEnable);
+
+ if (fDictType in sJournaled) and (aNewId <> cUndefDictID) then
  begin
-  if aID = aNewID then
+  lFoundItem := DictTbl.iCheckItemInList(aNewID);
+  if lFoundItem = nil then
    raise EHtErrors.CreateInt(ecNotEnable);
 
-  if (fDictType in sJournaled) and (aNewId <> cUndefDictID) then
-  begin
-   lFoundItem := DictTbl.iCheckItemInList(aNewID);
-   if lFoundItem = nil then
-    raise EHtErrors.CreateInt(ecNotEnable);
-
-   if ((lFoundItem as IDictItemJour).Operation = atDelete) then
-    raise EHtErrors.CreateInt(ecNotEnable);
-  end;
-
-  tmpEqTbl:=Equals;
-
-  CalcTrTables;
-  try
-   l_TrStarted := GlobalHtServer.StartTransaction(l_TrTables, l_TransId);
-  finally
-   l_TrTables := nil;
-  end;
-  if l_TrStarted then
-   Try
-    ChangeLinks;
-    if (aDateToDelete = 0) or (aDateToDelete = CurrentDate) then
-    begin
-     Tbl.DelData(aID);
-     Tbl.PutFreeNum(aID);
-     if tmpEqTbl <> Nil then
-      tmpEqTbl.DelAllEqualOnID(aID);
-
-     if fDictType in [da_dlTypes, da_dlSources] then
-     begin
-      DictTbl.SetDelNumber(aID);
-      LinkServer(fFamily).PriorTbl.DeletePriorityOnDictID(aID, fDictType);
-     end;
-    end // (aDateToDelete = 0) or (aDateToDelete = Today)
-    else
-    begin
-     l_Rec.rID:= aID;
-     l_Rec.rDestID:= aNewID;
-     l_Rec.rDelDate:= aDateToDelete;
-     fDeferDeleletedItems.Add(l_rec);
-    end;
-    GlobalHtServer.CommitTransaction(l_TransId);
-   except
-    GlobalHtServer.RollBackTransaction(l_TransId);
-    raise;
-   end;
-  SendEditMessage(atDelete, aID, 0, 0);
+  if ((lFoundItem as IDictItemJour).Operation = atDelete) then
+   raise EHtErrors.CreateInt(ecNotEnable);
  end;
+
+ tmpEqTbl:=Equals;
+
+ CalcTrTables;
+ try
+  l_TrStarted := GlobalHtServer.StartTransaction(l_TrTables, l_TransId);
+ finally
+  l_TrTables := nil;
+ end;
+ if l_TrStarted then
+  Try
+   ChangeLinks;
+   if (aDateToDelete = 0) or (aDateToDelete = CurrentDate) then
+   begin
+    Tbl.DelData(aID);
+    Tbl.PutFreeNum(aID);
+    if tmpEqTbl <> Nil then
+     tmpEqTbl.DelAllEqualOnID(aID);
+
+    if fDictType in [da_dlTypes, da_dlSources] then
+    begin
+     DictTbl.SetDelNumber(aID);
+     LinkServer(fFamily).PriorTbl.DeletePriorityOnDictID(aID, fDictType);
+    end;
+   end // (aDateToDelete = 0) or (aDateToDelete = Today)
+   else
+   begin
+    l_Rec.rID:= aID;
+    l_Rec.rDestID:= aNewID;
+    l_Rec.rDelDate:= aDateToDelete;
+    fDeferDeleletedItems.Add(l_rec);
+   end;
+   GlobalHtServer.CommitTransaction(l_TransId);
+  except
+   GlobalHtServer.RollBackTransaction(l_TransId);
+   raise;
+  end;
+ SendEditMessage(atDelete, aID, 0, 0);
 end;
 
 procedure TDictionary.RealDelEqualFromTbl(aFirstID, aSecondID : TDictID);
@@ -5395,7 +5385,7 @@ begin
  end; 
 end;
 
-procedure TDictionaryServer.SetFamily(aValue : TFamilyID);
+procedure TDictionaryServer.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily<>aValue then
  begin
@@ -6969,7 +6959,7 @@ begin
  {$EndIf AppServerSide}
 end;
 
-function DictServer(aFamily: TFamilyID = CurrentFamily): TDictionaryServer;
+function DictServer(aFamily: TdaFamilyID = CurrentFamily): TDictionaryServer;
 begin
  if gDictServer = nil then
   gDictServer:= TDictionaryServer.Create;

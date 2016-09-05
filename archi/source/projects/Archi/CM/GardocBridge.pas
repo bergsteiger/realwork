@@ -1,6 +1,6 @@
 unit GardocBridge;
 
-{ $Id: GardocBridge.pas,v 1.26 2016/05/19 07:33:30 fireton Exp $ }
+{ $Id: GardocBridge.pas,v 1.28 2016/08/11 10:42:00 lukyanets Exp $ }
 
 interface
  uses
@@ -20,7 +20,7 @@ implementation
   daDataProvider,
   dt_DictConst,
   DT_Query, Dt_ReNum, DT_LinkServ,
-  DT_User, DT_Stage, dtIntf, DT_Sab;
+  DT_Stage, dtIntf, DT_Sab;
 
 function GetGardocStageCode(aStageType : TStageType) : Integer;
 begin
@@ -50,7 +50,7 @@ type
               rDocID  : TDocID;
               rStType : Byte;
               rEDate  : TStDate;
-              rAuthor : TUserID;
+              rAuthor : TdaUserID;
              end;
 
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;

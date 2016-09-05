@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F98251800B4impl_uses*
+ //#UC END# *4F98251800B4impl_uses*
 ;
 
 type _Instance_R_ = TnsFiltersListenersList;

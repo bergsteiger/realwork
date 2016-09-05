@@ -50,6 +50,8 @@ uses
  , ncsServerParamsStorage
  {$IfEnd} // Defined(AppServerSide)
  , l3Base
+ //#UC START# *54FE99C90168impl_uses*
+ //#UC END# *54FE99C90168impl_uses*
 ;
 
 var g_TncsDataAccessServices: TncsDataAccessServices = nil;

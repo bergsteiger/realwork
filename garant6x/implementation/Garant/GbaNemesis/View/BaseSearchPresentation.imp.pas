@@ -47,7 +47,8 @@ procedure _BaseSearchPresentation_.ForceUpdateClassForHistory;
 //#UC END# *5437B84A0305_4AD5E6A60262_var*
 begin
 //#UC START# *5437B84A0305_4AD5E6A60262_impl*
- f_BaseSearcher.ForceUpdateClassForHistory;
+ if (f_BaseSearcher <> nil) then 
+  f_BaseSearcher.ForceUpdateClassForHistory;
 //#UC END# *5437B84A0305_4AD5E6A60262_impl*
 end;//_BaseSearchPresentation_.ForceUpdateClassForHistory
 

@@ -38,6 +38,8 @@ uses
  , StrUtils
  , TestFrameWork
  , tfwScriptEngine
+ //#UC START# *4DC3F6DD00F1impl_uses*
+ //#UC END# *4DC3F6DD00F1impl_uses*
 ;
 
 function TF1AutoScripter.GetFolder: AnsiString;

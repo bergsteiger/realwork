@@ -83,6 +83,8 @@ uses
  , Consts
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *4799D83F0260impl_uses*
+ //#UC END# *4799D83F0260impl_uses*
 ;
 
 type

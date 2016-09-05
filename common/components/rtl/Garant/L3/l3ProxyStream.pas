@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , ComObj
  , l3Types
+ //#UC START# *49BE68B201D1impl_uses*
+ //#UC END# *49BE68B201D1impl_uses*
 ;
 
 constructor Tl3ProxyStream.Create(const aStream: IStream);

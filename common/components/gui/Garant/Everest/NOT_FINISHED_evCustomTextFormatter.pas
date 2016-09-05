@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4836BEB200A2impl_uses*
+ //#UC END# *4836BEB200A2impl_uses*
 ;
 
 function TevCustomTextFormatter.NeedAddSpaces: Boolean;

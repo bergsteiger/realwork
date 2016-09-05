@@ -29,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49895C3C02D6impl_uses*
+ //#UC END# *49895C3C02D6impl_uses*
 ;
 
 procedure nsOpenNavigatorItem;

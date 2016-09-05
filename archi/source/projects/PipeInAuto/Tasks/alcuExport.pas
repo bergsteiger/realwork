@@ -8,7 +8,7 @@ uses
  Classes,
  CsDataPipe, csExport, csProcessTask,
  ddProgressObj, ExportPipe,
- dtIntf, DT_Sab, DT_Types,
+ dtIntf, DT_Sab, daTypes,
  L3LongintList,
  csMessageManager,
  k2Base,
@@ -23,10 +23,10 @@ type
     procedure CorrectSab(aRegionList, aBusyList, aLockedList: Tl3LongintList);
     procedure CreateExportPipe(aProgressor: TddProgressObject);
     procedure DestroyPipes;
-    procedure SendRegionMail(aUserID: TUserID; aAlready, aBusy: Tl3LongintList);
-    procedure SetAccessGroup(aSAB: ISab; aUserID: TUserID);
+    procedure SendRegionMail(aUserID: TdaUserID; aAlready, aBusy: Tl3LongintList);
+    procedure SetAccessGroup(aSAB: ISab; aUserID: TdaUserID);
     procedure UnLockRegionDocuments(aLocked: Tl3LongintList);
-    procedure _CorrectRegionSab(aUserID: TUserID; aLocked: Tl3LongintList);
+    procedure _CorrectRegionSab(aUserID: TdaUserID; aLocked: Tl3LongintList);
   protected
     procedure DoRun(const aContext: TddRunContext); override;
     function GetFinalExportDirectory: AnsiString; virtual;
@@ -53,11 +53,10 @@ uses
  HT_Dll, ddUtils, {$If defined(AppServerSide)} ddAppConfig, {$IfEnd defined(AppServerSide)}
  daUtils,
  daInterfaces,
- daTypes,
  daSchemeConsts,
  {$If defined(AppServerSide)} daDataProvider, {$IfEnd defined(AppServerSide)}
- DT_LinkServ, DT_Link, DT_Lock, Dt_Query, dt_Mail, DT_Utils,
- alcuMailServer, alcuTypes, ddServerTask, CsTaskTypes, DT_DictConst, dt_UserConst,
+ dt_Types, DT_LinkServ, DT_Link, DT_Lock, Dt_Query, dt_Mail, DT_Utils,
+ alcuMailServer, alcuTypes, ddServerTask, CsTaskTypes, DT_DictConst, 
  l3Types, ddPipeOutInterfaces,
 
  AutoAnnoExportTask_Const
@@ -303,7 +302,7 @@ begin
  end;
 end;
 
-procedure TalcuExport.SendRegionMail(aUserID: TUserID; aAlready, aBusy: Tl3LongintList);
+procedure TalcuExport.SendRegionMail(aUserID: TdaUserID; aAlready, aBusy: Tl3LongintList);
 var
  i: Integer;
  l_MailAttach: TDocumentSabList;
@@ -355,7 +354,7 @@ begin
                         l_MailAttach);       // выборка номеров;
 end;
 
-procedure TalcuExport.SetAccessGroup(aSAB: ISab; aUserID: TUserID);
+procedure TalcuExport.SetAccessGroup(aSAB: ISab; aUserID: TdaUserID);
 var
  l_AccGroup: Cardinal;
 begin
@@ -377,7 +376,7 @@ begin
   LockServer.UnlockDoc(CurrentFamily, aLocked.Items[i]);
 end;
 
-procedure TalcuExport._CorrectRegionSab(aUserID: TUserID; aLocked:
+procedure TalcuExport._CorrectRegionSab(aUserID: TdaUserID; aLocked:
     Tl3LongintList);
 var
  l_Busy: Tl3LongintList;

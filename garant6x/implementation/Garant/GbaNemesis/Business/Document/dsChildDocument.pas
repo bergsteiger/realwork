@@ -30,6 +30,8 @@ uses
  , nsDocInfoHAFMacroReplacer
  , nsChildDocInfoHAFMacroReplacer
  , WorkWithDocumentInterfaces
+ //#UC START# *4958980300D5impl_uses*
+ //#UC END# *4958980300D5impl_uses*
 ;
 
 function TdsChildDocument.DoMakeHAFMacroReplacer: IafwHAFMacroReplacer;

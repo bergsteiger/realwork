@@ -69,6 +69,8 @@ uses
  , ActiveX
  , l3Base
  , l3Interlocked
+ //#UC START# *53FF134A03BAimpl_uses*
+ //#UC END# *53FF134A03BAimpl_uses*
 ;
 
 procedure Tm3BaseHeaderStream.LockHeader;

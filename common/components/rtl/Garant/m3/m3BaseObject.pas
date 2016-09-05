@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4742DC5C0219impl_uses*
+ //#UC END# *4742DC5C0219impl_uses*
 ;
 
 constructor Tm3BaseObject.Create(aDB: Tm3PrimDB);

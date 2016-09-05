@@ -50,6 +50,8 @@ uses
  , vcmEntityForm
  , vcmFormSetFormsCollection
  , vcmBaseTypes
+ //#UC START# *4FFC32AE0164impl_uses*
+ //#UC END# *4FFC32AE0164impl_uses*
 ;
 
 function TvcmFormSetFormsCollectionItem.pm_GetFormId: TvcmFormID;

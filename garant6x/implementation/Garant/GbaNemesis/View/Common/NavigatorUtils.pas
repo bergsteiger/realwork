@@ -32,6 +32,8 @@ uses
  , SysUtils
  , BaseTypesUnit
  , nsOpenUtils
+ //#UC START# *52400BCF03D1impl_uses*
+ //#UC END# *52400BCF03D1impl_uses*
 ;
 
 procedure ExecuteNavigatorItem(const aNode: Il3SimpleNode;

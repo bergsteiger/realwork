@@ -45,6 +45,8 @@ uses
  , nsTypes
  , DynamicTreeUnit
  , l3Nodes
+ //#UC START# *49F592D400E6impl_uses*
+ //#UC END# *49F592D400E6impl_uses*
 ;
 
 constructor TbsUserTreeData.Create(const aTree: Il3ExpandedSimpleTree;

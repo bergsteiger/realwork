@@ -44,6 +44,8 @@ uses
  l3ImplUses
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *525D26AF0039impl_uses*
+ //#UC END# *525D26AF0039impl_uses*
 ;
 
 constructor TddHyperlinkTarget.Create(aTypeID: Integer;

@@ -162,6 +162,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4BD7279101C5impl_uses*
  , l3ControlsTypes
+ , OfficeLike_Result_Controls
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4BD7279101C5impl_uses*
 ;
 
@@ -180,7 +182,7 @@ begin
    l_Node := tvConfs.TreeView.CurrentNode;
   if Assigned(l_Node) and Supports(l_Node, InsConfigNode, lConfNode) then
   try
-   TdmStdRes.LoadSettings(Aggregate, lConfNode.Config);
+   TSettingsService.Instance.LoadSettings(Aggregate, lConfNode.Config);
    tvConfs.Invalidate;
   finally
    lConfNode := nil;
@@ -399,7 +401,7 @@ begin
   try
    ConfigurationList.DeleteConfig(l_ConfNode);
    { Закроем форму если она была открыта }
-   Aggregate.Operation(TdmStdRes.opcode_Result_Cancel);
+   Aggregate.Operation(opcode_Result_Cancel);
   except
    on EConfigurationIsActiveNow do
     Say(err_ActiveConfigurationCannotDelete);

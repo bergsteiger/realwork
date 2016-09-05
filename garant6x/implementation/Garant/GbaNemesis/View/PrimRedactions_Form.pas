@@ -201,6 +201,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
  , UnderControlUnit
+ , Base_Operations_F1Services_Contracts
  , RedactionsUserTypes_utRedaction_UserType
  , Types
  {$If Defined(Nemesis)}
@@ -649,7 +650,7 @@ begin
  begin
   if IsModalForm then
    ModalResult := mrCancel;
-  TdmStdRes.MakeCompareEditions(l_Left, l_Right, RedactionCurrentPara);
+  TEditionsService.Instance.MakeCompareEditions(l_Left, l_Right, RedactionCurrentPara);
  end;//GetDocumentsForCompare(l_Left, l_Right)
 //#UC END# *4EC4CDDB023C_497A12850078exec_impl*
 end;//TPrimRedactionsForm.Editions_DoCompareEditions_Execute
@@ -676,7 +677,7 @@ begin
  begin
   if IsModalForm then
    ModalResult := mrCancel;
-  TdmStdRes.ViewChangedFragments(l_Left, l_Right);
+  TChangesBetweenEditionsService.Instance.ViewChangedFragments(l_Left, l_Right);
  end;//GetDocumentsForCompare(l_Left, l_Right)
 //#UC END# *4EC4CE180122_497A12850078exec_impl*
 end;//TPrimRedactionsForm.Editions_BuildChangedFragments_Execute

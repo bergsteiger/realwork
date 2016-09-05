@@ -60,6 +60,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *467FC49800E8impl_uses*
+ //#UC END# *467FC49800E8impl_uses*
 ;
 
 type _Instance_R_ = Tk2HugeTagObject;

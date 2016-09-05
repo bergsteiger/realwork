@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *50C852B30225impl_uses*
+ //#UC END# *50C852B30225impl_uses*
 ;
 
 function TkwMouseWheelSupport.GetInputStruct(const aCtx: TtfwContext): TInput;

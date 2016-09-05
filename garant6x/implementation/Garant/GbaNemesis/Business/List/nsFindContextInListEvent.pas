@@ -34,6 +34,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0BDF4E022Eimpl_uses*
+ //#UC END# *4B0BDF4E022Eimpl_uses*
 ;
 
 class procedure TnsFindContextInListEvent.Log(const aList: IDynList;

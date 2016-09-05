@@ -67,6 +67,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5506D56601D6impl_uses*
+ //#UC END# *5506D56601D6impl_uses*
 ;
 
 var g_Tl3FormsService: Tl3FormsService = nil;

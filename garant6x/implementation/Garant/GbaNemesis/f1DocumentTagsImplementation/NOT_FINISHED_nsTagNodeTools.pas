@@ -19,6 +19,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *490865BF02D0impl_uses*
+ //#UC END# *490865BF02D0impl_uses*
 ;
 
 procedure nsCreateFilterForFindTagByID;

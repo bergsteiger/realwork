@@ -1,8 +1,20 @@
 unit nsNotifiers;
 
-// $Id: nsNotifiers.pas,v 1.18 2015/09/18 11:00:16 kostitsin Exp $
+// $Id: nsNotifiers.pas,v 1.22 2016/08/04 12:43:09 lulin Exp $
 
 // $Log: nsNotifiers.pas,v $
+// Revision 1.22  2016/08/04 12:43:09  lulin
+// - перегенерация.
+//
+// Revision 1.21  2016/07/26 16:17:11  lulin
+// - перегенерация.
+//
+// Revision 1.20  2016/07/25 13:01:17  lulin
+// - перегенерация.
+//
+// Revision 1.19  2016/07/15 11:25:37  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.18  2015/09/18 11:00:16  kostitsin
 // {requestlink: 606129273 }
 //
@@ -506,8 +518,10 @@ uses
  nsAttributeTreeCacheNew,
 
  Autoreferat_InternalOperations_Controls,
- PrimCommon_Module,
- F1_Without_Usecases_System_Controls
+ PrimCommon_Module
+ , F1_Without_Usecases_System_Controls
+ , Base_Operations_F1Services_Contracts
+ , F1_Application_Template_Services
  ;
 
 const
@@ -712,7 +726,7 @@ procedure TnsSynchronizedNotification.UpdateStarted(aDataPtr: Tl3DataHolder);
   var
    l_MessageForm : IvcmEntityForm;
   begin
-   l_MessageForm := TdmStdRes.MakeUpdateMessage;
+   l_MessageForm := TLongProcessService.Instance.MakeUpdateMessage;
    try
     l_MessageForm.ShowModal;
    finally
@@ -781,7 +795,7 @@ begin
   Application.Terminate;
   Exit;
  end;
- TdmStdres.MakeShutdownWindow(PLongWord(aDataPtr.Data)^, wkShutDown);
+ TShutdownService.Instance.MakeShutdownWindow(PLongWord(aDataPtr.Data)^, wkShutDown);
 end;
 
 procedure TnsSynchronizedNotification.LogOut(aDataPtr: Tl3DataHolder);
@@ -798,7 +812,7 @@ begin
   Application.Terminate;
   Exit;
  end;
- TdmStdres.MakeShutdownWindow(PLongWord(aDataPtr.Data)^, wkLogout);
+ TShutdownService.Instance.MakeShutdownWindow(PLongWord(aDataPtr.Data)^, wkLogout);
 end;
 
 procedure TnsSynchronizedNotification.ConsulationNoSubscription(aDataPtr: Tl3DataHolder);
@@ -939,7 +953,7 @@ begin
  begin
   Exit;
  end;
- TdmStdRes.MakeChatDispatcher.MessagesReceived(PLongWord(aDataPtr.Data)^);
+ TChatService.Instance.MakeChatDispatcher.MessagesReceived(PLongWord(aDataPtr.Data)^);
 end;
 
 procedure TnsChatNotifier.ContactListChanged(aDataPtr: Tl3DataHolder);
@@ -952,7 +966,7 @@ begin
  begin
   Exit;
  end;
- TdmStdRes.MakeChatDispatcher.ContactListChanged;
+ TChatService.Instance.MakeChatDispatcher.ContactListChanged;
 end;
   {$IfEnd not (defined(Monitorings) or defined(Admin))}
 
@@ -980,7 +994,7 @@ begin
  begin
   try
    // посылка сообщения об изменении структуры дереву папок
-    TdmStdRes.RefreshStructure(rFolder, rStatus);
+    TFoldersService.Instance.RefreshStructure(rFolder, rStatus);
   finally
    with TnsDoneNotifierThread.Create(rDoneNotifier) do
    try

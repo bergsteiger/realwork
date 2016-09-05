@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , csLoginReply_Const
+ //#UC START# *54634A7902A1impl_uses*
+ //#UC END# *54634A7902A1impl_uses*
 ;
 
 class function TncsLoginReply.GetTaggedDataType: Tk2Type;

@@ -65,6 +65,8 @@ uses
  , ddAppConfigTypes
  , l3Base
  , pgInterfaces
+ //#UC START# *56A86C020121impl_uses*
+ //#UC END# *56A86C020121impl_uses*
 ;
 
 constructor TcaDataProviderFactory.Create(aHTFactory: ThtDataProviderFactory;

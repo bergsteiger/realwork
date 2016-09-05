@@ -30,6 +30,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0BB0A502ECimpl_uses*
+ //#UC END# *4B0BB0A502ECimpl_uses*
 ;
 
 class procedure TnsDPIEvent.Log(aDPI: Cardinal);

@@ -32,6 +32,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4AC9DB95006Bimpl_uses*
+ //#UC END# *4AC9DB95006Bimpl_uses*
 ;
 
 constructor TagControlCell.Create(aControl: TControl);

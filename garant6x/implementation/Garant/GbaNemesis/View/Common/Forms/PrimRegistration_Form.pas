@@ -676,7 +676,7 @@ begin
  BorderStyle := bsSingle;
  ClientHeight := 262;
  ClientWidth := 476;
- Font.Height := -13;
+ //Font.Height := -13;
 
  with pnMainData do
  begin
@@ -828,7 +828,7 @@ begin
    Width := 462;
    Height := 64;
    TabOrder := 6;
-   Font.Height := -13;
+   //Font.Height := -13;
   end;
    with NewUserLabel do
    begin
@@ -839,7 +839,7 @@ begin
     Width := 312;
     Height := 45;
     Layout := tlCenter;
-    Font.Height := -12;
+    //Font.Height := -12;
    end;
    with NewUserPaintBox do
    begin
@@ -898,7 +898,7 @@ begin
     Cursor := crHandPoint;
     TabOrder := 0;
     Font.Color := clBlue;
-    Font.Height := -13;
+    //Font.Height := -13;
     HighlightColor := clBlue;
     Hyperlink := True;
     OnClick := HelpLabelClick;

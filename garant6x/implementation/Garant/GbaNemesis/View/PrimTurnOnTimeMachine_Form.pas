@@ -344,6 +344,9 @@ begin
 //#UC START# *4A8E8F2E0195_4AC4F8BB0265_impl*
  inherited;
 
+ ClientHeight := 232;
+ ClientWidth := 388;
+
  BorderStyle := bsSingle;
  BorderIcons := [];
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=564750166
@@ -435,8 +438,6 @@ begin
  rb_totmOnDate.Font.Charset := RUSSIAN_CHARSET;
  rb_totmOnCurrentRedation.Font.Charset := RUSSIAN_CHARSET;
 
- ClientHeight := 232;
- ClientWidth := 388;
  Position := poScreenCenter;
 //#UC END# *529332B40230_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.SetupFormLayout

@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , l3StringIDEx
  , nsTypes
+ //#UC START# *490C47190273impl_uses*
+ //#UC END# *490C47190273impl_uses*
 ;
 
 const

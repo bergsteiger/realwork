@@ -26,6 +26,8 @@ uses
  l3ImplUses
  , evSubPanelSub
  , l3Memory
+ //#UC START# *4B87B6A2008Eimpl_uses*
+ //#UC END# *4B87B6A2008Eimpl_uses*
 ;
 
 type _Instance_R_ = TevSubPanelSubArray;

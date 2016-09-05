@@ -57,6 +57,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *574D5A9900B6impl_uses*
+ //#UC END# *574D5A9900B6impl_uses*
 ;
 
 constructor TcaFromClause.Create(const aFactory: IdaTableQueryFactory;

@@ -15,11 +15,17 @@ uses
  , l3TreeInterfaces
  , l3Interfaces
  , l3NotifyPtrList
+ //#UC START# *48724DAD02E0intf_uses*
+ //#UC END# *48724DAD02E0intf_uses*
 ;
 
 type
+ //#UC START# *48724DAD02E0ci*
+ //#UC END# *48724DAD02E0ci*
  _l3NotifierBase_Parent_ = Tl3CacheableBase;
  {$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
+ //#UC START# *48724DAD02E0cit*
+ //#UC END# *48724DAD02E0cit*
  Tl3SimpleTree = class(_l3NotifierBase_, Il3SimpleTree)
   {* "Простое" дерево. }
   private
@@ -118,6 +124,21 @@ type
   public
    constructor Create(const aRoot: Il3SimpleRootNode); reintroduce;
    class function Make(const aRoot: Il3SimpleRootNode): Il3SimpleTree; reintroduce;
+ //#UC START# *48724DAD02E0publ*
+  protected
+   function DoGet_Nodes(anIndex: Integer): Il3SimpleNode; virtual;
+   function DoGet_CountView: Integer; virtual;
+   function DoGet_Flags(anIndex: Integer): Integer; virtual;
+   function DoChangeExpand(const aNode: Il3SimpleNode;
+    aMode: Tl3SetBitType;
+    aForceMode: Boolean): Boolean; virtual;
+   function DoIsExpanded(const aNode: Il3SimpleNode): Boolean; virtual;
+   function DoCountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer; virtual;
+   function DoGetIndex(const aNode: Il3SimpleNode;
+    const aSubRootNode: Il3SimpleNode): Integer; virtual;
+   procedure DoSetShowRoot(aValue: Boolean); virtual;
+   function DoMakeNodeVisible(const aNode: Il3SimpleNode): Integer; virtual; 
+ //#UC END# *48724DAD02E0publ*
  end;//Tl3SimpleTree
 
 implementation
@@ -129,6 +150,8 @@ uses
  , l3Types
  , l3Base
  , SysUtils
+ //#UC START# *48724DAD02E0impl_uses*
+ //#UC END# *48724DAD02E0impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
@@ -220,26 +243,10 @@ function Tl3SimpleTree.GetIndex(const aNode: Il3SimpleNode;
  const aSubRootNode: Il3SimpleNode = nil): Integer;
  {* возвращает видимый индекс aNode относительно aSubRootNode или корня. }
 //#UC START# *4772449B00A1_48724DAD02E0_var*
-var
- l_Root : Il3SimpleNode;
 //#UC END# *4772449B00A1_48724DAD02E0_var*
 begin
 //#UC START# *4772449B00A1_48724DAD02E0_impl*
- if (aNode = nil) then
-  Result := -1
- else
- begin
-  if (aSubRootNode = nil) then
-   l_Root := f_Root
-  else
-   l_Root := aSubRootNode;
-  if aNode.IsSame(l_Root) then
-   Result := 0
-  else
-   Result := aNode.IndexInParent + 1;
-  if not f_ShowRoot then
-   Dec(Result);
- end;//aNode = nil
+ Result := DoGetIndex(aNode, aSubRootNode);
 //#UC END# *4772449B00A1_48724DAD02E0_impl*
 end;//Tl3SimpleTree.GetIndex
 
@@ -292,8 +299,7 @@ function Tl3SimpleTree.ChangeExpand(const aNode: Il3SimpleNode;
 //#UC END# *47724512002D_48724DAD02E0_var*
 begin
 //#UC START# *47724512002D_48724DAD02E0_impl*
- Assert(false);
- Result := false;
+ Result := DoChangeExpand(aNode, aMode, aForceMode);
 //#UC END# *47724512002D_48724DAD02E0_impl*
 end;//Tl3SimpleTree.ChangeExpand
 
@@ -328,8 +334,7 @@ function Tl3SimpleTree.CountViewItemsInSubDir(const aNode: Il3SimpleNode): Integ
 //#UC END# *4772457D032A_48724DAD02E0_var*
 begin
 //#UC START# *4772457D032A_48724DAD02E0_impl*
- Assert(false);
- Result := 0;
+ Result := DoCountViewItemsInSubDir(aNode);
 //#UC END# *4772457D032A_48724DAD02E0_impl*
 end;//Tl3SimpleTree.CountViewItemsInSubDir
 
@@ -349,7 +354,7 @@ function Tl3SimpleTree.IsExpanded(const aNode: Il3SimpleNode): Boolean;
 //#UC END# *477245B301DE_48724DAD02E0_var*
 begin
 //#UC START# *477245B301DE_48724DAD02E0_impl*
- Result := true;
+ Result := DoIsExpanded(aNode);
 //#UC END# *477245B301DE_48724DAD02E0_impl*
 end;//Tl3SimpleTree.IsExpanded
 
@@ -475,7 +480,7 @@ function Tl3SimpleTree.MakeNodeVisible(const aNode: Il3SimpleNode): Integer;
 //#UC END# *477246860169_48724DAD02E0_var*
 begin
 //#UC START# *477246860169_48724DAD02E0_impl*
- Result := GetIndex(aNode);
+ Result := DoMakeNodeVisible(aNode);
 //#UC END# *477246860169_48724DAD02E0_impl*
 end;//Tl3SimpleTree.MakeNodeVisible
 
@@ -607,8 +612,7 @@ procedure Tl3SimpleTree.Set_ShowRoot(aValue: Boolean);
 //#UC END# *477248FE005A_48724DAD02E0set_var*
 begin
 //#UC START# *477248FE005A_48724DAD02E0set_impl*
- f_ShowRoot := aValue;
- CursorTop;
+ DoSetShowRoot(aValue);
 //#UC END# *477248FE005A_48724DAD02E0set_impl*
 end;//Tl3SimpleTree.Set_ShowRoot
 
@@ -617,14 +621,7 @@ function Tl3SimpleTree.Get_CountView: Integer;
 //#UC END# *4772490E02F7_48724DAD02E0get_var*
 begin
 //#UC START# *4772490E02F7_48724DAD02E0get_impl*
- if (f_Root = nil) then
-  Result := 0
- else
- begin
-  Result := f_Root.ThisChildrenCount;
-  if f_ShowRoot then
-   Inc(Result);
- end;//f_Root = nil
+ Result := DoGet_CountView;
 //#UC END# *4772490E02F7_48724DAD02E0get_impl*
 end;//Tl3SimpleTree.Get_CountView
 
@@ -642,8 +639,7 @@ function Tl3SimpleTree.Get_Flags(anIndex: Integer): Integer;
 //#UC END# *4772495902EE_48724DAD02E0get_var*
 begin
 //#UC START# *4772495902EE_48724DAD02E0get_impl*
- Result := 0;
- Assert(false);
+ Result := DoGet_Flags(anIndex);
 //#UC END# *4772495902EE_48724DAD02E0get_impl*
 end;//Tl3SimpleTree.Get_Flags
 
@@ -672,22 +668,7 @@ function Tl3SimpleTree.Get_Nodes(anIndex: Integer): Il3SimpleNode;
 //#UC END# *477249EB02D9_48724DAD02E0get_var*
 begin
 //#UC START# *477249EB02D9_48724DAD02E0get_impl*
- if f_ShowRoot then
- begin
-  if (anIndex = 0) then
-  begin
-   Result := f_Root;
-   Exit
-  end//anIndex = 0
-  else
-   Dec(anIndex);
- end;//f_ShowRoot
- Result := f_Root.Child;
- while (anIndex > 0) AND (Result <> nil) do
- begin
-  Result := Result.Next;
-  Dec(anIndex);
- end;//while (anIndex > 0)
+ Result := DoGet_Nodes(anIndex);
 //#UC END# *477249EB02D9_48724DAD02E0get_impl*
 end;//Tl3SimpleTree.Get_Nodes
 
@@ -732,5 +713,99 @@ begin
  inherited;
 //#UC END# *479731C50290_48724DAD02E0_impl*
 end;//Tl3SimpleTree.Cleanup
+
+//#UC START# *48724DAD02E0impl*
+
+function Tl3SimpleTree.DoGet_Nodes(anIndex: Integer): Il3SimpleNode;
+begin//DoGet_Nodes
+ if f_ShowRoot then
+ begin
+  if (anIndex = 0) then
+  begin
+   Result := f_Root;
+   Exit
+  end//anIndex = 0
+  else
+   Dec(anIndex);
+ end;//f_ShowRoot
+ Result := f_Root.Child;
+ while (anIndex > 0) AND (Result <> nil) do
+ begin
+  Result := Result.Next;
+  Dec(anIndex);
+ end;//while (anIndex > 0)
+end;//DoGet_Nodes
+
+function Tl3SimpleTree.DoGet_CountView: Integer;
+begin//DoGet_CountView
+ if (f_Root = nil) then
+  Result := 0
+ else
+ begin
+  Result := f_Root.ThisChildrenCount;
+  if f_ShowRoot then
+   Inc(Result);
+ end;//f_Root = nil
+end;//DoGet_CountView
+
+function Tl3SimpleTree.DoGet_Flags(anIndex: Integer): Integer;
+begin//DoGet_Flags
+ Result := 0;
+ Assert(false);
+end;//DoGet_Flags
+
+function Tl3SimpleTree.DoChangeExpand(const aNode: Il3SimpleNode;
+ aMode: Tl3SetBitType;
+ aForceMode: Boolean): Boolean;
+begin//DoChangeExpand
+ Assert(false);
+ Result := false;
+end;//DoChangeExpand
+
+function Tl3SimpleTree.DoIsExpanded(const aNode: Il3SimpleNode): Boolean;
+begin
+ Result := true;
+end;
+
+function Tl3SimpleTree.DoCountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer;
+begin
+ Assert(false);
+ Result := 0;
+end;
+
+function Tl3SimpleTree.DoGetIndex(const aNode: Il3SimpleNode;
+ const aSubRootNode: Il3SimpleNode): Integer;
+var
+ l_Root : Il3SimpleNode;
+begin
+ if (aNode = nil) then
+  Result := -1
+ else
+ begin
+  if (aSubRootNode = nil) then
+   l_Root := f_Root
+  else
+   l_Root := aSubRootNode;
+  if aNode.IsSame(l_Root) then
+   Result := 0
+  else
+   Result := aNode.IndexInParent + 1;
+  if not f_ShowRoot then
+   Dec(Result);
+ end;//aNode = nil
+end;
+
+procedure Tl3SimpleTree.DoSetShowRoot(aValue: Boolean);
+begin
+ f_ShowRoot := aValue;
+ CursorTop;
+end;
+
+function Tl3SimpleTree.DoMakeNodeVisible(const aNode: Il3SimpleNode): Integer;
+begin
+ Result := GetIndex(aNode);
+end;
+
+//#UC END# *48724DAD02E0impl*
 
 end.

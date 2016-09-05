@@ -56,6 +56,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *4F82714B0271impl_uses*
+ //#UC END# *4F82714B0271impl_uses*
 ;
 
 constructor TvcmLayoutImplementation.Create(aControl: TWinControl);

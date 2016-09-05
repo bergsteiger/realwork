@@ -37,6 +37,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *499ABF6E01B5impl_uses*
+ //#UC END# *499ABF6E01B5impl_uses*
 ;
 
 procedure TElCustomPageControl.RequestTabPosition;

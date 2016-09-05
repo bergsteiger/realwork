@@ -47,6 +47,8 @@ uses
  , Document_Const
  , k2Tags
  , SysUtils
+ //#UC START# *53BC0D790357impl_uses*
+ //#UC END# *53BC0D790357impl_uses*
 ;
 
 constructor TevdBadEVDToEmptyDocumentTranslator.Create(aDocType: Tk2Type;

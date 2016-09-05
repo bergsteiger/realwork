@@ -67,6 +67,8 @@ uses
  , evOp
  , k2Tags
  , l3LongintList
+ //#UC START# *4C3849220132impl_uses*
+ //#UC END# *4C3849220132impl_uses*
 ;
 
 function evIsPointTextInCell(const aPoint: InevBasePoint): Boolean;

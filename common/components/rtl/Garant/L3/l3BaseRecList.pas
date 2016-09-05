@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , m2MemLib
+ //#UC START# *479DF7E200A3impl_uses*
+ //#UC END# *479DF7E200A3impl_uses*
 ;
 
 function Tl3BaseRecList.CompareItem(A: Integer;

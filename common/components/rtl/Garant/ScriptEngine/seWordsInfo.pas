@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *53E107920007impl_uses*
+ //#UC END# *53E107920007impl_uses*
 ;
 
 function GetWordDirectives(const aCtx: TtfwContext;

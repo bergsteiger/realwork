@@ -40,6 +40,8 @@ uses
  , Document_Const
  , AutoreferatDocument_Const
  , k2Facade
+ //#UC START# *4D66AE9800B7impl_uses*
+ //#UC END# *4D66AE9800B7impl_uses*
 ;
 
 constructor Tf1DocumentTagDataFromDTPHandle.Create(aHandle: Cardinal;

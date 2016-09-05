@@ -28,6 +28,8 @@ uses
  , evStylesPrintAndExportFontSizeSettingRes
  , l3Base
  , ddAppConfigConst
+ //#UC START# *DF1A3014EEBCimpl_uses*
+ //#UC END# *DF1A3014EEBCimpl_uses*
 ;
 
 constructor TstevStylesPrintAndExportFontSizeItem.Create(aMasterItem: TddBaseConfigItem = nil);

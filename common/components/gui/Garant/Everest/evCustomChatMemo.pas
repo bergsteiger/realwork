@@ -36,6 +36,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A8A6DD700CCimpl_uses*
+ //#UC END# *4A8A6DD700CCimpl_uses*
 ;
 
 procedure TevCustomChatMemo.InitFields;

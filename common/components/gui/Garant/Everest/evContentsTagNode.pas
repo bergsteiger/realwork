@@ -82,6 +82,8 @@ uses
  , k2Tags
  , k2NullTagImpl
  , nevTools
+ //#UC START# *4DFEF1A701F9impl_uses*
+ //#UC END# *4DFEF1A701F9impl_uses*
 ;
 
 function TevContentsTagNode.pm_GetDocument: Tl3Variant;

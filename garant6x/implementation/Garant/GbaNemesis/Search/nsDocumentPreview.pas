@@ -40,6 +40,8 @@ uses
  , afwFacade
  , nsConst
  , SysUtils
+ //#UC START# *47F22D5701A7impl_uses*
+ //#UC END# *47F22D5701A7impl_uses*
 ;
 
 procedure TnsDocumentPreview.SetEvent(const anEvent: InsDefferedEvent);

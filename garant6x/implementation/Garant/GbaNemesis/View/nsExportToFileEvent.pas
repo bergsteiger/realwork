@@ -31,6 +31,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0B997901E9impl_uses*
+ //#UC END# *4B0B997901E9impl_uses*
 ;
 
 class procedure TnsExportToFileEvent.Log(const aDoc: IDocument);

@@ -30,6 +30,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *468275200341impl_uses*
+ //#UC END# *468275200341impl_uses*
 ;
 
 class function TnsINodeRootWrap.Make(const aNode: INodeBase): Il3SimpleRootNode;

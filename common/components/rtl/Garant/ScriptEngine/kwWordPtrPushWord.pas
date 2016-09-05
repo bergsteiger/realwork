@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4F37AEBB0209impl_uses*
+ //#UC END# *4F37AEBB0209impl_uses*
 ;
 
 procedure TkwWordPtrPushWord.DoDoIt(const aCtx: TtfwContext);

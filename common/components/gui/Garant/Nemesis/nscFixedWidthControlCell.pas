@@ -31,6 +31,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4ACA39B902E9impl_uses*
+ //#UC END# *4ACA39B902E9impl_uses*
 ;
 
 constructor TnscFixedWidthControlCell.Create(aControl: TControl);

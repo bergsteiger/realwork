@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , TtfwClassRef_Proxy
+ //#UC START# *54F47ECF0071impl_uses*
+ //#UC END# *54F47ECF0071impl_uses*
 ;
 
 initialization

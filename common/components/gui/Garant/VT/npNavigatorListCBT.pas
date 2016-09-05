@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , l3ListenersManager
+ //#UC START# *4F61FEEB00A5impl_uses*
+ //#UC END# *4F61FEEB00A5impl_uses*
 ;
 
 procedure TnpNavigatorListCBT.CBTListenerNotify(Code: Integer;

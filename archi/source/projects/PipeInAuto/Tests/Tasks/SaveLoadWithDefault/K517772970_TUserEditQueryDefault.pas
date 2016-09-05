@@ -48,6 +48,8 @@ uses
  {$IfEnd} // Defined(nsTest)
  , l3Filer
  , SysUtils
+ //#UC START# *53197E970012impl_uses*
+ //#UC END# *53197E970012impl_uses*
 ;
 
 function TK517772970_TUserEditQueryDefault.GetTaskClass: TddTaskClass;

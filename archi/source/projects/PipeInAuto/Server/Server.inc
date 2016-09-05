@@ -40,13 +40,13 @@
 {$DEFINE Prime} // Экспорт аннотация для Прайм
 {$DEFINE ExchangeDocs} // Импорт-экспорт внешних дельт
 {$DEFINE ManualExchangeDocs} // ручное создание Дельт
-{$DEFINE MakeSections} // Автоматическая расстановка разделов
+{.$DEFINE MakeSections} // Автоматическая расстановка разделов - устарело: отсутствовали ручки для запуска
 {$DEFINE EveryWeek} // Еженедельное обновление
 {$DEFINE SubDeletedNotify} // Рассылка удаленных меток
 {$DEFINE KWSending} // Рассылка файла ключевых слов
 {$DEFINE DailyImportKW} // Ежедневный импорт ключевых слов
 {$DEFINE CheckPriority} // Обновление таблицы приоритетов
-{.$DEFINE UseCommandFile} // Обновление базы с помощью батника
+{$DEFINE UseCommandFile} // Обновление базы с помощью батника
 {.$DEFINE aiSMSNotify} // уведомление об Автоэкспорте по СМС
 {$DEFINE MDPSyncIntegrated} // интеграция с MDP в качестве Гардока
 {.$DEFINE MDPSyncStandAlone} // интеграция с MDP в качестве Гардока (отдельное приложение)
@@ -85,17 +85,16 @@
 
 {$IFDEF NB_INDEXER}
  // на индексере должен быть обычный сервер, но с обновлением баз с помощью батника
- {$UNDEF debug}                                            
+ {$UNDEF debug}
  {$UNDEF SBRF}
  {$UNDEF LUK}
  {$UNDEF AAC}
  {$UNDEF Region}
  {$UNDEF SGC}
- {$DEFINE UseCommandFile} // <<--- !!!
 {$ENDIF}
 
 {$IFDEF NB_LUK}
- {$UNDEF debug}                                            
+ {$UNDEF debug}
  {$UNDEF SBRF}
  {$DEFINE LUK}
  {$UNDEF AAC}
@@ -139,6 +138,7 @@
  {$UNDEF AutoSP}
  {$UNDEF HavanskyExport} // Экпорт для Пик Пресс (Хаванский)
  {$UNDEF AnoncedExport}
+ {$UNDEF UseCommandFile}
 {$ELSEIF Defined(SBRF)} // Версия для Сбербанка
  {$UNDEF AAC}
  {$UNDEF LUK}
@@ -157,6 +157,7 @@
  {$DEFINE AEByBelongs}
  {$UNDEF HavanskyExport} // Экпорт для Пик Пресс (Хаванский)
  {$UNDEF AnoncedExport}
+ {$UNDEF UseCommandFile}
 {$ELSEIF Defined(LUK)} // Версия для ЛУКойла
  {$UNDEF AAC}
  {$UNDEF SBRF}
@@ -187,6 +188,7 @@
  {$UNDEF AutoAnno}
  {$UNDEF HavanskyExport} // Экпорт для Пик Пресс (Хаванский)
  {$UNDEF AnoncedExport}
+ {$UNDEF UseCommandFile}
 {$ELSEIF Defined(SGC)} // Версия для СтройГазКонсалтинга
  {$UNDEF AAC}
  {$UNDEF LUK}
@@ -217,6 +219,7 @@
  {$UNDEF AutoAnno}
  {$UNDEF HavanskyExport} // Экпорт для Пик Пресс (Хаванский)
  {$UNDEF AnoncedExport}
+ {$UNDEF UseCommandFile}
 {$ELSEIF Defined(AAC)} // версия для Апелляций
  {$UNDEF Region}
  {.$UNDEF Courts}

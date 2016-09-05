@@ -92,6 +92,8 @@ uses
  , l3Nodes
  , l3Types
  , l3TreeInterfaces
+ //#UC START# *4ADDF4470087impl_uses*
+ //#UC END# *4ADDF4470087impl_uses*
 ;
 
 function TnsBaseNode.pm_GetLastChild: Il3Node;

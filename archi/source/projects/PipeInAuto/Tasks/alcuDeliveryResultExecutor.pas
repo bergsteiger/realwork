@@ -59,6 +59,8 @@ uses
  , l3Base
  , evdNcsTypes
  , TypInfo
+ //#UC START# *54759BE1037Aimpl_uses*
+ //#UC END# *54759BE1037Aimpl_uses*
 ;
 
 constructor TalcuDeliveryResultExecutor.Create(aTaskList: TalcuTaskList;

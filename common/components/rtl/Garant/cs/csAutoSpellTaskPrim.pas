@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , AutoSpellTask_Const
+ //#UC START# *53B682E2009Fimpl_uses*
+ //#UC END# *53B682E2009Fimpl_uses*
 ;
 
 class function TcsAutoSpellTaskPrim.GetTaggedDataType: Tk2Type;

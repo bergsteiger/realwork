@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5460B6230039impl_uses*
+ //#UC END# *5460B6230039impl_uses*
 ;
 
 procedure TncsTransporterIOThread.pm_SetIOHandler(aValue: TcsIdIOHandlerAbstractAdapter);

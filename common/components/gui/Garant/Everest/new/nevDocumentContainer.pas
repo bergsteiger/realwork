@@ -407,6 +407,8 @@ uses
  , l3BaseStream
  , k2NullTagImpl
  , k2NilOp
+ //#UC START# *47F0870E0034impl_uses*
+ //#UC END# *47F0870E0034impl_uses*
 ;
 
 type

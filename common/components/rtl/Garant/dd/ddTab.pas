@@ -50,6 +50,8 @@ uses
  , l3Chars
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *51E8CE5402CCimpl_uses*
+ //#UC END# *51E8CE5402CCimpl_uses*
 ;
 
 procedure TddTab.Write2Generator(const Generator: Ik2TagGenerator;

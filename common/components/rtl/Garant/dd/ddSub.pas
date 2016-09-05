@@ -47,6 +47,8 @@ uses
  l3ImplUses
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *5268E523030Dimpl_uses*
+ //#UC END# *5268E523030Dimpl_uses*
 ;
 
 procedure TddSub.Write2Generator(const Generator: Ik2TagGenerator;

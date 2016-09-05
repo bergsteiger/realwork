@@ -69,6 +69,8 @@ uses
  , k2Base
  , k2TagPointer
  , l3Base
+ //#UC START# *4D63C2420229impl_uses*
+ //#UC END# *4D63C2420229impl_uses*
 ;
 
 function Tk2InterfaceFactory.QueryTool(aTag: Tl3Variant;

@@ -33,6 +33,8 @@ uses
  , nsLogManager
  , LoggingUnit
  , LoggingWrapperInterfaces
+ //#UC START# *4B13A069037Aimpl_uses*
+ //#UC END# *4B13A069037Aimpl_uses*
 ;
 
 procedure TnsPrimCachedEvent.RequestWrite;

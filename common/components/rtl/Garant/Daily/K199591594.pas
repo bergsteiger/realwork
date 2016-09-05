@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4BACE34001A1impl_uses*
+ //#UC END# *4BACE34001A1impl_uses*
 ;
 
 procedure TK199591594.DoIt;

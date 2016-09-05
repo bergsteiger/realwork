@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , nsAttributeTreeCacheNew
  , DynamicTreeUnit
+ //#UC START# *4909DC950238impl_uses*
+ //#UC END# *4909DC950238impl_uses*
 ;
 
 class function TnsFirstLevelStruct.Make(const aTag: Il3CString;

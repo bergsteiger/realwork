@@ -23,6 +23,8 @@ implementation
 uses
  l3ImplUses
  , pgInterfaces
+ //#UC START# *5604F2910025impl_uses*
+ //#UC END# *5604F2910025impl_uses*
 ;
 
 procedure pgCheckStatus(aResult: PPGresult);

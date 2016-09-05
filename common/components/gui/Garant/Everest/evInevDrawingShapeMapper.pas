@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , nevRealTools
+ //#UC START# *53D8EF87005Fimpl_uses*
+ //#UC END# *53D8EF87005Fimpl_uses*
 ;
 
 class function TevInevDrawingShapeMapper.Make(aTag: Tl3Variant;

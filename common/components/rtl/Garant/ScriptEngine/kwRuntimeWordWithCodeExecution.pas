@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52D69DF30179impl_uses*
+ //#UC END# *52D69DF30179impl_uses*
 ;
 
 procedure TkwRuntimeWordWithCodeExecution.DoDoIt(const aCtx: TtfwContext);

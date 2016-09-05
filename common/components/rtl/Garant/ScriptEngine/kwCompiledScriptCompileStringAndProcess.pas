@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , tfwStringStreamFactory
+ //#UC START# *56420D5500CCimpl_uses*
+ //#UC END# *56420D5500CCimpl_uses*
 ;
 
 function TkwCompiledScriptCompileStringAndProcess.MakeStream(const aData: AnsiString): TtfwStreamFactory;

@@ -82,6 +82,7 @@ uses
  , deListSet
  , evdHyperlinkInfo
  , afwNavigation
+ , Common_F1CommonServices_Contracts
  , bsUtils
  , BaseTypesUnit
  , bsConvert
@@ -99,6 +100,8 @@ uses
  , deSearchInfo
  , DynamicTreeUnit
  , nsINodeWrap
+ //#UC START# *493D480502CFimpl_uses*
+ //#UC END# *493D480502CFimpl_uses*
 ;
 
 type _Instance_R_ = TdsDocumentWithFlash;

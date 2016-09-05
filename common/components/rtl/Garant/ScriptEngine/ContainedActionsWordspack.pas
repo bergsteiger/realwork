@@ -29,6 +29,9 @@ uses
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *55B8E4140349impl_uses*
+ {$IfDef XE}
+ , System.Actions
+ {$EndIf}
  //#UC END# *55B8E4140349impl_uses*
 ;
 

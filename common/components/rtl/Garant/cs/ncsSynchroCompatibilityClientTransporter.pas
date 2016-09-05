@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , CsConst
+ //#UC START# *54E33DBC0063impl_uses*
+ //#UC END# *54E33DBC0063impl_uses*
 ;
 
 constructor TncsSynchroCompatibilityClientTransporter.Create(aQueryID: TCsQueryId);

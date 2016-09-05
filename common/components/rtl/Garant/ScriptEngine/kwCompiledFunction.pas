@@ -50,6 +50,8 @@ uses
  , l3Base
  , SysUtils
  , tfwClassRef
+ //#UC START# *4F3BEDFE0051impl_uses*
+ //#UC END# *4F3BEDFE0051impl_uses*
 ;
 
 const
@@ -71,12 +73,12 @@ procedure TkwCompiledFunction.DoDoIt(const aCtx: TtfwContext);
 
  procedure DoPushResult;
  var
-  l_V : PtfwStackValue;
+  l_V : TtfwStackValue;
  begin//DoPushResult
   l_V := ResultVar.GetValue(aCtx);
   if (l_V.rType = tfw_vtVoid) then
    RunnerError('Результат функции не инициализирован', aCtx);
-  aCtx.rEngine.Push(l_V^);
+  aCtx.rEngine.Push(l_V);
  end;//DoPushResult
 
 //#UC END# *4DAEEDE10285_4F3BEDFE0051_var*

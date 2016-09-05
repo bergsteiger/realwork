@@ -32,6 +32,8 @@ uses
  , l3String
  , kwString
  , l3Memory
+ //#UC START# *4F3E476202B8impl_uses*
+ //#UC END# *4F3E476202B8impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

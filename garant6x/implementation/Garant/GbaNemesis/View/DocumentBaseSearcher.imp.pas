@@ -11,8 +11,8 @@
  _DocumentBaseSearcher_ = {abstract} class(_DocumentBaseSearcher_Parent_, InsContextSearcher, InsBaseSearchContextProvider, InsBaseSearchVisibleWatcher)
   private
    f_SearchWindowVisible: Boolean;
-   f_SearchArea: TnsSearchArea;
    f_IsPageActive: Boolean;
+   f_SearchArea: TnsSearchArea;
    f_ContextSearcher: IbsBaseDocumentContextSearcher;
   private
    procedure RequestCheckFragmentsCount;
@@ -213,7 +213,7 @@ procedure _DocumentBaseSearcher_.RequestCheckFragmentsCount;
 //#UC END# *4B4EF6A701F4_4B4DB88E01B6_var*
 begin
 //#UC START# *4B4EF6A701F4_4B4DB88E01B6_impl*
- TdmStdRes.BaseSearchCheckFragmentsCount(NativeMainForm);
+ TBaseSearchService.Instance.BaseSearchCheckFragmentsCount(NativeMainForm);
 //#UC END# *4B4EF6A701F4_4B4DB88E01B6_impl*
 end;//_DocumentBaseSearcher_.RequestCheckFragmentsCount
 
@@ -297,7 +297,7 @@ procedure _DocumentBaseSearcher_.Edit_FindContext_Execute(const aParams: IvcmExe
 //#UC END# *49512B5D0009_4B4DB88E01B6exec_var*
 begin
 //#UC START# *49512B5D0009_4B4DB88E01B6exec_impl*
- TdmStdRes.OpenBaseSearch(ns_bsokLocal, nil);
+ TBaseSearchService.Instance.OpenBaseSearch(ns_bsokLocal, nil);
 //#UC END# *49512B5D0009_4B4DB88E01B6exec_impl*
 end;//_DocumentBaseSearcher_.Edit_FindContext_Execute
 {$IfEnd} // NOT Defined(NoVCM)
@@ -324,7 +324,7 @@ begin
  if Assigned(f_ContextSearcher) and f_ContextSearcher.CanContinue then
   Find(Self, nil)
  else
-  TdmStdRes.OpenBaseSearch(ns_bsokLocal,
+  TBaseSearchService.Instance.OpenBaseSearch(ns_bsokLocal,
                            nil);
 //#UC END# *495130C40123_4B4DB88E01B6exec_impl*
 end;//_DocumentBaseSearcher_.Edit_FindNext_Execute
@@ -407,7 +407,7 @@ begin
    else
     TnsSearchInDocumentDoneEvent.Log(DocumentForSearch, aContext.Context,
      ContextSearcher.FragmentsCount);
-   TdmStdRes.BaseSearchCheckFindBack(NativeMainForm);
+   TBaseSearchService.Instance.BaseSearchCheckFindBack(NativeMainForm);
   finally
    l_Visualizer := nil;
   end;
@@ -422,7 +422,7 @@ begin
      Say(inf_SearchFinishedContextNotFound)
     else
     if Ask(qr_SearchFinishedContextNotFoundQ) then
-     TdmStdRes.TryAnotherBaseSearch(NativeMainForm, aProcessor);
+     TBaseSearchService.Instance.TryAnotherBaseSearch(NativeMainForm, aProcessor);
    bsrSearchFinishedAllInHidden:
     Say(inf_SearchFinishedAllInHidden);
   end;//case l_Result of
@@ -646,7 +646,7 @@ begin
    // http://mdp.garant.ru/pages/viewpage.action?pageId=477633558
    TnsSearchInDocumentPrevEvent.Log(DocumentForSearch, aContext.Context);
    l_Result := ContextSearcher.FindBack;
-   TdmStdRes.BaseSearchCheckFindBack(NativeMainForm);
+   TBaseSearchService.Instance.BaseSearchCheckFindBack(NativeMainForm);
   finally
    l_Visualizer := nil;
   end;
@@ -661,7 +661,7 @@ begin
      Say(inf_SearchFinishedContextNotFound)
     else
     if Ask(qr_SearchFinishedContextNotFoundQ) then
-     TdmStdRes.TryAnotherBaseSearch(NativeMainForm, aProcessor);
+     TBaseSearchService.Instance.TryAnotherBaseSearch(NativeMainForm, aProcessor);
    bsrSearchFinishedAllInHidden:
     Say(inf_SearchFinishedAllInHidden);
   end;//case l_Result of

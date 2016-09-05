@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , kwCompiledRules
  , kwStandardProcedureCloseBracket
+ //#UC START# *4F51EC180118impl_uses*
+ //#UC END# *4F51EC180118impl_uses*
 ;
 
 function TkwRULES.EndBracket(const aContext: TtfwContext;

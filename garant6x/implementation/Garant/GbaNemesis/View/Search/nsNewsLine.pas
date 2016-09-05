@@ -106,6 +106,8 @@ uses
  , l3MinMax
  , RTLConsts
  , afwFacade
+ //#UC START# *4C87BD1A0218impl_uses*
+ //#UC END# *4C87BD1A0218impl_uses*
 ;
 
 var g_TnsNewsLine: Pointer = nil;

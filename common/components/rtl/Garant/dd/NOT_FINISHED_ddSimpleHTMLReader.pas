@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *51F0E640000Dimpl_uses*
+ //#UC END# *51F0E640000Dimpl_uses*
 ;
 
 constructor TddSimpleHTMLReader.Create;

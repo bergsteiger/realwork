@@ -13,18 +13,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , DocumentUnit
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , DocumentInterfaces
- , DocumentDomainInterfaces
- , NavigationInterfaces
- , PresentationInterfaces
- , DocumentAndListInterfaces
- {$If NOT Defined(NoVCM)}
- , vcmContainerForm
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -51,31 +39,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class procedure OpenDocument(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-    {* Открывает документ }
-   class function OpenEntityAsDocument(const anEntity: IUnknown;
-    const aContainer: IvcmContainer): IDocument;
-   class function SafeOpenDocument(const aBaseEntity: IUnknown): IDocument;
-   class procedure OpenDocumentWithCheck(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-   class function OpenExternalObject(const aContainer: IvcmContainer;
-    const aData: InsLinkedObjectData): IvcmEntityForm;
-   class function OpenPicture(const aContainer: IvcmContainer;
-    const aData: InsLinkedObjectData): IvcmEntityForm;
-   class function OpenPictureInfo(const aContainer: IvcmContainer;
-    const aData: InsLinkedObjectDescription): IvcmEntityForm;
-   class function OpenTurnOnTimeMachine(const anIntf: InsTurnOnTimeMachine): IvcmEntityForm;
-   class function OpenEditionsListModal(const anEditionsHolder: IsdsEditionsHolder;
-    const anAggregate: IvcmAggregate): IvcmEntityForm;
-   class function MakeBaloonForm(aCaller: TvcmContainerForm;
-    aUserType: TvcmEffectiveUserType;
-    const aWarning: IdsWarning): IvcmEntityForm;
-   class function DocumentShowChangesInfoSetting: Boolean;
-    {* Метод для получения значения настройки "Показывать историю изменений в документе" }
-   class procedure WriteDocumentShowChangesInfoSetting(aValue: Boolean);
-    {* Метод для записи значения настройки "Показывать историю изменений в документе" }
  end;//TDocumentModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -85,27 +48,41 @@ implementation
 uses
  l3ImplUses
  , nsLogEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentAndListInterfaces
+ , DocumentDomainInterfaces
+ , PresentationInterfaces
+ , DocumentInterfaces
  , Document_Strange_Controls
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
- , DocumentShowChangesInfoSettingRes
- , stDocumentShowChangesInfoItem
- , nsManagers
- , sdsDocument
- , sdsDocumentWithFlash
- , BaseTypesUnit
- , deDocInfo
- , SysUtils
  , bsTypesNew
- , nsExternalObjectPrim
- , ExternalObjectUnit
+ , SysUtils
+ , deDocInfo
+ , BaseTypesUnit
+ , sdsDocumentWithFlash
+ , sdsDocument
+ , nsManagers
  , nsConst
- , nsUtils
- , afwFacade
  , nsOpenDocOnNumberData
- , nsTypes
+ , afwFacade
+ , nsUtils
+ , NavigationInterfaces
+ , ExternalObjectUnit
+ , nsExternalObjectPrim
  , LoggingUnit
+ , l3Base
  , DocumentWithFlash_Form
  , Text_Form
  , Redactions_Form
@@ -127,6 +104,7 @@ uses
  , Common_FormDefinitions_Controls
  //#UC START# *498B135601B6impl_uses*
  , StdRes
+ , nsTypes
  //#UC END# *498B135601B6impl_uses*
 ;
 
@@ -136,6 +114,43 @@ type
   public
    class procedure Log(aDocID: Integer);
  end;//TnsOpenDocumentByNumber
+
+ TDocumentServiceImpl = {final} class(TvcmModuleContractImplementation, IDocumentService)
+  public
+   function OpenEntityAsDocument(const anEntity: IUnknown;
+    const aContainer: IvcmContainer): IDocument;
+   function SafeOpenDocument(const aBaseEntity: IUnknown): IDocument;
+   function MakeBaloonForm(aCaller: TvcmContainerForm;
+    aUserType: TvcmEffectiveUserType;
+    const aWarning: IdsWarning): IvcmEntityForm;
+   function OpenEditionsListModal(const anEditionsHolder: IsdsEditionsHolder;
+    const anAggregate: IvcmAggregate): IvcmEntityForm;
+   function OpenExternalObject(const aContainer: IvcmContainer;
+    const aData: InsLinkedObjectData): IvcmEntityForm;
+   function OpenPicture(const aContainer: IvcmContainer;
+    const aData: InsLinkedObjectData): IvcmEntityForm;
+   function OpenPictureInfo(const aContainer: IvcmContainer;
+    const aData: InsLinkedObjectDescription): IvcmEntityForm;
+   function OpenTurnOnTimeMachine(const anIntf: InsTurnOnTimeMachine): IvcmEntityForm;
+   procedure OpenDocument(const aDocInfo: IdeDocInfo;
+    const aContainer: IvcmContainer);
+    {* Открывает документ }
+   procedure OpenDocumentWithCheck(const aDocInfo: IdeDocInfo;
+    const aContainer: IvcmContainer);
+   class function Instance: TDocumentServiceImpl;
+    {* Метод получения экземпляра синглетона TDocumentServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TDocumentServiceImpl
+
+var g_TDocumentServiceImpl: TDocumentServiceImpl = nil;
+ {* Экземпляр синглетона TDocumentServiceImpl }
+
+procedure TDocumentServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TDocumentServiceImpl }
+begin
+ l3Free(g_TDocumentServiceImpl);
+end;//TDocumentServiceImplFree
 
 class procedure TnsOpenDocumentByNumber.Log(aDocID: Integer);
 //#UC START# *4B150AAA0334_4B150A890212_var*
@@ -150,93 +165,16 @@ begin
 //#UC END# *4B150AAA0334_4B150A890212_impl*
 end;//TnsOpenDocumentByNumber.Log
 
-class procedure TDocumentModule.OpenDocument(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
- {* Открывает документ }
-
- procedure CheckAlive;
- //#UC START# *4AA118F20394__var*
- //#UC END# *4AA118F20394__var*
- begin
- //#UC START# *4AA118F20394__impl*
-  if Assigned(aDocInfo.Doc) and not aDocInfo.Doc.IsAlive then
-   raise ETryOpenMissingDocument.Create('');
- //#UC END# *4AA118F20394__impl*
- end;//CheckAlive
-
-var
- __WasEnter : Boolean;
-//#UC START# *4AA11788033F_498B135601B6_var*
-//#UC END# *4AA11788033F_498B135601B6_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AA11788033F_498B135601B6_impl*
- {$IfDef vcmUseProfilers}
- ProfilersManager.Document.Start;
- try
- {$EndIf vcmUseProfilers}
-  case aDocInfo.DocType of
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=482247952
-   DT_DOCUMENT, DT_BOOK, DT_REF:
-    Tfs_Document.Make(TsdsDocument.Make(aDocInfo),
-                      CheckContainer(aContainer));
-   DT_EXPLANATORY:
-   begin
-    CheckAlive;
-    TdmStdRes.OpenDictionary(aDocInfo, CheckContainer(aContainer));
-   end;//DT_EXPLANATORY
-   DT_TIP:
-   begin
-    CheckAlive;
-    TdmStdRes.OpenTip(aDocInfo, CheckContainer(aContainer));
-   end;//DT_TIP
-   DT_MEDICAL_EXPLANATORY:
-   begin
-    CheckAlive;
-    TdmStdRes.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
-   end;//DT_MEDICAL_EXPLANATORY
-   DT_MEDICAL_FIRM:
-   begin
-    CheckAlive;
-    TdmStdRes.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
-   end;//DT_MEDICAL_FIRM
-   DT_MEDICAL_DOCUMENT:
-   begin
-    TdmStdRes.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
-   end;//DT_MEDICAL_DOCUMENT
-   DT_FLASH:
-    Tfs_DocumentWithFlash.Make(TsdsDocumentWithFlash.Make(aDocInfo),
-                               CheckContainer(aContainer));
-   DT_ACTUAL_ANALYTICS:
-    TdmStdRes.MakeAAC(aDocInfo, CheckContainer(aContainer));
-   DT_ACTUAL_ANALYTICS_CONTENTS:
-    TdmStdRes.MakeAACContents(aDocInfo, CheckContainer(aContainer));
-   else
-    Assert(false);
-  end//case l_DocInfo.Doc.GetDocType of
- {$IfDef vcmUseProfilers}
- finally
-  ProfilersManager.Document.FormSetCreated;
- end;//try..finally
- {$EndIf vcmUseProfilers}
-//#UC END# *4AA11788033F_498B135601B6_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TDocumentModule.OpenDocument
-
-class function TDocumentModule.OpenEntityAsDocument(const anEntity: IUnknown;
+function TDocumentServiceImpl.OpenEntityAsDocument(const anEntity: IUnknown;
  const aContainer: IvcmContainer): IDocument;
-var l_Bookmark: IBookmark;
-var l_JBookmark: IJournalBookmark;
-var l_DocInfo: IdeDocInfo;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA1327E0334_498B135601B6_var*
 var
  l_Para : TParaId;
+ l_Bookmark : IBookmark;
+ l_DocInfo : IdeDocInfo;
+ l_JBookmark : IJournalBookmark;
 //#UC END# *4AA1327E0334_498B135601B6_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -284,9 +222,9 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDocumentModule.OpenEntityAsDocument
+end;//TDocumentServiceImpl.OpenEntityAsDocument
 
-class function TDocumentModule.SafeOpenDocument(const aBaseEntity: IUnknown): IDocument;
+function TDocumentServiceImpl.SafeOpenDocument(const aBaseEntity: IUnknown): IDocument;
 var
  __WasEnter : Boolean;
 //#UC START# *4AA13F010182_498B135601B6_var*
@@ -303,28 +241,54 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDocumentModule.SafeOpenDocument
+end;//TDocumentServiceImpl.SafeOpenDocument
 
-class procedure TDocumentModule.OpenDocumentWithCheck(const aDocInfo: IdeDocInfo;
- const aContainer: IvcmContainer);
+function TDocumentServiceImpl.MakeBaloonForm(aCaller: TvcmContainerForm;
+ aUserType: TvcmEffectiveUserType;
+ const aWarning: IdsWarning): IvcmEntityForm;
 var
  __WasEnter : Boolean;
-//#UC START# *4AA4C6090157_498B135601B6_var*
-//#UC END# *4AA4C6090157_498B135601B6_var*
+//#UC START# *4F7D90530076_498B135601B6_var*
+//#UC END# *4F7D90530076_498B135601B6_var*
 begin
  __WasEnter := vcmEnterFactory;
  try
-//#UC START# *4AA4C6090157_498B135601B6_impl*
- if (aDocInfo.Doc.GetDocType <> DT_FLASH) then
-  OpenDocument(aDocInfo, aContainer);
-//#UC END# *4AA4C6090157_498B135601B6_impl*
+//#UC START# *4F7D90530076_498B135601B6_impl*
+  Result := TWarningBaloonForm.Make(vcmMakeParams(nil{f_sdsMainWindow{?}, aCaller, aCaller),
+                                    vcm_ztReminder,
+                                    aUserType,
+                                    nil,
+                                    aWarning);
+//#UC END# *4F7D90530076_498B135601B6_impl*
  finally
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDocumentModule.OpenDocumentWithCheck
+end;//TDocumentServiceImpl.MakeBaloonForm
 
-class function TDocumentModule.OpenExternalObject(const aContainer: IvcmContainer;
+function TDocumentServiceImpl.OpenEditionsListModal(const anEditionsHolder: IsdsEditionsHolder;
+ const anAggregate: IvcmAggregate): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
+//#UC START# *4ED90DDC00A5_498B135601B6_var*
+//#UC END# *4ED90DDC00A5_498B135601B6_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ED90DDC00A5_498B135601B6_impl*
+ Result := TRedactionsForm.Make(vcmMakeParams(anAggregate, CheckContainer(nil)),
+                                vcm_ztModal,
+                                0,
+                                nil,
+                                anEditionsHolder.EditionsList);
+//#UC END# *4ED90DDC00A5_498B135601B6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TDocumentServiceImpl.OpenEditionsListModal
+
+function TDocumentServiceImpl.OpenExternalObject(const aContainer: IvcmContainer;
  const aData: InsLinkedObjectData): IvcmEntityForm;
 var
  __WasEnter : Boolean;
@@ -354,9 +318,9 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDocumentModule.OpenExternalObject
+end;//TDocumentServiceImpl.OpenExternalObject
 
-class function TDocumentModule.OpenPicture(const aContainer: IvcmContainer;
+function TDocumentServiceImpl.OpenPicture(const aContainer: IvcmContainer;
  const aData: InsLinkedObjectData): IvcmEntityForm;
 var
  __WasEnter : Boolean;
@@ -378,9 +342,9 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDocumentModule.OpenPicture
+end;//TDocumentServiceImpl.OpenPicture
 
-class function TDocumentModule.OpenPictureInfo(const aContainer: IvcmContainer;
+function TDocumentServiceImpl.OpenPictureInfo(const aContainer: IvcmContainer;
  const aData: InsLinkedObjectDescription): IvcmEntityForm;
 var
  __WasEnter : Boolean;
@@ -396,11 +360,134 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TDocumentModule.OpenPictureInfo
+end;//TDocumentServiceImpl.OpenPictureInfo
+
+function TDocumentServiceImpl.OpenTurnOnTimeMachine(const anIntf: InsTurnOnTimeMachine): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
+//#UC START# *4B26253C0205_498B135601B6_var*
+//#UC END# *4B26253C0205_498B135601B6_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4B26253C0205_498B135601B6_impl*
+ Result := Ten_TurnOnTimeMachine.Make(anIntf);
+//#UC END# *4B26253C0205_498B135601B6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TDocumentServiceImpl.OpenTurnOnTimeMachine
+
+procedure TDocumentServiceImpl.OpenDocument(const aDocInfo: IdeDocInfo;
+ const aContainer: IvcmContainer);
+ {* Открывает документ }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AA11788033F_498B135601B6_var*
+ procedure CheckAlive;
+ begin
+  if Assigned(aDocInfo.Doc) and not aDocInfo.Doc.IsAlive then
+   raise ETryOpenMissingDocument.Create('');
+ end;//CheckAlive
+//#UC END# *4AA11788033F_498B135601B6_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AA11788033F_498B135601B6_impl*
+ {$IfDef vcmUseProfilers}
+ ProfilersManager.Document.Start;
+ try
+ {$EndIf vcmUseProfilers}
+  case aDocInfo.DocType of
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=482247952
+   DT_DOCUMENT, DT_BOOK, DT_REF:
+    Tfs_Document.Make(TsdsDocument.Make(aDocInfo),
+                      CheckContainer(aContainer));
+   DT_EXPLANATORY:
+   begin
+    CheckAlive;
+    TDictionService.Instance.OpenDictionary(aDocInfo, CheckContainer(aContainer));
+   end;//DT_EXPLANATORY
+   DT_TIP:
+   begin
+    CheckAlive;
+    TDayTipsService.Instance.OpenTip(aDocInfo, CheckContainer(aContainer));
+   end;//DT_TIP
+   DT_MEDICAL_EXPLANATORY:
+   begin
+    CheckAlive;
+    TInpharmService.Instance.OpenMedicDiction(aDocInfo, CheckContainer(aContainer));
+   end;//DT_MEDICAL_EXPLANATORY
+   DT_MEDICAL_FIRM:
+   begin
+    CheckAlive;
+    TInpharmService.Instance.OpenMedicFirmDocument(aDocInfo, CheckContainer(aContainer));
+   end;//DT_MEDICAL_FIRM
+   DT_MEDICAL_DOCUMENT:
+   begin
+    TInpharmService.Instance.OpenDrugDocument(aDocInfo, CheckContainer(aContainer));
+   end;//DT_MEDICAL_DOCUMENT
+   DT_FLASH:
+    Tfs_DocumentWithFlash.Make(TsdsDocumentWithFlash.Make(aDocInfo),
+                               CheckContainer(aContainer));
+   DT_ACTUAL_ANALYTICS:
+    TAACService.Instance.MakeAAC(aDocInfo, CheckContainer(aContainer));
+   DT_ACTUAL_ANALYTICS_CONTENTS:
+    TAACService.Instance.MakeAACContents(aDocInfo, CheckContainer(aContainer));
+   else
+    Assert(false);
+  end//case l_DocInfo.Doc.GetDocType of
+ {$IfDef vcmUseProfilers}
+ finally
+  ProfilersManager.Document.FormSetCreated;
+ end;//try..finally
+ {$EndIf vcmUseProfilers}
+//#UC END# *4AA11788033F_498B135601B6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TDocumentServiceImpl.OpenDocument
+
+procedure TDocumentServiceImpl.OpenDocumentWithCheck(const aDocInfo: IdeDocInfo;
+ const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4AA4C6090157_498B135601B6_var*
+//#UC END# *4AA4C6090157_498B135601B6_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AA4C6090157_498B135601B6_impl*
+ if (aDocInfo.Doc.GetDocType <> DT_FLASH) then
+  OpenDocument(aDocInfo, aContainer);
+//#UC END# *4AA4C6090157_498B135601B6_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TDocumentServiceImpl.OpenDocumentWithCheck
+
+class function TDocumentServiceImpl.Instance: TDocumentServiceImpl;
+ {* Метод получения экземпляра синглетона TDocumentServiceImpl }
+begin
+ if (g_TDocumentServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TDocumentServiceImplFree);
+  g_TDocumentServiceImpl := Create;
+ end;
+ Result := g_TDocumentServiceImpl;
+end;//TDocumentServiceImpl.Instance
+
+class function TDocumentServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TDocumentServiceImpl <> nil;
+end;//TDocumentServiceImpl.Exists
 
 procedure TDocumentModule.opOpenDocOnNumberTest(const aParams: IvcmTestParamsPrim);
  {* Открыть документ по номеру }
-var l_Data: InsOpenDocOnNumberData;
 //#UC START# *4AB133720122_498B135601B6test_var*
 //#UC END# *4AB133720122_498B135601B6test_var*
 begin
@@ -411,8 +498,9 @@ end;//TDocumentModule.opOpenDocOnNumberTest
 
 procedure TDocumentModule.opOpenDocOnNumberExecute(const aParams: IvcmExecuteParamsPrim);
  {* Открыть документ по номеру }
-var l_Data: InsOpenDocOnNumberData;
 //#UC START# *4AB133720122_498B135601B6exec_var*
+var
+ l_Data : InsOpenDocOnNumberData;
 //#UC END# *4AB133720122_498B135601B6exec_var*
 begin
 //#UC START# *4AB133720122_498B135601B6exec_impl*
@@ -456,92 +544,6 @@ begin
 //#UC END# *4AB133720122_498B135601B6exec_impl*
 end;//TDocumentModule.opOpenDocOnNumberExecute
 
-class function TDocumentModule.OpenTurnOnTimeMachine(const anIntf: InsTurnOnTimeMachine): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4B26253C0205_498B135601B6_var*
-//#UC END# *4B26253C0205_498B135601B6_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4B26253C0205_498B135601B6_impl*
- Result := Ten_TurnOnTimeMachine.Make(anIntf);
-//#UC END# *4B26253C0205_498B135601B6_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TDocumentModule.OpenTurnOnTimeMachine
-
-class function TDocumentModule.OpenEditionsListModal(const anEditionsHolder: IsdsEditionsHolder;
- const anAggregate: IvcmAggregate): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4ED90DDC00A5_498B135601B6_var*
-//#UC END# *4ED90DDC00A5_498B135601B6_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ED90DDC00A5_498B135601B6_impl*
- Result := TRedactionsForm.Make(vcmMakeParams(anAggregate, CheckContainer(nil)),
-                                vcm_ztModal,
-                                0,
-                                nil,
-                                anEditionsHolder.EditionsList);
-//#UC END# *4ED90DDC00A5_498B135601B6_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TDocumentModule.OpenEditionsListModal
-
-class function TDocumentModule.MakeBaloonForm(aCaller: TvcmContainerForm;
- aUserType: TvcmEffectiveUserType;
- const aWarning: IdsWarning): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4F7D90530076_498B135601B6_var*
-//#UC END# *4F7D90530076_498B135601B6_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4F7D90530076_498B135601B6_impl*
-  Result := TWarningBaloonForm.Make(vcmMakeParams(nil{f_sdsMainWindow{?}, aCaller, aCaller),
-                                    vcm_ztReminder,
-                                    aUserType,
-                                    nil,
-                                    aWarning);
-//#UC END# *4F7D90530076_498B135601B6_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TDocumentModule.MakeBaloonForm
-
-class function TDocumentModule.DocumentShowChangesInfoSetting: Boolean;
- {* Метод для получения значения настройки "Показывать историю изменений в документе" }
-//#UC START# *F439A1EC5B50_498B135601B6_var*
-//#UC END# *F439A1EC5B50_498B135601B6_var*
-begin
-//#UC START# *F439A1EC5B50_498B135601B6_impl*
- if (afw.Settings = nil) then
-  Result := dv_Document_ShowChangesInfo
- else
-  Result := afw.Settings.LoadBoolean(pi_Document_ShowChangesInfo, dv_Document_ShowChangesInfo);
-//#UC END# *F439A1EC5B50_498B135601B6_impl*
-end;//TDocumentModule.DocumentShowChangesInfoSetting
-
-class procedure TDocumentModule.WriteDocumentShowChangesInfoSetting(aValue: Boolean);
- {* Метод для записи значения настройки "Показывать историю изменений в документе" }
-//#UC START# *81ECFA778427_498B135601B6_var*
-//#UC END# *81ECFA778427_498B135601B6_var*
-begin
-//#UC START# *81ECFA778427_498B135601B6_impl*
- if (afw.Settings <> nil) then
-  afw.Settings.SaveBoolean(pi_Document_ShowChangesInfo, aValue);
-//#UC END# *81ECFA778427_498B135601B6_impl*
-end;//TDocumentModule.WriteDocumentShowChangesInfoSetting
-
 procedure TDocumentModule.Loaded;
 begin
  inherited;
@@ -568,6 +570,10 @@ begin
  aList.Add(TUserCR1_WarningBaloonForm);
  aList.Add(TUserCR2_WarningBaloonForm);
 end;//TDocumentModule.GetEntityForms
+
+initialization
+ TDocumentService.Instance.Alien := TDocumentServiceImpl.Instance;
+ {* Регистрация TDocumentServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

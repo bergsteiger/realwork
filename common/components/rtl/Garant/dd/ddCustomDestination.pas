@@ -42,6 +42,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *51E9189F024Dimpl_uses*
+ //#UC END# *51E9189F024Dimpl_uses*
 ;
 
 function TddCustomDestination.pm_GetLiteVersion: Boolean;

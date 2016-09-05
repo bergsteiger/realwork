@@ -73,7 +73,7 @@ procedure gApplyDictModifyFile(aDMFileName : TFileName);
  const
   cLevelSlash : AnsiString = '\';
   cDictIDStr : AnsiString = 'Dict=';
-  cFamily : TFamilyID = 1;
+  cFamily : TdaFamilyID = 1;
 
  var
   lLevelSlashLength : integer;

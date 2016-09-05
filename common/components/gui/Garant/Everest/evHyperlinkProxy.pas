@@ -66,6 +66,8 @@ implementation
 uses
  l3ImplUses
  , l3InterfacesMisc
+ //#UC START# *4E1DD7720136impl_uses*
+ //#UC END# *4E1DD7720136impl_uses*
 ;
 
 constructor TevHyperlinkProxy.Create(const aLink: IevHyperlink);

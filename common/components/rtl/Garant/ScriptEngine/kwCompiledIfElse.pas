@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5284E9510053impl_uses*
+ //#UC END# *5284E9510053impl_uses*
 ;
 
 constructor TkwCompiledIfElse.Create(aCondition: TtfwWord;

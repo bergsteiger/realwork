@@ -51,6 +51,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *503C650202E5impl_uses*
+ //#UC END# *503C650202E5impl_uses*
 ;
 
 procedure TkwPopEditorDP2LP.DoWithEditor(const aCtx: TtfwContext;

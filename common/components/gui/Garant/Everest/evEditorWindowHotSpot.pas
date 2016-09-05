@@ -159,6 +159,8 @@ uses
  , evExcept
  , Classes
  , l3Variant
+ //#UC START# *48E229CC03DFimpl_uses*
+ //#UC END# *48E229CC03DFimpl_uses*
 ;
 
 function TevEditorWindowHotSpot.pm_GetStartMark: InevPoint;

@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *4804CC63006Cimpl_uses*
+ //#UC END# *4804CC63006Cimpl_uses*
 ;
 
 procedure TevFormulaPainter.DoFillSelection;

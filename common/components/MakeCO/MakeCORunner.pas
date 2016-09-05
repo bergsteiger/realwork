@@ -24,6 +24,8 @@ uses
  l3ImplUses
  , tfwCOMaker
  , SysUtils
+ //#UC START# *55C1F539010Fimpl_uses*
+ //#UC END# *55C1F539010Fimpl_uses*
 ;
 
 class procedure TMakeCORunner.Run;

@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55DC8B5A02CDimpl_uses*
+ //#UC END# *55DC8B5A02CDimpl_uses*
 ;
 
 type _Instance_R_ = TsegObjectList;

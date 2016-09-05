@@ -30,6 +30,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52E271D60114impl_uses*
+ //#UC END# *52E271D60114impl_uses*
 ;
 
 procedure TtfwRevertedArrayView.DoForEach(aLambda: TtfwWordPrim;

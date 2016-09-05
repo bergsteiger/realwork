@@ -125,6 +125,8 @@ uses
  , l3String
  , SysUtils
  , l3Base
+ //#UC START# *4D5A701702B4impl_uses*
+ //#UC END# *4D5A701702B4impl_uses*
 ;
 
 var g_TShowVersionCommentsMapImpl: Pointer = nil;

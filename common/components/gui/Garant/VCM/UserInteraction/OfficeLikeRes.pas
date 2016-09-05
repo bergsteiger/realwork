@@ -28,7 +28,6 @@ uses
  , moToolbarMenu
  , vcmBaseOperationsCollectionItem
  , vcmUserControls
- , PrimToolbarMenu_Module
  , OfficeLikeMain_Form
  , evExtFormat
  //#UC START# *4ADDCE970294impl_uses*

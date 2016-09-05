@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5731ECF2038Dimpl_uses*
+ //#UC END# *5731ECF2038Dimpl_uses*
 ;
 
 var g_TtfwTypesForRegister: TtfwTypesForRegister = nil;

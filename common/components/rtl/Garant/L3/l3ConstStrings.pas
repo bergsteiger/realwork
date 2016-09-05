@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4BA2214002EEimpl_uses*
+ //#UC END# *4BA2214002EEimpl_uses*
 ;
 
 var g_Tl3ConstStrings: Tl3ConstStrings = nil;

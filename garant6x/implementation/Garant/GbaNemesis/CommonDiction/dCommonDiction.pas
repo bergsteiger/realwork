@@ -43,6 +43,8 @@ uses
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Utils
+ //#UC START# *4B220E9B0348impl_uses*
+ //#UC END# *4B220E9B0348impl_uses*
 ;
 
 type _Instance_R_ = TdCommonDiction;

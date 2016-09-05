@@ -38,6 +38,8 @@ uses
  , vgRemindersLineManager
  , SysUtils
  , l3Base
+ //#UC START# *5417C7F502CDimpl_uses*
+ //#UC END# *5417C7F502CDimpl_uses*
 ;
 
 var g_TvgRemindersLineTabbedContainerNotificationProxy: TvgRemindersLineTabbedContainerNotificationProxy = nil;

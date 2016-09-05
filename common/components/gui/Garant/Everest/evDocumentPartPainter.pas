@@ -83,6 +83,8 @@ uses
  , l3InternalInterfaces
  , evTextStyle_Const
  , nevTools
+ //#UC START# *49DB1B70013Fimpl_uses*
+ //#UC END# *49DB1B70013Fimpl_uses*
 ;
 
 const

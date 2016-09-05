@@ -170,6 +170,8 @@ uses
  , l3String
  , SysUtils
  , l3Base
+ //#UC START# *4B97B148028Bimpl_uses*
+ //#UC END# *4B97B148028Bimpl_uses*
 ;
 
 var g_TWordPositionNamesMapImpl: Pointer = nil;

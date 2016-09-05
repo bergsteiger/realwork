@@ -1,9 +1,12 @@
 unit SewerPipe;
 
 
-{ $Id: SewerPipe.pas,v 1.184 2015/11/25 14:01:52 lukyanets Exp $ }
+{ $Id: SewerPipe.pas,v 1.185 2016/06/16 05:40:13 lukyanets Exp $ }
 
 // $Log: SewerPipe.pas,v $
+// Revision 1.185  2016/06/16 05:40:13  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.184  2015/11/25 14:01:52  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -180,7 +183,7 @@ unit SewerPipe;
 // Реализовать автоэкспорт документов (268338975)
 //
 // Revision 1.128  2011/06/10 12:49:16  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.127  2011/04/11 10:25:05  narry
 // Названия для ФАС (259885290)

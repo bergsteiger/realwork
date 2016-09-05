@@ -108,6 +108,8 @@ uses
  , SysUtils
  , l3Printer
  , l3Base
+ //#UC START# *47DF8F0402F7impl_uses*
+ //#UC END# *47DF8F0402F7impl_uses*
 ;
 
 procedure TafwComplexDocumentPreview.CheckPrinter(aKind: TafwPreviewContentKind);

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   TabBBtnDlg, StdCtrls, vtSpin, ComCtrls, Buttons, ExtCtrls,
-  Dt_Types, DT_Const, Dt_Dict, Mask, vtCombo, vtDateEdit, BottomBtnDlg;
+  daTypes, DT_Const, Dt_Dict, Mask, vtCombo, vtDateEdit, BottomBtnDlg;
 
 type
   TReplaceNextEditionDlg = class(TBottomBtnDlg)
@@ -27,7 +27,7 @@ type
     procedure sbChangingDocIDNameClick(Sender: TObject);
     procedure sbChangeDocIDNameClick(Sender: TObject);
   private
-   fFamily : TFamilyID;
+    fFamily : TdaFamilyID;
     //function GetChangeDocNum : string;
 
   public
@@ -38,7 +38,7 @@ type
     procedure SyncroNextEditionDocID;
     procedure SyncroCurEdittionDocID;
 
-    function Execute(aFamily : TFamilyID) : boolean; reintroduce;
+    function Execute(aFamily : TdaFamilyID) : boolean; reintroduce;
     //property ChangeDocNum : String read GetChangeDocNum;
   end;
 
@@ -55,7 +55,7 @@ uses
  vtDialogs,
  Main, dt_DictTypes;
 
-function TReplaceNextEditionDlg.Execute(aFamily : TFamilyID) : boolean;
+function TReplaceNextEditionDlg.Execute(aFamily : TdaFamilyID) : boolean;
  begin
   fFamily := aFamily;
   {edtChangingDocID.Value := 674493;

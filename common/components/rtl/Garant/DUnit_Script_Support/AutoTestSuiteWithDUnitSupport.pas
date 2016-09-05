@@ -27,6 +27,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , kwKeyWordsPack
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *51307830007Eimpl_uses*
+ //#UC END# *51307830007Eimpl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 

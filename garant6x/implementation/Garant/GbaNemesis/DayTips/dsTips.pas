@@ -70,6 +70,8 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ //#UC START# *49254BC1019Cimpl_uses*
+ //#UC END# *49254BC1019Cimpl_uses*
 ;
 
 type _Instance_R_ = TdsTips;

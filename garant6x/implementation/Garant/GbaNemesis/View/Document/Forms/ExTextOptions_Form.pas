@@ -356,6 +356,8 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4C7F801D0304impl_uses*
+ , Common_F1CommonServices_Contracts
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4C7F801D0304impl_uses*
 ;
 
@@ -1072,7 +1074,7 @@ procedure TExTextOptionsForm.SetActualRedaction;
 begin
 //#UC START# *4AE73936003E_4C7F801D0304_impl*
  if Assigned(dsDocument) and Assigned(dsDocument.DocInfo) then
-  if not TdmStdRes.IsCurEditionActual(dsDocument.DocInfo.Doc) then
+  if not TCommonService.Instance.IsCurEditionActual(dsDocument.DocInfo.Doc) then
    ReloadRedaction(crtActual)
   else
   if (UserType = dftDocument) and
@@ -1279,7 +1281,7 @@ begin
   // http://mdp.garant.ru/pages/viewpage.action?pageId=414849606
   if (l_Cont <> nil) then
   try
-   TdmStdRes.OpenDocument(ViewArea.NewDocInfo(CurrentParaPos),
+   TDocumentService.Instance.OpenDocument(ViewArea.NewDocInfo(CurrentParaPos),
                           l_Cont);
   finally
    l_Cont := nil;
@@ -1374,7 +1376,7 @@ begin
  if Assigned(Document) then
   with defDataAdapter.TimeMachine do
    aParams.Op.Flag[vcm_ofVisible] := not HasNotSureWarning(Document) and
-    not IsOn and not TdmStdRes.IsCurEditionActual(Document);
+    not IsOn and not TCommonService.Instance.IsCurEditionActual(Document);
 //#UC END# *4C7FACCE013F_4C7F801D0304test_impl*
 end;//TExTextOptionsForm.Reminder_RemWarnRedaction_Test
 
@@ -1551,11 +1553,11 @@ procedure TExTextOptionsForm.Document_ChangesButton_Test(const aParams: IvcmTest
    f_DocOpsList := TvcmItems.Make;
   if (f_DocOpsList.Count = 0) then
   begin
-   f_DocOpsList.AddOp(TdmStdRes.opcode_Document_CompareEditions);
-   f_DocOpsList.AddOp(TdmStdRes.opcode_Document_ViewChangedFragments, str_ViewChangesOpName.AsCStr);
-   f_DocOpsList.AddOp(TdmStdRes.opcode_TimeMachine_TimeMachineOnOffNew, vcmCStr(str_TimeMachineOp));
-   f_DocOpsList.AddOp(TdmStdRes.opcode_Redactions_OpenRedactionListFrmAct);
-   f_DocOpsList.AddOp(TdmStdRes.opcode_Document_ShowVersionComments, vcmCStr(str_ShowVersionCommentsOp));
+   f_DocOpsList.AddOp(opcode_Document_CompareEditions);
+   f_DocOpsList.AddOp(opcode_Document_ViewChangedFragments, str_ViewChangesOpName.AsCStr);
+   f_DocOpsList.AddOp(opcode_TimeMachine_TimeMachineOnOffNew, vcmCStr(str_TimeMachineOp));
+   f_DocOpsList.AddOp(opcode_Redactions_OpenRedactionListFrmAct);
+   f_DocOpsList.AddOp(opcode_Document_ShowVersionComments, vcmCStr(str_ShowVersionCommentsOp));
   end;//f_DocOpsList.Count = 0
   Result := f_DocOpsList;
  end;//lp_MakeAvailableOps
@@ -1927,29 +1929,32 @@ begin
  begin
   if UserType in [dftDocument, dftDictEntry, dftMedDictEntry, dftDrug] then
   begin
-    // ничего не делаем 
+    // ничего не делаем
   end
   else
-  if (not aForClone) and
-     (UserType = dftConsultation) and Assigned(ViewArea)
-     and (Consultation <> nil) and Consultation.NeedGiveMark
-     and (not f_HyperlinkCallStatus)
-     and Ask(qr_CloseUnmarkedConsultation) then
-  begin
-   l_OldCanRefresh := Consultation.FormSet.CanRefresh;
-   Consultation.FormSet.PushFromHistory;
-   try
-    Consultation.GiveMark;
-   finally
-    with Consultation.FormSet do
-     if l_OldCanRefresh then
-      PushFromHistory
-     else
-      PopToHistory;
-   end;//try..finally
-  end;//UserType = dftConsultation) and Assigned(ViewArea)..
+   with Tl3TabbedContainersDispatcher.Instance do
+    if ((not aForClone) or IsTabClosing(GetFormTab(NativeMainForm.AsForm.VCLWinControl as TForm)))
+      and (UserType = dftConsultation)
+      and Assigned(ViewArea)
+      and (Consultation <> nil)
+      and Consultation.NeedGiveMark
+      and (not f_HyperlinkCallStatus)
+      and Ask(qr_CloseUnmarkedConsultation) then
+    begin
+     l_OldCanRefresh := Consultation.FormSet.CanRefresh;
+     Consultation.FormSet.PushFromHistory;
+     try
+      Consultation.GiveMark;
+     finally
+      with Consultation.FormSet do
+       if l_OldCanRefresh then
+        PushFromHistory
+       else
+        PopToHistory;
+     end; //try..finally
+    end; //UserType = dftConsultation) and Assigned(ViewArea)..
   f_HyperlinkCallStatus := false; // сбрасываем, чтобы не сохранять на следующий раз
- end;//aStateType = vcm_stContent
+ end; //aStateType = vcm_stContent
 //#UC END# *4B4F49900003_4C7F801D0304_impl*
 end;//TExTextOptionsForm.SaveOwnFormState
 {$IfEnd} // NOT Defined(NoVCM)

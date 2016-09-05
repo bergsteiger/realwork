@@ -35,6 +35,8 @@ uses
  , evConst
  , l3Units
  , evdTypes
+ //#UC START# *4A3911C50154impl_uses*
+ //#UC END# *4A3911C50154impl_uses*
 ;
 
 procedure TevTextParaRightIndentMarker.SetClientValue(aValue: Integer;

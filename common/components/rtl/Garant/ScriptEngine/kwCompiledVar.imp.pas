@@ -20,7 +20,7 @@
   public
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
-   function GetValue(const aCtx: TtfwContext): PtfwStackValue; override;
+   function GetValue(const aCtx: TtfwContext): TtfwStackValue; override;
    function IsVarLike: Boolean; override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
@@ -44,16 +44,21 @@ procedure _kwCompiledVar_.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_52D3E2EE0244_var*
 begin
 //#UC START# *4DAEEDE10285_52D3E2EE0244_impl*
- aCtx.rEngine.Push(f_Value);
+ TtfwThreadVar.Instance.PushValue(Self, @f_Value, aCtx);
 //#UC END# *4DAEEDE10285_52D3E2EE0244_impl*
 end;//_kwCompiledVar_.DoDoIt
 
 procedure _kwCompiledVar_.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52D3E2EE0244_var*
+//var
+// l_V : PtfwStackValue;
 //#UC END# *479731C50290_52D3E2EE0244_var*
 begin
 //#UC START# *479731C50290_52D3E2EE0244_impl*
+ //l_V := TtfwThreadVar.Instance.Check(Self, @f_Value);
+ //Finalize(l_V^);
+ //l3FillChar(l_V^, SizeOf(l_V^));
  Finalize(f_Value);
  l3FillChar(f_Value, SizeOf(f_Value));
  f_TypeInfo := nil;
@@ -79,16 +84,16 @@ procedure _kwCompiledVar_.SetValuePrim(const aValue: TtfwStackValue;
 //#UC END# *52D00B00031A_52D3E2EE0244_var*
 begin
 //#UC START# *52D00B00031A_52D3E2EE0244_impl*
- f_Value := aValue;
+ TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
 //#UC END# *52D00B00031A_52D3E2EE0244_impl*
 end;//_kwCompiledVar_.SetValuePrim
 
-function _kwCompiledVar_.GetValue(const aCtx: TtfwContext): PtfwStackValue;
+function _kwCompiledVar_.GetValue(const aCtx: TtfwContext): TtfwStackValue;
 //#UC START# *52D399A00173_52D3E2EE0244_var*
 //#UC END# *52D399A00173_52D3E2EE0244_var*
 begin
 //#UC START# *52D399A00173_52D3E2EE0244_impl*
- Result := @f_Value;
+ Result := TtfwThreadVar.Instance.GetValue(Self, @f_Value);
 //#UC END# *52D399A00173_52D3E2EE0244_impl*
 end;//_kwCompiledVar_.GetValue
 

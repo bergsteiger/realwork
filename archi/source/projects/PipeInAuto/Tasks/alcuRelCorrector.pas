@@ -1,9 +1,12 @@
 unit alcuRelCorrector;
 { Задача, добавляющая информацию о публикации в справку }
 
-{ $Id: alcuRelCorrector.pas,v 1.17 2016/03/16 11:00:31 lukyanets Exp $ }
+{ $Id: alcuRelCorrector.pas,v 1.18 2016/06/16 05:38:37 lukyanets Exp $ }
 
 // $Log: alcuRelCorrector.pas,v $
+// Revision 1.18  2016/06/16 05:38:37  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.17  2016/03/16 11:00:31  lukyanets
 // Похоже портим экземпляр Exception
 //
@@ -82,7 +85,7 @@ interface
 {$I ddDefine.inc}
 
 uses
-  csProcessTask, ddProgressObj, DT_Types, csImport,
+  csProcessTask, ddProgressObj, daTypes, csImport,
 
   csTaskResult,
 
@@ -111,7 +114,7 @@ type
   function AllowSimultaneousRun: Boolean; override;
  public
   class function CanAsyncRun: Boolean; override;
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   property TaskResult: TalcuRelPublishTaskResult read pm_GetTaskResult;
  end;//TalcuRelPublishTask
 
@@ -134,7 +137,7 @@ begin
   Result := True;
 end;
 
-constructor TalcuRelPublishTask.Create(aUserID: TUserID);
+constructor TalcuRelPublishTask.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType:= cs_ttRelPublish;

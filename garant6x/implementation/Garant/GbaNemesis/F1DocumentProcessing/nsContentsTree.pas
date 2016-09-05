@@ -80,6 +80,8 @@ uses
  , k2Facade
  , LeafParaDecorationsHolder_Const
  , k2Empty_Const
+ //#UC START# *4683630000A0impl_uses*
+ //#UC END# *4683630000A0impl_uses*
 ;
 
 constructor TnsContentsTree.Create(const aRoot: INodeBase;

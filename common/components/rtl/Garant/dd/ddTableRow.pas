@@ -139,6 +139,8 @@ uses
  , Math
  , ddBase
  , ddEVDTypesSupport
+ //#UC START# *4FACE1370377impl_uses*
+ //#UC END# *4FACE1370377impl_uses*
 ;
 
 procedure TddTableRow.pm_SetTAP(aValue: TddRowProperty);

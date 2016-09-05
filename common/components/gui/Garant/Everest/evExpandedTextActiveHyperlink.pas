@@ -27,6 +27,8 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ //#UC START# *55F7C7400251impl_uses*
+ //#UC END# *55F7C7400251impl_uses*
 ;
 
 function TevExpandedTextActiveHyperlink.DoIsSame(const anElement: InevActiveElement): Boolean;

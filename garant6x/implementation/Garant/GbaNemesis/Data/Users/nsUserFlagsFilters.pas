@@ -41,6 +41,8 @@ uses
  , nsUserFlagsFilter
  , SysUtils
  , nsGroupFilter
+ //#UC START# *4901E95F019Dimpl_uses*
+ //#UC END# *4901E95F019Dimpl_uses*
 ;
 
 function TnsUserFlagsFilters.pm_GetUserFlags: InsUserFlagsFilter;

@@ -3,9 +3,12 @@ unit CustomizeTools_Form;
 { Библиотека "vcm"        }
 { Модуль: vcmCustomizeTools - }
 { Начат: 23.07.2003 21:04 }
-{ $Id: CustomizeTools_Form.pas,v 1.33 2016/05/25 11:44:16 lulin Exp $ }
+{ $Id: CustomizeTools_Form.pas,v 1.34 2016/09/01 16:58:28 kostitsin Exp $ }
 
 // $Log: CustomizeTools_Form.pas,v $
+// Revision 1.34  2016/09/01 16:58:28  kostitsin
+// {requestlink: 600322829 }
+//
 // Revision 1.33  2016/05/25 11:44:16  lulin
 // - перегенерация.
 //
@@ -2631,7 +2634,7 @@ begin
  if (vcmShowMessageDlg(Tl3Message_C(str_vcmAskResoreToolbar,
                                     mtConfirmation,
                                     [mbYes, mbNo])) <> mrYes) then
-  exit;
+  Exit;
 
  afw.ProcessMessages;
  l_OldCursor := Screen.Cursor;

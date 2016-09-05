@@ -31,6 +31,8 @@ uses
  , nsLogManager
  , LoggingUnit
  , LoggingWrapperInterfaces
+ //#UC START# *527CD1B702B4impl_uses*
+ //#UC END# *527CD1B702B4impl_uses*
 ;
 
 class procedure TnsTryingToOpenMissingDocumentFromLinkEvent.Log(const aTopic: TTopic);

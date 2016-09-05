@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , evParaString
  , SysUtils
+ //#UC START# *4E71FC4D02BFimpl_uses*
+ //#UC END# *4E71FC4D02BFimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}

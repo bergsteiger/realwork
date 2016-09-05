@@ -77,6 +77,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4DE632EF020Bimpl_uses*
+ //#UC END# *4DE632EF020Bimpl_uses*
 ;
 
 class function TkwArchiCloseDocument.GetWordNameForRegister: AnsiString;

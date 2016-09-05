@@ -42,6 +42,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *490C3BE30324impl_uses*
+ //#UC END# *490C3BE30324impl_uses*
 ;
 
 procedure TmmmTree.AddItem(const aRoot: Il3RootNode;

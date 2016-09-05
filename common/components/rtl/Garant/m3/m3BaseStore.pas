@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , ActiveX
+ //#UC START# *5481CBFC03B6impl_uses*
+ //#UC END# *5481CBFC03B6impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas}

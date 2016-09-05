@@ -38,6 +38,8 @@ uses
  , SysUtils
  , l3Base
  , l3Memory
+ //#UC START# *478E372C025Dimpl_uses*
+ //#UC END# *478E372C025Dimpl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = Il3ValueMap;{$IfEnd}

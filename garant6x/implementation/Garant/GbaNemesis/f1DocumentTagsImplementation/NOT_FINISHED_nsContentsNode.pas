@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *46827E69026Aimpl_uses*
+ //#UC END# *46827E69026Aimpl_uses*
 ;
 
 function TnsContentsNode.Get_Handle: Integer;

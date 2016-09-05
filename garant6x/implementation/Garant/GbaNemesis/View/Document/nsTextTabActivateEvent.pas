@@ -37,6 +37,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0E6F160372impl_uses*
+ //#UC END# *4B0E6F160372impl_uses*
 ;
 
 class procedure TnsTextTabActivateEvent.Log(const aDoc: IDocument;

@@ -51,6 +51,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5506FEA6012Aimpl_uses*
+ //#UC END# *5506FEA6012Aimpl_uses*
 ;
 
 var g_Tl3DocumentsCacheService: Tl3DocumentsCacheService = nil;

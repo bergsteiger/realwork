@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4B72BF9003D0impl_uses*
+ //#UC END# *4B72BF9003D0impl_uses*
 ;
 
 function TevNestedDocumentEliminator.NeedTranslateChildToNext: Boolean;

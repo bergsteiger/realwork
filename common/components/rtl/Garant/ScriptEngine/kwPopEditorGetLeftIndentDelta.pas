@@ -38,6 +38,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *50AE54F001B4impl_uses*
+ //#UC END# *50AE54F001B4impl_uses*
 ;
 
 procedure TkwPopEditorGetLeftIndentDelta.DoWithEditor(const aCtx: TtfwContext;

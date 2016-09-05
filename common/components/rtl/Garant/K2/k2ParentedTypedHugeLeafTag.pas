@@ -64,6 +64,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *4E8347810088impl_uses*
+ //#UC END# *4E8347810088impl_uses*
 ;
 
 type _Instance_R_ = Tk2ParentedTypedHugeLeafTag;

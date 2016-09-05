@@ -48,6 +48,8 @@ uses
  , m2COMLib
  , m3BuffStream
  , m2S32Lib
+ //#UC START# *54539E0A00DAimpl_uses*
+ //#UC END# *54539E0A00DAimpl_uses*
 ;
 
 type _Instance_R_ = Tm3ArcHandleList;

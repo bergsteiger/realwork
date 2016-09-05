@@ -111,6 +111,8 @@ type
   private
    f_FlashTop: Integer;
    f_FlashLoaded: Boolean;
+   f_VScrollPos: Integer;
+   f_HScrollPos: Integer;
    f_Flash: TvtShockwaveFlashEx;
     {* компонент для проигрывания flash-роликов }
    f_Editor: TnscEditor;
@@ -354,6 +356,7 @@ uses
  , bsUtils
  , DynamicTreeUnit
  , ExternalObjectUnit
+ , Common_F1CommonServices_Contracts
  , nsDocumentFromListNavigationEvent
  {$If Defined(Nemesis)}
  , nscStatusBarItemDef
@@ -370,6 +373,7 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , afwFacade
  , Common_FormDefinitions_Controls
+ , Base_Operations_F1Services_Contracts
  , evConstStringData
  , l3Base
  , evdHyperlinkInfo
@@ -385,11 +389,13 @@ uses
  , nsObjectPreview
  , nevBase
  , nsHAFPainter
+ , Search_Services
  , ShellAPI
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *497EDE780363impl_uses*
+ , Math
  //#UC END# *497EDE780363impl_uses*
 ;
 
@@ -708,7 +714,7 @@ begin
  if Document <> nil then
  begin
   Document.CreateJournalBookmark(0, l_Bookmark);
-  TdmStdRes.MakeWorkJournal.AddBookMark(l_Bookmark);
+  TWorkJournalService.Instance.MakeWorkJournal.AddBookMark(l_Bookmark);
  end;
 //#UC END# *49884DFB0368_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.AddToWorkJournal
@@ -812,7 +818,7 @@ procedure TPrimDocumentWithFlashForm.File_LoadFromFolder_Execute(const aParams: 
 //#UC END# *49885D59018D_497EDE780363exec_var*
 begin
 //#UC START# *49885D59018D_497EDE780363exec_impl*
- TdmStdRes.SelectOpen(Self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(Self.as_IvcmEntityForm,
                       dsBaseDocument.As_IucpFilterInfoFactory.MakeFilterInfo(ffBookmark),
                       str_OpenBookmark);
 //#UC END# *49885D59018D_497EDE780363exec_impl*
@@ -835,7 +841,7 @@ procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Execute(aKin
 //#UC END# *4988752302F4_497EDE780363exec_var*
 begin
 //#UC START# *4988752302F4_497EDE780363exec_impl*
- //if not Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct).Done then
+ //if not Operation(opcode_Document_GetCorrespondentListExFrmAct).Done then
   Assert(false);
  //OpenCRListOpExecute(crtCorrespondents, aParams.CurrentNode);
 //#UC END# *4988752302F4_497EDE780363exec_impl*
@@ -865,7 +871,7 @@ procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList_Execute(aKind: 
 //#UC END# *49888E8003B9_497EDE780363exec_var*
 begin
 //#UC START# *49888E8003B9_497EDE780363exec_impl*
- //if not Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct).Done then
+ //if not Operation(opcode_Document_GetRespondentListExFrmAct).Done then
   Assert(false);
  //OpenCRListOpExecute(crtRespondents, aParams.CurrentNode);
 //#UC END# *49888E8003B9_497EDE780363exec_impl*
@@ -925,7 +931,7 @@ begin
   try
    case TFoldersItemType(l_FolderNode.GetObjectType) of
     FIT_BOOKMARK, FIT_PHARM_BOOKMARK:
-     TdmStdRes.OpenEntityAsDocument(l_BaseEntity, nil);
+     TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, nil);
    end;//case TFoldersItemType(l_FolderNode.GetObjectType)
   finally
    l_BaseEntity := nil;
@@ -974,7 +980,7 @@ begin
  CreateBookmark(Document, 0, true, l_Bookmark);
  if (l_Bookmark <> nil) then
  try
-  TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+  TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                      dsBaseDocument.As_IucpFilterInfoFactory.MakeFilterInfo(ffListAndBookMarks),
                      fetBookMark,
                      l_Bookmark,
@@ -1139,12 +1145,24 @@ end;//TPrimDocumentWithFlashForm.ShortName
 
 procedure TPrimDocumentWithFlashForm.TabBecomeActive;
 //#UC START# *54868B67034A_497EDE780363_var*
+var
+ l_Msg: TWMVScroll;
+ l_Index: Integer;
+ l_MsgCount: Integer;
 //#UC END# *54868B67034A_497EDE780363_var*
 begin
 //#UC START# *54868B67034A_497EDE780363_impl*
  f_Flash.Visible := True;
  f_Flash.FitToParent;
- f_Flash.Top := f_FlashTop;
+
+ l_MsgCount := f_VScrollPos div Max(VertScrollBar.Increment, 1);
+
+ l3FillChar(l_Msg, SizeOf(l_Msg), 0);
+
+ l_Msg.ScrollCode := SB_LINEDOWN;                
+
+ for l_Index := 0 to Pred(l_MsgCount) do
+  SendMessage(Handle, WM_VSCROLL, TMessage(l_Msg).WParam, TMessage(l_Msg).LParam);
 //#UC END# *54868B67034A_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.TabBecomeActive
 
@@ -1153,6 +1171,7 @@ procedure TPrimDocumentWithFlashForm.TabBecomeInactive;
 //#UC END# *54868B84029F_497EDE780363_var*
 begin
 //#UC START# *54868B84029F_497EDE780363_impl*
+ f_VScrollPos := GetScrollPos(Handle, SB_VERT);
  f_FlashTop := f_Flash.Top;
  f_Flash.Visible := False;
 //#UC END# *54868B84029F_497EDE780363_impl*
@@ -1353,7 +1372,7 @@ begin
   Result := Supports(aState, InsDocumentWithFlashState, f_State);
  end//aStateType = vcm_stContent
  else
-  Result := inherited DoLoadState(aState, aStateType);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoLoadState
 

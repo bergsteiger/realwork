@@ -38,6 +38,8 @@ uses
  , evNodePainter
  , l3InternalInterfaces
  , k2Const
+ //#UC START# *4E24151202E1impl_uses*
+ //#UC END# *4E24151202E1impl_uses*
 ;
 
 procedure TevParaDrawNode.SetTag(aTag: Tl3Variant);

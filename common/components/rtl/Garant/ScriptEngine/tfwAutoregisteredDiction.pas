@@ -55,6 +55,8 @@ uses
  , l3Chars
  , tfwCStringFactory
  , l3Base
+ //#UC START# *4DB05FF60115impl_uses*
+ //#UC END# *4DB05FF60115impl_uses*
 ;
 
 var g_TtfwAutoregisteredDiction: TtfwAutoregisteredDiction = nil;

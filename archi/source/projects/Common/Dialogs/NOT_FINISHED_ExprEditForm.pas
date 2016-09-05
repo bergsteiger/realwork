@@ -23,6 +23,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TExprEditorWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F5763F4012Eimpl_uses*
+ //#UC END# *4F5763F4012Eimpl_uses*
 ;
 
 end.

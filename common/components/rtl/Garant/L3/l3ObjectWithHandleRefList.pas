@@ -26,6 +26,8 @@ uses
  l3ImplUses
  , l3ProtoObjectWithHandle
  , l3Memory
+ //#UC START# *47BDAECF039Aimpl_uses*
+ //#UC END# *47BDAECF039Aimpl_uses*
 ;
 
 type _Instance_R_ = Tl3ObjectWithHandleRefList;

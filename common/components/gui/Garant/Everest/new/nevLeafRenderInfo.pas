@@ -38,6 +38,8 @@ uses
  , TableCell_Const
  , Block_Const
  , nevFormatInfo
+ //#UC START# *481F0442026Bimpl_uses*
+ //#UC END# *481F0442026Bimpl_uses*
 ;
 
 procedure TnevLeafRenderInfo.DoInvalidateShape(const aShape: InevObject;

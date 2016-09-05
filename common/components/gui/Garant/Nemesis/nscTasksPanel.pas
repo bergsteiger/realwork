@@ -94,6 +94,8 @@ uses
  , nscTasksPanelGroupsIterator
  , SysUtils
  , l3Base
+ //#UC START# *4D342DED0196impl_uses*
+ //#UC END# *4D342DED0196impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

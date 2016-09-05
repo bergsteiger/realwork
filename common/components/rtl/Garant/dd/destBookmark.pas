@@ -44,6 +44,8 @@ uses
  l3ImplUses
  , destNorm
  , SysUtils
+ //#UC START# *56A9F17B003Cimpl_uses*
+ //#UC END# *56A9F17B003Cimpl_uses*
 ;
 
 procedure TdestBookmark.Close(aState: TddRTFState;

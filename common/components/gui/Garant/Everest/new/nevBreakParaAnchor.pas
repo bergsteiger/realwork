@@ -29,6 +29,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4A3BB09A0147impl_uses*
+ //#UC END# *4A3BB09A0147impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}

@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , evOutTextParaEliminator
  , arSpravkaTextOfDocument
+ //#UC START# *4E0072C40154impl_uses*
+ //#UC END# *4E0072C40154impl_uses*
 ;
 
 function TarSprDocument.GetTextOfDocumentClass: RarTextOfDocument;

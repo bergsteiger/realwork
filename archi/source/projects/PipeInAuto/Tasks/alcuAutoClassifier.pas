@@ -1,8 +1,14 @@
 unit alcuAutoClassifier;
 { Выполняет автоклассификацию документов на основе механизма от Бежана }
-{ $Id: alcuAutoClassifier.pas,v 1.28 2016/05/27 06:45:01 lukyanets Exp $ }
+{ $Id: alcuAutoClassifier.pas,v 1.30 2016/08/11 10:41:54 lukyanets Exp $ }
 
 // $Log: alcuAutoClassifier.pas,v $
+// Revision 1.30  2016/08/11 10:41:54  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.29  2016/06/16 05:38:37  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.28  2016/05/27 06:45:01  lukyanets
 // Не собиралось
 //
@@ -236,6 +242,7 @@ interface
 Uses
  l3Base, l3LongintList, l3Types,
  evdBufferedFilter,
+ daTypes,
  dt_Types, ExportPipe,
  classes, k2Interfaces, csProcessTask, ddProgressObj, k2Types, dtIntf, DT_Sab,
 
@@ -305,7 +312,7 @@ type
   function AllowSimultaneousRun: Boolean; override;
  public
   class function CanAsyncRun: Boolean; override;
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   {$If defined(AppServerSide)}
   procedure SetupServerSideConfigParams; override;
   {$IfEnd defined(AppServerSide)}
@@ -328,12 +335,12 @@ uses
  daDataProvider,
  daSchemeConsts,
  dt_Const, dt_AttrSchema,
- dt_Doc, dt_Stage, dt_User, dt_log, dt_Mail, dt_Link, dt_Query,
+ dt_Doc, dt_Stage, dt_log, dt_Mail, dt_Link, dt_Query,
  l3Filer, l3Date, l3FileUtils,
  l3ShellUtils,
  ht_Dll,
  alcuMailServer, k2Tags, l3String, k2base,
- DictItem_Const, TextPara_Const, Block_Const, dt_UserConst, dt_LinkServ,
+ DictItem_Const, TextPara_Const, Block_Const, dt_LinkServ,
  csTaskTypes, alcuStrings, ddFileIterator, Document_Const, DT_Utils, ddUtils,
  //csMessageManager,
  dt_SrchQueries, ddServerTask, ddPipeOutInterfaces
@@ -344,7 +351,7 @@ function LoadResults(const aFolder: string; const aFileMask: string =
 var
  l_Sab: ISab;
  l_Date: TstDate;
- l_User: TUserID;
+ l_User: TdaUserID;
  l_Value: TStageType;
  l_ID: TDocID;
  l_Files: TddFileIterator;
@@ -473,7 +480,7 @@ procedure TalcuAutoClassifier.CloseStage(aDocList: Tl3LongintList);
 var
  l_Sab: ISab;
  l_Date: TstDate;
- l_User: TUserID;
+ l_User: TdaUserID;
  l_Value: TStageType;
  l_ID: TDocID;
 begin
@@ -818,7 +825,7 @@ begin
   Result := True;
 end;
 
-constructor TalcuAutoClassTask.Create(aUserID: TUserID);
+constructor TalcuAutoClassTask.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType:= cs_ttAutoClass;

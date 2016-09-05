@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , l3Base
  , l3Memory
+ //#UC START# *47E37EF20114impl_uses*
+ //#UC END# *47E37EF20114impl_uses*
 ;
 
 type _Instance_R_ = Tk2InterfacedTagList;

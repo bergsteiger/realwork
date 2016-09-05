@@ -16,6 +16,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5481A114014Bimpl_uses*
+ //#UC END# *5481A114014Bimpl_uses*
 ;
 
 end.

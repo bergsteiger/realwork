@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , kwStandardProcedureCloseBracket
  , l3String
+ //#UC START# *4F37D458015Cimpl_uses*
+ //#UC END# *4F37D458015Cimpl_uses*
 ;
 
 function TkwUsesLike.EndBracket(const aContext: TtfwContext;

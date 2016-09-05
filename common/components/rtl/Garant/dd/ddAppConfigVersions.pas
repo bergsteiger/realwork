@@ -51,6 +51,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *52149B3F0208impl_uses*
+ //#UC END# *52149B3F0208impl_uses*
 ;
 
 function TddAppConfigVersionManager.FindHandler(aFromVersion: Integer;

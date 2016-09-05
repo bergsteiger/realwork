@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47E0C20A0236impl_uses*
+ //#UC END# *47E0C20A0236impl_uses*
 ;
 
 end.

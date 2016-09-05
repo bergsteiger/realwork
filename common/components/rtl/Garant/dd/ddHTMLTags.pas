@@ -23,6 +23,7 @@ type
                    dd_paridCLASS,
                    dd_paridCHARSET,
                    dd_paridSRC,
+                   dd_paridBorder,
                    dd_paridBorderBottom,
                    dd_paridBorderTop,
                    dd_paridBorderLeft,
@@ -131,9 +132,13 @@ const
 
  cnHTMLParamLast = High(TddHTMLParamID);
 
- carHTMLBorderStyle: Tl3PCharLenPrim = (S         : 'solid';
+ carHTMLBorderStyle: array[Boolean] of Tl3PCharLenPrim = (
+                                        (S         : 'none';
+                                        SLen      : 4;
+                                        SCodePage : CP_ANSI),
+                                       (S         : 'solid';
                                         SLen      : 5;
-                                        SCodePage : CP_ANSI);
+                                        SCodePage : CP_ANSI));
 
  carHTMLTransform: array [TddCharCapsType] of Tl3PCharLenPrim = (
                                           (S         : nil;
@@ -194,6 +199,10 @@ const
                                           ),
                                           (S        : 'SRC';
                                           SLen      : 3;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'BORDER';
+                                          SLen      : 6;
                                           SCodePage : CP_ANSI
                                           ),
                                           (S        : 'BORDER-BOTTOM';
@@ -271,6 +280,8 @@ const
  thSUB      = 'SUB';    tidSUB      = 39;
 
 const
+ cnSingleTag = tidBR;
+
  cMaxHTMLTag = 38;
  cHTMLTags : array[0..cMaxHTMLTag] of THTMLTagRec =
   (

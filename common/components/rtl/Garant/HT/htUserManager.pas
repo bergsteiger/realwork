@@ -16,6 +16,7 @@ uses
  , daTypes
  , l3DatLst
  , l3LongintList
+ , Classes
 ;
 
 type
@@ -98,6 +99,17 @@ type
     ActFlag: Byte;
     const EditMask: TdaUserEditMask);
    procedure DelUser(aUser: TdaUserID);
+   procedure GetUserListOnGroup(aUsGroup: TdaUserGroupID;
+    aList: Tl3StringDataList;
+    GetActiveUsersOnly: Boolean = False);
+   procedure GetFiltredUserList(aList: TStrings;
+    aOnlyActive: Boolean = False);
+   procedure GetDocGroupData(aUserGroup: TdaUserGroupID;
+    aFamily: TdaFamilyID;
+    aDocDataList: Tl3StringDataList);
+   procedure PutDocGroupData(aUserGroup: TdaUserGroupID;
+    aFamily: TdaFamilyID;
+    aDocDataList: Tl3StringDataList);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -121,6 +133,8 @@ uses
  , htPriorityCalculator
  , l3Types
  , l3Base
+ //#UC START# *5629E343023Bimpl_uses*
+ //#UC END# *5629E343023Bimpl_uses*
 ;
 
 constructor ThtUserManager.Create;
@@ -174,7 +188,7 @@ function ThtUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
 //#UC END# *56EA993D0218_5629E343023B_var*
 begin
 //#UC START# *56EA993D0218_5629E343023B_impl*
- Result := dt_User.UserManager.xxxIsUserAdmin(anUserID);
+ Result := dt_User.xxxUserManager.xxxIsUserAdmin(anUserID);
 //#UC END# *56EA993D0218_5629E343023B_impl*
 end;//ThtUserManager.IsUserAdmin
 
@@ -183,7 +197,7 @@ function ThtUserManager.Get_AllUsers: Tl3StringDataList;
 //#UC END# *5715DEF20209_5629E343023Bget_var*
 begin
 //#UC START# *5715DEF20209_5629E343023Bget_impl*
- Result := dt_User.UserManager.xxxAllUsers;
+ Result := dt_User.xxxUserManager.xxxAllUsers;
 //#UC END# *5715DEF20209_5629E343023Bget_impl*
 end;//ThtUserManager.Get_AllUsers
 
@@ -192,7 +206,7 @@ function ThtUserManager.Get_AllGroups: Tl3StringDataList;
 //#UC END# *5715DF0D03C2_5629E343023Bget_var*
 begin
 //#UC START# *5715DF0D03C2_5629E343023Bget_impl*
- Result := dt_User.UserManager.xxxAllGroups;
+ Result := dt_User.xxxUserManager.xxxAllGroups;
 //#UC END# *5715DF0D03C2_5629E343023Bget_impl*
 end;//ThtUserManager.Get_AllGroups
 
@@ -201,7 +215,7 @@ function ThtUserManager.GetUserName(anUserID: TdaUserID): AnsiString;
 //#UC END# *5718B5CF0399_5629E343023B_var*
 begin
 //#UC START# *5718B5CF0399_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserName(anUserID);
+ Result := dt_User.xxxUserManager.xxxGetUserName(anUserID);
 //#UC END# *5718B5CF0399_5629E343023B_impl*
 end;//ThtUserManager.GetUserName
 
@@ -212,7 +226,7 @@ function ThtUserManager.GetUserPriorities(aGroupId: TdaUserID;
 //#UC END# *571DCFB50217_5629E343023B_var*
 begin
 //#UC START# *571DCFB50217_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserPriorities(aGroupId, aImportPriority, aExportPriority);
+ Result := dt_User.xxxUserManager.xxxGetUserPriorities(aGroupId, aImportPriority, aExportPriority);
 //#UC END# *571DCFB50217_5629E343023B_impl*
 end;//ThtUserManager.GetUserPriorities
 
@@ -221,7 +235,7 @@ procedure ThtUserManager.ReSortUserList;
 //#UC END# *5721F5E60367_5629E343023B_var*
 begin
 //#UC START# *5721F5E60367_5629E343023B_impl*
- dt_User.UserManager.xxxReSortUserList;
+ dt_User.xxxUserManager.xxxReSortUserList;
 //#UC END# *5721F5E60367_5629E343023B_impl*
 end;//ThtUserManager.ReSortUserList
 
@@ -230,7 +244,7 @@ function ThtUserManager.Get_ArchiUsersCount: Integer;
 //#UC END# *5729C59E00D5_5629E343023Bget_var*
 begin
 //#UC START# *5729C59E00D5_5629E343023Bget_impl*
- Result := dt_User.UserManager.xxxGetArchiUsersCount(Get_PriorityCalculator);
+ Result := dt_User.xxxUserManager.xxxGetArchiUsersCount(Get_PriorityCalculator);
 //#UC END# *5729C59E00D5_5629E343023Bget_impl*
 end;//ThtUserManager.Get_ArchiUsersCount
 
@@ -242,7 +256,7 @@ var
 begin
 //#UC START# *5729DD530330_5629E343023B_impl*
  try
-  dt_User.UserManager.xxxIterateArchiUsers(anAction);
+  dt_User.xxxUserManager.xxxIterateArchiUsers(anAction);
  finally
   l3FreeLocalStub(Hack);
  end;//try..finally
@@ -254,7 +268,7 @@ function ThtUserManager.UserByID(aID: TdaUserID): IdaArchiUser;
 //#UC END# *57358B940211_5629E343023B_var*
 begin
 //#UC START# *57358B940211_5629E343023B_impl*
- Result := dt_User.UserManager.xxxUserByID(Get_PriorityCalculator, aID);
+ Result := dt_User.xxxUserManager.xxxUserByID(Get_PriorityCalculator, aID);
 //#UC END# *57358B940211_5629E343023B_impl*
 end;//ThtUserManager.UserByID
 
@@ -263,7 +277,7 @@ function ThtUserManager.UserByLogin(const aLogin: AnsiString): IdaArchiUser;
 //#UC END# *57358BCB0360_5629E343023B_var*
 begin
 //#UC START# *57358BCB0360_5629E343023B_impl*
- Result := dt_User.UserManager.xxxUserByLogin(Get_PriorityCalculator, aLogin);
+ Result := dt_User.xxxUserManager.xxxUserByLogin(Get_PriorityCalculator, aLogin);
 //#UC END# *57358BCB0360_5629E343023B_impl*
 end;//ThtUserManager.UserByLogin
 
@@ -273,7 +287,7 @@ procedure ThtUserManager.UpdateUserInfo(aUserID: TdaUserID;
 //#UC END# *5735AE4D0017_5629E343023B_var*
 begin
 //#UC START# *5735AE4D0017_5629E343023B_impl*
- dt_User.UserManager.xxxUpdateUserInfo(Get_PriorityCalculator, aUserID, aIsGroup);
+ dt_User.xxxUserManager.xxxUpdateUserInfo(Get_PriorityCalculator, aUserID, aIsGroup);
 //#UC END# *5735AE4D0017_5629E343023B_impl*
 end;//ThtUserManager.UpdateUserInfo
 
@@ -282,7 +296,7 @@ procedure ThtUserManager.MakeFullArchiUsersList;
 //#UC END# *5735AE7F0071_5629E343023B_var*
 begin
 //#UC START# *5735AE7F0071_5629E343023B_impl*
- dt_User.UserManager.xxxmakeFullUsersList(Get_PriorityCalculator);
+ dt_User.xxxUserManager.xxxmakeFullUsersList(Get_PriorityCalculator);
 //#UC END# *5735AE7F0071_5629E343023B_impl*
 end;//ThtUserManager.MakeFullArchiUsersList
 
@@ -291,7 +305,7 @@ function ThtUserManager.GetUserDisplayName(anID: TdaUserID): AnsiString;
 //#UC END# *5735AECA0121_5629E343023B_var*
 begin
 //#UC START# *5735AECA0121_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserDisplayName(Get_PriorityCalculator, anID);
+ Result := dt_User.xxxUserManager.xxxGetUserDisplayName(Get_PriorityCalculator, anID);
 //#UC END# *5735AECA0121_5629E343023B_impl*
 end;//ThtUserManager.GetUserDisplayName
 
@@ -300,7 +314,7 @@ function ThtUserManager.IsUserExists(anID: TdaUserID): Boolean;
 //#UC END# *5739732402E4_5629E343023B_var*
 begin
 //#UC START# *5739732402E4_5629E343023B_impl*
- Result := dt_User.UserManager.xxxIsUserExists(anID);
+ Result := dt_User.xxxUserManager.xxxIsUserExists(anID);
 //#UC END# *5739732402E4_5629E343023B_impl*
 end;//ThtUserManager.IsUserExists
 
@@ -351,7 +365,7 @@ function ThtUserManager.CSCheckPassword(const aLogin: AnsiString;
 //#UC END# *573AC17202BF_5629E343023B_var*
 begin
 //#UC START# *573AC17202BF_5629E343023B_impl*
- Result := dt_User.UserManager.xxxCSCheckPassword(Get_PriorityCalculator, aLogin, aPassword, RequireAdminRights, theUserID);
+ Result := dt_User.xxxUserManager.xxxCSCheckPassword(Get_PriorityCalculator, aLogin, aPassword, RequireAdminRights, theUserID);
 //#UC END# *573AC17202BF_5629E343023B_impl*
 end;//ThtUserManager.CSCheckPassword
 
@@ -366,7 +380,7 @@ var
 //#UC END# *573AEE9902DF_5629E343023B_var*
 begin
 //#UC START# *573AEE9902DF_5629E343023B_impl*
- dt_User.UserManager.xxxGetUserInfo(aUser, l_UserName, l_LoginName, aActFlag);
+ dt_User.xxxUserManager.xxxGetUserInfo(aUser, l_UserName, l_LoginName, aActFlag);
  aUserName := l_UserName;
  aLoginName := l_LoginName;
 //#UC END# *573AEE9902DF_5629E343023B_impl*
@@ -403,7 +417,7 @@ begin
  try
   lAction := l3L2IA(@lp_UserGroupIter);
   try
-   dt_User.UserManager.xxxIterateUserGroups(lAction);
+   dt_User.xxxUserManager.xxxIterateUserGroups(lAction);
   finally
    l3FreeFA(Tl3FreeAction(lAction));
   end;
@@ -419,7 +433,7 @@ function ThtUserManager.IsMemberOfGroup(aUserGroupID: TdaUserGroupID;
 //#UC END# *575A8B790353_5629E343023B_var*
 begin
 //#UC START# *575A8B790353_5629E343023B_impl*
- Result := dt_User.UserManager.xxxIsMemberOfGroup(aUserGroupID, aUserID);
+ Result := dt_User.xxxUserManager.xxxIsMemberOfGroup(aUserGroupID, aUserID);
 //#UC END# *575A8B790353_5629E343023B_impl*
 end;//ThtUserManager.IsMemberOfGroup
 
@@ -428,7 +442,7 @@ function ThtUserManager.GetUserGroups(aUserID: TdaUserID): TdaUserGroupIDArray;
 //#UC END# *57625B5002DD_5629E343023B_var*
 begin
 //#UC START# *57625B5002DD_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserGroups(aUserID);
+ Result := dt_User.xxxUserManager.xxxGetUserGroups(aUserID);
 //#UC END# *57625B5002DD_5629E343023B_impl*
 end;//ThtUserManager.GetUserGroups
 
@@ -438,7 +452,7 @@ procedure ThtUserManager.GetUserGroupsList(aUser: TdaUserID;
 //#UC END# *576289510024_5629E343023B_var*
 begin
 //#UC START# *576289510024_5629E343023B_impl*
- dt_User.UserManager.xxxGetUserGroupList(aUser, aList);
+ dt_User.xxxUserManager.xxxGetUserGroupList(aUser, aList);
 //#UC END# *576289510024_5629E343023B_impl*
 end;//ThtUserManager.GetUserGroupsList
 
@@ -448,7 +462,7 @@ procedure ThtUserManager.GetUserGroupsList(aUser: TdaUserID;
 //#UC END# *57628A9403C6_5629E343023B_var*
 begin
 //#UC START# *57628A9403C6_5629E343023B_impl*
- dt_User.UserManager.xxxGetUserGroupList(aUser, aList);
+ dt_User.xxxUserManager.xxxGetUserGroupList(aUser, aList);
 //#UC END# *57628A9403C6_5629E343023B_impl*
 end;//ThtUserManager.GetUserGroupsList
 
@@ -458,7 +472,7 @@ procedure ThtUserManager.SetUserGroupsList(aUser: TdaUserID;
 //#UC END# *5767ABE002DC_5629E343023B_var*
 begin
 //#UC START# *5767ABE002DC_5629E343023B_impl*
- dt_User.UserManager.xxxSetUserGroupList(aUser, aList);
+ dt_User.xxxUserManager.xxxSetUserGroupList(aUser, aList);
 //#UC END# *5767ABE002DC_5629E343023B_impl*
 end;//ThtUserManager.SetUserGroupsList
 
@@ -470,7 +484,7 @@ var
 begin
 //#UC START# *576B95A600B9_5629E343023B_impl*
  l_Name := aName;
- Result := dt_User.UserManager.xxxAddUserGroup(l_Name);
+ Result := dt_User.xxxUserManager.xxxAddUserGroup(l_Name);
 //#UC END# *576B95A600B9_5629E343023B_impl*
 end;//ThtUserManager.AddUserGroup
 
@@ -485,7 +499,7 @@ var
 begin
 //#UC START# *576B960500C5_5629E343023B_impl*
  l_Name := aName;
- dt_User.UserManager.xxxEditUserGroup(aGroupID, l_Name, aImportPriority, aExportPriority);
+ dt_User.xxxUserManager.xxxEditUserGroup(aGroupID, l_Name, aImportPriority, aExportPriority);
 //#UC END# *576B960500C5_5629E343023B_impl*
 end;//ThtUserManager.EditUserGroup
 
@@ -494,7 +508,7 @@ procedure ThtUserManager.DelUserGroup(aGroupID: TdaUserGroupID);
 //#UC END# *576BAC4402D8_5629E343023B_var*
 begin
 //#UC START# *576BAC4402D8_5629E343023B_impl*
- dt_User.UserManager.xxxDelUserGroupByID(aGroupID);
+ dt_User.xxxUserManager.xxxDelUserGroupByID(aGroupID);
 //#UC END# *576BAC4402D8_5629E343023B_impl*
 end;//ThtUserManager.DelUserGroup
 
@@ -503,7 +517,7 @@ procedure ThtUserManager.RemoveUserFromAllGroups(aUser: TdaUserID);
 //#UC END# *577F6AD90170_5629E343023B_var*
 begin
 //#UC START# *577F6AD90170_5629E343023B_impl*
- dt_User.UserManager.xxxRemoveUserFromAllGroups(aUser);
+ dt_User.xxxUserManager.xxxRemoveUserFromAllGroups(aUser);
 //#UC END# *577F6AD90170_5629E343023B_impl*
 end;//ThtUserManager.RemoveUserFromAllGroups
 
@@ -514,7 +528,7 @@ procedure ThtUserManager.SetUserGroup(aUser: TdaUserID;
 //#UC END# *577F80C503AF_5629E343023B_var*
 begin
 //#UC START# *577F80C503AF_5629E343023B_impl*
- dt_User.UserManager.xxxSetUserGroup(aUser, aGroup, Add);
+ dt_User.xxxUserManager.xxxSetUserGroup(aUser, aGroup, Add);
 //#UC END# *577F80C503AF_5629E343023B_impl*
 end;//ThtUserManager.SetUserGroup
 
@@ -524,7 +538,7 @@ procedure ThtUserManager.AdminChangePassWord(aUser: TdaUserID;
 //#UC END# *5783537E00A1_5629E343023B_var*
 begin
 //#UC START# *5783537E00A1_5629E343023B_impl*
- dt_User.UserManager.xxxAdminChangePassWord(aUser, NewPass);
+ dt_User.xxxUserManager.xxxAdminChangePassWord(aUser, NewPass);
 //#UC END# *5783537E00A1_5629E343023B_impl*
 end;//ThtUserManager.AdminChangePassWord
 
@@ -535,7 +549,7 @@ procedure ThtUserManager.GetHostUserListOnGroup(aGroupID: TdaUserGroupID;
 //#UC END# *578392E7026A_5629E343023B_var*
 begin
 //#UC START# *578392E7026A_5629E343023B_impl*
- dt_User.UserManager.xxxGetHostUserListOnGroup(aGroupID, aList, NeedSort);
+ dt_User.xxxUserManager.xxxGetHostUserListOnGroup(aGroupID, aList, NeedSort);
 //#UC END# *578392E7026A_5629E343023B_impl*
 end;//ThtUserManager.GetHostUserListOnGroup
 
@@ -545,7 +559,7 @@ procedure ThtUserManager.SetHostUserListOnGroup(aGroupID: TdaUserGroupID;
 //#UC END# *5783933A010B_5629E343023B_var*
 begin
 //#UC START# *5783933A010B_5629E343023B_impl*
- dt_User.UserManager.xxxSetHostUserListOnGroup(aGroupID, aList);
+ dt_User.xxxUserManager.xxxSetHostUserListOnGroup(aGroupID, aList);
 //#UC END# *5783933A010B_5629E343023B_impl*
 end;//ThtUserManager.SetHostUserListOnGroup
 
@@ -557,7 +571,7 @@ function ThtUserManager.AddUser(const aUserName: AnsiString;
 //#UC END# *5784BBF10299_5629E343023B_var*
 begin
 //#UC START# *5784BBF10299_5629E343023B_impl*
- Result := dt_User.UserManager.xxxAddUser(aUserName, aLoginName, aPassword, ActFlag);
+ Result := dt_User.xxxUserManager.xxxAddUser(aUserName, aLoginName, aPassword, ActFlag);
 //#UC END# *5784BBF10299_5629E343023B_impl*
 end;//ThtUserManager.AddUser
 
@@ -570,7 +584,7 @@ function ThtUserManager.AddUserID(anID: TdaUserID;
 //#UC END# *5784BC420208_5629E343023B_var*
 begin
 //#UC START# *5784BC420208_5629E343023B_impl*
- Result := dt_User.UserManager.xxxAddUserID(anID, aUserName, aLoginName, aPassword, ActFlag);
+ Result := dt_User.xxxUserManager.xxxAddUserID(anID, aUserName, aLoginName, aPassword, ActFlag);
 //#UC END# *5784BC420208_5629E343023B_impl*
 end;//ThtUserManager.AddUserID
 
@@ -583,7 +597,7 @@ procedure ThtUserManager.EditUser(aUser: TdaUserID;
 //#UC END# *5784BD1501E8_5629E343023B_var*
 begin
 //#UC START# *5784BD1501E8_5629E343023B_impl*
- dt_User.UserManager.xxxEditUser(aUser, aUserName, aLoginName, ActFlag, EditMask);
+ dt_User.xxxUserManager.xxxEditUser(aUser, aUserName, aLoginName, ActFlag, EditMask);
 //#UC END# *5784BD1501E8_5629E343023B_impl*
 end;//ThtUserManager.EditUser
 
@@ -592,9 +606,52 @@ procedure ThtUserManager.DelUser(aUser: TdaUserID);
 //#UC END# *5784BE1E02F7_5629E343023B_var*
 begin
 //#UC START# *5784BE1E02F7_5629E343023B_impl*
- dt_User.UserManager.xxxDelUser(aUser);
+ dt_User.xxxUserManager.xxxDelUser(aUser);
 //#UC END# *5784BE1E02F7_5629E343023B_impl*
 end;//ThtUserManager.DelUser
+
+procedure ThtUserManager.GetUserListOnGroup(aUsGroup: TdaUserGroupID;
+ aList: Tl3StringDataList;
+ GetActiveUsersOnly: Boolean = False);
+//#UC START# *57A87EF901F3_5629E343023B_var*
+//#UC END# *57A87EF901F3_5629E343023B_var*
+begin
+//#UC START# *57A87EF901F3_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetUserListOnGroup(aUsGroup, aList, GetActiveUsersOnly);
+//#UC END# *57A87EF901F3_5629E343023B_impl*
+end;//ThtUserManager.GetUserListOnGroup
+
+procedure ThtUserManager.GetFiltredUserList(aList: TStrings;
+ aOnlyActive: Boolean = False);
+//#UC START# *57A9DF2103CE_5629E343023B_var*
+//#UC END# *57A9DF2103CE_5629E343023B_var*
+begin
+//#UC START# *57A9DF2103CE_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetFiltredUserList(aList, aOnlyActive);
+//#UC END# *57A9DF2103CE_5629E343023B_impl*
+end;//ThtUserManager.GetFiltredUserList
+
+procedure ThtUserManager.GetDocGroupData(aUserGroup: TdaUserGroupID;
+ aFamily: TdaFamilyID;
+ aDocDataList: Tl3StringDataList);
+//#UC START# *57AC28890131_5629E343023B_var*
+//#UC END# *57AC28890131_5629E343023B_var*
+begin
+//#UC START# *57AC28890131_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetDocGroupData(aUserGroup, aFamily, aDocDataList);
+//#UC END# *57AC28890131_5629E343023B_impl*
+end;//ThtUserManager.GetDocGroupData
+
+procedure ThtUserManager.PutDocGroupData(aUserGroup: TdaUserGroupID;
+ aFamily: TdaFamilyID;
+ aDocDataList: Tl3StringDataList);
+//#UC START# *57AC289F0257_5629E343023B_var*
+//#UC END# *57AC289F0257_5629E343023B_var*
+begin
+//#UC START# *57AC289F0257_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxPutDocGroupData(aUserGroup, aFamily, aDocDataList);
+//#UC END# *57AC289F0257_5629E343023B_impl*
+end;//ThtUserManager.PutDocGroupData
 
 procedure ThtUserManager.Cleanup;
  {* Функция очистки полей объекта. }

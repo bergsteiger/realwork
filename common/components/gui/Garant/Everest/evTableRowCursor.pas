@@ -44,6 +44,8 @@ uses
  , evdTypes
  , k2Tags
  , l3Variant
+ //#UC START# *4ED4C5640359impl_uses*
+ //#UC END# *4ED4C5640359impl_uses*
 ;
 
 function TevTableRowCursor.GetColumnMarkerClass: RevColumnMarkerClass;

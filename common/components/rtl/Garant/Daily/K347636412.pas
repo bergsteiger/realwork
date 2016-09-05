@@ -54,6 +54,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4F6C568000A6impl_uses*
+ //#UC END# *4F6C568000A6impl_uses*
 ;
 
 function TK347636412.GetTablePara(const aDocument: InevParaList): InevParaList;

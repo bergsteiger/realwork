@@ -58,6 +58,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *4E15EFFA0214impl_uses*
+ //#UC END# *4E15EFFA0214impl_uses*
 ;
 
 type _Instance_R_ = Tk2HugeDictRec;

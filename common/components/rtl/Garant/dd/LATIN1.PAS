@@ -1,8 +1,11 @@
 //..........................................................................................................................................................................................................................................................
 // Western Latin-1 entities HTML3.2
-{ $Id: LATIN1.PAS,v 1.11 2014/03/03 10:17:30 dinishev Exp $ }
+{ $Id: LATIN1.PAS,v 1.12 2016/06/21 11:03:35 dinishev Exp $ }
 
 // $Log: LATIN1.PAS,v $
+// Revision 1.12  2016/06/21 11:03:35  dinishev
+// {Requestlink:624853474}
+//
 // Revision 1.11  2014/03/03 10:17:30  dinishev
 // {Requestlink:519774197}
 //
@@ -340,7 +343,7 @@ const
   (rName: '&middot;'; rCharID:Ord(cc_MidDot)),
   (rName: '&cedil;'; rCharID: Ord(cc_Cedil)),
   (rName: '&sup1;'; rCharID:  Ord(cc_Sup1)),
-  (rName: '&ordm;'; rCharID:  Ord(cc_ordM)),
+  (rName: '&ordm;'; rCharID:  Ord(cc_Degree)), //Ord(cc_ordM)), <- http://mdp.garant.ru/pages/viewpage.action?pageId=624853474
   (rName: '&raquo;'; rCharID: Ord(cc_RDoubleQuote)),
   (rName: '&frac14;'; rCharID:Ord(cc_Frac14)),
   (rName: '&frac12;'; rCharID:Ord(cc_Frac12)),

@@ -13,23 +13,12 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , DynamicTreeUnit
- , AdapterFacade
- , SearchInterfaces
- , l3Interfaces
- , ConfigInterfaces
- , l3PrinterInterfaces
  , BaseTypesUnit
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Tree_TLB
- , UnderControlUnit
- , DocumentUnit
- , PresentationInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -45,76 +34,43 @@ type
  )
   {* "Общий" только для F1 }
   protected
+   class function GetMenuTypedItem(aType: TNavigatorMenuItemType): INodeBase;
+   class procedure SetParamsForNavigatorElements(const aParams: IvcmTestParamsPrim;
+    aType: TNavigatorMenuItemType);
    procedure opComplectInfoTest(const aParams: IvcmTestParamsPrim);
     {* Информация о комплекте }
    procedure opComplectInfoExecute(const aParams: IvcmExecuteParamsPrim);
     {* Информация о комплекте }
-   procedure opPageSetupExecute(const aParams: IvcmExecuteParamsPrim);
-    {* Настройка страницы... }
-   procedure opShowEULAExecute(const aParams: IvcmExecuteParamsPrim);
-    {* Условия использования }
-   class function GetMenuTypedItem(aType: TNavigatorMenuItemType): INodeBase;
-   class procedure SetParamsForNavigatorElements(const aParams: IvcmTestParamsPrim;
-    aType: TNavigatorMenuItemType);
+   procedure opLetterToDevelopersExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Письмо разработчикам }
+   procedure opOpenInformationTest(const aParams: IvcmTestParamsPrim);
+    {* Справочная информация }
+   procedure opOpenInformationExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Справочная информация }
+   procedure opOpenIntranetTest(const aParams: IvcmTestParamsPrim);
+   procedure opOpenIntranetExecute(const aParams: IvcmExecuteParamsPrim);
    procedure opOpenMainMenuByButtonExecute(const aParams: IvcmExecuteParamsPrim);
     {* Основное меню системы ГАРАНТ }
    procedure opOpenMainMenuNewTest(const aParams: IvcmTestParamsPrim);
     {* Основное меню }
    procedure opOpenMainMenuNewExecute(const aParams: IvcmExecuteParamsPrim);
     {* Основное меню }
-   procedure opTasksPanelExecute(const aParams: IvcmExecuteParamsPrim);
-    {* Панель задач }
-   procedure opLetterToDevelopersExecute(const aParams: IvcmExecuteParamsPrim);
-    {* Письмо разработчикам }
    procedure opOpenRubricatorTest(const aParams: IvcmTestParamsPrim);
     {* Правовой навигатор }
    procedure opOpenRubricatorExecute(const aParams: IvcmExecuteParamsPrim);
     {* Правовой навигатор }
-   procedure opOpenInformationTest(const aParams: IvcmTestParamsPrim);
-    {* Справочная информация }
-   procedure opOpenInformationExecute(const aParams: IvcmExecuteParamsPrim);
-    {* Справочная информация }
+   procedure opPageSetupExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Настройка страницы... }
+   procedure opShowEULAExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Условия использования }
+   procedure opTasksPanelExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Панель задач }
    procedure opget_navigatorExecute(const aParams: IvcmExecuteParamsPrim);
     {* Меню (вкладка) }
-   procedure opOpenIntranetTest(const aParams: IvcmTestParamsPrim);
-   procedure opOpenIntranetExecute(const aParams: IvcmExecuteParamsPrim);
    procedure Loaded; override;
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class function MakeProgressIndicator(const aProgress: InsProgressIndicator;
-    const aCaption: Il3CString;
-    aMaxCount: Integer): IvcmEntityForm;
-   class procedure CloseNavigator(const aContainer: IvcmContainer);
-   class procedure CloseTasksPanel(const aContainer: IvcmContainer);
-   class procedure FromPrinterSettings(const aPrinter: Il3Printer);
-    {* Считать настройки из принтера }
-   class procedure ToPrinterSettings(const aPrinter: Il3Printer);
-    {* Записать настройки в принтер }
-   class procedure About;
-    {* Выводит диалог "О программе" }
-   class procedure ApplicationActivate;
-   class procedure OpenRubricatorOnStart(const aContainer: IvcmContainer);
-   class procedure OpenNewDocs(const aContainer: IvcmContainer);
-   class procedure GetNavigator(const anAggregate: IvcmAggregate;
-    const aContainer: IvcmContainer);
-    {* Меню (вкладка) }
-   class procedure OpenTasksPanel(const aContainer: IvcmContainer);
-   class procedure AddDocumentToControl(const aDocument: IDocument);
-    {* Поставить документ на контроль }
-   class procedure AddToControl(const aControllable: IControllable);
-    {* Поставить объект на контроль }
-   class procedure DeleteDocumentFromControl(const aDocument: IDocument);
-    {* Снять документ с контроля }
-   class procedure DeleteFromControl(const aControllable: IControllable);
-    {* Снять объект с контроля }
-   class function IsUnderControl(const aDoc: IDocument): Boolean;
-    {* Находится ли документ на контроле }
-   class function IsCurEditionActual(const aState: IDocumentState): Boolean; overload;
-   class function IsCurEditionActual(const aDocument: IDocument): Boolean; overload;
-   class function GetCurEditionDate(const aDocument: IDocument): AdapterDate;
-   class function OpenTurnOffTimeMachine(const anIntf: InsTurnOffTimeMachine): IvcmEntityForm;
  end;//TPrimF1CommonModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -123,6 +79,20 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Common_F1CommonServices_Contracts
+ , AdapterFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , UnderControlUnit
+ , l3PrinterInterfaces
+ , SearchInterfaces
+ , l3Interfaces
+ , PresentationInterfaces
  , Search_Strange_Controls
  , Common_Rubricator_Controls
  , PrimTasksPanel_tpMain_UserType
@@ -132,18 +102,19 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
+ , bsUtils
+ , nsUtils
+ , nsExternalObjectPrim
+ , SysUtils
  , afwFacade
  , nsPageSetup
+ , ConfigInterfaces
+ , nsConst
+ , l3Base
+ , nsNewCachableNode
  , DataAdapter
  , nsTypes
- , nsNewCachableNode
  , nsNodes
- , SysUtils
- , nsExternalObjectPrim
- , nsUtils
- , bsUtils
- , l3Base
- , nsConst
  , RememberPassword_Form
  , ProgressIndicator_Form
  , EULA_Form
@@ -156,11 +127,547 @@ uses
  //#UC START# *4A92C1380380impl_uses*
  , StdRes
  , StartUnit
+ , Search_Services
  //#UC END# *4A92C1380380impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimF1CommonModule.MakeProgressIndicator(const aProgress: InsProgressIndicator;
+type
+ TCommonServiceImpl = {final} class(TvcmModuleContractImplementation, ICommonService)
+  public
+   procedure About;
+    {* Выводит диалог "О программе" }
+   procedure AddDocumentToControl(const aDocument: IDocument);
+    {* Поставить документ на контроль }
+   procedure AddToControl(const aControllable: IControllable);
+    {* Поставить объект на контроль }
+   procedure ApplicationActivate;
+   procedure CloseNavigator(const aContainer: IvcmContainer);
+   procedure CloseTasksPanel(const aContainer: IvcmContainer);
+   procedure DeleteDocumentFromControl(const aDocument: IDocument);
+    {* Снять документ с контроля }
+   procedure DeleteFromControl(const aControllable: IControllable);
+    {* Снять объект с контроля }
+   procedure FromPrinterSettings(const aPrinter: Il3Printer);
+    {* Считать настройки из принтера }
+   function GetCurEditionDate(const aDocument: IDocument): AdapterDate;
+   procedure GetNavigator(const anAggregate: IvcmAggregate;
+    const aContainer: IvcmContainer);
+    {* Меню (вкладка) }
+   function IsCurEditionActual(const aState: IDocumentState): Boolean; overload;
+   function IsCurEditionActual(const aDocument: IDocument): Boolean; overload;
+   function IsUnderControl(const aDoc: IDocument): Boolean;
+    {* Находится ли документ на контроле }
+   procedure OpenNewDocs(const aContainer: IvcmContainer);
+   procedure OpenRubricatorOnStart(const aContainer: IvcmContainer);
+   procedure OpenTasksPanel(const aContainer: IvcmContainer);
+   procedure ToPrinterSettings(const aPrinter: Il3Printer);
+    {* Записать настройки в принтер }
+   function MakeProgressIndicator(const aProgress: InsProgressIndicator;
+    const aCaption: Il3CString;
+    aMaxCount: Integer): IvcmEntityForm;
+   function OpenTurnOffTimeMachine(const anIntf: InsTurnOffTimeMachine): IvcmEntityForm;
+   class function Instance: TCommonServiceImpl;
+    {* Метод получения экземпляра синглетона TCommonServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TCommonServiceImpl
+
+var g_TCommonServiceImpl: TCommonServiceImpl = nil;
+ {* Экземпляр синглетона TCommonServiceImpl }
+
+procedure TCommonServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TCommonServiceImpl }
+begin
+ l3Free(g_TCommonServiceImpl);
+end;//TCommonServiceImplFree
+
+procedure TCommonServiceImpl.About;
+ {* Выводит диалог "О программе" }
+var
+ __WasEnter : Boolean;
+//#UC START# *4ABB6F5D0397_4A92C1380380_var*
+//#UC END# *4ABB6F5D0397_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ABB6F5D0397_4A92C1380380_impl*
+ TefAbout.Make(vcmMakeParams);
+//#UC END# *4ABB6F5D0397_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.About
+
+procedure TCommonServiceImpl.AddDocumentToControl(const aDocument: IDocument);
+ {* Поставить документ на контроль }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1F3770062_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4AC1F3770062_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1F3770062_4A92C1380380_impl*
+ Assert(IsCurEditionActual(aDocument),'Can''t flag unactual redation');
+ if Supports(aDocument, IControllable, l_Controllable) then
+ try
+  AddToControl(l_Controllable);
+ finally
+  l_Controllable := nil;
+ end;//Supports(aDoc, IControllable, l_Controllable)
+//#UC END# *4AC1F3770062_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.AddDocumentToControl
+
+procedure TCommonServiceImpl.AddToControl(const aControllable: IControllable);
+ {* Поставить объект на контроль }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1F3A700BE_4A92C1380380_var*
+//#UC END# *4AC1F3A700BE_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1F3A700BE_4A92C1380380_impl*
+ if Assigned(aControllable) and aControllable.GetCanSetToControl then
+ begin
+  aControllable.SetControlled(True);
+  TControlledObjectService.Instance.AddControlledObject(aControllable);
+ end;//Assigned(aControllable) and aControllable.GetCanSetToControl
+//#UC END# *4AC1F3A700BE_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.AddToControl
+
+procedure TCommonServiceImpl.ApplicationActivate;
+var
+ __WasEnter : Boolean;
+//#UC START# *4ABB74D80287_4A92C1380380_var*
+//#UC END# *4ABB74D80287_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ABB74D80287_4A92C1380380_impl*
+ op_PrintParams_UpdatePrinter.Broadcast;
+//#UC END# *4ABB74D80287_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.ApplicationActivate
+
+procedure TCommonServiceImpl.CloseNavigator(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAFCA2D03D0_4A92C1380380_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4AAFCA2D03D0_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAFCA2D03D0_4A92C1380380_impl*
+ Assert(aContainer <> nil);
+ aContainer.HasForm(fm_en_Navigator.rFormID, vcm_ztNavigator, true, @l_Form);
+ if (l_Form <> nil) then
+  l_Form.SafeClose;
+//#UC END# *4AAFCA2D03D0_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.CloseNavigator
+
+procedure TCommonServiceImpl.CloseTasksPanel(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAFCCD00301_4A92C1380380_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4AAFCCD00301_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAFCCD00301_4A92C1380380_impl*
+ Assert(aContainer <> nil);
+ aContainer.HasForm(fm_en_TasksPanel.rFormID, vcm_ztNavigator, true, @l_Form);
+ if (l_Form <> nil) then
+  l_Form.SafeClose;
+//#UC END# *4AAFCCD00301_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.CloseTasksPanel
+
+procedure TCommonServiceImpl.DeleteDocumentFromControl(const aDocument: IDocument);
+ {* Снять документ с контроля }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1F3D702D2_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4AC1F3D702D2_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1F3D702D2_4A92C1380380_impl*
+ if Supports(aDocument, IControllable, l_Controllable) then
+ try
+  DeleteFromControl(l_Controllable);
+ finally
+  l_Controllable := nil;
+ end;//Supports(aDoc, IControllable, l_Controllable)
+//#UC END# *4AC1F3D702D2_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.DeleteDocumentFromControl
+
+procedure TCommonServiceImpl.DeleteFromControl(const aControllable: IControllable);
+ {* Снять объект с контроля }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1F40900DE_4A92C1380380_var*
+//#UC END# *4AC1F40900DE_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1F40900DE_4A92C1380380_impl*
+ if Assigned(aControllable) then
+ begin
+  aControllable.SetControlled(False);
+  TControlledObjectService.Instance.DeleteControlledObject(aControllable);
+ end;//Assigned(aControllable)
+//#UC END# *4AC1F40900DE_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.DeleteFromControl
+
+procedure TCommonServiceImpl.FromPrinterSettings(const aPrinter: Il3Printer);
+ {* Считать настройки из принтера }
+var
+ __WasEnter : Boolean;
+//#UC START# *4ABB68C603CE_4A92C1380380_var*
+var
+ l_PageSetup : InsPageSettingsInfo;
+//#UC END# *4ABB68C603CE_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ABB68C603CE_4A92C1380380_impl*
+ l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
+ try
+  if l_PageSetup.LoadPageFormatFromPrinter then
+   if l_PageSetup.Modified then
+    l_PageSetup.SavePageFormatToSettings;
+ finally
+  l_PageSetup := nil;
+ end;//try..finally
+//#UC END# *4ABB68C603CE_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.FromPrinterSettings
+
+function TCommonServiceImpl.GetCurEditionDate(const aDocument: IDocument): AdapterDate;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC203EB01AE_4A92C1380380_var*
+var
+ l_State : IDocumentState;
+ l_Info : TRedactionInfo;
+//#UC END# *4AC203EB01AE_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC203EB01AE_4A92C1380380_impl*
+ Result := cNullDate;
+ if (aDocument <> nil) then
+ begin
+  aDocument.GetCurrentState(l_State);
+  try
+   if (l_State <> nil) then
+   begin
+    l3FillChar(l_Info, SizeOf(l_Info));
+    l_State.GetCurrentRedaction(l_Info);
+    Result := l_Info.rTimeMachineDate;
+   end;//l_State <> nil
+  finally
+   l_State := nil;
+  end;//try..finally
+ end;//aDocument <> nil
+//#UC END# *4AC203EB01AE_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.GetCurEditionDate
+
+procedure TCommonServiceImpl.GetNavigator(const anAggregate: IvcmAggregate;
+ const aContainer: IvcmContainer);
+ {* Меню (вкладка) }
+var
+ __WasEnter : Boolean;
+//#UC START# *4ABCA68B0155_4A92C1380380_var*
+var
+ l_Aggregate : IvcmAggregate;
+ l_RubList : IvcmEntityForm;
+ l_Params : IvcmMakeParams;
+ l_Navigator : IvcmEntityForm;
+//#UC END# *4ABCA68B0155_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ABCA68B0155_4A92C1380380_impl*
+ vcmDispatcher.FormDispatcher.Lock;
+ try
+  if CheckContainer(aContainer).NativeMainForm.HasForm(fm_efRubricator.rFormID,
+                                                       vcm_ztParent,
+                                                       True,
+                                                       @l_RubList) then
+  begin
+   l_Aggregate := l_RubList.Aggregate;
+   if (l_Aggregate = nil) then
+   begin
+    l_RubList.MakeAggregate;
+    l_Aggregate := l_RubList.Aggregate;
+   end;//l_Aggregate = nil
+   l_Params := vcmSetAggregate(l_Aggregate,
+                               vcmMakeParams(l_Aggregate,
+                                         CheckContainer(aContainer)));   
+  end//CheckContainer(aContainer).NativeMainForm.HasForm..
+  else
+   l_Params := vcmCheckAggregate(vcmMakeParams(anAggregate,
+                                           CheckContainer(aContainer)));
+  l_Navigator := Ten_Navigator.MakeSingleChild(l_Params.Container.NativeMainForm,
+                                               l_Params,
+                                               vcm_ztNavigator);
+  afw.ProcessMessages;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
+  l_Navigator.SetActiveInParent;
+ finally
+  vcmDispatcher.FormDispatcher.UnLock;
+ end;//try..finally
+ op_Rubricator_Synchronize.Call(l_RubList);
+//#UC END# *4ABCA68B0155_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.GetNavigator
+
+function TCommonServiceImpl.IsCurEditionActual(const aState: IDocumentState): Boolean;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1F6E802E5_4A92C1380380_var*
+//#UC END# *4AC1F6E802E5_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1F6E802E5_4A92C1380380_impl*
+  Result := True;
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=296096137&focusedCommentId=326777595#comment-326777595 
+  if (aState <> nil) and (not DefDataAdapter.InTerminateProcess) then
+   try
+    Result := aState.IsActual;
+   except
+    on ECorbaException do
+    ;
+   end;//try..except
+//#UC END# *4AC1F6E802E5_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.IsCurEditionActual
+
+function TCommonServiceImpl.IsCurEditionActual(const aDocument: IDocument): Boolean;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1F71B0366_4A92C1380380_var*
+var
+ l_State : IDocumentState;
+//#UC END# *4AC1F71B0366_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1F71B0366_4A92C1380380_impl*
+ Result := True;
+ if (aDocument <> nil) then
+ begin
+  aDocument.GetCurrentState(l_State);
+  try
+   Result := IsCurEditionActual(l_State);
+  finally
+   l_State := nil;
+  end;//try..finally
+ end;//aDocument <> nil
+//#UC END# *4AC1F71B0366_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.IsCurEditionActual
+
+function TCommonServiceImpl.IsUnderControl(const aDoc: IDocument): Boolean;
+ {* Находится ли документ на контроле }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1F483035F_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4AC1F483035F_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1F483035F_4A92C1380380_impl*
+ Result := False;
+ if Supports(aDoc, IControllable, l_Controllable) then
+ try
+  Result := l_Controllable.GetControlled;
+ finally
+  l_Controllable := nil;
+ end;
+//#UC END# *4AC1F483035F_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.IsUnderControl
+
+procedure TCommonServiceImpl.OpenNewDocs(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4ABBA74F03DA_4A92C1380380_var*
+var
+ l_Node : INodeBase;
+ l_Child : INodeBase;
+//#UC END# *4ABBA74F03DA_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ABBA74F03DA_4A92C1380380_impl*
+ l_Node := TPrimF1CommonModule.GetMenuTypedItem(NM_BUSINESS_INFO_FOLDER);
+ if (l_Node <> nil) then
+ begin
+  l_Node.GetFirstChild(l_Child);
+  while (l_Child <> nil) do
+  begin
+   if (TNavigatorMenuItemType(l_Child.GetType) = NM_NEW_DOCS) then
+    break;
+   l_Child.GetNext(l_Node);
+   l_Child := l_Node;
+  end;//l_Child <> nil
+  if (l_Child <> nil) then
+   TRubricatorOpenService.Instance.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+                            l_Node,
+                            nil,
+                            true,
+                            nil,
+                            CheckContainer(aContainer));
+ end;//l_Node <> nil
+//#UC END# *4ABBA74F03DA_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.OpenNewDocs
+
+procedure TCommonServiceImpl.OpenRubricatorOnStart(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4ABB8D6B0041_4A92C1380380_var*
+var
+ l_Node : INodeBase;
+ l_Child : INodeBase;
+//#UC END# *4ABB8D6B0041_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ABB8D6B0041_4A92C1380380_impl*
+ l_Node := TPrimF1CommonModule.GetMenuTypedItem(NM_LAW_NAVIGATOR_FOLDER);
+ if (l_Node <> nil) then
+ begin
+  l_Node.GetFirstChild(l_Child);
+  if l_Child <> nil then
+   TRubricatorOpenService.Instance.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+                            l_Node,
+                            nil,
+                            true,
+                            nil,
+                            CheckContainer(aContainer));
+ end;//l_Node <> nil
+//#UC END# *4ABB8D6B0041_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.OpenRubricatorOnStart
+
+procedure TCommonServiceImpl.OpenTasksPanel(const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4AC1000A0176_4A92C1380380_var*
+//#UC END# *4AC1000A0176_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AC1000A0176_4A92C1380380_impl*
+ {$If not (defined(Monitorings) or defined(Admin))}
+ // заменяем Make --> MakeSingleChild
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296&focusedCommentId=342868675#comment-342868675
+ Ten_TasksPanel.MakeSingleChild(CheckContainer(aContainer), vcmMakeParams(nil,
+                               CheckContainer(aContainer)),
+                     vcm_ztNavigator,
+                     Ord(tpMain));
+ {$IfEnd not (defined(Monitorings) or defined(Admin))}
+//#UC END# *4AC1000A0176_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.OpenTasksPanel
+
+procedure TCommonServiceImpl.ToPrinterSettings(const aPrinter: Il3Printer);
+ {* Записать настройки в принтер }
+var
+ __WasEnter : Boolean;
+//#UC START# *4ABB691803C2_4A92C1380380_var*
+var
+ l_PageSetup : InsPageSettingsInfo;
+//#UC END# *4ABB691803C2_4A92C1380380_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4ABB691803C2_4A92C1380380_impl*
+ l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
+ try
+  l_PageSetup.SaveToPrinter;
+ finally
+  l_PageSetup := nil;
+ end;//try..finally
+//#UC END# *4ABB691803C2_4A92C1380380_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonServiceImpl.ToPrinterSettings
+
+function TCommonServiceImpl.MakeProgressIndicator(const aProgress: InsProgressIndicator;
  const aCaption: Il3CString;
  aMaxCount: Integer): IvcmEntityForm;
 var
@@ -195,176 +702,41 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TPrimF1CommonModule.MakeProgressIndicator
+end;//TCommonServiceImpl.MakeProgressIndicator
 
-class procedure TPrimF1CommonModule.CloseNavigator(const aContainer: IvcmContainer);
-var l_Form: IvcmEntityForm;
+function TCommonServiceImpl.OpenTurnOffTimeMachine(const anIntf: InsTurnOffTimeMachine): IvcmEntityForm;
 var
  __WasEnter : Boolean;
-//#UC START# *4AAFCA2D03D0_4A92C1380380_var*
-//#UC END# *4AAFCA2D03D0_4A92C1380380_var*
+//#UC START# *4B2624ED010D_4A92C1380380_var*
+//#UC END# *4B2624ED010D_4A92C1380380_var*
 begin
  __WasEnter := vcmEnterFactory;
  try
-//#UC START# *4AAFCA2D03D0_4A92C1380380_impl*
- Assert(aContainer <> nil);
- aContainer.HasForm(fm_en_Navigator.rFormID, vcm_ztNavigator, true, @l_Form);
- if (l_Form <> nil) then
-  l_Form.SafeClose;
-//#UC END# *4AAFCA2D03D0_4A92C1380380_impl*
+//#UC START# *4B2624ED010D_4A92C1380380_impl*
+ Result := Ten_TurnOffTimeMachine.Make(anIntf);
+//#UC END# *4B2624ED010D_4A92C1380380_impl*
  finally
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TPrimF1CommonModule.CloseNavigator
+end;//TCommonServiceImpl.OpenTurnOffTimeMachine
 
-class procedure TPrimF1CommonModule.CloseTasksPanel(const aContainer: IvcmContainer);
-var l_Form: IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4AAFCCD00301_4A92C1380380_var*
-//#UC END# *4AAFCCD00301_4A92C1380380_var*
+class function TCommonServiceImpl.Instance: TCommonServiceImpl;
+ {* Метод получения экземпляра синглетона TCommonServiceImpl }
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AAFCCD00301_4A92C1380380_impl*
- Assert(aContainer <> nil);
- aContainer.HasForm(fm_en_TasksPanel.rFormID, vcm_ztNavigator, true, @l_Form);
- if (l_Form <> nil) then
-  l_Form.SafeClose;
-//#UC END# *4AAFCCD00301_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.CloseTasksPanel
+ if (g_TCommonServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TCommonServiceImplFree);
+  g_TCommonServiceImpl := Create;
+ end;
+ Result := g_TCommonServiceImpl;
+end;//TCommonServiceImpl.Instance
 
-class procedure TPrimF1CommonModule.FromPrinterSettings(const aPrinter: Il3Printer);
- {* Считать настройки из принтера }
-var l_PageSetup: InsPageSettingsInfo;
-var
- __WasEnter : Boolean;
-//#UC START# *4ABB68C603CE_4A92C1380380_var*
-//#UC END# *4ABB68C603CE_4A92C1380380_var*
+class function TCommonServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ABB68C603CE_4A92C1380380_impl*
- l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
- try
-  if l_PageSetup.LoadPageFormatFromPrinter then
-   if l_PageSetup.Modified then
-    l_PageSetup.SavePageFormatToSettings;
- finally
-  l_PageSetup := nil;
- end;//try..finally
-//#UC END# *4ABB68C603CE_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.FromPrinterSettings
-
-class procedure TPrimF1CommonModule.ToPrinterSettings(const aPrinter: Il3Printer);
- {* Записать настройки в принтер }
-var l_PageSetup: InsPageSettingsInfo;
-var
- __WasEnter : Boolean;
-//#UC START# *4ABB691803C2_4A92C1380380_var*
-//#UC END# *4ABB691803C2_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ABB691803C2_4A92C1380380_impl*
- l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
- try
-  l_PageSetup.SaveToPrinter;
- finally
-  l_PageSetup := nil;
- end;//try..finally
-//#UC END# *4ABB691803C2_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.ToPrinterSettings
-
-class procedure TPrimF1CommonModule.About;
- {* Выводит диалог "О программе" }
-var
- __WasEnter : Boolean;
-//#UC START# *4ABB6F5D0397_4A92C1380380_var*
-//#UC END# *4ABB6F5D0397_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ABB6F5D0397_4A92C1380380_impl*
- TefAbout.Make(vcmMakeParams);
-//#UC END# *4ABB6F5D0397_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.About
-
-class procedure TPrimF1CommonModule.ApplicationActivate;
-var
- __WasEnter : Boolean;
-//#UC START# *4ABB74D80287_4A92C1380380_var*
-//#UC END# *4ABB74D80287_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ABB74D80287_4A92C1380380_impl*
- op_PrintParams_UpdatePrinter.Broadcast;
-//#UC END# *4ABB74D80287_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.ApplicationActivate
-
-procedure TPrimF1CommonModule.opComplectInfoTest(const aParams: IvcmTestParamsPrim);
- {* Информация о комплекте }
-//#UC START# *4ABB7615007A_4A92C1380380test_var*
-//#UC END# *4ABB7615007A_4A92C1380380test_var*
-begin
-//#UC START# *4ABB7615007A_4A92C1380380test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := not CheckContainer(nil).
-  NativeMainForm.HasForm(fm_enCompInfo.rFormID, vcm_ztParent, True, nil);
-//#UC END# *4ABB7615007A_4A92C1380380test_impl*
-end;//TPrimF1CommonModule.opComplectInfoTest
-
-procedure TPrimF1CommonModule.opComplectInfoExecute(const aParams: IvcmExecuteParamsPrim);
- {* Информация о комплекте }
-//#UC START# *4ABB7615007A_4A92C1380380exec_var*
-//#UC END# *4ABB7615007A_4A92C1380380exec_var*
-begin
-//#UC START# *4ABB7615007A_4A92C1380380exec_impl*
- TenCompInfo.Make(vcmCheckAggregate(vcmMakeParams(nil,
-                                           CheckContainer(nil))));
-//#UC END# *4ABB7615007A_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opComplectInfoExecute
-
-procedure TPrimF1CommonModule.opPageSetupExecute(const aParams: IvcmExecuteParamsPrim);
- {* Настройка страницы... }
-//#UC START# *4ABB76520183_4A92C1380380exec_var*
-//#UC END# *4ABB76520183_4A92C1380380exec_var*
-begin
-//#UC START# *4ABB76520183_4A92C1380380exec_impl*
- TdmStdRes.MakePageSetup(nil);
-//#UC END# *4ABB76520183_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opPageSetupExecute
-
-procedure TPrimF1CommonModule.opShowEULAExecute(const aParams: IvcmExecuteParamsPrim);
- {* Условия использования }
-//#UC START# *4ABB792C0164_4A92C1380380exec_var*
-//#UC END# *4ABB792C0164_4A92C1380380exec_var*
-begin
-//#UC START# *4ABB792C0164_4A92C1380380exec_impl*
- TefEULA.Make(vcmMakeParams);
-//#UC END# *4ABB792C0164_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opShowEULAExecute
+ Result := g_TCommonServiceImpl <> nil;
+end;//TCommonServiceImpl.Exists
 
 class function TPrimF1CommonModule.GetMenuTypedItem(aType: TNavigatorMenuItemType): INodeBase;
 var l_Root: INodeBase;
@@ -435,120 +807,27 @@ begin
 //#UC END# *4ABB8A470126_4A92C1380380_impl*
 end;//TPrimF1CommonModule.SetParamsForNavigatorElements
 
-class procedure TPrimF1CommonModule.OpenRubricatorOnStart(const aContainer: IvcmContainer);
-var l_Node: INodeBase;
-var l_Child: INodeBase;
-var
- __WasEnter : Boolean;
-//#UC START# *4ABB8D6B0041_4A92C1380380_var*
-//#UC END# *4ABB8D6B0041_4A92C1380380_var*
+procedure TPrimF1CommonModule.opComplectInfoTest(const aParams: IvcmTestParamsPrim);
+ {* Информация о комплекте }
+//#UC START# *4ABB7615007A_4A92C1380380test_var*
+//#UC END# *4ABB7615007A_4A92C1380380test_var*
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ABB8D6B0041_4A92C1380380_impl*
- l_Node := GetMenuTypedItem(NM_LAW_NAVIGATOR_FOLDER);
- if (l_Node <> nil) then
- begin
-  l_Node.GetFirstChild(l_Child);
-  if l_Child <> nil then
-   TdmStdRes.OpenRubricator(TnsNewCachableNode.Make(l_Child),
-                            l_Node,
-                            nil,
-                            true,
-                            nil,
-                            CheckContainer(aContainer));
- end;//l_Node <> nil
-//#UC END# *4ABB8D6B0041_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.OpenRubricatorOnStart
+//#UC START# *4ABB7615007A_4A92C1380380test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not CheckContainer(nil).
+  NativeMainForm.HasForm(fm_enCompInfo.rFormID, vcm_ztParent, True, nil);
+//#UC END# *4ABB7615007A_4A92C1380380test_impl*
+end;//TPrimF1CommonModule.opComplectInfoTest
 
-class procedure TPrimF1CommonModule.OpenNewDocs(const aContainer: IvcmContainer);
-var l_Node: INodeBase;
-var l_Child: INodeBase;
-var
- __WasEnter : Boolean;
-//#UC START# *4ABBA74F03DA_4A92C1380380_var*
-//#UC END# *4ABBA74F03DA_4A92C1380380_var*
+procedure TPrimF1CommonModule.opComplectInfoExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Информация о комплекте }
+//#UC START# *4ABB7615007A_4A92C1380380exec_var*
+//#UC END# *4ABB7615007A_4A92C1380380exec_var*
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ABBA74F03DA_4A92C1380380_impl*
- l_Node := GetMenuTypedItem(NM_BUSINESS_INFO_FOLDER);
- if (l_Node <> nil) then
- begin
-  l_Node.GetFirstChild(l_Child);
-  while (l_Child <> nil) do
-  begin
-   if (TNavigatorMenuItemType(l_Child.GetType) = NM_NEW_DOCS) then
-    break;
-   l_Child.GetNext(l_Node);
-   l_Child := l_Node;
-  end;//l_Child <> nil
-  if (l_Child <> nil) then
-   TdmStdRes.OpenRubricator(TnsNewCachableNode.Make(l_Child),
-                            l_Node,
-                            nil,
-                            true,
-                            nil,
-                            CheckContainer(aContainer));
- end;//l_Node <> nil
-//#UC END# *4ABBA74F03DA_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.OpenNewDocs
-
-procedure TPrimF1CommonModule.opOpenMainMenuByButtonExecute(const aParams: IvcmExecuteParamsPrim);
- {* Основное меню системы ГАРАНТ }
-//#UC START# *4ABBAAE40176_4A92C1380380exec_var*
-//#UC END# *4ABBAAE40176_4A92C1380380exec_var*
-begin
-//#UC START# *4ABBAAE40176_4A92C1380380exec_impl*
- TdmStdRes.OpenMainMenuIfNeeded(nil);
-//#UC END# *4ABBAAE40176_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenMainMenuByButtonExecute
-
-procedure TPrimF1CommonModule.opOpenMainMenuNewTest(const aParams: IvcmTestParamsPrim);
- {* Основное меню }
-//#UC START# *4ABBAB14034B_4A92C1380380test_var*
-//#UC END# *4ABBAB14034B_4A92C1380380test_var*
-begin
-//#UC START# *4ABBAB14034B_4A92C1380380test_impl*
- with aParams.Op.SubItems do
- begin
-  Clear;
-  if defDataAdapter.IsInpharmExists then
-  begin
-   AddOp(TdmStdRes.mod_opcode_Common_OpenMainMenuByButton, vcmCStr(str_MainMenuButtonItem));
-   AddOp(TdmStdRes.mod_opcode_Inpharm_MedicMainMenu, vcmCStr(str_InPharmMenuButtonItem));
-  end;
- end;
-//#UC END# *4ABBAB14034B_4A92C1380380test_impl*
-end;//TPrimF1CommonModule.opOpenMainMenuNewTest
-
-procedure TPrimF1CommonModule.opOpenMainMenuNewExecute(const aParams: IvcmExecuteParamsPrim);
- {* Основное меню }
-//#UC START# *4ABBAB14034B_4A92C1380380exec_var*
-//#UC END# *4ABBAB14034B_4A92C1380380exec_var*
-begin
-//#UC START# *4ABBAB14034B_4A92C1380380exec_impl*
- TdmStdRes.OpenMainMenuIfNeeded(nil);
-//#UC END# *4ABBAB14034B_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenMainMenuNewExecute
-
-procedure TPrimF1CommonModule.opTasksPanelExecute(const aParams: IvcmExecuteParamsPrim);
- {* Панель задач }
-//#UC START# *4ABBAC7D003B_4A92C1380380exec_var*
-//#UC END# *4ABBAC7D003B_4A92C1380380exec_var*
-begin
-//#UC START# *4ABBAC7D003B_4A92C1380380exec_impl*
- OpenTasksPanel(nil);
-//#UC END# *4ABBAC7D003B_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opTasksPanelExecute
+//#UC START# *4ABB7615007A_4A92C1380380exec_impl*
+ TenCompInfo.Make(vcmCheckAggregate(vcmMakeParams(nil,
+                                           CheckContainer(nil))));
+//#UC END# *4ABB7615007A_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opComplectInfoExecute
 
 procedure TPrimF1CommonModule.opLetterToDevelopersExecute(const aParams: IvcmExecuteParamsPrim);
  {* Письмо разработчикам }
@@ -561,28 +840,6 @@ begin
    bsBaseDate)])));
 //#UC END# *4ABBB19B030A_4A92C1380380exec_impl*
 end;//TPrimF1CommonModule.opLetterToDevelopersExecute
-
-procedure TPrimF1CommonModule.opOpenRubricatorTest(const aParams: IvcmTestParamsPrim);
- {* Правовой навигатор }
-//#UC START# *4ABC827B010F_4A92C1380380test_var*
-//#UC END# *4ABC827B010F_4A92C1380380test_var*
-begin
-//#UC START# *4ABC827B010F_4A92C1380380test_impl*
- SetParamsForNavigatorElements(aParams, NM_LAW_NAVIGATOR_FOLDER);
-//#UC END# *4ABC827B010F_4A92C1380380test_impl*
-end;//TPrimF1CommonModule.opOpenRubricatorTest
-
-procedure TPrimF1CommonModule.opOpenRubricatorExecute(const aParams: IvcmExecuteParamsPrim);
- {* Правовой навигатор }
-//#UC START# *4ABC827B010F_4A92C1380380exec_var*
-//#UC END# *4ABC827B010F_4A92C1380380exec_var*
-begin
-//#UC START# *4ABC827B010F_4A92C1380380exec_impl*
-{$If not (defined(Monitorings) or defined(Admin))}
- ExecuteNavigatorItem(aParams.CurrentNode, nil, CheckContainer(nil));
-{$IfEnd not (defined(Monitorings) or defined(Admin))}
-//#UC END# *4ABC827B010F_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opOpenRubricatorExecute
 
 procedure TPrimF1CommonModule.opOpenInformationTest(const aParams: IvcmTestParamsPrim);
  {* Справочная информация }
@@ -606,303 +863,14 @@ begin
 //#UC END# *4ABC82A70238_4A92C1380380exec_impl*
 end;//TPrimF1CommonModule.opOpenInformationExecute
 
-class procedure TPrimF1CommonModule.GetNavigator(const anAggregate: IvcmAggregate;
- const aContainer: IvcmContainer);
- {* Меню (вкладка) }
-var l_Navigator: IvcmEntityForm;
-var l_RubList: IvcmEntityForm;
-var l_Aggregate: IvcmAggregate;
-var l_Params: IvcmMakeParams;
-var
- __WasEnter : Boolean;
-//#UC START# *4ABCA68B0155_4A92C1380380_var*
-//#UC END# *4ABCA68B0155_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4ABCA68B0155_4A92C1380380_impl*
- vcmDispatcher.FormDispatcher.Lock;
- try
-  if CheckContainer(aContainer).NativeMainForm.HasForm(fm_efRubricator.rFormID,
-                                                       vcm_ztParent,
-                                                       True,
-                                                       @l_RubList) then
-  begin
-   l_Aggregate := l_RubList.Aggregate;
-   if (l_Aggregate = nil) then
-   begin
-    l_RubList.MakeAggregate;
-    l_Aggregate := l_RubList.Aggregate;
-   end;//l_Aggregate = nil
-   l_Params := vcmSetAggregate(l_Aggregate,
-                               vcmMakeParams(l_Aggregate,
-                                         CheckContainer(aContainer)));   
-  end//CheckContainer(aContainer).NativeMainForm.HasForm..
-  else
-   l_Params := vcmCheckAggregate(vcmMakeParams(anAggregate,
-                                           CheckContainer(aContainer)));
-  l_Navigator := Ten_Navigator.MakeSingleChild(l_Params.Container.NativeMainForm,
-                                               l_Params,
-                                               vcm_ztNavigator);
-  afw.ProcessMessages;
-  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
-  l_Navigator.SetActiveInParent;
- finally
-  vcmDispatcher.FormDispatcher.UnLock;
- end;//try..finally
- op_Rubricator_Synchronize.Call(l_RubList);
-//#UC END# *4ABCA68B0155_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.GetNavigator
-
-procedure TPrimF1CommonModule.opget_navigatorExecute(const aParams: IvcmExecuteParamsPrim);
- {* Меню (вкладка) }
-//#UC START# *4AC0FBFE0095_4A92C1380380exec_var*
-//#UC END# *4AC0FBFE0095_4A92C1380380exec_var*
-begin
-//#UC START# *4AC0FBFE0095_4A92C1380380exec_impl*
- GetNavigator(nil, nil);
-//#UC END# *4AC0FBFE0095_4A92C1380380exec_impl*
-end;//TPrimF1CommonModule.opget_navigatorExecute
-
-class procedure TPrimF1CommonModule.OpenTasksPanel(const aContainer: IvcmContainer);
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1000A0176_4A92C1380380_var*
-//#UC END# *4AC1000A0176_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1000A0176_4A92C1380380_impl*
- {$If not (defined(Monitorings) or defined(Admin))}
- // заменяем Make --> MakeSingleChild
- // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296&focusedCommentId=342868675#comment-342868675
- Ten_TasksPanel.MakeSingleChild(CheckContainer(aContainer), vcmMakeParams(nil,
-                               CheckContainer(aContainer)),
-                     vcm_ztNavigator,
-                     Ord(tpMain));
- {$IfEnd not (defined(Monitorings) or defined(Admin))}
-//#UC END# *4AC1000A0176_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.OpenTasksPanel
-
-class procedure TPrimF1CommonModule.AddDocumentToControl(const aDocument: IDocument);
- {* Поставить документ на контроль }
-var l_Controllable: IControllable;
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1F3770062_4A92C1380380_var*
-//#UC END# *4AC1F3770062_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1F3770062_4A92C1380380_impl*
- Assert(IsCurEditionActual(aDocument),'Can''t flag unactual redation');
- if Supports(aDocument, IControllable, l_Controllable) then
- try
-  AddToControl(l_Controllable);
- finally
-  l_Controllable := nil;
- end;//Supports(aDoc, IControllable, l_Controllable)
-//#UC END# *4AC1F3770062_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.AddDocumentToControl
-
-class procedure TPrimF1CommonModule.AddToControl(const aControllable: IControllable);
- {* Поставить объект на контроль }
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1F3A700BE_4A92C1380380_var*
-//#UC END# *4AC1F3A700BE_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1F3A700BE_4A92C1380380_impl*
- if Assigned(aControllable) and aControllable.GetCanSetToControl then
- begin
-  aControllable.SetControlled(True);
-  TdmStdRes.AddControlledObject(aControllable);
- end;//Assigned(aControllable) and aControllable.GetCanSetToControl
-//#UC END# *4AC1F3A700BE_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.AddToControl
-
-class procedure TPrimF1CommonModule.DeleteDocumentFromControl(const aDocument: IDocument);
- {* Снять документ с контроля }
-var l_Controllable: IControllable;
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1F3D702D2_4A92C1380380_var*
-//#UC END# *4AC1F3D702D2_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1F3D702D2_4A92C1380380_impl*
- if Supports(aDocument, IControllable, l_Controllable) then
- try
-  DeleteFromControl(l_Controllable);
- finally
-  l_Controllable := nil;
- end;//Supports(aDoc, IControllable, l_Controllable)
-//#UC END# *4AC1F3D702D2_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.DeleteDocumentFromControl
-
-class procedure TPrimF1CommonModule.DeleteFromControl(const aControllable: IControllable);
- {* Снять объект с контроля }
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1F40900DE_4A92C1380380_var*
-//#UC END# *4AC1F40900DE_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1F40900DE_4A92C1380380_impl*
- if Assigned(aControllable) then
- begin
-  aControllable.SetControlled(False);
-  TdmStdRes.DeleteControlledObject(aControllable);
- end;//Assigned(aControllable)
-//#UC END# *4AC1F40900DE_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.DeleteFromControl
-
-class function TPrimF1CommonModule.IsUnderControl(const aDoc: IDocument): Boolean;
- {* Находится ли документ на контроле }
-var l_Controllable: IControllable;
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1F483035F_4A92C1380380_var*
-//#UC END# *4AC1F483035F_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1F483035F_4A92C1380380_impl*
- Result := False;
- if Supports(aDoc, IControllable, l_Controllable) then
- try
-  Result := l_Controllable.GetControlled;
- finally
-  l_Controllable := nil;
- end;
-//#UC END# *4AC1F483035F_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.IsUnderControl
-
-class function TPrimF1CommonModule.IsCurEditionActual(const aState: IDocumentState): Boolean;
-var l_Info: TRedactionInfo;
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1F6E802E5_4A92C1380380_var*
-//#UC END# *4AC1F6E802E5_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1F6E802E5_4A92C1380380_impl*
-  Result := True;
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=296096137&focusedCommentId=326777595#comment-326777595 
-  if (aState <> nil) and (not DefDataAdapter.InTerminateProcess) then
-   try
-    Result := aState.IsActual;
-   except
-    on ECorbaException do
-    ;
-   end;//try..except
-//#UC END# *4AC1F6E802E5_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.IsCurEditionActual
-
-class function TPrimF1CommonModule.IsCurEditionActual(const aDocument: IDocument): Boolean;
-var l_State: IDocumentState;
-var
- __WasEnter : Boolean;
-//#UC START# *4AC1F71B0366_4A92C1380380_var*
-//#UC END# *4AC1F71B0366_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC1F71B0366_4A92C1380380_impl*
- Result := True;
- if (aDocument <> nil) then
- begin
-  aDocument.GetCurrentState(l_State);
-  try
-   Result := IsCurEditionActual(l_State);
-  finally
-   l_State := nil;
-  end;//try..finally
- end;//aDocument <> nil
-//#UC END# *4AC1F71B0366_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.IsCurEditionActual
-
-class function TPrimF1CommonModule.GetCurEditionDate(const aDocument: IDocument): AdapterDate;
-var l_State: IDocumentState;
-var l_Info: TRedactionInfo;
-var
- __WasEnter : Boolean;
-//#UC START# *4AC203EB01AE_4A92C1380380_var*
-//#UC END# *4AC203EB01AE_4A92C1380380_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AC203EB01AE_4A92C1380380_impl*
- Result := cNullDate;
- if (aDocument <> nil) then
- begin
-  aDocument.GetCurrentState(l_State);
-  try
-   if (l_State <> nil) then
-   begin
-    l3FillChar(l_Info, SizeOf(l_Info));
-    l_State.GetCurrentRedaction(l_Info);
-    Result := l_Info.rTimeMachineDate;
-   end;//l_State <> nil
-  finally
-   l_State := nil;
-  end;//try..finally
- end;//aDocument <> nil
-//#UC END# *4AC203EB01AE_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.GetCurEditionDate
-
 procedure TPrimF1CommonModule.opOpenIntranetTest(const aParams: IvcmTestParamsPrim);
 //#UC START# *4BD162890088_4A92C1380380test_var*
 //#UC END# *4BD162890088_4A92C1380380test_var*
 begin
 //#UC START# *4BD162890088_4A92C1380380test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.RevisionCheckEnabled and
-                                   (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE);
+ aParams.Op.Flag[vcm_ofEnabled] := (defDataAdapter.RevisionCheckEnabled and
+                                   (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+                                   or DefDataAdapter.CommonInterfaces.IsEarlyInstalled;
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
 //#UC END# *4BD162890088_4A92C1380380test_impl*
 end;//TPrimF1CommonModule.opOpenIntranetTest
@@ -916,37 +884,120 @@ begin
 //#UC END# *4BD162890088_4A92C1380380exec_impl*
 end;//TPrimF1CommonModule.opOpenIntranetExecute
 
-class function TPrimF1CommonModule.OpenTurnOffTimeMachine(const anIntf: InsTurnOffTimeMachine): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4B2624ED010D_4A92C1380380_var*
-//#UC END# *4B2624ED010D_4A92C1380380_var*
+procedure TPrimF1CommonModule.opOpenMainMenuByButtonExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Основное меню системы ГАРАНТ }
+//#UC START# *4ABBAAE40176_4A92C1380380exec_var*
+//#UC END# *4ABBAAE40176_4A92C1380380exec_var*
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4B2624ED010D_4A92C1380380_impl*
- Result := Ten_TurnOffTimeMachine.Make(anIntf);
-//#UC END# *4B2624ED010D_4A92C1380380_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimF1CommonModule.OpenTurnOffTimeMachine
+//#UC START# *4ABBAAE40176_4A92C1380380exec_impl*
+ TMainMenuOpenService.Instance.OpenMainMenuIfNeeded(nil);
+//#UC END# *4ABBAAE40176_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opOpenMainMenuByButtonExecute
+
+procedure TPrimF1CommonModule.opOpenMainMenuNewTest(const aParams: IvcmTestParamsPrim);
+ {* Основное меню }
+//#UC START# *4ABBAB14034B_4A92C1380380test_var*
+//#UC END# *4ABBAB14034B_4A92C1380380test_var*
+begin
+//#UC START# *4ABBAB14034B_4A92C1380380test_impl*
+ with aParams.Op.SubItems do
+ begin
+  Clear;
+  if defDataAdapter.IsInpharmExists then
+  begin
+   AddOp(mod_opcode_CommonService_OpenMainMenuByButton, vcmCStr(str_MainMenuButtonItem));
+   AddOp(mod_opcode_InpharmOperations_MedicMainMenu, vcmCStr(str_InPharmMenuButtonItem));
+  end;//defDataAdapter.IsInpharmExists
+ end;//with aParams.Op.SubItems
+//#UC END# *4ABBAB14034B_4A92C1380380test_impl*
+end;//TPrimF1CommonModule.opOpenMainMenuNewTest
+
+procedure TPrimF1CommonModule.opOpenMainMenuNewExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Основное меню }
+//#UC START# *4ABBAB14034B_4A92C1380380exec_var*
+//#UC END# *4ABBAB14034B_4A92C1380380exec_var*
+begin
+//#UC START# *4ABBAB14034B_4A92C1380380exec_impl*
+ TMainMenuOpenService.Instance.OpenMainMenuIfNeeded(nil);
+//#UC END# *4ABBAB14034B_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opOpenMainMenuNewExecute
+
+procedure TPrimF1CommonModule.opOpenRubricatorTest(const aParams: IvcmTestParamsPrim);
+ {* Правовой навигатор }
+//#UC START# *4ABC827B010F_4A92C1380380test_var*
+//#UC END# *4ABC827B010F_4A92C1380380test_var*
+begin
+//#UC START# *4ABC827B010F_4A92C1380380test_impl*
+ SetParamsForNavigatorElements(aParams, NM_LAW_NAVIGATOR_FOLDER);
+//#UC END# *4ABC827B010F_4A92C1380380test_impl*
+end;//TPrimF1CommonModule.opOpenRubricatorTest
+
+procedure TPrimF1CommonModule.opOpenRubricatorExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Правовой навигатор }
+//#UC START# *4ABC827B010F_4A92C1380380exec_var*
+//#UC END# *4ABC827B010F_4A92C1380380exec_var*
+begin
+//#UC START# *4ABC827B010F_4A92C1380380exec_impl*
+{$If not (defined(Monitorings) or defined(Admin))}
+ ExecuteNavigatorItem(aParams.CurrentNode, nil, CheckContainer(nil));
+{$IfEnd not (defined(Monitorings) or defined(Admin))}
+//#UC END# *4ABC827B010F_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opOpenRubricatorExecute
+
+procedure TPrimF1CommonModule.opPageSetupExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Настройка страницы... }
+//#UC START# *4ABB76520183_4A92C1380380exec_var*
+//#UC END# *4ABB76520183_4A92C1380380exec_var*
+begin
+//#UC START# *4ABB76520183_4A92C1380380exec_impl*
+ TPrintingService.Instance.MakePageSetup(nil);
+//#UC END# *4ABB76520183_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opPageSetupExecute
+
+procedure TPrimF1CommonModule.opShowEULAExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Условия использования }
+//#UC START# *4ABB792C0164_4A92C1380380exec_var*
+//#UC END# *4ABB792C0164_4A92C1380380exec_var*
+begin
+//#UC START# *4ABB792C0164_4A92C1380380exec_impl*
+ TefEULA.Make(vcmMakeParams);
+//#UC END# *4ABB792C0164_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opShowEULAExecute
+
+procedure TPrimF1CommonModule.opTasksPanelExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Панель задач }
+//#UC START# *4ABBAC7D003B_4A92C1380380exec_var*
+//#UC END# *4ABBAC7D003B_4A92C1380380exec_var*
+begin
+//#UC START# *4ABBAC7D003B_4A92C1380380exec_impl*
+ TCommonService.Instance.OpenTasksPanel(nil);
+//#UC END# *4ABBAC7D003B_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opTasksPanelExecute
+
+procedure TPrimF1CommonModule.opget_navigatorExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Меню (вкладка) }
+//#UC START# *4AC0FBFE0095_4A92C1380380exec_var*
+//#UC END# *4AC0FBFE0095_4A92C1380380exec_var*
+begin
+//#UC START# *4AC0FBFE0095_4A92C1380380exec_impl*
+ TCommonService.Instance.GetNavigator(nil, nil);
+//#UC END# *4AC0FBFE0095_4A92C1380380exec_impl*
+end;//TPrimF1CommonModule.opget_navigatorExecute
 
 procedure TPrimF1CommonModule.Loaded;
 begin
  inherited;
  PublishOp('opComplectInfo', opComplectInfoExecute, opComplectInfoTest);
- PublishOp('opPageSetup', opPageSetupExecute, nil);
- PublishOp('opShowEULA', opShowEULAExecute, nil);
+ PublishOp('LetterToDevelopers', opLetterToDevelopersExecute, nil);
+ PublishOp('opOpenInformation', opOpenInformationExecute, opOpenInformationTest);
+ PublishOp('opOpenIntranet', opOpenIntranetExecute, opOpenIntranetTest);
  PublishOp('opOpenMainMenuByButton', opOpenMainMenuByButtonExecute, nil);
  PublishOp('OpenMainMenuNew', opOpenMainMenuNewExecute, opOpenMainMenuNewTest);
- PublishOp('opTasksPanel', opTasksPanelExecute, nil);
- PublishOp('LetterToDevelopers', opLetterToDevelopersExecute, nil);
  PublishOp('opOpenRubricator', opOpenRubricatorExecute, opOpenRubricatorTest);
- PublishOp('opOpenInformation', opOpenInformationExecute, opOpenInformationTest);
+ PublishOp('opPageSetup', opPageSetupExecute, nil);
+ PublishOp('opShowEULA', opShowEULAExecute, nil);
+ PublishOp('opTasksPanel', opTasksPanelExecute, nil);
  PublishOp('get_navigator', opget_navigatorExecute, nil);
- PublishOp('opOpenIntranet', opOpenIntranetExecute, opOpenIntranetTest);
 end;//TPrimF1CommonModule.Loaded
 
 class procedure TPrimF1CommonModule.GetEntityForms(aList: TvcmClassList);
@@ -962,6 +1013,10 @@ begin
  aList.Add(Ten_Navigator);
  aList.Add(Ten_TurnOffTimeMachine);
 end;//TPrimF1CommonModule.GetEntityForms
+
+initialization
+ TCommonService.Instance.Alien := TCommonServiceImpl.Instance;
+ {* Регистрация TCommonServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

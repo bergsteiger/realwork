@@ -43,6 +43,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *53FC3551023Fimpl_uses*
+ //#UC END# *53FC3551023Fimpl_uses*
 ;
 
 class function TkwTestResolveInputFilePath.GetWordNameForRegister: AnsiString;

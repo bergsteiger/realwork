@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , ddPicture
+ //#UC START# *5575752B029Eimpl_uses*
+ //#UC END# *5575752B029Eimpl_uses*
 ;
 
 procedure TdestShapeRslt.Apply2Shape(aState: TddRTFState;

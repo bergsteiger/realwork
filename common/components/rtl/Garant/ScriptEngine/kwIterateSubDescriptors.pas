@@ -66,6 +66,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *52D643C100A8impl_uses*
+ //#UC END# *52D643C100A8impl_uses*
 ;
 
 procedure TkwIterateSubDescriptors.DoWithSubPanel(aControl: TevCustomSubPanel;

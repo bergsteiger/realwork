@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , nsComplectInfoNode
+ //#UC START# *468276240241impl_uses*
+ //#UC END# *468276240241impl_uses*
 ;
 
 function TnsComplectInfoRootNode.GetChildNodeClass: RnsINodeWrap;

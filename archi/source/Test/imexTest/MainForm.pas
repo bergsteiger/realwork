@@ -86,7 +86,7 @@ type
     procedure wmShowMessage(var Message: TMessage); message wm_User + 12;
 
   private
-    fFamily : TFamilyID;
+    fFamily : TdaFamilyID;
     fNumSab : ISab;
     fSabFiller : IValueSetFiller;
     fWorkDir : String;

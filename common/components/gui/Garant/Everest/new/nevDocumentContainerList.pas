@@ -44,6 +44,8 @@ uses
  , l3Memory
  , SysUtils
  , l3Base
+ //#UC START# *4DD25B17012Aimpl_uses*
+ //#UC END# *4DD25B17012Aimpl_uses*
 ;
 
 var g_TnevDocumentContainerList: TnevDocumentContainerList = nil;

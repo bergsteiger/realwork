@@ -105,6 +105,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4A6854C70390impl_uses*
+ //#UC END# *4A6854C70390impl_uses*
 ;
 
 procedure nsAStr;

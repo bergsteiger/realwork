@@ -71,6 +71,8 @@ uses
  , evdTypes
  , nevHAFPainterView
  , l3Base
+ //#UC START# *4C22178C0102impl_uses*
+ //#UC END# *4C22178C0102impl_uses*
 ;
 
 function TevHAFPainter.pm_GetMacroReplacer: Il3HAFMacroReplacer;

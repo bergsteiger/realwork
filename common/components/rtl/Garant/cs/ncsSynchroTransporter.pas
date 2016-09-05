@@ -71,6 +71,8 @@ uses
  , l3Base
  , ncsMessageExecutorFactory
  , DateUtils
+ //#UC START# *54E333CD0130impl_uses*
+ //#UC END# *54E333CD0130impl_uses*
 ;
 
 procedure TncsSynchroTransporter.pm_SetIOHandler(aValue: TcsIdIOHandlerAbstractAdapter);

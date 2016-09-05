@@ -1,9 +1,27 @@
 Unit Dt_Serv;
 {$DEFINE UseCommServer}
 
-{ $Id: Dt_Serv.pas,v 1.337 2016/06/07 13:41:37 fireton Exp $ }
+{ $Id: Dt_Serv.pas,v 1.343 2016/08/11 15:25:03 voba Exp $ }
 
 // $Log: Dt_Serv.pas,v $
+// Revision 1.343  2016/08/11 15:25:03  voba
+// no message
+//
+// Revision 1.342  2016/08/11 08:37:29  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.341  2016/08/10 10:04:01  lulin
+// - пытались при чтении картинки с нулевым номером перераспределить номер и в итоге не читали ничего.
+//
+// Revision 1.340  2016/07/29 14:04:17  lulin
+// - правильнее выделяем номер.
+//
+// Revision 1.339  2016/06/16 07:47:47  lukyanets
+// Развязываем зависимости
+//
+// Revision 1.338  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.337  2016/06/07 13:41:37  fireton
 // - кеширование образов документов
 //
@@ -311,7 +329,7 @@ Unit Dt_Serv;
 // - загружаем список окончаний из защищённого zip-файла
 //
 // Revision 1.238  2011/06/10 12:01:32  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.237  2011/06/08 13:31:44  dinishev
 // Убираем лишние сообщения в лог тестов.
@@ -390,7 +408,7 @@ Unit Dt_Serv;
 //
 // Revision 1.212  2009/03/02 08:21:27  voba
 // - enh.  медеджере открытых таблиц заменил хранение имени на хранение идентификатора таблицы, это дало возможность назначать несколько ID для одной таблицы (алиасы) см. TOpenTblRec
-//                 rFamily    : TFamilyID;
+//                 rFamily    : TdaFamilyID;
 //                 rTblID     : Integer;
 //                 rATP       : TdtAttrTblPart;
 //                 rObj       : TPrometTbl;
@@ -1069,7 +1087,7 @@ type
  +------------------------------------------------------------------------+}
  POpenTblRec = ^TOpenTblRec;
  TOpenTblRec = Record
-                rFamily    : TFamilyID;
+                rFamily    : TdaFamilyID;
                 rTblID     : Integer;
                 rATP       : TdtAttrTblPart;
                 rObj       : TPrometTbl;
@@ -1084,7 +1102,7 @@ type
    f_BaseLang: TLanguageObj;
    f_RegionID : TdaRegionID;
    f_BaseName : AnsiString;
-   fUserID      : TUserID;
+   fUserID      : TdaUserID;
    fRequireAdminRights : boolean;
    f_HasAdminRights: Boolean;
    f_ControlTblFName: ShortString;
@@ -1097,12 +1115,12 @@ type
    f_HyTechTableOpenMode: Byte;
    f_ForCheckLogin: Boolean;
    function GetAliasValue(const aAlias: AnsiString): ShortString;
-   function pm_GetBaseLanguage(aFamily: TFamilyID): TLanguageObj;
+   function pm_GetBaseLanguage(aFamily: TdaFamilyID): TLanguageObj;
    function pm_GetExtDocIDsFromRange: Boolean;
    function pm_GetRegionTbl: TDictionaryTbl;
    procedure ReleaseTables; // убивает все открытые таблицы придерживаясь определенного порядка
    procedure SetTransTime(const aSeconds: Word);
-   function CheckFreeResource(aFamily : TFamilyID; const aResourceName : AnsiString): Boolean;
+   function CheckFreeResource(aFamily : TdaFamilyID; const aResourceName : AnsiString): Boolean;
    procedure ReadMainIni;
    property AliasList: TStrings read f_AliasList;
    property FamilyPath: TPathStr read f_FamilyPath;
@@ -1126,11 +1144,11 @@ type
 
    Function  GetFamilyTbl : TFamilyTbl;
    Function  GetFamilyList : Tl3StringDataList;
-   Function  GetFamily(aFamilyID : TFamilyID) : TdtFamily;
-   procedure pm_SetUserID(aValue : TUserID);
+   Function  GetFamily(aFamilyID : TdaFamilyID) : TdtFamily;
+   procedure pm_SetUserID(aValue : TdaUserID);
 
-   Function  GetFreeTbl(aFamily : TFamilyID): TFreeTbl;
-   function  GetTextBase(aFamily : TFamilyID) : AnsiString;
+   Function  GetFreeTbl(aFamily : TdaFamilyID): TFreeTbl;
+   function  GetTextBase(aFamily : TdaFamilyID) : AnsiString;
    Procedure Cleanup; override;
 
    function  DoOnLongProcess(aState : TdaProcessState) : Boolean;
@@ -1150,9 +1168,6 @@ type
                                       Var TransID : TRID) : Boolean;
    property    TransTime: Word read f_TransTime write SetTransTime;
   public
-   CurUserGr      : TUserGrIDArr;
-   //CurUGCount     : TUserGrID;
-
    property CurStationName : TStationID read f_CurStationName;
    property CurTblPath: TPathStr read f_CurTblPath;
    property xxxCurHomePath : TPathStr read f_CurHomePath;
@@ -1168,16 +1183,16 @@ type
    (* Работа со списком открытых таблиц *)
    Procedure   AddTblObj(aOTRec : TOpenTblRec);
    Procedure   DelTblObj(aTblObj : TPrometTbl);
-   Procedure   CloseAllTbls(aFamily : TFamilyID);
+   Procedure   CloseAllTbls(aFamily : TdaFamilyID);
    Procedure   OpenClosedTbls;
-   function    GetTblObject(aFamily : TFamilyID; aTable : Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
-   function    GetTblObjectEx(aFamily : TFamilyID; aTable : Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
+   function    GetTblObject(aFamily : TdaFamilyID; aTable : Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
+   function    GetTblObjectEx(aFamily : TdaFamilyID; aTable : Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
 
-   Procedure   ClearFamilyData(aFamily : TFamilyID);
+   Procedure   ClearFamilyData(aFamily : TdaFamilyID);
 
-   Procedure   UpdateTbl(aName : TTblNameStr;aFamily : TFamilyID;
+   Procedure   UpdateTbl(aName : TTblNameStr;aFamily : TdaFamilyID;
                          aPass : TPassStr);
-   Procedure   UpdateAllTbl(aFamily : TFamilyID);
+   Procedure   UpdateAllTbl(aFamily : TdaFamilyID);
 
    Function    xxxLockAll : Boolean;
    Procedure   xxxUnLockAll;
@@ -1186,8 +1201,8 @@ type
    // Снятие залочек, остающихся в HyTech БД, после некорректных прекращений работы с БД.
    // В случае успеха функция возвращает 0, иначе - код ошибки.
 
-   Procedure   PhisicalVerifyAllTbl(aFamily : TFamilyID; out aErrorFound: Boolean; out aMess: AnsiString);
-   Procedure   VerifyFamily(aFamily : TFamilyID;VType : TVerifyType;
+   Procedure   PhisicalVerifyAllTbl(aFamily : TdaFamilyID; out aErrorFound: Boolean; out aMess: AnsiString);
+   Procedure   VerifyFamily(aFamily : TdaFamilyID;VType : TVerifyType;
                             WithFixErrors : Boolean);
 
    Function    StartTransaction(aTables : array of TPrometTbl;
@@ -1204,8 +1219,8 @@ type
    function    xxxIsRegionExists(aID: TdaRegionID): Boolean;
    function    xxxGetRegionName(aID: TdaRegionID): AnsiString;
 
-   Function    xxxGetHomePathName(aUserID : TUserID) : TPathStr;
-   Function    xxxGetHomePath(aUserID : TUserID) : TPathStr;
+   Function    xxxGetHomePathName(aUserID : TdaUserID) : TPathStr;
+   Function    xxxGetHomePath(aUserID : TdaUserID) : TPathStr;
    Function    xxxCheckArchivariusPassword(aShortName : TPassNameStr;
                                         aPassWord  : TPassStr;
                                         RequireAdminRights: Boolean) : Boolean;
@@ -1216,23 +1231,23 @@ type
                                       anId: Longint;
                                       aList: Tl3LongintList);
 
-   function xxxGetFreeExtObjID(aFamily : TFamilyID): TDocID;
-   function xxxGetFreeExtDocID(aFamily : TFamilyID): TDocID;
+   function xxxGetFreeExtObjID(aFamily : TdaFamilyID): TDocID;
+   function xxxGetFreeExtDocID(aFamily : TdaFamilyID): TDocID;
 
    function  xxxConvertAliasPath(CurPath : ShortString): AnsiString;
    function xxxCurUserIsServer: Boolean;
-   property  xxxBaseLanguage[aFamily: TFamilyID]: TLanguageObj read pm_GetBaseLanguage;
+   property  xxxBaseLanguage[aFamily: TdaFamilyID]: TLanguageObj read pm_GetBaseLanguage;
 
-   property  xxxUserID  : TUserID read fUserID write pm_SetUserID;
+   property  xxxUserID  : TdaUserID read fUserID write pm_SetUserID;
 
    property  ExtDocIDsFromRange: Boolean read pm_GetExtDocIDsFromRange;
    Property  FamilyTbl : TFamilyTbl read GetFamilyTbl;
    Property  FamilyList : Tl3StringDataList read GetFamilyList;
-   property  Family[aFamily : TFamilyID] : TdtFamily read GetFamily;
+   property  Family[aFamily : TdaFamilyID] : TdtFamily read GetFamily;
 
-   Property  FreeTbl[aFamily : TFamilyID] : TFreeTbl read GetFreeTbl;
+   Property  FreeTbl[aFamily : TdaFamilyID] : TFreeTbl read GetFreeTbl;
 
-   property  xxxTextBase[aFamily : TFamilyID] : AnsiString read GetTextBase;
+   property  xxxTextBase[aFamily : TdaFamilyID] : AnsiString read GetTextBase;
    property  xxxRegionID: TdaRegionID read f_RegionID;
    property  xxxBaseName: AnsiString read f_BaseName;
 
@@ -1266,12 +1281,12 @@ type
 { Указатель на объект сервера баз данных }
   GlobalHtServer : THTServer = Nil;
 
-function dtGetDB(aFamily    : TFamilyID;
+function dtGetDB(aFamily    : TdaFamilyID;
                  aOnYield   : TNotifyEvent = nil;
                  aFileMeter : Tl3ProgressProc = nil;
                  aFilesMeter : Tl3ProgressProc = nil): Im3DB;
   {-}
-(*function dtGetDBEx(aFamily    : TFamilyID;
+(*function dtGetDBEx(aFamily    : TdaFamilyID;
                    aOnYield   : TNotifyEvent = nil;
                    aFileMeter : Tl3ProgressProc = nil;
                    aFilesMeter : Tl3ProgressProc = nil): Im4DB;*)
@@ -1283,7 +1298,7 @@ function dtGetDB(aFamily    : TFamilyID;
 
   {-}
 
-function dtGetObjectStream(aFamily: TFamilyID; aDocID: TDocID; var anObjID: Integer; aMode: Tm3StoreAccess): IStream;
+function dtGetObjectStream(aFamily: TdaFamilyID; aDocID: TDocID; var anObjID: Integer; aMode: Tm3StoreAccess): IStream;
 
 //function ExtractParams(out theStationName: TStationName; out theFolders: TPathRec; aStandAlone: Boolean): Boolean;
 
@@ -1435,11 +1450,11 @@ Begin
   begin
    LockServer:=TLockServer.Create(AllowClearLocks);
    For I:=0 to GlobalHTServer.FamilyList.Count - 1 do
-    LockServer.InitFamilyLocks(PFamilyID(GlobalHTServer.FamilyList.Data[I])^);
+    LockServer.InitFamilyLocks(PdaFamilyID(GlobalHTServer.FamilyList.Data[I])^);
    cDocumentServer := TDocumentServer.Create;
    AccessServer := TAccessServer.Create;
   end;
-  UserManager := TUserManager.Create;
+  xxxUserManager := TUserManager.Create;
   SetDocImagePath(aRPath.DocImgPath, aRPath.DocImgCachePath);
  except
   on E: Exception do
@@ -1462,7 +1477,7 @@ Begin
  FreeDictServer;
  l3Free(cDocumentServer);
  l3Free(AccessServer);
- l3Free(UserManager);
+ l3Free(xxxUserManager);
  l3FreeGlobal(GlobalHtServer);
 end;
 (********************************* THTServer ************************************)
@@ -1516,6 +1531,9 @@ Begin
   gHeapTask:= Min( 50*1024*1024, Max(1*1024*1024, l_MemoryStatus.dwAvailPhys div 8));
  end;
 
+ if f_HtInitData.gHeapCtrl < 100*1024*1024 then
+  l3System.Msg2Log('HeapCtrl = %d', [f_HtInitData.gHeapCtrl]);
+
  Ht(htInit(@f_HtInitData, SizeOf(f_HtInitData)));
 
  TmpStr1:=aNetUserName;
@@ -1550,7 +1568,6 @@ end;
 
 procedure THTServer.Cleanup;
 Begin
- CurUserGr := nil;
  l3Free(f_BaseLang);
  L3Free(fFamilyTbl);
  L3Free(fFamilyList);
@@ -1599,7 +1616,7 @@ begin
  Result:=fFamilyList;
 end;
 
-function THTServer.GetFamily(aFamilyID : TFamilyID) : TdtFamily;
+function THTServer.GetFamily(aFamilyID : TdaFamilyID) : TdtFamily;
 var
  lFamily : TdtFamily;
 begin
@@ -1631,18 +1648,21 @@ begin
  Result := TDTFamily(fFamilyLst[aFamilyID]);
 end;
 
-procedure THTServer.pm_SetUserID(aValue : TUserID);
+procedure THTServer.pm_SetUserID(aValue : TdaUserID);
+var
+ l_UserGroups: TdaUserGroupIDArray;
 begin
  if aValue <> fUserID then
  begin
   fUserID := aValue;
   If not f_ForCheckLogin and (fRequireAdminRights or ((fUserID <> usSupervisor) and (fUserID < usAdminReserved))) then
   begin
-   UserManager.GetUserGroup(fUserID);
+   l_UserGroups := xxxUserManager.xxxGetUserGroups(fUserID);
    f_CurHomePath:=xxxGetHomePath(fUserID);
+   AccessServer.CurrentUserGroups := l_UserGroups;
    AccessServer.ReLoadMaskArr(MainTblsFamily);
   end;
-  f_HasAdminRights := UserManager.xxxIsUserAdmin(fUserID);
+  f_HasAdminRights := xxxUserManager.xxxIsUserAdmin(fUserID);
  end;
 end;
 
@@ -1671,7 +1691,7 @@ begin
  end;
 end;
 
-Procedure THTServer.CloseAllTbls(aFamily : TFamilyID);
+Procedure THTServer.CloseAllTbls(aFamily : TdaFamilyID);
 Var
  I : LongInt;
 Begin
@@ -1697,7 +1717,7 @@ Begin
    end;
 end;
 
-function THTServer.GetTblObject(aFamily : TFamilyID; aTable : Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
+function THTServer.GetTblObject(aFamily : TdaFamilyID; aTable : Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
 Var
  TmpInd : LongInt;
 Begin
@@ -1714,7 +1734,7 @@ Begin
   Result := POpenTblRec(fOpenTbls.Data[TmpInd])^.rObj;
 end;
 
-Procedure THTServer.ClearFamilyData(aFamily : TFamilyID);
+Procedure THTServer.ClearFamilyData(aFamily : TdaFamilyID);
 Var
  Suffix  : String[4];
  TmpName : ShortString;
@@ -1764,7 +1784,7 @@ Begin
  end;
 end;
 
-Procedure THTServer.UpdateTbl(aName : TTblNameStr; aFamily : TFamilyID;
+Procedure THTServer.UpdateTbl(aName : TTblNameStr; aFamily : TdaFamilyID;
                               aPass : TPassStr);
 Var
  hTable : HT_Const.THANDLE;
@@ -1793,7 +1813,7 @@ Begin
   raise EHtErrors.CreateInt(ecTblOpen);
 end;
 
-Procedure THTServer.UpdateAllTbl(aFamily : TFamilyID);
+Procedure THTServer.UpdateAllTbl(aFamily : TdaFamilyID);
 Var
  I      : TMainTbls;
  J      : TFamTbls;
@@ -1987,7 +2007,7 @@ type
  ThtRepairModes = (repFixConst, repFixVar, repDropIdx, repBuildIdx);
  ThtRepairModeSet = set of ThtRepairModes;
 
-Procedure THTServer.PhisicalVerifyAllTbl(aFamily : TFamilyID; out aErrorFound: Boolean; out aMess: AnsiString);
+Procedure THTServer.PhisicalVerifyAllTbl(aFamily : TdaFamilyID; out aErrorFound: Boolean; out aMess: AnsiString);
 Var
  I      : TMainTbls;
  J      : TFamTbls;
@@ -2160,7 +2180,7 @@ Begin
 end;
 
 
-Procedure THTServer.VerifyFamily(aFamily : TFamilyID;VType : TVerifyType;  WithFixErrors : Boolean);
+Procedure THTServer.VerifyFamily(aFamily : TdaFamilyID;VType : TVerifyType;  WithFixErrors : Boolean);
 Var
  ReportFile : Text;
  I          : TdaDictionaryType;
@@ -2253,7 +2273,7 @@ begin
   end;
 end;
 
-function THTServer.xxxGetHomePathName(aUserID : TUserID) : TPathStr;
+function THTServer.xxxGetHomePathName(aUserID : TdaUserID) : TPathStr;
 Var
  DirName     : TPathStr;
 Begin
@@ -2261,7 +2281,7 @@ Begin
  Result:=ConcatDirName(xxxGlobalHomePath, DirName);
 end;
 
-function THTServer.xxxGetHomePath(aUserID : TUserID) : TPathStr;
+function THTServer.xxxGetHomePath(aUserID : TdaUserID) : TPathStr;
 Begin
  Result := xxxGetHomePathName(aUserID);
  if not l3FileUtils.FileExists(Result) then
@@ -2272,24 +2292,24 @@ Function THTServer.xxxCheckArchivariusPassword(aShortName : TPassNameStr;
                                             aPassWord  : TPassStr;
                                             RequireAdminRights: Boolean) : Boolean;
 var
- lUserID : TUserID;
+ lUserID : TdaUserID;
  l_HasAdminRights: Boolean;
 begin
  Result := False;
- if UserManager = nil then Exit; // Мог выскочить exception при инициализаци базы...
+ if xxxUserManager = nil then Exit; // Мог выскочить exception при инициализаци базы...
  if (AnsiLowerCase(aShortName) = c_SupervisorUserName) and not RequireAdminRights then
   Exit;
- if UserManager.xxxCheckPassword(lUserID, aShortName, aPassword) then
+ if xxxUserManager.xxxCheckPassword(lUserID, aShortName, aPassword) then
  begin
   if (lUserID <> usSupervisor) and RequireAdminRights then
   begin
-   if not UserManager.xxxIsUserAdmin(lUserID) then
+   if not xxxUserManager.xxxIsUserAdmin(lUserID) then
     Exit;
   end;
   Result:= True;
   fRequireAdminRights := RequireAdminRights;
   xxxUserID := lUserID;
- end; // UserManager.CheckPassword(lUserID, aShortName,aPassword)
+ end; // xxxUserManager.CheckPassword(lUserID, aShortName,aPassword)
 end;
 (*
 procedure THTServer.FillValueSABfromList(var aSAB : SAB;aList : Tl3LongintList);
@@ -2382,7 +2402,7 @@ begin
  end;
 end;
 
-(*function THTServer.CheckDocumentsWithOutGarantID(aFamily : TFamilyID;
+(*function THTServer.CheckDocumentsWithOutGarantID(aFamily : TdaFamilyID;
                                                  Report  : Boolean;
                                                  LogName : TFileName) : LongInt;
 Const
@@ -2495,7 +2515,7 @@ begin
 end;
 *)
 (*
-Function THTServer.CheckNullDocuments(aFamily : TFamilyID;
+Function THTServer.CheckNullDocuments(aFamily : TdaFamilyID;
                                       Clear,Report : Boolean;
                                       LogName : TFileName) : LongInt;
 Const
@@ -2608,7 +2628,7 @@ Begin
 end;
 *)
 
-function THTServer.GetTblObjectEx(aFamily: TFamilyID; aTable: Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
+function THTServer.GetTblObjectEx(aFamily: TdaFamilyID; aTable: Integer; aATP : TdtAttrTblPart = atpMain): TPrometTbl;
 var
  l_FTbl: TFamTbls;
  l_MTbl: TMainTbls;
@@ -2658,7 +2678,7 @@ Begin
  end;
 end;
 
-function THTServer.GetFreeTbl(aFamily : TFamilyID): TFreeTbl;
+function THTServer.GetFreeTbl(aFamily : TdaFamilyID): TFreeTbl;
 begin
  if aFamily = MainTblsFamily then
   Result := TFreeTbl(GetTblObject(aFamily, Ord(mtFree)))
@@ -2672,7 +2692,7 @@ begin
  end;
 end;
 
-function THTServer.GetTextBase(aFamily : TFamilyID) : AnsiString;
+function THTServer.GetTextBase(aFamily : TdaFamilyID) : AnsiString;
 begin
  Result := FamilyTbl.FamilyPath(aFamily) + 'bserv' + IntToHex(aFamily, 3);
 end;
@@ -2874,7 +2894,7 @@ begin
  ; // пусто
 end;
 
-function dtGetDB(aFamily     : TFamilyID;
+function dtGetDB(aFamily     : TdaFamilyID;
                  aOnYield    : TNotifyEvent = nil;
                  aFileMeter  : Tl3ProgressProc = nil;
                  aFilesMeter : Tl3ProgressProc = nil): Im3DB;
@@ -2883,7 +2903,7 @@ begin
  Result := Tm3DB.Make(GlobalHtServer.xxxTextBase[aFamily], aOnYield, aFileMeter, aFilesMeter);
 end;
 
-(*function dtGetDBEx(aFamily     : TFamilyID;
+(*function dtGetDBEx(aFamily     : TdaFamilyID;
                    aOnYield    : TNotifyEvent = nil;
                    aFileMeter  : Tl3ProgressProc = nil;
                    aFilesMeter : Tl3ProgressProc = nil): Im4DB;
@@ -2976,7 +2996,7 @@ begin
  CallNotify(sni_Destroy, 0);
 end;
 
-function THTServer.pm_GetBaseLanguage(aFamily: TFamilyID): TLanguageObj;
+function THTServer.pm_GetBaseLanguage(aFamily: TdaFamilyID): TLanguageObj;
 begin
  if BaseConfig = nil then
   InitBaseConfig(CurrentFamily);
@@ -2988,7 +3008,7 @@ begin
  Result:= f_BaseLang;
 end;
 
-function THTServer.CheckFreeResource(aFamily : TFamilyID; const aResourceName : AnsiString): Boolean;
+function THTServer.CheckFreeResource(aFamily : TdaFamilyID; const aResourceName : AnsiString): Boolean;
 begin
  Result := FreeTbl[aFamily].AnyRangesPresent(aResourceName);
 end;
@@ -2998,7 +3018,7 @@ begin
  Result := CheckFreeResource(CurrentFamily, ftnDocIDExternal);
 end;
 
-function THTServer.xxxGetFreeExtObjID(aFamily : TFamilyID): TDocID;
+function THTServer.xxxGetFreeExtObjID(aFamily : TdaFamilyID): TDocID;
 begin
  Result := 0;
  // если есть ftnObjIDExternal возмем из него
@@ -3017,7 +3037,7 @@ begin
  end;
 end;
 
-function THTServer.xxxGetFreeExtDocID(aFamily : TFamilyID): TDocID;
+function THTServer.xxxGetFreeExtDocID(aFamily : TdaFamilyID): TDocID;
 var
  lRenum : TReNumTbl;
 begin
@@ -3056,7 +3076,7 @@ begin
 end;
 
 
-function dtGetObjectStream(aFamily: TFamilyID; aDocID: TDocID; var anObjID: Integer; aMode: Tm3StoreAccess): IStream;
+function dtGetObjectStream(aFamily: TdaFamilyID; aDocID: TDocID; var anObjID: Integer; aMode: Tm3StoreAccess): IStream;
 var
  l_DB  : Im3DB;
  l_Doc : Im3DBDocument;
@@ -3065,8 +3085,16 @@ begin
  try
   l_Doc := l_DB.GetDocument(aDocID);
   try
-   if anObjID < 0 then
-    anObjID := l_Doc.GetFreeObjectID;
+   if (aMode = m3_saRead) then
+   begin
+    if (anObjID < 0) then
+     l3System.Msg2Log('Картинке не назначен номер');
+   end//aMode = m3_saRead
+   else
+   begin
+    if (anObjID <= 0) then
+     anObjID := l_Doc.GetFreeObjectID;
+   end;//aMode = m3_saRead
    Result := l_Doc.Open(aMode, m3_dsObject, anObjID);
   finally
    l_Doc := nil;

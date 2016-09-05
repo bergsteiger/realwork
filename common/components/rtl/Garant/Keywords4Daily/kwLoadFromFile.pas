@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , PrimTextLoad_Form
  , Document_Const
+ //#UC START# *509A5CCB022Aimpl_uses*
+ //#UC END# *509A5CCB022Aimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Daily\LoadUnits.imp.pas}

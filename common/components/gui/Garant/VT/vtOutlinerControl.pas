@@ -27,6 +27,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D46A125003Aimpl_uses*
+ //#UC END# *4D46A125003Aimpl_uses*
 ;
 
 procedure TvtOutlinerControl.Invalidate;

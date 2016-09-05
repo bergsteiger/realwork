@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *52D6AC0F0186impl_uses*
+ //#UC END# *52D6AC0F0186impl_uses*
 ;
 
 procedure TkwCloseBracket.DoDoIt(const aCtx: TtfwContext);

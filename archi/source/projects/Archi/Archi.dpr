@@ -1,5 +1,5 @@
  program Archi;
-{ $Id: Archi.dpr,v 1.133 2016/01/27 11:30:25 lukyanets Exp $ }
+{ $Id: Archi.dpr,v 1.137 2016/08/31 04:54:14 lukyanets Exp $ }
 
 //$(ex)\vcl6;$(DELPHI)\Source\ToolsAPI;$(DELPHI)\Source\Rtl\SYS;$(DELPHI)\Source\Rtl\Common\;$(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;$(ex)\SysTools;$(in)\l3;$(in)\l3\ext;$(in)\k2;$(in)\m0\pas;$(in)\m1\src;$(in)\m2\src;$(in)\m3\src;$(in)\m4\src;$(in)\mg\pas;$(ing)\Everest;$(ing)\Everest\ext;$(ing)\Everest\Ext\Misc;$(ing)\vt;$(in)\DD;$(in)\DD\pipein;$(in)\DD\pipeout;$(in)\dt;$(in)\da;$(in)\ht;$(in)\pg;$(in)\ComboAccess;$(ex)\SRMgr;$(ex)\Orpheus;$(ex)\TB97\SOURCE;$(ex)\JEDI;$(ex)\RX6;$(ex)\Envision;$(ex)\1C\source;$(pkg);$(ex)\indy\source;$(ex)\DevExpress\ExpressBars\Sources;$(ex)\DevExpress\ExpressCommon\Sources;$(ex)\WinSock
 //X:\#PKG\D6
@@ -20,6 +20,7 @@
   Forms,
   vtForm,
   PrevInst,
+  vtClipSpyService,
   evExtFormat,
   evExtActions,
   evExtActionsRes,
@@ -127,7 +128,10 @@
   m4WordList,
   arEditorDebugInfo in 'Main\arEditorDebugInfo.pas',
   D_TemplateEditor in 'Dlg\D_TemplateEditor.pas' {TemplateEditor},
-  D_CorrectExportFolder in 'Dlg\D_CorrectExportFolder.pas' {TCorrectExportFolder};
+  D_CorrectExportFolder in 'Dlg\D_CorrectExportFolder.pas' {TCorrectExportFolder},
+  D_Autolink in 'Dlg\D_Autolink.pas' {AutolinkDlg},
+  arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas',
+  arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas';
 
 //d_ReplCorresp in 'DLG\d_ReplCorresp.pas';
 

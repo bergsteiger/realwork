@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , m3StorageService
+ //#UC START# *4742CA7E00BEimpl_uses*
+ //#UC END# *4742CA7E00BEimpl_uses*
 ;
 
 class function Tm3SimpleDB.Make(const aBaseName: AnsiString): Im3DB;

@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , evSBSColumnBorderMarker
+ //#UC START# *4ED4C58100B1impl_uses*
+ //#UC END# *4ED4C58100B1impl_uses*
 ;
 
 function TevSBSRowCursor.GetColumnMarkerClass: RevColumnMarkerClass;

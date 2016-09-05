@@ -59,6 +59,8 @@ uses
  l3ImplUses
  , SysUtils
  , k2Tags
+ //#UC START# *4A27C4D20100impl_uses*
+ //#UC END# *4A27C4D20100impl_uses*
 ;
 
 constructor TnevActiveHyperlink.Create(const aPara: InevPara;

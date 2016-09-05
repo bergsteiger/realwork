@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , UserDefinedExportTask_Const
+ //#UC START# *53B26E1A01A6impl_uses*
+ //#UC END# *53B26E1A01A6impl_uses*
 ;
 
 function TcsUserDefinedExportTaskPrim.pm_GetQueryFile: AnsiString;

@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47BF045E0138impl_uses*
+ //#UC END# *47BF045E0138impl_uses*
 ;
 
 function m2MEMCompare(ADest: Pointer;

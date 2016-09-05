@@ -46,6 +46,8 @@ uses
  , nscTasksPanelGroup
  , SysUtils
  , l3Base
+ //#UC START# *4D3430A7028Dimpl_uses*
+ //#UC END# *4D3430A7028Dimpl_uses*
 ;
 
 constructor TnscTasksPanelGroupsIterator.Create(aGroups: TnscTasksPanelGroupDescList);

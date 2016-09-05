@@ -51,6 +51,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5506D3B202FAimpl_uses*
+ //#UC END# *5506D3B202FAimpl_uses*
 ;
 
 var g_Tl3MessagesService: Tl3MessagesService = nil;

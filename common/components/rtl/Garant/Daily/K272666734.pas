@@ -54,6 +54,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E12D7F90187impl_uses*
+ //#UC END# *4E12D7F90187impl_uses*
 ;
 
 function TK272666734.GetInnerPara(const aView: InevInputView;

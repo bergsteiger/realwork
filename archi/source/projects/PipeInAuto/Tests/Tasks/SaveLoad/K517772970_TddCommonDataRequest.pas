@@ -46,6 +46,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *5320228E011Bimpl_uses*
+ //#UC END# *5320228E011Bimpl_uses*
 ;
 
 function TK517772970_TddCommonDataRequest.TaskClass: TddTaskClass;

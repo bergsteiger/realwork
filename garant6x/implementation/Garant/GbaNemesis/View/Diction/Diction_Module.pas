@@ -56,7 +56,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , DocumentInterfaces
  , DynamicTreeUnit
@@ -97,7 +99,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TDictionServiceImpl = {final} class(Tl3ProtoObject, IDictionService)
+ TDictionServiceImpl = {final} class(TvcmModuleContractImplementation, IDictionService)
   public
    procedure OpenDictionary(const aDocInfo: IdeDocInfo;
     const aContainer: IvcmContainer);
@@ -308,7 +310,7 @@ begin
    Exit;
  end;//l_Cont <> nil
  if not lp_HasDictionForm then
-  OpenDictionary(nil, l_Cont);
+  TDictionService.Instance.OpenDictionary(nil, l_Cont);
 //#UC END# *4A9D55E901D6_4A9CE5F2036Fexec_impl*
 end;//TDictionModule.opOpenDictExecute
 

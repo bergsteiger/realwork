@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , SysUtils
  , ncsServerTransporterPtrPool
+ //#UC START# *544A0A21036Bimpl_uses*
+ //#UC END# *544A0A21036Bimpl_uses*
 ;
 
 constructor TncsServerTransporter.Create(anIOHandler: TcsIdIOHandlerAbstractAdapter;

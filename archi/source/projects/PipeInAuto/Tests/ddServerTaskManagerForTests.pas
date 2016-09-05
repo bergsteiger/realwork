@@ -54,6 +54,8 @@ uses
  , afwAnswer
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
+ //#UC START# *52F8E8A101ECimpl_uses*
+ //#UC END# *52F8E8A101ECimpl_uses*
 ;
 
 procedure TTaskDone.Execute;

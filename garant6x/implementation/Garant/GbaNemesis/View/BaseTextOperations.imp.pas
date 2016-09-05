@@ -434,7 +434,7 @@ begin
   if (l_Bookmark <> nil) then
   try
    Result := 
-    TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+    TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                        FilterInfoFactory.MakeFilterInfo(ffListAndBookMarks),
                        cIsDrugDocument[IsDrug],
                        l_Bookmark,

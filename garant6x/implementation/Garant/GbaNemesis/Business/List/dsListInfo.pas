@@ -58,6 +58,8 @@ uses
  , SysUtils
  , l3InterfacesMisc
  , l3Base
+ //#UC START# *47FEF9AA00CCimpl_uses*
+ //#UC END# *47FEF9AA00CCimpl_uses*
 ;
 
 type _Instance_R_ = TdsListInfo;

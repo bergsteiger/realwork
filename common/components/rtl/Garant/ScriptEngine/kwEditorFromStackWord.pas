@@ -42,6 +42,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F4CB625027Aimpl_uses*
+ //#UC END# *4F4CB625027Aimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}

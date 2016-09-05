@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *495259ED005Cimpl_uses*
+ //#UC END# *495259ED005Cimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

@@ -6,8 +6,14 @@ unit ddNSRC_r;
 
 25 февраля 2000 - расчленение процедуры Read
 }
-{ $Id: ddNSRC_r.pas,v 1.459 2016/04/13 08:32:30 dinishev Exp $ }
+{ $Id: ddNSRC_r.pas,v 1.461 2016/08/11 11:37:45 lukyanets Exp $ }
 // $Log: ddNSRC_r.pas,v $
+// Revision 1.461  2016/08/11 11:37:45  lukyanets
+// Вычищаем поддержку 133 версии
+//
+// Revision 1.460  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.459  2016/04/13 08:32:30  dinishev
 // Доточил параметры парсера для NSRC.
 //
@@ -1536,6 +1542,8 @@ uses
   l3FileUtils,
   l3UnitsTools,
   l3Interfaces,
+
+  daTypes,
 
   DT_Const,
 
@@ -3850,7 +3858,7 @@ var
  tmpS, tmpSS: AnsiString;
  l_Date: Longint;
  l_Source: Integer;
- l_User: TUserID;
+ l_User: TdaUserID;
  l_Type : Integer;
  len: Integer;
 begin
@@ -4428,10 +4436,8 @@ begin
      HeaderStartTag(k2_tiLinkAddress);
      try
       HeaderAddIntegerAtom(k2_tiDocID, lRefAddr.rDocID);
-     {$ifDef DBVer134}
       if lRefAddr.rSubID > 0 then
        HeaderAddIntegerAtom(k2_tiSubID, lRefAddr.rSubID);
-     {$endif}
      finally
       HeaderFinish;
      end;
@@ -5448,9 +5454,7 @@ var
  lStr : ShortString;
 begin
  Result.rDocID := 0;
- {$ifDef DBVer134}
  Result.rSubID := 0;
- {$endif}
  l_WordChars:= Parser.WordChars;
  l_WhiteSpace:= Parser.WhiteSpace;
  l_CheckInt:= Parser.CheckInt;
@@ -5468,10 +5472,8 @@ begin
  if (Parser.TokenType = l3_ttSingleChar) and (Parser.TokenChar = '.') then
  begin
   Parser.NextTokenSP;
- {$ifDef DBVer134}
   if Parser.TokenType = l3_ttInteger then
    Result.rSubID := Parser.TokenInt;
- {$endif}
  end;
 
  Parser.WordChars:= l_WordChars;

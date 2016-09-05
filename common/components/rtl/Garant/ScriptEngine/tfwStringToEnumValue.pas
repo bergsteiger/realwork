@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *553132CA032Aimpl_uses*
+ //#UC END# *553132CA032Aimpl_uses*
 ;
 
 class procedure TtfwStringToEnumValue.Register(aTypeInfo: PTypeInfo);

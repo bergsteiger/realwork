@@ -172,7 +172,7 @@ var
   l_BadInputStream: Boolean;
   l_Stream: Tl3FileStream;
   l_GZStream: Tl3GZipStream;
-  l_BufStream: Tl3BufferStream;
+  //l_BufStream: Tl3BufferStream;
   l_FileName: String;
   l_GZFilename: string;
  begin

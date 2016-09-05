@@ -1,8 +1,11 @@
 Unit Dt_ReNum;
 
-{ $Id: DT_RENUM.PAS,v 1.80 2015/12/07 15:21:02 voba Exp $ }
+{ $Id: DT_RENUM.PAS,v 1.81 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: DT_RENUM.PAS,v $
+// Revision 1.81  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.80  2015/12/07 15:21:02  voba
 // - дотачиваем обработку битых ссылок
 //
@@ -40,7 +43,7 @@ Unit Dt_ReNum;
 // Импорт справок к заблокированным документам (342862487)
 //
 // Revision 1.68  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.67  2011/01/28 11:28:07  voba
 // - k : 251343383
@@ -250,6 +253,7 @@ Interface
 Uses
  Contnrs,
  HT_Const,
+ daTypes,
  Dt_Types,
  DT_aTbl, DT_Sab,
  DT_Free,
@@ -288,7 +292,7 @@ Type
    procedure   BeforeRelease; override;
    procedure   AddRecord(aInternalID, aExternalID : TDocID);
   public
-   constructor Create(aFamily : TFamilyID {;WithGetFreeNum : Boolean; aSharing: Boolean}); Reintroduce;
+   constructor Create(aFamily : TdaFamilyID {;WithGetFreeNum : Boolean; aSharing: Boolean}); Reintroduce;
 
    //procedure   UpdateTbl; override;
 
@@ -345,7 +349,7 @@ Uses
 
 (**************************** TReNumTbl ********************************)
 
-Constructor TReNumTbl.Create(aFamily : TFamilyID);
+Constructor TReNumTbl.Create(aFamily : TdaFamilyID);
 Begin
  Assert(aFamily <> MainTblsFamily);
  inherited Create(aFamily, atRenum);

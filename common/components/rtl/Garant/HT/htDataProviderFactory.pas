@@ -58,6 +58,8 @@ uses
  , StrUtils
  , htDataProvider
  , ddAppConfigTypes
+ //#UC START# *54FEAD4402ABimpl_uses*
+ //#UC END# *54FEAD4402ABimpl_uses*
 ;
 
 class function ThtDataProviderFactory.Key: AnsiString;

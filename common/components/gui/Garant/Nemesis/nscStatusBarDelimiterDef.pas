@@ -40,6 +40,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4FEC3C5B007Cimpl_uses*
+ //#UC END# *4FEC3C5B007Cimpl_uses*
 ;
 
 constructor TnscStatusBarDelimiterDef.Create(aSeparatorVisible: Boolean;

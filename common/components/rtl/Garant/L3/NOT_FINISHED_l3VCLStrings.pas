@@ -66,6 +66,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48721EA10381impl_uses*
+ //#UC END# *48721EA10381impl_uses*
 ;
 
 function Tl3CustomStrings.Get_Items: TStrings;

@@ -56,6 +56,8 @@ uses
  , l3Units
  , l3Base
  , evDelayedPaintersSpy
+ //#UC START# *48C9300A02EFimpl_uses*
+ //#UC END# *48C9300A02EFimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas}

@@ -31,6 +31,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A8BB2760229impl_uses*
+ //#UC END# *4A8BB2760229impl_uses*
 ;
 
 function TnscCustomChatMemoTextSource.DoMakeDocumentContainer: InevDocumentContainer;

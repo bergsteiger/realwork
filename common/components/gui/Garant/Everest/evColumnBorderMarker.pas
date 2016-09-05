@@ -61,6 +61,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4E3A539401D7impl_uses*
+ //#UC END# *4E3A539401D7impl_uses*
 ;
 
 type _Instance_R_ = TevColumnBorderMarker;

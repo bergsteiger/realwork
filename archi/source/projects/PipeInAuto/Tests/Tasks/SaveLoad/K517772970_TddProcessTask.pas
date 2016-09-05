@@ -50,6 +50,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *53200B5D0155impl_uses*
+ //#UC END# *53200B5D0155impl_uses*
 ;
 
 function TK517772970_TddProcessTask.TaskClass: TddTaskClass;

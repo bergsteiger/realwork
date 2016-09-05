@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55DEEAFF0079impl_uses*
+ //#UC END# *55DEEAFF0079impl_uses*
 ;
 
 type _Instance_R_ = TddTk2TypeList;

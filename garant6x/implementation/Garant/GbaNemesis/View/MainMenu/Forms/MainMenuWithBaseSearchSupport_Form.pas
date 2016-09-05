@@ -41,9 +41,16 @@ type
     {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure CreateFormGUID(var theGUID: TGUID); override;
     {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
    {$IfEnd} // NOT Defined(NoVCM)
+   function NeedDropActiveClass(aFromHistory: Boolean): Boolean; override;
   public
    function SupportDisabled: Boolean;
    {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
@@ -204,6 +211,20 @@ begin
 end;//TMainMenuWithBaseSearchSupportForm.DoInit
 {$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
+function TMainMenuWithBaseSearchSupportForm.DoLoadState(const aState: IvcmBase;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
+//#UC START# *49807428008C_4AC99EBE0106_var*
+//#UC END# *49807428008C_4AC99EBE0106_var*
+begin
+//#UC START# *49807428008C_4AC99EBE0106_impl*
+ Result := inherited DoLoadState(aState, aStateType, aClone);
+//#UC END# *49807428008C_4AC99EBE0106_impl*
+end;//TMainMenuWithBaseSearchSupportForm.DoLoadState
+{$IfEnd} // NOT Defined(NoVCM)
+
 {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 function TMainMenuWithBaseSearchSupportForm.NeedAutoScroll: Boolean;
 //#UC START# *4B0E845502C1_4AC99EBE0106_var*
@@ -227,6 +248,16 @@ begin
 //#UC END# *4EBBC63E032A_4AC99EBE0106_impl*
 end;//TMainMenuWithBaseSearchSupportForm.CreateFormGUID
 {$IfEnd} // NOT Defined(NoVCM)
+
+function TMainMenuWithBaseSearchSupportForm.NeedDropActiveClass(aFromHistory: Boolean): Boolean;
+//#UC START# *57AD7BC3004F_4AC99EBE0106_var*
+//#UC END# *57AD7BC3004F_4AC99EBE0106_var*
+begin
+//#UC START# *57AD7BC3004F_4AC99EBE0106_impl*
+ Result := inherited NeedDropActiveClass(aFromHistory) and
+           (not TvcmHistoryService.Instance.IsClone(NativeMainForm));
+//#UC END# *57AD7BC3004F_4AC99EBE0106_impl*
+end;//TMainMenuWithBaseSearchSupportForm.NeedDropActiveClass
 
 initialization
 {$If NOT Defined(NoScripts)}

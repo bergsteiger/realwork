@@ -13,10 +13,13 @@ uses
  , tfwCStringList
  , l3Interfaces
  , l3Variant
+ , SyncObjs
 ;
 
 type
- TtfwCStringFactory = class(TtfwCStringList)
+ _seCriticalSectionHolder_Parent_ = TtfwCStringList;
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\seCriticalSectionHolder.imp.pas}
+ TtfwCStringFactory = class(_seCriticalSectionHolder_)
   private
    procedure CacheString(var theIndex: Integer;
     const aString: Il3CString);
@@ -52,7 +55,10 @@ uses
  , l3Types
  , l3Chars
  , SysUtils
+ , l3Memory
  , l3Base
+ //#UC START# *4F473F9402D8impl_uses*
+ //#UC END# *4F473F9402D8impl_uses*
 ;
 
 var g_TtfwCStringFactory: TtfwCStringFactory = nil;
@@ -67,6 +73,8 @@ begin
  l3Free(g_TtfwCStringFactory);
 end;//TtfwCStringFactoryFree
 
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seCriticalSectionHolder.imp.pas}
+
 class function TtfwCStringFactory.C(const aString: AnsiString): Il3CString;
 //#UC START# *4F47405B02FD_4F473F9402D8_var*
 var
@@ -76,38 +84,43 @@ var
 //#UC END# *4F47405B02FD_4F473F9402D8_var*
 begin
 //#UC START# *4F47405B02FD_4F473F9402D8_impl*
- {.$IfNDef XE}
- l_Len := Length(aString);
- if (l_Len < cLimit) then
- begin
-  if (l_Len = 1) then
-   Result := C(aString[1])
-  else
-  if (l_Len = 2) then
+ Self.Instance.Lock;
+ try
+  {.$IfNDef XE}
+  l_Len := Length(aString);
+  if (l_Len < cLimit) then
   begin
-   l_W := PWord(@(aString[1]))^;
-   Result := TtfwCStringArraySing2.Instance.Items[l_W];
-   if (Result = nil) then
+   if (l_Len = 1) then
+    Result := C(aString[1])
+   else
+   if (l_Len = 2) then
    begin
-    Result := l3CStr(aString);
-    TtfwCStringArraySing2.Instance.Items[l_W] := Result;
-   end;//Result = nil
-  end//l_Len = 2
-  else
-   with Instance do
-   begin
-    if FindData(l3PCharLen(aString), i, SortIndex) then
-     Result := Items[i]
-    else
+    l_W := PWord(@(aString[1]))^;
+    Result := TtfwCStringArraySing2.Instance.Items[l_W];
+    if (Result = nil) then
     begin
      Result := l3CStr(aString);
-     CacheString(i, Result);
-    end;//FindData(l3PCharLen(aString), i)
-   end;//with Instance
- end//Length(aString) < cLimit
- else
- {.$EndIf XE}
-  Result := l3CStr(aString);
+     TtfwCStringArraySing2.Instance.Items[l_W] := Result;
+    end;//Result = nil
+   end//l_Len = 2
+   else
+    with Instance do
+    begin
+     if FindData(l3PCharLen(aString), i, SortIndex) then
+      Result := Items[i]
+     else
+     begin
+      Result := l3CStr(aString);
+      CacheString(i, Result);
+     end;//FindData(l3PCharLen(aString), i)
+    end;//with Instance
+  end//Length(aString) < cLimit
+  else
+  {.$EndIf XE}
+   Result := l3CStr(aString);
+ finally
+  Self.Instance.Unlock;
+ end;//try..finally
 //#UC END# *4F47405B02FD_4F473F9402D8_impl*
 end;//TtfwCStringFactory.C
 
@@ -119,41 +132,46 @@ var
 //#UC END# *4F47407D0052_4F473F9402D8_var*
 begin
 //#UC START# *4F47407D0052_4F473F9402D8_impl*
- {.$IfNDef XE}
- if (aString.SLen < cLimit) AND l3IsANSI(aString.SCodePage) then
- begin
-  if (aString.SLen = 1) {AND l3IsANSI(aString.SCodePage)} then
+ Self.Instance.Lock;
+ try
+  {.$IfNDef XE}
+  if (aString.SLen < cLimit) AND l3IsANSI(aString.SCodePage) then
   begin
-   Assert(aString.S <> nil);
-   Result := C(aString.S[0]);
-  end//aString.SLen = 1
-  else
-  if (aString.SLen = 2) {AND l3IsANSI(aString.SCodePage)} then
-  begin
-   Assert(aString.S <> nil);
-   l_W := PWord(aString.S)^;
-   Result := TtfwCStringArraySing2.Instance.Items[l_W];
-   if (Result = nil) then
+   if (aString.SLen = 1) {AND l3IsANSI(aString.SCodePage)} then
    begin
-    Result := l3CStr(aString);
-    TtfwCStringArraySing2.Instance.Items[l_W] := Result;
-   end;//Result = nil
-  end//aString.SLen = 2
-  else
-   with Instance do
+    Assert(aString.S <> nil);
+    Result := C(aString.S[0]);
+   end//aString.SLen = 1
+   else
+   if (aString.SLen = 2) {AND l3IsANSI(aString.SCodePage)} then
    begin
-    if {l3IsANSI(aString.SCodePage) AND }FindData(aString, i, SortIndex) then
-     Result := Items[i]
-    else
+    Assert(aString.S <> nil);
+    l_W := PWord(aString.S)^;
+    Result := TtfwCStringArraySing2.Instance.Items[l_W];
+    if (Result = nil) then
     begin
      Result := l3CStr(aString);
-     CacheString(i, Result);
-    end;//FindData(l3PCharLen(aString), i)
-   end;//with Instance
- end//Length(aString) < cLimit
- else
- {.$EndIf XE}
-  Result := l3CStr(aString);
+     TtfwCStringArraySing2.Instance.Items[l_W] := Result;
+    end;//Result = nil
+   end//aString.SLen = 2
+   else
+    with Instance do
+    begin
+     if {l3IsANSI(aString.SCodePage) AND }FindData(aString, i, SortIndex) then
+      Result := Items[i]
+     else
+     begin
+      Result := l3CStr(aString);
+      CacheString(i, Result);
+     end;//FindData(l3PCharLen(aString), i)
+    end;//with Instance
+  end//Length(aString) < cLimit
+  else
+  {.$EndIf XE}
+   Result := l3CStr(aString);
+ finally
+  Self.Instance.Unlock;
+ end;//try..finally
 //#UC END# *4F47407D0052_4F473F9402D8_impl*
 end;//TtfwCStringFactory.C
 
@@ -199,27 +217,32 @@ var
 //#UC END# *559F726001FC_4F473F9402D8_var*
 begin
 //#UC START# *559F726001FC_4F473F9402D8_impl*
- l_W := aString.AsWStr;
- if (l_W.SLen < 50{cLimit}) then
- begin
-  if (l_W.SLen < 5) then
-   Result := C(l_W)
-  else
+ Self.Instance.Lock;
+ try
+  l_W := aString.AsWStr;
+  if (l_W.SLen < 50{cLimit}) then
   begin
-   with Instance do
+   if (l_W.SLen < 5) then
+    Result := C(l_W)
+   else
    begin
-    if FindData({aString}l_W, i, SortIndex) then
-     Result := Items[i]
-    else
+    with Instance do
     begin
-     Result := aString;
-     CacheString(i, Result);
-    end;//FindData(l3PCharLen(aString), i)
-   end;//with Instance
-  end;//l_W.SLen < 5
- end
- else
-  Result := aString;
+     if FindData({aString}l_W, i, SortIndex) then
+      Result := Items[i]
+     else
+     begin
+      Result := aString;
+      CacheString(i, Result);
+     end;//FindData(l3PCharLen(aString), i)
+    end;//with Instance
+   end;//l_W.SLen < 5
+  end
+  else
+   Result := aString;
+ finally
+  Self.Instance.Unlock;
+ end;//try..finally
 //#UC END# *559F726001FC_4F473F9402D8_impl*
 end;//TtfwCStringFactory.C
 
@@ -227,16 +250,21 @@ procedure TtfwCStringFactory.CacheString(var theIndex: Integer;
  const aString: Il3CString);
 //#UC START# *56011A85035E_4F473F9402D8_var*
 const
- cCountLimit = 5000;
+ cCountLimit = 25000{5000};
 //#UC END# *56011A85035E_4F473F9402D8_var*
 begin
 //#UC START# *56011A85035E_4F473F9402D8_impl*
- if (Count >= cCountLimit) then
- begin
-  Clear;
-  theIndex := 0;
- end;//Count >= cCountLimit
- DirectInsert(theIndex, aString);
+ Self.Lock;
+ try
+  if (Count >= cCountLimit) then
+  begin
+   Clear;
+   theIndex := 0;
+  end;//Count >= cCountLimit
+  DirectInsert(theIndex, aString);
+ finally
+  Self.Unlock;
+ end;//try..finally
 //#UC END# *56011A85035E_4F473F9402D8_impl*
 end;//TtfwCStringFactory.CacheString
 

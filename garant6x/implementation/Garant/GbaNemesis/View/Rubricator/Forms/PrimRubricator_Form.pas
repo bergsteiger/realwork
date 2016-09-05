@@ -236,6 +236,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4AA68CA10101impl_uses*
  , l3ControlsTypes
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4AA68CA10101impl_uses*
 ;
 
@@ -506,7 +507,7 @@ var
   end;{try..except}
   if Supports(l_EntityBase, IDocument, l_Document) then
   try
-   TdmStdRes.OpenDocument(TdeDocInfo.Make(l_Document), nil);
+   TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_Document), nil);
    op_Navigator_SetCurrent.Call(Aggregate, l_l3Node);
   finally
    l_Document := nil;

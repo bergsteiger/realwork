@@ -118,6 +118,8 @@ uses
  , Windows
  , m3FileRegion
  , l3Interlocked
+ //#UC START# *54084CDE023Eimpl_uses*
+ //#UC END# *54084CDE023Eimpl_uses*
 ;
 
 procedure Tm3StoreHeaderDataPrim.pm_SetPosition(aValue: Int64);

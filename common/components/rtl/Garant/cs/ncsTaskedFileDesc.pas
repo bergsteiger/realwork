@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , TaskedFileDesc_Const
+ //#UC START# *546EF14803A6impl_uses*
+ //#UC END# *546EF14803A6impl_uses*
 ;
 
 function TncsTaskedFileDesc.pm_GetTaskID: AnsiString;

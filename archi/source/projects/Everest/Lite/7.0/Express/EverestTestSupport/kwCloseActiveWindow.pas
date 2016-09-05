@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , EverestLiteAdapter
+ //#UC START# *512DD1330118impl_uses*
+ //#UC END# *512DD1330118impl_uses*
 ;
 
 class function TkwCloseActiveWindow.GetWordNameForRegister: AnsiString;

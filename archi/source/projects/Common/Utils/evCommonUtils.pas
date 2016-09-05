@@ -164,6 +164,8 @@ uses
  , dt_LinkServ
  {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
  , evEditorInterfaces
+ //#UC START# *4F5755FB0362impl_uses*
+ //#UC END# *4F5755FB0362impl_uses*
 ;
 
 function cnvDate2Text(var aStr: PAnsiChar;

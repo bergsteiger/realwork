@@ -67,6 +67,8 @@ uses
  , tfwWordBoxPack
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *550C25D70182impl_uses*
+ //#UC END# *550C25D70182impl_uses*
 ;
 
 type
@@ -769,6 +771,9 @@ function TkwPopWordFindMember.FindMember(const aCtx: TtfwContext;
 //#UC END# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_var*
 begin
 //#UC START# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := nil
+ else 
  if (aWord.InnerDictionary <> nil) then
   Result := (aWord.InnerDictionary As TtfwDictionary).DRbyCName[aName]
  else
@@ -1593,7 +1598,10 @@ function TkwPopWordKeyWord.KeyWord(const aCtx: TtfwContext;
 //#UC END# *5613CB150380_5613CB150380_4DAEED140007_Word_var*
 begin
 //#UC START# *5613CB150380_5613CB150380_4DAEED140007_Word_impl*
- Result := aWord.Key As TtfwKeyWord;
+ if (aWord = nil) then
+  Result := nil
+ else
+  Result := aWord.Key As TtfwKeyWord;
 //#UC END# *5613CB150380_5613CB150380_4DAEED140007_Word_impl*
 end;//TkwPopWordKeyWord.KeyWord
 

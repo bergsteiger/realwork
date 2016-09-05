@@ -74,6 +74,8 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilterState
  {$IfEnd} // Defined(Nemesis)
+ //#UC START# *492D854C0189impl_uses*
+ //#UC END# *492D854C0189impl_uses*
 ;
 
 type _Instance_R_ = TdsBaseContents;

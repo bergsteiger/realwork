@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *5480073300B1impl_uses*
+ //#UC END# *5480073300B1impl_uses*
 ;
 
 var g_Freq: Int64;

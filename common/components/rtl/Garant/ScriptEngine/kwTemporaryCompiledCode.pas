@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52DFE4E403E7impl_uses*
+ //#UC END# *52DFE4E403E7impl_uses*
 ;
 
 procedure TkwTemporaryCompiledCode.DoDoIt(const aCtx: TtfwContext);

@@ -1,9 +1,12 @@
 
 Unit Dt_ImpKW;
 
-{ $Id: DT_IMPKW.pas,v 1.55 2015/11/24 14:08:24 voba Exp $ }
+{ $Id: DT_IMPKW.pas,v 1.56 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: DT_IMPKW.pas,v $
+// Revision 1.56  2016/06/16 05:40:06  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
 // Revision 1.55  2015/11/24 14:08:24  voba
 // -bf убрал конкурентную запись дерева словар€. “еперь дерево переписываем только при апдейте, в спокойной обстановке
 //
@@ -179,7 +182,7 @@ Type
    f_DictID: TdaDictionaryType;
    f_ImportIdToRealIdMap: TImportIdToRealIdMap;
   protected
-   fFamily       : TFamilyID;
+   fFamily       : TdaFamilyID;
    fReNum        : Boolean;
    fClearFlag    : Boolean;
    fNeedAddToDictionary : Boolean;
@@ -198,7 +201,7 @@ Type
    Procedure   BeforeRelease; override;
    Procedure   Cleanup; override;
   public
-   constructor Create(aFamily: TFamilyID; aDictId: TdaDictionaryType; aClearDictionary, aNeedAddToDictionary: Boolean); reintroduce;
+   constructor Create(aFamily: TdaFamilyID; aDictId: TdaDictionaryType; aClearDictionary, aNeedAddToDictionary: Boolean); reintroduce;
 
    function    GetRootKeyWord(const aName : String;Var aRootNode : Il3Node) : TDictID;
 
@@ -238,7 +241,7 @@ Const
 
 (************************ TKWImportServer ****************************)
 
-constructor TDictLinkImportServer.Create(aFamily: TFamilyID; aDictId: TdaDictionaryType; aClearDictionary, aNeedAddToDictionary:
+constructor TDictLinkImportServer.Create(aFamily: TdaFamilyID; aDictId: TdaDictionaryType; aClearDictionary, aNeedAddToDictionary:
     Boolean);
 Begin
  Inherited Create;

@@ -37,6 +37,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *550C0B17003Eimpl_uses*
+ //#UC END# *550C0B17003Eimpl_uses*
 ;
 
 type _Instance_R_ = TChromeLikeBaseVisualObjectList;

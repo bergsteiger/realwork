@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , SysUtils
  , StrUtils
+ //#UC START# *4DE482A503ABimpl_uses*
+ //#UC END# *4DE482A503ABimpl_uses*
 ;
 
 function TArchiAutoTest.GetFolder: AnsiString;

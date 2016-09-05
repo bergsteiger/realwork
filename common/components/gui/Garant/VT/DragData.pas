@@ -123,6 +123,8 @@ uses
  , kwVTControlsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , SysUtils
+ //#UC START# *4F0C0B6801C7impl_uses*
+ //#UC END# *4F0C0B6801C7impl_uses*
 ;
 
 var g_TDragDataSupport: TDragDataSupport = nil;

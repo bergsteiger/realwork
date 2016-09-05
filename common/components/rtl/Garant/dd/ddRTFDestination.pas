@@ -69,6 +69,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5190A37F0134impl_uses*
+ //#UC END# *5190A37F0134impl_uses*
 ;
 
 procedure TddRTFDestination.Clear;

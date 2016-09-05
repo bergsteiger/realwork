@@ -47,6 +47,8 @@ implementation
 uses
  l3ImplUses
  , k2Const
+ //#UC START# *4E68E533026Dimpl_uses*
+ //#UC END# *4E68E533026Dimpl_uses*
 ;
 
 constructor TevResultFontHolder.Create;

@@ -36,10 +36,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , moParentAndChild
  , vtStdRes
- {$If NOT Defined(NoVCM)}
- , PrimTasksPanelMenu_Module
- {$IfEnd} // NOT Defined(NoVCM)
- , ParentAndChildPrim_Module
  , MainPrim_Form
  , evExtFormat
  //#UC START# *4F6B607F027Eimpl_uses*

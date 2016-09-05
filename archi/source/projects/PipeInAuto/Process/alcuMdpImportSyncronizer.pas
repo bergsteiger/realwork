@@ -40,6 +40,7 @@ uses
  {$If NOT Defined(Nemesis)}
  ,daSchemeConsts,
  daDataProvider,
+ daTypes,
  dt_Types,
  dt_DictConst,
  dt_Sab,
@@ -62,9 +63,9 @@ var
 type
  PImportLogRec = ^TImportLogRec;
  TImportLogRec = packed record
-              rDocID  : TDocID;
+              rDocID  : TdaDocID;
               rDate   : TStDate;
-              rAuthor : TUserID;
+              rAuthor : TdaUserID;
              end;
 
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;
@@ -110,7 +111,8 @@ begin
  
  if l_LogSab.Count <> 0 then
  begin
-  lUserSab := MakeAllRecords(UserManager.xxxUserTbl);
+//!! !!! заменить xxxUserManager
+  lUserSab := MakeAllRecords(xxxUserManager.xxxUserTbl);
   lUserSab.ValuesOfKey(dtIDFld);
   lUserSab.RecordsByKey(lgAuthor_Key, l_LogSab);
   l_LogSab.AndSab(lUserSab);

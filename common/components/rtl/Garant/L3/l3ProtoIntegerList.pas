@@ -35,6 +35,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4CA9A2EB01E4impl_uses*
+ //#UC END# *4CA9A2EB01E4impl_uses*
 ;
 
 type _Instance_R_ = Tl3ProtoIntegerList;

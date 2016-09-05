@@ -47,6 +47,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *47D0E1C9021Aimpl_uses*
+ //#UC END# *47D0E1C9021Aimpl_uses*
 ;
 
 constructor TvcmFormHandler.Create(aForm: TvcmEntityForm;

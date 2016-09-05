@@ -252,7 +252,7 @@ class function TAbstractHistoryForm.MakeSingleChild(anUID: TbsUserID;
    UserID := anUID;
    InitEditors;
    RegisterInDispatcher;
-   ProcessMessages(TdmStdRes.MakeChatDispatcher.GetMessages(UserID, HistoryLimit));
+   ProcessMessages(TChatService.Instance.MakeChatDispatcher.GetMessages(UserID, HistoryLimit));
   //#UC END# *4AC4EFBA012A_4A6EA4310035_impl*
   end;//with aForm
  end;

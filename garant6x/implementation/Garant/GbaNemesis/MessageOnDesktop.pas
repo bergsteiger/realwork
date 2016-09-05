@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , Graphics
+ //#UC START# *499C38220140impl_uses*
+ //#UC END# *499C38220140impl_uses*
 ;
 
 constructor TMessageOnDesktop.Create;

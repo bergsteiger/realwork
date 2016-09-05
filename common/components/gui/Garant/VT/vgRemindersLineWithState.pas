@@ -61,6 +61,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *533BF7030112impl_uses*
+ //#UC END# *533BF7030112impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
@@ -79,7 +81,11 @@ function TvgRemindersLineWithState.MakeId(const aId: AnsiString): AnsiString;
 //#UC END# *533BFFD20377_533BF7030112_var*
 begin
 //#UC START# *533BFFD20377_533BF7030112_impl*
+ {$IfNDef DesignTimeLibrary}
  Result := BaseId + g_afwPathSep + Name + g_afwPathSep + aId;
+ {$Else}
+ Result := '';
+ {$EndIf}
 //#UC END# *533BFFD20377_533BF7030112_impl*
 end;//TvgRemindersLineWithState.MakeId
 

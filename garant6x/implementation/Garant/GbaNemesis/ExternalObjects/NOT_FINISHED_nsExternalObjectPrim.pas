@@ -40,9 +40,12 @@ uses
  , nsBrowserInfo
  , evPDFWriter
  , nsDocumentStreamList
+ , nsShellService
  {$If NOT Defined(NoScripts)}
  , F1ShellWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47F9C7C9010Eimpl_uses*
+ //#UC END# *47F9C7C9010Eimpl_uses*
 ;
 
 procedure nsDoShellExecute;

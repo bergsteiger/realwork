@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , l3MemUtils
+ //#UC START# *51DD56680275impl_uses*
+ //#UC END# *51DD56680275impl_uses*
 ;
 
 function Tl3PtrLoc.Init(aSize: Integer): Boolean;

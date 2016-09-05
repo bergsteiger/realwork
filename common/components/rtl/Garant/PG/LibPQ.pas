@@ -15,6 +15,8 @@ type
  POid = ^Oid;
  Oid = Integer;
 
+ TPQOidArray = array of Oid;
+
  TPQparamTypes = {array of }POid;
  TPQparamValues = array of PAnsichar;
  TPQparamLengths = array of Integer;

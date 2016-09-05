@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , alcuAutoClassTaskResult
+ //#UC START# *5303549A038Fimpl_uses*
+ //#UC END# *5303549A038Fimpl_uses*
 ;
 
 {$If NOT Defined(Nemesis)}

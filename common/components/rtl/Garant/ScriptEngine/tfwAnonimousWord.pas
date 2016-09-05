@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4DB9BB43017Bimpl_uses*
+ //#UC END# *4DB9BB43017Bimpl_uses*
 ;
 
 procedure TtfwAnonimousWord.DoCompiledWord(aWord: TtfwWord;

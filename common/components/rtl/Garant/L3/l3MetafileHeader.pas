@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *552616EE02DFimpl_uses*
+ //#UC END# *552616EE02DFimpl_uses*
 ;
 
 function l3IsValidMetafileHeader(const aWMFHeader: Tl3MetafileHeader): Boolean;

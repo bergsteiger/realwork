@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , nsNodeStorable
+ //#UC START# *468270DC0341impl_uses*
+ //#UC END# *468270DC0341impl_uses*
 ;
 
 function TnsNodeDataObject.DataClass: RStorable;

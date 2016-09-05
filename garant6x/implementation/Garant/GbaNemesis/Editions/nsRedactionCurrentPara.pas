@@ -34,6 +34,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4A7FF2C901C8impl_uses*
+ //#UC END# *4A7FF2C901C8impl_uses*
 ;
 
 constructor TnsRedactionCurrentPara.Create(const aPara: IeeLeafPara);

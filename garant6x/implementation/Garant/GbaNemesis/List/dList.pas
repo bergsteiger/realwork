@@ -93,6 +93,8 @@ uses
  , bsUserCRListInfo
  , SysUtils
  , l3Utils
+ //#UC START# *493E7BCC01DFimpl_uses*
+ //#UC END# *493E7BCC01DFimpl_uses*
 ;
 
 type _Instance_R_ = TdList;

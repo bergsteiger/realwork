@@ -30,6 +30,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0E6EAD01D9impl_uses*
+ //#UC END# *4B0E6EAD01D9impl_uses*
 ;
 
 class procedure TnsSwitchVersionCommentsEvent.Log(State: Boolean);

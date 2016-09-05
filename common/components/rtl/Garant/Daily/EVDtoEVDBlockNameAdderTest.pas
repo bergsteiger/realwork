@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , evdBlockNameAdder
  , TestFrameWork
+ //#UC START# *4D909F2701A6impl_uses*
+ //#UC END# *4D909F2701A6impl_uses*
 ;
 
 procedure TEVDtoEVDBlockNameAdderTest.SetFilters(var theGenerator: Ik2TagGenerator);

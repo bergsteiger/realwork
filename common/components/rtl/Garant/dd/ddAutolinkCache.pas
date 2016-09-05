@@ -1,8 +1,14 @@
 unit ddAutolinkCache;
 
-{ $Id: ddAutolinkCache.pas,v 1.44 2016/01/19 08:46:35 fireton Exp $ }
+{ $Id: ddAutolinkCache.pas,v 1.46 2016/08/03 09:12:49 fireton Exp $ }
 
 // $Log: ddAutolinkCache.pas,v $
+// Revision 1.46  2016/08/03 09:12:49  fireton
+// - не апдейтим таблицы кэша если не надо
+//
+// Revision 1.45  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.44  2016/01/19 08:46:35  fireton
 // - боремся с зацикленными редакциями
 //
@@ -101,7 +107,7 @@ unit ddAutolinkCache;
 // - отдельное поле номера дела в кэше автопростановщика
 //
 // Revision 1.12  2011/06/10 11:52:40  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.11  2011/06/03 11:14:19  fireton
 // - не было индексов и всё дико тормозило
@@ -222,8 +228,12 @@ const
 
 function GetAutolinkStructCacheFilePath(aType: TddAutolinkCacheType): AnsiString;
 
-procedure BuildActualDocsCache(aProgressProc: Tl3ProgressProc = nil; aDocList: ISab = nil);
-procedure BuildEditionsCache(aProgressProc: Tl3ProgressProc = nil; aDocList: ISab = nil);
+procedure BuildActualDocsCache(aProgressProc: Tl3ProgressProc = nil;
+                               aDocList: ISab = nil;
+                               aNeedUpdateTable: Boolean = False);
+procedure BuildEditionsCache(aProgressProc: Tl3ProgressProc = nil;
+                             aDocList: ISab = nil;
+                             aNeedUpdateTable: Boolean = False);
 
 procedure BuildStructCache(aProgressProc: Tl3ProgressProc = nil; const aDocList: ISab = nil);
 // строит кэш структур документов для простановщика
@@ -234,7 +244,7 @@ procedure TouchAutolinkCache;
 function  GetLastUpdateDateAndTime: TDateTime;
 
 procedure CreateAutolinkCache(aProgressProc: Tl3ProgressProc = nil);
-procedure UpdateAutolinkCache(aProgressProc: Tl3ProgressProc = nil);
+procedure UpdateAutolinkCache(aProgressProc: Tl3ProgressProc = nil; aNeedUpdateTables: Boolean = False);
 
 procedure CreateOrUpdateAutoLinkCache(aProgressProc: Tl3ProgressProc = nil; aNeedUpdateTables: Boolean = True);
 
@@ -441,7 +451,9 @@ begin
 end;
 
 
-procedure BuildActualDocsCache(aProgressProc: Tl3ProgressProc = nil; aDocList: ISab = nil);
+procedure BuildActualDocsCache(aProgressProc: Tl3ProgressProc = nil;
+                               aDocList: ISab = nil;
+                               aNeedUpdateTable: Boolean = False);
 var
  l_DNType: TDNType;
  l_Sab1, l_Sab2: ISab;
@@ -724,7 +736,8 @@ begin
     FreeFillBufferProc(l_FillBufferProcStub);
    end;
    DoProgress(piEnd, 0);
-   l_Table.UpdateTbl;
+   if aNeedUpdateTable then
+    l_Table.UpdateTbl;
   finally
    FreeAndNil(l_FillList);
   end;
@@ -733,7 +746,9 @@ begin
  end;
 end;
 
-procedure BuildEditionsCache(aProgressProc: Tl3ProgressProc = nil; aDocList: ISab = nil);
+procedure BuildEditionsCache(aProgressProc: Tl3ProgressProc = nil;
+                             aDocList: ISab = nil;
+                             aNeedUpdateTable: Boolean = False);
 var
  J: Integer;
  I: Integer;
@@ -941,7 +956,8 @@ begin
         DoProgress(piCurrent, I);
       end;
       DoProgress(piEnd, 0);
-      l_Table.UpdateTbl;
+      if aNeedUpdateTable then
+       l_Table.UpdateTbl;
      finally
       FreeAndNil(l_Table);
      end;
@@ -1140,7 +1156,7 @@ begin
  end;
 end;
 
-procedure UpdateAutolinkCache(aProgressProc: Tl3ProgressProc = nil);
+procedure UpdateAutolinkCache(aProgressProc: Tl3ProgressProc = nil; aNeedUpdateTables: Boolean = False);
 var
  l_DT  : TDateTime;
  l_Date: TStDate;
@@ -1208,8 +1224,8 @@ begin
  l_DocList := GetLogByOperations([acAttrWork, acNew, acWasImported]);
  if (l_DocList <> nil) and (l_DocList.Count > 0) then
  begin
-  BuildActualDocsCache(aProgressProc, l_DocList);
-  BuildEditionsCache(aProgressProc, l_DocList);
+  BuildActualDocsCache(aProgressProc, l_DocList, aNeedUpdateTables);
+  BuildEditionsCache(aProgressProc, l_DocList, aNeedUpdateTables);
  end;
 
  // теперь - изменённые текста (для кэша структур)

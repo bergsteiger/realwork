@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , SysUtils
  , TestFrameWork
+ //#UC START# *4BACDEF50001impl_uses*
+ //#UC END# *4BACDEF50001impl_uses*
 ;
 
 procedure TRTFWriterTest.SomeFormatToRTF(aReader: Tk2CustomFileReader;

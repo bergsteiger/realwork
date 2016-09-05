@@ -47,6 +47,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *53214D920123impl_uses*
+ //#UC END# *53214D920123impl_uses*
 ;
 
 function TK517772970_TalcuRegionAutoExportTask.TaskClass: TddTaskClass;

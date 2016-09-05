@@ -24,9 +24,12 @@ uses
  , vcmToolbarMenuRes
  , TypInfo
  , vcmMenuManager
+ , vcmSettings
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *552BAE9B027Dimpl_uses*
+ //#UC END# *552BAE9B027Dimpl_uses*
 ;
 
 type
@@ -87,6 +90,25 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVcmToolbarSetGlyphColorDepth
+
+ TkwVcmToolbarButtonSetVisible = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта vcm:ToolbarButton:SetVisible }
+  private
+   procedure vcm_ToolbarButton_SetVisible(const aCtx: TtfwContext;
+    const aUtName: AnsiString;
+    const aTbName: AnsiString;
+    const anEntityName: AnsiString;
+    const anOpName: AnsiString;
+    aVisible: Boolean);
+    {* Реализация слова скрипта vcm:ToolbarButton:SetVisible }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwVcmToolbarButtonSetVisible
 
 procedure TkwVcmToolbarSetGlyphSize.vcm_Toolbar_SetGlyphSize(const aCtx: TtfwContext;
  aValue: TvcmGlyphSize);
@@ -250,6 +272,96 @@ begin
  vcm_Toolbar_SetGlyphColorDepth(aCtx, l_aValue);
 end;//TkwVcmToolbarSetGlyphColorDepth.DoDoIt
 
+procedure TkwVcmToolbarButtonSetVisible.vcm_ToolbarButton_SetVisible(const aCtx: TtfwContext;
+ const aUtName: AnsiString;
+ const aTbName: AnsiString;
+ const anEntityName: AnsiString;
+ const anOpName: AnsiString;
+ aVisible: Boolean);
+ {* Реализация слова скрипта vcm:ToolbarButton:SetVisible }
+//#UC START# *57BACA480334_57BACA480334_Word_var*
+//#UC END# *57BACA480334_57BACA480334_Word_var*
+begin
+//#UC START# *57BACA480334_57BACA480334_Word_impl*
+ vcmSaveToolbarAction(aUtName, aTbName, anEntityName, anOpName, aVisible);
+//#UC END# *57BACA480334_57BACA480334_Word_impl*
+end;//TkwVcmToolbarButtonSetVisible.vcm_ToolbarButton_SetVisible
+
+class function TkwVcmToolbarButtonSetVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:ToolbarButton:SetVisible';
+end;//TkwVcmToolbarButtonSetVisible.GetWordNameForRegister
+
+function TkwVcmToolbarButtonSetVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwVcmToolbarButtonSetVisible.GetResultTypeInfo
+
+function TkwVcmToolbarButtonSetVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 5;
+end;//TkwVcmToolbarButtonSetVisible.GetAllParamsCount
+
+function TkwVcmToolbarButtonSetVisible.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString, @tfw_tiString, TypeInfo(Boolean)]);
+end;//TkwVcmToolbarButtonSetVisible.ParamsTypes
+
+procedure TkwVcmToolbarButtonSetVisible.DoDoIt(const aCtx: TtfwContext);
+var l_aUtName: AnsiString;
+var l_aTbName: AnsiString;
+var l_anEntityName: AnsiString;
+var l_anOpName: AnsiString;
+var l_aVisible: Boolean;
+begin
+ try
+  l_aUtName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aUtName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTbName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTbName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anEntityName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anEntityName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOpName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOpName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aVisible := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisible: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_ToolbarButton_SetVisible(aCtx, l_aUtName, l_aTbName, l_anEntityName, l_anOpName, l_aVisible);
+end;//TkwVcmToolbarButtonSetVisible.DoDoIt
+
 initialization
  TkwVcmToolbarSetGlyphSize.RegisterInEngine;
  {* Регистрация vcm_Toolbar_SetGlyphSize }
@@ -259,10 +371,16 @@ initialization
  {* Регистрация vcm_Toolbar_GetGlyphColorDepth }
  TkwVcmToolbarSetGlyphColorDepth.RegisterInEngine;
  {* Регистрация vcm_Toolbar_SetGlyphColorDepth }
+ TkwVcmToolbarButtonSetVisible.RegisterInEngine;
+ {* Регистрация vcm_ToolbarButton_SetVisible }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmGlyphSize));
  {* Регистрация типа TvcmGlyphSize }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmGlyphColordepth));
  {* Регистрация типа TvcmGlyphColordepth }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа AnsiString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

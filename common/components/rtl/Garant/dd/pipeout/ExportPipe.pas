@@ -1,8 +1,17 @@
 Unit ExportPipe;
 
-{ $Id: ExportPipe.pas,v 1.228 2016/04/19 11:56:24 fireton Exp $ }
+{ $Id: ExportPipe.pas,v 1.231 2016/08/11 10:47:49 lukyanets Exp $ }
 
 // $Log: ExportPipe.pas,v $
+// Revision 1.231  2016/08/11 10:47:49  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.230  2016/08/04 13:27:00  fireton
+// - расширяем диагностику ошибок при автоэкспорте
+//
+// Revision 1.229  2016/06/16 05:40:13  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.228  2016/04/19 11:56:24  fireton
 // - больше информации в лог про экспорт образов
 //
@@ -224,7 +233,7 @@ Unit ExportPipe;
 // Реализовать автоэкспорт документов (268338975)
 //
 // Revision 1.160  2011/06/10 12:49:05  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.159  2011/03/03 11:51:54  narry
 // K197497438. Вынести создание RangeManager за цикл
@@ -660,6 +669,8 @@ Uses
 
   ddTypes,
 
+  daTypes,
+
   dt_Types, dt_Const,
   dt_AttrSchema,
   dtIntf, dt_Sab,
@@ -708,7 +719,7 @@ type
     f_ExportKW: Boolean;
     f_ExportDocImage: Boolean;
     f_ExportEmpty: Boolean;
-    f_Family: TFamilyID;
+    f_Family: TdaFamilyID;
     f_ExportDoc: Boolean;
     f_MultiUser: Boolean;
 
@@ -726,6 +737,8 @@ type
     FProgressor         : TddProgressObject;
     f_Attributes: TdtAttributeSet;
     f_ClearAttributes: TexpClearAttributes;
+    f_CurrentDocPart: TddExportDocPart;
+    f_CurrentTopic: Longint;
     f_FormulaAsPicture: Boolean;
     f_ImagesByPages: Boolean;
     f_ImgCounters: Tl3RecList;
@@ -834,6 +847,8 @@ type
     property OnlyStructure: Boolean read f_OnlyStructure write pm_SetOnlyStructure;
     property OnError: TddErrorEvent read f_OnError write f_OnError;
     property OnReportEmpty: TddReportEmptyEvent read pm_GetOnReportEmpty write pm_SetOnReportEmpty;
+    property CurrentDocPart: TddExportDocPart read f_CurrentDocPart;
+    property CurrentTopic: Longint read f_CurrentTopic;
     property Query: TdtQuery write pm_SetQuery;
     property TotalDone: Int64 read pm_GetTotalDone;
   published
@@ -860,7 +875,7 @@ type
     property MultiUser: Boolean
       read f_MultiUser write f_Multiuser;
 
-    property Family: TFamilyID
+    property Family: TdaFamilyID
       read f_Family write f_Family;
 
     property InternalFormat: Boolean
@@ -904,7 +919,7 @@ uses
 
   daDataProvider,
   Ht_Const, ht_Dll,
-  dt_Doc, dt_User, dt_Dict, dt_DocImages, dt_LinkServ,
+  dt_Doc, dt_Dict, dt_DocImages, dt_LinkServ,
 
   {ddFormula2PictureFilter,} npbAttributesFilter, npbHyperlinkFilter, evdCommentFilter,
   evCustomTextFormatter, evSimpleTextPainter, evTextFormatter, evEmptyTableEliminator,
@@ -1094,6 +1109,8 @@ procedure TExportPipe.NewDocument(aSender: TObject; aTopicNo: Longint; aDocPart:
 var
  l_Folder: AnsiString;
 begin
+ f_CurrentTopic := aTopicNo;
+ f_CurrentDocPart := aDocPart;
  f_Writer.Filer := f_FilerDispatcher.GetFiler(aTopicNo, aDocPart, l3CStr(aMainGroup));
  if f_FilerDispatcher.IsDirByMain then
  begin

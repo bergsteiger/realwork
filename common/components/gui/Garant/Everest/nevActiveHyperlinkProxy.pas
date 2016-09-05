@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , l3InterfacesMisc
+ //#UC START# *4E1D95610271impl_uses*
+ //#UC END# *4E1D95610271impl_uses*
 ;
 
 constructor TnevActiveHyperlinkProxy.Create(const anActive: InevActiveElement);

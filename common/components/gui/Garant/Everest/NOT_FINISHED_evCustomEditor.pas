@@ -41,6 +41,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4829D89703D2impl_uses*
+ //#UC END# *4829D89703D2impl_uses*
 ;
 
 function TevCustomEditor.InTable: Boolean;

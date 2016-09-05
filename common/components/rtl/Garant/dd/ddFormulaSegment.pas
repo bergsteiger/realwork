@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *54D9ACC002E1impl_uses*
+ //#UC END# *54D9ACC002E1impl_uses*
 ;
 
 function TddFormulaSegment.Clone: TddTextSegment;

@@ -55,6 +55,8 @@ implementation
 uses
  l3ImplUses
  , kwCompiledCheckWithEtalon
+ //#UC START# *50D44F67024Cimpl_uses*
+ //#UC END# *50D44F67024Cimpl_uses*
 ;
 
 function TkwPopEditorCheckWithEtalon.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;

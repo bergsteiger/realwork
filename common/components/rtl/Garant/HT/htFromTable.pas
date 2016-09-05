@@ -41,6 +41,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Err
  {$IfEnd} // NOT Defined(Nemesis)
+ //#UC START# *55530BB9007Aimpl_uses*
+ //#UC END# *55530BB9007Aimpl_uses*
 ;
 
 function ThtFromTable.Get_Handle: ThtTblHandle;
@@ -68,7 +70,7 @@ begin
    Ht(htTableOpen(PAnsiChar(aHelper.TableFullPath(Table.Kind)),PAnsiChar(aHelper.TablePassword(Table.Kind)),PAnsiChar(aHelper.TablePassword(Table.Kind)), GlobalHtServer.HyTechTableOpenMode, f_Handle))
   else
    Ht(htDupTableHandle(hTable, f_Handle));
-  GlobalHtServer.Family[aHelper.TableFamily(Table.Kind)].Lock(GlobalHtServer.HyTechTableOpenMode);
+  GlobalHtServer.Family[Table.FamilyID].Lock(GlobalHtServer.HyTechTableOpenMode);
   Prepared := True;
  end;
 //#UC END# *555C91AF003A_55530BB9007A_impl*
@@ -82,7 +84,7 @@ begin
  if Prepared then
  begin
   Ht(htTableClose(f_Handle));
-  GlobalHtServer.Family[aHelper.TableFamily(Table.Kind)].Unlock;
+  GlobalHtServer.Family[Table.FamilyID].Unlock;
   Prepared := False;
  end;
 //#UC END# *555C91D8022C_55530BB9007A_impl*

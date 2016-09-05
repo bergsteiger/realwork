@@ -38,6 +38,8 @@ uses
  l3ImplUses
  , ChromeLikeTabSetUtils
  , SysUtils
+ //#UC START# *5507C7FA00EEimpl_uses*
+ //#UC END# *5507C7FA00EEimpl_uses*
 ;
 
 constructor TChromeLikeDrawingContext.Create(aCanvas: TCanvas);

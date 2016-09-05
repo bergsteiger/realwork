@@ -79,6 +79,8 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , l3Interlocked
  , daDataProvider
+ //#UC START# *53CDF9FE006Bimpl_uses*
+ //#UC END# *53CDF9FE006Bimpl_uses*
 ;
 
 procedure TalcuSubmitterWorkPool.pm_SetWorkThreadCount(aValue: integer);
@@ -115,7 +117,7 @@ begin
   begin
    if not GlobalDataProvider.UserManager.IsUserExists(l_UserIDX) then
    begin
-    UserManager.AddUserID(l_UserIDX, Format('Служебный пользователь %d', [usFirstWorkUser - l_UserIDX + 1]), Format('%s%.8x', [Chr(3), l_UserIDX]), '', 1);
+    GlobalDataProvider.UserManager.AddUserID(l_UserIDX, Format('Служебный пользователь %d', [usFirstWorkUser - l_UserIDX + 1]), Format('%s%.8x', [Chr(3), l_UserIDX]), '', 1);
     l_NeedRefillUserList := True;
    end;
   end;

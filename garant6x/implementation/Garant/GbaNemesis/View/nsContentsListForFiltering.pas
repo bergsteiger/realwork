@@ -49,6 +49,8 @@ uses
  , DocumentUnit
  , l3Interfaces
  , nsTypes
+ //#UC START# *4D4011460346impl_uses*
+ //#UC END# *4D4011460346impl_uses*
 ;
 
 constructor TnsContentsListForFiltering.Create(aType: TnsContentsListType;
@@ -83,11 +85,11 @@ procedure TnsContentsListForFiltering.Item(index: Cardinal;
 
  function DoGet: IString;
  begin
-  Result := nsIStr(f_Contents.ContentsListItem[TnsContentsListIndex_C(f_Type, aIndex)]);
+  Result := nsIStr(f_Contents.ContentsListItem[TnsContentsListIndex_C(f_Type, Index)]);
  end;
 
-var
- l_I : Integer;
+//var
+// l_I : Integer;
 //#UC END# *4D3D26DC0123_4D4011460346_var*
 begin
 //#UC START# *4D3D26DC0123_4D4011460346_impl*

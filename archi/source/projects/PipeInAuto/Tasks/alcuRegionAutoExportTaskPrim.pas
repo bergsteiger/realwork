@@ -51,6 +51,8 @@ implementation
 uses
  l3ImplUses
  , RegionAutoExportTask_Const
+ //#UC START# *540466FA008Bimpl_uses*
+ //#UC END# *540466FA008Bimpl_uses*
 ;
 
 function TalcuRegionAutoExportTaskPrim.pm_GetRegionIndex: Integer;

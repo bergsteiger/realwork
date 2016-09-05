@@ -6,6 +6,7 @@ interface
   SysUtils,
   l3Base, l3Except,
   l3LongintList,
+  daTypes,
   Dt_Types,
   evInternalInterfaces,
   nevTools,
@@ -17,10 +18,10 @@ interface
   EarSetHyperLinkError = class(El3NoLoggedException); //ошибка установки гиперлинка
 
  type
-  TDocPointAddr = Dt_Types.TGlobalCoordinateRec;
+  TDocPointAddr = daTypes.TdaGlobalCoordinateRec;
 
   TDocAddrList = record
-   rFamilyID : TFamilyID;
+   rFamilyID : TdaFamilyID;
    rDocID  : TDocID;
    rSubIDList : Tl3LongintList;
   end;
@@ -44,8 +45,8 @@ interface
                           aJumpOnLoad : Boolean = false{;
                           aJumpOnce : Boolean = False}) : TDocJumpRec;
  function DocPointAddr2evAddress(aDocPointAddr : TDocPointAddr): TevAddress;
- function MakeDocPointAddr(aFamilyID : TFamilyID; aDocID : TDocID; aSubID : TSubID): TDocPointAddr;
- function MakeDocAddrList(aFamilyID : TFamilyID; aDocID : TDocID; aSubIDList : Tl3LongintList): TDocAddrList;
+ function MakeDocPointAddr(aFamilyID : TdaFamilyID; aDocID : TDocID; aSubID : TSubID): TDocPointAddr;
+ function MakeDocAddrList(aFamilyID : TdaFamilyID; aDocID : TDocID; aSubIDList : Tl3LongintList): TDocAddrList;
 
  function MakeBlockRefJumpData(aAnchor: Longint; aPositions: Tl3LongintList): TDocJumpRec;
 
@@ -54,7 +55,7 @@ interface
 
 implementation
 
-function MakeDocPointAddr(aFamilyID : TFamilyID; aDocID : TDocID; aSubID : TSubID): TDocPointAddr;
+function MakeDocPointAddr(aFamilyID : TdaFamilyID; aDocID : TDocID; aSubID : TSubID): TDocPointAddr;
 begin
  With Result do
   begin
@@ -64,7 +65,7 @@ begin
   end;
 end;
 
-function MakeDocAddrList(aFamilyID : TFamilyID; aDocID : TDocID; aSubIDList : Tl3LongintList): TDocAddrList;
+function MakeDocAddrList(aFamilyID : TdaFamilyID; aDocID : TDocID; aSubIDList : Tl3LongintList): TDocAddrList;
 begin
  With Result do
   begin

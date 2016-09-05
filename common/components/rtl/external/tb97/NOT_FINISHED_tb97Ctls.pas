@@ -60,6 +60,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4C43E892032Fimpl_uses*
+ //#UC END# *4C43E892032Fimpl_uses*
 ;
 
 function TCustomToolbarButton97.IsGtbToolbarButtonSizeNeeded: Boolean;

@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *4EF0937D000Aimpl_uses*
+ //#UC END# *4EF0937D000Aimpl_uses*
 ;
 
 class function TkwMouseGetCursorPosition.GetWordNameForRegister: AnsiString;

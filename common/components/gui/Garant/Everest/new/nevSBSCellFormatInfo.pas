@@ -29,6 +29,8 @@ uses
  , evdTypes
  , nevBase
  , k2Tags
+ //#UC START# *4E706504020Eimpl_uses*
+ //#UC END# *4E706504020Eimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}

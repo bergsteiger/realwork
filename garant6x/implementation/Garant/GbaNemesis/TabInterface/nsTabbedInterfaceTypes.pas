@@ -52,6 +52,8 @@ implementation
 uses
  l3ImplUses
  , TabbedContainerRes
+ //#UC START# *53BA488F00D8impl_uses*
+ //#UC END# *53BA488F00D8impl_uses*
 ;
 
 function nsTabIconIndex(aTabIconType: TnsTabIconType): Integer;

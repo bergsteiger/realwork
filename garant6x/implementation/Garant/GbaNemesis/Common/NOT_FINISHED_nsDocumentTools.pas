@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , nsDocumentPreview
  , nsDocumentPreviewWithoutBlockNames
+ //#UC START# *47F61C4C0040impl_uses*
+ //#UC END# *47F61C4C0040impl_uses*
 ;
 
 procedure nsGetDocumentShortName;

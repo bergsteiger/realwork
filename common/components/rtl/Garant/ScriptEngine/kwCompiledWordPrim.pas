@@ -51,6 +51,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *52D3C5F90029impl_uses*
+ //#UC END# *52D3C5F90029impl_uses*
 ;
 
 constructor TkwCompiledWordPrim.Create(aWordProducer: TtfwWord;

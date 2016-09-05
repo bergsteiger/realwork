@@ -32,6 +32,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55E0413800EAimpl_uses*
+ //#UC END# *55E0413800EAimpl_uses*
 ;
 
 procedure TtfwTruncLambda.DoDoIt(const aCtx: TtfwContext);

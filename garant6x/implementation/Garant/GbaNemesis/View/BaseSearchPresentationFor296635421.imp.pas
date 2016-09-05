@@ -12,6 +12,7 @@
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
  _BaseSearchPresentationFor296635421_ = {abstract} class(_BaseSearchPresentation_)
   protected
+   function NeedDropActiveClass(aFromHistory: Boolean): Boolean; virtual;
    {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
     {* Инициализация формы. Для перекрытия в потомках }
@@ -34,6 +35,15 @@ _BaseSearchPresentationFor296635421_ = _BaseSearchPresentation_;
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 
+function _BaseSearchPresentationFor296635421_.NeedDropActiveClass(aFromHistory: Boolean): Boolean;
+//#UC START# *57AD7BC3004F_4EB7BDAB01D0_var*
+//#UC END# *57AD7BC3004F_4EB7BDAB01D0_var*
+begin
+//#UC START# *57AD7BC3004F_4EB7BDAB01D0_impl*
+ Result := (not aFromHistory) and (not TvcmHistoryService.Instance.IsInBF(As_IvcmEntityForm));
+//#UC END# *57AD7BC3004F_4EB7BDAB01D0_impl*
+end;//_BaseSearchPresentationFor296635421_.NeedDropActiveClass
+
 {$If NOT Defined(NoVCM)}
 procedure _BaseSearchPresentationFor296635421_.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
@@ -42,7 +52,7 @@ procedure _BaseSearchPresentationFor296635421_.DoInit(aFromHistory: Boolean);
 begin
 //#UC START# *49803F5503AA_4EB7BDAB01D0_impl*
  inherited;
- if (not aFromHistory) and (not TvcmHistoryService.Instance.IsInBF(As_IvcmEntityForm)) then
+ if NeedDropActiveClass(aFromHistory) then
   if (f_BaseSearcher <> nil) then
    f_BaseSearcher.DropActiveClass;
  // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258

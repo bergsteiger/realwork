@@ -1,9 +1,15 @@
 
 Unit Dt_LinkServ;
 
-{ $Id: dt_LinkServ.pas,v 1.23 2016/05/17 11:59:35 voba Exp $ }
+{ $Id: dt_LinkServ.pas,v 1.25 2016/06/30 12:34:15 lukyanets Exp $ }
 
 // $Log: dt_LinkServ.pas,v $
+// Revision 1.25  2016/06/30 12:34:15  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.24  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.23  2016/05/17 11:59:35  voba
 // -k:623081921
 //
@@ -47,7 +53,7 @@ Unit Dt_LinkServ;
 // - отлаживались и забыли
 //
 // Revision 1.9  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.8  2010/10/04 14:08:25  fireton
 // - const перед Tl3WString и Il3CString
@@ -101,11 +107,11 @@ type
 
  TLinkServer = Class(Tl3Base)
   protected
-   fFamily : TFamilyID;
+   fFamily : TdaFamilyID;
    fLinks  : Array[TdtAttribute] of TDocAttrTbl;
    fPrior  : TPriorTbl;
 
-   procedure SetFamily(aValue : TFamilyID);
+   procedure SetFamily(aValue : TdaFamilyID);
    function  GetLinkObj(aLinkType : TdaDictionaryType) : TLinkTbl;
    function  GetAttribute(aAttr : TdtAttribute) : TDocAttrTbl;
    function  GetLogBook : TLogBookTbl;
@@ -200,7 +206,7 @@ type
 
    procedure  VerifyLink(aDictType : TdaDictionaryType; aReportFile : PText; aWithCorrect : Boolean);
 
-   property   Family : TFamilyID read fFamily write SetFamily;
+   property   Family : TdaFamilyID read fFamily write SetFamily;
    property   Links[LinkType : TdaDictionaryType] : TLinkTbl read GetLinkObj;  //default;
    property   Attribute[aAttr : TdtAttribute] : TDocAttrTbl read GetAttribute; default;
 
@@ -214,7 +220,7 @@ type
    property   PriorTbl : TPriorTbl read GetPriorTbl;
  end;
 
-function LinkServer(aFamily : TFamilyID) : TLinkServer;
+function LinkServer(aFamily : TdaFamilyID) : TLinkServer;
 procedure FreeLinkServer;
 
 implementation
@@ -230,7 +236,7 @@ uses SysUtils, WinProcs,
 Const
  cLinkServer : TLinkServer = nil;
 
-function LinkServer(aFamily : TFamilyID) : TLinkServer;
+function LinkServer(aFamily : TdaFamilyID) : TLinkServer;
 begin
  if cLinkServer = nil then
   cLinkServer := TLinkServer.Create;
@@ -264,7 +270,7 @@ begin
  l3Free(fPrior);
 end;
 
-procedure TLinkServer.SetFamily(aValue : TFamilyID);
+procedure TLinkServer.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily = aValue then
   Exit;
@@ -549,6 +555,7 @@ begin
   end;
 
  // запись в лог
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily, aDocID, da_detDiction, lDictType);
 end;
 
@@ -665,6 +672,7 @@ begin
  // Сброс флагов во ВСЕЙ пачке
  aChangedList.Modified := False;
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily,
                                       aDocId,
                                       da_detDiction,
@@ -775,6 +783,7 @@ begin
     end;
  end;
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily, aDocID, da_detDiction, lDictType);
 end;
 
@@ -798,6 +807,7 @@ begin
   end;
  end;
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily, ID, da_detDiction, lDictType);
 end;
 
@@ -1126,6 +1136,7 @@ begin
  else
   Links[lDictType].AddNode(aDoc,aDictID);
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily, aDoc, da_detDiction, lDictType);
 end;
 
@@ -1170,6 +1181,7 @@ begin
 
  Links[aDictType].AddNodeEx(aNewRec);
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily,
                                       PLinkRec(aNewRec)^.DocID,
                                       da_detDiction,
@@ -1188,6 +1200,7 @@ begin
  else
   Links[lDictType].DelNode(aDoc,aDictID);
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily, aDoc, da_detDiction, lDictType);
 end;
 
@@ -1279,6 +1292,7 @@ begin
  end;
 
  // запись в лог
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(fFamily, aDstId, da_detDiction, lDictType);
 end;
 

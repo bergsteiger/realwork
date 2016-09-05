@@ -43,6 +43,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *491D945A00C7impl_uses*
+ //#UC END# *491D945A00C7impl_uses*
 ;
 
 type _Instance_R_ = TdsAdmin;

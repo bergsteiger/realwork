@@ -227,7 +227,7 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsBaseSearchService
- , f1StartupCompletedServiceImpl
+ , f1StartupCompleteNotificationServiceImpl
  , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -237,6 +237,8 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4A952BA3006Dimpl_uses*
+ , Common_F1CommonServices_Contracts
+ , F1_Application_Template_Services
  //#UC END# *4A952BA3006Dimpl_uses*
 ;
 
@@ -308,31 +310,31 @@ begin
  begin
   // Конфигурации
   if afw.Settings.LoadBoolean(pi_Sheets_Config, dv_Sheets_Config) then
-   TdmStdRes.OpenConfList(Self)
+   TSettingsService.Instance.OpenConfList(Self)
   else
-   TdmStdRes.CloseConfList(Self);
+   TSettingsService.Instance.CloseConfList(Self);
   // Основное меню(навигатор)
   if afw.Settings.LoadBoolean(pi_Sheets_MainMenu, dv_Sheets_MainMenu) then
-   TdmStdRes.GetNavigator(nil, Self)
+   TCommonService.Instance.GetNavigator(nil, Self)
   else
-   TdmStdRes.CloseNavigator(Self);
+   TCommonService.Instance.CloseNavigator(Self);
   // Мои документы
   if afw.Settings.LoadBoolean(pi_Sheets_MyDocuments, dv_Sheets_MyDocuments) then
-   TdmStdRes.OpenFolders(Self, true)
+   TFoldersService.Instance.OpenFolders(Self, true)
   else
-   TdmStdRes.CloseFolders(Self);
+   TFoldersService.Instance.CloseFolders(Self);
   // На контроле
   if afw.Settings.LoadBoolean(piSheetsDocUnderControl, dvSheetsDocUnderControl) then
-   TdmStdRes.OpenUnderControl(Self)
+   TUnderControlService.Instance.OpenUnderControl(Self)
   else
-   TdmStdRes.CloseUnderControl(Self);
+   TUnderControlService.Instance.CloseUnderControl(Self);
   if afw.Settings.LoadBoolean(piSheetsTaskPanel, dvSheetsTaskPanel) then
   begin
-   TdmStdRes.CloseTasksPanel(Self); // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296
-   TdmStdRes.OpenTasksPanel(Self);
+   TCommonService.Instance.CloseTasksPanel(Self); // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296
+   TCommonService.Instance.OpenTasksPanel(Self);
   end
   else
-   TdmStdRes.CloseTasksPanel(Self);
+   TCommonService.Instance.CloseTasksPanel(Self);
  end;//not defDataAdapter.AdministratorLogin
  LoadSettings;
 //#UC END# *4F8813D6026A_4A952BA3006D_impl*
@@ -451,23 +453,23 @@ begin
    not afw.PermanentSettings.LoadBoolean(pi_NoShowPrimeDialog, dv_NoShowPrimeDialog) then
   begin
    afw.PermanentSettings.SaveBoolean(pi_NoShowPrimeDialog, True);
-   afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, dmStdRes.NeedShowSettingsDialog);
-   dmStdRes.NeedShowSettingsDialog := False;
-   dmStdRes.NeedAskToFillPrimeAtStartup := True;
+   afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog);
+   Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := False;
+   Tf1StartupCompleteNotificationServiceImpl.Instance.NeedAskToFillPrimeAtStartup := True;
   end;
 
-  if not dmStdRes.NeedAskToFillPrimeAtStartup then
+  if not Tf1StartupCompleteNotificationServiceImpl.Instance.NeedAskToFillPrimeAtStartup then
   begin
-   if not dmStdRes.NeedShowSettingsDialog then
-    dmStdRes.NeedShowSettingsDialog := afw.PermanentSettings.LoadBoolean(pi_NeedShowSettingsDialog, dv_NeedShowSettingsDialog);
-   if dmStdRes.NeedShowSettingsDialog then
+   if not Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog then
+    Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := afw.PermanentSettings.LoadBoolean(pi_NeedShowSettingsDialog, dv_NeedShowSettingsDialog);
+   if Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog then
    begin
-    dmStdRes.NeedShowSettingsDialog := True;
+    Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := True;
     afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, False);
    end else
    if not afw.Settings.LoadBoolean(pi_DayTips_DontShowAtStart, dv_DayTips_DontShowAtStart) then
    begin
-    f_StartupTipsForm := TdmStdRes.ShowDayTipsAtStartup;
+    f_StartupTipsForm := TDayTipsService.Instance.ShowDayTipsAtStartup;
     if not Assigned(f_StartupTipsForm) then
      lp_ShowHelp;
    end else
@@ -559,7 +561,7 @@ begin
 //#UC START# *4F8BF5C602C3_4A952BA3006D_impl*
  if not NeedUseTabs then
   ShowStartupAdvertising;
- TdmStdRes.MakeChatDispatcher.StartProcessing;
+ TChatService.Instance.MakeChatDispatcher.StartProcessing;
 //#UC END# *4F8BF5C602C3_4A952BA3006D_impl*
 end;//TMainForm.vcmMainFormShow
 
@@ -992,8 +994,6 @@ function TMainForm.ProcessCommand(aCommand: Integer;
  InNewWindow: Boolean;
  const aContainer: IvcmContainer): Boolean;
 //#UC START# *4F86BF5F0198_4A952BA3006D_var*
-var
- l_FormToActivate: TCustomForm;
 //#UC END# *4F86BF5F0198_4A952BA3006D_var*
 begin
 //#UC START# *4F86BF5F0198_4A952BA3006D_impl*
@@ -1001,13 +1001,7 @@ begin
  Result := (aCommand >= GC_FIRST) and (aCommand <= GC_LAST);
  if Result then
  begin
-  l_FormToActivate := GetParentForm(Self);
-  if (l_FormToActivate = nil) then
-   l_FormToActivate := Self;
-  if (l_FormToActivate.WindowState = wsMinimized) then
-   SendMessage(l_FormToActivate.Handle, WM_SYSCOMMAND, SC_RESTORE, 0);
-  SetActiveWindow(l_FormToActivate.Handle);
-  SetForegroundWindow(l_FormToActivate.Handle);   
+  ActivateFormIfNeeded;
   afw.ProcessMessages;
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
   case aCommand of
@@ -1015,58 +1009,56 @@ begin
     if InNewWindow then
      ProcessCommand(ConvertOpenOnStartSetting, false, aContainer);
    GC_MAIN_MENU:
-    TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
    GC_NAVIGATOR:
-    TdmStdRes.OpenRubricatorOnStart(aContainer);
+    TCommonService.Instance.OpenRubricatorOnStart(aContainer);
    GC_SITUATION_SEARCH:
-    TdmStdRes.OpenQuery(lg_qtKeyWord, nil, aContainer);
+    TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, nil, aContainer);
    GC_ATTRIBUTES_SEARCH:
-    TdmStdRes.OpenQuery(lg_qtAttribute, nil, aContainer);
+    TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, nil, aContainer);
    GC_PUBLISH_SOURCE_SEARCH:
     //http://mdp.garant.ru/pages/viewpage.action?pageId=497226332
     if defDataAdapter.IsExists_PublishSourceTag then
-     TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, aContainer)
+     TQueryOpenService.Instance.OpenQuery(lg_qtPublishedSource, nil, aContainer)
     else
-     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
    GC_REVIEW:
-    TdmStdRes.OpenQuery(lg_qtLegislationReview, nil, aContainer);
+    TQueryOpenService.Instance.OpenQuery(lg_qtLegislationReview, nil, aContainer);
    GC_DICTION:
-    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Diction_OpenDict);
+    Dispatcher.ModuleOperation(mod_opcode_DictionService_OpenDict);
    GC_NEW_DOCS:
-    TdmStdRes.OpenNewDocs(aContainer);
+    TCommonService.Instance.OpenNewDocs(aContainer);
    GC_INPHARM_SEARCH:
     if defDataAdapter.IsInpharmExists then
-     TdmStdRes.OpenQuery(lg_qtInpharmSearch, nil, aContainer)
+     TQueryOpenService.Instance.OpenQuery(lg_qtInpharmSearch, nil, aContainer)
     else
-     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
    GC_DRUG_LIST:
     if defDataAdapter.IsInpharmExists then
-     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList)
-     TdmStdRes.OpenDrugListIfNeeded(aContainer)
+     TInpharmService.Instance.OpenDrugListIfNeeded(aContainer)
     else
-     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
    GC_INPHARM_MAIN_MENU:
     if defDataAdapter.IsInpharmExists then
-     TdmStdRes.OpenInpharmMainMenu(aContainer)
-     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicMainMenu)
+     TInpharmService.Instance.OpenInpharmMainMenu(aContainer)
     else
-     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
    GC_IMPHARM_DICTION:
     if defDataAdapter.IsInpharmExists then
-     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction)
+     Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicDiction)
     else
-     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
    GC_INTERNET_AGENT:
     if defDataAdapter.IsInternetAgentEnabled then
-     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_InternetAgent_InternetAgent)
+     Dispatcher.ModuleOperation(mod_opcode_InternetAgentService_InternetAgent)
     else
-     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
    GC_OPEN_CONSULT:
-    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
+    Dispatcher.ModuleOperation(mod_opcode_SearchService_OpenConsult);
    GC_PRIME:
-    TdmStdRes.OpenNewsLine(True);
+    TMonitoringsService.Instance.OpenNewsLine(True);
    else
-    TdmStdRes.OpenMainMenuIfNeeded(aContainer);
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
   end;//case aCommand
  end;//Result
 //#UC END# *4F86BF5F0198_4A952BA3006D_impl*
@@ -1078,7 +1070,7 @@ function TMainForm.ProcessLink(aLink: PnsLinkDataArray): Boolean;
 begin
 //#UC START# *4F86BF850173_4A952BA3006D_impl*
  try
-  SetForegroundWindow(Handle);
+  ActivateFormIfNeeded;
   Result := nsIntergationOpenLink(PAnsiChar(aLink), Self);
  except
   if not HasForm(vcm_ztParent) then
@@ -1313,7 +1305,7 @@ begin
  UpdateUnreadConsultations;
 
  // Сообщим пользователю если были установлены настройки по умолчанию:
- dmStdRes.NeedShowSettingsDialog := CheckInstallDefaultSettings;
+ Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := CheckInstallDefaultSettings;
 
  CheckFirstLoginActivity;
 
@@ -1367,7 +1359,7 @@ begin
  end
  else
   l_InnerState := aState;
- Result := inherited DoLoadState(l_InnerState, aStateType);
+ Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
 //#UC END# *49807428008C_4A952BA3006D_impl*
 end;//TMainForm.DoLoadState
 {$IfEnd} // NOT Defined(NoVCM)
@@ -1398,7 +1390,10 @@ begin
  if Supports(aContainer, InsBaseSearchInitialStateProvider, l_StateProvider) then
  try
   if aForClone then
-   l_State := l_StateProvider.StateForClone
+  begin
+   l_State := l_StateProvider.StateForClone;
+//   f_NeedSkipDropCurrentClass := True;
+  end
   else
    l_State := l_StateProvider.InitialState;
   try

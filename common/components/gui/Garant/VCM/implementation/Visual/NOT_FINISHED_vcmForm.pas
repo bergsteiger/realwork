@@ -73,6 +73,8 @@ uses
  , vcmDialogs
  {$IfEnd} // NOT Defined(NoVGScene)
  , vtDialogsResEx
+ //#UC START# *47F4EED50062impl_uses*
+ //#UC END# *47F4EED50062impl_uses*
 ;
 
 procedure TvcmInterfacedForm.DoSaveInSettings;

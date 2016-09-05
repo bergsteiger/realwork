@@ -56,6 +56,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E37BEF102EEimpl_uses*
+ //#UC END# *4E37BEF102EEimpl_uses*
 ;
 
 class function TkwPopEditorResizeTableColumnEX.GetWordNameForRegister: AnsiString;

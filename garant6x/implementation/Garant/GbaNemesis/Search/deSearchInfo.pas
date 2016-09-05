@@ -42,6 +42,8 @@ implementation
 uses
  l3ImplUses
  , bsUtils
+ //#UC START# *491D718A00A9impl_uses*
+ //#UC END# *491D718A00A9impl_uses*
 ;
 
 constructor TdeSearchInfo.Create(const aList: IDynList;

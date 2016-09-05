@@ -21,6 +21,8 @@ implementation
 {$If Defined(Archi) AND NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *519B79940228impl_uses*
+ //#UC END# *519B79940228impl_uses*
 ;
 
 procedure LinkServer;

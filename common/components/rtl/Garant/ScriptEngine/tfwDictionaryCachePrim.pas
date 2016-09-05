@@ -20,6 +20,7 @@ uses
  , l3Except
  , Classes
  , tfwDictionaryExPrim
+ , SyncObjs
 ;
 
 type
@@ -41,6 +42,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55C0BC550280impl_uses*
+ //#UC END# *55C0BC550280impl_uses*
 ;
 
 type _Instance_R_ = TtfwDictionaryCachePrim;

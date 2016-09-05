@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4C727C760314impl_uses*
+ //#UC END# *4C727C760314impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}

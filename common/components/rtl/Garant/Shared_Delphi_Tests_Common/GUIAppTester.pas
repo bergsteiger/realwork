@@ -50,6 +50,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , TestFrameWork
  , l3BatchService
+ //#UC START# *52F255E702F0impl_uses*
+ //#UC END# *52F255E702F0impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}

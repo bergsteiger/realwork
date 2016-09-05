@@ -68,6 +68,8 @@ uses
  , nsTypes
  , l3String
  , bsUtils
+ //#UC START# *4683698E01BCimpl_uses*
+ //#UC END# *4683698E01BCimpl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}

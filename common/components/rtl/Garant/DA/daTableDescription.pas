@@ -71,6 +71,8 @@ uses
  , SysUtils
  , Classes
  , l3Base
+ //#UC START# *55CB200E0058impl_uses*
+ //#UC END# *55CB200E0058impl_uses*
 ;
 
 function CompareFields(Item1: Pointer;
@@ -104,6 +106,8 @@ begin
  f_SQLName := aSQLName;
  f_Scheme := aScheme;
  f_IsTree := aIsTree;
+ f_Code := aCode;
+ f_FamilyID := aFamilyID;
 //#UC END# *55360BAB0116_55360B420250_impl*
 end;//TdaTableDescription.Create
 

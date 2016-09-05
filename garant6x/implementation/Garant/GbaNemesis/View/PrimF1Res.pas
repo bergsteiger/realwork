@@ -13,23 +13,12 @@ interface
 uses
  l3IntfUses
  , F1LikeRes
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(Admin)}
- , nsQueryInterfaces
- {$IfEnd} // NOT Defined(Admin)
- , SearchUnit
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
- , l3Interfaces
- , nsTypes
- , SearchInterfaces
- , PrimCommon_Module
  , l3StringIDEx
 ;
 
@@ -50,6 +39,7 @@ type
    class function DoGlobalInit(aLogo: TCustomForm;
     var theSplash: IUnknown): Boolean; virtual;
    class procedure DoRun(var theSplash: IUnknown); virtual;
+   class procedure LogUserActivity(aKind: TvcmOperationCallType); virtual;
    {$If NOT Defined(NoVCM)}
    class procedure Runner(const aTitle: Tl3StringIDEx;
     const aHelpFile: AnsiString); override;
@@ -57,32 +47,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure MakeResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   {$If NOT Defined(Admin)}
-   class procedure OpenQuery(aQueryType: TlgQueryType;
-    const aQuery: IQuery;
-    const aContainer: IvcmContainer); virtual;
-   {$IfEnd} // NOT Defined(Admin)
-   class procedure LogUserActivity(aKind: TvcmOperationCallType);
-   class function MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean;
-    aUserType: TvcmUserType): IvcmEntityForm;
-   class function MakeAttributeSelect(const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean;
-    aUserType: TvcmUserType): IvcmEntityForm;
-   class function MakeSelectedAttributes(const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean): IvcmEntityForm;
-   class function OpenTreeSelection(const aTag: Il3CString;
-    anAdditionalFilter: TnsFilterType;
-    const aFormData: IdsTreeAttributeSelect): Integer;
-   class function MakeUpdateMessage: IvcmEntityForm;
-    {* Создаёт окно с сообщением об обновлении базы }
-   class function MakeShutdownWindow(aCloseInterval: LongWord;
-    aKind: TShutdownWarningKind): IvcmEntityForm;
-    {* Создаёт окно сообщающее о закрытии приложения }
  end;//TPrimF1Res
 
 implementation
@@ -90,6 +54,8 @@ implementation
 uses
  l3ImplUses
  , nsPrimCachedEvent
+ , l3ProtoObject
+ , F1_Application_Template_Services
  , moLiteSearch
  , moRealCommon
  , vtStdRes
@@ -97,6 +63,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , SearchUnit
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -112,7 +79,7 @@ uses
  , l3SysUtils
  , Logo_Form
  , nsAppTitleData
- , f1StartupCompletedService
+ , f1StartupCompleteNotificationService
  , l3ExceptionsLog
  , BaseTypesUnit
  , evDocumentsCache
@@ -129,7 +96,6 @@ uses
  , GblAdapter
  , SysUtils
  , Logo_ut_Logo_UserType
- , LiteSearch_Module
  , LoggingUnit
  , PrimMain_Form
  , PrimMainOptions_Form
@@ -156,8 +122,19 @@ type
     {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUserOperationEvent
 
+ TLoggingServiceImpl = {final} class(Tl3ProtoObject, ILoggingService)
+  public
+   procedure LogUserActivity(aKind: TvcmOperationCallType);
+   class function Instance: TLoggingServiceImpl;
+    {* Метод получения экземпляра синглетона TLoggingServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TLoggingServiceImpl
+
 var g_TnsUserOperationEvent: TnsUserOperationEvent = nil;
  {* Экземпляр синглетона TnsUserOperationEvent }
+var g_TLoggingServiceImpl: TLoggingServiceImpl = nil;
+ {* Экземпляр синглетона TLoggingServiceImpl }
 
 const
  {* Локализуемые строки Local }
@@ -171,6 +148,12 @@ procedure TnsUserOperationEventFree;
 begin
  l3Free(g_TnsUserOperationEvent);
 end;//TnsUserOperationEventFree
+
+procedure TLoggingServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TLoggingServiceImpl }
+begin
+ l3Free(g_TLoggingServiceImpl);
+end;//TLoggingServiceImplFree
 
 procedure TnsUserOperationEvent.Log(aKind: TvcmOperationCallType);
 //#UC START# *4B14F21C029D_4B14F1AB03A0_var*
@@ -223,6 +206,32 @@ class function TnsUserOperationEvent.Exists: Boolean;
 begin
  Result := g_TnsUserOperationEvent <> nil;
 end;//TnsUserOperationEvent.Exists
+
+procedure TLoggingServiceImpl.LogUserActivity(aKind: TvcmOperationCallType);
+//#UC START# *385066897B82_57A35C870031_var*
+//#UC END# *385066897B82_57A35C870031_var*
+begin
+//#UC START# *385066897B82_57A35C870031_impl*
+ TPrimF1Res.LogUserActivity(aKind);
+//#UC END# *385066897B82_57A35C870031_impl*
+end;//TLoggingServiceImpl.LogUserActivity
+
+class function TLoggingServiceImpl.Instance: TLoggingServiceImpl;
+ {* Метод получения экземпляра синглетона TLoggingServiceImpl }
+begin
+ if (g_TLoggingServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TLoggingServiceImplFree);
+  g_TLoggingServiceImpl := Create;
+ end;
+ Result := g_TLoggingServiceImpl;
+end;//TLoggingServiceImpl.Instance
+
+class function TLoggingServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TLoggingServiceImpl <> nil;
+end;//TLoggingServiceImpl.Exists
 
 class procedure TPrimF1Res.InitDefaults;
 //#UC START# *4AA7BAF10057_4A92BBDF0126_var*
@@ -283,11 +292,11 @@ begin
    StartupPendingNotify;
    if (TryUnlockLogin or TrySwitchToOtherRunningCopy) then
    begin
-    StartupCompletedNotify;
+    StartupCompleteNotify;
     Result := false;
     Exit;
    end;//TryUnlockLogin or TrySwitchToOtherRunningCopy
-   StartupCompletedNotify;
+   StartupCompleteNotify;
   until (CheckAndCreateRunningCopyMutex);
   StartupPendingNotify;
  end;//with TnsStartupSupport
@@ -346,19 +355,6 @@ begin
 //#UC END# *4AA7E4DC0047_4A92BBDF0126_impl*
 end;//TPrimF1Res.DoRun
 
-{$If NOT Defined(Admin)}
-class procedure TPrimF1Res.OpenQuery(aQueryType: TlgQueryType;
- const aQuery: IQuery;
- const aContainer: IvcmContainer);
-//#UC START# *4AC4A69D03B7_4A92BBDF0126_var*
-//#UC END# *4AC4A69D03B7_4A92BBDF0126_var*
-begin
-//#UC START# *4AC4A69D03B7_4A92BBDF0126_impl*
- Assert(false);
-//#UC END# *4AC4A69D03B7_4A92BBDF0126_impl*
-end;//TPrimF1Res.OpenQuery
-{$IfEnd} // NOT Defined(Admin)
-
 class procedure TPrimF1Res.LogUserActivity(aKind: TvcmOperationCallType);
 //#UC START# *4B14F1720053_4A92BBDF0126_var*
 //#UC END# *4B14F1720053_4A92BBDF0126_var*
@@ -369,49 +365,6 @@ begin
  {$ifend}
 //#UC END# *4B14F1720053_4A92BBDF0126_impl*
 end;//TPrimF1Res.LogUserActivity
-
-class function TPrimF1Res.MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
- aZoneType: TvcmZoneType;
- aRecursive: Boolean;
- aUserType: TvcmUserType): IvcmEntityForm;
-begin
- Result := TLiteSearchModule.MakeTreeAttributeSelect(aParams, aZoneType, aRecursive, aUserType);
-end;//TPrimF1Res.MakeTreeAttributeSelect
-
-class function TPrimF1Res.MakeAttributeSelect(const aParams: IvcmMakeParams;
- aZoneType: TvcmZoneType;
- aRecursive: Boolean;
- aUserType: TvcmUserType): IvcmEntityForm;
-begin
- Result := TLiteSearchModule.MakeAttributeSelect(aParams, aZoneType, aRecursive, aUserType);
-end;//TPrimF1Res.MakeAttributeSelect
-
-class function TPrimF1Res.MakeSelectedAttributes(const aParams: IvcmMakeParams;
- aZoneType: TvcmZoneType;
- aRecursive: Boolean): IvcmEntityForm;
-begin
- Result := TLiteSearchModule.MakeSelectedAttributes(aParams, aZoneType, aRecursive);
-end;//TPrimF1Res.MakeSelectedAttributes
-
-class function TPrimF1Res.OpenTreeSelection(const aTag: Il3CString;
- anAdditionalFilter: TnsFilterType;
- const aFormData: IdsTreeAttributeSelect): Integer;
-begin
- Result := TLiteSearchModule.OpenTreeSelection(aTag, anAdditionalFilter, aFormData);
-end;//TPrimF1Res.OpenTreeSelection
-
-class function TPrimF1Res.MakeUpdateMessage: IvcmEntityForm;
- {* Создаёт окно с сообщением об обновлении базы }
-begin
- Result := TPrimCommonModule.MakeUpdateMessage;
-end;//TPrimF1Res.MakeUpdateMessage
-
-class function TPrimF1Res.MakeShutdownWindow(aCloseInterval: LongWord;
- aKind: TShutdownWarningKind): IvcmEntityForm;
- {* Создаёт окно сообщающее о закрытии приложения }
-begin
- Result := TPrimCommonModule.MakeShutdownWindow(aCloseInterval, aKind);
-end;//TPrimF1Res.MakeShutdownWindow
 
 {$If NOT Defined(NoVCM)}
 class procedure TPrimF1Res.Runner(const aTitle: Tl3StringIDEx;
@@ -441,6 +394,7 @@ begin
 
   // это надо здесь ! {
   MakeResources;
+  RegisterOperations;
   // } это надо здесь !
 
   if not CanRun(l_Logo) then
@@ -472,8 +426,8 @@ begin
   FreeAndNil(l_Logo);
  end;//try..finally
 
- TnsStartupSupport.StartupCompletedNotify;
- Tf1StartupCompletedService.Instance.StartupComplete;
+ TnsStartupSupport.StartupCompleteNotify;
+ Tf1StartupCompleteNotificationService.Instance.Notify;
  Application.Run;
 //#UC END# *4F6AF5860291_4A92BBDF0126_impl*
 end;//TPrimF1Res.Runner
@@ -486,6 +440,7 @@ class procedure TPrimF1Res.MakeResources;
 begin
 //#UC START# *4F6AF5F00058_4A92BBDF0126_impl*
  inherited;
+ Application.CreateForm(StdRes.TdmStdRes, StdRes.dmStdRes);
 //#UC END# *4F6AF5F00058_4A92BBDF0126_impl*
 end;//TPrimF1Res.MakeResources
 {$IfEnd} // NOT Defined(NoVCM)
@@ -497,5 +452,7 @@ initialization
  {* Инициализация str_FullVersionMessage }
  str_NemesisTitle.Init;
  {* Инициализация str_NemesisTitle }
+ TLoggingService.Instance.Alien := TLoggingServiceImpl.Instance;
+ {* Регистрация TLoggingServiceImpl }
 
 end.

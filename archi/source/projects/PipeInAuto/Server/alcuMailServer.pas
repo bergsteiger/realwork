@@ -1,7 +1,16 @@
 unit alcuMailServer;
-{ $Id: alcuMailServer.pas,v 1.31 2016/02/17 12:58:24 lukyanets Exp $ }
+{ $Id: alcuMailServer.pas,v 1.34 2016/08/05 12:01:36 lukyanets Exp $ }
 
 // $Log: alcuMailServer.pas,v $
+// Revision 1.34  2016/08/05 12:01:36  lukyanets
+// Редактируем отложенные данные
+//
+// Revision 1.33  2016/08/04 12:00:44  lukyanets
+// Готовимся редактировать отложенные в сторону данные
+//
+// Revision 1.32  2016/07/05 11:19:36  lukyanets
+// Возможно залипал коннект
+//
 // Revision 1.31  2016/02/17 12:58:24  lukyanets
 // Cleanup
 //
@@ -269,6 +278,7 @@ type
     Events: LongInt;
     OnlyErrors: Boolean;
     constructor Create; override;
+    function Clone: TddEmailNotify;
   end;
 
   TOnNewCommand = procedure (theCommand: TalcuCommands) of Object;
@@ -325,7 +335,6 @@ type
     procedure SetWaitCommands(const Value: Boolean);
     procedure _OnTimer(Sender: TObject);
     procedure SendUnsended(Sender: TObject);
-    procedure SetEmailNotifyList(const Value: TStrings);
     function SMTPSSLHandler: TIdIOHandler;
     function POPSSLHandler: TIdIOHandler;
     procedure AddToSendQueue;
@@ -362,8 +371,7 @@ type
     procedure cs_SendSMSNotify(aPipe: TCsDataPipe);
  {$ENDIF AppServerSide}
  {$IFNDEF PassthroughSendMail}
-    property EmailNotifyList: TStrings read f_EmailNotifyList write
-            SetEmailNotifyList;
+    property EmailNotifyList: TStrings read f_EmailNotifyList;
     property MsgCount: Integer read FMsgCount write FMsgCount;
     property OnNewCommand : TOnNewCommand
      read f_OnNewCommand
@@ -505,19 +513,22 @@ begin
     InitPOPParams;
     try
      Connect;
-     if Connected then
-     begin
-      MsgCount:= CheckMessages;
-      if MsgCount > 0 then
+     try
+      if Connected then
       begin
-       f_MailMsg.Clear;
-       if MsgNo = -1 then
-        Result:= Retrieve(MsgCount, f_MailMsg)
-       else
-        Result:= Retrieve(MsgNo, f_MailMsg);
-      end; // l_Count > 0
-     end; // Connected
-     Disconnect;
+       MsgCount:= CheckMessages;
+       if MsgCount > 0 then
+       begin
+        f_MailMsg.Clear;
+        if MsgNo = -1 then
+         Result:= Retrieve(MsgCount, f_MailMsg)
+        else
+         Result:= Retrieve(MsgNo, f_MailMsg);
+       end; // l_Count > 0
+      end; // Connected
+     finally
+      Disconnect;
+     end; 
     except
      on E: Exception do
      begin
@@ -545,19 +556,22 @@ begin
     InitPOPParams;
     try
      Connect;
-     if Connected then
-     begin
-      l_MsgCount:= CheckMessages;
-      if l_MsgCount > 0 then
+     try
+      if Connected then
       begin
-       f_MailMsg.Clear;
-       if MsgNo = -1 then
-        Delete(l_MsgCount)
-       else
-        Delete(MsgNo);
-      end; // l_Count > 0
-     end; // Connected
-     Disconnect;
+       l_MsgCount:= CheckMessages;
+       if l_MsgCount > 0 then
+       begin
+        f_MailMsg.Clear;
+        if MsgNo = -1 then
+         Delete(l_MsgCount)
+        else
+         Delete(MsgNo);
+       end; // l_Count > 0
+      end; // Connected
+     finally
+      Disconnect;
+     end; 
     except
      on E: Exception do
      begin
@@ -782,6 +796,11 @@ begin
   begin
    InitSMTPParams;
    try
+    if Connected then
+    begin
+     l3System.Msg2Log('Ошибка соединения с почтовым сервером (УЖЕ ПОДКЛЮЧЕН) - пытаемся отключить');
+     Disconnect;
+    end;
     Connect;
    except
     on E: Exception do
@@ -1081,13 +1100,6 @@ begin
 end;
 
 {$IFNDEF PassthroughSendMail}
-procedure TddAutoPipeMailServer.SetEmailNotifyList(const Value: TStrings);
-begin
-  f_EmailNotifyList.Assign(Value);
-end;
-{$ENDIF PassthroughSendMail}
-
-{$IFNDEF PassthroughSendMail}
 function TddAutoPipeMailServer.SMTPSSLHandler: TIdIOHandler;
 begin
  if f_SMTPSSLHandler = nil then
@@ -1159,6 +1171,15 @@ end;
 {
 ******************************** TddEmailNotify ********************************
 }
+function TddEmailNotify.Clone: TddEmailNotify;
+begin
+  Result := TddEmailNotify.Create;
+  Result.Address := Self.Address;
+  Result.Comment := Self.Comment;
+  Result.Events := Self.Events;
+  Result.OnlyErrors := Self.OnlyErrors;
+end;
+
 constructor TddEmailNotify.Create;
 begin
   inherited;
@@ -1337,6 +1358,11 @@ begin
       begin
        InitSMTPParams;
        try
+        if Connected then
+        begin
+         l3System.Msg2Log('Ошибка соединения с почтовым сервером (УЖЕ ПОДКЛЮЧЕН) - пытаемся отключить');
+         Disconnect;
+        end;
         Connect;
        except
         on E: Exception do

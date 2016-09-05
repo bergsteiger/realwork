@@ -6,9 +6,15 @@ unit vcmMainForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcm -           }
 { Начат: 24.02.2003 13:50 }
-{ $Id: vcmMainForm.pas,v 1.502 2015/09/29 11:55:49 kostitsin Exp $ }
+{ $Id: vcmMainForm.pas,v 1.504 2016/08/04 11:33:17 morozov Exp $ }
 
 // $Log: vcmMainForm.pas,v $
+// Revision 1.504  2016/08/04 11:33:17  morozov
+// {RequestLink: 624700597}
+//
+// Revision 1.503  2016/07/13 16:36:28  lulin
+// - перегенерация.
+//
 // Revision 1.502  2015/09/29 11:55:49  kostitsin
 // пишем исключение в лог
 //
@@ -2515,6 +2521,7 @@ uses
   vcmMainFormRes
   {$EndIf Nemesis}
 
+  , vcmModulesForRegister
   ;
 
  {$Include W:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
@@ -4769,10 +4776,22 @@ begin
 end;
 
 procedure TvcmMainForm.RegisterModules;
-  
+var
+ l_Index : Integer;
 begin
  {$IfNDef DesignTimeLibrary}
- TvcmApplication.Instance.RegisterModules(Self);
+ if TvcmModulesForRegister.Exists then
+ begin
+  with TvcmModulesForRegister.Instance do
+  begin
+   for l_Index := 0 to Pred(Count) do
+   begin
+    with ItemSlot(l_Index)^ do
+     Self.RegisterModule(rModule);
+   end;//for l_Index
+  end;//with TvcmModulesForRegister.Instance
+ end;//TvcmModulesForRegister.Exists
+ //TvcmApplication.Instance.RegisterModules(Self);
  AfterModulesRegistered;
  {$EndIf DesignTimeLibrary}
 end;
@@ -5494,19 +5513,29 @@ var
  l_Parent,
  l_Control : TWinControl;
 
- function IsParentValid(aControl: TControl): boolean;
+ function lp_TrySetFocus(aControl: TControl): boolean;
  Var
-  l_Control: TControl;
+  l_LocControl: TControl;
+  l_FCS: IafwFocusableControlParent;  
  begin
   Result := False;
-  l_Control := aControl;
-  while l_Control <> nil do
+  l_LocControl := aControl;
+  while l_LocControl <> nil do
   begin
-   if not l_Control.Enabled or not l_Control.Visible then
+   if not l_LocControl.Enabled or not l_LocControl.Visible then
+   begin
+    if Supports(l_LocControl, IafwFocusableControlParent, l_FCS) then
+    begin
+     l_FCS.SetFocusToControl(l_Control);
+     Result := True;
+    end;
     exit;
-   l_Control := l_Control.Parent;
+   end;
+   l_LocControl := l_LocControl.Parent;
   end;
   Result := True;
+  if l_Control.CanFocus then
+   l_Control.SetFocus;
  end;
 
 begin
@@ -5521,8 +5550,7 @@ begin
    while Assigned(l_Parent) do
     if l_Parent is TvcmEntityForm then
     begin
-     if IsParentValid(l_Control) and l_Control.CanFocus then
-      l_Control.SetFocus;
+     lp_TrySetFocus(l_Control);
      l_Parent := nil;
     end
     else

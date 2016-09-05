@@ -60,6 +60,8 @@ uses
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
  , SysUtils
+ //#UC START# *4DD77A940374impl_uses*
+ //#UC END# *4DD77A940374impl_uses*
 ;
 
 type _Instance_R_ = TnevTableRowBaseLine4Print;

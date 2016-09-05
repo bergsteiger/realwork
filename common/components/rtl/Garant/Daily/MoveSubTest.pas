@@ -53,6 +53,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C920D930026impl_uses*
+ //#UC END# *4C920D930026impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}

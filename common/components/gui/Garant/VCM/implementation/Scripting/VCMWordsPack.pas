@@ -48,6 +48,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F69B966010Bimpl_uses*
+ //#UC END# *4F69B966010Bimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 

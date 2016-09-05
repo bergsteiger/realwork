@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *53B647A9029Bimpl_uses*
+ //#UC END# *53B647A9029Bimpl_uses*
 ;
 
 class function TkwClearTemplateStorage.GetWordNameForRegister: AnsiString;

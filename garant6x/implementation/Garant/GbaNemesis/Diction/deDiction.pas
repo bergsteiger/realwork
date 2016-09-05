@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , SysUtils
  , bsDataContainer
+ //#UC START# *4925538201C4impl_uses*
+ //#UC END# *4925538201C4impl_uses*
 ;
 
 class function TdeDiction.Make(const aDocument: IDocument;

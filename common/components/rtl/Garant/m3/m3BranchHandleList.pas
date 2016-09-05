@@ -50,6 +50,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5453BC4F0348impl_uses*
+ //#UC END# *5453BC4F0348impl_uses*
 ;
 
 function Tm3WideString_C(const aValue: WideString): Tm3WideString;

@@ -84,6 +84,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *492FDB1603A9impl_uses*
+ //#UC END# *492FDB1603A9impl_uses*
 ;
 
 type _Instance_R_ = TsdsAutoreferat;

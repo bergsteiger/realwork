@@ -75,6 +75,8 @@ uses
  , nsMedicDictCache
  , nsINodeOneLevelWrap
  , nsDayTipsDictCache
+ //#UC START# *46836BA203A1impl_uses*
+ //#UC END# *46836BA203A1impl_uses*
 ;
 
 function TnsDictionTree.pm_GetLanguage: TbsLanguage;

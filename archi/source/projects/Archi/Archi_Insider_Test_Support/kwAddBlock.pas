@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4EA94ED30365impl_uses*
+ //#UC END# *4EA94ED30365impl_uses*
 ;
 
 class function TkwAddBlock.GetWordNameForRegister: AnsiString;

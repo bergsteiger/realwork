@@ -66,6 +66,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evAACContentUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4A26AF690296impl_uses*
+ //#UC END# *4A26AF690296impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}

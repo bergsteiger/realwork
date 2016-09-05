@@ -1,8 +1,11 @@
 Unit Dt_Prior;
 
-{ $Id: Dt_Prior.pas,v 1.53 2016/05/26 14:01:24 voba Exp $ }
+{ $Id: Dt_Prior.pas,v 1.54 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: Dt_Prior.pas,v $
+// Revision 1.54  2016/06/16 05:40:06  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
 // Revision 1.53  2016/05/26 14:01:24  voba
 // -k:623267081
 //
@@ -168,7 +171,7 @@ Const
 Type
   TPriorTbl = Class(TPrometTbl)
    public
-    Constructor Create(aFamily : TFamilyID); Reintroduce;
+    Constructor Create(aFamily : TdaFamilyID); Reintroduce;
 
     function    GetPriorityOnList(SourSab,TypeSab : Sab;WithRefresh : Boolean) : Word;
     function    CalcPriorityBy(const aSourIds, aTypeIds: Il3IDList; aWithRefresh: Boolean): Word;
@@ -185,7 +188,7 @@ Type
    fRecList : Tl3FieldSortRecList;
    procedure Cleanup; override;
   public
-   constructor Create(aFamily : TFamilyID); Reintroduce;
+   constructor Create(aFamily : TdaFamilyID); Reintroduce;
    function CalcPriorityBy(const aSourceIDs, aTypeIDs: Il3IntegerList): Word; overload;
    function CalcPriorityBy(const aSourceIDs, aTypeIDs: Il3IDList): Word; overload;
    function CalcPriorityBy(aSourceList, aTypeList: Tl3Tag): Word; overload;
@@ -195,14 +198,14 @@ Type
 
   TPriorityList = class(Tl3Base)
   private
-   fFamily : TFamilyID;
+   fFamily : TdaFamilyID;
    fPriorCursor : ISabCursor;
    fCursorCurIndex : Integer;
 
    procedure Cleanup; override;
    function  CalcPriorityData(const aDocIDValue : ISab) : ISabCursor;
   public
-   constructor Create(aFamily : TFamilyID; const aDocIDValue : ISab); Reintroduce;
+   constructor Create(aFamily : TdaFamilyID; const aDocIDValue : ISab); Reintroduce;
    function    GetPriority(aDocID : TDocID): Word;
   end;
 
@@ -218,7 +221,7 @@ Type
 —ейчас "пустые" Source и "пустые" Type хран€тс€ но не учитываютс€ в рассчетах
 *)
 
-function GetProirityTbl(aFamily : TFamilyID = 1) : TPriorityCash;
+function GetProirityTbl(aFamily : TdaFamilyID = 1) : TPriorityCash;
 
 
 
@@ -240,7 +243,7 @@ uses
      m0Const,
      k2Tags;
 
-Constructor TPriorTbl.Create(aFamily : TFamilyID);
+Constructor TPriorTbl.Create(aFamily : TdaFamilyID);
 begin
  Assert(aFamily <> MainTblsFamily);
  inherited Create(aFamily, ord(ftPriority));
@@ -660,7 +663,7 @@ Type
   rPriority : word;
  end;
 
-constructor TPriorityCash.Create(aFamily : TFamilyID);
+constructor TPriorityCash.Create(aFamily : TdaFamilyID);
 var
  lPriorSab : ISab;
 begin
@@ -759,7 +762,7 @@ begin
  l3Free(gPriorityCash);
 end;
 
-function GetProirityTbl(aFamily : TFamilyID) : TPriorityCash;
+function GetProirityTbl(aFamily : TdaFamilyID) : TPriorityCash;
 begin
  assert(aFamily = 1, 'Dt_Prior.GetProirityTbl реализовано только дл€ Family = 1');
 
@@ -773,7 +776,7 @@ begin
 end;
 
 {TPriorityList}
-constructor TPriorityList.Create(aFamily : TFamilyID; const aDocIDValue : ISab);
+constructor TPriorityList.Create(aFamily : TdaFamilyID; const aDocIDValue : ISab);
 begin
  inherited Create;
  fFamily := aFamily;

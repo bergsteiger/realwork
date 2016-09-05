@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , F1ShellWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *490C47C70210impl_uses*
+ //#UC END# *490C47C70210impl_uses*
 ;
 
 procedure nsPrepareTextForMailto;

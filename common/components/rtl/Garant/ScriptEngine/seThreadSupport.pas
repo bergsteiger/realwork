@@ -57,6 +57,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *50BF047001FAimpl_uses*
+ //#UC END# *50BF047001FAimpl_uses*
 ;
 
 var g_TseWorkThreadList: TseWorkThreadList = nil;

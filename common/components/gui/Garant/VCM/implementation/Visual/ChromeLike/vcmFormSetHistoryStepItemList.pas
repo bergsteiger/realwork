@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55E403BB0258impl_uses*
+ //#UC END# *55E403BB0258impl_uses*
 ;
 
 type _Instance_R_ = TvcmFormSetHistoryStepItemList;

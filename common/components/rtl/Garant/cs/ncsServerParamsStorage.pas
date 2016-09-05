@@ -71,6 +71,8 @@ uses
  , pgDataProviderFactory
  {$IfEnd} // Defined(UsePostgres)
  , htDataProviderFactory
+ //#UC START# *5507E70200AFimpl_uses*
+ //#UC END# *5507E70200AFimpl_uses*
 ;
 
 class function TncsServerParamsStorage.Make: IdaParamsStorage;

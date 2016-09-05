@@ -24,6 +24,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TTableConvParamDialogWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F684D610146impl_uses*
+ //#UC END# *4F684D610146impl_uses*
 ;
 
 end.

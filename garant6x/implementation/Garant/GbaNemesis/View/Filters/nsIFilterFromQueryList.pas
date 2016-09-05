@@ -41,6 +41,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4D0B4D810270impl_uses*
+ //#UC END# *4D0B4D810270impl_uses*
 ;
 
 type _Instance_R_ = TnsIFilterFromQueryList;

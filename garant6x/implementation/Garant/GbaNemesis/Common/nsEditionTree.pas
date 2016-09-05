@@ -38,6 +38,8 @@ uses
  , nsEditionNodes
  , SysUtils
  , nsTypes
+ //#UC START# *4909F77F0154impl_uses*
+ //#UC END# *4909F77F0154impl_uses*
 ;
 
 procedure TnsEditionTree.Cleanup;

@@ -49,6 +49,8 @@ uses
  , l3String
  , l3Chars
  , TextPara_Const
+ //#UC START# *5720F28E0343impl_uses*
+ //#UC END# *5720F28E0343impl_uses*
 ;
 
 function TevdTextCodePageChanger.ParaTypeForFiltering: Tk2Type;

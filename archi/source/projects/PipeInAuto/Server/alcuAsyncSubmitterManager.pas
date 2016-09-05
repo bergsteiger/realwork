@@ -78,6 +78,8 @@ uses
  , daUtils
  , daInterfaces
  , daDataProvider
+ //#UC START# *53CCC324034Bimpl_uses*
+ //#UC END# *53CCC324034Bimpl_uses*
 ;
 
 constructor TalcuAsyncSubmitterManager.Create(const aBaseEngineHolder: TalcuBaseEngineHolder);

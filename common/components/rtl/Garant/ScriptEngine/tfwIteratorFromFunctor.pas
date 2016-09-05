@@ -53,6 +53,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *52EB863801C3impl_uses*
+ //#UC END# *52EB863801C3impl_uses*
 ;
 
 constructor TtfwArrayCollector.Create(anArray: TtfwArray);

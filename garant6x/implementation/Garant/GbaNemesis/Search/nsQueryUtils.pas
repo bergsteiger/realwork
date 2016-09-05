@@ -151,6 +151,9 @@ uses
  , nsSearchClasses
  , nsDataExchangeProxy
  //#UC START# *4AE864B801C5impl_uses*
+ {$If NOT Defined(Monitorings)}
+ , Base_Operations_F1Services_Contracts
+ {$IfEnd}
  //#UC END# *4AE864B801C5impl_uses*
 ;
 
@@ -322,14 +325,13 @@ var
  var
   l_NewQuery: IQuery;
  begin
-  if aQuery.GetType in [{QT_OLD_FILTER, }
-                        QT_COMMENTS,
+  if aQuery.GetType in [QT_COMMENTS,
                         QT_MAIL_LIST,
                         QT_HANDYCRAFT_CONSULT] then
    Exit;
   aQuery.Clone(l_NewQuery);
   if Assigned(l_NewQuery) then
-   TdmStdRes.MakeWorkJournal.AddQuery(l_NewQuery);
+   TWorkJournalService.Instance.MakeWorkJournal.AddQuery(l_NewQuery);
  end;//AddQueryToJournal
 
 var
@@ -532,7 +534,7 @@ begin
      if lp_QueryHasAttribute(aQuery, AT_BASE_SEARCH_PANES{AT_PREFIX}) then
      begin
       if vcmAsk(qr_EmptyResultAfterBaseSearchWithPrefix) then
-       TdmStdRes.TryAnotherBaseSearch(nil, aProcessor)
+       TBaseSearchService.Instance.TryAnotherBaseSearch(nil, aProcessor)
       else
       if Assigned(aProcessor) then
        aProcessor.AnotherSearchCancelled;
@@ -542,18 +544,18 @@ begin
      begin
       if aList.GetIsShort then
       case vcmMessageDlg(str_EmptySearchResultInBaseList, []) of
-       -1: TdmStdRes.TryAnotherBaseSearch(nil, aProcessor, True);
-       -2: TdmStdRes.TryAnotherBaseSearch(nil, aProcessor);
+       -1: TBaseSearchService.Instance.TryAnotherBaseSearch(nil, aProcessor, True);
+       -2: TBaseSearchService.Instance.TryAnotherBaseSearch(nil, aProcessor);
       end
       else
       if lp_QueryHasAttribute(aQuery, AT_TEXT_NAME) then
       begin
        if vcmAsk(qr_EmptyResultAfterBaseSearchInNames) then
-        TdmStdRes.TryAnotherBaseSearch(nil, aProcessor);
+        TBaseSearchService.Instance.TryAnotherBaseSearch(nil, aProcessor);
       end//lp_QueryHasAttribute(aQuery, AT_TEXT_NAME)
       else
       if vcmAsk(qr_EmptyResultAfterBaseSearchInList) then
-       TdmStdRes.TryAnotherBaseSearch(nil, aProcessor);
+       TBaseSearchService.Instance.TryAnotherBaseSearch(nil, aProcessor);
       Exit;
      end;//Assigned(aList)
     end;//l_Query.GetType = QT_BASE_SEARCH
@@ -1101,16 +1103,9 @@ begin
     if (aQuery.GetType <> QT_BASE_SEARCH) and Assigned(l_Processor) then
       l_Processor.AnotherSearchSuccessed;
     if (aQuery.GetType <> QT_REVIEW) then
-     (*TdmStdRes.OpenList(
-       TdeListSet.Make(l_FoundList,
-                       wdOpenIfUserDefine,
-                       lp_GetListOpenFrom,
-                       True,
-                       nil,
-                       TdeSearchInfo.Make(l_FoundList, False)), nil)*)
      TnsDataExchangeProxy.Instance.MakeAndOpenList(l_FoundList, lp_GetListOpenFrom)
     else
-     TdmStdRes.OpenAutoreferatAfterSearch(l_FoundList as IMonitoringList, nil);
+     TMonitoringsService.Instance.OpenAutoreferatAfterSearch(l_FoundList as IMonitoringList, nil);
    end//l_FoundList <> nil
    else
    if (l_Result = vcm_mrCustomButton) then
@@ -1126,7 +1121,7 @@ begin
     end//aQuery.GetType in [QT_ATTRIBUTE, QT_BASE_SEARCH]
     else
      l_Query := nil;
-    TdmStdRes.OpenSendConsultation(l_Query);
+    TConsultationService.Instance.OpenSendConsultation(l_Query);
    end;
   finally
    l_FoundList := nil;

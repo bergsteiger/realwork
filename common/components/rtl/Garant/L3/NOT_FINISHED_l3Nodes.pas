@@ -22,6 +22,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F25741021Cimpl_uses*
+ //#UC END# *47F25741021Cimpl_uses*
 ;
 
 procedure l3L2NA;

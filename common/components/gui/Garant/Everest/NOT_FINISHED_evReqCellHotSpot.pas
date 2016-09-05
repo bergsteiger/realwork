@@ -26,6 +26,8 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ //#UC START# *53D0C11D034Fimpl_uses*
+ //#UC END# *53D0C11D034Fimpl_uses*
 ;
 
 {$If NOT Defined(evCanEditControlsAsText)}

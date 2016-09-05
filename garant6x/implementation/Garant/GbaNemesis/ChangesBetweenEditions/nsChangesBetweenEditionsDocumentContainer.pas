@@ -102,6 +102,8 @@ uses
  , k2RawData_Const
  , ComObj
  , l3Types
+ //#UC START# *4DDD0D92039Cimpl_uses*
+ //#UC END# *4DDD0D92039Cimpl_uses*
 ;
 
 {$If Defined(Nemesis)}

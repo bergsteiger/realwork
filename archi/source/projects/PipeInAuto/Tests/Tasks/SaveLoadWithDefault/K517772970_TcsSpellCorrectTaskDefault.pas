@@ -48,6 +48,8 @@ uses
  {$IfEnd} // Defined(nsTest)
  , l3Filer
  , SysUtils
+ //#UC START# *53B25CAB001Aimpl_uses*
+ //#UC END# *53B25CAB001Aimpl_uses*
 ;
 
 function TK517772970_TcsSpellCorrectTaskDefault.GetTaskClass: TddTaskClass;

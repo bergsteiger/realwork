@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4F37ADFF0150impl_uses*
+ //#UC END# *4F37ADFF0150impl_uses*
 ;
 
 constructor TkwWordPtrWorker.Create(aWord: TtfwWord);

@@ -99,6 +99,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B28D63A00ECimpl_uses*
+ //#UC END# *4B28D63A00ECimpl_uses*
 ;
 
 procedure TevCustomEditorWindowPrim.pm_SetZoom(aValue: Integer);

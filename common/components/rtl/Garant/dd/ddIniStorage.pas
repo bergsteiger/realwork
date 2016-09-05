@@ -1,162 +1,74 @@
 unit ddIniStorage;
-{1 Хранилище, основанное на TIniFile }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\ddIniStorage.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TddIniStorage" MUID: (5214AF4C01AF)
 
 interface
 
+{$If NOT Defined(Nemesis)}
 uses
-  SysUtils, IniFiles, ddConfigStorages, l3Interfaces;
+ l3IntfUses
+ , ddCustomIniStorage
+ , IniFiles
+ , ddConfigStorages
+;
 
 type
-  TddIniStorage = class(TObject, IddConfigStorage)
-    procedure FreeInstance;
-      override;
-    function  Get_Section: AnsiString;
-      stdcall;
-    function  QueryInterface(const IID: TGUID; out Obj): HResult;
-      stdcall;
-    function ReadBool(const Alias: AnsiString; Default: Boolean): Boolean; stdcall;
-    function ReadDateTime(const Alias: AnsiString; Default: TDateTime): TDateTime; stdcall;
-    function ReadInteger(const Alias: AnsiString; Default: Integer): Integer; stdcall;
-    function ReadString(const Alias: AnsiString; const Default: AnsiString): Il3CString; stdcall;
-    procedure Set_Section(const Value: AnsiString); stdcall;
-    procedure WriteBool(const Alias: AnsiString; B: Boolean); stdcall;
-    procedure WriteDateTime(const Alias: AnsiString; DT: TDateTime); stdcall;
-    procedure WriteInteger(const Alias: AnsiString; I: Integer); stdcall;
-    procedure WriteString(const Alias: AnsiString; const S: AnsiString); stdcall;
-    function _AddRef: Integer; stdcall;
-    function _Release: Integer; stdcall;
+ TddIniStorage = class(TddCustomIniStorage)
   private
-    FRefCount: Integer;
-    FSection: AnsiString;
-    f_Ini: TIniFile;
+   f_RealIni: TIniFile;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
   public
-    constructor Create(const FileName: AnsiString);
-    class function Make(const FileName: AnsiString): IddConfigStorage;
-    destructor Destroy; overload; override;
-    property Ini: TIniFile read f_Ini;
-  end;
+   constructor Create(const aFileName: AnsiString); reintroduce;
+   class function Make(const aFileName: AnsiString): IddConfigStorage; reintroduce;
+ end;//TddIniStorage
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
+{$If NOT Defined(Nemesis)}
 uses
-  Windows,
-  l3Base;
+ l3ImplUses
+ , SysUtils
+ //#UC START# *5214AF4C01AFimpl_uses*
+ //#UC END# *5214AF4C01AFimpl_uses*
+;
 
-{
-******************************** TddIniStorage *********************************
-}
-constructor TddIniStorage.Create(const FileName: AnsiString);
+constructor TddIniStorage.Create(const aFileName: AnsiString);
+//#UC START# *57A084C801B6_5214AF4C01AF_var*
+//#UC END# *57A084C801B6_5214AF4C01AF_var*
 begin
-  f_Ini:= TIniFile.Create(FileName);
-  InterlockedIncrement(fRefCount);
-end;
+//#UC START# *57A084C801B6_5214AF4C01AF_impl*
+ f_RealIni := TIniFile.Create(aFileName);
+ inherited Create(f_RealIni);
+//#UC END# *57A084C801B6_5214AF4C01AF_impl*
+end;//TddIniStorage.Create
 
-destructor TddIniStorage.Destroy;
-begin
-  if (InterlockedDecrement(fRefCount) = 0) then
-  begin
-   Inc(fRefCount);
-   try
-    f_Ini.Free;
-    inherited Destroy;
-   finally
-    Dec(fRefCount);
-   end;{try..finally}
-  end;{f_RefCount = 0}
-end;
-
-procedure TddIniStorage.FreeInstance;
-begin
-  if (fRefCount = 0) then
-   inherited;
-end;
-
-function TddIniStorage.Get_Section: AnsiString;
-begin
-  Result:= FSection;
-end;
-
-class function TddIniStorage.Make(
-  const FileName: AnsiString): IddConfigStorage;
+class function TddIniStorage.Make(const aFileName: AnsiString): IddConfigStorage;
 var
- l_Storage: TddIniStorage;
+ l_Inst : TddIniStorage;
 begin
- l_Storage := TddIniStorage.Create(FileName);
+ l_Inst := Create(aFileName);
  try
-  Result := l_Storage;
+  Result := l_Inst;
  finally
-  l_Storage.Free;
+  l_Inst.Free;
  end;//try..finally
-end;
+end;//TddIniStorage.Make
 
-function TddIniStorage.QueryInterface(const IID: TGUID; out Obj): HResult;
+procedure TddIniStorage.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_5214AF4C01AF_var*
+//#UC END# *479731C50290_5214AF4C01AF_var*
 begin
-  if TObject(Self).GetInterface(IID, Obj) then
-    Result := S_Ok
-  else
-    Result:= E_NoInterface
-end;
-
-function TddIniStorage.ReadBool(const Alias: AnsiString; Default: Boolean): Boolean;
-begin
-  Result:= f_Ini.ReadBool(FSection, Alias, Default);
-end;
-
-function TddIniStorage.ReadDateTime(const Alias: AnsiString; Default: TDateTime): TDateTime;
-begin
- Result:= f_Ini.ReadDateTime(FSection, Alias, Default);
-end;
-
-function TddIniStorage.ReadInteger(const Alias: AnsiString; Default: Integer): Integer;
-begin
-  Result:= f_Ini.ReadInteger(FSection, Alias, Default);
-end;
-
-function TddIniStorage.ReadString(const Alias: AnsiString; const Default: AnsiString): Il3CString;
-begin
-  Result:= l3CStr(f_Ini.ReadString(FSection, Alias, Default));
-end;
-
-procedure TddIniStorage.Set_Section(const Value: AnsiString);
-begin
-  if FSection <> Value then
-   FSection:= Value;
-end;
-
-procedure TddIniStorage.WriteBool(const Alias: AnsiString; B: Boolean);
-begin
-  f_Ini.WriteBool(FSection, Alias, B);
-end;
-
-procedure TddIniStorage.WriteDateTime(const Alias: AnsiString; DT: TDateTime);
-begin
-  f_Ini.WriteDateTime(FSection, Alias, DT);
-end;
-
-procedure TddIniStorage.WriteInteger(const Alias: AnsiString; I: Integer);
-begin
-  f_Ini.WriteInteger(FSection, Alias, I);
-end;
-
-procedure TddIniStorage.WriteString(const Alias: AnsiString; const S: AnsiString);
-begin
-  f_Ini.WriteString(FSection, Alias, S);
-end;
-
-function TddIniStorage._AddRef: Integer;
-begin
-  Result :=InterlockedIncrement(fRefCount);
-end;
-
-function TddIniStorage._Release: Integer;
-begin
-  Result := InterlockedDecrement(fRefCount);
-  if Result = 0 then
-  begin
-   InterlockedIncrement(fRefCount);
-   Free;
-  end;
-end;
-
+//#UC START# *479731C50290_5214AF4C01AF_impl*
+ FreeAndNil(f_RealIni);
+ inherited;
+//#UC END# *479731C50290_5214AF4C01AF_impl*
+end;//TddIniStorage.Cleanup
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

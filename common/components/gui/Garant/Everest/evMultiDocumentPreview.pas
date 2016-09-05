@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , nevInterfaces
+ //#UC START# *47FA06400313impl_uses*
+ //#UC END# *47FA06400313impl_uses*
 ;
 
 function TevMultiDocumentPreview.GetDocumentName: IafwCString;

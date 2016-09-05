@@ -54,6 +54,8 @@ uses
  , l3Base
  , Windows
  , nsUserDataObject
+ //#UC START# *49F552BA0035impl_uses*
+ //#UC END# *49F552BA0035impl_uses*
 ;
 
 constructor TbsUserDataObject.Create(const aData: Il3SimpleNode;

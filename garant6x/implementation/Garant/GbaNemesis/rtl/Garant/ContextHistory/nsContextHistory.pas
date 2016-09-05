@@ -24,6 +24,8 @@ uses
  l3ImplUses
  , nsInpharmContextHistory
  , nsDocumentContextHistory
+ //#UC START# *4AD8570C01CCimpl_uses*
+ //#UC END# *4AD8570C01CCimpl_uses*
 ;
 
 function nsGetContextHistory(aKind: TnsContextHistoryKind): InsContextSearchHistory;

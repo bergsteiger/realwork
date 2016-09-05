@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , F_DocList
+ //#UC START# *4F8D5E560101impl_uses*
+ //#UC END# *4F8D5E560101impl_uses*
 ;
 {$IfEnd} // Defined(AppClientSide)
 

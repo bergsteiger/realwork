@@ -126,16 +126,37 @@ uses
  , tfwIteratableParent in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ , tfwIteratableParentPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParentPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ , tfwSafeArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwSafeArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
+ , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValuesStack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwCompiledWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrim.pas'
@@ -149,6 +170,24 @@ uses
  , tfwKeyWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeyWordPrim.pas'
  {$If NOT Defined(NoScripts)}
  , tfwWordRefList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordRefList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVar in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVar.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVarPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVarPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Parser in 'w:\common\components\rtl\Garant\L3\l3Parser.pas'
  , l3ProtoPersistent in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistent.pas'
@@ -166,15 +205,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwDictionary in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionary.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Math {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Math.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
@@ -274,18 +304,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwKeywordsIterator in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeywordsIterator.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwLeftParam in 'w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas'
@@ -429,6 +447,25 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwWordInfoWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
+ , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
+ , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
+ , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
+ , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
+ , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
+ , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
+ , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
+ , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
+ , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
+ , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
+ , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
+ , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
+ , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
+ , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
+ {$If NOT Defined(NoScripts)}
+ , tfwCS in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCS.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ArrayProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ArrayProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -443,9 +480,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwRevertedArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwFilteredArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas'
@@ -484,15 +518,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
- , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
- , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
- , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
- , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
- , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
- , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
- , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -599,13 +624,14 @@ uses
  , l3DataObject in 'w:\common\components\rtl\Garant\L3\l3DataObject.pas'
  , l3LongintList in 'w:\common\components\rtl\Garant\L3\l3LongintList.pas'
  , l3LongintListPrim in 'w:\common\components\rtl\Garant\L3\l3LongintListPrim.pas'
- , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
- , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
- , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
- , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
- , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
  , l3DataObjectEnum in 'w:\common\components\rtl\Garant\L3\l3DataObjectEnum.pas'
  , ShlObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShlObj.pas' {$EndIf}
+ {$If NOT Defined(NoScripts)}
+ , tfwWordDeleteListeners in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordDeleteListeners.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ItfwWordListenerList in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwWordListenerList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , WordsRTTIPack in 'w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -818,6 +844,7 @@ uses
  , evdTypes in 'w:\common\components\rtl\Garant\EVD\evdTypes.pas'
  , l3InterfacedIntegerList in 'w:\common\components\rtl\Garant\L3\l3InterfacedIntegerList.pas'
  , TaskID_Const in 'w:\common\components\rtl\Garant\EVD\TaskID_Const.pas'
+ , FoundSelector_Const in 'w:\common\components\rtl\Garant\EVD\FoundSelector_Const.pas'
  , ddProgressObj in 'w:\common\components\rtl\Garant\dd\ddProgressObj.pas'
  , ProcessTask_Const in 'w:\common\components\rtl\Garant\EVD\ProcessTask_Const.pas'
  , csTaskResult in 'w:\common\components\rtl\Garant\EVD\csTaskResult.pas'
@@ -853,9 +880,8 @@ uses
  , ddAppConfig in 'w:\common\components\rtl\Garant\dd\ddAppConfig.pas'
  , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
  , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
- , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'
  , ddAppConfigBase in 'w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas'
- , l3ProtoPersistentRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas'
+ , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'
  , vtLabel in 'w:\common\components\gui\Garant\VT\vtLabel.pas'
  {$If NOT Defined(NoVCL)}
  , StdCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\StdCtrls.pas' {$EndIf}
@@ -1655,6 +1681,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , vtComboBoxQS in 'w:\common\components\gui\Garant\VT\vtComboBoxQS.pas'
  , l3GraphicControlCanvas in 'w:\common\components\rtl\Garant\L3\l3GraphicControlCanvas.pas'
+ , l3ProtoPersistentRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas'
  {$If NOT Defined(NoVCL)}
  , ComCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ComCtrls.pas' {$EndIf}
  {$IfEnd} // NOT Defined(NoVCL)
@@ -1709,6 +1736,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , ddIniStorage in 'w:\common\components\rtl\Garant\dd\ddIniStorage.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ , ddCustomIniStorage in 'w:\common\components\rtl\Garant\dd\ddCustomIniStorage.pas'
+ , ddTemporaryStorage in 'w:\common\components\rtl\Garant\dd\ddTemporaryStorage.pas'
  , ddAppConfigTFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigTFrame.pas'
  , ddAppConfigBFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigBFrame.pas'
  , vtVerInf in 'w:\common\components\rtl\Garant\L3\vtVerInf.pas'
@@ -1763,9 +1792,9 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , evdNcsTypes in 'w:\common\components\rtl\Garant\EVD\evdNcsTypes.pas'
  , csMessage_Const in 'w:\common\components\rtl\Garant\EVD\csMessage_Const.pas'
- , csDIsconnect_Const in 'w:\common\components\rtl\Garant\EVD\csDIsconnect_Const.pas'
+ , csDisconnect_Const in 'w:\common\components\rtl\Garant\EVD\csDisconnect_Const.pas'
  , csMessageWithReply_Const in 'w:\common\components\rtl\Garant\EVD\csMessageWithReply_Const.pas'
- , csDIsconnectReply_Const in 'w:\common\components\rtl\Garant\EVD\csDIsconnectReply_Const.pas'
+ , csDisconnectReply_Const in 'w:\common\components\rtl\Garant\EVD\csDisconnectReply_Const.pas'
  , csReply_Const in 'w:\common\components\rtl\Garant\EVD\csReply_Const.pas'
  {$If NOT Defined(Nemesis)}
  , csIdIOHandlerAbstractAdapter in 'w:\common\components\rtl\Garant\cs\csIdIOHandlerAbstractAdapter.pas'
@@ -1896,6 +1925,99 @@ uses
  {$IfEnd} // Defined(ServerTasks)
  , alcuProcessingEnabledService in 'w:\archi\source\projects\PipeInAuto\Server\alcuProcessingEnabledService.pas'
  , l3ProcessingEnabledService in 'w:\common\components\rtl\Garant\L3\l3ProcessingEnabledService.pas'
+ {$If Defined(ServerTasks)}
+ , alcuDownloadDocStreamExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocStreamExecutor.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If Defined(ServerTasks)}
+ , alcuImmidiateRequestInterfaces in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuImmidiateRequestInterfaces.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If Defined(ServerTasks)}
+ , alcuDownloadDocRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocRequest.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , csDownloadDocStream in 'w:\common\components\rtl\Garant\cs\csDownloadDocStream.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
+ , csDownloadDocStream_Const in 'w:\common\components\rtl\Garant\EVD\csDownloadDocStream_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , csDownloadDocStreamReply in 'w:\common\components\rtl\Garant\cs\csDownloadDocStreamReply.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csDownloadDocStreamReply_Const in 'w:\common\components\rtl\Garant\EVD\csDownloadDocStreamReply_Const.pas'
+ , arDocAttributesMixer in 'w:\archi\source\projects\Common\Utils\arDocAttributesMixer.pas'
+ , m4DocumentAddress in 'w:\common\components\rtl\Garant\m4\m4DocumentAddress.pas'
+ , m3DBInterfaces in 'w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas'
+ , m3Interfaces in 'w:\common\components\rtl\Garant\m3\m3Interfaces.pas'
+ , m3StorageInterfaces in 'w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas'
+ , m3StorageTypes in 'w:\common\components\rtl\Garant\m3\m3StorageTypes.pas'
+ , m3DBTypes in 'w:\common\components\rtl\Garant\m3\m3DBTypes.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_EFltr in 'w:\common\components\rtl\Garant\DT\dt_EFltr.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , ddFixFilter in 'w:\common\components\rtl\Garant\dd\PipeOut\ddFixFilter.pas'
+ , ddExtObjectSupport in 'w:\common\components\rtl\Garant\dd\ddExtObjectSupport.pas'
+ , ddExtObjInserter in 'w:\common\components\rtl\Garant\dd\ddExtObjInserter.pas'
+ , ddExtObjectMachine in 'w:\common\components\rtl\Garant\dd\ddExtObjectMachine.pas'
+ , ddExtObjectDataList in 'w:\common\components\rtl\Garant\dd\ddExtObjectDataList.pas'
+ , ddExtObjectData in 'w:\common\components\rtl\Garant\dd\ddExtObjectData.pas'
+ , ddExtObjectDataStream in 'w:\common\components\rtl\Garant\dd\ddExtObjectDataStream.pas'
+ , ddExtObjExtractor in 'w:\common\components\rtl\Garant\dd\ddExtObjExtractor.pas'
+ , ddSavedObjectsList in 'w:\common\components\rtl\Garant\dd\ddSavedObjectsList.pas'
+ , evCommonUtils in 'w:\archi\source\projects\Common\Utils\evCommonUtils.pas'
+ , evCommonTypes in 'w:\common\components\gui\Garant\EverestCommon\evCommonTypes.pas'
+ , arCommonTypes in 'w:\archi\source\projects\Common\Utils\arCommonTypes.pas'
+ , D_PicSizeEdit in 'w:\archi\source\projects\Common\Dialogs\D_PicSizeEdit.pas'
+ {$If NOT Defined(NoScripts)}
+ , TPicSizeEditDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evFacadeGUI in 'w:\common\components\gui\Garant\EverestCommon\evFacadeGUI.pas'
+ , ExprEditForm in 'w:\archi\source\projects\Common\Dialogs\ExprEditForm.pas'
+ {$If NOT Defined(NoScripts)}
+ , TExprEditorWordsPack in 'w:\archi\source\projects\Common\Dialogs\TExprEditorWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evTableTools in 'w:\common\components\gui\Garant\Everest\evTableTools.pas'
+ , evCellsWidthCorrecter in 'w:\common\components\gui\Garant\Everest\evCellsWidthCorrecter.pas'
+ , evRowAndTableTypeSupport in 'w:\common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas'
+ , evCellsOffsetsPair in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsPair.pas'
+ , evCellsCharOffsets in 'w:\common\components\gui\Garant\Everest\evCellsCharOffsets.pas'
+ , evOneCharLongIntList in 'w:\common\components\gui\Garant\Everest\evOneCharLongIntList.pas'
+ , edCellTypesList in 'w:\common\components\gui\Garant\Everest\edCellTypesList.pas'
+ , evCellsOffsetsPairList in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsPairList.pas'
+ , evCellWidthCorrecterSpy in 'w:\common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas'
+ , evCellsOffsetsList in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsList.pas'
+ , evCopyTableCellWidth in 'w:\common\components\gui\Garant\Everest\evCopyTableCellWidth.pas'
+ , evTabStopsFilter in 'w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas'
+ , evdEmptyRowFilter in 'w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas'
+ , evTableFilter in 'w:\common\components\gui\Garant\Everest\evTableFilter.pas'
+ , evTextInTableCorrector in 'w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
+ , evFacadeSelection in 'w:\common\components\gui\Garant\EverestCommon\evFacadeSelection.pas'
+ , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'
+ {$If NOT Defined(Nemesis)}
+ , vtDialogs in 'w:\common\components\gui\Garant\VT\vtDialogs.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , evCommonRes in 'w:\archi\source\projects\Common\Utils\evCommonRes.pas'
+ , evFacadeSub in 'w:\common\components\gui\Garant\EverestCommon\evFacadeSub.pas'
+ , evStubs in 'w:\common\components\gui\Garant\EverestCommon\evStubs.pas'
+ , d_edMSub in 'w:\archi\source\projects\Common\Dialogs\d_edMSub.pas'
+ {$If NOT Defined(NoScripts)}
+ , TNewSubDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TNewSubDlgWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , arTextUtils in 'w:\archi\source\projects\Common\Utils\arTextUtils.pas'
+ , l3SimpleCalc in 'w:\common\components\rtl\Garant\L3\ext\l3SimpleCalc.pas'
+ , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
+ {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
+ {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ , evOutTextParaEliminator in 'w:\common\components\gui\Garant\Everest\evOutTextParaEliminator.pas'
+ , arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas'
+ , arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas'
+ , evdBadEVDToEmptyDocumentTranslator in 'w:\common\components\gui\Garant\Everest\evdBadEVDToEmptyDocumentTranslator.pas'
+ , k2TagTranslator in 'w:\common\components\rtl\Garant\K2\k2TagTranslator.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_Serv in 'w:\common\components\rtl\Garant\DT\dt_Serv.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , m3DBFiler in 'w:\common\components\rtl\Garant\m3\m3DBFiler.pas'
+ , m3DocumentAddress in 'w:\common\components\rtl\Garant\m3\m3DocumentAddress.pas'
+ , DownloadDocRequest_Const in 'w:\common\components\rtl\Garant\EVD\DownloadDocRequest_Const.pas'
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dtIntf in 'w:\common\components\rtl\Garant\DT\dtIntf.pas'
@@ -1903,7 +2025,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_DictConst in 'w:\common\components\rtl\Garant\DT\dt_DictConst.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
  {$If NOT Defined(Nemesis)}
  , dt_Sab in 'w:\common\components\rtl\Garant\DT\dt_Sab.pas'
  {$IfEnd} // NOT Defined(Nemesis)
@@ -1947,9 +2068,6 @@ uses
  , alcuMdpStagesSyncronizer in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpStagesSyncronizer.pas'
  , alcuMdpDatedSyncronizer in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpDatedSyncronizer.pas'
  , alcuMdpProtoSyncronizer in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpProtoSyncronizer.pas'
- {$If NOT Defined(Nemesis)}
- , dt_Serv in 'w:\common\components\rtl\Garant\DT\dt_Serv.pas'
- {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(ServerTasks)}
  , alcuMdpSyncImport in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMdpSyncImport.pas'
  {$IfEnd} // Defined(ServerTasks)
@@ -2016,10 +2134,10 @@ uses
 {$ENDIF HavanskyExport}
   alcuAnnotationTaskResult in 'Tasks\alcuAnnotationTaskResult.pas',
   alcuAnnotationTask in 'Tasks\alcuAnnotationTask.pas',
-
+  alcuContainerTask in 'Tasks\alcuContainerTask.pas',
+  alcuSchedulerProxyTask in 'Tasks\alcuSchedulerProxyTask.pas',
   alcuAutoAnnoExportTaskPrim in 'Tasks\alcuAutoAnnoExportTaskPrim.pas',
   alcuAutoAnnoExportTask in 'Tasks\alcuAutoAnnoExportTask.pas',
-
   alcuSpellCorrectTask in 'Tasks\alcuSpellCorrectTask.pas'
  //#UC END# *52E8D676018Amanualuses*
 ;

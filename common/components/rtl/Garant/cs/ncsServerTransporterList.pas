@@ -41,6 +41,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *545CBE61008Bimpl_uses*
+ //#UC END# *545CBE61008Bimpl_uses*
 ;
 
 type _Instance_R_ = TncsServerTransporterList;

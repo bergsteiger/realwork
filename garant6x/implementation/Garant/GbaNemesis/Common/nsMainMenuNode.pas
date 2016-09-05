@@ -47,6 +47,8 @@ uses
  , l3String
  , SysUtils
  , l3Base
+ //#UC START# *490B0F4F021Cimpl_uses*
+ //#UC END# *490B0F4F021Cimpl_uses*
 ;
 
 constructor TnsMainMenuNode.Create(aType: Integer;

@@ -37,6 +37,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4AD5BA0F0231impl_uses*
+ //#UC END# *4AD5BA0F0231impl_uses*
 ;
 
 function TnsIntegerValueMapFactory.MakeMap(const aID: TnsValueMapID): InsValueMap;

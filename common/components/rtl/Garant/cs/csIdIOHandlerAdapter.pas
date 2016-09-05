@@ -65,6 +65,8 @@ uses
  , l3Base
  , l3Memory
  , SysUtils
+ //#UC START# *538DB527006Cimpl_uses*
+ //#UC END# *538DB527006Cimpl_uses*
 ;
 
 constructor TcsIdIOHandlerAdapter.Create(aIOHandler: TIdIOHandler);

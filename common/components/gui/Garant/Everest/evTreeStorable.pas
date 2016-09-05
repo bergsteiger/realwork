@@ -83,6 +83,8 @@ uses
  , l3Nodes
  , TextPara_Const
  , Document_Const
+ //#UC START# *48F8A8480224impl_uses*
+ //#UC END# *48F8A8480224impl_uses*
 ;
 
 function TevTreeStorableData_C(const aTree: InevSimpleTree;

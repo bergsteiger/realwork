@@ -56,6 +56,10 @@ type
    function MakeAggregateField(anOperation: TdaAggregateOperation;
     const aField: IdaSelectField;
     const anAlias: AnsiString): IdaSelectField;
+   function MakeBitwiseCondition(const aTableAlias: AnsiString;
+    const aField: IdaFieldDescription;
+    anOperation: TdaBitwiseOperator;
+    aValue: Int64): IdaCondition;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -83,6 +87,9 @@ uses
  , daJoinCondition
  , daFromTable
  , daAggregateField
+ , daBitwiseCondition
+ //#UC START# *55F81B3F024Dimpl_uses*
+ //#UC END# *55F81B3F024Dimpl_uses*
 ;
 
 constructor TpgTableQueryFactory.Create(const aDataConverter: IpgDataConverter;
@@ -242,6 +249,18 @@ begin
  Result := TdaAggregateField.Make(anOperation, aField, anAlias);
 //#UC END# *5755313E0083_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.MakeAggregateField
+
+function TpgTableQueryFactory.MakeBitwiseCondition(const aTableAlias: AnsiString;
+ const aField: IdaFieldDescription;
+ anOperation: TdaBitwiseOperator;
+ aValue: Int64): IdaCondition;
+//#UC START# *57A9A66C00A7_55F81B3F024D_var*
+//#UC END# *57A9A66C00A7_55F81B3F024D_var*
+begin
+//#UC START# *57A9A66C00A7_55F81B3F024D_impl*
+ Result := TdaBitwiseCondition.Make(aTableAlias, aField, anOperation, aValue);
+//#UC END# *57A9A66C00A7_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.MakeBitwiseCondition
 
 procedure TpgTableQueryFactory.Cleanup;
  {* Функция очистки полей объекта. }

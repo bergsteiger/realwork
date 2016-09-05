@@ -56,6 +56,8 @@ uses
  , afwFacade
  , evTextStyle_Const
  , k2Tags
+ //#UC START# *4CCE7DC70233impl_uses*
+ //#UC END# *4CCE7DC70233impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}

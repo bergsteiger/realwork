@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *47711DA00052impl_uses*
+ //#UC END# *47711DA00052impl_uses*
 ;
 
 var g_SessionHelper: SessionHelper = nil;

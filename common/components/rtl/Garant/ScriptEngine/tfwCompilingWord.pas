@@ -76,6 +76,8 @@ uses
  , l3String
  , l3Chars
  , StrUtils
+ //#UC START# *4DB6C8F30161impl_uses*
+ //#UC END# *4DB6C8F30161impl_uses*
 ;
 
 procedure TtfwCompilingWord.BeforeCompile(var theNewContext: TtfwContext);

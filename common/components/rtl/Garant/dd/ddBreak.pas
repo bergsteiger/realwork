@@ -52,6 +52,8 @@ uses
  , l3MinMax
  , SysUtils
  , ddDocumentProperty
+ //#UC START# *51E8EFD50162impl_uses*
+ //#UC END# *51E8EFD50162impl_uses*
 ;
 
 function TddBreak.HasDefaultParams: Boolean;

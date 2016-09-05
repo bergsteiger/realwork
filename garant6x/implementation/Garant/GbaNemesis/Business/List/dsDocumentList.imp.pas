@@ -221,7 +221,7 @@ begin
  // Регистрация события сортировки:
  TnsListSortEvent.Log(ImpList, f_SortOrder, f_SortType);
  Result := RefreshSimpleTree;
- if DoGetIsSnippet then
+ if DoGet_IsSnippet then
   Result.ExpandSubDir(nil, True, 0);
 //#UC END# *4926AA910057_47E9EDC602B2_impl*
 end;//_dsDocumentList_.Resort
@@ -389,7 +389,7 @@ begin
 //#UC START# *47F1E89D01B5_47E9EDC602B2get_impl*
  Result := False;
  if Assigned(Document) then
-  Result := TdmStdRes.IsUnderControl(Document.Doc)
+  Result := TCommonService.Instance.IsUnderControl(Document.Doc)
 //#UC END# *47F1E89D01B5_47E9EDC602B2get_impl*
 end;//_dsDocumentList_.pm_GetIsUnderControl
 
@@ -586,7 +586,7 @@ procedure _dsDocumentList_.AddToControl;
 begin
 //#UC START# *47F2053B0244_47E9EDC602B2_impl*
  if Assigned(Document) then
-  TdmStdRes.AddDocumentToControl(Document.Doc);
+  TCommonService.Instance.AddDocumentToControl(Document.Doc);
 //#UC END# *47F2053B0244_47E9EDC602B2_impl*
 end;//_dsDocumentList_.AddToControl
 
@@ -597,7 +597,7 @@ procedure _dsDocumentList_.DelFromControl;
 begin
 //#UC START# *47F2054C001C_47E9EDC602B2_impl*
  if Assigned(Document) then
-  TdmStdRes.DeleteDocumentFromControl(Document.Doc);
+  TCommonService.Instance.DeleteDocumentFromControl(Document.Doc);
 //#UC END# *47F2054C001C_47E9EDC602B2_impl*
 end;//_dsDocumentList_.DelFromControl
 
@@ -614,7 +614,7 @@ begin
   Result := True
  else
   if Assigned(Document) and Assigned(Document.Doc) and
-     TdmStdRes.IsCurEditionActual(Document.Doc) then
+     TCommonService.Instance.IsCurEditionActual(Document.Doc) then
    Result := Supports(Document.Doc, IControllable, l_Controllable) and
              l_Controllable.GetCanSetToControl;
 //#UC END# *47F2056400FD_47E9EDC602B2_impl*
@@ -636,7 +636,7 @@ function _dsDocumentList_.pm_GetIsShortList: Boolean;
 //#UC END# *4A2CD019038B_47E9EDC602B2get_var*
 begin
 //#UC START# *4A2CD019038B_47E9EDC602B2get_impl*
- Result := DoGetIsShortList;
+ Result := DoGet_IsShortList;
 //#UC END# *4A2CD019038B_47E9EDC602B2get_impl*
 end;//_dsDocumentList_.pm_GetIsShortList
 
@@ -669,7 +669,7 @@ function _dsDocumentList_.pm_GetIsSnippet: Boolean;
 //#UC END# *4A796E570319_47E9EDC602B2get_var*
 begin
 //#UC START# *4A796E570319_47E9EDC602B2get_impl*
- Result := DoGetIsSnippet;
+ Result := DoGet_IsSnippet;
 //#UC END# *4A796E570319_47E9EDC602B2get_impl*
 end;//_dsDocumentList_.pm_GetIsSnippet
 
@@ -1014,7 +1014,7 @@ function _dsDocumentList_.CheckFullList: Boolean;
 //#UC END# *4BFA427801B4_47E9EDC602B2_var*
 begin
 //#UC START# *4BFA427801B4_47E9EDC602B2_impl*
- Result := DoGetIsSnippet;
+ Result := DoGet_IsSnippet;
  if Result then
  begin
   ImpList := bsBuildFullList(ImpList);

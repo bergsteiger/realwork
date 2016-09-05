@@ -43,6 +43,8 @@ uses
  , SysUtils
  , Consts
  , l3MessagesService
+ //#UC START# *501956850225impl_uses*
+ //#UC END# *501956850225impl_uses*
 ;
 
 class function TkwHardKey.GetWordNameForRegister: AnsiString;

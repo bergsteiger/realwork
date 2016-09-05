@@ -18,6 +18,8 @@ uses
  l3ImplUses
  , nsRegistryHelper
  , l3WinVersionHelper
+ //#UC START# *53F6EC0200BFimpl_uses*
+ //#UC END# *53F6EC0200BFimpl_uses*
 ;
 
 end.

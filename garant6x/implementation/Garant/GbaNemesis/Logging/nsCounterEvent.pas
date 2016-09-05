@@ -32,6 +32,8 @@ uses
  , LoggingWrapperInterfaces
  , nsLogEventData
  , nsLogManager
+ //#UC START# *4B13A1A2000Fimpl_uses*
+ //#UC END# *4B13A1A2000Fimpl_uses*
 ;
 
 procedure TnsCounterEvent.Log;

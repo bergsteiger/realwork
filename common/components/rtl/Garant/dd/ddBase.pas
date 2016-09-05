@@ -26,6 +26,8 @@ uses
  l3ImplUses
  , l3UnitsTools
  , Graphics
+ //#UC START# *4F6843D50173impl_uses*
+ //#UC END# *4F6843D50173impl_uses*
 ;
 
 type

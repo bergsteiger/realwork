@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , nsSubNode
+ //#UC START# *4C722ECF0107impl_uses*
+ //#UC END# *4C722ECF0107impl_uses*
 ;
 
 constructor Tf1AtomChecker.Create(aTag: TnsTagNodePrim);

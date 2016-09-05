@@ -35,6 +35,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F731F1D00D9impl_uses*
+ //#UC END# *4F731F1D00D9impl_uses*
 ;
 
 type _Instance_R_ = Tl3WndProcRetListenersList;

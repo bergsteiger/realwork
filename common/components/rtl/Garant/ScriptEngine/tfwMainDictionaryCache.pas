@@ -39,6 +39,8 @@ uses
  , tfwMainDictionary
  , SysUtils
  , l3Base
+ //#UC START# *55A63D300062impl_uses*
+ //#UC END# *55A63D300062impl_uses*
 ;
 
 var g_TtfwMainDictionaryCache: TtfwMainDictionaryCache = nil;
@@ -93,10 +95,15 @@ var
 //#UC END# *559E857A037A_55A63D300062_var*
 begin
 //#UC START# *559E857A037A_55A63D300062_impl*
- if FindData(l3PCharLen(aFileName), l_Index) then
-  Result := Items[l_Index]
- else
-  Result := nil;
+ Lock;
+ try
+  if FindData(l3PCharLen(aFileName), l_Index) then
+   Result := Items[l_Index]
+  else
+   Result := nil;
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *559E857A037A_55A63D300062_impl*
 end;//TtfwMainDictionaryCache.FindDictionary
 {$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)

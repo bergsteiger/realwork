@@ -56,6 +56,8 @@ uses
  , SplashTypes
  , l3Base
  , l3String
+ //#UC START# *499D5F560195impl_uses*
+ //#UC END# *499D5F560195impl_uses*
 ;
 
 class function TnsSplashVisualizer.Make(aPicture: TStream;

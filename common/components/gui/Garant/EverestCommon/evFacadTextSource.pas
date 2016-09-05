@@ -47,6 +47,8 @@ uses
  , l3Base
  , evOp
  , evEditorInterfaces
+ //#UC START# *48EEFBF70249impl_uses*
+ //#UC END# *48EEFBF70249impl_uses*
 ;
 
 function evGetUndoBuffer(aTextSource: TevCustomTextSource): TnevCustomUndoBuffer;

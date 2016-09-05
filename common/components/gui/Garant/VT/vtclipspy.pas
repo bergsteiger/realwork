@@ -1,8 +1,20 @@
 unit vtClipSpy;
 
-{ $Id: vtclipspy.pas,v 1.12 2016/05/10 13:29:15 dinishev Exp $ }
+{ $Id: vtclipspy.pas,v 1.16 2016/07/01 14:29:21 dinishev Exp $ }
 
 // $Log: vtclipspy.pas,v $
+// Revision 1.16  2016/07/01 14:29:21  dinishev
+// Несколько подписчиков.
+//
+// Revision 1.15  2016/07/01 13:42:56  dinishev
+// Убрал f_OnChange
+//
+// Revision 1.14  2016/07/01 13:13:38  dinishev
+// {Requestlink:623484518}
+//
+// Revision 1.13  2016/06/27 12:39:36  dinishev
+// Боремся с падениями.
+//
 // Revision 1.12  2016/05/10 13:29:15  dinishev
 // Bug fix: падали на закрытии тестовых приложений.
 //
@@ -38,30 +50,27 @@ unit vtClipSpy;
 
 interface
 
-{.$IFDEF WIN32}
-{.$DEFINE ThreadClipSpy}
-{.$ENDIF}
-
 uses
  Windows,
  Messages,
  Classes,
+ l3ProtoObject,
+ l3ClipboardSpy,
+ l3InterfacePtrList,
  Controls;
 
-
 type
- TClipSpyWnd = Class(TWinControl)
+ TClipSpyWnd = class(TWinControl)
    private
     { Private declarations }
     fWndNext  : HWnd;
     fChained  : Boolean;
-    fOnChange : TNotifyEvent;
+    f_Listners: Tl3InterfacePtrList;
     procedure ForwardMessage(var Message: TMessage);
     procedure WMDestroyClipboard(var Message: TMessage); message WM_DESTROYCLIPBOARD;
     procedure WMChangeCBChain(var Message: TWMChangeCBChain); message WM_CHANGECBCHAIN;
     procedure WMDrawClipboard(var Message: TMessage); message WM_DRAWCLIPBOARD;
     procedure WMNCDestroy(var Message: TWMNCDestroy); message WM_NCDESTROY;
-    procedure SetOnChange(aOnChange: TNotifyEvent);
   protected
     { Protected declarations }
     procedure CreateWnd; override;
@@ -70,43 +79,23 @@ type
     procedure CreateParams(var Params: TCreateParams); override;
   public
     { Public declarations }
-    property OnChange: TNotifyEvent read FOnChange write SetOnChange;
+    procedure Subscribe(const aListner: Il3ClipListner);
+    procedure Unsubscribe(const aListner: Il3ClipListner);
+    destructor Destroy; override;
   end;
 
- {$IFDEF ThreadClipSpy}
- TClipSpy = class(TThread)
-  protected
-   fClipWnd : TClipSpyWnd;
-   procedure SetOnChange (aOnChange: TNotifyEvent);
-   procedure SetNotifyControl(aNotifyControl : TWinControl);
-   procedure Execute; override;
-  public
-   constructor Create;
-   destructor Destroy; override;
-   property OnChange: TNotifyEvent write SetOnChange;
-   property NotifyControl : TWinControl write SetNotifyControl;
- end;
-{$ENDIF}
  function ClipboardIsEmpty : Boolean;
-
-var
- ClipBoardSpy : {$IFDEF ThreadClipSpy} TClipSpy {$ELSE} TClipSpyWnd {$ENDIF};
 
 implementation
 
 uses
- Forms, 
+ Forms,
  SysUtils,
  ClipBrd,
  l3Base;
 
-procedure TClipSpyWnd.SetOnChange(aOnChange: TNotifyEvent);
-begin
- if @fOnChange <> @aOnChange then
-  fOnChange := aOnChange;
- if @aOnChange <> nil then
-  HandleNeeded;
-end;
+type
+ PIl3ClipListner = ^Il3ClipListner;
 
 procedure TClipSpyWnd.ForwardMessage(var Message: TMessage);
 begin
@@ -137,6 +126,7 @@ end;
 
 procedure TClipSpyWnd.DestroyWindowHandle;
 begin
+ if fWndNext = 0 then Exit;
  if fChained then
  begin
   ChangeClipboardChain(Handle, fWndNext);
@@ -147,8 +137,16 @@ begin
 end;
 
 procedure TClipSpyWnd.Change;
+
+ function DoIt(aData: PIl3ClipListner; Index: Integer): Bool;
+ begin
+  aData^.Change;
+  Result := True;
+ end;
+
 begin
- if Assigned(fOnChange) then fOnChange(Self);
+ if f_Listners <> nil then
+  f_Listners.IterateAllF(l3L2IA(@DoIt));
 end;
 
 procedure TClipSpyWnd.WMChangeCBChain(var Message: TWMChangeCBChain);
@@ -187,51 +185,23 @@ begin
  Result := (Clipboard.FormatCount = 0);
 end;
 
-{$IFDEF ThreadClipSpy}
-
-{TClipSpy}
-constructor TClipSpy.Create;
+destructor TClipSpyWnd.Destroy;
 begin
- inherited Create(True);
- Priority := tpIdle;
- Resume;
+ FreeAndNil(f_Listners);
+ inherited;
 end;
 
-destructor TClipSpy.Destroy;
+procedure TClipSpyWnd.Subscribe(const aListner: Il3ClipListner);
 begin
- fClipWnd.Free;
- inherited Destroy;
+ if f_Listners = nil then
+  f_Listners := Tl3InterfacePtrList.Make;
+ f_Listners.Add(aListner);
+ Self.HandleNeeded;
 end;
 
-procedure TClipSpy.SetOnChange (aOnChange: TNotifyEvent);
+procedure TClipSpyWnd.Unsubscribe(const aListner: Il3ClipListner);
 begin
- fClipWnd.OnChange := aOnChange;
+ f_Listners.Remove(aListner);
 end;
 
-procedure TClipSpy.SetNotifyControl(aNotifyControl : TWinControl);
-begin
- fClipWnd.NotifyControl := aNotifyControl;
-end;
-
-procedure TClipSpy.Execute;
-begin
- fClipWnd := TClipSpyWnd.Create(nil);
- while not (Terminated) do; // Sleep(0);
-end;
-{$ENDIF}
-
-procedure DoneSpy;
-begin
- if Application = nil then 
-  ClipBoardSpy.DestroyWindowHandle
- else
-  FreeAndNil(ClipBoardSpy);
-end;
-
-initialization
-{!touched!}{$IfDef LogInit} WriteLn('W:\common\components\gui\Garant\VT\vtclipspy.pas initialization enter'); {$EndIf}
- ClipBoardSpy := {$IFDEF ThreadClipSpy} TClipSpy.Create {$ELSE} TClipSpyWnd.Create(nil) {$ENDIF};
- l3System.AddExitProc(DoneSpy);
-
-{!touched!}{$IfDef LogInit} WriteLn('W:\common\components\gui\Garant\VT\vtclipspy.pas initialization leave'); {$EndIf}
 end.

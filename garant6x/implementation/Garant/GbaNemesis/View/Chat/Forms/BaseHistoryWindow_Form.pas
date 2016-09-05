@@ -73,7 +73,7 @@ procedure TBaseHistoryWindowForm.RegisterInDispatcher;
 //#UC END# *4A6EA5EA00CD_4A6EA45C01C4_var*
 begin
 //#UC START# *4A6EA5EA00CD_4A6EA45C01C4_impl*
- TdmStdRes.MakeChatDispatcher.RegisterChatHistory(Self);
+ TChatService.Instance.MakeChatDispatcher.RegisterChatHistory(Self);
 //#UC END# *4A6EA5EA00CD_4A6EA45C01C4_impl*
 end;//TBaseHistoryWindowForm.RegisterInDispatcher
 
@@ -82,7 +82,7 @@ procedure TBaseHistoryWindowForm.UnRegisterInDispatcher;
 //#UC END# *4A6EA6000339_4A6EA45C01C4_var*
 begin
 //#UC START# *4A6EA6000339_4A6EA45C01C4_impl*
- TdmStdRes.MakeChatDispatcher.UnRegisterChatHistory(Self);
+ TChatService.Instance.MakeChatDispatcher.UnRegisterChatHistory(Self);
 //#UC END# *4A6EA6000339_4A6EA45C01C4_impl*
 end;//TBaseHistoryWindowForm.UnRegisterInDispatcher
 
@@ -103,7 +103,7 @@ procedure TBaseHistoryWindowForm.Chat_ClearHistory_Execute(const aParams: IvcmEx
 //#UC END# *4A8AE24D003F_4A6EA45C01C4exec_var*
 begin
 //#UC START# *4A8AE24D003F_4A6EA45C01C4exec_impl*
- TdmStdRes.MakeChatDispatcher.ClearHistory(UserID);
+ TChatService.Instance.MakeChatDispatcher.ClearHistory(UserID);
  HistoryEditor.TextSource.New;
 //#UC END# *4A8AE24D003F_4A6EA45C01C4exec_impl*
 end;//TBaseHistoryWindowForm.Chat_ClearHistory_Execute

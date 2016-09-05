@@ -37,6 +37,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *51AD98A501F0impl_uses*
+ //#UC END# *51AD98A501F0impl_uses*
 ;
 
 function TPageCountTest.GetFolder: AnsiString;

@@ -1,9 +1,15 @@
 unit ddHTML_r;
 
 { Попытка создать читалку HMTL }
-{ $Id: ddHTML_r.pas,v 1.175 2016/03/21 14:04:34 dinishev Exp $ }
+{ $Id: ddHTML_r.pas,v 1.177 2016/07/28 10:22:10 dinishev Exp $ }
 
 // $Log: ddHTML_r.pas,v $
+// Revision 1.177  2016/07/28 10:22:10  dinishev
+// {Requestlink:627817772}
+//
+// Revision 1.176  2016/07/26 12:47:55  dinishev
+// Cleanup
+//
 // Revision 1.175  2016/03/21 14:04:34  dinishev
 // Не вызываем BeforeCloseParagraph, если параграф не будет сохраняться.
 //
@@ -948,10 +954,12 @@ procedure TddHTMLReader.ParseCell(aObj: TddHTMLTag);
 var
  l_Row           : TddTableRow;
  l_Param         : TddHTMLParam;
+ l_WasBorder     : Boolean;
  l_NeedFakeAlign : Boolean;
 begin
  if f_Document.Table <> nil then
  begin
+  l_WasBorder := False;
   { Проверяем предыдущий ряд на наличие объединенных по вертикали ячеек }
   l_Row := f_Document.Table.BeforeParseCell;
   l_NeedFakeAlign := True;
@@ -975,30 +983,47 @@ begin
    f_Document.Table.LastRow.LastCell.Props.RowSpan := l_Param.rValue;
    f_Document.Table.LastRow.LastCell.Props.VMergeFirst := True;
   end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
+  if aObj.HasKey(dd_paridBorder, l_Param) then
+  begin
+   if l_Param.rHasBorder then
+   begin
+    l_Row.LastCell.Props.Border.IsFramed := True;
+    l_WasBorder := True;
+   end // if l_Param.rHasBorder then
+   else
+    l_Row.LastCell.Props.Border.IsFramed := False;
+  end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
   if aObj.HasKey(dd_paridBorderTop, l_Param) then
   begin
    if l_Param.rHasBorder then
-    l_Row.LastCell.Props.Border.Frames[bpTop].Enable := True;
+    l_Row.LastCell.Props.Border.Frames[bpTop].Enable := True
+   else
+    if l_WasBorder then
+     l_Row.LastCell.Props.Border.Frames[bpBottom].Enable := False;
   end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
-  (*if aObj.HasKey(dd_paridTextTransform, l_Param) then
-  begin
-   if l_Param.rHasBorder then
-    l_Row.LastCell.Props.Border.Frames[bpBottom].Enable := True;
-  end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then *)
   if aObj.HasKey(dd_paridBorderBottom, l_Param) then
   begin
    if l_Param.rHasBorder then
-    l_Row.LastCell.Props.Border.Frames[bpBottom].Enable := True;
+    l_Row.LastCell.Props.Border.Frames[bpBottom].Enable := True
+   else
+    if l_WasBorder then
+     l_Row.LastCell.Props.Border.Frames[bpBottom].Enable := False;
   end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
   if aObj.HasKey(dd_paridBorderLeft, l_Param) then
   begin
    if l_Param.rHasBorder then
-    l_Row.LastCell.Props.Border.Frames[bpLeft].Enable := True;
+    l_Row.LastCell.Props.Border.Frames[bpLeft].Enable := True
+   else
+    if l_WasBorder then
+     l_Row.LastCell.Props.Border.Frames[bpLeft].Enable := False;
   end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
   if aObj.HasKey(dd_paridBorderRight, l_Param) then
   begin
    if l_Param.rHasBorder then
-    l_Row.LastCell.Props.Border.Frames[bpRight].Enable := True;
+    l_Row.LastCell.Props.Border.Frames[bpRight].Enable := True
+   else
+    if l_WasBorder then
+     l_Row.LastCell.Props.Border.Frames[bpRight].Enable := False;
   end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
   if l_NeedFakeAlign then
    DefAlign := justL

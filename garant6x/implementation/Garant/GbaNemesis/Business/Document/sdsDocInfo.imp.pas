@@ -36,7 +36,8 @@
     {* проверка того, что в настройках пользователя выбраны нетипизированные
            СКР. aId - возвращает вкладку для которой определен не
            типизированный СКР, это нужно при изменении настроек }
-   procedure ResetCachedObject(aWithoutCRTypes: Boolean);
+   procedure ResetCachedObject(aClearCRTypes: Boolean;
+    aClearCRLists: Boolean);
    function TruthHasSimilarDocuments: Boolean;
     {* определяет наличие похожих у документа }
    function TruthHasRelatedDoc: Boolean;
@@ -275,22 +276,26 @@ begin
 //#UC END# *493D5BB40051_493D2F7B031D_impl*
 end;//_sdsDocInfo_.IsOrdinalCRSelected
 
-procedure _sdsDocInfo_.ResetCachedObject(aWithoutCRTypes: Boolean);
+procedure _sdsDocInfo_.ResetCachedObject(aClearCRTypes: Boolean;
+ aClearCRLists: Boolean);
 //#UC START# *493D5E9700AE_493D2F7B031D_var*
 //#UC END# *493D5E9700AE_493D2F7B031D_var*
 begin
 //#UC START# *493D5E9700AE_493D2F7B031D_impl*
  with SetData do
  begin
-  if not aWithoutCRTypes then
+  if aClearCRTypes then
   begin
    if (CorrType <> nil) then
     CorrType.Value := nil;
    if (RespType <> nil) then
     RespType.Value := nil;
   end;
-  CorrList := nil;
-  RespList := nil;
+  if aClearCRLists then
+  begin
+   CorrList := nil;
+   RespList := nil;
+  end;
   //RelatedDoc := nil;
   //Annotation := nil;
   FlashData := nil;
@@ -484,7 +489,7 @@ begin
   try
    pm_GetDocInfo.Doc.GetRespondents(SetData.RespType.Value, l_Catalog);
    if Supports(l_Catalog, IDynList, l_Temp) then
-   SetData.RespList := l_Temp;
+    SetData.RespList := l_Temp;
   except
    on ECanNotFindData do
     SetData.RespList := nil;
@@ -603,7 +608,7 @@ begin
 //#UC START# *4937C5250138_493D2F7B031D_impl*
  if (pm_GetDocInfo <> nil) then
  begin
-  TdmStdRes.AddDocumentToControl(pm_GetDocInfo.Doc);
+  TCommonService.Instance.AddDocumentToControl(pm_GetDocInfo.Doc);
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C5250138_493D2F7B031D_impl*
@@ -617,7 +622,7 @@ begin
 //#UC START# *4937C55101B2_493D2F7B031D_impl*
  if (pm_GetDocInfo <> nil) then
  begin
-  TdmStdRes.DeleteDocumentFromControl(pm_GetDocInfo.Doc);
+  TCommonService.Instance.DeleteDocumentFromControl(pm_GetDocInfo.Doc);
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C55101B2_493D2F7B031D_impl*
@@ -630,7 +635,7 @@ procedure _sdsDocInfo_.ResetCacheAfterUpdate;
 begin
 //#UC START# *4937C56002B6_493D2F7B031D_impl*
  SetData.ResetBooleans;
- ResetCachedObject(True);
+ ResetCachedObject(False, False);
 //#UC END# *4937C56002B6_493D2F7B031D_impl*
 end;//_sdsDocInfo_.ResetCacheAfterUpdate
 
@@ -674,7 +679,7 @@ begin
  if (pm_GetDocInfo <> nil) and
     not l3BoolCheck(SetData.IsUnderControl, Result) then
  begin
-  Result := l3BoolSet(TdmStdRes.IsUnderControl(pm_GetDocInfo.Doc), l_Temp);
+  Result := l3BoolSet(TCommonService.Instance.IsUnderControl(pm_GetDocInfo.Doc), l_Temp);
   SetData.IsUnderControl := l_Temp;
  end;
 //#UC END# *4937C61C0270_493D2F7B031Dget_impl*
@@ -1231,7 +1236,7 @@ procedure _sdsDocInfo_.Cleanup;
 //#UC END# *479731C50290_493D2F7B031D_var*
 begin
 //#UC START# *479731C50290_493D2F7B031D_impl*
- ResetCachedObject(false);
+ ResetCachedObject(True, True);
  SetData.ResetBooleans;
  inherited;
 //#UC END# *479731C50290_493D2F7B031D_impl*
@@ -1317,7 +1322,7 @@ begin
    not aDoc.Pos.EQ(pm_GetDocInfo.Pos)) then
  begin
   SetData.DocInfo := aDoc;
-  ResetCachedObject(false);
+  ResetCachedObject(True, True);
   SetData.ResetBooleans;
   Result := True;
  end

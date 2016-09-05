@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , nevTools
  , l3Base
+ //#UC START# *4E81A1D3027Dimpl_uses*
+ //#UC END# *4E81A1D3027Dimpl_uses*
 ;
 
 constructor TevReqIterator.Create(const aModel: IevQueryCard);

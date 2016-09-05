@@ -48,6 +48,8 @@ implementation
 uses
  l3ImplUses
  , ClientMessage_Const
+ //#UC START# *53B24355031Bimpl_uses*
+ //#UC END# *53B24355031Bimpl_uses*
 ;
 
 function TddClientMessagePrim.pm_GetNotifyType: TCsNotificationType;

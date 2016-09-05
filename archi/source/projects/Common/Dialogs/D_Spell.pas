@@ -1,8 +1,11 @@
 unit D_spell;
 
-{ $Id: D_Spell.pas,v 1.53 2016/05/24 08:16:55 dinishev Exp $ }
+{ $Id: D_Spell.pas,v 1.54 2016/07/21 14:23:04 dinishev Exp $ }
 
 // $Log: D_Spell.pas,v $
+// Revision 1.54  2016/07/21 14:23:04  dinishev
+// Bug fix: оставались открытые окна и нельз€ было закрыть јрхивариус после падени€ в тестах.
+//
 // Revision 1.53  2016/05/24 08:16:55  dinishev
 // MODAL в окне поиска.
 //
@@ -225,21 +228,21 @@ type
     f_Searcher: TddSpellCheckSearcher;
     f_SpellChecker: IddSpeller;
     f_IdleMode: Boolean;
-  f_NeedClose: Boolean;
+    f_NeedClose: Boolean;
     f_NotificationsHooked: Boolean;
-  f_OwnerToClose: HWND;
+    f_OwnerToClose: HWND;
   procedure CreateSearcherAndReplacer;
     procedure CreateSpellCheker;
     procedure DropNotifications;
   procedure DropSearcherAndReplacer;
     procedure EditorSelectionChanged(Sender: TObject);
-  procedure HookNotifications;
+    procedure HookNotifications;
     procedure pm_SetIdleMode(const Value: Boolean);
     procedure pm_SetCurEditor(const Value: TevCustomEditor);
         {-}
     function SpellReplaceConfirm(Sender : TObject; const aBlock : InevRange): Shortint;
     procedure DoSearch;
-  function GetReplacerText: string;
+    function GetReplacerText: string;
     { Private declarations }
     procedure UpdateListState;
       {-}
@@ -750,11 +753,11 @@ begin
    CurEditor.Find(f_Searcher, f_Replacer, l_Options);
    //SpellChecker.DropLists;
   finally
+   IdleMode := True;
+   DropNotifications;
    {$IFDEF InsiderTest}
     Tl3BatchService.Instance.ExecuteCurrentModalWorker(se_meAfterLoop);
    {$ENDIF InsiderTest}
-   DropNotifications;
-   IdleMode := True;
   end;{try..finally}
  except
    on E: Exception do
@@ -889,7 +892,10 @@ end;
 class procedure TSpellCheckDlg.InterruptSpellCheck(aOwnerToClose: HWND = 0);
 begin
  if g_SpellCheckDlg <> nil then
+ begin
   g_SpellCheckDlg.Interrupt(aOwnerToClose);
+  g_SpellCheckDlg.Close;
+ end;
 end;
 
 class function TSpellCheckDlg.IsSpellCheckInProgress: Boolean;

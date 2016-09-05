@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4F6C7DC2022Aimpl_uses*
+ //#UC END# *4F6C7DC2022Aimpl_uses*
 ;
 
 var g_TafwSettingsImplSing: TafwSettingsImplSing = nil;

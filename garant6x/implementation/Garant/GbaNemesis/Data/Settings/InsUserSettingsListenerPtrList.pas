@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4914482D0236impl_uses*
+ //#UC END# *4914482D0236impl_uses*
 ;
 
 type _Instance_R_ = TInsUserSettingsListenerPtrList;

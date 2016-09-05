@@ -25,6 +25,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *5166AFC5017Aimpl_uses*
+ //#UC END# *5166AFC5017Aimpl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 

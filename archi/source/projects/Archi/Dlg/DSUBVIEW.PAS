@@ -1,15 +1,15 @@
 unit DSubView;
 
-{ $Id: DSUBVIEW.PAS,v 1.9 2010/07/21 10:38:44 voba Exp $ }
+{ $Id: DSUBVIEW.PAS,v 1.10 2016/07/29 11:10:43 dinishev Exp $ }
 
 interface
 
 uses WinTypes, WinProcs, Classes, Graphics, Forms, Controls, Buttons,
   StdCtrls, OvcBase, vtlister,  ComCtrls, vtStatusBar, afwControlPrim,
-  afwBaseControl, afwControl, afwInputControl;
+  afwBaseControl, afwControl, afwInputControl, vtForm;
 
 type
-  TViewSubDlg = class(TForm)
+  TViewSubDlg = class(TvtForm)
     lstSub: TvtDStringlister;
     FooterPanel: TvtStatusBar;
     procedure lstSubCurrentChanged(Sender: TObject; NewCurrent, OldCurrent: Longint);
@@ -24,31 +24,34 @@ type
 implementation
 
 {$R *.DFM}
- Uses SysUtils, ResShop,
-      Main;
+uses
+ SysUtils,
+ ResShop,
+ Main;
 
-Function TViewSubDlg.Execute(Var aSub : Longint) : Boolean;
- begin
-  Result := ShowModal = mrOK;
-  If Result then
-   ASub := lstSub.Items.DataInt[lstSub.Current];
- end;
+function TViewSubDlg.Execute(Var aSub : Longint) : Boolean;
+begin
+ Result := ShowModal = mrOK;
+ if Result then
+  ASub := lstSub.Items.DataInt[lstSub.Current];
+end;
 
 procedure TViewSubDlg.lstSubCurrentChanged(Sender: TObject; NewCurrent, OldCurrent: Longint);
- begin
-  If (lstSub.Total > 0)
-   then FooterPanel.Panels[0].Text := Format('%d из %d', [NewCurrent+1, lstSub.Total])
-   else FooterPanel.Panels[0].Text := '';
- end;
+begin
+ if (lstSub.Total > 0) then
+  FooterPanel.Panels[0].Text := Format('%d из %d', [NewCurrent + 1, lstSub.Total])
+ else
+  FooterPanel.Panels[0].Text := '';
+end;
 
 function TViewSubDlg.lstSubGetItemImageIndex(Sender: TObject; Index: Integer): Integer;
- begin
-  Result := picAnchor;
- end;
+begin
+ Result := picAnchor;
+end;
 
 procedure TViewSubDlg.lstSubActionElement(Sender: TObject; Index: Longint);
- begin
-  ModalResult := mrOK;
- end;
+begin
+ ModalResult := mrOK;
+end;
 
 end.

@@ -22,6 +22,8 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
+ //#UC START# *51349B6001D3impl_uses*
+ //#UC END# *51349B6001D3impl_uses*
 ;
 
 var g_TestsForm: TGUITestRunner;

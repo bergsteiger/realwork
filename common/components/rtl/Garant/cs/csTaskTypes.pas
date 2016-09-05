@@ -1,9 +1,12 @@
 unit csTaskTypes;
 { Типы задач }
 
-{ $Id: csTaskTypes.pas,v 1.52 2016/06/02 15:23:09 fireton Exp $ }
+{ $Id: csTaskTypes.pas,v 1.53 2016/08/29 12:51:56 lukyanets Exp $ }
 
 // $Log: csTaskTypes.pas,v $
+// Revision 1.53  2016/08/29 12:51:56  lukyanets
+// Принимаем запрос и готовимся отдавать файл
+//
 // Revision 1.52  2016/06/02 15:23:09  fireton
 // - синхронизация с Гардоком журнала импортов
 //
@@ -219,6 +222,7 @@ const
  cs_ttMdpImportDocs = evdTaskTypes.cs_ttMdpImportDocs;
  cs_ttContainer = evdTaskTypes.cs_ttContainer;
  cs_ttSchedulerProxy = evdTaskTypes.cs_ttSchedulerProxy;
+ cs_ttDownloadDoc = evdTaskTypes.cs_ttDownloadDoc;
 
 (*  TcsFileRenameMode = (cs_frmUnique//, // создать уникальное имя Для нового файла
                        //cs_frmBackup, // создать bak-копию старого файла

@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , SysUtils
  , nsLayerFilter
+ //#UC START# *49020B54001Aimpl_uses*
+ //#UC END# *49020B54001Aimpl_uses*
 ;
 
 function TnsLayeredTreeFilters.pm_GetLayer: InsLayerFilter;

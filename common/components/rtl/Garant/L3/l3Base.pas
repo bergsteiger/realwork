@@ -5,9 +5,21 @@ unit l3Base;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Base -                    }
 { Начат: 12.04.1998 16:28             }
-{ $Id: l3Base.pas,v 1.590 2016/05/16 15:24:32 lulin Exp $ }
+{ $Id: l3Base.pas,v 1.594 2016/08/31 09:01:58 lulin Exp $ }
 
 // $Log: l3Base.pas,v $
+// Revision 1.594  2016/08/31 09:01:58  lulin
+// - подтачиваем.
+//
+// Revision 1.593  2016/08/10 16:22:28  lulin
+// - перегенерация.
+//
+// Revision 1.592  2016/07/21 09:03:47  lulin
+// - вознобнавляем собираемость под XE.
+//
+// Revision 1.591  2016/07/20 10:10:15  lulin
+// - перегенерация.
+//
 // Revision 1.590  2016/05/16 15:24:32  lulin
 // - перегенерация.
 //
@@ -2339,6 +2351,8 @@ type
         {* - освобождает Thread'у. }
       procedure ThreadTerminate(Sender: TObject);
         {-}
+      procedure ThreadTerminated; virtual;
+        {-}
       procedure Release;
         override;
         {-}
@@ -4451,17 +4465,19 @@ const
 
 procedure l3ZeroMemory(aDest: Pointer; aLen: Cardinal);
   {-}
+{$IfNDef XE}
 {$IfDef l3TraceFill}
 var
  l_Index : Integer;
 {$EndIf l3TraceFill}
 var
  l_I : Cardinal;
+{$EndIf XE}
 begin
- {$IfDef DelphiX}
+ {$IfDef XE}
  System.FillChar(aDest^, aLen, 0);
-//(* на время починки заменили на системную
  {$Else}
+//(* на время починки заменили на системную
  if (aLen <= High(FillProcs)) then
   FillProcs[aLen](aDest)
  else
@@ -4499,7 +4515,7 @@ begin
   for l_Index := 0 to Pred(aLen) do
    Assert(PAnsiChar(aDest)[l_Index] = #0);
  {$EndIf l3TraceFill}
- {$EndIf}
+ {$EndIf XE}
 end;
 
 {$IfDef _Range_}
@@ -6003,7 +6019,7 @@ begin
  theLast := GetTickCount;
 end;
 
-{$IfNDef DelphiX}
+{$IfNDef XE}
 procedure GetProcedureAddress(var P: Pointer; const ModuleName, ProcName: string);
 var
   ModuleHandle: HMODULE;
@@ -6033,7 +6049,7 @@ begin
         JMP     [_GetProcessHandleCount]
   end;
 end;
-{$EndIf DelphiX}
+{$EndIf XE}
 
 procedure Tl3System.MemUsage2Log(Strict: Boolean = False; ReportClasses: Boolean = True;
  ReportResources: Boolean = False; const aMessage: String = ''; aMsgLevel: Byte = l3_msgAll);
@@ -6062,11 +6078,13 @@ begin
   ObjectCount, ObjectMemUsed], aMsgLevel);
  if ReportResources then
  begin
+  {$IfNDef XE}
   GetProcessHandleCount(GetCurrentProcess, l_HandlesCount);
   Msg2Log('Resource Usage: GDI - %d, USER - %d, Handles - %d', [
     GetGuiResources(GetCurrentProcess, GR_GDIOBJECTS),
     GetGuiResources(GetCurrentProcess, GR_USEROBJECTS),
     l_HandlesCount], aMsgLevel);
+  {$EndIf  XE}
  end;
 end;
 
@@ -6383,9 +6401,16 @@ begin
   if True {$IfNDef nsTest} and FShowObjectsWindow {$EndIf} then
   begin
    {$IfDef l3TraceClasses}
+   if (Screen = nil) then
+    Screen := TScreen.Create(nil);
    if (Application = nil) then
     Application := TApplication.Create(nil);
-   l_LeakForm := Tl3LeakObjectsForm.Create(nil);
+   try
+    l_LeakForm := Tl3LeakObjectsForm.Create(nil);
+   except
+    MessageBoxA(0, @ErrSt[1], 'INFORMATION', MB_OK or MB_ICONASTERISK);
+    Exit;
+   end;//try..except
    try
     with l_LeakForm do
     begin
@@ -6859,11 +6884,17 @@ begin
 // Suspended := true;
 end;
 
+procedure Tl3ThreadContainer.ThreadTerminated;
+  {-}
+begin
+end;
+  
 procedure Tl3ThreadContainer.ThreadTerminate(Sender: TObject);
   {-}
 begin
  f_ToolThread := nil;
  f_Suspended := true;
+ ThreadTerminated;
 end;
 
 function Tl3ThreadContainer.NeedContinue: Bool;

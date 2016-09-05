@@ -53,6 +53,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D7210300201impl_uses*
+ //#UC END# *4D7210300201impl_uses*
 ;
 
 function TScrollParamsTest.GetSubNumber: Integer;

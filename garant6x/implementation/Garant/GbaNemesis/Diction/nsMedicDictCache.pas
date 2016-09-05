@@ -38,6 +38,8 @@ uses
  , nsTypes
  , SysUtils
  , l3Base
+ //#UC START# *556B331F03BEimpl_uses*
+ //#UC END# *556B331F03BEimpl_uses*
 ;
 
 var g_TnsMedicDictCache: TnsMedicDictCache = nil;

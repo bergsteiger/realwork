@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , l3String
  , l3Base
+ //#UC START# *478787DD01FEimpl_uses*
+ //#UC END# *478787DD01FEimpl_uses*
 ;
 
 constructor TafwStatus.Create(const aMainForm: IafwMainForm);

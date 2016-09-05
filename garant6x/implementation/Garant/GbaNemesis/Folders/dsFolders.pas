@@ -41,6 +41,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *492198EA0072impl_uses*
+ //#UC END# *492198EA0072impl_uses*
 ;
 
 type _Instance_R_ = TdsFolders;

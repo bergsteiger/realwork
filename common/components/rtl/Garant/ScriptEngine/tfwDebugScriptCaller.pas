@@ -30,6 +30,8 @@ uses
  , tfwDebugService
  , tfwScriptingInterfaces
  , l3String
+ //#UC START# *56F556CF0371impl_uses*
+ //#UC END# *56F556CF0371impl_uses*
 ;
 
 procedure TtfwDebugScriptCaller.DoPrint(const aStr: Tl3WString);

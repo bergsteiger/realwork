@@ -40,6 +40,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4AE58E7C00A4impl_uses*
+ //#UC END# *4AE58E7C00A4impl_uses*
 ;
 
 constructor TnsSelectedAttributesIterators.Create(const anOrIterator: INodeIterator;

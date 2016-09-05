@@ -81,6 +81,8 @@ uses
  , nevFormatInfoFactory
  , k2Base
  , Table_Const
+ //#UC START# *4815B8510359impl_uses*
+ //#UC END# *4815B8510359impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}

@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4A825E1200F4impl_uses*
+ //#UC END# *4A825E1200F4impl_uses*
 ;
 
 var g_TbsWorkJournal: Pointer = nil;

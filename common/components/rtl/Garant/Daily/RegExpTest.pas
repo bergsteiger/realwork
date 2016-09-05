@@ -46,6 +46,8 @@ uses
  , l3Interfaces
  , l3Filer
  , TestFrameWork
+ //#UC START# *4F68409203D1impl_uses*
+ //#UC END# *4F68409203D1impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

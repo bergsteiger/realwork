@@ -35,6 +35,8 @@ uses
  , ncsMessageFactory
  , evdNcsTypes
  , ncsProfile
+ //#UC START# *54534F1A00BFimpl_uses*
+ //#UC END# *54534F1A00BFimpl_uses*
 ;
 
 const

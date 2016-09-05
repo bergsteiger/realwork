@@ -23,6 +23,7 @@ type
   protected
    procedure DoRun(const aContext: TddRunContext); virtual;
    procedure GetTaskResultClass : TcsClassResultClass; virtual;
+   procedure DoAbort; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -59,6 +60,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *52F8C2AE0042impl_uses*
+ //#UC END# *52F8C2AE0042impl_uses*
 ;
 
 procedure TddProcessTask.DoRun(const aContext: TddRunContext);
@@ -96,6 +99,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53E1CB0C03C9_52F8C2BF0110_impl*
 end;//TddProcessTask.GetTaskResultClass : TcsClassResultClass
+
+procedure TddProcessTask.DoAbort;
+//#UC START# *57C4135700F7_52F8C2BF0110_var*
+//#UC END# *57C4135700F7_52F8C2BF0110_var*
+begin
+//#UC START# *57C4135700F7_52F8C2BF0110_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57C4135700F7_52F8C2BF0110_impl*
+end;//TddProcessTask.DoAbort
 
 procedure TddProcessTask.Cleanup;
  {* Функция очистки полей объекта. }

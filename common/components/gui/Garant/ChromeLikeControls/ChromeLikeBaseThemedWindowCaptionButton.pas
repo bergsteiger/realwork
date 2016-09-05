@@ -59,6 +59,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *533D07A201C1impl_uses*
+ //#UC END# *533D07A201C1impl_uses*
 ;
 
 function TChromeLikeBaseThemedWindowCaptionButton.pm_GetTheme: HTHEME;

@@ -394,6 +394,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4ACB4A41034Dimpl_uses*
+ //#UC END# *4ACB4A41034Dimpl_uses*
 ;
 
 var g_BlendOp: TBlendFunction = (BlendOp: AC_SRC_OVER; BlendFlags: 0; SourceConstantAlpha: cFullAlpha; AlphaFormat: AC_SRC_ALPHA);

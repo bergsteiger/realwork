@@ -40,6 +40,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *527D1B86018Dimpl_uses*
+ //#UC END# *527D1B86018Dimpl_uses*
 ;
 
 type _Instance_R_ = Tk2TypedSimpleSortableTagListPrim;

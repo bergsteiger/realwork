@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , DataAdapter
+ //#UC START# *4951292D01DAimpl_uses*
+ //#UC END# *4951292D01DAimpl_uses*
 ;
 
 procedure nsDisableOperationInTrialMode(const aParams: IvcmTestParamsPrim);

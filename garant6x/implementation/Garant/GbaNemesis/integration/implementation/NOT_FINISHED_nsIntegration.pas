@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , nsIntegrationModelPart
+ //#UC START# *513607DC03D4impl_uses*
+ //#UC END# *513607DC03D4impl_uses*
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

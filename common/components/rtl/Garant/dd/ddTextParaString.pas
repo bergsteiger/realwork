@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , ddTextSegment
+ //#UC START# *4FB10AA701B8impl_uses*
+ //#UC END# *4FB10AA701B8impl_uses*
 ;
 
 constructor TddTextParaString.Create(const aTextPara: TddTextParagraph);

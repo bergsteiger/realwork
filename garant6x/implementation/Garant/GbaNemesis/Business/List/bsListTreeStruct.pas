@@ -99,6 +99,8 @@ uses
  , nsAdapterFilters
  , nsConst
  , bsListTreeData
+ //#UC START# *47F4D386036Cimpl_uses*
+ //#UC END# *47F4D386036Cimpl_uses*
 ;
 
 function TbsListTreeStruct.ReAqurieUnfilteredRoot: INodeBase;

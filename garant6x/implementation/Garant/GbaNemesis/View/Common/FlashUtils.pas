@@ -37,6 +37,8 @@ uses
  , ComObj
  , Windows
  , Registry
+ //#UC START# *4981A3DC007Eimpl_uses*
+ //#UC END# *4981A3DC007Eimpl_uses*
 ;
 
 function nsCanMakeFlashActiveX: Boolean;

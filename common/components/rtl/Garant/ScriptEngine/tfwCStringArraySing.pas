@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4F4D38740342impl_uses*
+ //#UC END# *4F4D38740342impl_uses*
 ;
 
 var g_TtfwCStringArraySing: TtfwCStringArraySing = nil;

@@ -77,6 +77,8 @@ uses
  , SysUtils
  , l3String
  , l3Base
+ //#UC START# *478E1D94023Eimpl_uses*
+ //#UC END# *478E1D94023Eimpl_uses*
 ;
 
 constructor Tl3IntegerValueMap.Create(const aID: Tl3ValueMapID;

@@ -23,6 +23,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *509A5D0D0141impl_uses*
+ //#UC END# *509A5D0D0141impl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 

@@ -75,6 +75,8 @@ uses
  , l3Base
  , l3InterfacesMisc
  , nevBase
+ //#UC START# *487B5D7202DCimpl_uses*
+ //#UC END# *487B5D7202DCimpl_uses*
 ;
 
 function TevWindowCursor.pm_GetCollapsed: Boolean;

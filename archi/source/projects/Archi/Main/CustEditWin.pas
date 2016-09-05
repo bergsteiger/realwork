@@ -1,8 +1,14 @@
 unit CustEditWin;
 
-{ $Id: CustEditWin.pas,v 1.39 2016/06/03 07:48:32 fireton Exp $ }
+{ $Id: CustEditWin.pas,v 1.41 2016/08/11 10:41:57 lukyanets Exp $ }
 
 // $Log: CustEditWin.pas,v $
+// Revision 1.41  2016/08/11 10:41:57  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.40  2016/06/16 05:38:44  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.39  2016/06/03 07:48:32  fireton
 // - недокоммит
 //
@@ -241,7 +247,7 @@ unit CustEditWin;
 // - k:77235690
 //
 // Revision 1.110.2.5  2011/06/10 13:31:25  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.110.2.4  2011/06/07 14:03:40  voba
 // - k : 236721575
@@ -643,7 +649,8 @@ uses
  nevGUIInterfaces,
  nevNavigation,
 
- DT_User,
+ daTypes,
+
  DT_Types,
  DT_Const,
  dt_AttrSchema,
@@ -655,8 +662,8 @@ uses
 
  type
   TRefAddr  = record
-   Family : TFamilyID;
-   DocID  : TDocID;
+   Family : TdaFamilyID;
+   DocID  : TdaDocID;
    Block  : TnevLocation;
   end;
 
@@ -665,7 +672,7 @@ uses
   TTreeSelector = (tsAll, tsAttr, tsSubAttr);
   THyperTextActionSet = (haSub, haReference);
 
-  TGetRefAddrFunc = function(var aRefAddr : TGlobalCoordinateRec) : Boolean;
+  TGetRefAddrFunc = function(var aRefAddr : TdaGlobalCoordinateRec) : Boolean;
 
   TCustomEditorWindow = class(TvtForm
   {$IFDEF InsiderTest}
@@ -702,7 +709,7 @@ uses
   {$IFDEF InsiderTest}
    public
   {$ENDIF InsiderTest}
-     DDHLink           : TGlobalCoordinateRec;
+     DDHLink           : TdaGlobalCoordinateRec;
   {$IFDEF InsiderTest}
    protected
     f_Preview      : TPreviewForm;
@@ -722,9 +729,9 @@ uses
      fIconID      : Integer;
 
      function GetTextDocumentView: InevView; virtual;
-     procedure SetDocFam(Value : TFamilyID);
+     procedure SetDocFam(Value : TdaFamilyID);
      procedure SetDocID(Value : TDocID);
-     function  GetDocFam : TFamilyID;
+     function  GetDocFam : TdaFamilyID;
      function  GetDocID : TDocID;
      function  GetDocument : TarDocument;
      procedure SetDocument(aValue : TarDocument);
@@ -778,7 +785,7 @@ uses
      procedure SetReferenceListF(const aBlock    : TnevLocation;
                                 aGetRefAddrFunc : TGetRefAddrFunc);
      procedure SetReferencePrim(const aBlock : TnevLocation;
-                               aRefAddr     : TGlobalCoordinateRec);
+                               aRefAddr     : TdaGlobalCoordinateRec);
      //move to public function RemoveReference(aLinkAddr : PDestHLinkRec = nil; const aHLink : IevHyperlink = nil): Boolean;
 
      function  GetReferenceHintString(const aHyperLink : IevHyperlink) : AnsiString;                   overload;
@@ -852,7 +859,7 @@ uses
      function  IsDocLoaded : Boolean;
      procedure JumpTo; virtual;
 
-     property DocFamily   : TFamilyID read GetDocFam     write SetDocFam;
+     property DocFamily   : TdaFamilyID read GetDocFam     write SetDocFam;
      property DocID       : TDocID    read GetDocID      write SetDocID;
      property Document    : TarDocument read GetDocument  write SetDocument;
      property DocJumpData : TDocJumpRec read fDocJumpData write SetDocJumpData;
@@ -962,7 +969,7 @@ begin
  TSpellCheckDlg.CheckEditor(CurEditor);
 end;
 
-function  TCustomEditorWindow.GetDocFam : TFamilyID;
+function  TCustomEditorWindow.GetDocFam : TdaFamilyID;
 begin
  Result := Document.DocFamily;
 end;
@@ -1040,7 +1047,7 @@ begin
  Result := fDocument;
 end;
 
-procedure TCustomEditorWindow.SetDocFam(Value : TFamilyID);
+procedure TCustomEditorWindow.SetDocFam(Value : TdaFamilyID);
 begin
  Document.DocFamily := Value;
 end;
@@ -1089,7 +1096,7 @@ var
  lDenyMask : Longint;
  lMsgStr   : AnsiString;
  lStation  : TStationNameArray;
- lUserID   : TUserIDArray;
+ lUserID   : TdaUserIDArray;
  I         : Integer;
 
  function lp_DialogSaysYes: Boolean;
@@ -1717,11 +1724,11 @@ begin
 end;
 
 procedure TCustomEditorWindow.SetReferencePrim(const aBlock : TnevLocation;
-                   aRefAddr : TGlobalCoordinateRec);
+                   aRefAddr : TdaGlobalCoordinateRec);
 var
  aIterExit : Boolean;
 
- function lGetRefAddrFunc(var aCurRefAddr : TGlobalCoordinateRec) : Boolean;
+ function lGetRefAddrFunc(var aCurRefAddr : TdaGlobalCoordinateRec) : Boolean;
  begin
   aCurRefAddr := aRefAddr;
   Result := not aIterExit;
@@ -1739,7 +1746,7 @@ var
  l_Hyperlink  : IevHyperlink;
  lHLId       : Tl3Handle;
  l_AddresList : IevAddressList;
- lCurRefAddr : TGlobalCoordinateRec;
+ lCurRefAddr : TdaGlobalCoordinateRec;
  lPack       : InevOp;
 
 begin
@@ -1820,7 +1827,7 @@ begin
            begin
             ItData := Data[I];
             if (TDragDataType(ItData[0]) = ddBackHyperLink) then
-             with PGlobalCoordinateRec(ItData + 1)^ do
+             with PdaGlobalCoordinateRec(ItData + 1)^ do
               l_AddresList.Add(TevAddress_C(Doc, Sub));
            end;
          finally
@@ -1902,7 +1909,7 @@ begin
 
  if TDragDataSupport.Instance.DragDataType  = Ord(ddHyperLink) then
  begin
-  SetReferencePrim(DDBlock, PGlobalCoordinateRec(TDragDataSupport.Instance.AnswerData)^);
+  SetReferencePrim(DDBlock, PdaGlobalCoordinateRec(TDragDataSupport.Instance.AnswerData)^);
 
   AfterHyperTextAction(haReference);
  end;

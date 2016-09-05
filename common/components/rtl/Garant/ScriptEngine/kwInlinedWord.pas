@@ -30,6 +30,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *53ED9C3B01F3impl_uses*
+ //#UC END# *53ED9C3B01F3impl_uses*
 ;
 
 function TkwInlinedWord.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;

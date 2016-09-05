@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , l3Memory
+ //#UC START# *47CBED200390impl_uses*
+ //#UC END# *47CBED200390impl_uses*
 ;
 
 type _Instance_R_ = Tl3InterfacedInterfaceList;

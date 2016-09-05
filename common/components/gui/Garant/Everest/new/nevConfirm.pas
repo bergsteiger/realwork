@@ -35,6 +35,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *47FE40A503CDimpl_uses*
+ //#UC END# *47FE40A503CDimpl_uses*
 ;
 
 class function TnevConfirm.Make: InevConfirm;

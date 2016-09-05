@@ -35,6 +35,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F79BB5100DAimpl_uses*
+ //#UC END# *4F79BB5100DAimpl_uses*
 ;
 
 type _Instance_R_ = Tl3MouseWheelListenersList;

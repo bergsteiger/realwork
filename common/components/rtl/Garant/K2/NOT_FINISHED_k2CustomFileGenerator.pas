@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4836BFC9011Eimpl_uses*
+ //#UC END# *4836BFC9011Eimpl_uses*
 ;
 
 procedure Tk2CustomFileGenerator.OutEOL;

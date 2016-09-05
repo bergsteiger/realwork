@@ -88,9 +88,12 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , nsFolderFilterInfo
+ , Common_F1CommonServices_Contracts
  , l3InterfacesMisc
  , afwFacade
  , IOUnit
+ //#UC START# *491C3E97009Fimpl_uses*
+ //#UC END# *491C3E97009Fimpl_uses*
 ;
 
 type _Instance_R_ = TdsConsultation;

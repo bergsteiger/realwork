@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B97E8130272impl_uses*
+ //#UC END# *4B97E8130272impl_uses*
 ;
 
 function TvtOutlinerWithDragDrop.CanAcceptData(const aData: IDataObject): Boolean;

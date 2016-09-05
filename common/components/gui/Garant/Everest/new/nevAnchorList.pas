@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47F4CE1200E9impl_uses*
+ //#UC END# *47F4CE1200E9impl_uses*
 ;
 
 type _Instance_R_ = TnevAnchorList;

@@ -25,6 +25,8 @@ uses
  l3ImplUses
  , Block_Const
  , Document_Const
+ //#UC START# *4CA311770238impl_uses*
+ //#UC END# *4CA311770238impl_uses*
 ;
 
 function TevBlocksEliminator.NeedTranslateChildToNext: Boolean;

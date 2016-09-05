@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , evdAllParaEliminator
+ //#UC START# *4E1C271501E5impl_uses*
+ //#UC END# *4E1C271501E5impl_uses*
 ;
 
 procedure TddDocumentGenerator.DoStartBlock;

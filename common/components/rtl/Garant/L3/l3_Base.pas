@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *47879856035Fimpl_uses*
+ //#UC END# *47879856035Fimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}

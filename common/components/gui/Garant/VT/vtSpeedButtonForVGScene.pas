@@ -44,6 +44,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *55250990030Eimpl_uses*
+ //#UC END# *55250990030Eimpl_uses*
 ;
 
 constructor TvtSpeedButtonForVGScene.Create(AOwner: TComponent);

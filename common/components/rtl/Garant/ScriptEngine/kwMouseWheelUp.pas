@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *50C8531900E4impl_uses*
+ //#UC END# *50C8531900E4impl_uses*
 ;
 
 function TkwMouseWheelUp.GetLineCount(const aCtx: TtfwContext): Integer;

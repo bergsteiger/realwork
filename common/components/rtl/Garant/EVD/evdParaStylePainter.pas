@@ -40,6 +40,8 @@ uses
  , k2Tags
  , k2OperationContainer
  , SysUtils
+ //#UC START# *535E29A5027Bimpl_uses*
+ //#UC END# *535E29A5027Bimpl_uses*
 ;
 
 function TevdParaStylePainter.pm_GetTargetStyle: Integer;

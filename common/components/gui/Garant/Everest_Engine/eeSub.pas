@@ -60,6 +60,8 @@ uses
  , l3String
  , eePara
  , nevTools
+ //#UC START# *54817DA2016Eimpl_uses*
+ //#UC END# *54817DA2016Eimpl_uses*
 ;
 
 constructor TeeSub.Create(const aDocument: IeeDocumentEx;

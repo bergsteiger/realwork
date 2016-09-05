@@ -24,6 +24,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55BF2A720281impl_uses*
+ //#UC END# *55BF2A720281impl_uses*
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

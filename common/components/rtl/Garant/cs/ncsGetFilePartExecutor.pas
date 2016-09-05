@@ -43,6 +43,8 @@ uses
  , l3Stream
  , ncsGetFilePartReply
  , ncsGetFilePart
+ //#UC START# *54B7B3D203C6impl_uses*
+ //#UC END# *54B7B3D203C6impl_uses*
 ;
 
 constructor TncsGetFilePartExecutor.Create(const aBasePath: AnsiString;

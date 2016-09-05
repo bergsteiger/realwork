@@ -50,6 +50,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *491DCCE101F3impl_uses*
+ //#UC END# *491DCCE101F3impl_uses*
 ;
 
 type _Instance_R_ = TdsQuery;

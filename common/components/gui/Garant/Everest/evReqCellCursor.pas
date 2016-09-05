@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , evOp
+ //#UC START# *53D0BFE802C7impl_uses*
+ //#UC END# *53D0BFE802C7impl_uses*
 ;
 
 function TevReqCellCursor.DoMovePrim(const aView: InevView;

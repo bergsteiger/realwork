@@ -94,6 +94,8 @@ uses
  , l3Const
  , Windows
  , SynPDF
+ //#UC START# *53FF071F01E3impl_uses*
+ //#UC END# *53FF071F01E3impl_uses*
 ;
 
 constructor TddPDFCanvas.Create(const anExpoter: TddPDFExporter;

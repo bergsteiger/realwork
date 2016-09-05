@@ -70,6 +70,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *492EE1A80008impl_uses*
+ //#UC END# *492EE1A80008impl_uses*
 ;
 
 type _Instance_R_ = TsdsFolders;

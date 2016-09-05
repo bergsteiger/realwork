@@ -42,6 +42,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *48D1088D0147impl_uses*
+ //#UC END# *48D1088D0147impl_uses*
 ;
 
 function TnevFontPrim.SubFont(const aFont: InevFontPrim): Boolean;

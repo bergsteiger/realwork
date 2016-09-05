@@ -59,6 +59,8 @@ uses
  , evConst
  , evTableCellUtils
  , l3UnitsTools
+ //#UC START# *48CE0CA20003impl_uses*
+ //#UC END# *48CE0CA20003impl_uses*
 ;
 
 function TnevTableCell.FindCell(const aRow: InevPara): InevPara;

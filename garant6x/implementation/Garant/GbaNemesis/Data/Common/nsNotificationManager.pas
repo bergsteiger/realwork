@@ -70,6 +70,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *542BED480295impl_uses*
+ //#UC END# *542BED480295impl_uses*
 ;
 
 var g_TnsNotificationManagerPrim: TnsNotificationManagerPrim = nil;

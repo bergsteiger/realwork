@@ -198,6 +198,7 @@ uses
  , Classes
  , Forms
  , l3ControlsTypes
+ , Base_Operations_F1Services_Contracts
  //#UC END# *497EBEC4031Dimpl_uses*
 ;
 
@@ -342,7 +343,7 @@ begin
   if AllowOpen or
      NativeMainForm.HasForm(fm_TextForm.rFormID, vcm_ztParent, True, nil, dftAutoreferat) then
   // Создадим сборку:
-   TdmStdRes.OpenAutoreferat(l_Document, nil);
+   TMonitoringsService.Instance.OpenAutoreferat(l_Document, nil);
  end
  else
  begin
@@ -447,7 +448,7 @@ begin
  begin
   if not vcmDispatcher.History.CanBack then
   begin
-   TdmStdRes.OpenMainMenuIfNeeded(nil);
+   TMainMenuService.Instance.OpenMainMenuIfNeeded(nil);
    vcmDispatcher.History.DeleteBackItem;
   end else
   while vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer.HasForm(fm_enNewsLine.rFormID) and
@@ -510,7 +511,7 @@ begin
  end
  else
   l_InnerState := aState; 
- Result := inherited DoLoadState(l_InnerState, aStateType);
+ Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
 //#UC END# *49807428008C_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.DoLoadState
 

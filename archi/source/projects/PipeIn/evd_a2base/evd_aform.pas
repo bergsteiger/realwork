@@ -61,7 +61,7 @@ Uses
  DictItem_Const, Document_Const, TextPara_Const, Block_Const,
  Participant_Const, NumAndDate_Const, dd_lcSectionEliminator,
  dd_lcTextFormatter, dd_lcTableEliminator, dd_lcPageNumberEliminator,
- SectionBreak_Const, dd_lcDossierMaker, dd_lcBelongsGenerator, DT_UserConst
+ SectionBreak_Const, dd_lcDossierMaker, dd_lcBelongsGenerator
  , DT_Sab, Math, DT_Link, DT_LinkServ, DT_DictConst, DT_Dict, rxStrUtils,
  DT_Srch2, l3LongintListPrim, DT_Doc, ddHeaderFilter, k2Interfaces,
   Dt_ReNum, dd_lcDoublicateFilter, l3FileUtils, stFileOp, ddUtils,

@@ -86,6 +86,12 @@ type
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure SetSimpleTree(const aTree: Il3SimpleTree);
    function IsValid: Boolean;
+   {$If NOT Defined(NoScripts)}
+   function GetTextOfAllItems: AnsiString;
+   {$IfEnd} // NOT Defined(NoScripts)
+   {$If NOT Defined(NoScripts)}
+   function IndexOfText(const aText: AnsiString): Integer;
+   {$IfEnd} // NOT Defined(NoScripts)
    constructor Create(AOwner: TComponent); override;
   protected
    property SetToBeginOnTreeSelect: Boolean
@@ -253,6 +259,16 @@ procedure TFakeBoxPrim.pm_SetItemIndex(aValue: Integer);
 {$IfNDef DesignTimeLibrary}
 var
  l_Node: Il3SimpleNode;
+
+var
+ l_Count : Integer;
+
+ function lp_FindIndex(const aIterNode: Il3SimpleNode): Boolean;
+ begin//FindIndex
+  Dec(l_Count);
+  Result := (l_Count = 0);
+ end;//FindIndex
+
 {$EndIf DesignTimeLibrary}
 //#UC END# *53F45C970310_53FC907B01ECset_var*
 begin
@@ -272,7 +288,18 @@ begin
     Exit;
    end;//aValue = -1
 
-   if (f_Items.Count > 0) and (f_ItemIndex <> aValue) {and (f_RootNode <> nil)} and
+   if Assigned(RootNode) and (f_ItemIndex <> aValue) then
+   begin
+    l_Count := aValue + 1;
+    l_Node := Tree.TreeStruct.SimpleIterateF(l3L2SNA(@lp_FindIndex), imCheckResult);
+    if Assigned(l_Node) then
+    begin
+     Tree.GotoOnNode(l_Node);
+     ProcessTreeSelect(True, True);
+     f_ItemIndex := aValue;
+    end;
+   end else
+   if {(f_Items.Count > 0) and} (f_ItemIndex <> aValue) {and (f_RootNode <> nil)} and
       (aValue >= 0) and not Dropped{and (aValue < f_RootNode.AllChildrenCount)}{and IsList} then
    // условие о Dropped нужно, т.к. vcm'вских update'ах мне посто€нно выставл€ют Itemindex
    // и если его убрать, в vcm'овских комбобоксах нельз€ будет "ходить" кнопками
@@ -491,6 +518,72 @@ begin
 //#UC END# *52A9AADF0289_53FC907B01EC_impl*
 end;//TFakeBoxPrim.ActionExecuteHandler
 
+{$If NOT Defined(NoScripts)}
+function TFakeBoxPrim.GetTextOfAllItems: AnsiString;
+//#UC START# *57B5DCEB02EC_53FC907B01EC_var*
+ procedure lp_Add(var S1: String; const S2: String);
+ begin
+  if (Length(S1) > 0) then
+   if (Length(S2) > 0) then
+    S1 := S1 + #13#10 + S2
+   else
+    //S1 := S1
+  else
+   S1 := S2;
+ end;
+
+var
+ l_Res: String;
+
+ function lp_GetText(const aNode: Il3SimpleNode): Boolean;
+ begin
+  lp_Add(l_Res, l3Str(GetFullPath(aNode)));
+ end;
+
+var
+ l_Tree: Il3SimpleTree;
+//#UC END# *57B5DCEB02EC_53FC907B01EC_var*
+begin
+//#UC START# *57B5DCEB02EC_53FC907B01EC_impl*
+ if not Assigned(RootNode) then
+  Result := (f_Items as Il3Strings).Items.Text
+ else
+ begin
+  l_Res := '';
+  Tree.TreeStruct.SimpleIterateF(l3L2SNA(@lp_GetText));
+  Result := l_Res;
+ end;
+//#UC END# *57B5DCEB02EC_53FC907B01EC_impl*
+end;//TFakeBoxPrim.GetTextOfAllItems
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
+function TFakeBoxPrim.IndexOfText(const aText: AnsiString): Integer;
+//#UC START# *57B6EC4E020A_53FC907B01EC_var*
+var
+ l_Count: Integer;
+ 
+ function lp_Find(const aNode: Il3SimpleNode): Boolean;
+ begin
+  Result := l3Same(aNode.Text, aText, True) or l3Same(GetFullPath(aNode), aText, True);
+  Inc(l_Count);
+ end;
+//#UC END# *57B6EC4E020A_53FC907B01EC_var*
+begin
+//#UC START# *57B6EC4E020A_53FC907B01EC_impl*
+ if not Assigned(RootNode) and (f_Items.Count > 0) then
+  Result := Items.IndexOf(aText)
+ else
+ begin
+  l_Count := -1;
+  Result := -1;
+  if (Tree.TreeStruct.SimpleIterateF(l3L2SNA(@lp_Find), imCheckResult) <> nil) then
+   Result := l_Count;
+ end;
+//#UC END# *57B6EC4E020A_53FC907B01EC_impl*
+end;//TFakeBoxPrim.IndexOfText
+{$IfEnd} // NOT Defined(NoScripts)
+
 procedure TFakeBoxPrim.Cleanup;
  {* ‘ункци€ очистки полей объекта. }
 //#UC START# *479731C50290_53FC907B01EC_var*
@@ -680,7 +773,7 @@ begin
    if ChooseFromTree then
    begin
     if (Tree.GetCurrentNode = nil) then
-     exit;
+     Exit;
     f_TempObjectCompleted := Tree.GetCurrentNode;
    end;//ChooseFromTree
 

@@ -38,6 +38,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *52A085A703D4impl_uses*
+ //#UC END# *52A085A703D4impl_uses*
 ;
 
 function TevCustomButton.HackCheck: Boolean;

@@ -113,6 +113,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C7E4A45018Fimpl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4C7E4A45018Fimpl_uses*
 ;
 
@@ -237,7 +238,7 @@ procedure TPrimUnderControlOptionsForm.ControlCenter_Add_Execute(const aParams: 
 //#UC END# *4C7E4B830292_4C7E4A45018Fexec_var*
 begin
 //#UC START# *4C7E4B830292_4C7E4A45018Fexec_impl*
- TdmStdRes.SelectOpen(Self.as_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(Self.as_IvcmEntityForm,
                       TnsFolderFilterInfo.Make(ffNone, ns_ffDocument),
                       str_SetToControl);
 //#UC END# *4C7E4B830292_4C7E4A45018Fexec_impl*
@@ -257,7 +258,7 @@ procedure TPrimUnderControlOptionsForm.ControlCenter_CreateList_Execute(const aP
 //#UC END# *4C7E4BA000A6_4C7E4A45018Fexec_var*
 begin
 //#UC START# *4C7E4BA000A6_4C7E4A45018Fexec_impl*
- TdmStdRes.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
+ TUnderControlService.Instance.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
 //#UC END# *4C7E4BA000A6_4C7E4A45018Fexec_impl*
 end;//TPrimUnderControlOptionsForm.ControlCenter_CreateList_Execute
 

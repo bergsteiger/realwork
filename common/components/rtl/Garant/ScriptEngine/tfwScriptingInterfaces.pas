@@ -22,9 +22,9 @@ uses
  , l3ProtoObject
  , tfwValueTypes
  , TypInfo
- , tfwCStringFactory
  , SysUtils
  , tfwStreamFactory
+ , tfwCStringFactory
  , l3Variant
  , tfwKeyWordPrim
  , tfwDictionaryPrim
@@ -109,53 +109,6 @@ type
  end;//PrintingCaller
  *)
 
- ItfwScriptCaller = interface
-  ['{9A3B1A85-FE74-4761-9100-0FC6F4EE0BD3}']
-  function CompileOnly: Boolean;
-  function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
-  function ResolveOutputFilePath(const aFile: AnsiString): AnsiString;
-  function ResolveInputFilePath(const aFile: AnsiString): AnsiString;
-  function KPage: AnsiString;
-  procedure ToLog(const aSt: AnsiString);
-  procedure Check(aCondition: Boolean;
-   const aMessage: AnsiString = '');
-   {* Проверяет инвариант }
-  procedure Print(const aStr: Tl3WString); overload;
-  procedure Print(const aStr: Il3CString); overload;
-  function GetIsWritingToK: Boolean;
-  function GetIsFakeCVS: Boolean;
-  function GetCVSPath: AnsiString;
-  procedure DontRaiseIfEtalonCreated;
-  procedure TimeToLog(aTime: Cardinal;
-   const aSt: AnsiString;
-   const aSubName: AnsiString);
-  function GetTestSetFolderName: AnsiString;
-  function GetEtalonSuffix: AnsiString;
-  procedure CheckPrintEtalon(const aLogName: AnsiString;
-   const aOutputName: AnsiString);
-  function ShouldStop: Boolean;
-  procedure CheckTimeout(aNow: Cardinal;
-   aTimeout: Cardinal);
-  function StartTimer: Longword;
-  function StopTimer(const aSt: AnsiString = '';
-   const aSubName: AnsiString = '';
-   aNeedTimeToLog: Boolean = True): Longword;
-  procedure CheckOutputWithInput(const aIn: AnsiString;
-   const aOut: AnsiString;
-   aHeaderBegin: AnsiChar;
-   aEtalonNeedsComputerName: Boolean;
-   aEtalonCanHaveDiff: Boolean;
-   const anExtraFileName: AnsiString;
-   aNeedsCheck: Boolean); overload;
-  procedure CheckOutputWithInput(const aSt: AnsiString;
-   aHeaderBegin: AnsiChar = #0;
-   const anExtraFileName: AnsiString = '';
-   aNeedsCheck: Boolean = True); overload;
-  procedure CheckPictureOnly;
-  procedure CheckWithEtalon(const aFileName: AnsiString;
-   aHeaderBegin: AnsiChar);
- end;//ItfwScriptCaller
-
  EtfwCodeFlowException = {abstract} class(EtfwException)
  end;//EtfwCodeFlowException
 
@@ -167,12 +120,6 @@ type
   , tfw_sniYes
   , tfw_sniForce
  );//TtfwSuppressNextImmediate
-
- (*
- MtfwValueList = interface
-  procedure Clear;
- end;//MtfwValueList
- *)
 
  TtfwSourcePoint = {$IfDef XE4}record{$Else}object{$EndIf}
   {* Место в исходниках }
@@ -187,10 +134,6 @@ type
  end;//TtfwSourcePoint
 
  TtfwAccessType = tfwScriptingTypes.TtfwAccessType;
-
- EtfwScriptException = class(EtfwException)
-  {* Исключение кидаемое скриптом }
- end;//EtfwScriptException
 
  TtfwLinkType = tfwScriptingTypes.TtfwLinkType;
 
@@ -227,6 +170,14 @@ type
    function ToString: Il3CString; virtual; abstract;
  end;//TtfwWordInfo
 
+ EtfwScriptException = class(EtfwException)
+  {* Исключение кидаемое скриптом }
+ end;//EtfwScriptException
+
+ TtfwStackValue = tfwTypeInfo.TtfwStackValue;
+
+ TtfwWordInfoArray = array of TtfwWordInfo;
+
  EtfwExitOrBreak = {abstract} class(EtfwCodeFlowException)
   public
    AllowFree: Boolean;
@@ -261,15 +212,11 @@ type
     {* Проверяет создан экземпляр синглетона или нет }
  end;//EtfwHalt
 
- TtfwStackValue = tfwTypeInfo.TtfwStackValue;
-
- TtfwCStringFactory = tfwCStringFactory.TtfwCStringFactory;
-
- TtfwWordInfoArray = array of TtfwWordInfo;
-
  TtfwWord = class;
 
  TtfwKeyWord = class;
+
+ ItfwScriptCaller = interface;
 
  ItfwScriptEngine = interface;
 
@@ -307,6 +254,8 @@ type
    function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
  end;//TtfwContext
 
+ TtfwCStringFactory = tfwCStringFactory.TtfwCStringFactory;
+
  TtfwWordPrim = {abstract} class(Tl3ProtoObject)
   private
    f_NestedCallsCount: Integer;
@@ -343,14 +292,6 @@ type
  end;//MtfwWordChecker
  *)
 
- EtfwBreakIterator = class(EtfwExitOrBreak)
-  public
-   class function Instance: EtfwBreakIterator;
-    {* Метод получения экземпляра синглетона EtfwBreakIterator }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
- end;//EtfwBreakIterator
-
  (*
  MtfwNewWordDefinitor = interface(MtfwKeywordFinderSource)
  end;//MtfwNewWordDefinitor
@@ -364,6 +305,14 @@ type
    {* Добавляет скомпилированный код к текущему компилируемуму слову }
  end;//MtfwCodeCompiler
  *)
+
+ EtfwBreakIterator = class(EtfwExitOrBreak)
+  public
+   class function Instance: EtfwBreakIterator;
+    {* Метод получения экземпляра синглетона EtfwBreakIterator }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//EtfwBreakIterator
 
  (*
  MtfwNewWordDefinitorSource = interface
@@ -385,12 +334,6 @@ type
   function ParentFinder: TtfwWord;
  end;//MtfwKeywordFinder
  *)
-
- EtfwCompiler = class(EtfwCheck)
- end;//EtfwCompiler
-
- EtfwRunner = class(EtfwCheck)
- end;//EtfwRunner
 
  PTypeInfoArray = array of PTypeInfo;
 
@@ -435,6 +378,7 @@ type
    class function IsCacheable: Boolean; override;
     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure BeforeRelease; override;
   public
    function IsDefaultBranch: Boolean; virtual;
    procedure RunnerAssert(aCondition: Boolean;
@@ -443,7 +387,7 @@ type
    function IsAnonimous(const aCtx: TtfwContext): Boolean; virtual;
    function CompiledWordClassPrim(const aCtx: TtfwContext): RtfwWord; virtual;
    function IsForwardDeclaration: Boolean; virtual;
-   function GetValue(const aCtx: TtfwContext): PtfwStackValue; virtual;
+   function GetValue(const aCtx: TtfwContext): TtfwStackValue; virtual;
    function IsVarLike: Boolean; virtual;
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); virtual;
@@ -579,19 +523,60 @@ type
     read f_Dictionary;
  end;//TtfwKeyWord
 
- EtfwBreak = class(EtfwExitOrBreak)
-  public
-   class function Instance: EtfwBreak;
-    {* Метод получения экземпляра синглетона EtfwBreak }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
- end;//EtfwBreak
+ EtfwCompiler = class(EtfwCheck)
+ end;//EtfwCompiler
 
- EtfwFail = class(EtfwCheck)
- end;//EtfwFail
+ EtfwRunner = class(EtfwCheck)
+ end;//EtfwRunner
 
- EtfwManualBreak = class(EtfwScriptException)
- end;//EtfwManualBreak
+ ItfwScriptCaller = interface
+  ['{9A3B1A85-FE74-4761-9100-0FC6F4EE0BD3}']
+  function CompileOnly: Boolean;
+  procedure ScriptDone(const aCtx: TtfwContext);
+  procedure ScriptWillRun(const aCtx: TtfwContext);
+  function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+  function ResolveOutputFilePath(const aFile: AnsiString): AnsiString;
+  function ResolveInputFilePath(const aFile: AnsiString): AnsiString;
+  function KPage: AnsiString;
+  procedure ToLog(const aSt: AnsiString);
+  procedure Check(aCondition: Boolean;
+   const aMessage: AnsiString = '');
+   {* Проверяет инвариант }
+  procedure Print(const aStr: Tl3WString); overload;
+  procedure Print(const aStr: Il3CString); overload;
+  function GetIsWritingToK: Boolean;
+  function GetIsFakeCVS: Boolean;
+  function GetCVSPath: AnsiString;
+  procedure DontRaiseIfEtalonCreated;
+  procedure TimeToLog(aTime: Cardinal;
+   const aSt: AnsiString;
+   const aSubName: AnsiString);
+  function GetTestSetFolderName: AnsiString;
+  function GetEtalonSuffix: AnsiString;
+  procedure CheckPrintEtalon(const aLogName: AnsiString;
+   const aOutputName: AnsiString);
+  function ShouldStop: Boolean;
+  procedure CheckTimeout(aNow: Cardinal;
+   aTimeout: Cardinal);
+  function StartTimer: Longword;
+  function StopTimer(const aSt: AnsiString = '';
+   const aSubName: AnsiString = '';
+   aNeedTimeToLog: Boolean = True): Longword;
+  procedure CheckOutputWithInput(const aIn: AnsiString;
+   const aOut: AnsiString;
+   aHeaderBegin: AnsiChar;
+   aEtalonNeedsComputerName: Boolean;
+   aEtalonCanHaveDiff: Boolean;
+   const anExtraFileName: AnsiString;
+   aNeedsCheck: Boolean); overload;
+  procedure CheckOutputWithInput(const aSt: AnsiString;
+   aHeaderBegin: AnsiChar = #0;
+   const anExtraFileName: AnsiString = '';
+   aNeedsCheck: Boolean = True); overload;
+  procedure CheckPictureOnly;
+  procedure CheckWithEtalon(const aFileName: AnsiString;
+   aHeaderBegin: AnsiChar);
+ end;//ItfwScriptCaller
 
  ItfwValueList = interface;
 
@@ -666,6 +651,20 @@ type
    read Get_ValuesCount;
  end;//ValueStack
  *)
+
+ EtfwBreak = class(EtfwExitOrBreak)
+  public
+   class function Instance: EtfwBreak;
+    {* Метод получения экземпляра синглетона EtfwBreak }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//EtfwBreak
+
+ EtfwFail = class(EtfwCheck)
+ end;//EtfwFail
+
+ EtfwManualBreak = class(EtfwScriptException)
+ end;//EtfwManualBreak
 
  ItfwScriptEngine = interface
   ['{29CD3B5A-963E-4630-AE73-2D2D05667FAA}']
@@ -768,6 +767,14 @@ type
    const aCtx: TtfwContext);
  end;//ItfwIterator
 
+ (*
+ MtfwValueList = interface
+  procedure Clear;
+  function SafeView: ItfwValueList;
+  function IsView: Boolean;
+ end;//MtfwValueList
+ *)
+
  //_ItemType_ = TtfwStackValue;
  ItfwValueList = interface(ItfwIterator)
   ['{95FE5CAE-0988-49C5-A0E1-BDA62233AA8C}']
@@ -782,6 +789,8 @@ type
   function IndexOf(const anItem: TtfwStackValue): Integer;
   function Add(const anItem: TtfwStackValue): Integer;
   procedure Clear;
+  function SafeView: ItfwValueList;
+  function IsView: Boolean;
   property Empty: Boolean
    read pm_GetEmpty;
   property First: TtfwStackValue
@@ -955,6 +964,36 @@ type
 
  TtfwCompiler = TtfwWord;
 
+ ItfwWordListener = interface
+  ['{256ED7A6-DD5F-4BEF-97B7-AEBD94C6AF61}']
+  procedure Notify(aWord: TtfwWord);
+ end;//ItfwWordListener
+
+ EtfwForSingleton = {abstract} class(EtfwFail)
+  protected
+   class function GetInstance: EtfwForSingleton; virtual; abstract;
+   function GetMessage: AnsiString; virtual; abstract;
+   procedure FreeInstance; override;
+  public
+   constructor Create; reintroduce;
+   class procedure Fail;
+   class procedure Check(aCondition: Boolean);
+ end;//EtfwForSingleton
+
+ EtfwConstantArray = class(EtfwFail)
+ end;//EtfwConstantArray
+
+ EtfwNotImplemented = class(EtfwForSingleton)
+  protected
+   function GetMessage: AnsiString; override;
+  public
+   class function GetInstance: EtfwForSingleton; override;
+   class function Instance: EtfwNotImplemented;
+    {* Метод получения экземпляра синглетона EtfwNotImplemented }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//EtfwNotImplemented
+
 function TtfwSourcePoint_E: TtfwSourcePoint;
 function TtfwStackValue_C(const aValue: ItfwFile): TtfwStackValue; overload;
 function TtfwStackValue_C(const aValue: ItfwValueList): TtfwStackValue; overload;
@@ -976,13 +1015,17 @@ uses
  , tfwWordInfoWordsPack
  , TtfwClassRef_Proxy
  , l3Base
+ , tfwParserService
  , StrUtils
+ , tfwCS
+ , l3Interlocked
  , l3Parser
  , tfwClassRef
  , ArrayProcessingPack
  , BasicsPack
  , FileProcessingPack
  , SysUtilsPack
+ , tfwWordDeleteListeners
  , WordsRTTIPack
  , l3String
  , kwForwardDeclaration
@@ -1005,6 +1048,8 @@ var g_EtfwBreak: EtfwBreak = nil;
  {* Экземпляр синглетона EtfwBreak }
 var g_TtfwWordInfoE: TtfwWordInfoE = nil;
  {* Экземпляр синглетона TtfwWordInfoE }
+var g_EtfwNotImplemented: EtfwNotImplemented = nil;
+ {* Экземпляр синглетона EtfwNotImplemented }
 
 function TtfwSourcePoint_E: TtfwSourcePoint;
 //#UC START# *55647E560346_55647DF70372_var*
@@ -1166,6 +1211,12 @@ procedure TtfwWordInfoEFree;
 begin
  l3Free(g_TtfwWordInfoE);
 end;//TtfwWordInfoEFree
+
+procedure EtfwNotImplementedFree;
+ {* Метод освобождения экземпляра синглетона EtfwNotImplemented }
+begin
+ l3Free(g_EtfwNotImplemented);
+end;//EtfwNotImplementedFree
 
 function TtfwSourcePoint.Empty: Boolean;
 //#UC START# *55648E7E02DE_55647DF70372_var*
@@ -1359,6 +1410,7 @@ begin
  end//ExtractFileDrive(aFile) <> ''
  else
   Result := rCaller.ResolveIncludedFilePath(aFile);
+ Result := TtfwParserService.Instance.ResolveIncludedFilePath(Result);
 //#UC END# *55C89C5C015C_4DB0091E033E_impl*
 end;//TtfwContext.ResolveIncludedFilePath
 
@@ -1391,24 +1443,33 @@ end;//TtfwWordPrim.RestoreState
 
 procedure TtfwWordPrim.DoIt(const aCtx: TtfwContext);
 //#UC START# *4F22776902FC_52EA594400DD_var*
+var
+ l_NestedCallsCount: Integer;
 //#UC END# *4F22776902FC_52EA594400DD_var*
 begin
 //#UC START# *4F22776902FC_52EA594400DD_impl*
- EtfwCheck.IsTrue(f_NestedCallsCount >= 0, 'Сломанный счётчик рекурсивных вызовов');
+ Assert(Integer(@f_NestedCallsCount) mod 4 = 0);
+ l_NestedCallsCount := l3InterlockedIncrement(f_NestedCallsCount);
  try
-  if (f_NestedCallsCount > 0) then
+  EtfwCheck.IsTrue(l_NestedCallsCount > 0, 'Сломанный счётчик рекурсивных вызовов');
+  try
    if IsCompiled then
    // - отсекаем некомпилированные слова, т.к. с ними наверное всё хорошо
    //   а иначе падает например на том же INCLUDE
+    if {$IfDef seThreadSafe}
+       true
+       {$Else  seThreadSafe}
+       (l_NestedCallsCount > 1)
+       {$EndIf seThreadSafe} then
     begin
      Self.StoreState(aCtx);
      try
-      Inc(f_NestedCallsCount);
+      //l3InterlockedIncrement(f_NestedCallsCount);
       try
-       TtfwWord(Self).RunnerAssert(f_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
+       TtfwWord(Self).RunnerAssert(l_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
        DoDoIt(aCtx);
       finally
-       Dec(f_NestedCallsCount);
+       //l3InterlockedDecrement(f_NestedCallsCount);
       end;//try..finally
      finally
       Self.RestoreState(aCtx);
@@ -1417,25 +1478,28 @@ begin
      //raise EtfwRecursionNotSupportedYet.Create('Вложенные вызовы слов пока не поддерживаются');
      // - тут вообще говоря надо сложить значения переменных в стек, вызвать DoDoIt, а потом восстановит переменные
     end;//IsCompiled
-  Inc(f_NestedCallsCount);
-  try
+   //l3InterlockedIncrement(f_NestedCallsCount);
    try
-    DoDoIt(aCtx);
+    try
+     DoDoIt(aCtx);
+    finally
+     ClearState(aCtx);
+    end;///try..finally
    finally
-    ClearState(aCtx);
-   end;///try..finally
-  finally
-   Dec(f_NestedCallsCount);
-  end;//try..finally
- except
-  on EtfwExitOrBreak do
-   raise;
-  else
-  begin
-   aCtx.rEngine.WordFail(SourcePoint);
-   raise;
-  end;//else 
- end;//try..except
+    //l3InterlockedDecrement(f_NestedCallsCount);
+   end;//try..finally
+  except
+   on EtfwExitOrBreak do
+    raise;
+   else
+   begin
+    aCtx.rEngine.WordFail(SourcePoint);
+    raise;
+   end;//else
+  end;//try..except
+ finally
+  l3InterlockedDecrement(f_NestedCallsCount);
+ end;//try..finally
 //#UC END# *4F22776902FC_52EA594400DD_impl*
 end;//TtfwWordPrim.DoIt
 
@@ -1610,13 +1674,13 @@ begin
 //#UC END# *4F4BB6CD0359_4DAEED140007_impl*
 end;//TtfwWord.IsForwardDeclaration
 
-function TtfwWord.GetValue(const aCtx: TtfwContext): PtfwStackValue;
+function TtfwWord.GetValue(const aCtx: TtfwContext): TtfwStackValue;
 //#UC START# *52D399A00173_4DAEED140007_var*
 //#UC END# *52D399A00173_4DAEED140007_var*
 begin
 //#UC START# *52D399A00173_4DAEED140007_impl*
  RunnerError('Невозможно получить значение', aCtx);
- Result := nil;
+ Result := TtfwStackValue_E;
 //#UC END# *52D399A00173_4DAEED140007_impl*
 end;//TtfwWord.GetValue
 
@@ -2265,7 +2329,13 @@ function TtfwWord.CheckWord(const aName: Il3CString): TtfwKeyWord;
 //#UC END# *4F46588B021E_4DAEED140007_var*
 begin
 //#UC START# *4F46588B021E_4DAEED140007_impl*
- Result := DoCheckWord(aName);
+ TtfwCS.Instance.Lock;
+ try
+  Assert(Self <> nil);
+  Result := DoCheckWord(aName);
+ finally
+  TtfwCS.Instance.Unlock;
+ end;//try..finally
 //#UC END# *4F46588B021E_4DAEED140007_impl*
 end;//TtfwWord.CheckWord
 
@@ -2340,6 +2410,17 @@ begin
 //#UC END# *47A6FEE600FC_4DAEED140007_impl*
 end;//TtfwWord.IsCacheable
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure TtfwWord.BeforeRelease;
+//#UC START# *49BFC98902FF_4DAEED140007_var*
+//#UC END# *49BFC98902FF_4DAEED140007_var*
+begin
+//#UC START# *49BFC98902FF_4DAEED140007_impl*
+ inherited;
+ if TtfwWordDeleteListeners.Exists then
+  TtfwWordDeleteListeners.Instance.Fire(Self);
+//#UC END# *49BFC98902FF_4DAEED140007_impl*
+end;//TtfwWord.BeforeRelease
 
 function TtfwWord.SourcePoint: TtfwSourcePoint;
 //#UC START# *556317DE02B5_4DAEED140007_var*
@@ -3000,6 +3081,79 @@ begin
 //#UC END# *5602BB050379_5602AF7201EC_impl*
 end;//TtfwCStringFactoryEx.ViewOf
 
+constructor EtfwForSingleton.Create;
+//#UC START# *57C96DA0016C_57C96D4B03E3_var*
+//#UC END# *57C96DA0016C_57C96D4B03E3_var*
+begin
+//#UC START# *57C96DA0016C_57C96D4B03E3_impl*
+ inherited Create(GetMessage);
+//#UC END# *57C96DA0016C_57C96D4B03E3_impl*
+end;//EtfwForSingleton.Create
+
+class procedure EtfwForSingleton.Fail;
+//#UC START# *57C96DA90314_57C96D4B03E3_var*
+//#UC END# *57C96DA90314_57C96D4B03E3_var*
+begin
+//#UC START# *57C96DA90314_57C96D4B03E3_impl*
+ raise GetInstance;
+//#UC END# *57C96DA90314_57C96D4B03E3_impl*
+end;//EtfwForSingleton.Fail
+
+class procedure EtfwForSingleton.Check(aCondition: Boolean);
+//#UC START# *57C971BD0206_57C96D4B03E3_var*
+//#UC END# *57C971BD0206_57C96D4B03E3_var*
+begin
+//#UC START# *57C971BD0206_57C96D4B03E3_impl*
+ if not aCondition then
+  Fail;
+//#UC END# *57C971BD0206_57C96D4B03E3_impl*
+end;//EtfwForSingleton.Check
+
+procedure EtfwForSingleton.FreeInstance;
+//#UC START# *5161317A0219_57C96D4B03E3_var*
+//#UC END# *5161317A0219_57C96D4B03E3_var*
+begin
+//#UC START# *5161317A0219_57C96D4B03E3_impl*
+ if l3System.IsDown then
+  inherited;
+//#UC END# *5161317A0219_57C96D4B03E3_impl*
+end;//EtfwForSingleton.FreeInstance
+
+class function EtfwNotImplemented.GetInstance: EtfwForSingleton;
+//#UC START# *57C96DBC00FE_57C81130017D_var*
+//#UC END# *57C96DBC00FE_57C81130017D_var*
+begin
+//#UC START# *57C96DBC00FE_57C81130017D_impl*
+ Result := Instance;
+//#UC END# *57C96DBC00FE_57C81130017D_impl*
+end;//EtfwNotImplemented.GetInstance
+
+function EtfwNotImplemented.GetMessage: AnsiString;
+//#UC START# *57C96DF30021_57C81130017D_var*
+//#UC END# *57C96DF30021_57C81130017D_var*
+begin
+//#UC START# *57C96DF30021_57C81130017D_impl*
+ Result := 'Не реализовано';
+//#UC END# *57C96DF30021_57C81130017D_impl*
+end;//EtfwNotImplemented.GetMessage
+
+class function EtfwNotImplemented.Instance: EtfwNotImplemented;
+ {* Метод получения экземпляра синглетона EtfwNotImplemented }
+begin
+ if (g_EtfwNotImplemented = nil) then
+ begin
+  l3System.AddExitProc(EtfwNotImplementedFree);
+  g_EtfwNotImplemented := Create;
+ end;
+ Result := g_EtfwNotImplemented;
+end;//EtfwNotImplemented.Instance
+
+class function EtfwNotImplemented.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_EtfwNotImplemented <> nil;
+end;//EtfwNotImplemented.Exists
+
 initialization
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCodeFlowException));
  {* Регистрация типа EtfwCodeFlowException }
@@ -3017,18 +3171,24 @@ initialization
  {* Регистрация EtfwHalt }
  TtfwClassRef.Register(EtfwBreakIterator);
  {* Регистрация EtfwBreakIterator }
+ TtfwWord.RegisterClass;
+ {* Регистрация TtfwWord }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCompiler));
  {* Регистрация типа EtfwCompiler }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwRunner));
  {* Регистрация типа EtfwRunner }
- TtfwWord.RegisterClass;
- {* Регистрация TtfwWord }
  TtfwClassRef.Register(EtfwBreak);
  {* Регистрация EtfwBreak }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwFail));
  {* Регистрация типа EtfwFail }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwManualBreak));
  {* Регистрация типа EtfwManualBreak }
+ TtfwClassRef.Register(EtfwForSingleton);
+ {* Регистрация EtfwForSingleton }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwConstantArray));
+ {* Регистрация типа EtfwConstantArray }
+ TtfwClassRef.Register(EtfwNotImplemented);
+ {* Регистрация EtfwNotImplemented }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

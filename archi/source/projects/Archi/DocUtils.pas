@@ -6,19 +6,19 @@ interface
 
 uses
  l3Base, l3Types,
- DT_Types, DT_Const, DT_Doc, dtIntf,
+ daTypes, dt_Types, DT_Const, DT_Doc, dtIntf,
  DocIntf,
  l3LongintList
  ;
 
-//procedure duLoadAndSaveDoc(aFamID : TFamilyID; aDocID  : TDocID);
+//procedure duLoadAndSaveDoc(aFamID : TdaFamilyID; aDocID  : TDocID);
 
 function  EraseSpecialParaWithHyperlinks(aDocument : TarCustomDocument; aDocList: Tl3LongintList; aParaStyleID: Integer): Boolean;
 
-procedure ReplaceReferences(aFamID : TFamilyID; aDocList : ISab;
+procedure ReplaceReferences(aFamID : TdaFamilyID; aDocList : ISab;
                             aSearchHLDocID: TDocID; aReplaceHLDocID: TDocID);
   overload;
-procedure ReplaceReferences(aFamID : TFamilyID; aDocList : ISab;
+procedure ReplaceReferences(aFamID : TdaFamilyID; aDocList : ISab;
                             const aReplaceArr : array of TReplaceDocPair);
   overload;
 implementation
@@ -45,7 +45,7 @@ uses
  nevTools;
 
 {
-procedure duLoadAndSaveDoc(aFamID : TFamilyID; aDocID  : TDocID);
+procedure duLoadAndSaveDoc(aFamID : TdaFamilyID; aDocID  : TDocID);
 var
  lSprID : TDocID;
 begin
@@ -204,13 +204,13 @@ end;
 
 // замена в таблицах
 //проблема: бывают ссылки, адреса которых не попали в таблицу
-procedure ReplaceReferences(aFamID : TFamilyID; aDocList : ISab;
+procedure ReplaceReferences(aFamID : TdaFamilyID; aDocList : ISab;
                             aSearchHLDocID: TDocID; aReplaceHLDocID: TDocID);
 begin
  DocumentServer(aFamID).ChangeDestDoc(aSearchHLDocID, aReplaceHLDocID, cAnySubId, nil, aDocList);
 end;
 
-procedure ReplaceReferences(aFamID : TFamilyID; aDocList : ISab;
+procedure ReplaceReferences(aFamID : TdaFamilyID; aDocList : ISab;
                             const aReplaceArr : array of TReplaceDocPair);
 begin
  DocumentServer(aFamID).ChangeDestDoc(aReplaceArr, aDocList);
@@ -257,7 +257,7 @@ end;
 
 end;
 
-procedure ReplaceReferences(aFamID : TFamilyID; aDocID  : TDocID; aSearchHLDocID: TDocID; aReplaceHLDocID: TDocID);
+procedure ReplaceReferences(aFamID : TdaFamilyID; aDocID  : TDocID; aSearchHLDocID: TDocID; aReplaceHLDocID: TDocID);
 var
  lDoc : TarDocument;
 begin

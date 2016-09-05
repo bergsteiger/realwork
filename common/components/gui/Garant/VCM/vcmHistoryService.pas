@@ -23,6 +23,11 @@ uses
   function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
   function IsInBF(const aForm: IvcmEntityForm): Boolean;
   function Back(const aForm: IvcmEntityForm): Boolean;
+  procedure MakingCloneStarted(const aContainer: IvcmContainer);
+  procedure ContainerForCloneMade(const aOrgContainer: IvcmContainer;
+   const aCloneContainer: IvcmContainer);
+  procedure MakingCloneFinished(const aContainer: IvcmContainer);
+  function IsClone(const aContainer: IvcmContainer): Boolean;
  end;//MvcmHistoryService
  *)
 
@@ -34,6 +39,11 @@ type
   function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
   function IsInBF(const aForm: IvcmEntityForm): Boolean;
   function Back(const aForm: IvcmEntityForm): Boolean;
+  procedure MakingCloneStarted(const aContainer: IvcmContainer);
+  procedure ContainerForCloneMade(const aOrgContainer: IvcmContainer;
+   const aCloneContainer: IvcmContainer);
+  procedure MakingCloneFinished(const aContainer: IvcmContainer);
+  function IsClone(const aContainer: IvcmContainer): Boolean;
  end;//IvcmHistoryService
 
  TvcmHistoryService = {final} class(Tl3ProtoObject)
@@ -49,6 +59,11 @@ type
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
    function Back(const aForm: IvcmEntityForm): Boolean;
+   procedure MakingCloneStarted(const aContainer: IvcmContainer);
+   procedure ContainerForCloneMade(const aOrgContainer: IvcmContainer;
+    const aCloneContainer: IvcmContainer);
+   procedure MakingCloneFinished(const aContainer: IvcmContainer);
+   function IsClone(const aContainer: IvcmContainer): Boolean;
    class function Instance: TvcmHistoryService;
     {* Метод получения экземпляра синглетона TvcmHistoryService }
    class function Exists: Boolean;
@@ -69,6 +84,8 @@ uses
  , vcmBase
  , SysUtils
  , l3Base
+ //#UC START# *559BA19C0076impl_uses*
+ //#UC END# *559BA19C0076impl_uses*
 ;
 
 var g_TvcmHistoryService: TvcmHistoryService = nil;
@@ -156,6 +173,49 @@ begin
   Result := g_Dispatcher.History.Back;
 //#UC END# *18FC3BA729CF_559BA19C0076_impl*
 end;//TvcmHistoryService.Back
+
+procedure TvcmHistoryService.MakingCloneStarted(const aContainer: IvcmContainer);
+//#UC START# *03988C3B417F_559BA19C0076_var*
+//#UC END# *03988C3B417F_559BA19C0076_var*
+begin
+//#UC START# *03988C3B417F_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  f_Alien.MakingCloneStarted(aContainer);
+//#UC END# *03988C3B417F_559BA19C0076_impl*
+end;//TvcmHistoryService.MakingCloneStarted
+
+procedure TvcmHistoryService.ContainerForCloneMade(const aOrgContainer: IvcmContainer;
+ const aCloneContainer: IvcmContainer);
+//#UC START# *94ACDF598B06_559BA19C0076_var*
+//#UC END# *94ACDF598B06_559BA19C0076_var*
+begin
+//#UC START# *94ACDF598B06_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  f_Alien.ContainerForCLoneMade(aOrgContainer, aCloneContainer);
+//#UC END# *94ACDF598B06_559BA19C0076_impl*
+end;//TvcmHistoryService.ContainerForCloneMade
+
+procedure TvcmHistoryService.MakingCloneFinished(const aContainer: IvcmContainer);
+//#UC START# *19896856BA74_559BA19C0076_var*
+//#UC END# *19896856BA74_559BA19C0076_var*
+begin
+//#UC START# *19896856BA74_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  f_Alien.MakingCloneFinished(aContainer);
+//#UC END# *19896856BA74_559BA19C0076_impl*
+end;//TvcmHistoryService.MakingCloneFinished
+
+function TvcmHistoryService.IsClone(const aContainer: IvcmContainer): Boolean;
+//#UC START# *BB06F1B944C6_559BA19C0076_var*
+//#UC END# *BB06F1B944C6_559BA19C0076_var*
+begin
+//#UC START# *BB06F1B944C6_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.IsClone(aContainer)
+ else
+  Result := False;
+//#UC END# *BB06F1B944C6_559BA19C0076_impl*
+end;//TvcmHistoryService.IsClone
 
 class function TvcmHistoryService.Instance: TvcmHistoryService;
  {* Метод получения экземпляра синглетона TvcmHistoryService }

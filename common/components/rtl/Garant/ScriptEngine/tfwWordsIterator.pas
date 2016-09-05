@@ -26,6 +26,8 @@ type
    function ItemsCountInSlice: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function GetCount: Integer; override;
+   function GetItem(anIndex: Integer): TtfwStackValue; override;
   public
    constructor Create(aWords: TtfwWordRefList); reintroduce;
    class function Make(aWords: TtfwWordRefList): ItfwValueList; reintroduce;
@@ -42,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *55ED4D040017impl_uses*
+ //#UC END# *55ED4D040017impl_uses*
 ;
 
 constructor TtfwWordsIterator.Create(aWords: TtfwWordRefList);
@@ -153,6 +157,24 @@ begin
  inherited;
 //#UC END# *479731C50290_55ED4D040017_impl*
 end;//TtfwWordsIterator.Cleanup
+
+function TtfwWordsIterator.GetCount: Integer;
+//#UC START# *57C811A30375_55ED4D040017_var*
+//#UC END# *57C811A30375_55ED4D040017_var*
+begin
+//#UC START# *57C811A30375_55ED4D040017_impl*
+ Result := f_Words.Count;
+//#UC END# *57C811A30375_55ED4D040017_impl*
+end;//TtfwWordsIterator.GetCount
+
+function TtfwWordsIterator.GetItem(anIndex: Integer): TtfwStackValue;
+//#UC START# *57C8146602DB_55ED4D040017_var*
+//#UC END# *57C8146602DB_55ED4D040017_var*
+begin
+//#UC START# *57C8146602DB_55ED4D040017_impl*
+ Result := TtfwStackValue_C(f_Words[anIndex]);
+//#UC END# *57C8146602DB_55ED4D040017_impl*
+end;//TtfwWordsIterator.GetItem
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

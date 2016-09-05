@@ -26,6 +26,8 @@ uses
  , ConfigInterfaces
  , nsStyleEditor
  , evDefaultStylesFontSizes
+ //#UC START# *4AD5BB450335impl_uses*
+ //#UC END# *4AD5BB450335impl_uses*
 ;
 
 procedure InitialLoadStyleTableFromSettings;

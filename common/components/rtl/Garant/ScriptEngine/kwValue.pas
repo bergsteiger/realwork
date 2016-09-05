@@ -35,6 +35,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52B46DD80194impl_uses*
+ //#UC END# *52B46DD80194impl_uses*
 ;
 
 constructor TkwValue.Create(const aValue: TtfwStackValue);

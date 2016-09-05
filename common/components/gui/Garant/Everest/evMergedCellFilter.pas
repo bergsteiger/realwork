@@ -64,6 +64,8 @@ uses
  , k2Tags
  , SBSCell_Const
  , l3UnitsTools
+ //#UC START# *49C21D090093impl_uses*
+ //#UC END# *49C21D090093impl_uses*
 ;
 
 function TevMergedCellFilter.CellsOffsets: TevCellsOffsets;

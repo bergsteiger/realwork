@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *4DF0C6BE0166impl_uses*
+ //#UC END# *4DF0C6BE0166impl_uses*
 ;
 
 function Tk2TagByHandleView.CompareData(const anItem1: _ItemType_;

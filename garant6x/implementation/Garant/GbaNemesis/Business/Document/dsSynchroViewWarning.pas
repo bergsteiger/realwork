@@ -26,6 +26,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4EFC5A8502E2impl_uses*
+ //#UC END# *4EFC5A8502E2impl_uses*
 ;
 
 function TdsSynchroViewWarning.GetIsForSynchroView: Boolean;

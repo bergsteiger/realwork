@@ -46,6 +46,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *532140360355impl_uses*
+ //#UC END# *532140360355impl_uses*
 ;
 
 function TK517772970_TddGetTaskRequest.TaskClass: TddTaskClass;

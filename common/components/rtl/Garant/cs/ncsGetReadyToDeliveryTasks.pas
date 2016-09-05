@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , csGetReadyToDeliveryTasks_Const
+ //#UC START# *54645DEC03E4impl_uses*
+ //#UC END# *54645DEC03E4impl_uses*
 ;
 
 function TncsGetReadyToDeliveryTasks.pm_GetUserID: Cardinal;

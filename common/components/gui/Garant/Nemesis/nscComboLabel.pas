@@ -157,6 +157,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5704F8CA00C8impl_uses*
+ //#UC END# *5704F8CA00C8impl_uses*
 ;
 
 procedure TnscLabelSubTree.pm_SetHighLightItem(aValue: Integer);

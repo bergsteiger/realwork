@@ -30,6 +30,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0BB0FA011Dimpl_uses*
+ //#UC END# *4B0BB0FA011Dimpl_uses*
 ;
 
 class procedure TnsFontSizeEvent.Log(aSize: Cardinal);

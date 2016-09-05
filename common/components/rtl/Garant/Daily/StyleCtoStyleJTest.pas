@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4B59EDA60116impl_uses*
+ //#UC END# *4B59EDA60116impl_uses*
 ;
 
 procedure TStyleCtoStyleJTest.DoIt;

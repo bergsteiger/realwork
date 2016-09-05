@@ -1,8 +1,11 @@
 Unit dt_Sab;
 
-{ $Id: dt_Sab.pas,v 1.142 2016/05/26 14:01:24 voba Exp $ }
+{ $Id: dt_Sab.pas,v 1.143 2016/07/26 10:23:21 voba Exp $ }
 
 // $Log: dt_Sab.pas,v $
+// Revision 1.143  2016/07/26 10:23:21  voba
+// no message
+//
 // Revision 1.142  2016/05/26 14:01:24  voba
 // -k:623267081
 //
@@ -425,6 +428,8 @@ Unit dt_Sab;
 // Revision 1.2  2007/02/22 09:25:07  voba
 // - add TSub, ISub
 //
+
+{$I HTDefine.inc}
 
 interface
 

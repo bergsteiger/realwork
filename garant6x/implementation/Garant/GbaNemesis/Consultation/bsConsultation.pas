@@ -72,6 +72,8 @@ uses
  , bsConvert
  , nsTypes
  , bsUtils
+ //#UC START# *49228BA50210impl_uses*
+ //#UC END# *49228BA50210impl_uses*
 ;
 
 constructor TbsConsultation.Create(const aConsultation: IConsultation);

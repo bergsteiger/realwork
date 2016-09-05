@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , Para_Const
+ //#UC START# *484FD34600BAimpl_uses*
+ //#UC END# *484FD34600BAimpl_uses*
 ;
 
 class function TevdParaModifier.MarkModified(aTag: Tl3Variant): Boolean;

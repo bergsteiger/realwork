@@ -113,6 +113,8 @@ uses
  , F1LikeTextLoad_ut_F1LikeTextLoad_UserType
  , QFLikeTextLoad_ut_QFLikeTextLoad_UserType
  , F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType
+ //#UC START# *4BE047320379impl_uses*
+ //#UC END# *4BE047320379impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}

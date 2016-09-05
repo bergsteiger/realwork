@@ -1,8 +1,14 @@
 Unit Dt_Types;
 
-{ $Id: dt_Types.pas,v 1.74 2016/06/07 13:41:40 fireton Exp $ }
+{ $Id: dt_Types.pas,v 1.76 2016/08/11 10:47:44 lukyanets Exp $ }
 
 // $Log: dt_Types.pas,v $
+// Revision 1.76  2016/08/11 10:47:44  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.75  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.74  2016/06/07 13:41:40  fireton
 // - кеширование образов документов
 //
@@ -741,21 +747,11 @@ type
                  AllowMask,
                  DenyMask   : Word;
                 end;
-  PFamilyID = ^TFamilyID;
-  TFamilyID = Word;
-
-  PUserGrID = ^TUserGrID;
-  TUserGrID = Word;
-  PUserGrIDArr = ^TUserGrIDArr;
-  TUserGrIDArr = Array of TUserGrID;
 
 //  TRegionID = Byte;
 
   PDictID = ^TDictID;
   TDictID = LongWord;
-  PUserID = ^TUserID;
-  TUserID = LongWord;
-  TUserIDArray = array of TUserID;
 
   PDictIDArr = ^TDictIDArr;
   TDictIDArr = Array[0..$fff] of TDictID;
@@ -834,11 +830,6 @@ Type
                DocsPath : TPathStr;
              end;
 
-  TFamilyGr = Record
-                Doc_ID  : TDocID;
-                Doc_Fam : TFamilyID;
-              end;
-
   PDictHistogramRec = ^TDictHistogramRec;            
   TDictHistogramRec = record
                        ID    : TDictID;
@@ -856,13 +847,6 @@ Type
                      SubID  : TSubID;
                     end;
 
-  PGlobalCoordinateRec = ^TGlobalCoordinateRec;
-  TGlobalCoordinateRec = Record
-                          Family : TFamilyID;
-                          Doc    : TDocID;
-                          Sub    : TSubID;
-                         end;
-
   TSortRec = Record
               Fld      : Array [1..255] of SmallInt;
               FldCount : Byte;
@@ -872,6 +856,10 @@ Type
   //PDiapType = ^TDiapType;
   TDiapType       = evdDTTypes.TDiapType;
   TDiapTypeSet    = Set of TDiapType;
+
+
+ TUGTblMask = record
+ end;
 
 const
   tdNone = evdDTTypes.tdNone;
@@ -945,12 +933,16 @@ type
  | Процедурные типы                                                        |
  +------------------------------------------------------------------------+}
 type
-  TGetTextFunction  = Procedure (F_ID : TFamilyGr;F_Name : ShortString;
+(*
+  TGetTextFunction  = Procedure (F_ID : TdaFamilyGroup; F_Name : ShortString;
                                  DocPath : TPathStr) of object;
-  TAllocateNumber   = Procedure (F_ID : TFamilyID;Var FreeNumber : LongInt) of Object;
-  TPutTextFunction  = Procedure (F_ID : TFamilyGr;F_Name : ShortString;
+*)
+//  TAllocateNumber   = Procedure (F_ID : TdaFamilyID;Var FreeNumber : LongInt) of Object;
+(*
+  TPutTextFunction  = Procedure (F_ID : TdaFamilyGroup; F_Name : ShortString;
                                  DocPath : TPathStr;
                                  Tmp_ID : LongInt) of Object;
+*)
   TPromProc         = Procedure of object;
   TFilterFunc       = Function (aNumber : Longint) : LongBool of object;
   TOpenSabProc      = Procedure (KeySab : Sab) of Object;
@@ -1002,7 +994,6 @@ type
 
 
 {процедуры преобразования типов}
-function GlobalCoordinateRec(aFamily : TFamilyID; aDoc : TDocID; aSub : TSubID = 0) : TGlobalCoordinateRec;
 function DestHLinkRec(aDoc : TDocID; aSub : TSubID = 0) : TDestHLinkRec;
 type
   TddPipeInputFileType = (dd_itAutoDetect,      // определяется путем анализа имени файла
@@ -1101,18 +1092,6 @@ end;
 procedure FreeUserSortProc(var aProc : TUserSortProc); register;
 asm
           jmp l3FreeLocalStub //HTStubFree
-end;
-
-
-
-function GlobalCoordinateRec(aFamily : TFamilyID; aDoc : TDocID; aSub : TSubID = 0) : TGlobalCoordinateRec;
-begin
- with Result do
- begin
-  Family := aFamily;
-  Doc    := aDoc;
-  Sub    := aSub;
- end;
 end;
 
 function DestHLinkRec(aDoc : TDocID; aSub : TSubID = 0) : TDestHLinkRec;

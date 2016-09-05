@@ -51,6 +51,8 @@ uses
  , nevFontPrim
  , l3Types
  , nevSegmentObject
+ //#UC START# *48D100920185impl_uses*
+ //#UC END# *48D100920185impl_uses*
 ;
 
 type

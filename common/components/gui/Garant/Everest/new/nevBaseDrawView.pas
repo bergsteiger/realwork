@@ -124,6 +124,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4811E4BA020Aimpl_uses*
+ //#UC END# *4811E4BA020Aimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}

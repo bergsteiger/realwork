@@ -4,9 +4,18 @@ unit vcmModulesCollection;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmModulesCollection - }
 { Начат: 27.02.2004 21:34 }
-{ $Id: vcmModulesCollection.pas,v 1.6 2010/09/15 18:15:01 lulin Exp $ }
+{ $Id: vcmModulesCollection.pas,v 1.9 2016/06/27 14:31:05 lulin Exp $ }
 
 // $Log: vcmModulesCollection.pas,v $
+// Revision 1.9  2016/06/27 14:31:05  lulin
+// - перегенерация.
+//
+// Revision 1.8  2016/06/27 13:47:15  lulin
+// - перегенерация.
+//
+// Revision 1.7  2016/06/27 13:21:34  lulin
+// - перегенерация.
+//
 // Revision 1.6  2010/09/15 18:15:01  lulin
 // {RequestLink:235047275}.
 //
@@ -65,6 +74,10 @@ uses
   vcmBase,
   vcmBaseCollectionItem,
   vcmModulesCollectionItem
+  {$IfNDef NoScripts}
+  ,
+  tfwModuleOperationWordEx
+  {$EndIf  NoScripts}
   ;
 
 // start class TvcmModulesCollection
@@ -87,10 +100,17 @@ begin
   System.Delete(l_M, 1, 1);
  l_Item := FindItemByName(l_M);
  if (l_Item <> nil) then
-  Exit;
- l_Item := TvcmBaseCollectionItem(Add);
- l_Item.Name := l_M;
- l_Item.Caption := aCap;
+ begin
+  if (aCap <> '') then
+   if (l_Item.Caption = '') OR (l_Item.Caption = l_Item.Name) then
+    l_Item.Caption := aCap; 
+ end//l_Item <> nil
+ else
+ begin
+  l_Item := TvcmBaseCollectionItem(Add);
+  l_Item.Name := l_M;
+  l_Item.Caption := aCap;
+ end;//l_Item <> nil
 end;
 
 function TvcmModulesCollection.PublishModuleOperation(aModule: RvcmModule;
@@ -125,6 +145,9 @@ begin
   l_Op.Caption := aCap;
  Result.rMoID := Succ(l_Mo.ID);
  Result.rOpID := Succ(l_Op.ID);
+ {$IfNDef NoScripts}
+ TtfwModuleOperationWordEx.Register(Result, TvcmModulesCollectionItem(l_Mo), l_Op);
+ {$EndIf  NoScripts}
 end;
   
 end.

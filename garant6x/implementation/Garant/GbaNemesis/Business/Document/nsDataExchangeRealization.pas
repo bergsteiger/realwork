@@ -44,6 +44,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , l3Base
+ //#UC START# *54FECC970155impl_uses*
+ , Base_Operations_F1Services_Contracts
+ //#UC END# *54FECC970155impl_uses*
 ;
 
 var g_TnsDataExchangeRealization: TnsDataExchangeRealization = nil;
@@ -61,7 +64,7 @@ procedure TnsDataExchangeRealization.MakeAndOpenList(const aList: IDynList;
 //#UC END# *54FECB920224_54FECC970155_var*
 begin
 //#UC START# *54FECB920224_54FECC970155_impl*
- TdmStdRes.OpenList(TdeListSet.Make(aList, wdOpenIfUserDefine, aOpenFrom, True, nil,
+ TListService.Instance.OpenList(TdeListSet.Make(aList, wdOpenIfUserDefine, aOpenFrom, True, nil,
    TdeSearchInfo.Make(aList, aOpenFrom = lofAttributeSearch)), nil);
 //#UC END# *54FECB920224_54FECC970155_impl*
 end;//TnsDataExchangeRealization.MakeAndOpenList

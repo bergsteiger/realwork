@@ -39,6 +39,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4CDD3D930147impl_uses*
+ //#UC END# *4CDD3D930147impl_uses*
 ;
 
 constructor TevdHyperlinkInfo.Create(const aText: Il3CString;

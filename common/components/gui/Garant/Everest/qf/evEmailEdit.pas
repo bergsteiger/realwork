@@ -29,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48D25C2B00DCimpl_uses*
+ //#UC END# *48D25C2B00DCimpl_uses*
 ;
 
 procedure TevEmailEdit.DoTextChange(const aView: InevView;

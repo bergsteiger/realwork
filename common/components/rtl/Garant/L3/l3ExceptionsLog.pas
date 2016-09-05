@@ -7,11 +7,14 @@ unit l3ExceptionsLog;
 //
 // Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
 //
-// $Id: l3ExceptionsLog.pas,v 1.54 2016/05/06 15:08:28 lulin Exp $
+// $Id: l3ExceptionsLog.pas,v 1.55 2016/07/15 13:19:08 lulin Exp $
 //
 *)
 
 // $Log: l3ExceptionsLog.pas,v $
+// Revision 1.55  2016/07/15 13:19:08  lulin
+// - собираем DesignTime.
+//
 // Revision 1.54  2016/05/06 15:08:28  lulin
 // - перегенерация.
 //
@@ -358,8 +361,10 @@ const
 
 procedure CheckOpenedLog;
 begin
+ {$If Declared(Gm0EXCLibDefSrv)}
  if (Gm0EXCLibDefSrv = nil) then
   OpenLog;
+ {$IfEnd} 
 end;
 
 procedure OpenLog;

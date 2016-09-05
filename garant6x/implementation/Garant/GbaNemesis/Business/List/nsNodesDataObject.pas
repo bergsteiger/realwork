@@ -63,6 +63,8 @@ uses
  , Classes
  , bsConvert
  , bsUtils
+ //#UC START# *468246D003B6impl_uses*
+ //#UC END# *468246D003B6impl_uses*
 ;
 
 constructor TnsNodesDataObject.Create(const aList: INodesClipboard;

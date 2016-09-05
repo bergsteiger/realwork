@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4FFE84F00388impl_uses*
+ //#UC END# *4FFE84F00388impl_uses*
 ;
 
 class function TvcmFormSetFactoryPrim.GetInstance: TvcmFormSetFactoryPrim;

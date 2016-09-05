@@ -41,6 +41,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4BBF3E6F006Dimpl_uses*
+ //#UC END# *4BBF3E6F006Dimpl_uses*
 ;
 {$IfEnd} // Defined(k2ForEditor)
 

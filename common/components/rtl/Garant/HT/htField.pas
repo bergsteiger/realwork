@@ -54,6 +54,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *559E77B902D8impl_uses*
+ //#UC END# *559E77B902D8impl_uses*
 ;
 
 constructor ThtField.Create(const aDataBuffer: IdaResultBuffer;

@@ -34,6 +34,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwIl3CStringPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F5CBB9600F6impl_uses*
+ //#UC END# *4F5CBB9600F6impl_uses*
 ;
 
 constructor Tl3OneByteCString.Create(aChar: AnsiChar);

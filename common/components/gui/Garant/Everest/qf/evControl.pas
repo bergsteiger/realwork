@@ -123,6 +123,8 @@ uses
  , ReqRow_Const
  , l3CEmptyStringPrim
  , l3CEmptyString
+ //#UC START# *48D13B8D03A3impl_uses*
+ //#UC END# *48D13B8D03A3impl_uses*
 ;
 
 function TevControl.GetIsMultiline: Boolean;

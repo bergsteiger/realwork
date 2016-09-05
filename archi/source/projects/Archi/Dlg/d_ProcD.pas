@@ -1,6 +1,6 @@
 unit D_ProcD;
 
-{ $Id: d_ProcD.pas,v 1.23 2014/08/14 10:48:42 dinishev Exp $ }
+{ $Id: d_ProcD.pas,v 1.26 2016/08/24 07:39:25 lukyanets Exp $ }
 
 interface
 
@@ -11,11 +11,11 @@ uses SysUtils, WinTypes, WinProcs,
      Controls, Buttons,
      StdCtrls, ExtCtrls,
      l3Types, l3Base,
-     DT_Types,
+     daTypes,
      DocIntf, W95Meter, OvcBase, afwControl, afwControlPrim, afwBaseControl, arInterfaces;
 
 type
-  TGetDocFunc = function(var aDocID : TGlobalCoordinateRec) : Boolean;
+  TGetDocFunc = function(var aDocID : TdaGlobalCoordinateRec) : Boolean;
 
   TDocListProcessor = class(Tl3Base)
   protected
@@ -80,7 +80,7 @@ implementation
 
 procedure TDocListProcessor.PrintF(aGetDocFunc : TGetDocFunc);
 var
- lDocID : TGlobalCoordinateRec;
+ lDocID : TdaGlobalCoordinateRec;
  lCnt   : Integer;
  lDocIntf : TarDocument;
 begin
@@ -289,7 +289,7 @@ procedure TProcessDocList.ExecutePrint;
  var
   lCurrent : Integer;
 
- function lGetDocFunc(var aDocID : TGlobalCoordinateRec) : Boolean;
+ function lGetDocFunc(var aDocID : TdaGlobalCoordinateRec) : Boolean;
  begin
   Result := lCurrent < fDocsList.Count;
   if Result then

@@ -196,6 +196,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evReqRowImplementation
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *48D3BD0A02D7impl_uses*
+ //#UC END# *48D3BD0A02D7impl_uses*
 ;
 
 class function TevReq.Make(const aValue: InevPara): IevReq;

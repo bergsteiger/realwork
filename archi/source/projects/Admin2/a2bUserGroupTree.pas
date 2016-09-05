@@ -1,8 +1,26 @@
 unit a2bUserGroupTree;
 
-{ $Id: a2bUserGroupTree.pas,v 1.81 2016/06/10 11:43:34 lukyanets Exp $}
+{ $Id: a2bUserGroupTree.pas,v 1.87 2016/08/11 10:41:53 lukyanets Exp $}
 
 // $Log: a2bUserGroupTree.pas,v $
+// Revision 1.87  2016/08/11 10:41:53  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.86  2016/08/11 08:36:33  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.85  2016/08/09 11:51:14  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.84  2016/07/12 13:26:26  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.83  2016/06/23 13:10:47  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.82  2016/06/16 05:38:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.81  2016/06/10 11:43:34  lukyanets
 // Пересаживаем UserManager на новые рельсы
 //
@@ -341,7 +359,7 @@ type
   function pm_GetSDS: Ia2sdsAdmin;
   procedure BigBrotherOnNode(aNode: Il3SimpleNode);
   procedure EditNode(aNode: Il3SimpleNode);
-//  procedure UserStatusChange(UserId : TUserID; Active : Boolean);
+//  procedure UserStatusChange(UserId : TdaUserID; Active : Boolean);
   function Reposition(aRootNode: Il3SimpleNode): Il3SimpleNode;
   procedure SaveGroup(aGroup: Ia2UserGroupProfile; aGenerator: Ik2TagGenerator; aFormat: Ta2SaveFormat);
   procedure SaveUser(aUser: Ia2UserProfile; aGenerator: Ik2TagGenerator; aFormat: Ta2SaveFormat);
@@ -441,8 +459,6 @@ uses
  daUserManagerUtils,
 
  Dt_Const,
- DT_UserConst,
- Dt_User,
  DtSupport,
  Dt_Stage,
  DT_Serv,
@@ -567,7 +583,7 @@ begin
  if Supports(aNode, Ia2ProfileNode, l_PNode) and (nfGroup in l_PNode.Flags) then
  begin
   l_PNodeObj := Ta2ProfileNode((l_PNode as Il3NodeWrap).GetSelf);
-  UserManager.DelUserGroupByID(l_PNodeObj.Handle);
+  GlobalDataProvider.UserManager.DelUserGroup(l_PNodeObj.Handle);
   Result := True;
  end
  else
@@ -623,7 +639,7 @@ begin
  if Supports(aNode, Ia2ProfileNode, l_PNode) and not (nfGroup in l_PNode.Flags) then
  begin
   l_PNodeObj := Ta2ProfileNode((l_PNode as Il3NodeWrap).GetSelf);
-  UserManager.DelUser(TdaUserID(l_PNodeObj.Handle));
+  GlobalDataProvider.UserManager.DelUser(TdaUserID(l_PNodeObj.Handle));
   Result := True;
  end
  else
@@ -846,7 +862,7 @@ var
 
   lCurUsList := Tl3StringDataList.CreateSize(SizeOf(TDictID));
   try
-   UserManager.GetUserListOnGroup(aIndex, lCurUsList);
+   GlobalDataProvider.UserManager.GetUserListOnGroup(aIndex, lCurUsList);
    for I := 0 to lCurUsList.Count-1 do
    begin
     l_ID := lCurUsList.DataInt[I];
@@ -952,7 +968,7 @@ end;
 procedure Ta2UserGroupTree.SaveGroup(aGroup: Ia2UserGroupProfile; aGenerator: Ik2TagGenerator;
     aFormat: Ta2SaveFormat);
 var
- l_GroupID: TUserGrID;
+ l_GroupID: TdaUserGroupID;
  l_IsPlainText: Boolean;
  l_DocGroupList: Tl3StringDataList;
  l_GrIndexInUM: Integer;
@@ -961,7 +977,7 @@ var
  i, j, k, m: Integer;
 
  l_GrAction: Tl3IteratorAction;
- l_AccMask : TUGAccessMask;
+ l_AccMask : TdaUserGroupAccessMask;
  l_StageNames: array of string;
  l_GroupNo: Integer;
 
@@ -1103,7 +1119,7 @@ var
    // цикл по группам документов
      for I:= 0 to l_DocGroupList.Count-1 do
      begin
-      l_AccMask := PUGAccessMask(l_DocGroupList.Data[I])^;
+      l_AccMask := PdaUserGroupAccessMask(l_DocGroupList.Data[I])^;
       l_Flags := l_AccMask.Mask;
       if (NormalizeID(l_AccMask.ID) = c_DocGroupTypes[aGroupType]) and (l_Flags <> 0) then
       begin
@@ -1189,7 +1205,7 @@ var
    I : Integer;
    l_Bit : Integer;
   begin
-   l_AccMask := PUGAccessMask(l_DocGroupList.Data[AGroupNum])^;
+   l_AccMask := PdaUserGroupAccessMask(l_DocGroupList.Data[AGroupNum])^;
    l_GrType := NormalizeID(l_AccMask.ID);
    with aGenerator do
    begin
@@ -1297,8 +1313,8 @@ var
    J: Integer;
    N: Integer;
    I : Integer;
-   l_UserGrID: TUserGrID;
-   l_UserID: TUserID;
+   l_UserGrID: TdaUserGroupID;
+   l_UserID: TdaUserID;
   const
    ColNames: array[1..5] of string = (
     '№ п/п','ФИО','Группы','ID','ID Hex');
@@ -1346,7 +1362,7 @@ var
      begin
       for i:= 0 to GlobalDataProvider.UserManager.AllUsers.Count-1 do
       begin
-       l_UserID := PUserID(Data[I])^;
+       l_UserID := PdaUserID(Data[I])^;
        if (l_UserID <> usSupervisor) and (l_UserID <> usServerService) then
        begin
         if (aGroupID = -1) or (GlobalDataProvider.UserManager.IsMemberOfGroup(aGroupID, l_UserID)) then
@@ -1399,7 +1415,7 @@ var
             l_GrStr := '';
             for J := 0 to GlobalDataProvider.UserManager.AllGroups.Count-1 do
             begin
-             l_UserGrID := PUserGrID(GlobalDataProvider.UserManager.AllGroups.Data[J])^;
+             l_UserGrID := PdaUserGroupID(GlobalDataProvider.UserManager.AllGroups.Data[J])^;
              if GlobalDataProvider.UserManager.IsMemberOfGroup(l_UserGrID, l_UserID) then
               if (aGroupID = -1) or (l_UserGrID <> aGroupID) then
               begin
@@ -1542,14 +1558,14 @@ begin
   // цикл по различным видам групп документов
     l_DocGroupList := Tl3StringDataList.Create;
     try
-     UserManager.GetDocGroupData(l_GroupID, 1, l_DocGroupList);
+     GlobalDataProvider.UserManager.GetDocGroupData(l_GroupID, 1, l_DocGroupList);
      for k := 0 to 2 do
      begin
     // определим, есть ли вообще такие права и стоит ли их отображать
       l_GrTypeFound := 0;
       for i:= 0 to l_DocGroupList.Count-1 do
       begin
-       l_AccMask := PUGAccessMask(l_DocGroupList.Data[i])^;
+       l_AccMask := PdaUserGroupAccessMask(l_DocGroupList.Data[i])^;
        if (NormalizeID(l_AccMask.ID) = c_DocGroupTypes[k]) and (l_AccMask.Mask <> 0) then
        begin
         Inc(l_GrTypeFound);
@@ -1807,7 +1823,7 @@ begin
   BigBrotherOnNode(aNode); 
 end;
 (*
-procedure Ta2UserGroupTree.UserStatusChange(UserId : TUserID; Active : Boolean);
+procedure Ta2UserGroupTree.UserStatusChange(UserId : TdaUserID; Active : Boolean);
 
  function IterHandler(const CurNode: Il3Node): Boolean; far;
  var
@@ -1907,7 +1923,7 @@ begin
   begin
    l_User := Ta2UserProfile.Create;
    try
-    l_User.ID := TUserID(Handle);
+    l_User.ID := TdaUserID(Handle);
     l_User.Modified := True;
     (l_User as Ia2Persistent).Revert;
     f_Profile := l_User;

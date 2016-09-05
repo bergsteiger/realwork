@@ -37,6 +37,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47ACA26600BFimpl_uses*
+ //#UC END# *47ACA26600BFimpl_uses*
 ;
 
 type _Instance_R_ = Tl3InterfacePtrList;

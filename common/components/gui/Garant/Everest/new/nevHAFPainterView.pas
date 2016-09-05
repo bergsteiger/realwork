@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , nevBaseDetachedView
  , SysUtils
+ //#UC START# *481DB3AA03CDimpl_uses*
+ //#UC END# *481DB3AA03CDimpl_uses*
 ;
 
 constructor TnevHAFPainterView.Create(const aText: InevObjectList;

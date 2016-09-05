@@ -57,6 +57,8 @@ uses
  , arArchiTestsAdapter
  , dt_Types
  , SysUtils
+ //#UC START# *4E8EE51103C2impl_uses*
+ //#UC END# *4E8EE51103C2impl_uses*
 ;
 
 function TkwArchiNewEmptyDocument.DoWithFileName(const aCtx: TtfwContext): AnsiString;

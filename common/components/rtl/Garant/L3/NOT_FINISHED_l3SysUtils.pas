@@ -19,6 +19,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48C6811302CBimpl_uses*
+ //#UC END# *48C6811302CBimpl_uses*
 ;
 
 procedure l3IsRemoteSession;

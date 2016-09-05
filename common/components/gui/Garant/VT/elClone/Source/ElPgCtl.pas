@@ -11,9 +11,15 @@ unit ElPgCtl;
 {$INCLUDE elpack2.inc}
 {$I ElPack.inc}
 
-// $Id: ElPgCtl.pas,v 1.89 2015/10/09 14:48:36 kostitsin Exp $
+// $Id: ElPgCtl.pas,v 1.91 2016/08/23 11:46:38 kostitsin Exp $
 
 // $Log: ElPgCtl.pas,v $
+// Revision 1.91  2016/08/23 11:46:38  kostitsin
+// {requestlink: 624862173 }
+//
+// Revision 1.90  2016/08/04 11:32:46  morozov
+// {RequestLink: 624700597}
+//
 // Revision 1.89  2015/10/09 14:48:36  kostitsin
 // {requestlink: 604917289 } - инициализируем неинициализированное
 //
@@ -384,7 +390,7 @@ type
 
   TElStartDragControl = procedure (Sender: TObject; aDragControl: TControl) of Object;
 
-  TElTabSheet = class(TafwCustomCommonTextControl, IafwWeightListener)
+  TElTabSheet = class(TafwCustomCommonTextControl, IafwWeightListener{$IfDef Nemesis}, IafwFocusableControlParent{$EndIf Nemesis})
   private
   // messages
     procedure PMActivePrevPage(var Message : TMessage);
@@ -410,6 +416,9 @@ type
   // internal methods
     procedure NotifyPageChanged(const aActive : Boolean);
       {* - уведомить компоненты о смене закладки. "ћ. ћорозов"}
+    {$IfDef Nemesis}
+    function CanSetFocusToControl(aControl: TWinControl): Boolean;
+    {$EndIf Nemesis}
   protected
     FOnShow       : TNotifyEvent;
     FOnHide       : TNotifyEvent;
@@ -433,6 +442,9 @@ type
     FShowCloseButton: Boolean;
     FCloseBtnRect : TRect;
     FCloseBtnDown : boolean;
+    {$IfDef Nemesis}
+    FControlToFocus: TWinControl;
+    {$EndIf Nemesis}
     function GetClientOrigin: TPoint; override;
     procedure CMTextChanged(var Message: TMessage);
       message CM_TEXTCHANGED;
@@ -497,6 +509,9 @@ type
     procedure Cleanup;
       override;
       {-}
+    {$IfDef Nemesis}
+    procedure SetFocusToControl(aControl: TWinControl);
+    {$EndIf Nemesis}
   public
     constructor Create(AOwner: TComponent); override;
     procedure Notification(AComponent: TComponent; Operation: TOperation);
@@ -1058,9 +1073,9 @@ type
     procedure SaveHistory(const theHistory : IpcHistory);
       {* - сохран€ет активную закладку в истории. }
     {$IfNDef NoVCM}
-    function SaveState(out theState : IUnknown; aStateType   : TvcmStateType): Boolean;
+    function SaveState(out theState: IUnknown; aStateType: TvcmStateType): Boolean;
       {* - записываем текущее состо€ние. }
-    function LoadState(const aState : IUnknown; aStateType   : TvcmStateType): Boolean;
+    function LoadState(const aState: IUnknown; aStateType: TvcmStateType; aClone: Boolean): Boolean;
       {* - получаем значение из истории и кладем текущее состо€ние. }
     {$EndIf  NoVCM}
     {$EndIf Nemesis}
@@ -1528,6 +1543,14 @@ end;
 
 procedure TElTabSheet.TriggerShowEvent;
 begin
+  {$IfDef Nemesis}
+  if (FControlToFocus <> nil) and
+    FControlToFocus.CanFocus then
+  begin
+    FControlToFocus.SetFocus;
+    FControlToFocus := nil;
+  end;
+  {$EndIf Nemesis}
   if Assigned(FOnShow) then FOnShow(Self);
 end;
 
@@ -1795,6 +1818,22 @@ begin
  {$EndIf Nemesis}
 end;//NotifyPageChanged
 
+{$IfDef Nemesis}
+function TElTabSheet.CanSetFocusToControl(aControl: TWinControl): Boolean;
+
+ function lp_IsChildControl(aChildControl: TWinControl): boolean;
+ begin
+  Result := (aChildControl = Self);
+  if not Result then
+   Result := (aChildControl.Parent <> nil) and lp_IsChildControl(aChildControl.Parent);
+ end;
+
+begin
+ Result := lp_IsChildControl(aControl) and
+           ((Visible and Enabled) or (FPageControl.FActivePageForTimer = Self));
+end;
+{$EndIf Nemesis}
+
 procedure TElTabSheet.WeightChanged;
   {* - вес компонента был изменен, надо переразместить компоненты. }
 begin
@@ -2059,7 +2098,8 @@ end;
 
 {$IfNDef NoVCM}
 function TElCustomPageControl.LoadState(const aState: IUnknown;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
 var
  lHistory : IpcHistory;
 begin
@@ -10001,6 +10041,20 @@ function TElTabSheet.GetInheritedHint: string;
 begin
   Result := inherited Hint;
 end;
+
+{$IfDef Nemesis}
+procedure TElTabSheet.SetFocusToControl(aControl: TWinControl);
+begin
+ if CanSetFocusToControl(aControl) then
+ begin
+ if (FPageControl.FActivePageForTimer = Self) then
+  FControlToFocus := aControl
+ else
+  if aControl.CanFocus then
+   aControl.SetFocus;
+ end;
+end;
+{$EndIf Nemesis}
 
 procedure TEl2DFlatTab.AdjustDrawingSize(Active: boolean; var R: TRect);
 var

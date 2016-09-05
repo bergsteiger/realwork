@@ -51,6 +51,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *550AE937003Bimpl_uses*
+ //#UC END# *550AE937003Bimpl_uses*
 ;
 
 var g_Tl3TabService: Tl3TabService = nil;

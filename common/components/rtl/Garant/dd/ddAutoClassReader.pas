@@ -3,9 +3,12 @@ unit ddAutoClassReader;
 { Специальная читалка данных рубрицирования }
 
 
-{ $Id: ddAutoClassReader.pas,v 1.12 2007/09/28 05:35:51 narry Exp $ }
+{ $Id: ddAutoClassReader.pas,v 1.13 2016/06/16 05:40:04 lukyanets Exp $ }
 
 // $Log: ddAutoClassReader.pas,v $
+// Revision 1.13  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.12  2007/09/28 05:35:51  narry
 // - обновление
 //
@@ -67,7 +70,7 @@ Uses
 type
  TddAutoClassReader = class(Tk2CustomFileParser)
  private
-  f_Family: TFamilyID;
+  f_Family: TdaFamilyID;
   FTaskDate: TstDate;
   f_TopicList: Tl3LongintList;
   procedure SetTaskDate(const Value: TstDate);
@@ -76,7 +79,7 @@ type
  public
   constructor Create(aOwner: Tk2TagGeneratorOwner); override;
   procedure Read; override;
-  property Family: TFamilyID
+  property Family: TdaFamilyID
    read f_Family
    write f_Family;
   property TaskDate: TstDate read FTaskDate write SetTaskDate;

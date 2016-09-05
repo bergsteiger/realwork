@@ -196,7 +196,7 @@ begin
  if f_IsInfoShown and
     HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Cancel, aParams As IvcmExecuteParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Cancel, aParams As IvcmExecuteParams);
   finally
    l_Form := nil;
   end;
@@ -248,7 +248,7 @@ begin
  if f_IsInfoShown and
     HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmTestParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Ok, aParams As IvcmTestParams);
   finally
    l_Form := nil;
   end
@@ -271,7 +271,7 @@ begin
  if f_IsInfoShown and
     HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Ok, aParams As IvcmExecuteParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Ok, aParams As IvcmExecuteParams);
   finally
    l_Form := nil;
   end;//try..finally
@@ -299,7 +299,7 @@ begin
  if f_IsInfoShown and
     HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Append, aParams As IvcmTestParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Append, aParams As IvcmTestParams);
   finally
    l_Form := nil;
   end
@@ -322,7 +322,7 @@ begin
  if f_IsInfoShown and
     HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_ResultExt_Append, aParams As IvcmExecuteParams);
+   l_Form.Entity.Operation(opcode_ResultExt_Append, aParams As IvcmExecuteParams);
   finally
    l_Form := nil;
   end;

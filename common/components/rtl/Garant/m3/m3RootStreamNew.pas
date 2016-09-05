@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *54086C1B011Dimpl_uses*
+ //#UC END# *54086C1B011Dimpl_uses*
 ;
 
 class function Tm3RootStreamNew.HeaderID: TCLSID;

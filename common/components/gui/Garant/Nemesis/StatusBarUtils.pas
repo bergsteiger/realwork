@@ -64,6 +64,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *505DCE690055impl_uses*
+ //#UC END# *505DCE690055impl_uses*
 ;
 
 type _Instance_R_ = TnscStatusBarItemsList;

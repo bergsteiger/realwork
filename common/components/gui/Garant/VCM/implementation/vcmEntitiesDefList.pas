@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *559D24E403DEimpl_uses*
+ //#UC END# *559D24E403DEimpl_uses*
 ;
 
 type _Instance_R_ = TvcmEntitiesDefList;

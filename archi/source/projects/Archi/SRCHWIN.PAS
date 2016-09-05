@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.300 2016/06/03 09:24:39 fireton Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.303 2016/08/11 10:41:59 lukyanets Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -192,8 +192,8 @@ type
     procedure ExecGroupOperation(ADMode : TOperActionType);
     procedure TouchGroup;
     procedure SetSrchName(Value : AnsiString);
-    procedure SetFamily(Value : TFamilyID);
-    function  GetFamily : TFamilyID;
+    procedure SetFamily(Value : TdaFamilyID);
+    function  GetFamily : TdaFamilyID;
     function  GetModified : Boolean;
     procedure SetModified(aValue : Boolean);
     function  Copy   : Boolean; override;
@@ -232,7 +232,7 @@ type
     procedure FindButtonClick(Sender: TObject);
     procedure FindAgainButtonClick(Sender: TObject);
 
-    property  Family   : TFamilyID read GetFamily write SetFamily;
+    property  Family   : TdaFamilyID read GetFamily write SetFamily;
     property  SrchName : AnsiString read f_SrchName write SetSrchName;
     property  Modified : Boolean read GetModified write SetModified;
   end;
@@ -274,7 +274,7 @@ uses
  DT_DictConst,
  DT_SabHelp,
  DT_Renum, DT_Acces,
- DT_Log, DT_User, DT_Stage,
+ DT_Log, DT_Stage,
  DT_SrchQueries,
  Dt_QueryProvider,
  Dt_IFltr,
@@ -392,12 +392,12 @@ begin
  MainForm.OEWin.AddToExplorer(eotDocSet, '"' + f_SrchName + '"', Longint(Self));
 end;
 
-function  TSearchWin.GetFamily : TFamilyID;
+function  TSearchWin.GetFamily : TdaFamilyID;
 begin
  Result := DocList.Family;
 end;
 
-procedure TSearchWin.SetFamily(Value : TFamilyID);
+procedure TSearchWin.SetFamily(Value : TdaFamilyID);
 begin
  if DocList.Family = Value then Exit;
  DocList.Family := Value;
@@ -722,12 +722,12 @@ begin
  LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAttrWork);
 end;
 
-procedure AddToDenyList(aFamily: TFamilyID; aDocID: TDocID;{ aAssessItem : Longint;}
+procedure AddToDenyList(aFamily: TdaFamilyID; aDocID: TDocID;{ aAssessItem : Longint;}
     aList: Tl3StringDataList; aReqUserNames: Boolean = False; aIgnoredLockHandle : TJLHandle = -1);
 var
  l_Msg      : AnsiString;
  l_Station  : TStationNameArray;
- l_UserID   : TUserIDArray;
+ l_UserID   : TdaUserIDArray;
  l_UsersStr : AnsiString;
  I          : Integer;
  lImpId     : TDocID;
@@ -778,7 +778,8 @@ var
  var
   I : Cardinal;
  begin
-  if aIDList.Empty then Exit;
+  if not Assigned(aIDList) or aIDList.Empty then
+   Exit;
 
   if l_ErrWin = nil then
   begin

@@ -35,6 +35,8 @@ uses
  , tfwTypeModifier
  , tfwEnumConstantRegistrator
  , Graphics
+ //#UC START# *5527F8330362impl_uses*
+ //#UC END# *5527F8330362impl_uses*
 ;
 
 class function TtfwTypeRegistrator.RegisterType(aTypeInfo: PTypeInfo): Boolean;

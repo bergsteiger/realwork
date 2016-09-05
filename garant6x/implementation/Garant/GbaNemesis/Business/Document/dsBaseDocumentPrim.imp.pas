@@ -410,7 +410,7 @@ function _dsBaseDocumentPrim_.pm_GetIsActualRedation: Boolean;
 begin
 //#UC START# *491B2F1601B0_47EA20430108get_impl*
  if pm_GetHasDoc then
-  Result := TdmStdRes.IsCurEditionActual(DocInfo.Doc)
+  Result := TCommonService.Instance.IsCurEditionActual(DocInfo.Doc)
  else
   Result := False;
 //#UC END# *491B2F1601B0_47EA20430108get_impl*
@@ -448,7 +448,7 @@ function _dsBaseDocumentPrim_.Get_PreviewCaleeArea: TafwPreviewCaleeArea;
 //#UC END# *495894020347_47EA20430108get_var*
 begin
 //#UC START# *495894020347_47EA20430108get_impl*
- Result := DoGetPreviewCaleeArea;
+ Result := DoGet_PreviewCaleeArea;
 //#UC END# *495894020347_47EA20430108get_impl*
 end;//_dsBaseDocumentPrim_.Get_PreviewCaleeArea
 

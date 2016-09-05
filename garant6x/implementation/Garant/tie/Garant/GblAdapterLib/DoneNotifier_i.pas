@@ -34,6 +34,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *45FFCBD60196impl_uses*
+ //#UC END# *45FFCBD60196impl_uses*
 ;
 
 constructor DoneNotifier_i.Make(var servant: FolderNotifier_i);

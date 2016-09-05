@@ -39,6 +39,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *49BFC520008Aimpl_uses*
+ //#UC END# *49BFC520008Aimpl_uses*
 ;
 
 function Tm3DBProxyWriteStream.pm_GetIsNewVersion: Boolean;

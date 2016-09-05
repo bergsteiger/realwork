@@ -36,6 +36,8 @@ uses
  , l3String
  , SysUtils
  , l3Base
+ //#UC START# *55B0E7AD026Bimpl_uses*
+ //#UC END# *55B0E7AD026Bimpl_uses*
 ;
 
 var g_TtfwStandardDictionaries: TtfwStandardDictionaries = nil;

@@ -38,6 +38,8 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *523006F7004Aimpl_uses*
+ //#UC END# *523006F7004Aimpl_uses*
 ;
 
 constructor TkwEntityOperationPrim.Create(anEn: TvcmBaseEntitiesCollectionItem;

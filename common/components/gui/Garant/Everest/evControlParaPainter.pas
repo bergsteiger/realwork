@@ -55,6 +55,8 @@ uses
  , l3String
  , l3Defaults
  , Types
+ //#UC START# *4804CDA403CEimpl_uses*
+ //#UC END# *4804CDA403CEimpl_uses*
 ;
 
 procedure TevControlParaPainter.DrawImgListComponent(const aEditRect: Tl3SRect;

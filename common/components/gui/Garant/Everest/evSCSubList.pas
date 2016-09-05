@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *56558873036Bimpl_uses*
+ //#UC END# *56558873036Bimpl_uses*
 ;
 
 type _Instance_R_ = TevSCSubList;

@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , nevPersistentDocumentContainer
+ //#UC START# *48F89F4302E3impl_uses*
+ //#UC END# *48F89F4302E3impl_uses*
 ;
 
 function TevPersistentDataObjectEx.Holder: InevObjectHolder;

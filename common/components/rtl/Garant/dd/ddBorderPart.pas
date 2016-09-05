@@ -56,6 +56,8 @@ uses
  , Graphics
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *525E2AE802B2impl_uses*
+ //#UC END# *525E2AE802B2impl_uses*
 ;
 
 function TddBorderPart.pm_GetEnable: Boolean;

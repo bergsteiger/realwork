@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49228EF60100impl_uses*
+ //#UC END# *49228EF60100impl_uses*
 ;
 
 {$If NOT Defined(vcmUseProfilers)}

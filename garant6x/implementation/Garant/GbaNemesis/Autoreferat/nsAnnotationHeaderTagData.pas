@@ -69,6 +69,8 @@ uses
  , Document_Const
  , k2Tags
  , SysUtils
+ //#UC START# *4D6E0D500395impl_uses*
+ //#UC END# *4D6E0D500395impl_uses*
 ;
 
 constructor TnsAnnotationHeaderTagData.Create(anIndex: Integer;

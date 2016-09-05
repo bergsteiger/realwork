@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *54C4FE950098impl_uses*
+ //#UC END# *54C4FE950098impl_uses*
 ;
 
 function eeDirection2l3Direction(aDirection: TeeDirection): Tl3Direction;

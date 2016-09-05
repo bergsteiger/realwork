@@ -38,6 +38,7 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ , Admin_Services
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -73,7 +74,7 @@ procedure TPrimAdminMainForm.DoInit(aFromHistory: Boolean);
 begin
 //#UC START# *49803F5503AA_4AA518EB039C_impl*
  inherited;
- TdmStdRes.OpenUserList(Self);
+ TAdminService.Instance.OpenUserList(Self);
 //#UC END# *49803F5503AA_4AA518EB039C_impl*
 end;//TPrimAdminMainForm.DoInit
 {$IfEnd} // NOT Defined(NoVCM)

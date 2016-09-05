@@ -34,6 +34,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4829BB0F0179impl_uses*
+ //#UC END# *4829BB0F0179impl_uses*
 ;
 
 procedure TctAbstractEdit.DeleteToClipboard;

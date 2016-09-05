@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47D00CC20108impl_uses*
+ //#UC END# *47D00CC20108impl_uses*
 ;
 
 function nevL2PIA(Action: Pointer): Pointer;

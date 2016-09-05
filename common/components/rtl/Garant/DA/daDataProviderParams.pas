@@ -103,6 +103,8 @@ uses
  , evdNativeReader
  , k2DocumentBuffer
  , DataProviderParams_Const
+ //#UC START# *54F9A60200A8impl_uses*
+ //#UC END# *54F9A60200A8impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}

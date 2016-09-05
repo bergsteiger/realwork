@@ -49,6 +49,8 @@ implementation
 uses
  l3ImplUses
  , l3GraphicContainerStack
+ //#UC START# *48DD20E400C2impl_uses*
+ //#UC END# *48DD20E400C2impl_uses*
 ;
 
 procedure Tl3PrimGraphicContainer.StretchDraw(const R: Tl3Rect;

@@ -51,6 +51,8 @@ uses
  , k2Tags
  , k2Base
  , k2InterfaceFactory
+ //#UC START# *47F259A300DAimpl_uses*
+ //#UC END# *47F259A300DAimpl_uses*
 ;
 
 function FindNodeByTag(const Parent: InevNode;

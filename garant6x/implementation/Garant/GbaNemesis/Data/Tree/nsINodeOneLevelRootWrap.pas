@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , nsINodeOneLevelWrap
+ //#UC START# *468275C903C6impl_uses*
+ //#UC END# *468275C903C6impl_uses*
 ;
 
 function TnsINodeOneLevelRootWrap.GetChildNodeClass: RnsINodeWrap;

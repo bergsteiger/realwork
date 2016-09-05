@@ -31,6 +31,8 @@ uses
  , l3Memory
  , l3String
  , SysUtils
+ //#UC START# *52F4FAF80376impl_uses*
+ //#UC END# *52F4FAF80376impl_uses*
 ;
 
 constructor TtfwStringStreamFactory.Create(const aString: AnsiString);

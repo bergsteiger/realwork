@@ -63,6 +63,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *578CA6EC0255impl_uses*
+ //#UC END# *578CA6EC0255impl_uses*
 ;
 
 var g_TvcmAggregateContainerRegistry: TvcmAggregateContainerRegistry = nil;
@@ -160,10 +162,13 @@ var
 //#UC END# *578CC3C40049_578CA6EC0255_var*
 begin
 //#UC START# *578CC3C40049_578CA6EC0255_impl*
- l_Container := Pointer(aForm.NativeMainForm);
- if f_Map.Has(l_Container) then
-  f_Map.Delete(f_Map.IndexByKey(l_Container));
- f_Map.Add(l_Container, Pointer(aForm.Aggregate));
+ if (not (aForm.ZoneType in [vcm_ztModal, vcm_ztManualModal, vcm_ztSimpleFloat])) then
+ begin
+  l_Container := Pointer(aForm.NativeMainForm);
+  if f_Map.Has(l_Container) then
+   f_Map.Delete(f_Map.IndexByKey(l_Container));
+  f_Map.Add(l_Container, Pointer(aForm.Aggregate));
+ end;
 //#UC END# *578CC3C40049_578CA6EC0255_impl*
 end;//TvcmAggregateContainerRegistry.RegisterFormAggregate
 

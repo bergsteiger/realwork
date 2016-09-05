@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *482D6E3B02A3impl_uses*
+ //#UC END# *482D6E3B02A3impl_uses*
 ;
 
 procedure TevCustomTxtReader.DoText(aText: Tl3String);

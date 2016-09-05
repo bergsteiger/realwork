@@ -71,6 +71,8 @@ uses
  , nevNodeView
  , nevTools
  , l3Units
+ //#UC START# *5645E9920077impl_uses*
+ //#UC END# *5645E9920077impl_uses*
 ;
 
 function TnsDocumentWithSnippetNode.pm_GetTag: Tl3Tag;

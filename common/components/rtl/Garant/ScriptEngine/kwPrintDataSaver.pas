@@ -91,6 +91,8 @@ uses
  , l3FileUtils
  , Windows
  , l3Base
+ //#UC START# *4F72AE860228impl_uses*
+ //#UC END# *4F72AE860228impl_uses*
 ;
 
 var g_TkwPrintDataSaver: TkwPrintDataSaver = nil;

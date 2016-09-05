@@ -42,6 +42,8 @@ implementation
 uses
  l3ImplUses
  , tfwMainDictionaryWordsPack
+ //#UC START# *55A0005D02CCimpl_uses*
+ //#UC END# *55A0005D02CCimpl_uses*
 ;
 
 procedure TtfwMainDictionary.pm_SetCompiledCode(aValue: TtfwWord);

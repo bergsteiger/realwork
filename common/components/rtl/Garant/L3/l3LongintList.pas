@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , l3Memory
+ //#UC START# *47BB29D40117impl_uses*
+ //#UC END# *47BB29D40117impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3ListOperations.imp.pas}

@@ -29,6 +29,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4F212BA80137impl_uses*
+ //#UC END# *4F212BA80137impl_uses*
 ;
 
 procedure TkwObjectFromStackWord.DoDoIt(const aCtx: TtfwContext);

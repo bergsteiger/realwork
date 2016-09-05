@@ -55,6 +55,8 @@ uses
  , m2COMLib
  , ActiveX
  , m3Exceptions
+ //#UC START# *540854CA0131impl_uses*
+ //#UC END# *540854CA0131impl_uses*
 ;
 
 class function Tm3StoreHeaderDataNew.DataSize: Integer;

@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4F5CBEC30305impl_uses*
+ //#UC END# *4F5CBEC30305impl_uses*
 ;
 
 var g_Tl3CEmptyString: Tl3CEmptyString = nil;

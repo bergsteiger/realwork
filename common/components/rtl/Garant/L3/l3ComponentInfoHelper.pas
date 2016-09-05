@@ -107,6 +107,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3RTTI
  , l3Base
+ //#UC START# *4F72CAA90045impl_uses*
+ //#UC END# *4F72CAA90045impl_uses*
 ;
 
 {$If NOT Defined(NoVCL)}
@@ -320,6 +322,20 @@ procedure Tl3ComponentInfoHelper.GetMessageListenerNotify(Code: Integer;
  Msg: PMsg;
  var theResult: Tl3HookProcResult);
 //#UC START# *4F62032D0058_4F72CAA90045_var*
+
+ function lp_ShiftState: TShiftState;
+ begin
+  Result := [];
+  if GetAsyncKeyState(VK_SHIFT) < 0 then Result := Result + [ssShift];
+  if GetAsyncKeyState(VK_CONTROL) < 0 then Result := Result + [ssCtrl];
+  if GetAsyncKeyState(VK_MENU) < 0 then Result := Result + [ssAlt];
+ end;
+
+ function lp_CheckHotKey: Boolean;
+ begin
+  Result := ([ssShift, ssAlt, ssCtrl] * lp_ShiftState = [ssShift, ssAlt, ssCtrl])
+ end;
+
 var
  l_Component: TComponent;
  l_Control: TControl;
@@ -328,7 +344,7 @@ var
 begin
 //#UC START# *4F62032D0058_4F72CAA90045_impl*
  l_Control := nil;
- if ([ssShift, ssAlt, ssCtrl] * KeyboardStateToShiftState = [ssShift, ssAlt, ssCtrl]) then
+ if lp_CheckHotKey then
  begin
   if (Msg.Message = WM_LBUTTONDOWN) or (Msg.Message = WM_RBUTTONDOWN) then
   begin

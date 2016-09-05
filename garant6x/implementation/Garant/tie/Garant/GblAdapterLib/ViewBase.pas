@@ -61,6 +61,8 @@ uses
  , DelegateNodeBase
  , RealNodeBase
  , ApplicationHelper
+ //#UC START# *45F57B6C0128impl_uses*
+ //#UC END# *45F57B6C0128impl_uses*
 ;
 
 type

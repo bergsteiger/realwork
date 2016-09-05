@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , tfwScriptingInterfaces
  , l3Memory
+ //#UC START# *559F840D0179impl_uses*
+ //#UC END# *559F840D0179impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

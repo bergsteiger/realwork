@@ -43,6 +43,8 @@ uses
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
+ //#UC START# *4B220C2B001Fimpl_uses*
+ //#UC END# *4B220C2B001Fimpl_uses*
 ;
 
 type _Instance_R_ = TdBaseDocument;

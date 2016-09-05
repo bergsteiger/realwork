@@ -49,6 +49,8 @@ uses
  , l3Base
  , RTLConsts
  , SysUtils
+ //#UC START# *4AB37C3E00BAimpl_uses*
+ //#UC END# *4AB37C3E00BAimpl_uses*
 ;
 
 type _Instance_R_ = Tm4WordIDStr;

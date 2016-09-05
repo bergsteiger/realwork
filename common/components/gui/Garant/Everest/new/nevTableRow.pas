@@ -46,6 +46,8 @@ uses
  , l3UnitsTools
  , evTableCellUtils
  , k2Const
+ //#UC START# *48CE2103031Cimpl_uses*
+ //#UC END# *48CE2103031Cimpl_uses*
 ;
 
 class function TnevTableRow.Make(aTag: Tl3Variant): InevTableRow;

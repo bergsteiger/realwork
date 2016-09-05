@@ -50,7 +50,6 @@
 {$Define NoVGScene}
 {$Define NoVCM}
 {.$DEFINE ForRegion}
-{.$Define DBver134}
 
 {$DEFINE evCalcSubFlags}
 {$DEFINE arAttrInEVD} // можно удалить

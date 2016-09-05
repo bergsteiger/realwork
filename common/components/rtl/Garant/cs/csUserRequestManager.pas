@@ -1,7 +1,10 @@
 unit csUserRequestManager;
-{ $Id: csUserRequestManager.pas,v 1.11 2016/05/24 08:25:40 lukyanets Exp $ }
+{ $Id: csUserRequestManager.pas,v 1.12 2016/08/24 12:51:32 lukyanets Exp $ }
 
 // $Log: csUserRequestManager.pas,v $
+// Revision 1.12  2016/08/24 12:51:32  lukyanets
+// √отовимс€ запрашивать сервер о получении текста документа.
+//
 // Revision 1.11  2016/05/24 08:25:40  lukyanets
 // Cleanup
 //
@@ -305,11 +308,12 @@ uses
   SysUtils, Windows, Messages, Classes, Graphics, Controls,
   Forms, Dialogs,
   l3Base,
-  dt_Types, 
+  dt_Types,
   CSClient, CSNotification, CsQueryTypes,
   csProcessTask, CsDataPipe, l3Types,
   l3ObjectRefList, ddCalendarEvents,
   csTaskTypes, csServerTaskTypes, csTaskRequest, csClientCommandsManager,
+  ncsMessageInterfaces,
   Menus, l3ProtoObject
   ,
   ddClientMessageList
@@ -364,6 +368,7 @@ type
    procedure DoServerStatusChanged; virtual;
    procedure AfterTaskSended(aTask: TddProcessTask); virtual;
    function NeedExecuteInMainThreadService: Boolean; virtual;
+   function MakeTransporter(aQueryID: TCsQueryId): IncsClientTransporter;
   public
    constructor Create; virtual;
    procedure RequestTerminateCommunication; virtual;
@@ -415,7 +420,7 @@ Uses
  csServerStatusRequest, csRequestTask,
  l3FileUtils,
  csCommandsManager, l3Stream,
- ncsCompatibilityClientTransporter, ncsTaskSendReg, ncsMessageInterfaces, ncsSendTask,
+ ncsCompatibilityClientTransporter, ncsTaskSendReg, ncsSendTask,
  ncsSendTaskReply, ncsMessage, ncsTaskSendExecutorFactory, ncsMessageExecutorFactory,
  ncsSynchroCompatibilityClientTransporter,
  csClientMessageRequest,
@@ -866,6 +871,7 @@ var
  l_Message: TncsSendTask;
  l_Reply: TncsMessage;
  l_Stream: TStream;
+ l_ComStream: IStream;
  l_ExecutorFactory: IncsMessageExecutorFactory;
 begin
  // „тобы сгенерить и послать правильный TaskID на сервер
@@ -874,11 +880,7 @@ begin
  if not CSClient.IsStarted then
   Exit;
 
-{$IFDEF csSynchroTransport}
- l_Transporter := TncsSynchroCompatibilityClientTransporter.Make(qtalcuSendTask);
-{$ELSE csSynchroTransport}
- l_Transporter := TncsCompatibilityClientTransporter.Make(qtalcuSendTask);
-{$ENDIF csSynchroTransport}
+ l_Transporter := MakeTransporter(qtalcuSendTask);
  try
   l_Transporter.Connect(CSClient.ServerIp, CSClient.ServerPort, l3CreateStringGUID);
   try
@@ -886,13 +888,16 @@ begin
     Exit;
    l_Message := TncsSendTask.Create;
    try
-    l_Stream := Tl3MemoryStream.Make;
+    l_ComStream := l_Message.Data as IStream;
     try
-     aTask.SaveToEVD(l_Stream, nil);
-     l_Stream.Seek(0, soBeginning);
-     l_Message.Data.CopyFrom(l_Stream, l_Stream.Size);
+     l3IStream2Stream(l_ComStream, l_Stream);
+     try
+      aTask.SaveToEVD(l_Stream, nil);
+     finally
+      FreeAndNil(l_Stream);
+     end;
     finally
-     FreeAndNil(l_Stream);
+     l_ComStream := nil;
     end;
     if aTask.HasFilesToTransfer then
      l_ExecutorFactory := TncsTaskSendExecutorFactory.Make(aTask)
@@ -936,6 +941,16 @@ end;
 function TcsUserRequestManager.NeedExecuteInMainThreadService: Boolean;
 begin
  Result := True;
+end;
+
+function TcsUserRequestManager.MakeTransporter(
+  aQueryID: TCsQueryId): IncsClientTransporter;
+begin
+ {$IFDEF csSynchroTransport}
+  Result := TncsSynchroCompatibilityClientTransporter.Make(aQueryID);
+ {$ELSE csSynchroTransport}
+  Result := TncsCompatibilityClientTransporter.Make(aQueryID);
+ {$ENDIF csSynchroTransport}
 end;
 
 initialization

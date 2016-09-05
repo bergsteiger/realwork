@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4B8549760232impl_uses*
+ //#UC END# *4B8549760232impl_uses*
 ;
 
 procedure TNSRCtoMemoryTest.DoIt;

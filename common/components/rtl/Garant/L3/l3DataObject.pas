@@ -75,6 +75,8 @@ uses
  , l3Base
  , SysUtils
  , ShlObj
+ //#UC START# *4680F5AA0274impl_uses*
+ //#UC END# *4680F5AA0274impl_uses*
 ;
 
 constructor Tl3DataObject.Create(const aFormats: Tl3ClipboardFormats);

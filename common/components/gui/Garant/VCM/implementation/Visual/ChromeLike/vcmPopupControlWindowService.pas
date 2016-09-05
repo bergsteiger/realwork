@@ -38,6 +38,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , l3Base
+ //#UC START# *5587AAF10290impl_uses*
+ //#UC END# *5587AAF10290impl_uses*
 ;
 
 var g_TvcmPopupControlWindowService: TvcmPopupControlWindowService = nil;

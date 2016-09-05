@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4D5BE28703A0impl_uses*
+ //#UC END# *4D5BE28703A0impl_uses*
 ;
 
 function TK253668417.GetEnablePictures: Boolean;

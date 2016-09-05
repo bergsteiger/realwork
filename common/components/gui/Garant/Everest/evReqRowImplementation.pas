@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *56123C590233impl_uses*
+ //#UC END# *56123C590233impl_uses*
 ;
 
 procedure TevReqRowImplementation.DoCloneSegments(const aOldRow: Tl3Variant;

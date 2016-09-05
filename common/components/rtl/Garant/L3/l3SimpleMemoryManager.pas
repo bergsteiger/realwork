@@ -56,6 +56,8 @@ uses
  , l3MemUtils
  , l3ExceptionsLog
  , SysUtils
+ //#UC START# *5453AE0C0100impl_uses*
+ //#UC END# *5453AE0C0100impl_uses*
 ;
 
 function Tl3SimpleMemoryManager.CanFreeBlocks: Boolean;

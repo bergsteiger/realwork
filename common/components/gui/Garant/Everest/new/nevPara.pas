@@ -65,6 +65,8 @@ uses
  , ParaList_Const
  , k2Base
  , k2NullTagImpl
+ //#UC START# *48CE0B5703B5impl_uses*
+ //#UC END# *48CE0B5703B5impl_uses*
 ;
 
 class function TnevPara.Make(aTag: Tl3Variant): InevParaInternal;

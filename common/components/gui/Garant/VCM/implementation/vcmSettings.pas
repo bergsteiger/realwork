@@ -4,9 +4,12 @@ unit vcmSettings;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmSettings -   }
 { Начат: 31.07.2003 14:27 }
-{ $Id: vcmSettings.pas,v 1.126 2015/02/26 09:29:06 kostitsin Exp $ }
+{ $Id: vcmSettings.pas,v 1.127 2016/08/20 18:29:18 kostitsin Exp $ }
 
 // $Log: vcmSettings.pas,v $
+// Revision 1.127  2016/08/20 18:29:18  kostitsin
+// {requestlink: 444236338 }
+//
 // Revision 1.126  2015/02/26 09:29:06  kostitsin
 // List*ner -> Listener
 //
@@ -578,7 +581,16 @@ procedure vcmSaveToolbarAction(const aUtName : AnsiString;
                                anEnabled     : Boolean;
                                anIndex       : Cardinal = High(Cardinal);
                                aNeedSep      : Boolean = false;
-                               aIconText     : Boolean = false);
+                               aIconText     : Boolean = false); overload;
+  {-}
+procedure vcmSaveToolbarAction(const aUtName : AnsiString;
+                               const aTbName : AnsiString;
+                               anEntityName  : AnsiString;
+                               anOpName      : AnsiString;
+                               anEnabled     : Boolean;
+                               anIndex       : Cardinal = High(Cardinal);
+                               aNeedSep      : Boolean = false;
+                               aIconText     : Boolean = false); overload;
   {-}
 procedure vcmSaveToolbarPos(const aUtName : AnsiString;
                             const aTbName : AnsiString;
@@ -967,86 +979,94 @@ procedure vcmSaveToolbarAction(const aUtName : AnsiString;
                                anEnabled     : Boolean;
                                anIndex       : Cardinal = High(Cardinal);
                                aNeedSep      : Boolean = false;
-                               aIconText     : Boolean = false);
-  {-}
+                               aIconText     : Boolean = false); overload;
 {$IfDef vcmUseSettings}
 var
- l_Name   : AnsiString;
- l_OpName : AnsiString;
-{$EndIf vcmUseSettings}
+ l_Name, l_OpName: AnsiString;
+{$endif}
 begin
- {$IfDef vcmUseSettings}
+{$IfDef vcmUseSettings}
+ if (anAction <> nil) then
+ begin
+  if (anAction is TvcmEntityAction) then
+  begin
+   l_Name := TvcmEntityAction(anAction).EntityDef.Name;
+   l_OpName := TvcmEntityAction(anAction).OpDef.Name;
+  end else
+  if (anAction is TvcmModuleAction) then
+  begin
+   l_Name := g_Dispatcher.GetModuleByID(TvcmModuleAction(anAction).ModuleID).ModuleDef.Name;
+   l_OpName := TvcmModuleAction(anAction).OpDef.Name;
+  end;
+  vcmSaveToolbarAction(aUtName, aTbName, l_Name, l_OpName, anEnabled, anIndex, aNeedSep, aIconText);
+ end;
+{$endif}
+end;
+
+procedure vcmSaveToolbarAction(const aUtName : AnsiString;
+                               const aTbName : AnsiString;
+                               anEntityName  : AnsiString;
+                               anOpName      : AnsiString;
+                               anEnabled     : Boolean;
+                               anIndex       : Cardinal = High(Cardinal);
+                               aNeedSep      : Boolean = false;
+                               aIconText     : Boolean = false); overload;
+  {-}
+begin
+{$IfDef vcmUseSettings}
  if Assigned(afw.Application.Settings) then
  begin
-  if (anAction <> nil) then
-  begin
-   if (anAction Is TvcmEntityAction) then
-   begin
-    with TvcmEntityAction(anAction).EntityDef do
-     l_Name := Name;
-    with TvcmEntityAction(anAction).OpDef do
-     l_OpName := Name;
-   end
-   else if (anAction Is TvcmModuleAction) then
-   begin
-    with g_Dispatcher.GetModuleByID(TvcmModuleAction(anAction).ModuleID).ModuleDef do
-     l_Name := Name;
-    with TvcmModuleAction(anAction).OpDef do
-     l_OpName := Name;
-   end else
-    Exit;
-   vcmSaveBoolParamS([
-                      vcmPathPair(aUtName),
-                      cToolbars,
-                      vcmPathPair(aTbName),
-                      cDefaultOperations
-                     ],
-                     false);
-   vcmSaveBoolParamS([
+  vcmSaveBoolParamS([
                      vcmPathPair(aUtName),
                      cToolbars,
                      vcmPathPair(aTbName),
-                     cVisible
+                     cDefaultOperations
                     ],
-                     true);
-   vcmSaveBoolParamS([
-                     vcmPathPair(aUtName),
-                     cToolbars,
-                     vcmPathPair(aTbName),
-                     vcmPathPair(l_Name),
-                     vcmPathPair(l_OpName)
-                    ],
-                     anEnabled);
-   vcmSaveCardinalParamS([
-                         vcmPathPair(aUtName),
-                         cToolbars,
-                         vcmPathPair(aTbName),
-                         vcmPathPair(l_Name),
-                         vcmPathPair(l_OpName),
-                         cPosition
-                        ],
-                        anIndex);
-   vcmSaveBoolParamS([
-                     vcmPathPair(aUtName),
-                     cToolbars,
-                     vcmPathPair(aTbName),
-                     vcmPathPair(l_Name),
-                     vcmPathPair(l_OpName),
-                     cNeedSep
-                    ],
-                    aNeedSep);
-   vcmSaveBoolParamS([
-                     vcmPathPair(aUtName),
-                     cToolbars,
-                     vcmPathPair(aTbName),
-                     vcmPathPair(l_Name),
-                     vcmPathPair(l_OpName),
-                     cIconText
-                    ],
-                    aIconText);
-  end;//anAction <> nil
- end;//g_Dispatcher <> nil..
- {$EndIf vcmUseSettings}
+                    false);
+  vcmSaveBoolParamS([
+                    vcmPathPair(aUtName),
+                    cToolbars,
+                    vcmPathPair(aTbName),
+                    cVisible
+                   ],
+                    true);
+  vcmSaveBoolParamS([
+                    vcmPathPair(aUtName),
+                    cToolbars,
+                    vcmPathPair(aTbName),
+                    vcmPathPair(anEntityName),
+                    vcmPathPair(anOpName)
+                   ],
+                    anEnabled);
+  vcmSaveCardinalParamS([
+                        vcmPathPair(aUtName),
+                        cToolbars,
+                        vcmPathPair(aTbName),
+                        vcmPathPair(anEntityName),
+                        vcmPathPair(anOpName),
+                        cPosition
+                       ],
+                       anIndex);
+  vcmSaveBoolParamS([
+                    vcmPathPair(aUtName),
+                    cToolbars,
+                    vcmPathPair(aTbName),
+                    vcmPathPair(anEntityName),
+                    vcmPathPair(anOpName),
+                    cNeedSep
+                   ],
+                   aNeedSep);
+  vcmSaveBoolParamS([
+                    vcmPathPair(aUtName),
+                    cToolbars,
+                    vcmPathPair(aTbName),
+                    vcmPathPair(anEntityName),
+                    vcmPathPair(anOpName),
+                    cIconText
+                   ],
+                   aIconText);
+ end;
+{$EndIf vcmUseSettings}
 end;
 
 procedure vcmSaveToolbarPos(const aUtName : AnsiString;

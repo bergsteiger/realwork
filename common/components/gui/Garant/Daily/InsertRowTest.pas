@@ -42,6 +42,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4CAAC9D601A2impl_uses*
+ //#UC END# *4CAAC9D601A2impl_uses*
 ;
 
 procedure TInsertRowTest.Process(aForm: TPrimTextLoadForm);

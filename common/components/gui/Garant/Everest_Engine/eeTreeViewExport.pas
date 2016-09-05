@@ -95,7 +95,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function LoadState(const theState: IUnknown;
-    aStateType: TvcmStateType): Boolean;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure GetStatusInfo(out theString: IafwCString;
     out theNeedProgress: Boolean);
@@ -518,13 +519,14 @@ end;//TeeTreeViewExportPrim.SaveState
 
 {$If NOT Defined(NoVCM)}
 function TeeTreeViewExportPrim.LoadState(const theState: IUnknown;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
 //#UC START# *4683E79D0331_531DB14D03CC_var*
 //#UC END# *4683E79D0331_531DB14D03CC_var*
 begin
 //#UC START# *4683E79D0331_531DB14D03CC_impl*
 {$If not defined(DesignTimeLibrary)}
- Result := DoLoadState(theState, aStateType, False);
+ Result := DoLoadState(theState, aStateType, aClone);
 {$ifend}
 //#UC END# *4683E79D0331_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.LoadState
@@ -624,7 +626,11 @@ function TeeTreeViewExportPrim.SaveStateForClone(out theState: IUnknown;
 //#UC END# *55DC1CFE018D_531DB14D03CC_var*
 begin
 //#UC START# *55DC1CFE018D_531DB14D03CC_impl*
+ {$IfNDef DesignTimeLibrary}
  Result := DoSaveState(theState, aStateType, True);
+ {$Else}
+ Result := false;
+ {$EndIf}
 //#UC END# *55DC1CFE018D_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.SaveStateForClone
 {$IfEnd} // NOT Defined(NoVCM)
@@ -637,7 +643,9 @@ function TeeTreeViewExportPrim.LoadCloneState(const aState: IUnknown;
 begin
 //#UC START# *55DC1D21005D_531DB14D03CC_impl*
  f_LoadingCloneState := True;
+ {$IfNDef DesignTimeLibrary}
  DoLoadState(aState, aStateType, True);
+ {$EndIf}
  f_LoadingCloneState := False; 
 //#UC END# *55DC1D21005D_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.LoadCloneState

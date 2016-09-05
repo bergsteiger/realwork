@@ -233,6 +233,7 @@ uses
  , dsTranslation
  , dsRelatedDoc
  , dsChronology
+ , Common_F1CommonServices_Contracts
  , dsAttributes
  , Windows
  {$If NOT Defined(NoVCM)}
@@ -243,6 +244,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , afwSettingsChangePublisher
  , WarningUserTypes_Warning_UserType
+ //#UC START# *4FF2E6B003C4impl_uses*
+ //#UC END# *4FF2E6B003C4impl_uses*
 ;
 
 constructor TdeAAC.Create(const aDeDocInfo: IdeDocInfo;

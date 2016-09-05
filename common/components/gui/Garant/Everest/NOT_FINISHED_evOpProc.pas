@@ -129,6 +129,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F351BC0145impl_uses*
+ //#UC END# *47F351BC0145impl_uses*
 ;
 
 procedure TevCustomProcessor.BeepOnParaLimit;

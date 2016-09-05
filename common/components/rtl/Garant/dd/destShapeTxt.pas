@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5461C20002DFimpl_uses*
+ //#UC END# *5461C20002DFimpl_uses*
 ;
 
 procedure TdestShapeTxt.Apply2Shape(aState: TddRTFState;

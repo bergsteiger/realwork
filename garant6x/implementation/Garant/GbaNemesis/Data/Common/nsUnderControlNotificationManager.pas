@@ -66,6 +66,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *55D429A70008impl_uses*
+ //#UC END# *55D429A70008impl_uses*
 ;
 
 var g_TnsUnderControlNotificationManager: TnsUnderControlNotificationManager = nil;

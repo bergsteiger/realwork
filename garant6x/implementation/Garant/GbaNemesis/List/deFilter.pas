@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , SysUtils
  , BaseTypesUnit
+ //#UC START# *4923ECA602AEimpl_uses*
+ //#UC END# *4923ECA602AEimpl_uses*
 ;
 
 constructor TdeFilter.Create(const aFilter: IFilterFromQuery);

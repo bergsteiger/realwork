@@ -56,6 +56,8 @@ uses
  , l3Chars
  , SysUtils
  , m3Exceptions
+ //#UC START# *54219331013Fimpl_uses*
+ //#UC END# *54219331013Fimpl_uses*
 ;
 
 procedure Tm3TOCHandle.pm_SetHandleName(aValue: Tl3_String);

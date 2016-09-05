@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , l3String
  , tfwStandardDictionary
+ //#UC START# *55B0EFA300D1impl_uses*
+ //#UC END# *55B0EFA300D1impl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = TtfwStandardDictionary;{$IfEnd}

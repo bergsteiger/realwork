@@ -15,6 +15,7 @@ uses
  , EditionsInterfaces
  , DocumentUnit
  , eeInterfaces
+ , Base_Operations_F1Services_Contracts
 ;
 
 type
@@ -31,6 +32,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4A7FD7E9035Cimpl_uses*
+ //#UC END# *4A7FD7E9035Cimpl_uses*
 ;
 
 class function TnsEditionDiffData.Make(const aDoc: IDocument;

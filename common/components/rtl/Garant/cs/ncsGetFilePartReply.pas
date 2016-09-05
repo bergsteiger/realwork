@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , csGetFilePartReply_Const
+ //#UC START# *547583540319impl_uses*
+ //#UC END# *547583540319impl_uses*
 ;
 
 function TncsGetFilePartReply.pm_GetIsSuccess: Boolean;

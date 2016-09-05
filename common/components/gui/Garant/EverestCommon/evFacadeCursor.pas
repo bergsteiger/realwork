@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , nevTools
+ //#UC START# *48EEE8A503ABimpl_uses*
+ //#UC END# *48EEE8A503ABimpl_uses*
 ;
 
 function evGetMostInnerPos(anEditor: TevCustomEditorWindow): Integer;

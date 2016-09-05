@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , K294595323Suite
+ //#UC START# *4EA5382F006Aimpl_uses*
+ //#UC END# *4EA5382F006Aimpl_uses*
 ;
 
 class function TK294595323.Suite: ITestSuite;

@@ -52,6 +52,8 @@ uses
  , SysUtils
  , l3Except
  , TestFrameWork
+ //#UC START# *4BACDDB500CEimpl_uses*
+ //#UC END# *4BACDDB500CEimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

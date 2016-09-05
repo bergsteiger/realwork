@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , SysUtils
  , TestFrameWork
+ //#UC START# *4E847D990353impl_uses*
+ //#UC END# *4E847D990353impl_uses*
 ;
 
 procedure THTMLtoEVDWriterTest.HTMLtoEVD(const aFileName: AnsiString);

@@ -33,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *54218C200328impl_uses*
+ //#UC END# *54218C200328impl_uses*
 ;
 
 constructor Tm3CommonStorageStream.Create(anAccess: Tm3StoreAccess;

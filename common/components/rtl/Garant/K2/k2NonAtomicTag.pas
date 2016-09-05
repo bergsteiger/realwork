@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *532080BB027Aimpl_uses*
+ //#UC END# *532080BB027Aimpl_uses*
 ;
 
 function Tk2NonAtomicTag.GetIsOrd: Boolean;

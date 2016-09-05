@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , SysUtils
  , ddTypes
+ //#UC START# *51DD4D00025Bimpl_uses*
+ //#UC END# *51DD4D00025Bimpl_uses*
 ;
 
 procedure TdestListOverrideTable.AddListOverride(aListOverride: TdestListoverride);

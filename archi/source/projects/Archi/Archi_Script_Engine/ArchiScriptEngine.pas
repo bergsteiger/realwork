@@ -48,6 +48,8 @@ uses
  {$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
  , kwCommonArchiWords
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
+ //#UC START# *4DE34290028Fimpl_uses*
+ //#UC END# *4DE34290028Fimpl_uses*
 ;
 
 {$If NOT Defined(NoScripts)}

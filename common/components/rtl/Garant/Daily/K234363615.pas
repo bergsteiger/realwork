@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4C9352DE031Dimpl_uses*
+ //#UC END# *4C9352DE031Dimpl_uses*
 ;
 
 function TK234363615.DoSelect(aText: TevCustomEditorWindow;

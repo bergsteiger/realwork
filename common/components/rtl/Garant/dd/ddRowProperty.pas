@@ -92,6 +92,8 @@ uses
  l3ImplUses
  , l3Base
  , ddCellProperty
+ //#UC START# *518A10050368impl_uses*
+ //#UC END# *518A10050368impl_uses*
 ;
 
 procedure TddRowProperty.pm_SetAutoFit(aValue: Boolean);

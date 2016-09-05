@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4F29376B00C7impl_uses*
+ //#UC END# *4F29376B00C7impl_uses*
 ;
 
 {$If NOT Defined(NoVCL)}

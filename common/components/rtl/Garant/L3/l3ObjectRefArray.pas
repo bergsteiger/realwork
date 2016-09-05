@@ -28,6 +28,8 @@ uses
  , l3Base
  , l3ProtoObject
  , l3Memory
+ //#UC START# *4773DD5501E3impl_uses*
+ //#UC END# *4773DD5501E3impl_uses*
 ;
 
 type _Instance_R_ = Tl3ObjectRefArray;

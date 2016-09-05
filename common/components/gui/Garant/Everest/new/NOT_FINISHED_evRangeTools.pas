@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4A23BF6402DAimpl_uses*
+ //#UC END# *4A23BF6402DAimpl_uses*
 ;
 
 procedure evCompareBlocks;

@@ -32,6 +32,8 @@ uses
  , nevTools
  , Table_Const
  , nevBase
+ //#UC START# *48EEF9D8031Aimpl_uses*
+ //#UC END# *48EEF9D8031Aimpl_uses*
 ;
 
 function evInvalidatePara(aPara: Tl3Variant): Boolean;

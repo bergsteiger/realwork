@@ -88,6 +88,8 @@ uses
  , evExcept
  , nevInterfaces
  , SysUtils
+ //#UC START# *4A2D2D5D0114impl_uses*
+ //#UC END# *4A2D2D5D0114impl_uses*
 ;
 
 procedure TevCursorPair.GetBlockBorders;
@@ -441,6 +443,15 @@ begin
       finally
        l_FoundBlock := nil;
       end;//try..finally
+      begin
+      // - тут чинили зацикливание автопростановки ссылок
+       if (l_Start.Compare(l_Finish) > 0) then
+        l_Finish.AssignPoint(aConfirm.View, l_Start)
+       else
+       if (l_Start.Compare(l_Finish) = 0) then
+        l_Finish.MostInner.SetAtEnd(aConfirm.View, true);
+        // - вот это вызывает вопросы - не перестанем ли мы где-то находить пустые параграфы
+      end;
       l_Cursor.AssignPoint(aConfirm.View, l_Finish);
      finally
       l_Start := nil;

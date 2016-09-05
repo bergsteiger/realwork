@@ -98,6 +98,8 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ //#UC START# *49EC547C001Bimpl_uses*
+ //#UC END# *49EC547C001Bimpl_uses*
 ;
 
 type _Instance_R_ = TdsGroupsList;

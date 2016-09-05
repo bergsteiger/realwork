@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55E6A6BC0318impl_uses*
+ //#UC END# *55E6A6BC0318impl_uses*
 ;
 
 type _Instance_R_ = TvcmFormSetRefList;

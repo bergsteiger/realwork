@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , evdTypes
  , k2Tags
+ //#UC START# *4A5D82380323impl_uses*
+ //#UC END# *4A5D82380323impl_uses*
 ;
 
 function TnevTableCellAnchor.pm_GetHasInner: Boolean;

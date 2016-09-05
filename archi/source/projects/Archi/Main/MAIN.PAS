@@ -1,6 +1,6 @@
 unit Main;
 
-{ $Id: MAIN.PAS,v 1.126 2016/06/10 11:43:36 lukyanets Exp $ }
+{ $Id: MAIN.PAS,v 1.132 2016/08/12 12:59:48 fireton Exp $ }
 
 {$I arDefine.inc }
 
@@ -26,7 +26,7 @@ uses
 
      OvcBase, ovcCmd,
 
-     vtSpin, vtDialogs, vtMenus, vtClipSpy,
+     vtSpin, vtDialogs, vtMenus, l3ClipboardSpy,
      vtlister, vtOutliner, vtCtrls,
      RXCtrls, RXCombos,
 
@@ -71,7 +71,7 @@ type
   rAnalyseLog  : Boolean;
  end;
 
-  TMainForm = class(Tl3Form, IafwUserQuery, IdaLongProcessSubscriber)
+  TMainForm = class(Tl3Form, IafwUserQuery, IdaLongProcessSubscriber, Il3ClipListner)
     acDelAllHyperLinks               : TAction;
     acCascade                        : TAction;
     acChangeClassifier               : TAction;
@@ -423,7 +423,7 @@ type
     procedure FindByLogAction(const aQueryCaption : AnsiString;
                               const aResultWinCaption : AnsiString;
                               aLogAction : TLogActionType;
-                              aUserID : TUserID;
+                              aUserID : TdaUserID;
                               aUserGr : Boolean);
     procedure acFindKWClick(Sender: TObject);
     procedure acDocOnStageStatClick(Sender: TObject);
@@ -564,6 +564,8 @@ type
   protected
     // IdaLongProcessSubscriber
    function DoLongProcessNotify(aState: TdaProcessState): Boolean;
+   // IvtCLipListner
+   procedure Change;
   public
     FreezeFontCombo  : Boolean;
     OEWin            : TObjectExplorerWin;
@@ -580,17 +582,17 @@ type
     procedure ShowCorrespondentsForList(aSrchWin : TForm);
     procedure ShowRespondentsForList(aSrchWin : TForm);
     function IsEditorInFocus(aControl: TControl) : Boolean;
-    function FindTextEditor(aDocFam : TFamilyID; aDocID : Longint) : TCustomEditorWindow;
+    function FindTextEditor(aDocFam : TdaFamilyID; aDocID : Longint) : TCustomEditorWindow;
 
     procedure AddDocumentToStack(aWindow: TCustomEditorWindow);
 
-    function RunTextEditor(aDocFam : TFamilyID; aDocID : Longint;
+    function RunTextEditor(aDocFam : TdaFamilyID; aDocID : Longint;
                                   ROnly : Boolean;
                                   aDocJumpData : TDocJumpRec;
                                   IsJump : boolean = False;
                                   IsExternalDocID : boolean = false) : TForm; overload;
 
-    function RunTextEditor(aDocFam : TFamilyID; aDocID : Longint;
+    function RunTextEditor(aDocFam : TdaFamilyID; aDocID : Longint;
                            ROnly : Boolean = False;
                            OpenFromHistory : boolean = False;
                            IsExternalDocID : boolean = false) : TForm; overload;
@@ -633,7 +635,7 @@ uses
      dtIntf, DT_Sab, DT_SabHelp, DT_Record,
      dt_ATbl,
      dt_Lock,
-     DT_Doc, DT_Serv, DT_Err, DT_User, dt_Renum,
+     DT_Doc, DT_Serv, DT_Err, dt_Renum,
      DT_Dict, DT_Link, DT_LinkServ, DT_Stage, DT_Mail, DT_Acces,
      dt_Log, DT_AskList,
      DtSupport, //StrSpecUtil,
@@ -652,6 +654,7 @@ uses
      l3ExceptionsLog,
      l3Nodes,
      l3NodesModelPart,
+     l3ClipSpyService, 
      m3DBInterfaces,
      afwFacade,
      k2Facade,
@@ -869,6 +872,8 @@ begin
     ArchiRequestManager.CheckLocalTime;
    {$ENDIF}
 
+    l3System.Msg2Log('LOGIN as %s', [dsGetCurrentUserName]);
+
     if GlobalDataProvider.BaseName <> '' then
      Application.Title := Format('¿–’»¬¿–»”— [%s]', [GlobalDataProvider.BaseName]);
     //IniRec.SetIniRecord;
@@ -1044,8 +1049,6 @@ procedure TMainForm.FormCreate(Sender: TObject);
    end;
 
    StationConfig.Section := PrefSectName;
-   if StationConfig.ReadParamBoolDef('ClipNotify',True) then
-    ClipBoardSpy.OnChange := ClipBoardSpyChange;
 
    DocStackList := TDocStack.Create;
    DocStackList.OnCurrentChanged := DocStackCurrentChange;
@@ -1080,6 +1083,9 @@ procedure TMainForm.FormCreate(Sender: TObject);
    Application.OnMessage := MessageHandler;
 
    GlobalDataProvider.SubscribeLongProcess(Self);
+   if StationConfig.ReadParamBoolDef('ClipNotify',True) then
+    if Tl3ClipSpyService.Exists then
+     Tl3ClipSpyService.Instance.Subscribe(Self);
 
    {$IFDEF InsiderTest}
    acShowSpecSymbol.Checked := False;
@@ -1361,7 +1367,6 @@ begin
 
  If CanClose then
  begin
-  ClipBoardSpy.OnChange := nil;
   IniSaveToolbarPositions(Self, GlobalDataProvider.CurHomePath+'User.ini', '');
  end;
 end;
@@ -1385,6 +1390,8 @@ end;
 procedure TMainForm.FormDestroy(Sender: TObject);
 begin
  GlobalDataProvider.UnSubscribeLongProcess(Self);
+ if Tl3ClipSpyService.Exists then
+  Tl3ClipSpyService.Instance.Unsubscribe(Self);
  SpellDictionary.Save;
  l3Free(SpellDictionary);
  l3Free(AutoComplete);
@@ -1517,7 +1524,7 @@ begin
  l3System.Send(FCurrentChild, vm_WinSetBtn, 1, 0);
 end;
 
-function TMainForm.FindTextEditor(aDocFam : TFamilyID; aDocID : Longint) : TCustomEditorWindow;
+function TMainForm.FindTextEditor(aDocFam : TdaFamilyID; aDocID : Longint) : TCustomEditorWindow;
 var
  I : Integer;
 begin
@@ -1567,7 +1574,7 @@ begin
       l_DocWin.DocID, l_AnchorID, l_Positions);
 end;
 
-function TMainForm.RunTextEditor(aDocFam : TFamilyID; aDocID : Longint;
+function TMainForm.RunTextEditor(aDocFam : TdaFamilyID; aDocID : Longint;
                                   ROnly : Boolean = False;
                                   OpenFromHistory : Boolean = False;
                                   IsExternalDocID : Boolean = false) : TForm;
@@ -1575,7 +1582,7 @@ begin
  Result := RunTextEditor(aDocFam, aDocID, ROnly, EmptyDocJumpRec, OpenFromHistory, IsExternalDocID);
 end;
 
-function TMainForm.RunTextEditor(aDocFam : TFamilyID; aDocID : Longint;
+function TMainForm.RunTextEditor(aDocFam : TdaFamilyID; aDocID : Longint;
                                   ROnly : Boolean;
                                   aDocJumpData : TDocJumpRec;
                                   IsJump : boolean = False;
@@ -1944,17 +1951,17 @@ begin
       1  : l_Q := SQNewDocsFromLog(StDateToDemon(DateTimeToStDate(LowDateEdit.Date)),
                                    StDateToDemon(DateTimeToStDate(HighDateEdit.Date)),
                                    gbxStageStatus.GroupCheckData,
-                                   TUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
+                                   TdaUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
 
       2  : l_Q := SQChangedDocsFromLog(StDateToDemon(DateTimeToStDate(LowDateEdit.Date)),
                                        StDateToDemon(DateTimeToStDate(HighDateEdit.Date)),
                                        gbxStageStatus.GroupCheckData,
-                                       TUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
+                                       TdaUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
       else
       begin
        l_Q := TdtSimpleLogQuery.Create(StDateToDemon(DateTimeToStDate(LowDateEdit.Date)),
                                        StDateToDemon(DateTimeToStDate(HighDateEdit.Date)),
-                                       TUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
+                                       TdaUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
        SQAndDoneQuery(l_Q, gbxStageStatus.GroupCheckData);
       end;
      end;
@@ -2112,7 +2119,7 @@ end;
 procedure TMainForm.FindByLogAction(const aQueryCaption : AnsiString;
                                     const aResultWinCaption : AnsiString;
                                     aLogAction : TLogActionType;
-                                    aUserID : TUserID;
+                                    aUserID : TdaUserID;
                                     aUserGr : Boolean);
 
  function lCreateQueryFunc(aDateBounds : Tl3DateBounds): TdtQuery;
@@ -2243,7 +2250,7 @@ begin
                                  StDateToDemon(DateTimeToStDate(edtHighDate.Date)),
                                  TStageType(cbStage.Items.Objects[cbStage.ItemIndex]),
                                  TStageFlag(cbStageType.ItemIndex),
-                                 TUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
+                                 TdaUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
      l_Q.DoQuery;
     finally
      Screen.Cursor:=crDefault;
@@ -2281,7 +2288,7 @@ begin
      l_Q := SQLogByActionsQuery(StDateToDemon(DateTimeToStDate(edtLowDate.Date)),
                                 StDateToDemon(DateTimeToStDate(edtHighDate.Date)),
                                 GetOperationSet,
-                                TUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
+                                TdaUserID(cbUser.Items.Objects[cbUser.ItemIndex]));
      l_Q.DoQuery;
     finally
      Screen.Cursor:=crDefault;
@@ -3218,8 +3225,8 @@ end;
 
 procedure TMainForm.acDelAllHyperLinksClick(Sender: TObject);
 begin
- //if FCurrentChild is TSearchWin then
- // TSearchWin(FCurrentChild).DeleteAllHyperLinks;
+ if FCurrentChild is TSearchWin then
+  TSearchWin(FCurrentChild).DeleteAllHyperLinks;
 end;
 
 procedure TMainForm.acSetSpecBaseClick(Sender: TObject);
@@ -4507,6 +4514,12 @@ begin
                fHTLongProcessMsg := nil;
               end;
  end;
+end;
+
+procedure TMainForm.Change;
+begin
+ if (fCurrentChild <> nil) and fCurrentChild.HandleAllocated then
+  PostMessage(fCurrentChild.Handle, wm_WinClipChange, 0, 0);
 end;
 
 end.

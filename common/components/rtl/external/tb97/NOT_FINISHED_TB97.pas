@@ -42,6 +42,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *502889FF0054impl_uses*
+ //#UC END# *502889FF0054impl_uses*
 ;
 
 procedure TCustomToolWindow97.UpdateEmpty(aUpdateVisibility: Boolean = True);

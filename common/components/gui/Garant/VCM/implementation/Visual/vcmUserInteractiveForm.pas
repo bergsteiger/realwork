@@ -63,6 +63,8 @@ uses
  , vcmForm
  , SysUtils
  , l3Base
+ //#UC START# *4E01D585033Aimpl_uses*
+ //#UC END# *4E01D585033Aimpl_uses*
 ;
 
 var g_TvcmCloseFormHelper: TvcmCloseFormHelper = nil;

@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , SysUtils
  , TestFrameWork
+ //#UC START# *503632AC03D9impl_uses*
+ //#UC END# *503632AC03D9impl_uses*
 ;
 
 procedure TXMLWriterTest.SomeFormatToXML(aReader: Tk2CustomFileReader;

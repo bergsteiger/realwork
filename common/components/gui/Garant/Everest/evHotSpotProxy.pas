@@ -87,6 +87,8 @@ uses
  l3ImplUses
  , l3InterfacesMisc
  , SysUtils
+ //#UC START# *4E1D76D101D0impl_uses*
+ //#UC END# *4E1D76D101D0impl_uses*
 ;
 
 constructor TevHotSpotProxy.Create(const aHotSpot: IevHotSpot);

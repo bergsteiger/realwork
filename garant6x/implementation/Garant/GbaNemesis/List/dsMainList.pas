@@ -36,6 +36,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4926C0970020impl_uses*
+ //#UC END# *4926C0970020impl_uses*
 ;
 
 function TdsMainList.NotifyAboutChangeCurrent: Boolean;
@@ -72,7 +74,7 @@ procedure TdsMainList.DoSetupNewSimpleTree(const aTree: Il3SimpleTree);
 //#UC END# *4A4074FB0192_4926C0970020_var*
 begin
 //#UC START# *4A4074FB0192_4926C0970020_impl*
- if DoGetIsSnippet then
+ if DoGet_IsSnippet then
   aTree.ExpandSubDir(nil, True, 0);
 //#UC END# *4A4074FB0192_4926C0970020_impl*
 end;//TdsMainList.DoSetupNewSimpleTree

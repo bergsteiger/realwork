@@ -118,6 +118,8 @@ uses
  , SysUtils
  , LeafPara_Const
  , TextPara_Const
+ //#UC START# *48ECD38B0204impl_uses*
+ //#UC END# *48ECD38B0204impl_uses*
 ;
 
 constructor TevMultiSelectionRange.Create(aTagWrap: Tl3Variant;

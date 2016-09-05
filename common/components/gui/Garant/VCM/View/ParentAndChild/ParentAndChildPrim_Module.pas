@@ -37,7 +37,9 @@ implementation
 
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , F1Like_Contracts
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
@@ -59,7 +61,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TvcmParentAndChildServiceImpl = {final} class(Tl3ProtoObject, IvcmParentAndChildService)
+ TvcmParentAndChildServiceImpl = {final} class(TvcmModuleContractImplementation, IvcmParentAndChildService)
   public
    function MakeChild(aMainForm: TvcmMainForm;
     anOwner: TvcmEntityForm): IvcmEntityForm;

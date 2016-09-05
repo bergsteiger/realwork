@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , l3LongintListPrim
  , l3Memory
+ //#UC START# *48294B450060impl_uses*
+ //#UC END# *48294B450060impl_uses*
 ;
 
 type _Instance_R_ = Tm3StorageElementIDList;

@@ -68,6 +68,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , l3Memory
+ //#UC START# *47AC59170251impl_uses*
+ //#UC END# *47AC59170251impl_uses*
 ;
 
 type _Instance_R_ = Tk2List;

@@ -46,6 +46,8 @@ uses
  , Document_Const
  , DecorTextPara_Const
  , evdTypes
+ //#UC START# *4CF50F7D0203impl_uses*
+ //#UC END# *4CF50F7D0203impl_uses*
 ;
 
 procedure TevdHeaderHyperlinkAdder.OutBlockNames(aLeaf: Tl3Variant);

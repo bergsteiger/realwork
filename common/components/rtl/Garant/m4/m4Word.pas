@@ -40,6 +40,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4AB37F0D0301impl_uses*
+ //#UC END# *4AB37F0D0301impl_uses*
 ;
 
 constructor Tm4Word.Create(const aStr: Tl3WString;

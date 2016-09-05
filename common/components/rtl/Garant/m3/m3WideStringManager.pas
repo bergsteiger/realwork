@@ -35,6 +35,8 @@ uses
  , l3SimpleMM
  , SysUtils
  , l3Base
+ //#UC START# *5459E3FB0365impl_uses*
+ //#UC END# *5459E3FB0365impl_uses*
 ;
 
 var g_Tm3WideStringManager: Tm3WideStringManager = nil;

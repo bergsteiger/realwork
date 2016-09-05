@@ -74,6 +74,8 @@ uses
  , ddParagraphProperty
  , l3MinMax
  , ddTable
+ //#UC START# *5596481703C3impl_uses*
+ //#UC END# *5596481703C3impl_uses*
 ;
 
 procedure TddRTFShape.pm_SetTop(aValue: Integer);

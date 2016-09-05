@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *552514FD0144impl_uses*
+ //#UC END# *552514FD0144impl_uses*
 ;
 
 type _Instance_R_ = TdaProgressSubscriberList;

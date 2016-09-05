@@ -43,6 +43,8 @@ uses
  , evdDOM
  , k2Tags
  , Para_Const
+ //#UC START# *4A2D2DA90232impl_uses*
+ //#UC END# *4A2D2DA90232impl_uses*
 ;
 
 procedure TevDocumentCursorPair.DoStore(const aView: InevView;

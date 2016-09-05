@@ -59,9 +59,12 @@ uses
  , tfwPropertyLike
  , l3Base
  , l3String
+ , tfwThreadVar
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *55895EA203B9impl_uses*
+ //#UC END# *55895EA203B9impl_uses*
 ;
 
 type
@@ -131,6 +134,23 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopNewWordDefinitorCheckRefcountVar
+
+ TkwPopNewWordDefinitorCheckVarForce = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:NewWordDefinitor:CheckVarForce }
+  private
+   function CheckVarForce(const aCtx: TtfwContext;
+    aNewWordDefinitor: TtfwNewWordDefinitor;
+    aLocal: Boolean;
+    const aName: Il3CString): TtfwWord;
+    {* Реализация слова скрипта pop:NewWordDefinitor:CheckVarForce }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopNewWordDefinitorCheckVarForce
 
  TkwPopNewWordDefinitorKeywordFinder = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:NewWordDefinitor:KeywordFinder }
@@ -571,6 +591,98 @@ begin
  aCtx.rEngine.PushObj(CheckRefcountVar(aCtx, l_aNewWordDefinitor, l_aLocal, l_aName));
 end;//TkwPopNewWordDefinitorCheckRefcountVar.DoDoIt
 
+function TkwPopNewWordDefinitorCheckVarForce.CheckVarForce(const aCtx: TtfwContext;
+ aNewWordDefinitor: TtfwNewWordDefinitor;
+ aLocal: Boolean;
+ const aName: Il3CString): TtfwWord;
+ {* Реализация слова скрипта pop:NewWordDefinitor:CheckVarForce }
+//#UC START# *57B55A630344_57B55A630344_4DC95E96023B_Word_var*
+var
+ l_KW : TtfwKeyWord;
+ l_W : TtfwWord;
+//#UC END# *57B55A630344_57B55A630344_4DC95E96023B_Word_var*
+begin
+//#UC START# *57B55A630344_57B55A630344_4DC95E96023B_Word_impl*
+ l_KW := aNewWordDefinitor.CheckWord(aName);
+ if (l_KW.Word <> nil) then 
+  if l_KW.Word.IsForwardDeclaration then
+   Assert(false, 'Пытаются создать переменную вместо предварительного описания слова' + l3Str(Self.Key.AsWStr) + ' : ' + l3Str(aName));
+ if aLocal then
+  l_W := TkwCompiledVar.Create(Self,
+                               aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                               aCtx.rTypeInfo,
+                               aCtx,
+                               l_KW)
+ else
+  l_W := TkwGlobalVar.Create(Self,
+                             aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                             aCtx.rTypeInfo,
+                             aCtx,
+                             l_KW);
+ try
+  l_KW.SetWord(aCtx, l_W);
+  Result := l_W;
+ finally
+  FreeAndNil(l_W);
+ end;//try..finally
+//#UC END# *57B55A630344_57B55A630344_4DC95E96023B_Word_impl*
+end;//TkwPopNewWordDefinitorCheckVarForce.CheckVarForce
+
+class function TkwPopNewWordDefinitorCheckVarForce.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:NewWordDefinitor:CheckVarForce';
+end;//TkwPopNewWordDefinitorCheckVarForce.GetWordNameForRegister
+
+function TkwPopNewWordDefinitorCheckVarForce.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwWord);
+end;//TkwPopNewWordDefinitorCheckVarForce.GetResultTypeInfo
+
+function TkwPopNewWordDefinitorCheckVarForce.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwPopNewWordDefinitorCheckVarForce.GetAllParamsCount
+
+function TkwPopNewWordDefinitorCheckVarForce.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), TypeInfo(Boolean), @tfw_tiString]);
+end;//TkwPopNewWordDefinitorCheckVarForce.ParamsTypes
+
+procedure TkwPopNewWordDefinitorCheckVarForce.DoDoIt(const aCtx: TtfwContext);
+var l_aNewWordDefinitor: TtfwNewWordDefinitor;
+var l_aLocal: Boolean;
+var l_aName: Il3CString;
+begin
+ try
+  l_aNewWordDefinitor := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewWordDefinitor: TtfwNewWordDefinitor : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aLocal := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLocal: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CheckVarForce(aCtx, l_aNewWordDefinitor, l_aLocal, l_aName));
+end;//TkwPopNewWordDefinitorCheckVarForce.DoDoIt
+
 function TkwPopNewWordDefinitorKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
  aNewWordDefinitor: TtfwNewWordDefinitor): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:NewWordDefinitor:KeywordFinder }
@@ -638,6 +750,8 @@ initialization
  {* Регистрация pop_NewWordDefinitor_DefineInParameter }
  TkwPopNewWordDefinitorCheckRefcountVar.RegisterInEngine;
  {* Регистрация pop_NewWordDefinitor_CheckRefcountVar }
+ TkwPopNewWordDefinitorCheckVarForce.RegisterInEngine;
+ {* Регистрация pop_NewWordDefinitor_CheckVarForce }
  TkwPopNewWordDefinitorKeywordFinder.RegisterInEngine;
  {* Регистрация pop_NewWordDefinitor_KeywordFinder }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwNewWordDefinitor));

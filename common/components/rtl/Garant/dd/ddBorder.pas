@@ -89,6 +89,8 @@ uses
  , k2Tags
  , l3Base
  , evdFrame_Const
+ //#UC START# *4F6843EE00B1impl_uses*
+ //#UC END# *4F6843EE00B1impl_uses*
 ;
 
 function TddBorder.pm_GetFrameColor(anIndex: TddBorderParts): LongInt;

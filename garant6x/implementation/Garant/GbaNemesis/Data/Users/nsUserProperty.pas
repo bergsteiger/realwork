@@ -35,6 +35,8 @@ uses
  , nsTypes
  , nsConst
  , IOUnit
+ //#UC START# *4B5038B80195impl_uses*
+ //#UC END# *4B5038B80195impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}

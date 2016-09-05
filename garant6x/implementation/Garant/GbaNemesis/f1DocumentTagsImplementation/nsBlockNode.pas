@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *467FCEA901ACimpl_uses*
+ //#UC END# *467FCEA901ACimpl_uses*
 ;
 
 procedure TnsBlockNode.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;

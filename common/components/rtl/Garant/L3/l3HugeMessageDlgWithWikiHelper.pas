@@ -78,6 +78,8 @@ uses
  , StdCtrls
  , ExtCtrls
  , l3Base
+ //#UC START# *551542E902F5impl_uses*
+ //#UC END# *551542E902F5impl_uses*
 ;
 
 var g_Tl3HugeMessageDlgWithWikiHelper: Tl3HugeMessageDlgWithWikiHelper = nil;

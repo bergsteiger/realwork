@@ -30,6 +30,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F7B1BC201C2impl_uses*
+ //#UC END# *4F7B1BC201C2impl_uses*
 ;
 
 procedure TvcmContainerFormModelPart.AfterInsertForm(const aForm: IvcmEntityForm);

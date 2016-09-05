@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *54B91B3002D6impl_uses*
+ //#UC END# *54B91B3002D6impl_uses*
 ;
 
 constructor Tl3BoxMemoryManager.Create;

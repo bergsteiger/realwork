@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *4E84542E03B5impl_uses*
+ //#UC END# *4E84542E03B5impl_uses*
 ;
 
 procedure TevdChildrenCountEliminator.DoAddAtomEx(AtomIndex: Integer;

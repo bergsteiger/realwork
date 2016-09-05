@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , D_TxSrch
+ //#UC START# *533433C700C0impl_uses*
+ //#UC END# *533433C700C0impl_uses*
 ;
 
 class function TkwClearFindDialog.GetWordNameForRegister: AnsiString;

@@ -29,6 +29,8 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ //#UC START# *55F6C74B033Eimpl_uses*
+ //#UC END# *55F6C74B033Eimpl_uses*
 ;
 
 function TevCollapserHyperlink.DoGetKind: TevLinkViewKind;

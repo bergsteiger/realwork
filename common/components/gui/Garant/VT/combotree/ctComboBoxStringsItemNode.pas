@@ -94,6 +94,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , l3NodesKeyWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4872337C032Bimpl_uses*
+ //#UC END# *4872337C032Bimpl_uses*
 ;
 
 constructor TctComboBoxStringsItemNode.Create(aStrings: TComboBoxStrings;

@@ -37,6 +37,8 @@ uses
  , TestFrameWork
  , ddPipeOutInterfaces
  , l3Base
+ //#UC START# *55FFA1DB00DBimpl_uses*
+ //#UC END# *55FFA1DB00DBimpl_uses*
 ;
 
 procedure TExportByMainRelNamedTest.TuneExportPipe;

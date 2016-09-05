@@ -1,6 +1,6 @@
 unit TestImportPipe;
 { Верхний слой трубы для импорта - знает про входные форматы и цикл }
-{ $Id: TestImportPipe.pas,v 1.7 2016/05/18 06:02:44 lukyanets Exp $ }
+{ $Id: TestImportPipe.pas,v 1.9 2016/08/11 10:42:03 lukyanets Exp $ }
 
 // copy from ddImportPipe.pas,v 1.49 2009/02/05
 
@@ -49,7 +49,7 @@ type
     procedure SetCheckRegion(const Value: Boolean);
   private { Настройки трубы }
    FAutoDetectTypes: TddPipeInputFileTypeSet;
-   f_Family: TFamilyID;
+   f_Family: TdaFamilyID;
    f_PictDir: String;
    f_MoveFiles: Boolean;
    f_DoneDir: ShortString;
@@ -144,7 +144,7 @@ type
     { Published declarations }
    property Reader: Tk2CustomFileReader read f_FileReader write f_FileReader;
 
-   property Family : TFamilyID
+   property Family : TdaFamilyID
     read f_Family
     write f_Family
     default 1;
@@ -278,7 +278,7 @@ uses
  daDataProvider,
 
  DT_DOC, ComCtrls, evEvdRd, ddUtils,
- dt_User, ddNSRCUtils, k2Tags, k2Base, l3Except, evTxtRd,
+ ddNSRCUtils, k2Tags, k2Base, l3Except, evTxtRd,
   ddDocReader, l3languages, BAse_CFG;
 
 procedure Register;

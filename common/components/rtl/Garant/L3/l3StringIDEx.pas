@@ -106,6 +106,8 @@ uses
  , RTLConsts
  , SysUtils
  , l3ConstStrings
+ //#UC START# *4B3B36EC03B2impl_uses*
+ //#UC END# *4B3B36EC03B2impl_uses*
 ;
 
 var g_Tl3StringIDExHelper: Tl3StringIDExHelper = nil;

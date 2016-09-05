@@ -75,6 +75,8 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ //#UC START# *4925595900C8impl_uses*
+ //#UC END# *4925595900C8impl_uses*
 ;
 
 type _Instance_R_ = TdsMedicDiction;

@@ -25,6 +25,8 @@ uses
  , evdPageParamsFilter
  , evUserCommentFilter
  , evStyleHeaderAdder
+ //#UC START# *5549F1AA032Eimpl_uses*
+ //#UC END# *5549F1AA032Eimpl_uses*
 ;
 
 procedure evSetFilters4PDF(var aGenerator: Tk2TagGenerator;

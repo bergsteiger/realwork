@@ -44,6 +44,8 @@ uses
  , l3Math
  , l3MinMax
  , evConst
+ //#UC START# *482098D2015Eimpl_uses*
+ //#UC END# *482098D2015Eimpl_uses*
 ;
 
 function TnevRubberCellsRenderInfo.WasChanged: Boolean;

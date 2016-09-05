@@ -22,6 +22,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5604FB3502B9impl_uses*
+ //#UC END# *5604FB3502B9impl_uses*
 ;
 
 function Tl3CharSkipper.GetChar: AnsiChar;

@@ -30,6 +30,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *54BE4DB30227impl_uses*
+ //#UC END# *54BE4DB30227impl_uses*
 ;
 
 function TeePicture.Get_Name: Il3CString;

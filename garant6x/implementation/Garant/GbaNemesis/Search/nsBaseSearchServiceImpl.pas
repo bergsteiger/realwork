@@ -71,6 +71,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *563208C60299impl_uses*
+ //#UC END# *563208C60299impl_uses*
 ;
 
 var g_TnsBaseSearchServiceImpl: TnsBaseSearchServiceImpl = nil;

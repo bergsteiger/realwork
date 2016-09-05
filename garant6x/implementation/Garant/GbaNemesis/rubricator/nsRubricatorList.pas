@@ -60,6 +60,8 @@ uses
  , l3TreeInterfaces
  , nsTypes
  , SysUtils
+ //#UC START# *46836A280235impl_uses*
+ //#UC END# *46836A280235impl_uses*
 ;
 
 constructor TnsRubricatorList.CreateKeeped(const aRoot: INodeBase;

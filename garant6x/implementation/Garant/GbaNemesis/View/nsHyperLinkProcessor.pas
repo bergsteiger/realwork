@@ -91,10 +91,9 @@ uses
  , bsHyperlinkProcessorContainerMaker
  , nsOpenDocumentFromLinkEvent
  , nsTryingToOpenMissingDocumentFromLinkEvent
- {$If NOT Defined(NoScripts)}
- , F1ScriptEngine
- {$IfEnd} // NOT Defined(NoScripts)
  , Base_Operations_F1Services_Contracts
+ //#UC START# *4A8199550084impl_uses*
+ //#UC END# *4A8199550084impl_uses*
 ;
 
 type
@@ -305,13 +304,13 @@ begin
    // - http://mdp.garant.ru/pages/viewpage.action?pageId=565265761
    if (l_Container <> nil) then
    try
-    TdmStdRes.OpenExternalObject(l_Container, aExternalObject);
+    TDocumentService.Instance.OpenExternalObject(l_Container, aExternalObject);
    finally
     l_Container := nil;
    end;
   end
   else
-   TdmStdRes.OpenExternalObject(nil, aExternalObject);
+   TDocumentService.Instance.OpenExternalObject(nil, aExternalObject);
 //#UC END# *51AF29070012_4B0A77F30378_impl*
 end;//TbsHyperLinkProcessor.OpenExternalObject
 
@@ -384,7 +383,7 @@ begin
  begin
   l_Container := GetContainer(aBehaviour);
   try
-   TdmStdRes.OpenAutoreferat(aDocument, l_Container);
+   TMonitoringsService.Instance.OpenAutoreferat(aDocument, l_Container);
   finally
    l_Container := nil;
   end;
@@ -482,7 +481,7 @@ begin
    l_Cont := GetContainer(aBehaviour);
    try
     if (l_Cont <> nil) then
-     TdmStdRes.OpenDocument(l_DocInfo, l_Cont);      
+     TDocumentService.Instance.OpenDocument(l_DocInfo, l_Cont);      
    finally
     l_Cont := nil;
    end;
@@ -728,8 +727,8 @@ begin
      end;//Ord(cSwitchFiltersOff_LinkHandle):
      Ord(cTimeMachineChangeDateOrOff_LinkHandle):
      begin
-      vcmDispatcher.EntityOperation(TdmStdRes.opcode_TimeMachine_TimeMachineOnOffNew, vcmParams);
-      //f_Aggregate.Operation(TdmStdRes.opcode_TimeMachine_TimeMachineOnOffNew);
+      vcmDispatcher.EntityOperation(opcode_TimeMachine_TimeMachineOnOffNew, vcmParams);
+      //f_Aggregate.Operation(opcode_TimeMachine_TimeMachineOnOffNew);
       Result := true;
       Exit;
      end;//Ord(TimeMachineChangeDateOrOff_LinkHandle)
@@ -744,7 +743,7 @@ begin
     Case f_Hyperlink.ID of
      Ord(cUnreadConsultations_LinkHandle):
      begin
-      TdmStdRes.TryOpenConsultationAnswer(nil);
+      TFoldersService.Instance.TryOpenConsultationAnswer(nil);
       Result := true;
       Exit;
      end;//Ord(cUnreadConsultations_LinkHandle)

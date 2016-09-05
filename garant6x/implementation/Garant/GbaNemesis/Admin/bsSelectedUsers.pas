@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , l3VCLStrings
+ //#UC START# *49F59C46028Bimpl_uses*
+ //#UC END# *49F59C46028Bimpl_uses*
 ;
 
 class function TbsSelectedUsers.Make: IbsSelectedUsers;

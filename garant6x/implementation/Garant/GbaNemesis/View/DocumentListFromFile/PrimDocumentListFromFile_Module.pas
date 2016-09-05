@@ -42,7 +42,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , l3StringIDEx
  {$If NOT Defined(NoVCM)}
@@ -72,7 +74,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TDocumentListFromFileServiceImpl = {final} class(Tl3ProtoObject, IDocumentListFromFileService)
+ TDocumentListFromFileServiceImpl = {final} class(TvcmModuleContractImplementation, IDocumentListFromFileService)
   public
    class function Instance: TDocumentListFromFileServiceImpl;
     {* Метод получения экземпляра синглетона TDocumentListFromFileServiceImpl }
@@ -169,7 +171,7 @@ begin
    if IsEmptyList(l_deL) then
     vcmSay(inf_ListMissing, [str_ImportDocuments.AsStr])
    else
-    TdmStdRes.OpenList(l_deL, nil);
+    TListService.Instance.OpenList(l_deL, nil);
   end;//l_D.Execute
  finally
   FreeAndNil(l_D);

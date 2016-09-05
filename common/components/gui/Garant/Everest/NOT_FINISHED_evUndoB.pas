@@ -45,6 +45,8 @@ uses
  {$If Defined(evNeedDisp)}
  , evStandardActions
  {$IfEnd} // Defined(evNeedDisp)
+ //#UC START# *47F252060091impl_uses*
+ //#UC END# *47F252060091impl_uses*
 ;
 
 function TevCustomUndoBuffer.GetActiveObject(aSucc: Boolean): TObject;

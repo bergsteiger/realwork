@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4A683EC401BBimpl_uses*
+ //#UC END# *4A683EC401BBimpl_uses*
 ;
 
 var g_TbsChatDispatcher: Pointer = nil;

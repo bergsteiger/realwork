@@ -3,9 +3,12 @@ unit nsbQueryUtils;
 { Начал: Инишев Дмитрий, Морозов Михаил                       }
 { Модуль: lgQueryUtils -                                      }
 { Начат: 21.01.2005 16:51                                     }
-{ $Id: nsbQueryUtils.pas,v 1.1 2015/03/05 18:05:24 kostitsin Exp $ }
+{ $Id: nsbQueryUtils.pas,v 1.2 2016/08/04 12:07:51 lulin Exp $ }
 
 // $Log: nsbQueryUtils.pas,v $
+// Revision 1.2  2016/08/04 12:07:51  lulin
+// - перегенерация.
+//
 // Revision 1.1  2015/03/05 18:05:24  kostitsin
 // {requestlink: 588808889 }
 //
@@ -87,10 +90,6 @@ begin
     Result := lg_qtKeyWord;
   QT_ATTRIBUTE:
     Result := lg_qtAttribute;
-(*  QT_OLD_ATTRIBUTE:
-    Result := lg_qtOldAttribute;*)
-(*  QT_OLD_FILTER:
-    Result := lg_qtOldFilter;*)
   QT_PUBLISHED_SOURCE:
     Result := lg_qtPublishedSource;
   QT_REVIEW:
@@ -122,10 +121,6 @@ begin
     Result := QT_KEYWORD;
   lg_qtAttribute:
     Result := QT_ATTRIBUTE;
-(*  lg_qtOldAttribute:
-    Result := QT_OLD_ATTRIBUTE;*)
-(*  lg_qtOldFilter:
-    Result := QT_OLD_FILTER;*)
   lg_qtPublishedSource:
     Result := QT_PUBLISHED_SOURCE;
   lg_qtPostingOrder:

@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , k2NullTagImpl
+ //#UC START# *533E8F8D0334impl_uses*
+ //#UC END# *533E8F8D0334impl_uses*
 ;
 
 function Tk2NotStructuredTag.GetAsRef: Il3TagRef;

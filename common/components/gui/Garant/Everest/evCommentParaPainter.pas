@@ -51,6 +51,8 @@ uses
  , l3MinMax
  , l3String
  , nevInterfaces
+ //#UC START# *49DB2E390053impl_uses*
+ //#UC END# *49DB2E390053impl_uses*
 ;
 
 function TevCommentParaPainter.InfiniteFrame: Boolean;

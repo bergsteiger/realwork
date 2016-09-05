@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *540EDC10016Fimpl_uses*
+ //#UC END# *540EDC10016Fimpl_uses*
 ;
 
 procedure Tl3Mutex.Enter;

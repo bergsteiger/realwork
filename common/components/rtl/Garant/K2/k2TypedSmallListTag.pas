@@ -69,6 +69,8 @@ uses
  , k2InterfaceFactory
  , k2List
  , l3Memory
+ //#UC START# *4A5F1EC002E5impl_uses*
+ //#UC END# *4A5F1EC002E5impl_uses*
 ;
 
 type _Instance_R_ = Tk2TypedSmallListTag;

@@ -74,6 +74,13 @@ uses
   ArchiAdapter in 'W:\MDProcess\ArchiAdapter\ArchiAdapter.pas',
   alcuMdpSyncDicts in '..\Tasks\alcuMdpSyncDicts.pas',
   alcuMdpImportDocs in '..\Tasks\alcuMdpImportDocs.pas',
+  alcuMdpSyncStages in '..\Tasks\alcuMdpSyncStages.pas',
+  alcuMdpSyncImport in '..\Tasks\alcuMdpSyncImport.pas',
+  alcuMdpSyncIntf in '..\Process\alcuMdpSyncIntf.pas',
+  alcuMdpProtoSyncronizer in '..\Process\alcuMdpProtoSyncronizer.pas',
+  alcuMdpDatedSyncronizer in '..\Process\alcuMdpDatedSyncronizer.pas',
+  alcuMdpStagesSyncronizer in '..\Process\alcuMdpStagesSyncronizer.pas',
+  alcuMdpImportSyncronizer in '..\Process\alcuMdpImportSyncronizer.pas',
 {$ENDIF MDPSyncIntegrated}
   alcuStrings in '..\Core\alcuStrings.pas',
   alcuUtils in '..\Server\alcuUtils.pas',

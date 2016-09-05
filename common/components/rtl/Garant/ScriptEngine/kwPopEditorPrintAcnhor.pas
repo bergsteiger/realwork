@@ -62,6 +62,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *5009071C00FFimpl_uses*
+ //#UC END# *5009071C00FFimpl_uses*
 ;
 
 procedure TkwPopEditorPrintAcnhor.SaveAnchor(const aCtx: TtfwContext;

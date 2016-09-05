@@ -6,7 +6,7 @@ uses
  csProcessTask,
  Classes, ActnList,
  CsDataPipe,
- dt_Types,
+ daTypes,
  l3ObjectRefList,
  l3Date,
  CsNotification,
@@ -24,7 +24,7 @@ type
 
  TDictEditQuery = class(TcsDictEditQueryPrim)
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); override;
   procedure DoSaveTo(aStream: TStream; aIsPipe: Boolean); override;
  end;
@@ -33,14 +33,14 @@ type
   private
     f_Index: LongInt;
  public
-  constructor Create(aUserID: TUserID; anIndex: Integer);
+  constructor Create(aUserID: TdaUserID; anIndex: Integer);
   procedure CommunicateWithServer(aPipe: TCsDataPipe); 
     property TaskIndex: LongInt read f_Index {write f_Index};
  end;
 
  TUserEditQuery = class(TcsUserEditQueryPrim)
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); override;
   procedure DoSaveTo(aStream: TStream; aIsPipe: Boolean); override;
  end;
@@ -50,13 +50,13 @@ type
  private
   procedure pm_SetDocs(const Value: TDocArray);
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   property Docs: TDocArray write pm_SetDocs;
  end;
 
 (* TddRunCommandTaskPrim = class(TddProcessTask)
  protected
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
  end;//TddRunCommandTaskPrim*)
 
  TddRunCommandTask = class(TddRunCommandTaskPrim)
@@ -65,7 +65,7 @@ type
  protected
   procedure DoRun(const aContext: TddRunContext); override;
  public
-  constructor Create(aUserID: TUserID; aCommand: TcsCommand);
+  constructor Create(aUserID: TdaUserID; aCommand: TcsCommand);
 //  property Command: TcsCommand {read f_Command} write f_Command;
  end;//TddRunCommandTask
 
@@ -73,10 +73,10 @@ implementation
 
 uses
  CsTaskTypes, DT_Const, dt_AttrSchema, l3TempMemoryStream, l3Base, SysUtils, ddUtils, l3FileUtils,
- dt_DictConst, dt_DictTypes, DT_UserConst, l3Memory, StrUtils, DateUtils,
+ dt_DictConst, dt_DictTypes, l3Memory, StrUtils, DateUtils,
  ddServerTask;
 
-constructor TGetDictEditQuery.Create(aUserID: TUserID; anIndex: Integer);
+constructor TGetDictEditQuery.Create(aUserID: TdaUserID; anIndex: Integer);
 begin
  inherited Create(aUserID);
  f_Index := anIndex;
@@ -99,7 +99,7 @@ end;
 {
 ******************************** TddProcessTask ********************************
 }
-constructor TDictEditQuery.Create(aUserID: TUserID);
+constructor TDictEditQuery.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType := cs_ttDictEdit;
@@ -133,7 +133,7 @@ begin
  end;
 end;
 
-constructor TUserEditQuery.Create(aUserID: TUserID);
+constructor TUserEditQuery.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType := cs_ttUserEdit;
@@ -155,7 +155,7 @@ end;
 {
 ******************************** TddProcessTask ********************************
 }
-constructor TDeleteDocsQuery.Create(aUserID: TUserID);
+constructor TDeleteDocsQuery.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType := cs_ttDeleteDocs;
@@ -170,13 +170,13 @@ begin
   DocumentIDList.Add(Value[l_index]);
 end;
 
-(*constructor TddRunCommandTaskPrim.Create(aUserID: TUserID);
+(*constructor TddRunCommandTaskPrim.Create(aUserID: TdaUserID);
 begin
  inherited;
  TaskType := cs_ttRunCommand;
 end;*)
 
-constructor TddRunCommandTask.Create(aUserID: TUserID; aCommand: TcsCommand);
+constructor TddRunCommandTask.Create(aUserID: TdaUserID; aCommand: TcsCommand);
 begin
  inherited Create(aUserID);
  f_Command := aCommand;

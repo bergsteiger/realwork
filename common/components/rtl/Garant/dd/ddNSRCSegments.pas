@@ -201,6 +201,8 @@ uses
  , Math
  , SysUtils
  , segTarget
+ //#UC START# *55DC6B2E0347impl_uses*
+ //#UC END# *55DC6B2E0347impl_uses*
 ;
 
 procedure TsegDecorSegment.ClearFields;

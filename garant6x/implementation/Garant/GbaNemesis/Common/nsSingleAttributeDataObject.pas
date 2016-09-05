@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , nsSingleAttributeStorable
+ //#UC START# *4682706F038Aimpl_uses*
+ //#UC END# *4682706F038Aimpl_uses*
 ;
 
 function TnsSingleAttributeDataObject.DataClass: RStorable;

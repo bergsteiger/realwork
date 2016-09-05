@@ -45,6 +45,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C501582010Eimpl_uses*
+ //#UC END# *4C501582010Eimpl_uses*
 ;
 
 procedure TInsertStreamTestWithImplementedNavigate.Navigate(aText: TevCustomEditorWindow;

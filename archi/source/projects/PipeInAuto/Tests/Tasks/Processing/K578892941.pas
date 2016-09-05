@@ -54,6 +54,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *54785B8603B8impl_uses*
+ //#UC END# *54785B8603B8impl_uses*
 ;
 
 {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}

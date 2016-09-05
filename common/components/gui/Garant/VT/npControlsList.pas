@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4F61DE580121impl_uses*
+ //#UC END# *4F61DE580121impl_uses*
 ;
 
 var g_TnpControlsList: TnpControlsList = nil;

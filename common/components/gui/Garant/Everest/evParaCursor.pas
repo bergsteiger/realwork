@@ -73,6 +73,8 @@ uses
  , k2Base
  , SysUtils
  , k2Tags
+ //#UC START# *49DE22650362impl_uses*
+ //#UC END# *49DE22650362impl_uses*
 ;
 
 {$If Defined(evNeedMarkers)}

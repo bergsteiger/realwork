@@ -76,6 +76,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *531F2B0B0102impl_uses*
+ //#UC END# *531F2B0B0102impl_uses*
 ;
 
 type _Instance_R_ = Tk2IUnknownTag;

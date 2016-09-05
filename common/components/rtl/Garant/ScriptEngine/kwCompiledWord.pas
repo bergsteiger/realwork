@@ -85,6 +85,8 @@ uses
  , tfwArray
  , kwLeftParam
  , l3String
+ //#UC START# *4DB6CA4F010Dimpl_uses*
+ //#UC END# *4DB6CA4F010Dimpl_uses*
 ;
 
 procedure TkwCompiledWord.Cleanup;

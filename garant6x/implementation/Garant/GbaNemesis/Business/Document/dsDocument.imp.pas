@@ -106,7 +106,7 @@ procedure _dsDocument_.DoReturnToList(const aList: IDynList;
 //#UC END# *491465BF0275_491D64430036_var*
 begin
 //#UC START# *491465BF0275_491D64430036_impl*
- TdmStdRes.OpenList(TdeListSet.Make(aList,
+ TListOpenService.Instance.OpenList(TdeListSet.Make(aList,
                                     wdOpenIfUserDefine,
                                     lofNone,
                                     True,

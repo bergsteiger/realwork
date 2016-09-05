@@ -44,6 +44,8 @@ uses
  , RTLConsts
  , SysUtils
  , l3MinMax
+ //#UC START# *479DFD5300C5impl_uses*
+ //#UC END# *479DFD5300C5impl_uses*
 ;
 
 type _Instance_R_ = Tl3DynamicArray;

@@ -67,6 +67,9 @@ uses
  , ControlStatusUtils
  , BaloonWarningUserTypes_WarnInactualDocument_UserType
  , BaloonWarningUserTypes_WarnOnControl_UserType
+ , Common_F1CommonServices_Contracts
+ //#UC START# *4ED7576E02F7impl_uses*
+ //#UC END# *4ED7576E02F7impl_uses*
 ;
 
 const
@@ -261,7 +264,7 @@ class function TnsDocumentWarningGenerator.Generate(const aWarning: IdsWarning;
   begin
    aDocument.GetCurrentState(l_State);
    try
-    if not TdmStdRes.IsCurEditionActual(l_State) then
+    if not TCommonService.Instance.IsCurEditionActual(l_State) then
     begin
      l_State.GetCurrentRedaction(l_RedactionInfo);
      l_EditionIntervals := bsCreateEditionDateInterval(l_RedactionInfo.rActiveIntervals);
@@ -327,7 +330,7 @@ var
     // Документ утратил силу и находится в актульной редакции, выведем для
     // него диапазон действия актуальной редакции (CQ: OIT500011244):
     if (aDocument.GetStatus = IS_ABOLISHED) and
-      TdmStdRes.IsCurEditionActual(aDoc) then
+      TCommonService.Instance.IsCurEditionActual(aDoc) then
      lp_ShowRangeOfWork(bsCreateEditionDateInterval(bsRedationInfo(aDocument).
       rActiveIntervals));
    end;//aDocument.HasWarning
@@ -385,7 +388,7 @@ var
   if (wtTimeMachineWarning in Result) or (wtNotSure in Result) then
   begin
    // Ссылка для отключения МВ
-   if TdmStdRes.IsCurEditionActual(aDoc) then
+   if TCommonService.Instance.IsCurEditionActual(aDoc) then
     AddPara(aGen,
             str_wgTimeMachineOffActualRedactionLink.AsCStr,
             cNoneWarningSub,
@@ -443,7 +446,7 @@ begin
      begin
       AddPara(aGen, vcmFmt(str_TimeMachineTurnOnOnDate,
                            [DefDataAdapter.TimeMachine.DateStr]));
-(*      if TdmStdRes.IsCurEditionActual(aDoc) then
+(*      if TCommonService.Instance.IsCurEditionActual(aDoc) then
        bsEditorAddPara(aGen, str_wgTimeMachineOffActualRedactionLink.AsWStr, true,
                        cNoneWarningSub,
                        cNone_LinkHandle,

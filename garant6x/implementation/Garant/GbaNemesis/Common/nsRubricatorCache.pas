@@ -42,6 +42,8 @@ uses
  , nsTypes
  , SysUtils
  , l3Base
+ //#UC START# *490724F202F5impl_uses*
+ //#UC END# *490724F202F5impl_uses*
 ;
 
 var g_TnsRubricatorCache: TnsRubricatorCache = nil;

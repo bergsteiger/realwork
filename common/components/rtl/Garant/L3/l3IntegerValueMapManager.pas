@@ -56,6 +56,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *478E35650120impl_uses*
+ //#UC END# *478E35650120impl_uses*
 ;
 
 var g_l3IntegerMapManager: Tl3IntegerValueMapManager;

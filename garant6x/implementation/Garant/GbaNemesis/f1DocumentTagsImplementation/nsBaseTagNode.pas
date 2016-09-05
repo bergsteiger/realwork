@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *467FCA4701F9impl_uses*
+ //#UC END# *467FCA4701F9impl_uses*
 ;
 
 function TnsBaseTagNode.BaseDeleteChild(anIndex: Integer;

@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4A8D76720025impl_uses*
+ //#UC END# *4A8D76720025impl_uses*
 ;
 
 var g_TvcmCommandIDsList: TvcmCommandIDsList = nil;

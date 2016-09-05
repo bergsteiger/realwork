@@ -111,6 +111,8 @@ uses
  l3ImplUses
  , SysUtils
  , k2Tags
+ //#UC START# *4811D544006Fimpl_uses*
+ //#UC END# *4811D544006Fimpl_uses*
 ;
 
 function TnevBaseView.pm_GetShape: InevObject;

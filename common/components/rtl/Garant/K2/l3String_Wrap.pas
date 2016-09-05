@@ -28,6 +28,8 @@ uses
  , SysUtils
  , k2String
  , k2String_Const
+ //#UC START# *484945C0000Eimpl_uses*
+ //#UC END# *484945C0000Eimpl_uses*
 ;
 
 end.

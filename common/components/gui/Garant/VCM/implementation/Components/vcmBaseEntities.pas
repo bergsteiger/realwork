@@ -70,6 +70,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *52A1EA2A0184impl_uses*
+ //#UC END# *52A1EA2A0184impl_uses*
 ;
 
 function TvcmBaseEntities.pm_GetEntities: TvcmBaseEntitiesCollection;

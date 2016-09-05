@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5461D9EE0244impl_uses*
+ //#UC END# *5461D9EE0244impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}

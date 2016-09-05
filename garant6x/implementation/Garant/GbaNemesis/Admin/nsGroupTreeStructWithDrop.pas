@@ -37,6 +37,8 @@ uses
  , DataAdapter
  , SecurityUnit
  , nsUserNodes
+ //#UC START# *49F16EE7010Fimpl_uses*
+ //#UC END# *49F16EE7010Fimpl_uses*
 ;
 
 function TnsGroupTreeStructWithDrop.DoCanAcceptData(const aTargetNode: Il3SimpleNode;

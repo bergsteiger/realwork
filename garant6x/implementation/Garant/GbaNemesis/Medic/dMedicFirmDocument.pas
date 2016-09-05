@@ -44,6 +44,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , l3Utils
+ //#UC START# *4B2217FA02BDimpl_uses*
+ //#UC END# *4B2217FA02BDimpl_uses*
 ;
 
 type _Instance_R_ = TdMedicFirmDocument;

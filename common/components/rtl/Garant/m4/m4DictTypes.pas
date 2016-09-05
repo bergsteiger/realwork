@@ -31,6 +31,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4AB38D7F0007impl_uses*
+ //#UC END# *4AB38D7F0007impl_uses*
 ;
 
 function Tm4DictItemAddr_C(anID: Tm4DictItemID;

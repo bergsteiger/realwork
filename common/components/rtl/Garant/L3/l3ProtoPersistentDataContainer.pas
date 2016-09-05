@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , l3InterfacesMisc
+ //#UC START# *4DD3BB3C03BCimpl_uses*
+ //#UC END# *4DD3BB3C03BCimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3DataContainer.imp.pas}

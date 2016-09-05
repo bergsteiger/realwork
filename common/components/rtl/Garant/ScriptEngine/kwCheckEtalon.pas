@@ -29,6 +29,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4DD547B70001impl_uses*
+ //#UC END# *4DD547B70001impl_uses*
 ;
 
 class function TkwCheckEtalon.GetWordNameForRegister: AnsiString;

@@ -46,6 +46,8 @@ uses
  l3ImplUses
  , l3Base
  , l3Const
+ //#UC START# *4BAC9A2A03A8impl_uses*
+ //#UC END# *4BAC9A2A03A8impl_uses*
 ;
 
 function TevNSRCParaStyle.EQ(const anOther: TevNSRCParaStyle): Boolean;

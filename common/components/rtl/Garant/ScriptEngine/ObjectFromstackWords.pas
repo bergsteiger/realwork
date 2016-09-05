@@ -28,6 +28,8 @@ uses
  , l3RTTI
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *507698410297impl_uses*
+ //#UC END# *507698410297impl_uses*
 ;
 
 type

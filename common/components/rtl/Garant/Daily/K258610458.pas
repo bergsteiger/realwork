@@ -56,6 +56,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D88869000F9impl_uses*
+ //#UC END# *4D88869000F9impl_uses*
 ;
 
 function TK258610458.GetInnerPara(const aView: InevInputView;

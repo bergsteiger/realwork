@@ -71,6 +71,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *48C7C8A9035Eimpl_uses*
+ //#UC END# *48C7C8A9035Eimpl_uses*
 ;
 
 var g_TafwHintManager: TafwHintManager = nil;

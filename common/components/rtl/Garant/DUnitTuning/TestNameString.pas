@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *4FF431A00215impl_uses*
+ //#UC END# *4FF431A00215impl_uses*
 ;
 
 procedure TTestNameString.DoSetAsPCharLen(const Value: Tl3PCharLen);

@@ -29,6 +29,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *55C9F202036Dimpl_uses*
+ //#UC END# *55C9F202036Dimpl_uses*
 ;
 
 type

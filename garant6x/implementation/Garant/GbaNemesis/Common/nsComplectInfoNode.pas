@@ -43,6 +43,8 @@ uses
  , l3String
  , nsTypes
  , IOUnit
+ //#UC START# *4682778E0223impl_uses*
+ //#UC END# *4682778E0223impl_uses*
 ;
 
 function TnsComplectInfoNode.GetTextPart(aIndex: Integer): Tl3PCharLenPrim;

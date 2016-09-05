@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , nsAnnotationHeaderTagData
  , k2Tags
+ //#UC START# *4D6E0C4A001Fimpl_uses*
+ //#UC END# *4D6E0C4A001Fimpl_uses*
 ;
 
 constructor TnsAnnotationHeaderTagNode.Create(anIndex: Integer;

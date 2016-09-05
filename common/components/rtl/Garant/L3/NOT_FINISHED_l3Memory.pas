@@ -80,6 +80,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47AB1FDE03E4impl_uses*
+ //#UC END# *47AB1FDE03E4impl_uses*
 ;
 
 function Tl3MemoryPoolPrim.GetMemoryPoolAdapterClass: Rl3MemoryPoolAdapter;

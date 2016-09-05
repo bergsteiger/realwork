@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , evSectionPara
+ //#UC START# *49180FCE035Bimpl_uses*
+ //#UC END# *49180FCE035Bimpl_uses*
 ;
 
 function TnevSectionBreakList.GetSectionWidth(const aChild: InevObject;

@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4C727C990284impl_uses*
+ //#UC END# *4C727C990284impl_uses*
 ;
 
 class function Tf1DocumentTagDataFromDTP.Make(const aProvider: IDocumentTextProvider): If1TagDataProvider;

@@ -41,6 +41,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F50313101D1impl_uses*
+ //#UC END# *4F50313101D1impl_uses*
 ;
 
 type
@@ -244,6 +246,36 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwArraySlice
+
+ TkwArrayIsView = {final} class(TtfwClassLike)
+  {* Слово скрипта Array:IsView }
+  private
+   function IsView(const aCtx: TtfwContext;
+    const aArray: ItfwValueList): Boolean;
+    {* Реализация слова скрипта Array:IsView }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwArrayIsView
+
+ TkwArraySafeView = {final} class(TtfwClassLike)
+  {* Слово скрипта Array:SafeView }
+  private
+   function SafeView(const aCtx: TtfwContext;
+    const aArray: ItfwValueList): ItfwValueList;
+    {* Реализация слова скрипта Array:SafeView }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwArraySafeView
 
  TkwArrayCount = {final} class(TtfwPropertyLike)
   {* Слово скрипта Array:Count }
@@ -1030,6 +1062,104 @@ begin
  aCtx.rEngine.PushList(Slice(aCtx, l_aArray, l_aCount));
 end;//TkwArraySlice.DoDoIt
 
+function TkwArrayIsView.IsView(const aCtx: TtfwContext;
+ const aArray: ItfwValueList): Boolean;
+ {* Реализация слова скрипта Array:IsView }
+//#UC START# *57B54EBB0057_57B54EBB0057_4DCC12FC0125_Word_var*
+//#UC END# *57B54EBB0057_57B54EBB0057_4DCC12FC0125_Word_var*
+begin
+//#UC START# *57B54EBB0057_57B54EBB0057_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := false
+ else
+  Result := aArray.IsView; 
+//#UC END# *57B54EBB0057_57B54EBB0057_4DCC12FC0125_Word_impl*
+end;//TkwArrayIsView.IsView
+
+class function TkwArrayIsView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:IsView';
+end;//TkwArrayIsView.GetWordNameForRegister
+
+function TkwArrayIsView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwArrayIsView.GetResultTypeInfo
+
+function TkwArrayIsView.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwArrayIsView.GetAllParamsCount
+
+function TkwArrayIsView.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
+end;//TkwArrayIsView.ParamsTypes
+
+procedure TkwArrayIsView.DoDoIt(const aCtx: TtfwContext);
+var l_aArray: ItfwValueList;
+begin
+ try
+  l_aArray := aCtx.rEngine.PopList;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aArray: ItfwValueList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsView(aCtx, l_aArray));
+end;//TkwArrayIsView.DoDoIt
+
+function TkwArraySafeView.SafeView(const aCtx: TtfwContext;
+ const aArray: ItfwValueList): ItfwValueList;
+ {* Реализация слова скрипта Array:SafeView }
+//#UC START# *57C8255B02EE_57C8255B02EE_4DCC12FC0125_Word_var*
+//#UC END# *57C8255B02EE_57C8255B02EE_4DCC12FC0125_Word_var*
+begin
+//#UC START# *57C8255B02EE_57C8255B02EE_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := aArray.SafeView;
+//#UC END# *57C8255B02EE_57C8255B02EE_4DCC12FC0125_Word_impl*
+end;//TkwArraySafeView.SafeView
+
+class function TkwArraySafeView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:SafeView';
+end;//TkwArraySafeView.GetWordNameForRegister
+
+function TkwArraySafeView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(ItfwValueList);
+end;//TkwArraySafeView.GetResultTypeInfo
+
+function TkwArraySafeView.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwArraySafeView.GetAllParamsCount
+
+function TkwArraySafeView.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
+end;//TkwArraySafeView.ParamsTypes
+
+procedure TkwArraySafeView.DoDoIt(const aCtx: TtfwContext);
+var l_aArray: ItfwValueList;
+begin
+ try
+  l_aArray := aCtx.rEngine.PopList;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aArray: ItfwValueList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushList(SafeView(aCtx, l_aArray));
+end;//TkwArraySafeView.DoDoIt
+
 function TkwArrayCount.Count(const aCtx: TtfwContext;
  const aArray: ItfwValueList): Integer;
  {* Реализация слова скрипта Array:Count }
@@ -1121,6 +1251,10 @@ initialization
  {* Регистрация Array_Trunc }
  TkwArraySlice.RegisterInEngine;
  {* Регистрация Array_Slice }
+ TkwArrayIsView.RegisterInEngine;
+ {* Регистрация Array_IsView }
+ TkwArraySafeView.RegisterInEngine;
+ {* Регистрация Array_SafeView }
  TkwArrayCount.RegisterInEngine;
  {* Регистрация Array_Count }
  TArrayProcessingPackResNameGetter.Register;
@@ -1129,6 +1263,8 @@ initialization
  {* Регистрация типа ItfwValueList }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwStackValue }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));

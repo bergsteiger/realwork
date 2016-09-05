@@ -1,9 +1,12 @@
 unit alcuCourtDecision;
 { Простановка меток FirstSubNumber и SecondSubNumber в Судебных решениях }
 
-{ $Id: alcuCourtDecision.pas,v 1.8 2016/02/29 07:07:18 lukyanets Exp $ }
+{ $Id: alcuCourtDecision.pas,v 1.9 2016/08/11 10:41:55 lukyanets Exp $ }
 
 // $Log: alcuCourtDecision.pas,v $
+// Revision 1.9  2016/08/11 10:41:55  lukyanets
+// Полчищаем dt_user
+//
 // Revision 1.8  2016/02/29 07:07:18  lukyanets
 // Не собиралось
 //
@@ -286,7 +289,7 @@ Uses
  nevTools, evTextSource, evOpProc, evFacadeSub, evFacadTextSource,
   l3LongintListPrim, dtIntf, dt_Sab,
   evStubs
-  , DT_LinkServ, DT_UserConst, alcuUtils, l3InterfaceList, l3Chars,
+  , DT_LinkServ, alcuUtils, l3InterfaceList, l3Chars,
   k2SimpleTagList
   ;
 

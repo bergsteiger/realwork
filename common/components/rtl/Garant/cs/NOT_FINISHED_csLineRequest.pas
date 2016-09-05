@@ -24,6 +24,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *5317098403B4impl_uses*
+ //#UC END# *5317098403B4impl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

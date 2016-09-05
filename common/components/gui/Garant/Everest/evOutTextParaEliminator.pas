@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , Document_Const
+ //#UC START# *4F7D3EB4039Dimpl_uses*
+ //#UC END# *4F7D3EB4039Dimpl_uses*
 ;
 
 procedure TevOutTextParaEliminator.InitFields;

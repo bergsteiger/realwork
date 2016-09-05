@@ -47,6 +47,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4FA3BC08027Fimpl_uses*
+ //#UC END# *4FA3BC08027Fimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\LinesDrawOutput.imp.pas}

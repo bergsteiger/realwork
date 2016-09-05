@@ -51,6 +51,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4E54DF040323impl_uses*
+ //#UC END# *4E54DF040323impl_uses*
 ;
 
 function TK267328230.GetScrollCount: Integer;

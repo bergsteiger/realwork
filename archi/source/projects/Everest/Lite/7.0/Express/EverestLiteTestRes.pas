@@ -42,6 +42,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , EverestLiteTestSuite
  , toKT
+ //#UC START# *512AF4F300FCimpl_uses*
+ //#UC END# *512AF4F300FCimpl_uses*
 ;
 
 class function TEverestLiteTestRes.GetResultsPlaces: TResultsPlaces;

@@ -29,6 +29,8 @@ uses
  , l3Base
  , kwInteger
  , l3Memory
+ //#UC START# *4F3E40EC0328impl_uses*
+ //#UC END# *4F3E40EC0328impl_uses*
 ;
 
 type _Instance_R_ = TkwIntegerArray;

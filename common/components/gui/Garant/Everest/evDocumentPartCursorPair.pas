@@ -43,6 +43,8 @@ uses
  , evdStyles
  , evdInterfaces
  , Block_Const
+ //#UC START# *4A2D2D8002FFimpl_uses*
+ //#UC END# *4A2D2D8002FFimpl_uses*
 ;
 
 procedure TevDocumentPartCursorPair.DoStore(const aView: InevView;

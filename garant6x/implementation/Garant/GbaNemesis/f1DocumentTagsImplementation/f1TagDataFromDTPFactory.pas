@@ -40,6 +40,8 @@ uses
  , f1LeafTagDataFromDTP
  , f1ListTagDataFromDTP
  , nevBase
+ //#UC START# *4C7286FE0291impl_uses*
+ //#UC END# *4C7286FE0291impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas}

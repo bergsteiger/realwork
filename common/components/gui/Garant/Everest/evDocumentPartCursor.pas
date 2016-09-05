@@ -70,6 +70,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4A3FA3290296impl_uses*
+ //#UC END# *4A3FA3290296impl_uses*
 ;
 
 function TevDocumentPartCursor.ExpandOrCollapse(const aView: InevControlView;

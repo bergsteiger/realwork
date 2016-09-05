@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , daScheme
+ //#UC START# *5751377C006Eimpl_uses*
+ //#UC END# *5751377C006Eimpl_uses*
 ;
 
 constructor TpgPriorityCalculator.Create(const aFactory: IdaTableQueryFactory);

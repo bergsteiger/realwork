@@ -46,6 +46,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C1B135F02B0impl_uses*
+ //#UC END# *4C1B135F02B0impl_uses*
 ;
 
 procedure TComplexScrollByLines.DoVisit(aForm: TPrimTextLoadForm);

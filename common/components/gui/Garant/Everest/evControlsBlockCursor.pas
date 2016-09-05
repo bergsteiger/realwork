@@ -39,6 +39,8 @@ uses
  , OvcConst
  , k2Tags
  , Windows
+ //#UC START# *4A40E3070396impl_uses*
+ //#UC END# *4A40E3070396impl_uses*
 ;
 
 function TevControlsBlockCursor.GetControl: IevQueryGroup;

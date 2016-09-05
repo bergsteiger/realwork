@@ -1,8 +1,29 @@
 unit a2bMain;
 // реализация бизнес-объекта главной формы
-{ $Id: a2bMain.pas,v 1.11 2016/05/18 06:02:39 lukyanets Exp $ }
+{ $Id: a2bMain.pas,v 1.18 2016/08/11 10:41:53 lukyanets Exp $ }
 
 // $Log: a2bMain.pas,v $
+// Revision 1.18  2016/08/11 10:41:53  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.17  2016/07/12 13:26:26  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.16  2016/07/11 12:59:53  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.15  2016/07/08 12:49:31  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.14  2016/06/23 13:10:47  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.13  2016/06/17 06:20:10  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.12  2016/06/16 05:38:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.11  2016/05/18 06:02:39  lukyanets
 // Выключаем удаленную отладку
 //
@@ -79,9 +100,7 @@ uses
  daInterfaces,
 
  DT_Types,
- DT_UserConst,
- DT_User
- , l3LongintListPrim;
+ l3LongintListPrim;
 
 resourcestring
  seGeneralCSVError = 'Ошибка в файле CSV (строка %d)';
@@ -96,7 +115,7 @@ end;
 
 procedure Ta2bMain.ChangeSupervisorPassword(aNewPassword: string);
 begin
- UserManager.AdminChangePassWord(usSupervisor, aNewPassword);
+ GlobalDataProvider.UserManager.AdminChangePassWord(usSupervisor, aNewPassword);
 end;
 
 procedure Ta2bMain.ExportUsers(const aFileName: string; const aRegion: Integer);
@@ -128,7 +147,7 @@ begin
      GlobalDataProvider.UserManager.GetUserInfo(lID, lName, l_Login, lFlag);
      lGList := Tl3StringDataList.Create;
      try
-      UserManager.GetUserGroupList(lID, lGList);
+      GlobalDataProvider.UserManager.GetUserGroupsList(lID, lGList);
       lGroups := '';
       for J := 0 to Pred(lGList.Count) do
        if lGList.Select[J] then
@@ -171,8 +190,8 @@ var
  lGrStr: Tl3String;
  lIsActive, lIsAdmin: Byte;
  l_Flags : Byte;
- EM: TUsEditMask;
- l_UserID: TUserID;
+ EM: TdaUserEditMask;
+ l_UserID: TdaUserID;
  LineNum: Integer;
  FieldNum: Integer;
  lStream: Tl3FileStream;
@@ -185,7 +204,7 @@ var
  l_TmpStr: string;
  l_Edited: Boolean;
  l_UGList: Tl3LongintList;
- l_GroupID: TUserGrID;
+ l_GroupID: TdaUserGroupID;
 begin
  lStream := Tl3FileStream.Create(aFileName, l3_fmRead);
  try
@@ -274,7 +293,7 @@ begin
            if EM.LoginName or EM.Name or EM.ActivFlag then
            begin
             try
-             UserManager.EditUser(l_UserID, lName, l_Login, l_Flags, EM);
+             GlobalDataProvider.UserManager.EditUser(l_UserID, lName, l_Login, l_Flags, EM);
              l_Edited := True;
             except
              l_TmpStr := Format('Невозможно отредактировать пользователя (строка %d)', [LineNum]);
@@ -284,11 +303,11 @@ begin
            end;
            if l_IsLocalUser and (l_Password <> '*') then
            begin
-            UserManager.AdminChangePassWord(l_UserID, l_Password);
+            GlobalDataProvider.UserManager.AdminChangePassWord(l_UserID, l_Password);
             l_Edited := True;
            end;
-           UserManager.GetUserGroupList(l_UserID, l_UGList);
-           UserManager.RemoveUserFromAllGroups(l_UserID);
+           GlobalDataProvider.UserManager.GetUserGroupsList(l_UserID, l_UGList);
+           GlobalDataProvider.UserManager.RemoveUserFromAllGroups(l_UserID);
           end
           else//if not l_IsNewUser
           begin
@@ -306,7 +325,7 @@ begin
              l_Login := ''; // и логина при импорте им тоже не полагается
              l_Password := '';
             end;
-            UserManager.AddUserID(l_UserID, lName, l_Login, l_Password, l_Flags);
+            GlobalDataProvider.UserManager.AddUserID(l_UserID, lName, l_Login, l_Password, l_Flags);
            except
             l_TmpStr := Format('Невозможно создать пользователя c ID %d (строка %d)', [l_UserID, LineNum]);
             l3System.Stack2Log(l_TmpStr);
@@ -332,7 +351,7 @@ begin
                 if GlobalDataProvider.UserManager.AllGroups.FindStr(PAnsiChar(l_TmpStr), l_Idx) then
                 begin
                  l_GroupID := GlobalDataProvider.UserManager.AllGroups.DataInt[l_Idx];
-                 UserManager.SetUserGroup(l_UserID, l_GroupID, True);
+                 GlobalDataProvider.UserManager.SetUserGroup(l_UserID, l_GroupID, True);
                  if (not l_IsNewUser) and (not l_Edited) then
                  begin
                   l_Idx := l_UGList.IndexOf(l_GroupID);
@@ -345,9 +364,6 @@ begin
                 else
                 begin
                  Str2Log('Импорт пользователей из CSV: несуществующая группа - '+l_TmpStr);
-                 {lShStrTmp := StrPas(PAnsiChar(l_TmpStr));
-                 l_Idx := UserManager.AddUserGroup(lShStrTmp);
-                 UserManager.SetUserGroup(l_UserID, l_Idx, True);}
                 end;
                end;
               end;

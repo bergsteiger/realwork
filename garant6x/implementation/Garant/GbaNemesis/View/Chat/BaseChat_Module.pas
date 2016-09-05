@@ -44,7 +44,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , ChatInterfaces
  {$If NOT Defined(NoVCM)}
@@ -74,7 +76,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TChatServiceImpl = {final} class(Tl3ProtoObject, IChatService)
+ TChatServiceImpl = {final} class(TvcmModuleContractImplementation, IChatService)
   public
    function MakeChatDispatcher: IbsChatDispatcher;
    function OpenAddUserDialog: IvcmEntityForm;
@@ -164,10 +166,10 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AAFC77602D8_4A6971B802A6_impl*
- Result :=TChatHistoryForm.MakeSingleChild(anUID, aName,
-                              CheckContainer(nil).NativeMainForm,
-                              vcm_ztSimpleFloat,
-                              Ord(utChatHistory));
+ Result := TChatHistoryForm.MakeSingleChild(anUID, aName,
+                               CheckContainer(nil).NativeMainForm,
+                               vcm_ztSimpleFloat,
+                               Ord(utChatHistory));
 //#UC END# *4AAFC77602D8_4A6971B802A6_impl*
  finally
   if __WasEnter then

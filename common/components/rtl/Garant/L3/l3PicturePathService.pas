@@ -63,6 +63,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
+ //#UC START# *552406830331impl_uses*
+ //#UC END# *552406830331impl_uses*
 ;
 
 var g_Tl3PicturePathService: Tl3PicturePathService = nil;

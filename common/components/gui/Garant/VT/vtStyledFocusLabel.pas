@@ -68,6 +68,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *573B55E900C9impl_uses*
+ //#UC END# *573B55E900C9impl_uses*
 ;
 
 procedure TvtStyledFocusLabel.pm_SetStyleId(const aValue: TevStyleId);

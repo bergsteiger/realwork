@@ -28,6 +28,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwModuleOperationWordEx
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AB34044026Aimpl_uses*
+ //#UC END# *4AB34044026Aimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVCM)
 

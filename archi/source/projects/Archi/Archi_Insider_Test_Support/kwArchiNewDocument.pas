@@ -57,6 +57,8 @@ uses
  , SysUtils
  , arArchiTestsAdapter
  , dt_Types
+ //#UC START# *4E0A095C0324impl_uses*
+ //#UC END# *4E0A095C0324impl_uses*
 ;
 
 function TkwArchiNewDocument.DoWithFileName(const aCtx: TtfwContext): AnsiString;

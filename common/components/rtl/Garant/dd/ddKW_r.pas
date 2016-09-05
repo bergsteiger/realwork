@@ -6,9 +6,12 @@ unit ddKW_r;
  = начат под конец рабочего  дня     =
  = 15 апреля последнего года ХХ века =
  ===================================== }
-{ $Id: ddKW_r.pas,v 1.69 2015/11/26 08:45:43 lukyanets Exp $ }
+{ $Id: ddKW_r.pas,v 1.70 2016/06/16 05:40:04 lukyanets Exp $ }
 
 // $Log: ddKW_r.pas,v $
+// Revision 1.70  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.69  2015/11/26 08:45:43  lukyanets
 // КОнстанты переехали
 //
@@ -210,7 +213,7 @@ type
    fNeedAddToDictionary : Boolean;
    f_Abort : PBool;
    f_DictID: TdaDictionaryType;
-   f_Family: TFamilyID;
+   f_Family: TdaFamilyID;
    f_Renum: Boolean;
  protected
  public
@@ -226,7 +229,7 @@ type
    property AbortImport: PBool
      read f_Abort write f_Abort;
    property DictID: TdaDictionaryType read f_DictID write f_DictID;
-   property Family: TFamilyID read f_Family write f_Family;
+   property Family: TdaFamilyID read f_Family write f_Family;
    property Renum: Boolean read f_Renum write f_Renum;
  end;
 
@@ -257,7 +260,7 @@ type
   procedure Cleanup; override;
  public
   constructor Create;
-  function Execute(aFileName: AnsiString; aFamily: TFamilyID; aDict: TdaDictionaryType; aRenum, aClear, aAddNewItems: Boolean): boolean;
+  function Execute(aFileName: AnsiString; aFamily: TdaFamilyID; aDict: TdaDictionaryType; aRenum, aClear, aAddNewItems: Boolean): boolean;
  public
   property Aborted: PBool read FAborted write FAborted;
   { Имя файла ключевых слов }
@@ -527,7 +530,7 @@ begin
  inherited;
 end;
 
-function TddDictLinkPipe.Execute(aFileName: AnsiString; aFamily: TFamilyID; aDict: TdaDictionaryType; aRenum, aClear, aAddNewItems:
+function TddDictLinkPipe.Execute(aFileName: AnsiString; aFamily: TdaFamilyID; aDict: TdaDictionaryType; aRenum, aClear, aAddNewItems:
     Boolean): boolean;
 var
  l_InFiler: Tl3DOSFiler;

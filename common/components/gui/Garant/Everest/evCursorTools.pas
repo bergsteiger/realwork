@@ -101,6 +101,8 @@ uses
  , k2Tags
  , k2InterfaceFactory
  , nevFacade
+ //#UC START# *48453B7601F9impl_uses*
+ //#UC END# *48453B7601F9impl_uses*
 ;
 
 function evMergeParaList(const aView: InevView;

@@ -41,6 +41,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E808D48037Dimpl_uses*
+ //#UC END# *4E808D48037Dimpl_uses*
 ;
 
 procedure TkwQueryCardFromStackWord.DoWithEditor(const aCtx: TtfwContext;

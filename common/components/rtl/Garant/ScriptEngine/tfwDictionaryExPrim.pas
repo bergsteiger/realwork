@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55A4FCDC01B8impl_uses*
+ //#UC END# *55A4FCDC01B8impl_uses*
 ;
 
 function TtfwDictionaryExPrim.UsesDictionary(anOther: TtfwDictionaryExPrim): Boolean;

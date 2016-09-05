@@ -110,6 +110,8 @@ uses
  , ncsSynchroCompatibilityClientTransporter
  {$IfEnd} // NOT Defined(Nemesis)
  , arOneTaskDeliverer
+ //#UC START# *545C749003C2impl_uses*
+ //#UC END# *545C749003C2impl_uses*
 ;
 
 function TarResultDeliverer.pm_GetClientID: TCsClientId;

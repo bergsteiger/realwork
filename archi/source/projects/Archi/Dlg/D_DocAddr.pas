@@ -1,6 +1,6 @@
 unit D_DocAddr;
 
-{ $Id: D_DocAddr.pas,v 1.6 2007/04/23 08:36:03 voba Exp $ }
+{ $Id: D_DocAddr.pas,v 1.7 2016/06/16 05:38:44 lukyanets Exp $ }
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   BottomBtnDlg,
   StdCtrls, vtSpin, Buttons, ExtCtrls,
-  DT_Types, ActnList, tb97GraphicControl, TB97Ctls, vtSpeedButton;
+  daTypes, ActnList, tb97GraphicControl, TB97Ctls, vtSpeedButton;
 
 type
   TDocAddrDlg = class(TBottomBtnDlg)
@@ -28,7 +28,7 @@ type
    protected
     procedure WMActivateApp(var Message: TMessage); message WM_ACTIVATEAPP;
    public
-    function Execute(Var aAddrRec : TGlobalCoordinateRec) : boolean; reintroduce;
+    function Execute(Var aAddrRec : TdaGlobalCoordinateRec) : boolean; reintroduce;
     //property DocID : Integer read GetDocID write SetDocID;
     //property SubID : Integer read GetDocID write SetDocID;
   end;
@@ -46,7 +46,7 @@ uses
 var
  gSaveDocID : integer;
 
-function TDocAddrDlg.Execute(Var aAddrRec : TGlobalCoordinateRec) : boolean;
+function TDocAddrDlg.Execute(Var aAddrRec : TdaGlobalCoordinateRec) : boolean;
  begin
   with aAddrRec do
   begin

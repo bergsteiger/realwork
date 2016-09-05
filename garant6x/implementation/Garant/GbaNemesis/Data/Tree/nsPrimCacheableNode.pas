@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , l3String
  , nsTypes
+ //#UC START# *4ADDF42201A2impl_uses*
+ //#UC END# *4ADDF42201A2impl_uses*
 ;
 
 procedure TnsPrimCacheableNode.Cleanup;

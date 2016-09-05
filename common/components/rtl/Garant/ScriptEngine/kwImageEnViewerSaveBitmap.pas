@@ -49,6 +49,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *52E20E70006Fimpl_uses*
+ //#UC END# *52E20E70006Fimpl_uses*
 ;
 
 procedure TkwImageEnViewerSaveBitmap.DoWithImageEn(aControl: TImageEnView;

@@ -24,6 +24,7 @@ type
  TtfwMappedArrayView = class(TtfwLambdedArrayView)
   protected
    function TwoLabdasClass: RtfwTwoLambdas; override;
+   function GetCount: Integer; override;
  end;//TtfwMappedArrayView
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -32,6 +33,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52E6733C0163impl_uses*
+ //#UC END# *52E6733C0163impl_uses*
 ;
 
 procedure TtfwMapLambda.DoDoIt(const aCtx: TtfwContext);
@@ -52,6 +55,15 @@ begin
  Result := TtfwMapLambda;
 //#UC END# *52EA8EE702FA_52E6733C0163_impl*
 end;//TtfwMappedArrayView.TwoLabdasClass
+
+function TtfwMappedArrayView.GetCount: Integer;
+//#UC START# *57C811A30375_52E6733C0163_var*
+//#UC END# *57C811A30375_52E6733C0163_var*
+begin
+//#UC START# *57C811A30375_52E6733C0163_impl*
+ Result := f_Other.Count;
+//#UC END# *57C811A30375_52E6733C0163_impl*
+end;//TtfwMappedArrayView.GetCount
 
 initialization
  TtfwMapLambda.RegisterClass;

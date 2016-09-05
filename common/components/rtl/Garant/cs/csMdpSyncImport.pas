@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , mdpSyncImport_Const
+ //#UC START# *574C16DD0300impl_uses*
+ //#UC END# *574C16DD0300impl_uses*
 ;
 
 class function TcsMdpSyncImport.GetTaggedDataType: Tk2Type;

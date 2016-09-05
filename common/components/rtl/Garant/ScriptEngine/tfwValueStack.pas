@@ -104,6 +104,8 @@ uses
  , l3String
  , l3Base
  , l3StringEx
+ //#UC START# *4DB009CF0103impl_uses*
+ //#UC END# *4DB009CF0103impl_uses*
 ;
 
 function TtfwValueStack.PrevTop(aDelta: Integer;
@@ -128,7 +130,11 @@ function TtfwValueStack.pLast: PtfwStackValue;
 //#UC END# *55EFF78F01D7_4DB009CF0103_var*
 begin
 //#UC START# *55EFF78F01D7_4DB009CF0103_impl*
+ {$IfDef XE}
+ Result := PtfwStackValue(ItemSlot(Count - 1));
+ {$Else  XE}
  Result := ItemSlot(Count - 1);
+ {$EndIf XE}
 //#UC END# *55EFF78F01D7_4DB009CF0103_impl*
 end;//TtfwValueStack.pLast
 
@@ -688,10 +694,24 @@ end;//TtfwValueStack.IsTopClass
 function TtfwValueStack.PopObjAs(aClass: TClass;
  aAllowNil: Boolean = True): Pointer;
 //#UC START# *54F7390300EC_4DB009CF0103_var*
+{$IfDef seThreadSafe}
+var
+ l_V : TtfwStackValue;
+{$EndIf seThreadSafe}
 //#UC END# *54F7390300EC_4DB009CF0103_var*
 begin
 //#UC START# *54F7390300EC_4DB009CF0103_impl*
+ {$IfDef seThreadSafe}
+ l_V := Pop;
+ try
+  Result := l_V.AsObject(aClass, aAllowNil);
+ except
+  // - закладочка для отладки
+  Result := l_V.AsObject(aClass, aAllowNil);
+ end;
+ {$Else  seThreadSafe}
  Result := Pop.AsObject(aClass, aAllowNil);
+ {$EndIf seThreadSafe}
 //#UC END# *54F7390300EC_4DB009CF0103_impl*
 end;//TtfwValueStack.PopObjAs
 

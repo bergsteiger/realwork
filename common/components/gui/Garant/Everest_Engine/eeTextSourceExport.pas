@@ -4,9 +4,12 @@ unit eeTextSourceExport;
 { Автор: Люлин А.В. ©     }
 { Модуль: eeTextSourceExport -  }
 { Начат: 18.02.2003 15:24 }
-{ $Id: eeTextSourceExport.pas,v 1.5 2015/01/19 18:36:39 lulin Exp $ }
+{ $Id: eeTextSourceExport.pas,v 1.6 2016/08/23 11:46:35 kostitsin Exp $ }
 
 // $Log: eeTextSourceExport.pas,v $
+// Revision 1.6  2016/08/23 11:46:35  kostitsin
+// {requestlink: 624862173 }
+//
 // Revision 1.5  2015/01/19 18:36:39  lulin
 // {RequestLink:580710025}
 //
@@ -377,7 +380,8 @@ type
       function  IvcmState_SaveState(out aState : IUnknown;
                                     aStateType : TvcmStateType): Boolean;
       function  IvcmState_LoadState(const aState : IUnknown;
-                                    aStateType   : TvcmStateType): Boolean;
+                                    aStateType   : TvcmStateType;
+                                    aClone: Boolean): Boolean;
         {-}
       function  IvcmState.SaveState = IvcmState_SaveState;
       function  IvcmState.LoadState = IvcmState_LoadState;
@@ -529,7 +533,8 @@ begin
 end;
 
 function TeeTextSourceExport.IvcmState_LoadState(const aState : IUnknown;
-                                                 aStateType   : TvcmStateType): Boolean;
+                                                 aStateType   : TvcmStateType;
+                                                 aClone: Boolean): Boolean;
   {-}
 var
  l_Container : InevDocumentContainer;

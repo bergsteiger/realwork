@@ -122,6 +122,7 @@ uses
  , dsTranslation
  , dsRelatedDoc
  , dsChronology
+ , Common_F1CommonServices_Contracts
  , dsAttributes
  , Windows
  {$If NOT Defined(NoVCM)}
@@ -132,6 +133,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , afwSettingsChangePublisher
  , WarningUserTypes_Warning_UserType
+ //#UC START# *5010180C0356impl_uses*
+ //#UC END# *5010180C0356impl_uses*
 ;
 
 type _Instance_R_ = TsdsDocument;

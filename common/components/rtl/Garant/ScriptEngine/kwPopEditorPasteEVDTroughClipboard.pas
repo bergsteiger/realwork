@@ -54,6 +54,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *53957B0E024Cimpl_uses*
+ //#UC END# *53957B0E024Cimpl_uses*
 ;
 
 procedure TkwPopEditorPasteEVDTroughClipboard.DoWithEditor(const aCtx: TtfwContext;

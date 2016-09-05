@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *512CD70F03C7impl_uses*
+ //#UC END# *512CD70F03C7impl_uses*
 ;
 
 function TnsGetGenOutputStruct_Create(const aStream: IStream): TnsGetGenOutputStruct;

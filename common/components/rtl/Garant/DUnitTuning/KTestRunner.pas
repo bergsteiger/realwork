@@ -1273,7 +1273,7 @@ const
  cOp : array [TKFileOperation] of AnsiString = ('PA_GET', 'PA_SET', 'PA_GET_LABEL', 'PA_SET_LABEL', 'PA_ATTACH');
 var
  l_Params : AnsiString;
- ProcessInfo : TProcessInformation;
+ ProcessInfo : JwaWinBase.TProcessInformation;
  StartupInfo : TStartupInfoA;
  l_Result : DWORD;
  l_KUser, l_KUserPassword : AnsiString;
@@ -1341,7 +1341,7 @@ begin
   StartupInfo.cb := SizeOf(StartupInfo);
   StartupInfo.dwFlags := STARTF_USESHOWWINDOW;
   StartupInfo.wShowWindow := SW_HIDE;
-  if not CreateProcessA(TargetName, PAnsiChar(l_Params),
+  if not JwaWinBase.CreateProcessA(TargetName, PAnsiChar(l_Params),
     nil, nil, true, NORMAL_PRIORITY_CLASS, nil, nil, StartupInfo, ProcessInfo) then
     raise Exception.CreateFmt(sErrorExec, [TargetName, GetLastError])
   else

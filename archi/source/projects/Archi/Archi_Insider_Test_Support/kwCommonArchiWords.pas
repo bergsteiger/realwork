@@ -35,6 +35,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F619597030Cimpl_uses*
+ //#UC END# *4F619597030Cimpl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 

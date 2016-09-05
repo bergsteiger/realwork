@@ -69,6 +69,8 @@ uses
  l3ImplUses
  , SysUtils
  , daTypes
+ //#UC START# *5600FA2301B9impl_uses*
+ //#UC END# *5600FA2301B9impl_uses*
 ;
 
 procedure TdaTabledQuery.pm_SetWhereCondition(const aValue: IdaCondition);

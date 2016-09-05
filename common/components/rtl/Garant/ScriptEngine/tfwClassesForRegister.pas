@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5732F2B10311impl_uses*
+ //#UC END# *5732F2B10311impl_uses*
 ;
 
 var g_TtfwClassesForRegister: TtfwClassesForRegister = nil;

@@ -60,6 +60,8 @@ uses
  , l3Base
  , SysUtils
  , l3String
+ //#UC START# *5268FE7A0253impl_uses*
+ //#UC END# *5268FE7A0253impl_uses*
 ;
 
 procedure TddParaList.AddList(aList: TddParaList);

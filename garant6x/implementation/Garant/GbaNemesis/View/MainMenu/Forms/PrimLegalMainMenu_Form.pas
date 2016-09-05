@@ -90,6 +90,7 @@ uses
  , SysUtils
  , afwFacade
  //#UC START# *4AC9E7B40342impl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4AC9E7B40342impl_uses*
 ;
 
@@ -100,7 +101,7 @@ begin
 //#UC START# *4ACC7F16032D_4AC9E7B40342_impl*
  if not VCMClosing then
   if Visible then
-   TdmStdRes.OpenMainMenuIfNeeded(NativeMainForm);
+   TMainMenuService.Instance.OpenMainMenuIfNeeded(NativeMainForm);
 //#UC END# *4ACC7F16032D_4AC9E7B40342_impl*
 end;//TPrimLegalMainMenuForm.UpdateMainMenuForm
 

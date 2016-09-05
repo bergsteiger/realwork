@@ -5,9 +5,12 @@ unit evExtFormat;
 { Автор: Люлин А.В. ©     }
 { Модуль: evExtFormat - }
 { Начат: 28.08.2001 17:40 }
-{ $Id: evExtFormat.pas,v 1.38 2015/11/23 12:55:19 dinishev Exp $ }
+{ $Id: evExtFormat.pas,v 1.39 2016/07/15 13:18:46 lulin Exp $ }
 
 // $Log: evExtFormat.pas,v $
+// Revision 1.39  2016/07/15 13:18:46  lulin
+// - собираем DesignTime.
+//
 // Revision 1.38  2015/11/23 12:55:19  dinishev
 // {Requestlink:612100517}
 //
@@ -169,7 +172,9 @@ uses
   evdEmptyRowFilter,
   nevPersistentDocumentContainer,
 
+  {$If NOT Defined(DesignTimeLibrary)}
   evPDFWriter,
+  {$IfEnd}
   {$IfNDef evExternalProduct}
   ddNSRC_r,
   {$EndIf  evExternalProduct}

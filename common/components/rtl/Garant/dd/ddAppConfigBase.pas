@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5301EC0E0156impl_uses*
+ //#UC END# *5301EC0E0156impl_uses*
 ;
 
 constructor TddAppConfigBase.Create;

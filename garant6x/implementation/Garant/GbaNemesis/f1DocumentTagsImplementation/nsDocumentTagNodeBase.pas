@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , k2Facade
+ //#UC START# *4C72633902D0impl_uses*
+ //#UC END# *4C72633902D0impl_uses*
 ;
 
 constructor TnsDocumentTagNodeBase.CreatePrim(const aNode: If1TagDataProvider);

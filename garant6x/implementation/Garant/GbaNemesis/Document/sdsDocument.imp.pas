@@ -663,7 +663,7 @@ begin
  Result := pm_GetHasDocument and
           (pm_GetDocInfo.Doc.HasWarning or
            defDataAdapter.TimeMachine.HasTimeMachineWarning(pm_GetDocInfo.Doc) or
-           not TdmStdRes.IsCurEditionActual(pm_GetDocInfo.Doc));
+           not TCommonService.Instance.IsCurEditionActual(pm_GetDocInfo.Doc));
 //#UC END# *4937D90C03C6_493E5C580280_impl*
 end;//_sdsDocument_.IsWarningNeeded
 
@@ -676,7 +676,7 @@ begin
  Result := pm_GetHasDocument and
            defDataAdapter.TimeMachine.IsOn and
            (defDataAdapter.TimeMachine.HasTimeMachineWarning(pm_GetDocInfo.Doc) or
-            not TdmStdRes.IsCurEditionActual(pm_GetDocInfo.Doc));
+            not TCommonService.Instance.IsCurEditionActual(pm_GetDocInfo.Doc));
 //#UC END# *4937D92D01E9_493E5C580280_impl*
 end;//_sdsDocument_.HasTimeMachineWarning
 

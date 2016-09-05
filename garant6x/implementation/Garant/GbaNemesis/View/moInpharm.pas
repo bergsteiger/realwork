@@ -39,15 +39,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
- , Base_Operations_F1Services_Contracts
+ , Common_F1CommonServices_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_Inpharm, '»нфарм'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'DrugList', '—писок выпускаемых препаратов', False, mod_opcode_InpharmService_DrugList));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicDiction', '—ловарь медицинских терминов', False, mod_opcode_InpharmService_MedicDiction));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicFirms', '‘армацевтические фирмы', False, mod_opcode_InpharmService_MedicFirms));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicMainMenu', 'ќсновное меню »н‘арм', False, mod_opcode_InpharmService_MedicMainMenu));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'DrugList', '—писок выпускаемых препаратов', False, mod_opcode_InpharmOperations_DrugList));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicDiction', '—ловарь медицинских терминов', False, mod_opcode_InpharmOperations_MedicDiction));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicFirms', '‘армацевтические фирмы', False, mod_opcode_InpharmOperations_MedicFirms));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_Inpharm, 'MedicMainMenu', 'ќсновное меню »н‘арм', False, mod_opcode_InpharmOperations_MedicMainMenu));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

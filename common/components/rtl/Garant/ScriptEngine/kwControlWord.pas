@@ -41,6 +41,8 @@ uses
  , l3FormsService
  , Windows
  , Forms
+ //#UC START# *4DB98B4B0382impl_uses*
+ //#UC END# *4DB98B4B0382impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}

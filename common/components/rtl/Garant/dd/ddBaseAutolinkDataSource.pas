@@ -1,23 +1,17 @@
 unit ddBaseAutolinkDataSource;
 
-{ $Id: ddBaseAutolinkDataSource.pas,v 1.2 2015/11/25 14:01:46 lukyanets Exp $ }
+{ $Id: ddBaseAutolinkDataSource.pas,v 1.5 2016/08/24 09:11:09 fireton Exp $ }
 
 interface
 
 uses
  l3Date, l3LongintList, l3ProtoObject, l3Types, l3Except,
+ DT_Types,
  ddTypes, ddDocStructBase,
- DT_Types;
+ ddAutolinkInterfaces;
 
 type
  EddAutoLinkDataSourceError = class(El3Exception);
-
-type
- PddALDocRec = ^TddALDocRec;
- TddALDocRec = packed record
-  rIntDocID: TDocID;
-  rExtDocID: TDocID;
- end;
 
 type
  TddBaseAutolinkDataSource = class(Tl3ProtoObject)
@@ -44,11 +38,6 @@ type
  end;
 
 
-function ddFillALDocRecFromExtDocID(const aExtDocID: TDocID): TddALDocRec;
-{$IFNDEF NotArchi}
-function ddFillALDocRecFromIntDocID(const aIntDocID: TDocID): TddALDocRec;
-{$ENDIF}
-
 implementation
 uses
  l3Base
@@ -58,23 +47,6 @@ uses
  DT_LinkServ
  {$ENDIF}
  ;
-
-function ddFillALDocRecFromExtDocID(const aExtDocID: TDocID): TddALDocRec;
-begin
- Result.rExtDocID := aExtDocID;
- Result.rIntDocID := aExtDocID;
- {$IFNDEF NotArchi}
- LinkServer(CurrentFamily).Renum.GetRNumber(Result.rIntDocID);
- {$ENDIF}
-end;
-
-{$IFNDEF NotArchi}
-function ddFillALDocRecFromIntDocID(const aIntDocID: TDocID): TddALDocRec;
-begin
- Result.rIntDocID := aIntDocID;
- Result.rExtDocID := LinkServer(CurrentFamily).Renum.GetExtDocID(aIntDocID);
-end;
-{$ENDIF}
 
 constructor TddBaseAutolinkDataSource.Create(aOnError: TddErrorEvent);
 begin

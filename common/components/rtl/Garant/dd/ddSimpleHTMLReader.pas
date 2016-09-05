@@ -1,8 +1,29 @@
 unit ddSimpleHTMLReader;
 { Базовый предок читалки HMTL }
-{ $Id: ddSimpleHTMLReader.pas,v 1.76 2016/02/12 11:42:59 dinishev Exp $ }
+{ $Id: ddSimpleHTMLReader.pas,v 1.83 2016/08/15 12:04:28 dinishev Exp $ }
 
 // $Log: ddSimpleHTMLReader.pas,v $
+// Revision 1.83  2016/08/15 12:04:28  dinishev
+// {Requestlink:628097544}
+//
+// Revision 1.82  2016/08/15 10:55:49  dinishev
+// Reformat
+//
+// Revision 1.81  2016/06/22 10:57:19  dinishev
+// {Requestlink:624853474}
+//
+// Revision 1.80  2016/06/21 11:05:10  dinishev
+// http://mdp.garant.ru/pages/viewpage.action?pageId=624692225&focusedCommentId=624709697#comment-624709697
+//
+// Revision 1.79  2016/06/17 11:17:59  dinishev
+// {Requestlink:624709249}. Тест.
+//
+// Revision 1.78  2016/06/16 10:22:53  dinishev
+// {Requestlink:624692225}
+//
+// Revision 1.77  2016/06/15 11:37:52  dinishev
+// Remove complier warnings.
+//
 // Revision 1.76  2016/02/12 11:42:59  dinishev
 // {Requestlink:617316346}
 //
@@ -252,17 +273,20 @@ type
 
   TddSimpleHTMLReader = class(TddRegSeacherOwner)
   private
-    f_Text        : AnsiString;
-    f_InDel       : Integer;
-    f_IsData      : Boolean;
-    f_ReadURL     : Boolean;
-    f_ReadIns     : Boolean;
-    f_OnAnalyze   : TddHTMLAnalyzeEvent;
-    f_BreakAnalyze: Boolean;
+    f_Text           : AnsiString;
+    f_InDel          : Integer;
+    f_IsData         : Boolean;
+    f_ReadURL        : Boolean;
+    f_ReadIns        : Boolean;
+    f_OnAnalyze      : TddHTMLAnalyzeEvent;
+    f_BreakAnalyze   : Boolean;
+    f_PrevUnicodeChar: Integer;
     procedure pm_SetReadIns(const Value: Boolean);
   private
     procedure pm_SetData(const Value: Boolean);
     procedure AddText;
+    procedure CheckEntity(const anEntity: AnsiString; const aText: Tl3String);
+    function SkipUnicodeSymbol(aCode: Integer; const aText: Tl3String): Boolean;
     function DoHTMLEntity2Char(anEntity: AnsiString; var aChar: AnsiChar): Boolean;
     procedure CheckTextWithUTF8;
     procedure HTMLEntity2Char(anEntity: AnsiString; const aText: Tl3String);
@@ -324,6 +348,7 @@ uses
  l3Const,
  l3String,
  l3Parser,
+ l3StringEx, 
  l3Interfaces,
  l3PrimString,
  l3CustomString,
@@ -332,9 +357,10 @@ uses
 
  RTFtypes,
 
+ ddUtils,
  ddHTMLTags,
- ddTextParagraph,
  ddDocumentAtom,
+ ddTextParagraph,
 
  latin1,
 
@@ -352,6 +378,7 @@ begin
  f_InScript := False;
  f_ReadURL := False;
  f_ReadIns := False;
+ f_PrevUnicodeChar := 0;
 end;
 
 procedure TddSimpleHTMLReader.AddText;
@@ -375,13 +402,13 @@ begin
      l_LastPara := f_Document.LastPara;
      if (l_LastPara <> nil) and IsTextNotEmpty then
      begin
-      if f_CodePage = cp_koi8 then // http://mdp.garant.ru/pages/viewpage.action?pageId=584178118
+      if f_CodePage = CP_KOI8 then // http://mdp.garant.ru/pages/viewpage.action?pageId=584178118
       begin
        l_Str._CodePage := f_CodePage;
-       l_Str.CodePage := cp_ANSI;
-      end; // if f_CodePage = cp_koi8 then
+       l_Str.CodePage := CP_ANSI;
+      end; // if f_CodePage = CP_KOI8 then
       l_LastPara.AddText(l_Str);
-     end;
+     end; // if (l_LastPara <> nil) and IsTextNotEmpty then
     finally
      l3Free(l_Str);
     end;
@@ -392,9 +419,17 @@ begin
     ParseStyleTable(f_Text);
  end; // if f_Text <> '' then
  f_Text := '';
+ f_PrevUnicodeChar := 0;
 end;
 
 procedure TddSimpleHTMLReader.CheckTextWithUTF8;
+
+ function lp_SkipChar(aCode: LongWord): Boolean;
+ begin
+  Result := (aCode = 8226) or
+            (aCode = 173); // http://mdp.garant.ru/pages/viewpage.action?pageId=628097544
+ end;
+
 var
  i      : Integer;
  l_WS   : Widestring;
@@ -409,7 +444,7 @@ begin
    Inc(i);
    l_Char := UCS4Char(l_WS[i]);
    // Удаляем символ
-   if (l_Char = 8226) then
+   if lp_SkipChar(l_Char) then
     Delete(l_WS, i, 1)
    // Замена на читаемый символ
    else
@@ -422,23 +457,11 @@ begin
     // Заменяем на пробел
     else
      if (l_Char > 60000) then
-      l_WS[i] := #32
-    // Замена символов
-    (*else
-     case l_Char of
-      8211: l_WS[i] := '-'; // count: 58133
-      8470: l_WS[i] := '№'; // count: 15808
-      9679: l_WS[i] := '?'; // count: 4462
-      8212: l_WS[i] := '-'; // count: 1283
-      9472: l_WS[i] := '-'; // count: 449
-      8221: l_WS[i] := '"'; // count: 324
-      8220: l_WS[i] := '"'; // count: 315
-      8230: l_WS[i] := ':'; // count: 320
-    end; // case l_Char of*)
-   end;
-   f_Text := Utf8ToAnsi(UTF8Encode(l_WS));
- end; // if TryUTF8ToUTF16(f_Text, l_WS) then  
-end;
+      l_WS[i] := cc_HardSpace
+  end; // while (i < Length(l_WS)) do
+  f_Text := Utf8ToAnsi(UTF8Encode(l_WS));
+ end; // if TryUTF8ToUTF16(f_Text, l_WS) then
+end;                                            
 
 function TddSimpleHTMLReader.DoHTMLEntity2Char(anEntity: AnsiString; var aChar: AnsiChar): Boolean;
 begin
@@ -452,44 +475,18 @@ end;
 
 procedure TddSimpleHTMLReader.HTMLEntity2Char(anEntity: AnsiString; const aText: Tl3String);
 var
+ i       : Integer;
  l_Code  : Integer;
  l_Char  : AnsiChar;
- l_Entity: AnsiString;
-
- procedure lp_CheckEntity;
- var
-  l_ID    : Integer;
-  l_WChar : WideChar;
-  l_PWChar: PWideChar;
-  l_EnLen : Integer;
- begin
-  l_EnLen := Length(l_Entity);
-  Delete(l_Entity, l_EnLen, 1); //delete the ;
-  Delete(l_Entity, 1, 2); // delete the &#
-  if Uppercase(l_Entity[1]) = 'X' then
-   l_Entity[1] := '$'; // it's hex (but not supported!!!)
-  Val(l_Entity, l_ID, l_Code);
-  if (l_Code = 0) then
-  begin
-   l_WChar := WideChar(l_ID);
-   l_PWChar := @l_WChar;
-   aText.Append(l3PCharLen(l_PWChar, 1));
-  end; // if (l_Code = 0) then
- end;
-
-var
- i       : Integer;
  l_EnLen : Integer;
+ l_Entity: AnsiString;
  l_CharID: Integer;
 begin
  l_Code := Ord(cc_HardSpace);
  l_EnLen := Length(anEntity);
  // charset encoded entity
  if (l_EnLen > 2) and (anEntity[2] = '#') then
- begin
-  l_Entity := anEntity;
-  lp_CheckEntity;
- end // if (l_EnLen > 2) and (Entity[2] = '#') then
+  CheckEntity(anEntity, aText)
  else
   if DoHTMLEntity2Char(anEntity, l_Char) then
   begin
@@ -515,10 +512,20 @@ begin
 end;
 
 procedure TddSimpleHTMLReader.ClearText(const aOut: Tl3String);
+var
+ l_Str : Tl3Str;
 begin
  if f_CodePage = cp_UTF8 then
   CheckTextWithUTF8;
  ReasolveEntity(f_Text, aOut);
+ l_Str.Init(aOut.AsWStr, CP_OEM); // - здесь CP_то что надо
+ try
+  if l3CharSetPresent(l_Str.S, l_Str.SLen, cc_Graph_Criteria) then
+  // Преобразовываем в строку
+    aOut.AsPCharLen := l_Str;
+ finally
+  l_Str.Clear;
+ end;{try..finally}
 end;
 
 procedure TddSimpleHTMLReader.AnalyzeProc(var theBreakAnalyze: Boolean);
@@ -545,8 +552,8 @@ end;
 
 procedure TddSimpleHTMLReader.Read;
 begin
- f_BreakAnalyze:= False;
- f_IsPre:= False;
+ f_BreakAnalyze := False;
+ f_IsPre := False;
  f_InDel := 0;
  with Parser do
  begin
@@ -660,6 +667,7 @@ procedure TddSimpleHTMLReader.Try2OpenNewPara;
  var
   l_LastPara: TddDocumentAtom;
  begin
+  Result := True;
   l_LastPara := f_Document.LastPara;
   if (l_LastPara <> nil) then
    Result := False;
@@ -745,119 +753,119 @@ var
  l_ParamName : Tl3PCharLen;
  l_ParamValue: Tl3PCharLen;
 begin
-   {параметр:значение;}
-  l_SepPos := ev_lpCharIndex(cc_Colon, aStr);
-  l_Start := 0;
-  lp_GetFirstPos(l_Start);
-  l_ParamName := l3PCharLenPart(aStr.S, l_Start, l_SepPos, aStr.SCodePage);
-  Inc(l_SepPos);
-  lp_GetFirstPos(l_SepPos);
-  l_ParamValue := l3PCharLenPart(aStr.S, l_SepPos, aStr.SLen, aStr.SCodePage);
-  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontSize], l3_siCaseUnsensitive) = 0 then
-   aStyle.CHP.FontSize := ConvertFontSize(l_ParamValue)
-  else
-  if l3Compare(l_ParamName, carCSSParamStrArray[dd_csTextAlign], l3_siCaseUnsensitive) = 0 then
-   aStyle.PAP.JUST := ConvertJust(l_ParamValue)
-  else
-  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontFamily], l3_siCaseUnsensitive) = 0 then
-   (*
-   font-family
-   Value: [[<family-name> | <generic-family>],]* [<family-name> | <generic-family>]
-   Initial: UA specific
-   Applies to: all elements
-   Inherited: yes
-   Percentage values: N/A
-   *)
-  begin
-   aStyle.CHP.FontNumber := f_Document.AddFont(l3PCharLen2String(l_ParamValue));
-   aStyle.CHP.FontName := l3PCharLen2String(l_ParamValue);
-  end
-  else
-  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontWeight], l3_siCaseUnsensitive) = 0 then
-   (*
-   font-weight
-   Value: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
-   Initial: normal
-   Applies to: all elements
-   Inherited: yes
-   Percentage values: N/A
-   *)
-  begin
-   aStyle.CHP.Bold := l3Compare(l_ParamValue, casCSSNotBold) <> 0;
-  end
-  else
-  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontStyle], l3_siCaseUnsensitive) = 0 then
-   (*
-   font-style
-   Value: normal | italic | oblique
-   Initial: normal
-   Applies to: all elements
-   Inherited: yes
-   Percentage values: N/A
-   *)
-   aStyle.CHP.Italic := l3Compare(l_ParamValue, casCSSNotBold) <> 0
-  else
-  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssColor], l3_siCaseUnsensitive) = 0 then
-   (*
-   color
-   Value: <color>
-   Initial: UA specific
-   Applies to: all elements
-   Inherited: yes
-   Percentage values: N/A
-   *)
-   aStyle.CHP.FColor := ConvertColor(l_ParamValue)
-  else
-  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssBackgroundColor], l3_siCaseUnsensitive) = 0 then
-   (*
-   background-color
-   Value: <color> | transparent
-   Initial: transparent
-   Applies to: all elements
-   Inherited: no
-   Percentage values: N/A
-   *)
-   aStyle.CHP.BColor := ConvertColor(l_ParamValue)
+ {параметр:значение;}
+ l_SepPos := ev_lpCharIndex(cc_Colon, aStr);
+ l_Start := 0;
+ lp_GetFirstPos(l_Start);
+ l_ParamName := l3PCharLenPart(aStr.S, l_Start, l_SepPos, aStr.SCodePage);
+ Inc(l_SepPos);
+ lp_GetFirstPos(l_SepPos);
+ l_ParamValue := l3PCharLenPart(aStr.S, l_SepPos, aStr.SLen, aStr.SCodePage);
+ if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontSize], l3_siCaseUnsensitive) = 0 then
+  aStyle.CHP.FontSize := ConvertFontSize(l_ParamValue)
+ else
+ if l3Compare(l_ParamName, carCSSParamStrArray[dd_csTextAlign], l3_siCaseUnsensitive) = 0 then
+  aStyle.PAP.JUST := ConvertJust(l_ParamValue)
+ else
+ if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontFamily], l3_siCaseUnsensitive) = 0 then
   (*
-  text-decoration
-  Value: none | [ underline || overline || line-through || blink ]
-  Initial: none
+  font-family
+  Value: [[<family-name> | <generic-family>],]* [<family-name> | <generic-family>]
+  Initial: UA specific
   Applies to: all elements
-  Inherited: no, but see clarification below
+  Inherited: yes
   Percentage values: N/A
   *)
+ begin
+  aStyle.CHP.FontNumber := f_Document.AddFont(l3PCharLen2String(l_ParamValue));
+  aStyle.CHP.FontName := l3PCharLen2String(l_ParamValue);
+ end
+ else
+ if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontWeight], l3_siCaseUnsensitive) = 0 then
+  (*
+  font-weight
+  Value: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+  Initial: normal
+  Applies to: all elements
+  Inherited: yes
+  Percentage values: N/A
+  *)
+ begin
+  aStyle.CHP.Bold := l3Compare(l_ParamValue, casCSSNotBold) <> 0;
+ end
+ else
+ if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssFontStyle], l3_siCaseUnsensitive) = 0 then
+  (*
+  font-style
+  Value: normal | italic | oblique
+  Initial: normal
+  Applies to: all elements
+  Inherited: yes
+  Percentage values: N/A
+  *)
+  aStyle.CHP.Italic := l3Compare(l_ParamValue, casCSSNotBold) <> 0
+ else
+ if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssColor], l3_siCaseUnsensitive) = 0 then
+  (*
+  color
+  Value: <color>
+  Initial: UA specific
+  Applies to: all elements
+  Inherited: yes
+  Percentage values: N/A
+  *)
+  aStyle.CHP.FColor := ConvertColor(l_ParamValue)
+ else
+ if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssBackgroundColor], l3_siCaseUnsensitive) = 0 then
+  (*
+  background-color
+  Value: <color> | transparent
+  Initial: transparent
+  Applies to: all elements
+  Inherited: no
+  Percentage values: N/A
+  *)
+  aStyle.CHP.BColor := ConvertColor(l_ParamValue)
+ (*
+ text-decoration
+ Value: none | [ underline || overline || line-through || blink ]
+ Initial: none
+ Applies to: all elements
+ Inherited: no, but see clarification below
+ Percentage values: N/A
+ *)
+ else
+ if l3Pos(l_ParamName, carCSSParamStrArray[dd_cssMargin]) <> l3NotFound then
+  (*
+  margin-left, margin-right, margin-top, margin-bottom, margin
+  Value: [ <length> | <percentage> | auto ]{1,4} (for 'margin' property)
+  Initial: 0
+  Applies to: all elements
+  Inherited: no
+  Percentage values: refer to parent's width
+  *)
+ begin
+  l_Margin := ConvertMargin(l_ParamValue);
+  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginLeft], l3_siCaseUnsensitive) = 0 then
+   aStyle.PAP.xaLeft := l_Margin
   else
-  if l3Pos(l_ParamName, carCSSParamStrArray[dd_cssMargin]) <> l3NotFound then
-   (*
-   margin-left, margin-right, margin-top, margin-bottom, margin
-   Value: [ <length> | <percentage> | auto ]{1,4} (for 'margin' property)
-   Initial: 0
-   Applies to: all elements
-   Inherited: no
-   Percentage values: refer to parent's width
-   *)
+  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginRight], l3_siCaseUnsensitive) = 0 then
+   aStyle.PAP.xaRight := l_Margin
+  else
+  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginTop], l3_siCaseUnsensitive) = 0 then
+   aStyle.PAP.Before := l_Margin
+  else
+  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginBottom], l3_siCaseUnsensitive) = 0 then
+   aStyle.PAP.After := l_Margin
+  else
+  if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMargin], l3_siCaseUnsensitive) = 0 then
   begin
-   l_Margin := ConvertMargin(l_ParamValue);
-   if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginLeft], l3_siCaseUnsensitive) = 0 then
-    aStyle.PAP.xaLeft := l_Margin
-   else
-   if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginRight], l3_siCaseUnsensitive) = 0 then
-    aStyle.PAP.xaRight := l_Margin
-   else
-   if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginTop], l3_siCaseUnsensitive) = 0 then
-    aStyle.PAP.Before := l_Margin
-   else
-   if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMarginBottom], l3_siCaseUnsensitive) = 0 then
-    aStyle.PAP.After := l_Margin
-   else
-   if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMargin], l3_siCaseUnsensitive) = 0 then
-   begin
-    aStyle.PAP.xaLeft := l_Margin;
-    aStyle.PAP.xaRight := l_Margin;
-    aStyle.PAP.Before := l_Margin;
-    aStyle.PAP.After := l_Margin;
-   end; // if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMargin], l3_siCaseUnsensitive) = 0 then
-  end; // if l3Pos(l_ParamName, carCSSParamStrArray[dd_cssMargin]) <> l3NotFound then
+   aStyle.PAP.xaLeft := l_Margin;
+   aStyle.PAP.xaRight := l_Margin;
+   aStyle.PAP.Before := l_Margin;
+   aStyle.PAP.After := l_Margin;
+  end; // if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMargin], l3_siCaseUnsensitive) = 0 then
+ end; // if l3Pos(l_ParamName, carCSSParamStrArray[dd_cssMargin]) <> l3NotFound then
 end;
 
 function TddSimpleHTMLReader.ConvertFontSize(const aStr : Tl3PCharLen): Integer;
@@ -865,24 +873,24 @@ var
  l_TrimPos: Integer;
  l_TimeStr: Tl3PCharLen;
 begin
-  (*
-  font-size
-  Value: <absolute-size> | <relative-size> | <length> | <percentage>
-  Initial: medium
-  Applies to: all elements
-  Inherited: yes
-  Percentage values: relative to parent element's font size
-  *)
-  Result := 10;
-  if l3Ends(carCSSValueTypeArray[css_vtPoint], aStr, True) then
-  begin
-   l_TrimPos := l3CharSetPresentEx(aStr.S, aStr.SLen, cc_WhiteSpaceExt, aStr.SCodePage);
-   if l_TrimPos = -1 then
-    l_TrimPos := l_TimeStr.SLen - carCSSValueTypeArray[css_vtPoint].SLen;
-   l_TimeStr := aStr;
-   l_TimeStr.SLen := l_TrimPos;
-   Result := 2 * l3StrToIntDef(l_TimeStr, Result);
-  end; // if l3Ends(casCSSPt, aStr, True) then
+ (*
+ font-size
+ Value: <absolute-size> | <relative-size> | <length> | <percentage>
+ Initial: medium
+ Applies to: all elements
+ Inherited: yes
+ Percentage values: relative to parent element's font size
+ *)
+ Result := 10;
+ if l3Ends(carCSSValueTypeArray[css_vtPoint], aStr, True) then
+ begin
+  l_TrimPos := l3CharSetPresentEx(aStr.S, aStr.SLen, cc_WhiteSpaceExt, aStr.SCodePage);
+  if l_TrimPos = -1 then
+   l_TrimPos := l_TimeStr.SLen - carCSSValueTypeArray[css_vtPoint].SLen;
+  l_TimeStr := aStr;
+  l_TimeStr.SLen := l_TrimPos;
+  Result := 2 * l3StrToIntDef(l_TimeStr, Result);
+ end; // if l3Ends(casCSSPt, aStr, True) then
 end;
 
 function TddSimpleHTMLReader.ConvertColor(const aStr : Tl3PCharLen): TColor;
@@ -929,6 +937,7 @@ begin
  f_CodePage := cp_ANSI;
  f_ReadURL := False;
  f_ReadIns := False;
+ f_PrevUnicodeChar := 0;
  inherited;
 end;
 
@@ -1051,6 +1060,47 @@ end;
 procedure TddSimpleHTMLReader.DelTagsFinished;
 begin
 
+end;
+
+procedure TddSimpleHTMLReader.CheckEntity(const anEntity: AnsiString; const aText: Tl3String);
+var
+ l_ID    : Integer;
+ l_Code  : Integer;
+ l_EnLen : Integer;
+ l_WChar : WideChar;
+ l_PWChar: PWideChar;
+ l_Entity: AnsiString;
+begin
+ l_Entity := anEntity;  
+ l_EnLen := Length(l_Entity);
+ Delete(l_Entity, l_EnLen, 1); //delete the ;
+ Delete(l_Entity, 1, 2); // delete the &#
+ if Uppercase(l_Entity[1]) = 'X' then
+  l_Entity[1] := '$'; // it's hex (but not supported!!!)
+ Val(l_Entity, l_ID, l_Code);
+ if (l_Code = 0) and not SkipUnicodeSymbol(l_ID, aText) then
+ begin
+  l_WChar := WideChar(l_ID);
+  l_PWChar := @l_WChar;
+  aText.Append(l3PCharLen(l_PWChar, 1));
+ end; // if (l_Code = 0) then
+end;
+
+function TddSimpleHTMLReader.SkipUnicodeSymbol(aCode: Integer; const aText: Tl3String): Boolean;
+var
+ l_Char: AnsiChar;
+begin
+ l_Char := ddUnicode2Char(aCode);
+ Result := l_Char <> #0;
+ if not Result and (aCode = 9472) and (f_PrevUnicodeChar = 0) then
+ begin
+  l_Char := cc_Minus;
+  Result := True;
+ end; // if not Result and (aCode = 9472) then
+ if Result then
+  aText.Append(l_Char)
+ else
+  f_PrevUnicodeChar := aCode; 
 end;
 
 end.

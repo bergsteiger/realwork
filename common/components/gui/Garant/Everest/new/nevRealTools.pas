@@ -157,7 +157,6 @@ type
   function Get_PaintersHolder: InevPaintersHolder;
   function Get_TablePainter: IevTablePainter;
   function Get_TableRowPainter: IevTableRowPainter;
-  function IsSelectedOneWholePara(const aPara: InevPara): Boolean;
   property CurrentBlock: InevRange
    read pm_GetCurrentBlock;
   property DrawingTopmostChild: Boolean

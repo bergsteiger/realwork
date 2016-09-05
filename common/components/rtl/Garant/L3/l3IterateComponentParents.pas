@@ -65,6 +65,8 @@ uses
  , Controls
  , SysUtils
  , l3Base
+ //#UC START# *551AA9BD01EEimpl_uses*
+ //#UC END# *551AA9BD01EEimpl_uses*
 ;
 
 var g_Tl3IterateComponentParents: Tl3IterateComponentParents = nil;

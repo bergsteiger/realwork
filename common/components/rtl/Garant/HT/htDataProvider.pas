@@ -114,6 +114,8 @@ uses
  , htDataSchemeHelper
  , l3Base
  , htUserManager
+ //#UC START# *5774C7050265impl_uses*
+ //#UC END# *5774C7050265impl_uses*
 ;
 
 var g_HTDataProvider: Pointer;
@@ -441,6 +443,7 @@ begin
 //#UC START# *5526537A00CE_5519351D01BE_impl*
  if f_IsStarted then
   Exit;
+ g_HTDataProvider := Pointer(IdaDataProvider(Self));
  if f_SetGlobalDataProvider then
  begin
   Assert(GlobalDataProvider = nil);
@@ -467,6 +470,7 @@ begin
 //#UC START# *5526538202A5_5519351D01BE_impl*
  if not f_IsStarted then
   Exit;
+ g_HTDataProvider := nil;
  if f_NeedClearGlobalDataProvider then
   SetGlobalDataProvider(nil);
  if Assigned(f_Journal) then

@@ -24,6 +24,8 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ //#UC START# *53D0C0DD0037impl_uses*
+ //#UC END# *53D0C0DD0037impl_uses*
 ;
 {$IfEnd} // Defined(evNeedHotSpot)
 

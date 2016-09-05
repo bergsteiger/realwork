@@ -40,6 +40,8 @@ uses
  , k2Interfaces
  , SysUtils
  , l3Variant
+ //#UC START# *4A3A43F6003Aimpl_uses*
+ //#UC END# *4A3A43F6003Aimpl_uses*
 ;
 
 function TevParaListCursorDeletable.DoIt(const anOpPack: InevOp;

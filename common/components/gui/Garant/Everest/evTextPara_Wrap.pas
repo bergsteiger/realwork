@@ -24,6 +24,8 @@ uses
  , k2Tags
  , k2Base
  , TextPara_Const
+ //#UC START# *48577704034Cimpl_uses*
+ //#UC END# *48577704034Cimpl_uses*
 ;
 
 end.

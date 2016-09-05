@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47A0D67B03E2impl_uses*
+ //#UC END# *47A0D67B03E2impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}

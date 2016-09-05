@@ -27,6 +27,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *4B1D20D500C2impl_uses*
+ //#UC END# *4B1D20D500C2impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}

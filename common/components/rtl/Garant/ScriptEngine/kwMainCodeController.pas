@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *53DA257D011Cimpl_uses*
+ //#UC END# *53DA257D011Cimpl_uses*
 ;
 
 constructor TkwMainCodeController.Create(aLambda: TtfwWord;

@@ -1,8 +1,14 @@
 Unit Dt_Const;     
 
-{ $Id: DT_CONST.PAS,v 1.66 2015/11/27 12:38:22 lukyanets Exp $ }
+{ $Id: DT_CONST.PAS,v 1.68 2016/07/13 13:16:01 lukyanets Exp $ }
 
 // $Log: DT_CONST.PAS,v $
+// Revision 1.68  2016/07/13 13:16:01  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.67  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.66  2015/11/27 12:38:22  lukyanets
 // Cleanup
 //
@@ -672,6 +678,8 @@ uses
  l3Base,
  l3Date,
 
+ daTypes,
+
  DT_Types;
 
 const
@@ -906,8 +914,6 @@ const
  cMaxRightsMask : TTblMaskRec = (AllowMask: $FFFF; DenyMask: $0000);
 
 const
-  cBadRegion = 255;
-  cMaxUserID = $00FFFFFF; // максимально возможный номер пользователя (без кода региона)
   cDelStation : TStationID = #0#0#0#0#0#0#0#0;
   cDelStationID : Int64 = 0;
   cEmptyByte = High(Byte);
@@ -950,13 +956,13 @@ const
  ftnDocIDFAS8           = 'FAS8'; // ФАС СКО
  ftnDocIDFAS9           = 'FAS9'; // ФАС СЗО
  ftnDocIDFAS10          = 'FAS10'; // ФАС МО
- ftnImgHandle           = 'HIMAGE'; //для получения ID используйте function GlobalDataProvider.GetFreeExtObjID(aFamily : TFamilyID): TDocID;
+ ftnImgHandle           = 'HIMAGE'; //для получения ID используйте function GlobalDataProvider.GetFreeExtObjID(aFamily : TdaFamilyID): TDocID;
 *)
  {процедуры имен и паролей таблиц}
  function FamTblPrefName(aTable: TFamTbls): AnsiString;
- function TableName(aFamily: TFamilyID; aTblID: Integer; aTblPart : TdtAttrTblPart = atpMain): AnsiString;
- function CalcTableIndex(aFamily: TFamilyID; aTableName: AnsiString; aTblPart : TdtAttrTblPart = atpMain): Integer;
- function TablePassword(aFamily: TFamilyID; aTblID : Integer): AnsiString;
+ function TableName(aFamily: TdaFamilyID; aTblID: Integer; aTblPart : TdtAttrTblPart = atpMain): AnsiString;
+ function CalcTableIndex(aFamily: TdaFamilyID; aTableName: AnsiString; aTblPart : TdtAttrTblPart = atpMain): Integer;
+ function TablePassword(aFamily: TdaFamilyID; aTblID : Integer): AnsiString;
 
 implementation
 uses
@@ -972,7 +978,7 @@ begin
  Result := FamTblNames[aTable];
 end;
 
-function TableName(aFamily: TFamilyID; aTblID: Integer; aTblPart : TdtAttrTblPart = atpMain): AnsiString;
+function TableName(aFamily: TdaFamilyID; aTblID: Integer; aTblPart : TdtAttrTblPart = atpMain): AnsiString;
 begin
  if aFamily = MainTblsFamily then
   Result := MainTblNames[TMainTbls(aTblID)]
@@ -983,7 +989,7 @@ begin
  end;
 end;
 
-function CalcTableIndex(aFamily: TFamilyID; aTableName: AnsiString; aTblPart : TdtAttrTblPart = atpMain): Integer;
+function CalcTableIndex(aFamily: TdaFamilyID; aTableName: AnsiString; aTblPart : TdtAttrTblPart = atpMain): Integer;
 var
  l_IDX: Integer;
 begin
@@ -1009,7 +1015,7 @@ begin
   end; 
 end;
 
-function TablePassword(aFamily: TFamilyID; aTblID : Integer): AnsiString;
+function TablePassword(aFamily: TdaFamilyID; aTblID : Integer): AnsiString;
 begin
  if aFamily = MainTblsFamily then
   Result := TblPassW[MainPassIndex[TMainTbls(aTblID)]]

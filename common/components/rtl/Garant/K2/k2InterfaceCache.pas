@@ -35,6 +35,8 @@ uses
  , SysUtils
  , l3ProtoObject
  , l3ProtoObjectRefList
+ //#UC START# *531EF71800F9impl_uses*
+ //#UC END# *531EF71800F9impl_uses*
 ;
 
 function Tk2InterfaceCache.GetInterface(const ID: Tl3IID): Tk2ToolPrim;

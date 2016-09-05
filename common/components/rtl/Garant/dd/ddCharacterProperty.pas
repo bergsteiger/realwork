@@ -57,6 +57,8 @@ type
    function HasDefaultValue(aProperty: TddCharProperties): Boolean;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
    procedure ClearProp(aPropID: TddCharProperties);
+   function IsFontColorWhite: Boolean;
+   function IsHighlightColorWhite: Boolean;
    property BColor: LongInt index ddBColor read GetLongProperty write
            SetLongProperty;
    property BIndexColor: LongInt index ddBackColor read GetLongProperty write
@@ -379,7 +381,10 @@ begin
   f_LongProperties[Index] := Value;
   if Index <> ddStyle then
    IsDefault := False;
- end; // if f_LongProperties[Index] <> Value then
+ end // if f_LongProperties[Index] <> Value then
+ else
+  if IsDefaultValue(Index, Value) and not IsDefaultValue(Index, f_LongProperties[Index]) then
+   ClearProp(Index)
 end;
 
 procedure TddCharacterProperty.SetParam(Index: TddCharProperties; Value:
@@ -518,6 +523,16 @@ function TddCharacterProperty.HasDefaultValue(
   aProperty: TddCharProperties): Boolean;
 begin
  Result := IsDefaultValue(aProperty, f_LongProperties[aProperty]);
+end;
+
+function TddCharacterProperty.IsFontColorWhite: Boolean;
+begin
+ Result := FColor = clWhite
+end;
+
+function TddCharacterProperty.IsHighlightColorWhite: Boolean;
+begin
+ Result := Highlight = clWhite
 end;
 
 end.

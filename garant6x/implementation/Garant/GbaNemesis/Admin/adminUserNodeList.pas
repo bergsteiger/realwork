@@ -27,6 +27,8 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *559E9F2B02D6impl_uses*
+ //#UC END# *559E9F2B02D6impl_uses*
 ;
 
 function TadminUserNodeList.pm_GetCount: Integer;

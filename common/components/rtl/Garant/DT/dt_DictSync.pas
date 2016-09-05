@@ -144,6 +144,7 @@ end;
 
 function TdtDictSync.LockBase(aProgressProc: Tl3ProgressProc): Boolean;
 begin
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  Result := GlobalDataProvider.LockAll;
  if Result then
   GlobalDataProvider.UnLockAll;
@@ -157,6 +158,7 @@ end;
 
 function TdtDictSync.RestoreBackup(aProgressProc: Tl3ProgressProc): Boolean;
 begin
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  Result := GlobalDataProvider.LockAll;
  if Result then
   GlobalDataProvider.UnLockAll;
@@ -175,6 +177,7 @@ end;
 function TdtDictSync.UnlockBase(aProgressProc: Tl3ProgressProc): Boolean;
 begin
  Result:= True;
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  //GlobalDataProvider.UnLockAll;
 end;
 

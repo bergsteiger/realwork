@@ -63,6 +63,8 @@ uses
  , eeNodeUtils
  , SysUtils
  , eeNode
+ //#UC START# *4ADDF343009Cimpl_uses*
+ //#UC END# *4ADDF343009Cimpl_uses*
 ;
 
 function TeeVirtualNode.Get_Text: Il3CString;

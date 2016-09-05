@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , vcmOVCCommands
+ //#UC START# *4AA9377803B5impl_uses*
+ //#UC END# *4AA9377803B5impl_uses*
 ;
 
 procedure vcmToAggregate;

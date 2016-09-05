@@ -40,6 +40,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *53AABF30022Fimpl_uses*
+ //#UC END# *53AABF30022Fimpl_uses*
 ;
 
 {$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}

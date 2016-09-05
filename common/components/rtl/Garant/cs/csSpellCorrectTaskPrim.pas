@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , SpellCorrectTask_Const
+ //#UC START# *53B2545A003Dimpl_uses*
+ //#UC END# *53B2545A003Dimpl_uses*
 ;
 
 function TcsSpellCorrectTaskPrim.pm_GetReplacementFile: ReplacementFileHelper;

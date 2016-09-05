@@ -267,6 +267,9 @@ ICommon = interface (IInterface) ['{E07B0F92-C20B-4AB2-84A3-33BC2AF4659C}']
 		out aRet {: ISplashScreen}
 	); stdcall;
 
+	// признак ранее установленной версии
+	function IsEarlyInstalled (): Bytebool; stdcall;
+
 	// доступен ли модуль ЭО.
 	function IsEoEnabled (): Bytebool; stdcall;
 

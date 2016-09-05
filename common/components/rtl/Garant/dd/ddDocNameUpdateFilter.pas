@@ -1,8 +1,11 @@
 unit ddDocNameUpdateFilter;
 
-{ $Id: ddDocNameUpdateFilter.pas,v 1.9 2015/11/25 14:01:46 lukyanets Exp $ }
+{ $Id: ddDocNameUpdateFilter.pas,v 1.10 2016/06/16 05:40:04 lukyanets Exp $ }
 
 // $Log: ddDocNameUpdateFilter.pas,v $
+// Revision 1.10  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.9  2015/11/25 14:01:46  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -25,7 +28,7 @@ unit ddDocNameUpdateFilter;
 // - отлаживаем под XE3.
 //
 // Revision 1.2  2011/06/10 11:52:40  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.1  2010/11/12 15:18:50  fireton
 // - проставляем ключевые темы в названии документа

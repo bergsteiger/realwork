@@ -62,6 +62,8 @@ uses
  , l3Types
  , l3Base
  , afwFacade
+ //#UC START# *468361010204impl_uses*
+ //#UC END# *468361010204impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}

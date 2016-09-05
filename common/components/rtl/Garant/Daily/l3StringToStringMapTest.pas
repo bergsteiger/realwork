@@ -42,6 +42,8 @@ uses
  , l3Interfaces
  , l3String
  , TestFrameWork
+ //#UC START# *569F67CE017Bimpl_uses*
+ //#UC END# *569F67CE017Bimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

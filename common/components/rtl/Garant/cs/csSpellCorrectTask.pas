@@ -7,7 +7,7 @@ uses
  csProcessTask,
  Classes,
  ddProgressObj,
- DT_Types,
+ daTypes,
 
  csSpellCorrectTaskPrim
  ;
@@ -20,7 +20,7 @@ type
   function GetDescription: AnsiString; override;
   procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); override;
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   function HasFilesToTransfer: Boolean; override;
   function TransferFiles(const aService: IcsFileTransferServices): Boolean; override;
   function ExpandTransferFileName(const aFileName: String; out theBasePath, theFileName: String): Boolean; override;
@@ -38,7 +38,7 @@ uses
 {
 ******************************** TddProcessTask ********************************
 }
-constructor TcsSpellCorrectTask.Create(aUserID: TUserID);
+constructor TcsSpellCorrectTask.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType := cs_ttSpellCheck;

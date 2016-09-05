@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *53E0FC5E0100impl_uses*
+ //#UC END# *53E0FC5E0100impl_uses*
 ;
 
 class function TkwPopClassInherits.GetWordNameForRegister: AnsiString;

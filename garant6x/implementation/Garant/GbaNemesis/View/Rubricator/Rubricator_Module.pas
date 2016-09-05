@@ -13,12 +13,6 @@ interface
 uses
  l3IntfUses
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , l3TreeInterfaces
- , DynamicTreeUnit
- , MainMenuUnit
- {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -38,13 +32,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class function OpenRubricator(const aNode: Il3SimpleNode;
-    const aRootToKeep: INodeBase;
-    const aMenuSectionItemToKeep: ISectionItem;
-    aNeedsSheet: Boolean;
-    const anAggregate: IvcmAggregate;
-    const aContainer: IvcmContainer): IvcmEntityForm;
  end;//TRubricatorModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -53,17 +40,54 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , MainMenuUnit
  , Common_Rubricator_Controls
  , Base_Operations_Strange_Controls
+ , SysUtils
+ , l3Base
  , Rubricator_Form
  , Common_FormDefinitions_Controls
  //#UC START# *4AA67768038Fimpl_uses*
  , StdRes
+ , Common_F1CommonServices_Contracts
  //#UC END# *4AA67768038Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TRubricatorModule.OpenRubricator(const aNode: Il3SimpleNode;
+type
+ TRubricatorServiceImpl = {final} class(TvcmModuleContractImplementation, IRubricatorService)
+  public
+   function OpenRubricator(const aNode: Il3SimpleNode;
+    const aRootToKeep: INodeBase;
+    const aMenuSectionItemToKeep: ISectionItem;
+    aNeedsSheet: Boolean;
+    const anAggregate: IvcmAggregate;
+    const aContainer: IvcmContainer): IvcmEntityForm;
+   class function Instance: TRubricatorServiceImpl;
+    {* Метод получения экземпляра синглетона TRubricatorServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TRubricatorServiceImpl
+
+var g_TRubricatorServiceImpl: TRubricatorServiceImpl = nil;
+ {* Экземпляр синглетона TRubricatorServiceImpl }
+
+procedure TRubricatorServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TRubricatorServiceImpl }
+begin
+ l3Free(g_TRubricatorServiceImpl);
+end;//TRubricatorServiceImplFree
+
+function TRubricatorServiceImpl.OpenRubricator(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem;
  aNeedsSheet: Boolean;
@@ -116,7 +140,7 @@ begin
    l_Params := vcmSetAggregate(l_Aggregate, l_Params);
 
   if not op_Switcher_BecomeActive.Call(l_Aggregate) and aNeedsSheet then
-   TdmStdRes.GetNavigator(l_Params.Aggregate, l_Params.Container);
+   TCommonService.Instance.GetNavigator(l_Params.Aggregate, l_Params.Container);
 
   if not l_RubrExists then
    Result := TefRubricator.MakeSingleChild(l_Container.NativeMainForm,
@@ -139,13 +163,34 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TRubricatorModule.OpenRubricator
+end;//TRubricatorServiceImpl.OpenRubricator
+
+class function TRubricatorServiceImpl.Instance: TRubricatorServiceImpl;
+ {* Метод получения экземпляра синглетона TRubricatorServiceImpl }
+begin
+ if (g_TRubricatorServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TRubricatorServiceImplFree);
+  g_TRubricatorServiceImpl := Create;
+ end;
+ Result := g_TRubricatorServiceImpl;
+end;//TRubricatorServiceImpl.Instance
+
+class function TRubricatorServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TRubricatorServiceImpl <> nil;
+end;//TRubricatorServiceImpl.Exists
 
 class procedure TRubricatorModule.GetEntityForms(aList: TvcmClassList);
 begin
  inherited;
  aList.Add(TefRubricator);
 end;//TRubricatorModule.GetEntityForms
+
+initialization
+ TRubricatorService.Instance.Alien := TRubricatorServiceImpl.Instance;
+ {* Регистрация TRubricatorServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

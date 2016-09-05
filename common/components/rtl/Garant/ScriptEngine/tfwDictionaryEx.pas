@@ -81,6 +81,8 @@ uses
  , tfwAutoregisteredDiction
  , l3String
  , tfwDictionaryExWordsPack
+ //#UC START# *559E8B2E0385impl_uses*
+ //#UC END# *559E8B2E0385impl_uses*
 ;
 
 function TtfwDictionaryEx.FindInUsedDictionary(anOther: TtfwDictionary;

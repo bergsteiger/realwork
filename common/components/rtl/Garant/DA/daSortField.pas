@@ -36,6 +36,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5680EF290107impl_uses*
+ //#UC END# *5680EF290107impl_uses*
 ;
 
 constructor TdaSortField.Create(const aSelectField: IdaSelectField;

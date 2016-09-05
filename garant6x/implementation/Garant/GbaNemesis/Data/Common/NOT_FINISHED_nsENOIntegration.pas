@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4AB8B48800F6impl_uses*
+ //#UC END# *4AB8B48800F6impl_uses*
 ;
 
 procedure nsProcessENOLink;

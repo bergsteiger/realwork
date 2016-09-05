@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , CourtDecisionPhrase_Const
+ //#UC START# *53EDECDF01AAimpl_uses*
+ //#UC END# *53EDECDF01AAimpl_uses*
 ;
 
 class function TDecisionPhrasesHelper.Make(aValue: Tl3Tag): DecisionPhrasesHelper;

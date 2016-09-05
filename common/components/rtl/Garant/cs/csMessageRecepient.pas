@@ -49,7 +49,6 @@ implementation
 
 uses
   SysUtils,
-  dt_UserConst,
   TypInfo,
   CsNotification,
   l3Memory

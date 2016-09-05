@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , vcmEntityDefList
  , vcmModuleDefList
+ //#UC START# *564AE7F4023Fimpl_uses*
+ //#UC END# *564AE7F4023Fimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVCM)
 

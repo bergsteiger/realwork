@@ -23,6 +23,8 @@ uses
  l3ImplUses
  , k2Base
  , FramePart_Const
+ //#UC START# *484D270C03ADimpl_uses*
+ //#UC END# *484D270C03ADimpl_uses*
 ;
 
 end.

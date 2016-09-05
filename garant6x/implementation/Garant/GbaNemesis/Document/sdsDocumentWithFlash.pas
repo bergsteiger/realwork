@@ -124,6 +124,7 @@ uses
  , dsTranslation
  , dsRelatedDoc
  , dsChronology
+ , Common_F1CommonServices_Contracts
  , dsAttributes
  , Windows
  {$If NOT Defined(NoVCM)}
@@ -134,6 +135,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , afwSettingsChangePublisher
  , WarningUserTypes_Warning_UserType
+ //#UC START# *493E754301C8impl_uses*
+ //#UC END# *493E754301C8impl_uses*
 ;
 
 type _Instance_R_ = TsdsDocumentWithFlash;

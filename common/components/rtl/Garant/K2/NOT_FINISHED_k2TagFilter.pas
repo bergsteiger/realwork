@@ -33,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49E487A70144impl_uses*
+ //#UC END# *49E487A70144impl_uses*
 ;
 
 function Tk2TagFilter.NeedTranslateChildToNextPrim(anOpenMode: Tk2TagFilterOpenMode): Boolean;

@@ -30,6 +30,8 @@ uses
  , l3Base
  , SysUtils
  , l3Memory
+ //#UC START# *4B87D32A0023impl_uses*
+ //#UC END# *4B87D32A0023impl_uses*
 ;
 
 type _Instance_R_ = TevSubPanelSubCollection;

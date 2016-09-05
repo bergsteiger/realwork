@@ -54,6 +54,8 @@ uses
  , l3Types
  , SysUtils
  , l3LongintList
+ //#UC START# *49EEF16603C9impl_uses*
+ //#UC END# *49EEF16603C9impl_uses*
 ;
 
 function nsIsGarantURL(const anURL: WideString): Boolean;
@@ -327,21 +329,26 @@ end;//nsIsMailtoURL
 function nsIsFileFromMobileGarant(const anURL: WideString): Boolean;
 //#UC START# *574C00B1021A_49EEF16603C9_var*
 const
- cMask: String = 'https?\:\/\/(www.garant.ru)\/files\/?.*/*.%s$';
+ cMaskArray: array[0..3] of String = ('https?\:\/\/(www.garant.ru)\/files\/?.*/*.%s$',
+  'https?\:\/\/(ext.garant.ru)\/download\/?.*/*.%s$',
+  'https?\:\/\/(www.garant.ru)\/download\/?.*/*.%s$',
+  'https?\:\/\/(ext.garant.ru)\/url\/?.*/*.%s$');
  cExtArray: array[0..2] of String = ('pdf', 'epub', 'fb2');
 var
- l_Index: Integer;
+ i: Integer;
+ j: Integer;
 //#UC END# *574C00B1021A_49EEF16603C9_var*
 begin
 //#UC START# *574C00B1021A_49EEF16603C9_impl*
  Result := False;
- for l_Index := Low(cExtArray) to High(cExtArray) do
- begin
-  Result := l3CheckStrByPattern(Format(cMask, [cExtArray[l_Index]]),
-   l3PCharLen(anURL));
-  if Result then
-   Exit;
- end;
+ for i := Low(cMaskArray) to High(cMaskArray) do
+  for j := Low(cExtArray) to High(cExtArray) do
+  begin
+   Result := l3CheckStrByPattern(Format(cMaskArray[i], [cExtArray[j]]),
+    l3PCharLen(anURL));
+   if Result then
+    Exit;
+  end;
 //#UC END# *574C00B1021A_49EEF16603C9_impl*
 end;//nsIsFileFromMobileGarant
 {$IfEnd} // Defined(Nemesis)

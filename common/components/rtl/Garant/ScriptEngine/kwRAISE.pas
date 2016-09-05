@@ -48,6 +48,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4DBAE64F02F7impl_uses*
+ //#UC END# *4DBAE64F02F7impl_uses*
 ;
 
 class function TkwRAISE.GetWordNameForRegister: AnsiString;

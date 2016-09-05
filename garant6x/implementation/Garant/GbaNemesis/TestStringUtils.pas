@@ -25,6 +25,8 @@ implementation
 {$If NOT Defined(XE)}
 uses
  l3ImplUses
+ //#UC START# *499C3E6803D8impl_uses*
+ //#UC END# *499C3E6803D8impl_uses*
 ;
 
 procedure Split(Delimiter: AnsiChar;

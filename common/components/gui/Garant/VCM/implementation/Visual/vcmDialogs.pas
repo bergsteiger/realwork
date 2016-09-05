@@ -177,6 +177,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B8E676500ADimpl_uses*
+ //#UC END# *4B8E676500ADimpl_uses*
 ;
 
 function GetAvgCharSize(aCanvas: TCanvas): TPoint;

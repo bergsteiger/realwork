@@ -3,9 +3,12 @@ unit vcmHistoryFormNode;
 { Библиотека "vcm"           }
 { Модуль: vcmHistoryFormNode }
 { Начат: 07.10.2015 14:00    }
-{ $Id: vcmHistoryFormNode.pas,v 1.3 2015/10/07 11:46:38 morozov Exp $ }
+{ $Id: vcmHistoryFormNode.pas,v 1.4 2016/08/04 08:17:59 lulin Exp $ }
 
 // $Log: vcmHistoryFormNode.pas,v $
+// Revision 1.4  2016/08/04 08:17:59  lulin
+// - перегенерация.
+//
 // Revision 1.3  2015/10/07 11:46:38  morozov
 // {RequestLink: 606827062}
 //
@@ -82,6 +85,7 @@ function TvcmHistoryFormNode.FindContainer(const aMainForm: IvcmContainer): Ivcm
   l_Iterator: IvcmEntityFormIterator;
   l_Form: IvcmEntityForm;
  begin
+  Result := false;
   aChildForm := nil;
   l_Iterator := aContainerForm.AsContainer.EntityFormIterator;
   l_Form := l_Iterator.Next;

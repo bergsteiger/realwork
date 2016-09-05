@@ -5,9 +5,12 @@ unit k2StackGenerator;
 { Автор: Люлин А.В. ©     }
 { Модуль: k2StackGenerator - }
 { Начат: 18.09.2002 10:17 }
-{ $Id: k2StackGenerator.pas,v 1.80 2015/05/21 11:37:08 lulin Exp $ }
+{ $Id: k2StackGenerator.pas,v 1.81 2016/07/20 10:15:19 lulin Exp $ }
 
 // $Log: k2StackGenerator.pas,v $
+// Revision 1.81  2016/07/20 10:15:19  lulin
+// - перегенерация.
+//
 // Revision 1.80  2015/05/21 11:37:08  lulin
 // - развязываем зависимости.
 //
@@ -589,7 +592,7 @@ procedure Tk2CustomStackGenerator.OpenStream;
   {-}
 begin
  inherited;
- f_Types := Tl3CObjectList.Make;
+ f_Types := Tl3CObjectList.Create;
  //f_Types.Capacity := 32;
 end;
 
@@ -613,8 +616,8 @@ procedure Tk2CustomStackGenerator.StartChild(TypeID: Tl3VariantDef);
   {override;}
   {-}
 begin
- //if (f_Types = nil) then
- // f_Types := Tl3CObjectList.Make;
+ if (f_Types = nil) then
+  f_Types := Tl3CObjectList.Create;
  inherited;
  Assert(f_Types <> nil);
  f_Types.Add(TypeID);

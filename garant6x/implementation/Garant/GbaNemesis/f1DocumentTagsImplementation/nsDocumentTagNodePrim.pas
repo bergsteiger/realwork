@@ -44,6 +44,8 @@ uses
  , evTextStyle_Const
  , evdTextStyle_Const
  , evdStyles
+ //#UC START# *467FCF9300AEimpl_uses*
+ //#UC END# *467FCF9300AEimpl_uses*
 ;
 
 {$If NOT Defined(k2TagIsAtomic)}

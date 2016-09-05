@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4F916FD10199impl_uses*
+ //#UC END# *4F916FD10199impl_uses*
 ;
 
 constructor Tl3FormCanvas.Create(aForm: TForm);

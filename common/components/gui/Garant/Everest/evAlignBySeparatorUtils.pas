@@ -56,6 +56,8 @@ uses
  , SysUtils
  , l3Chars
  , evTextParaTools
+ //#UC START# *4E3BB8760238impl_uses*
+ //#UC END# *4E3BB8760238impl_uses*
 ;
 
 var g_AllowChars: TCharSet;

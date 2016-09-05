@@ -1,9 +1,21 @@
 //..........................................................................................................................................................................................................................................................
 unit ddImportPipe;
 { Верхний слой трубы для импорта - знает про входные форматы и цикл }
-{ $Id: ddImportPipe.pas,v 1.99 2016/05/18 06:03:58 lukyanets Exp $ }
+{ $Id: ddImportPipe.pas,v 1.103 2016/08/11 10:47:46 lukyanets Exp $ }
 
 // $Log: ddImportPipe.pas,v $
+// Revision 1.103  2016/08/11 10:47:46  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.102  2016/07/26 09:26:04  fireton
+// - переделка автолинкера
+//
+// Revision 1.101  2016/07/21 12:13:44  fireton
+// - переделка автолинкера
+//
+// Revision 1.100  2016/06/16 05:40:08  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.99  2016/05/18 06:03:58  lukyanets
 // Выключаем удаленную отладку
 //
@@ -343,7 +355,7 @@ type
     procedure SetCheckRegion(const Value: Boolean);
   private { Настройки трубы }
    FAutoDetectTypes: TddPipeInputFileTypeSet;
-   f_Family: TFamilyID;
+   f_Family: TdaFamilyID;
    f_PictDir: AnsiString;
    f_MoveFiles: Boolean;
    f_DoneDir: ShortString;
@@ -471,7 +483,7 @@ type
     { Published declarations }
    property Reader: Tk2CustomFileReader read f_FileReader write f_FileReader;
 
-   property Family : TFamilyID
+   property Family : TdaFamilyID
     read f_Family
     write f_Family
     default 1;
@@ -591,10 +603,10 @@ uses
  daDataProvider,
 
  DT_DOC, ComCtrls, evEvdRd, ddUtils, daSchemeConsts,
- dt_User, ddNSRCUtils, k2Tags, k2Base, l3Except, evTxtRd,
+ ddNSRCUtils, k2Tags, k2Base, l3Except, evTxtRd,
  ddDocReader, l3languages, BAse_CFG, {ddArbitralCourtReader,} Document_Const,
  dd_lcClassOpenerFilter, ddKTExtractor, ddAutoLinkFilter, ddAutoIncludeFilter,
- dd_lcMisspellFilter, ddAccGroupGenerator;
+ dd_lcMisspellFilter, ddAccGroupGenerator, ddGeneralLawsLinkFinder;
 
 constructor TddImportPipe.Create(aFamily: Integer; anExclusive: Boolean = False);
 begin
@@ -1047,7 +1059,10 @@ begin
    begin
     f_AddGen:= nil;
     if AutoLink then
-     TddAutoLinkFilter.SetTo(f_AddGen, nil, AutoLinkFileName);
+    begin
+     TddAutoLinkFilter.SetTo(f_AddGen);
+     TddAutoLinkFilter(f_AddGen).AddLinkFinder(ddGetGeneralLawsLinkFinder(nil, AutoLinkFileName));
+    end;
     if OpenClassStage then
      Tdd_lcClassOpenerFilter.SetTo(f_AddGen);
     if AddKT then

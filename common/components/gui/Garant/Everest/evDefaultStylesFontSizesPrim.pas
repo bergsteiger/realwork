@@ -50,6 +50,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4E3173F50217impl_uses*
+ //#UC END# *4E3173F50217impl_uses*
 ;
 
 function TevDefaultStyleFontSize_C(aStyleID: Integer;

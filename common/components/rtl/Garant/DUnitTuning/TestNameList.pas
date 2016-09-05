@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , TestNameString
  , SysUtils
+ //#UC START# *4D1AEAC80371impl_uses*
+ //#UC END# *4D1AEAC80371impl_uses*
 ;
 
 var g_TTestNameList: TTestNameList = nil;

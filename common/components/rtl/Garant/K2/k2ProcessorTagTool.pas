@@ -49,6 +49,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4BBF3D8B00CDimpl_uses*
+ //#UC END# *4BBF3D8B00CDimpl_uses*
 ;
 
 function Tk2ProcessorTagTool.pm_GetProcessor: Ik2Processor;

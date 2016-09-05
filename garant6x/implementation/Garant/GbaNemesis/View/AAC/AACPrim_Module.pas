@@ -13,10 +13,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , DocumentInterfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -38,13 +34,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class procedure MakeAAC(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-    {* Создаёт сборку для документа ААК }
-   class procedure MakeAACContents(const aDocInfo: IdeDocInfo;
-    const aContainer: IvcmContainer);
-    {* Создаёт сборку для документа ОГЛАВЛЕНИЯ ААК }
  end;//TAACPrimModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -53,7 +42,17 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
+ , DocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , sdsAAC
+ , SysUtils
+ , l3Base
  , AACContainer_Form
  , AACContentsContainer_Form
  , fsAACContents
@@ -63,7 +62,31 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class procedure TAACPrimModule.MakeAAC(const aDocInfo: IdeDocInfo;
+type
+ TAACServiceImpl = {final} class(TvcmModuleContractImplementation, IAACService)
+  public
+   procedure MakeAAC(const aDocInfo: IdeDocInfo;
+    const aContainer: IvcmContainer);
+    {* Создаёт сборку для документа ААК }
+   procedure MakeAACContents(const aDocInfo: IdeDocInfo;
+    const aContainer: IvcmContainer);
+    {* Создаёт сборку для документа ОГЛАВЛЕНИЯ ААК }
+   class function Instance: TAACServiceImpl;
+    {* Метод получения экземпляра синглетона TAACServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TAACServiceImpl
+
+var g_TAACServiceImpl: TAACServiceImpl = nil;
+ {* Экземпляр синглетона TAACServiceImpl }
+
+procedure TAACServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TAACServiceImpl }
+begin
+ l3Free(g_TAACServiceImpl);
+end;//TAACServiceImplFree
+
+procedure TAACServiceImpl.MakeAAC(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
  {* Создаёт сборку для документа ААК }
 var
@@ -80,9 +103,9 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TAACPrimModule.MakeAAC
+end;//TAACServiceImpl.MakeAAC
 
-class procedure TAACPrimModule.MakeAACContents(const aDocInfo: IdeDocInfo;
+procedure TAACServiceImpl.MakeAACContents(const aDocInfo: IdeDocInfo;
  const aContainer: IvcmContainer);
  {* Создаёт сборку для документа ОГЛАВЛЕНИЯ ААК }
 var
@@ -99,7 +122,24 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TAACPrimModule.MakeAACContents
+end;//TAACServiceImpl.MakeAACContents
+
+class function TAACServiceImpl.Instance: TAACServiceImpl;
+ {* Метод получения экземпляра синглетона TAACServiceImpl }
+begin
+ if (g_TAACServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TAACServiceImplFree);
+  g_TAACServiceImpl := Create;
+ end;
+ Result := g_TAACServiceImpl;
+end;//TAACServiceImpl.Instance
+
+class function TAACServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TAACServiceImpl <> nil;
+end;//TAACServiceImpl.Exists
 
 class procedure TAACPrimModule.GetEntityForms(aList: TvcmClassList);
 begin
@@ -107,6 +147,10 @@ begin
  aList.Add(TAACContainerForm);
  aList.Add(TAACContentsContainerForm);
 end;//TAACPrimModule.GetEntityForms
+
+initialization
+ TAACService.Instance.Alien := TAACServiceImpl.Instance;
+ {* Регистрация TAACServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

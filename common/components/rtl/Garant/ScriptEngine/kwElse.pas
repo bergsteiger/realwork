@@ -38,6 +38,8 @@ uses
  l3ImplUses
  , kwCompiledWord
  , kwCompiledIfElse
+ //#UC START# *5284F739012Fimpl_uses*
+ //#UC END# *5284F739012Fimpl_uses*
 ;
 
 function TkwElse.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;

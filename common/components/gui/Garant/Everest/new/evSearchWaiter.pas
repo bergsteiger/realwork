@@ -49,6 +49,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , k2Tags
+ //#UC START# *4EA6A47C0260impl_uses*
+ //#UC END# *4EA6A47C0260impl_uses*
 ;
 
 constructor TevSearchWaiter.Create(const aControl: InevControl;

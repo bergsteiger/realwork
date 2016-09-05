@@ -45,6 +45,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4EF0A00F0280impl_uses*
+ //#UC END# *4EF0A00F0280impl_uses*
 ;
 
 function TK321983051.GetZoom: Integer;

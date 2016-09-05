@@ -52,6 +52,8 @@ uses
  , k2Tags
  , Bookmark_Const
  , SysUtils
+ //#UC START# *4A7AA075008Fimpl_uses*
+ //#UC END# *4A7AA075008Fimpl_uses*
 ;
 
 constructor TnsDocumentContainerSub.Create(aDocument: Tl3Tag;

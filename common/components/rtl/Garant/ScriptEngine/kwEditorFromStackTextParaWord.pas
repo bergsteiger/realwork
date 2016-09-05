@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *50BA0B820089impl_uses*
+ //#UC END# *50BA0B820089impl_uses*
 ;
 
 procedure TkwEditorFromStackTextParaWord.DoCursor(const aCtx: TtfwContext;

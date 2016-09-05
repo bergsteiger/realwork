@@ -37,6 +37,8 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *4AE593B30288impl_uses*
+ //#UC END# *4AE593B30288impl_uses*
 ;
 
 constructor TdeSelectedAttributes.Create(const aRefreshValues: InsSelectedAttributesIterators;

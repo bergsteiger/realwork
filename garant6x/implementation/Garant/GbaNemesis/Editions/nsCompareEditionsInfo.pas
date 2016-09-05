@@ -16,6 +16,7 @@ uses
  , bsTypesNew
  , DocumentUnit
  , eeInterfaces
+ , Base_Operations_F1Services_Contracts
 ;
 
 type
@@ -53,6 +54,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4A78506900E2impl_uses*
+ //#UC END# *4A78506900E2impl_uses*
 ;
 
 constructor TnsCompareEditionsInfo.Create(const aDoc: IDocument;

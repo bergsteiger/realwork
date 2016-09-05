@@ -73,6 +73,8 @@ uses
  , Formula_Const
  , Graphics
  , l3ImageUtils
+ //#UC START# *4B72DF7B0164impl_uses*
+ //#UC END# *4B72DF7B0164impl_uses*
 ;
 
 type

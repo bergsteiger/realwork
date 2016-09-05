@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , daScheme
+ //#UC START# *5652B5360294impl_uses*
+ //#UC END# *5652B5360294impl_uses*
 ;
 
 constructor TpgRenumerator.Create(const aFactory: IdaTableQueryFactory);

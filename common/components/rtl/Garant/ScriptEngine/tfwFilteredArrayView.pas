@@ -32,6 +32,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52E6752A0047impl_uses*
+ //#UC END# *52E6752A0047impl_uses*
 ;
 
 procedure TtfwFilterLambda.DoDoIt(const aCtx: TtfwContext);

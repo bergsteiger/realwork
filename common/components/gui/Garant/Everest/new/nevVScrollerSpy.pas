@@ -50,6 +50,8 @@ uses
  , SysUtils
  , l3Types
  , l3Base
+ //#UC START# *4DAEB03E0034impl_uses*
+ //#UC END# *4DAEB03E0034impl_uses*
 ;
 
 var g_TnevVScrollerSpy: TnevVScrollerSpy = nil;

@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , nsSingleAttributeDataObject
+ //#UC START# *48F72B630069impl_uses*
+ //#UC END# *48F72B630069impl_uses*
 ;
 
 function TnsSingleAttributeData.ExtDataClass: RDataClass;

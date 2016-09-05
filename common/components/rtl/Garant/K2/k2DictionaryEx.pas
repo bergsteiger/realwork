@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *535664EC03B3impl_uses*
+ //#UC END# *535664EC03B3impl_uses*
 ;
 
 constructor Tk2DictionaryEx.Create(aType: Tk2Type);

@@ -37,6 +37,8 @@ uses
  , TestFrameWork
  , ddPipeOutInterfaces
  , l3Base
+ //#UC START# *55FF9F1102C9impl_uses*
+ //#UC END# *55FF9F1102C9impl_uses*
 ;
 
 procedure TExportToSingleNSRTest.TuneExportPipe;

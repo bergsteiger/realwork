@@ -61,6 +61,8 @@ uses
  , l3String
  , NodeGroup_Const
  , ControlsBlock_Const
+ //#UC START# *49DB469F01B8impl_uses*
+ //#UC END# *49DB469F01B8impl_uses*
 ;
 
 function TevControlsBlockPainter.InfiniteFrame: Boolean;

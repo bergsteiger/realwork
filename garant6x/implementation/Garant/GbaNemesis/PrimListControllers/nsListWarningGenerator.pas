@@ -65,6 +65,8 @@ uses
  , BaloonWarningUserTypes_TrialModeWarning_UserType
  , BaloonWarningUserTypes_OldBaseWarning_UserType
  , BaloonWarningUserTypes_ControlledChangingWarning_UserType
+ //#UC START# *4EDCFD4D037Cimpl_uses*
+ //#UC END# *4EDCFD4D037Cimpl_uses*
 ;
 
 const

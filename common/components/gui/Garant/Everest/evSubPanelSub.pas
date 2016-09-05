@@ -46,6 +46,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4B87DC6C02F7impl_uses*
+ //#UC END# *4B87DC6C02F7impl_uses*
 ;
 
 function TevSubPanelSub.pm_GetHandle: Tl3Handle;

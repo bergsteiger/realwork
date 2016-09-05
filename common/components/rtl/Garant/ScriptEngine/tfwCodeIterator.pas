@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *52E7D66E02FFimpl_uses*
+ //#UC END# *52E7D66E02FFimpl_uses*
 ;
 
 procedure TtfwCodeIterator.Cleanup;

@@ -314,6 +314,9 @@ uses
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  //#UC START# *56FA889202B4impl_uses*
+ , Base_Operations_F1Services_Contracts
+ , Common_F1CommonServices_Contracts
+ , F1_Application_Template_Services
  //#UC END# *56FA889202B4impl_uses*
 ;
 
@@ -479,16 +482,16 @@ procedure TPrimMainMenuWithProfNewsForm.SearchClick(Sender: TObject);
 begin
 //#UC START# *56FD0A30011C_56FA889202B4_impl*
  if (Sender = flAttributeSearch) then
-  TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
+  TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, nil, nil)
  else
  if (Sender = flSituationSearch) then
-  TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
+  TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, nil, nil)
  else
  if (Sender = flPublishedSourceSearch) then
-  TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
+  TQueryOpenService.Instance.OpenQuery(lg_qtPublishedSource, nil, nil)
  else
  if (Sender = flDictionSearch) then
-  TdmStdRes.OpenDictionary(nil, NativeMainForm)
+  TDictionService.Instance.OpenDictionary(nil, NativeMainForm)
  else
   Assert(False);
 //#UC END# *56FD0A30011C_56FA889202B4_impl*
@@ -681,7 +684,7 @@ begin
 //#UC START# *57023AD501A4_56FA889202B4_impl*
  if (Sender = pbFeedback) then
  begin
-  TdmStdRes.OpenSendConsultation(nil);
+  TConsultationService.Instance.OpenSendConsultation(nil);
  end//Sender = pbFeedback
  else
  if (Sender = pbOnLineResources) then
@@ -700,7 +703,7 @@ begin
  else
  if (Sender = pbWebVersion) then
  begin
-  vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Common_OpenIntranet);
+  vcmDispatcher.ModuleOperation(mod_opcode_CommonService_OpenIntranet);
  end;//Sender = pbWebVersion
 //#UC END# *57023AD501A4_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.PaintBoxClick
@@ -728,7 +731,7 @@ begin
    else
    if Supports(l_Ref, IEntityBase, l_Entity) then
     try
-     TdmStdRes.OpenEntityAsDocument(l_Entity, NativeMainForm);
+     TDocumentService.Instance.OpenEntityAsDocument(l_Entity, NativeMainForm);
     finally
      l_Entity := nil;
     end//try..finally
@@ -929,9 +932,9 @@ begin
   l_InnerState := l_State.InnerState;
   lblProfNews.CurrentItem := l_State.ProfNewsTreeItemIndex;
   lblTaxes.CurrentItem := l_State.TaxesTreeItemIndex;
-  Result := inherited DoLoadState(l_InnerState, aStateType);
+  Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
  end else
-  Result := inherited DoLoadState(aState, aStateType);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoLoadState
 {$IfEnd} // NOT Defined(NoVCM)
@@ -984,8 +987,9 @@ procedure TPrimMainMenuWithProfNewsForm.InitControls;
 
   pnlWebVersion.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
                        and Assigned(defDataAdapter)
-                       and defDataAdapter.RevisionCheckEnabled
-                       and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE);
+                       and ((defDataAdapter.RevisionCheckEnabled
+                       and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+                         or DefDataAdapter.CommonInterfaces.IsEarlyInstalled);
  end; // lp_SetupButtons
 
  procedure lp_SetupTrees;

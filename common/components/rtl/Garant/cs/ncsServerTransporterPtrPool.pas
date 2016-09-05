@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *54917FF702A4impl_uses*
+ //#UC END# *54917FF702A4impl_uses*
 ;
 
 var g_TncsServerTransporterPtrPool: TncsServerTransporterPtrPool = nil;

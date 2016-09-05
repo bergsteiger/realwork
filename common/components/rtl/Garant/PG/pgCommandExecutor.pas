@@ -36,6 +36,8 @@ uses
  , SysUtils
  , LibPQ
  , pgUtils
+ //#UC START# *5694BA3500C4impl_uses*
+ //#UC END# *5694BA3500C4impl_uses*
 ;
 
 constructor TpgCommandExecutor.Create(aConnection: TpgConnection);

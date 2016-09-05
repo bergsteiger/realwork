@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47D019BE0158impl_uses*
+ //#UC END# *47D019BE0158impl_uses*
 ;
 
 type _Instance_R_ = TevQueryGroupList;

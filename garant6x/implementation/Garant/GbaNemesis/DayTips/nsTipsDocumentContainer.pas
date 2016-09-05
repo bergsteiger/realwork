@@ -62,6 +62,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , afwFacade
+ //#UC START# *4CE53CC80300impl_uses*
+ //#UC END# *4CE53CC80300impl_uses*
 ;
 
 {$If Defined(Nemesis)}

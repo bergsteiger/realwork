@@ -42,6 +42,8 @@ uses
  , l3Base
  , ComObj
  , m3Const
+ //#UC START# *53FF2D7500EBimpl_uses*
+ //#UC END# *53FF2D7500EBimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas}

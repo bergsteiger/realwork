@@ -57,6 +57,8 @@ uses
  , l3String
  , eePara
  , SysUtils
+ //#UC START# *5481DD0C0363impl_uses*
+ //#UC END# *5481DD0C0363impl_uses*
 ;
 
 constructor TeeHotSpot.Create(aTagWrap: Tl3Variant;

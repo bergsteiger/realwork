@@ -26,6 +26,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *4BFFD963014Eimpl_uses*
+ //#UC END# *4BFFD963014Eimpl_uses*
 ;
 
 function TevQueryCardCursor.CanInsertParaOnMove: Boolean;

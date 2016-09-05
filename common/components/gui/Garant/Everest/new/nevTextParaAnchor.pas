@@ -54,6 +54,8 @@ uses
  , evTextParaTools
  , SysUtils
  , l3Types
+ //#UC START# *4A3F37440382impl_uses*
+ //#UC END# *4A3F37440382impl_uses*
 ;
 
 {$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}

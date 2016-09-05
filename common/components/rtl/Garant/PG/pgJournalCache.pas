@@ -54,6 +54,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *564ACBC5032Eimpl_uses*
+ //#UC END# *564ACBC5032Eimpl_uses*
 ;
 
 function TpgJournalCacheRec_C(aOperation: TdaJournalOperation;

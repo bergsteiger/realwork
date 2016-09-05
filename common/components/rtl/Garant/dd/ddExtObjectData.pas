@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , ddExtObjectDataStream
+ //#UC START# *5798CC75000Aimpl_uses*
+ //#UC END# *5798CC75000Aimpl_uses*
 ;
 
 function TddExtObjectData.GetMemoryStreamClass: Rl3MemoryStream;

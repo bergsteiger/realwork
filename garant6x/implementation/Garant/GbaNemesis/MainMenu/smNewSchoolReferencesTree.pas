@@ -36,6 +36,8 @@ uses
  , BaseTypesUnit
  , nsTypes
  , MainMenuUnit
+ //#UC START# *4AFBF77E0200impl_uses*
+ //#UC END# *4AFBF77E0200impl_uses*
 ;
 
 function TsmNewSchoolReferencesTree.MakeRoot: Il3RootNode;

@@ -40,6 +40,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4AAFCF930362_Packimpl_uses*
+ //#UC END# *4AAFCF930362_Packimpl_uses*
 ;
 
 type

@@ -1,7 +1,28 @@
 unit StdRes;
-// $Id: StdRes.pas,v 1.1758 2015/09/07 12:36:01 kostitsin Exp $
+// $Id: StdRes.pas,v 1.1765 2016/08/04 17:44:49 lulin Exp $
 
 // $Log: StdRes.pas,v $
+// Revision 1.1765  2016/08/04 17:44:49  lulin
+// - перегенераци€.
+//
+// Revision 1.1764  2016/08/04 16:00:44  lulin
+// - перегенераци€.
+//
+// Revision 1.1763  2016/08/03 09:37:11  lulin
+// - перегенераци€.
+//
+// Revision 1.1762  2016/08/02 12:43:41  lulin
+// - перегенераци€.
+//
+// Revision 1.1761  2016/07/15 11:25:22  lulin
+// - выпр€мл€ем зависимости.
+//
+// Revision 1.1760  2016/07/15 09:53:33  lulin
+// - выпр€мл€ем зависимости.
+//
+// Revision 1.1759  2016/07/04 12:33:09  kostitsin
+// [$625683851]
+//
 // Revision 1.1758  2015/09/07 12:36:01  kostitsin
 // {requestlink: 606128536 }
 //
@@ -5363,7 +5384,7 @@ uses
   ;
 
 type
-  TdmStdRes = class(TvcmApplicationRef)
+  TdmStdRes = class(TDataModule)
    {* ћодуль, содержащий менеджер основного меню и прочие ресурсы, необходимые
       дл€ функционировани€ главного окна.}
     MenuManager: TvcmMenuManager;
@@ -5391,8 +5412,6 @@ type
   private
   // internal fields
     f_SaveDialog: TnsSaveDialog;
-    f_NeedAskToFillPrimeAtStartup: Boolean;
-    f_NeedShowSettingsDialog: Boolean;
   private
   // property methods
     function pm_GetSaveDialog: TnsSaveDialog;
@@ -5402,22 +5421,15 @@ type
   // public methods
     procedure nsApplicationActivate(Sender: TObject);
       {-}
-    class procedure MakeResources; override;
   {$If not defined(Admin) AND not defined(Monitorings)}
   public
   // properties
     property SaveDialog: TnsSaveDialog
       read pm_GetSaveDialog;
-      {-}
-    property NeedAskToFillPrimeAtStartup: Boolean
-      read f_NeedAskToFillPrimeAtStartup
-      write f_NeedAskToFillPrimeAtStartup;
-    property NeedShowSettingsDialog: Boolean
-      read f_NeedShowSettingsDialog
-      write f_NeedShowSettingsDialog;
   {$IfEnd} //not Admin AND not Monitorings
   end;//TdmStdRes
 
+  TvcmApplicationRunner = StdResPrim.TvcmApplicationRunner;
 var
   dmStdRes: TdmStdRes;
 
@@ -7442,6 +7454,8 @@ uses
   vcmToolbarMenuRes,
 
   l3Base
+  , Common_F1CommonServices_Contracts
+  , F1_Application_Template_Services
   ;
 
 {$If not defined(Admin) AND not defined(Monitorings)}
@@ -7471,10 +7485,6 @@ end;//pm_GetSaveDialog
 
 procedure TdmStdRes.DataModuleCreate(Sender: TObject);
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_NeedAskToFillPrimeAtStartup := False;
- f_NeedShowSettingsDialog := False;
- {$IfEnd} 
  Application.OnActivate := nsApplicationActivate;
  // ”становить фабрику мап UI-строка <=> нечто
  nsIntegerMapManager;
@@ -7488,7 +7498,7 @@ procedure TdmStdRes.nsApplicationActivate(Sender: TObject);
 begin
  {$If not defined(Admin) AND not defined(Monitorings)}
  if Assigned(Application) and (not Application.Terminated) then
-  Self.ApplicationActivate;
+  TCommonService.Instance.ApplicationActivate;
  {$IfEnd} 
 end;
 
@@ -7568,19 +7578,13 @@ procedure TdmStdRes.MenuManagerOperationExecuteNotify(
   const aType       : TvcmOperationCallType;
   const anOperation : IvcmOperationDef);
 begin
- LogUserActivity(aType);
+ TLoggingService.Instance.LogUserActivity(aType);
 end;
 
 procedure TdmStdRes.MenuManagerInpharmTest(const aParams: IvcmTestParamsPrim);
 begin
  aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInpharmExists;
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
-end;
-
-class procedure TdmStdRes.MakeResources;
-begin
- inherited;
- Application.CreateForm(TdmStdRes, dmStdRes);
 end;
 
 procedure TdmStdRes.MenuManagerWindowsTest(

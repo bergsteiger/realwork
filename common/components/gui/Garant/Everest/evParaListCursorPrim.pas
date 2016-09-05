@@ -148,6 +148,8 @@ uses
  , SysUtils
  , l3MinMax
  , Table_Const
+ //#UC START# *4A3A237A01C0impl_uses*
+ //#UC END# *4A3A237A01C0impl_uses*
 ;
 
 type _Instance_R_ = TevParaListCursorPrim;

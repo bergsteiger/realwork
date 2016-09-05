@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49F048510365impl_uses*
+ //#UC END# *49F048510365impl_uses*
 ;
 
 function evGetDefaultZoom: Double;

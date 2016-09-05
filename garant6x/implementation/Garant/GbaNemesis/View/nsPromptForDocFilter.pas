@@ -32,6 +32,8 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *4AA4D6CF02A9impl_uses*
+ //#UC END# *4AA4D6CF02A9impl_uses*
 ;
 
 constructor TnsPromptForDocFilter.Create(aDocNum: LongWord);

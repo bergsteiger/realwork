@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F9CF5500D1impl_uses*
+ //#UC END# *47F9CF5500D1impl_uses*
 ;
 
 procedure bsBusinessToAdapter;

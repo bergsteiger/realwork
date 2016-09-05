@@ -47,6 +47,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , IOUnit
  , nsTypes
+ //#UC START# *4E2067E2007Cimpl_uses*
+ //#UC END# *4E2067E2007Cimpl_uses*
 ;
 
 function TbsHyperLinkProcessorPrim.OpenURL(const anURL: Tl3WString): Boolean;

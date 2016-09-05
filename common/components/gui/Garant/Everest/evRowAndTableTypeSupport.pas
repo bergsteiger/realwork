@@ -50,6 +50,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5112379700A6impl_uses*
+ //#UC END# *5112379700A6impl_uses*
 ;
 
 procedure TevRowAndTableTypeSupport.AnalizeTableStyle;

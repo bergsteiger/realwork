@@ -46,7 +46,7 @@ begin
   TnsTimeMachineOffEvent.Log(Document);
  end//if aPureOff...
  else
-  nsUtils.nsTimeMachineOn(Document, TdmStdRes.GetCurEditionDate(Document));
+  nsUtils.nsTimeMachineOn(Document, TCommonService.Instance.GetCurEditionDate(Document));
 //#UC END# *4980630101F0_4980620401ED_impl*
 end;//_TurnOffTimeMachine_.TimeMachineOnOff
 

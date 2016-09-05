@@ -1,8 +1,17 @@
 unit nsExternalObjectPrim;
 
-{ $Id: nsExternalObjectPrim.pas,v 1.34 2016/05/31 07:09:15 morozov Exp $ }
+{ $Id: nsExternalObjectPrim.pas,v 1.37 2016/08/08 13:08:08 lulin Exp $ }
 
 // $Log: nsExternalObjectPrim.pas,v $
+// Revision 1.37  2016/08/08 13:08:08  lulin
+// - перегенерация.
+//
+// Revision 1.36  2016/07/26 10:11:05  lulin
+// - перегенерация.
+//
+// Revision 1.35  2016/07/15 11:29:03  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.34  2016/05/31 07:09:15  morozov
 // {RequestLink: 623922790}
 //
@@ -754,8 +763,10 @@ uses
   {$IfNDef Admin}
   {$IfNDef Monitorings}
   , vcmTabbedContainerFormDispatcher
+  , Base_Operations_F1Services_Contracts
   {$EndIf  Monitorings}
   {$EndIf  Admin}
+  , nsShellService
   ;
 
 const
@@ -1157,9 +1168,9 @@ function nsDoShellExecuteEx(const aFile: Il3CString; SetReadOnlyToFile: Boolean;
  const aContainerMaker: IvcmContainerMaker; IgnoreGarantURL: Boolean = False): Boolean;
 
  function lp_IsLocalFile(const aFileName: Il3CString): Boolean;
- begin
+ begin//lp_IsLocalFile
   Result := FileExists(l3Str(aFileName));
- end;
+ end;//lp_IsLocalFile
 
  function lp_IsJudgeArchiveURL(const anURL: Il3CString): Boolean;
  const
@@ -1173,7 +1184,7 @@ function nsDoShellExecuteEx(const aFile: Il3CString; SetReadOnlyToFile: Boolean;
   l_RealURLStartsPos: Integer;
   l_RealURL: Il3CString;
   l_URLWithPrefix: Il3CString;
- begin
+ begin//lp_IsJudgeArchiveURL
   Result := False;
   if DefDataAdapter.IsInternetAgentEnabled then
   begin
@@ -1199,38 +1210,12 @@ function nsDoShellExecuteEx(const aFile: Il3CString; SetReadOnlyToFile: Boolean;
     l_RealURL := nil;
    end;
   end;
- end;
+ end;//lp_IsJudgeArchiveURL
 
  function lp_CallShellExecute: Boolean;
- var
-  l_ShellExecuteInfo: {$IfDef XE}TShellExecuteInfoA{$Else}TShellExecuteInfo{$EndIf};
-  l_Handle: THandle;
-  l_FindData: {$IfDef XE}TWin32FindDataA{$Else}TWin32FindData{$EndIf};
- begin
-  l3FillChar(l_ShellExecuteInfo, SizeOf(l_ShellExecuteInfo), 0);
-  //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
-  afw.BeginOp;
-  try
-   with l_ShellExecuteInfo do
-   begin
-    cbSize := SizeOf(l_ShellExecuteInfo);
-    lpFile := PChar(nsAStr(aFile).S);
-    if SetReadOnlyToFile then
-    begin
-     l_Handle := Windows.FindFirstFileA(lpFile, l_FindData);
-     if l_Handle <> INVALID_HANDLE_VALUE then
-     begin
-      Windows.FindClose(l_Handle);
-      SetFileAttributesA(lpFile, GetFileAttributesA(lpFile) or faReadOnly);
-     end;
-    end;
-    nShow := SW_SHOWNORMAL;
-   end;//with l_ShellExecuteInfo
-   Result := ShellExecuteExA(@l_ShellExecuteInfo);
-  finally
-   afw.EndOp;
-  end;
- end;
+ begin//lp_CallShellExecute
+  Result := TnsShellService.Instance.ShellExecute(aFile, SetReadOnlyToFile);
+ end;//lp_CallShellExecute
 
 var
  l_File: Il3CString;
@@ -1267,7 +1252,7 @@ begin
    end;
    if not SetReadOnlyToFile AND defDataAdapter.IsInternetAgentEnabled AND l_NeedOpenInternal then
    begin
-    TdmStdRes.MakeInternetAgent(aFile, aContainerMaker.MakeContainer);
+    TInternetAgentService.Instance.MakeInternetAgent(aFile, aContainerMaker.MakeContainer);
     Result := true;
     Exit;
    end;//not SetReadOnlyToFile AND nsIsGarantURL(l3WideString(aFile))

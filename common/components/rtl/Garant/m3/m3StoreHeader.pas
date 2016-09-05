@@ -57,6 +57,8 @@ uses
  l3ImplUses
  , SysUtils
  , ActiveX
+ //#UC START# *5411C42800B8impl_uses*
+ //#UC END# *5411C42800B8impl_uses*
 ;
 
 function Tm3StoreHeader.pm_GetTOCListPosition: Int64;

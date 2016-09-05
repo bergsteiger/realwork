@@ -31,6 +31,8 @@ uses
  , l3Base
  , l3StringEx
  , l3Interfaces
+ //#UC START# *52EB5D3401B7impl_uses*
+ //#UC END# *52EB5D3401B7impl_uses*
 ;
 
 procedure TevUnicodeConvertFilter.AddAtomEx(AtomIndex: Integer;

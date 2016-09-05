@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *479F10C70202impl_uses*
+ //#UC END# *479F10C70202impl_uses*
 ;
 
 constructor Tl3RecList.Create(anItemSize: Integer);

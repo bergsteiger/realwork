@@ -36,6 +36,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4E706C6003DDimpl_uses*
+ //#UC END# *4E706C6003DDimpl_uses*
 ;
 
 class function TnevTableRowRenderInfoEx.CreateInst(const aChild: InevObjectPrim;

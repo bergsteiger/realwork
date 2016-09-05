@@ -46,6 +46,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B1662CC011Eimpl_uses*
+ //#UC END# *4B1662CC011Eimpl_uses*
 ;
 
 function TnsContextFilterData_C(aHandle: Integer;

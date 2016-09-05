@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , l3Base
  , l3Memory
+ //#UC START# *4F4D384500A3impl_uses*
+ //#UC END# *4F4D384500A3impl_uses*
 ;
 
 type _Instance_R_ = TtfwCStringArray;

@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AA7E9CB034Aimpl_uses*
+ //#UC END# *4AA7E9CB034Aimpl_uses*
 ;
 
 procedure fake;

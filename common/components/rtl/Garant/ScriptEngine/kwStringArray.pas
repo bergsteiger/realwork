@@ -29,6 +29,8 @@ uses
  , l3Base
  , kwString
  , l3Memory
+ //#UC START# *4F3E41930097impl_uses*
+ //#UC END# *4F3E41930097impl_uses*
 ;
 
 type _Instance_R_ = TkwStringArray;

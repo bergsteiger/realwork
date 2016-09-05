@@ -4,9 +4,12 @@
 { Автор: Люлин А.В. ©  }
 { Модуль: evDefine.inc - файл переменных условной компиляции библиотеки }
 { Начат: 11.12.1996    }
-{ $Id: evDefine.inc,v 1.176 2015/04/24 14:34:26 lulin Exp $ }
+{ $Id: evDefine.inc,v 1.177 2016/07/01 13:13:35 dinishev Exp $ }
 
 // $Log: evDefine.inc,v $
+// Revision 1.177  2016/07/01 13:13:35  dinishev
+// {Requestlink:623484518}
+//
 // Revision 1.176  2015/04/24 14:34:26  lulin
 // - правильный define.
 //
@@ -819,6 +822,7 @@
 {$EndIf  Nemesis}
 
 {$IfDef Archi}
+ {$Undef evNeedClipboardSpy}
  {.$I ArchiDefine.inc}
 {$Else  Archi}
  {$Define evNeedPreAddParas}

@@ -41,6 +41,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *4D7A7ADE0122impl_uses*
+ //#UC END# *4D7A7ADE0122impl_uses*
 ;
 
 type _Instance_R_ = TdsChild;

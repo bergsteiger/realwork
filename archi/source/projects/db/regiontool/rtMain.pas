@@ -1,8 +1,11 @@
 unit rtMain;
 
-{ $Id: rtMain.pas,v 1.7 2015/04/30 11:14:39 lukyanets Exp $}
+{ $Id: rtMain.pas,v 1.8 2016/07/13 13:14:25 lukyanets Exp $}
 
 // $Log: rtMain.pas,v $
+// Revision 1.8  2016/07/13 13:14:25  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.7  2015/04/30 11:14:39  lukyanets
 // Заготовки Большого Брата
 //
@@ -62,11 +65,10 @@ uses
  l3FileUtils,
 
  daDataProvider,
+ daInterfaces,
 
  Dt_Types,
- Dt_Serv,
-
- rtConst;
+ Dt_Serv;
 
 {$R *.dfm}
 

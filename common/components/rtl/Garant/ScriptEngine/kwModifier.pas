@@ -37,6 +37,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4DCACE1201A3impl_uses*
+ //#UC END# *4DCACE1201A3impl_uses*
 ;
 
 procedure TkwModifier.DoDoIt(const aCtx: TtfwContext);

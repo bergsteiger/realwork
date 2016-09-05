@@ -1,9 +1,15 @@
 //..........................................................................................................................................................................................................................................................
 unit ddClientBaseEngine;
 
-// $Id: ddClientBaseEngine.pas,v 1.42 2016/05/16 12:54:36 lukyanets Exp $
+// $Id: ddClientBaseEngine.pas,v 1.44 2016/08/11 10:47:41 lukyanets Exp $
 
 // $Log: ddClientBaseEngine.pas,v $
+// Revision 1.44  2016/08/11 10:47:41  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.43  2016/06/16 05:39:57  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.42  2016/05/16 12:54:36  lukyanets
 // Пересаживаем UserManager на новые рельсы
 //
@@ -314,7 +320,7 @@ unit ddClientBaseEngine;
 // Управление из Парня (319488062)
 //
 // Revision 1.19  2011/06/10 11:52:40  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.18  2011/05/31 12:01:24  narry
 // AV при подключении к базе (267878505)
@@ -671,7 +677,6 @@ Uses
  Base_CFG,
 
  dt_Serv,
- Dt_user,
  dt_Const,
  dt_Dict,
  DT_DocImages,

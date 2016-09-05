@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *56937C98002Dimpl_uses*
+ //#UC END# *56937C98002Dimpl_uses*
 ;
 
 function l3GetMaxMemoryAvail(aKind: Tl3MemKind = l3_mkFree): DWORD;

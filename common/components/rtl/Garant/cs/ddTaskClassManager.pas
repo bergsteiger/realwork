@@ -47,6 +47,8 @@ uses
  , SysUtils
  , ddTaskRecord
  , l3Base
+ //#UC START# *53848F4F00E4impl_uses*
+ //#UC END# *53848F4F00E4impl_uses*
 ;
 
 var g_TddTaskClassManager: TddTaskClassManager = nil;

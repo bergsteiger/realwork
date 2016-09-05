@@ -69,7 +69,8 @@ type
    function IsReadOnly: Boolean; virtual;
    {$If NOT Defined(NoVCM)}
    function IvcmState_LoadState(const aState: IUnknown;
-    aStateType: TvcmStateType): Boolean; virtual;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; virtual;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function IvcmState_SaveState(out aState: IUnknown;
@@ -166,6 +167,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4829D92A037Bimpl_uses*
+ //#UC END# *4829D92A037Bimpl_uses*
 ;
 
 function TevCustomEditorWindow.pm_GetPlainText: Boolean;
@@ -215,7 +218,8 @@ end;//TevCustomEditorWindow.IsReadOnly
 
 {$If NOT Defined(NoVCM)}
 function TevCustomEditorWindow.IvcmState_LoadState(const aState: IUnknown;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
 //#UC START# *54084F6B01FD_4829D92A037B_var*
 //#UC END# *54084F6B01FD_4829D92A037B_var*
 begin

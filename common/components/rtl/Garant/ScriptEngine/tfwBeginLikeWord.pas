@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , kwBeginLikeCompiledCode
+ //#UC START# *4DBAEF29031Fimpl_uses*
+ //#UC END# *4DBAEF29031Fimpl_uses*
 ;
 
 procedure TtfwBeginLikeWord.AfterCompile(var theNewContext: TtfwContext;

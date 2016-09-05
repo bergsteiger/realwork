@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , l3Types
  , SysUtils
+ //#UC START# *4AB37F2003B6impl_uses*
+ //#UC END# *4AB37F2003B6impl_uses*
 ;
 
 function Tm4WordList.AddWord(const aStr: Tl3WString): Tm4WordID;

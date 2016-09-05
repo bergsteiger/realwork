@@ -1,6 +1,6 @@
 unit cb_Misc;
 
-{ $Id: cb_Misc.pas,v 1.1 2015/10/29 11:35:28 fireton Exp $ }
+{ $Id: cb_Misc.pas,v 1.2 2016/08/03 09:13:42 fireton Exp $ }
 
 interface
 
@@ -13,6 +13,8 @@ uses
  l3Interfaces,
  l3String,
  l3Base,
+
+ daSchemeConsts,
 
  HT_Const,
  dtIntf,

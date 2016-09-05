@@ -40,6 +40,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47CEBD65037Bimpl_uses*
+ //#UC END# *47CEBD65037Bimpl_uses*
 ;
 
 type _Instance_R_ = TevEditorControlList;

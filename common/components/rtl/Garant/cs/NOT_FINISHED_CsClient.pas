@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , csNotifyObjList
+ //#UC START# *52FB99F101CFimpl_uses*
+ //#UC END# *52FB99F101CFimpl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

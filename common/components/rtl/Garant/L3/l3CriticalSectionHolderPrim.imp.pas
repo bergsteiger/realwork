@@ -7,6 +7,7 @@
 
 {$Define l3CriticalSectionHolderPrim_imp}
 
+{$If NOT Defined(l3CriticalSectionHolder_Off)}
  _l3CriticalSectionHolderPrim_ = class(_l3CriticalSectionHolderPrim_Parent_)
   private
    f_LockCount: Integer;
@@ -19,12 +20,18 @@
    procedure Unlock;
  end;//_l3CriticalSectionHolderPrim_
 
+{$Else NOT Defined(l3CriticalSectionHolder_Off)}
+
+_l3CriticalSectionHolderPrim_ = _l3CriticalSectionHolderPrim_Parent_;
+
+{$IfEnd} // NOT Defined(l3CriticalSectionHolder_Off)
 {$Else l3CriticalSectionHolderPrim_imp}
 
 {$IfNDef l3CriticalSectionHolderPrim_imp_impl}
 
 {$Define l3CriticalSectionHolderPrim_imp_impl}
 
+{$If NOT Defined(l3CriticalSectionHolder_Off)}
 procedure _l3CriticalSectionHolderPrim_.Lock;
 //#UC START# *53A039050219_54B6852C0241_var*
 //#UC END# *53A039050219_54B6852C0241_var*
@@ -67,6 +74,7 @@ begin
  FreeAndNil(f_CS);
 //#UC END# *54B686270035_54B6852C0241_impl*
 end;//_l3CriticalSectionHolderPrim_.FreeCS
+{$IfEnd} // NOT Defined(l3CriticalSectionHolder_Off)
 
 {$EndIf l3CriticalSectionHolderPrim_imp_impl}
 

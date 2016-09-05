@@ -34,8 +34,9 @@ uses
  l3Base,
  l3String,
 
+ daDataProvider,
+
  DT_Const,
- DT_User,
 
  DictsSup;
 
@@ -46,7 +47,7 @@ begin
 
  Inherited Create(aOwner, 'Поиск по журналам');
 
- UserManager.GetFiltredUserList(cbUser.Items);
+ GlobalDataProvider.UserManager.GetFiltredUserList(cbUser.Items);
  cbUser.Items.Insert(0, '[ВСЕ]');
  cbUser.ItemIndex := 0;
 

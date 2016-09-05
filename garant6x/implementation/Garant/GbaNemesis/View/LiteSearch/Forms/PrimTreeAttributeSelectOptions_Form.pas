@@ -118,6 +118,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C443A570168impl_uses*
+ , OfficeLike_ResultEx_Controls
  //#UC END# *4C443A570168impl_uses*
 ;
 
@@ -251,7 +252,7 @@ begin
 //#UC START# *4A97EBE702F8_4C443A570168exec_impl*
  (* закроем форму, или начнём поиск *)
  if Assigned(Aggregate) then
-  Aggregate.Operation(TdmStdRes.opcode_Result_OkExt);
+  Aggregate.Operation(opcode_Result_OkExt);
 //#UC END# *4A97EBE702F8_4C443A570168exec_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Result_Ok_Execute
 {$IfEnd} // NOT Defined(NoVCM)

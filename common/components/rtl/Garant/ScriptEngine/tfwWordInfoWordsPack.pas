@@ -29,6 +29,8 @@ uses
  , tfwPropertyLike
  , SysUtils
  , TtfwTypeRegistrator_Proxy
+ //#UC START# *55C3729D0212impl_uses*
+ //#UC END# *55C3729D0212impl_uses*
 ;
 
 type

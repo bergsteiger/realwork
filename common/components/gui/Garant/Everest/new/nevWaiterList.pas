@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47ED17150259impl_uses*
+ //#UC END# *47ED17150259impl_uses*
 ;
 
 type _Instance_R_ = TnevWaiterList;

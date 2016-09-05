@@ -61,6 +61,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47DF707B01E2impl_uses*
+ //#UC END# *47DF707B01E2impl_uses*
 ;
 
 type _Instance_R_ = TvcmNodes;

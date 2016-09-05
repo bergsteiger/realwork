@@ -55,6 +55,8 @@ uses
  {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
  , archiDocEditorWindowWordsPack
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ //#UC START# *4DFB4AD800BAimpl_uses*
+ //#UC END# *4DFB4AD800BAimpl_uses*
 ;
 
 procedure TDocEditorWindow.SubNameEdit(aSubID: TSubID);

@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , tfwAutoregisteredDiction
+ //#UC START# *54D229E702B6impl_uses*
+ //#UC END# *54D229E702B6impl_uses*
 ;
 
 function TtfwRegisterableWordPrim.RegisterInstance(const aName: AnsiString): Boolean;

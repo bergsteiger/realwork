@@ -41,6 +41,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *4923F66E0262impl_uses*
+ //#UC END# *4923F66E0262impl_uses*
 ;
 
 type _Instance_R_ = TdsSaveLoad;

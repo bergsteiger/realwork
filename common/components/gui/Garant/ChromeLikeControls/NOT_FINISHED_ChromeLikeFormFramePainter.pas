@@ -21,6 +21,8 @@ implementation
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ //#UC START# *54211E9E038Eimpl_uses*
+ //#UC END# *54211E9E038Eimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 

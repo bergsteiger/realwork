@@ -54,6 +54,8 @@ uses
  , k2Long_Const
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *530F1BCA00B2impl_uses*
+ //#UC END# *530F1BCA00B2impl_uses*
 ;
 
 constructor Tk2VariantImpl.Create(aTag: Tl3Variant);

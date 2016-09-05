@@ -54,18 +54,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class function OpenPostingOrder(const aQuery: IQuery;
-    const aContainer: IvcmContainer = nil): IvcmEntityForm;
-   class procedure SavePostingList;
-   class procedure CheckHistory;
-    {* пробуем возвратиться по истории, если активна форма предварительного просмотра }
-   class function StartOpen(const aContainer: IvcmContainer;
-    aNewTab: Boolean): IvcmEntityForm;
-   class procedure SavePostList;
-    {* Сохранить индивидуальные ленты в файл }
-   class function CanSavePostList: Boolean;
-    {* Можно ли сохранить индивидуальные ленты в файл }
  end;//TCommonPostModule
 {$IfEnd} // NOT Defined(Admin)
 
@@ -74,6 +62,10 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Services
  , SearchLite_Strange_Controls
  , PrimSaveLoadUserTypes_slqtPostingOrder_UserType
  , PrimQueryCard_utqcPostingOrder_UserType
@@ -82,12 +74,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmUtils
- {$IfEnd} // NOT Defined(NoVCM)
- , SysUtils
- , Search_Strange_Controls
- , nsPostingsTreeSingle
  , l3String
  {$If NOT Defined(NoVCL)}
  , Forms
@@ -95,16 +81,23 @@ uses
  {$If NOT Defined(NoVCL)}
  , FileCtrl
  {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
  , DataAdapter
  , PrimeUnit
  , nsTypes
- , Windows
- , nsFindSelectDialog
+ , nsPostingsTreeSingle
+ , nsOpenUtils
  , PostingOrder_Strange_Controls
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- , nsOpenUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmUtils
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Strange_Controls
+ , Windows
+ , nsFindSelectDialog
+ , l3Base
  , PostingsList_Form
  //#UC START# *4AA919B200ABimpl_uses*
  , StdRes
@@ -112,80 +105,105 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TCommonPostModule.OpenPostingOrderForm(const anAggregate: IvcmAggregate;
- const aContainer: IvcmContainer;
- const aQuery: IQuery): IvcmEntityForm;
-var l_Container: IvcmEntityForm;
-//#UC START# *4AA9304801B8_4AA919B200AB_var*
-//#UC END# *4AA9304801B8_4AA919B200AB_var*
-begin
-//#UC START# *4AA9304801B8_4AA919B200AB_impl*
- // Создание базового контейнера для КЗ
- l_Container := TdmStdRes.MakeSaveLoadForm(vcmMakeParams(anAggregate, aContainer),
-                                           vcm_ztParent,
-                                           True,
-                                           Ord(slqtPostingOrder));
- // Создание конкретной карточки запроса
- vcmDispatcher.FormDispatcher.Lock;
- try
-  Result := TdmStdRes.MakeQueryCardForm(false,
-                                        vcmMakeParams(l_Container.Aggregate,
-                                                  l_Container.AsContainer),
-                                        vcm_ztParent,
-                                        True,
-                                        Ord(utqcPostingOrder));
-  // Загрузим запрос если подали
-  if (l_Container.Aggregate <> nil) then
-  begin
-   if (aQuery <> nil) then
-    op_SearchParameters_SetQuery.Call(l_Container.Aggregate, aQuery)
-   else
-   begin
-    Op_Query_ClearAll.Call(l_Container.Aggregate, true);
-    op_SearchParameters_SetQuery.Call(l_Container.Aggregate, nil);
-   end;//aQuery <> nil
-  end;//l_Container.Aggregate <> nil
- finally
-  vcmDispatcher.FormDispatcher.Unlock;
- end;//try..finally
-//#UC END# *4AA9304801B8_4AA919B200AB_impl*
-end;//TCommonPostModule.OpenPostingOrderForm
+type
+ TCommonPostServiceImpl = {final} class(TvcmModuleContractImplementation, ICommonPostService)
+  public
+   function CanSavePostList: Boolean;
+    {* Можно ли сохранить индивидуальные ленты в файл }
+   procedure CheckHistory;
+    {* пробуем возвратиться по истории, если активна форма предварительного просмотра }
+   procedure SavePostList;
+    {* Сохранить индивидуальные ленты в файл }
+   procedure SavePostingList;
+   function OpenPostingOrder(const aQuery: IQuery;
+    const aContainer: IvcmContainer = nil): IvcmEntityForm;
+   function StartOpen(const aContainer: IvcmContainer;
+    aNewTab: Boolean): IvcmEntityForm;
+   class function Instance: TCommonPostServiceImpl;
+    {* Метод получения экземпляра синглетона TCommonPostServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TCommonPostServiceImpl
 
-class function TCommonPostModule.OpenPostingOrder(const aQuery: IQuery;
- const aContainer: IvcmContainer = nil): IvcmEntityForm;
-var l_Form: IvcmEntityForm;
-var l_Cont: IvcmContainer;
+var g_TCommonPostServiceImpl: TCommonPostServiceImpl = nil;
+ {* Экземпляр синглетона TCommonPostServiceImpl }
+
+procedure TCommonPostServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TCommonPostServiceImpl }
+begin
+ l3Free(g_TCommonPostServiceImpl);
+end;//TCommonPostServiceImplFree
+
+function TCommonPostServiceImpl.CanSavePostList: Boolean;
+ {* Можно ли сохранить индивидуальные ленты в файл }
 var
  __WasEnter : Boolean;
-//#UC START# *4AA93C87000C_4AA919B200AB_var*
-//#UC END# *4AA93C87000C_4AA919B200AB_var*
+//#UC START# *4B7184370035_4AA919B200AB_var*
+//#UC END# *4B7184370035_4AA919B200AB_var*
 begin
  __WasEnter := vcmEnterFactory;
  try
-//#UC START# *4AA93C87000C_4AA919B200AB_impl*
- l_Form := nil;
- l_Cont := CheckContainer(aContainer);
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
- l_Cont.HasForm(fm_enPostingsList.rFormID, vcm_ztNavigator, True, @l_Form);
- Assert(l_Form <> nil);
- if (l_Form <> nil) then
-  Result := OpenPostingOrderForm(l_Form.Aggregate, l_Cont, aQuery)
- else
-  Result := OpenPostingOrderForm(nil, l_Cont, aQuery);
-//#UC END# *4AA93C87000C_4AA919B200AB_impl*
+//#UC START# *4B7184370035_4AA919B200AB_impl*
+  Result := TnsPostingsTreeSingle.Instance.Root.HasChild;
+//#UC END# *4B7184370035_4AA919B200AB_impl*
  finally
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TCommonPostModule.OpenPostingOrder
+end;//TCommonPostServiceImpl.CanSavePostList
 
-class procedure TCommonPostModule.SavePostingList;
-var l_PathName: AnsiString;
-var l_MayExit: Boolean;
-var l_Result: Boolean;
+procedure TCommonPostServiceImpl.CheckHistory;
+ {* пробуем возвратиться по истории, если активна форма предварительного просмотра }
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAF9E650070_4AA919B200AB_var*
+//#UC END# *4AAF9E650070_4AA919B200AB_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAF9E650070_4AA919B200AB_impl*
+ if (vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer).HasForm(fm_efPreviewForm.rFormID) and
+  vcmDispatcher.History.HasInPreviousStep(fm_enQueryCard.rFormID) then
+   vcmDispatcher.History.Back;
+//#UC END# *4AAF9E650070_4AA919B200AB_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonPostServiceImpl.CheckHistory
+
+procedure TCommonPostServiceImpl.SavePostList;
+ {* Сохранить индивидуальные ленты в файл }
+var
+ __WasEnter : Boolean;
+//#UC START# *4B71840A00D2_4AA919B200AB_var*
+//#UC END# *4B71840A00D2_4AA919B200AB_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4B71840A00D2_4AA919B200AB_impl*
+  CheckHistory;
+  with TnsPostingsTreeSingle.Instance do
+  begin
+   if (MgrSearch <> nil) and MgrSearch.Modified and vcmAsk(qr_SavePosting) then
+    SaveOrCreateQuery;
+  end;//with TnsPostingsTreeSingle.Instance do
+  SavePostingList;
+//#UC END# *4B71840A00D2_4AA919B200AB_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TCommonPostServiceImpl.SavePostList
+
+procedure TCommonPostServiceImpl.SavePostingList;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF935E01A7_4AA919B200AB_var*
+var
+ l_PathName : AnsiString;
+ l_Result : Boolean;
+ l_MayExit : Boolean;
 //#UC END# *4AAF935E01A7_4AA919B200AB_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -200,12 +218,12 @@ begin
    with dmStdRes do
    begin
     repeat
-     Application.HookMainWindow(MessageHook);
+     Application.HookMainWindow(TCommonPostModule.MessageHook);
      try
       l_Result := SelectDirectory(vcmConstString(str_ChooseSaveSettingsFolder),
         '', l_PathName);
      finally
-      Application.UnhookMainWindow(MessageHook);
+      Application.UnhookMainWindow(TCommonPostModule.MessageHook);
      end; 
      l_MayExit := not l_Result; //Пользователь отказался от выбора - выходим
      if not l_MayExit then //Решил сохраниться, но это не так просто. :-)
@@ -238,63 +256,39 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TCommonPostModule.SavePostingList
+end;//TCommonPostServiceImpl.SavePostingList
 
-class function TCommonPostModule.MessageHook(var Msg: TMessage): Boolean;
-//#UC START# *4AAF94F8009A_4AA919B200AB_var*
-//#UC END# *4AAF94F8009A_4AA919B200AB_var*
-begin
-//#UC START# *4AAF94F8009A_4AA919B200AB_impl*
- Result := False;
- if (Msg.Msg = WM_ACTIVATEAPP) and TWMActivateApp(Msg).Active then
-  EnumWindows(@FindSelectDialog, LongInt(@Msg));
-//#UC END# *4AAF94F8009A_4AA919B200AB_impl*
-end;//TCommonPostModule.MessageHook
-
-class procedure TCommonPostModule.CheckHistory;
- {* пробуем возвратиться по истории, если активна форма предварительного просмотра }
+function TCommonPostServiceImpl.OpenPostingOrder(const aQuery: IQuery;
+ const aContainer: IvcmContainer = nil): IvcmEntityForm;
 var
  __WasEnter : Boolean;
-//#UC START# *4AAF9E650070_4AA919B200AB_var*
-//#UC END# *4AAF9E650070_4AA919B200AB_var*
+//#UC START# *4AA93C87000C_4AA919B200AB_var*
+var
+ l_Form : IvcmEntityForm;
+ l_Cont : IvcmContainer;
+//#UC END# *4AA93C87000C_4AA919B200AB_var*
 begin
  __WasEnter := vcmEnterFactory;
  try
-//#UC START# *4AAF9E650070_4AA919B200AB_impl*
- if (vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer).HasForm(fm_efPreviewForm.rFormID) and
-  vcmDispatcher.History.HasInPreviousStep(fm_enQueryCard.rFormID) then
-   vcmDispatcher.History.Back;
-//#UC END# *4AAF9E650070_4AA919B200AB_impl*
+//#UC START# *4AA93C87000C_4AA919B200AB_impl*
+ l_Form := nil;
+ l_Cont := CheckContainer(aContainer);
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
+ l_Cont.HasForm(fm_enPostingsList.rFormID, vcm_ztNavigator, True, @l_Form);
+ Assert(l_Form <> nil);
+ if (l_Form <> nil) then
+  Result := TCommonPostModule.OpenPostingOrderForm(l_Form.Aggregate, l_Cont, aQuery)
+ else
+  Result := TCommonPostModule.OpenPostingOrderForm(nil, l_Cont, aQuery);
+//#UC END# *4AA93C87000C_4AA919B200AB_impl*
  finally
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TCommonPostModule.CheckHistory
+end;//TCommonPostServiceImpl.OpenPostingOrder
 
-class function TCommonPostModule.OpenPostingOrderList(const anAggregate: IvcmAggregate;
- const aContainer: IvcmContainer;
- anActive: Boolean;
- aOwner: TComponent): IvcmEntityForm;
-//#UC START# *4AAFA0B10356_4AA919B200AB_var*
-//#UC END# *4AAFA0B10356_4AA919B200AB_var*
-begin
-//#UC START# *4AAFA0B10356_4AA919B200AB_impl*
- vcmDispatcher.FormDispatcher.Lock;
- try
-  Result := TenPostingsList.MakeSingleChild(aContainer.NativeMainForm,
-                                             vcmMakeParams(anAggregate, aContainer, aOwner),
-                                             vcm_ztNavigator);
-  if anActive then
-   Result.SetActiveInParent;
- finally
-  vcmDispatcher.FormDispatcher.UnLock;
- end;//try..finally      
-//#UC END# *4AAFA0B10356_4AA919B200AB_impl*
-end;//TCommonPostModule.OpenPostingOrderList
-
-class function TCommonPostModule.StartOpen(const aContainer: IvcmContainer;
+function TCommonPostServiceImpl.StartOpen(const aContainer: IvcmContainer;
  aNewTab: Boolean): IvcmEntityForm;
-var l_Aggregate: IvcmAggregate;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAFA52603B7_4AA919B200AB_var*
@@ -323,6 +317,7 @@ var
 var
  l_Owner: TComponent;
  l_Cont: IvcmContainer;
+ l_Aggregate : IvcmAggregate;
 //#UC END# *4AAFA52603B7_4AA919B200AB_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -335,61 +330,108 @@ begin
    else
     l_Cont := lp_CreateContainer;
 
-   l_Aggregate := vcmCheckAggregate(vcmMakeParams).Aggregate;
+   l_Aggregate := vcmCheckAggregate(vcmMakeParams, False).Aggregate;
    // Карточка
-   l_Owner := OpenPostingOrderForm(l_Aggregate, l_Cont, nil).VCLWinControl;
+   l_Owner := TCommonPostModule.OpenPostingOrderForm(l_Aggregate, l_Cont, nil).VCLWinControl;
    // Ленты
-   OpenPostingOrderList(l_Aggregate, l_Cont, True, l_Owner);
-  end else
+   TCommonPostModule.OpenPostingOrderList(l_Aggregate, l_Cont, True, l_Owner);
+  end//not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch)
+  else
    Op_SearchSupport_ActivatePostingsListForm.Broadcast; 
 //#UC END# *4AAFA52603B7_4AA919B200AB_impl*
  finally
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TCommonPostModule.StartOpen
+end;//TCommonPostServiceImpl.StartOpen
 
-class procedure TCommonPostModule.SavePostList;
- {* Сохранить индивидуальные ленты в файл }
-var
- __WasEnter : Boolean;
-//#UC START# *4B71840A00D2_4AA919B200AB_var*
-//#UC END# *4B71840A00D2_4AA919B200AB_var*
+class function TCommonPostServiceImpl.Instance: TCommonPostServiceImpl;
+ {* Метод получения экземпляра синглетона TCommonPostServiceImpl }
 begin
- __WasEnter := vcmEnterFactory;
+ if (g_TCommonPostServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TCommonPostServiceImplFree);
+  g_TCommonPostServiceImpl := Create;
+ end;
+ Result := g_TCommonPostServiceImpl;
+end;//TCommonPostServiceImpl.Instance
+
+class function TCommonPostServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TCommonPostServiceImpl <> nil;
+end;//TCommonPostServiceImpl.Exists
+
+class function TCommonPostModule.OpenPostingOrderForm(const anAggregate: IvcmAggregate;
+ const aContainer: IvcmContainer;
+ const aQuery: IQuery): IvcmEntityForm;
+var l_Container: IvcmEntityForm;
+//#UC START# *4AA9304801B8_4AA919B200AB_var*
+//#UC END# *4AA9304801B8_4AA919B200AB_var*
+begin
+//#UC START# *4AA9304801B8_4AA919B200AB_impl*
+ // Создание базового контейнера для КЗ
+ l_Container := TCommonSearchService.Instance.MakeSaveLoadForm(vcmMakeParams(anAggregate, aContainer),
+                                           vcm_ztParent,
+                                           True,
+                                           Ord(slqtPostingOrder));
+ // Создание конкретной карточки запроса
+ vcmDispatcher.FormDispatcher.Lock;
  try
-//#UC START# *4B71840A00D2_4AA919B200AB_impl*
-  CheckHistory;
-  with TnsPostingsTreeSingle.Instance do
+  Result := TCommonSearchService.Instance.MakeQueryCardForm(false,
+                                        vcmMakeParams(l_Container.Aggregate,
+                                                  l_Container.AsContainer),
+                                        vcm_ztParent,
+                                        True,
+                                        Ord(utqcPostingOrder));
+  // Загрузим запрос если подали
+  if (l_Container.Aggregate <> nil) then
   begin
-   if (MgrSearch <> nil) and MgrSearch.Modified and vcmAsk(qr_SavePosting) then
-    SaveOrCreateQuery;
-  end;//with TnsPostingsTreeSingle.Instance do
-  SavePostingList;
-//#UC END# *4B71840A00D2_4AA919B200AB_impl*
+   if (aQuery <> nil) then
+    op_SearchParameters_SetQuery.Call(l_Container.Aggregate, aQuery)
+   else
+   begin
+    Op_Query_ClearAll.Call(l_Container.Aggregate, true);
+    op_SearchParameters_SetQuery.Call(l_Container.Aggregate, nil);
+   end;//aQuery <> nil
+  end;//l_Container.Aggregate <> nil
  finally
-  if __WasEnter then
-   vcmLeaveFactory;
+  vcmDispatcher.FormDispatcher.Unlock;
  end;//try..finally
-end;//TCommonPostModule.SavePostList
+//#UC END# *4AA9304801B8_4AA919B200AB_impl*
+end;//TCommonPostModule.OpenPostingOrderForm
 
-class function TCommonPostModule.CanSavePostList: Boolean;
- {* Можно ли сохранить индивидуальные ленты в файл }
-var
- __WasEnter : Boolean;
-//#UC START# *4B7184370035_4AA919B200AB_var*
-//#UC END# *4B7184370035_4AA919B200AB_var*
+class function TCommonPostModule.MessageHook(var Msg: TMessage): Boolean;
+//#UC START# *4AAF94F8009A_4AA919B200AB_var*
+//#UC END# *4AAF94F8009A_4AA919B200AB_var*
 begin
- __WasEnter := vcmEnterFactory;
+//#UC START# *4AAF94F8009A_4AA919B200AB_impl*
+ Result := False;
+ if (Msg.Msg = WM_ACTIVATEAPP) and TWMActivateApp(Msg).Active then
+  EnumWindows(@FindSelectDialog, LongInt(@Msg));
+//#UC END# *4AAF94F8009A_4AA919B200AB_impl*
+end;//TCommonPostModule.MessageHook
+
+class function TCommonPostModule.OpenPostingOrderList(const anAggregate: IvcmAggregate;
+ const aContainer: IvcmContainer;
+ anActive: Boolean;
+ aOwner: TComponent): IvcmEntityForm;
+//#UC START# *4AAFA0B10356_4AA919B200AB_var*
+//#UC END# *4AAFA0B10356_4AA919B200AB_var*
+begin
+//#UC START# *4AAFA0B10356_4AA919B200AB_impl*
+ vcmDispatcher.FormDispatcher.Lock;
  try
-//#UC START# *4B7184370035_4AA919B200AB_impl*
-  Result := TnsPostingsTreeSingle.Instance.Root.HasChild;
-//#UC END# *4B7184370035_4AA919B200AB_impl*
+  Result := TenPostingsList.MakeSingleChild(aContainer.NativeMainForm,
+                                             vcmMakeParams(anAggregate, aContainer, aOwner),
+                                             vcm_ztNavigator);
+  if anActive then
+   Result.SetActiveInParent;
  finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TCommonPostModule.CanSavePostList
+  vcmDispatcher.FormDispatcher.UnLock;
+ end;//try..finally      
+//#UC END# *4AAFA0B10356_4AA919B200AB_impl*
+end;//TCommonPostModule.OpenPostingOrderList
 
 procedure TCommonPostModule.opSavePostListTest(const aParams: IvcmTestParamsPrim);
  {* Экспортировать все индивидуальные ленты в файл }
@@ -398,7 +440,7 @@ procedure TCommonPostModule.opSavePostListTest(const aParams: IvcmTestParamsPrim
 begin
 //#UC START# *4B71847503BF_4AA919B200ABtest_impl*
  {$if defined(Monitorings)}
- aParams.Op.Flag[vcm_ofEnabled] := CanSavePostList;
+ aParams.Op.Flag[vcm_ofEnabled] := TCommonPostService.Instance.CanSavePostList;
  {$else}
  aParams.Op.Flag[vcm_ofVisible] := False;
  {$ifend}
@@ -411,7 +453,7 @@ procedure TCommonPostModule.opSavePostListExecute(const aParams: IvcmExecutePara
 //#UC END# *4B71847503BF_4AA919B200ABexec_var*
 begin
 //#UC START# *4B71847503BF_4AA919B200ABexec_impl*
- SavePostList;
+ TCommonPostService.Instance.SavePostList;
 //#UC END# *4B71847503BF_4AA919B200ABexec_impl*
 end;//TCommonPostModule.opSavePostListExecute
 
@@ -426,6 +468,10 @@ begin
  inherited;
  aList.Add(TenPostingsList);
 end;//TCommonPostModule.GetEntityForms
+
+initialization
+ TCommonPostService.Instance.Alien := TCommonPostServiceImpl.Instance;
+ {* Регистрация TCommonPostServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin)

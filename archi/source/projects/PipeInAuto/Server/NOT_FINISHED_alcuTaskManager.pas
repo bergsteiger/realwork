@@ -110,6 +110,11 @@ uses
  , alcuDetachedExecutor
  {$IfEnd} // Defined(ServerTasks)
  , alcuProcessingEnabledService
+ {$If Defined(ServerTasks)}
+ , alcuDownloadDocStreamExecutor
+ {$IfEnd} // Defined(ServerTasks)
+ //#UC START# *52F8BE3100F5impl_uses*
+ //#UC END# *52F8BE3100F5impl_uses*
 ;
 
 {$If Defined(InsiderTest)}

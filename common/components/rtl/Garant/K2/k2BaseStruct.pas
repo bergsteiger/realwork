@@ -76,6 +76,8 @@ uses
  , l3Types
  , l3_String
  , SysUtils
+ //#UC START# *4A65EFB60037impl_uses*
+ //#UC END# *4A65EFB60037impl_uses*
 ;
 
 procedure Tk2Values.Init(const aProp: _PropIn_;

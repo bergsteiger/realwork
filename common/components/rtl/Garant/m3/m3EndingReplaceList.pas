@@ -37,6 +37,8 @@ uses
  , SysUtils
  , l3Parser
  , l3Memory
+ //#UC START# *4F4CB5D10031impl_uses*
+ //#UC END# *4F4CB5D10031impl_uses*
 ;
 
 var cBuff: TByteArrayOfChar;

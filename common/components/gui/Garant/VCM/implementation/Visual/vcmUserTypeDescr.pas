@@ -48,6 +48,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *51EF7EEB01E5impl_uses*
+ //#UC END# *51EF7EEB01E5impl_uses*
 ;
 
 function TvcmUserTypeDescr.EQ(const anOther: TvcmUserTypeDescr): Boolean;

@@ -23,6 +23,8 @@ uses
  , ddNSRCConst
  , ddTk2TypeList
  , ddDoc2DocLinkRecList
+ //#UC START# *4C9CD11901BDimpl_uses*
+ //#UC END# *4C9CD11901BDimpl_uses*
 ;
 
 end.

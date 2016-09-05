@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , DataAdapter
  , afwFacade
+ //#UC START# *4DDCD9670300impl_uses*
+ //#UC END# *4DDCD9670300impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}

@@ -23,6 +23,8 @@ implementation
 {$If Defined(evNeedDisp)}
 uses
  l3ImplUses
+ //#UC START# *552BAA150205impl_uses*
+ //#UC END# *552BAA150205impl_uses*
 ;
 {$IfEnd} // Defined(evNeedDisp)
 

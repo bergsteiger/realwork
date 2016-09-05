@@ -37,6 +37,8 @@ uses
  , l3Base
  , l3Interfaces
  , Messages
+ //#UC START# *4F67149B024Aimpl_uses*
+ //#UC END# *4F67149B024Aimpl_uses*
 ;
 
 function CBTHookFunc(Code: Integer;

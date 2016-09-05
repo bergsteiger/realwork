@@ -47,6 +47,8 @@ uses
  , l3BatchService
  , SysUtils
  , l3Base
+ //#UC START# *573B090C02C5impl_uses*
+ //#UC END# *573B090C02C5impl_uses*
 ;
 
 var g_TnsSaveDialogImpl: TnsSaveDialogImpl = nil;

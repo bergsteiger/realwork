@@ -181,6 +181,8 @@ uses
  , l3ProxyStream
  , m3DBProxyWriteStream
  , m3NewVersionStream
+ //#UC START# *4742D9F50189impl_uses*
+ //#UC END# *4742D9F50189impl_uses*
 ;
 
 function Tm3BaseRange.Mul(const aRange: Im3DBRange): Im3DBRange;

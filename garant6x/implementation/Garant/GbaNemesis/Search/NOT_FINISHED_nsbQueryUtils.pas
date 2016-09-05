@@ -21,6 +21,8 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *4C3183EA0351impl_uses*
+ //#UC END# *4C3183EA0351impl_uses*
 ;
 
 procedure AdapterQueryToBusinessQuery;

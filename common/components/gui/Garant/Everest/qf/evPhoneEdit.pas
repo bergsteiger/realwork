@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *48D25DD8039Dimpl_uses*
+ //#UC END# *48D25DD8039Dimpl_uses*
 ;
 
 function TevPhoneEdit.IsStart: Boolean;

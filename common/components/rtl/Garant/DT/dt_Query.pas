@@ -1,8 +1,17 @@
 unit dt_Query;
 
-{ $Id: dt_Query.pas,v 1.33 2016/05/26 14:01:24 voba Exp $ }
+{ $Id: dt_Query.pas,v 1.36 2016/08/11 08:37:29 lukyanets Exp $ }
 
 // $Log: dt_Query.pas,v $
+// Revision 1.36  2016/08/11 08:37:29  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.35  2016/07/01 09:49:05  voba
+// -k:625261303
+//
+// Revision 1.34  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.33  2016/05/26 14:01:24  voba
 // -k:623267081
 //
@@ -88,7 +97,7 @@ unit dt_Query;
 // - k : 250089317
 //
 // Revision 1.7  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.6  2010/12/23 11:47:25  voba
 // no message
@@ -622,13 +631,13 @@ type
    fEndDate       : TStDate;
    f_Stage: TStageType;
    f_StageFlag: TStageFlag;
-   f_UserID: TUserID;
+   f_UserID: TdaUserID;
   protected
    class function GetRegNumber : Integer; override;
   public
    constructor Create(aBeginDate : TStDate = 0; aEndDate : TStDate = 0;
                       aStage: TStageType = stNone; aStageFlag: TStageFlag = stfNone;
-                      aUserID: TUserID = 0; const aPhoto : ISab = nil);
+                      aUserID: TdaUserID = 0; const aPhoto : ISab = nil);
 
    procedure DoQuery; override;
 
@@ -639,7 +648,7 @@ type
    property EndDate       : TStDate   read fEndDate;
    property Stage: TStageType read f_Stage;
    property StageFlag: TStageFlag read f_StageFlag;
-   property UserID: TUserID read f_UserID;
+   property UserID: TdaUserID read f_UserID;
  end;
 
  TdtMainAttrQuery = class(TdtCustomQuery)
@@ -2203,6 +2212,9 @@ var
  lSabDate : ISab;
  lSabNum  : ISab;
  lSabSum  : ISab;
+ lSabType : ISab;
+ lDNType : TDNType;
+
 begin
  if (fFromDate <> 0) or (fToDate <> 0) then
  begin
@@ -2234,7 +2246,19 @@ begin
   lSabNum.Select(dnNumFld, lNormNumberMask[1], WILDCASE, lSabDate {as Photo});
 
   if (fDNType <> dnDoc) then
-   lSabNum.SubSelect(dnTypFld, fDNType);
+  begin
+   if fDNType = dnPublish then
+   begin
+    lSabType := MakeSab(DictServer(CurrentFamily).GroupTbl[da_dlDateNums]);
+    lSabType.Select(dnTypFld, fDNType);
+    lDNType := dnAddNum;
+    lSabType.AddSelect(dnTypFld, lDNType); // при поиске по dnPublish, dnAddNum тоже годится
+    lSabNum.AndSab(lSabType);
+    lSabType := nil;
+   end
+   else
+    lSabNum.SubSelect(dnTypFld, fDNType);
+  end;
 
   lSabNum.ValuesOfKey(dnIDFld);
   lSabNum.TransferToPhoto(lnkDictIDFld, LinkServer(CurrentFamily)[atDateNums]);
@@ -2593,7 +2617,7 @@ end;
 {TdtStageQuery}
 constructor TdtStageQuery.Create(aBeginDate : TStDate; aEndDate : TStDate;
                                  aStage: TStageType; aStageFlag: TStageFlag;
-                                 aUserID: TUserID; const aPhoto : ISab);
+                                 aUserID: TdaUserID; const aPhoto : ISab);
 begin
  inherited Create(aPhoto);
  fBeginDate  := aBeginDate;
@@ -3096,7 +3120,7 @@ begin
  if fUserID <> 0 then
   if fUserGr then
   begin
-   lUserSab := UserManager.xxxMakeUserIDSabOnGroup(fUserID);
+   lUserSab := xxxUserManager.xxxMakeUserIDSabOnGroup(fUserID);
    lUserSab.TransferToPhoto(lgAuthor_Key, fSab);
    lUserSab.RecordsByKey;
    fSab.AndSab(lUserSab);
@@ -3111,37 +3135,19 @@ end;
 
 procedure TdtCustomLogQuery.Load(aDataStream : TStream);
 begin
- {fFromDate}
  aDataStream.Read(fFromDate, SizeOf(fFromDate));
-
- {fToDate}
  aDataStream.Read(fToDate, SizeOf(fToDate));
-
- {fUserID}
  aDataStream.Read(fUserID, SizeOf(fUserID));
-
- {fUserGr}
  aDataStream.Read(fUserGr, SizeOf(fUserGr));
-
- {f_LogRecType}
  aDataStream.Read(f_LogRecType, SizeOf(f_LogRecType));
 end;
 
 procedure TdtCustomLogQuery.Save(aDataStream : TStream);
 begin
- {fFromDate}
  aDataStream.Write(fFromDate, SizeOf(fFromDate));
-
- {fToDate}
  aDataStream.Write(fToDate, SizeOf(fToDate));
-
- {fUserID}
  aDataStream.Write(fUserID, SizeOf(fUserID));
-
- {fUserGr}
  aDataStream.Write(fUserGr, SizeOf(fUserGr));
-
- {f_LogRecType}
  aDataStream.Write(f_LogRecType, SizeOf(f_LogRecType));
 end;
 

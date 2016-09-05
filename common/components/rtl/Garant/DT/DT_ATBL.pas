@@ -1,8 +1,14 @@
 unit Dt_aTbl;
 
-{ $Id: DT_ATBL.pas,v 1.173 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: DT_ATBL.pas,v 1.175 2016/06/23 13:11:14 lukyanets Exp $ }
 
 // $Log: DT_ATBL.pas,v $
+// Revision 1.175  2016/06/23 13:11:14  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.174  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.173  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -550,6 +556,7 @@ interface
 uses HT_Const,
      SysUtils, WinTypes, Classes, Contnrs,
      l3Base, l3DatLst,
+     daTypes,
      Dt_Const, dt_Table, dt_Sab, Dt_Types, Dt_Containers,
      l3Interfaces,
      l3Memory,
@@ -714,7 +721,7 @@ type
     procedure SetFreeNumsCacheSize(const aValue: Integer);
     procedure FillFreeNumsCache;
    protected
-    fTblFamily   : TFamilyID;
+    fTblFamily   : TdaFamilyID;
 
     procedure   SetTblInfo(aTblID : Integer; aATP : TdtAttrTblPart = atpMain);
     procedure   DelTblInfo;
@@ -724,12 +731,12 @@ type
 
     procedure   BeforeRelease; override;
    public
-    constructor Create(aFamily    : TFamilyID;
+    constructor Create(aFamily    : TdaFamilyID;
                        aTblID     : Integer;
                        aTblPart   : TdtAttrTblPart = atpMain;
                        aWithFlush : boolean = false);
 
-    constructor CreateWithFlush(aFamily  : TFamilyID;
+    constructor CreateWithFlush(aFamily  : TdaFamilyID;
                                 aTblID   : Integer;
                                 aTblPart : TdtAttrTblPart = atpMain);
     procedure   ClaimFreeNum(aNum: Longint);
@@ -737,14 +744,14 @@ type
     procedure   OpenTbl; override;
     procedure   CloseTbl; override;
 
-    function    GetFreeNum : LongInt; virtual;
+    function    GetFreeNum : LongInt; 
     procedure   PutFreeNum(aNum : LongInt);
     procedure   PutFreeNums(aNums : SAB; WordSized : Boolean = False);
 
     procedure   ClearFreeNumsCache; // возвращает неиспользованные номера обратно в табл. FREE
     function    IsNumFree(aNum: Longint): Boolean;
     property    FreeNumsCacheSize: Integer read GetFreeNumsCacheSize write SetFreeNumsCacheSize;
-    property    TblFamily   : TFamilyID read fTblFamily;
+    property    TblFamily   : TdaFamilyID read fTblFamily;
   end;
 
 implementation
@@ -978,7 +985,7 @@ end;
 
 { TPrometTbl }
 
-constructor TPrometTbl.Create(aFamily    : TFamilyID;
+constructor TPrometTbl.Create(aFamily    : TdaFamilyID;
                               aTblID     : Integer;
                               aTblPart   : TdtAttrTblPart = atpMain;
                               aWithFlush : boolean = false);
@@ -1010,7 +1017,7 @@ begin
  f_FreeNumsCacheSize := 0;
 end;
 
-constructor TPrometTbl.CreateWithFlush(aFamily    : TFamilyID;
+constructor TPrometTbl.CreateWithFlush(aFamily    : TdaFamilyID;
                                        aTblID     : Integer;
                                        aTblPart   : TdtAttrTblPart = atpMain);
 begin

@@ -55,6 +55,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *57762BA20039impl_uses*
+ //#UC END# *57762BA20039impl_uses*
 ;
 
 var g_Tl3ClipSpyService: Tl3ClipSpyService = nil;

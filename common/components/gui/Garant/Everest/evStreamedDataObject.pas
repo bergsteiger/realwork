@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48EA32DB03E6impl_uses*
+ //#UC END# *48EA32DB03E6impl_uses*
 ;
 
 procedure TevStreamedDataObject.Store(const aView: InevView;

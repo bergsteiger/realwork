@@ -66,6 +66,8 @@ implementation
 uses
  l3ImplUses
  , eeSubList
+ //#UC START# *54BE4D0B0117impl_uses*
+ //#UC END# *54BE4D0B0117impl_uses*
 ;
 
 function TeePara.Get_Document: IeeDocument;

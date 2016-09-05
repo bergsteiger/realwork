@@ -37,6 +37,8 @@ uses
  , l3Types
  , IdIOHandler
  , Classes
+ //#UC START# *537F62DD009Fimpl_uses*
+ //#UC END# *537F62DD009Fimpl_uses*
 ;
 
 function TCsDataPipe.ReadFolder(const aToPath: AnsiString): Boolean;

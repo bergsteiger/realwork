@@ -39,6 +39,8 @@ uses
  , TableCell_Const
  , TableRow_Const
  , k2Tags
+ //#UC START# *4E48B5AE01E3impl_uses*
+ //#UC END# *4E48B5AE01E3impl_uses*
 ;
 
 procedure TevTableFilter.DoStartChild(TypeID: Tk2Type);

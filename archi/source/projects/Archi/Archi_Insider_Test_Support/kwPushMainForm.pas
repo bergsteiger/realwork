@@ -32,6 +32,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F8FE54E036Eimpl_uses*
+ //#UC END# *4F8FE54E036Eimpl_uses*
 ;
 
 class function TkwPushMainForm.GetWordNameForRegister: AnsiString;

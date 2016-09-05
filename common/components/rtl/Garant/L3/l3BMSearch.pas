@@ -5,9 +5,12 @@ unit l3BMSearch;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3BMSearch -                }
 { Начат: 01.12.1999 18:27             }
-{ $Id: l3BMSearch.pas,v 1.27 2013/05/21 07:58:11 lulin Exp $ }
+{ $Id: l3BMSearch.pas,v 1.28 2016/06/17 09:25:16 dinishev Exp $ }
 
 // $Log: l3BMSearch.pas,v $
+// Revision 1.28  2016/06/17 09:25:16  dinishev
+// {Requestlink:624700795}. Греческая кодировка.
+//
 // Revision 1.27  2013/05/21 07:58:11  lulin
 // - собираем тестовый проект нового генератора под XE3.
 //
@@ -498,8 +501,8 @@ begin
     CharUpperBuffA(@L, 1);
    cp_Unicode:
     //CharUpperBuffW(PWideChar(aStr), aLen);
-    Assert(false);
-   cp_TatarOEM:
+    Assert(false);                             
+   cp_TatarOEM, CP_Greek: // http://mdp.garant.ru/pages/viewpage.action?pageId=624700795
     ; // - не преобразуем
    else
     Assert(false);

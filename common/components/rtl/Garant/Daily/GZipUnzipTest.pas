@@ -42,6 +42,8 @@ uses
  , l3GZipStream
  , l3Types
  , TestFrameWork
+ //#UC START# *4FFD57940035impl_uses*
+ //#UC END# *4FFD57940035impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -1,10 +1,10 @@
 unit DocStack;
 
-{ $Id: DocStack.pas,v 1.13 2014/02/14 15:33:17 lulin Exp $ }
+{ $Id: DocStack.pas,v 1.14 2016/06/16 05:38:41 lukyanets Exp $ }
 
 interface
 
- Uses l3Base, l3ObjectStringList, DT_Const, DT_Types, l3DatLst,
+ Uses l3Base, l3ObjectStringList, DT_Const, daTypes, l3DatLst,
   l3LongintList,
   l3ProtoObject
   ;
@@ -13,11 +13,11 @@ interface
 
   TDocStackItem = class(Tl3ProtoObject)
   public
-   DocFam    : TFamilyID;
+   DocFam    : TdaFamilyID;
    DocID     : Longint;
    AnchorID  : Longint;
    Positions : Tl3LongintList;
-   constructor Create(aDocFam: TFamilyID; aDocID: Longint; aAnchorID: Longint; aPositions: Tl3LongintList);
+   constructor Create(aDocFam: TdaFamilyID; aDocID: Longint; aAnchorID: Longint; aPositions: Tl3LongintList);
    procedure Cleanup; override;
   end;
 
@@ -31,7 +31,7 @@ interface
     procedure pm_SetCurrentItem(const Value: Integer);
    public
     constructor Create; override;
-    procedure AddDoc(Const DocName : String; DocFam : TFamilyID;
+    procedure AddDoc(Const DocName : String; DocFam : TdaFamilyID;
                      DocID : Longint; aAnchorID : Longint; aPositions: Tl3LongintList; aDoCutTail: Boolean = True);
     procedure ReplaceData(aIndex: Integer; aAnchorID : Longint; aPositions: Tl3LongintList);
     procedure PrepareForPair;
@@ -52,7 +52,7 @@ begin
  inherited Create;
 end;
 
-procedure TDocStack.AddDoc(Const DocName : String; DocFam : TFamilyID;
+procedure TDocStack.AddDoc(Const DocName : String; DocFam : TdaFamilyID;
                            DocID : Longint; aAnchorID : Longint;
                            aPositions: Tl3LongintList; aDoCutTail: Boolean = True);
 var
@@ -119,7 +119,7 @@ begin
  l_Temp.Positions := aPositions;
 end;
 
-constructor TDocStackItem.Create(aDocFam: TFamilyID; aDocID: Longint; aAnchorID: Longint; aPositions: Tl3LongintList);
+constructor TDocStackItem.Create(aDocFam: TdaFamilyID; aDocID: Longint; aAnchorID: Longint; aPositions: Tl3LongintList);
 begin
  inherited Create;
  DocFam := aDocFam;

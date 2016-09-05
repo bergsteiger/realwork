@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , l3InterfacesMisc
+ //#UC START# *4B17D7FA023Fimpl_uses*
+ //#UC END# *4B17D7FA023Fimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}

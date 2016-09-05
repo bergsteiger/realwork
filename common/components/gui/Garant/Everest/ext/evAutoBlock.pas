@@ -2,9 +2,36 @@
 Unit evAutoBlock;
 {* Автоматическая расстановка блоков в документе }
 
-// $Id: evAutoBlock.pas,v 1.96 2016/06/10 14:23:41 dinishev Exp $
+// $Id: evAutoBlock.pas,v 1.105 2016/07/14 10:03:48 dinishev Exp $
 
 // $Log: evAutoBlock.pas,v $
+// Revision 1.105  2016/07/14 10:03:48  dinishev
+// {Requestlink:627005053}
+//
+// Revision 1.104  2016/07/12 11:33:15  dinishev
+// Чистка кода.
+//
+// Revision 1.103  2016/07/12 10:50:42  dinishev
+// Чистка кода.
+//
+// Revision 1.102  2016/07/12 10:43:13  dinishev
+// Чистка кода.
+//
+// Revision 1.101  2016/07/12 09:38:57  dinishev
+// Чистка кода.
+//
+// Revision 1.100  2016/07/12 09:06:15  dinishev
+// Чистка кода.
+//
+// Revision 1.99  2016/07/12 08:12:51  dinishev
+// Чистка кода.
+//
+// Revision 1.98  2016/06/16 05:40:11  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.97  2016/06/15 11:41:14  dinishev
+// Remove complier warnings.
+//
 // Revision 1.96  2016/06/10 14:23:41  dinishev
 // Заточил для DailyTest
 //
@@ -727,7 +754,7 @@ Uses
  nevTools,
  
  {$IFNDEF evNotArchi}
- dt_Types,
+ dt_Types, daTypes,
  {$ENDIF}
  evTuneBlocksDlg,
  Classes,
@@ -968,10 +995,10 @@ type
 
  TddBlockStructureReplacer = class(TevBaseReplacer)
  private
-  FDeepLevel: Integer;
+  FDeepLevel         : Integer;
   f_Searcher         : TddBlockStructureSearcher;
   f_BlockRoot        : TddBlockInfo;
-  f_Current: Il3Node;
+  f_Current          : Il3Node;
   f_Editor           : TevCustomEditor;
   f_FirstLevel       : TddBlockType;
   f_UniqueNumber     : Longint;
@@ -998,7 +1025,7 @@ type
   f_AllDone          : Boolean;
   f_OldReadOnly      : Boolean;
   {$IFNDEF evNotARCHI}
-  f_Family           : TFamilyID;
+  f_Family           : TdaFamilyID;
   f_DocID            : TDocID;
   {$ENDIF}
  private
@@ -1025,17 +1052,16 @@ type
   procedure CloseOpenBlocks(const aView : InevView;const aStart, aFinish: InevBasePoint; ForDeepLevel: Integer);
   procedure pm_SetEditor(aValue: TevCustomEditor);
  protected
-
   function  ReplaceFunc(const aView : InevView;
                         const Container : InevOp;
                         const aBlock    : InevRange): Bool; override;
   procedure Cleanup; override;
+  procedure TuneBlockStructure;
  public
   constructor Create(aOwner: TevSearchToolOwner); override;
   procedure DoStart; override;
   procedure DoFinish(aCancel: Bool; const aBlock: InevRange);
     override;
-  function TuneBlockStructure: Boolean;
   procedure InsertBlockStructure;
  public
   property AllDone: Boolean
@@ -1064,7 +1090,7 @@ type
    read f_TuneBlocks
    write f_TuneBlocks;
   {$IFNDEF evNotArchi}
-  property Family: TFamilyID
+  property Family: TdaFamilyID
    read f_Family
    write f_Family;
   property DocID: TDocID
@@ -1087,7 +1113,7 @@ const
 
 procedure CreateBlockStructure(DocEditor: TevCustomEditor
                                {$IFNDEF evNotArchi};
-                               aFamily: TFamilyID; aDocID: TDocID
+                               aFamily: TdaFamilyID; aDocID: TDocID
                                {$EndIF  evNotArchi};
                                aWithoutDialogs: Boolean = False);
 
@@ -1163,12 +1189,23 @@ const
 
 procedure CreateBlockStructure(DocEditor: TevCustomEditor
                                {$IFNDEF evNotArchi};
-                               aFamily: TFamilyID; aDocID: TDocID
+                               aFamily: TdaFamilyID; aDocID: TDocID
                                {$EndIF  evNotArchi};
                                aWithoutDialogs: Boolean = False);
+var
+ l_DeepLevel: Byte;
+ l_Confirm: Boolean;
+ l_Footnotes: Boolean;
+ l_TuneBlocks: Boolean;
 
   function lp_ShowDialog(aDialog: TForm): Boolean;
+  const
+   cnDefaultDeepLevel = 3;
   begin
+   l_DeepLevel := cnDefaultDeepLevel;
+   l_TuneBlocks := True;
+   l_Footnotes := False;
+   l_Confirm := True;
    with aDialog do
     if aWithoutDialogs then
     begin
@@ -1183,10 +1220,6 @@ var
  Searcher: TddBlockStructureSearcher;
  Replacer: TddBlockStructureReplacer;
  l_Cursor: InevBasePoint;
- l_DeepLevel: Byte;
- l_Confirm: Boolean;
- l_Footnotes: Boolean;
- l_TuneBlocks: Boolean;
  l_InBlock: Boolean;
  l_BlockDialog: TddBlockDeepLevelDialog;
 begin
@@ -1282,10 +1315,13 @@ begin
         vtMessageDlg(l3CStr('Возникла непредвиденная ошибка при расстановке блоков!'), mtError, [mbOk], 0);
        {$EndIf nsTest}
       end;//try..ecxept
-      InevSelection(Selection).SelectPoint(l_Cursor, false);
-      // <STUB> не понятно зачем Selection.SelectPoint сам снимает выделение
-      // с учетом его постоянности и попадания каретки в выделение
-      InevSelection(Selection).UnSelect;
+      if Selection <> nil then
+      begin
+       InevSelection(Selection).SelectPoint(l_Cursor, false);
+       // <STUB> не понятно зачем Selection.SelectPoint сам снимает выделение
+       // с учетом его постоянности и попадания каретки в выделение
+       InevSelection(Selection).UnSelect;
+      end; // if Selection <> nil then
      finally
       l_Cursor := nil;
      end;
@@ -1390,17 +1426,18 @@ end;
 
 procedure TddBlockInfo.AdjustBorders;
 
-procedure _Adjust(const aNode: Il3Node);
-var
- l_BI: IddBlockInfo;
-begin
- if Supports(aNode, IddBlockInfo, l_BI) then
+ procedure _Adjust(const aNode: Il3Node);
+ var
+  l_BI: IddBlockInfo;
  begin
-  if Finish.Compare(l_BI.Finish) < 0 then
-   l_BI.Finish:= Finish;
-  l_BI:= nil; 
- end;//Supports(aNode, IddBlockInfo, l_BI)
-end;
+  if Supports(aNode, IddBlockInfo, l_BI) then
+  begin
+   if Finish.Compare(l_BI.Finish) < 0 then
+    l_BI.Finish:= Finish;
+   l_BI:= nil; 
+  end;//Supports(aNode, IddBlockInfo, l_BI)
+ end;
+
 begin
  if Finish <> nil then // Физический блок
   IterateF(l3L2NA(@_Adjust), imOneLevel)
@@ -1430,10 +1467,10 @@ begin
   BlockName := l_BI.BlockName;
   Start := l_BI.Start;
   Finish := l_BI.Finish;
-  fNumber     := l_BI.Number;
-  Closed    := l_BI.Closed;
-  f_IsReal    := l_BI.RealType;
-  Visible:= l_BI.Visible;
+  fNumber := l_BI.Number;
+  Closed := l_BI.Closed;
+  f_IsReal := l_BI.RealType;
+  Visible := l_BI.Visible;
  end//P is TddBlockInfo
  else
   inherited;
@@ -1455,22 +1492,22 @@ end;
 
 function TddBlockInfo.GetBlockName: AnsiString;
 begin
-  Result := FBlockName;
+ Result := FBlockName;
 end;
 
 function TddBlockInfo.GetBlockType: TddBlockType;
 begin
-  Result := FBlockType;
+ Result := FBlockType;
 end;
 
 function TddBlockInfo.GetClosed: Boolean;
 begin
-  Result := FClosed;
+ Result := FClosed;
 end;
 
 function TddBlockInfo.GetFinish: InevBasePoint;
 begin
-  Result := FFinish;
+ Result := FFinish;
 end;
 
 function TddBlockInfo.GetNumber: Integer;
@@ -1480,22 +1517,22 @@ end;
 
 function TddBlockInfo.GetRealType: TddCommentBlock;
 begin
-  Result := FRealType;
+ Result := FRealType;
 end;
 
 function TddBlockInfo.GetStart: InevBasePoint;
 begin
-  Result := FStart;
+ Result := FStart;
 end;
 
 function TddBlockInfo.GetVisible: Boolean;
 begin
- Result:= FVisible
+ Result := FVisible
 end;
 
 function TddBlockInfo.GetWasBlock: Boolean;
 begin
-  Result := FWasBlock;
+ Result := FWasBlock;
 end;
 
 function TddBlockInfo.HasBlockWithNumber(aNumber: Integer): Boolean;
@@ -1530,15 +1567,13 @@ end;
 
 procedure TddBlockInfo.SetBlockName(Value: AnsiString);
 begin
-  FBlockName := Value;
+ FBlockName := Value;
 end;
 
 procedure TddBlockInfo.SetBlockType(Value: TddBlockType);
 begin
-  if FBlockType <> Value then
-  begin
-    FBlockType := Value;
-  end;
+ if FBlockType <> Value then
+  FBlockType := Value;
 end;
 
 procedure TddBlockInfo.SetClosed(Value: Boolean);
@@ -1658,7 +1693,7 @@ end;
 constructor TddBlockStructureSearcher.Create(aOwner: TevSearchToolOwner);
 begin
  inherited;
- Layer  := l3NilLong;
+ Layer := l3NilLong;
  Options:= [ev_soReplace, ev_soReplaceAll];
  f_SearchParagraphs:= False;
  f_BlockIDList:= Tl3ProtoObjectRefList.Make;
@@ -1688,9 +1723,10 @@ var
  l_St: AnsiString;
  l_N: Integer;
 begin
- Layer  := Ord(ev_slView);
- Handle:= aStyle;//ev_saColorSelection;
+ Layer := Ord(ev_slView);
+ Handle := aStyle;
  SearchPlace := ev_spAll;
+ l_Found := False;
  if inherited DoCheckText(Sender, S, aSel, theSel) then
  begin
   l_St:= TrimLeft(aText);
@@ -1699,18 +1735,18 @@ begin
     if IsValid and (AsLong = ev_saANSIDOS) then
     begin
      // Отрезаем все до theSel.rStart
-     l_St:= System.Copy(aText, theSel.rStart+1, aSel.rFinish);
-     theSel.rStart:= 0;
+     l_St := System.Copy(aText, theSel.rStart+1, aSel.rFinish);
+     theSel.rStart := 0;
      Dec(theSel.rFinish, theSel.rStart);
     end;//IsValid
   if (theSel.rStart = 0) and ((theSel.rFinish = S.Len) or (theSel.rFinish = Length(l_St)))then
-   l_Found:= True
+   l_Found := True
   else
    l_Found:= l_Found or ((S.Len - Length(l_St)) = theSel.rStart);
   if l_Found then
   begin
-   theSel.rStart:= 0;
-   aText:= Trim(l_St{aText});
+   theSel.rStart := 0;
+   aText := Trim(l_St{aText});
    if AnsiStartsText('ПРИЛОЖЕНИЕ', aText) and EnableAppendix(Sender) then
    begin
     if f_FirstHeaderFound then
@@ -1718,22 +1754,20 @@ begin
      if Length(aText) > Length('Приложение ') then
      begin
       if aText[Length('Приложение ') + 1] in (cc_Digits + csNumbrChars) then
-       f_BlockType:= dd_btAppendix
+       f_BlockType := dd_btAppendix
       else
-       f_BlockType:= dd_btPseudoDocument
+       f_BlockType := dd_btPseudoDocument
      end
      else
-      f_BlockType:= dd_btPseudoDocument;
+      f_BlockType := dd_btPseudoDocument;
      if f_PreambleFound < 2 then
-      f_PreambleFound:= 2;
-//     f_WaitForEmpty:= True;
+      f_PreambleFound := 2;
     end//f_FirstHeaderFound
     else
     begin
-     //f_FirstHeaderFound:= True;
-     f_PreambleFound:= 0;
-     Result:= False;
-     exit;
+     f_PreambleFound := 0;
+     Result := False;
+     Exit;
     end;//f_FirstHeaderFound
    end//AnsiStartsText('ПРИЛОЖЕНИЕ', aText)
    else // not Приложение
@@ -1741,32 +1775,32 @@ begin
     f_BlockType:= dd_btSubAppendix
    else
    if AnsiStartsText('ТАБЛИЦА', aText) then
-    f_BlockType:= dd_btSubAppendix
+    f_BlockType := dd_btSubAppendix
    else
    if AnsiStartsText('ФОРМА', aText) then
-    f_BlockType:= dd_btSubAppendix
+    f_BlockType := dd_btSubAppendix
    else
    if AnsiStartsText('ПРОЕКТ', aText) then
-    f_BlockType:= dd_btSubAppendix
+    f_BlockType := dd_btSubAppendix
    else
    if (S.First in cc_Digits) and (CheckDigits(S, l_N) <> dd_btNone) then
-    f_BlockType:= dd_btArticle
+    f_BlockType := dd_btArticle
    else
    if AnsiStartsText('СТАТЬЯ', aText) then
-    f_BlockType:= dd_btArticle
+    f_BlockType := dd_btArticle
    else
    if AnsiStartsText('ПУНКТ', aText) then
-    f_BlockType:= dd_btArticle
+    f_BlockType := dd_btArticle
    else
    if AnsiStartsText('ПРИМЕЧАНИЯ', aText) then
-    f_BlockType:= dd_btRemark;
+    f_BlockType := dd_btRemark;
    if (f_BlockType in [dd_btAppendix, dd_btSubAppendix]) and
       (f_PrevBlockType in [dd_btAppendix, dd_btSubAppendix]) {and not WasText} then
-    f_BlockType:= dd_btNone;
+    f_BlockType := dd_btNone;
   end;// l_Found
  end;//inherited DoCheckText(Sender, S, aSel, theSel)
- Result:= f_BlockType <> dd_btNone;
- Layer  := l3NilLong;
+ Result := f_BlockType <> dd_btNone;
+ Layer := l3NilLong;
 end;
 
 function TddBlockStructureSearcher.CheckComment(Sender : Tl3Variant; S:
@@ -1785,25 +1819,25 @@ begin
  if _CheckStyle(ev_saTxtComment) or _CheckStyle(ev_saTechComment) or
     _CheckStyle(ev_saVersionInfo) or _CheckStyle(ev_saUserComment) then
  begin
-  f_BlockType:= dd_btComment;
+  f_BlockType := dd_btComment;
   f_CommentText.Assign(S);
  end;//_CheckStyle(ev_saTxtComment)..
- Result:= f_BlockType <> dd_btNone;
+ Result := f_BlockType <> dd_btNone;
 end;
 
 function TddBlockStructureSearcher.CheckContentTable(Sender : Tl3Variant;
     S: Tl3CustomString; aSel: TevPair; out theSel: TevPair): Bool;
 begin
- Handle:= ev_saANSIDOS;
+ Handle := ev_saANSIDOS;
  if inherited DoCheckText(Sender, S, aSel, theSel) then
  begin
   // проверить на видимость
   if Sender.IsKindOf(k2_typTextPara) then
    with Sender.Attr[k2_tiVisible] do
     if IsValid and not AsBool then
-     f_BlockType:= dd_btContentTable;
+     f_BlockType := dd_btContentTable;
  end; // Search(Sender, S, aSel, theSel)
- Result:= f_BlockType <> dd_btNone;
+ Result := f_BlockType <> dd_btNone;
 end;
 
 function TddBlockStructureSearcher.CheckDigits(aText: Tl3CustomString;
@@ -1824,7 +1858,7 @@ begin
    Inc(l_DotCount)
   else
   if aText.Ch[l_Index] = cc_RightBracket then
-   l_Bracket:= True;
+   l_Bracket := True;
   Inc(l_Index);
  end; //while
  // Дробные номера пунктов - не нужно проверять наличие цифры после точки
@@ -1899,59 +1933,59 @@ begin
  begin
   if f_FirstHeaderFound then
   begin
-   if (f_PreambleFound > 1){ or (not f_SBSFound)}then
+   if (f_PreambleFound > 1) then
     f_BlockType:= dd_btHeader1
    else
    begin
-    f_BlockType:= dd_btDocument;
-    f_PreambleFound:= 2;
+    f_BlockType := dd_btDocument;
+    f_PreambleFound := 2;
    end;
   end//f_FirstHeaderFound
   else
   begin
-   f_FirstHeaderFound:= True;
-   f_PreambleFound:= 0;
-   Result:= False;
-   exit;
+   f_FirstHeaderFound := True;
+   f_PreambleFound := 0;
+   Result := False;
+   Exit;
   end;//f_FirstHeaderFound
 
   if f_SearchParagraphs or not ByteBool(f_PreambleFound) then
   begin
    if S.First in cc_Digits then
-    f_BlockType:= CheckDigits(S, l_Num);
+    f_BlockType := CheckDigits(S, l_Num);
   end//f_SearchParagraphs or not ByteBool(f_PreambleFound)
   else
   if S.First = cc_ParagraphSign then
-   f_BlockType:= dd_btParagraphSign//dd_btSection
+   f_BlockType := dd_btParagraphSign//dd_btSection
   else
   if S.First in cc_RomeDigits then
-   f_BlockType:= dd_btSectionRoman
+   f_BlockType := dd_btSectionRoman
   else
   if S.First in cc_Digits then
   begin
    if CheckDigits(S, l_Num) <> dd_btNone then
-    f_BlockType:= dd_btSectionArabic
+    f_BlockType := dd_btSectionArabic
    else
-    f_BlockType:= dd_btSubSectionArabic;
+    f_BlockType := dd_btSubSectionArabic;
   end//S.First in cc_Digits
   else
   if (Upcase(S.First) in cc_UpEnglish) and (S.Len > 1) and (S.Ch[1] in csListSeparator) then
-   f_BlockType:= dd_btSectionLatin
+   f_BlockType := dd_btSectionLatin
   else
   if (Upcase(S.First) in csRussianUpperLetter) and (S.Len > 1) and (S.Ch[1] in csListSeparator) then
-   f_BlockType:= dd_btSectionCyr
+   f_BlockType := dd_btSectionCyr
   else
   if Pos('(утв.', aText) <> 0 then
-   f_BlockType:= dd_btAppendixOrHeader1
+   f_BlockType := dd_btAppendixOrHeader1
   else
-  for i:= 0 to f_BlockIDList.Hi do
+  for i := 0 to f_BlockIDList.Hi do
    if AnsiStartsText(TddBlockID(f_BlockIDList.Items[i]).IDName, aText) then
    begin
-    f_BlockType:= TddBlockID(f_BlockIDList.Items[i]).BlockType;
-    break;
+    f_BlockType := TddBlockID(f_BlockIDList.Items[i]).BlockType;
+    Break;
    end;//AnsiStartsText(TddBlockID(f_BlockIDList.Items[i]).IDName, aText)
  end;//inherited DoCheckText(Sender, S, aSel, theSel)
- Result:= f_BlockType <> dd_btNone;
+ Result := f_BlockType <> dd_btNone;
 end;
 
 function TddBlockStructureSearcher.CheckParagraph(Sender : Tl3Variant; S:
@@ -1996,13 +2030,13 @@ var
 begin
  if not lp_CheckText then
  begin
-  Handle:= ev_saANSIDOS;
+  Handle := ev_saANSIDOS;
   if inherited DoCheckText(Sender, S, aSel, theSel) then
   begin
    if S.Len > 40 then
    begin
-    i:= 32;
-    l_Num:= 0;
+    i := 32;
+    l_Num := 0;
     while (S.Ch[i] = cc_HardSpace) and (i <> 42) do
     begin
      Inc(i);
@@ -2010,36 +2044,36 @@ begin
     end; // while
     if (l_Num = 10) and (f_PrevBlockType <> dd_btSBS) then
     begin
-     f_BlockType:= dd_btMayBeSBS;
+     f_BlockType := dd_btMayBeSBS;
      { DONE -oДудко -cРазвитие : Нужно пропускать идущие вплотную за этим моноширинные абзацы }
     end;
    end; // S.Len > 40
   end
   else
   begin
-   Handle:= ev_saToLeft;
+   Handle := ev_saToLeft;
    if inherited DoCheckText(Sender, S, aSel, theSel) then
    begin
     if (S.Len < 50) and (f_PrevBlockType <> dd_btSBS) then
-     f_BlockType:= dd_btMayBeSBS;
+     f_BlockType := dd_btMayBeSBS;
      { DONE -oДудко -cРазвитие : Нужно пропускать идущие вплотную за этим моноширинные абзацы }
    end
    else
    begin
-    Handle:= ev_saEnclosureHeader;
+    Handle := ev_saEnclosureHeader;
     if inherited DoCheckText(Sender, S, aSel, theSel) then
     begin
-     f_BlockType:= dd_btAppendix;
+     f_BlockType := dd_btAppendix;
      if f_PreambleFound < 2 then
       f_PreambleFound:= 2;
     end; // inherited DoCheckText(Sender, S, aSel, theSel)
    end;
   end;
  end;
- Result:= f_BlockType <> dd_btNone;
+ Result := f_BlockType <> dd_btNone;
 end;
 
-function TddBlockStructureSearcher.DoCheck(const aView : InevView;
+function TddBlockStructureSearcher.DoCheck(const aView       : InevView;
                                            const aTag        : InevObject;
                                            const aStart      : InevBasePoint;
                                            const aFinish     : InevBasePoint;
@@ -2047,26 +2081,24 @@ function TddBlockStructureSearcher.DoCheck(const aView : InevView;
                                            const aFinishPrev : InevBasePoint;
                                            out theSel        : TevPair): Bool;
 var
- l_Sub    : IevSub;
+ l_Sub: IevSub;
 begin
  if (aStart <> nil) and aStart.AtEnd(aView) then
- begin
-  Result:= False;
- end//aStart <> nil
+  Result := False
  else
  if not evHasText(aTag.AsObject) then
  begin
   if AtomHasSub(aTag) then
   begin
-   f_BlockType:= dd_btSubOnEmpty;
-   Result:= True;
+   f_BlockType := dd_btSubOnEmpty;
+   Result := True;
   end//AtomHasSub(aTag)
   else
   if IsAtomInSBS(aTag.AsObject) then
   begin
-   theSel.rStart:= 0;
-   theSel.rFinish:= ev_cpBottom;
-   Result:= inherited DoCheck(aView, aTag, aStart, aFinish, aStartPrev, aFinishPrev, theSel)
+   theSel.rStart := 0;
+   theSel.rFinish := ev_cpBottom;
+   Result := inherited DoCheck(aView, aTag, aStart, aFinish, aStartPrev, aFinishPrev, theSel)
   end//IsAtomInSBS(aTag)
   else
   begin
@@ -2074,9 +2106,9 @@ begin
    if Assigned(f_OnNotFound) then
     f_OnNotFound(False, aStart);
   end;//IsAtomInSBS(aTag)
-  l_Sub:= nil;
-  theSel.rStart:= 0;
-  theSel.rFinish:= ev_cpBottom;
+  l_Sub := nil;
+  theSel.rStart := 0;
+  theSel.rFinish := ev_cpBottom;
  end//not evHasText(aTag)
  else
   Result:= inherited DoCheck(aView, aTag, aStart, aFinish, aStartPrev, aFinishPrev, theSel);
@@ -2091,69 +2123,69 @@ var
  l_Found: Boolean;
 begin
  Result:= False;
-  if IsAtomInTable(Sender) then
-   Exit
-  else
-  if ((aSel.rStart = aSel.rFinish) or (aSel.rFinish = ev_cpAtEnd)) and (aSel.rStart > 0) then
-   Exit
-  else
+ if IsAtomInTable(Sender) then
+  Exit
+ else
+ if ((aSel.rStart = aSel.rFinish) or (aSel.rFinish = ev_cpAtEnd)) and (aSel.rStart > 0) then
+  Exit
+ else
+ begin
+  f_PrevBlockType:= f_BlockType;
+  f_BlockType:= dd_btNone;
+  l_Text:= l3PCharLen2String(S.AsPCharLen);
+  if IsAtomInSBS(Sender) then
   begin
-   f_PrevBlockType:= f_BlockType;
-   f_BlockType:= dd_btNone;
-   l_Text:= l3PCharLen2String(S.AsPCharLen);
-   if IsAtomInSBS(Sender) then
-   begin
-   { TODO -oNarry -cРазвитие : Нужно переделать определение правой половины подписи. }
-    if f_PrevBlockType = dd_btSBS then
-     exit;
-    f_PreambleFound:= 1;
-    f_BlockType:= dd_btSBS;
-    f_SBSFound:= True;
-    f_SBSIndex:= 2;
-   end
-   else
-   if (l_Text <> '') and (aSel.rStart <> aSel.rFinish) then
-   begin
-    SearchPlace := ev_spPara;
-    l_AskPosition:= Pos('Вопрос', l_Text);
-    if not CheckHeader(Sender, S, aSel, l_Text, theSel) then
-     if not CheckContentTable(Sender, S, aSel, theSel) then
-      if not CheckComment(Sender, S, aSel, theSel) then
-       if not CheckFootnote(Sender, S, aSel, theSel) then
-        if (l_Text[1] in cc_Digits) and
-           ((l_AskPosition = 0) or (l_AskPosition > 10)) then
-        begin
-         if not CheckParagraph(Sender, S, aSel, theSel) then
-          if not CheckColorSelection(ev_saColorSelection, Sender, S, aSel, l_Text, theSel) then
-           if not CheckColorSelection(ev_saArticleHeader, Sender, S, aSel, l_Text, theSel) then
-            CheckColorSelection(ev_saTxtOutOfDate, Sender, S, aSel, l_Text, theSel)
-        end
-        else
-        begin
+  { TODO -oNarry -cРазвитие : Нужно переделать определение правой половины подписи. }
+   if f_PrevBlockType = dd_btSBS then
+    exit;
+   f_PreambleFound:= 1;
+   f_BlockType:= dd_btSBS;
+   f_SBSFound:= True;
+   f_SBSIndex:= 2;
+  end
+  else
+  if (l_Text <> '') and (aSel.rStart <> aSel.rFinish) then
+  begin
+   SearchPlace := ev_spPara;
+   l_AskPosition:= Pos('Вопрос', l_Text);
+   if not CheckHeader(Sender, S, aSel, l_Text, theSel) then
+    if not CheckContentTable(Sender, S, aSel, theSel) then
+     if not CheckComment(Sender, S, aSel, theSel) then
+      if not CheckFootnote(Sender, S, aSel, theSel) then
+       if (l_Text[1] in cc_Digits) and
+          ((l_AskPosition = 0) or (l_AskPosition > 10)) then
+       begin
+        if not CheckParagraph(Sender, S, aSel, theSel) then
          if not CheckColorSelection(ev_saColorSelection, Sender, S, aSel, l_Text, theSel) then
-          if not CheckColorSelection(ev_saTxtOutOfDate, Sender, S, aSel, l_Text, theSel) then
-           if not CheckColorSelection(ev_saArticleHeader, Sender, S, aSel, l_Text, theSel) then
-            CheckParagraph(Sender, S, aSel, theSel);
-        end; // not S.Fisrt in cc_Digits
-   end; // l_Text <> ''
-   Result:= f_BlockType <> dd_btNone;
+          if not CheckColorSelection(ev_saArticleHeader, Sender, S, aSel, l_Text, theSel) then
+           CheckColorSelection(ev_saTxtOutOfDate, Sender, S, aSel, l_Text, theSel)
+       end
+       else
+       begin
+        if not CheckColorSelection(ev_saColorSelection, Sender, S, aSel, l_Text, theSel) then
+         if not CheckColorSelection(ev_saTxtOutOfDate, Sender, S, aSel, l_Text, theSel) then
+          if not CheckColorSelection(ev_saArticleHeader, Sender, S, aSel, l_Text, theSel) then
+           CheckParagraph(Sender, S, aSel, theSel);
+       end; // not S.Fisrt in cc_Digits
+  end; // l_Text <> ''
+  Result:= f_BlockType <> dd_btNone;
 
-   if Result then
-   begin
-    if not (f_BlockType in [dd_btSBS, dd_btComment, dd_btContentTable, dd_btSubOnEmpty]) then
-     MakeBlockName(l_Text);
-    if S <> nil then
-     theSel.rFinish:= S.Len
-    else
-     theSel.rFinish:= ev_cpBottom;
-   end
+  if Result then
+  begin
+   if not (f_BlockType in [dd_btSBS, dd_btComment, dd_btContentTable, dd_btSubOnEmpty]) then
+    MakeBlockName(l_Text);
+   if S <> nil then
+    theSel.rFinish:= S.Len
    else
-   if (l_Text = '') or (aSel.rStart = aSel.rFinish) then
-    f_BlockType:= f_PrevBlockType;
+    theSel.rFinish:= ev_cpBottom;
+  end
+  else
+  if (l_Text = '') or (aSel.rStart = aSel.rFinish) then
+   f_BlockType:= f_PrevBlockType;
 
-   if not Result and Assigned(f_OnNotFound) then
-    f_OnNotFound((l_Text <> '') and (aSel.rStart < aSel.rFinish));
-  end; // not isBlock
+  if not Result and Assigned(f_OnNotFound) then
+   f_OnNotFound((l_Text <> '') and (aSel.rStart < aSel.rFinish));
+ end; // not isBlock
 end;
 
 procedure TddBlockStructureSearcher.DoStart;
@@ -2161,7 +2193,7 @@ begin
  inherited;
  f_PreambleFound:= 0;
  f_BlockType:= dd_btNone;
- f_FirstHeaderFound:= (ev_soSelText in Options) or (ev_soDocumentPart in Options); //False;
+ f_FirstHeaderFound:= (ev_soSelText in Options) or (ev_soDocumentPart in Options); 
  if f_FirstHeaderFound then
  begin
   f_PreambleFound:= 2;
@@ -2169,8 +2201,6 @@ begin
  f_SBSIndex:= 0;
  f_SBSFound:= False;
  f_CommentText.Clear;
-// f_WasEmpty:= False;
-// f_WasText:= False;
 end;
 
 procedure TddBlockStructureSearcher.InitBlockIDList;
@@ -2186,10 +2216,6 @@ begin
  AddID('SUBSECTION', dd_btSubSection);
  AddID('CHAPTER', dd_btChapter);
  AddID('ARTICLE', dd_btArticleChapter);
-
-// AddID('ПРОТОКОЛ', dd_btReport);
-// AddID('РЕГЛАМЕНТ', dd_btRegulations);
-// AddID('ПЕРЕЧЕНЬ', dd_btIndex);
 end;
 
 procedure TddBlockStructureSearcher.MakeBlockName(const aSt: AnsiString);
@@ -2256,7 +2282,6 @@ begin
  l3Free(f_Dialog);
  l3Free(f_BlockRoot);
  f_EmptyParaCursor := nil;
-// l3Free(f_BlockStack);
  f_CommentStart := nil;
  f_FootnoteCursor := nil;
  inherited;
@@ -2266,7 +2291,6 @@ procedure TddBlockStructureReplacer.DoStart;
 begin
  inherited;
  l3FillChar(f_BlockNumbers, SizeOf(f_BlockNumbers), 0);
- //f_UniqueNumber:= 100000;
  f_FirstLevelIndex:= 0;
  f_RemarkInBlock:= dd_btNone;
  f_FirstBlock:= True;
@@ -2279,8 +2303,7 @@ begin
  f_Searcher.OnNotFound:= WhatNotFound;
  f_CommentStart := nil;
  f_EmptyParaCursor := nil;
-end;
-
+end;        
 
 procedure TddBlockStructureReplacer.DoFinish(aCancel: Bool; const aBlock: InevRange);
 var
@@ -2312,6 +2335,7 @@ procedure TddBlockStructureReplacer._InsertBlock(const aView : InevView;const aB
  begin//SetNodeVisible
   _InsertBlock(aView,aNode);
  end;//SetNodeVisible
+ 
 var
  l_B: IddBlockInfo;
 begin
@@ -2365,6 +2389,7 @@ function TddBlockStructureReplacer._ReplaceConfirm(Sender       : TObject;
 var
  l_BI: IddBlockInfo;
 begin
+ Result := mrNo;
  if Supports(f_Current, IddBlockInfo, l_BI) then
  begin
   if (f_Searcher.BlockType = dd_btHeader1) and
@@ -2419,7 +2444,7 @@ end;
 function TddBlockStructureReplacer.CheckType(const aCursor: InevBasePoint;
                                           var aNumber: Longint): TddCommentBlock;
 var
- l_Sub    : IevSub;
+ l_Sub: IevSub;
 begin
  Result:= dd_cbNone;
  aNumber:= -1;
@@ -2453,7 +2478,7 @@ begin
  if (f_CommentStart = nil) and (l_NewType = dd_cbNone) then
  begin
   if f_EmptyParaCursor = nil then
-   exit
+   Exit
   else
   begin
    f_CommentStart:= f_EmptyParaCursor.ClonePoint(Editor.View);
@@ -2519,9 +2544,7 @@ begin
     end; // f_Searcher.BlockType = dd_btRemark
     // Текущий открытый блок
     if IsEnableClose(f_Searcher.BlockType, l_DL) then
-    begin
-     CloseOpenBlocks(aView, l_S, l_F, l_DL);
-    end // IsEnableClose
+     CloseOpenBlocks(aView, l_S, l_F, l_DL)
     else
      StartBlock(aView,l_S);
    finally
@@ -2543,37 +2566,37 @@ var
  l_Cur: Il3Node;
  l_Current: IddBlockInfo;
 begin
- Result:= False;
- DeepLevel:= 0;
+ Result := False;
+ DeepLevel := 0;
  if f_BlockRoot.IsSame(f_Current) then
-  exit
+  Exit
  else
  if (aBlockType = dd_btComment) then
  begin
   if AnsiStartsText(SysUtils.Format('См. комментарий к статье %d', [f_Searcher.ArticleNumber]), f_Searcher.CommentText.AsString) then
   begin
-   Result:= True;
+   Result := True;
    if Supports(f_Current, IddBlockInfo, l_Current) then
-   try
-    l_Cur:= f_Current;
-    while l_Current.BlockType <> dd_btArticle do
-    begin
-     l_Cur:= l_Cur.ParentNode;
-     l_Current:= nil;
-     if not Supports(l_Cur, IddBlockInfo, l_Current) then
-      exit;
-     Inc(DeepLevel);
+    try
+     l_Cur:= f_Current;
+     while l_Current.BlockType <> dd_btArticle do
+     begin
+      l_Cur := l_Cur.ParentNode;
+      l_Current := nil;
+      if not Supports(l_Cur, IddBlockInfo, l_Current) then
+       Exit;
+      Inc(DeepLevel);
+     end;
+    finally
+     l_Current := nil;
     end;
-   finally
-    l_Current:= nil;
-   end;
-  end
+  end // if AnsiStartsText(SysUtils.Format('См. комментарий к статье %d', [f_Searcher.ArticleNumber]), f_Searcher.CommentText.AsString) then
   else
-   exit
- end
+   Exit
+ end // if (aBlockType = dd_btComment) then
  else
  begin
-  DeepLevel:= 1;
+  DeepLevel := 1;
   if Supports(f_Current, IddBlockInfo, l_Current) then
   try
    l_TmpBlockType:= l_Current.BlockType;
@@ -2582,48 +2605,46 @@ begin
     if f_FirstLevel = dd_btNone then // Преамбула
     begin
      DeepLevel:= f_Current.GetLevelFor(f_BlockRoot);
-     Result:= True;
-     exit;
+     Result := True;
+     Exit;
     end
    end;
   finally
    l_Current:= nil;
   end
   else
-   exit;
+   Exit;
 
   if (aBlockType in [dd_btSBS, dd_btFootnoteBody]) and (f_FirstLevel = dd_btNone) then
   begin
-   Result:= True;
-   DeepLevel:= f_Current.GetLevelFor(f_BlockRoot);
+   Result := True;
+   DeepLevel := f_Current.GetLevelFor(f_BlockRoot);
   end
   else
   if not (l_TmpBlockType in dd_btParagraphs) and (aBlockType in dd_btParagraphs) then
-  begin
-   Result:= False;
-  end
+   Result := False
   else
   begin
-   Result:= False;
+   Result := False;
    if (aBlockType = dd_btContentTable) and f_WasText and (f_FirstLevel <> dd_btNone) and
-    not (l_TmpBlockType in [f_FirstLevel, dd_btAppendix]) then
+      not (l_TmpBlockType in [f_FirstLevel, dd_btAppendix]) then
     l_NewBlockType := f_FirstLevel
    else
    if (aBlockType in [dd_btAppendix, dd_btSBS, dd_btFootnoteBody]) then
    begin
     if (f_FirstLevel <> dd_btNone) then
-     l_NewBlockType:= f_FirstLevel
+     l_NewBlockType := f_FirstLevel
     else
-     l_NewBlockType:= aBlockType;
+     l_NewBlockType := aBlockType;
    end
    else
-    l_NewBlockType:= aBlockType;
+    l_NewBlockType := aBlockType;
    l_Cur:= f_Current;
    while not f_BlockRoot.IsSame(l_Cur) do
    begin
     if Supports(l_Cur, IddBlockInfo, l_Current) then
     begin
-     l_TmpBlockType:= l_Current.BlockType;
+     l_TmpBlockType := l_Current.BlockType;
      if not (l_TmpBlockType in [l_NewBlockType]) then
      begin
       l_Cur:= l_Cur.ParentNode;
@@ -2635,35 +2656,35 @@ begin
          (f_FirstLevel <> aBlockType) and (f_FirstLevel <> dd_btNone) then
        Dec(DeepLevel);
       Result:= DeepLevel > 0;
-      break;
+      Break;
      end;
     end
     else
-     exit;
+     Exit;
    end; // while i >= 0
   end;
   if Supports(f_Current, IddBlockInfo, l_Current) then
    if not Result and not (aBlockType in dd_btParagraphs) and
      (l_Current.BlockType in dd_btParagraphs) then
    begin
-    Result:= True;
+    Result := True;
     // нужно закрывать все блоки до чего-то вразумительного
-    DeepLevel:= 0;
+    DeepLevel := 0;
 
     l_Cur:= f_Current;
     if Supports(l_Cur, IddBlockInfo, l_Current) then
      while l_Current.BlockType in (dd_btParagraphs+[dd_btRemark]) do
      begin
       Inc(Deeplevel);
-      l_Cur:= l_Cur.ParentNode;
+      l_Cur := l_Cur.ParentNode;
       if not Supports(l_Cur, IddBlockInfo, l_Current) then
-       exit;
+       Exit;
      end;
     if (aBlockType = dd_btAppendix) and (f_FirstLevel = dd_btNone) then
      while not f_BlockRoot.IsSame(l_Cur) do
      begin
       Inc(Deeplevel);
-      l_Cur:= l_Cur.ParentNode;
+      l_Cur := l_Cur.ParentNode;
      end;
    end;
  end; // f_BlockStack.Count <> 0
@@ -2684,25 +2705,23 @@ begin
  begin
   if Supports(f_Current, IddBlockInfo, l_Current) then
    if not (l_Current.BlockType in [dd_btAppendix, dd_btPseudoDocument]) then
-    l_Current.WasBlock:= True;
+    l_Current.WasBlock := True;
   Exit;
  end;
 
  if f_FirstBlock and (f_Searcher.BlockType = dd_btHeader1) then
-  l_BlockType:= dd_btDocument
+  l_BlockType := dd_btDocument
  else
-  l_BlockType:= f_Searcher.BlockType;
+  l_BlockType := f_Searcher.BlockType;
 
  if f_BlockRoot.IsSame(f_Current) then
  begin
   if ByteBool(f_Searcher.PreambleFound) and (f_Searcher.BlockType in dd_btParagraphs) then
-   exit;
+   Exit;
   if f_Searcher.f_SBSFound and (f_Searcher.BlockType in [dd_btHeader1, dd_btDocument, dd_btPseudoDocument, dd_btAppendixOrHeader1]) then
-  begin
-   f_FirstLevel:= l_BlockType;
-  end;
+   f_FirstLevel := l_BlockType;
   if f_Searcher.BlockType = dd_btHeader1 then
-   f_FirstLevelIndex:= 1;
+   f_FirstLevelIndex := 1;
  end
  else
  begin
@@ -2716,70 +2735,63 @@ begin
   begin
    if not l_IBI.Closed then
    begin
-    l_IBI.Closed:= True;
+    l_IBI.Closed := True;
     if l_IBI.RealType = dd_cbNone then
-     l_IBI.BlockName:= l_IBI.BlockName + cc_HardSpace + f_Searcher.BlockName;
-    f_WasText:= False;
-    f_WasEmpty:= False;
+     l_IBI.BlockName := l_IBI.BlockName + cc_HardSpace + f_Searcher.BlockName;
+    f_WasText := False;
+    f_WasEmpty := False;
    end // not l_BlockInfo.Closed
    else
-    l_IBI.WasBlock:= True;
+    l_IBI.WasBlock := True;
    Exit;
   end; // Проверка на соединение блоков
-  l_IBI.WasBlock:= True;
+  l_IBI.WasBlock := True;
  end; //
  begin
   f_FirstBlock:= False;
   l_BlockInfo:= TddBlockInfo.Create(Editor);
   try
-   l_BlockInfo.BlockType:= l_BlockType;
-   l_BlockInfo.BlockName:= f_Searcher.BlockName;
+   l_BlockInfo.BlockType := l_BlockType;
+   l_BlockInfo.BlockName := f_Searcher.BlockName;
    { TODO -oДудко -cОшибка : Нужно присвоить текст }
-   l_BlockInfo.Text:= l3PCharLen(f_Searcher.BlockText);
-   l_BlockInfo.Closed:= False;
+   l_BlockInfo.Text := l3PCharLen(f_Searcher.BlockText);
+   l_BlockInfo.Closed := False;
 
-   if (f_CommentStart <> nil)
-      and (f_CommentBlock <> dd_cbNone) and not f_WasText then
-   begin
-    l_BlockInfo.Start:= f_CommentStart;
-   end
+   if (f_CommentStart <> nil) and (f_CommentBlock <> dd_cbNone) and not f_WasText then
+    l_BlockInfo.Start := f_CommentStart
    else
    if (f_Searcher.BlockType = dd_btFootnoteBody) and (f_FootnoteCursor <> nil)  then
-   begin
-    l_BlockInfo.Start:= f_FootnoteCursor;
-   end
+    l_BlockInfo.Start := f_FootnoteCursor
    else
-   begin
-    l_BlockInfo.Start:= aStart;
-   end;
+    l_BlockInfo.Start := aStart;
    // Выяснить, а не блок ли здесь?
    l_BlockInfo.RealType:= CheckType(l_BlockInfo.Start, l_Number);
    if l_BlockInfo.RealType = dd_cbNone then
    begin
     if TuneBlocks then
-     l_BlockInfo.Number:= -1{Номера блокам присвоятся после настройки  MakeBlockNumber(l_BlockInfo)}
+     l_BlockInfo.Number := -1{Номера блокам присвоятся после настройки  MakeBlockNumber(l_BlockInfo)}
     else
-     l_BlockInfo.Number:= MakeBlockNumber(l_BlockInfo)
+     l_BlockInfo.Number := MakeBlockNumber(l_BlockInfo)
    end
    else
    begin
-    l_BlockInfo.Number:= l_Number;
-    l_BlockInfo.BlockName:= '';
+    l_BlockInfo.Number := l_Number;
+    l_BlockInfo.BlockName := '';
     if l_BlockInfo.RealType = dd_cbBlock then
     begin
-     l_BlockInfo.Finish:= l_BlockInfo.Start;
-     ddMovePBC(aView,l_BlockInfo.Finish, ev_ocBottomRight);
+     l_BlockInfo.Finish := l_BlockInfo.Start;
+     ddMovePBC(aView, l_BlockInfo.Finish, ev_ocBottomRight);
     end;
    end;
    if (f_Searcher.BlockType = dd_btFootnoteBody) and not f_UseFootnotes then
-    l_BlockInfo.RealType:= dd_cbOutSide;
+    l_BlockInfo.RealType := dd_cbOutSide;
    if l_BlockInfo.BlockType in [dd_btAppendix] then
-    f_InAppendix:= True;
+    f_InAppendix := True;
    if InsertBlock(l_BlockInfo) then
    begin
-    f_Current:= l_BlockInfo;
-    f_WasText:= False;
-    f_WasEMpty:= False;
+    f_Current := l_BlockInfo;
+    f_WasText := False;
+    f_WasEMpty := False;
    end;
   finally
    l3Free(l_BlockInfo);
@@ -2793,9 +2805,7 @@ begin
  end;
  if f_FootnoteCursor <> nil then
   f_FootnoteCursor := nil;
-end;
-
-
+end;             
 
 function TddBlockStructureReplacer.MakeBlockNumber(const aBlockInfo:
     IddBlockInfo): Longint;
@@ -2805,7 +2815,6 @@ end;
 
 procedure TddBlockStructureReplacer.InsertBlockInDocument(const aView : InevView;
                                                           const BlockInfo: IddBlockInfo);
-
 
  procedure lp_CheckTable;
  var
@@ -2832,6 +2841,7 @@ var
  l_BlockIntf    : IevDocumentPart;
  l_ParaCount    : Longint;
  l_AddToBase    : Boolean;
+ l_StartPoint   : InevBasePoint;
  l_BlockParent  : Il3Node;
  l_ddBlockParent: IddBlockInfo;
 begin
@@ -2874,10 +2884,13 @@ begin
     l_Point := BlockInfo.Finish;
     if not l_Point.Obj.IsSame(BlockInfo.Start.Obj.AsObject) and l_Point.Obj.IsKindOf(k2_typBlock) and not l_Point.AtEnd(aView) then
     begin
-     l_Point := l_Point.PointToParentByLevel;
-     l_Point.Move(aView, ev_ocPrevParaBottomRight);
+     l_Point := l_Point.PointToParent(BlockInfo.Start.Obj^);
      if l_Point <> nil then
-      BlockInfo.Finish := l_Point;
+     begin
+      l_Point.Move(aView, ev_ocPrevParaBottomRight);
+      if l_Point <> nil then
+       BlockInfo.Finish := l_Point;
+     end; // if l_Point <> nil then
     end; // if l_Pos.Obj.IsKindOf(k2_typBlock) then*)
    end; // if BlockInfo.Finish <> nil then
   end; // if l_Move then
@@ -2893,7 +2906,7 @@ begin
     Abort;
     {$ENDIF}
     if (l_NewBlock <> nil) and (BlockInfo.BlockName <> '') then
-     l_NewBlock.Name:= l3PCharLen(BlockInfo.BlockName);
+     l_NewBlock.Name := l3PCharLen(BlockInfo.BlockName);
     {$IFNDEF evNotArchi}
     if l_AddToBase then
      LinkServer(Self.Family).SubTbl.AddDocSub(Self.DocID, BlockInfo.Number, PAnsiChar(BlockInfo.BlockName),
@@ -2914,9 +2927,9 @@ end;
 function TddBlockStructureReplacer.GetTextSource: TevCustomTextSource;
 begin
  if f_Editor <> nil then
-  Result:= f_Editor.TextSource
+  Result := f_Editor.TextSource
  else
-  Result:= nil;
+  Result := nil;
 end;
 
 procedure TddBlockStructureReplacer.WhatNotFound(const aText: Boolean; const aCursor: InevBasePoint = nil);
@@ -2930,18 +2943,18 @@ begin
    f_CommentStart := nil;
  end // aText
  else
-  f_WasEmpty:= True;
+  f_WasEmpty := True;
  begin
   l_LB:= LastBlock;
   if aText and l_LB.Closed then
-   l_LB.WasBlock:= True
+   l_LB.WasBlock := True
   else
   if not aText and not (l_LB.Closed and l_LB.WasBlock) then
-   l_LB.Closed:= True;
+   l_LB.Closed := True;
 
   if (not aText) and (l_LB.BlockType = dd_btFootnoteBody) and (aCursor <> nil) then
   begin // Пустая строка заканчивает сноски
-   L_LB.Finish:= aCursor;
+   l_LB.Finish := aCursor;
    InsertBlock(l_LB);
   end;//not aText..
  end; // (not aText) and (l_LB.BlockType = dd_btFootnoteBody) and (aCursor <> nil)
@@ -2958,38 +2971,37 @@ end;
 function TddBlockStructureReplacer.InsertBlock(const aBlockInfo: IddBlockInfo):
     Boolean;
 var
- l_N: Il3Node;
+ l_Node : Il3Node;
  l_Level: Integer;
 begin
  if (aBlockInfo.BlockType = dd_btFootnoteBody) and not UseFootnotes then
   Result:= False
  else
  begin
-  aBlockInfo.QueryInterface(Il3Node, l_N);
-  Result:= f_Current.InsertChild(l_N) <> nil;
-  l_Level:= l_N.GetLevelFor(f_BlockRoot);
-  aBlockInfo.Visible:= l_Level <= DeepLevel;
+  aBlockInfo.QueryInterface(Il3Node, l_Node);
+  Result := f_Current.InsertChild(l_Node) <> nil;
+  l_Level := l_Node.GetLevelFor(f_BlockRoot);
+  aBlockInfo.Visible := l_Level <= DeepLevel;
   if aBlockInfo.BlockType = dd_btFootnoteBody then
-   aBlockInfo.Visible:= aBlockInfo.Visible and UseFootnotes;
+   aBlockInfo.Visible := aBlockInfo.Visible and UseFootnotes;
  end;//aBlockInfo.BlockType = dd_btFootnoteBody
-end;
-
+end;     
 
 procedure TddBlockStructureReplacer.InsertBlockStructure;
 var
- l_Pack  : InevOp;
+ l_Pack: InevOp;
 begin
- Screen.Cursor:= crHourGlass;
+ Screen.Cursor := crHourGlass;
  try
   with TextSource.Indicator do
   begin
    Start(f_BlockRoot.AllChildrenCount, l3CStr('Расстановка блоков'));
-   f_InsertedCount:= 0;
+   f_InsertedCount := 0;
    l_Pack := Editor.StartOp(ev_ocUser + 100);
    try
     _InsertBlock(Editor.View, f_BlockRoot);
    finally
-    l_Pack:= nil;
+    l_Pack := nil;
    end;//try..finally
    Finish;
   end;//with TextSource.Indicator
@@ -2997,34 +3009,34 @@ begin
   TextSource.ReloadSubFlags;
   {$EndIf  Nemesis}
  finally
-  Screen.Cursor:= crDefault;
+  Screen.Cursor := crDefault;
  end;//try..finally
 end;
 
-function TddBlockStructureReplacer.TuneBlockStructure: Boolean;
+procedure TddBlockStructureReplacer.TuneBlockStructure;
 var
+ l_Ok      : Boolean;
  l_TmpBlock: TddBlockInfo;
- l_Ok: Boolean;
 begin
- f_AllDone:= False;
-  if f_BlockRoot.HasChild then
+ f_AllDone := False;
+ if f_BlockRoot.HasChild then
+ begin
+  if TuneBlocks then
   begin
-   if TuneBlocks then
+   f_OldReadOnly := Editor.ReadOnly;
+   Editor.ReadOnly := True;
+   with f_Dialog do
    begin
-    f_OldReadOnly:= Editor.ReadOnly;
-    Editor.ReadOnly:= True;
-    with f_Dialog do
-    begin
-     BlockTree.TreeStruct.RootNode:= f_BlockRoot;
-     BlockTree.TreeStruct.ExpandSubDir(f_BlockRoot, True, DeepLevel);
-     Show;
-    end//with f_Dialog
-   end//TuneBlocks
-   else
-    FinalTune(True);
-  end//f_BlockRoot.HasChild
+    BlockTree.TreeStruct.RootNode := f_BlockRoot;
+    BlockTree.TreeStruct.ExpandSubDir(f_BlockRoot, True, DeepLevel);
+    Show;
+   end//with f_Dialog
+  end//TuneBlocks
   else
-   f_AllDone:= True;
+   FinalTune(True);
+ end//f_BlockRoot.HasChild
+ else
+  f_AllDone := True;
 end;
 
 procedure TddBlockStructureReplacer.FinalTune(aInsert: Boolean);
@@ -3038,11 +3050,11 @@ procedure TddBlockStructureReplacer.FinalTune(aInsert: Boolean);
   try
    if l_BI.RealType = dd_cbNone then
    begin
-    l_N:= MakeBlockNumber(l_BI);
-    l_BI.Number:= l_N;
+    l_N := MakeBlockNumber(l_BI);
+    l_BI.Number := l_N;
    end;//l_BI.RealType = dd_cbNone
   finally
-   l_BI:= nil;
+   l_BI := nil;
   end; // Supports
  end;
  
@@ -3058,14 +3070,14 @@ begin
    l3FillChar(f_BlockNumbers, SizeOf(f_BlockNumbers), 0);
    DeepLevel:= CalcMaxLevel(f_BlockRoot);
    f_BlockRoot.IterateF(l3L2NA(@_CorrectBlockNumbers));
-   Editor.ReadOnly:= f_OldReadOnly;
+   Editor.ReadOnly := f_OldReadOnly;
   end;//TuneBlocks
   InsertBlockStructure;
  end//aInsert
  else
  if TuneBlocks then
-  Editor.ReadOnly:= f_OldReadOnly;
- f_AllDone:= True;
+  Editor.ReadOnly := f_OldReadOnly;
+ f_AllDone := True;
 end;
 
 procedure TddBlockStructureReplacer.OutBlockDescript;
@@ -3120,54 +3132,54 @@ begin
   end; // Case
   l3System.Msg2Log(l_String);
 *)
-  l3System.Msg2Log(' '+GetEnumName(TypeInfo(TddBlockType),Ord(f_Searcher.BlockType)));
+  l3System.Msg2Log(' ' + GetEnumName(TypeInfo(TddBlockType),Ord(f_Searcher.BlockType)));
 end;
 
 procedure TddBlockStructureReplacer.CheckComment(const aStart: InevBasePoint);
 begin
-  if f_Searcher.BlockType = dd_btComment then
-   ProcessComment(aStart)
-  else
+ if f_Searcher.BlockType = dd_btComment then
+  ProcessComment(aStart)
+ else
+ begin
+  f_EmptyParaCursor := nil;
+  if f_CommentStart <> nil then
   begin
-   f_EmptyParaCursor := nil;
-   if f_CommentStart <> nil then
-   begin
-    if f_Searcher.BlockType = dd_btContentTable then
-     f_CommentStart := nil
-    else
-     f_TextAfterComment:= f_WasText {or not f_Searcher.WasEmpty};
-   end;//f_CommentStart <> nil
-  end;//f_Searcher.BlockType = dd_btComment
+   if f_Searcher.BlockType = dd_btContentTable then
+    f_CommentStart := nil
+   else
+    f_TextAfterComment := f_WasText;
+  end;//f_CommentStart <> nil
+ end;//f_Searcher.BlockType = dd_btComment
 end;
 
 function TddBlockStructureReplacer.CheckFootnote(const aStart: InevBasePoint): Boolean;
 begin
-  Result := False;
-  if f_Searcher.BlockType = dd_btStartFootnote then
-  begin
-   if f_FootnoteCursor <> nil then
-    f_FootnoteCursor := nil;
-   f_FootnoteCursor:= aStart.ClonePoint(Editor.View);
-   Result:= True;
-  end//f_Searcher.BlockType = dd_btStartFootnote
-  else
-  if (f_Searcher.BlockType  <> dd_btFootnoteBody) and (f_FootnoteCursor <> nil) then
-  begin
+ Result := False;
+ if f_Searcher.BlockType = dd_btStartFootnote then
+ begin
+  if f_FootnoteCursor <> nil then
    f_FootnoteCursor := nil;
-   Result:= False;
-  end;//f_Searcher.BlockType  <> dd_btFootnoteBody..
+  f_FootnoteCursor := aStart.ClonePoint(Editor.View);
+  Result := True;
+ end//f_Searcher.BlockType = dd_btStartFootnote
+ else
+ if (f_Searcher.BlockType  <> dd_btFootnoteBody) and (f_FootnoteCursor <> nil) then
+ begin
+  f_FootnoteCursor := nil;
+  Result := False;
+ end;//f_Searcher.BlockType  <> dd_btFootnoteBody..
 end;
 
 function TddBlockStructureReplacer.CheckEmptyPara(const aStart: InevBasePoint): Boolean;
 begin
-  if f_Searcher.BlockType  = dd_btSubOnEmpty then
-  begin
-   f_EmptyParaCursor := nil;
-   f_EmptyParaCursor:= aStart.ClonePoint(Editor.View);
-   Result:= True;
-  end//f_Searcher.BlockType  = dd_btSubOnEmpty
-  else
-   Result := False;
+ if f_Searcher.BlockType  = dd_btSubOnEmpty then
+ begin
+  f_EmptyParaCursor := nil;
+  f_EmptyParaCursor := aStart.ClonePoint(Editor.View);
+  Result := True;
+ end//f_Searcher.BlockType  = dd_btSubOnEmpty
+ else
+  Result := False;
 end;
 
 procedure TddBlockStructureReplacer.CloseOpenBlocks(const aView : InevView;const aStart, aFinish: InevBasePoint; 
@@ -3176,54 +3188,54 @@ var
  l_Pos: InevBasePoint;
  l_BI: IddBlockInfo;
 begin
-  if (f_CommentStart <> nil) and (f_CommentBlock <> dd_cbNone) and
-      not f_TextAfterComment then
-   l_Pos:= f_CommentStart.ClonePoint(Editor.View)
-  else
-  if f_FootnoteCursor <> nil then
-   l_Pos:= f_FootnoteCursor.ClonePoint(Editor.View)
-  else
+ if (f_CommentStart <> nil) and (f_CommentBlock <> dd_cbNone) and
+     not f_TextAfterComment then
+  l_Pos := f_CommentStart.ClonePoint(Editor.View)
+ else
+ if f_FootnoteCursor <> nil then
+  l_Pos := f_FootnoteCursor.ClonePoint(Editor.View)
+ else
+ begin
+  if (Searcher.BlockType = dd_btSBS) then
   begin
-   if (Searcher.BlockType = dd_btSBS) then
+   l_Pos := EvPrevOverallPara(aStart.MostInner.Obj.AsPara).MakePoint;
+   l_Pos.Move(aView, ev_ocBottomRight);
+   l_Pos := l_Pos.PointToParentByLevel(MaxInt);
+   Assert(l_Pos <> nil);
+  end // if (Searcher.BlockType = dd_btSBS) or (l_Pos.Obj.IsKindOf(k2_typBlock)) then
+  else
+   l_Pos := aFinish.ClonePoint(Editor.View);
+ end;//f_FootnoteCursor <> nil
+ try
+  f_Current.QueryInterface(IddBlockInfo, l_BI);
+  while ForDeepLevel <> 0 do
+  begin
+   if l_BI.BlockType = f_RemarkInBlock then
+    f_RemarkInBlock := dd_btNone;
+   if l_BI.RealType <> dd_cbBlock then
+    l_BI.Finish := l_Pos;
+   if (f_CommentStart <> nil) and
+      (Pred(l_BI.Finish.Position) > f_CommentStart.Position) then
    begin
-    l_Pos := EvPrevOverallPara(aStart.MostInner.Obj.AsPara).MakePoint;
-    l_Pos.Move(aView, ev_ocBottomRight);
-    l_Pos := l_Pos.PointToParentByLevel(MaxInt);
-    Assert(l_Pos <> nil);
-   end // if (Searcher.BlockType = dd_btSBS) or (l_Pos.Obj.IsKindOf(k2_typBlock)) then
-   else
-    l_Pos := aFinish.ClonePoint(Editor.View);
-  end;//f_FootnoteCursor <> nil
-  try
+    f_CommentStart := nil;
+    f_TextAfterComment := False;
+    f_CommentBlock := dd_cbNone;
+   end; // (f_CommentStart <> nil) and (Pred(aBlock.Finish.Position) > f_CommentStart.Position)
+   Dec(ForDeepLevel);
+   f_Current := f_Current.ParentNode;
    f_Current.QueryInterface(IddBlockInfo, l_BI);
-   while ForDeepLevel <> 0 do
-   begin
-    if l_BI.BlockType = f_RemarkInBlock then
-     f_RemarkInBlock:= dd_btNone;
-    if l_BI.RealType <> dd_cbBlock then
-     l_BI.Finish:= l_Pos;
-    if (f_CommentStart <> nil) and
-       (Pred(l_BI.Finish.Position) > f_CommentStart.Position) then
-    begin
-     f_CommentStart := nil;
-     f_TextAfterComment:= False;
-     f_CommentBlock:= dd_cbNone;
-    end; // (f_CommentStart <> nil) and (Pred(aBlock.Finish.Position) > f_CommentStart.Position)
-    Dec(ForDeepLevel);
-    f_Current:= f_Current.ParentNode;
-    f_Current.QueryInterface(IddBlockInfo, l_BI);
-    l_BI.AdjustBorders;
-   end; // while
-   if not (f_Searcher.BlockType in [dd_btSBS, dd_btComment, dd_btContentTable]) then
-   begin
-    if f_Searcher.BlockType = dd_btFootnoteBody then
-     StartBlock(aView,l_Pos)
-    else
-     StartBlock(aView,aStart)
-   end//not (f_Searcher.BlockType in [dd_btSBS, dd_btComment, dd_btContentTable])
-  finally
-   l_Pos := nil;
-  end;//try..finally
+   l_BI.AdjustBorders;
+  end; // while
+  if not (f_Searcher.BlockType in [dd_btSBS, dd_btComment, dd_btContentTable]) then
+  begin
+   if f_Searcher.BlockType = dd_btFootnoteBody then
+    StartBlock(aView, l_Pos)
+   else
+    StartBlock(aView, aStart)
+  end//not (f_Searcher.BlockType in [dd_btSBS, dd_btComment, dd_btContentTable])
+ finally
+  l_Pos := nil;
+ end;//try..finally
 end;
 
 procedure TddBlockStructureReplacer.pm_SetEditor(aValue: TevCustomEditor);

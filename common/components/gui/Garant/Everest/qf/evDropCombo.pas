@@ -160,6 +160,8 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , evdTextStyle_Const
  , l3Tree_TLB
+ //#UC START# *48D399A20288impl_uses*
+ //#UC END# *48D399A20288impl_uses*
 ;
 
 function TevDropCombo.GetFullPath(const aNode: InevSimpleNode): Il3CString;

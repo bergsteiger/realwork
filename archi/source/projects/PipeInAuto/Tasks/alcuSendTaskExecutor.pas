@@ -15,6 +15,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsMessageInterfaces
  {$IfEnd} // NOT Defined(Nemesis)
+ , alcuImmidiateRequestInterfaces
  {$If NOT Defined(Nemesis)}
  , ddServerTaskList
  {$IfEnd} // NOT Defined(Nemesis)
@@ -27,15 +28,18 @@ type
  )
   private
    f_RootTaskFolder: AnsiString;
+   f_RequestImmidiateProcessProc: TalcuSpeedupRequestProc;
   protected
    {$If NOT Defined(Nemesis)}
    procedure Execute(const aContext: TncsExecuteContext);
    {$IfEnd} // NOT Defined(Nemesis)
   public
    constructor Create(aList: TddServerTaskList;
-    const aRootTaskFolder: AnsiString); reintroduce;
+    const aRootTaskFolder: AnsiString;
+    RequestImmidiateProcessProc: TalcuSpeedupRequestProc); reintroduce;
    class function Make(aList: TddServerTaskList;
-    const aRootTaskFolder: AnsiString): IncsExecutor; reintroduce;
+    const aRootTaskFolder: AnsiString;
+    RequestImmidiateProcessProc: TalcuSpeedupRequestProc): IncsExecutor; reintroduce;
  end;//TalcuSendTaskExecutor
 {$IfEnd} // Defined(ServerTasks)
 
@@ -57,14 +61,18 @@ uses
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
- , l3Memory
  , Classes
  , alcuTaskFileTransferServices
  , SysUtils
+ , l3Interfaces
+ , l3Stream
+ //#UC START# *54856BFA003Eimpl_uses*
+ //#UC END# *54856BFA003Eimpl_uses*
 ;
 
 constructor TalcuSendTaskExecutor.Create(aList: TddServerTaskList;
- const aRootTaskFolder: AnsiString);
+ const aRootTaskFolder: AnsiString;
+ RequestImmidiateProcessProc: TalcuSpeedupRequestProc);
 //#UC START# *5485919200F1_54856BFA003E_var*
 //#UC END# *5485919200F1_54856BFA003E_var*
 begin
@@ -75,11 +83,12 @@ begin
 end;//TalcuSendTaskExecutor.Create
 
 class function TalcuSendTaskExecutor.Make(aList: TddServerTaskList;
- const aRootTaskFolder: AnsiString): IncsExecutor;
+ const aRootTaskFolder: AnsiString;
+ RequestImmidiateProcessProc: TalcuSpeedupRequestProc): IncsExecutor;
 var
  l_Inst : TalcuSendTaskExecutor;
 begin
- l_Inst := Create(aList, aRootTaskFolder);
+ l_Inst := Create(aList, aRootTaskFolder, RequestImmidiateProcessProc);
  try
   Result := l_Inst;
  finally
@@ -97,6 +106,7 @@ var
  l_Stream: TStream;
  l_Service: IcsFileTransferServices;
  l_CanAdd: Boolean;
+ l_ComStream: IStream;
 //#UC END# *54607DDC0159_54856BFA003E_var*
 begin
 //#UC START# *54607DDC0159_54856BFA003E_impl*
@@ -104,38 +114,44 @@ begin
  l_Reply := TncsSendTaskReply.Create(l_Message);
  try
   l_Reply.IsSuccess := False;
-  l_Stream := Tl3MemoryStream.Make;
+
+  l_ComStream := l_Message.Data as IStream;
   try
-   l_Message.Data.CopyTo(l_Stream, l_Message.Data.Size);
-   l_Stream.Seek(0, soBeginning);
-   l_Task := TddTaskItem.MakeFromEVD(l_Stream, f_RootTaskFolder, True);
+   l3IStream2Stream(l_ComStream, l_Stream);
    try
-    if Assigned(l_Task) and (l_Task is TddProcessTask) then
-    begin
-     If TddProcessTask(l_Task).HasFilesToTransfer then
+    l_Task := TddTaskItem.MakeFromEVD(l_Stream, f_RootTaskFolder, True);
+    try
+     if Assigned(l_Task) and (l_Task is TddProcessTask) then
      begin
-      l_Service := TalcuTaskFileTransferServices.Make(aContext.rTransporter, TddProcessTask(l_Task).TaskID);
-      try
-       l_CanAdd := TddProcessTask(l_Task).TransferFiles(l_Service);
-      finally
-       l_Service := nil;
+      If TddProcessTask(l_Task).HasFilesToTransfer then
+      begin
+       l_Service := TalcuTaskFileTransferServices.Make(aContext.rTransporter, TddProcessTask(l_Task).TaskID);
+       try
+        l_CanAdd := TddProcessTask(l_Task).TransferFiles(l_Service);
+       finally
+        l_Service := nil;
+       end;
+      end
+      else
+       l_CanAdd := True;
+      if l_CanAdd then
+      begin
+       IncomingList.Push(TddProcessTask(l_Task));
+       if Assigned(f_RequestImmidiateProcessProc) then
+        f_RequestImmidiateProcessProc;
+       l_Reply.IsSuccess := True;
       end;
      end
      else
-      l_CanAdd := True;
-     if l_CanAdd then
-     begin
-      IncomingList.Push(TddProcessTask(l_Task));
-      l_Reply.IsSuccess := True;
-     end; 
-    end
-    else
-     l3System.Msg2Log('Неизвестная задача');
+      l3System.Msg2Log('Неизвестная задача');
+    finally
+     FreeAndNil(l_Task);
+    end;
    finally
-    FreeAndNil(l_Task);
+    FreeAndNil(l_Stream);
    end;
   finally
-   FreeAndNil(l_Stream);
+   l_ComStream := nil;
   end;
   aContext.rTransporter.Send(l_Reply);
  finally

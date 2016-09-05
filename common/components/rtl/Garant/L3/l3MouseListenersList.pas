@@ -35,6 +35,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F7420740306impl_uses*
+ //#UC END# *4F7420740306impl_uses*
 ;
 
 type _Instance_R_ = Tl3MouseListenersList;

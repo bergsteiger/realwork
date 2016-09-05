@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , l3String
  , SysUtils
+ //#UC START# *55C48FCE03ABimpl_uses*
+ //#UC END# *55C48FCE03ABimpl_uses*
 ;
 
 procedure TtfwConsoleScriptCaller.DoPrint(const aStr: Tl3WString);

@@ -1,8 +1,14 @@
 Unit Dt_Log;
 
-{ $Id: DT_LOG.PAS,v 1.92 2016/05/13 12:55:08 lukyanets Exp $ }
+{ $Id: DT_LOG.PAS,v 1.94 2016/08/11 08:37:29 lukyanets Exp $ }
 
 // $Log: DT_LOG.PAS,v $
+// Revision 1.94  2016/08/11 08:37:29  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
+// Revision 1.93  2016/06/16 05:40:06  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
 // Revision 1.92  2016/05/13 12:55:08  lukyanets
 // ѕересаживаем UserManager на новые рельсы
 //
@@ -269,6 +275,7 @@ Interface
 uses
      l3DatLst,l3Date,
      HT_Const,
+     daTypes,
      Dt_Types, Dt_Const,
      dtIntf,
      Dt_ATbl, DT_Sab,
@@ -294,7 +301,7 @@ Type
                        Action  : Byte;
                        Date    : TStDate;
                        Time    : TStTime;
-                       Author  : TUserID;
+                       Author  : TdaUserID;
                       end;
 
  PDisplayLogRec = ^TDisplayLogRec;
@@ -318,7 +325,7 @@ Type
                  rAction  : TLogActionType;
                  rDate    : TStDate;
                  rTime    : TStTime;
-                 rAuthor  : TUserID;
+                 rAuthor  : TdaUserID;
                 end;
 
  TLogBookTbl = Class(TDocAttrTbl)
@@ -328,25 +335,25 @@ Type
                           WithSort : Boolean) : Sab;
 
   public
-   Constructor Create(aFamID : TFamilyID); Reintroduce;
+   Constructor Create(aFamID : TdaFamilyID); Reintroduce;
    procedure   PutDateLogRec(aDocID : LongInt;
                              aAction : TLogActionType;
                              aDate : TStDate = 0;
                              aTime : TStTime = 0;
-                             aUser : TUserID = 0);
+                             aUser : TdaUserID = 0);
 
-   Procedure   PutLogRec(aDocID : LongInt;aAction : TLogActionType;aUser : TUserID = 0);
+   Procedure   PutLogRec(aDocID : LongInt; aAction : TLogActionType;aUser : TdaUserID = 0);
    Procedure   PutLogRecSet(aDocID : LongInt; aActSet : TLogActionSet);
-   Procedure   PutLogRecToDocs(aDocIDs : ISAB; aAction : TLogActionType; aUser : TUserID = 0; aDate : TStDate = 0);
+   Procedure   PutLogRecToDocs(aDocIDs : ISAB; aAction : TLogActionType; aUser : TdaUserID = 0; aDate : TStDate = 0);
 
    function IsDocHadAction(aDocID : LongInt;aAction : TLogActionType; aDate : TStDate = 0): Boolean;
    Function    IsDocModified(aDocID : LongInt) : Boolean;
-   Function    GetDocsOnAction(aAction : TLogActionType;UserID : TUserID = 0;
+   Function    GetDocsOnAction(aAction : TLogActionType;UserID : TdaUserID = 0;
                                UserGr : Boolean = False) : Sab;
    Procedure   GetLogDataList(aDocID : LongInt;aFlag : TLogActionFlags;
                               aDataList : Tl3DataList;InternalFormat : Boolean = False);
 
-   Function    GetDocsHistory(aDocSab : Sab;aFlag : TLogActionFlags) : Sab;
+   Function    GetDocsHistory(aDocSab : Sab; aFlag : TLogActionFlags) : Sab;
 
    procedure   CopyRecords(aSrcDocId, aDstDocId: Longint);
     // делает копии всех записей от документа aSrcDocId дл€ документа aDstDocId
@@ -376,7 +383,7 @@ Const
  DisplayArr : Array [1..4] of SmallInt = (lgAction_Key,lgDate_Key,lgTime_Key,
                                           lgAuthor_Key);
 
-constructor TLogBookTbl.Create(aFamID : TFamilyID);
+constructor TLogBookTbl.Create(aFamID : TdaFamilyID);
 begin
  Assert(aFamID <> MainTblsFamily);
  inherited Create(aFamID, atOrdLogRecords);
@@ -446,7 +453,7 @@ procedure TLogBookTbl.PutDateLogRec(aDocID : LongInt;
                                     aAction : TLogActionType;
                                     aDate : TStDate = 0;
                                     aTime : TStTime = 0;
-                                    aUser : TUserID = 0);
+                                    aUser : TdaUserID = 0);
 var
  TmpFlag : TLogActionFlags;
  TmpPChar: PChar;
@@ -520,7 +527,7 @@ begin
  end; //with fTable do
 end;
 
-Procedure TLogBookTbl.PutLogRec(aDocID : LongInt;aAction : TLogActionType;aUser : TUserID);
+Procedure TLogBookTbl.PutLogRec(aDocID : LongInt;aAction : TLogActionType;aUser : TdaUserID);
 Begin
  PutDateLogRec(aDocID,aAction,0,0,aUser);
 end;
@@ -542,7 +549,7 @@ Begin
  end;
 end;
 
-procedure TLogBookTbl.PutLogRecToDocs(aDocIDs : ISAB; aAction : TLogActionType; aUser : TUserID = 0; aDate : TStDate = 0);
+procedure TLogBookTbl.PutLogRecToDocs(aDocIDs : ISAB; aAction : TLogActionType; aUser : TdaUserID = 0; aDate : TStDate = 0);
 
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;
  begin
@@ -609,7 +616,7 @@ Begin
  end;
 end;
 
-Function TLogBookTbl.GetDocsOnAction(aAction : TLogActionType;UserID : TUserID;UserGr : Boolean) : Sab;
+Function TLogBookTbl.GetDocsOnAction(aAction : TLogActionType;UserID : TdaUserID;UserGr : Boolean) : Sab;
 Var
  TmpSab  : Sab;
  TmpSab1,
@@ -623,7 +630,7 @@ Begin
   If UserID<>0 then
    If UserGr then
     begin
-     l_Sab := UserManager.xxxMakeUserIDSabOnGroup(UserID);
+     l_Sab := xxxUserManager.xxxMakeUserIDSabOnGroup(UserID);
      try
       TmpSab2 := l_Sab.ExtractHTSab;
      finally

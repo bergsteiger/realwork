@@ -107,6 +107,8 @@ uses
  , Windows
  , l3Base
  , m3DBActions
+ //#UC START# *49BFBC690162impl_uses*
+ //#UC END# *49BFBC690162impl_uses*
 ;
 
 function Tm3PrimDB.NeedsFork: Boolean;

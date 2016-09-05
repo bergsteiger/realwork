@@ -92,6 +92,7 @@ uses
  , nsAddToListEvent
  , nsListSortEvent
  , nsFindContextInListEvent
+ , Common_F1CommonServices_Contracts
  , afwComplexDocumentPreview
  , nsINodesClipboardDataObject
  , nsHAFPainter
@@ -139,6 +140,8 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ //#UC START# *492D687F0214impl_uses*
+ //#UC END# *492D687F0214impl_uses*
 ;
 
 type _Instance_R_ = TdsDocumentListCR;

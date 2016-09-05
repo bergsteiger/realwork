@@ -1,8 +1,11 @@
 unit CsQueryTypes;
 
-{ $Id: CsQueryTypes.pas,v 1.44 2016/04/15 11:57:02 lukyanets Exp $ }
+{ $Id: CsQueryTypes.pas,v 1.45 2016/08/29 12:51:56 lukyanets Exp $ }
 
 // $Log: CsQueryTypes.pas,v $
+// Revision 1.45  2016/08/29 12:51:56  lukyanets
+// Принимаем запрос и готовимся отдавать файл
+//
 // Revision 1.44  2016/04/15 11:57:02  lukyanets
 // Чистим протухший код
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -197,7 +200,8 @@ type
                qtalcuExportResultProcessing, // Обменяться результатами экспорта с докачкой и прочей фигней (CRC etc).
                qtalcuSendTask, // Отослать задачу с забором дополнительных файлов с докачкой и прочей фигней (CRC etc).
                qtalcuHandShake, // Соединение обратного сокета
-               qtalcuTerminateTask // Прервать свою задачу.
+               qtalcuTerminateTask, // Прервать свою задачу.
+               qtalcuSendCustomMessage // Обмен обощенными сообщениями.
              );
 
 implementation

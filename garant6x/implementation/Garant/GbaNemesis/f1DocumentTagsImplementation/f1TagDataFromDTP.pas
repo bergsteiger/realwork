@@ -105,6 +105,8 @@ uses
  , nsParaModifier
  , k2Facade
  , f1TagDataFromDTPFactory
+ //#UC START# *4C72A40000A6impl_uses*
+ //#UC END# *4C72A40000A6impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas}

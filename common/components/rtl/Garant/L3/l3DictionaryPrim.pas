@@ -44,6 +44,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B88E96A02CCimpl_uses*
+ //#UC END# *4B88E96A02CCimpl_uses*
 ;
 
 type _Instance_R_ = Tl3DictionaryPrim;

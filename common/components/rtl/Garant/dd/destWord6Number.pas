@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , destNorm
+ //#UC START# *51DD081A0082impl_uses*
+ //#UC END# *51DD081A0082impl_uses*
 ;
 
 procedure TdestWord6Number.Close(aState: TddRTFState;

@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , evdNativeReader
+ //#UC START# *48EA3A2A0142impl_uses*
+ //#UC END# *48EA3A2A0142impl_uses*
 ;
 
 function TevEvdDataObject.ReaderClass: Rk2CustomReader;

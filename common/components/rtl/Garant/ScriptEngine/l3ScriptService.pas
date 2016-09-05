@@ -57,6 +57,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5509AA5400EAimpl_uses*
+ //#UC END# *5509AA5400EAimpl_uses*
 ;
 
 var g_Tl3ScriptService: Tl3ScriptService = nil;

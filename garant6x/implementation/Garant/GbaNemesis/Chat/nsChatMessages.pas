@@ -42,6 +42,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4A66F04303C3impl_uses*
+ //#UC END# *4A66F04303C3impl_uses*
 ;
 
 type _Instance_R_ = TnsChatMessages;

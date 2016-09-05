@@ -37,6 +37,8 @@ uses
  , l3InterfacedString
  , l3Interfaces
  , afwSettingsImplPrimPrim
+ //#UC START# *4F6C9DBE03CFimpl_uses*
+ //#UC END# *4F6C9DBE03CFimpl_uses*
 ;
 
 procedure TafwSettingsImplPersistent.Load;

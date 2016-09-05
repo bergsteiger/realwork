@@ -49,7 +49,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , DocumentInterfaces
  , PrimCommonDiction_utTips_UserType
@@ -65,12 +67,13 @@ uses
  , fsTips
  , StartupTips_Form
  //#UC START# *4AA0D5380056impl_uses*
+ , DayTipsInterfaces
  //#UC END# *4AA0D5380056impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 type
- TDayTipsServiceImpl = {final} class(Tl3ProtoObject, IDayTipsService)
+ TDayTipsServiceImpl = {final} class(TvcmModuleContractImplementation, IDayTipsService)
   public
    function ShowDayTipsAtStartup: IvcmEntityForm;
    procedure OpenTip(const aDocInfo: IdeDocInfo;
@@ -95,6 +98,8 @@ function TDayTipsServiceImpl.ShowDayTipsAtStartup: IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB9DAAC00AC_4AA0D5380056_var*
+var
+ l_Data : InsStartupTips;
 //#UC END# *4AB9DAAC00AC_4AA0D5380056_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -125,7 +130,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AA11A2E0144_4AA0D5380056_impl*
- OpenTipsPrim(TsdsTips.Make(aDocInfo), aContainer);
+  TDayTipsModule.OpenTipsPrim(TsdsTips.Make(aDocInfo), aContainer);
 //#UC END# *4AA11A2E0144_4AA0D5380056_impl*
  finally
   if __WasEnter then
@@ -190,7 +195,7 @@ begin
   OpenTipsPrim(l_SDS, aParams.Container)
  else*)
  if {(l_SDS = nil) AND} not lp_HasTipsForm {or Assigned(l_SDS)} then
-  OpenTip(nil, CheckContainer(nil));
+  TDayTipsService.Instance.OpenTip(nil, CheckContainer(nil));
 //#UC END# *4AB9DBA1038E_4AA0D5380056exec_impl*
 end;//TDayTipsModule.opShowDayTipsExecute
 

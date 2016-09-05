@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *4ABB5B2603B1impl_uses*
+ //#UC END# *4ABB5B2603B1impl_uses*
 ;
 
 constructor Tl3StringPtr.Create(const aStr: Tl3WString);

@@ -177,6 +177,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *534F69E702D9impl_uses*
+ //#UC END# *534F69E702D9impl_uses*
 ;
 
 type _Instance_R_ = TvcmTabbedContainerForm;

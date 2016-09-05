@@ -36,6 +36,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *506AC306014Fimpl_uses*
+ //#UC END# *506AC306014Fimpl_uses*
 ;
 
 type

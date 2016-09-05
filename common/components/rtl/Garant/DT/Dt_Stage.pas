@@ -1,7 +1,10 @@
 Unit Dt_Stage;
 
-{ $Id: Dt_Stage.pas,v 1.86 2016/04/18 11:48:06 lukyanets Exp $ }
+{ $Id: Dt_Stage.pas,v 1.87 2016/06/16 05:40:06 lukyanets Exp $ }
 // $Log: Dt_Stage.pas,v $
+// Revision 1.87  2016/06/16 05:40:06  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
 // Revision 1.86  2016/04/18 11:48:06  lukyanets
 // √отовимс€ переводить UserManager
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -255,6 +258,7 @@ Uses
    SysUtils,
    l3Date, l3DatLst,
    HT_Const,
+   daTypes,
    Dt_Types, Dt_Const,
    dt_Sab,
    Dt_ATbl,
@@ -277,7 +281,7 @@ Type
                   StType : Byte;
                   BDate  : TStDate;
                   EDate  : TStDate;
-                  Author : TUserID;
+                  Author : TdaUserID;
                  end;
 
 type
@@ -314,22 +318,22 @@ Type
    //Procedure   EndStage(aDocID : TDocID; aStage : TStageType);
    //Procedure   DocumentDone;
   public
-   Constructor Create(aFamID : TFamilyID); Reintroduce;
+   Constructor Create(aFamID : TdaFamilyID); Reintroduce;
 
    //Procedure   GetDocStages(Var BeginSet,EndSet : TStageSet);
    Procedure   GetDocStagesRecList(aDocID : TDocID; aList : Tl3CustomDataList);
    procedure   SetDocStagesRecList(aDocID : TDocID; aList : Tl3CustomDataList);
-   Function    PutStageRec(aDocID : TDocID; aStage : TStageType; aBeginDate, aEndDate : TStDate; aUserID : TUserID) : Boolean;
+   Function    PutStageRec(aDocID : TDocID; aStage : TStageType; aBeginDate, aEndDate : TStDate; aUserID : TdaUserID) : Boolean;
 
    //Procedure   SetDocStages(aDocID : TDocID; BeginSet,EndSet : TStageSet);
    //Procedure   DelDocStage(aStage : TStageType);
    //function    FilteredBy(aBeginDate,
    //                       aEndDate: TStDate;
    //                       aStageFlag: TStageFlag;
-   //                       aUserID: TUserID;
+   //                       aUserID: TdaUserID;
    //                       aStage: TStageType): SAB;
    //Function    GetStatisticDocSab(BeginDate,EndDate : TStDate; StageFlag : TStageFlag;
-   //                               UserID : TUserID; Stage : TStageType) : SAB;
+   //                               UserID : TdaUserID; Stage : TStageType) : SAB;
 
    Function    GetDocOnStages(BeginDate,EndDate : TStDate;
                               BeginSet,EndSet,NotEndSet : TStageSet) : Sab;
@@ -397,14 +401,14 @@ Const
  StFldCount = 3;
  StFldArr : Array [1..StFldCount] of SmallInt = (stType_Key,stBDate_Key,stEDate_Key);
 
-Constructor TStageTbl.Create(aFamID : TFamilyID);
+Constructor TStageTbl.Create(aFamID : TdaFamilyID);
 Begin
  if aFamID = MainTblsFamily then
   Abort;
  inherited Create(aFamID, atStages);
 end;
 
-function TStageTbl.PutStageRec(aDocID : TDocID; aStage : TStageType; aBeginDate, aEndDate : TStDate; aUserID : TUserID) : Boolean;
+function TStageTbl.PutStageRec(aDocID : TDocID; aStage : TStageType; aBeginDate, aEndDate : TStDate; aUserID : TdaUserID) : Boolean;
 {- возвращает True если изменение состо€лось}
 Var
  AbsNum  : LongInt;
@@ -725,7 +729,7 @@ begin
 end;
 
 Function TStageTbl.GetStatisticDocSab(BeginDate,EndDate : TStDate;StageFlag : TStageFlag;
-                                      UserID : TUserID; Stage : TStageType) : SAB;
+                                      UserID : TdaUserID; Stage : TStageType) : SAB;
 Var
  l_Stages: SAB;
 Begin
@@ -846,7 +850,7 @@ end;
 function TStageTbl.FilteredBy(aBeginDate,
                               aEndDate: TStDate;
                               aStageFlag: TStageFlag;
-                              aUserID: TUserID;
+                              aUserID: TdaUserID;
                               aStage: TStageType): SAB;
 Var
  l_Sab1,

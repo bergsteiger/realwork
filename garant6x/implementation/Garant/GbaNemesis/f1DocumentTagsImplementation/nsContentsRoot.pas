@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4682822A00FAimpl_uses*
+ //#UC END# *4682822A00FAimpl_uses*
 ;
 
 function TnsContentsRoot.CanExpandCollapseAll: Boolean;

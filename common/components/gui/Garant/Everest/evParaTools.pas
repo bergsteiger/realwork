@@ -191,6 +191,8 @@ uses
  , k2Const
  , evdStyles
  , evdFrame_Const
+ //#UC START# *47F1F3BC0330impl_uses*
+ //#UC END# *47F1F3BC0330impl_uses*
 ;
 
 function evInPara(anAtom: Tl3Variant;

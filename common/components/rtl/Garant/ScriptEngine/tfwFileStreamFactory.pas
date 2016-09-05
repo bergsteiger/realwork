@@ -32,6 +32,8 @@ uses
  , l3Stream
  , l3Types
  , l3FileUtils
+ //#UC START# *52F4E85300D4impl_uses*
+ //#UC END# *52F4E85300D4impl_uses*
 ;
 
 function TtfwFileStreamFactory.Stream: Tl3Stream;

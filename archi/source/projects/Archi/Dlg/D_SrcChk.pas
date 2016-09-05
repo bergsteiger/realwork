@@ -1,6 +1,6 @@
 unit D_SrcChk;
 
-{ $Id: D_SrcChk.pas,v 1.17 2016/04/18 11:47:31 lukyanets Exp $ }
+{ $Id: D_SrcChk.pas,v 1.19 2016/08/10 12:48:40 lukyanets Exp $ }
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Buttons, ExtCtrls, Mask,
   k2Interfaces, k2Tags,
-  DT_Types, DT_Const, DT_DictTypes, DT_User, DT_Serv,
+  daTypes, DT_Const, DT_DictTypes, DT_Serv,
   BottomBtnDlg, vtCombo, vtDateEdit,
   
   l3Variant
@@ -35,10 +35,10 @@ type
     Label5: TLabel;
   private
     { Private declarations }
-    fDocFam : TFamilyID;
+    fDocFam : TdaFamilyID;
   public
     { Public declarations }
-    function Execute(aDocFam : TFamilyID; aRec : Tl3Tag;
+    function Execute(aDocFam : TdaFamilyID; aRec : Tl3Tag;
                      WasEmpty : Boolean) : Boolean; reintroduce;
   end;
 
@@ -50,6 +50,7 @@ uses
   l3String,
   l3Date,
   daDataProvider
+  , dt_Types
   , dt_DictConst;
 
 
@@ -63,11 +64,11 @@ uses
                     end;
 }
 
-function TSrcCheckDlg.Execute(aDocFam : TFamilyID;
+function TSrcCheckDlg.Execute(aDocFam : TdaFamilyID;
                               aRec : Tl3Tag; WasEmpty : Boolean) : Boolean;
  begin
   fDocFam := aDocFam;
-  UserManager.GetFiltredUserList(cbUser.Items, False);
+  GlobalDataProvider.UserManager.GetFiltredUserList(cbUser.Items, False);
   if WasEmpty then
   begin
    //aRec.ID := cUndefDictID;

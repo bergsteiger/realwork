@@ -44,6 +44,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C31CC59002Bimpl_uses*
+ //#UC END# *4C31CC59002Bimpl_uses*
 ;
 
 function TTwoEmptyParaForOneReplacerTest.Searcher: IevSearcher;

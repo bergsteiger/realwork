@@ -36,6 +36,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48173AD801FFimpl_uses*
+ //#UC END# *48173AD801FFimpl_uses*
 ;
 
 function TnevFormatPoolBase.pm_GetObj: InevObject;

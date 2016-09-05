@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4C1B2A4701FCimpl_uses*
+ //#UC END# *4C1B2A4701FCimpl_uses*
 ;
 
 function TK219119831.UseFullEVDReader: Boolean;

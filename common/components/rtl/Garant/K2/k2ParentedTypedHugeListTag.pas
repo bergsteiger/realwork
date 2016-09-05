@@ -30,6 +30,8 @@ uses
  , k2NullTagImpl
  , l3BitArr
  , l3Memory
+ //#UC START# *4FBE24BC0158impl_uses*
+ //#UC END# *4FBE24BC0158impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}

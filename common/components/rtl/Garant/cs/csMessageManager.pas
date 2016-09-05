@@ -1,8 +1,20 @@
 unit csMessageManager;
 
-{ $Id: csMessageManager.pas,v 1.62 2016/05/16 12:54:36 lukyanets Exp $ }
+{ $Id: csMessageManager.pas,v 1.66 2016/08/11 10:47:41 lukyanets Exp $ }
 
 // $Log: csMessageManager.pas,v $
+// Revision 1.66  2016/08/11 10:47:41  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.65  2016/07/08 12:41:07  lukyanets
+// Дополнительное логирование
+//
+// Revision 1.64  2016/07/08 11:19:55  lukyanets
+// Не в том порядке операторы.
+//
+// Revision 1.63  2016/06/16 05:39:57  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.62  2016/05/16 12:54:36  lukyanets
 // Пересаживаем UserManager на новые рельсы
 //
@@ -208,7 +220,7 @@ uses
   csMessageRecepient,
   csMessageRecepientList,
   l3ProtoObject,
-  dt_Types
+  daTypes
   ;
 
 type
@@ -223,7 +235,7 @@ type
   function FindRecipient(aClientID: TCsClientId): TcsMessageRecepient;
   procedure MarkRecepientAsDead(aRecepient: TcsMessageRecepient);
   procedure pm_SetCSServer(const Value: TcsServer);
-  procedure _SendOne(aClientID: TUserID; aMessage: TddClientMessage);
+  procedure _SendOne(aClientID: TdaUserID; aMessage: TddClientMessage);
  protected
   procedure Cleanup; override;
  public
@@ -255,7 +267,6 @@ uses
  l3Stream, l3Memory,
  daInterfaces,
  daDataProvider,
- dt_UserConst, 
  SysUtils,
  dtUserIDList,
  CsClientInfo,
@@ -414,6 +425,8 @@ end;
 procedure TcsMessageManager.ProcessList;
 
  function DoIt(anItem: TcsMessageRecepient): Boolean;
+ var
+  l_Info: TCsClientInfo;
  begin
   Result := true;
   if anItem.HaveMessages then
@@ -422,8 +435,17 @@ procedure TcsMessageManager.ProcessList;
    begin
     if (anItem.TryCount < MaxTryCount) then
     begin
-     CSServer.Notifier.SendNotify(anItem.ClientID, ntHaveNewMessages, anItem.Messages.Count, '');
      anItem.TryCount := anItem.TryCount + 1;
+     try
+      CSServer.Notifier.SendNotify(anItem.ClientID, ntHaveNewMessages, anItem.Messages.Count, '');
+     except
+      l_Info := CSServer.ActiveClients.ClientInfoOf(anItem.ClientID);
+      if Assigned(l_Info) then
+       l3System.Msg2Log('Unable send notify to %s(%d) %s:%d', [l_Info.LoginName, anItem.ClientID, l_Info.ListenIp, l_Info.ListenPort])
+      else
+       l3System.Msg2Log('Unable send notify to ClientID = %d', [anItem.ClientID]);
+      raise;
+     end;
     end
     else // повторяем попытки пять минут
      {MarkRecepientAsDead(anItem)}; // Клиент не реагирует на запросы сервера, пометить как "мертвого"
@@ -514,7 +536,7 @@ begin
  end;
 end;
 
-procedure TcsMessageManager._SendOne(aClientID: TUserID; aMessage: TddClientMessage);
+procedure TcsMessageManager._SendOne(aClientID: TdaUserID; aMessage: TddClientMessage);
 var
  l_Recepient : TcsMessageRecepient;
 begin

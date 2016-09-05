@@ -54,6 +54,8 @@ uses
  , nevFacade
  , evCursorConst
  , l3MinMax
+ //#UC START# *49DF6D3F02F9impl_uses*
+ //#UC END# *49DF6D3F02F9impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}

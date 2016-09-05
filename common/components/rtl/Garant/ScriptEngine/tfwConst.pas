@@ -30,6 +30,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4DBFC3520093impl_uses*
+ //#UC END# *4DBFC3520093impl_uses*
 ;
 
 function TtfwConst.AcceptsKeyWordAfter(const aContext: TtfwContext;

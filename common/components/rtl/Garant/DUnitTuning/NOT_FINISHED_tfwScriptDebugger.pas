@@ -25,6 +25,8 @@ uses
  l3ImplUses
  , vcmInsiderTest
  , tfwScriptEngine
+ //#UC START# *4DB1629901E8impl_uses*
+ //#UC END# *4DB1629901E8impl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
 

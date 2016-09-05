@@ -40,6 +40,8 @@ uses
  , l3String
  , l3Parser
  , kwForwardDeclaration
+ //#UC START# *4DB9B6D20168impl_uses*
+ //#UC END# *4DB9B6D20168impl_uses*
 ;
 
 procedure TtfwNewWord.FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;

@@ -53,6 +53,8 @@ uses
  , SysUtils
  , l3Types
  , caField
+ //#UC START# *56DFD1470338impl_uses*
+ //#UC END# *56DFD1470338impl_uses*
 ;
 
 constructor TcaResultSet.Create(aFieldsDescription: TdaSelectFieldList;

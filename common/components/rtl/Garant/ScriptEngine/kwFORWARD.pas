@@ -42,6 +42,8 @@ uses
  l3ImplUses
  , kwForwardDeclaration
  , SysUtils
+ //#UC START# *4F4BB5B50178impl_uses*
+ //#UC END# *4F4BB5B50178impl_uses*
 ;
 
 function TkwFORWARD.EndBracket(const aContext: TtfwContext;

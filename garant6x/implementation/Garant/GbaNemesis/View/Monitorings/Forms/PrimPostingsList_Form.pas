@@ -145,6 +145,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimPostingsList_MyPostingList_UserType
  //#UC START# *4AAFA13C01B0impl_uses*
+ , Search_Services
  //#UC END# *4AAFA13C01B0impl_uses*
 ;
 
@@ -166,7 +167,7 @@ function TPrimPostingsListForm.Save: Boolean;
 //#UC END# *4C84F272012A_4AAFA13C01B0_var*
 begin
 //#UC START# *4C84F272012A_4AAFA13C01B0_impl*
- TdmStdRes.CheckHistory;
+ TCommonPostService.Instance.CheckHistory;
  Result := True;
  if IsNeedSave then
   Result := TnsPostingsTreeSingle.Instance.SaveOrCreateQuery;
@@ -219,7 +220,7 @@ begin
  // Если из списка рассылок удаляется текущая редактируемая рассылка, то очищаем
  // карточку:
  if (TnsPostingsTreeSingle.Instance.EditNodeIndex = aIndex) then
-  TdmStdRes.OpenPostingOrder(nil);
+  TCommonPostService.Instance.OpenPostingOrder(nil);
 //#UC END# *528265720097_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.OnDeleteNode
 
@@ -260,7 +261,7 @@ begin
 //#UC START# *4C84EE020054_4AAFA13C01B0exec_impl*
  if Save then
  begin
-  TdmStdRes.OpenPostingOrder(nil, Container);
+  TCommonPostService.Instance.OpenPostingOrder(nil, Container);
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
   TnsPostingsTreeSingle.Instance.EditNodeIndex := -1;
  end;//Save
@@ -291,7 +292,7 @@ begin
    try
     l_Prime.Data.GetQuery(l_Query);
     try
-     TdmStdRes.OpenPostingOrder(l_Query, Container);
+     TCommonPostService.Instance.OpenPostingOrder(l_Query, Container);
      // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
      TnsPostingsTreeSingle.Instance.EditNodeIndex := Current;
       // - пользователь может перескочить на другой узел в списке и тогда мы
@@ -324,7 +325,7 @@ var
 //#UC END# *4C84EE3801EB_4AAFA13C01B0exec_var*
 begin
 //#UC START# *4C84EE3801EB_4AAFA13C01B0exec_impl*
- TdmStdRes.CheckHistory;
+ TCommonPostService.Instance.CheckHistory;
  l_CurTreeView := tvPostings.TreeView;
  if Assigned(l_CurTreeView) then
   if l_CurTreeView.Tree.SelectedCount > 1 then
@@ -351,7 +352,7 @@ procedure TPrimPostingsListForm.PostingToolBar_SavePostList_Test(const aParams: 
 //#UC END# *4C84EE590206_4AAFA13C01B0test_var*
 begin
 //#UC START# *4C84EE590206_4AAFA13C01B0test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := TdmStdRes.CanSavePostList;
+ aParams.Op.Flag[vcm_ofEnabled] := TCommonPostService.Instance.CanSavePostList;
 //#UC END# *4C84EE590206_4AAFA13C01B0test_impl*
 end;//TPrimPostingsListForm.PostingToolBar_SavePostList_Test
 
@@ -360,7 +361,7 @@ procedure TPrimPostingsListForm.PostingToolBar_SavePostList_Execute(const aParam
 //#UC END# *4C84EE590206_4AAFA13C01B0exec_var*
 begin
 //#UC START# *4C84EE590206_4AAFA13C01B0exec_impl*
- TdmStdRes.SavePostList;
+ TCommonPostService.Instance.SavePostList;
 //#UC END# *4C84EE590206_4AAFA13C01B0exec_impl*
 end;//TPrimPostingsListForm.PostingToolBar_SavePostList_Execute
 

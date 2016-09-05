@@ -149,6 +149,7 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , nevBase
  , Base_Operations_Editions_Controls
+ , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

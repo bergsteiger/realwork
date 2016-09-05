@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4F3E401D03AFimpl_uses*
+ //#UC END# *4F3E401D03AFimpl_uses*
 ;
 
 var g_TkwIntegerFactory: TkwIntegerFactory = nil;

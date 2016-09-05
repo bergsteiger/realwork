@@ -35,6 +35,8 @@ uses
  , l3String
  , l3VCLStrings
  , l3Base
+ //#UC START# *4AD58F5E0242impl_uses*
+ //#UC END# *4AD58F5E0242impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}

@@ -31,6 +31,8 @@ uses
  , arArchiTestsAdapter
  , dt_Types
  , SysUtils
+ //#UC START# *52BD79050326impl_uses*
+ //#UC END# *52BD79050326impl_uses*
 ;
 
 procedure TkwCreateNewFile.DoDoIt(const aCtx: TtfwContext);

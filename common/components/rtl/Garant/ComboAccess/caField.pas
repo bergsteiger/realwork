@@ -48,6 +48,8 @@ implementation
 {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
  l3ImplUses
+ //#UC START# *56E009B303E1impl_uses*
+ //#UC END# *56E009B303E1impl_uses*
 ;
 
 constructor TcaField.Create(const aDataBuffer: IdaResultBuffer;

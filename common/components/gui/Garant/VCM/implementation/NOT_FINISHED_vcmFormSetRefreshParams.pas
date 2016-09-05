@@ -21,6 +21,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *49312C5F0078impl_uses*
+ //#UC END# *49312C5F0078impl_uses*
 ;
 
 procedure vcmMakeDataRefreshParams;

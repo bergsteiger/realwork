@@ -8,7 +8,9 @@
 {$Define tfwNamedDictionaryList_imp}
 
 {$If NOT Defined(NoScripts)}
- _tfwNamedDictionaryList_ = {abstract} class(_tfwNamedDictionaryList_Parent_)
+ _seCriticalSectionHolder_Parent_ = _tfwNamedDictionaryList_Parent_;
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\seCriticalSectionHolder.imp.pas}
+ _tfwNamedDictionaryList_ = {abstract} class(_seCriticalSectionHolder_)
   public
    procedure Insert(anIndex: Integer;
     const anItem: _ItemType_);
@@ -23,7 +25,9 @@
 
 {$Else NOT Defined(NoScripts)}
 
-_tfwNamedDictionaryList_ = _tfwNamedDictionaryList_Parent_;
+_seCriticalSectionHolder_Parent_ = _tfwNamedDictionaryList_Parent_;
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seCriticalSectionHolder.imp.pas}
+_tfwNamedDictionaryList_ = _seCriticalSectionHolder_;
 
 {$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwNamedDictionaryList_imp}
@@ -33,14 +37,21 @@ _tfwNamedDictionaryList_ = _tfwNamedDictionaryList_Parent_;
 {$Define tfwNamedDictionaryList_imp_impl}
 
 {$If NOT Defined(NoScripts)}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seCriticalSectionHolder.imp.pas}
+
 procedure _tfwNamedDictionaryList_.Insert(anIndex: Integer;
  const anItem: _ItemType_);
 //#UC START# *55A3DF6602FC_55A63C1701BE_var*
 //#UC END# *55A3DF6602FC_55A63C1701BE_var*
 begin
 //#UC START# *55A3DF6602FC_55A63C1701BE_impl*
- Assert(FindDictionary(anItem.FileName) = nil);
- inherited Insert(anIndex, anItem);
+ Lock;
+ try
+  Assert(FindDictionary(anItem.FileName) = nil);
+  inherited Insert(anIndex, anItem);
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *55A3DF6602FC_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.Insert
 
@@ -50,8 +61,13 @@ procedure _tfwNamedDictionaryList_.Add(const anItem: _ItemType_);
 begin
 //#UC START# *55A3DF510076_55A63C1701BE_impl*
  //Assert(not l3IsNil(anItem.FileName));
- Assert(FindDictionary(anItem.FileName) = nil);
- inherited Add(anItem);
+ Lock;
+ try
+  Assert(FindDictionary(anItem.FileName) = nil);
+  inherited Add(anItem);
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *55A3DF510076_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.Add
 
@@ -63,16 +79,21 @@ var
 //#UC END# *559E857A037A_55A63C1701BE_var*
 begin
 //#UC START# *559E857A037A_55A63C1701BE_impl*
- Result := nil;
- for l_Index := 0 to Pred(Count) do
- begin
-  l_D := Items[l_Index];
-  if l3Same(l_D.FileName, aFileName, true) then
+ Lock;
+ try
+  Result := nil;
+  for l_Index := 0 to Pred(Count) do
   begin
-   Result := l_D;
-   Exit;
-  end;//l3Same(l_D.FileName, aFileName, true)
- end;//for l_Index
+   l_D := Items[l_Index];
+   if l3Same(l_D.FileName, aFileName, true) then
+   begin
+    Result := l_D;
+    Exit;
+   end;//l3Same(l_D.FileName, aFileName, true)
+  end;//for l_Index
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *559E857A037A_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.FindDictionary
 
@@ -83,12 +104,17 @@ var
 //#UC END# *55A663000019_55A63C1701BE_var*
 begin
 //#UC START# *55A663000019_55A63C1701BE_impl*
- l_Item := anItem.Use;
+ Lock;
  try
-  inherited Remove(anItem);
-  RemoveUsersOf(anItem);
+  l_Item := anItem.Use;
+  try
+   inherited Remove(anItem);
+   RemoveUsersOf(anItem);
+  finally
+   FreeAndNil(l_Item);
+  end;//try..finally
  finally
-  FreeAndNil(l_Item);
+  Unlock;
  end;//try..finally
 //#UC END# *55A663000019_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.Remove
@@ -101,15 +127,20 @@ var
 //#UC END# *55A66DCF00D9_55A63C1701BE_var*
 begin
 //#UC START# *55A66DCF00D9_55A63C1701BE_impl*
- l_Index := 0;
- while (l_Index < Count) do
- begin
-  l_D := Items[l_Index];
-  if l_D.UsesDictionary(anItem) then
-   Remove(l_D)
-  else
-   Inc(l_Index);
- end;//l_Index < Count
+ Lock;
+ try
+  l_Index := 0;
+  while (l_Index < Count) do
+  begin
+   l_D := Items[l_Index];
+   if l_D.UsesDictionary(anItem) then
+    Remove(l_D)
+   else
+    Inc(l_Index);
+  end;//l_Index < Count
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *55A66DCF00D9_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.RemoveUsersOf
 
@@ -121,12 +152,17 @@ var
 //#UC END# *55AE379002EB_55A63C1701BE_var*
 begin
 //#UC START# *55AE379002EB_55A63C1701BE_impl*
- for l_Index := 0 to Pred(Count) do
- begin
-  l_D := Items[l_Index];
-  if not l_D.IsValidCode then
-   anOther.Add(l_D);
- end;//for l_Index
+ Lock;
+ try
+  for l_Index := 0 to Pred(Count) do
+  begin
+   l_D := Items[l_Index];
+   if not l_D.IsValidCode then
+    anOther.Add(l_D);
+  end;//for l_Index
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *55AE379002EB_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.CollectNotValidTo
 
@@ -138,11 +174,16 @@ var
 //#UC END# *55AFA4930133_55A63C1701BE_var*
 begin
 //#UC START# *55AFA4930133_55A63C1701BE_impl*
- for l_Index := 0 to Pred(aList.Count) do
- begin
-  l_D := aList.Items[l_Index];
-  Self.Remove(l_D);
- end;//for l_Index
+ Lock;
+ try
+  for l_Index := 0 to Pred(aList.Count) do
+  begin
+   l_D := aList.Items[l_Index];
+   Self.Remove(l_D);
+  end;//for l_Index
+ finally
+  Unlock;
+ end;//try..finally
 //#UC END# *55AFA4930133_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.RemoveElementsOf
 
@@ -153,12 +194,17 @@ var
 //#UC END# *55AFAA59009E_55A63C1701BE_var*
 begin
 //#UC START# *55AFAA59009E_55A63C1701BE_impl*
- l_NotValid := _Instance_R_.Create;
+ Lock;
  try
-  Self.CollectNotValidTo(l_NotValid);
-  Self.RemoveElementsOf(l_NotValid);
+  l_NotValid := _Instance_R_.Create;
+  try
+   Self.CollectNotValidTo(l_NotValid);
+   Self.RemoveElementsOf(l_NotValid);
+  finally
+   FreeAndNil(l_NotValid);
+  end;//try..finally
  finally
-  FreeAndNil(l_NotValid);
+  Unlock;
  end;//try..finally
 //#UC END# *55AFAA59009E_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.RemoveNotValid

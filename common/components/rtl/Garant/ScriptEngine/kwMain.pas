@@ -79,6 +79,8 @@ uses
  , l3_String
  , l3String
  , l3Chars
+ //#UC START# *4DC90A1E03C2impl_uses*
+ //#UC END# *4DC90A1E03C2impl_uses*
 ;
 
 type
@@ -230,7 +232,7 @@ begin
    {$EndIf  NoVCM}
 
    {$IfDef Nemesis}
-   ,
+   {$IfNDef NoVCM},{$EndIf}
    'PROCEDURE "Задержка имени Жени Кусакина"',
    ' 3 LOOP OnTest',
    ' 200 SLEEP',
@@ -320,50 +322,6 @@ begin
    '  vcm:Dispatcher:Unlock',
    ' END',
    '; // RunSearch'
-  ]);
-
-  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
-  ['моп::Мониторинги_Обзор_изменений_законодательства', 'моп::Инфарм_Основное_меню_ИнФарм', 'Ok',
-   'history:DeleteBackItem', 'history:DeleteForwardItem',
-   'class::TevQueryCardEditor', 'focused:control:push',
-   'wait:Choice', 'waited:?',
-   'оп::История_Назад'],
-  [
-   'PROCEDURE RunLegislationReviewSearch OBJECT IN aProc',
-   ' // - запускает поиск по КЗ ОИЗ',
-   ' vcm:Dispatcher:Lock',
-   ' TRY',
-   '  моп::Мониторинги_Обзор_изменений_законодательства',
-   '  OBJECT VAR l_QC',
-   '  BOOLEAN VAR l_NotFound',
-   '  l_NotFound := false',
-   '  focused:control:push >>> l_QC',
-   '  l_QC IS class::TevQueryCardEditor ?ASSURE ''Фокус не в КЗ''',
-   '  aProc DO',
-   '  2 wait:Choice',
-   '  TRY',
-   '   Ok',
-   '   OnTest',
-   '  FINALLY',
-   '   TRY',
-   '    waited:? ?ASSURE ''Не дождались выбора''',
-   '    true >>> l_NotFound',
-   '   EXCEPT',
-   '    DROP',
-   '    false >>> l_NotFound',
-   '   END',
-   '   if l_NotFound then (',
-   '    оп::История_Назад',
-   '    OnTest',
-   '    history:DeleteForwardItem',
-   '   )',
-   '   else',
-   '    history:DeleteBackItem',
-   '  END',         
-   ' FINALLY',
-   '  vcm:Dispatcher:Unlock',
-   ' END',
-   '; // RunLegislationReviewSearch'
   ]);
 
   {$EndIf  NoVCM}

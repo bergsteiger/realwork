@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , D_spell
  , arHyperLinkProcessor
+ //#UC START# *4E5C897703B1impl_uses*
+ //#UC END# *4E5C897703B1impl_uses*
 ;
 
 function TCustomEditorWindow.DocEditorJumpTo(const aMoniker: IevMoniker): Boolean;

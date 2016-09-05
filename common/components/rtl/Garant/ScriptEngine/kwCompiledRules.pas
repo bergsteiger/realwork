@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , tfwClassRef
+ //#UC START# *4F51EC380222impl_uses*
+ //#UC END# *4F51EC380222impl_uses*
 ;
 
 procedure TkwCompiledRules.DoDoIt(const aCtx: TtfwContext);

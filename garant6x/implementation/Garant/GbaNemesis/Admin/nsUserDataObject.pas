@@ -60,6 +60,8 @@ uses
  , evdNativeWriter
  , Document_Const
  , TextPara_Const
+ //#UC START# *49F56C06023Cimpl_uses*
+ //#UC END# *49F56C06023Cimpl_uses*
 ;
 
 constructor TnsUserDataObject.Create(const aList: IbsSelectedUsers);

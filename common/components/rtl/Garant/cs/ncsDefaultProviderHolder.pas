@@ -46,6 +46,8 @@ uses
  , ncsDataAccessServices
  , SysUtils
  , l3Base
+ //#UC START# *551BB2E70032impl_uses*
+ //#UC END# *551BB2E70032impl_uses*
 ;
 
 var g_TncsDefaultProviderHolder: TncsDefaultProviderHolder = nil;

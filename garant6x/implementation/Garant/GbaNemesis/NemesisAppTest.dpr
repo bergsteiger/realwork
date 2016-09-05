@@ -128,16 +128,37 @@ uses
  , tfwIteratableParent in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ , tfwIteratableParentPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParentPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ , tfwSafeArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwSafeArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
+ , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValuesStack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwCompiledWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrim.pas'
@@ -151,6 +172,24 @@ uses
  , tfwKeyWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeyWordPrim.pas'
  {$If NOT Defined(NoScripts)}
  , tfwWordRefList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordRefList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVar in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVar.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVarPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVarPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Parser in 'w:\common\components\rtl\Garant\L3\l3Parser.pas'
  , l3ProtoPersistent in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistent.pas'
@@ -168,15 +207,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwDictionary in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionary.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Math {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Math.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
@@ -276,18 +306,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwKeywordsIterator in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeywordsIterator.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwLeftParam in 'w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas'
@@ -431,6 +449,25 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwWordInfoWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
+ , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
+ , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
+ , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
+ , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
+ , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
+ , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
+ , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
+ , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
+ , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
+ , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
+ , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
+ , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
+ , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
+ , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
+ {$If NOT Defined(NoScripts)}
+ , tfwCS in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCS.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ArrayProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ArrayProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -445,9 +482,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwRevertedArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwFilteredArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas'
@@ -486,15 +520,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
- , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
- , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
- , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
- , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
- , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
- , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
- , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -601,13 +626,14 @@ uses
  , l3DataObject in 'w:\common\components\rtl\Garant\L3\l3DataObject.pas'
  , l3LongintList in 'w:\common\components\rtl\Garant\L3\l3LongintList.pas'
  , l3LongintListPrim in 'w:\common\components\rtl\Garant\L3\l3LongintListPrim.pas'
- , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
- , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
- , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
- , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
- , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
  , l3DataObjectEnum in 'w:\common\components\rtl\Garant\L3\l3DataObjectEnum.pas'
  , ShlObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShlObj.pas' {$EndIf}
+ {$If NOT Defined(NoScripts)}
+ , tfwWordDeleteListeners in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordDeleteListeners.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ItfwWordListenerList in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwWordListenerList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , WordsRTTIPack in 'w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -741,6 +767,9 @@ uses
  , l3ClassList in 'w:\common\components\rtl\Garant\L3\l3ClassList.pas'
  {$If NOT Defined(NoVCM)}
  , vcmMakeParams in 'w:\common\components\gui\Garant\VCM\implementation\vcmMakeParams.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation in 'w:\common\components\gui\Garant\VCM\implementation\vcmModuleContractImplementation.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmBaseMenuManager in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas'
@@ -2246,6 +2275,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , PageControlWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3MsgList in 'w:\common\components\rtl\Garant\L3\l3MsgList.pas'
  {$If NOT Defined(NoVCM)}
  , vtNavigatorFormList in 'w:\common\components\gui\Garant\VT\vtNavigatorFormList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2728,56 +2758,64 @@ uses
  , vcmStringList in 'w:\common\components\gui\Garant\VCM\implementation\vcmStringList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  , nsSettingsConst in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas'
- , nsQueryInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryInterfaces.pas'
- , BaseTreeSupportUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\BaseTreeSupportUnit.pas'
- , IOUnit in 'w:\shared\GCI\IOUnit.pas'
+ , nsPrimCachedEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEvent.pas'
+ , nsLogEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.pas'
+ , LoggingWrapperInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWrapperInterfaces.pas'
  , BaseTypesUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\BaseTypesUnit.pas'
+ , IOUnit in 'w:\shared\GCI\IOUnit.pas'
+ , LoggingUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\LoggingUnit.pas'
+ , nsLogEventData in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEventData.pas'
+ , DataAdapter in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\DataAdapter.pas'
+ , DataAdapterInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\DataAdapterInterfaces.pas'
+ , DocumentUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\DocumentUnit.pas'
+ , FoldersUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\FoldersUnit.pas'
+ , BaseTreeSupportUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\BaseTreeSupportUnit.pas'
  , ContextSearchSupportUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\ContextSearchSupportUnit.pas'
+ , FiltersUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\FiltersUnit.pas'
+ , UnderControlUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\UnderControlUnit.pas'
  , DynamicTreeUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\DynamicTreeUnit.pas'
  , SearchDefinesUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\SearchDefinesUnit.pas'
  , DynamicTreeDefinesUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\DynamicTreeDefinesUnit.pas'
- , FiltersUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\FiltersUnit.pas'
+ , ExternalObjectUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\ExternalObjectUnit.pas'
+ , AdminDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\AdminDomainInterfaces.pas'
+ , nsQuestionsWithChoices in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\nsQuestionsWithChoices.pas'
+ , nsLoginUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsLoginUtils.pas'
+ , bsConvert in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\bsConvert.pas'
+ , nsLogManager in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogManager.pas'
+ , nsLoggingTestService in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLoggingTestService.pas'
+ {$If NOT Defined(NoScripts)}
+ , LoggingWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , nsCachedEventsProcessor in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsCachedEventsProcessor.pas'
+ , nsPrimCachedEventsProcessor in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEventsProcessor.pas'
+ , LoggingInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\LoggingInterfaces.pas'
+ , InsDefferedEventList in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\InsDefferedEventList.pas'
+ , F1_Application_Template_Services in 'w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_Services.pas'
  , SearchUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\SearchUnit.pas'
  , DynamicDocListUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\DynamicDocListUnit.pas'
- , DocumentUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\DocumentUnit.pas'
- , FoldersUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\FoldersUnit.pas'
- , UnderControlUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\UnderControlUnit.pas'
- , ExternalObjectUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\ExternalObjectUnit.pas'
  , SearchProgressIndicatorUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicatorUnit.pas'
  , ProgressIndicatorSupportUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\ProgressIndicatorSupportUnit.pas'
- , nsTypes in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\nsTypes.pas'
- , nsTypesNew in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\nsTypesNew.pas'
+ , nsQueryInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryInterfaces.pas'
+ , moLiteSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\moLiteSearch.pas'
+ , LiteSearch_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\LiteSearch_Module.pas'
+ , SearchLite_Services in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_Services.pas'
  , SearchInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\SearchInterfaces.pas'
  , TreeInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Tree\TreeInterfaces.pas'
  , SimpleListInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\List\SimpleListInterfaces.pas'
  , SearchDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\SearchDomainInterfaces.pas'
- , PrimCommon_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\PrimCommon_Module.pas'
- , F1_Application_Template_InternalOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas'
- , ShutDown_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDown_Form.pas'
- , PrimShutDown_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_Form.pas'
- , DataAdapter in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\DataAdapter.pas'
- , DataAdapterInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\DataAdapterInterfaces.pas'
- , AdminDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\AdminDomainInterfaces.pas'
- , nsQuestionsWithChoices in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\nsQuestionsWithChoices.pas'
- , nsLoginUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsLoginUtils.pas'
- , f1NotificationManager in 'w:\garant6x\implementation\Garant\GbaNemesis\View\f1NotificationManager.pas'
- , PrimShutDown_sftNone_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_sftNone_UserType.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , ShutDownKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDownKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , Login_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_Form.pas'
- , PrimLogin_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_Form.pas'
- {$If Defined(Nemesis)}
- , nscComboBoxWithReadOnly in 'w:\common\components\gui\Garant\Nemesis\nscComboBoxWithReadOnly.pas'
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
- , nscComboBox in 'w:\common\components\gui\Garant\Nemesis\nscComboBox.pas'
- {$IfEnd} // Defined(Nemesis)
- , nsStartupSupport in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas'
+ , nsTypes in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\nsTypes.pas'
+ , nsTypesNew in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\nsTypesNew.pas'
+ , SearchLite_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_Strange_Controls.pas'
+ , PrimAttributeSelect_utAttributeSelect_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_utAttributeSelect_UserType.pas'
+ , TreeAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttributeSelect_Form.pas'
+ , PrimTreeAttributeSelectOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelectOptions_Form.pas'
+ , PrimTreeAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_Form.pas'
+ , TreeAttribute_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttribute_Form.pas'
  , nsUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUtils.pas'
  {$If NOT Defined(NoScripts)}
  , F1ShellWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\F1ShellWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , nsShellService in 'w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsShellService.pas'
  , nsExternalObjectPrim in 'w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsExternalObjectPrim.pas'
  , ddHTMLWriter in 'w:\common\components\rtl\Garant\dd\ddHTMLWriter.pas'
  , ddDocument in 'w:\common\components\rtl\Garant\dd\ddDocument.pas'
@@ -2812,44 +2850,7 @@ uses
  , SettingsUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\SettingsUnit.pas'
  , SecurityUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\SecurityUnit.pas'
  , bsTypes in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\bsTypes.pas'
- , nsFlashWindow in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFlashWindow.pas'
- , SearchRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchRes.pas'
- , nsConst in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsConst.pas'
- , Login_ut_Login_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_ut_Login_UserType.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , LoginKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LoginKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , LongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_Form.pas'
- , PrimLongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLongProcess_Form.pas'
- , vtGradientWaitbar in 'w:\common\components\gui\Garant\VT\vtGradientWaitbar.pas'
- , l3AsincMessageWindowRes in 'w:\common\components\rtl\Garant\L3\l3AsincMessageWindowRes.pas'
- , LongProcess_ut_LongProcess_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_ut_LongProcess_UserType.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , LongProcessKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcessKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , nsPrimCachedEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEvent.pas'
- , nsLogEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.pas'
- , LoggingWrapperInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWrapperInterfaces.pas'
- , LoggingUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\LoggingUnit.pas'
- , nsLogEventData in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEventData.pas'
- , bsConvert in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\bsConvert.pas'
- , nsLogManager in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogManager.pas'
- , nsLoggingTestService in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLoggingTestService.pas'
- {$If NOT Defined(NoScripts)}
- , LoggingWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , nsCachedEventsProcessor in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsCachedEventsProcessor.pas'
- , nsPrimCachedEventsProcessor in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEventsProcessor.pas'
- , LoggingInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\LoggingInterfaces.pas'
- , InsDefferedEventList in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\InsDefferedEventList.pas'
- , moLiteSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\moLiteSearch.pas'
- , LiteSearch_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\LiteSearch_Module.pas'
- , SearchLite_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_Strange_Controls.pas'
- , PrimAttributeSelect_utAttributeSelect_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_utAttributeSelect_UserType.pas'
- , TreeAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttributeSelect_Form.pas'
- , PrimTreeAttributeSelectOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelectOptions_Form.pas'
- , PrimTreeAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_Form.pas'
- , TreeAttribute_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttribute_Form.pas'
+ , bsUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\bsUtils.pas'
  , L10nInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\L10nInterfaces.pas'
  {$If Defined(Nemesis)}
  , nscContextFilter in 'w:\common\components\gui\Garant\Nemesis\nscContextFilter.pas'
@@ -2899,16 +2900,17 @@ uses
  , nsAttributeTreeCacheNew in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeCacheNew.pas'
  , l3InterfacedStringList in 'w:\common\components\rtl\Garant\L3\l3InterfacedStringList.pas'
  , GblAdapter
- , bsUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\bsUtils.pas'
  , nsSelectedAttributesIterators in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsSelectedAttributesIterators.pas'
  , nsTreeAttributeNodesNew in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsTreeAttributeNodesNew.pas'
  , nsAttributeTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeStruct.pas'
+ , nsConst in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsConst.pas'
  , nsValueMaps in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsValueMaps.pas'
  , nsIntegerValueMapFactory in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsIntegerValueMapFactory.pas'
  , nsStringValueMapFactory in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStringValueMapFactory.pas'
  , nsStringValueMapFactoryRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStringValueMapFactoryRes.pas'
  , nsValueMapsIDs in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsValueMapsIDs.pas'
  , nsFirstLevelStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsFirstLevelStruct.pas'
+ , SearchRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchRes.pas'
  , dsTreeAttributeSelect in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTreeAttributeSelect.pas'
  , nsNewCachableNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas'
  , deSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\deSearch.pas'
@@ -2997,6 +2999,37 @@ uses
  , SelectedAttributesKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\SelectedAttributesKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moRealCommon in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\moRealCommon.pas'
+ , PrimCommon_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\PrimCommon_Module.pas'
+ , F1_Application_Template_InternalOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas'
+ , ShutDown_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDown_Form.pas'
+ , PrimShutDown_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_Form.pas'
+ , f1NotificationManager in 'w:\garant6x\implementation\Garant\GbaNemesis\View\f1NotificationManager.pas'
+ , PrimShutDown_sftNone_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_sftNone_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ShutDownKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDownKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , Login_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_Form.pas'
+ , PrimLogin_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_Form.pas'
+ {$If Defined(Nemesis)}
+ , nscComboBoxWithReadOnly in 'w:\common\components\gui\Garant\Nemesis\nscComboBoxWithReadOnly.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscComboBox in 'w:\common\components\gui\Garant\Nemesis\nscComboBox.pas'
+ {$IfEnd} // Defined(Nemesis)
+ , nsStartupSupport in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas'
+ , nsFlashWindow in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFlashWindow.pas'
+ , Login_ut_Login_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_ut_Login_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LoginKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LoginKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , LongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_Form.pas'
+ , PrimLongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLongProcess_Form.pas'
+ , vtGradientWaitbar in 'w:\common\components\gui\Garant\VT\vtGradientWaitbar.pas'
+ , l3AsincMessageWindowRes in 'w:\common\components\rtl\Garant\L3\l3AsincMessageWindowRes.pas'
+ , LongProcess_ut_LongProcess_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_ut_LongProcess_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LongProcessKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcessKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , DebugStr in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\DebugStr.pas'
  {$If Defined(Nemesis)}
  , F1_Schema in 'w:\common\components\gui\Garant\Everest_Engine\F1_Schema.pas'
@@ -3044,7 +3077,7 @@ uses
  , LogoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LogoKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , nsAppTitleData in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsAppTitleData.pas'
- , f1StartupCompletedService in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompletedService.pas'
+ , f1StartupCompleteNotificationService in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompleteNotificationService.pas'
  , StartUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\StartUnit.pas'
  , BannerUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\BannerUnit.pas'
  , SPHTMLHelp in 'w:\common\components\gui\Garant\AFW\SPHTMLHelp.pas'
@@ -3053,9 +3086,10 @@ uses
  , evCustomStyleManager in 'w:\common\components\gui\Garant\Everest\evCustomStyleManager.pas'
  , nscDocumentHistory in 'w:\garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentHistory.pas'
  , PrimMainOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimMainOptions_Form.pas'
- , ConfigInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\ConfigInterfaces.pas'
  , moCommonSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\moCommonSearch.pas'
  , CommonSearch_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\CommonSearch_Module.pas'
+ , Search_Services in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search_Services.pas'
+ , ConfigInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\ConfigInterfaces.pas'
  , SaveLoad_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\SaveLoad_Form.pas'
  , PrimSaveLoadOptionsWithUserTypes_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsWithUserTypes_Form.pas'
  , PrimSaveLoadOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptions_Form.pas'
@@ -3103,9 +3137,9 @@ uses
  , nsDocumentContextHistoryPrim in 'w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsDocumentContextHistoryPrim.pas'
  , nsDataExchangeProxy in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDataExchangeProxy.pas'
  , ConsultingUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\ConsultingUnit.pas'
- , nsPostingsTreeSingle in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPostingsTreeSingle.pas'
- , nsPostingsLine in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPostingsLine.pas'
- , nsPrimeNode in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPrimeNode.pas'
+ , nsPostingsTreeSingle in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsPostingsTreeSingle.pas'
+ , nsPostingsLine in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsPostingsLine.pas'
+ , nsPrimeNode in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsPrimeNode.pas'
  , PrimeDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimeDomainInterfaces.pas'
  , PrimeUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\PrimeUnit.pas'
  , PrimSaveLoadUserTypes_slqtAttribute_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtAttribute_UserType.pas'
@@ -3405,10 +3439,40 @@ uses
  , HelpIntfs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\HelpIntfs.pas' {$EndIf}
  , vtVerInf in 'w:\common\components\rtl\Garant\L3\vtVerInf.pas'
  , nsConfiguration in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsConfiguration.pas'
- , f1StartupCompletedServiceImpl in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\f1StartupCompletedServiceImpl.pas'
+ , f1StartupCompleteNotificationServiceImpl in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\f1StartupCompleteNotificationServiceImpl.pas'
  , PrimMonitorings_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas'
+ , Base_Operations_F1Services_Contracts in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Services_Contracts.pas'
+ , DocumentDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\DocumentDomainInterfaces.pas'
+ , ChatTypes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChatTypes.pas'
+ , ChatInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChatInterfaces.pas'
+ , WorkJournalInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournalInterfaces.pas'
+ , UserJournalUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\UserJournalUnit.pas'
+ , ConsultationDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationDomainInterfaces.pas'
+ , Common_F1CommonServices_Contracts in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common_F1CommonServices_Contracts.pas'
+ , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
+ , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
+ , ddAppConfigBase in 'w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas'
+ , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'
+ , l3ProtoPersistentRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas'
+ , Contnrs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Contnrs.pas' {$EndIf}
+ , ddAppConfigTypesRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypesRes.pas'
+ {$If NOT Defined(NoVCL)}
+ , CheckLst {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CheckLst.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CheckListBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , ddAppConfigRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigRes.pas'
+ , nsStyleParser in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsStyleParser.pas'
+ , k2InPlaceGenerator in 'w:\common\components\rtl\Garant\K2\k2InPlaceGenerator.pas'
+ , evdVer in 'w:\common\components\rtl\Garant\EVD\evdVer.pas'
+ , evNestedCommentsEliminator in 'w:\common\components\gui\Garant\Everest\evNestedCommentsEliminator.pas'
  , Autoreferat_InternalOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Autoreferat_InternalOperations_Controls.pas'
  , PostingOrder_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_Strange_Controls.pas'
+ , deDocInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\deDocInfo.pas'
+ , deBase in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\deBase.pas'
+ , bsBase in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\bsBase.pas'
+ , bsDataContainer in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\bsDataContainer.pas'
  , sdsAutoreferat in 'w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\sdsAutoreferat.pas'
  , AutoreferatInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\AutoreferatInterfaces.pas'
  , dsAutoreferat in 'w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsAutoreferat.pas'
@@ -3436,10 +3500,6 @@ uses
  , l3BaseBoxMemoryManager in 'w:\common\components\rtl\Garant\L3\l3BaseBoxMemoryManager.pas'
  , nsTagString in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagString.pas'
  , nsString in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsString.pas'
- , evdVer in 'w:\common\components\rtl\Garant\EVD\evdVer.pas'
- , nsStyleParser in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsStyleParser.pas'
- , k2InPlaceGenerator in 'w:\common\components\rtl\Garant\K2\k2InPlaceGenerator.pas'
- , evNestedCommentsEliminator in 'w:\common\components\gui\Garant\Everest\evNestedCommentsEliminator.pas'
  , nsLeafParaNode in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaNode.pas'
  , f1AtomChecker in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1AtomChecker.pas'
  , nsSubNode in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsSubNode.pas'
@@ -3482,10 +3542,6 @@ uses
  , evHolderDataObject in 'w:\common\components\gui\Garant\Everest\evHolderDataObject.pas'
  , nsDocumentToolsNew in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentToolsNew.pas'
  , nsDocumentPrintEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentPrintEvent.pas'
- , deDocInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\deDocInfo.pas'
- , deBase in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\deBase.pas'
- , bsBase in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\bsBase.pas'
- , bsDataContainer in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\bsDataContainer.pas'
  , nsDocInfoHAFMacroReplacer in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocInfoHAFMacroReplacer.pas'
  , dsNewsLine in 'w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsNewsLine.pas'
  , dBaseDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.pas'
@@ -3514,20 +3570,6 @@ uses
  , PrimMonitoringsWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitoringsWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimNewsLine_nltMain_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_nltMain_UserType.pas'
- , CommonPost_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas'
- , PostingOrder_FormDefinitions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_FormDefinitions_Controls.pas'
- {$If NOT Defined(NoVCL)}
- , FileCtrl {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\FileCtrl.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- , nsFindSelectDialog in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas'
- , PostingsList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsList_Form.pas'
- , PrimPostingsListOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsListOptions_Form.pas'
- , PrimPostingsList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_Form.pas'
- , vtSaveDialog in 'w:\common\components\gui\Garant\VT\vtSaveDialog.pas'
- , PrimPostingsList_MyPostingList_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_MyPostingList_UserType.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , PostingsListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsListKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , NewsLine_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLine_Form.pas'
  , PrimNewsLineOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLineOptions_Form.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -3583,19 +3625,15 @@ uses
  , vcmZoneTypeList in 'w:\common\components\gui\Garant\VCM\implementation\vcmZoneTypeList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  , fsAutoreferatAfterSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferatAfterSearch.pas'
- , Base_Operations_F1Services_Contracts in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Services_Contracts.pas'
- , ChatTypes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChatTypes.pas'
- , ChatInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChatInterfaces.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , MainWindowKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainWindowKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , WorkJournalInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournalInterfaces.pas'
- , UserJournalUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\UserJournalUnit.pas'
- , EditionsInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\EditionsInterfaces.pas'
- , DocumentDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\DocumentDomainInterfaces.pas'
- , ConsultationDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationDomainInterfaces.pas'
  , moCompareEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moCompareEditions.pas'
  , BaseEditions_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\BaseEditions_Module.pas'
+ , nsCompareEditionsInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfo.pas'
+ , nsCompareEditionsInfoPrim in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfoPrim.pas'
+ , nsRedactionCurrentPara in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsRedactionCurrentPara.pas'
+ , EditionsInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\EditionsInterfaces.pas'
  , sdsCompareEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditions.pas'
  , dsEditionsContainerData in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionsContainerData.pas'
  , dsRightEdition in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsRightEdition.pas'
@@ -3613,12 +3651,9 @@ uses
  , nsSubPrim in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsSubPrim.pas'
  , dsLeftEdition in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsLeftEdition.pas'
  , nsEditionDiffData in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionDiffData.pas'
- , nsCompareEditionsInfoPrim in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfoPrim.pas'
- , nsRedactionCurrentPara in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsRedactionCurrentPara.pas'
  , nsEditionsContainerData in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionsContainerData.pas'
  , sdsCompareEditionsState in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditionsState.pas'
  , dsEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsEditions.pas'
- , nsCompareEditionsInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfo.pas'
  , LeftEdition_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\LeftEdition_Form.pas'
  , PrimLeftEdition_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_Form.pas'
  , DiffOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\DiffOptions_Form.pas'
@@ -3725,16 +3760,11 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , tfwParser in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas'
  , tfwCachedTokens in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
- , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
- , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ItfwParserExWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserExWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwStoredValuesStack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , seThreadSupport in 'w:\common\components\rtl\Garant\ScriptEngine\seThreadSupport.pas'
@@ -3799,326 +3829,6 @@ uses
  , bsHyperlinkProcessorContainerMaker in 'w:\garant6x\implementation\Garant\GbaNemesis\View\bsHyperlinkProcessorContainerMaker.pas'
  , nsOpenDocumentFromLinkEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsOpenDocumentFromLinkEvent.pas'
  , nsTryingToOpenMissingDocumentFromLinkEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsTryingToOpenMissingDocumentFromLinkEvent.pas'
- {$If NOT Defined(NoScripts)}
- , F1ScriptEngine in 'w:\garant6x\implementation\Garant\GbaNemesis\ScriptEngine\F1ScriptEngine.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwScriptEngineEX in 'w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngineEX.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , CodeFlowWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CodeFlowWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , seModalSupport in 'w:\common\components\rtl\Garant\ScriptEngine\seModalSupport.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , seModalWorkerList in 'w:\common\components\rtl\Garant\ScriptEngine\seModalWorkerList.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , seModalWorkerListPrim in 'w:\common\components\rtl\Garant\ScriptEngine\seModalWorkerListPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , seModalWorker in 'w:\common\components\rtl\Garant\ScriptEngine\seModalWorker.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , CompilationPack in 'w:\common\components\rtl\Garant\ScriptEngine\CompilationPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwFORWARD in 'w:\common\components\rtl\Garant\ScriptEngine\kwFORWARD.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , WordsDefinitionPack in 'w:\common\components\rtl\Garant\ScriptEngine\WordsDefinitionPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwProcedure in 'w:\common\components\rtl\Garant\ScriptEngine\tfwProcedure.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwStandardProcedureCloseBracket in 'w:\common\components\rtl\Garant\ScriptEngine\kwStandardProcedureCloseBracket.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledProcedure in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedure.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwKeyValuesPack in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyValuesPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwKeyValues in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyValues.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledProcedureWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledFunction in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledFunction.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledProcedureWithStackChecking in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWithStackChecking.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwInlinedWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwInlinedWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , IncludesAndUsesPack in 'w:\common\components\rtl\Garant\ScriptEngine\IncludesAndUsesPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwInclude in 'w:\common\components\rtl\Garant\ScriptEngine\kwInclude.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwIncludeLike in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIncludeLike.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwIncluded in 'w:\common\components\rtl\Garant\ScriptEngine\kwIncluded.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwUses in 'w:\common\components\rtl\Garant\ScriptEngine\kwUses.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwUsesLike in 'w:\common\components\rtl\Garant\ScriptEngine\kwUsesLike.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , EtalonsWorkingPack in 'w:\common\components\rtl\Garant\ScriptEngine\EtalonsWorkingPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCheckOutputWithInput in 'w:\common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCheckEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwCheckEtalon.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwTestResolveInputFilePath in 'w:\common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , MouseInputPack in 'w:\common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseLeftDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseLeftDown.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseUpDownSupport in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseUpDownSupport.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwSendInputSupport in 'w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupport.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseLeftUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseLeftUp.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseMiddleUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleUp.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseMiddleDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleDown.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseRightUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseRightUp.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseRightDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseRightDown.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseSetCursorPosition in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseSetCursorPosition.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseGetCursorIndex in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorIndex.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseGetCursorNameByIndex in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorNameByIndex.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseGetCursorPosition in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorPosition.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseWheelUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelUp.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseWheelSupport in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelSupport.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMouseWheelDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelDown.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , ModalDialogsKeywordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ModalDialogsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwWasWait in 'w:\common\components\rtl\Garant\ScriptEngine\kwWasWait.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwWaitNo in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitNo.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwWaitOk in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitOk.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwWaitYes in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitYes.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwWaitCancel in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitCancel.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwWaitChoice in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitChoice.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , KeyboardInputPack in 'w:\common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwKey in 'w:\common\components\rtl\Garant\ScriptEngine\kwKey.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwHardKey in 'w:\common\components\rtl\Garant\ScriptEngine\kwHardKey.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwKeyDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyDown.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , kwKeyUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyUp.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , CodeBranchingPack in 'w:\common\components\rtl\Garant\ScriptEngine\CodeBranchingPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwIfElse in 'w:\common\components\rtl\Garant\ScriptEngine\kwIfElse.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwElse in 'w:\common\components\rtl\Garant\ScriptEngine\kwElse.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCASE in 'w:\common\components\rtl\Garant\ScriptEngine\kwCASE.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledCase in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCase.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwDEFAULT in 'w:\common\components\rtl\Garant\ScriptEngine\kwDEFAULT.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwRAISE in 'w:\common\components\rtl\Garant\ScriptEngine\kwRAISE.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwBracketBegin in 'w:\common\components\rtl\Garant\ScriptEngine\kwBracketBegin.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwBracketEnd in 'w:\common\components\rtl\Garant\ScriptEngine\kwBracketEnd.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwTypedBeginLikeCompiledCode in 'w:\common\components\rtl\Garant\ScriptEngine\kwTypedBeginLikeCompiledCode.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwBEGIN in 'w:\common\components\rtl\Garant\ScriptEngine\kwBEGIN.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwRULES in 'w:\common\components\rtl\Garant\ScriptEngine\kwRULES.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledRules in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledRules.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ScriptsCompilingAndProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ScriptsCompilingAndProcessingPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwScriptCompileAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwScriptCompileAndProcess.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledScriptCompileAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileAndProcess.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMainCodeController in 'w:\common\components\rtl\Garant\ScriptEngine\kwMainCodeController.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwScriptCompileStringAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwScriptCompileStringAndProcess.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledScriptCompileStringAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileStringAndProcess.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoWindows)}
- , WinUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoWindows)
- , CommCtrl {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\CommCtrl.pas' {$EndIf}
- {$If NOT Defined(NoScripts)}
- , kwAttributeSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwAttributeSearch.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwMainMenu in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwMainMenu.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwOk in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwOk.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwOpenDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwOpenDocument.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , f1WordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\f1WordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwDocumentsCacheClear in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwDocumentsCacheClear.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwTimeMachineSetDate in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwTimeMachineSetDate.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwExportHelp in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwExportHelp.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwFiltersList in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwFiltersList.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwF1BaseDate in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1BaseDate.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwF1ComplectName in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectName.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwF1ComplectOwner in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectOwner.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwRestoreSettings in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwRestoreSettings.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , nsConfigurationList in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationList.pas'
- {$If NOT Defined(NoScripts)}
- , kwClearDocumentContextSearchHistory in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearDocumentContextSearchHistory.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwClearContextSearchHistory in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearContextSearchHistory.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwClearPharmContextSearchHistory in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearPharmContextSearchHistory.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwIsPharmPermanentFilterExists in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsPharmPermanentFilterExists.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPermanentFilterExists in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExists.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwIsLegalPermanentFilterExists in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsLegalPermanentFilterExists.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwIsMyDocumentsEmpty in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsMyDocumentsEmpty.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationsGetCount in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsGetCount.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationsWord in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationsGetConfiguration in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsGetConfiguration.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationGetName in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetName.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationWord in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationGetType in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetType.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationsGetActiveConfiguration in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsGetActiveConfiguration.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationActivate in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationActivate.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwConfigurationGetID in 'w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetID.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , nsTabbedContainerUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TabInterface\nsTabbedContainerUtils.pas'
  , nsExportToFileEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsExportToFileEvent.pas'
  , nsExportToWordEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsExportToWordEvent.pas'
@@ -4128,6 +3838,7 @@ uses
  , f1MultilinkResolver in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\f1MultilinkResolver.pas'
  , nsSaveDialogExecutor in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialogExecutor.pas'
  , nsSaveDialog in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas'
+ , vtSaveDialog in 'w:\common\components\gui\Garant\VT\vtSaveDialog.pas'
  {$If Defined(Nemesis)}
  , eeGroupBox in 'w:\common\components\gui\Garant\Nemesis\eeGroupBox.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -4205,6 +3916,27 @@ uses
  , nsWebBrowserHelper in 'w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserHelper.pas'
  , Variants
  , UrlMon {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\UrlMon.pas' {$EndIf}
+ {$If Defined(Nemesis)}
+ , nsDownloader in 'w:\common\components\gui\Garant\Nemesis\nsDownloader.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nsDownloaderRes in 'w:\common\components\gui\Garant\Nemesis\nsDownloaderRes.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nsDownloaderInterfaces in 'w:\common\components\gui\Garant\Nemesis\nsDownloaderInterfaces.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nsDownloaderGUIService in 'w:\common\components\gui\Garant\Nemesis\nsDownloaderGUIService.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nsOpenOrSaveInternetFileDialog in 'w:\common\components\gui\Garant\Nemesis\nsOpenOrSaveInternetFileDialog.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nsDownloaderThreadList in 'w:\common\components\gui\Garant\Nemesis\nsDownloaderThreadList.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nsDownloaderThread in 'w:\common\components\gui\Garant\Nemesis\nsDownloaderThread.pas'
+ {$IfEnd} // Defined(Nemesis)
  {$If Defined(Nemesis)}
  , nsInternetUtils in 'w:\common\components\gui\Garant\Nemesis\nsInternetUtils.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -4460,23 +4192,7 @@ uses
  , moDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moDocument.pas'
  , Document_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas'
  , Document_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document_Strange_Controls.pas'
- , DocumentShowChangesInfoSettingRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\DocumentShowChangesInfoSettingRes.pas'
- , stDocumentShowChangesInfoItem in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\stDocumentShowChangesInfoItem.pas'
- , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
- , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
- , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'
- , ddAppConfigBase in 'w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas'
- , l3ProtoPersistentRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas'
- , Contnrs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Contnrs.pas' {$EndIf}
- , ddAppConfigTypesRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypesRes.pas'
- {$If NOT Defined(NoVCL)}
- , CheckLst {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CheckLst.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , CheckListBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , ddAppConfigRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigRes.pas'
- , sdsDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.pas'
+ , sdsDocumentWithFlash in 'w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocumentWithFlash.pas'
  , dDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\Document\dDocument.pas'
  , bsUserCRListInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\bsUserCRListInfo.pas'
  , bsFrozenNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\bsFrozenNode.pas'
@@ -4533,7 +4249,7 @@ uses
  , nsChronologyDocumentContainer in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsChronologyDocumentContainer.pas'
  , dsAttributes in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsAttributes.pas'
  , nsDocAttributeTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsDocAttributeTreeStruct.pas'
- , sdsDocumentWithFlash in 'w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocumentWithFlash.pas'
+ , sdsDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.pas'
  , nsOpenDocOnNumberData in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsOpenDocOnNumberData.pas'
  , DocumentWithFlash_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocumentWithFlash_Form.pas'
  , PrimDocumentWithFlashOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlashOptions_Form.pas'
@@ -5025,6 +4741,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , SelfInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfoKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , nsConfigurationList in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationList.pas'
  , StyleEditorContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorContainer_Form.pas'
  , PrimStyleEditorContainerOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainerOptions_Form.pas'
  , PrimStyleEditorContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainer_Form.pas'
@@ -5065,6 +4782,9 @@ uses
  , ddAppConfigStrings in 'w:\common\components\rtl\Garant\dd\ddAppConfigStrings.pas'
  , ddAppConfigStringsRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigStringsRes.pas'
  , l3Base64 in 'w:\common\components\rtl\Garant\L3\l3Base64.pas'
+ {$If NOT Defined(NoVCL)}
+ , FileCtrl {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\FileCtrl.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
  , ddAppConfigVersions in 'w:\common\components\rtl\Garant\dd\ddAppConfigVersions.pas'
  , l3RecList in 'w:\common\components\rtl\Garant\L3\l3RecList.pas'
  , l3BaseRecList in 'w:\common\components\rtl\Garant\L3\l3BaseRecList.pas'
@@ -5082,6 +4802,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , ddIniStorage in 'w:\common\components\rtl\Garant\dd\ddIniStorage.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ , ddCustomIniStorage in 'w:\common\components\rtl\Garant\dd\ddCustomIniStorage.pas'
+ , ddTemporaryStorage in 'w:\common\components\rtl\Garant\dd\ddTemporaryStorage.pas'
  , ddAppConfigTFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigTFrame.pas'
  , ddAppConfigBFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigBFrame.pas'
  , nsAppConfigRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\nsAppConfigRes.pas'
@@ -5098,8 +4820,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moMainMenu in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moMainMenu.pas'
  , MainMenu_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenu_Module.pas'
- , MainMenuChangeableMainMenuTypeSettingRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuChangeableMainMenuTypeSettingRes.pas'
- , stMainMenuChangeableMainMenuTypeItem in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\stMainMenuChangeableMainMenuTypeItem.pas'
  {$If NOT Defined(NoScripts)}
  , MainMenuProcessingWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuProcessingWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -5256,12 +4976,12 @@ uses
  , nsOpenDialog in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsOpenDialog.pas'
  , moChangesBetweenEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moChangesBetweenEditions.pas'
  , ChangesBetweenEditions_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditions_Module.pas'
- , sdsChangesBetweenEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditions.pas'
+ , nsChangesBetweenEditionsInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsInfo.pas'
  , ChangesBetweenEditionsInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\ChangesBetweenEditionsInterfaces.pas'
+ , sdsChangesBetweenEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditions.pas'
  , dsChangesBetweenEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\dsChangesBetweenEditions.pas'
  , nsChangesBetweenEditionsDocumentContainer in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsDocumentContainer.pas'
  , sdsChangesBetweenEditionsData in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditionsData.pas'
- , nsChangesBetweenEditionsInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsInfo.pas'
  , fsViewChangedFragments in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\fsViewChangedFragments.pas'
  , ChangesBetweenEditons_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\ChangesBetweenEditons_Form.pas'
  , PrimChangesBetweenEditons_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas'
@@ -5321,6 +5041,245 @@ uses
  , fsAACContents in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\fsAACContents.pas'
  , fsAAC in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\fsAAC.pas'
  , moCommonPost in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moCommonPost.pas'
+ , CommonPost_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas'
+ , PostingOrder_FormDefinitions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_FormDefinitions_Controls.pas'
+ , nsFindSelectDialog in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas'
+ , PostingsList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsList_Form.pas'
+ , PrimPostingsListOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsListOptions_Form.pas'
+ , PrimPostingsList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_Form.pas'
+ , PrimPostingsList_MyPostingList_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_MyPostingList_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PostingsListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngineEX in 'w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngineEX.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , CodeFlowWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CodeFlowWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , seModalSupport in 'w:\common\components\rtl\Garant\ScriptEngine\seModalSupport.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , seModalWorkerList in 'w:\common\components\rtl\Garant\ScriptEngine\seModalWorkerList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , seModalWorkerListPrim in 'w:\common\components\rtl\Garant\ScriptEngine\seModalWorkerListPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , seModalWorker in 'w:\common\components\rtl\Garant\ScriptEngine\seModalWorker.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , CompilationPack in 'w:\common\components\rtl\Garant\ScriptEngine\CompilationPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwFORWARD in 'w:\common\components\rtl\Garant\ScriptEngine\kwFORWARD.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , WordsDefinitionPack in 'w:\common\components\rtl\Garant\ScriptEngine\WordsDefinitionPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwProcedure in 'w:\common\components\rtl\Garant\ScriptEngine\tfwProcedure.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwStandardProcedureCloseBracket in 'w:\common\components\rtl\Garant\ScriptEngine\kwStandardProcedureCloseBracket.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledProcedure in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedure.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwKeyValuesPack in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyValuesPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwKeyValues in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyValues.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledProcedureWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledFunction in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledFunction.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledProcedureWithStackChecking in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWithStackChecking.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwInlinedWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwInlinedWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , IncludesAndUsesPack in 'w:\common\components\rtl\Garant\ScriptEngine\IncludesAndUsesPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwInclude in 'w:\common\components\rtl\Garant\ScriptEngine\kwInclude.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwIncludeLike in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIncludeLike.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwIncluded in 'w:\common\components\rtl\Garant\ScriptEngine\kwIncluded.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwUses in 'w:\common\components\rtl\Garant\ScriptEngine\kwUses.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwUsesLike in 'w:\common\components\rtl\Garant\ScriptEngine\kwUsesLike.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , EtalonsWorkingPack in 'w:\common\components\rtl\Garant\ScriptEngine\EtalonsWorkingPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCheckOutputWithInput in 'w:\common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCheckEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwCheckEtalon.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwTestResolveInputFilePath in 'w:\common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , MouseInputPack in 'w:\common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseLeftDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseLeftDown.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseUpDownSupport in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseUpDownSupport.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwSendInputSupport in 'w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupport.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseLeftUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseLeftUp.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseMiddleUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleUp.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseMiddleDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleDown.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseRightUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseRightUp.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseRightDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseRightDown.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseSetCursorPosition in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseSetCursorPosition.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseGetCursorIndex in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorIndex.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseGetCursorNameByIndex in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorNameByIndex.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseGetCursorPosition in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorPosition.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseWheelUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelUp.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseWheelSupport in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelSupport.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMouseWheelDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelDown.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ModalDialogsKeywordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ModalDialogsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwWasWait in 'w:\common\components\rtl\Garant\ScriptEngine\kwWasWait.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwWaitNo in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitNo.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwWaitOk in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitOk.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwWaitYes in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitYes.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwWaitCancel in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitCancel.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwWaitChoice in 'w:\common\components\rtl\Garant\ScriptEngine\kwWaitChoice.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , KeyboardInputPack in 'w:\common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwKey in 'w:\common\components\rtl\Garant\ScriptEngine\kwKey.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwHardKey in 'w:\common\components\rtl\Garant\ScriptEngine\kwHardKey.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwKeyDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyDown.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , kwKeyUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwKeyUp.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , CodeBranchingPack in 'w:\common\components\rtl\Garant\ScriptEngine\CodeBranchingPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwIfElse in 'w:\common\components\rtl\Garant\ScriptEngine\kwIfElse.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwElse in 'w:\common\components\rtl\Garant\ScriptEngine\kwElse.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCASE in 'w:\common\components\rtl\Garant\ScriptEngine\kwCASE.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledCase in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCase.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwDEFAULT in 'w:\common\components\rtl\Garant\ScriptEngine\kwDEFAULT.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwRAISE in 'w:\common\components\rtl\Garant\ScriptEngine\kwRAISE.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwBracketBegin in 'w:\common\components\rtl\Garant\ScriptEngine\kwBracketBegin.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwBracketEnd in 'w:\common\components\rtl\Garant\ScriptEngine\kwBracketEnd.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwTypedBeginLikeCompiledCode in 'w:\common\components\rtl\Garant\ScriptEngine\kwTypedBeginLikeCompiledCode.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwBEGIN in 'w:\common\components\rtl\Garant\ScriptEngine\kwBEGIN.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwRULES in 'w:\common\components\rtl\Garant\ScriptEngine\kwRULES.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledRules in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledRules.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ScriptsCompilingAndProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ScriptsCompilingAndProcessingPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwScriptCompileAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwScriptCompileAndProcess.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledScriptCompileAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileAndProcess.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwMainCodeController in 'w:\common\components\rtl\Garant\ScriptEngine\kwMainCodeController.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwScriptCompileStringAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwScriptCompileStringAndProcess.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledScriptCompileStringAndProcess in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileStringAndProcess.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoWindows)}
+ , WinUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoWindows)
+ , CommCtrl {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\CommCtrl.pas' {$EndIf}
  {$If NOT Defined(XE)}
  , F1Test in 'w:\garant6x\implementation\Garant\GbaNemesis\F1Test.pas'
  {$IfEnd} // NOT Defined(XE)

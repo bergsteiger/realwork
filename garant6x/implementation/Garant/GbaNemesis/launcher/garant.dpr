@@ -2078,7 +2078,7 @@ begin
  l_IniFileName := ReplaceAliases('$(ThisIniFileName)');
  //
  case StrToIntDef(GetStringFromIniFile(l_IniFileName, c_IniFileVersionSectionName, '-IniFile'), -1) of
-  0..20: // [Version]\-IniFile
+  0..21: // [Version]\-IniFile
   begin
    l_ProductValue := GetStringFromIniFile(l_IniFileName, c_IniFileVersionSectionName, '-Product');
    //

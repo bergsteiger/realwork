@@ -69,6 +69,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsTaskProgress
  {$IfEnd} // NOT Defined(Nemesis)
+ //#UC START# *546AFE0D01CBimpl_uses*
+ //#UC END# *546AFE0D01CBimpl_uses*
 ;
 
 function TarOneTaskDeliverer.pm_GetTargetFolder: AnsiString;

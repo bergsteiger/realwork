@@ -66,6 +66,8 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , TtfwTypeRegistrator_Proxy
+ //#UC START# *4E03119F00B2impl_uses*
+ //#UC END# *4E03119F00B2impl_uses*
 ;
 
 var g_TafwBatchService: TafwBatchService = nil;

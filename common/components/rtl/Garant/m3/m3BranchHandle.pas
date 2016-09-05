@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , m3NormalFormsManager
+ //#UC START# *5453ACDE0177impl_uses*
+ //#UC END# *5453ACDE0177impl_uses*
 ;
 
 procedure Tm3BranchHandle.Cleanup;

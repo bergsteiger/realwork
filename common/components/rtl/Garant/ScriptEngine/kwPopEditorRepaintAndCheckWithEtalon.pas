@@ -68,6 +68,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E1B0DEA0240impl_uses*
+ //#UC END# *4E1B0DEA0240impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}

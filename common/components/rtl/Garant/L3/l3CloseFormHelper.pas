@@ -56,6 +56,8 @@ uses
  , Forms
  , SysUtils
  , l3Base
+ //#UC START# *55014D810077impl_uses*
+ //#UC END# *55014D810077impl_uses*
 ;
 
 var g_Tl3CloseFormHelper: Tl3CloseFormHelper = nil;

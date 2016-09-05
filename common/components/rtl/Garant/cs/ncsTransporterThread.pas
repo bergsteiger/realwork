@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5452248C02B8impl_uses*
+ //#UC END# *5452248C02B8impl_uses*
 ;
 
 constructor TncsTransporterThread.Create(anQueue: TncsMessageQueue);

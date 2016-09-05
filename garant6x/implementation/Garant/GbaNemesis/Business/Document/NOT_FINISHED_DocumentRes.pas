@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *49256C760276impl_uses*
+ //#UC END# *49256C760276impl_uses*
 ;
 
 procedure nsDocumentRes;

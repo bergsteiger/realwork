@@ -44,6 +44,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4CE38AD60265impl_uses*
+ //#UC END# *4CE38AD60265impl_uses*
 ;
 
 procedure TTableToolsTestPrim.Process(aForm: TPrimTextLoadForm);

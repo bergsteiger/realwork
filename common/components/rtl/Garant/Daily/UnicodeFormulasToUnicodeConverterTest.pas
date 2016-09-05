@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , evUnicodeFormulasToUnicodeConverter
  , TestFrameWork
+ //#UC START# *561E7EAF0288impl_uses*
+ //#UC END# *561E7EAF0288impl_uses*
 ;
 
 procedure TUnicodeFormulasToUnicodeConverterTest.SetFilters(var theGenerator: Ik2TagGenerator);

@@ -49,6 +49,8 @@ uses
  , k2Tags
  , evdTypes
  , Document_Const
+ //#UC START# *4C1B8D2F039Fimpl_uses*
+ //#UC END# *4C1B8D2F039Fimpl_uses*
 ;
 
 class function TevdCustomHyperlinkCorrector.SetTo(var theGenerator: Tk2TagGenerator;

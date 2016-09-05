@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4926B55401A2impl_uses*
+ //#UC END# *4926B55401A2impl_uses*
 ;
 
 procedure fake;

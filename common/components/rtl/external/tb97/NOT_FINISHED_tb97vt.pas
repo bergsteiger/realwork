@@ -23,6 +23,8 @@ implementation
 {$If NOT Defined(NoTB97)}
 uses
  l3ImplUses
+ //#UC START# *52AB1AC403E7impl_uses*
+ //#UC END# *52AB1AC403E7impl_uses*
 ;
 {$IfEnd} // NOT Defined(NoTB97)
 

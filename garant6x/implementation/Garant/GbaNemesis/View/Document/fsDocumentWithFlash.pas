@@ -66,6 +66,8 @@ uses
  , l3StringIDEx
  , SysUtils
  , l3Base
+ //#UC START# *4AA126F9032Aimpl_uses*
+ //#UC END# *4AA126F9032Aimpl_uses*
 ;
 
 var g_Tfs_DocumentWithFlash: Tfs_DocumentWithFlash = nil;

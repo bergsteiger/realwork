@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4DD3CD0B0193impl_uses*
+ //#UC END# *4DD3CD0B0193impl_uses*
 ;
 
 var g_Tl3GraphicContainerStack: Tl3GraphicContainerStack = nil;

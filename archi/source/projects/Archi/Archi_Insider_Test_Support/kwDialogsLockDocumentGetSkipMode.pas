@@ -42,6 +42,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *54255ED703B9impl_uses*
+ //#UC END# *54255ED703B9impl_uses*
 ;
 
 class function TkwDialogsLockDocumentGetSkipMode.GetWordNameForRegister: AnsiString;

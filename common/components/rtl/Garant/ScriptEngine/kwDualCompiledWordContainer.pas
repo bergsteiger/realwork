@@ -43,6 +43,8 @@ uses
  , l3Base
  , SysUtils
  , tfwClassRef
+ //#UC START# *4DBAC27801EFimpl_uses*
+ //#UC END# *4DBAC27801EFimpl_uses*
 ;
 
 function TkwDualCompiledWordContainer.pm_GetElseBranch: TtfwWord;

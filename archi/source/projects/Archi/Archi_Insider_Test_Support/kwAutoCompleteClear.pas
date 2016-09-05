@@ -34,6 +34,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evAutoComplete
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *53CD0A6A03DFimpl_uses*
+ //#UC END# *53CD0A6A03DFimpl_uses*
 ;
 
 class function TkwAutoCompleteClear.GetWordNameForRegister: AnsiString;

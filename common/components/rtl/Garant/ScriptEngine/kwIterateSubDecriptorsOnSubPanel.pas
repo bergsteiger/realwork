@@ -74,6 +74,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *52D78486017Bimpl_uses*
+ //#UC END# *52D78486017Bimpl_uses*
 ;
 
 procedure TkwIterateSubDecriptorsOnSubPanel.PushObjData(const aCtx: TtfwContext;

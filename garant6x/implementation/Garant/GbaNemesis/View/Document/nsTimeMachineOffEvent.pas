@@ -31,6 +31,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B1653D10039impl_uses*
+ //#UC END# *4B1653D10039impl_uses*
 ;
 
 class procedure TnsTimeMachineOffEvent.Log(const aDoc: IDocument);

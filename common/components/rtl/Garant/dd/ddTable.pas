@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *519B719F0019impl_uses*
+ //#UC END# *519B719F0019impl_uses*
 ;
 
 procedure TddTable.ClearRows;

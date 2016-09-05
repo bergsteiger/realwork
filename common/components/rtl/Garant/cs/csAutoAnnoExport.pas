@@ -4,14 +4,14 @@ interface
 
 uses
   csExport,
-  DT_Types,
+  daTypes,
   csAutoAnnoExportPrim
   ;
 
 type
  TcsAutoAnnoExport = class(TcsAutoAnnoExportPrim)
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
  end;//TcsAutoAnnoExport
 
 implementation
@@ -19,10 +19,11 @@ implementation
 uses
   csTaskTypes,
   daSchemeConsts,
-  DT_Const
+  DT_Const,
+  dt_Types
   ;
 
-constructor TcsAutoAnnoExport.Create(aUserID: TUserID);
+constructor TcsAutoAnnoExport.Create(aUserID: TdaUserID);
 begin
   inherited;
   DiapasonType          := tdNumList;

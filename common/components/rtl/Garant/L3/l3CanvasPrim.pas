@@ -631,6 +631,8 @@ uses
  , m2XLtLib
  {$IfEnd} // Defined(l3Requires_m0)
  , l3FrameLines
+ //#UC START# *4A4CB79A02C6impl_uses*
+ //#UC END# *4A4CB79A02C6impl_uses*
 ;
 
 const

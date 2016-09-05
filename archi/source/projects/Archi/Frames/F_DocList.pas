@@ -1,6 +1,6 @@
 unit F_DocList;
 
-{ $Id: F_DocList.pas,v 1.75 2015/12/02 17:27:37 lulin Exp $ }
+{ $Id: F_DocList.pas,v 1.77 2016/07/26 10:50:42 dinishev Exp $ }
 
 interface
 {$I ProjectDefine.inc}
@@ -13,6 +13,7 @@ uses
   DictsSup, l3Types, l3DatLst,
   l3InternalInterfaces, l3Interfaces,
   l3Tree, l3TreeInterfaces, l3Tree_TLB, l3Nodes,
+  daTypes,
   DT_Const, DT_Types,
   dtIntf, dt_Sab,
   Dt_Doc, DT_Dict, DT_Log, DT_Hyper,
@@ -77,9 +78,9 @@ type
     procedure SrchResultListerGetItemImageOverlays(Sender: TObject;
       aIndex: Integer; var theOverlays: TOverlayIndexArray);
   private
-    fFamily          : TFamilyID;
+    fFamily          : TdaFamilyID;
 
-    DDHLink          : TGlobalCoordinateRec;
+    DDHLink          : TdaGlobalCoordinateRec;
 
     fSubShow         : Boolean;
     fWasSaved        : Boolean;
@@ -98,7 +99,7 @@ type
     {procedure ProgressProc(aState: Byte; aPercent: Integer;
                            aValue: Longint; const aMsg: AnsiString);}
 
-    procedure SetFamily(Value : TFamilyID);
+    procedure SetFamily(Value : TdaFamilyID);
     procedure SetModified(Value : Boolean);
 
     function  GetQuery : TdtQuery;
@@ -140,7 +141,7 @@ type
 
     procedure ExpandEdition;
 
-    property  Family   : TFamilyID  read fFamily write SetFamily;
+    property  Family   : TdaFamilyID  read fFamily write SetFamily;
     property  IsIDList: Boolean read pm_GetIsIDList;
     property  Query  : TdtQuery read GetQuery write SetQuery;
 
@@ -242,7 +243,7 @@ begin
  OpenDocumentInEditor(SrchResultLister.Current, aReadOnly);
 end;
 
-procedure TDocumentList.SetFamily(Value : TFamilyID);
+procedure TDocumentList.SetFamily(Value : TdaFamilyID);
 begin
  //If FFamily = Value then Exit;
  fFamily := Value;
@@ -524,7 +525,7 @@ procedure TDocumentList.WMDropAccept(var Message: TMessage);
        lItData := Data[I];
        if (TDragDataType(lItData[0]) = ddDoc) then
         try
-         QueryProvider.AddID(PGlobalCoordinateRec(lItData + 1)^.Doc);
+         QueryProvider.AddID(PdaGlobalCoordinateRec(lItData + 1)^.Doc);
          Inc(lAddCnt);
         except
         end;
@@ -590,7 +591,7 @@ end;
 procedure TDocumentList.acInsertDocToObjListExecute(Sender: TObject);
 var
  I             : Longint;
- ItDataRec     : TGlobalCoordinateRec;
+ ItDataRec     : TdaGlobalCoordinateRec;
  SaveAllocFlag : Boolean;
  lDoc          : PDocListAccessRec;
 begin
@@ -1045,7 +1046,7 @@ begin
   lSaveDocNum := lOldDestDoc;
   lOldDestDoc := LinkServer(fFamily).Renum.ConvertToRealNumber(lOldDestDoc);
   if lOldDestDoc <= 0 then
-   raise El3NoLoggedException.CreateFmt(sidWrongDocID,[sidWrongDocID]);
+   raise El3NoLoggedException.CreateFmt(sidWrongDocID, [lSaveDocNum]);
   LinkServer(fFamily).Renum.GetRNumber(lNewDestDoc);
 
   lDocIDSab := QueryProvider.MakeDocIDList(True);

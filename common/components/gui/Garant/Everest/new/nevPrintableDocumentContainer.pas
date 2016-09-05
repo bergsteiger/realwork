@@ -56,6 +56,8 @@ uses
  , nevDocumentProvider
  , l3Variant
  , l3StringIDEx
+ //#UC START# *47F34F00021Cimpl_uses*
+ //#UC END# *47F34F00021Cimpl_uses*
 ;
 
 function TnevPrintableDocumentContainer.DocumentForPreview: InevDocumentProvider;

@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4ADC5175035Bimpl_uses*
+ //#UC END# *4ADC5175035Bimpl_uses*
 ;
 
 var g_TnsWindowsList: TnsWindowsList = nil;

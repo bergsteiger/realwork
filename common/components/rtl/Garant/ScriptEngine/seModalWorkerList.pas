@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4FC756830111impl_uses*
+ //#UC END# *4FC756830111impl_uses*
 ;
 
 var g_TseModalWorkerList: TseModalWorkerList = nil;

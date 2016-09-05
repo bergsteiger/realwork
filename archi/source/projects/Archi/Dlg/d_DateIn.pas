@@ -1,6 +1,6 @@
 unit d_DateIn;
 
-{ $Id: d_DateIn.pas,v 1.10 2016/04/18 08:39:30 lukyanets Exp $ }
+{ $Id: d_DateIn.pas,v 1.11 2016/08/10 12:48:40 lukyanets Exp $ }
 
 interface
 
@@ -41,11 +41,11 @@ implementation
 {$R *.DFM}
 
 Uses
-  DT_User;
+ daDataProvider;
 
 procedure TFindByJournalDlg.FormCreate(Sender: TObject);
 begin
- UserManager.GetFiltredUserList(cbUser.Items);
+ GlobalDataProvider.UserManager.GetFiltredUserList(cbUser.Items);
  cbUser.Items.Insert(0, '[бяе]');
  cbUser.ItemIndex := 0;
 end;

@@ -45,6 +45,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C3FEB280134impl_uses*
+ //#UC END# *4C3FEB280134impl_uses*
 ;
 
 procedure TChangeAllTablesTest.Process(aForm: TPrimTextLoadForm);

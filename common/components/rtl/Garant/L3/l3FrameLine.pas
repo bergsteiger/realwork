@@ -119,6 +119,8 @@ uses
  , l3Units
  , Windows
  , l3UnitsTools
+ //#UC START# *48CA546C01B0impl_uses*
+ //#UC END# *48CA546C01B0impl_uses*
 ;
 
 function Tl3LinePart.EQ(const Another: Tl3LinePart): Boolean;

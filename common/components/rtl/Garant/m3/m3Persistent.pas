@@ -39,6 +39,8 @@ uses
  l3ImplUses
  , m2COMLib
  , l3Chars
+ //#UC START# *5421799C0066impl_uses*
+ //#UC END# *5421799C0066impl_uses*
 ;
 
 procedure Tm3Persistent.LoadBuff(const aStream: IStream;

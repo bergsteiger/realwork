@@ -38,6 +38,8 @@ uses
  l3ImplUses
  , l3String
  , l3Chars
+ //#UC START# *4F6C79B10165impl_uses*
+ //#UC END# *4F6C79B10165impl_uses*
 ;
 
 constructor TafwAString.Create(const aString: Il3CString);

@@ -46,6 +46,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *53F2D86C02FCimpl_uses*
+ //#UC END# *53F2D86C02FCimpl_uses*
 ;
 
 constructor TChromeLikeTabParams.Create(const aText: Il3CString;

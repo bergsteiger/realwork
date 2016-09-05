@@ -37,6 +37,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *55A6448A0302impl_uses*
+ //#UC END# *55A6448A0302impl_uses*
 ;
 
 constructor TvcmFormSetFactoryFacade.Create(aFactoryClass: RvcmFormSetFactory);

@@ -31,6 +31,8 @@ uses
  , l3String
  , l3Variant
  , l3Memory
+ //#UC START# *4F463DDB0108impl_uses*
+ //#UC END# *4F463DDB0108impl_uses*
 ;
 
 type _Instance_R_ = TtfwDictionaryPrimPrim;

@@ -92,6 +92,8 @@ uses
  l3ImplUses
  , SysUtils
  , ddTypes
+ //#UC START# *51D2871702FAimpl_uses*
+ //#UC END# *51D2871702FAimpl_uses*
 ;
 
 procedure TddRTFState.pm_SetBOP(aValue: TddBorder);

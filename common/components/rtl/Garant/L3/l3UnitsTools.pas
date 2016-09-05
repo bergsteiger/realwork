@@ -31,6 +31,8 @@ uses
  , l3Math
  , l3Defaults
  , l3Const
+ //#UC START# *4A3918BB0114impl_uses*
+ //#UC END# *4A3918BB0114impl_uses*
 ;
 
 var g_CWEpsilon: Integer = 0;

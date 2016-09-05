@@ -69,6 +69,8 @@ uses
  , l3Base
  , afwFacade
  , afwSettingsChangePublisher
+ //#UC START# *4C22137E025Cimpl_uses*
+ //#UC END# *4C22137E025Cimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}

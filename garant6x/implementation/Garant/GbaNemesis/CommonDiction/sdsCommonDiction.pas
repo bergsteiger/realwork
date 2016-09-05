@@ -75,6 +75,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4941654603E7impl_uses*
+ //#UC END# *4941654603E7impl_uses*
 ;
 
 type _Instance_R_ = TsdsCommonDiction;

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   BottomBtnDlg, StdCtrls, Buttons, ExtCtrls, OvcBase,  vtlister,
-  Dt_Types, DT_Const, afwControl, afwInputControl, afwControlPrim,
+  daTypes, dt_Types, DT_Const, afwControl, afwInputControl, afwControlPrim,
   afwBaseControl;
 
 type
@@ -17,7 +17,7 @@ type
   private
     { Private declarations }
   public
-    function Execute(aFamily : TFamilyID) : boolean; reintroduce;
+    function Execute(aFamily : TdaFamilyID) : boolean; reintroduce;
   end;
 
  const
@@ -35,7 +35,7 @@ Uses
  DT_Query,
  DT_SrchQueries;
 
-function TDocByStageInfoDlg.Execute(aFamily : TFamilyID) : boolean;
+function TDocByStageInfoDlg.Execute(aFamily : TdaFamilyID) : boolean;
 var
  I                  : Integer;
  l_NonIncludedQuery : TdtQuery;

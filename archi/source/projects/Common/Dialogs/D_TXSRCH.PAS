@@ -311,6 +311,8 @@ uses
   l3RegEx, vtlister,
 
   {$IFNDEF NotArchiProject}
+  daTypes,
+
   DT_Doc,
   DT_Hyper,
   DT_Err,
@@ -1138,7 +1140,7 @@ var
  //SL          : Tl3StringDataList;
  I        : Integer;
  lDocID   : TDocID;
- lDocFamily : TFamilyID;
+ lDocFamily : TdaFamilyID;
  lSaveReadOnly : boolean;
 begin
  Result := False;

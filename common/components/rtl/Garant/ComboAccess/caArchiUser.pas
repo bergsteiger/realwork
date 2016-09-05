@@ -63,6 +63,8 @@ implementation
 {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
  l3ImplUses
+ //#UC START# *57566B200124impl_uses*
+ //#UC END# *57566B200124impl_uses*
 ;
 
 constructor TcaArchiUser.Create(const aHTUser: IdaArchiUser;

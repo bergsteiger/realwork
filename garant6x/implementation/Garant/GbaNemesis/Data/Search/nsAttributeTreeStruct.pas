@@ -55,6 +55,8 @@ uses
  , l3String
  , nsAttributeTreeCacheNew
  , bsUtils
+ //#UC START# *468364C70131impl_uses*
+ //#UC END# *468364C70131impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}

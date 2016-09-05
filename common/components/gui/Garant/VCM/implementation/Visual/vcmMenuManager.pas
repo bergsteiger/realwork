@@ -733,6 +733,9 @@ uses
  , Graphics
  , RTLConsts
  //#UC START# *4B30EC67025Aimpl_uses*
+ {$IfDef XE}
+ , System.Actions
+ {$EndIf}
  //#UC END# *4B30EC67025Aimpl_uses*
 ;
 

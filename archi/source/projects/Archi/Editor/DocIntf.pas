@@ -1,6 +1,6 @@
 unit DocIntf;
 
-{ $Id: DocIntf.pas,v 1.99 2016/01/21 09:44:43 voba Exp $ }
+{ $Id: DocIntf.pas,v 1.108 2016/08/30 14:11:47 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -20,6 +20,7 @@ uses
  l3DatLst,
  l3Except,
  l3LongintList,
+ l3Filer,
 
  m3DBInterfaces,
 
@@ -51,6 +52,8 @@ uses
  ddDocumentCopy,
 
  DictsSup,
+
+ daTypes,
 
  DT_Const,
  DT_Types,
@@ -93,7 +96,7 @@ type
 
   PDocAddr = ^TDocAddr;
   TDocAddr = Record
-              FamID : TFamilyID;
+              FamID : TdaFamilyID;
               DocID : TDocID;
              end;
 
@@ -131,12 +134,12 @@ type
    fOnChangeDocAttribute  : TOnChangeDocAttribute;
    fOnBeforeSaveAttribute : TOnBeforeSaveAttribute;
    fAttrOperateMode       : TAttrOperateMode;
-   fDocFamily             : TFamilyID;
+   fDocFamily             : TdaFamilyID;
    fInLoad                : Boolean;
 
    function  GetAttrArray : Tl3ObjectRefArray;
-   procedure SetDocFamily(aValue : TFamilyID);
-   function GetDocFamily : TFamilyID;
+   procedure SetDocFamily(aValue : TdaFamilyID);
+   function GetDocFamily : TdaFamilyID;
   protected
    procedure Cleanup; override;
    function  Get_SubID : TSubID;
@@ -172,7 +175,7 @@ type
      read fAttrOperateMode
      write fAttrOperateMode;
 
-   property DocFamily: TFamilyID
+   property DocFamily: TdaFamilyID
     read GetDocFamily
     write SetDocFamily;
 
@@ -187,20 +190,20 @@ type
 
   TarDocInfo = class(Tl3Base)
   private
-   fDocFamily          : TFamilyID;
+   fDocFamily          : TdaFamilyID;
    fDocID              : TDocID;
    fDocClass           : TDocType;
    //fUserDocID          : TDocID;
 
-   procedure SetDocFamily(aValue : TFamilyID);
+   procedure SetDocFamily(aValue : TdaFamilyID);
    procedure SetDocID(aValue : TDocID);
   public
-   constructor Make(aDocFamily : TFamilyID = 0; aDocID : TDocID = 0; aDocClass : TDocType = dtText);
+   constructor Make(aDocFamily : TdaFamilyID = 0; aDocID : TDocID = 0; aDocClass : TDocType = dtText);
    function  IsSetted : Boolean;
    //function  GetUserDocID : TDocID;
    //function  SetUserDocID(aValue : TDocID) : boolean;
 
-   property DocFamily : TFamilyID read fDocFamily  write SetDocFamily;
+   property DocFamily : TdaFamilyID read fDocFamily  write SetDocFamily;
    property DocID     : TDocID    read fDocID      write SetDocID;
    property DocClass  : TDocType  read fDocClass   write fDocClass;
   end;
@@ -209,6 +212,15 @@ type
   TOnGetHFPainter    = function(aSender: TObject; aPrintBlock : Boolean) : Il3HAFPainter of object;
 
   TarTextOfDocument = class(TevTextSource)
+  private
+   procedure BuildLoadPipeParams(out WithAttr: Boolean; out DocPartSel: TDocPartSelector);
+   function BuildClientServerLoadPipe(var aGen: Tk2TagGenerator; WithAttr: Boolean;
+     DocPartSel: TDocPartSelector; aFoundSelector: Tm4Addresses;
+     aLevel : Integer; var theFiler : Tl3CustomFiler): Boolean;
+   procedure BuildRemoteLoadPipe(var aGen: Tk2TagGenerator; WithAttr: Boolean;
+     DocPartSel: TDocPartSelector; aFoundSelector: Tm4Addresses; aLevel : Integer;
+     var theFiler : Tl3CustomFiler);
+   function IsObjTopic: Boolean;  
   protected
    fNeedFullSave : Boolean; // это флаг который показывает что хотя мы сохранили текст и модифиед сбросился, но нужно опять сохранить с синхронизацией в базу
    fDocPart   : Tm3DocPartSelector;
@@ -350,8 +362,8 @@ type
    function  GetTextAttribute(aDocPart : Tm3DocPartSelector) : TarTextOfDocument; virtual;
    function  GetTextSource : TarTextOfDocument;
    function  GetTextSourceAnno : TarTextOfDocument;
-   procedure SetDocFamily(aValue : TFamilyID); virtual;
-   function  GetDocFamily : TFamilyID;
+   procedure SetDocFamily(aValue : TdaFamilyID); virtual;
+   function  GetDocFamily : TdaFamilyID;
    procedure SetDocID(aValue : TDocId); virtual;
    function  GetDocID : TDocID;
    procedure SetDocClass(aValue : TDocType);  virtual;
@@ -424,14 +436,14 @@ type
 
    function HasTextSource(aDocumentStreamSelector : Tm3DocPartSelector = m3_dsMain): Boolean;
 
-   constructor Create(aFamily : TFamilyID = 0); reintroduce;
-   constructor CreateParam(aDocFamily : TFamilyID; aDocID : TDocID; aUserDocID : Boolean = false); virtual;
+   constructor Create(aFamily : TdaFamilyID = 0); reintroduce;
+   constructor CreateParam(aDocFamily : TdaFamilyID; aDocID : TDocID; aUserDocID : Boolean = false); virtual;
    procedure Cleanup; override;
    procedure ClearWindowLink; virtual;
     {* -  отвязывается от окна редактора, что бы не вызывать его эвенты в случае, когда окно закрыли, а Doc работает (переворот редакции)}
 
    property DocInfo     : TarDocInfo read GetDocInfo;
-   property DocFamily   : TFamilyID  read GetDocFamily write SetDocFamily;
+   property DocFamily   : TdaFamilyID  read GetDocFamily write SetDocFamily;
    property DocID       : TDocID     read GetDocID write SetDocID;
    property UserDocID   : TDocId     read GetUserDocID write SetUserDocID;
    property DocClass    : TDocType   read GetDocClass write SetDocClass;
@@ -537,7 +549,7 @@ type
     //function  GetDocData       : TDocumentAttrData;
     //procedure SetDocData(Value : TDocumentAttrData);
 
-    procedure SetDocFamily(aValue : TFamilyID); override;
+    procedure SetDocFamily(aValue : TdaFamilyID); override;
     procedure SetDocID(aValue : TDocId);     override;
 
     procedure SaveDocPart(aPart: Tm3DocPartSelector; aFullSave: Boolean); override;
@@ -595,7 +607,7 @@ type
     {* - Анализирует текст и заполняет атрибуты.}
 
     procedure Close;
-    constructor CreateParam(aDocFamily : TFamilyID; aDocID : TDocID; aUserDocID : Boolean = false); override;
+    constructor CreateParam(aDocFamily : TdaFamilyID; aDocID : TDocID; aUserDocID : Boolean = false); override;
     procedure Cleanup; override;
 
     procedure MakeNew(aDocClass : TDocType; aSrcFile: TFileName = '');
@@ -632,7 +644,7 @@ type
     procedure Lock;
     procedure Unlock;
     procedure Relock;
-    procedure WhoLockDoc(var aStation : TStationNameArray; var aUserID : TUserIDArray);
+    procedure WhoLockDoc(var aStation : TStationNameArray; var aUserID : TdaUserIDArray);
 
     function IsPossibleText : Boolean; override;
     function IsPossibleSpr: Boolean;
@@ -715,7 +727,7 @@ type
  ERequiredFieldsEmpty = class(El3NoLoggedException);
  ESprForbidden        = class(El3NoLoggedException);
 
- function DocAddr(aFamID : TFamilyID; aDocID  : TDocID) : TDocAddr;
+ function DocAddr(aFamID : TdaFamilyID; aDocID  : TDocID) : TDocAddr;
  procedure DeleteLocalCopy(aDocID : TDocID);
 
 implementation
@@ -736,7 +748,6 @@ uses
   Com_Cnst,
 
   daDataProvider,
-  daTypes,
   daSchemeConsts,
 
   dt_Serv,
@@ -776,7 +787,6 @@ uses
   l3Bits,
   l3MinMax,
   l3Chars,
-  l3Filer,
   l3BaseStream,
   l3Stream,
   l3String,
@@ -821,12 +831,15 @@ uses
   evDocumentPreview,
   evGraphicFileSupport,
 
+  arDocAttributesMixer,
   arHAFPainer,
   arMacroReplacer,
   arDocumentContainer,
   arFoundSelectionFilter,
   arSpravkaDocumentContainer,
   arDocumentContainerWithContentsTree,
+
+  ArchiUserRequestManager,
 
   StDateSt,
 
@@ -854,7 +867,7 @@ uses
   m3DBFiler
   ;
 
-function DocAddr(aFamID : TFamilyID; aDocID  : TDocID) : TDocAddr;
+function DocAddr(aFamID : TdaFamilyID; aDocID  : TDocID) : TDocAddr;
 begin
  with Result do
  begin
@@ -864,7 +877,7 @@ begin
 end;
 
 {TarDocInfo}
-constructor TarDocInfo.Make(aDocFamily : TFamilyID = 0; aDocID : TDocID = 0; aDocClass : TDocType = dtText);
+constructor TarDocInfo.Make(aDocFamily : TdaFamilyID = 0; aDocID : TDocID = 0; aDocClass : TDocType = dtText);
 begin
  Create;
  DocFamily := aDocFamily;
@@ -872,7 +885,7 @@ begin
  DocClass := aDocClass;
 end;
 
-procedure TarDocInfo.SetDocFamily(aValue : TFamilyID);
+procedure TarDocInfo.SetDocFamily(aValue : TdaFamilyID);
 begin
  fDocFamily := aValue;
  //fUserDocID := 0;
@@ -919,13 +932,13 @@ end;
 *)
 
 {TarCustomDocument}
-constructor TarCustomDocument.Create(aFamily : TFamilyID = 0);
+constructor TarCustomDocument.Create(aFamily : TdaFamilyID = 0);
 begin
  inherited Create;
  DocFamily := aFamily;
 end;
 
-constructor TarCustomDocument.CreateParam(aDocFamily : TFamilyID; aDocID : TDocID; aUserDocID : Boolean = false);
+constructor TarCustomDocument.CreateParam(aDocFamily : TdaFamilyID; aDocID : TDocID; aUserDocID : Boolean = false);
 begin
  Create;
  DocFamily := aDocFamily;
@@ -955,7 +968,7 @@ begin
  fOnDocTextSave     := nil;
 end;
 
-procedure TarCustomDocument.SetDocFamily(aValue : TFamilyID);
+procedure TarCustomDocument.SetDocFamily(aValue : TdaFamilyID);
 begin
  if DocFamily = aValue then Exit;
  if DocFamily > 0 then
@@ -964,7 +977,7 @@ begin
  DocInfo.DocFamily := aValue;
 end;
 
-function TarCustomDocument.GetDocFamily : TFamilyID;
+function TarCustomDocument.GetDocFamily : TdaFamilyID;
 begin
  Result := DocInfo.DocFamily;
 end;
@@ -1669,7 +1682,7 @@ begin
  inherited;
 end;
 
-constructor TarDocument.CreateParam(aDocFamily : TFamilyID; aDocID : TDocID; aUserDocID : Boolean = false);
+constructor TarDocument.CreateParam(aDocFamily : TdaFamilyID; aDocID : TDocID; aUserDocID : Boolean = false);
 begin
  Inherited;
  fMainRecModified := False;
@@ -1765,7 +1778,7 @@ begin
      HasAnno := True;
    end;
 
-   (*if DocClass in [dtFlash, dtObject] then
+   (*if IsObjTopic then
     TextSource.LoadText(aGoToType, aGoToHandle, DocObject)
    else
    begin
@@ -1789,7 +1802,7 @@ begin
  end;
 end;
 
-procedure TarDocument.SetDocFamily(aValue : TFamilyID);
+procedure TarDocument.SetDocFamily(aValue : TdaFamilyID);
 begin
  if DocFamily = aValue then Exit;
  Inherited SetDocFamily(aValue);
@@ -2363,7 +2376,7 @@ begin
  Lock;
 end;
 
-procedure TarDocument.WhoLockDoc(var aStation : TStationNameArray; var aUserID : TUserIDArray);
+procedure TarDocument.WhoLockDoc(var aStation : TStationNameArray; var aUserID : TdaUserIDArray);
 begin
  LockServer.WhoLockDoc(DocFamily, DocID, aStation, aUserID, fLockHandle);
 end;
@@ -2869,16 +2882,12 @@ procedure TarTextOfDocument.LoadText(aGoToType      : Integer = ord(ev_sbtNone);
                                      const aSearcher  : IevSearcher = nil;
                                      aLevel : Integer = Cm3LastVersion {откат к предыдущей версии});
 var
- l_DB       : Im3DB;
- lBaseFiler : Tl3CustomFiler;
+ l_Filer : Tl3CustomFiler;
  G           : Tk2TagGenerator;
- //G1           : Ik2TagGenerator;
  l_Control  : InevControl;
- //lDBFltr    : TExportFilter;
  {*}lTimer : Cardinal;
  lWithAttr  : boolean;
  lDocPartSel : TDocPartSelector;
-
 begin
  if not (DocInfo.IsSetted) then Exit;
 
@@ -2888,73 +2897,32 @@ begin
 
  G := nil;
  try
+  BuildLoadPipeParams(lWithAttr, lDocPartSel);
 
-  lWithAttr:= not IsSpravka and (DocPart in [m3_dsMain, m3_dsAnno]);
-  if lWithAttr then
-  begin
-   if IsSpravka then
-    lDocPartSel := dpSpr
-   else
-    if DocPart = m3_dsAnno then
-     lDocPartSel := dpAnno
-    else
-     lDocPartSel := dpDoc;
-   TExportFilter.SetTo(G, DocInfo.DocFamily, DocInfo.DocID, true, false, emLoad, lDocPartSel);
+  l_Filer := nil;
+
+  if IniRec.DirectDocStorageAccess then
+    BuildRemoteLoadPipe(G, lWithAttr, lDocPartSel, aFoundSelector, aLevel, l_Filer)
+  else
+   if not BuildClientServerLoadPipe(G, lWithAttr, lDocPartSel, aFoundSelector, aLevel, l_Filer) then
+    raise Exception.Create(sidRemoteStorageDisabled);
+  try
+   TevEVDReader.SetTo(G);
+   (G as TevEVDReader).Filer := l_Filer;
+  finally
+   l3Free(l_Filer);
   end;
 
-  //if Exists then // текст дока есть в хранилище
-  //begin
-   if lWithAttr then
-    TddWrongTagFixFilter.SetTo(G, false);
-
-   //if aDocObject <> nil then
-   // TarDocObjectExtractor.SetTo(G, aDocObject);
-
-   if DocPart = m3_dsMain then
+  if Editors.Count > 0 then
+   Supports(Tl3Base(Editors.Items[0]), InevControl, l_Control);
+  if (l_Control <> nil) and (aGoToType <> Ord(ev_sbtNone)) then
+   if (aGoToType = ev_sbtBySearcher) then
    begin
-    if not (DocInfo.fDocClass in [dtFlash, dtObject]) then
-    begin
-     //TRecalcHLinksFilter.SetTo(G, DocInfo.DocFamily, DocInfo.DocID);
-      TddExtObjInserter.SetTo(G{, DocInfo.DocID});
-      evLinkTableFilters(G, False);
-      TevOutTextParaEliminator.SetTo(G);
-    end
-    else
-    begin
-     TarDocObjectMixer.SetTo(G);
-    end;
-   end;
-
-   //TddKTExtractorFilter.SetTo(G);
-   if aFoundSelector <> nil then
-    TarFoundSelectionFilter.SetTo(G, aFoundSelector);
-
-   TFixInternalNumberHandleFilter.SetTo(G, DocInfo.DocID); // гарантированно кладет DocInfo.DocID в InternalHandle
-   TevTagsListFilter.SetTo(G, TevTagsListFilter.MakeAttrList(k2_typDocument, [k2_tiEditableParts, k2_tiExternalHandle]));
-   TevdBadEVDToEmptyDocumentTranslator.SetTo(G, GetDocumentType, GlobalDataProvider.BaseLanguage[DocInfo.DocFamily].LanguageID);
-   TevEVDReader.SetTo(G);
-   l_DB := dtGetDB(DocInfo.DocFamily);
-   try
-    lBaseFiler := Tm3DBFiler.Create(l_DB, DocInfo.DocID, DocPart, aLevel);
-    try
-     (G as TevEVDReader).Filer := lBaseFiler;
-    finally
-     l3Free(lBaseFiler);
-    end;
-   finally
-    l_DB := nil;
-   end;//try..finally
-
-   if Editors.Count > 0 then
-    Supports(Tl3Base(Editors.Items[0]), InevControl, l_Control);
-   if (l_Control <> nil) and (aGoToType <> Ord(ev_sbtNone)) then
-    if (aGoToType = ev_sbtBySearcher) then
-    begin
-     Assert(aSearcher <> nil);
-     DocumentContainer.LinkWaiter(TevSearchWaiter.Make(l_Control, aSearcher))
-    end // if (aGoToType = ev_sbtBySearcher) then
-    else
-     DocumentContainer.LinkWaiter(TevSubWaiter.Make(l_Control, aGoToHandle, aGoToType));
+    Assert(aSearcher <> nil);
+    DocumentContainer.LinkWaiter(TevSearchWaiter.Make(l_Control, aSearcher))
+   end // if (aGoToType = ev_sbtBySearcher) then
+   else
+    DocumentContainer.LinkWaiter(TevSubWaiter.Make(l_Control, aGoToHandle, aGoToType));
 
    Load((G as TevEVDReader));
  finally
@@ -3265,9 +3233,10 @@ end;
 procedure TarTextOfDocument.Commit_SetAddFilter(var aGenerator: Tk2TagGenerator);
 // фильтры для основного потока с атрибутами
 begin
- if not (DocInfo.fDocClass in [dtFlash, dtObject]) then
+ if not (IsObjTopic) then
  begin
-  TddImageHandleInsertFilter.SetTo(aGenerator);
+  //TddImageHandleInsertFilter.SetTo(aGenerator);
+  // - этот функционал переехал в TddSavedObjectsList и TddExtObjExtractor
   TddExtObjExtractor.SetTo(aGenerator);
  end;
  //else
@@ -3700,6 +3669,98 @@ end;
 // SaveTextPrim(aFullSave, anAdditionalData);
 //end;
 
+procedure TarTextOfDocument.BuildRemoteLoadPipe(var aGen: Tk2TagGenerator;
+  WithAttr: Boolean; DocPartSel: TDocPartSelector;
+  aFoundSelector: Tm4Addresses; aLevel: Integer; var theFiler : Tl3CustomFiler);
+//var
+// l_DB: Im3DB;
+begin
+ BuildDocLoadPipe(DocInfo.DocFamily, DocInfo.DocID, IsObjTopic, GetDocumentType,
+  DocPart, aLevel, WithAttr, DocPartSel, aFoundSelector, aGen, theFiler);
+(*
+ if WithAttr then
+ begin
+  TExportFilter.SetTo(aGen, DocInfo.DocFamily, DocInfo.DocID, true, false, emLoad, DocPartSel);
+ end;
+
+ if WithAttr then
+  TddWrongTagFixFilter.SetTo(aGen, false);
+
+ if DocPart = m3_dsMain then
+ begin
+  if not IsObjTopic then
+  begin
+   //TRecalcHLinksFilter.SetTo(G, DocInfo.DocFamily, DocInfo.DocID);
+    TddExtObjInserter.SetTo(aGen);
+    evLinkTableFilters(aGen, False);
+    TevOutTextParaEliminator.SetTo(aGen);
+  end
+  else
+  begin
+   TarDocObjectMixer.SetTo(aGen);
+  end;
+ end;
+
+ //TddKTExtractorFilter.SetTo(aGen);
+ if aFoundSelector <> nil then
+  TarFoundSelectionFilter.SetTo(aGen, aFoundSelector);
+
+ TFixInternalNumberHandleFilter.SetTo(aGen, DocInfo.DocID); // гарантированно кладет DocInfo.DocID в InternalHandle
+ TevTagsListFilter.SetTo(aGen, TevTagsListFilter.MakeAttrList(k2_typDocument, [k2_tiEditableParts, k2_tiExternalHandle]));
+ TevdBadEVDToEmptyDocumentTranslator.SetTo(aGen, GetDocumentType, GlobalDataProvider.BaseLanguage[DocInfo.DocFamily].LanguageID);
+
+
+ l_DB := dtGetDB(DocInfo.DocFamily);
+ try
+  theFiler := Tm3DBFiler.Create(l_DB, DocInfo.DocID, DocPart, aLevel);
+ finally
+  l_DB := nil;
+ end;//try..finally
+*) 
+end;
+
+procedure TarTextOfDocument.BuildLoadPipeParams(out WithAttr: Boolean;
+  out DocPartSel: TDocPartSelector);
+begin
+ WithAttr:= not IsSpravka and (DocPart in [m3_dsMain, m3_dsAnno]);
+ if WithAttr then
+ begin
+  if IsSpravka then
+   DocPartSel := dpSpr
+  else
+   if DocPart = m3_dsAnno then
+    DocPartSel := dpAnno
+   else
+    DocPartSel := dpDoc;
+ end;
+end;
+
+function TarTextOfDocument.BuildClientServerLoadPipe(
+  var aGen: Tk2TagGenerator; WithAttr: Boolean; DocPartSel: TDocPartSelector;
+  aFoundSelector: Tm4Addresses; aLevel : Integer; var theFiler : Tl3CustomFiler): Boolean;
+var
+ l_ComStream: IStream;
+begin
+ l_ComStream := nil;
+ Result := ArchiRequestManager.DownloadDocStream(DocInfo.DocFamily, DocInfo.DocID,
+   IsObjTopic, GetDocumentType.AsString, DocPart, aLevel, WithAttr, DocPartSel,
+   aFoundSelector, l_ComStream);
+ try
+  if Result then
+  begin
+   theFiler := Tl3CustomFiler.Create(nil);
+   theFiler.COMStream := l_ComStream;
+  end;
+ finally
+  l_ComStream := nil;
+ end;
+end;
+
+function TarTextOfDocument.IsObjTopic: Boolean;
+begin
+ Result := DocInfo.fDocClass in [dtFlash, dtObject];
+end;
+
 {TDocAttributeManager}
 
 constructor TDocAttributeManager.Create(aDocument : TarDocumentWithAttr = nil);
@@ -3725,33 +3786,6 @@ begin
  if m3_dsAnno in aDocParts then
   Result := Document.AnnoTextSource.AttrWasModified;
 end;
-
-(*
-function TDocAttributeManager.DataWasModified(TarTextOfDocument;) : boolean;
-var
- I : Integer;
- lAttrSet : TdtAttributeSet;
-begin
- lAttrSet := [];
- if m3_dsMain in aDocParts then
-  lAttrSet := lAttrSet + cDocAttrs;
- if m3_dsAnno in aDocParts then
-  lAttrSet := lAttrSet + cAnnoAttrs;
-
-
- Result := False;
- if fAttrArray <> nil then
-  for I := 0 to Pred(fAttrArray.Count) do
-   if (TdtAttribute(I) in lAttrSet) and (fAttrArray[I] <> nil) and
-      TCustomDocAttribute(fAttrArray[I]).Modified then
-   begin
-    Result := True;
-    Exit;
-   end;
-
- //Result := ((fAlarmList <> nil) and fAlarmList.Modified);
-end;
-*)
 
 procedure  TDocAttributeManager.DeleteAllforPart(aDocPart : Tm3DocPartSelector);
 var
@@ -3996,7 +4030,7 @@ begin
     Result := True;}
 end;
 
-procedure TDocAttributeManager.SetDocFamily(aValue : TFamilyID);
+procedure TDocAttributeManager.SetDocFamily(aValue : TdaFamilyID);
 begin
  if fDocument <> nil then
   fDocument.DocFamily := aValue;
@@ -4004,7 +4038,7 @@ begin
  fDocFamily := aValue;
 end;
 
-function TDocAttributeManager.GetDocFamily : TFamilyID;
+function TDocAttributeManager.GetDocFamily : TdaFamilyID;
 begin
  if fDocument <> nil then
   Result := fDocument.DocFamily

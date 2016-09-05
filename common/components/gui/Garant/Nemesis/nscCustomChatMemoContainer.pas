@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , nscCustomChatMemoDocumentPartGenerator
  , nscCustomChatMemoProcessor
+ //#UC START# *4A8BB2BD015Eimpl_uses*
+ //#UC END# *4A8BB2BD015Eimpl_uses*
 ;
 
 procedure TnscCustomChatMemoContainer.MakeProcessor(out theProcessor: TevCustomUndoProcessor);

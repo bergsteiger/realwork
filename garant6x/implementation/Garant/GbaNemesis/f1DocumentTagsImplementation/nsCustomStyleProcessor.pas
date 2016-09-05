@@ -61,6 +61,8 @@ uses
  , nscDocumentHistory
  {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
  , l3Base
+ //#UC START# *53AC08C900D0impl_uses*
+ //#UC END# *53AC08C900D0impl_uses*
 ;
 
 var g_TnsCustomStyleProcessor: TnsCustomStyleProcessor = nil;

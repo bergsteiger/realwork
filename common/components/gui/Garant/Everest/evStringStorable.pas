@@ -40,6 +40,8 @@ uses
  , TextPara_Const
  , HyperLink_Const
  , Address_Const
+ //#UC START# *48F4945A02FFimpl_uses*
+ //#UC END# *48F4945A02FFimpl_uses*
 ;
 
 procedure TevStringStorable.GetAddress(var Addr: TevAddress);

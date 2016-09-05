@@ -35,6 +35,8 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4E4B5F29031Cimpl_uses*
+ //#UC END# *4E4B5F29031Cimpl_uses*
 ;
 
 procedure arMakeChangeDoc;

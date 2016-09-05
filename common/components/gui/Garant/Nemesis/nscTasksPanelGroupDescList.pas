@@ -54,6 +54,8 @@ uses
  , RTLConsts
  , SysUtils
  , l3String
+ //#UC START# *4D343AFE00DDimpl_uses*
+ //#UC END# *4D343AFE00DDimpl_uses*
 ;
 
 function TnscTasksPanelGroupDesc_C(aCaption: Pl3StringIDEx;

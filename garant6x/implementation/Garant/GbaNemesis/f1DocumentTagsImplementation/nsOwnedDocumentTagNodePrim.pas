@@ -28,6 +28,8 @@ uses
  , SysUtils
  , k2NullTagImpl
  , l3BitArr
+ //#UC START# *4C724FC1029Fimpl_uses*
+ //#UC END# *4C724FC1029Fimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas}

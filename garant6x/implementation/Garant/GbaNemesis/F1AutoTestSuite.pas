@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , F1AutoScripter
  , TestFrameWork
+ //#UC START# *4DC3FE5D03B4impl_uses*
+ //#UC END# *4DC3FE5D03B4impl_uses*
 ;
 
 class procedure TF1AutoTestSuite.Register;

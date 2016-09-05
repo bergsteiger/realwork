@@ -53,6 +53,8 @@ uses
  , l3Base
  , SysUtils
  , nevFacade
+ //#UC START# *4FC48D1B02ACimpl_uses*
+ //#UC END# *4FC48D1B02ACimpl_uses*
 ;
 
 class function TevCellsIterator.Make(const aView: InevView;

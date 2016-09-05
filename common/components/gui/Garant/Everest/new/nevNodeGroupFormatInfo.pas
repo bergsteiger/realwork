@@ -30,6 +30,8 @@ uses
  , Graphics
  , k2Tags
  , evdStyles
+ //#UC START# *4ED4EA8B0364impl_uses*
+ //#UC END# *4ED4EA8B0364impl_uses*
 ;
 
 function TnevNodeGroupFormatInfo.pm_GetlocSpacing: TnevRect;

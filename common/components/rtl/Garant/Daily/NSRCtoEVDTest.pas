@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4BED405E0256impl_uses*
+ //#UC END# *4BED405E0256impl_uses*
 ;
 
 procedure TNSRCtoEVDTest.DoIt;

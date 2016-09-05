@@ -37,6 +37,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4DAEAF42022Eimpl_uses*
+ //#UC END# *4DAEAF42022Eimpl_uses*
 ;
 
 procedure TnevScroller.Top;

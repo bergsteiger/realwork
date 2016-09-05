@@ -1,9 +1,12 @@
 unit csLineRequest;
 { «апрос очереди заданий сервера }
 
-{ $Id: csLineRequest.pas,v 1.16 2015/01/22 14:31:37 lukyanets Exp $ }
+{ $Id: csLineRequest.pas,v 1.17 2016/06/16 05:39:57 lukyanets Exp $ }
 
 // $Log: csLineRequest.pas,v $
+// Revision 1.17  2016/06/16 05:39:57  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
 // Revision 1.16  2015/01/22 14:31:37  lukyanets
 // ѕереносим отсылку задачи в более правильное место
 //
@@ -49,7 +52,7 @@ uses
   CsDataPipe,
   csRequestTask,
   l3ObjectRefList,
-  DT_types,
+  daTypes,
   
   ddTaskItemList,
   csLineRequestPrim
@@ -62,7 +65,7 @@ type
  protected
   procedure Cleanup; override;
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   procedure SaveRequestToPipe(aPipe: TCsDataPipe); override;
   property TaskList: TddTaskItemList read f_TaskList;
  end;//TcsLineRequest
@@ -75,7 +78,7 @@ uses CsTaskTypes, l3Base, l3Memory, ddServerTask, Classes, l3LongintList,
 {
 ******************************** TddRequestTask ********************************
 }
-constructor TcsLineRequest.Create(aUserID: TUserID);
+constructor TcsLineRequest.Create(aUserID: TdaUserID);
 begin
  inherited;
  f_TaskList := TddTaskItemList.Make;

@@ -52,6 +52,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5555AD2A0004impl_uses*
+ //#UC END# *5555AD2A0004impl_uses*
 ;
 
 constructor TdaParam.Create(const aConverter: IdaDataConverter;
@@ -103,7 +105,7 @@ function TdaParam.Get_AsInteger: LongInt;
 //#UC END# *5555E85C00B8_5555AD2A0004get_var*
 begin
 //#UC START# *5555E85C00B8_5555AD2A0004get_impl*
- f_Converter.ParamFromDataBase(f_Description, da_dtDWord, f_Buffer, @Result);
+ f_Converter.ParamFromDataBase(f_Description, da_dtInteger, f_Buffer, @Result);
 //#UC END# *5555E85C00B8_5555AD2A0004get_impl*
 end;//TdaParam.Get_AsInteger
 
@@ -112,7 +114,7 @@ procedure TdaParam.Set_AsInteger(aValue: LongInt);
 //#UC END# *5555E85C00B8_5555AD2A0004set_var*
 begin
 //#UC START# *5555E85C00B8_5555AD2A0004set_impl*
- f_Converter.ParamToDataBase(f_Description, da_dtDWord, @aValue, f_Buffer);
+ f_Converter.ParamToDataBase(f_Description, da_dtInteger, @aValue, f_Buffer);
 //#UC END# *5555E85C00B8_5555AD2A0004set_impl*
 end;//TdaParam.Set_AsInteger
 
@@ -232,6 +234,7 @@ begin
 //#UC START# *479731C50290_5555AD2A0004_impl*
  f_Converter.FreeParamBuffer(f_Description, f_Buffer);
  f_Description := nil;
+ f_Converter := nil;
  inherited;
 //#UC END# *479731C50290_5555AD2A0004_impl*
 end;//TdaParam.Cleanup

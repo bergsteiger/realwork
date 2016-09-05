@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , SchedulerProxyTask_Const
+ //#UC START# *57065CCE0306impl_uses*
+ //#UC END# *57065CCE0306impl_uses*
 ;
 
 function TcsSchedulerProxyTask.pm_GetSchedulerTaskType: Integer;

@@ -42,6 +42,8 @@ implementation
 uses
  l3ImplUses
  , l3String
+ //#UC START# *4ADC5E7C0264impl_uses*
+ //#UC END# *4ADC5E7C0264impl_uses*
 ;
 
 constructor TnsWindowNode.Create(const aForm: IvcmEntityForm;

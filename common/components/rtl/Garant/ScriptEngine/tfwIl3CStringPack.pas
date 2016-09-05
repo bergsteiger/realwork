@@ -36,6 +36,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *55682D8F01C7impl_uses*
+ //#UC END# *55682D8F01C7impl_uses*
 ;
 
 type
@@ -858,6 +860,36 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStringHash48
+
+ TkwStringOEM2ANSI = {final} class(TtfwClassLike)
+  {* Слово скрипта string:OEM2ANSI }
+  private
+   function string_OEM2ANSI(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:OEM2ANSI }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringOEM2ANSI
+
+ TkwStringANSI2OEM = {final} class(TtfwClassLike)
+  {* Слово скрипта string:ANSI2OEM }
+  private
+   function string_ANSI2OEM(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:ANSI2OEM }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringANSI2OEM
 
  TtfwIl3CStringPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
@@ -3880,6 +3912,120 @@ begin
  aCtx.rEngine.PushString(string_Hash48(aCtx, l_aString));
 end;//TkwStringHash48.DoDoIt
 
+function TkwStringOEM2ANSI.string_OEM2ANSI(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:OEM2ANSI }
+//#UC START# *57A8870D0092_57A8870D0092_46780DA40383_Word_var*
+var
+ l_W : Tl3PCharLen;
+ l_S : Tl3String;
+//#UC END# *57A8870D0092_57A8870D0092_46780DA40383_Word_var*
+begin
+//#UC START# *57A8870D0092_57A8870D0092_46780DA40383_Word_impl*
+ l_W := l3PCharLen(aString);
+ l_S := Tl3String.Make(l3PCharLen(l_W.S, l_W.SLen, CP_OEM));
+ try
+  l_S.CodePage := CP_ANSI;
+  l_S._CodePage := CP_ANSI;
+  Result := TtfwCStringFactory.C(l_S);
+ finally
+  FreeAndNil(l_S);
+ end;//try..finally
+//#UC END# *57A8870D0092_57A8870D0092_46780DA40383_Word_impl*
+end;//TkwStringOEM2ANSI.string_OEM2ANSI
+
+class function TkwStringOEM2ANSI.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:OEM2ANSI';
+end;//TkwStringOEM2ANSI.GetWordNameForRegister
+
+function TkwStringOEM2ANSI.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringOEM2ANSI.GetResultTypeInfo
+
+function TkwStringOEM2ANSI.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringOEM2ANSI.GetAllParamsCount
+
+function TkwStringOEM2ANSI.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringOEM2ANSI.ParamsTypes
+
+procedure TkwStringOEM2ANSI.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_OEM2ANSI(aCtx, l_aString));
+end;//TkwStringOEM2ANSI.DoDoIt
+
+function TkwStringANSI2OEM.string_ANSI2OEM(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:ANSI2OEM }
+//#UC START# *57A8872300AA_57A8872300AA_46780DA40383_Word_var*
+var
+ l_W : Tl3PCharLen;
+ l_S : Tl3String;
+//#UC END# *57A8872300AA_57A8872300AA_46780DA40383_Word_var*
+begin
+//#UC START# *57A8872300AA_57A8872300AA_46780DA40383_Word_impl*
+ l_W := l3PCharLen(aString);
+ l_S := Tl3String.Make(l3PCharLen(l_W.S, l_W.SLen, CP_ANSI));
+ try
+  l_S.CodePage := CP_OEM;
+  l_S._CodePage := CP_ANSI;
+  Result := TtfwCStringFactory.C(l_S);
+ finally
+  FreeAndNil(l_S);
+ end;//try..finally
+//#UC END# *57A8872300AA_57A8872300AA_46780DA40383_Word_impl*
+end;//TkwStringANSI2OEM.string_ANSI2OEM
+
+class function TkwStringANSI2OEM.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ANSI2OEM';
+end;//TkwStringANSI2OEM.GetWordNameForRegister
+
+function TkwStringANSI2OEM.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringANSI2OEM.GetResultTypeInfo
+
+function TkwStringANSI2OEM.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringANSI2OEM.GetAllParamsCount
+
+function TkwStringANSI2OEM.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringANSI2OEM.ParamsTypes
+
+procedure TkwStringANSI2OEM.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_ANSI2OEM(aCtx, l_aString));
+end;//TkwStringANSI2OEM.DoDoIt
+
 class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'tfwIl3CStringPack';
@@ -3990,6 +4136,10 @@ initialization
  {* Регистрация string_Transliterate }
  TkwStringHash48.RegisterInEngine;
  {* Регистрация string_Hash48 }
+ TkwStringOEM2ANSI.RegisterInEngine;
+ {* Регистрация string_OEM2ANSI }
+ TkwStringANSI2OEM.RegisterInEngine;
+ {* Регистрация string_ANSI2OEM }
  TtfwIl3CStringPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

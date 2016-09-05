@@ -28,6 +28,8 @@ uses
  , ddPDFExporter
  , nevDocumentProvider4PDF
  , nevTools
+ //#UC START# *53FEE940022Bimpl_uses*
+ //#UC END# *53FEE940022Bimpl_uses*
 ;
 
 procedure TevPDFWriter.ExportPDF;

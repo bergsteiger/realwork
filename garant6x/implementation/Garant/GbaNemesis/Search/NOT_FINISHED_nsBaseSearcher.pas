@@ -99,6 +99,8 @@ uses
  , nsBaseSearchClasses
  , nsBaseSearchServiceImpl
  , nsBaseSearcherWindowData
+ //#UC START# *4AC226030181impl_uses*
+ //#UC END# *4AC226030181impl_uses*
 ;
 
 procedure TnsBaseSearcher.RepairMistakes;

@@ -44,6 +44,8 @@ uses
  , k2Facade
  , ParaList_Const
  , TableCell_Const
+ //#UC START# *4CF7B733015Eimpl_uses*
+ //#UC END# *4CF7B733015Eimpl_uses*
 ;
 
 procedure TevEmptyTableEliminator.StartChild(TypeID: Tl3Type);

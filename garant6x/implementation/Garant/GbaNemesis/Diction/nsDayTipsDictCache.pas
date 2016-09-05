@@ -38,6 +38,8 @@ uses
  , nsTypes
  , SysUtils
  , l3Base
+ //#UC START# *5571B3100338impl_uses*
+ //#UC END# *5571B3100338impl_uses*
 ;
 
 var g_TnsDayTipsDictCache: TnsDayTipsDictCache = nil;

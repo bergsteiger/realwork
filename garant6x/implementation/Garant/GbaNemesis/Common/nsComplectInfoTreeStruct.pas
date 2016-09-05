@@ -44,6 +44,8 @@ uses
  , ComplectUnit
  , nsTypes
  , nsComplectInfoRootNode
+ //#UC START# *468368FC017Fimpl_uses*
+ //#UC END# *468368FC017Fimpl_uses*
 ;
 
 constructor TnsComplectInfoTreeStruct.Create;

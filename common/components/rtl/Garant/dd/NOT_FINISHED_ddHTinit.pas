@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4E4B5C770387impl_uses*
+ //#UC END# *4E4B5C770387impl_uses*
 ;
 
 procedure InitBaseEngine;

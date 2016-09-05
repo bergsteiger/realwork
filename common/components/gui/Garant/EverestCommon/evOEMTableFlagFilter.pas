@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , Table_Const
  , k2Tags
+ //#UC START# *4C3FED3103B2impl_uses*
+ //#UC END# *4C3FED3103B2impl_uses*
 ;
 
 procedure TevOEMTableFlagFilter.CloseStructure(NeedUndo: Boolean);

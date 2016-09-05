@@ -52,6 +52,8 @@ uses
  , Classes
  , l3Utils
  , l3Base
+ //#UC START# *549BC58B0346impl_uses*
+ //#UC END# *549BC58B0346impl_uses*
 ;
 
 type

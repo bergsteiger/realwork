@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4F13F6EE0046impl_uses*
+ //#UC END# *4F13F6EE0046impl_uses*
 ;
 
 procedure ReplaceVersionInEditor;

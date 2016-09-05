@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *5260EBCB0238impl_uses*
+ //#UC END# *5260EBCB0238impl_uses*
 ;
 
 function TkwPopEditorPasteRTF.GetFormat(const aCtx: TtfwContext): Integer;

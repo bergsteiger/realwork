@@ -5,9 +5,12 @@ unit nscContextFilter;
  Автор:      Р. Лукьянец
  Назначение:
  Версия:
-   $Id: nscContextFilter.pas,v 1.76 2015/04/14 13:39:01 morozov Exp $
+   $Id: nscContextFilter.pas,v 1.77 2016/08/23 11:46:45 kostitsin Exp $
  История:
    $Log: nscContextFilter.pas,v $
+   Revision 1.77  2016/08/23 11:46:45  kostitsin
+   {requestlink: 624862173 }
+
    Revision 1.76  2015/04/14 13:39:01  morozov
    {RequestLink: 594891894}
 
@@ -341,7 +344,8 @@ type
                      aStateType   : TvcmStateType): Boolean;
     {-}
   function LoadState(const aState : IUnknown;
-                     aStateType   : TvcmStateType): Boolean;
+                     aStateType   : TvcmStateType;
+                     aClone: Boolean): Boolean;
     {-}
   // Il3ContextFilterNotifier
   procedure RequestReapply;
@@ -1348,7 +1352,8 @@ begin
 end;
 
 function TnscContextFilter.LoadState(const aState: IInterface;
-  aStateType: TvcmStateType): Boolean;
+  aStateType: TvcmStateType;
+  aClone: Boolean): Boolean;
 var
  l_State: InscContextFilterState;
 begin

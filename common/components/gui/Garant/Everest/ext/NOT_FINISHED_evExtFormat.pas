@@ -19,6 +19,8 @@ uses
  l3ImplUses
  , evdScriptHyperlinkEliminator
  , evPDFWriter
+ //#UC START# *4D514CA600C2impl_uses*
+ //#UC END# *4D514CA600C2impl_uses*
 ;
 
 procedure GetWriter;

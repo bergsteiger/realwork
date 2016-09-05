@@ -42,6 +42,8 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , StatusPanelWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ //#UC START# *4E15A00502A3impl_uses*
+ //#UC END# *4E15A00502A3impl_uses*
 ;
 
 initialization

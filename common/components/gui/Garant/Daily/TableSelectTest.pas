@@ -50,6 +50,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C382CB00345impl_uses*
+ //#UC END# *4C382CB00345impl_uses*
 ;
 
 function TTableSelectTest.SelectColumn(var aColID: Integer): Boolean;

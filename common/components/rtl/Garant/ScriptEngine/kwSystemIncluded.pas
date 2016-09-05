@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , tfwCOMStreamFactory
  , SysUtils
+ //#UC START# *4E207A9201A5impl_uses*
+ //#UC END# *4E207A9201A5impl_uses*
 ;
 
 constructor TkwSystemIncluded.Create(aStream: TtfwStreamFactory);

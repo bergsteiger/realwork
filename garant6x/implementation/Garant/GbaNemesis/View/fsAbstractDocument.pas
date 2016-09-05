@@ -166,6 +166,8 @@ uses
  l3ImplUses
  , bsUtils
  , SysUtils
+ //#UC START# *5009367A01C3impl_uses*
+ //#UC END# *5009367A01C3impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

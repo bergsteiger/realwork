@@ -5,7 +5,7 @@ interface
 uses
  Classes,
  csProcessTask,
- DT_types,
+ daTypes,
  l3Base,
  csMessageManager,
 
@@ -30,7 +30,7 @@ type
     procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); override;
     function pm_GetTaskFolder: AnsiString; override;
   public
-    constructor Create(aUserID: TUserID); override;
+    constructor Create(aUserID: TdaUserID); override;
     function HasFilesToTransfer: Boolean; override;
     function TransferFiles(const aService: IcsFileTransferServices): Boolean; override;
     function ExpandTransferFileName(const aFileName: String; out theBasePath, theFileName: String): Boolean; override;
@@ -53,6 +53,8 @@ uses
  l3Stream, ddFileIterator,
  csTasksHelpers,
 
+ dt_Types,
+
  k2Tags,
  Task_Const
  ;
@@ -61,7 +63,7 @@ uses
 {
 ****************************** TcsImportTaskItem *******************************
 }
-constructor TcsImportTaskItem.Create(aUserID: TUserID);
+constructor TcsImportTaskItem.Create(aUserID: TdaUserID);
 begin
  inherited;
  //f_SourceFiles := TStringList.Create;

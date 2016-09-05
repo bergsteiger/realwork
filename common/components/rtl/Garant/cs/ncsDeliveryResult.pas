@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , csDeliveryResult_Const
+ //#UC START# *547582EC02E0impl_uses*
+ //#UC END# *547582EC02E0impl_uses*
 ;
 
 function TncsDeliveryResult.pm_GetTaskID: AnsiString;

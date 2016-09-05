@@ -49,6 +49,8 @@ uses
  , LeafPara_Const
  , SysUtils
  , BaseTypesUnit
+ //#UC START# *4DCD5932009Eimpl_uses*
+ //#UC END# *4DCD5932009Eimpl_uses*
 ;
 
 class function Tf1MultilinkResolver.SetTo(var theGenerator: Ik2TagGenerator;

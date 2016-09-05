@@ -4,6 +4,5 @@
 {$Define evNSRCPlus}
 {$Define NoVCM}
 {$Define NoVGScene}
-{$DEFINE DBver134}
 {$DEFINE NoScripts}
 {.$DEFINE HT_NEWDLL}

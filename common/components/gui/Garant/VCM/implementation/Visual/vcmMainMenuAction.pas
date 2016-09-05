@@ -46,6 +46,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47E7652402FFimpl_uses*
+ //#UC END# *47E7652402FFimpl_uses*
 ;
 
 constructor TvcmMainMenuAction.Create(anOwner: TComponent;

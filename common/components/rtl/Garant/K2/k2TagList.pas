@@ -27,6 +27,8 @@ uses
  , l3Base
  , l3Variant
  , l3Memory
+ //#UC START# *47B9D76B0301impl_uses*
+ //#UC END# *47B9D76B0301impl_uses*
 ;
 
 type _Instance_R_ = Tk2TagList;

@@ -50,6 +50,8 @@ implementation
 uses
  l3ImplUses
  , nsFindIteratorNewFindPositionList
+ //#UC START# *4C9C918102BCimpl_uses*
+ //#UC END# *4C9C918102BCimpl_uses*
 ;
 
 constructor TnsFindIteratorNew.Create(const aContext: IFoundContext);

@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *53FED6EF027Bimpl_uses*
+ //#UC END# *53FED6EF027Bimpl_uses*
 ;
 
 function TevCustomPDFWriter.GetDocument: InevPara;

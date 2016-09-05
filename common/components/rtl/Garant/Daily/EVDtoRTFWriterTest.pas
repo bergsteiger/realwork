@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4BACF173038Cimpl_uses*
+ //#UC END# *4BACF173038Cimpl_uses*
 ;
 
 procedure TEVDtoRTFWriterTest.DoIt;

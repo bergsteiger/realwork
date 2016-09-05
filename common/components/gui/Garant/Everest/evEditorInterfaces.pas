@@ -532,7 +532,8 @@ type
    aNeedClearOld: Boolean = False): Boolean;
    {* вставить данные из памяти в формате aFormat }
   procedure InsertFrom(const aTextSource: InevTagReader;
-   const aFilters: InevTagGenerator);
+   const aFilters: InevTagGenerator;
+   const aBlock: InevDataObjectPrim2 = nil);
    {* вставить данные из другого источника текста }
   function InsertString(const aSt: Tl3PCharLenPrim;
    aFormat: Tl3ClipboardFormat = cf_Text): Boolean; overload;

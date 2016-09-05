@@ -78,6 +78,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , l3Utils
+ //#UC START# *47EB3E410033impl_uses*
+ //#UC END# *47EB3E410033impl_uses*
 ;
 
 type _Instance_R_ = TdDrugList;

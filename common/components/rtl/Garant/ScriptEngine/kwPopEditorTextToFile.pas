@@ -59,6 +59,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4DDE23E403D6impl_uses*
+ //#UC END# *4DDE23E403D6impl_uses*
 ;
 
 procedure TkwPopEditorTextToFile.DoWithEditor(const aCtx: TtfwContext;

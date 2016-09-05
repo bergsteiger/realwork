@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , CommentPara_Const
+ //#UC START# *4E15CCEC0256impl_uses*
+ //#UC END# *4E15CCEC0256impl_uses*
 ;
 
 function TevNestedCommentsEliminator.NeedTranslateChildToNext: Boolean;

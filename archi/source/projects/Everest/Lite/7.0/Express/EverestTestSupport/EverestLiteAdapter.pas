@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , MainEditor
+ //#UC START# *512DBB5502E6impl_uses*
+ //#UC END# *512DBB5502E6impl_uses*
 ;
 
 procedure CreateNewDocument;

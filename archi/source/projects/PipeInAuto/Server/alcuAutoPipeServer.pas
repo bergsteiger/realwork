@@ -917,7 +917,7 @@ uses
   l3Base, l3Types, l3LongintList,
   daInterfaces,
   daTypes,
-  dt_Types, dt_Serv, dt_UserConst,
+  dt_Types, dt_Serv, 
   ddProgressObj, ddScheduler, alcuBaseEngine,
   ddCalendarEvents, alcuTaskManager, ddAppConfigTypes,
   Classes, {$IFDEF Service}SvcMgr{$ELSE}Forms{$ENDIF}, SysUtils,
@@ -1072,7 +1072,7 @@ type
     procedure ScheduledRelPublish(const aTask: TddSchedulerTask);
     procedure ScheduledMdpSyncDicts(const aTask: TddSchedulerTask);
     procedure ScheduledMdpSyncDocs(const aTask: TddSchedulerTask);
-//    procedure UserStatusChange(UserId : TUserID; Active : Boolean); // событие при входе и выходе польз.
+//    procedure UserStatusChange(UserId : TdaUserID; Active : Boolean); // событие при входе и выходе польз.
     function ValidTime: Boolean;
     procedure _PrepareTimer(Sender: TObject);
     procedure _TaskManagerStatusChange(aStatus: TalcuStatus{; aQueryLen: Integer});
@@ -1081,7 +1081,7 @@ type
     procedure _YeldProcess(Sender: TObject);
     function pm_GetServerHostName: String;
     function pm_GetServerPort: Integer;
-    procedure CheckUserLogined(UserID: TUserID; var isLogined: Boolean); deprecated;
+    procedure CheckUserLogined(UserID: TdaUserID; var isLogined: Boolean); deprecated;
     function AllowPurgeDir(const aDir: TFileName): Boolean;
     procedure cs_AACNeedTerminate(aPipe: TCSDataPipe);
     procedure cs_GetBaseStatus(aPipe: TCSDataPipe);
@@ -1089,11 +1089,11 @@ type
     procedure DoExecuteCommand(aCommandID: Integer);
     procedure CheckReportMemoryUsage;
     procedure InitAutoLinkEnabled;
-    function CreateSchedulerTask(aType: TddCalendarTaskType; out theTask: TddProcessTask; aUserID: TUserID = usServerService): Boolean;
+    function CreateSchedulerTask(aType: TddCalendarTaskType; out theTask: TddProcessTask; aUserID: TdaUserID = usServerService): Boolean;
     function MakeLoadRegionsTask: TddProcessTask;
     function MakeUpLoadRegionsTask: TddProcessTask;
     function MakeOvgaExportTask: TddProcessTask;
-    function MakeAutomaticAnoncedExportTask(anOnThursdayMode: Boolean; aUserID: TUserID = usServerService): TddProcessTask;
+    function MakeAutomaticAnoncedExportTask(anOnThursdayMode: Boolean; aUserID: TdaUserID = usServerService): TddProcessTask;
  protected
     // IdaLongProcessSubscriber
     function DoLongProcessNotify(aState: TdaProcessState): Boolean;
@@ -1138,9 +1138,9 @@ type
 {$ENDIF AAC}
     procedure cs_GetAnouncedDate(aPipe: TCSDataPipe);
     procedure DeleteTask(aTask: TddProcessTask);
-    procedure DoAutoClassify(aUserID: TUserID = usServerService);
+    procedure DoAutoClassify(aUserID: TdaUserID = usServerService);
     procedure DoAutomaticExport;
-    procedure DoAutomaticAnoncedExport(anOnThursdayMode: Boolean; aUserID: TUserID = usServerService);
+    procedure DoAutomaticAnoncedExport(anOnThursdayMode: Boolean; aUserID: TdaUserID = usServerService);
     procedure DoBuildTextIndex;
     function DoEveryDayUpdate(theManual: Boolean = False): TddSchedulerTaskResult;
     function DoEveryWeekUpdate(aManual: Boolean = False): TddDeltaResult;
@@ -1286,7 +1286,7 @@ uses
   l3DatLst, StrUtils,
   CsQueryTypes, CSEventsProcessor, CsServer, CSCommon, csNotifier, csNotification, csConst,
   l3ShellUtils, ddAppConfigDataAdapters, alcuRegionAutoExportTask, ddProcessDlg, dt_DictModifier,
-  dt_DictSup, dt_DictImport, dt_DictConst, dt_User, alcuAutoClassifier,
+  dt_DictSup, dt_DictImport, dt_DictConst, alcuAutoClassifier,
   {$IFDEF AAC}alcuCourtDecisionSubChecker, csCourtDecisionSabCheckerParams, {$ENDIF}
   csServerTaskTypes, alcuExport, {alcuSectionMaker,}
   alcuBackup, alcuZipUtils, csCommandsConst,
@@ -1840,7 +1840,7 @@ begin
   if not l_Ok then
    Application.Terminate;
   {$ENDIF}
- f_TaskProcessor.SignalServerStarted; 
+ f_TaskProcessor.SignalServerStarted;
 end;
 
 procedure TalcuServerPrim.CheckSubTable;
@@ -1876,6 +1876,7 @@ begin
  if Assigned(f_BaseEngineHolder.BaseEngine) then
   f_BaseEngineHolder.BaseEngine.CSServer.DropReplyProcedures;
 // FreeAndNil(alcuRegions);
+ f_TaskProcessor.SignalServerStopping;
  FreeAndNil(f_TaskProcessor);
  FreeAndNil(f_MessageManager);
  FreeAndNil(f_StatusStack);
@@ -2170,8 +2171,8 @@ end;
 procedure TalcuServerPrim.CSServerEvent(aEventId: Integer; aData: Integer);
 begin
  case aEventID of
-  c_ClientLogedInEvent : UserStatusChanged(TUserID(aData), True);
-  c_ClientLogedOutEvent: UserStatusChanged(TUserID(aData), False);
+  c_ClientLogedInEvent : UserStatusChanged(TdaUserID(aData), True);
+  c_ClientLogedOutEvent: UserStatusChanged(TdaUserID(aData), False);
  end;
 end;
 
@@ -2248,7 +2249,7 @@ begin
  FreeAndNil(f_Actions);
 end;
 
-procedure TalcuServerPrim.DoAutoClassify(aUserID: TUserID = usServerService);
+procedure TalcuServerPrim.DoAutoClassify(aUserID: TdaUserID = usServerService);
 {$IFDEF AutoClass}
 var
  l_Task: TddProcessTask;
@@ -2425,6 +2426,8 @@ begin
               begin
                l_UnlockBase:= UndoMakeBackup;
                l_Error:= True;
+               f_Report.Add('ОШИБКА - Не удалось загрузить KW');
+               l3System.Msg2Log('ОШИБКА - Не удалось загрузить KW');
               end // DoLoadKW
               else
                Exclude(l_Missed, taskKW);
@@ -2436,6 +2439,8 @@ begin
               begin
                l_UnlockBase:= UndoMakeBackup;
                l_Error:= True;
+               f_Report.Add('ОШИБКА - Не удалось обновить таблицы базы данных');
+               l3System.Msg2Log('ОШИБКА - Не удалось обновить таблицы базы данных');
               end
               else
                Exclude(l_Missed, taskUpdateBase);
@@ -2464,12 +2469,22 @@ begin
              l3System.Msg2Log(SalcuAutoPipeServer_Vremyaisteklo); // Time < StopTime
            end // DoMakebackup
            else
+           begin
             l_Error:= True;
+            f_Report.Add('ОШИБКА - Не удалось создать резервную копию');
+            l3System.Msg2Log('ОШИБКА - Не удалось создать резервную копию');
+           end;
           if not l_Error then
            Result := strOk;
          except
-          l_Error := True;
-          raise;
+          on E: Exception do
+          begin
+           l_Error := True;
+           f_Report.Add(Format('ОШИБКА - %s', [E.Message]));
+           l3System.Msg2Log('ОШИБКА обновления "%s". Детали см. ниже', [E.Message]);
+           l3System.Exception2Log(E);
+           raise;
+          end;
          end;
         finally
          SwitchToRealBase;
@@ -3728,6 +3743,7 @@ begin
   RegisterReplyProcedure(qtalcuHandShake, TaskProcessor.cs_TransporterHandshake);
   RegisterReplyProcedure(qtalcuSendTask, TaskProcessor.cs_TaskSend);
   RegisterReplyProcedure(qtalcuTerminateTask, TaskProcessor.cs_TerminateTask);
+  RegisterReplyProcedure(qtalcuSendCustomMessage, TaskProcessor.cs_CustomMessageProcessing);
  end;
 end;
 
@@ -4620,7 +4636,7 @@ begin
  end;
 end;
 
-procedure TalcuServerPrim.DoAutomaticAnoncedExport(anOnThursdayMode: Boolean; aUserID: TUserID = usServerService);
+procedure TalcuServerPrim.DoAutomaticAnoncedExport(anOnThursdayMode: Boolean; aUserID: TdaUserID = usServerService);
 var
  l_Task: TddProcessTask;
 begin
@@ -4684,7 +4700,7 @@ begin
   f_BaseEngineHolder.BaseEngine.UpdateUserList;
 end;
 (*
-procedure TalcuServerPrim.UserStatusChange(UserId : TUserID; Active : Boolean);
+procedure TalcuServerPrim.UserStatusChange(UserId : TdaUserID; Active : Boolean);
 var
   l_Index: Integer;
   l_User: IdaArchiUser;
@@ -4760,7 +4776,7 @@ begin
   Result := f_BaseEngineHolder.BaseEngine.ServerPort;
 end;
 
-procedure TalcuServerPrim.CheckUserLogined(UserID: TUserID;
+procedure TalcuServerPrim.CheckUserLogined(UserID: TdaUserID;
   var isLogined: Boolean);
 begin
   isLogined := f_BaseEngineHolder.BaseEngine.CSServer.ActiveCLients.IsLogged(UserID);
@@ -5236,7 +5252,7 @@ begin
 end;
 
 function TalcuServerPrim.CreateSchedulerTask(
-  aType: TddCalendarTaskType; out theTask: TddProcessTask; aUserID: TUserID = usServerService): Boolean;
+  aType: TddCalendarTaskType; out theTask: TddProcessTask; aUserID: TdaUserID = usServerService): Boolean;
 begin
  Result := True;
  theTask := nil;
@@ -5358,7 +5374,7 @@ begin
   Result := False;
  end;
  if not Result then
-  l3System.Msg2Log('ERROR - не найдена задача для задания типа %s', [GetEnumName(TypeInfo(TddCalendarTaskType), Ord(aType))]);
+  l3System.Msg2Log('warning - не найдена задача для задания типа %s - используем proxy', [GetEnumName(TypeInfo(TddCalendarTaskType), Ord(aType))], l3_msgLevel10);
 end;
 
 function TalcuServerPrim.MakeLoadRegionsTask: TddProcessTask;
@@ -5462,7 +5478,7 @@ begin
 end;
 
 function TalcuServerPrim.MakeAutomaticAnoncedExportTask(
-  anOnThursdayMode: Boolean; aUserID: TUserID): TddProcessTask;
+  anOnThursdayMode: Boolean; aUserID: TdaUserID): TddProcessTask;
 var
  l_Task: TalcuAnoncedExport;
 begin

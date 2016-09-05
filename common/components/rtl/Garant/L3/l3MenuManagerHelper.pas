@@ -54,6 +54,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *550199070251impl_uses*
+ //#UC END# *550199070251impl_uses*
 ;
 
 var g_Tl3MenuManagerHelper: Tl3MenuManagerHelper = nil;

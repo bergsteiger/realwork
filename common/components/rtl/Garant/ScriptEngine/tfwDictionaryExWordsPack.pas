@@ -42,6 +42,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *55AE5A8C035Dimpl_uses*
+ //#UC END# *55AE5A8C035Dimpl_uses*
 ;
 
 type
@@ -165,7 +167,10 @@ function TkwPopDictionaryExFileName.FileName(const aCtx: TtfwContext;
 //#UC END# *55AE62910135_55AE62910135_559E8B2E0385_Word_var*
 begin
 //#UC START# *55AE62910135_55AE62910135_559E8B2E0385_Word_impl*
- Result := aDictionaryEx.FileName;
+ if (aDictionaryEx = nil) then
+  Result := TtfwCStringFactory.C('')
+ else
+  Result := aDictionaryEx.FileName;
 //#UC END# *55AE62910135_55AE62910135_559E8B2E0385_Word_impl*
 end;//TkwPopDictionaryExFileName.FileName
 

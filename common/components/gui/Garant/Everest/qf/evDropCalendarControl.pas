@@ -82,6 +82,8 @@ uses
  , SysUtils
  , DateUtils
  , evControlParaTools
+ //#UC START# *48D38BEE00F6impl_uses*
+ //#UC END# *48D38BEE00F6impl_uses*
 ;
 
 procedure TevDropCalendarControl.CheckText(const Value: Il3CString);

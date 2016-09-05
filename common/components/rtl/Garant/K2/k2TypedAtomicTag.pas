@@ -74,6 +74,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *5273CF4602B7impl_uses*
+ //#UC END# *5273CF4602B7impl_uses*
 ;
 
 type _Instance_R_ = Tk2TypedAtomicTag;

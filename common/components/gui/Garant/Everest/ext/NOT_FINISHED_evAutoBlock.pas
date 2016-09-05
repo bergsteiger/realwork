@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4D02519C01C2impl_uses*
+ //#UC END# *4D02519C01C2impl_uses*
 ;
 
 procedure CreateBlockStructure;

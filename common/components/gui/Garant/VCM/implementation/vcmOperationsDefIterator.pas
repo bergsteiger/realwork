@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *5582C4210160impl_uses*
+ //#UC END# *5582C4210160impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}

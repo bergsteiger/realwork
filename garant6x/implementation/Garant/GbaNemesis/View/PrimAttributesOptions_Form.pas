@@ -149,6 +149,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C8647C8024Eimpl_uses*
+ , Search_Services
  //#UC END# *4C8647C8024Eimpl_uses*
 ;
 
@@ -277,7 +278,7 @@ procedure TPrimAttributesOptionsForm.File_PrintPreview_Execute(const aParams: Iv
 //#UC END# *495220F2033A_4C8647C8024Eexec_var*
 begin
 //#UC START# *495220F2033A_4C8647C8024Eexec_impl*
- TdmStdRes.MakePreview(MakePreview);
+ TPrintingService.Instance.MakePreview(MakePreview);
 //#UC END# *495220F2033A_4C8647C8024Eexec_impl*
 end;//TPrimAttributesOptionsForm.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)

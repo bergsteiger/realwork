@@ -29,6 +29,8 @@ uses
  , l3String
  , k2FontName
  , l3Memory
+ //#UC START# *53189661025Eimpl_uses*
+ //#UC END# *53189661025Eimpl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

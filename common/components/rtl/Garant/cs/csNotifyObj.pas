@@ -33,6 +33,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *52FB990303A4impl_uses*
+ //#UC END# *52FB990303A4impl_uses*
 ;
 
 constructor TcsNotifyObj.Create(aProc: TCsOnNotificationProc);

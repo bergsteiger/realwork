@@ -32,6 +32,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwIl3CStringPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47CC4CCC02FAimpl_uses*
+ //#UC END# *47CC4CCC02FAimpl_uses*
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}

@@ -31,6 +31,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *4A40EB120375impl_uses*
+ //#UC END# *4A40EB120375impl_uses*
 ;
 
 function TevCommentParaCursor.DoDeleteChar(const aView: InevView;

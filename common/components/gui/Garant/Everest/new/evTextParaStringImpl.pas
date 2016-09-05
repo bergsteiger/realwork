@@ -47,6 +47,8 @@ uses
  , l3Base
  , k2Tags
  , l3String
+ //#UC START# *52F20AED01DFimpl_uses*
+ //#UC END# *52F20AED01DFimpl_uses*
 ;
 
 class function TevTextParaStringImpl.Make(aPara: Tl3Variant): Il3WordsSeq;

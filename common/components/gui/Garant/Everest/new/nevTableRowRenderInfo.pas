@@ -67,6 +67,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4848EBFB00B0impl_uses*
+ //#UC END# *4848EBFB00B0impl_uses*
 ;
 
 procedure TnevTableRowRenderInfo.CheckDeltaHeight;

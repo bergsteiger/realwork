@@ -729,13 +729,11 @@ begin
  end;
  if IsEqualGUID(Il3RootNode, IID) then
  begin
-  {$IfNDef DesignTimeLibrary}
   if (RootNode <> nil) then
   begin
    Result := RootNode.QueryInterface(IID, Obj);
    Exit;
   end;//RootNode <> nil
-  {$EndIf DesignTimeLibrary}
  end;//IsEqualGUID(Il3RootNode, IID)
  {$EndIf DesignTimeLibrary}
  Result := inherited QueryInterface(IID, Obj);
@@ -937,7 +935,7 @@ begin
   if (ComboStyle <> ct_cbEdit) then
    if (aValue <> nil) and not aValue.IsSame(f_TempObjectCompleted) then
    // - иначе теряем текущего - http://mdp.garant.ru/pages/viewpage.action?pageId=120719160
-    Tree.GotoOnNode(aValue);
+    f_ItemIndex := Tree.GotoOnNode(aValue);
   (*=============================*)
   f_TempObjectCompleted := aValue;
   CurrentMode := CurrentMode + [cmSetCurrent];

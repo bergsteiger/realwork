@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4EEF07E80201impl_uses*
+ //#UC END# *4EEF07E80201impl_uses*
 ;
 
 class function TkwGotoSub.GetWordNameForRegister: AnsiString;

@@ -63,6 +63,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *53A2C805017Cimpl_uses*
+ //#UC END# *53A2C805017Cimpl_uses*
 ;
 
 function L2IntegerIteratorForEachFAction(anAction: Pointer): IntegerIterator_ForEachF_Action;

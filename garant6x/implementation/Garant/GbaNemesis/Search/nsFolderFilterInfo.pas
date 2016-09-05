@@ -53,6 +53,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *4BA232B402FFimpl_uses*
+ //#UC END# *4BA232B402FFimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}

@@ -48,6 +48,7 @@ type
     Button13: TButton;
     ApplicationEvents1: TApplicationEvents;
     Button14: TButton;
+    Button15: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure ConnectBtnClick(Sender: TObject);
@@ -78,6 +79,7 @@ type
     procedure Button13Click(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure Button14Click(Sender: TObject);
+    procedure Button15Click(Sender: TObject);
   private
     { Private declarations }
     f_Conn: PPGconn;
@@ -1182,6 +1184,65 @@ begin
   finally
     PQclear(l_Result);
   end
+end;
+
+procedure TForm1.Button15Click(Sender: TObject);
+var
+  l_Result: PPGResult;
+  l_Msg: WideString;
+  l_Str: String;
+  l_IDX: Integer;
+  l_IDX2: Integer;
+
+ procedure lp_CHeckPrepare(aConn: PPGconn);
+ begin
+  if PQstatus(aConn) <> CONNECTION_OK then
+  begin
+   Memo1.Lines.Add(PQerrorMessage(aConn));
+   raise Exception.Create(PQerrorMessage(aConn));
+  end;
+
+  l_Result := PQprepare(aConn, 'TestStmt', 'select * from archi.documents', 0, nil);
+
+  l_Msg := UTF8Decode(PQresultErrorMessage(l_Result));
+  if l_Msg <> '' then
+   Memo1.Lines.Add(l_Msg)
+  else
+   Memo1.Lines.Add('Prepare OK');
+
+  PQclear(l_Result);
+ end;
+
+begin
+  lp_CHeckPrepare(f_Conn);
+  lp_CHeckPrepare(f_Conn2);
+  exit;
+
+  if PQstatus(f_Conn) <> CONNECTION_OK then
+  begin
+   Memo1.Lines.Add(PQerrorMessage(f_Conn));
+   raise Exception.Create(PQerrorMessage(f_Conn));
+  end;
+
+
+  Memo1.Lines.Add('Sessions ids');
+
+
+  l_Result := PQExec(f_Conn, 'SELECT to_hex(pid) || ''.'' || to_hex(EXTRACT(EPOCH FROM backend_start)::int8) FROM pg_stat_activity where pid = pg_backend_pid();');
+  l_Msg := PQresultErrorMessage(l_Result);
+  if l_Msg <> '' then
+   Memo1.Lines.Add(l_Msg)
+  else
+  begin
+   for l_IDX := 0 to PQntuples(l_Result) - 1 do
+   begin
+     l_Str := '';
+     for l_IDX2 := 0 to PQnfields(l_Result) - 1 do
+       l_Str := l_Str + ' ' + PQgetvalue(l_Result, l_IDX, l_IDX2);
+     Memo1.Lines.Add(l_Str);
+   end;
+  end;
+  PQclear(l_Result);
 end;
 
 end.

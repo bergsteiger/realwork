@@ -42,6 +42,8 @@ uses
  , l3String
  , l3Base
  , TestFrameWork
+ //#UC START# *4BED2BFE0092impl_uses*
+ //#UC END# *4BED2BFE0092impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

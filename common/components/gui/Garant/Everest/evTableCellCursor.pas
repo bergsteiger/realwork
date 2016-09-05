@@ -46,6 +46,8 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , evCursorConst
  , k2Tags
+ //#UC START# *50DACE1F0334impl_uses*
+ //#UC END# *50DACE1F0334impl_uses*
 ;
 
 function TevTableCellCursor.DoMovePrim(const aView: InevView;

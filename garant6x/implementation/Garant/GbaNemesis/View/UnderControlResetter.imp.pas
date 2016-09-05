@@ -63,7 +63,7 @@ begin
   if (dcsExitFromSystem in aInspect) and
      l3Same(l_Action, li_DropChangeStatus_OnClose) then
    // - сбрасывать для всех просмотренных при выходе из системы
-   TdmStdRes.MarkControlledAsOpen(ucpUnderControl.Controllable);
+   TUnderControlService.Instance.MarkControlledAsOpen(ucpUnderControl.Controllable);
  end;//Assigned(ucpUnderControl) and CanUnControl and ucpUnderControl.HasControlStatus
 //#UC END# *4BA0A3BC028F_4BA0A2CC0305_impl*
 end;//_UnderControlResetter_.CheckControllableState
@@ -105,7 +105,10 @@ procedure _UnderControlResetter_.NotifyDataSourceChanged(const anOld: IvcmViewAr
 begin
 //#UC START# *497469C90140_4BA0A2CC0305_impl*
  inherited;
- CheckControllableState([dcsExitFromSystem]);
+ if Assigned(aNew) then
+  CheckControllableState([dcsAfterReview])
+ else
+  CheckControllableState([dcsExitFromSystem]);
 //#UC END# *497469C90140_4BA0A2CC0305_impl*
 end;//_UnderControlResetter_.NotifyDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)

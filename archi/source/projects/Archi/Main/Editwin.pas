@@ -1,6 +1,6 @@
 unit Editwin;
 
-{ $Id: Editwin.pas,v 1.186 2016/06/03 09:24:38 fireton Exp $ }
+{ $Id: Editwin.pas,v 1.193 2016/08/24 09:15:53 fireton Exp $ }
 
 {$I arDefine.inc}
 
@@ -30,7 +30,7 @@ uses
  HT_Const,
  DT_Const, DT_Types, DT_Err, DT_Jour, DT_Serv, Dt_Doc, DT_Link,
  D_TxSrch_Intf, D_TxSrch_Types,
- DT_Dict, {DT_DTree,} {DT_Lock,} DT_Log, DT_Hyper, DT_Stage, DT_User,
+ DT_Dict, {DT_DTree,} {DT_Lock,} DT_Log, DT_Hyper, DT_Stage, 
  Com_Cnst,
  l3Base, l3DatLst, DragData,
  vtLister, vtOutliner, Mask, {ToolEdit,} Tabs,
@@ -69,6 +69,7 @@ uses
   EditableBox, FakeBox, afwControlPrim, afwBaseControl, nevControl,
   evdInterfaces,
   F_MiscDocImgView,
+  D_Autolink,
 
  nevBase,
  nevGUIInterfaces,
@@ -855,6 +856,7 @@ type
    fCurrentTarget    : IUnknown;
 
    fSelectedSubList: Tl3LongintList;
+   f_AutolinkDlg     : TAutolinkDlg;
    f_FlashView       : TvtShockwaveFlashEx;
    f_IsJurStageClosed: Boolean;
    f_TreeWasInit     : Boolean;
@@ -939,6 +941,8 @@ type
    procedure CheckDocImage;
    procedure CheckForCourtCase;
    procedure CheckForNOTTM(aAttribute: IDocAttribute);
+   procedure ExecuteFilter(const aFilter: Tk2TagGenerator; aSelectionOnly: Boolean = False);
+   function GetAutolinkDlg: TAutolinkDlg;
    function TemplateInputValueHandler(const aName: AnsiString; out theResult: AnsiString): Boolean;
   protected
    procedure AcquireCurDocParams; override;
@@ -977,7 +981,7 @@ type
    procedure SetPicViewer;
    procedure SetMiscViewer;
 
-   procedure AutoHLinker(aClearLinks: Boolean);
+   procedure AutoHLinker(aTargetTopic: TDocID; aClearLinks: Boolean; aSelectionOnly: Boolean);
    procedure SaveDocParam;
 
    procedure MakeSpravka;
@@ -1060,6 +1064,9 @@ uses
  ObjExpl,
 
  daInterfaces,
+ daDataProvider,
+ daTypes,
+ daSchemeConsts,
 
  ResShop,
  StrShop,
@@ -1163,6 +1170,7 @@ uses
  evGraphicFileSupport,
  evdHyperlinkEliminator,
  evdParaStylePainter,
+ evFilterReplacer,
 
  evWikiReader,
  evdCustomHyperlinkCorrector,
@@ -1186,10 +1194,6 @@ uses
  m4DocumentAddress,
 
  ddDocumentCopy,
-
- daDataProvider,
- daTypes,
- daSchemeConsts,
 
  Dt_ATbl,
  Dt_Active,
@@ -1239,7 +1243,7 @@ uses
 
  ddRTFReader,
  ddSectionRepair, ddSectionWithSub2Para,
- ddAutoLinkFilter, ddAutolinkServer,
+ ddAutoLinkFilter, ddAutolinkServer, ddGeneralLawsLinkFinder, ddDefDocLinkFinder,
  vtDebug,
  ddImageHandleInsert,
 
@@ -1355,7 +1359,7 @@ begin
 
  evSetBruttoCharLimit(CommentEdit.TextSource, cDocCommentSize + 2);
 
- UserManager.GetFiltredUserList(tcStageCheckUser.Items, True {aOnlyActive});
+ GlobalDataProvider.UserManager.GetFiltredUserList(tcStageCheckUser.Items, True {aOnlyActive});
 end;
 
 procedure TDocEditorWindow.CheckUrgencyDisp;
@@ -2822,7 +2826,7 @@ begin
  if (aPart = m3_dsMain) then
  begin
   //проверка номеров топиков для встроенных картинок
-  try
+(*  try
    CheckExternalHandlesInBitmapParagraphs(Document.TextSource.Document.AsObject);
   except
    on EHTErrors do
@@ -2830,7 +2834,8 @@ begin
     vtMessageDlg(l3CStr('Не удаётся назначить ID для изображения! Обратитесь в службу поддержки.'), mtError);
     Result := false;
    end;
-  end;
+  end;*)
+  // - не нужно это всё теперь, т.к. номера распределяются при сохранении картинок
 
   //запись на диск допю копии для набивальщиков
   try
@@ -3318,7 +3323,7 @@ var
  lGetRefCnt : Integer;
  l_Tag: Il3TagRef;
 
- function lGetRefAddrFunc(var aCurRefAddr : TGlobalCoordinateRec) : Boolean;
+ function lGetRefAddrFunc(var aCurRefAddr : TdaGlobalCoordinateRec) : Boolean;
  var
   ItData : PansiChar;
  begin
@@ -3330,7 +3335,7 @@ var
    Inc(lGetRefCnt);
    if (TDragDataType(ItData[0]) = ddBackHyperLink) then
    begin
-    aCurRefAddr := PGlobalCoordinateRec(ItData + 1)^;
+    aCurRefAddr := PdaGlobalCoordinateRec(ItData + 1)^;
     Result := True;
     Exit;
    end;
@@ -3644,7 +3649,7 @@ begin
    // JrnlList := Tl3DataList.CreateSize(SizeOf(TDisplayLogRec));
 
    tblStage.RowLimit := Ord(High(TStageType));
-   //UserManager.GetFiltredUserList(tcStageCheckUser.Items);
+   //GlobalDataProvider.UserManager.GetFiltredUserList(tcStageCheckUser.Items);
 
    if fGroupMode then
    begin
@@ -6859,7 +6864,7 @@ resourcestring
 procedure TDocEditorWindow.acSetSharpReferenceExecute(Sender: TObject);
 var
  l_Block : TnevLocation;
- lHLinkAddr : TGlobalCoordinateRec;
+ lHLinkAddr : TdaGlobalCoordinateRec;
  lPack : InevOp;
 begin
  with CurEditor do
@@ -7298,7 +7303,7 @@ end;
 procedure TDocEditorWindow.acLinkSetManuallyExecute(Sender: TObject);
 var
  lBlock : TnevLocation;
- lHLinkAddr : TGlobalCoordinateRec;
+ lHLinkAddr : TdaGlobalCoordinateRec;
  l_Ext: Boolean;
 
 begin
@@ -7644,7 +7649,7 @@ end;
 
 procedure TDocEditorWindow.acPMSubAncorSaveExecute(Sender: TObject);
 var
- ItSubRec : TGlobalCoordinateRec;
+ ItSubRec : TdaGlobalCoordinateRec;
 begin
  with ItSubRec do
  begin
@@ -8413,7 +8418,7 @@ end;
 procedure TDocEditorWindow.acLinkSaveExecute(Sender: TObject);
 var
  l_AddresList : IevAddressList;
- lGCRec : TGlobalCoordinateRec;
+ lGCRec : TdaGlobalCoordinateRec;
  i : Integer;
 begin
  if (fCurrentTarget <> nil) then
@@ -8743,7 +8748,7 @@ begin
 end;
 
 
-procedure TDocEditorWindow.AutoHLinker(aClearLinks: Boolean);
+procedure TDocEditorWindow.AutoHLinker(aTargetTopic: TDocID; aClearLinks: Boolean; aSelectionOnly: Boolean);
 var
  l_Pack: InevOp;
  l_Filt: TddAutoLinkFilter;
@@ -8753,16 +8758,28 @@ var
  l_Date: TStDate;
  l_Casecode: Il3CString;
  l_SaveGen: Ik2TagGenerator;
+ l_Linker: TddDefDocLinkFinder;
 begin
  if (CurEditor <> nil) then
  begin
   Screen.Cursor := crHourGlass;
   try
-   l_Filt := GetAutoLinkFilter.Use;
+   l_Filt := TddAutoLinkFilter.Create(nil);
    try
-    l_Filt.UseInternalNumForLink(True);
-    l_SaveGen := l_Filt.Generator; // поскольку мы пользуемся только фильтром, который уже может быть в трубе,
-    l_Filt.Generator := nil;       // то надо сохранить генератор фильтра и восстановить его после
+    if aTargetTopic <> cUndefDocID then
+    begin
+     l_Linker := TddDefDocLinkFinder.Create;
+     try
+      l_Linker.TargetExtDocID := aTargetTopic;
+      l_Filt.AddLinkFinder(l_Linker);
+     finally
+      FreeAndNil(l_Linker);
+     end;
+    end
+    else
+     l_Filt.AddLinkFinder(ddGetGeneralLawsLinkFinderDef);
+    l_Filt.UseInternalNumForLink(True); // потому что это текст в редакторе, а там используются внутренние номера
+    l_Filt.ForceSetLinks := True; // не зависим от типа документа, ставим ссылки всегда
     l_Doc := GetCurDocument as TarDocument;
     l_Filt.SetDocID(l_Doc.UserDocID);
     l_DNTool := l_Doc.Attribute[atDateNums] as IDateNumDocAttributeTool;
@@ -8781,9 +8798,9 @@ begin
       try
        try
         if aClearLinks then
-         EvRangeInsertFrom(CurEditor, l_Elim)
+         ExecuteFilter(l_Elim, aSelectionOnly)
         else
-         EvRangeInsertFrom(CurEditor, l_Filt);
+         ExecuteFilter(l_Filt, aSelectionOnly);
        finally
         CleanupAutolinkServer;
        end;
@@ -8798,7 +8815,6 @@ begin
      FreeAndNil(l_Elim);
     end;
    finally
-    l_Filt.Generator := l_SaveGen;
     FreeAndNil(l_Filt);
    end;
   finally
@@ -8823,12 +8839,19 @@ end;
 
 procedure TDocEditorWindow.acToolsAutolinkExecute(Sender: TObject);
 var
- l_Answer: Integer;
+ l_Dlg: TAutolinkDlg;
+ l_Topic: TDocID;
 begin
- l_Answer := vtMessageDlg(l3CStr('Перед расстановкой, удалить существующие ссылки в документах?'), mtConfirmation, [mbYes, mbNo, mbCancel], 0, mbNo);
- if l_Answer = mrCancel then
-  Exit;
- AutoHLinker(l_Answer = mrYes);
+ l_Dlg := GetAutolinkDlg;
+ l_Dlg.cbSelectionOnly.Enabled := CurEditor.HasSelection;
+ if l_Dlg.ShowModal = mrOk then
+ begin
+  if l_Dlg.rbOneDoc.Checked then
+   l_Topic := StrToIntDef(l_Dlg.edTopic.Text, cUndefDocID)
+  else
+   l_Topic := cUndefDocID;
+  AutoHLinker(l_Topic, l_Dlg.cbDeleteLinks.Checked, l_Dlg.cbSelectionOnly.Enabled and l_Dlg.cbSelectionOnly.Checked);
+ end;
 end;
 
 procedure TDocEditorWindow.acTranslate2TextUpdate(Sender: TObject);
@@ -8961,6 +8984,28 @@ begin
  l_Rec := l_TS.TemplateData;
  l_Rec.rRelID := LinkServer(CurrentFamily).Renum.GetExtDocID(SprDocID);
  l_TS.TemplateData := l_Rec;
+end;
+
+procedure TDocEditorWindow.ExecuteFilter(const aFilter: Tk2TagGenerator; aSelectionOnly: Boolean = False);
+var
+ l_S: IevSearcher;
+ l_R: IevReplacer;
+ l_Opt: TevSearchOptionSet;
+begin
+ l_S := TevAnyParagraphSearcher.Make;
+ //l_S := TevSpecialParagraphSearcher.Make;
+ l_R := TevFilterReplacer.Make(CurEditor.TextSource.DocumentContainer.TagReader, aFilter);
+ l_Opt := [ev_soReplace, ev_soReplaceAll, ev_soGlobal{, ev_soUseInternalCursor, ev_soConfirm}];
+ if aSelectionOnly then
+  l_Opt := l_Opt + [ev_soSelText];
+ CurEditor.Find(l_S, l_R, l_Opt);
+end;
+
+function TDocEditorWindow.GetAutolinkDlg: TAutolinkDlg;
+begin
+ if f_AutolinkDlg = nil then
+  f_AutolinkDlg := TAutolinkDlg.Create(Self);
+ Result := f_AutolinkDlg;
 end;
 
 function TDocEditorWindow.TemplateInputValueHandler(const aName: AnsiString; out theResult: AnsiString): Boolean;

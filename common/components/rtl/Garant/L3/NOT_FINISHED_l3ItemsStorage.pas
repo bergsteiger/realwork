@@ -38,6 +38,8 @@ uses
  , SysUtils
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *4908A9FF0357impl_uses*
+ //#UC END# *4908A9FF0357impl_uses*
 ;
 
 function DoCompareItems(const A: _ItemType_;

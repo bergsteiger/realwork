@@ -29,6 +29,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *4A3A5B9F0064impl_uses*
+ //#UC END# *4A3A5B9F0064impl_uses*
 ;
 
 function TevLocation.CanBeDeleted: Boolean;

@@ -76,6 +76,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *49871E4F01AFimpl_uses*
+ //#UC END# *49871E4F01AFimpl_uses*
 ;
 
 constructor TnscStatusBarOperationDef.Create(const anOperation: TvcmOpSelector;

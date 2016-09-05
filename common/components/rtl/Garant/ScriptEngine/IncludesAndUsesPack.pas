@@ -24,6 +24,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F476424014Eimpl_uses*
+ //#UC END# *4F476424014Eimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

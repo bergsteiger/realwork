@@ -41,6 +41,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4D70B17C001Cimpl_uses*
+ //#UC END# *4D70B17C001Cimpl_uses*
 ;
 
 procedure TtstNSRCGenerator.LinkNSRCListener(const aListener: ItstNSRCListener);

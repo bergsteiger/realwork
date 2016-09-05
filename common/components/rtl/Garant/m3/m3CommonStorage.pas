@@ -89,6 +89,8 @@ uses
  , l3StringEx
  , m3CommonStorageStream
  , l3Base
+ //#UC START# *542176490191impl_uses*
+ //#UC END# *542176490191impl_uses*
 ;
 
 function Tm3CommonStorage.IsValidName(aName: PWideChar;

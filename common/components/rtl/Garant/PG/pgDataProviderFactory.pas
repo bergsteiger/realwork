@@ -58,6 +58,8 @@ uses
  , SysUtils
  , l3IniFile
  , l3FileUtils
+ //#UC START# *55D6E2FB025Dimpl_uses*
+ //#UC END# *55D6E2FB025Dimpl_uses*
 ;
 
 class function TpgDataProviderFactory.Key: AnsiString;

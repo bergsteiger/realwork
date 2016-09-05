@@ -60,6 +60,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwFiltersAndGeneratorsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47ECBAA30322impl_uses*
+ //#UC END# *47ECBAA30322impl_uses*
 ;
 
 class function TevHiddenFilter.SetTo(aHiddenStyles: TevStandardStyles;

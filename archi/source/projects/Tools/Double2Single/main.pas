@@ -1,8 +1,11 @@
 unit Main;
 
-{ $Id: main.pas,v 1.6 2016/05/18 06:02:42 lukyanets Exp $ }
+{ $Id: main.pas,v 1.7 2016/08/11 10:42:01 lukyanets Exp $ }
 
 // $Log: main.pas,v $
+// Revision 1.7  2016/08/11 10:42:01  lukyanets
+// Полчищаем dt_user
+//
 // Revision 1.6  2016/05/18 06:02:42  lukyanets
 // Выключаем удаленную отладку
 //
@@ -135,7 +138,7 @@ uses
   evEvdRd,
 
   ddUtils, L3Math, d2sFilter, ddLawCaseNameGenerator, dt_LinkServ, DT_const, ddHtInit, SewerPipe,
-  ddImportPipe, ddImportPipeKernel, dt_IFltr, daInterfaces, daDataProvider, DT_User, DT_Renum, DT_Doc,
+  ddImportPipe, ddImportPipeKernel, dt_IFltr, daInterfaces, daDataProvider, DT_Renum, DT_Doc,
   ddKTExtractor, l3LongintList;
 
 

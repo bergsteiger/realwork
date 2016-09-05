@@ -39,6 +39,8 @@ uses
  , SysUtils
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *531895BF02B6impl_uses*
+ //#UC END# *531895BF02B6impl_uses*
 ;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;

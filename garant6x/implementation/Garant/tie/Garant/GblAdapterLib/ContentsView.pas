@@ -31,6 +31,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4CA06D4A0272impl_uses*
+ //#UC END# *4CA06D4A0272impl_uses*
 ;
 
 constructor ContentsView.Make;

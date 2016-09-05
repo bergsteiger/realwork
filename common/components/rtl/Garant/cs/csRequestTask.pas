@@ -40,6 +40,8 @@ uses
  , RequestTask_Const
  , l3Memory
  , SysUtils
+ //#UC START# *52FA4ACA0020impl_uses*
+ //#UC END# *52FA4ACA0020impl_uses*
 ;
 
 procedure TddRequestTask.SaveRequestToPipe(aPipe: TCsDataPipe);

@@ -1,8 +1,23 @@
 unit Dt_IFltr;
 
-{ $Id: dt_IFltr.pas,v 1.336 2016/06/09 08:51:45 voba Exp $ }
+{ $Id: dt_IFltr.pas,v 1.341 2016/08/11 11:37:47 lukyanets Exp $ }
 
 // $Log: dt_IFltr.pas,v $
+// Revision 1.341  2016/08/11 11:37:47  lukyanets
+// Вычищаем поддержку 133 версии
+//
+// Revision 1.340  2016/07/13 09:41:59  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.339  2016/06/30 12:34:15  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.338  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.337  2016/06/15 11:30:06  fireton
+// - лечим AV
+//
 // Revision 1.336  2016/06/09 08:51:45  voba
 // -k:623267081
 //
@@ -248,7 +263,7 @@ unit Dt_IFltr;
 // - k : 236721575
 //
 // Revision 1.255  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.254  2011/06/07 09:07:48  voba
 // - k : 236721575
@@ -935,7 +950,7 @@ type
  TDictItemDecoder = class(TevdBufferedFilter {Tk2TagTerminator})
  { - восстанавливает Handle по Name для словарного элемента}
   private
-   fFamily : TFamilyID;
+   fFamily : TdaFamilyID;
    fBasesList,
    fWarningsList,
    fNormsList,
@@ -945,7 +960,7 @@ type
   protected
    procedure Cleanup; override;
   public
-   constructor Create(aFamily : TFamilyID);
+   constructor Create(aFamily : TdaFamilyID);
    function AddHandle(aChild: Tl3Tag; aDictType : TdaDictionaryType) : Boolean;
 
    property OnUpdateDictionary : TUpdateDictionaryLightEvent
@@ -982,7 +997,7 @@ type
     function  IsBaseLocked : Boolean; virtual;
     procedure TuneAttrSet(aLeaf: Tl3Tag); virtual;
   protected
-   fFamily        : TFamilyID;
+   fFamily        : TdaFamilyID;
    fDoNothing     : Boolean; // специальный режим, когда фильтр не обрабатывает атрибуты
 
    fIntFormat     : Boolean;
@@ -990,7 +1005,7 @@ type
    fIsAnnoTopic   : Boolean;
    f_OnUpdDict    : TUpdateDictionaryEvent;
    fTblUpd        : Boolean;
-   fMasterUser    : TUserID;
+   fMasterUser    : TdaUserID;
 
    //fLevelSlash    : AnsiString;
 
@@ -1010,7 +1025,7 @@ type
    fImpSubRec     : TImpSubRec;
    fCurSubID      : TSubID;
    fImpDocRec     : TImpDocRec;
-   //fImpHLAddress  : TGlobalCoordinateRec;
+   //fImpHLAddress  : TdaGlobalCoordinateRec;
 
    //fImpHLID       : LongInt;
    //fNeedSaveHLID  : Boolean;
@@ -1038,13 +1053,13 @@ type
    fCachingDataCnt : integer; // счетчик вызовов  StartCachingData
 
    procedure   BeforeRelease; override;
-   procedure   SetFamily(aValue : TFamilyID);
+   procedure   SetFamily(aValue : TdaFamilyID);
    procedure   SetIntFormat(aValue : Boolean);
    procedure   SetUpdDict(aValue : TUpdateDictionaryEvent);
    function    DoUpdDict(aDictType: TdaDictionaryType; aNameTag: Tl3Tag): Boolean;
    //procedure   SetLevelSlash(aValue : AnsiString);
    function    GetFiltredFlag : Boolean;
-   function    GetMasterUser : TUserID;
+   function    GetMasterUser : TdaUserID;
 
    //function    GetHLID(aCurHLID : Cardinal) : Cardinal;
 
@@ -1140,7 +1155,7 @@ type
 
    procedure CloseStructure(aNeedUndo : Boolean); override;
 
-   property Family : TFamilyID read fFamily write SetFamily;
+   property Family : TdaFamilyID read fFamily write SetFamily;
     {* - Current Archi Tables Family,
          Required,
          Unable modified between Start - Finish}
@@ -1176,7 +1191,7 @@ type
    {}
    property SkipDocNotification : TSkipDocNotify read fSkipDocNotify write fSkipDocNotify;
 
-   property MasterUser: TUserID read GetMasterUser write fMasterUser;
+   property MasterUser: TdaUserID read GetMasterUser write fMasterUser;
     {* - ID of User, who imported documents }
 
    property AddNewToLog: Boolean read f_AddNewToLog write f_AddNewToLog;
@@ -1320,7 +1335,7 @@ TImportFilter = class(TDBFilter)
    write f_GetDeleteCondition;
 end;
 
-procedure LoadEqualClasses(aFamily : TFamilyID; aFileName : ShortString;
+procedure LoadEqualClasses(aFamily : TdaFamilyID; aFileName : ShortString;
                            aLevelSlash : PAnsiChar; withDropData : boolean = True);
 
 implementation
@@ -1437,9 +1452,9 @@ begin
    Result := 0;
 end;
 
-function GetUserID(const aItem : Tl3Variant) : TUserID;
+function GetUserID(const aItem : Tl3Variant) : TdaUserID;
 begin
- Result := TUserID(GetIntTag(aItem, k2_tiHandle));
+ Result := TdaUserID(GetIntTag(aItem, k2_tiHandle));
 end;
 
 function GetLogAction(aCType : TCacheType) : TLogActionType;
@@ -1515,7 +1530,7 @@ begin
  Assert(fCachingDataCnt = 0);
 end;
 
-procedure TCustomDBFilter.SetFamily(aValue : TFamilyID);
+procedure TCustomDBFilter.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily <> aValue then
  begin
@@ -1572,7 +1587,7 @@ begin
  Result := fNeedSkipDoc;
 end;
 
-function TCustomDBFilter.GetMasterUser : TUserID;
+function TCustomDBFilter.GetMasterUser : TdaUserID;
 begin
  if fMasterUser = 0 then
   fMasterUser := GlobalDataProvider.ImpersonatedUserID;
@@ -2114,10 +2129,8 @@ begin
                                    IntA[k2_tiStart],
                                    Attr[k2_tiNumber].AsString,
                                    IntA[k2_tiType],
-                                   lDocID
-                                   {$ifdef DBver134}
-                                   , GetIntTag(Attr[k2_tiLinkAddress], k2_tiSubID)
-                                   {$endif}
+                                   lDocID,
+                                   GetIntTag(Attr[k2_tiLinkAddress], k2_tiSubID)
                                    ]);
      if (IntA[k2_tiStart] <> 0) and (IntA[k2_tiType] = Ord(dnPublish)) and ((fMinDate = 0) or (fMinDate > IntA[k2_tiStart])) then
       fMinDate := IntA[k2_tiStart];
@@ -2130,7 +2143,7 @@ end;
 procedure TCustomDBFilter.AddImpLogRec(aLeaf: Tl3Tag);
 var
  I : Integer;
- l_UserID: TUserID;
+ l_UserID: TdaUserID;
 begin
  with aLeaf do
   for I := 0 to pred(ChildrenCount) do
@@ -2911,6 +2924,7 @@ begin
  InitExclusiveMode;
 
  //ClearDataStorage;
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogImport(fFamily);
 end;
 
@@ -3162,7 +3176,7 @@ begin
  inherited;
 end;
 
-procedure LoadEqualClasses(aFamily : TFamilyID; aFileName : ShortString; aLevelSlash : PAnsiChar;
+procedure LoadEqualClasses(aFamily : TdaFamilyID; aFileName : ShortString; aLevelSlash : PAnsiChar;
                            withDropData : boolean);
 var
  CurFile  : TevDOSFiler;
@@ -3566,7 +3580,7 @@ var
  lIsRelated : Boolean;
  lLockID     : TDocID;
  tmpStation : TStationNameArray;
- tmpUserID  : TUserIDArray;
+ tmpUserID  : TdaUserIDArray;
  I : Integer;
 
  lLockHandle    : TJLHandle;
@@ -3696,7 +3710,7 @@ begin
   end;
 
   if fIntFormat and fCheckDocs then
-   GlobalHtServer.FreeTbl[fFamily].CheckNumber(TableName(fFamily, Ord(ftFile)), aNewDocID);
+   GlobalHtServer.FreeTbl[fFamily].ExcludeFree(TableName(fFamily, Ord(ftFile)), aNewDocID);
  end;
 end;
 
@@ -3789,7 +3803,7 @@ begin
  fCheckDocs := False;
 end;
 
-constructor TDictItemDecoder.Create(aFamily : TFamilyID);
+constructor TDictItemDecoder.Create(aFamily : TdaFamilyID);
 var
  l_Dict : TdaDictionaryType;
 begin
@@ -4034,7 +4048,7 @@ end;
 procedure TGroupOpFilter.CloseStream(aNeedUndo : Boolean);
 begin
  Inherited;
- if not fLckHandleList.Empty then
+ if Assigned(fLckHandleList) and (not fLckHandleList.Empty) then
   LockServer.BatchUnlockDoc(fFamily, fLckHandleList);
 end;
 
@@ -4179,7 +4193,7 @@ var
  lRecNew : TdtRecordAccess;
  lDate : TStDate;
  lModified : boolean;
- lUserID : TUserID;
+ lUserID : TdaUserID;
 
 begin
  lRec := InitRecordAccess(GetTblObj(ctStage), aRec);
@@ -4388,10 +4402,8 @@ begin
                                   IntA[k2_tiStart],
                                   Attr[k2_tiNumber],
                                   IntA[k2_tiType],
-                                  GetIntTag(Attr[k2_tiLinkAddress], k2_tiDocID)
-                                  {$ifdef DBver134}
-                                  , GetIntTag(Attr[k2_tiLinkAddress], k2_tiSubID)
-                                  {$endif}
+                                  GetIntTag(Attr[k2_tiLinkAddress], k2_tiDocID),
+                                  GetIntTag(Attr[k2_tiLinkAddress], k2_tiSubID)
                                   ]);
 
   AttrData(ctDateNum).CloseDoc(fDocIDList[Id]);

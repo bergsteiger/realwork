@@ -66,6 +66,8 @@ uses
  , afwFacade
  , afwConsts
  , afwSettingsChangePublisher
+ //#UC START# *4908930C0268impl_uses*
+ //#UC END# *4908930C0268impl_uses*
 ;
 
 const

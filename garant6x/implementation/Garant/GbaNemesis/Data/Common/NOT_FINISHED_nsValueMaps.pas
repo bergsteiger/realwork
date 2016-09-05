@@ -22,6 +22,8 @@ uses
  l3ImplUses
  , nsIntegerValueMapFactory
  , nsStringValueMapFactory
+ //#UC START# *492440D20009impl_uses*
+ //#UC END# *492440D20009impl_uses*
 ;
 
 var g_IntegerFactory: InsIntegerValueMapFactory = nil;

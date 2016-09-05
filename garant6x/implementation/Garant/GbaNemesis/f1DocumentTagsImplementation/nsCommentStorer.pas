@@ -41,6 +41,8 @@ uses
  , l3Types
  , l3InterfacesMisc
  , nsNativeCommentPara
+ //#UC START# *4CED328E0140impl_uses*
+ //#UC END# *4CED328E0140impl_uses*
 ;
 
 class procedure TnsCommentStorer.NotifyOtherTexts(const anObj: InevObject);

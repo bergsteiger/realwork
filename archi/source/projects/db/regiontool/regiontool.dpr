@@ -1,8 +1,11 @@
 program regiontool;
 
-{ $Id: regiontool.dpr,v 1.12 2015/04/03 11:30:25 lukyanets Exp $}
+{ $Id: regiontool.dpr,v 1.13 2016/07/14 06:26:57 lukyanets Exp $}
 
 // $Log: regiontool.dpr,v $
+// Revision 1.13  2016/07/14 06:26:57  lukyanets
+// Не собиралось
+//
 // Revision 1.12  2015/04/03 11:30:25  lukyanets
 // Изолируем HT
 //
@@ -55,8 +58,7 @@ uses
   ddClientBaseEngine,
   rtMain in 'rtMain.pas' {MainForm},
   rtRegionIDDlg in 'rtRegionIDDlg.pas' {RegionIDDlg},
-  rtGrinder in 'rtGrinder.pas',
-  rtConst in 'rtConst.pas';
+  rtGrinder in 'rtGrinder.pas';
 
 {$R *.res}
 {$R versioninfo.res} // включаем Version Info

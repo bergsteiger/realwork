@@ -49,6 +49,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *514BFB250118impl_uses*
+ //#UC END# *514BFB250118impl_uses*
 ;
 
 procedure TkwBlockResize.DoCursor(const aCtx: TtfwContext;

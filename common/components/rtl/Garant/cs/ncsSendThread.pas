@@ -34,6 +34,8 @@ uses
  , ncsProfile
  , l3TempMemoryStream
  , Classes
+ //#UC START# *5450E9A0034Aimpl_uses*
+ //#UC END# *5450E9A0034Aimpl_uses*
 ;
 
 procedure TncsSendThread.Send(aMessage: TncsMessage);

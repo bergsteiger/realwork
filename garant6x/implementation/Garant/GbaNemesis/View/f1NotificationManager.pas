@@ -59,6 +59,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *54F5D5E002E0impl_uses*
+ //#UC END# *54F5D5E002E0impl_uses*
 ;
 
 var g_Tf1NotificationManager: Tf1NotificationManager = nil;

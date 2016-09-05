@@ -45,6 +45,8 @@ uses
  , Classes
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *502CD8FA02E1impl_uses*
+ //#UC END# *502CD8FA02E1impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

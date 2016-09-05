@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48E233B00094impl_uses*
+ //#UC END# *48E233B00094impl_uses*
 ;
 
 constructor Tl3Tool.Create(const anOwner: Il3ToolOwner);

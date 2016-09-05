@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , CommentPara_Const
+ //#UC START# *4CED2FED0255impl_uses*
+ //#UC END# *4CED2FED0255impl_uses*
 ;
 
 class procedure TevCommentStorer.ForceStore(aTag: Tl3Variant);

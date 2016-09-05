@@ -49,6 +49,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *538DB4F00335impl_uses*
+ //#UC END# *538DB4F00335impl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

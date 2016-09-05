@@ -4,9 +4,18 @@ unit ddUtils;
   времени и числа байт в строки }
 
 
-{ $Id: ddUtils.pas,v 1.86 2015/10/26 06:55:41 dinishev Exp $ }
+{ $Id: ddUtils.pas,v 1.89 2016/06/17 12:46:03 fireton Exp $ }
 
 // $Log: ddUtils.pas,v $
+// Revision 1.89  2016/06/17 12:46:03  fireton
+// - мелка€ правка
+//
+// Revision 1.88  2016/06/17 11:17:59  dinishev
+// {Requestlink:624709249}. “ест.
+//
+// Revision 1.87  2016/06/15 11:37:20  dinishev
+// {Requestlink:624690924}. ќтделил генерацию дл€ √рунева.
+//
 // Revision 1.86  2015/10/26 06:55:41  dinishev
 // Remove warnings.
 //
@@ -356,6 +365,9 @@ procedure AssertRunningFromLocal(aQuietly: Boolean = False);
 { провер€ет, что приложение запущено не с сетевого пути и если всЄ-таки да, то выводит сообщение и }
 { останавливает выполнение программы, используетс€ при старте в файле проекта }
 
+function ddStyleUndefined(aStyle: Integer): Boolean;
+function ddUnicode2Char(aUnicodeID: Integer): AnsiChar;
+
 const
   dd_TimeMulti : array[TddTimeType] of Longint =
              (24*60*60, 60*60, 60, 1);
@@ -366,14 +378,37 @@ const
 implementation
 
 uses
-  SysUtils, ShellApi, Windows, DateUtils, StdCtrls, Classes, Math, SHFolder,
-  vtVerInf, l3IniFile, l3FileUtils, l3String,
+  SysUtils,
+  ShellApi,
+  Windows,
+
+  DateUtils,
+  StdCtrls,
+  Classes,
+  Math,
+  StrUtils,
+  Types,
+  CheckLst,
+  ExtCtrls,
+  ComCtrls,
+
+  SHFolder,
+
+  vtVerInf,
+
+  ddTypes,
+  
+  l3IniFile,
+  l3FileUtils,
+  l3String,
   {$IFDEF InsiderTest}
   KTestRunner,
   {$ENDIF InsiderTest}
-  StrUtils, Types, CheckLst, L3Bits, ExtCtrls, ComCtrls, l3ExceptionsLog,
-  l3Base, l3Chars
-  
+  L3Bits,
+  l3ExceptionsLog,
+  l3Base,
+  l3Chars
+
   {$IfNDef NoScripts}
   ,
   CheckListBoxWordsPack
@@ -529,7 +564,7 @@ begin
   if Sec > 0 then
     Result:= Format('%2d сек', [Sec])
   else
-    Result:= 'меньше минуты';
+    Result:= 'меньше секунды';
  except
   Result:= '??? мин';
  end
@@ -1147,6 +1182,47 @@ begin
   end;
   Halt(1);
  end;
+end;
+
+function ddStyleUndefined(aStyle: Integer): Boolean;
+begin
+ Result := (aStyle = 0) or (aStyle = propUndefined);
+end;
+
+function ddUnicode2Char(aUnicodeID: Integer): AnsiChar;
+const
+ // {$Requestlink:621056217}
+ cnStartSkipChars1 = 11383;
+ cnFinishSkipChars1 = 42775;
+ // {$Requestlink:610504218}
+ cnStartSkipChars = 57344;
+ cnFinishSkipChars = 63743;
+begin
+ Result := #0;
+ // напильник
+ if ((aUnicodeID >= cnStartSkipChars1) and (aUnicodeID <= cnFinishSkipChars1)) or
+    ((aUnicodeID >= cnStartSkipChars) and (aUnicodeID <= cnFinishSkipChars)) then
+ begin
+  case aUnicodeID of
+   61485,
+   61623,
+   61656,
+   61607,
+   61692: Result := cc_Minus;
+  else
+   Result := cc_HardSpace;
+  end;
+ end // if (aUnicodeID >= cnStartIgnoreCode) and (aUnicodeID <= cnFinishIgnoreCode) then
+ else
+  case aUnicodeID of
+   172: Result := cc_Minus; // http://mdp.garant.ru/pages/viewpage.action?pageId=624074743
+   8194: Result := cc_SoftSpace;
+   8722: Result := cc_LargeDash;
+   8729: Result := cc_Minus;
+   8242: Result := cc_SingleQuote;
+   8243: Result := cc_DoubleQuote;
+   9632: Result := cc_Minus;
+  end;
 end;
 
 end.

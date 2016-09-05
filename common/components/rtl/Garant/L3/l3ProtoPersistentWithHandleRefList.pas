@@ -26,6 +26,8 @@ uses
  l3ImplUses
  , l3ProtoPersistentWithHandle
  , l3Memory
+ //#UC START# *52FCCB450032impl_uses*
+ //#UC END# *52FCCB450032impl_uses*
 ;
 
 type _Instance_R_ = Tl3ProtoPersistentWithHandleRefList;

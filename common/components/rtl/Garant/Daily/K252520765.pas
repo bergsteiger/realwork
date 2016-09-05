@@ -55,6 +55,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , l3Base
+ //#UC START# *4D80BA2F01D0impl_uses*
+ //#UC END# *4D80BA2F01D0impl_uses*
 ;
 
 function TK252520765.GetScrollCount: Integer;

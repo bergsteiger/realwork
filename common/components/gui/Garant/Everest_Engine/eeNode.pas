@@ -80,6 +80,8 @@ uses
  , l3String
  , l3Nodes
  , l3InterfacesMisc
+ //#UC START# *4AE8269E010Dimpl_uses*
+ //#UC END# *4AE8269E010Dimpl_uses*
 ;
 
 constructor TeeNode.Create(const aNode: Il3SimpleNode);

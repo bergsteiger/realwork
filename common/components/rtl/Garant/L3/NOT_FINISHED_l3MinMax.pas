@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47A066980016impl_uses*
+ //#UC END# *47A066980016impl_uses*
 ;
 
 function Max(A: Integer;

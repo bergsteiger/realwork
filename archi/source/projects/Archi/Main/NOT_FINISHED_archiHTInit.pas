@@ -22,6 +22,8 @@ implementation
 {$If Defined(AppClientSide)}
 uses
  l3ImplUses
+ //#UC START# *5272012D0254impl_uses*
+ //#UC END# *5272012D0254impl_uses*
 ;
 
 procedure InitArchiBaseEngine;

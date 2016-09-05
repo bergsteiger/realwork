@@ -55,6 +55,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *537F49C801FEimpl_uses*
+ //#UC END# *537F49C801FEimpl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

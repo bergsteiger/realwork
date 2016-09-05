@@ -1,6 +1,6 @@
 unit F_AttrExplorer;
 
-{ $Id: F_AttrExplorer.pas,v 1.84 2015/04/17 10:40:08 kostitsin Exp $ }
+{ $Id: F_AttrExplorer.pas,v 1.85 2016/06/16 05:38:48 lukyanets Exp $ }
 
 interface
 
@@ -12,6 +12,7 @@ uses
   OvcBase, vtlister, vtOutliner,
   l3Types, l3DatLst, l3InternalInterfaces,
   l3Tree, l3Interfaces, l3TreeInterfaces, l3Tree_TLB, l3Nodes,
+  daTypes,
   DT_Const, DT_Types, dt_AttrSchema,
   DT_Serv, Dt_Doc, DT_Link, DT_Dict, DT_Log,
   Menus,
@@ -46,7 +47,7 @@ type
   private
     fAttrSet         : TdtAttributeSet;
     fCurSub          : Longint;
-    fFamily          : TFamilyID;
+    fFamily          : TdaFamilyID;
     //fExpMode         : TExplorerMode;
 
     fOnItemAction    : TOnItemAction;
@@ -61,8 +62,8 @@ type
     function  pmGetAttrManager : TDocAttributeManager;
     procedure pmSetAttrManager(aValue : TDocAttributeManager);
 
-    function  GetFamily      : TFamilyID;
-    procedure SetFamily(aValue : TFamilyID);
+    function  GetFamily      : TdaFamilyID;
+    procedure SetFamily(aValue : TdaFamilyID);
     function  GetDocID       : TDocID;
 
     procedure SetCurSub(aValue : Longint);
@@ -87,7 +88,7 @@ type
 
     property  AttrSet      : TdtAttributeSet read fAttrSet  write SetAttrSet;
     property  CurSub       : Longint    read GetCurSub write SetCurSub;
-    property  Family       : TFamilyID  read GetFamily write SetFamily;
+    property  Family       : TdaFamilyID  read GetFamily write SetFamily;
     property  DocID        : TDocID     read GetDocID;
     //property  ExpMode      : TExplorerMode read fExpMode write fExpMode;
     property  Document     : TarDocumentWithAttr read fDocument write fDocument;
@@ -157,7 +158,7 @@ begin
  l3Set(fAttrManager, aValue);
 end;
 
-function  TAttrExplorer.GetFamily : TFamilyID;
+function  TAttrExplorer.GetFamily : TdaFamilyID;
 begin
  if Assigned(Document) then
   Result := Document.DocFamily
@@ -165,7 +166,7 @@ begin
   Result := fFamily;
 end;
 
-procedure TAttrExplorer.SetFamily(aValue : TFamilyID);
+procedure TAttrExplorer.SetFamily(aValue : TdaFamilyID);
 begin
  fFamily := aValue;
  AttrManager.DocFamily := fFamily;

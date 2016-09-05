@@ -68,6 +68,8 @@ uses
  , SysUtils
  , l3String
  , l3Base
+ //#UC START# *4E8EB01701A5impl_uses*
+ //#UC END# *4E8EB01701A5impl_uses*
 ;
 
 constructor TddAutolinkDocEntry.Create(aDocType: Integer;

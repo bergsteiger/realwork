@@ -38,6 +38,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47414D0C018Aimpl_uses*
+ //#UC END# *47414D0C018Aimpl_uses*
 ;
 
 constructor TafwMeasureCanvas.Create(const anExtent: TafwPoint;

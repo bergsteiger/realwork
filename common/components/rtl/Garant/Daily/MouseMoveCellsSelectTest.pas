@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4D3D429001F4impl_uses*
+ //#UC END# *4D3D429001F4impl_uses*
 ;
 
 function TMouseMoveCellsSelectTest.GetInnerPara(const aView: InevInputView;

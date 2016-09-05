@@ -54,6 +54,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D07699A02E4impl_uses*
+ //#UC END# *4D07699A02E4impl_uses*
 ;
 
 procedure TTextMetricsPrimTest.DoSave(aForm: TPrimTextLoadForm;

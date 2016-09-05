@@ -494,7 +494,7 @@ procedure Macros_MakeChangeDoc;
          with Document.AttrManager.GetDocAttribute(atDateNums) as IDateNumDocAttributeTool do
          begin
           DeleteAllChangerRec;
-         {$IF DEFINED(DBver134) and NOT DEFINED(ForRegion)}
+         {$IF NOT DEFINED(ForRegion)}
           AddRec(dnChangerDate, edtChangeDate.StDate, lChangerDocId, ChangerSubId);
          {$ELSE}
           AddRec(dnChangerDate, edtChangeDate.StDate, cc_UnAssignedStr);
@@ -586,7 +586,7 @@ procedure Macros_MakeChangeDoc;
        if not edtChangeDate.IsEmpty then
        with lEdWin.Document.AttrManager.GetDocAttribute(atDateNums) as IDateNumDocAttributeTool do
        begin
-        {$IF DEFINED(DBver134) and NOT DEFINED(ForRegion)}
+        {$IF NOT DEFINED(ForRegion)}
          AddRec(dnChangerDate, edtChangeDate.StDate, lChangerDocId, ChangerSubId);
         {$ELSE}
          AddRec(dnChangerDate, edtChangeDate.StDate, cc_UnAssignedStr);
@@ -918,7 +918,7 @@ begin
    end;
 
    //переставляем на текущую все ссылки, которые шли на будущую
-   //ReplaceReferences(aFamID : TFamilyID; aDocList : ISab;
+   //ReplaceReferences(aFamID : TdaFamilyID; aDocList : ISab;
    //aSearchHLDocID: TDocID; aReplaceHLDocID: TDocID);
 
    with (lMainForm.RunTextEditor(CurrentFamily, lIntCurDocId) as TCustomEditorWindow).Document do

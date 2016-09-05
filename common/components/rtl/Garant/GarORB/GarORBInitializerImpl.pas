@@ -33,6 +33,8 @@ uses
  , GarClientSecurity
  , pi_impl
  , SysUtils
+ //#UC START# *4CA0D1B8017Cimpl_uses*
+ //#UC END# *4CA0D1B8017Cimpl_uses*
 ;
 
 class procedure TGarORBInitializerImpl.Init;

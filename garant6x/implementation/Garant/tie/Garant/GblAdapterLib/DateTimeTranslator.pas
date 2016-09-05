@@ -22,6 +22,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *460BC94B02EEimpl_uses*
+ //#UC END# *460BC94B02EEimpl_uses*
 ;
 
 procedure Translate(const value;

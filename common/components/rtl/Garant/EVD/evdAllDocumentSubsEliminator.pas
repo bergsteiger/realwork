@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , DocSubLayer_Const
  , DocumentSub_Const
+ //#UC START# *4E8478090254impl_uses*
+ //#UC END# *4E8478090254impl_uses*
 ;
 
 function TevdAllDocumentSubsEliminator.NeedTranslateChildToNextPrim(anOpenMode: Tk2TagFilterOpenMode): Boolean;

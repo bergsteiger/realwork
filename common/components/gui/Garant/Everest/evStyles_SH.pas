@@ -52,8 +52,8 @@ uses
   evStyleTableSpy
   {$IfEnd} //not DesignTimeLibrary
   ,
-  afwFacade,
   evStylesPrintAndExportSettingRes,
+  afwFacade,
   evStylesPrintAndExportFontSizeSettingRes,
   l3Base {a},
   SysUtils,

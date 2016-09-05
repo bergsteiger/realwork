@@ -38,6 +38,8 @@ uses
  , SysUtils
  , l3String
  , TestFrameWork
+ //#UC START# *4C28D831004Bimpl_uses*
+ //#UC END# *4C28D831004Bimpl_uses*
 ;
 
 procedure TK219122895.SetFilters(var theGenerator: Ik2TagGenerator);

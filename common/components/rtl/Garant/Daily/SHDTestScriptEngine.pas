@@ -28,6 +28,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , SupportKeyWords
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4DC3B4A603C9impl_uses*
+ //#UC END# *4DC3B4A603C9impl_uses*
 ;
 
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(InsiderTest)

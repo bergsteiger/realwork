@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *547CB3B5032Bimpl_uses*
+ //#UC END# *547CB3B5032Bimpl_uses*
 ;
 
 procedure TevCustomToolPanel.pm_SetOrientation(aValue: Tl3Orientation1);

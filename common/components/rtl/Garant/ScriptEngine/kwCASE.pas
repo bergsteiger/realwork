@@ -50,6 +50,8 @@ uses
  l3ImplUses
  , kwEND
  , kwCompiledCase
+ //#UC START# *4DBAEE8103DBimpl_uses*
+ //#UC END# *4DBAEE8103DBimpl_uses*
 ;
 
 function TkwCASE.EndBracket(const aContext: TtfwContext;

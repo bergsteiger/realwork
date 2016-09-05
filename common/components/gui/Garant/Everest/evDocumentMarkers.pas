@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , k2Tags
  , evConst
+ //#UC START# *4A4C8FC00259impl_uses*
+ //#UC END# *4A4C8FC00259impl_uses*
 ;
 
 function TevDocumentRightMarginMarker.DoGetValue: Integer;

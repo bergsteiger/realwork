@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *4E7094F60213impl_uses*
+ //#UC END# *4E7094F60213impl_uses*
 ;
 
 procedure TnevPageBreakFormatInfo.DoRecalc(const aView: InevViewMetrics);

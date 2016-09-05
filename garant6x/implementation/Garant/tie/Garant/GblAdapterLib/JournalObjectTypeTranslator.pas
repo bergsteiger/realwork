@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4A94342100B3impl_uses*
+ //#UC END# *4A94342100B3impl_uses*
 ;
 
 procedure Translate(adapter_type: TJournalObjectType);

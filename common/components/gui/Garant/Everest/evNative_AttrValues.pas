@@ -137,6 +137,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *060E2B49C828impl_uses*
+ //#UC END# *060E2B49C828impl_uses*
 ;
 
 initialization

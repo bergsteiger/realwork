@@ -24,6 +24,8 @@ implementation
 {$If Defined(evNeedPainters)}
 uses
  l3ImplUses
+ //#UC START# *50D3F54E00A8impl_uses*
+ //#UC END# *50D3F54E00A8impl_uses*
 ;
 {$IfEnd} // Defined(evNeedPainters)
 

@@ -92,6 +92,8 @@ uses
  , MMSystem
  , Windows
  , l3Base
+ //#UC START# *550A6034036Fimpl_uses*
+ //#UC END# *550A6034036Fimpl_uses*
 ;
 
 var g_TChromeLikeTabSetAnimationManager: TChromeLikeTabSetAnimationManager = nil;

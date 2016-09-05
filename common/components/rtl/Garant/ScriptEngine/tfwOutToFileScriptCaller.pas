@@ -41,6 +41,8 @@ uses
  , l3Types
  , l3String
  , l3Chars
+ //#UC START# *56456E3E01E4impl_uses*
+ //#UC END# *56456E3E01E4impl_uses*
 ;
 
 constructor TtfwOutToFileScriptCaller.Create(const aFileName: AnsiString);

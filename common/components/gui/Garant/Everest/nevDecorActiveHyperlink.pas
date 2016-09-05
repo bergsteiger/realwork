@@ -50,6 +50,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4E1D96B8035Aimpl_uses*
+ //#UC END# *4E1D96B8035Aimpl_uses*
 ;
 
 constructor TnevDecorActiveHyperlink.Create(const aPara: InevObjectPrim;

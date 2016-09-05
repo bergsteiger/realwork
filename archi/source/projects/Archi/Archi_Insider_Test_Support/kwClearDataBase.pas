@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Jour
  {$IfEnd} // NOT Defined(Nemesis)
+ //#UC START# *4E4A181002B0impl_uses*
+ //#UC END# *4E4A181002B0impl_uses*
 ;
 
 class function TkwClearDataBase.GetWordNameForRegister: AnsiString;

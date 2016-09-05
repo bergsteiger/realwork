@@ -86,6 +86,8 @@ uses
  , k2Tags
  , k2Facade
  , l3BitArr
+ //#UC START# *467FCCB101CFimpl_uses*
+ //#UC END# *467FCCB101CFimpl_uses*
 ;
 
 type _Instance_R_ = TnsTagNodePrim;

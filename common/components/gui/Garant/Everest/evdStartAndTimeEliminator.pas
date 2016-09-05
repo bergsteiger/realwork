@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , Document_Const
  , k2Tags
+ //#UC START# *5358C3EA01EDimpl_uses*
+ //#UC END# *5358C3EA01EDimpl_uses*
 ;
 
 procedure TevdStartAndTimeEliminator.DoAddAtomEx(AtomIndex: Integer;

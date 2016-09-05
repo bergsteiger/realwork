@@ -57,6 +57,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D1B16D302DDimpl_uses*
+ //#UC END# *4D1B16D302DDimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}

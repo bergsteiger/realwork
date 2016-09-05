@@ -60,6 +60,8 @@ uses
  , daScheme
  , SysUtils
  , l3Base
+ //#UC START# *55FFB14A031Cimpl_uses*
+ //#UC END# *55FFB14A031Cimpl_uses*
 ;
 
 procedure TdaFromTable.pm_SetPrepared(aValue: Boolean);

@@ -86,6 +86,8 @@ uses
  , l3Interfaces
  , l3String
  , TestFrameWork
+ //#UC START# *55ED52510115impl_uses*
+ //#UC END# *55ED52510115impl_uses*
 ;
 
 {$Include w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas}

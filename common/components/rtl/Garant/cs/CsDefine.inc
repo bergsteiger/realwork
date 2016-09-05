@@ -1,6 +1,9 @@
-{ $Id: CsDefine.inc,v 1.12 2015/02/24 11:59:38 lukyanets Exp $ }
+{ $Id: CsDefine.inc,v 1.13 2016/05/24 08:25:40 lukyanets Exp $ }
 
 // $Log: CsDefine.inc,v $
+// Revision 1.13  2016/05/24 08:25:40  lukyanets
+// Cleanup
+//
 // Revision 1.12  2015/02/24 11:59:38  lukyanets
 // Передаем по новому
 //
@@ -45,7 +48,6 @@
 
 {$WriteableConst On}
 
-{$Define csSendTaskAsEVD}
 {$Define csSynchroTransport}
 
 {$If defined(AppServerSide) or defined(ServerAssistantSide)}

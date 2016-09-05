@@ -101,6 +101,8 @@ uses
  , nsTypes
  , l3InterfacesMisc
  , l3Base
+ //#UC START# *492286CA0097impl_uses*
+ //#UC END# *492286CA0097impl_uses*
 ;
 
 type _Instance_R_ = TdsFoldersTree;

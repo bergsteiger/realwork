@@ -40,6 +40,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4DAEBDD2010Dimpl_uses*
+ //#UC END# *4DAEBDD2010Dimpl_uses*
 ;
 
 type _Instance_R_ = Tl3VCLFormPtrList;

@@ -129,6 +129,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *4F4735060149impl_uses*
+ //#UC END# *4F4735060149impl_uses*
 ;
 
 function TtfwParserToken_C(const aString: Il3CString;
@@ -467,7 +469,7 @@ begin
  begin
   if FileExists(f_FileName) then
   begin
-   f_CompiledCodeName := f_FileName + '.co';
+   f_CompiledCodeName := TtfwParserService.Instance.MakeCompiledCodeName(f_FileName, '.co');
    l_FileTime := cSig + cVersion + ' ' + l3DateTimeToStr(aFiler.FileDateTime);
 
    if FileExists(f_CompiledCodeName) then

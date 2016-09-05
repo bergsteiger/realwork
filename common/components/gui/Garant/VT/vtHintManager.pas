@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *50C6241B0355impl_uses*
+ //#UC END# *50C6241B0355impl_uses*
 ;
 
 var g_TvtHintManager: TvtHintManager = nil;

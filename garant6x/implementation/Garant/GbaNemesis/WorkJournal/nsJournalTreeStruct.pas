@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , DataAdapter
+ //#UC START# *4A8260EC0099impl_uses*
+ //#UC END# *4A8260EC0099impl_uses*
 ;
 
 function TnsJournalTreeStruct.ReAqurieUnfilteredRoot: INodeBase;

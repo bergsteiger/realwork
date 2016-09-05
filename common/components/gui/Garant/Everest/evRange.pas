@@ -46,7 +46,8 @@ type
     aNeedClearOld: Boolean = False): Boolean;
     {* вставить данные из памяти в формате aFormat }
    procedure InsertFrom(const aTextSource: InevTagReader;
-    const aFilters: InevTagGenerator);
+    const aFilters: InevTagGenerator;
+    const aBlock: InevDataObjectPrim2 = nil);
     {* вставить данные из другого источника текста }
    function InsertString(const aSt: Tl3PCharLenPrim;
     aFormat: Tl3ClipboardFormat = cf_Text): Boolean; overload;
@@ -138,6 +139,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , IedRangeWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48E385660374impl_uses*
+ //#UC END# *48E385660374impl_uses*
 ;
 
 constructor TedRangeImplementation.Create(const aView: InevView;
@@ -626,7 +629,8 @@ begin
 end;//TedRangeImplementation.InsertData
 
 procedure TedRangeImplementation.InsertFrom(const aTextSource: InevTagReader;
- const aFilters: InevTagGenerator);
+ const aFilters: InevTagGenerator;
+ const aBlock: InevDataObjectPrim2 = nil);
  {* вставить данные из другого источника текста }
 //#UC START# *4BBCB36D03B8_48E3859101D5_var*
 var
@@ -636,7 +640,7 @@ begin
 //#UC START# *4BBCB36D03B8_48E3859101D5_impl*
  l_MemoryPool := Tl3MemoryPool.Create;
  try
-  aTextSource.ReadTag(cf_EverestBin, l_MemoryPool As IStream, aFilters);
+  aTextSource.ReadTag(cf_EverestBin, l_MemoryPool As IStream, aFilters, aBlock);
   InsertData(cf_EverestBin, l_MemoryPool.AsHandle, true);
  finally
   l3Free(l_MemoryPool);

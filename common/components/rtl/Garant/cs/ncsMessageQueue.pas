@@ -52,6 +52,8 @@ uses
  , SysUtils
  , l3Types
  , l3Utils
+ //#UC START# *544E3C54031Dimpl_uses*
+ //#UC END# *544E3C54031Dimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}

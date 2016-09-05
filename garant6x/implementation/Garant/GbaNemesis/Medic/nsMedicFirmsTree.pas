@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *49071797031Fimpl_uses*
+ //#UC END# *49071797031Fimpl_uses*
 ;
 
 var g_TnsMedicFirmsTree: Pointer = nil;

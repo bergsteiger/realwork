@@ -24,6 +24,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4EA538D60064impl_uses*
+ //#UC END# *4EA538D60064impl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 

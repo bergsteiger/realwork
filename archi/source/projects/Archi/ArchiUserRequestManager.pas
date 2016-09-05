@@ -1,7 +1,31 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.109 2016/06/03 07:51:36 fireton Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.117 2016/08/31 10:30:11 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.117  2016/08/31 10:30:11  lukyanets
+// Первая доставка
+//
+// Revision 1.116  2016/08/30 14:11:44  lukyanets
+// Пытаемся отдавать файл
+//
+// Revision 1.115  2016/08/29 12:51:29  lukyanets
+// Принимаем запрос и готовимся отдавать файл
+//
+// Revision 1.114  2016/08/26 08:42:56  lukyanets
+// Принимаем ответ
+//
+// Revision 1.113  2016/08/25 12:09:09  lukyanets
+// Отправляем запрос на сервер
+//
+// Revision 1.112  2016/08/25 10:13:18  lukyanets
+// Готовимся запрашивать сервер о получении текста документа.
+//
+// Revision 1.111  2016/08/24 12:50:47  lukyanets
+// Готовимся запрашивать сервер о получении текста документа.
+//
+// Revision 1.110  2016/08/23 12:56:15  lukyanets
+// Готовимся запрашивать сервер о получении текста документа.
+//
 // Revision 1.109  2016/06/03 07:51:36  fireton
 // - недокоммит
 //
@@ -517,6 +541,8 @@ uses
   l3Base,
   daArchiUser,
   daArchiUserList,
+  daTypes,
+  m3DBInterfaces,
   dt_Types,
   CSClient, CSNotification, CsQueryTypes,
   csProcessTask, CsDataPipe, l3Types,
@@ -524,6 +550,7 @@ uses
   csTaskTypes, csServerTaskTypes, csTaskRequest, csClientCommandsManager,
   Menus, csUserRequestManager, l3LongintList,
   ddServerTask,
+  Dt_EFltr, m4DocumentAddress,
 
   ddServerTaskListPrim,
   ddTaskItemList,
@@ -604,6 +631,10 @@ type
    function SendAnnotationExportTask: Boolean;
    function SendAutoclassifyTask: Boolean;
    procedure RequestShowMessage(const aMessage: AnsiString);
+   function DownloadDocStream(aDocFamily: TdaFamilyID;
+    aDocID: TdaDocID; anIsObjTopic: Boolean; const aDocumentType: String;
+    aDocPart: Tm3DocPartSelector; aLevel: Integer; WithAttr: Boolean;
+    DocPartSel: TDocPartSelector; aFoundSelector: Tm4Addresses; out theStream: IStream): Boolean;
    property OnAnouncedDateChanged: TOnAnouncedDateChanged read f_OnAnouncedDateChanged write f_OnAnouncedDateChanged;
    property OnProgressProc: Tl3ProgressProc read f_OnProgressProc write
        f_OnProgressProc;
@@ -623,16 +654,21 @@ Uses
  daDataProvider,
  ddTaskListDlg, ddUtils,
  csMessageManager,
+ csDownloadDocStream,
+ csDownloadDocStreamReply,
+ ncsDocStorageTransferReg,
+ m3DocumentAddress,
  dt_Dict, dt_Mail,
  vConst,
  l3Memory,
  IdException, DateUtils, dt_DictConst, dt_Const, TypInfo, csLineRequest,
  csServerStatusRequest, csExportResultRequest, csImport, csCommonDataRequest, csRequestTask,
  l3FileUtils, csSpellCorrectTask, CsExport,
+  ncsMessageInterfaces, ncsMessage,
   csCommandsManager, csAutoAnnoExport, csAACImport, csAutoClassTask, csAnnotationTask,
   csAutoSpell, arDeliveryList, csRelPublishTask, l3StopWatch, csMdpSyncDicts, csMdpImportDocs,
   csContainerTask, csSchedulerProxyTask, csMdpSyncStages, csMdpSyncImport,
-
+ StrShop,
  AutoClassTask_Const,
  k2Base,
  l3ExecuteInMainThread,
@@ -706,6 +742,7 @@ begin
 
  Tl3ExecuteInMainThread.Instance.Init;
  f_ResultDeliverer := TarResultDeliverer.Create(Self);
+ ncsDocStorageTransferReg.ncsClientRegister;
 end;
 
 procedure TArchiUserRequestManager.Checktask(const aTaskID: AnsiString; aTaskStatus: TcsTaskStatus);
@@ -1409,6 +1446,73 @@ end;
 procedure TArchiUserRequestManager.RequestShowMessage(const aMessage: AnsiString);
 begin
  RequestSendMessage(aMessage);
+end;
+
+function TArchiUserRequestManager.DownloadDocStream(aDocFamily: TdaFamilyID;
+  aDocID: TdaDocID; anIsObjTopic: Boolean; const aDocumentType: String;
+  aDocPart: Tm3DocPartSelector; aLevel: Integer; WithAttr: Boolean;
+  DocPartSel: TDocPartSelector; aFoundSelector: Tm4Addresses; out theStream: IStream): Boolean;
+var
+ l_Transporter: IncsClientTransporter;
+ l_Reply: TncsMessage;
+ l_Message: TcsDownloadDocStream;
+
+ function DoIterate(anAddress: PObject; anIndex: Long): Bool;
+ var
+  l_Addr: Tm3DocumentAddress;
+ begin//DoAddress
+  l_Addr := aFoundSelector.Address[anIndex];
+  l_Message.FoundSelector.Add(l_Addr.rPara, l_Addr.rWord, l_Addr.rDocument);
+  Result := true;
+ end;//DoAddress
+
+begin
+ Result := False;
+ theStream := nil;
+ if ArchiRequestManager.CSClient.IsStarted then
+ begin
+  l_Transporter := MakeTransporter(qtalcuSendCustomMessage);
+  try
+   l_Transporter.Connect(CSClient.ServerIp, CSClient.ServerPort, l3CreateStringGUID);
+   try
+    if not l_Transporter.Connected then
+     raise Exception.Create(sidClientServerDocLoadFailed);
+    l_Message := TcsDownloadDocStream.Create;
+    try
+     l_Message.DocFamily := aDocFamily;
+     l_Message.IsObjTopic := anIsObjTopic;
+     l_Message.DocumentType := aDocumentType;
+     l_Message.DocID := aDocID;
+     l_Message.DocPart := aDocPart;
+     l_Message.Level := aLevel;
+     l_Message.WithAttr := WithAttr;
+     l_Message.DocPartSel := DocPartSel;
+     if aFoundSelector <> nil then
+      aFoundSelector.IterateAllF(l3L2IA(@DoIterate));
+     l_Transporter.Send(l_Message);
+     l_Reply := nil;
+     try
+      Result := l_Transporter.WaitForReply(l_Message, l_Reply) and (l_Reply is TcsDownloadDocStreamReply) and TcsDownloadDocStreamReply(l_Reply).IsSuccess;
+      if Result then
+       theStream := TcsDownloadDocStreamReply(l_Reply).Data as IStream
+      else
+       if Assigned(l_Reply) and (l_Reply is TcsDownloadDocStreamReply) then
+        raise Exception.Create(TcsDownloadDocStreamReply(l_Reply).ErrorMessage)
+       else
+        raise Exception.Create('Нет связи с сервером');
+     finally
+      FreeAndNil(l_Reply);
+     end;
+    finally
+     FreeAndNil(l_Message);
+    end;
+   finally
+    l_Transporter.Disconnect;
+   end;
+  finally
+   l_Transporter := nil;
+  end;
+ end;
 end;
 
 initialization

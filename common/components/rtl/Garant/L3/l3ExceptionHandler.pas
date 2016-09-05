@@ -51,6 +51,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5589239300B6impl_uses*
+ //#UC END# *5589239300B6impl_uses*
 ;
 
 var g_Tl3ExceptionHandler: Tl3ExceptionHandler = nil;

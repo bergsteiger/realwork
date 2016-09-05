@@ -41,6 +41,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *4E368C9A03ADimpl_uses*
+ //#UC END# *4E368C9A03ADimpl_uses*
 ;
 
 type _Instance_R_ = TdsListAnalize;

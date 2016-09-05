@@ -77,6 +77,8 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , k2Tags
  , evdStyles
+ //#UC START# *4D594C39031Bimpl_uses*
+ //#UC END# *4D594C39031Bimpl_uses*
 ;
 
 const

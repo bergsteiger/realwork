@@ -21,6 +21,8 @@ implementation
 {$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
 uses
  l3ImplUses
+ //#UC START# *4CA1D1660385impl_uses*
+ //#UC END# *4CA1D1660385impl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 

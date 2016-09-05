@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , vcmBase
  , vcmInterfaces
+ //#UC START# *5230072D031Aimpl_uses*
+ //#UC END# *5230072D031Aimpl_uses*
 ;
 
 procedure TkwEntityOperationTest.DoOp(const aCtx: TtfwContext;

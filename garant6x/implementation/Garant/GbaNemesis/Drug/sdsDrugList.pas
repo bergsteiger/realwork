@@ -179,6 +179,8 @@ uses
  , UnderControlInterfaces
  , nsListWarningGenerator
  , WarningUserTypes_Warning_UserType
+ //#UC START# *47EA0F2B031Cimpl_uses*
+ //#UC END# *47EA0F2B031Cimpl_uses*
 ;
 
 type _Instance_R_ = TsdsDrugList;

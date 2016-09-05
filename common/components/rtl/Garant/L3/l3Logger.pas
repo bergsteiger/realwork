@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3ExceptionsLog
+ //#UC START# *540EE3000176impl_uses*
+ //#UC END# *540EE3000176impl_uses*
 ;
 
 constructor Tl3Logger.Create(const aFileName: AnsiString);

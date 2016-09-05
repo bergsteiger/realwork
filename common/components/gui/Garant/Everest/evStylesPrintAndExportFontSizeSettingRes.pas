@@ -113,6 +113,8 @@ uses
  , l3String
  , SysUtils
  , l3Base
+ //#UC START# *C9ADD4944F97impl_uses*
+ //#UC END# *C9ADD4944F97impl_uses*
 ;
 
 var g_TPrintAndExportFontSizeValuesMapImpl: Pointer = nil;

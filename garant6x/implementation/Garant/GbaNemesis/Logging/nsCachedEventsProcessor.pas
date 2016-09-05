@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4B139FB1009Bimpl_uses*
+ //#UC END# *4B139FB1009Bimpl_uses*
 ;
 
 var g_TnsCachedEventsProcessor: Pointer = nil;

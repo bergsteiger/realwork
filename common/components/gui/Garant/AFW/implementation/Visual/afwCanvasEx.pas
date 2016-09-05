@@ -49,6 +49,8 @@ implementation
 uses
  l3ImplUses
  , afwPreviewPage
+ //#UC START# *47414C8700D5impl_uses*
+ //#UC END# *47414C8700D5impl_uses*
 ;
 
 constructor TafwCanvasEx.Create(const aPrinter: IafwPrinter;

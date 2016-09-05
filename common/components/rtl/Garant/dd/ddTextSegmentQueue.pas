@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , ddHyperlink
+ //#UC START# *52DCDDEE0371impl_uses*
+ //#UC END# *52DCDDEE0371impl_uses*
 ;
 
 function TddTextSegmentQueue.Pop: TddTextSegment;

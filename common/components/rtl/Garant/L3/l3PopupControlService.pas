@@ -52,6 +52,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *55879E12008Dimpl_uses*
+ //#UC END# *55879E12008Dimpl_uses*
 ;
 
 var g_Tl3PopupControlService: Tl3PopupControlService = nil;

@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , ServerStatusRequest_Const
+ //#UC START# *53B6843E03A3impl_uses*
+ //#UC END# *53B6843E03A3impl_uses*
 ;
 
 class function TddServerStatusRequestPrim.GetTaggedDataType: Tk2Type;

@@ -34,6 +34,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *48228EF9010Fimpl_uses*
+ //#UC END# *48228EF9010Fimpl_uses*
 ;
 
 procedure UserFoldersTree;

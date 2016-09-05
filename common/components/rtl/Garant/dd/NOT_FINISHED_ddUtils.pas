@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5214B1470139impl_uses*
+ //#UC END# *5214B1470139impl_uses*
 ;
 
 procedure GetOutputDirName4Test;

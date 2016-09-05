@@ -43,6 +43,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4DCBD50101CBimpl_uses*
+ //#UC END# *4DCBD50101CBimpl_uses*
 ;
 
 constructor TkwCompiledWordWorker.Create(aWordToPush: TtfwWord;

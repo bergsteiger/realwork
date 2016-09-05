@@ -32,6 +32,8 @@ uses
  , nsLogManager
  , LoggingUnit
  , LoggingWrapperInterfaces
+ //#UC START# *4B0A781302C3impl_uses*
+ //#UC END# *4B0A781302C3impl_uses*
 ;
 
 class procedure TnsOpenDocumentFromLinkEvent.Log(const aDoc: IdeDocInfo);

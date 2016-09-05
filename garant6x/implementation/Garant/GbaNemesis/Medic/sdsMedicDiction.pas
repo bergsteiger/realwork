@@ -42,6 +42,8 @@ uses
  , deMedicDiction
  , SysUtils
  , nsTabbedInterfaceTypes
+ //#UC START# *493D11EA0286impl_uses*
+ //#UC END# *493D11EA0286impl_uses*
 ;
 
 function TsdsMedicDiction.BaseDocumentClass: IdsBaseDocument;

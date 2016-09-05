@@ -29,6 +29,8 @@ uses
  , k2NullTagImpl
  , l3BitArr
  , l3Memory
+ //#UC START# *527B9A3F0164impl_uses*
+ //#UC END# *527B9A3F0164impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas}

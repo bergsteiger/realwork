@@ -1,8 +1,23 @@
 unit nsBaseSearcher;
 
-// $Id: nsBaseSearcher.pas,v 1.194 2016/05/19 09:16:46 morozov Exp $
+// $Id: nsBaseSearcher.pas,v 1.199 2016/08/15 12:02:40 morozov Exp $
 
 // $Log: nsBaseSearcher.pas,v $
+// Revision 1.199  2016/08/15 12:02:40  morozov
+// {RequestLink: 624870575}
+//
+// Revision 1.198  2016/07/26 12:56:10  lulin
+// - перегенераци€.
+//
+// Revision 1.197  2016/07/21 10:09:19  morozov
+// {RequestLink: 624870575} ќткатил
+//
+// Revision 1.196  2016/07/20 10:53:56  morozov
+// {RequestLink: 624870575}
+//
+// Revision 1.195  2016/07/15 11:29:13  lulin
+// - выпр€мл€ем зависимости.
+//
 // Revision 1.194  2016/05/19 09:16:46  morozov
 // {RequestLink: 607262792}
 //
@@ -938,6 +953,7 @@ uses
  ,
  Controls,
  Windows
+ , Base_Operations_F1Services_Contracts
  ;
 
 type
@@ -1336,7 +1352,7 @@ begin
    f_InitialNeedShowWindow := False;
   end
   else
-  if Assigned(f_SearchWindow) then
+  if Assigned(f_SearchWindow) and (not g_Dispatcher.History.InBF) then
    CloseSearchWindow;
  end;//not l3IEQ(InsBaseSearchPresentation(f_Presentation), aPresentation)
 end;
@@ -1480,7 +1496,7 @@ begin
   // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309
   // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296636403#comment-296636403
   begin
-   l_FormCreated := TdmStdRes.MakeBaseSearchWindow(l_Container.rContainer, Self, l_Container.rZone);
+   l_FormCreated := TBaseSearchService.Instance.MakeBaseSearchWindow(l_Container.rContainer, Self, l_Container.rZone);
    Assert(l_FormCreated <> nil);
    Assert(f_SearchWindow <> nil);
    if (f_SearchWindow = nil) then
@@ -1523,7 +1539,7 @@ begin
  else
  if (OpenKind = ns_bsokGlobal) then
  begin
-  l_Form := TdmStdRes.MakeBaseSearchCard(Container);
+  l_Form := TBaseSearchService.Instance.MakeBaseSearchCard(Container);
   Assert(l_Form <> nil);
   l_Form.SetActiveInParent;
   THackCustomForm(l_Form.VCLWinControl).Activate;

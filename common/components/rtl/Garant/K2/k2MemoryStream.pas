@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , k2SizedMemoryPool
+ //#UC START# *530B3FE100E2impl_uses*
+ //#UC END# *530B3FE100E2impl_uses*
 ;
 
 function Tk2MemoryStream.GetIsModified: Boolean;
@@ -49,9 +51,7 @@ function Tk2MemoryStream.pm_GetIsModified: Boolean;
 //#UC END# *49A67D980375_530B3FE100E2get_var*
 begin
 //#UC START# *49A67D980375_530B3FE100E2get_impl*
-// Result := false;
- Result := true;
- // - иначе на стороне Archi считают, что картинки нет, или она не изменилась
+ Result := GetIsModified;
 //#UC END# *49A67D980375_530B3FE100E2get_impl*
 end;//Tk2MemoryStream.pm_GetIsModified
 

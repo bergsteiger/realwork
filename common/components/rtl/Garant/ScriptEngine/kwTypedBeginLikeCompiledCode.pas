@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *560937350073impl_uses*
+ //#UC END# *560937350073impl_uses*
 ;
 
 procedure TkwTypedBeginLikeCompiledCode.DoDoIt(const aCtx: TtfwContext);

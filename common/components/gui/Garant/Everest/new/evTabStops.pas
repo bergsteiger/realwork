@@ -60,6 +60,8 @@ uses
  , k2Tags
  , k2Base
  , SysUtils
+ //#UC START# *48D1055203B8impl_uses*
+ //#UC END# *48D1055203B8impl_uses*
 ;
 
 const

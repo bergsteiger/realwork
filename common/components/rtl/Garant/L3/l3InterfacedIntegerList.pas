@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4CA9A422001Bimpl_uses*
+ //#UC END# *4CA9A422001Bimpl_uses*
 ;
 
 function Tl3InterfacedIntegerList.pm_GetCount: Integer;

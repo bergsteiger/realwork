@@ -58,7 +58,7 @@ var
 begin
 //#UC START# *4A81650B014A_4A8AC2DB0210_impl*
  l_Container := MakeContainerForBehaviour(aBehaviour);
- TdmStdRes.OpenDocument(MakeLinkDocInfo(aDocument, dptSub, aSub), l_Container);
+ TDocumentService.Instance.OpenDocument(MakeLinkDocInfo(aDocument, dptSub, aSub), l_Container);
 //#UC END# *4A81650B014A_4A8AC2DB0210_impl*
 end;//_HyperlinkProcessorWithOwnLocalLink_.OpenRedactionLocalLink
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

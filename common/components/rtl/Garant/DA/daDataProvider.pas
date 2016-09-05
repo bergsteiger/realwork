@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *551A7D7402B4impl_uses*
+ //#UC END# *551A7D7402B4impl_uses*
 ;
 
 var g_GlobalDataProvider: Pointer;

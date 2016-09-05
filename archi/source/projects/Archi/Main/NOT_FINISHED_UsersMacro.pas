@@ -25,6 +25,8 @@ implementation
 {$If Defined(AppClientSide)}
 uses
  l3ImplUses
+ //#UC START# *4E4B60A30391impl_uses*
+ //#UC END# *4E4B60A30391impl_uses*
 ;
 
 procedure Macros_MakeChangeDoc;

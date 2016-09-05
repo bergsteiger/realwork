@@ -39,6 +39,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , nsTypes
  , nsConst
+ //#UC START# *490C4DB100E4impl_uses*
+ //#UC END# *490C4DB100E4impl_uses*
 ;
 
 const

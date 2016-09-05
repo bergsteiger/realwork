@@ -33,6 +33,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4DBAF3D60039impl_uses*
+ //#UC END# *4DBAF3D60039impl_uses*
 ;
 
 procedure TkwDEFAULT.DoDoIt(const aCtx: TtfwContext);

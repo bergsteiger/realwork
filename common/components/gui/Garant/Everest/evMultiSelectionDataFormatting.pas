@@ -51,6 +51,8 @@ uses
  , k2Base
  , nevFacade
  , afwFacade
+ //#UC START# *48ECDC5E005Dimpl_uses*
+ //#UC END# *48ECDC5E005Dimpl_uses*
 ;
 
 function TevMultiSelectionDataFormatting.GetFont(const aView: InevView;

@@ -51,6 +51,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B61AB64033Fimpl_uses*
+ //#UC END# *4B61AB64033Fimpl_uses*
 ;
 
 function TnsFoundBlockInfo_C(aBlockID: Integer;

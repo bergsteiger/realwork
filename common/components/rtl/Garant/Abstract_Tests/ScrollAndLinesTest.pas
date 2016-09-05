@@ -48,6 +48,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4E54DE280369impl_uses*
+ //#UC END# *4E54DE280369impl_uses*
 ;
 
 procedure TScrollAndLinesTest.DoScroll(aForm: TPrimTextLoadForm);

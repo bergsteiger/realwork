@@ -22,6 +22,8 @@ implementation
 uses
  l3ImplUses
  , vgBitmap
+ //#UC START# *537EE67F021Bimpl_uses*
+ //#UC END# *537EE67F021Bimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 

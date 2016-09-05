@@ -29,6 +29,8 @@ type
    function KPage: AnsiString;
    procedure ToLog(const aSt: AnsiString);
    function CompileOnly: Boolean;
+   procedure ScriptDone(const aCtx: TtfwContext);
+   procedure ScriptWillRun(const aCtx: TtfwContext);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -86,6 +88,8 @@ uses
  , l3Base
  , Windows
  , l3String
+ //#UC START# *55C482690029impl_uses*
+ //#UC END# *55C482690029impl_uses*
 ;
 
 procedure TtfwDefaultScriptCaller.DoPrint(const aStr: Tl3WString);
@@ -395,6 +399,24 @@ begin
  Assert(false);
 //#UC END# *536A15F901DA_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.CheckPictureOnly
+
+procedure TtfwDefaultScriptCaller.ScriptDone(const aCtx: TtfwContext);
+//#UC START# *57A9DF60030B_55C482690029_var*
+//#UC END# *57A9DF60030B_55C482690029_var*
+begin
+//#UC START# *57A9DF60030B_55C482690029_impl*
+ // - ничего не делаем
+//#UC END# *57A9DF60030B_55C482690029_impl*
+end;//TtfwDefaultScriptCaller.ScriptDone
+
+procedure TtfwDefaultScriptCaller.ScriptWillRun(const aCtx: TtfwContext);
+//#UC START# *57A9F99A01C4_55C482690029_var*
+//#UC END# *57A9F99A01C4_55C482690029_var*
+begin
+//#UC START# *57A9F99A01C4_55C482690029_impl*
+ // - ничего не делаем
+//#UC END# *57A9F99A01C4_55C482690029_impl*
+end;//TtfwDefaultScriptCaller.ScriptWillRun
 
 procedure TtfwDefaultScriptCaller.Cleanup;
  {* Функция очистки полей объекта. }

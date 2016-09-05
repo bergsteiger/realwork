@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4DC98AAC0395impl_uses*
+ //#UC END# *4DC98AAC0395impl_uses*
 ;
 
 procedure TkwCompiledIncluded.DoDoIt(const aCtx: TtfwContext);

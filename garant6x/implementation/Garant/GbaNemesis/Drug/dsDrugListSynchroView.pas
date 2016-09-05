@@ -72,6 +72,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *47ECD5A6015Aimpl_uses*
+ //#UC END# *47ECD5A6015Aimpl_uses*
 ;
 
 type _Instance_R_ = TdsDrugListSynchroView;

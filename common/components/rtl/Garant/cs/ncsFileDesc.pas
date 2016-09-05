@@ -60,6 +60,8 @@ uses
  , evdNativeReader
  , k2DocumentBuffer
  , FileDesc_Const
+ //#UC START# *546C52C001EDimpl_uses*
+ //#UC END# *546C52C001EDimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}

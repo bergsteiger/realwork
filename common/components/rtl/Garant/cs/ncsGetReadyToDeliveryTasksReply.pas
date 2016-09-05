@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , csGetReadyToDeliveryTasksReply_Const
+ //#UC START# *54645E0D0246impl_uses*
+ //#UC END# *54645E0D0246impl_uses*
 ;
 
 function TncsGetReadyToDeliveryTasksReply.pm_GetTasksIDList: TasksIDListHelper;

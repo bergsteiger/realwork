@@ -51,6 +51,8 @@ uses
  , tfwClassRef
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *54EDDCAC016Aimpl_uses*
+ //#UC END# *54EDDCAC016Aimpl_uses*
 ;
 
 type

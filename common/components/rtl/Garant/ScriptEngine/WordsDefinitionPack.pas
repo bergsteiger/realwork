@@ -28,6 +28,8 @@ uses
  , l3Base
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F43ABD0026Fimpl_uses*
+ //#UC END# *4F43ABD0026Fimpl_uses*
 ;
 
 type

@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5279D2EA02DEimpl_uses*
+ //#UC END# *5279D2EA02DEimpl_uses*
 ;
 
 var g_TTestDocumentList: TTestDocumentList = nil;

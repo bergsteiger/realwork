@@ -5,9 +5,16 @@ unit evSearch;
 { Автор: Люлин А.В. ©     }
 { Модуль: evSearch -      }
 { Начат: 27.05.1998 14:39 }
-{ $Id: evSearch.pas,v 1.324 2016/02/05 12:30:25 dinishev Exp $ }
+{ $Id: evSearch.pas,v 1.326 2016/08/24 11:38:33 fireton Exp $ }
 
 // $Log: evSearch.pas,v $
+// Revision 1.326  2016/08/24 11:38:33  fireton
+// - автопростановка ссылок, рефакторинг и доработка
+//
+// Revision 1.325  2016/07/19 12:27:23  fireton
+// - некорректное приведение типа приводило к сбою в кодировке
+// - чистка кода
+//
 // Revision 1.324  2016/02/05 12:30:25  dinishev
 // {Requestlink:615922114}. Оказывается незакоммител.
 //
@@ -3655,7 +3662,7 @@ begin
  if (Idx >= f_SrchMashine.TagParts.Count) or (f_SrchMashine.TagParts.Items[Idx] = nil) then
   Result := ''
  else
-  Result := Tl3String(f_SrchMashine.TagParts.Items[Idx]).AsString;
+  Result := l3Str(f_SrchMashine.TagParts.ItemW[Idx]);
 end;
 
 // start class TevCustomHyperlinkSearcher
@@ -4186,6 +4193,8 @@ begin
   begin
    theSel.rStart := aSel.rStart;
    theSel.rFinish := aSel.rFinish;
+   if (theSel.rFinish < theSel.rStart) then
+    Result := false;
   end;//aSel.rStart = aSel.rFinish
  end;//Result
 end;
@@ -4214,51 +4223,51 @@ function TevRegExpReplacer.ReplaceFunc(const aView : InevView;
                                        const Container : InevOp;
                                        const aBlock    : InevRange): Bool;
 var
- TmpS: AnsiString;
- TagN: Integer;
- Par: Tl3Parser;
- RepStr: AnsiString;
- lTagSearcher: IevTaggedSearcher;
- lIsTagged : Boolean;
+ l_TmpS: AnsiString;
+ l_TagN: Integer;
+ l_Par: Tl3Parser;
+ l_RepStr: AnsiString;
+ l_TagSearcher: IevTaggedSearcher;
+ l_IsTagged : Boolean;
  l_KW : Tl3KeyWords;
 begin
- lIsTagged := False;
- if Supports(f_Searcher, IevTaggedSearcher, lTagSearcher) then
+ l_IsTagged := False;
+ if Supports(f_Searcher, IevTaggedSearcher, l_TagSearcher) then
  try
-  Par := Tl3Parser.Make(f_Replace, [l3_poCheckKeyWords], [#0..#255]-['{','}'], []);
+  l_Par := Tl3Parser.Make(f_Replace, [l3_poCheckKeyWords], [#0..#255]-['{','}'], []);
   try
-   RepStr := '';
+   l_RepStr := '';
    l_KW := Tl3KeyWords.Create;
    try
     l_KW.AddKeyWords([ l3KW('\{',1), l3KW('\}',2) ]);
-    Par.KeyWords := l_KW;
+    l_Par.KeyWords := l_KW;
    finally
     FreeAndNil(l_KW);
    end;//try..finally
-   Par.NextTokenSp;
-   while Par.TokenType <> l3_ttEOF do
+   l_Par.NextTokenSp;
+   while l_Par.TokenType <> l3_ttEOF do
    begin
-    case Par.TokenType of
-     l3_ttSymbol: RepStr := RepStr + Par.TokenString;
+    case l_Par.TokenType of
+     l3_ttSymbol: l_RepStr := l_RepStr + l_Par.TokenString;
      l3_ttSingleChar:
       begin
-       if Par.TokenChar = '{' then
+       if l_Par.TokenChar = '{' then
        begin
-        Par.NextTokenSp;
-        if Par.TokenType <> l3_ttSymbol then
+        l_Par.NextTokenSp;
+        if l_Par.TokenType <> l3_ttSymbol then
          raise EevRegExpReplacerError.Create(SErrorInRegExpReplaceString);
         try
-         TagN := StrToInt(Par.TokenString);
+         l_TagN := StrToInt(l_Par.TokenString);
         except
          raise EevRegExpReplacerError.Create(SErrorInRegExpTagString);
         end;
-        Par.NextTokenSp;
-        if (Par.TokenType <> l3_ttSingleChar) or (Par.TokenChar <> '}') then
+        l_Par.NextTokenSp;
+        if (l_Par.TokenType <> l3_ttSingleChar) or (l_Par.TokenChar <> '}') then
          raise EevRegExpReplacerError.Create(SErrorInRegExpUnclosedTag);
-        if (TagN < 1) or (TagN > lTagSearcher.GetTagCount) then
+        if (l_TagN < 1) or (l_TagN > l_TagSearcher.GetTagCount) then
          raise EevRegExpReplacerError.Create(SErrorInRegExpInvalidTagNumber);
-        RepStr := RepStr + lTagSearcher.GetTag(TagN-1);
-        lIsTagged := True;
+        l_RepStr := l_RepStr + l_TagSearcher.GetTag(l_TagN-1);
+        l_IsTagged := True;
        end
        else
         raise EevRegExpReplacerError.Create(SErrorInRegExpReplaceString);
@@ -4266,22 +4275,22 @@ begin
      l3_ttKeyWord:
       raise EevSearchFailed.Create('Not Supported Yet...');
     end;
-    Par.NextTokenSp;
+    l_Par.NextTokenSp;
    end;
   finally
-   l3Free(Par);
+   l3Free(l_Par);
   end;
  finally
-  lTagSearcher := nil;
+  l_TagSearcher := nil;
  end;
- if lIsTagged then
+ if l_IsTagged then
  begin
-  TmpS := f_Replace.AsString;
+  l_TmpS := f_Replace.AsString;
   try
-   Text := RepStr;
+   Text := l_RepStr;
    Result := inherited ReplaceFunc(aView, Container, aBlock);
   finally
-   Text := TmpS;
+   Text := l_TmpS;
   end;
  end
  else

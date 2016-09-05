@@ -11,14 +11,14 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , l3ProtoObject
+ , tfwIteratableParentPrim
  , l3PureMixIns
  , tfwScriptingInterfaces
 ;
 
 type
  _ItemType_ = TtfwStackValue;
- TtfwIteratableParent = {abstract} class(Tl3ProtoObject)
+ TtfwIteratableParent = {abstract} class(TtfwIteratableParentPrim)
   protected
    function pm_GetFirst: _ItemType_;
    function pm_GetLast: _ItemType_;
@@ -33,6 +33,8 @@ type
    function IndexOf(const anItem: _ItemType_): Integer;
    function Add(const anItem: _ItemType_): Integer;
    procedure Clear;
+   function IsView: Boolean;
+   function SafeView: ItfwValueList;
  end;//TtfwIteratableParent
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -41,6 +43,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwSafeArrayView
+ //#UC START# *52E29ED5016Bimpl_uses*
+ //#UC END# *52E29ED5016Bimpl_uses*
 ;
 
 function TtfwIteratableParent.pm_GetFirst: _ItemType_;
@@ -48,8 +53,7 @@ function TtfwIteratableParent.pm_GetFirst: _ItemType_;
 //#UC END# *47D8233603DD_52E29ED5016Bget_var*
 begin
 //#UC START# *47D8233603DD_52E29ED5016Bget_impl*
- Result := TtfwStackValue_E;
- Assert(false, 'Не реализовано');
+ Result := GetItem(0);
 //#UC END# *47D8233603DD_52E29ED5016Bget_impl*
 end;//TtfwIteratableParent.pm_GetFirst
 
@@ -58,8 +62,7 @@ function TtfwIteratableParent.pm_GetLast: _ItemType_;
 //#UC END# *47D823570315_52E29ED5016Bget_var*
 begin
 //#UC START# *47D823570315_52E29ED5016Bget_impl*
- Result := TtfwStackValue_E;
- Assert(false, 'Не реализовано');
+ Result := GetItem(GetCount - 1);
 //#UC END# *47D823570315_52E29ED5016Bget_impl*
 end;//TtfwIteratableParent.pm_GetLast
 
@@ -68,8 +71,7 @@ function TtfwIteratableParent.pm_GetItems(anIndex: Integer): _ItemType_;
 //#UC END# *47D8248802AD_52E29ED5016Bget_var*
 begin
 //#UC START# *47D8248802AD_52E29ED5016Bget_impl*
- Result := TtfwStackValue_E;
- Assert(false, 'Не реализовано');
+ Result := GetItem(anIndex);
 //#UC END# *47D8248802AD_52E29ED5016Bget_impl*
 end;//TtfwIteratableParent.pm_GetItems
 
@@ -78,8 +80,7 @@ function TtfwIteratableParent.pm_GetEmpty: Boolean;
 //#UC END# *47E381E203D2_52E29ED5016Bget_var*
 begin
 //#UC START# *47E381E203D2_52E29ED5016Bget_impl*
- Result := false;
- Assert(false, 'Не реализовано');
+ Result := (GetCount = 0);
 //#UC END# *47E381E203D2_52E29ED5016Bget_impl*
 end;//TtfwIteratableParent.pm_GetEmpty
 
@@ -88,8 +89,8 @@ function TtfwIteratableParent.IndexOf(const anItem: _ItemType_): Integer;
 //#UC END# *482955910076_52E29ED5016B_var*
 begin
 //#UC START# *482955910076_52E29ED5016B_impl*
+ EtfwNotImplemented.Fail;
  Result := -1;
- Assert(false, 'Не реализовано');
 //#UC END# *482955910076_52E29ED5016B_impl*
 end;//TtfwIteratableParent.IndexOf
 
@@ -98,8 +99,8 @@ function TtfwIteratableParent.Add(const anItem: _ItemType_): Integer;
 //#UC END# *482958A203D0_52E29ED5016B_var*
 begin
 //#UC START# *482958A203D0_52E29ED5016B_impl*
+ EtfwConstantArray.Fail('Не реализовано');
  Result := -1;
- Assert(false, 'Не реализовано');
 //#UC END# *482958A203D0_52E29ED5016B_impl*
 end;//TtfwIteratableParent.Add
 
@@ -108,8 +109,7 @@ function TtfwIteratableParent.pm_GetCount: Integer;
 //#UC END# *4BB08B8902F2_52E29ED5016Bget_var*
 begin
 //#UC START# *4BB08B8902F2_52E29ED5016Bget_impl*
- Result := 0;
- Assert(false, 'Не реализовано');
+ Result := GetCount;
 //#UC END# *4BB08B8902F2_52E29ED5016Bget_impl*
 end;//TtfwIteratableParent.pm_GetCount
 
@@ -118,9 +118,27 @@ procedure TtfwIteratableParent.Clear;
 //#UC END# *4F62FF5D0327_52E29ED5016B_var*
 begin
 //#UC START# *4F62FF5D0327_52E29ED5016B_impl*
- Assert(false, 'Не реализовано');
+ EtfwConstantArray.Fail('Не реализовано');
 //#UC END# *4F62FF5D0327_52E29ED5016B_impl*
 end;//TtfwIteratableParent.Clear
+
+function TtfwIteratableParent.IsView: Boolean;
+//#UC START# *57B549300098_52E29ED5016B_var*
+//#UC END# *57B549300098_52E29ED5016B_var*
+begin
+//#UC START# *57B549300098_52E29ED5016B_impl*
+ Result := GetIsView;
+//#UC END# *57B549300098_52E29ED5016B_impl*
+end;//TtfwIteratableParent.IsView
+
+function TtfwIteratableParent.SafeView: ItfwValueList;
+//#UC START# *57C8213A0118_52E29ED5016B_var*
+//#UC END# *57C8213A0118_52E29ED5016B_var*
+begin
+//#UC START# *57C8213A0118_52E29ED5016B_impl*
+ Result := GetSafeView;
+//#UC END# *57C8213A0118_52E29ED5016B_impl*
+end;//TtfwIteratableParent.SafeView
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TtfwIteratableParent.IsCacheable: Boolean;

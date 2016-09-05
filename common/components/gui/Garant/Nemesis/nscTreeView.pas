@@ -742,7 +742,7 @@ begin
   l_Params := nil;
  end
  else
-  Result := LoadState(aState, aStateType);
+  Result := LoadState(aState, aStateType, aForClone);
 //#UC END# *52DD0F6F0223_52DD0971008A_impl*
 end;//TnscTreeViewPrim.DoLoadState
 {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)

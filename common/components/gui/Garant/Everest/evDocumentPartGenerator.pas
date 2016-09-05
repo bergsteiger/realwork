@@ -5,9 +5,12 @@ unit evDocumentPartGenerator;
 { Автор: Люлин А.В. ©     }
 { Модуль: evCurGen -      }
 { Начат: 09.02.1999 17:29 }
-{ $Id: evDocumentPartGenerator.pas,v 1.83 2015/06/26 14:12:23 dinishev Exp $ }
+{ $Id: evDocumentPartGenerator.pas,v 1.84 2016/07/08 10:41:47 dinishev Exp $ }
 
 // $Log: evDocumentPartGenerator.pas,v $
+// Revision 1.84  2016/07/08 10:41:47  dinishev
+// {Requestlink:621259321}
+//
 // Revision 1.83  2015/06/26 14:12:23  dinishev
 // {Requestlink:278848257}
 //
@@ -987,6 +990,7 @@ uses
   {$IfDef evSmartTablePaste}
   evParaTools,
   {$EndIf evSmartTablePaste}
+  SBS_Const,
   Block_Const,
   Table_Const,
   Document_Const,
@@ -1140,6 +1144,11 @@ begin
      evInPara(Cursor, k2_typTable, l_OldTableCursor) AND
      l_OldTableCursor.HasInner then
   begin
+   if l_NewTable.IsKindOf(k2_typSBS) then
+   begin
+    Result := False;
+    Exit;
+   end; // if l_NewTable.IsKindOf(k2_typSBS) then
    // - Здесь определили, что вставляем таблицу в таблицу
    // - Будем пытаться вставлять столбцы и строки
    l_OldTableCursor := l_OldTableCursor.ClonePoint(f_View);

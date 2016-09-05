@@ -51,6 +51,8 @@ uses
  , l3Math
  , evGlyphFont
  , BitmapPara_Const
+ //#UC START# *4E7203ED01F2impl_uses*
+ //#UC END# *4E7203ED01F2impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevFontTool.imp.pas}

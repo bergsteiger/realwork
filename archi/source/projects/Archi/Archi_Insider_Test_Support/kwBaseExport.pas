@@ -37,6 +37,8 @@ uses
  , dt_AttrSchema
  , k2TagGen
  , evdNativeWriter
+ //#UC START# *50580B6C00E6impl_uses*
+ //#UC END# *50580B6C00E6impl_uses*
 ;
 
 type

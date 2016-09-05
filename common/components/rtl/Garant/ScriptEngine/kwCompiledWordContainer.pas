@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4DB6E4630256impl_uses*
+ //#UC END# *4DB6E4630256impl_uses*
 ;
 
 constructor TkwCompiledWordContainer.Create(aCompiled: TtfwWord;

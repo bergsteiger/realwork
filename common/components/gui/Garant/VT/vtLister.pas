@@ -2141,6 +2141,7 @@ procedure TvtCustomListerPrim.pm_SetRowHeight(aValue: Integer);
 //#UC START# *514C8B9F030D_4CFFE36B00FAset_var*
 var
  l_MinRowHeight : Integer;
+ l_H : Integer;
 //#UC END# *514C8B9F030D_4CFFE36B00FAset_var*
 begin
 //#UC START# *514C8B9F030D_4CFFE36B00FAset_impl*
@@ -2170,7 +2171,11 @@ begin
   begin
    vlbAdjustIntegralHeight;
 
-   f_Rows := (ClientHeight - GetTopIndent + Pred(f_RowHeight)) div f_RowHeight;
+   if (Parent = nil) then
+    l_H := Height
+   else
+    l_H := ClientHeight;
+   f_Rows := (l_H - GetTopIndent + Pred(f_RowHeight)) div f_RowHeight;
    if f_Rows < 1 then
     f_Rows := 1;
    vlbInitScrollInfo;
@@ -4677,7 +4682,8 @@ var
 //#UC END# *5155852A01C2_4CFFE36B00FA_var*
 begin
 //#UC START# *5155852A01C2_4CFFE36B00FA_impl*
- if not InUpdating and
+ if (Parent <> nil) AND
+    not InUpdating and
     (Index >= f_TopIndex) and
     (Index - f_TopIndex < ItemOnScreen(false)) then
  begin

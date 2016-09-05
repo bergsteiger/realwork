@@ -105,7 +105,8 @@ type
    procedure HideDropDown; override;
    {$If NOT Defined(NoVCM)}
    function IvcmState_LoadState(const aState: IUnknown;
-    aStateType: TvcmStateType): Boolean; override;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function IvcmState_SaveState(out aState: IUnknown;
@@ -905,7 +906,8 @@ end;//TDropDownTreePrim.HideDropDown
 
 {$If NOT Defined(NoVCM)}
 function TDropDownTreePrim.IvcmState_LoadState(const aState: IUnknown;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
 //#UC START# *54084F6B01FD_4831599C0300_var*
 var
  l_State: IvcmState;
@@ -915,7 +917,7 @@ begin
  // Ѕезуспешна€ борьба с http://mdp.garant.ru/pages/viewpage.action?pageId=185828256
  if Supports(f_Tree, IvcmState, l_State) then
   // Supports никогда на самом деле не отработает ибо TSubTree не наследник TeeTreeViewExport
-  Result := l_State.LoadState(aState, aStateType)
+  Result := l_State.LoadState(aState, aStateType, aClone)
  else
   Result := False;
  //Result := inherited IvcmState_LoadState(aState, aStateType);
@@ -1074,7 +1076,7 @@ procedure TSubTree.DoChanged;
 begin
 //#UC START# *48BD5F8303C4_53EDF0B0003D_impl*
  inherited DoChanged;
- if Assigned(f_SubOwner) then
+ if not f_LockSelectChange and Assigned(f_SubOwner) then
   f_SubOwner.TreeChangedNotification;
 //#UC END# *48BD5F8303C4_53EDF0B0003D_impl*
 end;//TSubTree.DoChanged

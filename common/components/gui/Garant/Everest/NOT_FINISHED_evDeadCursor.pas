@@ -34,6 +34,8 @@ implementation
 {$If Defined(evUseVisibleCursors) AND Defined(evUseDeadCursor)}
 uses
  l3ImplUses
+ //#UC START# *53D78D60028Cimpl_uses*
+ //#UC END# *53D78D60028Cimpl_uses*
 ;
 
 procedure TevDeadCursor.Store(const Cursor: InevBasePoint);

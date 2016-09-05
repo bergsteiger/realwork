@@ -58,6 +58,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , PrimMonitoringsMain_utEmptyMainWindow_UserType
  //#UC START# *4AA919040176impl_uses*
+ , Search_Services
  //#UC END# *4AA919040176impl_uses*
 ;
 
@@ -73,7 +74,7 @@ procedure TPrimMonitoringsMainForm.DoInit(aFromHistory: Boolean);
 begin
 //#UC START# *49803F5503AA_4AA919040176_impl*
  inherited;
- TdmStdRes.StartOpen(Self, False);
+ TCommonPostService.Instance.StartOpen(Self, False);
 //#UC END# *49803F5503AA_4AA919040176_impl*
 end;//TPrimMonitoringsMainForm.DoInit
 {$IfEnd} // NOT Defined(NoVCM)

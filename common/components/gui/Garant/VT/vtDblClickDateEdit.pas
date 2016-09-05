@@ -26,6 +26,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AC5DAE50246impl_uses*
+ //#UC END# *4AC5DAE50246impl_uses*
 ;
 
 procedure TvtDblClickDateEdit.MakeCalendar;

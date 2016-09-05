@@ -84,6 +84,8 @@ uses
  , SysUtils
  , tfwWordRefList
  , kwCompiledWordWorkerWordPack
+ //#UC START# *4F21976E01C2impl_uses*
+ //#UC END# *4F21976E01C2impl_uses*
 ;
 
 procedure TkwImmediateTemporaryCompiledCode.SetResultTypeInfo(aValue: TtfwWordInfo;

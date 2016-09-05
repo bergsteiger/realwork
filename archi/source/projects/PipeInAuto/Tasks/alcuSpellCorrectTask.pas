@@ -4,7 +4,7 @@ interface
 {$I alcuDefine.inc}
 
 uses
- csSpellCorrectTask, Classes, ddProgressObj, DT_Types, l3LongintList,
+ csSpellCorrectTask, Classes, ddProgressObj, daTypes, l3LongintList,
 
  csMessageManager,
  ddProcessTaskPrim
@@ -24,7 +24,7 @@ type
   procedure MarkCorrectedDocs;
   procedure SpellError(const aDescript: String; aCategory: Integer);
  public
-  constructor Create({aOwner: TObject; }aUserID: TUserID); override;
+  constructor Create({aOwner: TObject; }aUserID: TdaUserID); override;
 (*  procedure WriteResult(aStream: TStream); overload; override;*)
   property CurDocID: Integer read f_CurDocID write f_CurDocID;
  end;
@@ -43,6 +43,7 @@ uses
  evEvdRd,
  daUtils,
  daSchemeConsts,
+ dt_Types,
  dt_Serv,
  DT_Doc,
  SysUtils,
@@ -57,7 +58,7 @@ uses
 {
 ******************************** TddProcessTask ********************************
 }
-constructor TalcuSpellCorrectTask.Create({aOwner: TObject; }aUserID: TUserID);
+constructor TalcuSpellCorrectTask.Create({aOwner: TObject; }aUserID: TdaUserID);
 begin
  inherited;
  f_ErrorList:= TStringList.Create;
@@ -83,8 +84,8 @@ var
  l_Filter   : TddMisspellCorrectFilter;
  l_OutFiler : Tm3DBFiler;
  l_InFiler  : Tl3CustomFiler;
- l_DocID    : TDocID;
- l_RelID    : TDocID;
+ l_DocID    : TdaDocID;
+ l_RelID    : TdaDocID;
  l_SRString : Tl3WString;
  l_DB       : Im3DB;
  l_Tmp      : Boolean;
@@ -196,7 +197,7 @@ var
  l_ID: Integer;
  l_Date: TstDate;
  l_Time: TstTime;
- l_User: TUserID;
+ l_User: TdaUserID;
  l_Value: TLogActionType;
 begin
  l_Value:= acTextWork;

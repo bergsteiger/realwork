@@ -111,6 +111,8 @@ uses
  , l3Const
  , l3Base
  , Classes
+ //#UC START# *5603F0890069impl_uses*
+ //#UC END# *5603F0890069impl_uses*
 ;
 
 function TddExportFilerDispatcher.pm_GetFileMask(aPart: TddExportDocPart): Il3CString;

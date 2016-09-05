@@ -1,8 +1,11 @@
 Unit dt_Table;
 
-{ $Id: dt_Table.pas,v 1.62 2016/06/09 08:50:19 voba Exp $ }
+{ $Id: dt_Table.pas,v 1.63 2016/09/05 09:21:41 voba Exp $ }
 
 // $Log: dt_Table.pas,v $
+// Revision 1.63  2016/09/05 09:21:41  voba
+// no message
+//
 // Revision 1.62  2016/06/09 08:50:19  voba
 // -k:623267081
 //
@@ -245,8 +248,10 @@ type
    procedure UnlockSab(var aSab : Sab);
 
   public
-   constructor Create(aPath : TPathStr; aPass : TPassStr; aName : TTblNameStr; aShare : SmallInt); reintroduce;
-   constructor CreateWithOpen(aPath : TPathStr; aPass : TPassStr; aName : TTblNameStr; aShare : SmallInt);
+   constructor Create(aPath : TPathStr; aPass : TPassStr; aName : TTblNameStr; aShare : SmallInt); reintroduce; overload;
+   constructor Create(aTblName : TPathStr; aPass : TPassStr; aShare : SmallInt); overload;
+   constructor CreateWithOpen(aPath : TPathStr; aPass : TPassStr; aName : TTblNameStr; aShare : SmallInt); overload;
+   constructor CreateWithOpen(aTblName : TPathStr; aPass : TPassStr; aShare : SmallInt); overload;
    constructor CreateDup(aTable: TdtTable);
 
    procedure LockTbl;
@@ -354,6 +359,16 @@ begin
  f_TblShareFlag:=aShare;
 end;
 
+constructor TdtTable.Create(aTblName : TPathStr; aPass : TPassStr; aShare : SmallInt);
+begin
+ inherited Create;
+ ClearTransId;
+ fTblName := ExtractFileName(aTblName);
+ f_TblFullName := aTblName;
+ f_TblPass := aPass+#0;
+ f_TblShareFlag := aShare;
+end;
+
 constructor TdtTable.CreateDup(aTable: TdtTable);
 begin
  Assert(aTable <> nil);
@@ -370,6 +385,13 @@ end;
 constructor TdtTable.CreateWithOpen(aPath : TPathStr; aPass : TPassStr; aName : TTblNameStr; aShare : SmallInt);
 begin
  Create(aPath, aPass, aName, aShare);
+ OpenTbl;
+ AllocTblInfo;
+end;
+
+constructor TdtTable.CreateWithOpen(aTblName : TPathStr; aPass : TPassStr; aShare : SmallInt);
+begin
+ Create(aTblName, aPass, aShare);
  OpenTbl;
  AllocTblInfo;
 end;
@@ -790,7 +812,7 @@ begin
   lSab.TransferToPhoto(aKeyFld, Self);
   lSab.RecordsByKey;
   Result := lSab.Count;
-  lSab.DeleteFromTable;
+  //lSab.DeleteFromTable;
  end;
 end;
 

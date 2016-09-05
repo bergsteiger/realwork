@@ -78,6 +78,7 @@ uses
 
  ProgressIndicator_Form,
  PrimProgressIndicator_Form
+ , Common_F1CommonServices_Contracts
  ;
 
 function TnsExecuteProgressIndicator.Execute(const aCaption: Il3CString;
@@ -90,7 +91,7 @@ begin
  begin
   l_ProgressIndicator := Self;
   try
-   TdmStdRes.MakeProgressIndicator(l_ProgressIndicator, aCaption, GetMaxCount);
+   TCommonService.Instance.MakeProgressIndicator(l_ProgressIndicator, aCaption, GetMaxCount);
    aSearchEntity := f_Result;
    Result := not f_Cancelled;
   finally

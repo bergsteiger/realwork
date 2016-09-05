@@ -22,6 +22,8 @@ implementation
 uses
  l3ImplUses
  , nevFacade
+ //#UC START# *5480995800BAimpl_uses*
+ //#UC END# *5480995800BAimpl_uses*
 ;
 
 procedure evInvalidateRect(H: THandle;

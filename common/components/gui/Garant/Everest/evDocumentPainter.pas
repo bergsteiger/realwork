@@ -35,6 +35,8 @@ uses
  , nevBase
  , l3Units
  , l3Const
+ //#UC START# *49DA417B010Fimpl_uses*
+ //#UC END# *49DA417B010Fimpl_uses*
 ;
 
 function TevDocumentPainter.DoDraw: Boolean;

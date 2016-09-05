@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49B951B40141impl_uses*
+ //#UC END# *49B951B40141impl_uses*
 ;
 
 procedure m3COMOpenStream;

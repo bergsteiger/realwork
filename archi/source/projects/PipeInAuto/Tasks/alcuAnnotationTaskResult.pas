@@ -75,6 +75,8 @@ implementation
 uses
  l3ImplUses
  , AnnotationTaskResult_Const
+ //#UC START# *53F6EDF00042impl_uses*
+ //#UC END# *53F6EDF00042impl_uses*
 ;
 
 function TalcuAnnotationTaskResult.pm_GetNeedReport: Boolean;

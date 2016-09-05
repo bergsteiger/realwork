@@ -45,6 +45,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *558298F60162impl_uses*
+ //#UC END# *558298F60162impl_uses*
 ;
 
 constructor Tdestlfolevel.Create(aRTFReader: TddCustomRTFReader;

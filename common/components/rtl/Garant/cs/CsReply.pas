@@ -1,8 +1,11 @@
 unit CsReply;
 
-{ $Id: CsReply.pas,v 1.40 2015/06/16 12:31:59 lukyanets Exp $ }
+{ $Id: CsReply.pas,v 1.41 2016/07/12 13:26:54 lukyanets Exp $ }
 
 // $Log: CsReply.pas,v $
+// Revision 1.41  2016/07/12 13:26:54  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.40  2015/06/16 12:31:59  lukyanets
 // Новый Indy 10
 //
@@ -180,6 +183,7 @@ uses
 
  daTypes,
  daDataProviderParams,
+ daUtils,
 
  htDataProviderParams,
 
@@ -190,7 +194,6 @@ uses
  csNotification,
  csNotifier,
  CsActiveClients,
- dt_UserConst,
  TypInfo,
  CsProcWithId,
  csReplyTool{,

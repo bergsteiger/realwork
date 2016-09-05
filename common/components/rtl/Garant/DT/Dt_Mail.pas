@@ -1,8 +1,14 @@
 Unit Dt_Mail;
 
-{ $Id: Dt_Mail.pas,v 1.59 2016/04/22 11:39:39 lukyanets Exp $ }
+{ $Id: Dt_Mail.pas,v 1.61 2016/08/01 12:16:13 lukyanets Exp $ }
 
 // $Log: Dt_Mail.pas,v $
+// Revision 1.61  2016/08/01 12:16:13  lukyanets
+// Не падаем на кривых данных
+//
+// Revision 1.60  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.59  2016/04/22 11:39:39  lukyanets
 // Пересаживаем UserManager на новые рельсы
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -160,7 +166,7 @@ uses
   l3Types, l3IniFile, l3Date,
   l3_String, {l3DatLst,} l3StrRecList,
   l3InternalInterfaces,
-  Dt_Types,
+  daTypes,
   CsClient, csNotification, csMessageManager
   ;
 
@@ -178,7 +184,7 @@ Type
               rName     : Tl3_String;
               rID       : LongInt;
               rMType    : Byte;
-              rFromUser : TUserID;
+              rFromUser : TdaUserID;
               rDateTime : TStDateTimeRec;
              end;
 
@@ -190,13 +196,13 @@ Type
    {$EndIf AppServerSide}
    {$IfDef ServerAssistantSide}
    f_UseProxySender: Boolean;
-   f_ProxySender: TUserID;
+   f_ProxySender: TdaUserID;
    {$EndIf ServerAssistantSide}
    procedure pm_SetCSClient(const Value: TcsClient);
    {$IfDef AppServerSide}
    procedure pm_SetMessageManager(const Value: TcsMessageManager);
    {$EndIf AppServerSide}
-   function GetSenderID: TUserID;
+   function GetSenderID: TdaUserID;
   protected
    fLastDateTime  : TStDateTimeRec;
    fOnMailArrived : TMailArrivedEvent;
@@ -223,7 +229,7 @@ Type
 
    Procedure  Delete(aMailIndex : LongInt); //override;
 
-   function   SendMail(MailType : TMailType; UserID : TUserID;aName : ShortString;aMessage : PAnsiChar; aData : Pointer): Boolean;
+   function   SendMail(MailType : TMailType; UserID : TdaUserID;aName : ShortString;aMessage : PAnsiChar; aData : Pointer): Boolean;
 
    procedure  MarkRead(aMailIndex : Longint);
    function   IndexbyID(aID : Integer) : Integer;
@@ -236,7 +242,7 @@ Type
    Property  OnMailArrived : TMailArrivedEvent read fOnMailArrived write fOnMailArrived;
    {$IfDef ServerAssistantSide}
    property UseProxySender: Boolean read f_UseProxySender write f_UseProxySender;
-   property ProxySender: TUserID read f_ProxySender write f_ProxySender;
+   property ProxySender: TdaUserID read f_ProxySender write f_ProxySender;
    {$EndIf ServerAssistantSide}
  end;
 
@@ -257,7 +263,7 @@ uses
   daDataProvider,
   daSchemeConsts,
   
-  Dt_Const, Dt_Serv, Dt_Err, Dt_User,
+  dt_Types, Dt_Const, Dt_Serv, Dt_Err, Dt_User,
   Dt_Doc,
 
   csDataPipe, csQueryTypes
@@ -324,6 +330,7 @@ Var
  TmpPChar   : PAnsiChar;
  TmpIndex   : LongInt;
  lRec       : TMailRec;
+ l_FileDate: TDateTime;
 Begin
  Changing;
  l3FillChar(lRec, SizeOf(lRec));
@@ -342,7 +349,21 @@ Begin
   if aMailFile.ReadParamStr('FromUser', lStr) then
    lRec.rFromUser := TDictID(StrToInt64(lStr));
 
-  aMailFile.ReadParamRec('DateTime', 'DD', Result);
+  try
+   aMailFile.ReadParamRec('DateTime', 'DD', Result);
+  except
+   if aMailFile.ReadParamStr('File', lStr) and FileExists(GlobalDataProvider.CurHomePath + lStr) then
+   begin
+    l_FileDate := FileDateTime(GlobalDataProvider.CurHomePath + lStr);
+    with Result do
+    begin
+     D := DateTimeToStDate(l_FileDate);
+     T := DateTimeToStTime(l_FileDate);
+    end;
+   end
+   else
+    Result := cEmptyDateTime;
+  end;
   lRec.rDateTime := Result;
   Add(lRec);
  end;
@@ -521,7 +542,7 @@ Begin
  Inherited Delete(aMailIndex);
 end;
 
-function TMailServer.SendMail(MailType : TMailType; UserID : TUserID; aName : ShortString;aMessage : PAnsiChar; aData :
+function TMailServer.SendMail(MailType : TMailType; UserID : TdaUserID; aName : ShortString;aMessage : PAnsiChar; aData :
     Pointer): Boolean;
 Var
  MailFile    : TCfgList;
@@ -762,7 +783,7 @@ begin
  aPipe.WriteInteger(MailNumber);
 end;
 
-function TMailServer.GetSenderID: TUserID;
+function TMailServer.GetSenderID: TdaUserID;
 begin
  Result := GlobalDataProvider.UserID;
  {$IfDef ServerAssistantSide}

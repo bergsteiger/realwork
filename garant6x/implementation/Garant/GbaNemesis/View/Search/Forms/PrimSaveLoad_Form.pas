@@ -322,6 +322,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , LoggingUnit
  //#UC START# *4958E3AB0247impl_uses*
+ , Base_Operations_F1Services_Contracts
+ , F1_Application_Template_Services
  //#UC END# *4958E3AB0247impl_uses*
 ;
 
@@ -750,14 +752,14 @@ procedure TPrimSaveLoadForm.enResultopSaveExecute(const aParams: IvcmExecutePara
    l_Result := false;
    Assert(false);
    // - интересно - как же и куда тогда фильтры сохранять
-(*   l_Result := TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+(*   l_Result := TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                          MakeFilterInfo,
                          fetFilter,
                          aQuery,
                          SaveAs) = mrOk*)
   end                       
   else
-   l_Result := TdmStdRes.CreateFilter(aQuery) = mrOk;
+   l_Result := TFiltersService.Instance.CreateFilter(aQuery) = mrOk;
   if l_Result AND (ZoneType = vcm_ztManualModal) then
    ModalResult := mrOk;
  end;//SaveQuery
@@ -919,18 +921,13 @@ begin
  end;//IsDictionLike
  case aFormType of
   slqtAttribute:
-   Result := aQueryType in [QT_ATTRIBUTE
-                            {,
-                            QT_OLD_ATTRIBUTE,
-                            QT_OLD_FILTER}];
+   Result := aQueryType in [QT_ATTRIBUTE];
   slqtKW:
    Result := aQueryType = QT_KEYWORD;
   slqtOldKW:
    Result := aQueryType = QT_KEYWORD;
   slqtPublishSource:
    Result := aQueryType = QT_PUBLISHED_SOURCE;
-(*  slqtFilters:
-   Result := aQueryType = QT_OLD_FILTER;*)
   slqtLegislationReview:
    Result := aQueryType = QT_REVIEW;
   slqtPostingOrder:
@@ -1164,7 +1161,7 @@ begin
         {$IFDEF Monitorings}
         Assert(false);
         {$Else  Monitorings}
-        TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+        TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                            MakeFilterInfo,
                            fetQuery,
                            l_EntityBase,
@@ -1179,7 +1176,7 @@ begin
       {$IFDEF Monitorings}
       Assert(false);
       {$Else  Monitorings}
-      TdmStdRes.SaveOpen(Self.As_IvcmEntityForm,
+      TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
                          MakeFilterInfo,
                          fetQuery,
                          l_EntityBase,
@@ -1217,7 +1214,7 @@ begin
  {$IFDEF Monitorings}
  Assert(false);
  {$Else  Monitorings}
- TdmStdRes.LoadOpen(Self.As_IvcmEntityForm, MakeFilterInfo);
+ TFoldersService.Instance.LoadOpen(Self.As_IvcmEntityForm, MakeFilterInfo);
  {$EndIF Monitorings}
 //#UC END# *49885D59018D_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.File_LoadFromFolder_Execute
@@ -1685,7 +1682,7 @@ procedure TPrimSaveLoadForm.LogicOperation_LogicOr_Test(const aParams: IvcmTestP
 //#UC END# *4C31B48D03BB_4958E3AB0247test_var*
 begin
 //#UC START# *4C31B48D03BB_4958E3AB0247test_impl*
- vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicOr, aParams As IvcmTestParams);
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicOr, aParams As IvcmTestParams);
  // На контейнере кнопка всегда видна
  aParams.Op.Flag[vcm_ofVisible] := True;
 //#UC END# *4C31B48D03BB_4958E3AB0247test_impl*
@@ -1696,7 +1693,7 @@ procedure TPrimSaveLoadForm.LogicOperation_LogicOr_Execute(const aParams: IvcmEx
 //#UC END# *4C31B48D03BB_4958E3AB0247exec_var*
 begin
 //#UC START# *4C31B48D03BB_4958E3AB0247exec_impl*
- vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicOr, aParams As IvcmExecuteParams);
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicOr, aParams As IvcmExecuteParams);
 //#UC END# *4C31B48D03BB_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.LogicOperation_LogicOr_Execute
 
@@ -1705,7 +1702,7 @@ procedure TPrimSaveLoadForm.LogicOperation_LogicAnd_Test(const aParams: IvcmTest
 //#UC END# *4C31B4990225_4958E3AB0247test_var*
 begin
 //#UC START# *4C31B4990225_4958E3AB0247test_impl*
- vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicAnd, aParams As IvcmTestParams);
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicAnd, aParams As IvcmTestParams);
  // На контейнере кнопка всегда видна
  aParams.Op.Flag[vcm_ofVisible] := True;
 //#UC END# *4C31B4990225_4958E3AB0247test_impl*
@@ -1716,7 +1713,7 @@ procedure TPrimSaveLoadForm.LogicOperation_LogicAnd_Execute(const aParams: IvcmE
 //#UC END# *4C31B4990225_4958E3AB0247exec_var*
 begin
 //#UC START# *4C31B4990225_4958E3AB0247exec_impl*
- vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicAnd, aParams As IvcmExecuteParams);
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicAnd, aParams As IvcmExecuteParams);
 //#UC END# *4C31B4990225_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.LogicOperation_LogicAnd_Execute
 
@@ -1725,7 +1722,7 @@ procedure TPrimSaveLoadForm.LogicOperation_LogicNot_Test(const aParams: IvcmTest
 //#UC END# *4C31B4A90088_4958E3AB0247test_var*
 begin
 //#UC START# *4C31B4A90088_4958E3AB0247test_impl*
- vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicNot, aParams As IvcmTestParams);
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicNot, aParams As IvcmTestParams);
  // На контейнере кнопка всегда видна
  aParams.Op.Flag[vcm_ofVisible] := True;
 //#UC END# *4C31B4A90088_4958E3AB0247test_impl*
@@ -1736,7 +1733,7 @@ procedure TPrimSaveLoadForm.LogicOperation_LogicNot_Execute(const aParams: IvcmE
 //#UC END# *4C31B4A90088_4958E3AB0247exec_var*
 begin
 //#UC START# *4C31B4A90088_4958E3AB0247exec_impl*
- vcmDispatcher.EntityOperation(TdmStdRes.opcode_Attribute_LogicNot, aParams As IvcmExecuteParams);
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicNot, aParams As IvcmExecuteParams);
 //#UC END# *4C31B4A90088_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.LogicOperation_LogicNot_Execute
 
@@ -1760,9 +1757,9 @@ begin
  Assert(false);
  {$Else  Monitorings}
  if (DataSource = nil) then
-  TdmStdRes.OldSchoolFiltersOpen(Aggregate, nil, Self)
+  TFiltersService.Instance.OldSchoolFiltersOpen(Aggregate, nil, Self)
  else
-  TdmStdRes.FiltersOpen(Self.Filters);
+  TFiltersService.Instance.FiltersOpen(Self.Filters);
  {$EndIF Monitorings}
 //#UC END# *4C81191003E5_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Filters_FiltersListOpen_Execute
@@ -1818,7 +1815,7 @@ procedure TPrimSaveLoadForm.Cleanup;
 begin
 //#UC START# *479731C50290_4958E3AB0247_impl*
  {$If not Defined(Admin) and not Defined(Monitorings)}
- TdmStdRes.MakeWorkJournal.UnRegisterListener(Self);
+ TWorkJournalService.Instance.MakeWorkJournal.UnRegisterListener(Self);
  {$IfEnd}
  FreeAndNil(f_QueryHistory);
  f_SearchState := nil;
@@ -1909,9 +1906,9 @@ begin
    // Изменяем вид КЗ
    case UserType of
     slqtAttribute:
-     TdmStdRes.OpenQuery(lg_qtAttribute, lp_Query, nil);
+     TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, lp_Query, nil);
     slqtKW, slqtOldKW:
-     TdmStdRes.OpenQuery(lg_qtKeyWord, lp_Query, nil);
+     TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, lp_Query, nil);
    end;//case UserType
   end;//not (UserType = slqtPublishSource)..
 //#UC END# *4958BE910345_4958E3AB0247_impl*
@@ -1925,7 +1922,7 @@ begin
 //#UC START# *49803F5503AA_4958E3AB0247_impl*
  inherited;
  {$If not Defined(Admin) and not Defined(Monitorings)}
- TdmStdRes.MakeWorkJournal.RegisterListener(Self);
+ TWorkJournalService.Instance.MakeWorkJournal.RegisterListener(Self);
  {$IfEnd}
  if not IsDictionLike then
  begin

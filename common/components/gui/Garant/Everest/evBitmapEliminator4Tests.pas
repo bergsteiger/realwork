@@ -35,6 +35,8 @@ uses
  , l3Types
  , ddPicturePathListner
  , SysUtils
+ //#UC START# *53731FC4015Aimpl_uses*
+ //#UC END# *53731FC4015Aimpl_uses*
 ;
 
 procedure TevBitmapEliminator4Tests.AddAtomEx(AtomIndex: Integer;
@@ -66,7 +68,7 @@ var
 //#UC END# *4836D52400D9_53731FC4015A_var*
 begin
 //#UC START# *4836D52400D9_53731FC4015A_impl*
- if CurrentType.IsKindOf(k2_typBitmapPara) and (AtomIndex = k2_tiData) then
+ if TddPicturePathListner.Instance.EnableSave and CurrentType.IsKindOf(k2_typBitmapPara) and (AtomIndex = k2_tiData) then
  begin
   l_Stream := Value.AsStream;
   l_Format := lp_CheckFormat;

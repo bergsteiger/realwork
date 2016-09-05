@@ -39,6 +39,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F95434701EDimpl_uses*
+ //#UC END# *4F95434701EDimpl_uses*
 ;
 
 function TkwPopEditorParaMiddleCoordsToScreen.GetPoint(const aMap: InevMap): Tl3Point;

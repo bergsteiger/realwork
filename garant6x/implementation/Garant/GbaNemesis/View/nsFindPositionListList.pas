@@ -41,6 +41,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4D18E8330139impl_uses*
+ //#UC END# *4D18E8330139impl_uses*
 ;
 
 type _Instance_R_ = TnsFindPositionListList;

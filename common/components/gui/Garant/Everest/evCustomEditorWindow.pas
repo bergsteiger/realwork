@@ -5,9 +5,12 @@ unit evCustomEditorWindow;
 { Автор: Люлин А.В. ©     }
 { Модуль: evEditorWindow - оконный элемент для отображения содержимого документа}
 { Начат: 17.03.1997 19:20 }
-{ $Id: evCustomEditorWindow.pas,v 1.149 2016/03/09 15:18:26 lulin Exp $ }
+{ $Id: evCustomEditorWindow.pas,v 1.150 2016/08/23 11:46:40 kostitsin Exp $ }
 
 // $Log: evCustomEditorWindow.pas,v $
+// Revision 1.150  2016/08/23 11:46:40  kostitsin
+// {requestlink: 624862173 }
+//
 // Revision 1.149  2016/03/09 15:18:26  lulin
 // - перегенерация.
 //
@@ -5284,7 +5287,8 @@ type
                                     aStateType : TvcmStateType): Boolean;
         virtual;
       function  IvcmState_LoadState(const aState : IUnknown;
-                                    aStateType   : TvcmStateType): Boolean;
+                                    aStateType   : TvcmStateType;
+                                    aClone: Boolean): Boolean;
         virtual;
         {-}
       function  IvcmState.SaveState = IvcmState_SaveState;
@@ -11302,7 +11306,8 @@ begin
 end;
 
 function TevCustomEditorWindow.IvcmState_LoadState(const aState : IUnknown;
-                                             aStateType   : TvcmStateType): Boolean;
+                                             aStateType : TvcmStateType;
+                                             aClone: Boolean): Boolean;
 var
  l_Selection    : TnevSelection;
  l_Container    : InevDocumentContainer;

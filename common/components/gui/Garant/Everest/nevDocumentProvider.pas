@@ -52,6 +52,8 @@ uses
  l3ImplUses
  , afwFacade
  , evPreviewForTestsTuning
+ //#UC START# *4CB57E560195impl_uses*
+ //#UC END# *4CB57E560195impl_uses*
 ;
 
 function TnevDocumentProvider.pm_GetCanProvideOriginalDocument: Boolean;

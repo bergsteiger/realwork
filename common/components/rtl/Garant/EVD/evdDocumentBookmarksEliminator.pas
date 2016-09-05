@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , evdTypes
  , k2Tags
+ //#UC START# *4E6750EF020Dimpl_uses*
+ //#UC END# *4E6750EF020Dimpl_uses*
 ;
 
 function TevdDocumentBookmarksEliminator.NeedWritePara(aLeaf: Tl3Variant): Boolean;

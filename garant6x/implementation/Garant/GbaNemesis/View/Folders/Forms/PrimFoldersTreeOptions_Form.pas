@@ -192,6 +192,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C7E651B0179impl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4C7E651B0179impl_uses*
 ;
 
@@ -317,7 +318,7 @@ begin
     TopLeft := FoldersTree.ClientToScreen(TopLeft);
     BottomRight := FoldersTree.ClientToScreen(BottomRight);
    end;
-   Result := (TdmStdRes.EditInfoOpen(IsNewFolder, aNode, TnsFormCoordinates.Make(l_Coord)) = mrOk);
+   Result := (TFoldersService.Instance.EditInfoOpen(IsNewFolder, aNode, TnsFormCoordinates.Make(l_Coord)) = mrOk);
   end//IsInSaveLoadState
   else
   begin
@@ -347,7 +348,7 @@ begin
  if Aggregate <> nil then
  begin
   op_FolderElement_SetContent.Call(Aggregate, aNode);
-  Aggregate.Operation(TdmStdRes.opcode_AdditionInfo_Hide);
+  Aggregate.Operation(opcode_AdditionInfo_Hide);
  end;//Aggregate <> nil
 //#UC END# *4AE7192B023C_4C7E651B0179_impl*
 end;//TPrimFoldersTreeOptionsForm.EndEdit
@@ -1204,7 +1205,7 @@ begin
  if (dsFoldersTree <> nil) then
  begin
   if dsFoldersTree.CanGiveMarkOnConsultation(FoldersTree.GetCurrentNode) then
-   TdmStdRes.GiveMarkOnConsultation(FoldersTree.GetCurrentNode);
+   TConsultationService.Instance.GiveMarkOnConsultation(FoldersTree.GetCurrentNode);
  end;//dsFoldersTree <> nil
 //#UC END# *4C7E6AF2031C_4C7E651B0179exec_impl*
 end;//TPrimFoldersTreeOptionsForm.Consultation_GiveMark_Execute
@@ -1330,7 +1331,7 @@ begin
      try
       Supports(l_BaseEntity, IQuery, l_Query);
       Assert(Assigned(l_Query));
-      TdmStdRes.CreateFilter(l_Query);
+      TFiltersService.Instance.CreateFilter(l_Query);
      finally
       l_BaseEntity := nil;
      end;//try..finally

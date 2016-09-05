@@ -25,6 +25,8 @@ uses
  , l3Printer
  , l3Base
  , l3Canvas
+ //#UC START# *4799F47002E2impl_uses*
+ //#UC END# *4799F47002E2impl_uses*
 ;
 
 var f_PrnIC: Pointer = nil;

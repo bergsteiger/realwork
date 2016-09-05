@@ -65,6 +65,8 @@ implementation
 uses
  l3ImplUses
  , k2Base
+ //#UC START# *48ECDF6602FDimpl_uses*
+ //#UC END# *48ECDF6602FDimpl_uses*
 ;
 
 function TevMultiSelectionText.CanBeDeleted: Boolean;

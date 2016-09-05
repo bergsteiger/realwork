@@ -66,6 +66,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47A080670100impl_uses*
+ //#UC END# *47A080670100impl_uses*
 ;
 
 procedure l3CompareFiles;

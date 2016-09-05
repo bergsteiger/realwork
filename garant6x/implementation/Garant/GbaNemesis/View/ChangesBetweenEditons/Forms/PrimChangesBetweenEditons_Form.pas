@@ -186,6 +186,7 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , UnderControlUnit
  , SysUtils
+ , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -233,7 +234,6 @@ uses
  , nsExternalObjectModelPart
  , nsSaveDialogExecutor
  , l3BatchService
- , Base_Operations_F1Services_Contracts
  , eeInterfacesEx
  {$If Defined(Nemesis)}
  , eePara
@@ -336,7 +336,7 @@ procedure TPrimChangesBetweenEditonsForm.TextSourceDocumentChanged(aSender: TObj
 //#UC END# *5228246A01D9_4DDCD636016C_var*
 begin
 //#UC START# *5228246A01D9_4DDCD636016C_impl*
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
 //#UC END# *5228246A01D9_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.TextSourceDocumentChanged
 
@@ -493,9 +493,9 @@ begin
 //#UC START# *4A8E5E4702C6_4DDCD636016C_impl*
  with aList do
  begin
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Document_CompareEditions, True, str_CompareRedactionOperationCaption, true, false, 2000, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(TdmStdRes.opcode_Redactions_OpenRedactionListFrmAct, true, false, 2000, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Edition_ReturnToDocument, True, str_ReturnToDocumentOperationCaption, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_CompareEditions, True, str_CompareRedactionOperationCaption, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(opcode_Redactions_OpenRedactionListFrmAct, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Edition_ReturnToDocument, True, str_ReturnToDocumentOperationCaption, true, false, 2000, nsc_ttkNone));
  end;//with aList
 //#UC END# *4A8E5E4702C6_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.FillList
@@ -580,7 +580,7 @@ procedure TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Execute(const 
 //#UC END# *4B1E37CE00C1_4DDCD636016Cexec_var*
 begin
 //#UC START# *4B1E37CE00C1_4DDCD636016Cexec_impl*
- TdmStdRes.OpenDocument(TdeDocInfo.Make(Document,
+ TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(Document,
                                         TbsDocPos_P(GetParaForPositionning)),
                         nil);
 //#UC END# *4B1E37CE00C1_4DDCD636016Cexec_impl*

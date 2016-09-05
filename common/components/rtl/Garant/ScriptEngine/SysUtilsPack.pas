@@ -46,6 +46,8 @@ uses
  , l3Chars
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F5EFA23015Aimpl_uses*
+ //#UC END# *4F5EFA23015Aimpl_uses*
 ;
 
 type
@@ -817,6 +819,23 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwSysutilsCreateGUID
+
+ TkwCreateDOSProcessRedirected = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта CreateDOSProcessRedirected }
+  private
+   function CreateDOSProcessRedirected(const aCtx: TtfwContext;
+    const CommandLine: AnsiString;
+    const InputFile: AnsiString;
+    const OutputFile: AnsiString): Boolean;
+    {* Реализация слова скрипта CreateDOSProcessRedirected }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCreateDOSProcessRedirected
 
  TSysUtilsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
@@ -2592,7 +2611,7 @@ function TkwClipboardGetFormattedText.clipboard_GetFormattedText(const aCtx: Ttf
 var
  l_Format: Cardinal;
  l_ClipbrdHandle: THandle;
- l_String: PChar;
+ l_String: PAnsiChar;
 //#UC END# *555F35970310_555F35970310_Word_var*
 begin
 //#UC START# *555F35970310_555F35970310_Word_impl*
@@ -3362,6 +3381,143 @@ begin
  aCtx.rEngine.PushString(sysutils_CreateGUID(aCtx));
 end;//TkwSysutilsCreateGUID.DoDoIt
 
+function TkwCreateDOSProcessRedirected.CreateDOSProcessRedirected(const aCtx: TtfwContext;
+ const CommandLine: AnsiString;
+ const InputFile: AnsiString;
+ const OutputFile: AnsiString): Boolean;
+ {* Реализация слова скрипта CreateDOSProcessRedirected }
+//#UC START# *57A44E1B036A_57A44E1B036A_Word_var*
+
+ function CreateInheritable(out Sa: TSecurityAttributes): PSecurityAttributes;
+ begin
+   Sa.nLength := SizeOf(Sa);
+   Sa.lpSecurityDescriptor := nil;
+   Sa.bInheritHandle := True;
+   if IsWinNT then
+     Result := @Sa
+   else
+     Result := nil;
+ end;
+
+ procedure ResetMemory(out P; Size: Longint);
+ begin
+   if Size > 0 then
+   begin
+     Byte(P) := 0;
+     l3FillChar(P, Size, 0);
+   end;
+ end;
+
+var
+  StartupInfo: TStartupInfo;
+  ProcessInfo: TProcessInformation;
+  SecAtrrs: TSecurityAttributes;
+  hInputFile, hOutputFile: THandle;
+  l_CommandLine: AnsiString;
+//#UC END# *57A44E1B036A_57A44E1B036A_Word_var*
+begin
+//#UC START# *57A44E1B036A_57A44E1B036A_Word_impl*
+  Result := False;
+  l_CommandLine := CommandLine;
+  if (InputFile <> '') then
+   hInputFile := CreateFile(PAnsiChar(InputFile), GENERIC_READ, FILE_SHARE_READ,
+     CreateInheritable(SecAtrrs), OPEN_EXISTING, FILE_ATTRIBUTE_TEMPORARY, 0)
+  else
+   hInputFile := 0;
+  if hInputFile <> INVALID_HANDLE_VALUE then
+  begin
+    hOutputFile := CreateFile(PAnsiChar(OutPutFile), GENERIC_READ or GENERIC_WRITE,
+      FILE_SHARE_READ or FILE_SHARE_WRITE, CreateInheritable(SecAtrrs), OPEN_EXISTING,
+      FILE_ATTRIBUTE_TEMPORARY, 0);
+    if (hOutputFile = INVALID_HANDLE_VALUE) then
+     hOutputFile := CreateFile(PAnsiChar(OutPutFile), GENERIC_READ or GENERIC_WRITE,
+       FILE_SHARE_READ or FILE_SHARE_WRITE, CreateInheritable(SecAtrrs), CREATE_ALWAYS,
+       FILE_ATTRIBUTE_TEMPORARY, 0)
+    else
+    begin
+     FileSeek(Integer(hOutputFile), 0, FILE_END	);
+    end;//hOutputFile = INVALID_HANDLE_VALUE
+    if hOutputFile <> INVALID_HANDLE_VALUE then
+    begin
+      ResetMemory(StartupInfo, SizeOf(StartupInfo));
+      ResetMemory(ProcessInfo, SizeOf(ProcessInfo));
+      StartupInfo.cb := SizeOf(StartupInfo);
+      StartupInfo.dwFlags := STARTF_USESHOWWINDOW or STARTF_USESTDHANDLES;
+      StartupInfo.wShowWindow := SW_HIDE;
+      StartupInfo.hStdOutput := hOutputFile;
+      StartupInfo.hStdInput := hInputFile;
+      UniqueString(l_CommandLine);//in the Unicode version the parameter lpCommandLine needs to be writable
+      Result := CreateProcess(nil, PAnsiChar(l_CommandLine), nil, nil, True,
+        CREATE_NEW_CONSOLE or NORMAL_PRIORITY_CLASS, nil, nil, StartupInfo,
+        ProcessInfo);
+      if Result then
+      begin
+        WaitForSingleObject(ProcessInfo.hProcess, INFINITE);
+        CloseHandle(ProcessInfo.hProcess);
+        CloseHandle(ProcessInfo.hThread);
+      end;
+      CloseHandle(hOutputFile);
+    end;
+    CloseHandle(hInputFile);
+  end;
+//#UC END# *57A44E1B036A_57A44E1B036A_Word_impl*
+end;//TkwCreateDOSProcessRedirected.CreateDOSProcessRedirected
+
+class function TkwCreateDOSProcessRedirected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CreateDOSProcessRedirected';
+end;//TkwCreateDOSProcessRedirected.GetWordNameForRegister
+
+function TkwCreateDOSProcessRedirected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwCreateDOSProcessRedirected.GetResultTypeInfo
+
+function TkwCreateDOSProcessRedirected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwCreateDOSProcessRedirected.GetAllParamsCount
+
+function TkwCreateDOSProcessRedirected.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
+end;//TkwCreateDOSProcessRedirected.ParamsTypes
+
+procedure TkwCreateDOSProcessRedirected.DoDoIt(const aCtx: TtfwContext);
+var l_CommandLine: AnsiString;
+var l_InputFile: AnsiString;
+var l_OutputFile: AnsiString;
+begin
+ try
+  l_CommandLine := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CommandLine: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_InputFile := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра InputFile: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_OutputFile := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра OutputFile: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(CreateDOSProcessRedirected(aCtx, l_CommandLine, l_InputFile, l_OutputFile));
+end;//TkwCreateDOSProcessRedirected.DoDoIt
+
 class function TSysUtilsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'SysUtilsPack';
@@ -3476,6 +3632,8 @@ initialization
  {* Регистрация IntToHex }
  TkwSysutilsCreateGUID.RegisterInEngine;
  {* Регистрация sysutils_CreateGUID }
+ TkwCreateDOSProcessRedirected.RegisterInEngine;
+ {* Регистрация CreateDOSProcessRedirected }
  TSysUtilsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

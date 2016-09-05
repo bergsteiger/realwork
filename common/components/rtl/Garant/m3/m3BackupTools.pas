@@ -55,6 +55,8 @@ uses
  , Windows
  , l3Date
  , m3StorageElementIDList
+ //#UC START# *49B141B8022Fimpl_uses*
+ //#UC END# *49B141B8022Fimpl_uses*
 ;
 
 function m3GetBaseSummary(const aBase: Im3IndexedStorage;

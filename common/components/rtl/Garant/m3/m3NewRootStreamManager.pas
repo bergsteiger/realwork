@@ -44,6 +44,8 @@ uses
  , m2COMLib
  , Windows
  , SysUtils
+ //#UC START# *5411A4410076impl_uses*
+ //#UC END# *5411A4410076impl_uses*
 ;
 
 class function Tm3NewRootStreamManager.Make(const aStream: IStream): Tm3NewRootStreamManager;

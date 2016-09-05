@@ -38,6 +38,8 @@ uses
  , nsConst
  , nsTypes
  , nsRubricatorCache
+ //#UC START# *490723DC0096impl_uses*
+ //#UC END# *490723DC0096impl_uses*
 ;
 
 class function TnsNavigatorTreeStruct.Make: Il3SimpleTree;

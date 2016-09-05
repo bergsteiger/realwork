@@ -51,6 +51,8 @@ uses
  , l3Types
  , Classes
  , l3Base
+ //#UC START# *560A5BC502D5impl_uses*
+ //#UC END# *560A5BC502D5impl_uses*
 ;
 
 constructor TddExportFilerDispatcherElem.Create(const aFileMask: Il3CString;

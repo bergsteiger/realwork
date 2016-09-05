@@ -50,6 +50,8 @@ implementation
 uses
  l3ImplUses
  , DataAdapter
+ //#UC START# *56443D8E031Aimpl_uses*
+ //#UC END# *56443D8E031Aimpl_uses*
 ;
 
 function HasFilter(const aFilters: IFiltersFromQuery;

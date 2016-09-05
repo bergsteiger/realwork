@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , k2Attributes
+ //#UC START# *4836B2EC01DEimpl_uses*
+ //#UC END# *4836B2EC01DEimpl_uses*
 ;
 
 end.

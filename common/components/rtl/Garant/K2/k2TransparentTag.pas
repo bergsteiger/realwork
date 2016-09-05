@@ -67,6 +67,8 @@ uses
  , l3Const
  , k2NullTagImpl
  , k2Tags
+ //#UC START# *49C906E203A1impl_uses*
+ //#UC END# *49C906E203A1impl_uses*
 ;
 
 type _Instance_R_ = Tk2TransparentTag;

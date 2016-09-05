@@ -26,6 +26,8 @@ uses
  l3ImplUses
  , F1TagDataProviderInterface
  , SysUtils
+ //#UC START# *4CEE65C8015Dimpl_uses*
+ //#UC END# *4CEE65C8015Dimpl_uses*
 ;
 
 class function TnsCommentModifier.MarkModified(aTag: Tl3Variant): Boolean;

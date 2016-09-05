@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *503632E400D2impl_uses*
+ //#UC END# *503632E400D2impl_uses*
 ;
 
 procedure TEVDtoXMLWiterTest.DoIt;

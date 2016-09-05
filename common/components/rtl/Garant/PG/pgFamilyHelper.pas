@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , daScheme
  , SysUtils
+ //#UC START# *5645BD2C03A2impl_uses*
+ //#UC END# *5645BD2C03A2impl_uses*
 ;
 
 constructor TpgFamilyHelper.Create(const aFactory: IdaTableQueryFactory);

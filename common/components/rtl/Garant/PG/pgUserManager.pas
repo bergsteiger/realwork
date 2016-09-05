@@ -1,8 +1,8 @@
 unit pgUserManager;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgUserManager.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "TpgUserManager" MUID: (5629FC88034B)
+// Стереотип: "UtilityPack"
+// Элемент модели: "pgUserManager" MUID: (57AB03D00397)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
@@ -11,6 +11,8 @@ interface
 {$If Defined(UsePostgres)}
 uses
  l3IntfUses
+ , Classes
+ , daTypes
  , l3ProtoObject
  , daInterfaces
  , l3DatLst
@@ -20,7 +22,6 @@ uses
  , pgFunctionFactory
  , pgFreeIDHelperHolder
  , pgTableModifier
- , daTypes
  , l3LongintList
 ;
 
@@ -47,12 +48,14 @@ type
    f_Journal: IdaJournal;
    f_GroupModifier: TpgTableModifier;
    f_GroupUsersQuery: IdaTabledQuery;
+   f_CacheActiveUserList: TStringList;
   private
    procedure FillListByResultSet(aList: Tl3StringDataList;
     const aResultSet: IdaResultSet;
     const anIDFieldName: AnsiString;
     aDataSize: Integer;
-    const aNameFieldName: AnsiString);
+    const aNameFieldName: AnsiString;
+    AddRegion: Boolean);
    procedure FillAllUsers(aList: Tl3StringDataList);
    procedure FillAllGroups(aList: Tl3StringDataList);
    procedure SortUsersInList(aList: Tl3StringDataList);
@@ -66,6 +69,8 @@ type
     const aName: AnsiString);
    function GroupModifier: TpgTableModifier;
    function GroupUsersQuery: IdaTabledQuery;
+   procedure LoadFiltredUserList(aList: TStringList;
+    aOnlyActive: Boolean);
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -143,6 +148,17 @@ type
     ActFlag: Byte;
     const EditMask: TdaUserEditMask);
    procedure DelUser(aUser: TdaUserID);
+   procedure GetUserListOnGroup(aUsGroup: TdaUserGroupID;
+    aList: Tl3StringDataList;
+    GetActiveUsersOnly: Boolean = False);
+   procedure GetFiltredUserList(aList: TStrings;
+    aOnlyActive: Boolean = False);
+   procedure GetDocGroupData(aUserGroup: TdaUserGroupID;
+    aFamily: TdaFamilyID;
+    aDocDataList: Tl3StringDataList);
+   procedure PutDocGroupData(aUserGroup: TdaUserGroupID;
+    aFamily: TdaFamilyID;
+    aDocDataList: Tl3StringDataList);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -159,6 +175,11 @@ type
    procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
    procedure IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
  end;//TpgUserManager
+
+function CompareUsers(anID1: TdaUserID;
+ const aName1: AnsiString;
+ anID2: TdaUserID;
+ const aName2: AnsiString): Integer;
 {$IfEnd} // Defined(UsePostgres)
 
 implementation
@@ -177,7 +198,59 @@ uses
  , l3MinMax
  , pgInterfaces
  , daUtils
+ //#UC START# *57AB03D00397impl_uses*
+ //#UC END# *57AB03D00397impl_uses*
 ;
+
+function CompareStringsUser(List: TStringList;
+ Index1: Integer;
+ Index2: Integer): Integer;
+//#UC START# *57AB04080295_57AB03D00397_var*
+//#UC END# *57AB04080295_57AB03D00397_var*
+begin
+//#UC START# *57AB04080295_57AB03D00397_impl*
+ Result := CompareUsers(TdaUserID(List.Objects[Index1]), List[Index1], TdaUserID(List.Objects[Index2]), List[Index2]);
+//#UC END# *57AB04080295_57AB03D00397_impl*
+end;//CompareStringsUser
+
+function CompareUsers(anID1: TdaUserID;
+ const aName1: AnsiString;
+ anID2: TdaUserID;
+ const aName2: AnsiString): Integer;
+//#UC START# *57AB04B800BA_57AB03D00397_var*
+var
+ l_Reg1, l_Reg2: TdaRegionID;
+//#UC END# *57AB04B800BA_57AB03D00397_var*
+begin
+//#UC START# *57AB04B800BA_57AB03D00397_impl*
+ // сначала сравниваем регионы
+ l_Reg1 := GetUserRegion(anID1);
+ l_Reg2 := GetUserRegion(anID2);
+ if l_Reg1 <> l_Reg2 then
+ begin
+  // если регион наш, родной, то он должен быть наверху, однозначно!
+  if l_Reg1 = GlobalDataProvider.RegionID then
+  begin
+   Result := -1;
+   Exit;
+  end
+  else
+   if l_Reg2 = GlobalDataProvider.RegionID then
+   begin
+    Result := 1;
+    Exit;
+   end
+ end;
+ // По региону не вышел наверх. Сортируем по имени (к которому название региона уже приклеено)
+ if aName1 < aName2 then
+  Result := -1
+ else
+  if aName1 > aName2 then
+   Result := 1
+  else
+   Result := 0;
+//#UC END# *57AB04B800BA_57AB03D00397_impl*
+end;//CompareUsers
 
 constructor TpgUserManager.Create(const aTableFactory: IdaTableQueryFactory;
  const aJournal: IdaJournal;
@@ -189,7 +262,12 @@ constructor TpgUserManager.Create(const aTableFactory: IdaTableQueryFactory;
 begin
 //#UC START# *562A074E0321_5629FC88034B_impl*
  inherited Create;
- f_Factory := aFactory;
+ f_Factory := aTableFactory;
+ f_Journal := aJournal;
+
+ aConnection.SetRefTo(f_Connection);
+ aFunctionFactory.SetRefTo(f_FunctionFactory);
+ aFreeIDHelperHolder.SetRefTo(f_FreeIDHelperHolder);
 
  f_ArchiUsers := TdaArchiUserList.Create;
  f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
@@ -228,10 +306,12 @@ procedure TpgUserManager.FillListByResultSet(aList: Tl3StringDataList;
  const aResultSet: IdaResultSet;
  const anIDFieldName: AnsiString;
  aDataSize: Integer;
- const aNameFieldName: AnsiString);
+ const aNameFieldName: AnsiString;
+ AddRegion: Boolean);
 //#UC START# *57172C740069_5629FC88034B_var*
 var
  l_ID: TdaUserID;
+ l_Name: AnsiString;
 //#UC END# *57172C740069_5629FC88034B_var*
 begin
 //#UC START# *57172C740069_5629FC88034B_impl*
@@ -243,7 +323,10 @@ begin
   while not aResultSet.EOF do
   begin
    l_ID := aResultSet.Field[anIDFieldName].AsLargeInt;
-   Tl3StringDataList(aList).AddStr(aResultSet.Field[aNameFieldName].AsString, @l_ID);
+   l_Name := aResultSet.Field[aNameFieldName].AsString;
+   if AddRegion then
+    l_Name := ConcatRegionAndUserNames(l_ID,  l_Name);
+   aList.AddStr(l_Name, @l_ID);
    aResultSet.Next;
   end;
  finally
@@ -267,7 +350,7 @@ begin
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', 4, 'user_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', cUserIDSize, 'user_name', True);
   finally
    l_ResultSet := nil;
   end;
@@ -292,7 +375,7 @@ begin
   l_Query.Prepare;
   l_ResultSet := l_Query.OpenResultSet;
   try
-   FillListByResultSet(aList, l_ResultSet, 'id', 2, 'group_name');
+   FillListByResultSet(aList, l_ResultSet, 'id', cGroupIDSize, 'group_name', False);
   finally
    l_ResultSet := nil;
   end;
@@ -306,38 +389,8 @@ procedure TpgUserManager.SortUsersInList(aList: Tl3StringDataList);
 //#UC START# *5715ED0002E0_5629FC88034B_var*
 
  function l_CompareUsers(I, J: Integer): Integer;
- var
-  l_Reg1, l_Reg2: TdaRegionID;
-  l_Name1, l_Name2: AnsiString;
  begin
-  // сначала сравниваем регионы
-  l_Reg1 := GetUserRegion(TdaUserID(aList.DataInt[I]));
-  l_Reg2 := GetUserRegion(TdaUserID(aList.DataInt[J]));
-  if l_Reg1 <> l_Reg2 then
-  begin
-   // если регион наш, родной, то он должен быть наверху, однозначно!
-   if l_Reg1 = GlobalDataProvider.RegionID then
-   begin
-    Result := -1;
-    Exit;
-   end
-   else
-    if l_Reg2 = GlobalDataProvider.RegionID then
-    begin
-     Result := 1;
-     Exit;
-    end
-  end;
-  // По региону не вышел наверх. Сортируем по имени (к которому название региона уже приклеено)
-  l_Name1 := aList.PasStr[I];
-  l_Name2 := aList.PasStr[J];
-  if l_Name1 < l_Name2 then
-   Result := -1
-  else
-   if l_Name1 > l_Name2 then
-    Result := 1
-   else
-    Result := 0;
+  Result := CompareUsers(TdaUserID(aList.DataInt[I]), aList.PasStr[I], TdaUserID(aList.DataInt[J]), aList.PasStr[J]);
  end;
 
 //#UC END# *5715ED0002E0_5629FC88034B_var*
@@ -515,6 +568,45 @@ begin
  Result := f_GroupUsersQuery;
 //#UC END# *5784910F00BF_5629FC88034B_impl*
 end;//TpgUserManager.GroupUsersQuery
+
+procedure TpgUserManager.LoadFiltredUserList(aList: TStringList;
+ aOnlyActive: Boolean);
+//#UC START# *57AAF3DF0284_5629FC88034B_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
+ l_IDField: IdaField;
+ l_NameField: IdaField;
+//#UC END# *57AAF3DF0284_5629FC88034B_var*
+begin
+//#UC START# *57AAF3DF0284_5629FC88034B_impl*
+ aList.Clear;
+ l_Query := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers), 'u'));
+ try
+  l_Query.WhereCondition := nil;
+  if aOnlyActive then
+   l_Query.WhereCondition := f_Factory.MakeBitWiseCondition('u', TdaScheme.Instance.Table(da_mtUsers)['active'], da_bwAnd, usActive);
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['id']));
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+  l_Query.Prepare;
+  l_ResultSet := l_Query.OpenResultSet;
+  try
+   l_IDField := l_ResultSet.Field['id'];
+   l_NameField := l_ResultSet.Field['user_name'];
+   while not l_ResultSet.EOF do
+   begin
+    aList.AddObject(ConcatRegionAndUserNames(l_IDField.AsLargeInt,  l_NameField.AsString), TObject(l_IDField.AsLargeInt));
+    l_ResultSet.Next;
+   end;
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  l_Query := nil;
+ end;
+ aList.CustomSort(@CompareStringsUser);
+//#UC END# *57AAF3DF0284_5629FC88034B_impl*
+end;//TpgUserManager.LoadFiltredUserList
 
 function TpgUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
@@ -1021,12 +1113,9 @@ var
 //#UC END# *575A8B790353_5629FC88034B_var*
 begin
 //#UC START# *575A8B790353_5629FC88034B_impl*
- Result := False;
- Assert(False);
-//!! !!! Needs to be implemented !!!
-// IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
-// IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
-// l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
+ IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
+ IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
+ l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
  try
   Result := not l_ResultSet.IsEmpty;
  finally
@@ -1647,6 +1736,103 @@ begin
 //#UC END# *5784BE1E02F7_5629FC88034B_impl*
 end;//TpgUserManager.DelUser
 
+procedure TpgUserManager.GetUserListOnGroup(aUsGroup: TdaUserGroupID;
+ aList: Tl3StringDataList;
+ GetActiveUsersOnly: Boolean = False);
+//#UC START# *57A87EF901F3_5629FC88034B_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
+//#UC END# *57A87EF901F3_5629FC88034B_var*
+begin
+//#UC START# *57A87EF901F3_5629FC88034B_impl*
+ if aUsGroup = 0 then
+  FillAllUsers(aList)
+ else
+ begin
+  l_Query := f_Factory.MakeTabledQuery(
+   f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers), 'u').Join(
+    f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroupMembers), 'm'),
+    da_jkLeftOuter).SetCondition(f_Factory.MakeJoinCondition('u', TdaScheme.Instance.Table(da_mtUsers)['id'], 'm', TdaScheme.Instance.Table(da_mtGroupMembers)['user_id']))
+  );
+  try
+   l_Query.WhereCondition := f_Factory.MakeParamsCondition('m', TdaScheme.Instance.Table(da_mtGroupMembers).Field['group_id'], da_copEqual, 'p_GroupID');
+   if GetActiveUsersOnly then
+    l_Query.WhereCondition := f_Factory.MakeLogicCondition(l_Query.WhereCondition, da_loAnd,
+     f_Factory.MakeBitWiseCondition('u', TdaScheme.Instance.Table(da_mtUsers)['active'], da_bwAnd, usActive));
+   l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['id']));
+   l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+   l_Query.Prepare;
+   l_Query.Param['p_GroupID'].AsLargeInt := aUsGroup;
+   l_ResultSet := l_Query.OpenResultSet;
+   try
+    FillListByResultSet(aList, l_ResultSet, 'id', cUserIDSize, 'user_name', True);
+   finally
+    l_ResultSet := nil;
+   end;
+  finally
+   l_Query := nil;
+  end;
+ end;
+ SortUsersInList(aList);
+//#UC END# *57A87EF901F3_5629FC88034B_impl*
+end;//TpgUserManager.GetUserListOnGroup
+
+procedure TpgUserManager.GetFiltredUserList(aList: TStrings;
+ aOnlyActive: Boolean = False);
+//#UC START# *57A9DF2103CE_5629FC88034B_var*
+var
+ l_List: TStringList;
+//#UC END# *57A9DF2103CE_5629FC88034B_var*
+begin
+//#UC START# *57A9DF2103CE_5629FC88034B_impl*
+ Assert(Self <> nil);
+ if not aOnlyActive then
+ begin
+  l_List := TStringList.Create;
+  try
+   LoadFiltredUserList(l_List, false);
+   aList.Assign(l_List);
+  finally
+   FreeAndNil(l_List);
+  end;
+ end
+ else
+ begin
+  if f_CacheActiveUserList = nil then
+  begin
+   f_CacheActiveUserList := TStringList.Create;
+   LoadFiltredUserList(f_CacheActiveUserList, true);
+  end;
+  aList.Assign(f_CacheActiveUserList);
+ end;
+//#UC END# *57A9DF2103CE_5629FC88034B_impl*
+end;//TpgUserManager.GetFiltredUserList
+
+procedure TpgUserManager.GetDocGroupData(aUserGroup: TdaUserGroupID;
+ aFamily: TdaFamilyID;
+ aDocDataList: Tl3StringDataList);
+//#UC START# *57AC28890131_5629FC88034B_var*
+//#UC END# *57AC28890131_5629FC88034B_var*
+begin
+//#UC START# *57AC28890131_5629FC88034B_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *57AC28890131_5629FC88034B_impl*
+end;//TpgUserManager.GetDocGroupData
+
+procedure TpgUserManager.PutDocGroupData(aUserGroup: TdaUserGroupID;
+ aFamily: TdaFamilyID;
+ aDocDataList: Tl3StringDataList);
+//#UC START# *57AC289F0257_5629FC88034B_var*
+//#UC END# *57AC289F0257_5629FC88034B_var*
+begin
+//#UC START# *57AC289F0257_5629FC88034B_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *57AC289F0257_5629FC88034B_impl*
+end;//TpgUserManager.PutDocGroupData
+
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5629FC88034B_var*
@@ -1657,6 +1843,7 @@ begin
  FreeAndNil(f_UserStatusChangedSubscriberList);
  FreeAndNil(f_AllUsers);
  FreeAndNil(f_AllGroups);
+ FreeAndNil(f_CacheActiveUserList);
  f_PasswordQuery := nil;
  f_UserFlagsQuery := nil;
  f_UserNameQuery := nil;
@@ -1664,7 +1851,15 @@ begin
  f_PriorityCalculator := nil;
  f_AllArchiUsersQuery := nil;
  f_AllGroupsQuery := nil;
+ f_IsMemberOfGroupQuery := nil;
+ f_UserGroupsQuery := nil;
+ f_GroupUsersQuery := nil;
  f_Factory := nil;
+ f_Journal := nil;
+ FreeAndNil(f_GroupModifier);
+ FreeAndNil(f_FunctionFactory);
+ FreeAndNil(f_FreeIDHelperHolder);
+ FreeAndNil(f_Connection);
  inherited;
 //#UC END# *479731C50290_5629FC88034B_impl*
 end;//TpgUserManager.Cleanup

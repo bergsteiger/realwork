@@ -67,6 +67,8 @@ uses
  , SysUtils
  , m2S32Lib
  , m2S64Lib
+ //#UC START# *53FDD3D902AAimpl_uses*
+ //#UC END# *53FDD3D902AAimpl_uses*
 ;
 
 procedure Tm3BuffStream.LoadBuff;

@@ -1,8 +1,14 @@
 unit nsFolders;
 
-// $Id: nsFolders.pas,v 1.19 2015/03/18 11:25:50 lulin Exp $
+// $Id: nsFolders.pas,v 1.21 2016/07/26 16:17:11 lulin Exp $
 
 // $Log: nsFolders.pas,v $
+// Revision 1.21  2016/07/26 16:17:11  lulin
+// - перегенерация.
+//
+// Revision 1.20  2016/07/15 11:25:37  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.19  2015/03/18 11:25:50  lulin
 // - перетряхиваем зависимости.
 //
@@ -1179,6 +1185,7 @@ uses
   Base_Operations_Strange_Controls,
 
   vcmMessagesSupport
+  , Base_Operations_F1Services_Contracts
   ;
 
 var
@@ -1208,7 +1215,7 @@ begin
  try
   DefDataAdapter.Folders.FindFolderNode(aBookmarkID, aNode);
   Result := True;
-  l_Form := TdmStdRes.OpenFolders(nil, aCanCreate);
+  l_Form := TFoldersService.Instance.OpenFolders(nil, aCanCreate);
   if (l_Form <> nil) then
   begin
    UserFoldersTree.Tree;

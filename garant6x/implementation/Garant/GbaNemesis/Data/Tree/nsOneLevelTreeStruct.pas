@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , nsINodeOneLevelRootWrap
+ //#UC START# *4683692B0105impl_uses*
+ //#UC END# *4683692B0105impl_uses*
 ;
 
 function TnsOneLevelTreeStruct.IsOneLevelPrim: Boolean;

@@ -34,6 +34,8 @@ uses
  , l3Canvas
  , l3Base
  , SysUtils
+ //#UC START# *4799F84900DDimpl_uses*
+ //#UC END# *4799F84900DDimpl_uses*
 ;
 
 var g_Tl3ScreenServiceDef: Tl3ScreenServiceDef = nil;

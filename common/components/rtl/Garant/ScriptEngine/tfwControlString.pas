@@ -31,6 +31,8 @@ uses
  , tfwClassRef
  , SysUtils
  , StrUtils
+ //#UC START# *508527F30183impl_uses*
+ //#UC END# *508527F30183impl_uses*
 ;
 
 initialization

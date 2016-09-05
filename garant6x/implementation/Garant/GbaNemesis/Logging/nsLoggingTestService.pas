@@ -45,6 +45,8 @@ uses
  , LoggingWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
+ //#UC START# *55B9FFCB020Fimpl_uses*
+ //#UC END# *55B9FFCB020Fimpl_uses*
 ;
 
 var g_TnsLoggingTestService: TnsLoggingTestService = nil;

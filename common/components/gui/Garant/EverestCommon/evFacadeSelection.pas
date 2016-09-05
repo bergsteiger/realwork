@@ -58,6 +58,8 @@ uses
  , evdTypes
  , evOp
  , k2Tags
+ //#UC START# *48EEF8240298impl_uses*
+ //#UC END# *48EEF8240298impl_uses*
 ;
 
 procedure evAssignSelection(aMemo: TevMemo;

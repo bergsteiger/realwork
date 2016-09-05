@@ -63,6 +63,7 @@ uses
 
   l3IniFile,
   l3Base, l3StringList,
+  daTypes,
   dt_Types,
   dtIntf,
   dt_Sab,
@@ -83,7 +84,7 @@ type
     procedure TopicEvent(aTopicNo: Longint; const aMessage: String);
     procedure TotalProc(aState: Byte; aValue: Longint; const aMsg: string);
   private
-    f_Family    : TFamilyID;
+    f_Family    : TdaFamilyID;
     f_NumSab    : ISab;
     f_SabFiller : IValueSetFiller;
   private

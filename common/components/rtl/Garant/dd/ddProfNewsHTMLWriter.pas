@@ -42,6 +42,8 @@ uses
  , ddTextSegment
  , evdStyles
  , ddUtils
+ //#UC START# *576119AE00C1impl_uses*
+ //#UC END# *576119AE00C1impl_uses*
 ;
 
 procedure TddProfNewsHTMLWriter.WriteHTMLStyleTable;

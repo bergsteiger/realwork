@@ -21,6 +21,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4ABB4C2B03D5impl_uses*
+ //#UC END# *4ABB4C2B03D5impl_uses*
 ;
 
 procedure ConfigurationList;

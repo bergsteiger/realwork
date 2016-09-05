@@ -28,6 +28,8 @@ uses
  , SecurityUnit
  , nsConst
  , l3Nodes
+ //#UC START# *49E5BB5F02B7impl_uses*
+ //#UC END# *49E5BB5F02B7impl_uses*
 ;
 
 function GetUserID(const aNode: Il3SimpleNode): Integer;

@@ -22,6 +22,8 @@ implementation
 uses
  l3ImplUses
  , ApplicationHelper
+ //#UC START# *461CD65E0280impl_uses*
+ //#UC END# *461CD65E0280impl_uses*
 ;
 
 function CheckContent(const content): ByteBool;

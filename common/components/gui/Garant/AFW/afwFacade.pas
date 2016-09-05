@@ -163,6 +163,8 @@ uses
  , Windows
  , SysUtils
  , l3Base
+ //#UC START# *47752AF90375impl_uses*
+ //#UC END# *47752AF90375impl_uses*
 ;
 
 type

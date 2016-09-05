@@ -57,6 +57,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4A8D6F31034Fimpl_uses*
+ //#UC END# *4A8D6F31034Fimpl_uses*
 ;
 
 function TvcmCommandInfo_C(aItemID: Integer;

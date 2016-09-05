@@ -60,6 +60,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *480DD9F600F6impl_uses*
+ //#UC END# *480DD9F600F6impl_uses*
 ;
 
 procedure TafwCaretPair.pm_SetInsertMode(aValue: Boolean);

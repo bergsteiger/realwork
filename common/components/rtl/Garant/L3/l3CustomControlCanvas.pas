@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4FAE801F00D4impl_uses*
+ //#UC END# *4FAE801F00D4impl_uses*
 ;
 
 type

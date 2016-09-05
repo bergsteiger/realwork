@@ -62,6 +62,8 @@ uses
  , l3MessageID
  , l3String
  , SysUtils
+ //#UC START# *4B9777000394impl_uses*
+ //#UC END# *4B9777000394impl_uses*
 ;
 
 class procedure vcmIconSizeMapHelper.FillStrings(const aStrings: IafwStrings);

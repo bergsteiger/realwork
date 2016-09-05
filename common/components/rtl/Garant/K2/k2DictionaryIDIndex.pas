@@ -28,6 +28,8 @@ uses
  , k2Tags
  , l3Variant
  , l3Memory
+ //#UC START# *5304CAB003D1impl_uses*
+ //#UC END# *5304CAB003D1impl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = Tl3Variant;{$IfEnd}

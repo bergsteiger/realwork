@@ -65,6 +65,8 @@ uses
  , k2InterfaceFactory
  , k2List
  , l3Memory
+ //#UC START# *527BA4EE03B4impl_uses*
+ //#UC END# *527BA4EE03B4impl_uses*
 ;
 
 type _Instance_R_ = Tk2TypedHugeListTag;

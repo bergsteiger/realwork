@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , ddAutoLinkServices
+ //#UC START# *505C064A02A4impl_uses*
+ //#UC END# *505C064A02A4impl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

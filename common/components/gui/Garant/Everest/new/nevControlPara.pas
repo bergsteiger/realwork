@@ -53,6 +53,8 @@ uses
  , l3String
  , afwFacade
  , afwInterfaces
+ //#UC START# *48D11BE0015Eimpl_uses*
+ //#UC END# *48D11BE0015Eimpl_uses*
 ;
 
 const

@@ -36,6 +36,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *47BC507501ABimpl_uses*
+ //#UC END# *47BC507501ABimpl_uses*
 ;
 
 function TdtCustomDictItem.Get_Handle: TDictID;

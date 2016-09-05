@@ -42,6 +42,8 @@ uses
  , Windows
  , ddZipUtils
  , l3Base
+ //#UC START# *4E4A364200F7impl_uses*
+ //#UC END# *4E4A364200F7impl_uses*
 ;
 
 function arUnackBaseFromArchive(const aFileName: AnsiString;

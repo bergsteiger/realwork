@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4E297BC401BEimpl_uses*
+ //#UC END# *4E297BC401BEimpl_uses*
 ;
 
 function TDailyAutoTest.GetFolder: AnsiString;

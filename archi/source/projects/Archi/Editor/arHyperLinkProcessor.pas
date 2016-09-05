@@ -38,6 +38,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwArchiHyperlinkScriptCaller
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4E5C7F4402E8impl_uses*
+ //#UC END# *4E5C7F4402E8impl_uses*
 ;
 
 type

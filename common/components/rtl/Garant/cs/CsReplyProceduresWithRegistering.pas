@@ -33,6 +33,8 @@ uses
  , l3Base
  , TypInfo
  , SysUtils
+ //#UC START# *5395C8DC03A7impl_uses*
+ //#UC END# *5395C8DC03A7impl_uses*
 ;
 
 procedure TCsReplyProceduresWithRegistering.Register(aQueryId: TCsQueryId;

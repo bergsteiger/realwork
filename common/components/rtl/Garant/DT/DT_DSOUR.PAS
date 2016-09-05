@@ -1,8 +1,11 @@
 unit DT_DSour;
 
-{ $Id: DT_DSOUR.PAS,v 1.9 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: DT_DSOUR.PAS,v 1.10 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: DT_DSOUR.PAS,v $
+// Revision 1.10  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.9  2015/07/02 11:41:29  lukyanets
 // Описываем словари
 //
@@ -37,8 +40,8 @@ type
  TDictSourceTbl = Class(TPrometTbl)
   constructor Create; {$IfDef Win32}reintroduce;{$endIf Win32}
 
-  procedure   GetSourDict(aFamily : TFamilyID;aDict : TdaDictionaryType;
-                          var newFamily : TFamilyID;var newDict : TdaDictionaryType);
+  procedure   GetSourDict(aFamily : TdaFamilyID;aDict : TdaDictionaryType;
+                          var newFamily : TdaFamilyID;var newDict : TdaDictionaryType);
  end;
 implementation
 uses HT_Const,HT_Dll,Dt_Err;
@@ -50,8 +53,8 @@ begin
  inherited Create(MainTblsFamily, TblPassW[MainPassIndex[mtDictSrc]], MainTblNames[mtDictSrc],True);
 end;
 
-procedure TDictSourceTbl.GetSourDict(aFamily : TFamilyID;aDict : TdaDictionaryType;
-                                     var newFamily : TFamilyID;var newDict : TdaDictionaryType);
+procedure TDictSourceTbl.GetSourDict(aFamily : TdaFamilyID;aDict : TdaDictionaryType;
+                                     var newFamily : TdaFamilyID;var newDict : TdaDictionaryType);
 var
  AbsNum  : LongInt;
  RecH    : RHANDLE;

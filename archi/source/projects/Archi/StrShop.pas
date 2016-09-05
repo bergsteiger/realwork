@@ -1,6 +1,6 @@
 unit StrShop;
 
-{ $Id: StrShop.pas,v 1.66 2015/12/11 10:16:16 voba Exp $ }
+{ $Id: StrShop.pas,v 1.68 2016/08/24 12:51:02 lukyanets Exp $ }
 
 interface
  uses
@@ -202,6 +202,9 @@ interface
    sidBadDocStructure = 'Документ поврежден. Часть данных потеряна.';
    sidAACLeftBlockNotPresent = 'Нет корреспондирующей команды для левого блока.';
    sidAACRightBlockNotPresent = 'Нет корреспондирующей команды для правого блока.';
+
+   sidRemoteStorageDisabled = 'Автономная работа запрещена, подключайтесь к серверу';
+   sidClientServerDOcLoadFailed = 'Не удалось получить документ с сервера - нет связи. Повторите попытку позже';
  //function SSLoadStr(Ident: Word): string;
  //function GetAssMaskStr(aMask : Longint) : String;
  //function GetAssGroupName(piAssGroupID : integer) : String;

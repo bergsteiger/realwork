@@ -6,7 +6,7 @@ interface
 
 uses
  Classes,
- dt_Types,
+ daTypes,
  dtIntf,
  CsDataPipe, csProcessTask, CsTaskTypes, dt_Sab,
 
@@ -57,7 +57,7 @@ type
     procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); override;
     function pm_GetTaskFolder: AnsiString; override;
   public
-    constructor Create(aUserID: TUserID); override;
+    constructor Create(aUserID: TdaUserID); override;
   {$If defined(AppServerSide)}
     procedure RunEnded(const aServices: IcsRunTaskServices); override;
   {$IfEnd defined(AppServerSide)}
@@ -116,7 +116,7 @@ implementation
 uses
  l3TempMemoryStream,
  daSchemeConsts,
- SysUtils, ddUtils, L3FileUtils, DT_DictConst, dt_Doc, DT_Const, daInterfaces,
+ SysUtils, ddUtils, L3FileUtils, dt_Types, DT_DictConst, dt_Doc, DT_Const, daInterfaces,
 
  k2Tags,
 
@@ -128,7 +128,7 @@ uses
 ****************************** TcsExport *******************************
 }
 
-constructor TcsExport.Create(aUserID: TUserID);
+constructor TcsExport.Create(aUserID: TdaUserID);
 begin
   inherited;
   //TaskType := cs_ttExport;

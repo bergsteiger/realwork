@@ -49,6 +49,8 @@ uses
  , SysUtils
  , l3Types
  , k2Tags
+ //#UC START# *4860B1230094impl_uses*
+ //#UC END# *4860B1230094impl_uses*
 ;
 
 class procedure TevdStyleContainer.CheckValueTable(aType: Tk2Type);

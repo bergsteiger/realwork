@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , kwKeyValuesPack
+ //#UC START# *567ACBF70376impl_uses*
+ //#UC END# *567ACBF70376impl_uses*
 ;
 
 procedure TkwKeyValues.DoDoIt(const aCtx: TtfwContext);

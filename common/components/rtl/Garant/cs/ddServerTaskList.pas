@@ -53,6 +53,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *53A172750065impl_uses*
+ //#UC END# *53A172750065impl_uses*
 ;
 
 function L2csProcessTaskWorkuperWorkupFAction(anAction: Pointer): csProcessTaskWorkuper_WorkupF_Action;

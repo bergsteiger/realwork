@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4E089AEB01DAimpl_uses*
+ //#UC END# *4E089AEB01DAimpl_uses*
 ;
 
 var g_TvcmMessageQueue: TvcmMessageQueue = nil;

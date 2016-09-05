@@ -53,6 +53,8 @@ uses
  , bsFrozenNode
  , IOUnit
  , nsTypes
+ //#UC START# *493D4E4D0146impl_uses*
+ //#UC END# *493D4E4D0146impl_uses*
 ;
 
 class function TbsUserCRListInfo.Make: IbsUserCRListInfoModify;

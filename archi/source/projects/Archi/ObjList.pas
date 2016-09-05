@@ -1,6 +1,6 @@
 unit ObjList;
 
-{ $Id: ObjList.pas,v 1.11 2015/04/17 10:40:08 kostitsin Exp $ }
+{ $Id: ObjList.pas,v 1.12 2016/06/16 05:38:41 lukyanets Exp $ }
 
 interface
 
@@ -54,7 +54,7 @@ uses
   Controls,
 
   DT_Const,
-  DT_Types,
+  daTypes,
 
   l3Base,
 
@@ -100,12 +100,12 @@ begin
  I := Add(aName);
  if aAddDataSize = 0 then
   case aType of
-   ddDoc           : lRecSize := SizeOf(TGlobalCoordinateRec);
+   ddDoc           : lRecSize := SizeOf(TdaGlobalCoordinateRec);
    ddSrchObj       : lRecSize := SizeOf(TSrchObjAddr);
    ddSrchID        : lRecSize := SizeOf(TSrchIDAddr );
    ddDictItem      : lRecSize := SizeOf(TDictItemAddr);
-   ddBackHyperLink : lRecSize := SizeOf(TGlobalCoordinateRec);
-   else              lRecSize := SizeOf(TGlobalCoordinateRec);
+   ddBackHyperLink : lRecSize := SizeOf(TdaGlobalCoordinateRec);
+   else              lRecSize := SizeOf(TdaGlobalCoordinateRec);
   end
  else
   lRecSize := SizeOf(TDictItemAddr) + aAddDataSize;

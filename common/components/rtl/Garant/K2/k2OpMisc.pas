@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *48CF8F160109impl_uses*
+ //#UC END# *48CF8F160109impl_uses*
 ;
 
 function k2StartOp(const aProcessorSource: IUnknown;

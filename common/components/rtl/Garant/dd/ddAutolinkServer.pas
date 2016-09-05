@@ -1,8 +1,11 @@
 unit ddAutolinkServer;
 
-{ $Id: ddAutolinkServer.pas,v 1.11 2015/06/09 11:51:37 fireton Exp $ }
+{ $Id: ddAutolinkServer.pas,v 1.12 2016/06/16 05:40:04 lukyanets Exp $ }
 
 // $Log: ddAutolinkServer.pas,v $
+// Revision 1.12  2016/06/16 05:40:04  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
 // Revision 1.11  2015/06/09 11:51:37  fireton
 // - погор€чилс€ с CleanupAutolinkServer
 //
@@ -42,7 +45,7 @@ uses
  l3ProtoObject,
  l3Except,
 
- DT_Types,
+ daTypes,
  dtIntf,
 
  ddAutolinkCache;
@@ -53,21 +56,21 @@ const
 type
  TddAutolinkServer = class(Tl3ProtoObject)
  private
-  f_Family: TFamilyID;
+  f_Family: TdaFamilyID;
   f_MainTbl: array [TddAutolinkCacheType] of ITblInfo;
   f_VerTbl : array [TddAutolinkCacheType] of ITblInfo;
-  procedure pm_SetFamily(const Value: TFamilyID);
+  procedure pm_SetFamily(const Value: TdaFamilyID);
  public
   procedure DropTables;
   function GetAutolinkCacheMainTableInfo(aType: TddAutolinkCacheType): ITblInfo;
   function GetAutolinkCacheVersionsTableInfo(aType: TddAutolinkCacheType): ITblInfo;
-  property Family: TFamilyID read f_Family write pm_SetFamily;
+  property Family: TdaFamilyID read f_Family write pm_SetFamily;
  end;
 
  EAutolinkError = class (El3Error);
  EAutoLinkBadCache = class(EAutolinkError);
 
-function AutolinkServer(const aFamily: TFamilyID): TddAutolinkServer;
+function AutolinkServer(const aFamily: TdaFamilyID): TddAutolinkServer;
 procedure CleanupAutolinkServer;
 
 implementation
@@ -95,7 +98,7 @@ begin
  FreeAndNil(g_AutolinkServer);
 end;
 
-function AutolinkServer(const aFamily: TFamilyID): TddAutolinkServer;
+function AutolinkServer(const aFamily: TdaFamilyID): TddAutolinkServer;
 begin
  if g_AutolinkServer = nil then
  begin
@@ -117,7 +120,7 @@ begin
  end;
 end;
 
-procedure TddAutolinkServer.pm_SetFamily(const Value: TFamilyID);
+procedure TddAutolinkServer.pm_SetFamily(const Value: TdaFamilyID);
 begin
  if f_Family <> Value then
  begin

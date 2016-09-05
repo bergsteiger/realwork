@@ -32,6 +32,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4FC75F0F0061impl_uses*
+ //#UC END# *4FC75F0F0061impl_uses*
 ;
 
 function TseModalWorker_C(aWord: TtfwWord;

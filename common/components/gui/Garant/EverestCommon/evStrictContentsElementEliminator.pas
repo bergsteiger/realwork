@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , ContentsElement_Const
+ //#UC START# *4CA2FFC10275impl_uses*
+ //#UC END# *4CA2FFC10275impl_uses*
 ;
 
 function TevStrictContentsElementEliminator.NeedTranslateChildToNext: Boolean;

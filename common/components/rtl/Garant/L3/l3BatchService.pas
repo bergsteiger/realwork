@@ -101,6 +101,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , l3Base
+ //#UC START# *5507FDD203E1impl_uses*
+ //#UC END# *5507FDD203E1impl_uses*
 ;
 
 var g_Tl3BatchScriptService: Tl3BatchScriptService = nil;

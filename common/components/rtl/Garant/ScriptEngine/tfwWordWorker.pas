@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , kwTemporaryCompiledCode
  , SysUtils
+ //#UC START# *4DCBD489023Aimpl_uses*
+ //#UC END# *4DCBD489023Aimpl_uses*
 ;
 
 procedure TtfwWordWorker.FillCompiledWorker(aWorker: TtfwWord;

@@ -34,6 +34,8 @@ uses
  , evDocumentsCache
  , SysUtils
  , l3Base
+ //#UC START# *5506FEE90052impl_uses*
+ //#UC END# *5506FEE90052impl_uses*
 ;
 
 var g_TevDocumentsCacheService: TevDocumentsCacheService = nil;

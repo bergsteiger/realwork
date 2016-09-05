@@ -57,9 +57,12 @@ uses
  , kwValue
  , kwWordPtrPushWord
  , kwForwardDeclarationHolder
+ , tfwCS
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4F43A128007Eimpl_uses*
+ //#UC END# *4F43A128007Eimpl_uses*
 ;
 
 type
@@ -1227,6 +1230,28 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwDROPN
+
+ TkwCtxEnterCS = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта Ctx:EnterCS }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCtxEnterCS
+
+ TkwCtxLeaveCS = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта Ctx:LeaveCS }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCtxLeaveCS
 
  TBasicsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
@@ -5141,6 +5166,64 @@ begin
  DROPN(aCtx, l_aN);
 end;//TkwDROPN.DoDoIt
 
+class function TkwCtxEnterCS.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Ctx:EnterCS';
+end;//TkwCtxEnterCS.GetWordNameForRegister
+
+function TkwCtxEnterCS.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwCtxEnterCS.GetResultTypeInfo
+
+function TkwCtxEnterCS.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwCtxEnterCS.GetAllParamsCount
+
+function TkwCtxEnterCS.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwCtxEnterCS.ParamsTypes
+
+procedure TkwCtxEnterCS.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_57C5548E014E_Word_var*
+//#UC END# *4DAEEDE10285_57C5548E014E_Word_var*
+begin
+//#UC START# *4DAEEDE10285_57C5548E014E_Word_impl*
+ TtfwCS.Instance.Lock;
+//#UC END# *4DAEEDE10285_57C5548E014E_Word_impl*
+end;//TkwCtxEnterCS.DoDoIt
+
+class function TkwCtxLeaveCS.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Ctx:LeaveCS';
+end;//TkwCtxLeaveCS.GetWordNameForRegister
+
+function TkwCtxLeaveCS.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwCtxLeaveCS.GetResultTypeInfo
+
+function TkwCtxLeaveCS.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwCtxLeaveCS.GetAllParamsCount
+
+function TkwCtxLeaveCS.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwCtxLeaveCS.ParamsTypes
+
+procedure TkwCtxLeaveCS.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_57C554AD0130_Word_var*
+//#UC END# *4DAEEDE10285_57C554AD0130_Word_var*
+begin
+//#UC START# *4DAEEDE10285_57C554AD0130_Word_impl*
+ TtfwCS.Instance.Unlock;
+//#UC END# *4DAEEDE10285_57C554AD0130_Word_impl*
+end;//TkwCtxLeaveCS.DoDoIt
+
 class function TBasicsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'BasicsPack';
@@ -5317,6 +5400,10 @@ initialization
  {* Регистрация DUPN }
  TkwDROPN.RegisterInEngine;
  {* Регистрация DROPN }
+ TkwCtxEnterCS.RegisterInEngine;
+ {* Регистрация Ctx_EnterCS }
+ TkwCtxLeaveCS.RegisterInEngine;
+ {* Регистрация Ctx_LeaveCS }
  TBasicsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
 //#UC START# *551588F90151*

@@ -47,6 +47,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48EF3978008Dimpl_uses*
+ //#UC END# *48EF3978008Dimpl_uses*
 ;
 
 constructor TevDataObject.Create(const aBlock: IevdDataObject;

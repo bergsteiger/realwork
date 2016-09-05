@@ -42,6 +42,8 @@ uses
  , nsFiltersTree
  , SysUtils
  , l3Nodes
+ //#UC START# *4CAC5B4900EDimpl_uses*
+ //#UC END# *4CAC5B4900EDimpl_uses*
 ;
 
 constructor TnsFiltersContainerPrim.Create(aFilterType: TnsFiltersType);

@@ -1,8 +1,11 @@
 unit dtIntf;
 
-{ $Id: dtIntf.pas,v 1.12 2016/05/17 11:59:35 voba Exp $ }
+{ $Id: dtIntf.pas,v 1.13 2016/07/01 09:48:39 voba Exp $ }
 
 // $Log: dtIntf.pas,v $
+// Revision 1.13  2016/07/01 09:48:39  voba
+// -k:625261303
+//
 // Revision 1.12  2016/05/17 11:59:35  voba
 // -k:623081921
 //
@@ -225,6 +228,10 @@ type
      overload;
     procedure Select(aElemNum : ThtField; const aLoValue; const aHiValue; const aPhoto : ISab = nil);
      overload;
+
+    procedure AddSelect(aElemNum : ThtField; const aValue; aCond : ThtCondition = EQUAL); overload;
+    {* - ишет и объединяет с ранее найденным}
+    procedure AddSelect(aElemNum : ThtField; const aLoValue; const aHiValue); overload;
 
     procedure SelectByMask(aElemNum : ThtField; aMask : Integer; const  aPhoto : ISab = nil);
     {* - Функция предназначена для получения подмножества записей, cо значениями aElemNum в которых выставлены биты как в aMask}

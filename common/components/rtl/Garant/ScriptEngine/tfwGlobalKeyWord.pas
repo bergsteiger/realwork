@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *561BAC4B0005impl_uses*
+ //#UC END# *561BAC4B0005impl_uses*
 ;
 
 function TtfwGlobalKeyWord.BindParams: Boolean;

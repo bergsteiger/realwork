@@ -68,10 +68,13 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , nsFolderFilterInfo
+ , Common_F1CommonServices_Contracts
  , l3InterfacesMisc
  , SysUtils
  , afwFacade
  , IOUnit
+ //#UC START# *491D56370182impl_uses*
+ //#UC END# *491D56370182impl_uses*
 ;
 
 type _Instance_R_ = TdsTipsDocument;

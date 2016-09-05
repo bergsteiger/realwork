@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *49143C860391impl_uses*
+ //#UC END# *49143C860391impl_uses*
 ;
 
 type _Instance_R_ = TIafwApplicationDataListenerPtrList;

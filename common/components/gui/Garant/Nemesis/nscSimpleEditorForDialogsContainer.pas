@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4D6BAF99010Eimpl_uses*
+ //#UC END# *4D6BAF99010Eimpl_uses*
 ;
 
 function TnscSimpleEditorForDialogsContainer.UseWikiMarkup: Boolean;

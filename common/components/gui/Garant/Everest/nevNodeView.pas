@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *4E24140802B9impl_uses*
+ //#UC END# *4E24140802B9impl_uses*
 ;
 
 constructor TnevNodeView.Create(const aNode: InevObject;

@@ -70,6 +70,8 @@ uses
  , LibPQ
  , daScheme
  , pgUtils
+ //#UC START# *56616E840213impl_uses*
+ //#UC END# *56616E840213impl_uses*
 ;
 
 constructor TpgFunction.Create(aConnection: TpgConnection;
@@ -103,7 +105,7 @@ begin
    f_SelectFields.Add(TpgFunctionSelectField.Make(aParamsDescription[l_IDX]));
   end;
  end;
- PrepareQuery;
+ Prepare;
 //#UC END# *5673D6990214_56616E840213_impl*
 end;//TpgFunction.Create
 
@@ -176,9 +178,7 @@ var
 //#UC END# *56010ACB00F0_56616E840213_var*
 begin
 //#UC START# *56010ACB00F0_56616E840213_impl*
- f_QueryName := '';
- exit;
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE %s', [f_QueryName])));
+ l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE "%s"', [f_QueryName])));
  try
   pgCheckStatus(l_Result);
   f_QueryName := '';

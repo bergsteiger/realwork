@@ -46,6 +46,8 @@ uses
  , vcmEntityAction
  , SysUtils
  , l3Base
+ //#UC START# *551442A301CDimpl_uses*
+ //#UC END# *551442A301CDimpl_uses*
 ;
 
 var g_TvcmFormatActionInfoHelper: TvcmFormatActionInfoHelper = nil;

@@ -64,6 +64,8 @@ uses
  , evTableMarker
  , k2Tags
  , l3Variant
+ //#UC START# *4EF9B83D010Dimpl_uses*
+ //#UC END# *4EF9B83D010Dimpl_uses*
 ;
 
 {$If Defined(evNeedHotSpot)}

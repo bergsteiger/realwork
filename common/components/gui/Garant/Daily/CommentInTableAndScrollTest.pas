@@ -56,6 +56,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4CA2F3AA0033impl_uses*
+ //#UC END# *4CA2F3AA0033impl_uses*
 ;
 
 function TCommentInTableAndScrollTest.IsUserComment(const aView: InevInputView): Boolean;

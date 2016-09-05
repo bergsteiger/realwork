@@ -41,6 +41,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52D6622F0148impl_uses*
+ //#UC END# *52D6622F0148impl_uses*
 ;
 
 procedure TkwSubdescriptorGetColumn.DoWithSubDescriptor(aControl: TevSubDescriptor;

@@ -35,6 +35,8 @@ uses
  , m3StorageTableOfContentsStream
  , m3StorageIndexStreamForIterate
  , m3TempEnumStatStg
+ //#UC START# *53FDEEB502A6impl_uses*
+ //#UC END# *53FDEEB502A6impl_uses*
 ;
 
 end.

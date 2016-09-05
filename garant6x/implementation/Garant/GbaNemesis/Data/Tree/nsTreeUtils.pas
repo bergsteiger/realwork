@@ -48,6 +48,8 @@ uses
  , eeTreeMisc
  {$IfEnd} // Defined(Nemesis)
  , l3Nodes
+ //#UC START# *4912DBE30091impl_uses*
+ //#UC END# *4912DBE30091impl_uses*
 ;
 
 function GetTwinNode(const aTree: Il3SimpleTree;

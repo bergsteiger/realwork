@@ -132,6 +132,8 @@ uses
  , nsDocumentTools
  , l3String
  , l3Base
+ //#UC START# *4A9D19450248impl_uses*
+ //#UC END# *4A9D19450248impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

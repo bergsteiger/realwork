@@ -71,6 +71,8 @@ uses
  , dt_Types
  , htField
  , l3Types
+ //#UC START# *559121CE0393impl_uses*
+ //#UC END# *559121CE0393impl_uses*
 ;
 
 constructor ThtResultSet.Create(const aDataConverter: IhtDataConverter;

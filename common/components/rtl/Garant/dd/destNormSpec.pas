@@ -163,6 +163,8 @@ uses
  , ddCellProperty
  , ddConst
  , l3MinMax
+ //#UC START# *56BB14F503A0impl_uses*
+ //#UC END# *56BB14F503A0impl_uses*
 ;
 
 procedure TdestNormSpec.AddColumn4Table(aRowIndex: Integer;
@@ -542,6 +544,7 @@ begin
  l_Tabs4AllCells := False;
  l_NewRow := False;
  l_Offset := 0;
+ l_OffsetType := dd_otNone;
  if (f_LastCell <> nil) and (aState.PAP.TabList.Count > 0) then
   if (f_TabIndex >= aState.PAP.TabList.Count) then
   begin

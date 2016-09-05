@@ -105,6 +105,8 @@ uses
  , caUserManager
  , caTableQueryFactory
  , daSchemeConsts
+ //#UC START# *56A86BCE01EEimpl_uses*
+ //#UC END# *56A86BCE01EEimpl_uses*
 ;
 
 constructor TcaDataProvider.Create(aParams: TcaDataProviderParams;

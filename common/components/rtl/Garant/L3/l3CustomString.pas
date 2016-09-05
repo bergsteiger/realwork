@@ -184,6 +184,8 @@ uses
  , l3Memory
  , l3StringAdapter
  , l3Chars
+ //#UC START# *4773DEF0021Bimpl_uses*
+ //#UC END# *4773DEF0021Bimpl_uses*
 ;
 
 function Tl3CustomString.pm_GetSt: PAnsiChar;

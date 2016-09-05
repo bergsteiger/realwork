@@ -65,6 +65,8 @@ uses
  , k2Interfaces
  , evConst
  , nevRealTools
+ //#UC START# *4E2412DF02EAimpl_uses*
+ //#UC END# *4E2412DF02EAimpl_uses*
 ;
 
 procedure TevNodePainter.InternalPaintNode(const aCanvas: Il3Canvas;

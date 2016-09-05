@@ -66,6 +66,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , FontWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *547DB5C300FEimpl_uses*
+ //#UC END# *547DB5C300FEimpl_uses*
 ;
 
 function TevCustomFont.Get_Size: Integer;

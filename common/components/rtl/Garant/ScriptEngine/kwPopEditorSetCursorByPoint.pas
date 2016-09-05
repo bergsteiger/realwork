@@ -55,6 +55,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4EA922390373impl_uses*
+ //#UC END# *4EA922390373impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}

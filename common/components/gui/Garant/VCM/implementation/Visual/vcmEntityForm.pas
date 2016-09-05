@@ -6,9 +6,36 @@ unit vcmEntityForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmEntityForm - }
 { Начат: 24.02.2003 14:07 }
-{ $Id: vcmEntityForm.pas,v 1.620 2016/05/18 08:58:21 morozov Exp $ }
+{ $Id: vcmEntityForm.pas,v 1.629 2016/08/23 11:46:43 kostitsin Exp $ }
 
 // $Log: vcmEntityForm.pas,v $
+// Revision 1.629  2016/08/23 11:46:43  kostitsin
+// {requestlink: 624862173 }
+//
+// Revision 1.628  2016/07/19 08:57:49  morozov
+// {RequestLink: 604485202}
+//
+// Revision 1.627  2016/07/14 10:23:14  morozov
+// {RequestLink: 624709489}
+//
+// Revision 1.626  2016/06/29 11:09:57  kostitsin
+// {requestlink: 625252835 }
+//
+// Revision 1.625  2016/06/28 14:55:26  kostitsin
+// {requestlink: 625252835 }
+//
+// Revision 1.624  2016/06/17 12:13:09  kostitsin
+// {requestlink: 497687364 } - подтачиваем
+//
+// Revision 1.623  2016/06/16 13:45:54  kostitsin
+// {requestlink: 497687364 }
+//
+// Revision 1.622  2016/06/15 13:55:57  kostitsin
+// {requestlink: 497687364 }
+//
+// Revision 1.621  2016/06/15 13:24:27  kostitsin
+// {requestlink: 497687364 }
+//
 // Revision 1.620  2016/05/18 08:58:21  morozov
 // {RequestLink: 612733136}
 //
@@ -2419,8 +2446,9 @@ type
         {-}
       procedure MakeAggregate;
         {-}
-      function  DoLoadState(const aState : IvcmBase;
-                          aStateType   : TvcmStateType): Boolean;
+      function DoLoadState(const aState: IvcmBase;
+                           aStateType: TvcmStateType;
+                           aClone: Boolean): Boolean;
         virtual;
         {-}
       function  LoadState(const aState : IvcmBase;
@@ -2493,6 +2521,9 @@ type
         override;
         {-}
       procedure CallDoInit(aFormHistory : Boolean);
+      function IsVCMScalingNeeded: Boolean; virtual;
+      procedure VCMScaleControls;
+      procedure DoVCMScaleControls; virtual;
       procedure DoInit(aFormHistory : Boolean);
         {* Инициализация формы. Для перекрытия в потомках }
         virtual;
@@ -3079,7 +3110,8 @@ uses
 
   vcmOperationsCollectionItem,
 
-  vcmHistoryService
+  vcmHistoryService,
+  vcmAggregateContainerRegistry
 
   {$IfNDef NoVGScene}
   ,
@@ -3370,6 +3402,78 @@ begin
   f_OnInit;*)
 end;
 
+function TvcmEntityForm.IsVCMScalingNeeded: Boolean;
+begin
+ Result := Parent = nil;
+end;
+
+const
+ c_DefaultDPI = 96;
+
+procedure TvcmEntityForm.VCMScaleControls;
+begin
+ if IsVCMScalingNeeded and (c_DefaultDPI <> Screen.PixelsPerInch) then
+  DoVCMScaleControls;
+end;
+
+procedure TvcmEntityForm.DoVCMScaleControls;
+ procedure lp_ChangeScale(aControl: TWinControl; M, D: Integer);
+ var
+   X, Y, W, H: Integer;
+   I: Integer;
+ begin
+  for I := 0 to aControl.ControlCount - 1 do
+  begin
+   with aControl.Controls[I] do
+   begin
+    if not (Align in [alLeft, alRight]) then
+     X := MulDiv(Left, M, D)
+    else
+     X := Left;
+    if not (Align in [alTop, alBottom]) then
+     Y := MulDiv(Top, M, D)
+    else
+     Y := Top;
+    if not (csFixedWidth in ControlStyle) then
+     if Align <> alRight then
+      W := MulDiv(Left + Width, M, D) - X
+     else
+      W := Parent.Width - MulDiv(Left, M, D)
+    else
+     W := Width;
+    if not (csFixedHeight in ControlStyle) then
+     if not (Align in [alTop, alBottom]) then
+      H := MulDiv(Top + Height, M, D) - Y
+     else
+      H := MulDiv(Height, M, D)
+    else
+     H := Height;
+    SetBounds(X, Y, W, H);
+   end;
+   if aControl.Controls[I] is TWinControl then
+    lp_ChangeScale(aControl.Controls[I] as TWinControl, M, D);
+  end;
+ end;
+var
+ H: Integer;
+ M, D: Integer;
+begin
+ M := Screen.PixelsPerInch;
+ D := c_DefaultDPI;
+ DisableAlign;
+ try
+  if Parent = nil then
+  begin
+   H := ClientHeight;
+   ClientWidth := MulDiv(ClientWidth, M, D);
+   ClientHeight := MulDiv(H, M, D);
+  end;
+  lp_ChangeScale(Self, M, D);
+ finally
+  EnableAlign;
+ end;
+end;
+
 procedure TvcmEntityForm.DoInit(aFormHistory : Boolean);
   //virtual;
   {-}
@@ -3585,6 +3689,7 @@ begin
    begin
     //http://mdp.garant.ru/pages/viewpage.action?pageId=505415962
     SetupFormLayout;
+    VCMScaleControls;
     // Установим позицию перед отображением формы:
     DoLoadFromSettings;
    end;
@@ -3839,10 +3944,16 @@ begin
  begin
   l_Entity := Self.Entity;
   if (f_Aggregate <> nil) AND (l_Entity <> nil) then
+  begin
    f_Aggregate.RemoveEntity(l_Entity);
+   TvcmAggregateContainerRegistry.Instance.UnregisterAggregate(Aggregate);
+  end;
   f_Aggregate := aValue;
   if (f_Aggregate <> nil) then
+  begin
    f_Aggregate.AddEntity(l_Entity);
+   TvcmAggregateContainerRegistry.Instance.RegisterFormAggregate(As_IvcmEntityForm);   
+  end;
  end;//f_Aggregate <> aValue
 end;
 
@@ -4035,7 +4146,8 @@ type
  IvcmStateItem = interface(IUnknown)
    ['{89686484-2090-46E7-B98A-E464E86DC4FD}']
    procedure LoadState(aForm: TvcmEntityForm;
-     aStateType: TvcmStateType);
+     aStateType: TvcmStateType;
+     aClone: Boolean);
  end;//IvcmStateItem
 
   TvcmStateItem = class(TvcmCacheableBase, IvcmStateItem)
@@ -4047,7 +4159,8 @@ type
     // interface methods
       // IvcmStateItem
       procedure LoadState(aForm      : TvcmEntityForm;
-                          aStateType : TvcmStateType);
+                          aStateType : TvcmStateType;
+                          aClone: Boolean);
         {-}
     protected
     // internal methods
@@ -4111,7 +4224,8 @@ begin
 end;
 
 procedure TvcmStateItem.LoadState(aForm      : TvcmEntityForm;
-                                  aStateType : TvcmStateType);
+                                  aStateType : TvcmStateType;
+                                  aClone: Boolean);
   {-}
 var
  l_State : IvcmState;
@@ -4121,7 +4235,7 @@ begin
  begin
   if Supports(f_State, IvcmBase, l_St) then
   try
-   aForm.DoLoadState(l_St, aStateType);
+   aForm.DoLoadState(l_St, aStateType, aClone);
   finally
    l_St := nil;
   end;//try..finally
@@ -4129,7 +4243,7 @@ begin
  else
  if Supports(aForm.FindComponent(f_Name), IvcmState, l_State) then
   try
-   l_State.LoadState(f_State, vcmExternalInterfaces.TvcmStateType(aStateType));
+   l_State.LoadState(f_State, vcmExternalInterfaces.TvcmStateType(aStateType), aClone);
   finally
    l_State := nil;
   end;//try..finally
@@ -4139,7 +4253,8 @@ type
  IvcmFormState = interface(IvcmBase)
    ['{BB487EA1-7432-4B8B-B634-114A5634FE7D}']
    procedure LoadState(aForm: TvcmEntityForm;
-     aStateType: TvcmStateType);
+     aStateType: TvcmStateType;
+     aClone: Boolean);
  end;//IvcmFormState
 
   _ItemType_ = IvcmStateItem;
@@ -4150,7 +4265,8 @@ type
   protected
   // realized methods
    procedure LoadState(aForm: TvcmEntityForm;
-      aStateType: TvcmStateType);
+      aStateType: TvcmStateType;
+      aClone: Boolean);
   public
   // public methods
    procedure AddState(const aName: AnsiString;
@@ -4175,7 +4291,8 @@ begin
 end;//TvcmFormState.AddState
 
 procedure TvcmFormState.LoadState(aForm: TvcmEntityForm;
-  aStateType: TvcmStateType);
+  aStateType: TvcmStateType;
+  aClone: Boolean);
 //#UC START# *55C1F7D50220_55C1F803015D_var*
 var
  l_Index : Integer;
@@ -4183,12 +4300,13 @@ var
 begin
 //#UC START# *55C1F7D50220_55C1F803015D_impl*
  for l_Index := Lo to Hi do
-  Items[l_Index].LoadState(aForm, aStateType);
+  Items[l_Index].LoadState(aForm, aStateType, aClone);
 //#UC END# *55C1F7D50220_55C1F803015D_impl*
 end;//TvcmFormState.LoadState
 
 function TvcmEntityForm.DoLoadState(const aState : IvcmBase;
-                                    aStateType   : TvcmStateType): Boolean;
+                                    aStateType   : TvcmStateType;
+                                    aClone: Boolean): Boolean;
   //virtual;
   {-}
 begin
@@ -4209,13 +4327,13 @@ var
 begin
  if Supports(aState, IvcmFormState, l_FormState) then
   try
-   l_FormState.LoadState(Self, aStateType);
+   l_FormState.LoadState(Self, aStateType, False);
    Result := true;
   finally
    l_FormState := nil;
   end//try..finally
  else
-  Result := DoLoadState(aState, aStateType);
+  Result := DoLoadState(aState, aStateType, False);
 end;
 
 function TvcmEntityForm.SaveOwnFormState(out theState : IvcmBase;
@@ -4343,7 +4461,7 @@ function TvcmEntityForm.DoLoadCloneState(const theState: IvcmBase;
                                          aStateType: TvcmStateType): Boolean;
 
 begin
- Result := DoLoadState(theState, aStateType);
+ Result := DoLoadState(theState, aStateType, True);
 end;
 
 function TvcmEntityForm.SaveStateForClone(out theState: IvcmBase;
@@ -4360,7 +4478,7 @@ begin
  if Supports(theState, IvcmFormState, l_FormState) and
    NeedLoadFormStateForClone(l_FormState, aStateType) then
   try
-   l_FormState.LoadState(Self, aStateType);
+   l_FormState.LoadState(Self, aStateType, True);
    Result := true;
   finally
    l_FormState := nil;

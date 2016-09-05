@@ -69,6 +69,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , IedTableWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48E4EB8A02B8impl_uses*
+ //#UC END# *48E4EB8A02B8impl_uses*
 ;
 
 function TevTable.Get_Frame: IedFrame;

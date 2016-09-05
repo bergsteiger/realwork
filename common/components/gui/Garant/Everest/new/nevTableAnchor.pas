@@ -28,6 +28,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4F1EC738000Eimpl_uses*
+ //#UC END# *4F1EC738000Eimpl_uses*
 ;
 
 procedure TnevTableAnchor.DoFire(const anEvent: Tk2Event;

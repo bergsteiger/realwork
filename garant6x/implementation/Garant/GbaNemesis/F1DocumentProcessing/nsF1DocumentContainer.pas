@@ -76,6 +76,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , afwFacade
+ //#UC START# *4C6A9AD101B4impl_uses*
+ //#UC END# *4C6A9AD101B4impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}

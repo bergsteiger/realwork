@@ -298,6 +298,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *497EBA4301CAimpl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *497EBA4301CAimpl_uses*
 ;
 
@@ -896,7 +897,7 @@ begin
 {$IFDEF Monitorings}
  Assert(false);
 {$ELSE}
- TdmStdRes.DateQuery(Self.As_IvcmEntityForm, aValue);
+ TSearchService.Instance.DateQuery(Self.As_IvcmEntityForm, aValue);
 {$ENDIF Monitorings}
 //#UC END# *525444D40315_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.OnDateQuery
@@ -907,7 +908,7 @@ procedure TPrimQueryCardForm.OnNeedExecQuery(Sender: TObject);
 begin
 //#UC START# *5254451903D6_497EBA4301CA_impl*
  if Assigned(Aggregate) then
-  Aggregate.Operation(TdmStdRes.opcode_Result_OkExt);
+  Aggregate.Operation(opcode_Result_OkExt);
 //#UC END# *5254451903D6_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.OnNeedExecQuery
 

@@ -61,6 +61,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4DE6299E021Aimpl_uses*
+ //#UC END# *4DE6299E021Aimpl_uses*
 ;
 
 class function TkwArchiOpenDocument.GetWordNameForRegister: AnsiString;

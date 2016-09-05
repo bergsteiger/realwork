@@ -41,6 +41,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52D660670205impl_uses*
+ //#UC END# *52D660670205impl_uses*
 ;
 
 procedure TkwSubdescriptorGetBlockBitmapIndex.DoWithSubDescriptor(aControl: TevSubDescriptor;

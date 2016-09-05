@@ -113,21 +113,22 @@ begin
    end;//for l_Index
   end;//f_LoadedObjects <> nil
   l_IStr := dtGetObjectStream(CurrentFamily, DocID, l_InternalID, m3_saRead);
-  try
-   l_Data := TddExtObjectData.CreateFromIStream(l_IStr, l_InternalID, l_ExternalID);
+  if l_IStr <> nil then // l_IStr может быть nil: http://mdp.garant.ru/pages/viewpage.action?pageId=614228201
    try
-    l_IStr := nil;
-    if (f_LoadedObjects = nil) then
-     f_LoadedObjects := TddExtObjectDataList.Create;
-    f_LoadedObjects.Add(l_Data);
-    AddToGenerator(l_Data);
-    Exit;
+    l_Data := TddExtObjectData.CreateFromIStream(l_IStr, l_InternalID, l_ExternalID);
+    try
+     l_IStr := nil;
+     if (f_LoadedObjects = nil) then
+      f_LoadedObjects := TddExtObjectDataList.Create;
+     f_LoadedObjects.Add(l_Data);
+     AddToGenerator(l_Data);
+     Exit;
+    finally
+     FreeAndNil(l_Data);
+    end;//try..finally
    finally
-    FreeAndNil(l_Data);
+    l_IStr := nil;
    end;//try..finally
-  finally
-   l_IStr := nil;
-  end;//try..finally
  end;// then // если данные находятся в потоке хранилища, а не в EVD
  inherited;
 //#UC END# *4D53D8BF00D5_57987CF90375_impl*

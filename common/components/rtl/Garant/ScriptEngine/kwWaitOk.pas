@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , l3BatchService
  , Controls
+ //#UC START# *4DDE8A650180impl_uses*
+ //#UC END# *4DDE8A650180impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas}

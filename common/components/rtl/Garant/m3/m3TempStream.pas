@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , m2TMPLib
  , Windows
+ //#UC START# *5480A1E100B5impl_uses*
+ //#UC END# *5480A1E100B5impl_uses*
 ;
 
 constructor Tm3TempStream.Create(const APath: WideString = '';

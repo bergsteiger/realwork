@@ -45,6 +45,8 @@ uses
  , SysUtils
  , ReqGroup_Const
  , ControlPara_Const
+ //#UC START# *4857FECB0092impl_uses*
+ //#UC END# *4857FECB0092impl_uses*
 ;
 
 function WevControlPara.GetAtomData(AE: Tl3Variant;

@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *55DC6C1902EBimpl_uses*
+ //#UC END# *55DC6C1902EBimpl_uses*
 ;
 
 constructor TsegTarget.Create(aDocID: Integer;

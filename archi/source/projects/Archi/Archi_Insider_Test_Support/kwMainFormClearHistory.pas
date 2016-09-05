@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , Main
+ //#UC START# *5370939A008Dimpl_uses*
+ //#UC END# *5370939A008Dimpl_uses*
 ;
 
 class function TkwMainFormClearHistory.GetWordNameForRegister: AnsiString;

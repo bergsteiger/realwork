@@ -29,6 +29,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55793634010Bimpl_uses*
+ //#UC END# *55793634010Bimpl_uses*
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}

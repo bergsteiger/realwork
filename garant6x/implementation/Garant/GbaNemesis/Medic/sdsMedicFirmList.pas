@@ -109,6 +109,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *493A658D0181impl_uses*
+ //#UC END# *493A658D0181impl_uses*
 ;
 
 type _Instance_R_ = TsdsMedicFirmList;

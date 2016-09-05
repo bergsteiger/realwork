@@ -33,6 +33,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *49020B8C03BEimpl_uses*
+ //#UC END# *49020B8C03BEimpl_uses*
 ;
 
 constructor TnsLayerFilter.Create(aLayerID: TLayerId);

@@ -1,8 +1,11 @@
 unit rtRegionIDDlg;
 
-{ $Id: rtRegionIDDlg.pas,v 1.3 2015/04/02 12:46:24 lukyanets Exp $}
+{ $Id: rtRegionIDDlg.pas,v 1.4 2016/07/13 13:14:25 lukyanets Exp $}
 
 // $Log: rtRegionIDDlg.pas,v $
+// Revision 1.4  2016/07/13 13:14:25  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.3  2015/04/02 12:46:24  lukyanets
 // Изолируем регион
 //
@@ -44,8 +47,7 @@ uses
 
  DT_Types,
  daDataProvider,
-
- rtConst;
+ daInterfaces;
 
 {$R *.dfm}
 

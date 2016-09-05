@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4DD3D054004Aimpl_uses*
+ //#UC END# *4DD3D054004Aimpl_uses*
 ;
 
 var g_Tl3IEBitmapContainerStack: Tl3IEBitmapContainerStack = nil;

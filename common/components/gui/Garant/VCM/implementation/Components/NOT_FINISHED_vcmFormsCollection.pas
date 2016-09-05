@@ -23,6 +23,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *52A1F6C102E8impl_uses*
+ //#UC END# *52A1F6C102E8impl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVCM)
 

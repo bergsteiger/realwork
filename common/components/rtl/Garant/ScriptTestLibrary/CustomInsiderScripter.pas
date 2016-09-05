@@ -48,6 +48,8 @@ uses
  , l3DocumentsCacheService
  , TestFrameWork
  , tfwScriptEngine
+ //#UC START# *4DC3D2590217impl_uses*
+ //#UC END# *4DC3D2590217impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

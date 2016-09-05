@@ -48,7 +48,9 @@ type
  _InitDataType_ = IdeMedicFirmList;
  _FormDataSourceType_ = IdsMedicFirmList;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
- _nsContextFilter_Parent_ = _dsSimpleTree_;
+ _afwApplicationDataUpdate_Parent_ = _dsSimpleTree_;
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+ _nsContextFilter_Parent_ = _afwApplicationDataUpdate_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
  TdsMedicFirmList = {final} class(_nsContextFilter_, InsMedicFirmsTreeNotifyRecipient, IdsMedicFirmList)
   {* Список фирм-производителей }
@@ -66,6 +68,8 @@ type
     {* создать закладку для текущего документа }
    procedure ChangeCurrent(const aNode: Il3SimpleNode);
     {* текущий поменялся }
+   procedure DoOnCurrentFirmChanged(const aNode: Il3SimpleNode;
+    aForce: Boolean = False); virtual;
   protected
    function pm_GetShortName: Il3CString;
    function MakeSimpleTree: Il3SimpleTree; override;
@@ -98,6 +102,7 @@ type
    function pm_GetCountryFilterTree: Il3SimpleTree;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure FinishDataUpdate; override;
    procedure DoCurrentChanged(const aNode: Il3SimpleNode); override;
     {* сменился текущий. }
    {$If NOT Defined(NoVCM)}
@@ -173,14 +178,19 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ , afwFacade
  {$If Defined(Nemesis)}
  , nscContextFilterState
  {$IfEnd} // Defined(Nemesis)
+ //#UC START# *49257BB801C7impl_uses*
+ //#UC END# *49257BB801C7impl_uses*
 ;
 
 type _Instance_R_ = TdsMedicFirmList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
+
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
 
@@ -302,6 +312,37 @@ begin
 //#UC END# *4925898100FE_49257BB801C7_impl*
 end;//TdsMedicFirmList.ChangeCurrent
 
+procedure TdsMedicFirmList.DoOnCurrentFirmChanged(const aNode: Il3SimpleNode;
+ aForce: Boolean = False);
+//#UC START# *57CD3B970117_49257BB801C7_var*
+var
+ l_Node   : INodeBase;
+ l_Entity : IEntityBase;
+ l_Entry  : IPharmFirmListEntry;
+//#UC END# *57CD3B970117_49257BB801C7_var*
+begin
+//#UC START# *57CD3B970117_49257BB801C7_impl*
+ if Supports(aNode, INodeBase, l_Node) and ((not l_Node.IsSameNode(Current)) or aForce) then
+ try
+  l_Node.GetEntity(l_Entity);
+  if Supports(l_Entity, IPharmFirmListEntry, l_Entry) then
+  try
+   if (ucc_BaseDocument <> nil) then
+   begin
+    ChangeCurrent(aNode);
+    ucc_BaseDocument.ChangeDocument(TdeDocInfo.Make(TbsMedicFirmNodeContainer.Make(l_Node, l_Entry)));
+   end;//ucc_BaseDocument <> nil
+  finally
+   l_Entry := nil;
+  end//try..finally
+  else
+   Assert(false, 'http://mdp.garant.ru/pages/viewpage.action?pageId=136255787&focusedCommentId=136256073#comment-136256073');
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *57CD3B970117_49257BB801C7_impl*
+end;//TdsMedicFirmList.DoOnCurrentFirmChanged
+
 function TdsMedicFirmList.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }
 //#UC START# *47F4C2B9014A_49257BB801C7_var*
@@ -373,7 +414,7 @@ begin
  l_Bookmark := CreateBookmark;
  if Assigned(l_Bookmark) then
  try
-   TdmStdRes.SaveOpen(nil, // - вот это НОМЕР ! не форма вызывает :-(
+  TFoldersService.Instance.SaveOpen(nil, // - вот это НОМЕР ! не форма вызывает :-(
                       TnsFolderFilterInfo.Make(ffBookmark, ns_ffDocument),
                       fetBookmark,
                       l_Bookmark,
@@ -593,34 +634,23 @@ begin
 //#UC END# *479731C50290_49257BB801C7_impl*
 end;//TdsMedicFirmList.Cleanup
 
+procedure TdsMedicFirmList.FinishDataUpdate;
+//#UC START# *47EA4E9002C6_49257BB801C7_var*
+//#UC END# *47EA4E9002C6_49257BB801C7_var*
+begin
+//#UC START# *47EA4E9002C6_49257BB801C7_impl*
+ inherited;
+ DoOnCurrentFirmChanged(inherited Current, True); 
+//#UC END# *47EA4E9002C6_49257BB801C7_impl*
+end;//TdsMedicFirmList.FinishDataUpdate
+
 procedure TdsMedicFirmList.DoCurrentChanged(const aNode: Il3SimpleNode);
  {* сменился текущий. }
 //#UC START# *47F0C1BF0314_49257BB801C7_var*
-var
- l_Node   : INodeBase;
- l_Entity : IEntityBase;
- l_Entry  : IPharmFirmListEntry;
 //#UC END# *47F0C1BF0314_49257BB801C7_var*
 begin
 //#UC START# *47F0C1BF0314_49257BB801C7_impl*
- if Supports(aNode, INodeBase, l_Node) and not l_Node.IsSameNode(Current) then
- try
-  l_Node.GetEntity(l_Entity);
-  if Supports(l_Entity, IPharmFirmListEntry, l_Entry) then
-  try
-   if (ucc_BaseDocument <> nil) then
-   begin
-    ChangeCurrent(aNode);
-    ucc_BaseDocument.ChangeDocument(TdeDocInfo.Make(TbsMedicFirmNodeContainer.Make(l_Node, l_Entry)));
-   end;//ucc_BaseDocument <> nil
-  finally
-   l_Entry := nil;
-  end//try..finally
-  else
-   Assert(false, 'http://mdp.garant.ru/pages/viewpage.action?pageId=136255787&focusedCommentId=136256073#comment-136256073');
- finally
-  l_Node := nil;
- end;//try..finally
+ DoOnCurrentFirmChanged(aNode);
 //#UC END# *47F0C1BF0314_49257BB801C7_impl*
 end;//TdsMedicFirmList.DoCurrentChanged
 

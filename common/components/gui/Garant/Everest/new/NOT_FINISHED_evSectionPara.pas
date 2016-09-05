@@ -19,6 +19,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *480CA9AD0198impl_uses*
+ //#UC END# *480CA9AD0198impl_uses*
 ;
 
 function evGetPaperSizeName(aParas: Tl3Variant): AnsiString;

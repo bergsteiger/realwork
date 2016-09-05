@@ -53,6 +53,10 @@ type
    function MakeAggregateField(anOperation: TdaAggregateOperation;
     const aField: IdaSelectField;
     const anAlias: AnsiString): IdaSelectField;
+   function MakeBitwiseCondition(const aTableAlias: AnsiString;
+    const aField: IdaFieldDescription;
+    anOperation: TdaBitwiseOperator;
+    aValue: Int64): IdaCondition;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -80,6 +84,9 @@ uses
  , daJoinCondition
  , caFromClause
  , daAggregateField
+ , daBitwiseCondition
+ //#UC START# *56C4594703CFimpl_uses*
+ //#UC END# *56C4594703CFimpl_uses*
 ;
 
 constructor TcaTableQueryFactory.Create(const aDataConverter: IcaDataConverter;
@@ -228,6 +235,18 @@ begin
  Result := TdaAggregateField.Make(anOperation, aField, anAlias);
 //#UC END# *5755313E0083_56C4594703CF_impl*
 end;//TcaTableQueryFactory.MakeAggregateField
+
+function TcaTableQueryFactory.MakeBitwiseCondition(const aTableAlias: AnsiString;
+ const aField: IdaFieldDescription;
+ anOperation: TdaBitwiseOperator;
+ aValue: Int64): IdaCondition;
+//#UC START# *57A9A66C00A7_56C4594703CF_var*
+//#UC END# *57A9A66C00A7_56C4594703CF_var*
+begin
+//#UC START# *57A9A66C00A7_56C4594703CF_impl*
+ Result := TdaBitwiseCondition.Make(aTableAlias, aField, anOperation, aValue);
+//#UC END# *57A9A66C00A7_56C4594703CF_impl*
+end;//TcaTableQueryFactory.MakeBitwiseCondition
 
 procedure TcaTableQueryFactory.Cleanup;
  {* Функция очистки полей объекта. }

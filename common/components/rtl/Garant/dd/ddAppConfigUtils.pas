@@ -124,6 +124,8 @@ uses
  , ddIniStorage
  {$IfEnd} // NOT Defined(Nemesis)
  , l3Base
+ //#UC START# *51D559ED033Cimpl_uses*
+ //#UC END# *51D559ED033Cimpl_uses*
 ;
 
 function ExecuteNodeDialog(aNode: TddAppConfigNode;

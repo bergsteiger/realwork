@@ -38,6 +38,8 @@ uses
  , Messages
  , SysUtils
  , l3Base
+ //#UC START# *4F7ACCBE02AFimpl_uses*
+ //#UC END# *4F7ACCBE02AFimpl_uses*
 ;
 
 var g_Tl3MouseWheelHelper: Tl3MouseWheelHelper = nil;

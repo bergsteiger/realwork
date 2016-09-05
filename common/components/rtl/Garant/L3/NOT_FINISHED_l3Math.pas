@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47E0C36201C7impl_uses*
+ //#UC END# *47E0C36201C7impl_uses*
 ;
 
 function l3MulDiv(aParamA: Integer;

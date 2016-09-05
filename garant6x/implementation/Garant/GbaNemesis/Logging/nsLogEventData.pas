@@ -45,6 +45,8 @@ uses
  , bsConvert
  , DateUtils
  , SysUtils
+ //#UC START# *55B760CE036Aimpl_uses*
+ //#UC END# *55B760CE036Aimpl_uses*
 ;
 
 class function TnsLogEventData.Make: InsLogEventData;

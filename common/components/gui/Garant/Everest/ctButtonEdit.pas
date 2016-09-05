@@ -33,6 +33,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *482AE8CA0176impl_uses*
+ //#UC END# *482AE8CA0176impl_uses*
 ;
 
 function TctButtonEdit.pm_GetText: Il3CString;

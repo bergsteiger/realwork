@@ -60,6 +60,8 @@ uses
  , SysUtils
  , nevPrintingRootFormatInfo
  , l3Memory
+ //#UC START# *4810D8F702E0impl_uses*
+ //#UC END# *4810D8F702E0impl_uses*
 ;
 
 function TnevRootFormatInfoKey_C(const aView: InevViewMetrics): TnevRootFormatInfoKey;

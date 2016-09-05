@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *52E7AEC802A6impl_uses*
+ //#UC END# *52E7AEC802A6impl_uses*
 ;
 
 procedure l3Calc;

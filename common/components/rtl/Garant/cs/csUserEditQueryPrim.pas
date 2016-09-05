@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , UserEditQuery_Const
+ //#UC START# *53B27AA300BDimpl_uses*
+ //#UC END# *53B27AA300BDimpl_uses*
 ;
 
 function TcsUserEditQueryPrim.pm_GetID: Integer;

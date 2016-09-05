@@ -21,6 +21,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *4E01F29C0139impl_uses*
+ //#UC END# *4E01F29C0139impl_uses*
 ;
 
 procedure vcmSaveIntParam;

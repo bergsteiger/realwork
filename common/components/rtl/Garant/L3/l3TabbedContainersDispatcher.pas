@@ -264,6 +264,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *553213D902E0impl_uses*
+ //#UC END# *553213D902E0impl_uses*
 ;
 
 var g_Tl3TabbedContainersDispatcher: Tl3TabbedContainersDispatcher = nil;

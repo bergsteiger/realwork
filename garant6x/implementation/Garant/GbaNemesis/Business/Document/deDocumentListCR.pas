@@ -43,6 +43,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *493D4D1A0388impl_uses*
+ //#UC END# *493D4D1A0388impl_uses*
 ;
 
 constructor TdeDocumentListCR.Create(const aList: IDynList;

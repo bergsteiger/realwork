@@ -37,6 +37,8 @@ uses
  , tfwWordsIterator
  , SysUtils
  , TtfwTypeRegistrator_Proxy
+ //#UC START# *550C4C8701B4impl_uses*
+ //#UC END# *550C4C8701B4impl_uses*
 ;
 
 type

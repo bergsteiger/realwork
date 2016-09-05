@@ -42,6 +42,8 @@ uses
  , l3Filer
  , SysUtils
  , TestFrameWork
+ //#UC START# *564452C80377impl_uses*
+ //#UC END# *564452C80377impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

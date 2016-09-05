@@ -48,6 +48,8 @@ uses
  , TypInfo
  , k2Base
  , TestFrameWork
+ //#UC START# *53BA8FB5015Dimpl_uses*
+ //#UC END# *53BA8FB5015Dimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

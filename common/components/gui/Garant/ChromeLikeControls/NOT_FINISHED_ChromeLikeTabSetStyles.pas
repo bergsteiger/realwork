@@ -31,6 +31,8 @@ uses
  , GDIPOBJ
  , SysUtils
  , l3Base
+ //#UC START# *55096E56007Cimpl_uses*
+ //#UC END# *55096E56007Cimpl_uses*
 ;
 
 var g_TChromeLikeTabSetStyles: TChromeLikeTabSetStyles = nil;

@@ -49,6 +49,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
  , Base_Operations_View_Controls
+ , Base_Operations_F1Services_Contracts
  , BaseSearchInterfaces
  , SysUtils
  , l3Base
@@ -85,7 +86,6 @@ uses
  , nsExternalObjectModelPart
  , nsSaveDialogExecutor
  , l3BatchService
- , Base_Operations_F1Services_Contracts
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit

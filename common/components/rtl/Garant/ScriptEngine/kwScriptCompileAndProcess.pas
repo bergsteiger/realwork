@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , kwCompiledScriptCompileAndProcess
+ //#UC START# *53DA248C0014impl_uses*
+ //#UC END# *53DA248C0014impl_uses*
 ;
 
 function TkwScriptCompileAndProcess.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;

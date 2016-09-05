@@ -12,6 +12,7 @@ uses
  l3IntfUses
  , l3LongintList
  , l3DatLst
+ , Classes
 ;
 
 function l3IsIdenticalLists(aL1: Tl3LongintList;
@@ -19,12 +20,16 @@ function l3IsIdenticalLists(aL1: Tl3LongintList;
  aOrderIsImportant: Boolean = False): Boolean; overload;
 function l3IsIdenticalLists(aL1: Tl3StringDataList;
  aL2: Tl3StringDataList): Boolean; overload;
+function l3IsIdenticalLists(aL1: TStrings;
+ aL2: TStrings): Boolean; overload;
 
 implementation
 
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5721B7D401CFimpl_uses*
+ //#UC END# *5721B7D401CFimpl_uses*
 ;
 
 function l3IsIdenticalLists(aL1: Tl3LongintList;
@@ -92,6 +97,34 @@ begin
   end;
  end;
 //#UC END# *5721BC780362_5721B7D401CF_impl*
+end;//l3IsIdenticalLists
+
+function l3IsIdenticalLists(aL1: TStrings;
+ aL2: TStrings): Boolean;
+//#UC START# *57AADAD40150_5721B7D401CF_var*
+var
+ l_IDX: Integer;
+//#UC END# *57AADAD40150_5721B7D401CF_var*
+begin
+//#UC START# *57AADAD40150_5721B7D401CF_impl*
+ Result := (Pointer(aL1) = Pointer(aL2));
+ if not Result then
+ begin
+  if (aL1 = nil) or (aL2 = nil) then
+   Exit;
+  if (aL1.Count = aL2.Count) then
+  begin
+   for l_IDX := 0 to aL1.Count - 1 do
+   begin
+    if aL1[l_IDX] <> aL2[l_IDX] then
+     Exit;
+    if Pointer(aL1.Objects[l_IDX]) <> Pointer(aL2.Objects[l_IDX]) then
+     Exit;
+   end;
+   Result := True;
+  end;
+ end;
+//#UC END# *57AADAD40150_5721B7D401CF_impl*
 end;//l3IsIdenticalLists
 
 end.

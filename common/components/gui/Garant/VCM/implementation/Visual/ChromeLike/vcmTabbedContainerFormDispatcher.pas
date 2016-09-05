@@ -99,6 +99,7 @@ type
    procedure NotifyListeners(aNotification: Tl3TabbedContainerNotificationType);
    function IsAnyModalFormShowing: Boolean;
    function GetTabHistory(aForm: TForm): IvcmFormSetHistory;
+   function GetFormHistory(aForm: TForm): IvcmHistory;
   protected
    function pm_GetContainerCount: Integer;
    function pm_GetDockableFormClass: RvcmEntityForm;
@@ -322,6 +323,9 @@ uses
  , vcmEntityFormsIterable
  , ChromeLikeTabParams
  , ChromeLikeFormTabParamsList
+ //#UC START# *537AEB96006Cimpl_uses*
+ , vcmHistoryService
+ //#UC END# *537AEB96006Cimpl_uses*
 ;
 
 type
@@ -2033,6 +2037,26 @@ begin
 //#UC END# *5602A5390084_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetFormTabIcon
 
+function TvcmTabbedContainerFormDispatcher.GetFormHistory(aForm: TForm): IvcmHistory;
+//#UC START# *57AADA5F03B9_537AEC5E03DD_var*
+var
+ l_EF: TvcmEntityForm;
+ l_MainForm: IvcmEntityForm;
+ l_ContainedForm: IvcmContainedForm;
+//#UC END# *57AADA5F03B9_537AEC5E03DD_var*
+begin
+//#UC START# *57AADA5F03B9_537AEC5E03DD_impl*
+ Result := nil;
+ l_EF := aForm as TvcmEntityForm;
+ l_MainForm := l_EF.NativeMainForm.AsForm;
+
+ if Supports(l_MainForm.VCLWinControl, IvcmContainedForm, l_ContainedForm) then
+  Result := l_ContainedForm.ContainedFormHistory
+ else
+  Assert(False);
+//#UC END# *57AADA5F03B9_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.GetFormHistory
+
 function TvcmTabbedContainerFormDispatcher.GetCurrentMainForm: TWinControl;
 //#UC START# *5538B77B0192_537AEC5E03DD_var*
 //#UC END# *5538B77B0192_537AEC5E03DD_var*
@@ -2242,10 +2266,13 @@ end;//TvcmTabbedContainerFormDispatcher.CloneTab
 
 function TvcmTabbedContainerFormDispatcher.CanCloneTab(const aTab: Il3FormTab): Boolean;
 //#UC START# *EE61E6DE4383_537AEC5E03DD_var*
+var
+ l_Aggregate: IvcmAggregate;
 //#UC END# *EE61E6DE4383_537AEC5E03DD_var*
 begin
 //#UC START# *EE61E6DE4383_537AEC5E03DD_impl*
- Result := True;
+ l_Aggregate := TvcmAggregateContainerRegistry.Instance.GetContainedAggregate(aTab.TabbedForm as IvcmContainer);
+ Result := (l_Aggregate = nil) or l_Aggregate.CanBeCloned;
 //#UC END# *EE61E6DE4383_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.CanCloneTab
 
@@ -2344,10 +2371,12 @@ begin
 //#UC START# *0E111B36F193_537AEC5E03DD_impl*
  if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
  begin
+  f_ClosingTab := Pointer(aTab);
   TvcmTabbedContainerForm(aTab.TabbedContainer.AsForm).FormSetHistory.SaveTab(aTab);
   if Supports(aTab.TabbedForm, IvcmContainer, l_Container) then
    TvcmFormSetContainerRegistry.Instance.UnregisterContainer(l_Container);
   l_ContainedForm.CloseContainedForm;
+  f_ClosingTab := nil;
  end
  else
   Assert(False);
@@ -2392,6 +2421,11 @@ begin
   l_Form := lp_GetParentForm(aForm);
   if (l_Form <> nil) then
   begin
+   if (not (GetParentForm(l_Form) is TvcmTabbedContainerForm)) then
+   begin
+    Random;
+   end;
+   Assert(GetParentForm(l_Form) is TvcmTabbedContainerForm, GetParentForm(l_Form).ClassName);
    l_TabbedContainer := GetParentForm(l_Form) as TvcmTabbedContainerForm;
    Result := l_TabbedContainer.GetFormTab(l_Form);
   end
@@ -2428,14 +2462,14 @@ function TvcmTabbedContainerFormDispatcher.IsInBF(aContainedForm: TForm): Boolea
 //#UC START# *06D14140190A_537AEC5E03DD_var*
 var
  l_Container: IvcmContainer;
- l_History: IvcmFormSetHistory;
+ l_History: IvcmHistory;
  l_TabsHistory: IvcmFormSetHistory;
  l_InSimpleBF: Boolean;
  l_InTabsHistoryBF: Boolean;
 //#UC END# *06D14140190A_537AEC5E03DD_var*
 begin
 //#UC START# *06D14140190A_537AEC5E03DD_impl*
- l_History := GetTabHistory(aContainedForm);
+ l_History := GetFormHistory(aContainedForm);
  l_InSimpleBF := False;
  if (l_History <> nil) then
   l_InSimpleBF := l_History.InBF;

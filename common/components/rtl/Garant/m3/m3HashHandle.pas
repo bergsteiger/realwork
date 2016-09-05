@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5459F38200AFimpl_uses*
+ //#UC END# *5459F38200AFimpl_uses*
 ;
 
 constructor Tm3HashHandle.Create;

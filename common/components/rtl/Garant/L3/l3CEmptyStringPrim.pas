@@ -31,6 +31,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwIl3CStringPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F5CBD4201BEimpl_uses*
+ //#UC END# *4F5CBD4201BEimpl_uses*
 ;
 
 constructor Tl3CEmptyStringPrim.Create;

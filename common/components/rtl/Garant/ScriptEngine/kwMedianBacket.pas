@@ -30,6 +30,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52D7DD7A0120impl_uses*
+ //#UC END# *52D7DD7A0120impl_uses*
 ;
 
 procedure TkwMedianBacket.DoDoIt(const aCtx: TtfwContext);

@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , k2Tags
  , Address_Const
+ //#UC START# *4F33BAE302FAimpl_uses*
+ //#UC END# *4F33BAE302FAimpl_uses*
 ;
 
 procedure TevdHypelinkDocIDEliminator.DoAddAtomEx(AtomIndex: Integer;

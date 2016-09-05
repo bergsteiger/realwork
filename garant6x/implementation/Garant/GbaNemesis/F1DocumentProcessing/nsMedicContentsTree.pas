@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , nsConst
+ //#UC START# *4909E96D01EDimpl_uses*
+ //#UC END# *4909E96D01EDimpl_uses*
 ;
 
 function TnsMedicContentsTree.SettingsID: TafwSettingId;

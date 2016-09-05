@@ -34,7 +34,7 @@ type
     aLeftWordRefs: TtfwWordRefList); reintroduce;
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
-   function GetValue(const aCtx: TtfwContext): PtfwStackValue; override;
+   function GetValue(const aCtx: TtfwContext): TtfwStackValue; override;
    function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function LeftWordRefParamsCount(const aCtx: TtfwContext): Integer; override;
    function GetLeftWordRefValue(const aCtx: TtfwContext;
@@ -68,6 +68,8 @@ uses
  , TypInfo
  , tfwValueTypes
  , SysUtils
+ //#UC START# *55CCAE000335impl_uses*
+ //#UC END# *55CCAE000335impl_uses*
 ;
 
 constructor TtfwClassLikeRunner.Create(aWordProducer: TtfwWord;
@@ -135,7 +137,7 @@ begin
 //#UC END# *52D00B00031A_55EEDC5001F3_impl*
 end;//TtfwClassLikeRunner.SetValuePrim
 
-function TtfwClassLikeRunner.GetValue(const aCtx: TtfwContext): PtfwStackValue;
+function TtfwClassLikeRunner.GetValue(const aCtx: TtfwContext): TtfwStackValue;
 //#UC START# *52D399A00173_55EEDC5001F3_var*
 //#UC END# *52D399A00173_55EEDC5001F3_var*
 begin

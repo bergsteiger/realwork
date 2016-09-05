@@ -29,6 +29,8 @@ uses
  , evEditProcessor
  , k2Tags
  , TinyDocument_Const
+ //#UC START# *482D894F00D6impl_uses*
+ //#UC END# *482D894F00D6impl_uses*
 ;
 
 procedure TevCustomEditDocumentContainer.MakeProcessor(out theProcessor: TevCustomUndoProcessor);

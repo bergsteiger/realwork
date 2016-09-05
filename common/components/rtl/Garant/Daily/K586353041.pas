@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *54BF953201B0impl_uses*
+ //#UC END# *54BF953201B0impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

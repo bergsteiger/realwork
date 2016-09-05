@@ -35,6 +35,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *490AE2C7034Bimpl_uses*
+ //#UC END# *490AE2C7034Bimpl_uses*
 ;
 
 constructor TnsHistoryTree.Create(aMaxCount: Integer);

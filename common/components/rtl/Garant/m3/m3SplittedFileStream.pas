@@ -132,6 +132,8 @@ uses
  , ComObj
  , l3MinMax
  , RTLConsts
+ //#UC START# *4FA278B00247impl_uses*
+ //#UC END# *4FA278B00247impl_uses*
 ;
 
 var g_DefaultSizeLimit: Cardinal = 0;

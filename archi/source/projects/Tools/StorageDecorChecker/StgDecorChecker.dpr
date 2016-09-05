@@ -2,6 +2,8 @@ program StgDecorChecker;
 
 {$APPTYPE CONSOLE}
 
+{$Include l3Define.inc }
+
 uses
   Windows,
   SysUtils,
@@ -165,7 +167,7 @@ var
          l_W := TddNSRCGenerator.SetTo(l_G);
          l_W.InternalHandle := anIndex.rID;
          l_W.CodePage:= cCodePage;
-         l_W.SilentErrors := true;
+         //l_W.SilentErrors := true;
          l_W.NeedOutDecorInfo := true;
          l_W.NeedCorrect := false;
 

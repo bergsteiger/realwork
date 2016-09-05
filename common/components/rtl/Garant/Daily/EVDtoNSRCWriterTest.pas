@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , l3Except
  , TestFrameWork
+ //#UC START# *4B85456C0154impl_uses*
+ //#UC END# *4B85456C0154impl_uses*
 ;
 
 procedure TEVDtoNSRCWriterTest.DoIt;

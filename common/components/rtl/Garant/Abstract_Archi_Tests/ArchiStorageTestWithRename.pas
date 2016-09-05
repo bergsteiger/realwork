@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4FBB6C0D0366impl_uses*
+ //#UC END# *4FBB6C0D0366impl_uses*
 ;
 
 function TArchiStorageTestWithRename.NeedTestRenaming: Boolean;

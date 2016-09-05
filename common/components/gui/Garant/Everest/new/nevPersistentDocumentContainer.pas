@@ -82,6 +82,8 @@ uses
  , evdTextStyle_Const
  , evStyleHeaderAdder
  , evdNativeUnpackedWriter
+ //#UC START# *483E6CFE02DCimpl_uses*
+ //#UC END# *483E6CFE02DCimpl_uses*
 ;
 
 function TnevPersistentDocumentContainer.UseWikiMarkup: Boolean;

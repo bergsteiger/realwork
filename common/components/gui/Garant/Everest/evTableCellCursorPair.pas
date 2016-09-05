@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *52E24FBF0273impl_uses*
+ //#UC END# *52E24FBF0273impl_uses*
 ;
 
 function TevTableCellCursorPair.DoSetAtom(const aView: InevView;

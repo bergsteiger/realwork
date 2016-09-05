@@ -24,6 +24,8 @@ uses
  l3ImplUses
  , nsConst
  , afwFacade
+ //#UC START# *53A403330029impl_uses*
+ //#UC END# *53A403330029impl_uses*
 ;
 
 function nsGetOpenKindSettingsValue(const aSettingsName: AnsiString): TvcmMainFormOpenKind;

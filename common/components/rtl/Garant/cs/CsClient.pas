@@ -1,8 +1,11 @@
 unit CsClient;
 
-{ $Id: CsClient.pas,v 1.44 2016/04/18 08:39:57 lukyanets Exp $ }
+{ $Id: CsClient.pas,v 1.45 2016/08/11 10:47:41 lukyanets Exp $ }
 
 // $Log: CsClient.pas,v $
+// Revision 1.45  2016/08/11 10:47:41  lukyanets
+// Полчищаем dt_user
+//
 // Revision 1.44  2016/04/18 08:39:57  lukyanets
 // Cleanup
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -229,8 +232,6 @@ uses
   l3TempMemoryStream,
 
   daDataProviderSuperFactory,
-
-  dt_UserConst,
 
   CsConst
   ;

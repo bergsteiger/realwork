@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *56D6CCB60125impl_uses*
+ //#UC END# *56D6CCB60125impl_uses*
 ;
 
 procedure THTMLtoEVDFull.TuningReader(aHTMLReader: TddHTMLReader);

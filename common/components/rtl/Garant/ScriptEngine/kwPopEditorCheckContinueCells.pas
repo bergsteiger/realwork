@@ -40,6 +40,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *507510BF02ABimpl_uses*
+ //#UC END# *507510BF02ABimpl_uses*
 ;
 
 procedure TkwPopEditorCheckContinueCells.DoWithEditor(const aCtx: TtfwContext;

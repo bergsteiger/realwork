@@ -33,6 +33,8 @@ uses
  , k2String
  , Math
  , k2Tags
+ //#UC START# *53C3E67C0258impl_uses*
+ //#UC END# *53C3E67C0258impl_uses*
 ;
 
 function WevdTask.GetDescription: AnsiString;

@@ -49,6 +49,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4B5082500342impl_uses*
+ //#UC END# *4B5082500342impl_uses*
 ;
 
 var g_TPrimEditionsResForm: TPrimEditionsResForm = nil;

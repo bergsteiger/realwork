@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *562F67F8026Fimpl_uses*
+ //#UC END# *562F67F8026Fimpl_uses*
 ;
 
 type _Instance_R_ = TnsBaseSearchWindowDataListenerList;

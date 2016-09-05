@@ -46,6 +46,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *4922D2780153impl_uses*
+ //#UC END# *4922D2780153impl_uses*
 ;
 
 type _Instance_R_ = TdsAttributeSelect;

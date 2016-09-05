@@ -44,6 +44,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *50BA0C4E001Bimpl_uses*
+ //#UC END# *50BA0C4E001Bimpl_uses*
 ;
 
 procedure TkwEditorFromStackNextParaWord.DoPara(const aCtx: TtfwContext;

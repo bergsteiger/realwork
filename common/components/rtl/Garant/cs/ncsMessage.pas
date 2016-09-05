@@ -56,15 +56,15 @@ type
    constructor Create(aMessage: TncsMessage); reintroduce;
  end;//TncsReply
 
- TncsDIsconnect = class(TncsMessage)
+ TncsDisconnect = class(TncsMessage)
   public
    class function GetTaggedDataType: Tk2Type; override;
- end;//TncsDIsconnect
+ end;//TncsDisconnect
 
- TncsDIsconnectReply = class(TncsReply)
+ TncsDisconnectReply = class(TncsReply)
   public
    class function GetTaggedDataType: Tk2Type; override;
- end;//TncsDIsconnectReply
+ end;//TncsDisconnectReply
 {$IfEnd} // NOT Defined(Nemesis)
 
 implementation
@@ -81,8 +81,10 @@ uses
  , evdNativeReader
  , k2DocumentBuffer
  , csMessage_Const
- , csDIsconnect_Const
- , csDIsconnectReply_Const
+ , csDisconnect_Const
+ , csDisconnectReply_Const
+ //#UC START# *5453986402ACimpl_uses*
+ //#UC END# *5453986402ACimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
@@ -161,15 +163,15 @@ begin
 //#UC END# *547831D300BE_547831BD02E5_impl*
 end;//TncsReply.Create
 
-class function TncsDIsconnect.GetTaggedDataType: Tk2Type;
+class function TncsDisconnect.GetTaggedDataType: Tk2Type;
 begin
- Result := k2_typcsDIsconnect;
-end;//TncsDIsconnect.GetTaggedDataType
+ Result := k2_typcsDisconnect;
+end;//TncsDisconnect.GetTaggedDataType
 
-class function TncsDIsconnectReply.GetTaggedDataType: Tk2Type;
+class function TncsDisconnectReply.GetTaggedDataType: Tk2Type;
 begin
- Result := k2_typcsDIsconnectReply;
-end;//TncsDIsconnectReply.GetTaggedDataType
+ Result := k2_typcsDisconnectReply;
+end;//TncsDisconnectReply.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

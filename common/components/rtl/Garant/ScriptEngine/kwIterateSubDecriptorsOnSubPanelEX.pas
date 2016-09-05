@@ -65,6 +65,8 @@ uses
  l3ImplUses
  , evSubPanelSubArray
  , evSubPanelSubCollection
+ //#UC START# *53EDF0A20129impl_uses*
+ //#UC END# *53EDF0A20129impl_uses*
 ;
 
 procedure TkwIterateSubDecriptorsOnSubPanelEX.PushObjData(const aCtx: TtfwContext;

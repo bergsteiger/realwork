@@ -2,9 +2,21 @@ unit ddScheduler;
 {* Класс Планировщик }
 { Автор: Дудко Д.В.  }
 { Начат: 11.11.2003  }
-{ $Id: ddScheduler.pas,v 1.124 2016/05/23 12:00:36 lukyanets Exp $ }
+{ $Id: ddScheduler.pas,v 1.128 2016/08/22 10:41:56 lukyanets Exp $ }
 
 // $Log: ddScheduler.pas,v $
+// Revision 1.128  2016/08/22 10:41:56  lukyanets
+// Убираем стремный код
+//
+// Revision 1.127  2016/08/19 09:08:05  lukyanets
+// Cleanup
+//
+// Revision 1.126  2016/08/19 08:55:18  lukyanets
+// Cleanup
+//
+// Revision 1.125  2016/08/16 10:18:23  lukyanets
+// Откллючаем сранный код.
+//
 // Revision 1.124  2016/05/23 12:00:36  lukyanets
 // Ловим аномалии в шедулере
 //
@@ -497,13 +509,12 @@ type
     procedure pm_SetTaskDate(const aValue: TDateTime);
     procedure pm_SetTaskTime(const aValue: TDateTime);
     procedure pm_SetTaskType(const aValue: TddCalendarTaskType);
-    procedure pm_SetUID(const aValue: Integer);
+    procedure SetUID(const aValue: Integer);
     procedure pm_SetWrongDays(const aValue: TddSchedulerDays);
-    procedure TypeChanged(aItem: TddBaseConfigItem; const aValue: TddConfigValue);
     procedure ClearSubTasks;
  protected
     procedure Cleanup; override;
-    function GetNearestDateTime(const aNow: TDateTime): TDateTime; virtual;
+    function GetNearestDateTime(const aNow: TDateTime): TDateTime; 
  public
     constructor Create; overload; override;
     function Clone: Pointer;
@@ -548,7 +559,7 @@ type
     property TaskDate: TDateTime read pm_GetTaskDate write pm_SetTaskDate;
     property TaskTime: TDateTime read pm_GetTaskTime write pm_SetTaskTime;
     property TaskType: TddCalendarTaskType read pm_GetTaskType write pm_SetTaskType;
-    property UID: Integer read f_UID write pm_SetUID;
+    property UID: Integer read f_UID;
     property WrongDays: TddSchedulerDays read pm_GetWrongDays write pm_SetWrongDays;
     property NextScheduledTime: TDateTime read f_NextScheduledTime write f_NextScheduledTime;
     property ExecuteSubTasks: Boolean read f_ExecuteSubTasks write f_ExecuteSubTasks;
@@ -851,12 +862,10 @@ begin
 
   l_I:= AddItem(TddStringConfigItem.Make('Caption', 'Описание'));
   l_I.Required:= True;
-  l_I.OnNotify:= TypeChanged;
   l_Map:= TddCalendarEventsMap.Make;
   try
    l_I2:= AddItem(TddComboBoxConfigItem.Create('Type', 'Тип', MakeIntValue(-1), l_Map));
    l_I2.Required:= True;
-   l_I2.AddNotify(l_I);
    AddItem(TddTimeConfigItem.Create('Time', 'Время', ddEmptyValue));
 
    l_CI:= TddContainerConfigItem.SimpleCreate('Periodicity', 'Когда');
@@ -1033,8 +1042,12 @@ begin
        ReplaceDate(Result, aNow);
        if CompareTime(TaskTime, TimeOf(aNow)) = LessThanValue then
         Result:= IncDay(Result);
-        while TddSchedulerDayOfWeek(DayOfTheWeek(Result)) in WrongDays do
-         Result := IncDay(Result);
+       while TddSchedulerDayOfWeek(DayOfTheWeek(Result)) in WrongDays do
+       begin
+        Result := IncDay(Result);
+        if (Result - aNow) > 8 then
+         raise Exception.CreateFmt('Для ежедневного задания %s запрещены все дни недели', [Caption]);
+       end;
      end;
     stEveryWeek  :
      begin
@@ -1125,7 +1138,7 @@ var
  l_TempTaskType: Integer;
  l_WrongDays: TddSchedulerDays;
 begin
- UID:= aNumber;
+ SetUID(aNumber);
  params.Load(aStorage);
  
  with aStorage do
@@ -1348,7 +1361,7 @@ begin
  f_Params.AsInteger['Type']:= Ord(aValue);
 end;
 
-procedure TddSchedulerTask.pm_SetUID(const aValue: Integer);
+procedure TddSchedulerTask.SetUID(const aValue: Integer);
 var
  l_Nested: TddBaseConfigItem;
 begin
@@ -1371,14 +1384,6 @@ begin
 end;
 
 procedure TddSchedulerTask.SaveTo(aStorage: IddConfigStorage; aAlias: AnsiString);
-(*
-var
-  
-  l_Day : TddSchedulerDayOfWeek;
-  l_Task: TddSchedulerTask;
-
-  l_DateTime: TDateTime;
-*)
 var
  l_Section: AnsiString;
  j: Integer;
@@ -1420,16 +1425,6 @@ begin
  //
 end;
 
-procedure TddSchedulerTask.TypeChanged(aItem: TddBaseConfigItem; const aValue: TddConfigValue);
-begin
- aItem.StringValue:= ddCalendarEventArray[TddCalendarTaskType(aValue.AsInteger)].Caption;
- Params.AsInteger['Periodicity']:= ddCalendarEventArray[TddCalendarTaskType(aValue.AsInteger)].DefaultRep;
- case Params.AsInteger['Periodicity'] of
-  repeatOnce: Params.AsDateTime['Date']:= Now;
-  repeatEveryweek: Params.AsInteger['WeekDay']:= Pred(DayOfTheWeek(Now));
- end;
-end;
-
 function TddSchedulerTask.ValidDate(const aDate: TDateTime; const IncludeDaily:
         Boolean = True): Boolean;
 var
@@ -1463,7 +1458,7 @@ end;
 
 function TddScheduler.AddTask(aTask: TddSchedulerTask): TddSchedulerTask;
 begin
- aTask.UID:= GetUID;
+ aTask.SetUID(GetUID);
  f_Tasks.Add(aTask);
  Result:= Tasks[Pred(Count)];
 end;
@@ -2233,8 +2228,12 @@ begin
  if f_FakeSubTask = nil then
   f_FakeSubTask := TddSchedulerTask.Create;
  if Assigned(aParent) then
+ begin
   f_FakeSubTask.Assign(aParent);
- f_FakeSubTask.TaskType := aTaskType;
+  Assert(f_FakeSubTask.TaskType = aTaskType);
+ end
+ else
+  f_FakeSubTask.TaskType := aTaskType;
  f_FakeSubTask.ClearSubTasks;
  Result := f_FakeSubTask;
 end;

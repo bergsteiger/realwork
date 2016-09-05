@@ -4,9 +4,12 @@
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3UnknownIntf.inc -         }
 { Начат: 15.09.2004 12:49             }
-{ $Id: l3UnknownPrim.imp.pas,v 1.44 2015/06/10 10:32:07 lulin Exp $ }
+{ $Id: l3UnknownPrim.imp.pas,v 1.45 2016/08/23 14:21:15 lulin Exp $ }
 
 // $Log: l3UnknownPrim.imp.pas,v $
+// Revision 1.45  2016/08/23 14:21:15  lulin
+// - перегенерация.
+//
 // Revision 1.44  2015/06/10 10:32:07  lulin
 // - пытаемся найти проезд по памяти.
 //
@@ -579,6 +582,7 @@ end;
 procedure _l3UnknownPrim_.ClearBeforeAddToCache;
   {* - функция, вызываемая перед добавлением объекта в кэш повторного использования. }
 begin
+ BeforeRelease;
  BeforeAddToCache;
  CleanupFields;
 end;

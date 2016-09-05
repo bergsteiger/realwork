@@ -59,6 +59,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4AE760FD0182impl_uses*
+ //#UC END# *4AE760FD0182impl_uses*
 ;
 
 constructor TnsOpenDocOnNumberData.Create(aDocID: Integer;

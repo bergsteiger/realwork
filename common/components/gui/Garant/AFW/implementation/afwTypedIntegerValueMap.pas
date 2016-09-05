@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *478E304501CCimpl_uses*
+ //#UC END# *478E304501CCimpl_uses*
 ;
 
 procedure TafwSimpleTypedIntegerValueMap.FillStrings(const aStrings: IafwStrings);

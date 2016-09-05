@@ -3,11 +3,14 @@ unit ddParagraphProperty;
 interface
 
 uses
+  l3IntfUses,
   Classes,
 
   ddTypes,
   ddBorder,
   ddPropertyObject,
+
+  k2Interfaces,
 
   ddTabList,
 
@@ -46,6 +49,8 @@ type
     function JoinWith(P: TObject): Long; override;
     procedure MergeWith(P: TddPropertyObject); override;
     procedure InheriteFrom(P: TddPropertyObject); override;
+    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
+    procedure Reset; override;
     property After: Integer index dd_After read GetLongProperty write
             SetLongProperty;
     property Before: Integer index dd_Before read GetLongProperty write
@@ -369,6 +374,17 @@ end;
 procedure TddParagraphProperty.ClearProperty(aProperty: TddParagraphProperties);
 begin
  f_LongProperties[aProperty] := propUndefined;
+end;
+
+procedure TddParagraphProperty.Reset;
+begin
+
+end;
+
+procedure TddParagraphProperty.Write2Generator(
+  const Generator: Ik2TagGenerator);
+begin
+
 end;
 
 end.

@@ -6,7 +6,7 @@ uses
  Classes,
  CsDataPipe,
  csRequestTask,
- DT_types,
+ daTypes,
  ddServerStatusRequestPrim
  ;
 
@@ -19,7 +19,7 @@ type
 (*  protected
     procedure _LoadFrom(aStream: TStream; aIsPipe: Boolean); override;*)
   public
-    constructor Create(aUserID: TUserID); override;
+    constructor Create(aUserID: TdaUserID); override;
 (*    procedure _SaveTo(aStream: TStream; aIsPipe: Boolean); override;*)
     procedure SaveRequestToPipe(aPipe: TCsDataPipe); override;
     property LineLength: Integer read f_LineLength;
@@ -37,7 +37,7 @@ uses
 {
 **************************** TddServerStatusRequest ****************************
 }
-constructor TddServerStatusRequest.Create(aUserID: TUserID);
+constructor TddServerStatusRequest.Create(aUserID: TdaUserID);
 begin
   inherited;
   //TaskType := cs_ttServerStatus;

@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *559F8C7A0213impl_uses*
+ //#UC END# *559F8C7A0213impl_uses*
 ;
 
 type _Instance_R_ = TvcmCustOpsRepGroupList;

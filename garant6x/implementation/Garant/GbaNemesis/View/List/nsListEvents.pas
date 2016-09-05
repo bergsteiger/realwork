@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , LoggingUnit
  , bsTypesNew
+ //#UC START# *52A821F90360impl_uses*
+ //#UC END# *52A821F90360impl_uses*
 ;
 
 class procedure TnsOpenDocumentFromListEvent.Log(const aDoc: IDocument;

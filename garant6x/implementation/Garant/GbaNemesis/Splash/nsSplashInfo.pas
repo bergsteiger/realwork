@@ -73,6 +73,8 @@ uses
  , SysUtils
  , l3Base
  , l3String
+ //#UC START# *499D24A503A6impl_uses*
+ //#UC END# *499D24A503A6impl_uses*
 ;
 
 type

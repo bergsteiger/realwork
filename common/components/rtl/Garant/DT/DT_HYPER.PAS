@@ -1,8 +1,14 @@
 Unit Dt_Hyper;
 
-{ $Id: DT_HYPER.PAS,v 1.168 2016/05/17 11:58:08 voba Exp $ }
+{ $Id: DT_HYPER.PAS,v 1.170 2016/06/30 12:34:15 lukyanets Exp $ }
 
 // $Log: DT_HYPER.PAS,v $
+// Revision 1.170  2016/06/30 12:34:15  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.169  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.168  2016/05/17 11:58:08  voba
 // -k:623081921
 //
@@ -43,7 +49,7 @@ Unit Dt_Hyper;
 // - портируем.
 //
 // Revision 1.155  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.154  2011/01/12 07:46:08  voba
 // no message
@@ -560,7 +566,7 @@ Type
     procedure   CheckDestInDoc(aDocID : TDocID; aList : Tl3LongintList);
 
    public
-    Constructor Create(aFamily : TFamilyID); Reintroduce;
+    Constructor Create(aFamily : TdaFamilyID); Reintroduce;
 
     Function    GetHListOnDoc(DocID : TDocID) : ISab;
 
@@ -611,7 +617,7 @@ Type
     function    GetName(ComboID : TDestHLinkRec) : AnsiString; overload;
 
    public
-    Constructor Create(aFamily : TFamilyID); Reintroduce;
+    Constructor Create(aFamily : TdaFamilyID); Reintroduce;
 
     function    GetRealNamedSNums(ID : LongInt;Var MaxSub : TSubID) : Sab;
 
@@ -656,7 +662,7 @@ uses
   Dt_Free
   ;
 
-Constructor THyperLinkTbl.Create(aFamily : TFamilyID);
+Constructor THyperLinkTbl.Create(aFamily : TdaFamilyID);
 begin
  inherited Create(aFamily, Ord(ftHLink));
 end;
@@ -1045,7 +1051,7 @@ begin
   end;
 end;
 
-constructor TSubTbl.Create(aFamily : TFamilyID);
+constructor TSubTbl.Create(aFamily : TdaFamilyID);
 begin
  inherited Create(aFamily, Ord(ftSub));
 end;
@@ -1493,6 +1499,7 @@ begin
  else
   DelWholeHLink(aHLinkID, aDocID);
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(Table.TblFamily, aDocID, da_detHyperLink, da_eoDelete);
 end;
 
@@ -1513,6 +1520,7 @@ begin
  if aDocID = 0 then
   raise EHtErrors.CreateInt(ecNotAssigned);
  AddSub(aDocID, SubID, Name, RealName);
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(Table.TblFamily, aDocID, da_detSub, da_eoAdd);
 end;
 
@@ -1524,6 +1532,7 @@ begin
  if CheckSub(aDocID, SubID, AbsN)
   then
    PureUpdSubName(AbsN,Name,RealName);
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(Table.TblFamily, aDocID, da_detSub, da_eoEdit);
 end;
 
@@ -1549,6 +1558,7 @@ begin
  //не будем трогать ссылки ведущие на саб # OldSubID
  //наверное все-таки внутренние ссылки надо исправить
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
  GlobalDataProvider.Journal.LogEditDoc(Table.TblFamily, aDocID, da_detSub, da_eoEdit);
 end;
 

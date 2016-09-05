@@ -100,7 +100,7 @@ procedure _EditionsListCaller_.Redactions_OpenRedactionListFrmAct_Execute(const 
 //#UC END# *4B262F9701DE_4ED8D48C0329exec_var*
 begin
 //#UC START# *4B262F9701DE_4ED8D48C0329exec_impl*
- TdmStdRes.OpenEditionsListModal(EditionsHolder, Self.Aggregate);
+ TDocumentService.Instance.OpenEditionsListModal(EditionsHolder, Self.Aggregate);
 //#UC END# *4B262F9701DE_4ED8D48C0329exec_impl*
 end;//_EditionsListCaller_.Redactions_OpenRedactionListFrmAct_Execute
 

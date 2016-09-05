@@ -5,9 +5,15 @@ unit k2TagGen;
 { Автор: Люлин А.В.       }
 { Модуль: k2TagGen -      }
 { Начат: 01.12.1998 18:48 }
-{ $Id: k2TagGen.pas,v 1.155 2015/10/14 15:32:25 lulin Exp $ }
+{ $Id: k2TagGen.pas,v 1.158 2016/07/27 16:05:47 lulin Exp $ }
 
 // $Log: k2TagGen.pas,v $
+// Revision 1.158  2016/07/27 16:05:47  lulin
+// - зачитываем картинки так, чтобы они не сохранялись.
+//
+// Revision 1.157  2016/07/27 15:56:00  lulin
+// - заготовочка.
+//
 // Revision 1.155  2015/10/14 15:32:25  lulin
 // - заготовочка.
 //
@@ -1242,39 +1248,34 @@ procedure Tk2TagGenerator.AddStreamAtom(TagID: Long; aStream: TStream);
 var
  l_Tag  : Il3TagRef;
  l_Pool : Tk2RawData;
-(* l_Stream : IStream;
- l_Read : Large;
- l_Written : Large;
- l_Position : Large;*)
+ l_RawData : Ik2RawData;
+ l_Data : Tl3Variant;
 begin
  if (aStream = nil) then
   AddAtom(TagID, nil)
- else 
+ else
  if aStream.GetInterface(Il3TagRef, l_Tag) then
   AddAtom(TagID, l_Tag.AsObject)
  else
  begin
-//  l_Stream := l3Stream2IStream(aStream);
-//  Assert(l_Stream <> nil);
+  if Supports(aStream, Ik2RawData, l_RawData) then
+   try
+    l_Data := l_RawData.OriginalData;
+    if (l_Data <> nil) then
+    begin
+     AddAtom(TagID, l_Data);
+     Exit;
+    end;//l_Data <> nil
+   finally
+    l_RawData := nil;
+   end;//try..finally
   l_Pool := Tk2RawData.CreateFromStream(aStream);
   try
-(*   OleCheck(l_Stream.Seek(0, STREAM_SEEK_SET, l_Position));
-   {$IfDef nsTest}
-   Dec(g_IStreamCopyTo_Guard);
-   try
-   {$EndIf nsTest}
-    OleCheck(l_Stream.CopyTo(l_Pool As IStream, High(Large), l_Read, l_Written));
-   {$IfDef nsTest}
-   finally
-    Inc(g_IStreamCopyTo_Guard);
-   end;//try..finally
-   {$EndIf nsTest}*)
    AddAtom(TagID, l_Pool)
   finally
    FreeAndNil(l_Pool);
   end;//try..finally
  end;//aStream.GetInterface(Il3TagRef, l_Tag)
-// AddAtom(TagID, k2_tkStream, aStream);
 end;
 
 procedure Tk2TagGenerator.TranslateAddAtom(AtomIndex: Long; aValue: Tl3Variant);

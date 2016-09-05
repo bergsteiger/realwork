@@ -41,6 +41,8 @@ uses
  , Messages
  , SysUtils
  , l3MessagesService
+ //#UC START# *5220A3ED0104impl_uses*
+ //#UC END# *5220A3ED0104impl_uses*
 ;
 
 class function TkwKeyDown.GetWordNameForRegister: AnsiString;

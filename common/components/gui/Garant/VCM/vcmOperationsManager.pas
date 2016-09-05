@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *52A73A5900E2impl_uses*
+ //#UC END# *52A73A5900E2impl_uses*
 ;
 
 var g_TvcmOperationsManager: TvcmOperationsManager = nil;

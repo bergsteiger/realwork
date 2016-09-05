@@ -37,6 +37,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F226C7001Fimpl_uses*
+ //#UC END# *47F226C7001Fimpl_uses*
 ;
 
 procedure Tk2DocumentGenerator.DoStartAtom(var Atom: Tk2StackAtom);

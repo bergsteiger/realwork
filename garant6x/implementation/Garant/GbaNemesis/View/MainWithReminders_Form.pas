@@ -151,6 +151,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4F7DAC14027Aimpl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4F7DAC14027Aimpl_uses*
 ;
 
@@ -180,7 +181,7 @@ procedure TMainWithRemindersForm.ControlledChangingWarningAfterBaloonShowed(Send
 //#UC END# *4F7DCB4E032C_4F7DAC14027A_var*
 begin
 //#UC START# *4F7DCB4E032C_4F7DAC14027A_impl*
- TdmStdRes.OpenUnderControl(Self);
+ TUnderControlService.Instance.OpenUnderControl(Self);
 //#UC END# *4F7DCB4E032C_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.ControlledChangingWarningAfterBaloonShowed
 
@@ -305,7 +306,7 @@ procedure TMainWithRemindersForm.Reminder_RemNewChatMessages_Test(const aParams:
 //#UC END# *4F86AB5600B9_4F7DAC14027Atest_var*
 begin
 //#UC START# *4F86AB5600B9_4F7DAC14027Atest_impl*
- aParams.Op.Flag[vcm_ofVisible] := TdmStdRes.MakeChatDispatcher.HasUnreadedMessages;
+ aParams.Op.Flag[vcm_ofVisible] := TChatService.Instance.MakeChatDispatcher.HasUnreadedMessages;
 //#UC END# *4F86AB5600B9_4F7DAC14027Atest_impl*
 end;//TMainWithRemindersForm.Reminder_RemNewChatMessages_Test
 
@@ -314,7 +315,7 @@ procedure TMainWithRemindersForm.Reminder_RemNewChatMessages_Execute(const aPara
 //#UC END# *4F86AB5600B9_4F7DAC14027Aexec_var*
 begin
 //#UC START# *4F86AB5600B9_4F7DAC14027Aexec_impl*
- TdmStdRes.MakeChatDispatcher.OpenAllUnreaded;
+ TChatService.Instance.MakeChatDispatcher.OpenAllUnreaded;
 //#UC END# *4F86AB5600B9_4F7DAC14027Aexec_impl*
 end;//TMainWithRemindersForm.Reminder_RemNewChatMessages_Execute
 
@@ -362,7 +363,7 @@ procedure TMainWithRemindersForm.Reminder_remUnreadConsultations_Execute(const a
 begin
 //#UC START# *542D70330042_4F7DAC14027Aexec_impl*
  if Ask(qr_TryOpenConsultationAnswer) then
-  TdmStdRes.TryOpenConsultationAnswer(Self);
+  TFoldersService.Instance.TryOpenConsultationAnswer(Self);
 //#UC END# *542D70330042_4F7DAC14027Aexec_impl*
 end;//TMainWithRemindersForm.Reminder_remUnreadConsultations_Execute
 

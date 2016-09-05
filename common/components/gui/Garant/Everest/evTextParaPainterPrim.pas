@@ -60,6 +60,8 @@ uses
  , SysUtils
  , Table_Const
  , Windows
+ //#UC START# *49DA2BF5016Eimpl_uses*
+ //#UC END# *49DA2BF5016Eimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evLeafParaPainter.imp.pas}

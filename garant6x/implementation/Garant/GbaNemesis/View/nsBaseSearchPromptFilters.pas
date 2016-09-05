@@ -43,6 +43,8 @@ uses
  , nsCutToLeafFilter
  , SysUtils
  , nsPromptForDocFilter
+ //#UC START# *4901FC9F0096impl_uses*
+ //#UC END# *4901FC9F0096impl_uses*
 ;
 
 function TnsBaseSearchPromptFilters.pm_GetLeaf: InsCutToLeafFilter;

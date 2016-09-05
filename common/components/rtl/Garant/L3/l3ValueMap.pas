@@ -51,6 +51,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *478797300345impl_uses*
+ //#UC END# *478797300345impl_uses*
 ;
 
 procedure Tl3ValueMap.DoGetDisplayNames(const aList: Il3StringsEx);

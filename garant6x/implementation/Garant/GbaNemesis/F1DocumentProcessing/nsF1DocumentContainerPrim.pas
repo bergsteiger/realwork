@@ -46,6 +46,8 @@ uses
  , LeafPara_Const
  , nsTagNodeToolsNew
  , nsDocumentContainerSub
+ //#UC START# *4C6A7C010114impl_uses*
+ //#UC END# *4C6A7C010114impl_uses*
 ;
 
 {$If Defined(Nemesis)}

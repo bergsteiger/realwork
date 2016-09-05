@@ -22,6 +22,7 @@ type
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function GetCount: Integer; override;
   public
    constructor Create(aDictionary: TtfwDictionaryPrim); reintroduce;
   protected
@@ -36,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *55ED4AE00282impl_uses*
+ //#UC END# *55ED4AE00282impl_uses*
 ;
 
 constructor TtfwMembersIteratorPrim.Create(aDictionary: TtfwDictionaryPrim);
@@ -60,6 +63,15 @@ begin
  inherited;
 //#UC END# *479731C50290_55ED4AE00282_impl*
 end;//TtfwMembersIteratorPrim.Cleanup
+
+function TtfwMembersIteratorPrim.GetCount: Integer;
+//#UC START# *57C811A30375_55ED4AE00282_var*
+//#UC END# *57C811A30375_55ED4AE00282_var*
+begin
+//#UC START# *57C811A30375_55ED4AE00282_impl*
+ Result := f_Dictionary.Count;
+//#UC END# *57C811A30375_55ED4AE00282_impl*
+end;//TtfwMembersIteratorPrim.GetCount
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

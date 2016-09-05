@@ -55,6 +55,8 @@ uses
  , l3InterfacesMisc
  , evMsgCode
  , evSelectConst
+ //#UC START# *487B5DD202DFimpl_uses*
+ //#UC END# *487B5DD202DFimpl_uses*
 ;
 
 function TnevSelection.pm_GetMouse: InevPoint;

@@ -63,6 +63,8 @@ uses
  l3ImplUses
  , afwFacade
  , BaseTypesUnit
+ //#UC START# *4B69588202EAimpl_uses*
+ //#UC END# *4B69588202EAimpl_uses*
 ;
 
 type _Instance_R_ = TsdsCompareEditionsState;

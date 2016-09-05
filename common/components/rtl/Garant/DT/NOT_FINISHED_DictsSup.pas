@@ -22,6 +22,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4E25307E022Dimpl_uses*
+ //#UC END# *4E25307E022Dimpl_uses*
 ;
 
 function GetDictName(aDictID: TdaDictionaryType): AnsiString;

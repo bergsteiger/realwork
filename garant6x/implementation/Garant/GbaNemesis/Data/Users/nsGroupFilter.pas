@@ -31,6 +31,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49F017390338impl_uses*
+ //#UC END# *49F017390338impl_uses*
 ;
 
 constructor TnsGroupFilter.Create(aGroupUID: Integer);

@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , l3String
  , l3Memory
+ //#UC START# *4F473F370158impl_uses*
+ //#UC END# *4F473F370158impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

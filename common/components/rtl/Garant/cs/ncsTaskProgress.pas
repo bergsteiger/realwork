@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , csTaskProgress_Const
+ //#UC START# *54746A670337impl_uses*
+ //#UC END# *54746A670337impl_uses*
 ;
 
 function TncsTaskProgress.pm_GetTaskID: AnsiString;

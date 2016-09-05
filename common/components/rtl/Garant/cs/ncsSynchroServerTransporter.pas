@@ -45,6 +45,8 @@ uses
  , ncsMessage
  , ncsMessageFactory
  , l3Base
+ //#UC START# *54E47AE90373impl_uses*
+ //#UC END# *54E47AE90373impl_uses*
 ;
 
 constructor TncsSynchroServerTransporter.Create(anIOHandler: TcsIdIOHandlerAbstractAdapter;

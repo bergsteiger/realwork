@@ -107,6 +107,8 @@ uses
  , evDescriptionReq
  , nevFacade
  , ReqRow_Const
+ //#UC START# *48DB819600D8impl_uses*
+ //#UC END# *48DB819600D8impl_uses*
 ;
 
 class function TevControlGroup.Make(const aValue: InevPara;

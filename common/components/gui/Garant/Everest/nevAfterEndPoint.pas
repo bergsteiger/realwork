@@ -131,6 +131,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *47F6036500E3impl_uses*
+ //#UC END# *47F6036500E3impl_uses*
 ;
 
 type _Instance_R_ = TnevAfterEndPoint;

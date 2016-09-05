@@ -36,6 +36,8 @@ uses
  , l3Interfaces
  , k2Tags
  , l3MinMax
+ //#UC START# *4D63C57601A4impl_uses*
+ //#UC END# *4D63C57601A4impl_uses*
 ;
 
 function TevReqGroupPainter.DoDraw: Boolean;

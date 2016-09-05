@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , l3String
  , k2Base
+ //#UC START# *53207C0102F8impl_uses*
+ //#UC END# *53207C0102F8impl_uses*
 ;
 
 function Tk2AtomicTag.GetAsPCharLen: Tl3WString;

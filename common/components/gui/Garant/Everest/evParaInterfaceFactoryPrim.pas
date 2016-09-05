@@ -39,6 +39,8 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , evCursor
  {$IfEnd} // Defined(evUseVisibleCursors)
+ //#UC START# *53D8DFA400E2impl_uses*
+ //#UC END# *53D8DFA400E2impl_uses*
 ;
 
 function TevParaInterfaceFactoryPrim.PreCOMQueryTool(aTag: Tl3Tag;

@@ -29,6 +29,8 @@ uses
  , Formula_Const
  , evdTypes
  , ObjectSegment_Const
+ //#UC START# *4F26660203CBimpl_uses*
+ //#UC END# *4F26660203CBimpl_uses*
 ;
 
 procedure TevCustomTextFormatterModelPart.ValidateStyles(aPara: Tl3Variant);

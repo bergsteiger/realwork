@@ -21,6 +21,8 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *49246C1F015Dimpl_uses*
+ //#UC END# *49246C1F015Dimpl_uses*
 ;
 
 procedure dmAdmin;

@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , nsDocumentWithSnippetNode
+ //#UC START# *5645E9550108impl_uses*
+ //#UC END# *5645E9550108impl_uses*
 ;
 
 function TnsDocumentWithSnippetList.RootNodeClass: RnsINodeWrap;

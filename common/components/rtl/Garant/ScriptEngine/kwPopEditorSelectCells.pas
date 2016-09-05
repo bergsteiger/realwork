@@ -54,6 +54,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F4DD643008Cimpl_uses*
+ //#UC END# *4F4DD643008Cimpl_uses*
 ;
 
 function TkwPopEditorSelectCells.IsVertical: Boolean;

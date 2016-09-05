@@ -24,6 +24,8 @@ uses
  , kwInsertDocChanges
  , kwIniRecSetZoom
  , kwIniRecGetZoom
+ //#UC START# *4E244C8400D2impl_uses*
+ //#UC END# *4E244C8400D2impl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 

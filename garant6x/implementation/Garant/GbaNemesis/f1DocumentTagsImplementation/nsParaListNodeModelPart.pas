@@ -50,6 +50,8 @@ uses
  , Document_Const
  , Block_Const
  , DecorTextPara_Const
+ //#UC START# *4CEFA95A0301impl_uses*
+ //#UC END# *4CEFA95A0301impl_uses*
 ;
 
 function TnsParaListNodeModelPart.MakeChildTag(aChildIndex: Integer;

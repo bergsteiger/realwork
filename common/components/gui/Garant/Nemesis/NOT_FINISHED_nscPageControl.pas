@@ -26,6 +26,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AC60C4B00AAimpl_uses*
+ //#UC END# *4AC60C4B00AAimpl_uses*
 ;
 
 initialization

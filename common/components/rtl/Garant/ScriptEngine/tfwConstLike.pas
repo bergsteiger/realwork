@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , kwRuntimeWordWithCodeExecution
  , kwConstLikeCompiled
+ //#UC START# *4F3BC124004Dimpl_uses*
+ //#UC END# *4F3BC124004Dimpl_uses*
 ;
 
 function TtfwConstLike.EndBracket(const aContext: TtfwContext;

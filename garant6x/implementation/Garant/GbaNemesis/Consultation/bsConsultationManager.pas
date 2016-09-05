@@ -59,6 +59,8 @@ uses
  , DataAdapter
  , l3Base
  , SysUtils
+ //#UC START# *55FAEA9B0079impl_uses*
+ //#UC END# *55FAEA9B0079impl_uses*
 ;
 
 var gv_ConsultationManager: IbsConsultationManager = nil;

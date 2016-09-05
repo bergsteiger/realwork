@@ -80,6 +80,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4028A9B7940Cimpl_uses*
+ //#UC END# *4028A9B7940Cimpl_uses*
 ;
 
 initialization

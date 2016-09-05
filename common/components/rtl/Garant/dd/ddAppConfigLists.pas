@@ -30,18 +30,14 @@ type
    f_AddButton: TButton;
    f_DeleteButton: TButton;
    f_EditButton: TButton;
-   f_DownButton: TButton;
-   f_UpButton: TButton;
    f_ListBox: TListBox;
    f_DataAdapter: TddBaseConfigDataAdapter;
-   f_ShowMoveButtons: Boolean;
   private
    procedure AddButtonCLick(Sender: TObject);
    procedure DeleteButtonClick(Sender: TObject);
-   procedure DownButtonClick(Sender: TObject);
    procedure EditButtonClick(Sender: TObject);
    procedure ListDblClick(Sender: TObject);
-   procedure UpButtonCLick(Sender: TObject);
+   procedure ReFillListBox;
   protected
    procedure pm_SetDataAdapter(aValue: TddBaseConfigDataAdapter);
    function ConstructControl(var aLeft: Integer;
@@ -74,13 +70,11 @@ type
     aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
+   procedure ClearControl; override;
   public
    property DataAdapter: TddBaseConfigDataAdapter
     read f_DataAdapter
     write pm_SetDataAdapter;
-   property ShowMoveButtons: Boolean
-    read f_ShowMoveButtons
-    write f_ShowMoveButtons;
  end;//TddListConfigItem
 
  TddSimpleListConfigItem = {final} class(TddListConfigItem)
@@ -123,6 +117,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4B9E5DE1008Bimpl_uses*
+ //#UC END# *4B9E5DE1008Bimpl_uses*
 ;
 
 procedure TddListConfigItem.pm_SetDataAdapter(aValue: TddBaseConfigDataAdapter);
@@ -145,7 +141,7 @@ begin
 //#UC START# *522F5E79020B_4B9E5DF90347_impl*
   if DataAdapter.EditItem(-1) then
   begin
-   SetValueToControl(False);
+   ReFillListBox;
    Changed:= True;
   end;
 //#UC END# *522F5E79020B_4B9E5DF90347_impl*
@@ -164,29 +160,11 @@ begin
                 mtConfirmation, mbOkCancel, 0) = mrOk then
    if DataAdapter.DeleteItem(I) then
    begin
-    SetValueToControl(False);
+    ReFillListBox;
     Changed:= True;
    end;
 //#UC END# *522F5EAC02DA_4B9E5DF90347_impl*
 end;//TddListConfigItem.DeleteButtonClick
-
-procedure TddListConfigItem.DownButtonClick(Sender: TObject);
-//#UC START# *522F5E9A0363_4B9E5DF90347_var*
-var
- I: Integer;
-//#UC END# *522F5E9A0363_4B9E5DF90347_var*
-begin
-//#UC START# *522F5E9A0363_4B9E5DF90347_impl*
- I:= f_ListBox.ItemIndex;
- if I < Pred(f_ListBox.Items.Count) then
-  if DataAdapter.DownItem(I) then
-  begin
-   SetValueToControl(False);
-   f_ListBox.ItemIndex:= Succ(I);
-   Changed:= True;
-  end;
-//#UC END# *522F5E9A0363_4B9E5DF90347_impl*
-end;//TddListConfigItem.DownButtonClick
 
 procedure TddListConfigItem.EditButtonClick(Sender: TObject);
 //#UC START# *522F5EBB00C1_4B9E5DF90347_var*
@@ -199,7 +177,7 @@ begin
  if I > -1 then
   if DataAdapter.EditItem(I) then
   begin
-   SetValueToControl(False);
+   ReFillListBox;
    Changed:= True;
   end;
 //#UC END# *522F5EBB00C1_4B9E5DF90347_impl*
@@ -215,24 +193,6 @@ begin
 //#UC END# *522F5E4502F9_4B9E5DF90347_impl*
 end;//TddListConfigItem.ListDblClick
 
-procedure TddListConfigItem.UpButtonCLick(Sender: TObject);
-//#UC START# *522F5E8C0163_4B9E5DF90347_var*
-var
- I: Integer;
-//#UC END# *522F5E8C0163_4B9E5DF90347_var*
-begin
-//#UC START# *522F5E8C0163_4B9E5DF90347_impl*
- I:= f_ListBox.ItemIndex;
- if I > 0 then
-  if DataAdapter.UpItem(I) then
-  begin
-   SetValueToControl(False);
-   f_ListBox.ItemIndex:= Pred(I);
-   Changed:= True;
-  end;
-//#UC END# *522F5E8C0163_4B9E5DF90347_impl*
-end;//TddListConfigItem.UpButtonCLick
-
 constructor TddListConfigItem.Make(const aAlias: AnsiString;
  const aCaption: AnsiString;
  aDataAdapter: TddBaseConfigDataAdapter;
@@ -247,6 +207,26 @@ begin
  f_Value.AsObject:= DataAdapter.AsObject;
 //#UC END# *522F60FA01BA_4B9E5DF90347_impl*
 end;//TddListConfigItem.Make
+
+procedure TddListConfigItem.ReFillListBox;
+//#UC START# *57A31BF1011D_4B9E5DF90347_var*
+var
+ i: Integer;
+//#UC END# *57A31BF1011D_4B9E5DF90347_var*
+begin
+//#UC START# *57A31BF1011D_4B9E5DF90347_impl*
+ f_ListBox.Items.BeginUpdate;
+ try
+  f_ListBox.Items.Clear;
+  for i:= 0 to Pred(DataAdapter.EditCount) do
+   f_ListBox.Items.Add(DataAdapter.EditStrings[i]);
+ finally
+  f_ListBox.Items.EndUpdate;
+ end;
+ f_EditButton.Enabled:= DataAdapter.EditCount > 0;
+ f_DeleteButton.Enabled:= DataAdapter.EditCount > 0;
+//#UC END# *57A31BF1011D_4B9E5DF90347_impl*
+end;//TddListConfigItem.ReFillListBox
 
 function TddListConfigItem.ConstructControl(var aLeft: Integer;
  var aMaxLeft: Integer;
@@ -277,10 +257,6 @@ begin
  l_Top:= LabelHeight(aParent) + c_ConfigItemTop;
  f_ListBox.Top:= l_Top;
  f_ListBox.Height:= 25*3 + 5*c_ConfigItemTop; { Три кнопки, два двойных промежутка }
- {$IFNDEF Nemesis}
- if ShowMoveButtons then
-  f_ListBox.Height:= f_ListBox.Height + 25*2 + 3*c_ConfigItemTop;
- {$ENDIF}
  f_ListBox.Left:= c_ConfigItemLeft;
  f_ListBox.Width:= Result.ClientWidth - 3*c_ConfigItemLeft - l_ButtonWidth;
  f_ListBox.OnDblClick:= ListDblClick;
@@ -321,36 +297,6 @@ begin
   Enabled:= Assigned(DataAdapter);
   OnClick:= DeleteButtonClick;
  end;
- {$IFNDEF Nemesis}
- // перемещение элементов
- if ShowMoveButtons then
- begin
-  Inc(l_Top, f_DeleteButton.Height+2*c_ConfigItemTop);
-  f_UpButton:= Tbutton.Create(Result);
-  f_UpButton.Width:= l_ButtonWidth;
-  f_UpButton.Parent:= Result as TWinControl;
-  f_UpButton.Top:= l_Top;
-  f_UpButton.Left:= l_Left;
-  with (f_UpButton as TButton) do
-  begin
-   Caption:= 'Вверх';
-   Enabled:= Assigned(DataAdapter);
-   OnClick:= UpButtonClick;
-  end; // with (f_UpButton
-  Inc(l_Top, f_UpButton.Height+2*c_ConfigItemTop);
-  f_DownButton:= Tbutton.Create(Result);
-  f_DownButton.Width:= l_ButtonWidth;
-  f_DownButton.Parent:= Result as TWinControl;
-  f_DownButton.Top:= l_Top;
-  f_DownButton.Left:= l_Left;
-  with (f_DownButton as TButton) do
-  begin
-   Caption:= 'Вниз';
-   Enabled:= Assigned(DataAdapter);
-   OnClick:= DownButtonClick;
-  end; 
- end; // ShowMoveButtons
- {$ENDIF}
 //#UC END# *521761BB03DE_4B9E5DF90347_impl*
 end;//TddListConfigItem.ConstructControl
 
@@ -363,10 +309,6 @@ begin
           4 * c_ConfigItemTop + {Промежутки между кнопками}
           LabelHeight(aParent) +
           4 * c_ConfigItemTop;
- {$IFNDEF Nemesis}
- if ShowMoveButtons then
-  Inc(Result, 25 * 2 + 4 * c_ConfigItemTop);
- {$ENDIF}
 //#UC END# *521B053F03C3_4B9E5DF90347_impl*
 end;//TddListConfigItem.ControlHeight
 
@@ -375,6 +317,8 @@ procedure TddListConfigItem.GetValueFromControl;
 //#UC END# *521B058801FD_4B9E5DF90347_var*
 begin
 //#UC START# *521B058801FD_4B9E5DF90347_impl*
+ if DataAdapter <> nil then
+  DataAdapter.PostChanges;
 //#UC END# *521B058801FD_4B9E5DF90347_impl*
 end;//TddListConfigItem.GetValueFromControl
 
@@ -388,11 +332,8 @@ begin
  // заполняем список строками
  if DataAdapter <> nil then
  begin
-  f_ListBox.Items.Clear;
-  for i:= 0 to Pred(DataAdapter.Count) do
-   f_ListBox.Items.Add(DataAdapter.Strings[i]);
-  f_EditButton.Enabled:= DataAdapter.Count > 0;
-  f_DeleteButton.Enabled:= DataAdapter.Count > 0;
+  DataAdapter.BeginEdit;
+  ReFillListBox;
  end; // Assigned(aItem.DataAdapter)
 //#UC END# *521B07030052_4B9E5DF90347_impl*
 end;//TddListConfigItem.SetValueToControl
@@ -506,7 +447,6 @@ begin
 //#UC START# *5217273F000F_4B9E5DF90347_impl*
  inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
  Labeled:= False;
- f_ShowMoveButtons:= False;
 //#UC END# *5217273F000F_4B9E5DF90347_impl*
 end;//TddListConfigItem.Create
 
@@ -547,6 +487,17 @@ begin
  inherited pm_SetLabelTop(True);
 //#UC END# *5217602C020A_4B9E5DF90347set_impl*
 end;//TddListConfigItem.pm_SetLabelTop
+
+procedure TddListConfigItem.ClearControl;
+//#UC START# *521B05280392_4B9E5DF90347_var*
+//#UC END# *521B05280392_4B9E5DF90347_var*
+begin
+//#UC START# *521B05280392_4B9E5DF90347_impl*
+ inherited;
+ if DataAdapter <> nil then
+  DataAdapter.EndEdit;
+//#UC END# *521B05280392_4B9E5DF90347_impl*
+end;//TddListConfigItem.ClearControl
 
 function TddSimpleListConfigItem.pm_GetConfig: TddAppConfigNode;
 //#UC START# *522F62CB01EC_522F629801CAget_var*

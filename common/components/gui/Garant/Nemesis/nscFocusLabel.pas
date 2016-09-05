@@ -52,6 +52,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B6019A601D8impl_uses*
+ //#UC END# *4B6019A601D8impl_uses*
 ;
 
 procedure TnscFocusLabel.pm_SetAllowTrucking(aValue: Boolean);

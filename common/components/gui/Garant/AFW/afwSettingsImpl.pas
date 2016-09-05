@@ -45,6 +45,8 @@ uses
  , l3Base
  , SysUtils
  , l3Memory
+ //#UC START# *4F6C8A610176impl_uses*
+ //#UC END# *4F6C8A610176impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

@@ -26,6 +26,8 @@ uses
  {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
  , AttributeExplorerWordsPack
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ //#UC START# *528A0B83039Cimpl_uses*
+ //#UC END# *528A0B83039Cimpl_uses*
 ;
 {$IfEnd} // Defined(AppClientSide)
 

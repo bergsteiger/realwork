@@ -256,6 +256,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *497EE4EB00CBimpl_uses*
  , l3ControlsTypes
+ , Base_Operations_F1Services_Contracts
+ , Search_Services
  //#UC END# *497EE4EB00CBimpl_uses*
 ;
 
@@ -629,7 +631,7 @@ procedure TPrimMedicFirmListForm.ListTreeActionElement(Sender: TObject;
 begin
 //#UC START# *51CC2956000E_497EE4EB00CB_impl*
  if HasCurrent and Assigned(dsMedicFirmList) then
-  TdmStdRes.OpenDocument(dsMedicFirmList.MakeNewDocInfo, nil);
+  TDocumentService.Instance.OpenDocument(dsMedicFirmList.MakeNewDocInfo, nil);
 //#UC END# *51CC2956000E_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.ListTreeActionElement
 
@@ -723,7 +725,7 @@ procedure TPrimMedicFirmListForm.File_PrintPreview_Execute(const aParams: IvcmEx
 //#UC END# *495220F2033A_497EE4EB00CBexec_var*
 begin
 //#UC START# *495220F2033A_497EE4EB00CBexec_impl*
- TdmStdRes.MakePreview(MakePreview(false));
+ TPrintingService.Instance.MakePreview(MakePreview(false));
 //#UC END# *495220F2033A_497EE4EB00CBexec_impl*
 end;//TPrimMedicFirmListForm.File_PrintPreview_Execute
 

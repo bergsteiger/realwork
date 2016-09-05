@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *479DF9D50043impl_uses*
+ //#UC END# *479DF9D50043impl_uses*
 ;
 
 procedure Tl3ProtoPtrRecList.InitFields;

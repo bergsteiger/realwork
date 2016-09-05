@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , vcmOperationsDefIteratorForContextMenu
+ //#UC START# *51D148890323impl_uses*
+ //#UC END# *51D148890323impl_uses*
 ;
 
 constructor TvcmEntityDefForContextMenu.Create(const anEn: IvcmEntityDef);

@@ -32,6 +32,8 @@ uses
  , nsNodeDataObject
  , Windows
  , BaseTypesUnit
+ //#UC START# *48F73BBD02B3impl_uses*
+ //#UC END# *48F73BBD02B3impl_uses*
 ;
 
 function TnsEntitiesTreeDataObject.DoGetData(const aFormatEtcIn: TFormatEtc;

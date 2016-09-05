@@ -51,6 +51,8 @@ uses
  , SysUtils
  , l3Date
  , l3TreeInterfaces
+ //#UC START# *47CFFEDE0215impl_uses*
+ //#UC END# *47CFFEDE0215impl_uses*
 ;
 
 function evGetEditorControl(aPara: Tl3Variant): IevEditorControl;

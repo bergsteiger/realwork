@@ -44,6 +44,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *52650217029Aimpl_uses*
+ //#UC END# *52650217029Aimpl_uses*
 ;
 
 procedure TkwInsertFromStreamCommon.DoWithEditor(const aCtx: TtfwContext;

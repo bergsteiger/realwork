@@ -102,6 +102,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *49ECB8E002B0impl_uses*
+ //#UC END# *49ECB8E002B0impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}

@@ -35,6 +35,8 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ //#UC START# *4A267FA903BAimpl_uses*
+ //#UC END# *4A267FA903BAimpl_uses*
 ;
 
 procedure TevHotSpot.DoHitTest(const aView: InevControlView;

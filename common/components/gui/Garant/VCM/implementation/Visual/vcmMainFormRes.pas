@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *51E7E79A0341impl_uses*
+ //#UC END# *51E7E79A0341impl_uses*
 ;
 
 const

@@ -43,6 +43,8 @@ uses
  , Classes
  , l3Types
  , l3CRCUtils
+ //#UC START# *54B7B37003C6impl_uses*
+ //#UC END# *54B7B37003C6impl_uses*
 ;
 
 constructor TncsGetPartialTaskDescriptionExecutor.Create(const aBasePath: AnsiString;

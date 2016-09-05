@@ -30,6 +30,8 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4E01E88B029Bimpl_uses*
+ //#UC END# *4E01E88B029Bimpl_uses*
 ;
 
 procedure TkwDocEditorSetModified.DoWithEditor(const aCtx: TtfwContext;

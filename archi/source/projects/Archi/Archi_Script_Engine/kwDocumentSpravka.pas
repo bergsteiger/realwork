@@ -42,6 +42,8 @@ uses
  {$If Defined(AppClientSide)}
  , Editwin
  {$IfEnd} // Defined(AppClientSide)
+ //#UC START# *4E5C937F00B2impl_uses*
+ //#UC END# *4E5C937F00B2impl_uses*
 ;
 
 {$If NOT Defined(NoScripts)}

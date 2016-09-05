@@ -62,6 +62,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E085B110285impl_uses*
+ , Base_Operations_F1Services_Contracts
+ //#UC END# *4E085B110285impl_uses*
 ;
 
 const
@@ -157,7 +160,7 @@ begin
    l_ConsultationText := l3StringReplace(l_ConsultationText, cc_HardEnterNativeStr, cc_SoftEnterNativeStr, [rfReplaceAll]);
    SaveContextNew(l_Query, nsCStr(AT_LAW_SUPPORT_TEXT), l_ConsultationText);
   end;//Assigned(l_Name)
-  TdmStdRes.OpenSendConsultation(l_Query);
+  TConsultationService.Instance.OpenSendConsultation(l_Query);
  end;//vcmMessageDlg(l_Msg) = vcm_mrCustomButton
 //#UC END# *4E085B3F01F5_4E085B110285_impl*
 end;//TbsDocumentMissingMessage.Show

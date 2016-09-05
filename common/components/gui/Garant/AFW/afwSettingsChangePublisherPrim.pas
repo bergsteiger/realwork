@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5242FDD303DFimpl_uses*
+ //#UC END# *5242FDD303DFimpl_uses*
 ;
 
 procedure TafwSettingsChangePublisherPrim.NotifySettingChanged(const aSettingID: TafwSettingId);

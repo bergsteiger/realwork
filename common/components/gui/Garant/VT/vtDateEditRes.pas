@@ -100,6 +100,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *4B8E4B58034Dimpl_uses*
+ //#UC END# *4B8E4B58034Dimpl_uses*
 ;
 
 procedure FontSetDefault(aFont: TFont);

@@ -30,6 +30,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
+ //#UC START# *55C8D80A0304impl_uses*
+ //#UC END# *55C8D80A0304impl_uses*
 ;
 
 var g_TSpellCheckDlg: TSpellCheckDlg = nil;

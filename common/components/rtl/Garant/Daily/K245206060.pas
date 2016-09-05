@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4CFCACFE0085impl_uses*
+ //#UC END# *4CFCACFE0085impl_uses*
 ;
 
 function TK245206060.IsPlus: Boolean;

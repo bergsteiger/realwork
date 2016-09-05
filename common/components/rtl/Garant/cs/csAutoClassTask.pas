@@ -57,6 +57,8 @@ implementation
 uses
  l3ImplUses
  , AutoClassTask_Const
+ //#UC START# *53F46C710363impl_uses*
+ //#UC END# *53F46C710363impl_uses*
 ;
 
 function TcsAutoClassTask.pm_GetBuilderFileName: AnsiString;

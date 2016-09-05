@@ -34,6 +34,8 @@ uses
  , nevTools
  , evGlyphFont
  , BitmapPara_Const
+ //#UC START# *4E5FB17501E8impl_uses*
+ //#UC END# *4E5FB17501E8impl_uses*
 ;
 
 procedure TnevObjectSegmentFormatInfo.ClearCache;

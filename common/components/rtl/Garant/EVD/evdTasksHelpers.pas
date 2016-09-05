@@ -102,6 +102,22 @@ type
   ['{252940D3-C632-4B3D-97A5-04EB9A3533A9}']
  end;//TasksIDListHelper
 
+ FoundSelectorHelper = interface
+  ['{1749A04B-EF51-4902-94EC-4AB11093E526}']
+  function Get_Count: Integer;
+  procedure Add(aPara: LongInt;
+   aWord: Word;
+   aDocument: LongInt);
+  procedure GetValue(anIndex: Integer;
+   out thePara: LongInt;
+   out theWord: Word;
+   out theDocument: LongInt);
+  property Count: Integer
+   read Get_Count;
+ end;//FoundSelectorHelper
+
+ AccGroupsIDListHelper = DocumentIDListHelper;
+
  TDocumentIDListHelper = class(TevdTagHelper, DocumentIDListHelper)
   protected
    procedure Save(aStream: TStream);
@@ -118,10 +134,6 @@ type
    procedure FromList(const aSource: Il3IntegerList); overload;
    function AsIntegerList: Il3IntegerList;
  end;//TDocumentIDListHelper
-
- AccGroupsIDListHelper = DocumentIDListHelper;
-
- TAccGroupsIDListHelper = TDocumentIDListHelper;
 
  TImportedDocListHelper = TDocumentIDListHelper;
 
@@ -192,6 +204,22 @@ type
    class function Make(aValue: Tl3Tag): TasksIDListHelper; reintroduce;
  end;//TTasksIDListHelper
 
+ TAccGroupsIDListHelper = TDocumentIDListHelper;
+
+ TFoundSelectorHelper = class(TevdTagHelper, FoundSelectorHelper)
+  protected
+   function Get_Count: Integer;
+   procedure Add(aPara: LongInt;
+    aWord: Word;
+    aDocument: LongInt);
+   procedure GetValue(anIndex: Integer;
+    out thePara: LongInt;
+    out theWord: Word;
+    out theDocument: LongInt);
+  public
+   class function Make(aValue: Tl3Tag): FoundSelectorHelper; reintroduce;
+ end;//TFoundSelectorHelper
+
 implementation
 
 uses
@@ -201,6 +229,9 @@ uses
  , k2Tags
  , l3InterfacedIntegerList
  , TaskID_Const
+ , FoundSelector_Const
+ //#UC START# *53BD13B4023Bimpl_uses*
+ //#UC END# *53BD13B4023Bimpl_uses*
 ;
 
 constructor TevdTagHelper.Create(aValue: Tl3Tag);
@@ -543,5 +574,60 @@ begin
  Result := f_Value.Child[anIndex].StrA[k2_tiName];
 //#UC END# *53F1FD130157_54646EB103D5_impl*
 end;//TTasksIDListHelper.DoGetStrings
+
+class function TFoundSelectorHelper.Make(aValue: Tl3Tag): FoundSelectorHelper;
+var
+ l_Inst : TFoundSelectorHelper;
+begin
+ l_Inst := Create(aValue);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TFoundSelectorHelper.Make
+
+function TFoundSelectorHelper.Get_Count: Integer;
+//#UC START# *57C55E300362_57BEADEE00FCget_var*
+//#UC END# *57C55E300362_57BEADEE00FCget_var*
+begin
+//#UC START# *57C55E300362_57BEADEE00FCget_impl*
+ Result := f_Value.ChildrenCount;
+//#UC END# *57C55E300362_57BEADEE00FCget_impl*
+end;//TFoundSelectorHelper.Get_Count
+
+procedure TFoundSelectorHelper.Add(aPara: LongInt;
+ aWord: Word;
+ aDocument: LongInt);
+//#UC START# *57C55E50024D_57BEADEE00FC_var*
+var
+ l_Addr : Tl3Tag;
+//#UC END# *57C55E50024D_57BEADEE00FC_var*
+begin
+//#UC START# *57C55E50024D_57BEADEE00FC_impl*
+ l_Addr := k2_typFoundSelector.MakeTag.AsObject;
+ l_Addr.IntA[k2_attrPara] := aPara;
+ l_Addr.IntA[k2_attrWord] := aWord;
+ l_Addr.IntA[k2_attrDocument] := aDocument;
+ f_Value.AddChild(l_Addr);
+//#UC END# *57C55E50024D_57BEADEE00FC_impl*
+end;//TFoundSelectorHelper.Add
+
+procedure TFoundSelectorHelper.GetValue(anIndex: Integer;
+ out thePara: LongInt;
+ out theWord: Word;
+ out theDocument: LongInt);
+//#UC START# *57C55E5D000A_57BEADEE00FC_var*
+var
+ l_Addr : Tl3Tag;
+//#UC END# *57C55E5D000A_57BEADEE00FC_var*
+begin
+//#UC START# *57C55E5D000A_57BEADEE00FC_impl*
+ l_Addr := f_Value.Child[anIndex];
+ thePara := l_Addr.IntA[k2_attrPara];
+ theWord := l_Addr.IntA[k2_attrWord];
+ theDocument := l_Addr.IntA[k2_attrDocument];
+//#UC END# *57C55E5D000A_57BEADEE00FC_impl*
+end;//TFoundSelectorHelper.GetValue
 
 end.

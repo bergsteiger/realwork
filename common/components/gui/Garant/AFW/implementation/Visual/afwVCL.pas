@@ -35,6 +35,8 @@ uses
  , SysUtils
  , Windows
  , Messages
+ //#UC START# *47E1227902E1impl_uses*
+ //#UC END# *47E1227902E1impl_uses*
 ;
 
 type

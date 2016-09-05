@@ -56,6 +56,8 @@ uses
  , Controls
  , SysUtils
  , l3Base
+ //#UC START# *55226C5F035Aimpl_uses*
+ //#UC END# *55226C5F035Aimpl_uses*
 ;
 
 var g_Tl3GetCaptureHelper: Tl3GetCaptureHelper = nil;

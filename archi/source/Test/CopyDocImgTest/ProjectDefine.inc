@@ -1,0 +1,14 @@
+{$I ArchiGlobals.inc}
+{$DEFINE ItsVoba}
+{$DEFINE Archi}
+{$DEFINE FlushTbl}
+{$DEFINE ddWriteGarantAttributes}
+{$DEFINE NOFORMS}
+{$DEFINE NOVCM}
+{$DEFINE NOVgScene}
+{$DEFINE notImportTaskPriority}
+{$DEFINE l3NotSortedCache}
+{$DEFINE ddLog}
+{$DEFINE DebugStackTrace}
+{$DEFINE ddUseVTSpin}
+{$DEFINE NoScripts}

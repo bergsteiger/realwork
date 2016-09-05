@@ -48,6 +48,8 @@ uses
  {$IfEnd} // Defined(nsTest)
  , l3Filer
  , SysUtils
+ //#UC START# *531956300316impl_uses*
+ //#UC END# *531956300316impl_uses*
 ;
 
 function TK517772970_TalcuAutoClassTaskDefault.GetTaskClass: TddTaskClass;

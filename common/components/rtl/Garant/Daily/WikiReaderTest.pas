@@ -34,6 +34,8 @@ uses
  , evWikiReader
  , SysUtils
  , TestFrameWork
+ //#UC START# *4D6BE6320214impl_uses*
+ //#UC END# *4D6BE6320214impl_uses*
 ;
 
 procedure TWikiReaderTest.WikiToEVD(const aFileName: AnsiString);

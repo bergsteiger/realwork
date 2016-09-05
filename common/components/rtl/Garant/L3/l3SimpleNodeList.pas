@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47E7B92D013Dimpl_uses*
+ //#UC END# *47E7B92D013Dimpl_uses*
 ;
 
 type _Instance_R_ = Tl3SimpleNodeList;

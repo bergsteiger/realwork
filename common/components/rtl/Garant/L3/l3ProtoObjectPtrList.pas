@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4CE5224102C0impl_uses*
+ //#UC END# *4CE5224102C0impl_uses*
 ;
 
 type _Instance_R_ = Tl3ProtoObjectPtrList;

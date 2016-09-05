@@ -209,6 +209,8 @@ begin
   begin
    l_Item := Self.Items[l_Index];
    try
+    m2COMSeek(l_Item.rData, 0, STREAM_SEEK_SET);
+    m2COMSeek(aData, 0, STREAM_SEEK_SET);
     if l3CompareStreams(l_Item.rData, aData) then
     begin
      l_Found := true;
@@ -261,9 +263,14 @@ begin
     end;//try..except
    Add(l_O);
   end;//not l_Found
- 
-  Assert(l_O.rInternalID > 0);
-  Assert(l_O.rExternalID > 0);
+
+  try
+   Assert(l_O.rInternalID > 0);
+   Assert(l_O.rExternalID > 0);
+  except
+   on E: Exception do
+   vtMessageDlg(l3CStr(E.Message), mtError);
+  end;//try..except 
   aPara.IntA[k2_tiInternalHandle] := l_O.rInternalID;
   aPara.IntA[k2_tiExternalHandle] := l_O.rExternalID;
   if (l_RawData <> nil) then
@@ -334,6 +341,7 @@ begin
        try
         if (l_Out <> nil) then
         begin
+         m2COMSeek(l_In, 0, STREAM_SEEK_SET);
          l_NeedSaveObject := not l3CompareStreams(l_In, l_Out);
          if l_NeedSaveObject then
           m2COMSeek(l_In, 0, STREAM_SEEK_SET);

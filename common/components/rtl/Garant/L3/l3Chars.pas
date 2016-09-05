@@ -9,9 +9,12 @@ unit l3Chars;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Chars -                   }
 { Начат: 01.12.1995 16:28             }
-{ $Id: l3Chars.pas,v 1.99 2015/10/21 06:16:10 dinishev Exp $ }
+{ $Id: l3Chars.pas,v 1.100 2016/07/12 15:58:53 voba Exp $ }
 
 // $Log: l3Chars.pas,v $
+// Revision 1.100  2016/07/12 15:58:53  voba
+// -k:626991986
+//
 // Revision 1.99  2015/10/21 06:16:10  dinishev
 // Cleanup
 //
@@ -380,6 +383,7 @@ const
   cc_DoubleQuote  = #34;
    {* - двойная кавычка. }
   cc_SingleQuote  = #39;
+  cc_Apostrophe   = #39;
    {* - одинарная кавычка. }
   cc_Underline    = '_';
    {* - символ подчеркивания. }

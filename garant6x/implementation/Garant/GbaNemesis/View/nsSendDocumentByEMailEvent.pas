@@ -31,6 +31,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0B9A490271impl_uses*
+ //#UC END# *4B0B9A490271impl_uses*
 ;
 
 class procedure TnsSendDocumentByEMailEvent.Log(const aDoc: IDocument);

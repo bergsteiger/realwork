@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , ddProfNewsHTMLWriter
  , TestFrameWork
+ //#UC START# *573591C90195impl_uses*
+ //#UC END# *573591C90195impl_uses*
 ;
 
 procedure TEVDtoHTMLwoCSS.TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator);
@@ -42,7 +44,7 @@ procedure TEVDtoHTMLwoCSS.TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator);
 //#UC END# *56D9300D018D_573591C90195_var*
 begin
 //#UC START# *56D9300D018D_573591C90195_impl*
- aHTMLReader.HTMLOptions := aHTMLReader.HTMLOptions + [dd_hwoWriteGarantCSSLink];
+ aHTMLReader.UseExternalLinks := True;
 //#UC END# *56D9300D018D_573591C90195_impl*
 end;//TEVDtoHTMLwoCSS.TuningHTMLGenerator
 

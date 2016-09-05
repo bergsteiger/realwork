@@ -25,6 +25,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F71E93E00EAimpl_uses*
+ //#UC END# *4F71E93E00EAimpl_uses*
 ;
 
 procedure nsSetPageIcon(const aForm: IvcmEntityForm);

@@ -62,6 +62,8 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ //#UC START# *492447740299impl_uses*
+ //#UC END# *492447740299impl_uses*
 ;
 
 type _Instance_R_ = TdsTreeAttributeFirstLevel;

@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , k2NilOp
+ //#UC START# *47E3C7030369impl_uses*
+ //#UC END# *47E3C7030369impl_uses*
 ;
 
 function Tk2Op.CompareWith(anOp: Tk2Op): Integer;

@@ -37,6 +37,8 @@ uses
  , SysUtils
  , l3String
  , l3Base
+ //#UC START# *4F3E416701E8impl_uses*
+ //#UC END# *4F3E416701E8impl_uses*
 ;
 
 var g_TkwStringFactory: TkwStringFactory = nil;

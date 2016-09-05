@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *4ADC82E80050impl_uses*
+ //#UC END# *4ADC82E80050impl_uses*
 ;
 
 function TevStyleTreeSearcher.IsStyleFound(aStyle: Tl3Tag): Boolean;

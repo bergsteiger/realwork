@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , l3MemUtils
  , SysUtils
+ //#UC START# *545CDF7D0249impl_uses*
+ //#UC END# *545CDF7D0249impl_uses*
 ;
 
 constructor Tl3ObjectsMemoryManager.Create;

@@ -1,8 +1,20 @@
 unit DataAdapter;
 
-// $Id: DataAdapter.pas,v 1.87 2016/05/26 14:19:52 lulin Exp $
+// $Id: DataAdapter.pas,v 1.91 2016/08/16 13:26:41 kostitsin Exp $
 
 // $Log: DataAdapter.pas,v $
+// Revision 1.91  2016/08/16 13:26:41  kostitsin
+// no message
+//
+// Revision 1.90  2016/08/04 17:44:57  lulin
+// - перегенерация.
+//
+// Revision 1.89  2016/08/01 17:31:38  lulin
+// - перегенерация.
+//
+// Revision 1.88  2016/07/15 11:25:37  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.87  2016/05/26 14:19:52  lulin
 // - нафиг не нужно, да и падает оно.
 //
@@ -2403,6 +2415,7 @@ uses
   Math,
   nsSplashVisualizer,
   nsFiltersContainer,
+  Base_Operations_F1Services_Contracts,
   {$IfEnd not (defined(Monitorings) or defined(Admin))}
   {$IfDef nsSign}
   nsSign,
@@ -2884,7 +2897,7 @@ begin
   end;
  finally
   // Сигнализируем, что закончили процесс "остановки" сервера приложений
-  TnsStartupSupport.ShutdownCompletedNotify;
+  TnsStartupSupport.ShutdownCompleteNotify;
  end;
 end;
 
@@ -3248,7 +3261,7 @@ begin
    on EAlreadyLogged do
     {$IfDef InsiderTest}
     {$IfNDef Admin}
-    if TdmStdRes.IsBatchMode then
+    if TvcmApplicationRunner.IsBatchMode then
     begin
      while true do
      begin
@@ -3268,14 +3281,14 @@ begin
       end;//try..except
       break;
      end;//while true
-    end//TdmStdRes.IsBatchMode
+    end//TvcmApplicationRunner.IsBatchMode
     else
     {$EndIf Admin}
     {$EndIf InsiderTest}
      vcmSay(err_UserAlreadyWorks, [l_Form.Login]);
    on EWrongAuthentication do
     {$IfDef InsiderTest}
-    if TdmStdRes.IsBatchMode then
+    if TvcmApplicationRunner.IsBatchMode then
     begin
      //aSender.NewUserLabelClick(aSender.NewUserLabel);
       Assert(f_Authorization <> nil);
@@ -3286,7 +3299,7 @@ begin
                          nsAStr(''));
       f_CommonInterfaces := NativeAdapter.MakeCommon;
      Result := mrOk;
-    end//TdmStdRes.IsBatchMode
+    end//TvcmApplicationRunner.IsBatchMode
     else
     {$EndIf InsiderTest}
      vcmSay(err_BadLoginOrPassword);
@@ -4882,7 +4895,7 @@ begin
  {$IfEnd} 
  UpdatedNotify;
  {$If not (defined(Monitorings) or defined(Admin))}
- TdmStdRes.MakeWorkJournal.NotifyJournalShrinked;
+ TWorkJournalService.Instance.MakeWorkJournal.NotifyJournalShrinked;
  {$IfEnd}
 end;//FinishDataUpdate
 

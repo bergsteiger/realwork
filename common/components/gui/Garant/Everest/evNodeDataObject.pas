@@ -31,6 +31,8 @@ uses
  , evTypes
  , nevTools
  , l3Base
+ //#UC START# *48F4DC5A018Dimpl_uses*
+ //#UC END# *48F4DC5A018Dimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}

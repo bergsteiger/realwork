@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55F96D940088impl_uses*
+ //#UC END# *55F96D940088impl_uses*
 ;
 
 type _Instance_R_ = TvcmLockListenerList;

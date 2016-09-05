@@ -33,6 +33,8 @@ uses
  , evDefaultStylesFontSizes
  , evdTextStyle_Const
  , k2Tags
+ //#UC START# *4E32AB1401C0impl_uses*
+ //#UC END# *4E32AB1401C0impl_uses*
 ;
 
 function TevStyleTableFontSizeCorrector.ParaTypeForFiltering: Tk2Type;

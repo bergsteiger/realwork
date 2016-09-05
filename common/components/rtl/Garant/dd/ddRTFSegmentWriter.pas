@@ -85,6 +85,8 @@ uses
  , ddFormulaSegment
  , ddHyperlink
  , ddObjectSegment
+ //#UC START# *52DCDD6201E9impl_uses*
+ //#UC END# *52DCDD6201E9impl_uses*
 ;
 
 procedure TddRTFSegmentWriter.CheckFinishSegments(const aPara: TddTextParagraph;
@@ -349,9 +351,9 @@ var
 //#UC END# *52DCE14F0228_52DCDD6201E9_var*
 begin
 //#UC START# *52DCE14F0228_52DCDD6201E9_impl*
+ l_Started := False;
  l_HyperLink := f_TextSegmentQueue.GetHyperlink;
  try
-  l_Started := False;
   l_Seg := aPara.SegmentByCharIndex(anIndex);
   while l_Seg <> nil do
   begin

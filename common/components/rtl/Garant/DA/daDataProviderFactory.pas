@@ -68,6 +68,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *54F85EE102D1impl_uses*
+ //#UC END# *54F85EE102D1impl_uses*
 ;
 
 procedure TdaDataProviderFactory.LoadCommonParams(aParams: TdaDataProviderParams);

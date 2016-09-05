@@ -96,6 +96,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A26509001EAimpl_uses*
+ //#UC END# *4A26509001EAimpl_uses*
 ;
 
 var g_TevCustomEditorWindowModelPartFontInfo: TevCustomEditorWindowModelPartFontInfo = nil;
@@ -116,9 +118,11 @@ function TevCustomEditorWindowModelPartFontInfo.GetFont(aControl: TControl): Il3
 //#UC END# *B31F486B3A13_556F262E022F_var*
 begin
 //#UC START# *B31F486B3A13_556F262E022F_impl*
+ {$IfNDef DesignTimeLibrary}
   if (aControl Is TevCustomEditorWindow) then
   Result := TevCustomEditorWindow(aControl).TextPara.font
  else
+ {$EndIf}
   Result := nil; 
 //#UC END# *B31F486B3A13_556F262E022F_impl*
 end;//TevCustomEditorWindowModelPartFontInfo.GetFont

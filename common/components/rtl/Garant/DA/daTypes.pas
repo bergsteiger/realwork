@@ -34,6 +34,8 @@ type
 
  PdaGlobalCoordinateRec = ^TdaGlobalCoordinateRec;
 
+ PdaUserGroupAccessMask = ^TdaUserGroupAccessMask;
+
  TdaUserID = LongWord;
 
  TGetLoginPasswordProc = function(var aLogin: AnsiString;
@@ -366,8 +368,25 @@ type
   ActivFlag: Boolean;
  end;//TdaUserEditMask
 
+ TdaBitwiseOperator = (
+  da_bwAnd
+  , da_bwOr
+ );//TdaBitwiseOperator
+
+ TdaDataTypesSet = set of TdaDataType;
+
+ TdaUserGroupAccessMask = record
+ //#UC START# *57AC49D002F2publ*
+  ID   : TdaUserID;
+  Case Byte of
+   0 : (Mask : TTblMask);
+   1 : (MaskRec : TTblMaskRec);
+ //#UC END# *57AC49D002F2publ*
+ end;//TdaUserGroupAccessMask
+
 const
  cDeprecatedDicts: TdaDictionaryTypeSet = [da_dlNewClasses_Deprecated];
+ da_dtIntegers: TdaDataTypesSet = [da_dtByte, da_dtDWord, da_dtWord, da_dtInteger, da_dtQWord];
 
 implementation
 

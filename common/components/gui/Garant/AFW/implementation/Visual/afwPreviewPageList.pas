@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47E107E20191impl_uses*
+ //#UC END# *47E107E20191impl_uses*
 ;
 
 type _Instance_R_ = TafwPreviewPageList;

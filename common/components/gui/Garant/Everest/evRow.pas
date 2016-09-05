@@ -52,6 +52,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4FC493C90289impl_uses*
+ //#UC END# *4FC493C90289impl_uses*
 ;
 
 {$If Defined(k2ForEditor)}

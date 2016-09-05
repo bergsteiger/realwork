@@ -227,6 +227,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *497DCC17001Cimpl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *497DCC17001Cimpl_uses*
 ;
 
@@ -650,7 +651,7 @@ begin
    try
     if Supports(l_BaseEntity, IQuery, l_Query) then
      try
-      Result := (TdmStdRes.CreateFilter(l_Query) = mrOk);
+      Result := (TFiltersService.Instance.CreateFilter(l_Query) = mrOk);
 (*      if (l_Query.GetFilterType <> FT_NO_FILTER) then
       begin
        Say(msg_QueryIsAlreadyFilterError);
@@ -826,7 +827,7 @@ procedure TPrimFiltersForm.Filter_CreateFilter_Execute(const aParams: IvcmExecut
 //#UC END# *4D0B5FBF0310_497DCC17001Cexec_var*
 begin
 //#UC START# *4D0B5FBF0310_497DCC17001Cexec_impl*
- TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(Self.As_IvcmEntityForm,
                       TnsFolderFilterInfo.Make(ffQuery, ns_ffNone),
                       str_CreateFilter);
 //#UC END# *4D0B5FBF0310_497DCC17001Cexec_impl*

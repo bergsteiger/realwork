@@ -36,6 +36,8 @@ uses
  , l3Base
  , CsConst
  , TypInfo
+ //#UC START# *538DA33503D9impl_uses*
+ //#UC END# *538DA33503D9impl_uses*
 ;
 
 class function TCsQueryRequesterTool.ExecuteQuery(aQueryId: TCsQueryId;

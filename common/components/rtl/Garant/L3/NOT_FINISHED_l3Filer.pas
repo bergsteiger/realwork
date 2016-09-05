@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47A0686803A5impl_uses*
+ //#UC END# *47A0686803A5impl_uses*
 ;
 
 function Tl3CustomFiler.DoOpen: Boolean;

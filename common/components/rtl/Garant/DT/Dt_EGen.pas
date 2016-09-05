@@ -1,8 +1,14 @@
 Unit Dt_EGen;
 
-{ $Id: Dt_EGen.pas,v 1.122 2016/04/18 11:48:05 lukyanets Exp $ }
+{ $Id: Dt_EGen.pas,v 1.124 2016/06/30 12:34:15 lukyanets Exp $ }
 
 // $Log: Dt_EGen.pas,v $
+// Revision 1.124  2016/06/30 12:34:15  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.123  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.122  2016/04/18 11:48:05  lukyanets
 // Готовимся переводить UserManager
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -95,7 +101,7 @@ Unit Dt_EGen;
 // - обновление
 //
 // Revision 1.93  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.92  2010/09/28 13:06:08  fireton
 // - Распределяем память для PAnsiChar своими средствами
@@ -353,7 +359,7 @@ Type
    function pm_GetDocSab: ISab;
    procedure pm_SetDocSab(const Value: ISab);
   protected
-   fFamily        : TFamilyID;
+   fFamily        : TdaFamilyID;
    fIsLock        : Boolean;
    fCurValDocSab  : ISab;
    fCurDocSAB     : ISab;
@@ -381,7 +387,7 @@ Type
    //procedure   PutDocNumbers(aOutStream : Tl3FileStream);
 
   public
-   Constructor Create(anOwner : TComponent; aFamily : TFamilyID); reintroduce;
+   Constructor Create(anOwner : TComponent; aFamily : TdaFamilyID); reintroduce;
 
    Procedure   Read; override;
 
@@ -481,7 +487,7 @@ Type
               end;
 
 Constructor TDocExportGenerator.Create(anOwner : TComponent;
-                                       aFamily : TFamilyID);
+                                       aFamily : TdaFamilyID);
 Begin
  Inherited Create(anOwner);
  fFamily:=aFamily;
@@ -1166,6 +1172,7 @@ begin
   fCurValDocSAB.ValuesOfkey(docIdFld);
 
   GetDoubleRelatedList;
+//!! !!! Возможно тут нужен GlobalHTDataProvider
   GlobalDataProvider.Journal.LogExport(fFamily, fCurDocSAB.Count);
  end; 
 end;

@@ -76,7 +76,6 @@ uses
  htDataSchemeHelper;
 
 const
- cSchemeName = 'archi';
  cPostgresSection = 'Postgres.Data';
  cStoredProcPath = 'StoredProcPath';
 
@@ -103,8 +102,8 @@ begin
  Report('Recreate database');
  f_Connection.ConnectAs(PostrgesParams.Login, PostrgesParams.Password, 'postgres', PostrgesParams);
  try
-  f_Executor.Execute(Format('DROP DATABASE IF EXISTS %s;', [cSchemeName]));
-  f_Executor.Execute(Format('CREATE DATABASE %s WITH TEMPLATE=template0 ENCODING=''WIN1251'' LC_COLLATE=''Russian_Russia.1251'' LC_CTYPE=''Russian_Russia.1251'';', [cSchemeName]));
+  f_Executor.Execute(Format('DROP DATABASE IF EXISTS %s;', [cDefaultSchemeName]));
+  f_Executor.Execute(Format('CREATE DATABASE %s WITH TEMPLATE=template0 ENCODING=''WIN1251'' LC_COLLATE=''Russian_Russia.1251'' LC_CTYPE=''Russian_Russia.1251'';', [cDefaultSchemeName]));
  finally
   f_Connection.Disconnect;
  end;
@@ -124,7 +123,7 @@ begin
    InitHT;
    try
     RecreateDataBase;
-    f_Connection.ConnectAs(PostrgesParams.Login, PostrgesParams.Password, cSchemeName, PostrgesParams);
+    f_Connection.ConnectAs(PostrgesParams.Login, PostrgesParams.Password, cDefaultSchemeName, PostrgesParams);
     try
      Report('Connect to postgres');
      RecreateSchema;
@@ -175,9 +174,9 @@ end;
 
 procedure TMigrator.RecreateSchema;
 begin
- f_Executor.Execute(Format('DROP SCHEMA IF EXISTS "%s" CASCADE;', [cSchemeName]));
+ f_Executor.Execute(Format('DROP SCHEMA IF EXISTS "%s" CASCADE;', [cDefaultSchemeName]));
  f_Executor.Execute('VACUUM FULL');
- f_Executor.Execute(Format('CREATE SCHEMA IF NOT EXISTS "%s" AUTHORIZATION postgres;', [cSchemeName]));
+ f_Executor.Execute(Format('CREATE SCHEMA IF NOT EXISTS "%s" AUTHORIZATION postgres;', [cDefaultSchemeName]));
 end;
 
 procedure TMigrator.CloseHT;
@@ -412,7 +411,7 @@ begin
  l_TableDesc := TdaScheme.Instance.Table(aKind);
  try
 
-  l_FullTableName := Format('%s.%s', [cSchemeName, l_TableDesc.SQLName]);
+  l_FullTableName := Format('%s.%s', [cDefaultSchemeName, l_TableDesc.SQLName]);
 
   l_CommandStr := '';
   lp_AddToCommand(Report('CREATE TABLE ' + l_FullTableName + ' ('));

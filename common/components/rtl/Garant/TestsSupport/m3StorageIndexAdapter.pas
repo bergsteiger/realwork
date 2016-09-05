@@ -53,6 +53,8 @@ uses
  , l3FileUtils
  , m3StorageInterfaces
  , l3Base
+ //#UC START# *4F19108601F3impl_uses*
+ //#UC END# *4F19108601F3impl_uses*
 ;
 
 var g_Tm3StorageIndexAdapter: Tm3StorageIndexAdapter = nil;

@@ -61,6 +61,8 @@ uses
  , l3Chars
  , OvcConst
  , k2Tags
+ //#UC START# *48D215640290impl_uses*
+ //#UC END# *48D215640290impl_uses*
 ;
 
 procedure TevLabel.RestoreCaption;

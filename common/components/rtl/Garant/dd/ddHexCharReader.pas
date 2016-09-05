@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5604FA0C031Aimpl_uses*
+ //#UC END# *5604FA0C031Aimpl_uses*
 ;
 
 function TddHexCharReader.GetChar: AnsiChar;

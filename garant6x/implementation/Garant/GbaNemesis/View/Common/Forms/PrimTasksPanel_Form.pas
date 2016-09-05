@@ -181,7 +181,7 @@ begin
  tpvMain.OnOperationExecute := tpvMainOperationExecute;
  // Настройка панели задач доступна только для внутренней версии:
  if afw.Application.IsInternal then
-  tpvMain.PopupMenu := TdmStdRes.TasksPanelPopupMenu;
+  tpvMain.PopupMenu := TTaskPanelService.Instance.TasksPanelPopupMenu;
  if Supports(afw.GetMainForm(Self), IvcmMainForm, l_MainForm) then
  try
   tpvMain.TasksPanel := l_MainForm.TasksPanel;

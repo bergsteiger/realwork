@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , k2Tags
  , F1TagDataProviderInterface
+ //#UC START# *4D6E58B300D2impl_uses*
+ //#UC END# *4D6E58B300D2impl_uses*
 ;
 
 function TnsF1AutoreferatDocumentTagNode.DoGetSubAtom(aProp: Tk2Prop;

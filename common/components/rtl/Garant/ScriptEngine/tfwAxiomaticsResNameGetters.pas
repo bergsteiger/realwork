@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *55B7A39F0035impl_uses*
+ //#UC END# *55B7A39F0035impl_uses*
 ;
 
 var g_TtfwAxiomaticsResNameGetters: TtfwAxiomaticsResNameGetters = nil;

@@ -47,6 +47,8 @@ uses
  , TypInfo
  , SysUtils
  , l3Base
+ //#UC START# *55B761180244impl_uses*
+ //#UC END# *55B761180244impl_uses*
 ;
 
 var g_TnsLogManager: TnsLogManager = nil;

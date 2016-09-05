@@ -49,6 +49,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *47F4D3AC0029impl_uses*
+ //#UC END# *47F4D3AC0029impl_uses*
 ;
 
 constructor TbsListTreeData.Create(const aList: IDynList;

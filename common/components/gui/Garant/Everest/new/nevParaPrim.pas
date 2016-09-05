@@ -127,6 +127,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , evParaWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48CE0A490377impl_uses*
+ //#UC END# *48CE0A490377impl_uses*
 ;
 
 function TnevParaPrim.TreatCollapsedAsHidden: Boolean;

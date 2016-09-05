@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5242FE0C02EDimpl_uses*
+ //#UC END# *5242FE0C02EDimpl_uses*
 ;
 
 var g_TafwSettingsChangePublisher: TafwSettingsChangePublisher = nil;

@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *52D669BA02CCimpl_uses*
+ //#UC END# *52D669BA02CCimpl_uses*
 ;
 
 var g_TnsExternalObject: TnsExternalObject = nil;

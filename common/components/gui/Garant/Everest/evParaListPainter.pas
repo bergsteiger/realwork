@@ -66,6 +66,8 @@ uses
  , SysUtils
  , Table_Const
  , Windows
+ //#UC START# *49DB5FEF01D8impl_uses*
+ //#UC END# *49DB5FEF01D8impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}

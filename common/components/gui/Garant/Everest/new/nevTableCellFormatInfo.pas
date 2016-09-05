@@ -49,6 +49,8 @@ uses
  , k2Base
  , nevFacade
  , evdTypes
+ //#UC START# *48DB9D1A030Dimpl_uses*
+ //#UC END# *48DB9D1A030Dimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}

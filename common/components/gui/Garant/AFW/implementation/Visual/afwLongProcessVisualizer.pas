@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *47877AB8026Cimpl_uses*
+ //#UC END# *47877AB8026Cimpl_uses*
 ;
 
 constructor TafwLongProcessVisualizer.Create(const aCaption: IafwCString;

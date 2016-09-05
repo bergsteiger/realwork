@@ -30,6 +30,8 @@ uses
  , l3Base
  , SysUtils
  , l3MenuManagerHelper
+ //#UC START# *4B3235370235impl_uses*
+ //#UC END# *4B3235370235impl_uses*
 ;
 
 procedure FreeMM;

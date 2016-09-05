@@ -32,6 +32,8 @@ uses
  {$If Defined(InsiderTest)}
  , kwPrintDataSaver
  {$IfEnd} // Defined(InsiderTest)
+ //#UC START# *4F72B9B00169impl_uses*
+ //#UC END# *4F72B9B00169impl_uses*
 ;
 
 class function TkwBeginWaitPrint.GetWordNameForRegister: AnsiString;

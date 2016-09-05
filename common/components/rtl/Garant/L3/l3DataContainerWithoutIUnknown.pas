@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *4A60A00700B5impl_uses*
+ //#UC END# *4A60A00700B5impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}

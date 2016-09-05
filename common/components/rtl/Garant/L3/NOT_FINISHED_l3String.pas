@@ -49,6 +49,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47878E0E0191impl_uses*
+ //#UC END# *47878E0E0191impl_uses*
 ;
 
 procedure l3Str;

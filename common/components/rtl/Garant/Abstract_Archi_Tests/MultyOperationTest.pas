@@ -44,6 +44,8 @@ uses
  , m3DBInterfaces
  , m3DB
  , TestFrameWork
+ //#UC START# *54193E6A0023impl_uses*
+ //#UC END# *54193E6A0023impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -37,6 +37,8 @@ uses
  , Block_Const
  , Document_Const
  , ParaList_Const
+ //#UC START# *4857B15A000Eimpl_uses*
+ //#UC END# *4857B15A000Eimpl_uses*
 ;
 
 procedure evParaListSetLevel(const aList: Tl3Variant;

@@ -1,8 +1,11 @@
 unit DT_FormulaProcessor;
 
-{ $Id: DT_FormulaProcessor.pas,v 1.3 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: DT_FormulaProcessor.pas,v 1.4 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: DT_FormulaProcessor.pas,v $
+// Revision 1.4  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.3  2015/07/02 11:41:29  lukyanets
 // Описываем словари
 //
@@ -46,10 +49,10 @@ Const
 Type
  TFormulaProcessor = Class
   protected
-   fFamily    : TFamilyID;
+   fFamily    : TdaFamilyID;
    fCurDocSab : Sab;
 
-   procedure SetFamily(aFamily : TFamilyID);
+   procedure SetFamily(aFamily : TdaFamilyID);
    function  GetNum(var Pos : PChar) : LongInt;
    function  GetStDate(var Pos : PChar) : TStDate;
    function  GetText(var Pos : PChar) : PChar;
@@ -60,7 +63,7 @@ Type
 
    procedure RefreshDocSet;
 
-   Property  Family : TFamilyID read fFamily write SetFamily;
+   Property  Family : TdaFamilyID read fFamily write SetFamily;
  end;
 
 
@@ -74,7 +77,7 @@ type
 
 { TFormulaProcessor }
 
-procedure TFormulaProcessor.SetFamily(aFamily : TFamilyID);
+procedure TFormulaProcessor.SetFamily(aFamily : TdaFamilyID);
 begin
  fFamily:=aFamily;
  if fFamily<>0

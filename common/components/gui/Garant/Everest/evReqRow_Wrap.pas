@@ -30,6 +30,8 @@ uses
  , k2Tags
  , nevTools
  , ReqRow_Const
+ //#UC START# *4857EB02013Cimpl_uses*
+ //#UC END# *4857EB02013Cimpl_uses*
 ;
 
 function WevReqRow.GetAtomData(AE: Tl3Variant;

@@ -1,9 +1,12 @@
 unit eePreviewPanel;
 {* Компонент для Preview. }
 
-{ $Id: eePreviewPanel.pas,v 1.2 2014/07/01 12:19:54 lulin Exp $ }
+{ $Id: eePreviewPanel.pas,v 1.3 2016/08/23 11:46:35 kostitsin Exp $ }
 
 // $Log: eePreviewPanel.pas,v $
+// Revision 1.3  2016/08/23 11:46:35  kostitsin
+// {requestlink: 624862173 }
+//
 // Revision 1.2  2014/07/01 12:19:54  lulin
 // - пытаемся собрать несобирающееся.
 //
@@ -196,7 +199,8 @@ type
                          aStateType   : TvcmStateType): Boolean;
         {-}
       function LoadState(const aState : IUnknown;
-                         aStateType   : TvcmStateType): Boolean;
+                         aStateType   : TvcmStateType;
+                         aClone: Boolean): Boolean;
         {-}
       {$EndIf NoVCM}
     protected
@@ -551,20 +555,21 @@ begin
 end;
 
 function TeeCustomPreviewPanel.LoadState(const aState : IUnknown;
-                                         aStateType   : TvcmStateType): Boolean;
+                                         aStateType   : TvcmStateType;
+                                         aClone: Boolean): Boolean;
   {-}
 var
- l_State : IevPreviewPanelState;  
+ l_State : IevPreviewPanelState;
 begin
  Result := true;
  Case aStateType of
   vcm_stContent :
    if Supports(aState, IevPreviewPanelState, l_State) then
-    try
-     SetState(l_State);
-    finally
-     l_State := nil;
-    end//try..finally
+   try
+    SetState(l_State, aClone);
+   finally
+    l_State := nil;
+   end//try..finally
    else
     Result := false;
   else

@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55A387E502D7impl_uses*
+ //#UC END# *55A387E502D7impl_uses*
 ;
 
 type _Instance_R_ = TnsDocumentStreamList;

@@ -53,6 +53,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *49BFBF3E00CDimpl_uses*
+ //#UC END# *49BFBF3E00CDimpl_uses*
 ;
 
 constructor Tm3DBProxyStream.Create(const aStream: IStream;

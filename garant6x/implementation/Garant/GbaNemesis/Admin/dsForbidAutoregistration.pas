@@ -56,6 +56,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *491D9D81001Dimpl_uses*
+ //#UC END# *491D9D81001Dimpl_uses*
 ;
 
 const

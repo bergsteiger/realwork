@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4A83AC9D0128impl_uses*
+ //#UC END# *4A83AC9D0128impl_uses*
 ;
 
 type _Instance_R_ = TnsWorkJournalListeners;

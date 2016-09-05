@@ -33,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48D258F502BFimpl_uses*
+ //#UC END# *48D258F502BFimpl_uses*
 ;
 
 function TevMemoEdit.GetIsMultiline: Boolean;

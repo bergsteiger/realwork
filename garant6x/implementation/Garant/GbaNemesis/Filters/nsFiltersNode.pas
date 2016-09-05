@@ -60,6 +60,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4CAEEE74038Eimpl_uses*
+ //#UC END# *4CAEEE74038Eimpl_uses*
 ;
 
 constructor TnsFiltersNode.Create(const aFilter: IFilterFromQuery);

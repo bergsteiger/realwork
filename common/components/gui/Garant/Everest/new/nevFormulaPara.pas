@@ -26,6 +26,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4D5A9CA80141impl_uses*
+ //#UC END# *4D5A9CA80141impl_uses*
 ;
 
 function TnevFormulaPara.TreatCollapsedAsHidden: Boolean;

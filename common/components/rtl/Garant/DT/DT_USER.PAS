@@ -1,8 +1,77 @@
 Unit Dt_user;
 
-{ $Id: DT_USER.PAS,v 1.191 2016/06/10 11:43:55 lukyanets Exp $ }
+{ $Id: DT_USER.PAS,v 1.214 2016/08/11 10:47:48 lukyanets Exp $ }
 
 // $Log: DT_USER.PAS,v $
+// Revision 1.214  2016/08/11 10:47:48  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.213  2016/08/11 08:37:29  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.212  2016/08/10 12:49:14  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.211  2016/08/09 13:35:38  lukyanets
+// Cleanup
+//
+// Revision 1.210  2016/08/09 11:54:48  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.209  2016/08/08 13:41:27  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.208  2016/07/14 12:27:16  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.207  2016/07/13 09:41:59  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.206  2016/07/12 13:26:59  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.205  2016/07/12 08:16:58  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.204  2016/07/11 13:03:25  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.203  2016/07/08 12:50:16  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.202  2016/07/07 10:31:41  lukyanets
+// Отладка
+//
+// Revision 1.201  2016/07/05 11:57:49  lukyanets
+// Cleanup
+//
+// Revision 1.200  2016/06/30 12:34:15  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.199  2016/06/23 13:11:14  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.198  2016/06/20 13:48:51  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.197  2016/06/17 11:39:15  lukyanets
+// Готовимся к заданию ключевых полей
+//
+// Revision 1.196  2016/06/17 09:03:28  lukyanets
+// Отладка
+//
+// Revision 1.195  2016/06/17 06:19:38  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.194  2016/06/16 12:54:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.193  2016/06/16 07:47:47  lukyanets
+// Развязываем зависимости
+//
+// Revision 1.192  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.191  2016/06/10 11:43:55  lukyanets
 // Пересаживаем UserManager на новые рельсы
 //
@@ -420,13 +489,13 @@ Unit Dt_user;
 //
 // Revision 1.69  2007/03/14 15:14:33  fireton
 // - merge полезных штук из ветки b_archi_BigDictID
-// - тип групп пользователей теперь не TDictID, а TUserGrID
+// - тип групп пользователей теперь не TDictID, а TdaUserGroupID
 // - подчищен код замены пароля пользователей
 // - замена указателя на дин.массив для массива групп пользователей
 //
 // Revision 1.68.4.2  2007/03/14 13:41:43  fireton
 // - удалил проверку на старый пароль при присвоении нового
-// - замена TDictID на TUserGrID (для user groups)
+// - замена TDictID на TdaUserGroupID (для user groups)
 //
 // Revision 1.68.4.1  2007/03/13 07:07:01  voba
 // no message
@@ -434,7 +503,7 @@ Unit Dt_user;
 // Revision 1.68.4.2  2007/03/14 13:41:43  fireton
 // - удалил проверку на старый пароль при присвоении нового
 // - код региона (добавляется при создании нового пользователя к его ID)
-// - замена TDictID на TUserGrID (для user groups)
+// - замена TDictID на TdaUserGroupID (для user groups)
 //
 // Revision 1.68  2007/02/28 10:23:57  narry
 // - отключение сравнения старого пароля
@@ -564,7 +633,7 @@ Unit Dt_user;
 // - fix: SetHostUserListOnGroup теперь сбрасывает флаг lfSelModified
 //
 // Revision 1.30  2003/12/18 10:43:40  step
-// В TUserManager.SetUserGroupList вставлен RefreshSrchList
+// В TUserManager.xxxSetUserGroupList вставлен RefreshSrchList
 //
 // Revision 1.29  2003/09/10 14:51:54  voba
 // - bug fix: в GetDocGroupData всю набивку листа засунул в Changing/Changed
@@ -648,18 +717,18 @@ Type
 
  TPassTbl = Class(TPrometTbl)
   Constructor Create; Reintroduce;
-  function    CheckPassword(Var aCurUserID   : TUserID;
+  function    CheckPassword(Var aCurUserID   : TdaUserID;
                             const aLoginName,aPassWord : ShortString) : Boolean;
 
-  Procedure   AddPassword(aUserID : TUserID;
+  Procedure   AddPassword(aUserID : TdaUserID;
                           Var aLoginName,aPassWord  : ShortString);
-  function    ChangePassword(aUserID : TUserID;
+  function    ChangePassword(aUserID : TdaUserID;
                              Var newPassword : ShortString) : Boolean;
-  function    GetLoginName(aUserID : TUserID;Var aLoginName : ShortString;
+  function    GetLoginName(aUserID : TdaUserID;Var aLoginName : ShortString;
                            aRaiseExceptionIfNotFound: Boolean = True): Boolean;
-  function    GetUserID(const aLoginName: ShortString; var aResultId: TUserID): Boolean;
-  Procedure   ChangeLoginName(aUserID : TUserID;Var newLoginName : ShortString);
-  Procedure   DelPassword(aUserID : TUserID);
+  function    GetUserID(const aLoginName: ShortString; var aResultId: TdaUserID): Boolean;
+  Procedure   ChangeLoginName(aUserID : TdaUserID;Var newLoginName : ShortString);
+  Procedure   DelPassword(aUserID : TdaUserID);
   procedure ForceUser(aUserID: Cardinal; aDefaultLogin, aDefaultPassword: ShortString);
    {- проверяет наличие пользователя с заданным ID в таблице и, при необходимости, создаёт его, используя
       default значения }
@@ -667,22 +736,22 @@ Type
 
  TUserTbl = Class(TDictionaryTbl)
   private
-   function IsUserExists(anID: TUserID): Boolean;
+   function IsUserExists(anID: TdaUserID): Boolean;
   protected
    function AdornNodeName(anID: Longword; const aName: AnsiString): AnsiString; override;
    function NeedItemList: Boolean; override;
   public
    Constructor Create; reintroduce;
 
-   function    IsUserActive(aUserID : TUserID) : Boolean;
-   function IsUserAdmin(aUserID : TUserID) : Boolean;
-   Procedure   AddUser(Var aUserID : TUserID;aUserName : ShortString;
+   function    IsUserActive(aUserID : TdaUserID) : Boolean;
+   function IsUserAdmin(aUserID : TdaUserID) : Boolean;
+   Procedure   AddUser(Var aUserID : TdaUserID;aUserName : ShortString;
                        ActFlag     : Byte);
-   function GetUserInfo(aUserID : TUserID;
+   function GetUserInfo(aUserID : TdaUserID;
                         Var aName : ShortString;
                         Var aActiveFlag : Byte;
                         aRaiseExceptionIfNotFound: Boolean = True): Boolean;
-   Procedure   EditUser(aUserID : TUserID;Var aName : ShortString;NF : Boolean;
+   Procedure   EditUser(aUserID : TdaUserID;Var aName : ShortString;NF : Boolean;
                         aActiveFlag : Byte;AF : Boolean);
  end;
 
@@ -706,20 +775,6 @@ Type
    Constructor Create; reintroduce;
  end;
 
- TUsEditMask = Record
-                LoginName,
-                Name,
-                ActivFlag  : Boolean;
-               end;
-
- PUGAccessMask = ^TUGAccessMask;
- TUGAccessMask = Record
-                  ID   : TUserID;
-                  Case Byte of
-                   0 : (Mask : TTblMask);
-                   1 : (MaskRec : TTblMaskRec);
-                 end;
-
  TUserManager = Class(Tl3Base)
   private
 //   f_CSClient: TcsClient;
@@ -727,6 +782,7 @@ Type
 
 //   procedure pm_SetCSClient(const Value: TcsClient);
    procedure SortUsersInList(aList: Tl3StringDataList);
+   procedure   LoadFiltredUserList(const aList : TStrings; aOnlyActive : boolean = false);
   protected
    fUserTbl  : TUserTbl;
    fPassTbl  : TPassTbl;
@@ -749,84 +805,85 @@ Type
   public
    Constructor Create; Reintroduce;
 
-   function    xxxCheckPassword(Var aCurUserID   : TUserID;
+   function    xxxCheckPassword(Var aCurUserID   : TdaUserID;
                              const aLoginName,aPassWord : ShortString) : Boolean;
 
 
-   function xxxIsUserAdmin(aUserID : TUserID) : Boolean;
-   Procedure   GetUserGroup(aCurUserID   : TUserID);
-   Procedure   SetUserGroupList(aUser : TUserID;aUGList : Tl3StringDataList);
+   function xxxIsUserAdmin(aUserID : TdaUserID) : Boolean;
+   function   xxxGetUserGroups(aCurUserID   : TdaUserID): TdaUserGroupIDArray;
+   Procedure   xxxSetUserGroupList(aUser : TdaUserID; aUGList : Tl3StringDataList);
 
-   procedure   GetUserGroupList(aUser : TUserID; const aUGList : Tl3StringDataList); overload;
-   procedure   GetUserGroupList(aUser : TUserID; const aUGList : Tl3LongintList); overload;
-   function    AddUserGroup(Var aName : ShortString): TUserGrID;
-   Procedure   EditUserGroup(aUsGroupItem : LongInt;
+   procedure   xxxGetUserGroupList(aUser : TdaUserID; const aUGList : Tl3StringDataList); overload;
+   procedure   xxxGetUserGroupList(aUser : TdaUserID; const aUGList : Tl3LongintList); overload;
+   function    xxxAddUserGroup(Var aName : ShortString): TdaUserGroupID;
+   Procedure   xxxEditUserGroup(aUsGroupItem : LongInt;
                              var aName : ShortString;
                              aImportPriority: TdaPriority;
                              aExportPriority: TdaPriority);
-   Procedure   DelUserGroup(aUsGroupItem : LongInt);
-   procedure   DelUserGroupByID(aUsGroupID: TUserGrID);
+//   Procedure   DelUserGroup(aUsGroupItem : LongInt);
+   procedure   xxxDelUserGroupByID(aUsGroupID: TdaUserGroupID);
 
-   Procedure   GetDocGroupData(aUserGroup : TUserGrID; aFamily : TFamilyID;
+   Procedure   xxxGetDocGroupData(aUserGroup : TdaUserGroupID; aFamily : TdaFamilyID;
                                aDocDataList : Tl3StringDataList);
-   Procedure   PutDocGroupData(aUserGroup : TUserGrID; aFamily : TFamilyID;
+   Procedure   xxxPutDocGroupData(aUserGroup : TdaUserGroupID; aFamily : TdaFamilyID;
                                aDocDataList : Tl3StringDataList);
 
-   procedure   LoadFiltredUserList(aList : TStrings; aOnlyActive : boolean = false);
-   procedure   GetFiltredUserList(aList : TStrings; aOnlyActive : boolean = false);
-   procedure   GetUserListOnGroup(aUsGroup : TUserGrID;UsList : Tl3StringDataList; GetActiveUsersOnly: Boolean = False);
-   procedure   GetHostUserListOnGroup(aUsGroup : TUserGrID; UsList : Tl3StringDataList; NeedSort: Boolean=False);
-   Procedure   SetHostUserListOnGroup(aUsGroup : TUserGrID;UsList : Tl3StringDataList);
+   procedure   xxxGetFiltredUserList(const aList : TStrings; aOnlyActive : boolean = false);
+   procedure   xxxGetUserListOnGroup(aUsGroup: TdaUserGroupID; UsList: Tl3StringDataList; GetActiveUsersOnly: Boolean = False);
+   procedure   xxxGetHostUserListOnGroup(aUsGroup: TdaUserGroupID; UsList : Tl3StringDataList; NeedSort: Boolean=False);
+   Procedure   xxxSetHostUserListOnGroup(aUsGroup: TdaUserGroupID; UsList : Tl3StringDataList);
 
-   function    xxxIsMemberOfGroup(aUsGroupID : TUserGrID; aUserID : TUserID) : boolean;
-//   function    GetUserIDSabOnGroup(aUsGroup : TUserGrID) : Sab;
-   function    xxxMakeUserIDSabOnGroup(aUsGroup : TUserGrID) : ISab;
+   function    xxxIsMemberOfGroup(aUsGroupID : TdaUserGroupID; aUserID : TdaUserID) : boolean;
+//   function    GetUserIDSabOnGroup(aUsGroup : TdaUserGroupID) : Sab;
+   function    xxxMakeUserIDSabOnGroup(aUsGroup : TdaUserGroupID) : ISab;
 
-//   Procedure   GetSortUserSabOnGroup(aUsGroup : TUserGrID; Var aSab : Sab);
-   function    AddUser(aUserName,aLoginName,
+//   Procedure   GetSortUserSabOnGroup(aUsGroup : TdaUserGroupID; Var aSab : Sab);
+   function    xxxAddUser(aUserName,aLoginName,
                        aPassword  : ShortString;
-                       ActFlag    : Byte) : TUserID;
-   function AddUserID(const anID: TUserID; aUserName, aLoginName, aPassword: ShortString; ActFlag: Byte): TUserID;
-   Procedure   xxxGetUserInfo(aUser : TUserID; Var aUserName,aLoginName : ShortString;
+                       ActFlag    : Byte) : TdaUserID;
+   function xxxAddUserID(const anID: TdaUserID; aUserName, aLoginName, aPassword: ShortString; ActFlag: Byte): TdaUserID;
+   Procedure   xxxGetUserInfo(aUser : TdaUserID; Var aUserName,aLoginName : ShortString;
                            Var aActFlag    : Byte);
-   Procedure   EditUser(aUser : TUserID;aUserName,aLoginName : ShortString;
-                        ActFlag    : Byte;EditMask : TUsEditMask);
-   Procedure   AdminChangePassWord(aUser : TUserID;NewPass : ShortString);
-   Procedure   UserChangePassWord(NewPass : ShortString);
-   Procedure   DelUser(aUser : TUserID);
-//   function    UserName(aUserId: TUserID): ShortString;
+   Procedure   xxxEditUser(aUser : TdaUserID;
+                           aUserName,aLoginName : ShortString;
+                           ActFlag    : Byte;
+                           EditMask : TdaUserEditMask);
+   Procedure   xxxAdminChangePassWord(aUser : TdaUserID;NewPass : ShortString);
+//   Procedure   UserChangePassWord(NewPass : ShortString);
+   Procedure   xxxDelUser(aUser : TdaUserID);
+//   function    UserName(aUserId: TdaUserID): ShortString;
 
    Procedure   xxxIterateUserGroups(Action : Tl3IteratorAction);
-//   Procedure   IterateUserByGroup(UsGrID : TUserGrID; Action : Tl3IteratorAction;
+//   Procedure   IterateUserByGroup(UsGrID : TdaUserGroupID; Action : Tl3IteratorAction;
 //                                  WithAdminUsers : Boolean = False);
 //   Procedure   SetCurrentActiveUsers;
 //   Procedure   ReceiveActiveUsersList(aMessage : PAnsiChar);
 
 //   Procedure   ReciveUserLogInMess(aMessage : PAnsiChar);
 //   Procedure   ReciveUserLogOffMess(aMessage : PAnsiChar);
-   procedure   SetUserGroup(aUser: TUserID; aGroup: TUserGrID; Add: Boolean = True);
-//   function    UserIdByLoginName(const aLogin: ShortString; var aUserId: TUserID): Boolean;
-//   function    LoginNameByUserId(aUserId: TUserID): AnsiString;
-   procedure   RemoveUserFromAllGroups(aUser:TUserID);
-   function   xxxCalcUserPriorities(aUserId: TUserID;
+   procedure   xxxSetUserGroup(aUser: TdaUserID; aGroup: TdaUserGroupID; Add: Boolean = True);
+//   function    UserIdByLoginName(const aLogin: ShortString; var aUserId: TdaUserID): Boolean;
+//   function    LoginNameByUserId(aUserId: TdaUserID): AnsiString;
+   procedure   xxxRemoveUserFromAllGroups(aUser: TdaUserID);
+   function   xxxCalcUserPriorities(aUserId: TdaUserID;
                                  out aImportPriority: TdaPriority;
                                  out aExportPriority: TdaPriority): Boolean;
    function xxxCSCheckPassword(const aCalculator: IdaPriorityCalculator; const aLogin, aPassword: AnsiString; RequireAdminRights: Boolean; out theUserID : TdaUserID): Boolean;
 //   function CSNotifyProc(aNotificationType: TCsNotificationType; aNumber: Integer; const aText: AnsiString): Boolean;
-//   procedure NotifyUserActiveChanged(anUserID: TUserID; anActive: Boolean);
+//   procedure NotifyUserActiveChanged(anUserID: TdaUserID; anActive: Boolean);
 //   procedure cs_GetUsersList(aPipe: TcsDataPipe);
    procedure xxxIterateArchiUsers(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
-   function xxxGetUserDisplayName(const aCalculator: IdaPriorityCalculator; anID: TUserID): AnsiString;
-   function xxxIsUserExists(anID: TUserID): Boolean;
+   function xxxGetUserDisplayName(const aCalculator: IdaPriorityCalculator; anID: TdaUserID): AnsiString;
+   function xxxIsUserExists(anID: TdaUserID): Boolean;
    procedure xxxMakeFullUsersList(const aCalculator: IdaPriorityCalculator);
    procedure xxxReSortUserList;
-   procedure xxxUpdateUserInfo(const aCalculator: IdaPriorityCalculator; aUserID: TUserID; aIsGroup: Boolean);
+   procedure xxxUpdateUserInfo(const aCalculator: IdaPriorityCalculator; aUserID: TdaUserID; aIsGroup: Boolean);
    function xxxUserByLogin(const aCalculator: IdaPriorityCalculator; aLogin: AnsiString): IdaArchiUser;
-   function xxxUserByID(const aCalculator: IdaPriorityCalculator; aID: TUserID): IdaArchiUser;
+   function xxxUserByID(const aCalculator: IdaPriorityCalculator; aID: TdaUserID): IdaArchiUser;
 
    function xxxGetArchiUsersCount(const aCalculator: IdaPriorityCalculator): Integer;
-   function xxxGetUserGroupsList(anID: TUserID): ISab;
-   function xxxGetUserName(anUserID: TUserID): AnsiString;
+   function xxxGetUserGroupsList(anID: TdaUserID): ISab;
+   function xxxGetUserName(anUserID: TdaUserID): AnsiString;
    function xxxGetUserPriorities(aGrouId: LongInt;
                            var aImportPriority: TdaPriority;
                            var aExportPriority: TdaPriority): Boolean;
@@ -842,7 +899,7 @@ Type
  end;
 
 Const
- UserManager : TUserManager = nil;
+ xxxUserManager : TUserManager = nil;
 
 const
  cUserNameLen = 50;
@@ -851,6 +908,8 @@ Implementation
 Uses daDataProvider,
      daSchemeConsts,
      daUserManagerUtils,
+     daUtils,
+     htDataProvider,
      HT_Dll,
      Dt_err,
      DT_Misc,
@@ -888,7 +947,7 @@ begin
  Inherited Create(MainTblsFamily, Ord(mtPass));
 end;
 
-function TPassTbl.CheckPassword(Var aCurUserID : TUserID;
+function TPassTbl.CheckPassword(Var aCurUserID : TdaUserID;
                                 const aLoginName,aPassWord : ShortString) : Boolean;
 var
  lStr : AnsiString;
@@ -908,7 +967,7 @@ begin
  end;
 end;
 
-Procedure TPassTbl.AddPassword(aUserID : TUserID;
+Procedure TPassTbl.AddPassword(aUserID : TdaUserID;
                                Var aLoginName,aPassWord  : ShortString);
 Var
  RecH  : RHandle;
@@ -931,7 +990,7 @@ begin
  AddFRec;
 end;
 
-function TPassTbl.ChangePassword(aUserID : TUserID;
+function TPassTbl.ChangePassword(aUserID : TdaUserID;
                                  Var newPassword : ShortString) : Boolean;
 Var
  RecH     : RHandle;
@@ -967,7 +1026,7 @@ begin
    raise EHtErrors.CreateInt(ecNotFound);
 end;
 
-function TPassTbl.GetLoginName(aUserID : TUserID;
+function TPassTbl.GetLoginName(aUserID : TdaUserID;
                                Var aLoginName : ShortString;
                                aRaiseExceptionIfNotFound: Boolean = True): Boolean;
 Var
@@ -994,7 +1053,7 @@ begin
   raise EHtErrors.CreateInt(ecNotFound);
 end;
 
-Procedure TPassTbl.ChangeLoginName(aUserID : TUserID;Var newLoginName : ShortString);
+Procedure TPassTbl.ChangeLoginName(aUserID : TdaUserID;Var newLoginName : ShortString);
 Var
  RecH     : RHandle;
  AbsNum   : LongInt;
@@ -1025,7 +1084,7 @@ begin
    raise EHtErrors.CreateInt(ecNotFound);
 end;
 
-Procedure TPassTbl.DelPassword(aUserID : TUserID);
+Procedure TPassTbl.DelPassword(aUserID : TdaUserID);
 Var
  RecH    : RHANDLE;
  l_Ok : Longint;
@@ -1043,13 +1102,13 @@ begin
  GetItemList;
 end;
 
-function TUserTbl.IsUserActive(aUserID : TUserID) : Boolean;
+function TUserTbl.IsUserActive(aUserID : TdaUserID) : Boolean;
 begin
  with InitRecord(Self) do
   Result := (FindByUniq(dtIDFld, aUserID)) and l3TestMask(GetIntField(usAF_Key), usActive);
 end;
 
-function TUserTbl.IsUserAdmin(aUserID: TUserID): Boolean;
+function TUserTbl.IsUserAdmin(aUserID: TdaUserID): Boolean;
 begin
  Result := (aUserID = usSupervisor);
 
@@ -1058,7 +1117,7 @@ begin
    Result := FindByUniq(dtIDFld, aUserID) and l3TestMask(GetIntField(usAF_Key), usAdmin);
 end;
 
-Procedure TUserTbl.AddUser(Var aUserID : TUserID;aUserName : ShortString;
+Procedure TUserTbl.AddUser(Var aUserID : TdaUserID;aUserName : ShortString;
                            ActFlag     : Byte);
 Var
  TmpPC  : PAnsiChar;
@@ -1086,7 +1145,7 @@ begin
  Result := ConcatRegionAndUserNames(anID,  aName);
 end;
 
-function TUserTbl.GetUserInfo(aUserID : TUserID;
+function TUserTbl.GetUserInfo(aUserID : TdaUserID;
                               Var aName : ShortString;
                               Var aActiveFlag : Byte;
                               aRaiseExceptionIfNotFound: Boolean = True): Boolean;
@@ -1118,7 +1177,7 @@ begin
   raise EHtErrors.CreateInt(ecNotFound);
 end;
 
-procedure TUserTbl.EditUser(aUserID : TUserID; var aName : ShortString; NF : Boolean;
+procedure TUserTbl.EditUser(aUserID : TdaUserID; var aName : ShortString; NF : Boolean;
                             aActiveFlag : Byte; AF : Boolean);
 var
  RecH   : RHandle;
@@ -1147,9 +1206,9 @@ begin
   raise EHtErrors.CreateInt(ecNotFound);
 end;
 
-function TUserTbl.IsUserExists(anID: TUserID): Boolean;
+function TUserTbl.IsUserExists(anID: TdaUserID): Boolean;
 var
- l_UserID: TUserID;
+ l_UserID: TdaUserID;
 begin
  l_UserID := anID;
  Result := HasRecord(dtIDFld, l_UserID);
@@ -1204,7 +1263,7 @@ begin
  Inherited;
 end;
 
-function TUserManager.xxxCheckPassword(Var aCurUserID   : TUserID;
+function TUserManager.xxxCheckPassword(Var aCurUserID   : TdaUserID;
                                     const aLoginName,aPassWord : ShortString) : Boolean;
 var
  l_UserActive: Boolean;
@@ -1255,7 +1314,7 @@ begin
  Result:=fIndUList;
 end;
 *)
-procedure TUserManager.GetUserGroupList(aUser : TUserID; const aUGList : Tl3StringDataList);
+procedure TUserManager.xxxGetUserGroupList(aUser : TdaUserID; const aUGList : Tl3StringDataList);
 Var
  Bodies   : SAB;
  TmpID,
@@ -1279,18 +1338,18 @@ begin
        aUGList.Select[TmpIndex]:=True;
      end;
    finally
-    aUGList.Changed;
-    aUGList.LockModifiedFlag:=False;
+    htCloseResults(Bodies);
    end;
   finally
-   htCloseResults(Bodies);
+   aUGList.Changed;
+   aUGList.LockModifiedFlag:=False;
   end;
  finally
   htClearResults(Bodies);
  end;
 end;
 
-procedure TUserManager.GetUserGroupList(aUser : TUserID; const aUGList : Tl3LongintList);
+procedure TUserManager.xxxGetUserGroupList(aUser : TdaUserID; const aUGList : Tl3LongintList);
 Var
  l_Bodies   : SAB;
  l_TmpID    : Longint;
@@ -1298,7 +1357,7 @@ begin
  l3FillChar(l_Bodies,SizeOf(SAB));
  l_TmpID:=0;
  fUsGrLnk.GetNodes(aUser, l_Bodies);
- Try
+ try
   //aUGList.Changing;
   try
    aUGList.Clear;
@@ -1307,17 +1366,17 @@ begin
     while htReadResults(l_Bodies, @l_TmpID, fUsGrDt.IDSize) <> 0 do
      aUGList.Add(l_TmpID);
    finally
-    //aUGList.Changed;
+    htCloseResults(l_Bodies);
    end;
   finally
-   htCloseResults(l_Bodies);
+   //aUGList.Changed;
   end;
  finally
   htClearResults(l_Bodies);
  end;
 end;
 
-Procedure TUserManager.SetUserGroupList(aUser : TUserID;aUGList : Tl3StringDataList);
+Procedure TUserManager.xxxSetUserGroupList(aUser : TdaUserID; aUGList : Tl3StringDataList);
 Var
  I,
  TmpBody : LongInt;
@@ -1336,28 +1395,28 @@ begin
     end;
 end;
 
-Procedure TUserManager.GetUserGroup(aCurUserID : TUserID);
+function TUserManager.xxxGetUserGroups(aCurUserID : TdaUserID): TdaUserGroupIDArray;
 Var
  Bodies : SAB;
 begin
  fUsGrLnk.GetNodes(aCurUserID, Bodies);
  if Bodies.gFoundCnt > 0 then
  begin
-  SetLength(GlobalHTServer.CurUserGr, Bodies.gFoundCnt);
+  SetLength(Result, Bodies.gFoundCnt);
   Ht(htOpenResults(Bodies, ROPEN_READ, nil, 0));
   Try
-   htReadResults(Bodies, @GlobalHTServer.CurUserGr[0], SizeOf(TUserGrID) * Bodies.gFoundCnt);
+   htReadResults(Bodies, @Result[0], SizeOf(TdaUserGroupID) * Bodies.gFoundCnt);
   finally
    htCloseResults(Bodies);
   end;
  end
  else
-  GlobalHTServer.CurUserGr := nil;
+  Result := nil;
 end;
 
-function TUserManager.AddUserGroup(Var aName : ShortString): TUserGrID;
+function TUserManager.xxxAddUserGroup(Var aName : ShortString): TdaUserGroupID;
 Var
- tmpID   : TUserGrID;
+ tmpID   : TdaUserGroupID;
  tmpItem : IDictItem;
  l_Str   : Tl3WString;
 begin
@@ -1373,7 +1432,7 @@ begin
    end;
 end;
 
-procedure TUserManager.EditUserGroup(aUsGroupItem: LongInt;
+procedure TUserManager.xxxEditUserGroup(aUsGroupItem: LongInt;
                                      var aName: ShortString;
                                      aImportPriority: TdaPriority;
                                      aExportPriority: TdaPriority);
@@ -1385,13 +1444,13 @@ begin
  if f_AllGroupsList<>nil
   then
    begin
-    TmpIndex:=f_AllGroupsList.IndexOfData(aUsGroupItem,SizeOf(TUserGrID),0);
+    TmpIndex:=f_AllGroupsList.IndexOfData(aUsGroupItem,SizeOf(TdaUserGroupID),0);
     f_AllGroupsList.NeedAllocStr:=True;
     f_AllGroupsList.Strings[TmpIndex]:=@aName[1];
    end;
 end;
 
-procedure TUserManager.DelUserGroupByID(aUsGroupID: TUserGrID);
+procedure TUserManager.xxxDelUserGroupByID(aUsGroupID: TdaUserGroupID);
 var
  FreeT   : TFreeTbl;
  l_TransID : TRID;
@@ -1417,19 +1476,19 @@ begin
   FreeAndNil(f_AllGroupsList);
  end;
 end;
-
+(*
 Procedure TUserManager.DelUserGroup(aUsGroupItem : LongInt);
 Var
- TmpID   : TUserGrID;
+ TmpID   : TdaUserGroupID;
 begin
  if f_AllGroupsList = nil then
    raise EHtErrors.CreateInt(ecUnableDel);
- TmpID:=PUserGrID(f_AllGroupsList.Data[aUsGroupItem])^;
- DelUserGroupByID(TmpID);
+ TmpID:=PdaUserGroupID(f_AllGroupsList.Data[aUsGroupItem])^;
+ xxxDelUserGroupByID(TmpID);
  //f_AllGroupsList.Delete(aUsGroupItem);
 end;
-
-procedure TUserManager.GetDocGroupData(aUserGroup : TUserGrID;aFamily : TFamilyID;
+*)
+procedure TUserManager.xxxGetDocGroupData(aUserGroup : TdaUserGroupID;aFamily : TdaFamilyID;
                                        aDocDataList : Tl3StringDataList);
 const
  DefGrTitle  = 'Группа по умолчанию';
@@ -1443,17 +1502,15 @@ begin
  begin
   Changing;
   try
+   DataSize := SizeOf(TdaUserGroupAccessMask);
+   NeedAllocStr := True;
    if aFamily=MainTblsFamily then
    begin
-    DataSize := SizeOf(TUGAccessMask);
-    NeedAllocStr := True;
     Assign(GlobalHtServer.FamilyList);
     MaxItem := GlobalHtServer.FamilyTbl.MaxFamilyID + 1;
    end
    else
    begin
-    DataSize := SizeOf(TUGAccessMask);
-    NeedAllocStr := True;
     Assign(DictServer(aFamily)[da_dlAccGroups]);
     InsertData(0, DefGrTitle, DefGrNumber);
     MaxItem := DictServer(aFamily).DictTbl[da_dlAccGroups].GetMaxID+2;
@@ -1465,8 +1522,8 @@ begin
     AccessServer.fMaskTbl.GetFamilyMasksForUG(aFamily,aUserGroup,MaskBuf,MaxItem);
     if aDocDataList.Count <> 0 then
     for I:=0 to Pred(aDocDataList.Count) do
-     PUGAccessMask(aDocDataList.Data[I])^.Mask:=
-                   PMaskArr(MaskBuf)^[PUGAccessMask(aDocDataList.Data[I])^.ID];
+     PdaUserGroupAccessMask(aDocDataList.Data[I])^.Mask:=
+                   PMaskArr(MaskBuf)^[PdaUserGroupAccessMask(aDocDataList.Data[I])^.ID];
    finally
     l3StrDispose(MaskBuf);
    end;
@@ -1477,7 +1534,7 @@ begin
  end;
 end;
 
-Procedure TUserManager.PutDocGroupData(aUserGroup : TUserGrID;aFamily : TFamilyID;
+Procedure TUserManager.xxxPutDocGroupData(aUserGroup : TdaUserGroupID;aFamily : TdaFamilyID;
                                        aDocDataList : Tl3StringDataList);
 Var
  I : LongInt;
@@ -1486,11 +1543,11 @@ begin
   For I:=0 to aDocDataList.Count-1 do
    if aDocDataList.Flags[I] and lfItemModified = lfItemModified then
     AccessServer.fMaskTbl.UpdateMask(aFamily,aUserGroup,
-                                     PUGAccessMask(aDocDataList.Data[I])^.ID,
-                                     PUGAccessMask(aDocDataList.Data[I])^.Mask);
+                                     PdaUserGroupAccessMask(aDocDataList.Data[I])^.ID,
+                                     PdaUserGroupAccessMask(aDocDataList.Data[I])^.Mask);
 end;
 
-procedure TUserManager.GetFiltredUserList(aList : TStrings; aOnlyActive : boolean = false);
+procedure TUserManager.xxxGetFiltredUserList(const aList : TStrings; aOnlyActive : boolean = false);
 begin
  Assert(Self <> nil);
  if not aOnlyActive then
@@ -1506,12 +1563,12 @@ begin
  end;
 end;
 
-procedure TUserManager.LoadFiltredUserList(aList : TStrings; aOnlyActive : boolean = false);
+procedure TUserManager.LoadFiltredUserList(const aList : TStrings; aOnlyActive : boolean = false);
 type
  PAccRec = ^TAccRec;
  TAccRec = packed record
   rName : Array[0..Pred(cUserNameLen)] of AnsiChar;
-  rID : TUserID;
+  rID : TdaUserID;
  end;
 
  var
@@ -1551,35 +1608,21 @@ type
     lStr := l3ArrayToString(rName, lNameLen);
     if lStr = '' then lStr := format('#%d', [rID]);
     lStr := ConcatRegionAndUserNames(GetRegionStringFromUserID(rID), lStr);
-
-    //if aList is TStrings then
-     TStrings(aList).AddObject(lStr, TObject(rID));
-    //else
-    // Tl3StringDataList(aList).Add(PAnsiChar(lStr), @rID);
+    aList.AddObject(lStr, TObject(rID));
    end;
  end;
 
 var
  lSab        : ISab;
  lRAProcStub : TdtRecAccessProc;
- lSortProc   : {]Pointer;//: }TUserSortProc;
+ lSortProc   : TUserSortProc;
 
 begin
  lNameLen := fUserTbl.FldLength[fUserTbl.NameFld];
  Assert(cUserNameLen = lNameLen, ' ');
 
- if aList is TStrings then
-  TStrings(aList).Clear;
- {else
-  if aList is Tl3StringDataList then
-  begin
-   Tl3StringDataList(aList).Clear;
-   Tl3StringDataList(aList).DataSize := SizeOf(TUserID);
-   Tl3StringDataList(aList).NeedAllocStr := True;
-  end
-  else
-   Exit; // что это за список - мы не знаем
-  }
+ aList.Clear;
+
  lSab := MakeSab(fUserTbl);
  if aOnlyActive then
   lSab.SelectByMask(usAF_Key, usActive)
@@ -1604,7 +1647,7 @@ begin
 end;
 
 
-procedure TUserManager.GetUserListOnGroup(aUsGroup : TUserGrID;UsList : Tl3StringDataList;
+procedure TUserManager.xxxGetUserListOnGroup(aUsGroup: TdaUserGroupID; UsList: Tl3StringDataList;
     GetActiveUsersOnly: Boolean = False);
 var
  fIDs : ISab;
@@ -1626,7 +1669,7 @@ begin
  SortUsersInList(UsList);
 end;
 
-procedure TUserManager.GetHostUserListOnGroup(aUsGroup : TUserGrID;UsList : Tl3StringDataList; NeedSort: Boolean=False);
+procedure TUserManager.xxxGetHostUserListOnGroup(aUsGroup: TdaUserGroupID; UsList: Tl3StringDataList; NeedSort: Boolean=False);
 Var
  IDs      : SAB;
  TmpID,
@@ -1636,38 +1679,43 @@ begin
   GetAllUsersList;
  if NeedSort then
   f_AllUsersList.Sort;
- UsList.Clear;
- UsList.HostDataList := f_AllUsersList;
- if aUsGroup=0
-  then
-   exit
-  else
-   begin
-    l3FillChar(IDs,SizeOf(SAB));
-    TmpID:=0;
-    fUsGrLnk.SrchOnBody(aUsGroup,IDs);
-    Try
-     Ht(htOpenResults(IDs,ROPEN_READ,nil,0));
+ try
+  UsList.Clear;
+  UsList.HostDataList := f_AllUsersList;
+  if aUsGroup=0
+   then
+    exit
+   else
+    begin
+     l3FillChar(IDs,SizeOf(SAB));
+     TmpID:=0;
+     fUsGrLnk.SrchOnBody(aUsGroup,IDs);
      Try
-      UsList.LockModifiedFlag:=True;
-      While htReadResults(IDs,@TmpID,fUserTbl.IDSize)<>0 do
-       begin
-        TmpIndex:=UsList.IndexOfData(TmpID,fUserTbl.IDSize,0);
-        if TmpIndex<>-1
-         then
-          UsList.Select[TmpIndex]:=True;
-       end;
-      UsList.LockModifiedFlag:=False;
+      Ht(htOpenResults(IDs,ROPEN_READ,nil,0));
+      Try
+       UsList.LockModifiedFlag:=True;
+       While htReadResults(IDs,@TmpID,fUserTbl.IDSize)<>0 do
+        begin
+         TmpIndex:=UsList.IndexOfData(TmpID,fUserTbl.IDSize,0);
+         if TmpIndex<>-1
+          then
+           UsList.Select[TmpIndex]:=True;
+        end;
+       UsList.LockModifiedFlag:=False;
+      finally
+       htCloseResults(IDs);
+      end;
      finally
-      htCloseResults(IDs);
+      htClearResults(IDs);
      end;
-    finally
-     htClearResults(IDs);
     end;
-   end;
+ finally
+  if NeedSort then
+   xxxReSortUserList;
+ end;
 end;
 
-Procedure TUserManager.SetHostUserListOnGroup(aUsGroup : TUserGrID;UsList : Tl3StringDataList);
+Procedure TUserManager.xxxSetHostUserListOnGroup(aUsGroup : TdaUserGroupID;UsList : Tl3StringDataList);
 Var
  I,
  aID : LongInt;
@@ -1694,25 +1742,25 @@ begin
     end;
 end;
 (*
-function TUserManager.GetUserIDSabOnGroup(aUsGroup : TUserGrID) : Sab;
+function TUserManager.GetUserIDSabOnGroup(aUsGroup : TdaUserGroupID) : Sab;
 begin
  fUsGrLnk.SrchOnBody(aUsGroup,Result);
 end;
 *)
-function TUserManager.xxxMakeUserIDSabOnGroup(aUsGroup : TUserGrID) : ISab;
+function TUserManager.xxxMakeUserIDSabOnGroup(aUsGroup : TdaUserGroupID) : ISab;
 begin
  Result := MakeSab(fUsGrLnk);
  Result.Select(lnkDictIDFld, aUsGroup);
  Result.ValuesOfKey(lnkDocIDFld);
 end;
 
-function TUserManager.xxxIsMemberOfGroup(aUsGroupID : TUserGrID; aUserID : TUserID) : boolean;
+function TUserManager.xxxIsMemberOfGroup(aUsGroupID : TdaUserGroupID; aUserID : TdaUserID) : boolean;
 begin
  Assert(aUserID <> 0);
  Result := fUsGrLnk.RecordExists(aUserID, aUsGroupID);
 end;
 (*
-Procedure TUserManager.GetSortUserSabOnGroup(aUsGroup : TUserGrID;Var aSab : Sab);
+Procedure TUserManager.GetSortUserSabOnGroup(aUsGroup : TdaUserGroupID;Var aSab : Sab);
 Var
  TmpSab1,
  TmpSab2  : Sab;
@@ -1733,25 +1781,25 @@ begin
  end;
 end;
 *)
-function TUserManager.AddUser(aUserName,aLoginName,
+function TUserManager.xxxAddUser(aUserName,aLoginName,
                               aPassword  : ShortString;
-                              ActFlag    : Byte) : TUserID;
+                              ActFlag    : Byte) : TdaUserID;
 begin
- Result := AddUserID(0, aUserName, aLoginName, aPassword, ActFlag);
+ Result := xxxAddUserID(0, aUserName, aLoginName, aPassword, ActFlag);
 end;
 
-Procedure TUserManager.xxxGetUserInfo(aUser : TUserID;Var aUserName,aLoginName : ShortString;
+Procedure TUserManager.xxxGetUserInfo(aUser : TdaUserID;Var aUserName,aLoginName : ShortString;
                                     Var aActFlag    : Byte);
 begin
  fPassTbl.GetLoginName(aUser,aLoginName, False);
  fUserTbl.GetUserInfo(aUser,aUserName,aActFlag, False);
 end;
 
-Procedure TUserManager.EditUser(aUser : TUserID;aUserName,aLoginName : ShortString;
-                                ActFlag    : Byte;EditMask : TUsEditMask);
+Procedure TUserManager.xxxEditUser(aUser : TdaUserID;aUserName,aLoginName : ShortString;
+                                ActFlag    : Byte;EditMask : TdaUserEditMask);
 Var
  TmpIndex : LongInt;
- TmpSize  : Word;
+// TmpSize  : Word;
 begin
  if EditMask.LoginName then
  begin
@@ -1768,7 +1816,7 @@ begin
   aUserName := ConcatRegionAndUserNames(aUser, aUserName) + #0;
   if f_AllUsersList<>nil then
   begin
-   TmpIndex:=f_AllUsersList.IndexOfData(aUser,SizeOf(TUserID),0);
+   TmpIndex:=f_AllUsersList.IndexOfData(aUser,SizeOf(TdaUserID),0);
    f_AllUsersList.NeedAllocStr:=True;
    f_AllUsersList.Strings[TmpIndex]:=@aUserName[1];
    SortUsersInList(f_AllUsersList);
@@ -1785,17 +1833,17 @@ begin
  end;
 end;
 
-Procedure TUserManager.AdminChangePassWord(aUser : TUserID;NewPass : ShortString);
+Procedure TUserManager.xxxAdminChangePassWord(aUser : TdaUserID;NewPass : ShortString);
 begin
  fPassTbl.ChangePassWord(aUser,NewPass);
 end;
-
+(*
 Procedure TUserManager.UserChangePassWord(NewPass : ShortString);
 begin
- fPassTbl.ChangePassWord(GlobalDataProvider.UserID, NewPass);
+ AdminChangePassWord(GlobalDataProvider.UserID, NewPass);
 end;
-
-Procedure TUserManager.DelUser(aUser : TUserID);
+*)
+Procedure TUserManager.xxxDelUser(aUser : TdaUserID);
 Var
  FreeT    : TFreeTbl;
  l_TransID  : TRID;
@@ -1810,8 +1858,7 @@ begin
    fUserTbl.DelData(aUser);
    FreeT.PutFree(fUserTbl.TblName,aUser);
    fPassTbl.DelPassWord(aUser);
-   fUsGrLnk.DelAllLinkItems(TDocID(aUser));
-
+   xxxRemoveUserFromAllGroups(aUser);
    GlobalHTServer.CommitTransaction(l_TransID);
   except
    GlobalHTServer.RollBackTransaction(l_TransID);
@@ -1820,7 +1867,7 @@ begin
  if f_AllUsersList<>nil
   then
    begin
-    TmpIndex:=f_AllUsersList.IndexOfData(aUser,SizeOf(TUserID),0);
+    TmpIndex:=f_AllUsersList.IndexOfData(aUser,SizeOf(TdaUserID),0);
     f_AllUsersList.Delete(TmpIndex);
    end;
 (*
@@ -1835,7 +1882,7 @@ begin
  fUsGrDt.IterateAllDict(Action, True);
 end;
 (*
-Procedure TUserManager.IterateUserByGroup(UsGrID : TUserGrID; Action : Tl3IteratorAction;
+Procedure TUserManager.IterateUserByGroup(UsGrID : TdaUserGroupID; Action : Tl3IteratorAction;
                                           WithAdminUsers : Boolean);
 Var
  I            : LongInt;
@@ -1919,7 +1966,7 @@ begin
  if Assigned(f_OnUserActiveChange) then f_OnUserActiveChange(PUserID(aMessage)^,False);
 end;
 *)
-procedure TUserManager.SetUserGroup(aUser: TUserID; aGroup: TUserGrID; Add: Boolean = True);
+procedure TUserManager.xxxSetUserGroup(aUser: TdaUserID; aGroup: TdaUserGroupID; Add: Boolean = True);
 begin
  if Add then
   fUsGrLnk.AddNode(aUser,aGroup)
@@ -1929,7 +1976,7 @@ end;
 
 procedure TPassTbl.ForceUser(aUserID: Cardinal; aDefaultLogin, aDefaultPassword: ShortString);
 var
- l_UserID: TUserID;
+ l_UserID: TdaUserID;
 begin
  l_UserID := aUserID;
  if not HasRecord(pssUserID_fld, l_UserID) then
@@ -1937,7 +1984,7 @@ begin
 end;
 
 function TPassTbl.GetUserID(const aLoginName: ShortString;
-                            var aResultId: TUserID): Boolean;
+                            var aResultId: TdaUserID): Boolean;
 const
  c_LoginLength = 15;
 Var
@@ -1957,17 +2004,17 @@ begin
 end;
 (*
 function TUserManager.UserIdByLoginName(const aLogin: ShortString;
-                                        var aUserId: TUserID): Boolean;
+                                        var aUserId: TdaUserID): Boolean;
 begin
  Result := fPassTbl.GetUserID(AnsiUpperCase(aLogin), aUserId);
 end;
 *)
-procedure TUserManager.RemoveUserFromAllGroups(aUser:TUserID);
+procedure TUserManager.xxxRemoveUserFromAllGroups(aUser: TdaUserID);
 begin
  fUsGrLnk.DelAllLinkItems(aUser);
 end;
 (*
-function TUserManager.UserName(aUserId: TUserID): ShortString;
+function TUserManager.UserName(aUserId: TdaUserID): ShortString;
 var
  l_Junk: Byte;
 begin
@@ -2018,14 +2065,15 @@ begin
  else
   raise EHtErrors.CreateInt(ecNotFound);
 
- GlobalDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoEdit);
+//!! !!! Возможно тут нужен GlobalHTDataProvider
+ GlobalHTDataProvider.Journal.LogEditDict(TblFamily, fDictType, da_eoEdit);
 
  if Assigned(fItemList) then
   if fItemList.FindData(aID,tmpIndex) then
    TDictITem(fItemList.Items[tmpIndex]).SetSt(aName,StrLen(aName));
 end;
 
-function TUserManager.xxxCalcUserPriorities(aUserId: TUserID;
+function TUserManager.xxxCalcUserPriorities(aUserId: TdaUserID;
                                          out aImportPriority: TdaPriority;
                                          out aExportPriority: TdaPriority): Boolean;
 var
@@ -2069,7 +2117,7 @@ begin
  end;
 end;
 (*
-function TUserManager.LoginNameByUserId(aUserId: TUserID): AnsiString;
+function TUserManager.LoginNameByUserId(aUserId: TdaUserID): AnsiString;
 var
  l_Name: ShortString;
 begin
@@ -2080,15 +2128,15 @@ end;
 type
  PJoinRec = ^TJoinRec;
  TJoinRec = record
-  ID: TUserID;
+  ID: TdaUserID;
   UserName: Array[1..50] of AnsiChar;
   Active : Byte;
   Login : Array[1..15] of AnsiChar;
   Password : Array[1..10] of AnsiChar;
  end;
 
-function TUserManager.AddUserID(const anID: TUserID;
-    aUserName, aLoginName, aPassword: ShortString; ActFlag: Byte): TUserID;
+function TUserManager.xxxAddUserID(const anID: TdaUserID;
+    aUserName, aLoginName, aPassword: ShortString; ActFlag: Byte): TdaUserID;
 Var
  FreeT   : TFreeTbl;
  l_TransID : TRID;
@@ -2109,7 +2157,7 @@ begin
     begin
      l_Region := Result shr 24;
      if l_Region = GlobalDataProvider.RegionID then // исключаем из FREE только "своих" пользователей
-      FreeT.CheckNumber(fUserTbl.TblName, Result and $00FFFFFF);
+      FreeT.ExcludeFree(fUserTbl.TblName, Result and $00FFFFFF);
     end;
     if Result >= usAdminReservedHard then
      raise EHtErrors.CreateInt(ecNotEnable);
@@ -2177,9 +2225,9 @@ begin
  Result := True;
  case aNotificationType of
   ntUserLogin: if Assigned(f_OnUserActiveChange) then
-                 f_OnUserActiveChange(TUserID(aNumber), True);
+                 f_OnUserActiveChange(TdaUserID(aNumber), True);
   ntUserLogout: if Assigned(f_OnUserActiveChange) then
-                 f_OnUserActiveChange(TUserID(aNumber), False);
+                 f_OnUserActiveChange(TdaUserID(aNumber), False);
  else
   Result := False;
  end
@@ -2204,7 +2252,7 @@ begin
  end
 end;
 *)
-function TUserManager.xxxGetUserDisplayName(const aCalculator: IdaPriorityCalculator; anID: TUserID): AnsiString;
+function TUserManager.xxxGetUserDisplayName(const aCalculator: IdaPriorityCalculator; anID: TdaUserID): AnsiString;
 var
  l_Name  : AnsiString;
  l_Flags : Byte;
@@ -2223,7 +2271,7 @@ begin
  Result := ConcatRegionAndUserNames(GetRegionStringFromUserID(anID), l_Name);
 end;
 
-function TUserManager.xxxIsUserExists(anID: TUserID): Boolean;
+function TUserManager.xxxIsUserExists(anID: TdaUserID): Boolean;
 begin
  Result := fUserTbl.IsUserExists(anID);
 end;
@@ -2351,7 +2399,7 @@ begin
  aList.SortF(l3LocalStub(@l_CompareUsers));
 end;
 
-procedure TUserManager.xxxUpdateUserInfo(const aCalculator: IdaPriorityCalculator; aUserID: TUserID; aIsGroup: Boolean);
+procedure TUserManager.xxxUpdateUserInfo(const aCalculator: IdaPriorityCalculator; aUserID: TdaUserID; aIsGroup: Boolean);
 begin
 // Учитывая, что данный механизм должен отмереть, сделано в лоб
  xxxmakeFullUsersList(aCalculator);
@@ -2398,7 +2446,7 @@ begin
  end
 end;
 
-function TUserManager.xxxUserByID(const aCalculator: IdaPriorityCalculator; aID: TUserID): IdaArchiUser;
+function TUserManager.xxxUserByID(const aCalculator: IdaPriorityCalculator; aID: TdaUserID): IdaArchiUser;
 var
  i: Integer;
  l_AU: IdaArchiUser;
@@ -2448,12 +2496,12 @@ begin
  end;
 end;
 *)
-function TUserManager.xxxIsUserAdmin(aUserID: TUserID): Boolean;
+function TUserManager.xxxIsUserAdmin(aUserID: TdaUserID): Boolean;
 begin
  Result := fUserTbl.IsUserAdmin(aUserID);
 end;
 
-function TUserManager.xxxGetUserGroupsList(anID: TUserID): ISab;
+function TUserManager.xxxGetUserGroupsList(anID: TdaUserID): ISab;
 var
  l_Sab: ISab;
 begin
@@ -2465,7 +2513,7 @@ begin
  end;
 end;
 
-function TUserManager.xxxGetUserName(anUserID: TUserID): AnsiString;
+function TUserManager.xxxGetUserName(anUserID: TdaUserID): AnsiString;
 begin
  Result := fUserTbl.GetNameStr(anUserID);
 end;
@@ -2476,7 +2524,7 @@ begin
   Result := fUsGrDt.ReadPriorities(aGrouId, aImportPriority, aExportPriority);
 end;
 (*
-procedure TUserManager.NotifyUserActiveChanged(anUserID: TUserID;
+procedure TUserManager.NotifyUserActiveChanged(anUserID: TdaUserID;
   anActive: Boolean);
 begin
  if Assigned(f_OnUserActiveChange) then

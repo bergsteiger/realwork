@@ -79,6 +79,8 @@ uses
  , k2Tags
  , evdTypes
  , ddBase
+ //#UC START# *4FACE127032Fimpl_uses*
+ //#UC END# *4FACE127032Fimpl_uses*
 ;
 
 function TddTableCell.pm_GetHi: Integer;
@@ -245,12 +247,18 @@ end;//TddTableCell.Insert
 
 procedure TddTableCell.ProcessItem(anItem: TddDocumentAtom);
 //#UC START# *578F2F7003B9_4FACE127032F_var*
+var
+ l_TextPara: TddTextParagraph;
 //#UC END# *578F2F7003B9_4FACE127032F_var*
 begin
 //#UC START# *578F2F7003B9_4FACE127032F_impl*
  if anItem.IsTextPara then
-  if (anItem as TddTextParagraph).CHP.IsFontColorWhite then
-   (anItem as TddTextParagraph).CHP.ClearProp(ddFColor);
+ begin
+  l_TextPara := (anItem as TddTextParagraph);
+  if (Props.PatternBackColor <> propUndefined) and l_TextPara.CHP.IsFontColorWhite
+     and not l_TextPara.CHP.IsHighlightColorWhite then
+   l_TextPara.CHP.ClearProp(ddFColor);
+ end;
 //#UC END# *578F2F7003B9_4FACE127032F_impl*
 end;//TddTableCell.ProcessItem
 
@@ -276,9 +284,10 @@ begin
   else
    if Props.VMerged then
     Generator.AddIntegerAtom(k2_tiMergeStatus, Ord(ev_msContinue));
-  if LiteVersion = dd_lvNone then
+  // ”брал цвет €чеек: http://mdp.garant.ru/pages/viewpage.action?pageId=627385907
+  (*if LiteVersion = dd_lvNone then
    if Props.PatternBackColor <> propUndefined then
-    Generator.AddIntegerAtom(k2_tiBackColor, Props.PatternBackColor);
+    Generator.AddIntegerAtom(k2_tiBackColor, Props.PatternBackColor);*)
   Generator.AddIntegerAtom(k2_tiWidth, Props.CellOffset);
   if LiteVersion = dd_lvNone then
   begin
@@ -296,6 +305,7 @@ begin
    for j := 0 to Hi do
    begin
     l_Item := Items[j];
+    ProcessItem(l_Item);
     if l_Item.IsTable then
     begin
      l_NewWidth := Props.CellOffset - Props.LeftPad - Props.RightPad;

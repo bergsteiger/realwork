@@ -45,6 +45,8 @@ uses
  , l3MemUtils
  , l3Interlocked
  , Graphics
+ //#UC START# *52A845E50292impl_uses*
+ //#UC END# *52A845E50292impl_uses*
 ;
 
 {$If NOT Defined(NoVCL)}

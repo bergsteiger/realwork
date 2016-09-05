@@ -26,6 +26,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *519B719002F1impl_uses*
+ //#UC END# *519B719002F1impl_uses*
 ;
 
 procedure MakeSab;

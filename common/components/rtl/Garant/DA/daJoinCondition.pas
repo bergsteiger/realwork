@@ -42,6 +42,8 @@ uses
  l3ImplUses
  , daFieldFromTable
  , SysUtils
+ //#UC START# *574BF18D0334impl_uses*
+ //#UC END# *574BF18D0334impl_uses*
 ;
 
 constructor TdaJoinCondition.Create(const aLeftTableAlias: AnsiString;

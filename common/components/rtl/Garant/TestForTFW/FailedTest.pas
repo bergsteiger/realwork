@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4CA0B2BA01ACimpl_uses*
+ //#UC END# *4CA0B2BA01ACimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

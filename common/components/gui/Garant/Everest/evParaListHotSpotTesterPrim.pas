@@ -60,6 +60,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , SysUtils
+ //#UC START# *4E6E373A03A3impl_uses*
+ //#UC END# *4E6E373A03A3impl_uses*
 ;
 
 type _Instance_R_ = TevParaListHotSpotTesterPrim;

@@ -117,6 +117,8 @@ uses
  , SysUtils
  , daFieldDescription
  , l3Base
+ //#UC START# *552D07EB03CBimpl_uses*
+ //#UC END# *552D07EB03CBimpl_uses*
 ;
 
 var g_TdaScheme: TdaScheme = nil;
@@ -229,10 +231,49 @@ function TdaScheme.MakeTableDescription(aKind: TdaTables;
 //#UC START# *5539EF2000FF_552D07EB03CB_var*
 var
  l_Table: TdaTableDescription;
+const
+ cMap: array [TdaTables] of AnsiString = (
+  'ACCESS','PASS','USERS','GUDT','GULNK',
+  'FAMILY','FREE','BB_LOG', 'CTRL', 'REGIONS',
+
+  '---', // фиктивная таблица
+  'FILE','HLINK','SUB','FREE',
+  'DT#1','DT#2','DT#3','DT#5',
+  'DT#6','DT#7','DT#8','DT#9','DT#A',
+  'DT#B','DT#C','DT#D','DT#E','DT#3E',
+  'DT#F','DT#I','DT#J',
+
+  'LNK#1','LNK#2','LNK#3','LNK#5',
+  'LNK#6','LNK#7','LNK#8','LNK#9',
+  'LNK#B','LNK#C','LNK#D','LNK#E',
+  'LNK#F','LNK#I','LNK#J',
+  'LNK#K',
+  'PRIOR','RENUM','STAGE','LOG',
+  'ACTIV', 'ALARM', 'CTRL',
+  'FILE'{Dup1}, 'FILE'{Dup2},
+  'ALINKML', 'ALINKVL',
+  'ALINKMR', 'ALINKVR'
+ );
+
+ function lp_CalcFamily(aTable : TdaTables) : TdaFamilyID;
+ begin
+  case aTable of
+   da_mtAccess..da_mtRegions:
+    Result := MainTblsFamily;
+   da_ftNone..da_ftAutolinkEditionsRemote:
+    Result := CurrentFamily;
+   else
+   begin
+    Result := CurrentFamily;
+    Assert(False);
+   end;
+  end;
+ end;
+
 //#UC END# *5539EF2000FF_552D07EB03CB_var*
 begin
 //#UC START# *5539EF2000FF_552D07EB03CB_impl*
- l_Table := TdaTableDescription.Create(aKind, aSQLName, aDescription, aScheme, aDublicate, aFake, aKind in da_TreeTableKinds);
+ l_Table := TdaTableDescription.Create(aKind, aSQLName, aDescription, cMap[aKind], lp_CalcFamily(aKind), aScheme, aDublicate, aFake, aKind in da_TreeTableKinds);
  try
   Result := l_Table;
   if Assigned(aProc) then
@@ -253,9 +294,9 @@ procedure TdaScheme.FillMainAccess(aTable: TdaTableDescription);
 //#UC END# *5539EFC3037B_552D07EB03CB_var*
 begin
 //#UC START# *5539EFC3037B_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('User_Gr', 'ID группы пользователей', True, da_dtWord)); //
- aTable.AddField(TdaFieldDescription.Make('FamilyID', 'ID семейства', True, da_dtWord));           //
- aTable.AddField(TdaFieldDescription.Make('Docum_Gr', 'ID группы доступа документа', True, da_dtQWord));  //
+ aTable.AddField(TdaFieldDescription.Make('User_Gr', 'ID группы пользователей', True, da_dtWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('FamilyID', 'ID семейства', True, da_dtWord, 0, True));           //
+ aTable.AddField(TdaFieldDescription.Make('Docum_Gr', 'ID группы доступа документа', True, da_dtQWord, 0, True));  //
  aTable.AddField(TdaFieldDescription.Make('Mask', 'Маска прав', True, da_dtQWord));
 //#UC END# *5539EFC3037B_552D07EB03CB_impl*
 end;//TdaScheme.FillMainAccess
@@ -265,7 +306,7 @@ procedure TdaScheme.FillMainPassword(aTable: TdaTableDescription);
 //#UC END# *5539FF9001C0_552D07EB03CB_var*
 begin
 //#UC START# *5539FF9001C0_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ShortName', 'Логин', True, da_dtChar, 15)); //
+ aTable.AddField(TdaFieldDescription.Make('ShortName', 'Логин', True, da_dtChar, 15, True)); //
  aTable.AddField(TdaFieldDescription.Make('Password', 'Пароль', True, da_dtChar, 10));
  aTable.AddField(TdaFieldDescription.Make('User_ID', 'ID Пользователя', True, da_dtQWord)); // AK
 //#UC END# *5539FF9001C0_552D07EB03CB_impl*
@@ -276,7 +317,7 @@ procedure TdaScheme.FillMainUsers(aTable: TdaTableDescription);
 //#UC END# *5539FFA400F0_552D07EB03CB_var*
 begin
 //#UC START# *5539FFA400F0_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('id', 'ID Пользователя', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('id', 'ID Пользователя', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('user_name', 'ФИО', True, da_dtChar, 50));
  aTable.AddField(TdaFieldDescription.Make('name_length', 'Длина ФИО', True, da_dtWord));
  aTable.AddField(TdaFieldDescription.Make('active', 'Флаги (активность, админскость)', True, da_dtByte)); 
@@ -288,7 +329,7 @@ procedure TdaScheme.FillMainGroups(aTable: TdaTableDescription);
 //#UC END# *5539FFBC0157_552D07EB03CB_var*
 begin
 //#UC START# *5539FFBC0157_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('id', 'ID Группы', True, da_dtWord)); //
+ aTable.AddField(TdaFieldDescription.Make('id', 'ID Группы', True, da_dtWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('group_name', 'Название', True, da_dtChar, 50));
  aTable.AddField(TdaFieldDescription.Make('name_length', 'Длина названия', True, da_dtWord));
  aTable.AddField(TdaFieldDescription.Make('import_priority', 'Приоритет импорта', True, da_dtInteger));
@@ -301,8 +342,8 @@ procedure TdaScheme.FillMainGroupMembers(aTable: TdaTableDescription);
 //#UC END# *5539FFDC022E_552D07EB03CB_var*
 begin
 //#UC START# *5539FFDC022E_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('user_id', 'ID Пользователя', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('group_id', 'ID Группы', True, da_dtWord)); //
+ aTable.AddField(TdaFieldDescription.Make('user_id', 'ID Пользователя', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('group_id', 'ID Группы', True, da_dtWord, 0, True)); //
 //#UC END# *5539FFDC022E_552D07EB03CB_impl*
 end;//TdaScheme.FillMainGroupMembers
 
@@ -311,7 +352,7 @@ procedure TdaScheme.FillMainFamily(aTable: TdaTableDescription);
 //#UC END# *5539FFFB0143_552D07EB03CB_var*
 begin
 //#UC START# *5539FFFB0143_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Семейства', True, da_dtWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Семейства', True, da_dtWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('FamilyName', 'Название', True, da_dtChar, 50));
  aTable.AddField(TdaFieldDescription.Make('Doc_Group', '???', True, da_dtWord));
  aTable.AddField(TdaFieldDescription.Make('PathToTbl', 'Путь на диске (HT)', True, da_dtChar, 128));
@@ -350,7 +391,7 @@ procedure TdaScheme.FillControl(aTable: TdaTableDescription);
 //#UC END# *553A003200BF_552D07EB03CB_var*
 begin
 //#UC START# *553A003200BF_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Attributes', '???', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Attributes', '???', True, da_dtQWord, 0, True)); //
 //#UC END# *553A003200BF_552D07EB03CB_impl*
 end;//TdaScheme.FillControl
 
@@ -359,7 +400,7 @@ procedure TdaScheme.FillMainRegions(aTable: TdaTableDescription);
 //#UC END# *553A00440110_552D07EB03CB_var*
 begin
 //#UC START# *553A00440110_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Региона', True, da_dtByte));
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Региона', True, da_dtByte, 0, True));
  aTable.AddField(TdaFieldDescription.Make('Name', 'Название', True, da_dtChar, 50));
 //#UC END# *553A00440110_552D07EB03CB_impl*
 end;//TdaScheme.FillMainRegions
@@ -369,7 +410,7 @@ procedure TdaScheme.FillFamilyDocuments(aTable: TdaTableDescription);
 //#UC END# *553DE6E1033B_552D07EB03CB_var*
 begin
 //#UC START# *553DE6E1033B_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID документа', True, da_dtQWord));
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID документа', True, da_dtQWord, 0, True));
  aTable.AddField(TdaFieldDescription.Make('ShortName', 'Кратное название', True, da_dtChar, 70));
  aTable.AddField(TdaFieldDescription.Make('FullName', 'Полное название', True, da_dtChar, 1000));
  aTable.AddField(TdaFieldDescription.Make('Status', 'Флаги статуса', True, da_dtWord)); // см. dstatXXX в dt_Const
@@ -394,10 +435,10 @@ procedure TdaScheme.FillFamilyHyperlinks(aTable: TdaTableDescription);
 //#UC END# *553DE7080233_552D07EB03CB_var*
 begin
 //#UC START# *553DE7080233_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID гиперссылкой', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('SourDoc', 'ID документа с гиперссылкой', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('DestDoc', 'ID целевого документа', True, da_dtQWord)); // // Часть ссылки на da_ftSubs
- aTable.AddField(TdaFieldDescription.Make('DestSub', 'ID целевого саба', True, da_dtQWord)); // // Часть ссылки на da_ftSubs
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID гиперссылкой', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('SourDoc', 'ID документа с гиперссылкой', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('DestDoc', 'ID целевого документа', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSubs
+ aTable.AddField(TdaFieldDescription.Make('DestSub', 'ID целевого саба', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSubs
 //#UC END# *553DE7080233_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyHyperlinks
 
@@ -406,8 +447,8 @@ procedure TdaScheme.FillFamilySubs(aTable: TdaTableDescription);
 //#UC END# *553DE72B011F_552D07EB03CB_var*
 begin
 //#UC START# *553DE72B011F_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('DocID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('SubID', 'ID Саба', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('DocID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('SubID', 'ID Саба', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('RealFlag', 'Ручное задание имени', True, da_dtBoolean));
  aTable.AddField(TdaFieldDescription.Make('SubName', 'Название', True, da_dtChar, 800));
 //#UC END# *553DE72B011F_552D07EB03CB_impl*
@@ -429,7 +470,7 @@ procedure TdaScheme.FillFamilySources(aTable: TdaTableDescription);
 //#UC END# *553DE77003DF_552D07EB03CB_var*
 begin
 //#UC START# *553DE77003DF_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Исходящего органа', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Исходящего органа', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('ShortName', 'Краткое занвание', True, da_dtChar, 70));
@@ -442,7 +483,7 @@ procedure TdaScheme.FillFamilyTypes(aTable: TdaTableDescription);
 //#UC END# *553DE7850036_552D07EB03CB_var*
 begin
 //#UC START# *553DE7850036_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Типа', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Типа', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
 //#UC END# *553DE7850036_552D07EB03CB_impl*
@@ -453,7 +494,7 @@ procedure TdaScheme.FillFamilyClasses(aTable: TdaTableDescription);
 //#UC END# *553DE79F0210_552D07EB03CB_var*
 begin
 //#UC START# *553DE79F0210_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Класса', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Класса', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
 //#UC END# *553DE79F0210_552D07EB03CB_impl*
@@ -464,7 +505,7 @@ procedure TdaScheme.FillFamilyKeywords(aTable: TdaTableDescription);
 //#UC END# *553DE7B101D5_552D07EB03CB_var*
 begin
 //#UC START# *553DE7B101D5_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Ключевого слова', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Ключевого слова', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
 //#UC END# *553DE7B101D5_552D07EB03CB_impl*
@@ -475,7 +516,7 @@ procedure TdaScheme.FillFamilyBelongs(aTable: TdaTableDescription);
 //#UC END# *553DE7C8025D_552D07EB03CB_var*
 begin
 //#UC START# *553DE7C8025D_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Группы', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Группы', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 70));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 70));
  aTable.AddField(TdaFieldDescription.Make('ShName', 'Краткое название', True, da_dtChar, 10));
@@ -487,7 +528,7 @@ procedure TdaScheme.FillFamilyDateCodes(aTable: TdaTableDescription);
 //#UC END# *553DE7E401C4_552D07EB03CB_var*
 begin
 //#UC START# *553DE7E401C4_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Номера и даты', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Номера и даты', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('Date', 'Дата', True, da_dtDate));
  aTable.AddField(TdaFieldDescription.Make('No', 'Номер', True, da_dtChar, 50));
  aTable.AddField(TdaFieldDescription.Make('Tip', 'ID типа Датономера', True, da_dtByte)); // Хардкодед словарь см. TDNType в dt_Types
@@ -501,7 +542,7 @@ procedure TdaScheme.FillFamilyWarnings(aTable: TdaTableDescription);
 //#UC END# *553DE8070027_552D07EB03CB_var*
 begin
 //#UC START# *553DE8070027_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Предупреждения', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Предупреждения', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 1000));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 1000));
 //#UC END# *553DE8070027_552D07EB03CB_impl*
@@ -512,7 +553,7 @@ procedure TdaScheme.FillFamilyCorrections(aTable: TdaTableDescription);
 //#UC END# *553DE8170107_552D07EB03CB_var*
 begin
 //#UC START# *553DE8170107_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Вычитки', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Вычитки', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('Date', 'Дата вычитки', True, da_dtDate));
  aTable.AddField(TdaFieldDescription.Make('Source', 'ID Источника опубликования связанного документа', True, da_dtQWord)); // !!! Допустимы только те источники опубликования, которые укзаны для документа !!!
  aTable.AddField(TdaFieldDescription.Make('Type', 'ID типа вычитки', True, da_dtByte)); // Совсем Хардкодед словарь (D_SrcChk) = 0 - Документ, 1 - Изменения
@@ -526,7 +567,7 @@ procedure TdaScheme.FillFamilyCoSources(aTable: TdaTableDescription);
 //#UC END# *553DE82E0028_552D07EB03CB_var*
 begin
 //#UC START# *553DE82E0028_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Издания', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Издания', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 100));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 100));
  aTable.AddField(TdaFieldDescription.Make('ShName', 'Краткое название', False, da_dtChar, 50));
@@ -540,7 +581,7 @@ procedure TdaScheme.FillFamilyPublishedIn(aTable: TdaTableDescription);
 //#UC END# *553DE83D011A_552D07EB03CB_var*
 begin
 //#UC START# *553DE83D011A_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Источника опубликования', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Источника опубликования', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('Source', 'ID Издания', True, da_dtQWord)); // AK
  aTable.AddField(TdaFieldDescription.Make('StartDate', 'Начало периода', True, da_dtQWord)); // AK // ежемесячный журнал = 1.хх по 31.хх
  aTable.AddField(TdaFieldDescription.Make('EndDate', 'Конец периода', True, da_dtQWord)); // AK // ежедневный = xx.yy по xx.yy
@@ -554,7 +595,7 @@ procedure TdaScheme.FillFamilyPrefixes(aTable: TdaTableDescription);
 //#UC END# *553DE862036A_552D07EB03CB_var*
 begin
 //#UC START# *553DE862036A_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Вида информации', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Вида информации', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
 //#UC END# *553DE862036A_552D07EB03CB_impl*
@@ -565,7 +606,7 @@ procedure TdaScheme.FillFamilyTerritories(aTable: TdaTableDescription);
 //#UC END# *553DE875037C_552D07EB03CB_var*
 begin
 //#UC START# *553DE875037C_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Территории', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Территории', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
 //#UC END# *553DE875037C_552D07EB03CB_impl*
@@ -576,7 +617,7 @@ procedure TdaScheme.FillFamilyNorms(aTable: TdaTableDescription);
 //#UC END# *553DE88902FF_552D07EB03CB_var*
 begin
 //#UC START# *553DE88902FF_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Нормы права', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Нормы права', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
 //#UC END# *553DE88902FF_552D07EB03CB_impl*
@@ -587,7 +628,7 @@ procedure TdaScheme.FillFamilyExtClasses(aTable: TdaTableDescription);
 //#UC END# *553DE89701FF_552D07EB03CB_var*
 begin
 //#UC START# *553DE89701FF_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('FirstID', 'ID класса', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('FirstID', 'ID класса', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('SecondID', 'ID суперкласса', True, da_dtQWord)); // // скорее FirstID подмножество SecondID, но не наоборот
 //#UC END# *553DE89701FF_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyExtClasses
@@ -597,7 +638,7 @@ procedure TdaScheme.FillFamilyAccessGroups(aTable: TdaTableDescription);
 //#UC END# *553DE8C3038F_552D07EB03CB_var*
 begin
 //#UC START# *553DE8C3038F_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Группы доступа', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Группы доступа', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 70));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 70));
  aTable.AddField(TdaFieldDescription.Make('ShName', 'Краткое название', True, da_dtChar, 10));
@@ -609,7 +650,7 @@ procedure TdaScheme.FillFamilyAnnoClasses(aTable: TdaTableDescription);
 //#UC END# *553DE8D60075_552D07EB03CB_var*
 begin
 //#UC START# *553DE8D60075_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Класса аннотаций', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Класса аннотаций', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 200));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 200));
 //#UC END# *553DE8D60075_552D07EB03CB_impl*
@@ -620,7 +661,7 @@ procedure TdaScheme.FillFamilyServiceInfo(aTable: TdaTableDescription);
 //#UC END# *553DE8FE01AD_552D07EB03CB_var*
 begin
 //#UC START# *553DE8FE01AD_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('ID', 'ID Вида справочной информации', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('ID', 'ID Вида справочной информации', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('NameR', 'Название', True, da_dtChar, 100));
  aTable.AddField(TdaFieldDescription.Make('NameE', 'Name', True, da_dtChar, 100));
 //#UC END# *553DE8FE01AD_552D07EB03CB_impl*
@@ -631,8 +672,8 @@ procedure TdaScheme.FillFamilyDocSources(aTable: TdaTableDescription);
 //#UC END# *553F2E94021D_552D07EB03CB_var*
 begin
 //#UC START# *553F2E94021D_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Исходящего органа', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Исходящего органа', True, da_dtQWord, 0, True)); //
 //#UC END# *553F2E94021D_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocSources
 
@@ -641,9 +682,9 @@ procedure TdaScheme.FillFamilyDocTypes(aTable: TdaTableDescription);
 //#UC END# *553F2EE802EF_552D07EB03CB_var*
 begin
 //#UC START# *553F2EE802EF_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); // // Часть ссылки на da_ftSub
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Типа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Типа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
 //#UC END# *553F2EE802EF_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocTypes
 
@@ -652,9 +693,9 @@ procedure TdaScheme.FillFamilyDocClasses(aTable: TdaTableDescription);
 //#UC END# *553F2F0D0100_552D07EB03CB_var*
 begin
 //#UC START# *553F2F0D0100_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); // // Часть ссылки на da_ftSub
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Класса', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Класса', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
 //#UC END# *553F2F0D0100_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocClasses
 
@@ -663,9 +704,9 @@ procedure TdaScheme.FillFamilyDocKeywords(aTable: TdaTableDescription);
 //#UC END# *553F2F34011F_552D07EB03CB_var*
 begin
 //#UC START# *553F2F34011F_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); // // Часть ссылки на da_ftSub
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Ключевого слова', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Ключевого слова', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
 //#UC END# *553F2F34011F_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocKeywords
 
@@ -674,8 +715,8 @@ procedure TdaScheme.FillFamilyDocBelongs(aTable: TdaTableDescription);
 //#UC END# *553F2F5E0169_552D07EB03CB_var*
 begin
 //#UC START# *553F2F5E0169_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Группы', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Группы', True, da_dtQWord, 0, True)); //
 //#UC END# *553F2F5E0169_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocBelongs
 
@@ -684,8 +725,8 @@ procedure TdaScheme.FillFamilyDocDateCodes(aTable: TdaTableDescription);
 //#UC END# *553F2F8300A1_552D07EB03CB_var*
 begin
 //#UC START# *553F2F8300A1_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Номеродаты', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Номеродаты', True, da_dtQWord, 0, True)); //
 //#UC END# *553F2F8300A1_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocDateCodes
 
@@ -694,8 +735,8 @@ procedure TdaScheme.FillFamilyDocWarnings(aTable: TdaTableDescription);
 //#UC END# *553F2FA00207_552D07EB03CB_var*
 begin
 //#UC START# *553F2FA00207_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Предупраждения', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Предупраждения', True, da_dtQWord, 0, True)); //
 //#UC END# *553F2FA00207_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocWarnings
 
@@ -704,8 +745,8 @@ procedure TdaScheme.FillFamilyDocCorrections(aTable: TdaTableDescription);
 //#UC END# *553F2FC40156_552D07EB03CB_var*
 begin
 //#UC START# *553F2FC40156_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Вычитки', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Вычитки', True, da_dtQWord, 0, True)); //
 //#UC END# *553F2FC40156_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocCorrections
 
@@ -714,8 +755,8 @@ procedure TdaScheme.FillFamilyDocPublishedIn(aTable: TdaTableDescription);
 //#UC END# *553F2FE300DC_552D07EB03CB_var*
 begin
 //#UC START# *553F2FE300DC_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Источника опубликования', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Источника опубликования', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('Pages', 'Страницы', True, da_dtChar, 128));
  aTable.AddField(TdaFieldDescription.Make('Coment', 'Комментарий', True, da_dtChar, 255));
  aTable.AddField(TdaFieldDescription.Make('Flags', 'Флаги', True, da_dtByte)); // см pinfClone и пр. в dt_Const
@@ -727,9 +768,9 @@ procedure TdaScheme.FillFamilyDocPrefixes(aTable: TdaTableDescription);
 //#UC END# *553F300C00A1_552D07EB03CB_var*
 begin
 //#UC START# *553F300C00A1_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); // // Часть ссылки на da_ftSub
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Вида информации', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Вида информации', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
 //#UC END# *553F300C00A1_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocPrefixes
 
@@ -738,8 +779,8 @@ procedure TdaScheme.FillFamilyDocTerritories(aTable: TdaTableDescription);
 //#UC END# *553F302E0091_552D07EB03CB_var*
 begin
 //#UC START# *553F302E0091_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Территории', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Территории', True, da_dtQWord, 0, True)); //
 //#UC END# *553F302E0091_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocTerritories
 
@@ -748,8 +789,8 @@ procedure TdaScheme.FillFamilyDocNorms(aTable: TdaTableDescription);
 //#UC END# *553F304E00E0_552D07EB03CB_var*
 begin
 //#UC START# *553F304E00E0_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Нормы права', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Нормы права', True, da_dtQWord, 0, True)); //
 //#UC END# *553F304E00E0_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocNorms
 
@@ -758,8 +799,8 @@ procedure TdaScheme.FillFamilyDocAccessGroups(aTable: TdaTableDescription);
 //#UC END# *553F306E01DA_552D07EB03CB_var*
 begin
 //#UC START# *553F306E01DA_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Группы доступа', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Группы доступа', True, da_dtQWord, 0, True)); //
 //#UC END# *553F306E01DA_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocAccessGroups
 
@@ -768,8 +809,8 @@ procedure TdaScheme.FillFamilyDocAnnoClasses(aTable: TdaTableDescription);
 //#UC END# *553F308901D3_552D07EB03CB_var*
 begin
 //#UC START# *553F308901D3_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Класса аннотации', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Класса аннотации', True, da_dtQWord, 0, True)); //
 //#UC END# *553F308901D3_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocAnnoClasses
 
@@ -778,9 +819,9 @@ procedure TdaScheme.FillFamilyDocServiceInfo(aTable: TdaTableDescription);
 //#UC END# *553F30A901C5_552D07EB03CB_var*
 begin
 //#UC START# *553F30A901C5_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); // // Часть ссылки на da_ftSub
- aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Вида справочной информации', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub
+ aTable.AddField(TdaFieldDescription.Make('Dict_ID', 'ID Вида справочной информации', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Sub_ID', 'ID саба', True, da_dtQWord, 0, True)); // // Часть ссылки на da_ftSub - НО Sub = 0 это весь документ и его НЕТ в da_ftSub!!!
 //#UC END# *553F30A901C5_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDocServiceInfo
 
@@ -789,9 +830,9 @@ procedure TdaScheme.FillFamilyDoc2DocLink(aTable: TdaTableDescription);
 //#UC END# *553F30C7024A_552D07EB03CB_var*
 begin
 //#UC START# *553F30C7024A_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('LinkType', 'ID типа связи', True, da_dtByte)); // // совсем хардкодед словарь (D_Doc2DocLinkEdit) 0-документ изменен, 1-документ утратил силу
- aTable.AddField(TdaFieldDescription.Make('LinkDocID', 'ID документа связи', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('Doc_ID', 'ID Документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('LinkType', 'ID типа связи', True, da_dtByte, 0, True)); // // совсем хардкодед словарь (D_Doc2DocLinkEdit) 0-документ изменен, 1-документ утратил силу
+ aTable.AddField(TdaFieldDescription.Make('LinkDocID', 'ID документа связи', True, da_dtQWord, 0, True)); //
 //#UC END# *553F30C7024A_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyDoc2DocLink
 
@@ -800,9 +841,9 @@ procedure TdaScheme.FillFamilyPriority(aTable: TdaTableDescription);
 //#UC END# *553F30E70209_552D07EB03CB_var*
 begin
 //#UC START# *553F30E70209_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('Sour_ID', 'ID Исходящего органа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Type_ID', 'ID Типа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Priority', 'Приоритет', True, da_dtWord));
+ aTable.AddField(TdaFieldDescription.Make('Sour_ID', 'ID Исходящего органа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Type_ID', 'ID Типа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Priority', 'Приоритет', True, da_dtWord, 0, True));
 //#UC END# *553F30E70209_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyPriority
 
@@ -811,7 +852,7 @@ procedure TdaScheme.FillFamilyRenum(aTable: TdaTableDescription);
 //#UC END# *553F310900AC_552D07EB03CB_var*
 begin
 //#UC START# *553F310900AC_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('RealID', 'ID документа', True, da_dtQWord)); //
+ aTable.AddField(TdaFieldDescription.Make('RealID', 'ID документа', True, da_dtQWord, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('ImportID', 'Внешнее ID документа', True, da_dtQWord)); // AK
 //#UC END# *553F310900AC_552D07EB03CB_impl*
 end;//TdaScheme.FillFamilyRenum
@@ -821,8 +862,8 @@ procedure TdaScheme.FillFamilyDocStages(aTable: TdaTableDescription);
 //#UC END# *553F312A001C_552D07EB03CB_var*
 begin
 //#UC START# *553F312A001C_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Type', 'ID типа этапа', True, da_dtByte)); // // см. TStageType в dt_Types
+ aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Type', 'ID типа этапа', True, da_dtByte, 0, True)); // // см. TStageType в dt_Types
  aTable.AddField(TdaFieldDescription.Make('B_Date', 'Дата начала', True, da_dtDate));
  aTable.AddField(TdaFieldDescription.Make('E_Date', 'Дата окончания', True, da_dtDate));
  aTable.AddField(TdaFieldDescription.Make('UserID', 'ID Пользователя', True, da_dtQWord));
@@ -834,10 +875,10 @@ procedure TdaScheme.FillFamilyDocLog(aTable: TdaTableDescription);
 //#UC END# *553F315000CD_552D07EB03CB_var*
 begin
 //#UC START# *553F315000CD_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('Action', 'ID действия', True, da_dtByte)); // Хардкодед словарь см. TLogActionType в dt_Types
- aTable.AddField(TdaFieldDescription.Make('Date', 'Дата', True, da_dtDate)); //
- aTable.AddField(TdaFieldDescription.Make('Time', 'Время', True, da_dtTime)); //
+ aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Action', 'ID действия', True, da_dtByte, 0, True)); // Хардкодед словарь см. TLogActionType в dt_Types
+ aTable.AddField(TdaFieldDescription.Make('Date', 'Дата', True, da_dtDate, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('Time', 'Время', True, da_dtTime, 0, True)); //
  aTable.AddField(TdaFieldDescription.Make('ActionFlag', '', True, da_dtByte)); // Хардкодед словарь см. TLogActionFlags в dt_Types
  aTable.AddField(TdaFieldDescription.Make('Station', 'Станция HT', True, da_dtChar, 8));
  aTable.AddField(TdaFieldDescription.Make('UserID', 'ID Пользователя', True, da_dtQWord)); 
@@ -849,8 +890,8 @@ procedure TdaScheme.FillFamilyDocActivity(aTable: TdaTableDescription);
 //#UC END# *553F316B01AC_552D07EB03CB_var*
 begin
 //#UC START# *553F316B01AC_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('RecID', 'Порядковый номер', True, da_dtByte)); // // Уникален в рамках DocID
+ aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('RecID', 'Порядковый номер', True, da_dtByte, 0, True)); // // Уникален в рамках DocID
  aTable.AddField(TdaFieldDescription.Make('Typ', 'ID типа', True, da_dtByte)); // Совсем хардкодед словарь 1-Период неуверенности, 0-иначе
  aTable.AddField(TdaFieldDescription.Make('Start', 'Дата начала (с)', True, da_dtDate));
  aTable.AddField(TdaFieldDescription.Make('Finish', 'Дата окончания (по)', True, da_dtDate));
@@ -863,8 +904,8 @@ procedure TdaScheme.FillFamilyDocAlarm(aTable: TdaTableDescription);
 //#UC END# *553F318A0380_552D07EB03CB_var*
 begin
 //#UC START# *553F318A0380_552D07EB03CB_impl*
- aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord)); //
- aTable.AddField(TdaFieldDescription.Make('RecID', 'Порядковый номер', True, da_dtByte)); // // Уникален в рамках DocID
+ aTable.AddField(TdaFieldDescription.Make('DocID', 'ID документа', True, da_dtQWord, 0, True)); //
+ aTable.AddField(TdaFieldDescription.Make('RecID', 'Порядковый номер', True, da_dtByte, 0, True)); // // Уникален в рамках DocID
  aTable.AddField(TdaFieldDescription.Make('Start', 'Дата', True, da_dtDate));
  aTable.AddField(TdaFieldDescription.Make('Comment', 'Комментарий', True, da_dtChar, 1000));
 //#UC END# *553F318A0380_552D07EB03CB_impl*
@@ -876,7 +917,7 @@ function TdaScheme.CheckScheme(const aSchemeName: AnsiString): AnsiString;
 begin
 //#UC START# *56654FC70181_552D07EB03CB_impl*
  if Trim(aSchemeName) = '' then
-  Result := 'archi'
+  Result := cDefaultSchemeName
  else
   Result := Trim(aSchemeName);
 //#UC END# *56654FC70181_552D07EB03CB_impl*
@@ -925,8 +966,12 @@ const
  cMap: array [0..cStoredProcCount - 1] of String = (
   'get_free_num',
   'get_admin_free_num',
-  'delete_admin_free_interval',
-  'delete_free_interval'
+  'delete_user_from_all_groups',
+  'register_admin_alloc_num',
+  'register_alloc_num',
+  'delete_all_users_from_group',
+  'change_password',
+  'update_user'
  );
 //#UC END# *56A60A740072_552D07EB03CB_var*
 begin

@@ -32,6 +32,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *53D1DC9C03E7impl_uses*
+ //#UC END# *53D1DC9C03E7impl_uses*
 ;
 
 class function TvcmEntityFormsIterable.Make: IvcmEntityFormsIterable;

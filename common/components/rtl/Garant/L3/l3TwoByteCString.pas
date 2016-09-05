@@ -34,6 +34,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwIl3CStringPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F5CBBE60070impl_uses*
+ //#UC END# *4F5CBBE60070impl_uses*
 ;
 
 constructor Tl3TwoByteCString.Create(aChars: Word);

@@ -177,6 +177,8 @@ uses
  , nevNavigation
  , k2Tags
  , evOp
+ //#UC START# *487B5D8D00EDimpl_uses*
+ //#UC END# *487B5D8D00EDimpl_uses*
 ;
 
 function TevBlockCursor.pm_GetStartMark: InevPoint;

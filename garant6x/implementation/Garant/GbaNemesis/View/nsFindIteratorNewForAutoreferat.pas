@@ -116,6 +116,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *4CE6B3E90338impl_uses*
+ //#UC END# *4CE6B3E90338impl_uses*
 ;
 
 function TnsFindIteratorDef_C(const aDoc: InevObjectPrim;

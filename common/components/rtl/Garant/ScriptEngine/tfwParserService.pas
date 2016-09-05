@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , l3ProtoObject
+ , l3StringList
 ;
 
  (*
@@ -18,6 +19,8 @@ uses
   {* Контракт сервиса TtfwParserService }
   function MakeCompiledCodeName(const aFileName: AnsiString;
    const anExt: AnsiString): AnsiString;
+  function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+  procedure AddIncludePath(const aPath: AnsiString);
  end;//MtfwParserService
  *)
 
@@ -26,19 +29,27 @@ type
   {* Интерфейс сервиса TtfwParserService }
   function MakeCompiledCodeName(const aFileName: AnsiString;
    const anExt: AnsiString): AnsiString;
+  function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+  procedure AddIncludePath(const aPath: AnsiString);
  end;//ItfwParserService
 
  TtfwParserService = {final} class(Tl3ProtoObject)
   private
    f_CoFileDir: AnsiString;
+   f_IncludePaths: Tl3StringList;
    f_Alien: ItfwParserService;
     {* Внешняя реализация сервиса ItfwParserService }
   protected
    procedure pm_SetAlien(const aValue: ItfwParserService);
+   procedure LoadIncludePaths;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
   public
    function MakeCompiledCodeName(const aFileName: AnsiString;
     const anExt: AnsiString): AnsiString;
+   function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+   procedure AddIncludePath(const aPath: AnsiString);
    class function Instance: TtfwParserService;
     {* Метод получения экземпляра синглетона TtfwParserService }
    class function Exists: Boolean;
@@ -58,6 +69,9 @@ uses
  , l3FileUtils
  , StrUtils
  , l3Base
+ //#UC START# *57726B250063impl_uses*
+ , Classes
+ //#UC END# *57726B250063impl_uses*
 ;
 
 var g_TtfwParserService: TtfwParserService = nil;
@@ -74,6 +88,61 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//TtfwParserService.pm_SetAlien
+
+procedure TtfwParserService.LoadIncludePaths;
+//#UC START# *57CD20D1028F_57726B250063_var*
+var
+ l_IniName : String;
+ l_IncludeName : String;
+ l_Strings : TStrings;
+ l_Index : Integer;
+//#UC END# *57CD20D1028F_57726B250063_var*
+begin
+//#UC START# *57CD20D1028F_57726B250063_impl*
+ if (f_IncludePaths = nil) then
+ begin
+  f_IncludePaths := Tl3StringList.Create;
+  l_IncludeName := '.';
+  l_IniName := ChangeFileExt(ParamStr(0), '.ini');
+  if FileExists(l_IniName) then
+  begin
+   with TIniFile.Create(l_IniName) do
+    try
+     l_IncludeName := ReadString('SCRIPT', 'IncludeFile', '.');
+    finally
+     Free;
+    end;
+  end;//FileExists(l_IniName)
+  if (l_IncludeName = '.') then
+  begin
+   l_IncludeName := ConcatDirName(GetCurrentDir, ExtractFileName(ChangeFileExt(ParamStr(0), '.include.ini')));
+  end//l_IncludeName = '.'
+  else
+  begin
+   if (ExtractFilePath(l_IncludeName) = '') then
+   begin
+    l_IncludeName := ConcatDirName(ExtractFilePath(ParamStr(0)), l_IncludeName);
+   end;//ExtractFilePath(l_IncludeName) = ''
+  end;//l_IncludeName = '.'
+  if FileExists(l_IncludeName) then
+  begin
+   l_Strings := TStringList.Create;
+   try
+    with TIniFile.Create(l_IncludeName) do
+     try
+      ReadSectionValues('INCLUDE', l_Strings);
+     finally
+      Free;
+     end;
+     for l_Index := 0 to Pred(l_Strings.Count) do
+      f_IncludePaths.Add(l_Strings.Values[l_Strings.Names[l_Index]]);
+   finally
+    FreeAndNil(l_Strings);
+   end;//try..finally
+  end;//FileExists(l_IncludeName)
+ end;//f_IncludePaths = nil
+//#UC END# *57CD20D1028F_57726B250063_impl*
+end;//TtfwParserService.LoadIncludePaths
 
 function TtfwParserService.MakeCompiledCodeName(const aFileName: AnsiString;
  const anExt: AnsiString): AnsiString;
@@ -125,6 +194,64 @@ begin
 //#UC END# *6CBC23B5834F_57726B250063_impl*
 end;//TtfwParserService.MakeCompiledCodeName
 
+function TtfwParserService.ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+//#UC START# *F6694EB8D038_57726B250063_var*
+
+ procedure DoResolve;
+ var
+  l_Index : Integer;
+  l_FileName : String;
+  l_ResultFileName : String;
+ begin//DoResolve
+  Result := aFile;
+  if not AnsiStartsText('axiom:', Result) then
+  begin
+   if not FileExists(Result) then
+   begin
+    LoadIncludePaths;
+    if (f_IncludePaths <> nil) then
+    begin
+     l_FileName := ExtractFileName(Result);
+     for l_Index := 0 to Pred(f_IncludePaths.Count) do
+     begin
+      l_ResultFileName := ConcatDirName(f_IncludePaths[l_Index].AsString, l_FileName);
+      if FileExists(l_ResultFileName) then
+      begin
+       Result := l_ResultFileName;
+       Exit;
+      end;//FileExists(l_ResultFileName)
+     end;//for l_Index
+    end;//f_IncludePaths <> nil
+   end;//not FileExists(Result)
+  end;//not AnsiStartsText('axiom:', Result)
+ end;//DoResolve
+
+//#UC END# *F6694EB8D038_57726B250063_var*
+begin
+//#UC START# *F6694EB8D038_57726B250063_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.ResolveIncludedFilePath(aFile)
+ else
+  DoResolve;
+//#UC END# *F6694EB8D038_57726B250063_impl*
+end;//TtfwParserService.ResolveIncludedFilePath
+
+procedure TtfwParserService.AddIncludePath(const aPath: AnsiString);
+//#UC START# *F5AAF249F97E_57726B250063_var*
+//#UC END# *F5AAF249F97E_57726B250063_var*
+begin
+//#UC START# *F5AAF249F97E_57726B250063_impl*
+ if (f_Alien <> nil) then
+  f_Alien.AddIncludePath(aPath)
+ else
+ begin
+  LoadIncludePaths;
+  Assert(f_IncludePaths <> nil);
+  f_IncludePaths.Add(aPath);
+ end;//f_Alien <> nil
+//#UC END# *F5AAF249F97E_57726B250063_impl*
+end;//TtfwParserService.AddIncludePath
+
 class function TtfwParserService.Instance: TtfwParserService;
  {* Метод получения экземпляра синглетона TtfwParserService }
 begin
@@ -141,6 +268,17 @@ class function TtfwParserService.Exists: Boolean;
 begin
  Result := g_TtfwParserService <> nil;
 end;//TtfwParserService.Exists
+
+procedure TtfwParserService.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_57726B250063_var*
+//#UC END# *479731C50290_57726B250063_var*
+begin
+//#UC START# *479731C50290_57726B250063_impl*
+ FreeAndNil(f_IncludePaths);
+ inherited;
+//#UC END# *479731C50290_57726B250063_impl*
+end;//TtfwParserService.Cleanup
 
 procedure TtfwParserService.ClearFields;
 begin

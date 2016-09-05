@@ -992,8 +992,10 @@ begin
 end;
 
 procedure TalcuAutoExporter._DoOnError(const aDescription: AnsiString;  aCategory: Integer = 0);
+const
+ cDocPartStr: array [TddExportDocPart] of AnsiString = ('текст', 'справка', 'аннотация');
 begin
- f_ErrorList.Add(aDescription);
+ f_ErrorList.Add(Format('%s (#%d - %s)', [aDescription, f_Pipe.CurrentTopic, cDocPartStr[f_Pipe.CurrentDocPart]]));
 end;
 
 end.

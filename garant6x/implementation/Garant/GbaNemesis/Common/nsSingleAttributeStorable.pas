@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , l3Base
  , l3TreeInterfaces
+ //#UC START# *4682704E0347impl_uses*
+ //#UC END# *4682704E0347impl_uses*
 ;
 
 procedure TnsSingleAttributeStorable.Cleanup;

@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *543F867602DAimpl_uses*
+ //#UC END# *543F867602DAimpl_uses*
 ;
 
 function Tm3FileRegion_C(aPosition: Int64;

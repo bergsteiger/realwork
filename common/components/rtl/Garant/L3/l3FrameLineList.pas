@@ -43,6 +43,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *48CA61B900B2impl_uses*
+ //#UC END# *48CA61B900B2impl_uses*
 ;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;

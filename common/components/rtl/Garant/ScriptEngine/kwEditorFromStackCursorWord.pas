@@ -48,6 +48,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *50B88DF40154impl_uses*
+ //#UC END# *50B88DF40154impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas}

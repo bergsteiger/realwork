@@ -49,6 +49,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *5265029302FCimpl_uses*
+ //#UC END# *5265029302FCimpl_uses*
 ;
 
 function TkwPopEditorInsertStream.GetFormat(const aCtx: TtfwContext): Integer;

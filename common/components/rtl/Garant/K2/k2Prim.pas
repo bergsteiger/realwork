@@ -206,6 +206,8 @@ uses
  , k2Tags
  , k2Empty_Const
  , k2BaseHack
+ //#UC START# *4A4DE48C0344impl_uses*
+ //#UC END# *4A4DE48C0344impl_uses*
 ;
 
 type

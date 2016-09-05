@@ -26,6 +26,7 @@ uses
   evdTaskTypes,
   evdDTTypes,
   evdNcsTypes,
+  l3MarshalledTypes,
   l3Variant {a},
   k2Base {a},
   l3Interfaces {a},
@@ -1491,37 +1492,37 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//csGetFilePartReplyTag
 
- csDIsconnectTagClass = class(Tk2TypedSmallLeafTag)
-  {* Класс реализации тега "csDIsconnect" }
+ csDisconnectTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csDisconnect" }
  protected
  // realized methods
    function GetTagType: Tl3Type; override;
      {* Тип параграфа }
- end;//csDIsconnectTagClass
+ end;//csDisconnectTagClass
 
- csDIsconnectTag = class(Tk2AutoType)
+ csDisconnectTag = class(Tk2AutoType)
  protected
    function GetAsPCharLen: Tl3PCharLenPrim; override;
    function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
  public
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
- end;//csDIsconnectTag
+ end;//csDisconnectTag
 
- csDIsconnectReplyTagClass = class(Tk2TypedSmallLeafTag)
-  {* Класс реализации тега "csDIsconnectReply" }
+ csDisconnectReplyTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csDisconnectReply" }
  protected
  // realized methods
    function GetTagType: Tl3Type; override;
      {* Тип параграфа }
- end;//csDIsconnectReplyTagClass
+ end;//csDisconnectReplyTagClass
 
- csDIsconnectReplyTag = class(Tk2AutoType)
+ csDisconnectReplyTag = class(Tk2AutoType)
  protected
    function GetAsPCharLen: Tl3PCharLenPrim; override;
    function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
  public
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
- end;//csDIsconnectReplyTag
+ end;//csDisconnectReplyTag
 
  csSendTaskTagClass = class(Tk2TypedSmallLeafTag)
   {* Класс реализации тега "csSendTask" }
@@ -1754,6 +1755,98 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//mdpSyncImportTag
 
+ FoundSelectorTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//FoundSelectorTag
+
+ csDownloadDocStreamReplyTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csDownloadDocStreamReply" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csDownloadDocStreamReplyTagClass
+
+ csDownloadDocStreamReplyTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csDownloadDocStreamReplyTag
+
+ csDownloadDocStreamTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csDownloadDocStream" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csDownloadDocStreamTagClass
+
+ csDownloadDocStreamTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csDownloadDocStreamTag
+
+ csDownloadDocStream_FoundSelector_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csDownloadDocStream_FoundSelector_Tag
+
+ csDownloadDocStream_DocPart_TagClass = class(Tk2TypedAtomicTag)
+  {* Класс реализации тега "csDownloadDocStream_DocPart" }
+ protected
+ // realized methods
+  function GetTagType: Tl3Type; override;
+   {* Тип параграфа }
+ end;//csDownloadDocStream_DocPart_TagClass
+
+ csDownloadDocStream_DocPart_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csDownloadDocStream_DocPart_Tag
+
+ csDownloadDocStream_DocPartSel_TagClass = class(Tk2TypedAtomicTag)
+  {* Класс реализации тега "csDownloadDocStream_DocPartSel" }
+ protected
+ // realized methods
+  function GetTagType: Tl3Type; override;
+   {* Тип параграфа }
+ end;//csDownloadDocStream_DocPartSel_TagClass
+
+ csDownloadDocStream_DocPartSel_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csDownloadDocStream_DocPartSel_Tag
+
+ DownloadDocRequestTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "DownloadDocRequest" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//DownloadDocRequestTagClass
+
+ DownloadDocRequestTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//DownloadDocRequestTag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -1868,8 +1961,8 @@ type
    t_csDeliveryResult_ResultKind : csDeliveryResult_ResultKind_Tag;
    t_csGetFilePart : csGetFilePartTag;
    t_csGetFilePartReply : csGetFilePartReplyTag;
-   t_csDIsconnect : csDIsconnectTag;
-   t_csDIsconnectReply : csDIsconnectReplyTag;
+   t_csDisconnect : csDisconnectTag;
+   t_csDisconnectReply : csDisconnectReplyTag;
    t_csSendTask : csSendTaskTag;
    t_csSendTaskReply : csSendTaskReplyTag;
    t_csPushFilePart : csPushFilePartTag;
@@ -1885,6 +1978,13 @@ type
    t_mdpSyncDicts : mdpSyncDictsTag;
    t_mdpSyncStages : mdpSyncStagesTag;
    t_mdpSyncImport : mdpSyncImportTag;
+   t_FoundSelector : FoundSelectorTag;
+   t_csDownloadDocStreamReply : csDownloadDocStreamReplyTag;
+   t_csDownloadDocStream : csDownloadDocStreamTag;
+   t_csDownloadDocStream_FoundSelector : csDownloadDocStream_FoundSelector_Tag;
+   t_csDownloadDocStream_DocPart : csDownloadDocStream_DocPart_Tag;
+   t_csDownloadDocStream_DocPartSel : csDownloadDocStream_DocPartSel_Tag;
+   t_DownloadDocRequest : DownloadDocRequestTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -1962,8 +2062,8 @@ uses
   csDeliveryResult_Const,
   csGetFilePart_Const,
   csGetFilePartReply_Const,
-  csDIsconnect_Const,
-  csDIsconnectReply_Const,
+  csDisconnect_Const,
+  csDisconnectReply_Const,
   csSendTask_Const,
   csSendTaskReply_Const,
   csPushFilePart_Const,
@@ -1978,6 +2078,10 @@ uses
   mdpSyncDicts_Const,
   mdpSyncStages_Const,
   mdpSyncImport_Const,
+  FoundSelector_Const,
+  csDownloadDocStreamReply_Const,
+  csDownloadDocStream_Const,
+  DownloadDocRequest_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -4136,46 +4240,46 @@ begin
  Result := csGetFilePartReplyTagClass.Make(Self);
 end;
 
-function csDIsconnectTagClass.GetTagType: Tl3Type;
+function csDisconnectTagClass.GetTagType: Tl3Type;
 begin
- Result := k2_typcsDIsconnect;
-end;//csDIsconnectTagClass.TagType
+ Result := k2_typcsDisconnect;
+end;//csDisconnectTagClass.TagType
 
-function csDIsconnectTag.GetAsPCharLen: Tl3PCharLenPrim;
+function csDisconnectTag.GetAsPCharLen: Tl3PCharLenPrim;
 begin
- Result := l3PCharLen(AnsiString('csDIsconnect'));
+ Result := l3PCharLen(AnsiString('csDisconnect'));
 end;
 
-function csDIsconnectTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+function csDisconnectTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
 begin
  Result := (Self = anAtomType) OR 
            TevdTasksSchema(TypeTable).t_csMessageWithReply.IsKindOf(anAtomType);
 end;
 
-function csDIsconnectTag.DoMakeTag(aRef: Integer): Il3TagRef;
+function csDisconnectTag.DoMakeTag(aRef: Integer): Il3TagRef;
 begin
- Result := csDIsconnectTagClass.Make(Self);
+ Result := csDisconnectTagClass.Make(Self);
 end;
 
-function csDIsconnectReplyTagClass.GetTagType: Tl3Type;
+function csDisconnectReplyTagClass.GetTagType: Tl3Type;
 begin
- Result := k2_typcsDIsconnectReply;
-end;//csDIsconnectReplyTagClass.TagType
+ Result := k2_typcsDisconnectReply;
+end;//csDisconnectReplyTagClass.TagType
 
-function csDIsconnectReplyTag.GetAsPCharLen: Tl3PCharLenPrim;
+function csDisconnectReplyTag.GetAsPCharLen: Tl3PCharLenPrim;
 begin
- Result := l3PCharLen(AnsiString('csDIsconnectReply'));
+ Result := l3PCharLen(AnsiString('csDisconnectReply'));
 end;
 
-function csDIsconnectReplyTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+function csDisconnectReplyTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
 begin
  Result := (Self = anAtomType) OR 
            TevdTasksSchema(TypeTable).t_csReply.IsKindOf(anAtomType);
 end;
 
-function csDIsconnectReplyTag.DoMakeTag(aRef: Integer): Il3TagRef;
+function csDisconnectReplyTag.DoMakeTag(aRef: Integer): Il3TagRef;
 begin
- Result := csDIsconnectReplyTagClass.Make(Self);
+ Result := csDisconnectReplyTagClass.Make(Self);
 end;
 
 function csSendTaskTagClass.GetTagType: Tl3Type;
@@ -4485,6 +4589,134 @@ end;
 function mdpSyncImportTag.DoMakeTag(aRef: Integer): Il3TagRef;
 begin
  Result := mdpSyncImportTagClass.Make(Self);
+end;
+
+function FoundSelectorTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('FoundSelector'));
+end;
+
+function FoundSelectorTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := inherited DoMakeTag(aRef);
+end;
+
+function csDownloadDocStreamReplyTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsDownloadDocStreamReply;
+end;//csDownloadDocStreamReplyTagClass.TagType
+
+function csDownloadDocStreamReplyTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csDownloadDocStreamReply'));
+end;
+
+function csDownloadDocStreamReplyTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csReply.IsKindOf(anAtomType);
+end;
+
+function csDownloadDocStreamReplyTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csDownloadDocStreamReplyTagClass.Make(Self);
+end;
+
+function csDownloadDocStream_FoundSelector_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csDownloadDocStream_FoundSelector'));
+end;
+
+function csDownloadDocStream_FoundSelector_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csDownloadDocStream_FoundSelector_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
+end;
+
+function csDownloadDocStream_DocPart_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csDownloadDocStream_DocPart'));
+end;
+
+function csDownloadDocStream_DocPart_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_Enum.IsKindOf(anAtomType);
+end;
+
+function csDownloadDocStream_DocPart_TagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsDownloadDocStream_DocPart;
+end;//DocPartClass.TagType
+
+function csDownloadDocStream_DocPart_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Self.MakeFromInt(aRef, csDownloadDocStream_DocPart_TagClass);
+end;
+
+function csDownloadDocStream_DocPartSel_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csDownloadDocStream_DocPartSel'));
+end;
+
+function csDownloadDocStream_DocPartSel_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_Enum.IsKindOf(anAtomType);
+end;
+
+function csDownloadDocStream_DocPartSel_TagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsDownloadDocStream_DocPartSel;
+end;//DocPartSelClass.TagType
+
+function csDownloadDocStream_DocPartSel_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Self.MakeFromInt(aRef, csDownloadDocStream_DocPartSel_TagClass);
+end;
+
+function csDownloadDocStreamTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsDownloadDocStream;
+end;//csDownloadDocStreamTagClass.TagType
+
+function csDownloadDocStreamTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csDownloadDocStream'));
+end;
+
+function csDownloadDocStreamTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csMessageWithReply.IsKindOf(anAtomType);
+end;
+
+function csDownloadDocStreamTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csDownloadDocStreamTagClass.Make(Self);
+end;
+
+function DownloadDocRequestTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typDownloadDocRequest;
+end;//DownloadDocRequestTagClass.TagType
+
+function DownloadDocRequestTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('DownloadDocRequest'));
+end;
+
+function DownloadDocRequestTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
+end;
+
+function DownloadDocRequestTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := DownloadDocRequestTagClass.Make(Self);
 end;
 
 constructor TevdTasksSchema.Create;
@@ -6136,18 +6368,18 @@ begin
   begin
   end;//IsSuccess
  end;//csGetFilePartReply
- // csDIsconnect
- t_csDIsconnect := DefineAutoType([t_csMessageWithReply], '', csDIsconnectTag) As csDIsconnectTag;
- with t_csDIsconnect do
+ // csDisconnect
+ t_csDisconnect := DefineAutoType([t_csMessageWithReply], '', csDisconnectTag) As csDisconnectTag;
+ with t_csDisconnect do
  begin
-  AtomClass := csDIsconnectTagClass;
- end;//csDIsconnect
- // csDIsconnectReply
- t_csDIsconnectReply := DefineAutoType([t_csReply], '', csDIsconnectReplyTag) As csDIsconnectReplyTag;
- with t_csDIsconnectReply do
+  AtomClass := csDisconnectTagClass;
+ end;//csDisconnect
+ // csDisconnectReply
+ t_csDisconnectReply := DefineAutoType([t_csReply], '', csDisconnectReplyTag) As csDisconnectReplyTag;
+ with t_csDisconnectReply do
  begin
-  AtomClass := csDIsconnectReplyTagClass;
- end;//csDIsconnectReply
+  AtomClass := csDisconnectReplyTagClass;
+ end;//csDisconnectReply
  // csSendTask
  t_csSendTask := DefineAutoType([t_csMessageWithReply], '', csSendTaskTag) As csSendTaskTag;
  with t_csSendTask do
@@ -6346,6 +6578,102 @@ begin
    DefaultValue := Ord(cs_ttMdpSyncImport);
   end;//TaskType
  end;//mdpSyncImport
+ // FoundSelector
+ t_FoundSelector := DefineAutoType([], '', FoundSelectorTag) As FoundSelectorTag;
+ with t_FoundSelector do
+ begin
+  with DefineProperty(k2_attrPara, t_Handle, '') do
+  begin
+  end;//Para
+  with DefineProperty(k2_attrWord, t_Handle, '') do
+  begin
+  end;//Word
+  with DefineProperty(k2_attrDocument, t_Handle, '') do
+  begin
+  end;//Document
+ end;//FoundSelector
+ // csDownloadDocStreamReply
+ t_csDownloadDocStreamReply := DefineAutoType([t_csReply], '', csDownloadDocStreamReplyTag) As csDownloadDocStreamReplyTag;
+ with t_csDownloadDocStreamReply do
+ begin
+  AtomClass := csDownloadDocStreamReplyTagClass;
+  with DefineProperty(k2_attrIsSuccess, t_Bool, '') do
+  begin
+  end;//IsSuccess
+  with DefineProperty(k2_attrData, t_RawData, '') do
+  begin
+  end;//Data
+  with DefineProperty(k2_attrErrorMessage, t_String, '') do
+  begin
+  end;//ErrorMessage
+ end;//csDownloadDocStreamReply
+ // csDownloadDocStream
+ t_csDownloadDocStream := DefineAutoType([t_csMessageWithReply], '', csDownloadDocStreamTag) As csDownloadDocStreamTag;
+ with t_csDownloadDocStream do
+ begin
+  AtomClass := csDownloadDocStreamTagClass;
+  with DefineProperty(k2_attrDocID, t_Long, '') do
+  begin
+  end;//DocID
+  with DefineProperty(k2_attrLevel, t_Long, '') do
+  begin
+  end;//Level
+  with DefineProperty(k2_attrWithAttr, t_Bool, '') do
+  begin
+  end;//WithAttr
+  t_csDownloadDocStream_FoundSelector := DefineAutoType([t_OList], 'csDownloadDocStream FoundSelector', csDownloadDocStream_FoundSelector_Tag) As csDownloadDocStream_FoundSelector_Tag;
+  try
+   t_csDownloadDocStream_FoundSelector.DefineChildren(t_FoundSelector);
+   DefineProperty(k2_attrFoundSelector, t_csDownloadDocStream_FoundSelector, '');
+   t_csDownloadDocStream_FoundSelector.Recalc;
+  except
+   FreeAndNil(t_csDownloadDocStream_FoundSelector);
+  end;//try..except
+  with t_csDownloadDocStream_FoundSelector.ArrayProp[k2_tiChildren] do
+  begin
+  end;//FoundSelector
+  t_csDownloadDocStream_DocPart := DefineAutoType([t_Enum], 'csDownloadDocStream DocPart', csDownloadDocStream_DocPart_Tag) As csDownloadDocStream_DocPart_Tag;
+  try
+   t_csDownloadDocStream_DocPart.AtomType := TypeInfo(Tm3DocPartSelector);
+   DefineProperty(k2_attrDocPart, t_csDownloadDocStream_DocPart, '');
+   t_csDownloadDocStream_DocPart.Recalc;
+  except
+   FreeAndNil(t_csDownloadDocStream_DocPart);
+  end;//try..except
+  with Tk2CustomProperty(Prop[k2_attrDocPart]) do
+  begin
+  end;//DocPart
+  t_csDownloadDocStream_DocPartSel := DefineAutoType([t_Enum], 'csDownloadDocStream DocPartSel', csDownloadDocStream_DocPartSel_Tag) As csDownloadDocStream_DocPartSel_Tag;
+  try
+   t_csDownloadDocStream_DocPartSel.AtomType := TypeInfo(TDocPartSelector);
+   DefineProperty(k2_attrDocPartSel, t_csDownloadDocStream_DocPartSel, '');
+   t_csDownloadDocStream_DocPartSel.Recalc;
+  except
+   FreeAndNil(t_csDownloadDocStream_DocPartSel);
+  end;//try..except
+  with Tk2CustomProperty(Prop[k2_attrDocPartSel]) do
+  begin
+  end;//DocPartSel
+  with DefineProperty(k2_attrDocFamily, t_Long, '') do
+  begin
+  end;//DocFamily
+  with DefineProperty(k2_attrIsObjTopic, t_Bool, '') do
+  begin
+  end;//IsObjTopic
+  with DefineProperty(k2_attrDocumentType, t_String, '') do
+  begin
+  end;//DocumentType
+ end;//csDownloadDocStream
+ // DownloadDocRequest
+ t_DownloadDocRequest := DefineAutoType([t_ProcessTask], '', DownloadDocRequestTag) As DownloadDocRequestTag;
+ with t_DownloadDocRequest do
+ begin
+  AtomClass := DownloadDocRequestTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttDownloadDoc);
+  end;//TaskType
+ end;//DownloadDocRequest
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -6413,8 +6741,8 @@ begin
  t_csDeliveryResult.Recalc;
  t_csGetFilePart.Recalc;
  t_csGetFilePartReply.Recalc;
- t_csDIsconnect.Recalc;
- t_csDIsconnectReply.Recalc;
+ t_csDisconnect.Recalc;
+ t_csDisconnectReply.Recalc;
  t_csSendTask.Recalc;
  t_csSendTaskReply.Recalc;
  t_csPushFilePart.Recalc;
@@ -6429,6 +6757,10 @@ begin
  t_mdpSyncDicts.Recalc;
  t_mdpSyncStages.Recalc;
  t_mdpSyncImport.Recalc;
+ t_FoundSelector.Recalc;
+ t_csDownloadDocStreamReply.Recalc;
+ t_csDownloadDocStream.Recalc;
+ t_DownloadDocRequest.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -6547,8 +6879,8 @@ begin
  t_csDeliveryResult_ResultKind.InterfaceFactory := nil;
  t_csGetFilePart.InterfaceFactory := nil;
  t_csGetFilePartReply.InterfaceFactory := nil;
- t_csDIsconnect.InterfaceFactory := nil;
- t_csDIsconnectReply.InterfaceFactory := nil;
+ t_csDisconnect.InterfaceFactory := nil;
+ t_csDisconnectReply.InterfaceFactory := nil;
  t_csSendTask.InterfaceFactory := nil;
  t_csSendTaskReply.InterfaceFactory := nil;
  t_csPushFilePart.InterfaceFactory := nil;
@@ -6564,6 +6896,13 @@ begin
  t_mdpSyncDicts.InterfaceFactory := nil;
  t_mdpSyncStages.InterfaceFactory := nil;
  t_mdpSyncImport.InterfaceFactory := nil;
+ t_FoundSelector.InterfaceFactory := nil;
+ t_csDownloadDocStreamReply.InterfaceFactory := nil;
+ t_csDownloadDocStream.InterfaceFactory := nil;
+ t_csDownloadDocStream_FoundSelector.InterfaceFactory := nil;
+ t_csDownloadDocStream_DocPart.InterfaceFactory := nil;
+ t_csDownloadDocStream_DocPartSel.InterfaceFactory := nil;
+ t_DownloadDocRequest.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -6675,8 +7014,8 @@ begin
  FreeAndNil(t_csDeliveryResult_ResultKind);
  FreeAndNil(t_csGetFilePart);
  FreeAndNil(t_csGetFilePartReply);
- FreeAndNil(t_csDIsconnect);
- FreeAndNil(t_csDIsconnectReply);
+ FreeAndNil(t_csDisconnect);
+ FreeAndNil(t_csDisconnectReply);
  FreeAndNil(t_csSendTask);
  FreeAndNil(t_csSendTaskReply);
  FreeAndNil(t_csPushFilePart);
@@ -6692,6 +7031,13 @@ begin
  FreeAndNil(t_mdpSyncDicts);
  FreeAndNil(t_mdpSyncStages);
  FreeAndNil(t_mdpSyncImport);
+ FreeAndNil(t_FoundSelector);
+ FreeAndNil(t_csDownloadDocStreamReply);
+ FreeAndNil(t_csDownloadDocStream);
+ FreeAndNil(t_csDownloadDocStream_FoundSelector);
+ FreeAndNil(t_csDownloadDocStream_DocPart);
+ FreeAndNil(t_csDownloadDocStream_DocPartSel);
+ FreeAndNil(t_DownloadDocRequest);
  inherited;
 end;
 

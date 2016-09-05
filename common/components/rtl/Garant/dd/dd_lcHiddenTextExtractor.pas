@@ -43,6 +43,8 @@ uses
  , l3Base
  , evdTypes
  , PageBreak_Const
+ //#UC START# *538C1D82017Aimpl_uses*
+ //#UC END# *538C1D82017Aimpl_uses*
 ;
 
 procedure Tdd_lcHiddenTextExtractor.WriteToLog(const aText: AnsiString;

@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *482D8B94020Eimpl_uses*
+ //#UC END# *482D8B94020Eimpl_uses*
 ;
 
 procedure TevEditProcessor.InitFields;

@@ -35,6 +35,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4D6E6C6501F9impl_uses*
+ //#UC END# *4D6E6C6501F9impl_uses*
 ;
 
 {$If Defined(evUseVisibleCursors)}

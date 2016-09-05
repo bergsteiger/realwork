@@ -72,6 +72,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *51DBBE7802D5impl_uses*
+ //#UC END# *51DBBE7802D5impl_uses*
 ;
 
 constructor TddSectionProperty.Create;

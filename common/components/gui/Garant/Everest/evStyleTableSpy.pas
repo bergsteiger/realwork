@@ -48,6 +48,8 @@ uses
  , SysUtils
  , evResultFont
  , k2Tags
+ //#UC START# *47ECB297037Dimpl_uses*
+ //#UC END# *47ECB297037Dimpl_uses*
 ;
 
 var g_TevSpies: TevSpies = nil;

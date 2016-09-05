@@ -1,6 +1,6 @@
 unit MailWin;
 
-{ $Id: MAILWIN.pas,v 1.33 2016/05/18 06:02:40 lukyanets Exp $ }
+{ $Id: MAILWIN.pas,v 1.35 2016/08/10 12:48:42 lukyanets Exp $ }
 
 interface
 
@@ -65,7 +65,8 @@ implementation
 
 {$R *.DFM}
 
-Uses Main, DT_Mail, DT_User,
+Uses Main, DT_Mail,
+     daTypes, daDataProvider,
      l3Interfaces, l3String, l3Base,
      l3InternalInterfaces, 
      ResShop, StrShop,
@@ -89,7 +90,7 @@ Begin
  end;
 
  TempNameStr := l3StrAlloc(SizeOf(TFullNameStr)+1);
- UserManager.GetFiltredUserList(edtTo.Items);
+ GlobalDataProvider.UserManager.GetFiltredUserList(edtTo.Items);
  memMessage.TextSource.HasDocument;
 end;
 
@@ -178,7 +179,7 @@ procedure TSendMailWin.WMDropAccept(var Message: TMessage);
          ItData := Data[I];
          If (TDragDataType(ItData[0]) = ddDoc) then
           begin
-           DocStorage.AddDoc(PGlobalCoordinateRec(ItData+1)^.Doc);
+           DocStorage.AddDoc(PdaGlobalCoordinateRec(ItData+1)^.Doc);
            Inc(AddCnt);
           end;
 
@@ -267,7 +268,7 @@ procedure TSendMailWin.sbAddObjectClick(Sender: TObject);
     DragData      := nil;
     If Execute(Self) then
       Begin
-       DocStorage.AddDoc(PGlobalCoordinateRec(AnswerData)^.Doc);
+       DocStorage.AddDoc(PdaGlobalCoordinateRec(AnswerData)^.Doc);
        lstLinkObj.Total := DocStorage.Count;
        lstLinkObj.Current := 0;
       end;

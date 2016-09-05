@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , SysUtils
  , evConst
+ //#UC START# *49CB6E880188impl_uses*
+ //#UC END# *49CB6E880188impl_uses*
 ;
 
 procedure TevCellsOffsets.Clear;

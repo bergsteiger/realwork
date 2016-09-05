@@ -42,6 +42,8 @@ uses
  , SysUtils
  , l3Types
  , TestFrameWork
+ //#UC START# *4C74EDA4008Bimpl_uses*
+ //#UC END# *4C74EDA4008Bimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

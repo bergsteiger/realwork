@@ -28,6 +28,8 @@ uses
  , evRangeTools
  , l3MinMax
  , l3Base
+ //#UC START# *4A23BAEF006Aimpl_uses*
+ //#UC END# *4A23BAEF006Aimpl_uses*
 ;
 
 function nevAddRangeToList(aList: TnevRangeList;

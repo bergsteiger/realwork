@@ -76,6 +76,7 @@ type
 
  Tl3ThreadContainer = class(Tl3_Base)
   protected
+   procedure ThreadTerminated; virtual;
    procedure DoExecute; virtual; abstract;
     {* основная процедура нити. Для перекрытия в потомках }
  end;//Tl3ThreadContainer
@@ -131,6 +132,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwIl3CStringPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4773D64E036Cimpl_uses*
+ //#UC END# *4773D64E036Cimpl_uses*
 ;
 
 procedure l3CStr;
@@ -315,5 +318,14 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4CDD23D702B6_47AAB5EC03C2_impl*
 end;//Tl3System.SetClipboardData
+
+procedure Tl3ThreadContainer.ThreadTerminated;
+//#UC START# *57C69B910319_4911B24C01F6_var*
+//#UC END# *57C69B910319_4911B24C01F6_var*
+begin
+//#UC START# *57C69B910319_4911B24C01F6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57C69B910319_4911B24C01F6_impl*
+end;//Tl3ThreadContainer.ThreadTerminated
 
 end.

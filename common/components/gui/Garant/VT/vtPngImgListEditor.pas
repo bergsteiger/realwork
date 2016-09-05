@@ -435,7 +435,7 @@ end;
 
 procedure TvtPngImageListEditForm.btnCorrectClick(Sender: TObject);
 begin
- FPngImgList.RepairSizes;
+ FPngImgList._RepairSizes;
  lsImages.Total := FPngImgList.Count;
 end;
 

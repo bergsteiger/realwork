@@ -33,6 +33,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *54BE41340249impl_uses*
+ //#UC END# *54BE41340249impl_uses*
 ;
 
 function TeeSubList.Get_Count: Integer;

@@ -45,6 +45,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *52E79910011Fimpl_uses*
+ //#UC END# *52E79910011Fimpl_uses*
 ;
 
 initialization

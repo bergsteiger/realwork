@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , l3AsincMessageWindowRes
+ //#UC START# *4787FCE9024Aimpl_uses*
+ //#UC END# *4787FCE9024Aimpl_uses*
 ;
 
 procedure Tl3AsincMessageWindow.Execute;

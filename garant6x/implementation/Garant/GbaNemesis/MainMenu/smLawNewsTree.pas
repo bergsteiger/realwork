@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , nsConst
  , MainMenuUnit
+ //#UC START# *490C2AE8028Eimpl_uses*
+ //#UC END# *490C2AE8028Eimpl_uses*
 ;
 
 function TsmLawNewsTree.MakeRoot: Il3RootNode;

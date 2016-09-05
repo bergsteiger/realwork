@@ -36,6 +36,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4A8BBCB90035impl_uses*
+ //#UC END# *4A8BBCB90035impl_uses*
 ;
 
 procedure TevDocumentPartGeneratorPrim.pm_SetNeedJoin(aValue: Boolean);

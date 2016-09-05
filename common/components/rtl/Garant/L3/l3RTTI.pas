@@ -39,6 +39,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5012BFDC0300impl_uses*
+ //#UC END# *5012BFDC0300impl_uses*
 ;
 
 function l3FormatRTTIInfo(anObject: TObject;

@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5395B29D0177impl_uses*
+ //#UC END# *5395B29D0177impl_uses*
 ;
 
 var g_TCsReplyProcedures: TCsReplyProcedures = nil;

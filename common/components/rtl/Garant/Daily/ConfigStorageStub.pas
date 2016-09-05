@@ -22,23 +22,23 @@ type
   {* Заглушка для эмуляции чтения настроек. }
   protected
    function ReadBool(const Alias: AnsiString;
-    Default: Boolean): Boolean; stdcall;
+    Default: Boolean): Boolean;
    function ReadDateTime(const Alias: AnsiString;
-    Default: TDateTime): TDateTime; stdcall;
+    Default: TDateTime): TDateTime;
    function ReadInteger(const Alias: AnsiString;
-    Default: Integer): Integer; stdcall;
+    Default: Integer): Integer;
    function ReadString(const Alias: AnsiString;
-    const Default: AnsiString): Il3CString; stdcall;
+    const Default: AnsiString): Il3CString;
    procedure WriteBool(const Alias: AnsiString;
-    B: Boolean); stdcall;
+    B: Boolean);
    procedure WriteDateTime(const Alias: AnsiString;
-    DT: TDateTime); stdcall;
+    DT: TDateTime);
    procedure WriteInteger(const Alias: AnsiString;
-    I: Integer); stdcall;
+    I: Integer);
    procedure WriteString(const Alias: AnsiString;
-    const S: AnsiString); stdcall;
-   function Get_Section: AnsiString; stdcall;
-   procedure Set_Section(const aValue: AnsiString); stdcall;
+    const S: AnsiString);
+   function Get_Section: AnsiString;
+   procedure Set_Section(const aValue: AnsiString);
   public
    class function Make: IddConfigStorage;
  end;//TConfigStorageStub
@@ -50,6 +50,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *51D54BCD02DAimpl_uses*
+ //#UC END# *51D54BCD02DAimpl_uses*
 ;
 
 class function TConfigStorageStub.Make: IddConfigStorage;

@@ -73,6 +73,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *483D7D8C001Aimpl_uses*
+ //#UC END# *483D7D8C001Aimpl_uses*
 ;
 
 function ConvertStrToRegular(const S: AnsiString): AnsiString;

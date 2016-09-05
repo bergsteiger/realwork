@@ -31,6 +31,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0A7FAF0270impl_uses*
+ //#UC END# *4B0A7FAF0270impl_uses*
 ;
 
 class procedure TnsAddToListEvent.Log(const aList: IDynList);

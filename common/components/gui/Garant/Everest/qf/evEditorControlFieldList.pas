@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47CEDDA9005Aimpl_uses*
+ //#UC END# *47CEDDA9005Aimpl_uses*
 ;
 
 type _Instance_R_ = TevEditorControlFieldList;

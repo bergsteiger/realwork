@@ -111,6 +111,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4A27A7D5019Eimpl_uses*
+ //#UC END# *4A27A7D5019Eimpl_uses*
 ;
 
 type _Instance_R_ = TevControlParaHotSpot;

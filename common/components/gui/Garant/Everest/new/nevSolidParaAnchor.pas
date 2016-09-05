@@ -57,6 +57,8 @@ uses
  , nevFacade
  , LeafParaDecorationsHolder_Const
  , l3MinMax
+ //#UC START# *4A3BAB21005Aimpl_uses*
+ //#UC END# *4A3BAB21005Aimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}

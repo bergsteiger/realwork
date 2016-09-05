@@ -36,6 +36,8 @@ uses
  , SysUtils
  , ddRTFReader
  , TestFrameWork
+ //#UC START# *4C971BF80183impl_uses*
+ //#UC END# *4C971BF80183impl_uses*
 ;
 
 procedure TRTFReaderTest.RTFtoEVD(const aFileName: AnsiString);

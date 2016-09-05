@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *4F0C26900161impl_uses*
+ //#UC END# *4F0C26900161impl_uses*
 ;
 
 class function TkwShowMailMessage.GetWordNameForRegister: AnsiString;

@@ -13,10 +13,11 @@ uses
  l3IntfUses
  , l3ProtoObject
  , LibPQ
- , daTypes
+ , pgLockedTablesList
  , daLongProcessSubscriberList
  , pgConnectionListenerList
  , pgDataProviderParams
+ , daTypes
  , pgInterfaces
 ;
 
@@ -33,8 +34,7 @@ type
 
  TpgConnection = class(Tl3ProtoObject)
   private
-   f_InTransaction: Boolean;
-   f_TransactionTables: TdaTablesSet;
+   f_TransactionsLocks: TpgLockedTablesList;
    f_LongProcessList: TdaLongProcessSubscriberList;
    f_Listeners: TpgConnectionListenerList;
    f_Handle: PPGconn;
@@ -48,11 +48,12 @@ type
     LockValue: Integer = -1): Boolean;
    procedure LockTable(aTableID: TdaTables);
    procedure UnlockTable(aTableID: TdaTables);
-   procedure UnlockAllTransactionTables;
+   procedure UnlockTransactionTables(aTables: TdaTablesSet);
    procedure ExecSQLCommand(const anSQL: AnsiString);
    procedure DoBeginTransaction(aTables: TdaTablesSet);
    procedure NotifyAfterConnect;
    procedure NotifyBeforeDisconnect;
+   procedure LockTransactionTables(aTables: TdaTablesSet);
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -66,6 +67,7 @@ type
     aParams: TpgDataProviderParams);
    procedure RegisterListener(const aListener: IpgConnectionListener);
    procedure UnRegisterListener(const aListener: IpgConnectionListener);
+   function IsInTransaction: Boolean;
    procedure Connect(aParams: TpgDataProviderParams);
    procedure Disconnect;
    function Connected: Boolean;
@@ -85,6 +87,8 @@ uses
  l3ImplUses
  , TypInfo
  , SysUtils
+ //#UC START# *55F6875803A8impl_uses*
+ //#UC END# *55F6875803A8impl_uses*
 ;
 
 function TpgConnection.BuildConnectString(const anUser: AnsiString;
@@ -169,7 +173,7 @@ begin
 //#UC END# *565D75E80254_55F6875803A8_impl*
 end;//TpgConnection.UnlockTable
 
-procedure TpgConnection.UnlockAllTransactionTables;
+procedure TpgConnection.UnlockTransactionTables(aTables: TdaTablesSet);
 //#UC START# *565D9862017B_55F6875803A8_var*
 var
  l_IDX: TdaTables;
@@ -177,11 +181,10 @@ var
 begin
 //#UC START# *565D9862017B_55F6875803A8_impl*
  for l_IDX := Low(TdaTables) to High(TdaTables) do
-  if l_IDX in f_TransactionTables then
+  if l_IDX in aTables then
    UnlockTable(l_IDX);
- f_TransactionTables := [];
 //#UC END# *565D9862017B_55F6875803A8_impl*
-end;//TpgConnection.UnlockAllTransactionTables
+end;//TpgConnection.UnlockTransactionTables
 
 procedure TpgConnection.ExecSQLCommand(const anSQL: AnsiString);
 //#UC START# *565D98760004_55F6875803A8_var*
@@ -207,23 +210,10 @@ var
 //#UC END# *565D9EA2007D_55F6875803A8_var*
 begin
 //#UC START# *565D9EA2007D_55F6875803A8_impl*
- Assert(not f_InTransaction);
- try
-  for l_IDX := Low(TdaTables) to High(TdaTables) do
-   if l_IDX in aTables then
-   begin
-    LockTable(l_IDX);
-    Include(f_TransactionTables, l_IDX)
-   end;
- except
-  on EpgLockError do
-  begin
-   UnlockAllTransactionTables;
-   raise;
-  end;
- end;
- ExecSQLCommand('START TRANSACTION');
- f_InTransaction := True;
+ LockTransactionTables(aTables);
+ f_TransactionsLocks.Add(aTables);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('START TRANSACTION');
 //#UC END# *565D9EA2007D_55F6875803A8_impl*
 end;//TpgConnection.DoBeginTransaction
 
@@ -234,6 +224,8 @@ begin
 //#UC START# *565EA7B30042_55F6875803A8_impl*
  inherited Create;
  aList.SetRefTo(f_LongProcessList);
+ f_Listeners := TpgConnectionListenerList.Make;
+ f_TransactionsLocks := TpgLockedTablesList.Make;
 //#UC END# *565EA7B30042_55F6875803A8_impl*
 end;//TpgConnection.Create
 
@@ -257,6 +249,7 @@ begin
  end;
  if not Lock(pg_llShared) then
   EPgError.Create('Не удалось захватить базу');
+ NotifyAfterConnect; 
 //#UC END# *569636A400D9_55F6875803A8_impl*
 end;//TpgConnection.ConnectAs
 
@@ -303,6 +296,28 @@ begin
 //#UC END# *5769262501D9_55F6875803A8_impl*
 end;//TpgConnection.NotifyBeforeDisconnect
 
+procedure TpgConnection.LockTransactionTables(aTables: TdaTablesSet);
+//#UC START# *57A8368A01F6_55F6875803A8_var*
+var
+ l_IDX: TdaTables;
+//#UC END# *57A8368A01F6_55F6875803A8_var*
+begin
+//#UC START# *57A8368A01F6_55F6875803A8_impl*
+ for l_IDX := Low(TdaTables) to High(TdaTables) do
+  if l_IDX in aTables then
+   LockTable(l_IDX);
+//#UC END# *57A8368A01F6_55F6875803A8_impl*
+end;//TpgConnection.LockTransactionTables
+
+function TpgConnection.IsInTransaction: Boolean;
+//#UC START# *57A8534A00D5_55F6875803A8_var*
+//#UC END# *57A8534A00D5_55F6875803A8_var*
+begin
+//#UC START# *57A8534A00D5_55F6875803A8_impl*
+ Result := f_TransactionsLocks.Count > 0;
+//#UC END# *57A8534A00D5_55F6875803A8_impl*
+end;//TpgConnection.IsInTransaction
+
 procedure TpgConnection.Connect(aParams: TpgDataProviderParams);
 //#UC START# *55F68CE401CB_55F6875803A8_var*
 //#UC END# *55F68CE401CB_55F6875803A8_var*
@@ -325,6 +340,7 @@ begin
    if PQstatus(f_Handle) <> CONNECTION_OK then
     raise EPgError.Create(PQerrorMessage(f_Handle))
   finally
+   NotifyBeforeDisconnect;
    PQfinish(f_Handle);
    f_Handle := nil;
   end;
@@ -384,9 +400,11 @@ procedure TpgConnection.CommitTransaction;
 //#UC END# *565D753001A0_55F6875803A8_var*
 begin
 //#UC START# *565D753001A0_55F6875803A8_impl*
- ExecSQLCommand('COMMIT');
- f_InTransaction := False;
- UnlockAllTransactionTables;
+ Assert(IsInTransaction);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('COMMIT');
+ UnLockTransactionTables(f_TransactionsLocks.Last);
+ f_TransactionsLocks.Delete(f_TransactionsLocks.Count - 1);
 //#UC END# *565D753001A0_55F6875803A8_impl*
 end;//TpgConnection.CommitTransaction
 
@@ -395,9 +413,13 @@ procedure TpgConnection.RollbackTransaction;
 //#UC END# *565D753C0370_55F6875803A8_var*
 begin
 //#UC START# *565D753C0370_55F6875803A8_impl*
- ExecSQLCommand('ROLLBACK');
- f_InTransaction := False;
- UnlockAllTransactionTables;
+ Assert(IsInTransaction);
+ if f_TransactionsLocks.Count = 1 then
+  ExecSQLCommand('ROLLBACK');
+ UnLockTransactionTables(f_TransactionsLocks.Last);
+ f_TransactionsLocks.Delete(f_TransactionsLocks.Count - 1);
+ if IsInTransaction then
+  raise EpgInnerTransactionFailed.Create('');
 //#UC END# *565D753C0370_55F6875803A8_impl*
 end;//TpgConnection.RollbackTransaction
 
@@ -408,6 +430,8 @@ procedure TpgConnection.Cleanup;
 begin
 //#UC START# *479731C50290_55F6875803A8_impl*
  FreeAndNil(f_LongProcessList);
+ FreeAndNil(f_Listeners);
+ FreeAndNil(f_TransactionsLocks);
  inherited;
 //#UC END# *479731C50290_55F6875803A8_impl*
 end;//TpgConnection.Cleanup

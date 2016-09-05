@@ -64,6 +64,8 @@ uses
  , k2Base
  , evInternalInterfaces
  , Block_Const
+ //#UC START# *4A4C8EC4019Fimpl_uses*
+ //#UC END# *4A4C8EC4019Fimpl_uses*
 ;
 
 function TevDocumentCursor.CanInsertParaOnMove: Boolean;

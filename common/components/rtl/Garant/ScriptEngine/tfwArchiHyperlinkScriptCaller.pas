@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , tfwAxiomaticsResNameGetter
+ //#UC START# *55D34A7E0127impl_uses*
+ //#UC END# *55D34A7E0127impl_uses*
 ;
 
 type

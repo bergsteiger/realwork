@@ -59,6 +59,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *49525C7A0114impl_uses*
+ //#UC END# *49525C7A0114impl_uses*
 ;
 
 type _Instance_R_ = TvcmMainForm;

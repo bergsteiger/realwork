@@ -163,6 +163,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4958DD7002B6impl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4958DD7002B6impl_uses*
 ;
 
@@ -353,21 +354,7 @@ procedure TPrimMainMenuForm.DoActionElement(const aNode: InsMainMenuNode);
 //#UC END# *4AC9E19E022B_4958DD7002B6_var*
 begin
 //#UC START# *4AC9E19E022B_4958DD7002B6_impl*
-(* case TnsSimpleMainMenuItem(aNode.NodeType) of
-  // Задать вопрос (Правовая поддержка):
-  ns_siMakeConsultation:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
-  // Посмотреть ответы (Правовая поддержка)
-  ns_siShowAnswers:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Folders_MyConsultations);
-  ns_siLawSupportHelp:
-   Application.HelpSystem.ShowTopicHelp(cHelpConsultingRules, '');
-  ns_siTaxesPublishSearch:
-   TdmStdRes.OpenTaxesPublishSearch(nil);
-   // - здесь вообще-то надо звать усечённую карточку
-  else*)
-   nsOpenNavigatorItem(aNode, NativeMainForm);
- //end;//case l_MenuItem.ItemType of
+ nsOpenNavigatorItem(aNode, NativeMainForm);
 //#UC END# *4AC9E19E022B_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.DoActionElement
 
@@ -438,7 +425,7 @@ begin
  f_TabTable := nil;
  FreeAndNil(f_LastOpenDocsManager);
  FreeAndNil(f_TreeStyle);
- TdmStdRes.MakeWorkJournal.UnRegisterListener(Self);
+ TWorkJournalService.Instance.MakeWorkJournal.UnRegisterListener(Self);
  inherited;
 //#UC END# *479731C50290_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.Cleanup
@@ -476,7 +463,7 @@ function TPrimMainMenuForm.DoLoadState(const aState: IvcmBase;
 //#UC END# *49807428008C_4958DD7002B6_var*
 begin
 //#UC START# *49807428008C_4958DD7002B6_impl*
- Result := inherited DoLoadState(aState, aStateType);
+ Result := inherited DoLoadState(aState, aStateType, aClone);
  if (aStateType = vcm_stContent) then
   LoadLastOpenDocs;
 //#UC END# *49807428008C_4958DD7002B6_impl*
@@ -490,7 +477,7 @@ begin
 //#UC START# *4A8E8F2E0195_4958DD7002B6_impl*
  inherited;
  pnlMain.OnResize := pnlMainResize;
- TdmStdRes.MakeWorkJournal.RegisterListener(Self);
+ TWorkJournalService.Instance.MakeWorkJournal.RegisterListener(Self);
  TreeStyle;
  f_LastOpenDocsManager := TnsLastOpenDocsManager.Create(c_MainMenuColor,
                                                         tvLastOpenDocs,

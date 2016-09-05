@@ -47,6 +47,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4DF781FF03B3impl_uses*
+ //#UC END# *4DF781FF03B3impl_uses*
 ;
 
 procedure TK269066487.Navigate(aText: TevCustomEditorWindow;

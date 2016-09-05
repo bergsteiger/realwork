@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , m3Exceptions
+ //#UC START# *53FDCE880154impl_uses*
+ //#UC END# *53FDCE880154impl_uses*
 ;
 
 constructor Tm3CustomStream.Create(const aStream: IStream;

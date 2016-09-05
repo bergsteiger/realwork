@@ -44,6 +44,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *5487291700EBimpl_uses*
+ //#UC END# *5487291700EBimpl_uses*
 ;
 
 function TeeTagEditorTool.pm_GetDocument: IeeDocumentEx;

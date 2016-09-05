@@ -37,6 +37,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B13AFDF013Aimpl_uses*
+ //#UC END# *4B13AFDF013Aimpl_uses*
 ;
 
 var g_TnsUseDocumentSubPanelOperationEvent: TnsUseDocumentSubPanelOperationEvent = nil;

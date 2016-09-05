@@ -35,6 +35,8 @@ uses
  , ComObj
  , m2COMLib
  , ActiveX
+ //#UC START# *53FF125B01D4impl_uses*
+ //#UC END# *53FF125B01D4impl_uses*
 ;
 
 procedure Tm3LinkedStream.DoRead(aBuff: Pointer;

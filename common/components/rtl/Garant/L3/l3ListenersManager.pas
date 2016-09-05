@@ -90,6 +90,8 @@ uses
  , SysUtils
  , l3ListenersHooks
  , l3Base
+ //#UC START# *4F636139008Fimpl_uses*
+ //#UC END# *4F636139008Fimpl_uses*
 ;
 
 var g_Tl3ListenersManager: Tl3ListenersManager = nil;

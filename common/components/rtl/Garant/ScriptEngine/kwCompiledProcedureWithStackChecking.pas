@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *528F655002C2impl_uses*
+ //#UC END# *528F655002C2impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwStackChecking.imp.pas}

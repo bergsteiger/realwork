@@ -605,6 +605,9 @@ uses
  , l3MinMax
  , RTLConsts
  , SearchRes
+ , SearchLite_Services
+ //#UC START# *54E5C126001Dimpl_uses*
+ //#UC END# *54E5C126001Dimpl_uses*
 ;
 
 type
@@ -2229,7 +2232,7 @@ procedure TqaReqAttribute.DoOpenSelectWindow;
   l_Cursor := Screen.Cursor;
   try
    Screen.Cursor := crHourGlass;
-   Result := TdmStdRes.OpenTreeSelection(aTagName, anAdditionalFilter, nil) = mrOk;
+   Result := TLiteSearchService.Instance.OpenTreeSelection(aTagName, anAdditionalFilter, nil) = mrOk;
   finally
    Screen.Cursor := l_Cursor;
   end;//try..finally

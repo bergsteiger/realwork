@@ -69,6 +69,9 @@ uses
  , nsINodeWrap
  , nsExternalObjectPrim
  , nsTypes
+ //#UC START# *4992891800CFimpl_uses*
+ , Base_Operations_F1Services_Contracts
+ //#UC END# *4992891800CFimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
@@ -196,7 +199,7 @@ begin
  Begin
   l_Node.GetEntity(l_Entity);
   if Supports(l_Entity, IDocument, l_Doc) then
-   TdmStdRes.OpenDocument(TdeTips.Make(l_Doc), nil);
+   TDocumentService.Instance.OpenDocument(TdeTips.Make(l_Doc), nil);
  end;
 //#UC END# *4991C77601E9_4992891800CF_impl*
 end;//TnsStartupTips.ShowDetails

@@ -166,6 +166,8 @@ uses
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  //#UC START# *4958E868009Cimpl_uses*
+ , Common_F1CommonServices_Contracts
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4958E868009Cimpl_uses*
 ;
 
@@ -433,7 +435,7 @@ procedure TInpharmMainMenuForm.DoActionElement(const aNode: InsMainMenuNode);
    if Supports(aNode,
                InsDocumentNode,
                l_DocumentNode) then
-    TdmStdRes.OpenDocument(TdeDocInfo.Make(
+    TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(
                             TbsDocumentContainer.Make(l_DocumentNode.Data)),
                            nil);
   end;
@@ -443,16 +445,16 @@ begin
  case TnsMedicMainMenuNodeType(aNode.NodeType) of
   // Поиск лекарственного средства
   ns_mntSearchDrug:
-   TdmStdRes.InpharmSearch(nil, nil, nil);
+   TSearchService.Instance.InpharmSearch(nil, nil, nil);
   // Лекарственные средства
   ns_mntAllDrugList:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList);
+   Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_DrugList);
   // Фирмы производители
   ns_mntFirms:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicFirms);
+   Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicFirms);
   // Словарь медицинских терминов
   ns_mntDiction:
-   Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction);
+   Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicDiction);
   // Открыть список
   ns_mntDrugList:
    nsOpenNavigatorItem(aNode, NativeMainForm);
@@ -463,9 +465,9 @@ begin
   {ns_mntHelp:
    Application.HelpSystem.ShowTopicHelp(cHelpInpharm, '');}
   ns_mntPublishSource:
-   TdmStdRes.OpenPharmPublishSearch;
+   TSearchService.Instance.OpenPharmPublishSearch;
   ns_mntLegislationReview:
-   TdmStdRes.OpenPharmLegislationReview;
+   TSearchService.Instance.OpenPharmLegislationReview;
  else
   Assert(False);
  end;//case TnsMedicMainMenuNodeType(aNode.NodeType)

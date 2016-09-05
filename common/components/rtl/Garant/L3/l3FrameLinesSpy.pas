@@ -64,6 +64,8 @@ uses
  , SysUtils
  , l3Interfaces
  , l3Base
+ //#UC START# *4D00B058024Fimpl_uses*
+ //#UC END# *4D00B058024Fimpl_uses*
 ;
 
 var g_Tl3FrameLinesSpy: Tl3FrameLinesSpy = nil;

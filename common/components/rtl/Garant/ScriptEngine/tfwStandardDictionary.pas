@@ -26,6 +26,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55B0EF37007Cimpl_uses*
+ //#UC END# *55B0EF37007Cimpl_uses*
 ;
 
 function TtfwStandardDictionary.IsAxiom: Boolean;

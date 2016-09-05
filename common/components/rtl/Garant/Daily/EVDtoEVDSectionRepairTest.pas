@@ -37,6 +37,8 @@ uses
  , ddSectionRepair
  , ddSectionWithSub2Para
  , TestFrameWork
+ //#UC START# *4C10D6820047impl_uses*
+ //#UC END# *4C10D6820047impl_uses*
 ;
 
 procedure TEVDtoEVDSectionRepairTest.SetFilters(var theGenerator: Ik2TagGenerator);

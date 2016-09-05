@@ -61,6 +61,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *53A2D88202E3impl_uses*
+ //#UC END# *53A2D88202E3impl_uses*
 ;
 
 function L2csMessageRecepientIteratorForEachFAction(anAction: Pointer): csMessageRecepientIterator_ForEachF_Action;

@@ -1,6 +1,6 @@
 unit D_PaperWhere;
 
-{ $Id: D_PaperWhere.pas,v 1.14 2016/04/18 11:47:31 lukyanets Exp $ }
+{ $Id: D_PaperWhere.pas,v 1.15 2016/08/10 12:48:40 lukyanets Exp $ }
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   OvcBase,  evEditorWindow, evEditor, evMemo, StdCtrls, Buttons,
   ExtCtrls,
-  DT_Types, DT_User, DT_Doc,
+  DT_Types, DT_Doc,
   BottomBtnDlg, evMultiSelectEditorWindow, evCustomEditor,
   evEditorWithOperations, afwControl, afwControlPrim, afwBaseControl,
   nevControl, evCustomMemo, evCustomEditorWindowPrim, evCustomEditorWindow,
@@ -34,7 +34,9 @@ type
 implementation
 
 uses
-  l3String
+  l3String,
+
+  daDataProvider
   ;
 
 {$R *.DFM}
@@ -43,7 +45,7 @@ uses
   begin
    Try
     Screen.Cursor:=crHourGlass;
-    UserManager.GetFiltredUserList(cbDocPlaceUser.Items, False);
+    GlobalDataProvider.UserManager.GetFiltredUserList(cbDocPlaceUser.Items, False);
     If aPaperUser = ArchivePlace
      then rbDocPlaceArchieve.Checked := True
      else

@@ -36,7 +36,7 @@ uses
   RTLConsts,
   SysUtils,
   l3Stream,
-  dt_types
+  daTypes
   ;
 
 type _Instance_R_ = TdtUserIDList;
@@ -106,7 +106,7 @@ procedure TdtUserIDList.SaveToStream(aStream: TStream);
  function _WriteUserID(aWord: PObject; anIndex: Long): Bool;
  begin
   Result := true;
-  aStream.Write(PUserID(aWord)^, SizeOf(PUserID(aWord)^));
+  aStream.Write(PdaUserID(aWord)^, SizeOf(PdaUserID(aWord)^));
  end;
 
 begin

@@ -95,6 +95,8 @@ uses
  , l3Base
  , Classes
  , l3InterfacesMisc
+ //#UC START# *4A269456002Aimpl_uses*
+ //#UC END# *4A269456002Aimpl_uses*
 ;
 
 function evTranslateMouseAction(const aView: InevControlView;

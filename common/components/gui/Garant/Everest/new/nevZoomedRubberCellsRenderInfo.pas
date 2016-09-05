@@ -32,6 +32,8 @@ uses
  , l3Math
  , nevBase
  , l3MinMax
+ //#UC START# *4BFD57640306impl_uses*
+ //#UC END# *4BFD57640306impl_uses*
 ;
 
 function TnevZoomedRubberCellsRenderInfo.GetZoomForChild(aChild: TnevFormatInfo): Integer;

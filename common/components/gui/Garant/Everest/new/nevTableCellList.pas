@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47E903D2007Fimpl_uses*
+ //#UC END# *47E903D2007Fimpl_uses*
 ;
 
 type _Instance_R_ = TnevTableCellList;

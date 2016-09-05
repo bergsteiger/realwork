@@ -52,6 +52,8 @@ uses
  l3ImplUses
  , evOp
  , SysUtils
+ //#UC START# *49DF6D540096impl_uses*
+ //#UC END# *49DF6D540096impl_uses*
 ;
 
 function TevLeafParaCursor.ObjMap(const aView: InevView): TnevFormatInfoPrim;

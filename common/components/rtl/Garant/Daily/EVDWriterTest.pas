@@ -40,6 +40,8 @@ uses
  , evEvdRd
  , l3Parser
  , TestFrameWork
+ //#UC START# *4C07B5C100E8impl_uses*
+ //#UC END# *4C07B5C100E8impl_uses*
 ;
 
 procedure TEVDWriterTest.EVDtoEVD(const aFileName: AnsiString);

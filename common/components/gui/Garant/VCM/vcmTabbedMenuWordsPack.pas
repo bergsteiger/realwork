@@ -32,6 +32,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *55C874550184impl_uses*
+ //#UC END# *55C874550184impl_uses*
 ;
 
 {$If NOT Defined(NoVGScene)}

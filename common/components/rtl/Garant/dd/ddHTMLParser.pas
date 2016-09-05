@@ -1,9 +1,15 @@
 unit ddHTMLParser;
 {* Разборщик HTML на теги }
 
-{ $Id: ddHTMLParser.pas,v 1.19 2016/04/11 12:25:29 dinishev Exp $ }
+{ $Id: ddHTMLParser.pas,v 1.22 2016/07/14 12:06:45 dinishev Exp $ }
 
 // $Log: ddHTMLParser.pas,v $
+// Revision 1.22  2016/07/14 12:06:45  dinishev
+// {Requestlink:627006470}
+//
+// Revision 1.20  2016/07/14 10:30:50  dinishev
+// Reformat
+//
 // Revision 1.19  2016/04/11 12:25:29  dinishev
 // {Requestlink:621258431}
 //
@@ -218,20 +224,21 @@ end;
 
 procedure TddHTMLParser.FillKeywords;
 var
- l_Keywords: Tl3Keywords;
- i: Integer;
+ i          : Integer;
+ l_Keywords : Tl3Keywords;
 begin
- l_Keywords:= Tl3Keywords.Create;
+ l_Keywords := Tl3Keywords.Create;
  try
   with l_KeyWords do
-  begin
-   for i:= 0 to cMaxHTMLTag do
+   for i := 0 to cMaxHTMLTag do
    begin
     AddKeyword(cHTMLTags[i].TagName, cHTMLTags[i].TagID);
-    AddKeyword('/'+cHTMLTags[i].TagName, -cHTMLTags[i].TagID);
+    if cHTMLTags[i].TagID = cnSingleTag then
+     AddKeyword(cHTMLTags[i].TagName + '/', -cHTMLTags[i].TagID)
+    else
+     AddKeyword('/' + cHTMLTags[i].TagName, -cHTMLTags[i].TagID);
    end;
-  end;
-  Keywords:= l_Keywords;
+  Keywords := l_Keywords;
  finally
   FreeAndNil(l_Keywords);
  end;

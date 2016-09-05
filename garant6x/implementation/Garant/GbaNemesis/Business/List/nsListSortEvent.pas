@@ -34,6 +34,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0BDE9503E2impl_uses*
+ //#UC END# *4B0BDE9503E2impl_uses*
 ;
 
 class procedure TnsListSortEvent.Log(const aList: IDynList;

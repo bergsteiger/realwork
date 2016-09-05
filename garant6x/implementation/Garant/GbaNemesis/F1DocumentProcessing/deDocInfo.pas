@@ -159,6 +159,8 @@ uses
  , afwFacade
  , BaseTypesUnit
  , bsDataContainer
+ //#UC START# *491C0BE302FFimpl_uses*
+ //#UC END# *491C0BE302FFimpl_uses*
 ;
 
 function TnsListInfo_C(const aList: IDynList;

@@ -112,6 +112,8 @@ uses
  l3ImplUses
  , ddRTFConst
  , l3Defaults
+ //#UC START# *51DBBE8A026Aimpl_uses*
+ //#UC END# *51DBBE8A026Aimpl_uses*
 ;
 
 procedure TddDocumentProperty.MergeWith(P: TddPropertyObject);

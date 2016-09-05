@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , evNSRWrt
+ //#UC START# *4836C0A201C1impl_uses*
+ //#UC END# *4836C0A201C1impl_uses*
 ;
 
 procedure TevCustomNSRCWriter.CheckDigitalSeparatorAlignment;

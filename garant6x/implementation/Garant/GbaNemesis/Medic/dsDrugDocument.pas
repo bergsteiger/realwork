@@ -105,6 +105,7 @@ uses
  , nsTypes
  , nsDocInfoHAFMacroReplacer
  , nsFolderFilterInfo
+ , Common_F1CommonServices_Contracts
  , l3InterfacesMisc
  , SysUtils
  , afwFacade
@@ -112,6 +113,8 @@ uses
  , deSearchInfo
  , DynamicTreeUnit
  , nsINodeWrap
+ //#UC START# *491D89A001A9impl_uses*
+ //#UC END# *491D89A001A9impl_uses*
 ;
 
 type _Instance_R_ = TdsDrugDocument;
@@ -139,7 +142,7 @@ procedure TdsDrugDocument.DoReturnToList(const aList: IDynList;
 //#UC END# *491465BF0275_491D89A001A9_var*
 begin
 //#UC START# *491465BF0275_491D89A001A9_impl*
- TdmStdRes.OpenList(TdeList.Make(aList,
+ TListOpenService.Instance.OpenList(TdeList.Make(aList,
                                  True,
                                  wdOpenIfUserDefine,
                                  aNodeForPositioning), nil);

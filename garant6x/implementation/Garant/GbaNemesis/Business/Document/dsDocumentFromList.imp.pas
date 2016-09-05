@@ -109,7 +109,7 @@ begin
    end;{try..finally}
   end;//while not DocInfo.ListNode.IsLast do
   if Result <> nil then
-   TdmStdRes.OpenDocument(Result, nil);
+   TDocumentOpenService.Instance.OpenDocument(Result, nil);
  end//if HasListNode then
  else
    Result := nil;

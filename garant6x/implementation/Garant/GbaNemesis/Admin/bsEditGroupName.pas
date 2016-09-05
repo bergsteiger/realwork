@@ -36,6 +36,8 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *49EEFBA6010Aimpl_uses*
+ //#UC END# *49EEFBA6010Aimpl_uses*
 ;
 
 constructor TbsEditGroupName.Create(const aName: Il3CString);

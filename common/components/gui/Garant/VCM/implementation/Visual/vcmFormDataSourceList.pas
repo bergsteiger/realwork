@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *55C097250034impl_uses*
+ //#UC END# *55C097250034impl_uses*
 ;
 
 type _Instance_R_ = TvcmFormDataSourceList;

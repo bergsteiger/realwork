@@ -57,6 +57,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5028888A0160impl_uses*
+ //#UC END# *5028888A0160impl_uses*
 ;
 
 procedure TCustomToolbar97.ExecuteHandler(Sender: TObject);

@@ -65,6 +65,8 @@ uses
  , k2InterfaceFactory
  , k2List
  , l3Memory
+ //#UC START# *527D1B7103A8impl_uses*
+ //#UC END# *527D1B7103A8impl_uses*
 ;
 
 type _Instance_R_ = Tk2TypedSmallSortableListTag;

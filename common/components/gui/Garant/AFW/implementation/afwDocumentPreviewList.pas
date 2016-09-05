@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47E2661C0224impl_uses*
+ //#UC END# *47E2661C0224impl_uses*
 ;
 
 type _Instance_R_ = TafwDocumentPreviewList;

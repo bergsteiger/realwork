@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4B9FBF5A021Aimpl_uses*
+ //#UC END# *4B9FBF5A021Aimpl_uses*
 ;
 
 function Tl3RangeManager.HasPage(anIndex: Integer): Boolean;

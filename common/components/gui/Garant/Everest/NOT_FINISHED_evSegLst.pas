@@ -30,6 +30,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *47F2499F0049impl_uses*
+ //#UC END# *47F2499F0049impl_uses*
 ;
 
 procedure evSegments_GetSegmentOnPos;

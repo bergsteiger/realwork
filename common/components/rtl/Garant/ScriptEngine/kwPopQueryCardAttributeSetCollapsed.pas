@@ -59,6 +59,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F69959502BBimpl_uses*
+ //#UC END# *4F69959502BBimpl_uses*
 ;
 
 procedure TkwPopQueryCardAttributeSetCollapsed.DoModelImpl(const aCtx: TtfwContext;

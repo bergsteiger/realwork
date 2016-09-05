@@ -48,6 +48,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *522ED98F0223impl_uses*
+ //#UC END# *522ED98F0223impl_uses*
 ;
 
 function TevInterface.pm_GetTag: Tl3Variant;

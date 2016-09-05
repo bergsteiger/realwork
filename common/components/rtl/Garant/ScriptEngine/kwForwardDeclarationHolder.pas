@@ -39,6 +39,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4F4BC6DB02F4impl_uses*
+ //#UC END# *4F4BC6DB02F4impl_uses*
 ;
 
 constructor TkwForwardDeclarationHolder.Create(aHolded: TtfwWord);

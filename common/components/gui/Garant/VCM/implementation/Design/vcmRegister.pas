@@ -6,9 +6,12 @@ unit vcmRegister;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmRegister -   }
 { Начат: 11.03.2003 11:16 }
-{ $Id: vcmRegister.pas,v 1.86 2014/08/22 09:45:36 kostitsin Exp $ }
+{ $Id: vcmRegister.pas,v 1.87 2016/07/15 13:18:56 lulin Exp $ }
 
 // $Log: vcmRegister.pas,v $
+// Revision 1.87  2016/07/15 13:18:56  lulin
+// - собираем DesignTime.
+//
 // Revision 1.86  2014/08/22 09:45:36  kostitsin
 // чиню библиотеки компонент
 //
@@ -412,8 +415,6 @@ uses
   vcmMessagesCollectionItem,
   vcmModule,
   vcmApplication,
-  vcmApplicationRef,
-  vcmStdResRef,
   vcmModuleDef,
   //vcmModuleWizard,
   //vcmOperationParamsForm,
@@ -2419,8 +2420,8 @@ begin
  //RegisterComponentEditor(TControl, TvcmControlEditor);
  //RegisterCustomModule(TvcmFormSetFactory, TCustomModule);
  //RegisterPackageWizard(TvcmFormSetFactoryWizard.Create);
- RegisterCustomModule(TvcmApplication, TCustomModule);
- RegisterCustomModule(TvcmApplicationRef, TCustomModule);
+ //RegisterCustomModule(TvcmApplication, TCustomModule);
+ //RegisterCustomModule(TvcmApplicationRef, TCustomModule);
  RegisterCustomModule(TvcmDataModuleRef, TCustomModule);
  //RegisterCustomModule(TvcmStdResRef, TCustomModule);
  //RegisterPackageWizard(TvcmModuleWizard.Create);

@@ -27,6 +27,8 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , evdStyles
  , eeInterfacesEx
+ //#UC START# *54BE4C0B0137impl_uses*
+ //#UC END# *54BE4C0B0137impl_uses*
 ;
 
 function eeEditorByPara(const aPara: InevPara): IeeEditor;

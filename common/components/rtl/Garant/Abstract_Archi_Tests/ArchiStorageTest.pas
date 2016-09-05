@@ -52,6 +52,8 @@ uses
  , l3Types
  , m3SplittedFileStream
  , TestFrameWork
+ //#UC START# *4FA137DD03E4impl_uses*
+ //#UC END# *4FA137DD03E4impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

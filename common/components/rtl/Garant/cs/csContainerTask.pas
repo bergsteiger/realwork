@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , ContainerTask_Const
+ //#UC START# *56FE5C970264impl_uses*
+ //#UC END# *56FE5C970264impl_uses*
 ;
 
 function TcsContainerTask.pm_GetTasksList: TasksListHelper;

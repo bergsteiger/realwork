@@ -48,6 +48,8 @@ uses
  , evdStyles
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *54D9B8E801EAimpl_uses*
+ //#UC END# *54D9B8E801EAimpl_uses*
 ;
 
 procedure TddStyleSegment.Write2Generator(const Generator: Ik2TagGenerator;

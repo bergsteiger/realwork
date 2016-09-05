@@ -36,6 +36,8 @@ uses
  , ddHyperlinkTarget
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *54D9AC570374impl_uses*
+ //#UC END# *54D9AC570374impl_uses*
 ;
 
 procedure TddHyperlink.Write2Generator(const Generator: Ik2TagGenerator;

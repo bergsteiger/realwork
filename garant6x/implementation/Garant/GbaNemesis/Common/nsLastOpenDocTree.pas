@@ -16,9 +16,15 @@ uses
  , l3Tree_TLB
  , l3TreeInterfaces
  , DocumentUnit
+ //#UC START# *490AE59703A6intf_uses*
+ //#UC END# *490AE59703A6intf_uses*
 ;
 
 type
+ //#UC START# *490AE59703A6ci*
+ //#UC END# *490AE59703A6ci*
+ //#UC START# *490AE59703A6cit*
+ //#UC END# *490AE59703A6cit*
  TnsLastOpenDocTree = class(TnsHistoryTree)
   {* Дерево последних открытых документов }
   private
@@ -37,6 +43,8 @@ type
    class function Make(aMaxCount: Integer;
     aForInpharm: Boolean;
     aFullDocName: Boolean = False): Il3SimpleTree; reintroduce;
+ //#UC START# *490AE59703A6publ*
+ //#UC END# *490AE59703A6publ*
  end;//TnsLastOpenDocTree
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -55,6 +63,9 @@ uses
  , DataAdapter
  , BaseTypesUnit
  , nsJournalBookmarkNode
+ //#UC START# *490AE59703A6impl_uses*
+ , Base_Operations_F1Services_Contracts
+ //#UC END# *490AE59703A6impl_uses*
 ;
 
 function TnsLastOpenDocTree.CreateNode(const aBookmark: IJournalBookmark): Il3Node;
@@ -123,7 +134,7 @@ begin
  Result := CreateNode(nil) as Il3RootNode;
  // Покажем закладки
  try
-  l_List := dmStdRes.MakeWorkJournal.MakeBookMarkHistory(f_ForInpharm, MaxCount);
+  l_List := TWorkJournalService.Instance.MakeWorkJournal.MakeBookMarkHistory(f_ForInpharm, MaxCount);
   l_AddDoc := False;
   if Assigned(l_List) then
    for l_Index := 0 to Pred(l_List.Count) do
@@ -146,6 +157,9 @@ begin
  end;//try..except
 //#UC END# *4909EF6E0361_490AE59703A6_impl*
 end;//TnsLastOpenDocTree.MakeRoot
+
+//#UC START# *490AE59703A6impl*
+//#UC END# *490AE59703A6impl*
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -49,6 +49,8 @@ uses
  , l3Chars
  , TypInfo
  , l3Types
+ //#UC START# *4DAEEA9E0049impl_uses*
+ //#UC END# *4DAEEA9E0049impl_uses*
 ;
 
 class procedure TtfwScriptEngine.Script(aStream: TtfwStreamFactory;

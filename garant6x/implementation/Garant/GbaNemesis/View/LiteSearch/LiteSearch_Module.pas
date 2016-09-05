@@ -12,15 +12,6 @@ interface
 uses
  l3IntfUses
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
- , nsTypes
- , l3Interfaces
- , SearchInterfaces
- {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -40,29 +31,29 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class function MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean;
-    aUserType: TvcmUserType): IvcmEntityForm;
-   class function MakeAttributeSelect(const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean;
-    aUserType: TvcmUserType): IvcmEntityForm;
-   class function MakeSelectedAttributes(const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean): IvcmEntityForm;
-   class function OpenTreeSelection(const aTag: Il3CString;
-    anAdditionalFilter: TnsFilterType;
-    const aFormData: IdsTreeAttributeSelect): Integer;
  end;//TLiteSearchModule
 
 implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Services
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , nsTypes
+ , SearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , SearchLite_Strange_Controls
  , PrimAttributeSelect_utAttributeSelect_UserType
+ , SysUtils
+ , l3Base
  , TreeAttributeSelect_Form
  , AttributeSelect_Form
  , SelectedAttributes_Form
@@ -72,87 +63,49 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TLiteSearchModule.MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
- aZoneType: TvcmZoneType;
- aRecursive: Boolean;
- aUserType: TvcmUserType): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4AAF48F502E7_4AA0EA76017F_var*
-//#UC END# *4AAF48F502E7_4AA0EA76017F_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AAF48F502E7_4AA0EA76017F_impl*
- Assert(aRecursive);
- Result := TefTreeAttributeSelect.MakeSingleChild(aParams.Container,
-                                             aParams,
-                                             aZoneType,
-                                             aUserType);
-//#UC END# *4AAF48F502E7_4AA0EA76017F_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TLiteSearchModule.MakeTreeAttributeSelect
+type
+ TLiteSearchServiceImpl = {final} class(TvcmModuleContractImplementation, ILiteSearchService)
+  public
+   function OpenTreeSelection(const aTag: Il3CString;
+    anAdditionalFilter: TnsFilterType;
+    const aFormData: IdsTreeAttributeSelect): Integer;
+   function MakeAttributeSelect(const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
+   function MakeSelectedAttributes(const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean): IvcmEntityForm;
+   function MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
+   class function Instance: TLiteSearchServiceImpl;
+    {* Метод получения экземпляра синглетона TLiteSearchServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TLiteSearchServiceImpl
 
-class function TLiteSearchModule.MakeAttributeSelect(const aParams: IvcmMakeParams;
- aZoneType: TvcmZoneType;
- aRecursive: Boolean;
- aUserType: TvcmUserType): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4AAF4FC80387_4AA0EA76017F_var*
-//#UC END# *4AAF4FC80387_4AA0EA76017F_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AAF4FC80387_4AA0EA76017F_impl*
- Assert(aRecursive);
- Result := TcfAttributeSelect.MakeSingleChild(aParams.Container,
-                                             aParams,
-                                             aZoneType,
-                                             aUserType);
-//#UC END# *4AAF4FC80387_4AA0EA76017F_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TLiteSearchModule.MakeAttributeSelect
+var g_TLiteSearchServiceImpl: TLiteSearchServiceImpl = nil;
+ {* Экземпляр синглетона TLiteSearchServiceImpl }
 
-class function TLiteSearchModule.MakeSelectedAttributes(const aParams: IvcmMakeParams;
- aZoneType: TvcmZoneType;
- aRecursive: Boolean): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4AAF52280022_4AA0EA76017F_var*
-//#UC END# *4AAF52280022_4AA0EA76017F_var*
+procedure TLiteSearchServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TLiteSearchServiceImpl }
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AAF52280022_4AA0EA76017F_impl*
- Assert(aRecursive);
- Result := TenSelectedAttributes.MakeSingleChild(aParams.Container,
-                                             aParams,
-                                             aZoneType,
-                                             0);
-//#UC END# *4AAF52280022_4AA0EA76017F_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TLiteSearchModule.MakeSelectedAttributes
+ l3Free(g_TLiteSearchServiceImpl);
+end;//TLiteSearchServiceImplFree
 
-class function TLiteSearchModule.OpenTreeSelection(const aTag: Il3CString;
+function TLiteSearchServiceImpl.OpenTreeSelection(const aTag: Il3CString;
  anAdditionalFilter: TnsFilterType;
  const aFormData: IdsTreeAttributeSelect): Integer;
-var l_Params: IvcmMakeParams;
-var l_Container: IvcmEntityForm;
-var l_Form: IvcmEntityForm;
-var l_FilterType: TnsFilterType;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF590401AC_4AA0EA76017F_var*
+var
+ l_Params : IvcmMakeParams;
+ l_Container : IvcmEntityForm;
+ l_Form : IvcmEntityForm;
+ l_FilterType : TnsFilterType;
 //#UC END# *4AAF590401AC_4AA0EA76017F_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -201,7 +154,95 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TLiteSearchModule.OpenTreeSelection
+end;//TLiteSearchServiceImpl.OpenTreeSelection
+
+function TLiteSearchServiceImpl.MakeAttributeSelect(const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean;
+ aUserType: TvcmUserType): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAF4FC80387_4AA0EA76017F_var*
+//#UC END# *4AAF4FC80387_4AA0EA76017F_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAF4FC80387_4AA0EA76017F_impl*
+ Assert(aRecursive);
+ Result := TcfAttributeSelect.MakeSingleChild(aParams.Container,
+                                             aParams,
+                                             aZoneType,
+                                             aUserType);
+//#UC END# *4AAF4FC80387_4AA0EA76017F_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TLiteSearchServiceImpl.MakeAttributeSelect
+
+function TLiteSearchServiceImpl.MakeSelectedAttributes(const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAF52280022_4AA0EA76017F_var*
+//#UC END# *4AAF52280022_4AA0EA76017F_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAF52280022_4AA0EA76017F_impl*
+ Assert(aRecursive);
+ Result := TenSelectedAttributes.MakeSingleChild(aParams.Container,
+                                             aParams,
+                                             aZoneType,
+                                             0);
+//#UC END# *4AAF52280022_4AA0EA76017F_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TLiteSearchServiceImpl.MakeSelectedAttributes
+
+function TLiteSearchServiceImpl.MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType;
+ aRecursive: Boolean;
+ aUserType: TvcmUserType): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAF48F502E7_4AA0EA76017F_var*
+//#UC END# *4AAF48F502E7_4AA0EA76017F_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAF48F502E7_4AA0EA76017F_impl*
+ Assert(aRecursive);
+ Result := TefTreeAttributeSelect.MakeSingleChild(aParams.Container,
+                                             aParams,
+                                             aZoneType,
+                                             aUserType);
+//#UC END# *4AAF48F502E7_4AA0EA76017F_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TLiteSearchServiceImpl.MakeTreeAttributeSelect
+
+class function TLiteSearchServiceImpl.Instance: TLiteSearchServiceImpl;
+ {* Метод получения экземпляра синглетона TLiteSearchServiceImpl }
+begin
+ if (g_TLiteSearchServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TLiteSearchServiceImplFree);
+  g_TLiteSearchServiceImpl := Create;
+ end;
+ Result := g_TLiteSearchServiceImpl;
+end;//TLiteSearchServiceImpl.Instance
+
+class function TLiteSearchServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TLiteSearchServiceImpl <> nil;
+end;//TLiteSearchServiceImpl.Exists
 
 class procedure TLiteSearchModule.GetEntityForms(aList: TvcmClassList);
 begin
@@ -210,6 +251,10 @@ begin
  aList.Add(TcfAttributeSelect);
  aList.Add(TenSelectedAttributes);
 end;//TLiteSearchModule.GetEntityForms
+
+initialization
+ TLiteSearchService.Instance.Alien := TLiteSearchServiceImpl.Instance;
+ {* Регистрация TLiteSearchServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

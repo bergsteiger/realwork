@@ -174,6 +174,7 @@ uses
  //#UC START# *4A7C349D02CBimpl_uses*
  , l3ControlsTypes
  , vtLister
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4A7C349D02CBimpl_uses*
 ;
 
@@ -232,7 +233,7 @@ begin
   try
    if Supports(l_C, IDocument, l_D) then
     try
-     TdmStdRes.MakeCompareEditions(l_D, nil);
+     TEditionsService.Instance.MakeCompareEditions(l_D, nil);
     finally
      l_D := nil;
     end;//try..finally

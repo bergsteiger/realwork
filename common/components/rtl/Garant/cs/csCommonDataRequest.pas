@@ -6,7 +6,7 @@ uses
   CsDataPipe,
   csRequestTask,
   ddServerTask,
-  DT_types,
+  daTypes,
   csServerTaskTypes,
   ddCommonDataRequestPrim
   ;
@@ -14,7 +14,7 @@ uses
 type
 (* TddCommonDataRequestPrim = class(TddRequestTask)
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
  end;//TddCommonDataRequestPrim*)
 
  TddCommonDataRequest = class(TddCommonDataRequestPrim)
@@ -24,7 +24,7 @@ type
  protected
   procedure Cleanup; override;
  public
-  constructor Create(aUserID: TUserID; aDataIndex: Integer); //override;
+  constructor Create(aUserID: TdaUserID; aDataIndex: Integer); //override;
   procedure SaveRequestToPipe(aPipe: TCsDataPipe); override;
   property DeleteDocsQuery: TDeleteDocsQuery{TddTaskItem} read f_Data{ write f_Data};
   property DataIndex: Integer read f_DataIndex {write f_DataIndex};
@@ -38,7 +38,7 @@ uses
   l3Memory
   ;
 
-(*constructor TddCommonDataRequestPrim.Create(aUserID: TUserID);
+(*constructor TddCommonDataRequestPrim.Create(aUserID: TdaUserID);
 begin
  inherited;
  TaskType := cs_ttCommonData;
@@ -47,7 +47,7 @@ end;*)
 {
 ******************************** TddProcessTask ********************************
 }
-constructor TddCommonDataRequest.Create(aUserID: TUserID; aDataIndex: Integer);
+constructor TddCommonDataRequest.Create(aUserID: TdaUserID; aDataIndex: Integer);
 begin
  inherited Create(aUserID);
  f_DataIndex := aDataIndex;

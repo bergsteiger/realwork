@@ -44,6 +44,8 @@ uses
  , TextPara_Const
  , ControlPara_Const
  , nevTools
+ //#UC START# *48DBA80F01C8impl_uses*
+ //#UC END# *48DBA80F01C8impl_uses*
 ;
 
 procedure TevControlGenerator.Cleanup;

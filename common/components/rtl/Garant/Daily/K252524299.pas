@@ -49,6 +49,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D5A463C02C1impl_uses*
+ //#UC END# *4D5A463C02C1impl_uses*
 ;
 
 procedure TK252524299.CheckPoint(const aCellPoint: InevBasePoint);

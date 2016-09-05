@@ -38,6 +38,8 @@ uses
  , SysUtils
  , l3Base
  , TestFrameWork
+ //#UC START# *515D7BB10393impl_uses*
+ //#UC END# *515D7BB10393impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -253,6 +253,8 @@ type
   procedure GetEncryptedComplectId(out aRet
    {* IString }); stdcall;
    {* получить зашифрованный идентификатор комплекта }
+  function IsEarlyInstalled: ByteBool; stdcall;
+   {* признак ранее установленной версии }
   property BaseDate: 
    read GetBaseDate;
   property LicenseRestrictions: 

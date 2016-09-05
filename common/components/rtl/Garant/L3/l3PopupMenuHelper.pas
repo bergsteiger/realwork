@@ -72,6 +72,8 @@ uses
  , Controls
  , SysUtils
  , l3Base
+ //#UC START# *550013770000impl_uses*
+ //#UC END# *550013770000impl_uses*
 ;
 
 type

@@ -42,6 +42,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D7776F00162impl_uses*
+ //#UC END# *4D7776F00162impl_uses*
 ;
 
 function TK255958998.GetSubNumber(aFirst: Boolean): Integer;

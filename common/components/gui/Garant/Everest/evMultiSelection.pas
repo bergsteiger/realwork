@@ -78,6 +78,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *48E3B50501DBimpl_uses*
+ //#UC END# *48E3B50501DBimpl_uses*
 ;
 
 function TevMultiSelection.pm_GetAllowMultiSelect: Boolean;

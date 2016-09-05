@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , tfwAutoregisteredDiction
+ //#UC START# *53EDC0E701BCimpl_uses*
+ //#UC END# *53EDC0E701BCimpl_uses*
 ;
 
 class function TtfwRegisterableWord.NameForRegister: AnsiString;

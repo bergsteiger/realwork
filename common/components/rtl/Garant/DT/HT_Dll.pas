@@ -6,9 +6,15 @@
    HyTech 2.56  Copyright (c) 1993, 99 by SKAZ_M Ltd
 *)
 
-// $Id: HT_Dll.pas,v 1.21 2014/07/10 14:40:49 voba Exp $
+// $Id: HT_Dll.pas,v 1.23 2016/07/21 06:01:26 fireton Exp $
 
 // $Log: HT_Dll.pas,v $
+// Revision 1.23  2016/07/21 06:01:26  fireton
+// - не собиралось
+//
+// Revision 1.22  2016/07/20 13:50:24  voba
+// no message
+//
 // Revision 1.21  2014/07/10 14:40:49  voba
 // - поменяли var на const где надо
 //

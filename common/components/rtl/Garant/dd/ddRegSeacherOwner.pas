@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *5245698300DCimpl_uses*
+ //#UC END# *5245698300DCimpl_uses*
 ;
 
 function TddRegSeacherOwner.pm_GetHREFSearcher: Tl3RegularSearch;

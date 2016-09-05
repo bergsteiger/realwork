@@ -2,7 +2,7 @@ unit arSearch;
 
 {$Include l3Define.inc}
 
-{ $Id: arSearch.pas,v 1.48 2016/05/16 13:10:51 dinishev Exp $ }
+{ $Id: arSearch.pas,v 1.49 2016/06/16 05:38:41 lukyanets Exp $ }
 
 interface
 
@@ -103,6 +103,7 @@ implementation
 
 uses
  SysUtils, Controls,
+ daTypes,
  DT_Const, DT_Serv, DT_Doc,
  dt_LinkServ,
  l3MinMax,
@@ -252,32 +253,32 @@ function TarHLinkTNVEDReplacer.ReplaceFunc(const aView : InevView;
                                            const aBlock    : InevRange): Bool;
 var
  FndLen   : Integer;
- SubCoord : TGlobalCoordinateRec;
  HLId     : Long;
  S        : AnsiString;
  HL       : IevHyperlink;
+ l_Doc: TdaDocID;
+ l_Sub: TSubID;
 begin
  Result := True;
  S := l3Str(evAsString(aBlock.Data, cf_Text));
  FndLen := Length(S);
- SubCoord.Family := TDocEditorWindow(Owner).DocFamily;
- SubCoord.Doc := 650000 + StrToInt(Copy(S, 1, 2));
- SubCoord.Doc := LinkServer(TDocEditorWindow(Owner).DocFamily).Renum.ConvertToRealNumber(SubCoord.Doc);
- if SubCoord.Doc = -1 then
+ l_Doc := 650000 + StrToInt(Copy(S, 1, 2));
+ l_Doc := LinkServer(TDocEditorWindow(Owner).DocFamily).Renum.ConvertToRealNumber(l_Doc);
+ if l_Doc = -1 then
  begin
   Result := False;
   Exit;
  end;
 
  if FndLen >= 4 then
-  SubCoord.Sub := StrToInt(Copy(S, 3, 2))
+  l_Sub := StrToInt(Copy(S, 3, 2))
  else
-  SubCoord.Sub := 0;
+  l_Sub := 0;
  try
   if Supports(aBlock, IevHyperlink, HL) then
    try
     if not HL.Exists then HL.Insert;
-    HL.AddressList.Add(TevAddress_C(SubCoord.Doc, SubCoord.Sub));
+    HL.AddressList.Add(TevAddress_C(l_Doc, l_Sub));
    finally
     HL := nil;
    end//try..finally

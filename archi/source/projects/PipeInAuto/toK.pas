@@ -43,6 +43,8 @@ implementation
 {$If Defined(AppServerSide)}
 uses
  l3ImplUses
+ //#UC START# *52F250640165impl_uses*
+ //#UC END# *52F250640165impl_uses*
 ;
 
 {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}

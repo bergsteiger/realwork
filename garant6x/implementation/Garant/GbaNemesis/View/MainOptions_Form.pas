@@ -176,6 +176,8 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C8A29700261impl_uses*
+ , Base_Operations_F1Services_Contracts
+ , Common_F1CommonServices_Contracts
  //#UC END# *4C8A29700261impl_uses*
 ;
 
@@ -243,7 +245,7 @@ procedure TMainOptionsForm.OpenUnderControl;
 begin
 //#UC START# *4C8A4B95003E_4C8A29700261_impl*
  // Открываем форму с документами на контроле
- TdmStdRes.OpenUnderControl(Self);
+ TUnderControlService.Instance.OpenUnderControl(Self);
  // Выдадим сообщение:
  MessageDlg(l3Cat(ControlledChangingWarning.Hint, '.'),
             'TnsMainWindow.OpenUnderControl', mtInformation);
@@ -458,7 +460,7 @@ begin
   begin
    if Supports(f_InternetMap, InsStringsSource, l_StringSource) then
     l_StringSource.FillStrings(l_Strings);
-   l_Strings.AddOp(TdmStdRes.mod_opcode_Common_LetterToDevelopers);
+   l_Strings.AddOp(mod_opcode_CommonService_LetterToDevelopers);
    g_InternerMapStrings := l_Strings;
   end;//l_Strings <> nil
  end;
@@ -493,7 +495,7 @@ procedure TMainOptionsForm.Help_About_Execute(const aParams: IvcmExecuteParamsPr
 //#UC END# *4C8A4442036F_4C8A29700261exec_var*
 begin
 //#UC START# *4C8A4442036F_4C8A29700261exec_impl*
- TdmStdRes.About;
+ TCommonService.Instance.About;
 //#UC END# *4C8A4442036F_4C8A29700261exec_impl*
 end;//TMainOptionsForm.Help_About_Execute
 
@@ -502,7 +504,7 @@ procedure TMainOptionsForm.System_BookmarkList_Execute(const aParams: IvcmExecut
 //#UC END# *4C8A44DD0291_4C8A29700261exec_var*
 begin
 //#UC START# *4C8A44DD0291_4C8A29700261exec_impl*
- TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(Self.As_IvcmEntityForm,
                       TnsFolderFilterInfo.Make(ffBookmark, ns_ffNone),
                       str_OpenBookmark);
 //#UC END# *4C8A44DD0291_4C8A29700261exec_impl*
@@ -514,7 +516,7 @@ procedure TMainOptionsForm.WarnOnControl_BuildControlledList_Execute(const aPara
 //#UC END# *4C8A454E0063_4C8A29700261exec_var*
 begin
 //#UC START# *4C8A454E0063_4C8A29700261exec_impl*
- TdmStdRes.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
+ TUnderControlService.Instance.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
 //#UC END# *4C8A454E0063_4C8A29700261exec_impl*
 end;//TMainOptionsForm.WarnOnControl_BuildControlledList_Execute
 
@@ -575,7 +577,7 @@ procedure TMainOptionsForm.DropChangeStatusToOpened;
 begin
 //#UC START# *4F7AED150304_4C8A29700261_impl*
  inherited;
- TdmStdRes.DropChangeStatusToOpened(Self.as_IvcmEntityForm);
+ TUnderControlService.Instance.DropChangeStatusToOpened(Self.as_IvcmEntityForm);
 //#UC END# *4F7AED150304_4C8A29700261_impl*
 end;//TMainOptionsForm.DropChangeStatusToOpened
 

@@ -57,6 +57,8 @@ uses
  l3ImplUses
  , SysUtils
  , vcmUserControls
+ //#UC START# *528609ED0325impl_uses*
+ //#UC END# *528609ED0325impl_uses*
 ;
 
 constructor TvcmAggregate.Create(aGUID: PGUID = nil;
@@ -66,6 +68,7 @@ constructor TvcmAggregate.Create(aGUID: PGUID = nil;
 begin
 //#UC START# *52860CA00075_528609ED0325_impl*
  inherited Create;
+ f_CanBeCloned := aCanBeCloned;
  if (aGUID = nil) then
   CreateGUID(f_GUID)
  else
@@ -86,7 +89,7 @@ begin
  if (aGUID = nil) OR (g_Dispatcher = nil) OR
     not g_Dispatcher.FindAggregate(aGUID^, Result) then
  begin
-  l_Aggregate := Create(aGUID);
+  l_Aggregate := Create(aGUID, aCanBeCloned);
   try
    Result := l_Aggregate;
   finally

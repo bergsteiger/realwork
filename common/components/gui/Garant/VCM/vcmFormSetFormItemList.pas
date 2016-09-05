@@ -83,6 +83,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5289C78503E2impl_uses*
+ //#UC END# *5289C78503E2impl_uses*
 ;
 
 function TvcmFormSetFormItemDescr_C(const aFormID: TvcmFormID;

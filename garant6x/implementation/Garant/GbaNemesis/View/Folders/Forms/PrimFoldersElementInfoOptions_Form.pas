@@ -105,7 +105,7 @@ begin
   begin
    l_OperationType := f_CurType;
    f_CurType := fiNone;
-   Aggregate.Operation(TdmStdRes.opcode_AdditionInfo_Hide);
+   Aggregate.Operation(opcode_AdditionInfo_Hide);
   end;
  DropModifiedState;
  if (l_OperationType = fiNewFolder) then
@@ -201,7 +201,7 @@ begin
    else
    begin
     f_CurType := fiNone;
-    Aggregate.Operation(TdmStdRes.opcode_AdditionInfo_Hide);
+    Aggregate.Operation(opcode_AdditionInfo_Hide);
    end;
  end;
  AfterSaveExceptionCheck;
@@ -310,7 +310,7 @@ begin
    else
    begin
     f_CurType := fiNone;
-    Aggregate.Operation(TdmStdRes.opcode_AdditionInfo_Hide);
+    Aggregate.Operation(opcode_AdditionInfo_Hide);
    end;
  end;
  AfterSaveExceptionCheck;

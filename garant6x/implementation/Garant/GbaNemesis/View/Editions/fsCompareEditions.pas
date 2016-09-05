@@ -37,6 +37,7 @@ uses
  , l3Tree_TLB
  , afwInterfaces
  , FoldersDomainInterfaces
+ , Base_Operations_F1Services_Contracts
  , DocumentInterfaces
  , RightEdition_Form
  , PrimRightEdition_utRightEdition_UserType
@@ -82,6 +83,8 @@ uses
  , SysUtils
  , l3Base
  , CompareEditions_FormDefinitions_Controls
+ //#UC START# *4A6EBF8301FAimpl_uses*
+ //#UC END# *4A6EBF8301FAimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

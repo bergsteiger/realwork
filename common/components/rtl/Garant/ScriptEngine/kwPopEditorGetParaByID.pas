@@ -61,6 +61,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4EB27F0E00CFimpl_uses*
+ //#UC END# *4EB27F0E00CFimpl_uses*
 ;
 
 procedure TkwPopEditorGetParaByID.DoWithEditor(const aCtx: TtfwContext;

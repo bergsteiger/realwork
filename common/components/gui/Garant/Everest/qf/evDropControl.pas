@@ -96,6 +96,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , nevFacade
  , SysUtils
+ //#UC START# *48D367B20014impl_uses*
+ //#UC END# *48D367B20014impl_uses*
 ;
 
 function TevDropControl.DropContainer: IevDropContainer;

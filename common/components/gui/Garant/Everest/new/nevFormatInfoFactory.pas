@@ -78,6 +78,8 @@ uses
  , PageBreak_Const
  , nevNodeGroupFormatInfo
  , NodeGroup_Const
+ //#UC START# *4E16E263024Fimpl_uses*
+ //#UC END# *4E16E263024Fimpl_uses*
 ;
 
 class function TnevFormatInfoFactory.CreateFormatInfo(const aChild: InevObjectPrim;

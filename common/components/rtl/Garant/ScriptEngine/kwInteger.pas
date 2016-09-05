@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4DB6CCE100E0impl_uses*
+ //#UC END# *4DB6CCE100E0impl_uses*
 ;
 
 constructor TkwInteger.Create(aValue: Integer);

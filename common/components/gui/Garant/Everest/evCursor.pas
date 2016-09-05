@@ -131,6 +131,8 @@ uses
  , k2Tags
  , evdTypes
  , k2Const
+ //#UC START# *49D245770337impl_uses*
+ //#UC END# *49D245770337impl_uses*
 ;
 
 type _Instance_R_ = TevCursor;

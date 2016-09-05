@@ -54,6 +54,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C3C771A002Dimpl_uses*
+ //#UC END# *4C3C771A002Dimpl_uses*
 ;
 
 procedure TCheckTopAnchorTest.Cleanup;

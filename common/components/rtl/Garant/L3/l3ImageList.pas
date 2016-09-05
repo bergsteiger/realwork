@@ -63,6 +63,8 @@ uses
  , l3Bitmap
  , Graphics
  , Types
+ //#UC START# *47D02E5F022Fimpl_uses*
+ //#UC END# *47D02E5F022Fimpl_uses*
 ;
 
 constructor Tl3ImageList.Create(aList: TCustomImageList);

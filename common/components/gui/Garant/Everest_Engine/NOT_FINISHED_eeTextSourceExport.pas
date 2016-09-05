@@ -32,7 +32,8 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function LoadState(const theState: IUnknown;
-    aStateType: TvcmStateType): Boolean;
+    aStateType: TvcmStateType;
+    aClone: Boolean): Boolean;
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TeeTextSourceExport
 {$IfEnd} // Defined(Nemesis)
@@ -42,6 +43,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *47542EDE038Aimpl_uses*
+ //#UC END# *47542EDE038Aimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -58,7 +61,8 @@ end;//TeeTextSourceExport.SaveState
 
 {$If NOT Defined(NoVCM)}
 function TeeTextSourceExport.LoadState(const theState: IUnknown;
- aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType;
+ aClone: Boolean): Boolean;
 //#UC START# *4683E79D0331_47542EDE038A_var*
 //#UC END# *4683E79D0331_47542EDE038A_var*
 begin

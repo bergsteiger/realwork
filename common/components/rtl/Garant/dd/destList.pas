@@ -50,6 +50,8 @@ uses
  l3ImplUses
  , SysUtils
  , destListTable
+ //#UC START# *51DD4CCF004Fimpl_uses*
+ //#UC END# *51DD4CCF004Fimpl_uses*
 ;
 
 procedure TdestList.AddLevel(aLevel: TdestListLevel);

@@ -1,8 +1,14 @@
 Unit Dt_BBLog;
 
-{ $Id: DT_BBLOG.PAS,v 1.74 2016/04/22 11:39:39 lukyanets Exp $ }
+{ $Id: DT_BBLOG.PAS,v 1.76 2016/08/11 08:37:29 lukyanets Exp $ }
 
 // $Log: DT_BBLOG.PAS,v $
+// Revision 1.76  2016/08/11 08:37:29  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.75  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.74  2016/04/22 11:39:39  lukyanets
 // Пересаживаем UserManager на новые рельсы
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -249,7 +255,7 @@ Type
  TBBLogRec = Record
               Session   : LongInt;
               Operation : Word;
-              Family    : TFamilyID;
+              Family    : TdaFamilyID;
               ExtID     : LongInt;
               Date      : TStDate;
               Time      : TStTime;
@@ -261,7 +267,7 @@ Type
     function Get_CurStatisticTreeRoot: Il3RootNode;
   protected
    fCurSessionID    : LongInt;
-   fCurUser         : TUserID;
+   fCurUser         : TdaUserID;
 
    fCurStatTree     : Tl3Tree;
 
@@ -271,35 +277,35 @@ Type
    Procedure AnalyseLog(LogSab : Sab);
    Procedure Cleanup; override;
    function  GetDocStatistic(FromDate,ToDate : TStDate; ID : TDocID): ISab;
-   function  GetUserStatistic(FromDate,ToDate : TStDate; ID : TUserID; UserGr : Boolean): ISab;
+   function  GetUserStatistic(FromDate,ToDate : TStDate; ID : TdaUserID; UserGr : Boolean): ISab;
    Procedure PutBBRec(aOperation : TdaJournalOperation;
-                      aFamilyID  : TFamilyID;
+                      aFamilyID  : TdaFamilyID;
                       aExtID     : LongInt;
                       aData      : LongInt);
   public
    Constructor Create; Reintroduce;
    procedure CalcStatistics(FromDate,ToDate : TStDate;
                             aDocID          : TDocID;
-                            UserOrGroupID   : TUserID;
+                            UserOrGroupID   : TdaUserID;
                             UserGr          : Boolean);
 
-   //procedure LogSearch(aFamilyID: TFamilyID; aSrchSet: TSearchSet);
-   procedure LogExport(aFamilyID: TFamilyID; aCount: Longint);
-   procedure LogImport(aFamilyID: TFamilyID);
+   //procedure LogSearch(aFamilyID: TdaFamilyID; aSrchSet: TSearchSet);
+   procedure LogExport(aFamilyID: TdaFamilyID; aCount: Longint);
+   procedure LogImport(aFamilyID: TdaFamilyID);
    procedure LogPause(aLength: Longint);
-   procedure LogPrintDoc(aFamilyID: TFamilyID; aDocID: TDocID);
-   procedure LogSaveDoc(aFamilyID: TFamilyID; aDocID: TDocID);
-   procedure LogEditDoc(aFamilyID: TFamilyID; aDocID: TDocID; aEditInfo: TDocEditRec); overload;
-   procedure LogEditDoc(aFamilyID: TFamilyID; aDocID: TDocID; aEditType: TdaDocEditType); overload;
-   procedure LogDeleteDoc(aFamilyID: TFamilyID; aDocID: TDocID);
-   procedure LogEditDict(aFamilyID: TFamilyID; aEditInfo: TDictEditRec);
-   procedure LogCreateDoc(aFamilyID: TFamilyID; aDocID: TDocID);
-   procedure LogAutoClass(aFamilyID: TFamilyID; aCount: Longint);
-   procedure LogOpenDoc(aFamilyID: TFamilyID; aDocID: TDocID);
+   procedure LogPrintDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
+   procedure LogSaveDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
+   procedure LogEditDoc(aFamilyID: TdaFamilyID; aDocID: TDocID; aEditInfo: TDocEditRec); overload;
+   procedure LogEditDoc(aFamilyID: TdaFamilyID; aDocID: TDocID; aEditType: TdaDocEditType); overload;
+   procedure LogDeleteDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
+   procedure LogEditDict(aFamilyID: TdaFamilyID; aEditInfo: TDictEditRec);
+   procedure LogCreateDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
+   procedure LogAutoClass(aFamilyID: TdaFamilyID; aCount: Longint);
+   procedure LogOpenDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
 
    procedure SessionDone;
 
-   property  UserID : TUserID read fCurUser;
+   property  UserID : TdaUserID read fCurUser;
    property  CurStatisticTreeRoot : Il3RootNode read Get_CurStatisticTreeRoot;
    property  CurStatTree : Tl3Tree read fCurStatTree;
  end;
@@ -373,7 +379,7 @@ begin
 end;
 *)
 Procedure TBigBrotherTbl.PutBBRec(aOperation : TdaJournalOperation;
-                                  aFamilyID  : TFamilyID;
+                                  aFamilyID  : TdaFamilyID;
                                   aExtID     : LongInt;
                                   aData      : LongInt);
 Var
@@ -670,7 +676,7 @@ end;
 
 procedure TBigBrotherTbl.CalcStatistics(FromDate,ToDate : TStDate;
                                         aDocID          : TDocID;
-                                        UserOrGroupID   : TUserID;
+                                        UserOrGroupID   : TdaUserID;
                                         UserGr          : Boolean);
 var
  l_ResultSab, l_DocSab: ISab;
@@ -699,7 +705,7 @@ begin
  end;
 end;
 
-function TBigBrotherTbl.GetUserStatistic(FromDate,ToDate : TStDate; ID : TUserID; UserGr : Boolean): ISab;
+function TBigBrotherTbl.GetUserStatistic(FromDate,ToDate : TStDate; ID : TdaUserID; UserGr : Boolean): ISab;
 var
  l_ResultSab: ISab;
 
@@ -721,7 +727,7 @@ begin
    // Если нет, то получаем этого пользователя
    if UserGr then
    begin
-    l_ResultSab := UserManager.xxxGetUserGroupsList(ID);
+    l_ResultSab := xxxUserManager.xxxGetUserGroupsList(ID);
     l_ResultSab.TransferToPhoto(bbID_Ext, MakePhoto(Self));
     l_ResultSab.RecordsByKey;
    end
@@ -807,22 +813,22 @@ begin
  end;
 end;
 
-procedure TBigBrotherTbl.LogDeleteDoc(aFamilyID: TFamilyID; aDocID: TDocID);
+procedure TBigBrotherTbl.LogDeleteDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
 begin
  PutBBRec(da_oobDeleteDoc, aFamilyID, aDocID, 0);
 end;
 
-procedure TBigBrotherTbl.LogCreateDoc(aFamilyID: TFamilyID; aDocID: TDocID);
+procedure TBigBrotherTbl.LogCreateDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
 begin
  PutBBRec(da_oobCreateDoc, aFamilyID, aDocID, 0);
 end;
 
-procedure TBigBrotherTbl.LogOpenDoc(aFamilyID: TFamilyID; aDocID: TDocID);
+procedure TBigBrotherTbl.LogOpenDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
 begin
  PutBBRec(da_oobOpenDoc, aFamilyID, aDocID, 0);
 end;
 
-procedure TBigBrotherTbl.LogEditDoc(aFamilyID: TFamilyID; aDocID: TDocID; aEditInfo: TDocEditRec);
+procedure TBigBrotherTbl.LogEditDoc(aFamilyID: TdaFamilyID; aDocID: TDocID; aEditInfo: TDocEditRec);
 var
  Tmp: Longint;
 begin
@@ -831,7 +837,7 @@ begin
  PutBBRec(da_oobEditDoc, aFamilyID, aDocID, Tmp);
 end;
 
-procedure TBigBrotherTbl.LogEditDoc(aFamilyID: TFamilyID; aDocID: TDocID; aEditType: TdaDocEditType);
+procedure TBigBrotherTbl.LogEditDoc(aFamilyID: TdaFamilyID; aDocID: TDocID; aEditType: TdaDocEditType);
 var
  Tmp: Longint;
 begin
@@ -840,7 +846,7 @@ begin
  PutBBRec(da_oobEditDoc, aFamilyID, aDocID, Tmp);
 end;
 
-procedure TBigBrotherTbl.LogEditDict(aFamilyID: TFamilyID; aEditInfo: TDictEditRec);
+procedure TBigBrotherTbl.LogEditDict(aFamilyID: TdaFamilyID; aEditInfo: TDictEditRec);
 var
  Tmp: Longint;
 begin
@@ -850,7 +856,7 @@ begin
 end;
 
 {
-procedure TBigBrotherTbl.LogSearch(aFamilyID: TFamilyID; aSrchSet: TSearchSet);
+procedure TBigBrotherTbl.LogSearch(aFamilyID: TdaFamilyID; aSrchSet: TSearchSet);
 var
  Tmp: Longint;
 begin
@@ -860,17 +866,17 @@ begin
 end;
 }
 
-procedure TBigBrotherTbl.LogExport(aFamilyID: TFamilyID; aCount: Longint);
+procedure TBigBrotherTbl.LogExport(aFamilyID: TdaFamilyID; aCount: Longint);
 begin
  PutBBRec(da_oobExport, aFamilyID, 0, aCount);
 end;
 
-procedure TBigBrotherTbl.LogAutoClass(aFamilyID: TFamilyID; aCount: Longint);
+procedure TBigBrotherTbl.LogAutoClass(aFamilyID: TdaFamilyID; aCount: Longint);
 begin
  PutBBRec(da_oobAutoClass, aFamilyID, 0, aCount);
 end;
 
-procedure TBigBrotherTbl.LogImport(aFamilyID: TFamilyID);
+procedure TBigBrotherTbl.LogImport(aFamilyID: TdaFamilyID);
 begin
  PutBBRec(da_oobImport, aFamilyID, 0, 0);
 end;
@@ -880,12 +886,12 @@ begin
  PutBBRec(da_oobPause, 0, 0, aLength);
 end;
 
-procedure TBigBrotherTbl.LogPrintDoc(aFamilyID: TFamilyID; aDocID: TDocID);
+procedure TBigBrotherTbl.LogPrintDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
 begin
  PutBBRec(da_oobPrintDoc, aFamilyID, aDocID, 0);
 end;
 
-procedure TBigBrotherTbl.LogSaveDoc(aFamilyID: TFamilyID; aDocID: TDocID);
+procedure TBigBrotherTbl.LogSaveDoc(aFamilyID: TdaFamilyID; aDocID: TDocID);
 begin
  PutBBRec(da_oobSaveDoc, aFamilyID, aDocID, 0);
 end;

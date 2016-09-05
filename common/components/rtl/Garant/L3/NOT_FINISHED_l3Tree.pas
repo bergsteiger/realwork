@@ -239,6 +239,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4804BDA10127impl_uses*
+ //#UC END# *4804BDA10127impl_uses*
 ;
 
 function Tl3Tree.Get_NodeFlags(const Node: Il3Node): integer;

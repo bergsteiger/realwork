@@ -70,6 +70,8 @@ uses
  , l3Chars
  , SBS_Const
  , k2Interfaces
+ //#UC START# *4836C450038Dimpl_uses*
+ //#UC END# *4836C450038Dimpl_uses*
 ;
 
 function TevSimpleTextPainter.OpenTableIfNeeded: Boolean;

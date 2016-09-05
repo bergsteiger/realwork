@@ -24,7 +24,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure miInsertClassToObjListClick(Sender: TObject);
   private
-    fFamily   : TFamilyID;
+    fFamily   : TdaFamilyID;
     fDictID   : TdaDictionaryType;
 
     fHistList : Tl3DataList;
@@ -36,7 +36,7 @@ type
     function  Copy  : boolean; override;
   public
     constructor Create(aOwner : TComponent;
-                       aFamily : TFamilyID;
+                       aFamily : TdaFamilyID;
                        aDictID : TdaDictionaryType); reintroduce;
 
     procedure Cleanup; override;
@@ -53,7 +53,7 @@ Uses
  StrShop, Main;
 
 constructor TLinkHistoForm.Create(aOwner : TComponent;
-                                  aFamily : TFamilyID;
+                                  aFamily : TdaFamilyID;
                                   aDictID : TdaDictionaryType);
 begin
  inherited Create(aOwner);

@@ -13,13 +13,6 @@ interface
 uses
  l3IntfUses
  , afwInterfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
- , ConfigInterfaces
  , l3Interfaces
  , Classes
  {$If NOT Defined(NoVCM)}
@@ -51,18 +44,6 @@ type
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSaveLoadForm(const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean;
-    aUserType: TvcmUserType): IvcmEntityForm;
-   class function MakeQueryCardForm(aFilter: Boolean;
-    const aParams: IvcmMakeParams;
-    aZoneType: TvcmZoneType;
-    aRecursive: Boolean;
-    aUserType: TvcmUserType): IvcmEntityForm;
-   class function MakePreview(const aPreview: IafwDocumentPreview): IvcmEntityForm;
-   class function MakePageSetup(const aData: InsPageSettingsInfo): Integer;
-   class function MakePrintDialog(const aPreview: IafwDocumentPreview): IvcmEntityForm;
    constructor Create(AOwner: TComponent); override;
  end;//TCommonSearchModule
 {$IfEnd} // NOT Defined(Admin)
@@ -72,6 +53,17 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Services
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ConfigInterfaces
  , nsUtils
  , evConst
  , DataAdapter
@@ -79,6 +71,7 @@ uses
  , Windows
  , afwFacade
  , SysUtils
+ , l3Base
  , SaveLoad_Form
  , QueryCard_Form
  , Preview_Form
@@ -90,7 +83,53 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TCommonSearchModule.MakeSaveLoadForm(const aParams: IvcmMakeParams;
+type
+ TCommonSearchServiceImpl = {final} class(TvcmModuleContractImplementation, ICommonSearchService)
+  public
+   function MakeSaveLoadForm(const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
+   function MakeQueryCardForm(aFilter: Boolean;
+    const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType;
+    aRecursive: Boolean;
+    aUserType: TvcmUserType): IvcmEntityForm;
+   class function Instance: TCommonSearchServiceImpl;
+    {* Метод получения экземпляра синглетона TCommonSearchServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TCommonSearchServiceImpl
+
+ TPrintingServiceImpl = {final} class(TvcmModuleContractImplementation, IPrintingService)
+  public
+   function MakePrintDialog(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+   function MakePageSetup(const aData: InsPageSettingsInfo): Integer;
+   function MakePreview(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+   class function Instance: TPrintingServiceImpl;
+    {* Метод получения экземпляра синглетона TPrintingServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TPrintingServiceImpl
+
+var g_TCommonSearchServiceImpl: TCommonSearchServiceImpl = nil;
+ {* Экземпляр синглетона TCommonSearchServiceImpl }
+var g_TPrintingServiceImpl: TPrintingServiceImpl = nil;
+ {* Экземпляр синглетона TPrintingServiceImpl }
+
+procedure TCommonSearchServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TCommonSearchServiceImpl }
+begin
+ l3Free(g_TCommonSearchServiceImpl);
+end;//TCommonSearchServiceImplFree
+
+procedure TPrintingServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TPrintingServiceImpl }
+begin
+ l3Free(g_TPrintingServiceImpl);
+end;//TPrintingServiceImplFree
+
+function TCommonSearchServiceImpl.MakeSaveLoadForm(const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType;
  aRecursive: Boolean;
  aUserType: TvcmUserType): IvcmEntityForm;
@@ -112,9 +151,9 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TCommonSearchModule.MakeSaveLoadForm
+end;//TCommonSearchServiceImpl.MakeSaveLoadForm
 
-class function TCommonSearchModule.MakeQueryCardForm(aFilter: Boolean;
+function TCommonSearchServiceImpl.MakeQueryCardForm(aFilter: Boolean;
  const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType;
  aRecursive: Boolean;
@@ -138,53 +177,26 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TCommonSearchModule.MakeQueryCardForm
+end;//TCommonSearchServiceImpl.MakeQueryCardForm
 
-class function TCommonSearchModule.MakePreview(const aPreview: IafwDocumentPreview): IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4AAF73E6039E_4AA931390118_var*
- l_Params: IvcmMakeParams;
-//#UC END# *4AAF73E6039E_4AA931390118_var*
+class function TCommonSearchServiceImpl.Instance: TCommonSearchServiceImpl;
+ {* Метод получения экземпляра синглетона TCommonSearchServiceImpl }
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AAF73E6039E_4AA931390118_impl*
- l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil)));
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=606808801
- Result := TefPreviewForm.Make(aPreview, l_Params);
-//#UC END# *4AAF73E6039E_4AA931390118_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TCommonSearchModule.MakePreview
+ if (g_TCommonSearchServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TCommonSearchServiceImplFree);
+  g_TCommonSearchServiceImpl := Create;
+ end;
+ Result := g_TCommonSearchServiceImpl;
+end;//TCommonSearchServiceImpl.Instance
 
-class function TCommonSearchModule.MakePageSetup(const aData: InsPageSettingsInfo): Integer;
-var l_Form: IvcmEntityForm;
-var
- __WasEnter : Boolean;
-//#UC START# *4AAF85DA01D1_4AA931390118_var*
-//#UC END# *4AAF85DA01D1_4AA931390118_var*
+class function TCommonSearchServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AAF85DA01D1_4AA931390118_impl*
- l_Form := Ten_PageSetup.Make(aData);
- try
-  Assert((l_Form <> nil));
-  Result := l_Form.ShowModal;
- finally
-  l_Form := nil;
- end;//try..finally
-//#UC END# *4AAF85DA01D1_4AA931390118_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TCommonSearchModule.MakePageSetup
+ Result := g_TCommonSearchServiceImpl <> nil;
+end;//TCommonSearchServiceImpl.Exists
 
-class function TCommonSearchModule.MakePrintDialog(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+function TPrintingServiceImpl.MakePrintDialog(const aPreview: IafwDocumentPreview): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AAF8EE1019C_4AA931390118_var*
@@ -204,7 +216,69 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TCommonSearchModule.MakePrintDialog
+end;//TPrintingServiceImpl.MakePrintDialog
+
+function TPrintingServiceImpl.MakePageSetup(const aData: InsPageSettingsInfo): Integer;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAF85DA01D1_4AA931390118_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4AAF85DA01D1_4AA931390118_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAF85DA01D1_4AA931390118_impl*
+ l_Form := Ten_PageSetup.Make(aData);
+ try
+  Assert((l_Form <> nil));
+  Result := l_Form.ShowModal;
+ finally
+  l_Form := nil;
+ end;//try..finally
+//#UC END# *4AAF85DA01D1_4AA931390118_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TPrintingServiceImpl.MakePageSetup
+
+function TPrintingServiceImpl.MakePreview(const aPreview: IafwDocumentPreview): IvcmEntityForm;
+var
+ __WasEnter : Boolean;
+//#UC START# *4AAF73E6039E_4AA931390118_var*
+ l_Params: IvcmMakeParams;
+//#UC END# *4AAF73E6039E_4AA931390118_var*
+begin
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AAF73E6039E_4AA931390118_impl*
+ l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil)));
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=606808801
+ Result := TefPreviewForm.Make(aPreview, l_Params);
+//#UC END# *4AAF73E6039E_4AA931390118_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TPrintingServiceImpl.MakePreview
+
+class function TPrintingServiceImpl.Instance: TPrintingServiceImpl;
+ {* Метод получения экземпляра синглетона TPrintingServiceImpl }
+begin
+ if (g_TPrintingServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TPrintingServiceImplFree);
+  g_TPrintingServiceImpl := Create;
+ end;
+ Result := g_TPrintingServiceImpl;
+end;//TPrintingServiceImpl.Instance
+
+class function TPrintingServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TPrintingServiceImpl <> nil;
+end;//TPrintingServiceImpl.Exists
 
 function TCommonSearchModule.pm_GetMargins: TafwRect;
 //#UC START# *473D8F8602AE_4AA931390118get_var*
@@ -253,7 +327,7 @@ procedure TCommonSearchModule.PrintDialog(const aPreview: IafwDocumentPreview);
 //#UC END# *473D8FC5038B_4AA931390118_var*
 begin
 //#UC START# *473D8FC5038B_4AA931390118_impl*
- MakePrintDialog(aPreview);
+ TPrintingService.Instance.MakePrintDialog(aPreview);
 //#UC END# *473D8FC5038B_4AA931390118_impl*
 end;//TCommonSearchModule.PrintDialog
 
@@ -263,7 +337,7 @@ procedure TCommonSearchModule.ShowPreview(const aPreview: IafwDocumentPreview);
 //#UC END# *473D8FDC01EA_4AA931390118_var*
 begin
 //#UC START# *473D8FDC01EA_4AA931390118_impl*
- MakePreview(aPreview);
+ TPrintingService.Instance.MakePreview(aPreview);
 //#UC END# *473D8FDC01EA_4AA931390118_impl*
 end;//TCommonSearchModule.ShowPreview
 
@@ -296,6 +370,12 @@ begin
  aList.Add(Ten_PageSetup);
  aList.Add(Ten_PrintDialog);
 end;//TCommonSearchModule.GetEntityForms
+
+initialization
+ TCommonSearchService.Instance.Alien := TCommonSearchServiceImpl.Instance;
+ {* Регистрация TCommonSearchServiceImpl }
+ TPrintingService.Instance.Alien := TPrintingServiceImpl.Instance;
+ {* Регистрация TPrintingServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin)

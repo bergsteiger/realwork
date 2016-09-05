@@ -40,6 +40,8 @@ uses
  , evdNativeReader
  , SysUtils
  , TestFrameWork
+ //#UC START# *516E72CA0386impl_uses*
+ //#UC END# *516E72CA0386impl_uses*
 ;
 
 procedure TEVDtoHTMLWriterTest.EVDtoHTML(const aFileName: AnsiString);
@@ -65,7 +67,7 @@ var l_Writer: TddHTMLGenerator;
 //#UC END# *516E775B03C9_516E72CA0386_var*
 begin
 //#UC START# *516E775B03C9_516E72CA0386_impl*
- l_Writer := TddHTMLGenerator.Create;
+ l_Writer := GetHTMLWriter;
  try
   TuningHTMLGenerator(l_Writer);
   l_Filter := FilerForOutput;

@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , csGetTaskDescription_Const
+ //#UC START# *546B444D012Fimpl_uses*
+ //#UC END# *546B444D012Fimpl_uses*
 ;
 
 function TncsGetTaskDescription.pm_GetTaskID: AnsiString;

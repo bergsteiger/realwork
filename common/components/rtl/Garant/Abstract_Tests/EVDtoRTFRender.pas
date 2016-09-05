@@ -56,6 +56,8 @@ uses
  , l3BaseStream
  , Classes
  , TestFrameWork
+ //#UC START# *52BAFC960080impl_uses*
+ //#UC END# *52BAFC960080impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -30,6 +30,8 @@ uses
  , tfwRegisteredEnums
  , tfwIntegerToEnumName
  , tfwTypeModifier
+ //#UC START# *53C7E84E012Dimpl_uses*
+ //#UC END# *53C7E84E012Dimpl_uses*
 ;
 
 class function TtfwEnumRegistrator.RegisterEnum(aTypeInfo: PTypeInfo): Boolean;

@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4B8542C302E3impl_uses*
+ //#UC END# *4B8542C302E3impl_uses*
 ;
 
 procedure TEVDtoBothNSRCWriterTest.ToOldNSRC;

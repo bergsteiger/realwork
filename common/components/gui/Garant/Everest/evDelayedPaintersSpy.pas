@@ -53,6 +53,8 @@ uses
  , SysUtils
  , l3Types
  , l3Base
+ //#UC START# *4D6F3F42007Cimpl_uses*
+ //#UC END# *4D6F3F42007Cimpl_uses*
 ;
 
 var g_TevDelayedPaintersSpy: TevDelayedPaintersSpy = nil;

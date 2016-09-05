@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , k2Tags
  , l3Math
+ //#UC START# *4E5F35FF01B4impl_uses*
+ //#UC END# *4E5F35FF01B4impl_uses*
 ;
 
 procedure TnevBitmapFormatInfo.ClearCache;

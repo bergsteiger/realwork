@@ -50,6 +50,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4B30C90601EBimpl_uses*
+ //#UC END# *4B30C90601EBimpl_uses*
 ;
 
 procedure TTextLoad.LoadGK;

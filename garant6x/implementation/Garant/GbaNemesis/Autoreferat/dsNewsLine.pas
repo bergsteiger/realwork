@@ -51,6 +51,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *492FDE91018Fimpl_uses*
+ //#UC END# *492FDE91018Fimpl_uses*
 ;
 
 type _Instance_R_ = TdsNewsLine;

@@ -39,6 +39,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C9899150030impl_uses*
+ //#UC END# *4C9899150030impl_uses*
 ;
 
 function TPrimScrollTest.GetFolder: AnsiString;

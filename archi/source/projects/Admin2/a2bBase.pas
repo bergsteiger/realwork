@@ -1,8 +1,17 @@
 unit a2bBase;
 
-{ $Id: a2bBase.pas,v 1.23 2015/01/22 08:32:54 lukyanets Exp $}
+{ $Id: a2bBase.pas,v 1.26 2016/08/11 10:41:53 lukyanets Exp $}
 
 // $Log: a2bBase.pas,v $
+// Revision 1.26  2016/08/11 10:41:53  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.25  2016/06/17 09:03:05  lukyanets
+// Отладка
+//
+// Revision 1.24  2016/06/16 05:38:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.23  2015/01/22 08:32:54  lukyanets
 // Более правильный тип
 //
@@ -82,10 +91,10 @@ uses
  l3DatLst,
  l3ObjectStringList,
 
+ daTypes,
 
  Dt_Const,
- Dt_Types,
- Dt_User,
+ dt_Types,
 
  vcmInterfaces,
  vcmFormDataSource,
@@ -94,7 +103,7 @@ uses
 
 const
  a2cNewItemID     = 0;
- a2cAllUsersGroup = High(TUserGrID);
+ a2cAllUsersGroup = High(TdaUserGroupID);
 
 const
  cStdRightsItemName : array[0..9] of String = ('Название и атрибуты',
@@ -120,7 +129,7 @@ type
  private
   f_DisplayName: string;
  protected
-  f_ID: TUserID;
+  f_ID: TdaUserID;
   f_Name: string;
   f_Modified: Boolean;
   procedure DoRevert; virtual;
@@ -141,7 +150,7 @@ type
   constructor Create;
   property DisplayName: string read pm_GetDisplayName;
   { - Ia2Profile properties -}
-  property ID: TUserID read pm_GetID write f_ID;
+  property ID: TdaUserID read pm_GetID write f_ID;
   property Name: string read pm_GetName write pm_SetName;
   { - Ia2Persistent properties - }
   property Modified: Boolean read pm_GetModified write pm_SetModified;
@@ -160,7 +169,7 @@ type
  protected
   procedure Cleanup; override;
  public
-  constructor Create(aPersistent: Ia2Persistent);
+  constructor Create(aPersistent: Ia2Persistent; aDataSize: Integer);
   property Modified: Boolean read f_Modified write f_Modified;
  end;
 
@@ -168,7 +177,7 @@ type
  private
   f_Modified: Boolean;
   f_Persistent: Pointer;
-  f_RightsMask: TUGAccessMask;
+  f_RightsMask: TdaUserGroupAccessMask;
   function pm_GetIsSpecial: Boolean;
   { - Ia2MarkedList property methods -}
   function pm_GetName(Index: Integer): string;
@@ -176,10 +185,10 @@ type
   function pm_GetTotal: LongInt;
   procedure pm_SetState(Index: Integer; const Value: Integer);
  public
-  constructor Create(aPersistent: Ia2Persistent; aRightsMask: TUGAccessMask);
+  constructor Create(aPersistent: Ia2Persistent; aRightsMask: TdaUserGroupAccessMask);
   property IsSpecial: Boolean read pm_GetIsSpecial;
   property Modified: Boolean read f_Modified write f_Modified;
-  property RightsMask: TUGAccessMask read f_RightsMask write f_RightsMask;
+  property RightsMask: TdaUserGroupAccessMask read f_RightsMask write f_RightsMask;
  end;
 
  Ta2GroupRightsList = class(Tl3ObjectStringList, Ia2GroupRightsList)
@@ -336,9 +345,9 @@ begin
  end;
 end;
 
-constructor Ta2MarkedList.Create(aPersistent: Ia2Persistent);
+constructor Ta2MarkedList.Create(aPersistent: Ia2Persistent; aDataSize: Integer);
 begin
- inherited CreateSize(SizeOf(Integer));
+ inherited CreateSize(aDataSize);
  f_Persistent := Pointer(aPersistent);
  f_Modified := False;
 end;
@@ -377,7 +386,7 @@ begin
  end;
 end;
 
-constructor Ta2GroupRightsObject.Create(aPersistent: Ia2Persistent; aRightsMask: TUGAccessMask);
+constructor Ta2GroupRightsObject.Create(aPersistent: Ia2Persistent; aRightsMask: TdaUserGroupAccessMask);
 begin
  inherited Create;
  f_Persistent := Pointer(aPersistent);

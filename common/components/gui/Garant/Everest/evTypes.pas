@@ -5,9 +5,15 @@ unit evTypes;
 { Автор: Люлин А.В. ©  }
 { Модуль: evTypes - описание базовых типов библиотеки }
 { Начат: 11.12.96 }
-{ $Id: evTypes.pas,v 1.88 2016/03/15 10:27:59 dinishev Exp $ }
+{ $Id: evTypes.pas,v 1.90 2016/08/31 10:39:49 dinishev Exp $ }
 
 // $Log: evTypes.pas,v $
+// Revision 1.90  2016/08/31 10:39:49  dinishev
+// {Requestlink:629346150}
+//
+// Revision 1.89  2016/07/21 15:00:23  lulin
+// - перегенерация.
+//
 // Revision 1.88  2016/03/15 10:27:59  dinishev
 // {Requestlink:619725311}
 //
@@ -348,8 +354,8 @@ uses
   afwTypes
   ;
 
-const
-  ev_sfOwn = 4;
+//const
+//  ev_sfOwn = 4;
     {* - собственная закладка. }
     
 {базовые типы Integer, Word, Char etc.}
@@ -371,6 +377,7 @@ type
        ev_soConfirm,     {запрашивать запрос при замене         }
        ev_soCheckOwnerCollapsed, {игнорировать ссылки в свернутых блоках}
        ev_soIngoreExternalLink, {игнорировать внешние ссылки}
+       ev_soSelTextWithWholeCell, {поиск по выделенному тексту}
        ev_soDocumentPart,{искать по блоку документа самого нижнего уровня}
        ev_soUseInternalCursor,
        ev_soNoException,
@@ -396,7 +403,7 @@ type
     }
   TevSearchOptionSetEx = set of TevSearchOptionEx;
     {* Набор опций поиска/замены. }
-  TevSearchOption = ev_soFind .. ev_soIngoreExternalLink;
+  TevSearchOption = ev_soFind .. ev_soSelTextWithWholeCell;
     {* Урезанные опции поиска/замены. }
   TevSearchOptionSet = set of TevSearchOption;
     {* Набор урезанных опций поиска/замены. }

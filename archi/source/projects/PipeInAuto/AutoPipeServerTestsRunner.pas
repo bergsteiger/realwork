@@ -37,6 +37,8 @@ uses
  {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
  , ArchiAutoTestSuite
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+ //#UC START# *52F24FD90066impl_uses*
+ //#UC END# *52F24FD90066impl_uses*
 ;
 
 {$If Defined(nsTest)}

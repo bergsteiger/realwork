@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4D6BE6F801DFimpl_uses*
+ //#UC END# *4D6BE6F801DFimpl_uses*
 ;
 
 procedure TWikiToEVDWriterTest.DoIt;

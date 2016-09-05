@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , SysUtils
  , kwForwardDeclarationHolder
+ //#UC START# *52D55D7B0178impl_uses*
+ //#UC END# *52D55D7B0178impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas}

@@ -26,6 +26,8 @@ implementation
 {$If Defined(AppClientSide)}
 uses
  l3ImplUses
+ //#UC START# *4F8D26D303CBimpl_uses*
+ //#UC END# *4F8D26D303CBimpl_uses*
 ;
 
 procedure TDocSearchDlg.Execute;

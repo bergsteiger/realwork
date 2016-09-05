@@ -44,6 +44,8 @@ uses
  , l3Types
  , SysUtils
  , l3Base
+ //#UC START# *4E31743D01F8impl_uses*
+ //#UC END# *4E31743D01F8impl_uses*
 ;
 
 var g_TevDefaultStylesFontSizes: TevDefaultStylesFontSizes = nil;

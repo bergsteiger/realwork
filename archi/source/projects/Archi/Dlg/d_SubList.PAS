@@ -2,7 +2,7 @@ unit D_SubList;
 
 {$Include l3Define.inc}
 
-{ $Id: d_SubList.PAS,v 1.16 2012/06/05 13:19:05 voba Exp $ }
+{ $Id: d_SubList.PAS,v 1.17 2016/06/16 05:38:44 lukyanets Exp $ }
 
 interface
 
@@ -17,7 +17,7 @@ type
         aOldCurrent: Integer);
     procedure AdjustPopUp(Sender: TObject);
    private
-    //fFamily        : TFamilyID;
+    //fFamily        : TdaFamilyID;
    public
     constructor Create(AOwner: TComponent); reintroduce;
     function    Execute(var aSubID : Integer) : Boolean;

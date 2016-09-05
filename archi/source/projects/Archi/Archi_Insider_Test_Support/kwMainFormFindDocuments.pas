@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , Main
+ //#UC START# *4F8D503400FDimpl_uses*
+ //#UC END# *4F8D503400FDimpl_uses*
 ;
 
 class function TkwMainFormFindDocuments.GetWordNameForRegister: AnsiString;

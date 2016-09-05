@@ -42,6 +42,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0FB5DC03BDimpl_uses*
+ //#UC END# *4B0FB5DC03BDimpl_uses*
 ;
 
 constructor TnsDocumentPrintEvent.Create(const aDoc: IDocument;

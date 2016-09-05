@@ -18,17 +18,18 @@ uses
  , m3DBTypes
  , l3Filer
  , l3Variant
+ , l3MarshalledTypes
 ;
 
 const
- {* Алиасы для значений m3DBTypes.Tm3DocPartSelector }
- m3_dsMain = m3DBTypes.m3_dsMain;
+ {* Алиасы для значений l3MarshalledTypes.Tm3DocPartSelector }
+ m3_dsMain = l3MarshalledTypes.m3_dsMain;
   {* основной поток }
- m3_dsAnno = m3DBTypes.m3_dsAnno;
+ m3_dsAnno = l3MarshalledTypes.m3_dsAnno;
   {* аннотация }
- m3_dsInfo = m3DBTypes.m3_dsInfo;
+ m3_dsInfo = l3MarshalledTypes.m3_dsInfo;
   {* информация о документе }
- m3_dsObject = m3DBTypes.m3_dsObject;
+ m3_dsObject = l3MarshalledTypes.m3_dsObject;
   {* объект в документе }
  m3_defDocPart = m3_dsMain;
   {* Основной поток документа по умолчанию. }

@@ -187,6 +187,8 @@ uses
  , k2String
  , SysUtils
  , evdStyles
+ //#UC START# *49DF7D98029Aimpl_uses*
+ //#UC END# *49DF7D98029Aimpl_uses*
 ;
 
 type

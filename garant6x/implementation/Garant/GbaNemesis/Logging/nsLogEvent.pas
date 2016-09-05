@@ -39,6 +39,8 @@ uses
  l3ImplUses
  , nsLogEventData
  , nsLogManager
+ //#UC START# *4B0A6109010Cimpl_uses*
+ //#UC END# *4B0A6109010Cimpl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.imp.pas}

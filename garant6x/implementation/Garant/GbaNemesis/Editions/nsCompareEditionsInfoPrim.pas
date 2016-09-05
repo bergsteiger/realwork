@@ -14,6 +14,7 @@ uses
  , nsRedactionCurrentPara
  , DocumentUnit
  , eeInterfaces
+ , Base_Operations_F1Services_Contracts
  , EditionsInterfaces
 ;
 
@@ -33,6 +34,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4A8039EF0325impl_uses*
+ //#UC END# *4A8039EF0325impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas}

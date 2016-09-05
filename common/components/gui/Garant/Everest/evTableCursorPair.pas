@@ -71,6 +71,10 @@ type
    {$If Defined(k2ForEditor)}
    function GetStartOffset: Integer; override;
    {$IfEnd} // Defined(k2ForEditor)
+   procedure CheckSearcherOptions(const aSearcher: IevSearcher;
+    aStart: Integer;
+    anIndex: Integer); override;
+   procedure ClearSearcherOptions(const aSearcher: IevSearcher); override;
   public
    procedure DoInit(const aStart: InevBasePoint;
     const aFinish: InevBasePoint;
@@ -98,10 +102,13 @@ uses
  , evdTypes
  , l3LongintList
  , SysUtils
+ , evTypes
  , k2Base
  {$If Defined(k2ForEditor)}
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *5108D3850245impl_uses*
+ //#UC END# *5108D3850245impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
@@ -545,5 +552,28 @@ begin
 end;//TevTableCursorPair.GetStartOffset
 {$IfEnd} // Defined(k2ForEditor)
 
+procedure TevTableCursorPair.CheckSearcherOptions(const aSearcher: IevSearcher;
+ aStart: Integer;
+ anIndex: Integer);
+//#UC START# *57C6ADA002BE_5108D3850245_var*
+//#UC END# *57C6ADA002BE_5108D3850245_var*
+begin
+//#UC START# *57C6ADA002BE_5108D3850245_impl*
+ if aStart < anIndex then
+  if ev_soSelText in aSearcher.Options then
+    aSearcher.Options := aSearcher.Options + [ev_soSelTextWithWholeCell];
+//#UC END# *57C6ADA002BE_5108D3850245_impl*
+end;//TevTableCursorPair.CheckSearcherOptions
+
+procedure TevTableCursorPair.ClearSearcherOptions(const aSearcher: IevSearcher);
+//#UC START# *57C6ADF00109_5108D3850245_var*
+//#UC END# *57C6ADF00109_5108D3850245_var*
+begin
+//#UC START# *57C6ADF00109_5108D3850245_impl*
+ if ev_soSelTextWithWholeCell in aSearcher.Options then
+  aSearcher.Options := aSearcher.Options - [ev_soSelTextWithWholeCell];
+//#UC END# *57C6ADF00109_5108D3850245_impl*
+end;//TevTableCursorPair.ClearSearcherOptions
 {$IfEnd} // Defined(evUseVisibleCursors)
+
 end.

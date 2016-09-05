@@ -23,6 +23,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TPicSizeEditDlgWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4F5760A80104impl_uses*
+ //#UC END# *4F5760A80104impl_uses*
 ;
 
 end.

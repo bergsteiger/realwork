@@ -142,6 +142,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4BD6D6EA0075impl_uses*
  , l3ControlsTypes
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4BD6D6EA0075impl_uses*
 ;
 
@@ -151,7 +152,7 @@ procedure TPrimWorkJournalForm.JournalTreeMakeTreeSource(out theTree: Il3SimpleT
 //#UC END# *527D09DB0041_4BD6D6EA0075_var*
 begin
 //#UC START# *527D09DB0041_4BD6D6EA0075_impl*
- theTree := TdmStdRes.MakeWorkJournal.MakeTree;
+ theTree := TWorkJournalService.Instance.MakeWorkJournal.MakeTree;
 //#UC END# *527D09DB0041_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.JournalTreeMakeTreeSource
 
@@ -239,7 +240,7 @@ procedure TPrimWorkJournalForm.Edit_Delete_Execute(const aParams: IvcmExecutePar
 //#UC END# *494F89C30197_4BD6D6EA0075exec_var*
 begin
 //#UC START# *494F89C30197_4BD6D6EA0075exec_impl*
- TdmStdRes.MakeWorkJournal.Delete(JournalTree.GetCurrentNode);
+ TWorkJournalService.Instance.MakeWorkJournal.Delete(JournalTree.GetCurrentNode);
 //#UC END# *494F89C30197_4BD6D6EA0075exec_impl*
 end;//TPrimWorkJournalForm.Edit_Delete_Execute
 
@@ -389,7 +390,7 @@ procedure TPrimWorkJournalForm.Journal_Clear_Execute(const aParams: IvcmExecuteP
 //#UC END# *4C3F348402AC_4BD6D6EA0075exec_var*
 begin
 //#UC START# *4C3F348402AC_4BD6D6EA0075exec_impl*
- TdmStdRes.MakeWorkJournal.Clear;
+ TWorkJournalService.Instance.MakeWorkJournal.Clear;
 //#UC END# *4C3F348402AC_4BD6D6EA0075exec_impl*
 end;//TPrimWorkJournalForm.Journal_Clear_Execute
 

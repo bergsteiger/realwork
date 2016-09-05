@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *4ED8C0B600A4impl_uses*
+ //#UC END# *4ED8C0B600A4impl_uses*
 ;
 
 procedure TnevDocumentPartAnchor.CheckInner;

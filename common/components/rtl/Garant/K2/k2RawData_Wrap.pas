@@ -27,6 +27,8 @@ uses
  , l3Stream
  , SysUtils
  , k2SizedMemoryPool
+ //#UC START# *53C0068E01BCimpl_uses*
+ //#UC END# *53C0068E01BCimpl_uses*
 ;
 
 function Wk2RawData.ObjToTag(aValue: TObject): Il3TagRef;

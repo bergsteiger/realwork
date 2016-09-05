@@ -27,6 +27,8 @@ uses
  , k2Tags
  , k2Dictionary
  , Style_Const
+ //#UC START# *484D30E40278impl_uses*
+ //#UC END# *484D30E40278impl_uses*
 ;
 
 end.

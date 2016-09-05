@@ -49,6 +49,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4CA099DB01B7impl_uses*
+ //#UC END# *4CA099DB01B7impl_uses*
 ;
 
 procedure TQueryCardAddAttributeTest.Process(aForm: TPrimTextLoadForm);

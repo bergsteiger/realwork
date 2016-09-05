@@ -52,6 +52,8 @@ uses
  , vtVerInf
  , SysUtils
  , l3Base
+ //#UC START# *55DDCF7C004Aimpl_uses*
+ //#UC END# *55DDCF7C004Aimpl_uses*
 ;
 
 var g_Tl3VersionInfoService: Tl3VersionInfoService = nil;

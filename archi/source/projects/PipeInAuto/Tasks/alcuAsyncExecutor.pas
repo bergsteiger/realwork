@@ -3,7 +3,7 @@ unit alcuAsyncExecutor;
 interface
 
 uses l3Base, csProcessTask, l3Types, ddProgressObj, csNotification, CsDataPipe,
-  dt_Types;
+  daTypes;
 
 type
   TsatAsyncExecutor = class(Tl3ThreadContainer)
@@ -18,7 +18,7 @@ type
     f_Progress: Long;
     f_Message: AnsiString;
     f_OnceSended: Boolean;
-    f_ServerUserID: TUserID;
+    f_ServerUserID: TdaUserID;
     f_ExitCode: Integer;
     procedure ProcessProgress(aState: Byte; aValue: Long; const aMsg: AnsiString = '');
     procedure ExternalNotify(aNotificationType: TCsNotificationType;
@@ -41,7 +41,7 @@ type
 implementation
 
 uses
-  Classes, ddHTInit, alcuExport, l3Stream, daDataProvider, dt_UserConst, dt_Mail,
+  Classes, ddHTInit, alcuExport, l3Stream, daDataProvider, dt_Mail,
   csUserRequestManager, csQueryTypes, ddProcessTaskPrim, ddClientBaseEngine,
   ddIniStorage, SysUtils, l3TempMemoryStream, l3Interlocked, daUtils,
   csTaskTypes, alcuStrings;

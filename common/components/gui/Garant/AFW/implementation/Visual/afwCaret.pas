@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , l3Units
+ //#UC START# *480DDF270394impl_uses*
+ //#UC END# *480DDF270394impl_uses*
 ;
 
 procedure TafwCaret.Set_Extent(const aValue: TPoint);

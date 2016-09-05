@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , evdBadEVDToEmptyDocumentTranslator
  , TestFrameWork
+ //#UC START# *53BC0D3900DFimpl_uses*
+ //#UC END# *53BC0D3900DFimpl_uses*
 ;
 
 procedure TBadEVDTest.SetFilters(var theGenerator: Ik2TagGenerator);

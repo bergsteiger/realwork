@@ -32,6 +32,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , vcmModuleContractImplementation
  , SysUtils
  , l3Base
  , l3Core
@@ -41,6 +42,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AB33E14004Eimpl_uses*
+ //#UC END# *4AB33E14004Eimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

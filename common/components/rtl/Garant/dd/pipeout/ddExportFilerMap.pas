@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *560A38A50349impl_uses*
+ //#UC END# *560A38A50349impl_uses*
 ;
 
 function CompareKeys(const aA: _KeyType_;

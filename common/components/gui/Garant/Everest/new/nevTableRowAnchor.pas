@@ -84,6 +84,8 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , nevAfterEndPoint
  {$IfEnd} // Defined(evUseVisibleCursors)
+ //#UC START# *4A5D7B82016Aimpl_uses*
+ //#UC END# *4A5D7B82016Aimpl_uses*
 ;
 
 procedure TnevTableRowAnchor.CheckBaseLine(const aView: InevView);

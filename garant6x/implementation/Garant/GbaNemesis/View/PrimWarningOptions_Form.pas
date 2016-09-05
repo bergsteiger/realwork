@@ -87,6 +87,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C7F738D033Eimpl_uses*
+ , Search_Services
  //#UC END# *4C7F738D033Eimpl_uses*
 ;
 
@@ -141,7 +142,7 @@ procedure TPrimWarningOptionsForm.File_PrintPreview_Execute(const aParams: IvcmE
 //#UC END# *495220F2033A_4C7F738D033Eexec_var*
 begin
 //#UC START# *495220F2033A_4C7F738D033Eexec_impl*
- TdmStdRes.MakePreview(MakePreview);
+ TPrintingService.Instance.MakePreview(MakePreview);
 //#UC END# *495220F2033A_4C7F738D033Eexec_impl*
 end;//TPrimWarningOptionsForm.File_PrintPreview_Execute
 {$IfEnd} // NOT Defined(NoVCM)
@@ -180,7 +181,7 @@ procedure TPrimWarningOptionsForm.Warning_ActualRedaction_Execute(const aParams:
 begin
 //#UC START# *4C7F7552010A_4C7F738D033Eexec_impl*
  if (Aggregate <> nil) then
-  Aggregate.Operation(TdmStdRes.opcode_Redactions_ActualRedaction);
+  Aggregate.Operation(opcode_Redactions_ActualRedaction);
 //#UC END# *4C7F7552010A_4C7F738D033Eexec_impl*
 end;//TPrimWarningOptionsForm.Warning_ActualRedaction_Execute
 

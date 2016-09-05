@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , nevTableCellFormatInfo
+ //#UC START# *50052D550208impl_uses*
+ //#UC END# *50052D550208impl_uses*
 ;
 
 function evGetContinueCell(const aTableFI: TnevFormatInfoPrim;

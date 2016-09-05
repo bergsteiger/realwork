@@ -39,6 +39,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4A66EB5F010Cimpl_uses*
+ //#UC END# *4A66EB5F010Cimpl_uses*
 ;
 
 constructor TnsChatMessage.Create(const aTitle: IStream;

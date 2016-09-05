@@ -1,8 +1,32 @@
 unit a2bUserProfile;
 
-{ $Id: a2bUserProfile.pas,v 1.33 2016/05/18 06:02:39 lukyanets Exp $}
+{ $Id: a2bUserProfile.pas,v 1.41 2016/08/11 10:41:53 lukyanets Exp $}
 
 // $Log: a2bUserProfile.pas,v $
+// Revision 1.41  2016/08/11 10:41:53  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.40  2016/07/12 13:26:26  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.39  2016/07/11 12:59:53  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.38  2016/06/21 05:08:37  lukyanets
+// Недокоммител
+//
+// Revision 1.37  2016/06/20 15:48:29  fireton
+// - не собиралось
+//
+// Revision 1.36  2016/06/17 09:03:05  lukyanets
+// Отладка
+//
+// Revision 1.35  2016/06/17 06:20:10  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.34  2016/06/16 05:38:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.33  2016/05/18 06:02:39  lukyanets
 // Выключаем удаленную отладку
 //
@@ -116,8 +140,7 @@ interface
 uses
  l3Base,
 
- Dt_Types,
- Dt_User,
+ daTypes,
 
  a2Interfaces,
  a2Base,
@@ -129,7 +152,7 @@ type
  private
   f_GroupsList: Ta2MarkedList;
   f_PasswordChanged: Boolean;
-  f_UEM: TUsEditMask;
+  f_UEM: TdaUserEditMask;
   procedure ReloadGroupStates;
  protected
   f_Login      : string;
@@ -166,7 +189,7 @@ type
   { - methods - }
   constructor Create;
   procedure Cleanup; override;
-  procedure IncludeInGroup(aGroup: TUserGrID);
+  procedure IncludeInGroup(aGroup: TdaUserGroupID);
  end;
 
 implementation
@@ -178,6 +201,7 @@ uses
 
  daInterfaces,
  daDataProvider,
+ daSchemeConsts,
 
  csQueryTypes,
 
@@ -254,7 +278,7 @@ begin
  if f_ID = a2cNewItemID then
  begin
   try
-   f_ID:= UserManager.AddUser(f_Name, f_Login, f_Password, l_Flags)
+   f_ID:= GlobalDataProvider.UserManager.AddUser(f_Name, f_Login, f_Password, l_Flags)
   except
    on E: Exception do
    begin
@@ -266,7 +290,7 @@ begin
  end
  else
  try
-  UserManager.EditUser(f_ID, f_Name, f_Login, l_Flags, f_UEM);
+  GlobalDataProvider.UserManager.EditUser(f_ID, f_Name, f_Login, l_Flags, f_UEM);
  except
   on E: Exception do
   begin
@@ -277,12 +301,12 @@ begin
  end;
  if f_PasswordChanged then
  begin
-  UserManager.AdminChangePassWord(f_ID, f_Password);
+  GlobalDataProvider.UserManager.AdminChangePassWord(f_ID, f_Password);
   f_PasswordChanged := False;
  end;
  if Assigned(f_GroupsList) and f_GroupsList.Modified then
  begin
-  UserManager.SetUserGroupList(f_ID, f_GroupsList);
+  GlobalDataProvider.UserManager.SetUserGroupsList(f_ID, f_GroupsList);
   f_GroupsList.Modified := False;
  end;
  if g_BaseEngine.CSClient.IsStarted then
@@ -303,13 +327,13 @@ end;
 function Ta2UserProfile.GetGroupStates: Ia2MarkedList;
 begin
  if not Assigned(f_GroupsList) then
-  f_GroupsList := Ta2MarkedList.Create(Self as Ia2Persistent);
+  f_GroupsList := Ta2MarkedList.Create(Self as Ia2Persistent, cGroupIDSize);
  if f_ID <> a2cNewItemID then
   ReloadGroupStates;
  Result := f_GroupsList;
 end;
 
-procedure Ta2UserProfile.IncludeInGroup(aGroup: TUserGrID);
+procedure Ta2UserProfile.IncludeInGroup(aGroup: TdaUserGroupID);
 var
  l_Idx: Integer;
 begin
@@ -400,7 +424,7 @@ var
 begin
  f_GroupsList.HostDataList := nil;
  if f_ID <> a2cNewItemID then
-  UserManager.GetUserGroupList(f_ID, f_GroupsList)
+  GlobalDataProvider.UserManager.GetUserGroupsList(f_ID, f_GroupsList)
  else
  begin
   // если новый пользователь просто копируем список групп...

@@ -1,8 +1,20 @@
 Unit Dt_EFltr;
 
-{ $Id: Dt_EFLTR.PAS,v 1.220 2016/03/16 11:00:33 voba Exp $ }
+{ $Id: Dt_EFLTR.PAS,v 1.224 2016/08/25 10:14:38 lukyanets Exp $ }
 
 // $Log: Dt_EFLTR.PAS,v $
+// Revision 1.224  2016/08/25 10:14:38  lukyanets
+// Готовимся запрашивать сервер о получении текста документа.
+//
+// Revision 1.223  2016/08/11 11:37:47  lukyanets
+// Вычищаем поддержку 133 версии
+//
+// Revision 1.222  2016/07/18 11:58:22  voba
+// no message
+//
+// Revision 1.221  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.220  2016/03/16 11:00:33  voba
 // -k:619568279
 //
@@ -683,6 +695,7 @@ interface
 uses
   Classes,
   l3Base, l3Types, l3DatLst, l3Date, l3Variant,
+  l3MarshalledTypes,
   k2Types, k2TagGen, k2TagTerminator,
   k2Prim,
   daTypes,
@@ -695,8 +708,14 @@ uses
   dt_DictTypes;
 
 type
- TDocPartSelector  = (dpDoc, dpSpr, dpAnno);
+ TDocPartSelector = l3MarshalledTypes.TDocPartSelector;
 
+const
+ dpDoc = l3MarshalledTypes.dpDoc;
+ dpSpr = l3MarshalledTypes.dpSpr;
+ dpAnno = l3MarshalledTypes.dpAnno;
+
+type
  TExpAttrCache     = atDateNums .. atHLink;
    {* - Cписок закешированных данных атрибутов}
 
@@ -731,9 +750,7 @@ type
   rNum     : TNumberStr;
   rType    : TDNType;
   rLinkDocID  : TDocID;
- {$ifDef DBVer134}
   rLinkSubID  : TDocID;
- {$endif}
  end;
 
  PexpPublishDataRec = ^TexpPublishDataRec;
@@ -779,7 +796,7 @@ type
    function  GetHLAddresses : Tl3ObjectRefList;
 
   protected
-   fFamily         : TFamilyID;
+   fFamily         : TdaFamilyID;
    fDocGenerator   : TDocExportGenerator;
    fReNum          : Boolean;
    fReNumTbl       : TReNumTbl;
@@ -873,8 +890,8 @@ type
    procedure   SetCurDocID(aValue : TDocID);
 
   public
-   constructor Create(aFamily : TFamilyID); reintroduce;
-   procedure   Init(aFamily : TFamilyID; aNeedHeaderMainRec : Boolean = false);
+   constructor Create(aFamily : TdaFamilyID); reintroduce;
+   procedure   Init(aFamily : TdaFamilyID; aNeedHeaderMainRec : Boolean = false);
 
    {main Data Initialization}
    procedure   OpenStream; override;
@@ -887,7 +904,7 @@ type
    procedure   CloseStructure(NeedUndo : Boolean); override;
 
    class function SetTo(var theGenerator : Tk2TagGenerator;
-                            aDocFamily   : TFamilyID;
+                            aDocFamily   : TdaFamilyID;
                             aDocID       : TDocID;
                             aNeedHeaderMainRec : Boolean = false;
                             aNeedDictNames : Boolean = True;
@@ -895,7 +912,7 @@ type
                             aDocPart : TDocPartSelector = dpDoc): TExportFilter;
       overload;
    class procedure SetTo(var theGenerator : Ik2TagGenerator;
-                            aDocFamily   : TFamilyID;
+                            aDocFamily   : TdaFamilyID;
                             aDocID       : TDocID;
                             aNeedHeaderMainRec : Boolean = false;
                             aNeedDictNames : Boolean = True;
@@ -1069,13 +1086,13 @@ begin
  Result := PexpOrdAttr(A).rSubID - PSubID(B)^;
 end;
 
-Constructor TExportFilter.Create(aFamily : TFamilyID);
+Constructor TExportFilter.Create(aFamily : TdaFamilyID);
 begin
  Inherited Create;
  Init(aFamily);
 end;
 
-procedure TExportFilter.Init(aFamily : TFamilyID; aNeedHeaderMainRec : Boolean = false);
+procedure TExportFilter.Init(aFamily : TdaFamilyID; aNeedHeaderMainRec : Boolean = false);
 begin
  fFamily := aFamily;
  fLevelSlash:='\';
@@ -1331,10 +1348,8 @@ begin
                                                 JFRec(lDictTbl, dnDateFld),
                                                 JFRec(lDictTbl, dnNumFld),
                                                 JFRec(lDictTbl, dnTypFld),
-                                                JFRec(lDictTbl, dnLinkDocIDFld)
-                                                {$ifdef DBVer134}
-                                                , JFRec(lDictTbl, dnLinkSubIDFld)
-                                                {$Endif}
+                                                JFRec(lDictTbl, dnLinkDocIDFld),
+                                                JFRec(lDictTbl, dnLinkSubIDFld)
                                                 ],
                                                cmForward, ROPEN_READ);
      end;
@@ -1663,7 +1678,7 @@ begin
 
       atDoc2DocLink     : rList := GetDoc2DocSab;
      end; // case I of ...
-    //l3System.Msg2Log('EFltr: A:%s Получено %d записей', [GetEnumName(TypeInfo(TExpAttrCache), ord(I)), rList.Count], l3_msgLevel2);
+    l3System.Msg2Log('EFltr: A:%s Получено %d записей', [GetEnumName(TypeInfo(TExpAttrCache), ord(aAttr)), rList.Count], l3_msgLevel2);
     //{*} dbgAppendToLogLN(format('     [%s] %s',[GetEnumName(TypeInfo(TExpAttrCache), ord(I)), dbgFinishTimeCounter(lTimer2)]));
    end;
    rOrgPos  := -1;
@@ -1731,7 +1746,7 @@ begin
   Generator.AddIntegerAtom(k2_tiType,PByte(StageRec+stTypeOffset)^);
   Generator.StartTag(k2_tiUser);
   try
-   Generator.AddIntegerAtom(k2_tiHandle,Integer(PUserID(StageRec+stUserOffset)^));
+   Generator.AddIntegerAtom(k2_tiHandle,Integer(PdaUserID(StageRec+stUserOffset)^));
   finally
    Generator.Finish;
   end;
@@ -1802,7 +1817,7 @@ Const
  chPSourOffset = 8;
  chTypeOffset  = 12;
  chUserOffset  = 13;
- chCommOffset  = chUserOffset + SizeOf(TUserID);
+ chCommOffset  = chUserOffset + SizeOf(TdaUserID);
  chCommSize    = 70;
 var
  TmpPChar : PAnsiChar;
@@ -1816,7 +1831,7 @@ begin
   Generator.AddIntegerAtom(k2_tiType,PByte(CheckRec+chTypeOffset)^);
   Generator.StartTag(k2_tiUser);
   try
-   Generator.AddIntegerAtom(k2_tiHandle,PUserID(CheckRec+chUserOffset)^);
+   Generator.AddIntegerAtom(k2_tiHandle,PdaUserID(CheckRec+chUserOffset)^);
   finally
    Generator.Finish;
   end;
@@ -2138,7 +2153,6 @@ begin
          Generator.AddStringAtom(k2_tiNumber, ConvertArrayToStr(@PexpDNDictRec(lRec)^.rNum, SizeOf(TNumberStr)));
 
 
-        {$ifDef DBver134}
         if (PexpDNDictRec(lRec)^.rType = dnChangerDate) and (PexpDNDictRec(lRec)^.rLinkDocID <> cBlankDocID) then
         begin
          Generator.StartTag(k2_tiLinkAddress);
@@ -2154,7 +2168,6 @@ begin
           Generator.Finish;
          end;
         end;
-        {$Endif}
        finally
         Generator.Finish;
        end;
@@ -2770,7 +2783,7 @@ begin
 end;
 
 class function TExportFilter.SetTo(var theGenerator : Tk2TagGenerator;
-                                   aDocFamily   : TFamilyID;
+                                   aDocFamily   : TdaFamilyID;
                                    aDocID       : TDocID;
                                    aNeedHeaderMainRec : Boolean = false;
                                    aNeedDictNames : Boolean = True;
@@ -2789,7 +2802,7 @@ begin
 end;
 
 class procedure TExportFilter.SetTo(var theGenerator : Ik2TagGenerator;
-                                   aDocFamily   : TFamilyID;
+                                   aDocFamily   : TdaFamilyID;
                                    aDocID       : TDocID;
                                    aNeedHeaderMainRec : Boolean = false;
                                    aNeedDictNames : Boolean = True;

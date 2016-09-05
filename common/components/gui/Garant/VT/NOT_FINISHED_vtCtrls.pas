@@ -31,6 +31,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4AC0B2A102BEimpl_uses*
+ //#UC END# *4AC0B2A102BEimpl_uses*
 ;
 
 procedure AdjustCtrl;

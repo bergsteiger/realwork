@@ -30,6 +30,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B14E61701BCimpl_uses*
+ //#UC END# *4B14E61701BCimpl_uses*
 ;
 
 class procedure TnsBackEvent.Log;

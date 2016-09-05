@@ -40,6 +40,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4A3B9AD60266impl_uses*
+ //#UC END# *4A3B9AD60266impl_uses*
 ;
 
 function TnevLeafParaAnchor.ObjMap(const aView: InevView): TnevFormatInfoPrim;

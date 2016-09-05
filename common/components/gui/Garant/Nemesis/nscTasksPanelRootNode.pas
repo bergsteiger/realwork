@@ -34,6 +34,8 @@ uses
  , SysUtils
  , l3Base
  , nscTaskPanelInterfaces
+ //#UC START# *508EBDB503D2impl_uses*
+ //#UC END# *508EBDB503D2impl_uses*
 ;
 
 class function TnscTasksPanelRootNode.Make: Il3SimpleRootNode;

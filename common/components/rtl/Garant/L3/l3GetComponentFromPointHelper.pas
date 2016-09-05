@@ -66,6 +66,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *551AB8CA014Aimpl_uses*
+ //#UC END# *551AB8CA014Aimpl_uses*
 ;
 
 var g_Tl3GetComponentFromPointHelper: Tl3GetComponentFromPointHelper = nil;

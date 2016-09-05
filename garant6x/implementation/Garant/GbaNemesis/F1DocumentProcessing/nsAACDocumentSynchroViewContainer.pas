@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , evdTypes
+ //#UC START# *5024E55600EDimpl_uses*
+ //#UC END# *5024E55600EDimpl_uses*
 ;
 
 function TnsAACDocumentSynchroViewContainer.AcceptableBlockViewKinds: TnsBlockViewKinds;

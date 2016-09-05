@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4682828F0267impl_uses*
+ //#UC END# *4682828F0267impl_uses*
 ;
 
 procedure TnsContentsTagNode.ClearFields;

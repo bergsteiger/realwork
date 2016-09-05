@@ -40,6 +40,8 @@ uses
  , evdFrame_Const
  , k2Tags
  , k2Const
+ //#UC START# *52B2A333009Eimpl_uses*
+ //#UC END# *52B2A333009Eimpl_uses*
 ;
 
 class function TnevTable.Make(aTag: Tl3Variant): InevTable;

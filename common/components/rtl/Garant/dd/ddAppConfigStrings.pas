@@ -193,6 +193,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , MMSystem
  , l3Utils
+ //#UC START# *4B9E62980158impl_uses*
+ //#UC END# *4B9E62980158impl_uses*
 ;
 
 const

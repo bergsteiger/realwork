@@ -42,6 +42,8 @@ uses
  , l3Base
  , l3SysUtils
  , l3Types
+ //#UC START# *48EB6945012Dimpl_uses*
+ //#UC END# *48EB6945012Dimpl_uses*
 ;
 
 constructor TevReaderDataObject.Create(const aStream: IStream);

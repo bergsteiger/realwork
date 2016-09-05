@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *4E83072D01FFimpl_uses*
+ //#UC END# *4E83072D01FFimpl_uses*
 ;
 
 class function TkwIniRecSetZoom.GetWordNameForRegister: AnsiString;

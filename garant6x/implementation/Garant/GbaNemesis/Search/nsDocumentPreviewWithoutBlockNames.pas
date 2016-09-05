@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *54DC54FD024Bimpl_uses*
+ //#UC END# *54DC54FD024Bimpl_uses*
 ;
 
 function TnsDocumentPreviewWithoutBlockNames.NeedAddBlockNames: Boolean;

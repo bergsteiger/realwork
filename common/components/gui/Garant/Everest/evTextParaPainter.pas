@@ -60,6 +60,8 @@ uses
  , evParaString
  , SysUtils
  , nevTools
+ //#UC START# *4804CC1E0349impl_uses*
+ //#UC END# *4804CC1E0349impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}

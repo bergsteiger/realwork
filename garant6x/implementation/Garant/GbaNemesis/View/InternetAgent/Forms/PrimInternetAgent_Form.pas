@@ -302,6 +302,9 @@ uses
  , nsSettingsConst
  , nsQuestionsWithChoices
  , nsTabbedInterfaceTypes
+ {$If Defined(Nemesis)}
+ , nsDownloader
+ {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -562,13 +565,13 @@ begin
  begin
   Cancel := true;
   if not nsOpenLink(l_DocID, l_SubID, dptSub, True, False, False) then
-   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
+   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub, True, False, vcm_okInCurrentTab, True);
   Exit;
  end;
  if nsIsFileFromMobileGarant(URL) then
  begin
   Cancel := true;
-  nsDoShellExecute(l3CStr(URL));
+  TnsDownloadService.Instance.DownloadFile(URL);
   Exit;
  end;
 
@@ -1170,7 +1173,7 @@ begin
    Exit;
   end;//f_Browser <> nil
  end;//aStateType = vcm_stPosition
- Result := inherited DoLoadState(aState, aStateType);
+ Result := inherited DoLoadState(aState, aStateType, aClone);
 //#UC END# *49807428008C_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.DoLoadState
 

@@ -28,6 +28,8 @@ uses
  , k2Tags
  , Graphics
  , evTextStyle_Const
+ //#UC START# *4E5F550D0032impl_uses*
+ //#UC END# *4E5F550D0032impl_uses*
 ;
 
 procedure TnevCloakFormatInfo.TuneFrameText(aText: Tl3Variant);

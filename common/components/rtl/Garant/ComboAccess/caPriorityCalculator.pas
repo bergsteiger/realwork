@@ -40,6 +40,8 @@ implementation
 {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
  l3ImplUses
+ //#UC START# *5751293D00A9impl_uses*
+ //#UC END# *5751293D00A9impl_uses*
 ;
 
 constructor TcaPriorityCalculator.Create(const aHTCalculator: IdaPriorityCalculator;

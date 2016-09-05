@@ -52,6 +52,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *54F044E00390impl_uses*
+ //#UC END# *54F044E00390impl_uses*
 ;
 
 procedure TncsServiceProviderParams.ClearFields;

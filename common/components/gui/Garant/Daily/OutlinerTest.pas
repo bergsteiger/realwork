@@ -49,6 +49,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
  , TestFrameWork
+ //#UC START# *4D46B552013Bimpl_uses*
+ //#UC END# *4D46B552013Bimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

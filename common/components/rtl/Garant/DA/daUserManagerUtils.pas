@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , daDataProvider
  , daInterfaces
+ //#UC START# *5714CBFE00FAimpl_uses*
+ //#UC END# *5714CBFE00FAimpl_uses*
 ;
 
 function GetRegionStringFromUserID(anID: TdaUserID;

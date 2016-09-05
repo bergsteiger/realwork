@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47BD85FA015Fimpl_uses*
+ //#UC END# *47BD85FA015Fimpl_uses*
 ;
 
 constructor Tl3BaseWithID.Create(aHandle: Integer);

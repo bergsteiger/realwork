@@ -46,6 +46,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3String
+ //#UC START# *4E955BA0010Fimpl_uses*
+ //#UC END# *4E955BA0010Fimpl_uses*
 ;
 
 function TddAutolinkDocHistory.pm_GetEntry(aIndex: Integer): IddAutolinkDocEntry;

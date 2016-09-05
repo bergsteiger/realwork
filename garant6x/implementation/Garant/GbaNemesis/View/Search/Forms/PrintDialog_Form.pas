@@ -1,8 +1,14 @@
 unit PrintDialog_Form;
 
-{ $Id: PrintDialog_Form.pas,v 1.26 2016/05/26 01:08:38 lulin Exp $ }
+{ $Id: PrintDialog_Form.pas,v 1.28 2016/08/02 12:44:45 lulin Exp $ }
 
 // $Log: PrintDialog_Form.pas,v $
+// Revision 1.28  2016/08/02 12:44:45  lulin
+// - перегенерация.
+//
+// Revision 1.27  2016/07/15 11:30:43  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.26  2016/05/26 01:08:38  lulin
 // - перегенерация.
 //
@@ -309,7 +315,7 @@ uses
 
   PrimPrintDialogOptions_Form, evCustomEditorWindowPrim, evCustomEditorModelPart,
   evCustomEditorWindow,
-  vtRadioButton, vtCheckBox
+  vtRadioButton, vtCheckBox, vtComboTree
   ;
 
 type
@@ -367,6 +373,7 @@ uses
   StdRes,
   Math,
   l3PrinterInterfaces
+  , Common_F1CommonServices_Contracts
   ;
 
 {$R *.DFM}
@@ -389,7 +396,7 @@ begin
   l_Printer.Copies := edCopyCount.AsInteger;
   l_Printer.Collate := CollateCheckBox.Checked;
   {$If not defined(Admin) AND not defined(Monitorings)}
-  TdmStdRes.ToPrinterSettings(f_Preview.Printer);
+  TCommonService.Instance.ToPrinterSettings(f_Preview.Printer);
   {$IfEnd}
   l_NeedUpdate := false;
  //Получаем данные о принтере
@@ -430,7 +437,7 @@ begin
      CollateCheckBox.Checked := l_Printer.Collate;
      // http://mdp.garant.ru/pages/viewpage.action?pageId=621474995
     {$If not defined(Admin) AND not defined(Monitorings)}
-     TdmStdRes.FromPrinterSettings(f_Preview.Printer);
+     TCommonService.Instance.FromPrinterSettings(f_Preview.Printer);
     {$IfEnd}
      f_Preview.Printer.Orientation := l3_poPortrait;
     end;

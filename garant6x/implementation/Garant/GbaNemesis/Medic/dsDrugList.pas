@@ -147,6 +147,8 @@ uses
  , nsNewCachableNode
  , Windows
  , l3InterfacesMisc
+ //#UC START# *47E9EDD301A4impl_uses*
+ //#UC END# *47E9EDD301A4impl_uses*
 ;
 
 type _Instance_R_ = TdsDrugList;

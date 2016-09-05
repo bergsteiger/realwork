@@ -34,6 +34,8 @@ implementation
 {$If Defined(AppServerSide) AND NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *537F6306025Bimpl_uses*
+ //#UC END# *537F6306025Bimpl_uses*
 ;
 
 constructor TCsProcWithId.Create(aQueryId: TCsQueryId;

@@ -40,6 +40,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *533BDEE602B6impl_uses*
+ //#UC END# *533BDEE602B6impl_uses*
 ;
 
 type _Instance_R_ = TvcmGlassForm;

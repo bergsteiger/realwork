@@ -87,7 +87,7 @@ procedure _WorkWithRedactions_.Document_CompareEditions_Execute(const aParams: I
 begin
 //#UC START# *4C7BAEB4010E_4A7B03ED01E3exec_impl*
  if (_Instance_R_(Self).Document <> nil) then
-  TdmStdRes.MakeCompareEditions(_Instance_R_(Self).Document,
+  TEditionsService.Instance.MakeCompareEditions(_Instance_R_(Self).Document,
                                 RedactionCurrentPara,
                                 GetRedactionOnLeftEdition);
 //#UC END# *4C7BAEB4010E_4A7B03ED01E3exec_impl*

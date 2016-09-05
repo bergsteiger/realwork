@@ -31,6 +31,8 @@ uses
  , l3CustomString
  , k2Dictionary
  , k2Base
+ //#UC START# *484D10530133impl_uses*
+ //#UC END# *484D10530133impl_uses*
 ;
 
 function Wk2DictRec.StrToTag(const aValue: AnsiString): Tl3Tag;

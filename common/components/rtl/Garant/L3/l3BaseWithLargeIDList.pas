@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , l3BaseWithID
  , l3Memory
+ //#UC START# *47BDA81C0188impl_uses*
+ //#UC END# *47BDA81C0188impl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = Tl3BaseWithID;{$IfEnd}

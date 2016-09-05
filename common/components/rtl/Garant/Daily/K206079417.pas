@@ -44,6 +44,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4D076ADA00B9impl_uses*
+ //#UC END# *4D076ADA00B9impl_uses*
 ;
 
 function TK206079417.GetFolder: AnsiString;

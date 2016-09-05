@@ -40,6 +40,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4FEF234F01FBimpl_uses*
+ //#UC END# *4FEF234F01FBimpl_uses*
 ;
 
 procedure TkwPopQueryCardAttributeGetFocus.DoCard(const aCtx: TtfwContext;

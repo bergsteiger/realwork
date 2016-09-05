@@ -46,6 +46,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4DD663F8004Bimpl_uses*
+ //#UC END# *4DD663F8004Bimpl_uses*
 ;
 
 procedure TkwPopEditorParaDown.DoCursor(const aCtx: TtfwContext;

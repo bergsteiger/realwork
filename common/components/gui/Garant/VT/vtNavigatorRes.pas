@@ -33,6 +33,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *4B8D2783018Dimpl_uses*
+ //#UC END# *4B8D2783018Dimpl_uses*
 ;
 
 initialization

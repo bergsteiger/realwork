@@ -1,7 +1,28 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.154 2016/06/02 15:28:03 fireton Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.161 2016/09/05 12:58:24 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.161  2016/09/05 12:58:24  lukyanets
+// Расталкиваем очередь по приходу запроса
+//
+// Revision 1.160  2016/09/01 13:41:40  lukyanets
+// Уменьшаем время реакции
+//
+// Revision 1.159  2016/08/31 10:30:09  lukyanets
+// Первая доставка
+//
+// Revision 1.158  2016/08/29 12:51:28  lukyanets
+// Принимаем запрос и готовимся отдавать файл
+//
+// Revision 1.157  2016/08/26 10:39:46  lukyanets
+// Готовимся принимать запрос
+//
+// Revision 1.156  2016/08/11 10:41:54  lukyanets
+// Полчищаем dt_user
+//
+// Revision 1.155  2016/06/16 05:38:38  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.154  2016/06/02 15:28:03  fireton
 // - синхронизация с Гардоком журнала импортов
 //
@@ -1187,7 +1208,8 @@ interface
 uses
  Windows, Classes, SyncObjs, SysUtils, Messages, ExtCtrls,
  {$IFNDEf Service}Forms,{$ENDIF}
- l3Base, l3Date, l3LongintList, l3Interfaces, 
+ l3Base, l3Date, l3LongintList, l3Interfaces,
+ daTypes, 
  dt_Types,
  //dt_Tasks,
  dt_Doc, dt_Mail, l3BaseStream, l3Memory,
@@ -1211,6 +1233,7 @@ uses
  alcuServerAsyncExecutionInterfaces,
  ncsServerTransporterPool,
  ncsMessageInterfaces,
+ alcuImmidiateRequestInterfaces,
  ncsMessage, csCommon, alcuDeliveryInterfaces,
  alcuDetachedExecutorPool
  ;
@@ -1264,6 +1287,7 @@ type
     f_ServerStarted: Boolean;
 
     f_SerachActiveTaskCounter: Integer;// Отладочная ловушка - потом можно грохнуть.
+    f_SpeedupRequestProc: TalcuSpeedupRequestProc;
     procedure AddDelayedTask(aTask: TddProcessTask);
     procedure ChangeServerStatus(atask: TddProcessTask);
     procedure CheckDeliveringTasks;
@@ -1273,6 +1297,7 @@ type
     procedure DoChangeUserItem(aTask: TddProcessTask);
     procedure DoSaveUserDefinedExport(aTask: TddProcessTask);
     procedure DoDeleteDocs(aTask: TddProcessTask);
+    procedure DoDownloadDoc(aTask: TddProcessTask);
     function pm_GetActiveTaskListCount: Integer; // количества задач ожидающих выполнения
     function pm_GetCurrentUserName: string;
     function pm_GetLineLen: Integer;
@@ -1300,6 +1325,8 @@ type
   {$ENDIF InsiderTest}
     function AllowTaskExecution: Boolean;
     function NeedProcessTask(const aTask: TddProcessTask): Boolean;
+    procedure DoAddRequest(const aRequest: TddProcessTask);
+    procedure DoAddActiveTask(const aTask: TddProcessTask);
  protected
     procedure AbortTask(const aTask: TddProcessTask);
     procedure FreezeTask(const aTask: TddProcessTask);
@@ -1315,7 +1342,7 @@ type
    // IalcuAsyncTaskFinishedNotifier
    procedure TaskFinished(const aTask: TddProcessTask);
    // IcsRunTaskServices
-   procedure SendTextMessage(anUserID: TUserID;
+   procedure SendTextMessage(anUserID: TdaUserID;
     const aMessage: AnsiString);
    // IncsMessageExecutorFactory
    function MakeExecutor(aMessage: TncsMessage): IncsExecutor;
@@ -1369,6 +1396,7 @@ type
     procedure cs_TransporterHandshake(aPipe: TCSDataPipe);
     procedure cs_TaskSend(aPipe: TCSDataPipe);
     procedure cs_TerminateTask(aPipe: TCSDataPipe);
+    procedure cs_CustomMessageProcessing(aPipe: TCSDataPipe);
     procedure DeleteTask(aTask: TddProcessTask; aSendMessage: Boolean);
     procedure LoadQuery; // загрузить заданий из файла
     procedure LockProcessing; // inc(f_LockProcessingCounter) - блокировка разбора очереди заданий
@@ -1393,7 +1421,8 @@ type
     function TaskExecutionLocked: Boolean;
     function ExecutingTask(CountAbortingTask: Boolean): Boolean;
     procedure SignalServerStarted;
-    procedure RequestExecuteCommand(aUser: TUserID; aCommandID: Integer);
+    procedure SignalServerStopping;
+    procedure RequestExecuteCommand(aUser: TdaUserID; aCommandID: Integer);
     function HasActiveTask(aTaskType: TcsTaskType): Boolean;
     property Actions: TcsServerCommandsManager read f_Actions write f_Actions;
     property ActiveTaskList: TalcuTaskList read f_ActiveTaskList;
@@ -1413,6 +1442,7 @@ type
     property UserQueries: TQueryList read f_UserQueries;
     property AddedActiveTaskCount: Integer read f_AddedActiveTaskCount;
     property WorkThreadCount: Integer read pm_GetWorkThreadCount write pm_SetWorkThreadCount;
+    property SpeedupRequestProc: TalcuSpeedupRequestProc read f_SpeedupRequestProc write f_SpeedupRequestProc;
     {$IFNDEF Service}
     property OnException: TExceptionEvent read f_OnException write f_OnException;
     {$ENDIF}
@@ -1433,7 +1463,7 @@ const
    cs_ttAACImport, cs_ttUnregistered, cs_ttRelPublish, cs_ttAnoncedExport,
    cs_ttHavanskyExport, cs_ttMdpSyncDicts, cs_ttMdpImportDocs, cs_ttContainer,
    cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport];
- alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand, cs_ttUserDefinedExport];
+ alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand, cs_ttUserDefinedExport, cs_ttDownloadDoc];
 
 implementation
 Uses
@@ -1442,17 +1472,16 @@ Uses
  ddAppConfig, ddKW_r, ddUtils, ddProgressTypes, ddCalendarEvents,
  Base_CFG,
  daInterfaces,
- daTypes,
  daSchemeConsts,
  daDataProvider,
- dt_User, dt_Const, dt_AttrSchema, dt_IFltr, dt_Serv,  dt_Stage,
+ dt_Const, dt_AttrSchema, dt_IFltr, dt_Serv,  dt_Stage,
  dt_Dict, dt_Table, dt_Link, dt_Lock, dt_Query, DT_SrchQueries,
  l3Filer, l3FileUtils, l3Stream, l3String, l3TempMemoryStream,
  l3ProcessingEnabledService,
  CSNotification, csActiveClients, CsNotifier,
  alcuMailServer, alcuUtils, alcuAutoClassifier, rxStrUtils, l3ShellUtils, vtLogFile, alcuPrime,
  alcuStrings, StrUtils, alcuAutoExport, ddAppConfigDataAdapters,
- ddAppConfigTypes, l3LongintListPrim, dt_UserConst, dt_DictTypes,
+ ddAppConfigTypes, l3LongintListPrim, dt_DictTypes,
  dt_LinkServ, DT_DictConst, ddCaseCodeMaker, csImport, csServerTaskTypes, DT_Utils,
  csUserDefinedExport,
  alcuSpellCorrectTask,
@@ -1484,6 +1513,9 @@ Uses
  alcuGetFilePartExecutor,
  ncsDeliveryResult,
  alcuDeliveryResultExecutor,
+ csDownloadDocStream,
+ alcuDownloadDocStreamExecutor,
+ ncsDocStorageTransferReg,
  ncsTaskSendReg,
  ncsSendTask,
  alcuSendTaskExecutor,
@@ -1534,6 +1566,7 @@ begin
 
   ncsFileTransferReg.ncsServerRegister;
   ncsTaskSendReg.ncsServerRegister;
+  ncsDocStorageTransferReg.ncsServerRegister;
   TncsMessageExecutorFactory.Instance.Register(Self);
 end;
 
@@ -1553,33 +1586,17 @@ end;
 
 procedure TddServerTaskManager.AddRequest(const aRequest: TddProcessTask);
 begin
- f_RequestList.Push(aRequest);
+ DoAddRequest(aRequest);
+ if Assigned(f_SpeedupRequestProc) then
+  f_SpeedupRequestProc;
 end;
 
 procedure TddServerTaskManager.AddActiveTask(const aTask: TddProcessTask);
 begin
-// Сюда можно попасть двумя путями - получив новую задачу или загрузив старые
- if (aTask <> nil) then
- begin
-  l3System.Msg2Log('Добавление %s задачи: %s', [IfThen(true{aIsNew}, 'новой', 'загруженной'), atask.Description]);
-  ActiveTaskList.Lock;
-  try
-    CalculatePriority(aTask);
-    //aTask.OnChange := TaskStatusChanged;
-    aTask.SetupServerSideConfigParams;
-    f_TaskList.Add(aTask); // для отображения визуальной частью
-    aTask.CanNotifyChange := true;
-    aTask.RequestQuery;
-    ActiveTaskList.AddTask(aTask); // список заданий, ожидающих выполнения
-    Inc(f_AddedActiveTaskCount);
-    MessageManager.SendNotify(aTask.UserID, ntTaskAdded, 0{aTask.TaskIndex}, aTask.TaskID, usServerService);
-  finally
-   ActiveTaskList.Unlock;
-  end;//try..finally
-  l3System.Msg2Log('Задача добавлена');
- end;//aTask <> nil
+ DoAddActiveTask(aTask);
+ if Assigned(f_SpeedupRequestProc) then
+  f_SpeedupRequestProc;
 end;
-
 
 procedure TddServerTaskManager.CalculatePriority(aTask: TddProcessTask);
 var
@@ -1625,7 +1642,7 @@ var
     l_List.Add(anItem.UserID);
  end;
 
- function DoSend(anUserID: PUserID; Index: Integer): Boolean;
+ function DoSend(anUserID: PdaUserID; Index: Integer): Boolean;
  begin//AddLineDelta
   MessageManager.SendNotify(anUserID^, ntResultsReadyForDelivery, 0, '', usServerService);
   Result := True;
@@ -1684,7 +1701,7 @@ end;
 procedure TddServerTaskManager.cs_ExecuteCommand(aPipe: TCSDataPipe);
 var
  l_CommandID: Integer;
- l_User: TUserID;
+ l_User: TdaUserID;
 begin
  try
   l_User:= aPipe.ReadCardinal;
@@ -2314,19 +2331,28 @@ begin
 end;
 
 procedure TddServerTaskManager.ProcessIncomingTasks;
+var
+ l_HasRequest: Boolean;
+ l_HasTask: Boolean;
 
  function DoIt(anItem: TddProcessTask): Boolean;
  begin//DoIt
   Result := true;
   l3System.Msg2Log('Получен запрос %s', [anItem.Description], alcuMessageLevel);
   if (anItem.TaskType in alcuRequests) then
-   AddRequest(anItem)
+  begin
+   DoAddRequest(anItem);
+   l_HasRequest := True;
+  end
   else
   begin
    if anItem.Delayed then
     AddDelayedTask(anItem)
    else
-    AddActiveTask(anItem);
+   begin
+    DoAddActiveTask(anItem);
+    l_HasTask := True;
+   end;
   end;//anItem.TaskType in alcuRequests
  end;//DoIt
 
@@ -2345,8 +2371,18 @@ begin
   f_NeedUpdateAllTask := False;
  end;
  // Разобрать весь список черновых заданий
+ l_HasRequest := False;
+ l_HasTask := False;
+
  f_IncomingTasks.WorkupF(L2CsProcessTaskWorkuperWorkupFAction(@DoIt));
- ProcessQuery;
+
+ if (GetCurrentThreadID = MainThreadID) then
+ begin
+  if l_HasRequest and not l_HasTask then
+   WorkupRequests
+  else
+   ProcessQuery;
+ end;
 end;
 
 procedure TddServerTaskManager.RunTask(aTask: TddProcessTask);
@@ -2702,6 +2738,8 @@ procedure TddServerTaskManager.WorkupRequests;
     DoCommand(anItem);
    cs_ttUserDefinedExport:
     DoSaveUserDefinedExport(anItem);
+   cs_ttDownloadDoc:
+    DoDownloadDoc(anItem);
    else
     Assert(false, 'WorkupRequests. Неизвестный тип задачи: ' + GetEnumName(TypeInfo(TcsTaskType), Ord(anItem.TaskType)));
   end;//case anItem.TaskType
@@ -2899,7 +2937,7 @@ begin
   Result := aTask.CanAsyncRun and (Tl3LongintList(ddAppConfiguration.AsObject['AsyncRunTaskType']).IndexOf(aTask.TaskTaggedDataType.ID) <> -1);
 end;
 
-procedure TddServerTaskManager.SendTextMessage(anUserID: TUserID;
+procedure TddServerTaskManager.SendTextMessage(anUserID: TdaUserID;
   const aMessage: AnsiString);
 begin
   MessageManager.SendTextMessage(anUserID, aMessage);
@@ -3056,7 +3094,7 @@ end;
 procedure TddServerTaskManager.cs_RequestDeliveryTaskList(
   aPipe: TCSDataPipe);
 var
- l_UserID: TUserID;
+ l_UserID: TdaUserID;
  l_List: TStringList;
  l_IDX: Integer;
 
@@ -3152,12 +3190,18 @@ begin
   Result := TalcuDeliveryResultExecutor.Make(f_ActiveTaskList, Self)
  else if aMessage is TncsSendTask then
 {$IFDEF csSynchroTransport}
-  Result := TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder)
+  Result := TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder, f_SpeedupRequestProc)
 {$ELSE csSynchroTransport}
-  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder))
+  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder, f_SpeedupRequestProc))
 {$ENDIF csSynchroTransport}
  else if aMessage is TncsCorrectFolder then
   Result := TalcuCorrectFolderExecutor.Make(f_ActiveTaskList)
+ else if aMessage is TcsDownloadDocStream then
+{$IFDEF csSynchroTransport}
+  Result := TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, f_SpeedupRequestProc)
+{$ELSE csSynchroTransport}
+  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, f_SpeedupRequestProc))
+{$ENDIF csSynchroTransport}
  else
   Result := nil;
 end;
@@ -3277,7 +3321,7 @@ begin
   f_ServerStarted := True;
 end;
 
-procedure TddServerTaskManager.RequestExecuteCommand(aUser: TUserID; aCommandID: Integer);
+procedure TddServerTaskManager.RequestExecuteCommand(aUser: TdaUserID; aCommandID: Integer);
 var
  l_Command: TcsCommand;
  l_Task: TddRunCommandTask;
@@ -3378,6 +3422,83 @@ begin
     f_WorkPoolManager.LeaveTaskExecution(aTask);
   end;// try
  end; // NeedProcessTask(anItem) and (anItem.TaskType in EnabledTaskTypes)
+end;
+
+procedure TddServerTaskManager.cs_CustomMessageProcessing(
+  aPipe: TCSDataPipe);
+var
+ l_Transporter: IncsServerTransporter;
+ l_IsMainSocket: Boolean;
+ l_Watch: Tl3StopWatch;
+begin
+{$IFDEF csSynchroTransport}
+ l_Transporter := TncsSynchroServerTransporter.Make(aPipe.IOHandler);
+ l_IsMainSocket := True;
+{$ELSE csSynchroTransport}
+ l_Transporter := TncsServerTransporter.Make(aPipe.IOHandler, l_IsMainSocket);
+{$ENDIF csSynchroTransport}
+ try
+  Assert(l_IsMainSocket);
+  f_TransporterPool.Register(l_Transporter);
+  try
+   l_Transporter.ProcessMessages(l_IsMainSocket);
+  finally
+   f_TransporterPool.UnRegister(l_Transporter);
+  end;
+ finally
+  l_Transporter := nil;
+ end;
+end;
+
+procedure TddServerTaskManager.DoDownloadDoc(aTask: TddProcessTask);
+begin
+ aTask.Run(TddRunContext_C(f_Progressor));
+ aTask.Done;
+end;
+
+procedure TddServerTaskManager.SignalServerStopping;
+
+ function DoIt(anItem: TddProcessTask): Boolean;
+ begin//DoIt
+  anItem.Abort;
+  Result := true;
+ end;//DoIt
+
+begin
+ if f_Busy then
+  l3System.Msg2Log('WARNING - Попытка загаситься в ходе обработки запросов');
+ f_RequestList.WorkupF(L2CsProcessTaskWorkuperWorkupFAction(@DoIt));
+end;
+
+procedure TddServerTaskManager.DoAddActiveTask(
+  const aTask: TddProcessTask);
+begin
+// Сюда можно попасть двумя путями - получив новую задачу или загрузив старые
+ if (aTask <> nil) then
+ begin
+  l3System.Msg2Log('Добавление %s задачи: %s', [IfThen(true{aIsNew}, 'новой', 'загруженной'), atask.Description]);
+  ActiveTaskList.Lock;
+  try
+    CalculatePriority(aTask);
+    //aTask.OnChange := TaskStatusChanged;
+    aTask.SetupServerSideConfigParams;
+    f_TaskList.Add(aTask); // для отображения визуальной частью
+    aTask.CanNotifyChange := true;
+    aTask.RequestQuery;
+    ActiveTaskList.AddTask(aTask); // список заданий, ожидающих выполнения
+    Inc(f_AddedActiveTaskCount);
+    MessageManager.SendNotify(aTask.UserID, ntTaskAdded, 0{aTask.TaskIndex}, aTask.TaskID, usServerService);
+  finally
+   ActiveTaskList.Unlock;
+  end;//try..finally
+  l3System.Msg2Log('Задача добавлена');
+ end;//aTask <> nil
+end;
+
+procedure TddServerTaskManager.DoAddRequest(
+  const aRequest: TddProcessTask);
+begin
+ f_RequestList.Push(aRequest);
 end;
 
 end.

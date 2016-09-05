@@ -17,11 +17,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , nsQueryInterfaces
- , SearchUnit
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -34,10 +29,6 @@ type
    class function DoGlobalInit(aLogo: TCustomForm;
     var theSplash: IUnknown): Boolean; override;
    class procedure DoRun(var theSplash: IUnknown); override;
-  public
-   class procedure OpenQuery(aQueryType: TlgQueryType;
-    const aQuery: IQuery;
-    const aContainer: IvcmContainer); override;
  end;//TPrimNemesisRes
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -55,6 +46,7 @@ uses
  , MedicMainMenuRes
  , MainMenuNewRes
  , nsHooks
+ , SearchUnit
  , BaseSearchInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmBase
@@ -116,7 +108,7 @@ begin
    begin
     if TryRunDataInstaller then
     begin
-     StartupCompletedNotify;
+     StartupCompleteNotify;
      WaitForDataInstallerExit;
      Result := false;
      Exit;
@@ -127,7 +119,7 @@ begin
    begin
     if TryRunDataUpdater then
     begin
-     StartupCompletedNotify;
+     StartupCompleteNotify;
      WaitForDataUpdaterExit;
      Result := false;
      Exit;
@@ -138,7 +130,7 @@ begin
    begin
     if TryRunDownloader then
     begin
-     StartupCompletedNotify;
+     StartupCompleteNotify;
      WaitForDownloaderExit;
      Result := false;
      Exit;
@@ -149,11 +141,11 @@ begin
    begin
     TrySendOpenByNumer;
     //
-    StartupCompletedNotify;
+    StartupCompleteNotify;
     Result := false;
     Exit;
    end;//TryUnlockLogin or TrySwitchToOtherRunningCopy
-   StartupCompletedNotify;
+   StartupCompleteNotify;
   until (CheckAndCreateRunningCopyMutex);
   StartupPendingNotify;
  end;//TnsStartupSupport
@@ -301,35 +293,6 @@ begin
  end;//try..finally
 //#UC END# *4AA7E4DC0047_4A925AFF01BA_impl*
 end;//TPrimNemesisRes.DoRun
-
-class procedure TPrimNemesisRes.OpenQuery(aQueryType: TlgQueryType;
- const aQuery: IQuery;
- const aContainer: IvcmContainer);
-//#UC START# *4AC4A69D03B7_4A925AFF01BA_var*
-//#UC END# *4AC4A69D03B7_4A925AFF01BA_var*
-begin
-//#UC START# *4AC4A69D03B7_4A925AFF01BA_impl*
- case aQueryType of
-  lg_qtKeyWord:
-   TdmStdRes.OpenKeyWord(aQuery, aContainer);
-  lg_qtAttribute:
-   TdmStdRes.AttributeSearch(aQuery, nil, aContainer);
-  lg_qtPublishedSource:
-   TdmStdRes.PublishSourceSearch(aQuery, nil);
-  lg_qtLegislationReview:
-   TdmStdRes.OpenLegislationReview(aQuery);
-  lg_qtSendConsultation:
-   vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
-  lg_qtBaseSearch:
-   TdmStdRes.OpenBaseSearch(ns_bsokGlobal,
-                            aQuery);
-  lg_qtInpharmSearch:
-   TdmStdRes.InpharmSearch(aQuery, nil, aContainer);
-  else
-   inherited;   
- end;//case aQueryType
-//#UC END# *4AC4A69D03B7_4A925AFF01BA_impl*
-end;//TPrimNemesisRes.OpenQuery
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

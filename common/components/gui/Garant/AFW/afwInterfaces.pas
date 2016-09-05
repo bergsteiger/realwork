@@ -922,6 +922,13 @@ type
    read Get_TabInterfaceType;
  end;//IafwApplication
 
+{$If NOT Defined(NoVCL)}
+ IafwFocusableControlParent = interface(IafwBase)
+  ['{1B6483C1-F15D-4122-81F2-82A725C80D3C}']
+  procedure SetFocusToControl(aControl: TWinControl);
+ end;//IafwFocusableControlParent
+{$IfEnd} // NOT Defined(NoVCL)
+
 const
  afw_sbBoth = afwTypes.afw_sbBoth;
 

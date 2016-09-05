@@ -36,6 +36,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *534FA99B02BBimpl_uses*
+ //#UC END# *534FA99B02BBimpl_uses*
 ;
 
 type

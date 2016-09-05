@@ -32,11 +32,6 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class function MainMenuChangeableMainMenuTypeSetting: Integer;
-    {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
-   class procedure WriteMainMenuChangeableMainMenuTypeSetting(aValue: Integer);
-    {* Метод для записи значения настройки "Тип изменяемой части основного меню" }
  end;//TMainMenuModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -46,7 +41,9 @@ implementation
 uses
  l3ImplUses
  , nsLogEvent
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
@@ -60,8 +57,6 @@ uses
  , Common_FormDefinitions_Controls
  , afwFacade
  , nsTypes
- , MainMenuChangeableMainMenuTypeSettingRes
- , stMainMenuChangeableMainMenuTypeItem
  {$If NOT Defined(NoScripts)}
  , MainMenuProcessingWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
@@ -81,7 +76,7 @@ type
    class procedure Log;
  end;//TnsOpenMainMenuEvent
 
- TMainMenuServiceImpl = {final} class(Tl3ProtoObject, IMainMenuService)
+ TMainMenuServiceImpl = {final} class(TvcmModuleContractImplementation, IMainMenuService)
   public
    procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
    class function Instance: TMainMenuServiceImpl;
@@ -175,30 +170,6 @@ class function TMainMenuServiceImpl.Exists: Boolean;
 begin
  Result := g_TMainMenuServiceImpl <> nil;
 end;//TMainMenuServiceImpl.Exists
-
-class function TMainMenuModule.MainMenuChangeableMainMenuTypeSetting: Integer;
- {* Метод для получения значения настройки "Тип изменяемой части основного меню" }
-//#UC START# *AD718804750F_4AA7A1F80027_var*
-//#UC END# *AD718804750F_4AA7A1F80027_var*
-begin
-//#UC START# *AD718804750F_4AA7A1F80027_impl*
- if (afw.Settings = nil) then
-  Result := dv_MainMenu_ChangeableMainMenuType
- else
-  Result := afw.Settings.LoadInteger(pi_MainMenu_ChangeableMainMenuType, dv_MainMenu_ChangeableMainMenuType);
-//#UC END# *AD718804750F_4AA7A1F80027_impl*
-end;//TMainMenuModule.MainMenuChangeableMainMenuTypeSetting
-
-class procedure TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting(aValue: Integer);
- {* Метод для записи значения настройки "Тип изменяемой части основного меню" }
-//#UC START# *F62C297CC387_4AA7A1F80027_var*
-//#UC END# *F62C297CC387_4AA7A1F80027_var*
-begin
-//#UC START# *F62C297CC387_4AA7A1F80027_impl*
- if (afw.Settings <> nil) then
-  afw.Settings.SaveInteger(pi_MainMenu_ChangeableMainMenuType, aValue);
-//#UC END# *F62C297CC387_4AA7A1F80027_impl*
-end;//TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting
 
 class procedure TMainMenuModule.GetEntityForms(aList: TvcmClassList);
 begin

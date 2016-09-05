@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *530C925400E5impl_uses*
+ //#UC END# *530C925400E5impl_uses*
 ;
 
 function TK518756624.NeedEliminateCommentDecorations: Boolean;

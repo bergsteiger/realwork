@@ -79,6 +79,8 @@ uses
  , l3Base
  , m2AddPrc
  , StrUtils
+ //#UC START# *4FA276920090impl_uses*
+ //#UC END# *4FA276920090impl_uses*
 ;
 
 procedure Tm3FileStream.SysCheck(AResult: LongBool);

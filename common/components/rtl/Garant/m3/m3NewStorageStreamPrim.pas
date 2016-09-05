@@ -62,6 +62,8 @@ uses
  , SysUtils
  , m2MemLib
  , m3Exceptions
+ //#UC START# *5448F0A40180impl_uses*
+ //#UC END# *5448F0A40180impl_uses*
 ;
 
 procedure Tm3NewStorageStreamPrim.MoveStreamPointer;

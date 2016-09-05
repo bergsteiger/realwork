@@ -28,6 +28,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A9B9BC00258impl_uses*
+ //#UC END# *4A9B9BC00258impl_uses*
 ;
 
 function TvtFocusLabel.NeedUnderLine: Boolean;

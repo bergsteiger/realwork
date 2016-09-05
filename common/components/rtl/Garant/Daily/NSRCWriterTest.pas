@@ -60,6 +60,8 @@ uses
  , evNSRCPlusWriter
  , evEmptyTableEliminator
  , TestFrameWork
+ //#UC START# *4B4F68EE006Bimpl_uses*
+ //#UC END# *4B4F68EE006Bimpl_uses*
 ;
 
 procedure TNSRCWriterTest.SomeFormatToNSRC(aReader: Tk2CustomFileReader;

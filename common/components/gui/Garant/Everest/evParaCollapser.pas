@@ -45,6 +45,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , k2Tags
+ //#UC START# *4E1D776103C6impl_uses*
+ //#UC END# *4E1D776103C6impl_uses*
 ;
 
 function TevParaCollapser.DoCollapse(const aView: InevControlView): Boolean;

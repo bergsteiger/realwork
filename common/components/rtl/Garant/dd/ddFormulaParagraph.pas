@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , k2Tags
  , ddEVDTypesSupport
+ //#UC START# *54F834440140impl_uses*
+ //#UC END# *54F834440140impl_uses*
 ;
 
 function TddFormulaParagraph.pm_GetFormulaText: Tl3String;

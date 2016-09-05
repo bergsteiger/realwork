@@ -193,6 +193,7 @@ uses
  //#UC START# *497DD4870291impl_uses*
  , vtLister
  , l3ControlsTypes
+ , Base_Operations_F1Services_Contracts
  //#UC END# *497DD4870291impl_uses*
 ;
 
@@ -389,7 +390,7 @@ begin
     l_FoldersItemType := TFoldersItemType(l_AdapterNode.GetObjectType);
     case l_FoldersItemType of
      FIT_OLD_HISTORY:
-      Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_WorkJournal_OpenJournal);
+      Dispatcher.ModuleOperation(mod_opcode_WorkJournalService_OpenJournal);
      FIT_FOLDER:
       if FoldersInfo.NodeHasVisibleChildren(l_eeNode) then
        NodeInvertExpandedCollapsed(FoldersTree.TreeView)

@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , ApplicationHelper
+ //#UC START# *4A9F669C007Eimpl_uses*
+ //#UC END# *4A9F669C007Eimpl_uses*
 ;
 
 constructor ListAnalysisTree.Make(const stree);

@@ -1,7 +1,10 @@
 Unit Dt_IndexSupport;
 
-{ $Id: Dt_IndexSupport.pas,v 1.14 2014/11/17 10:57:30 fireton Exp $ }
+{ $Id: Dt_IndexSupport.pas,v 1.15 2016/06/16 05:40:06 lukyanets Exp $ }
 // $Log: Dt_IndexSupport.pas,v $
+// Revision 1.15  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.14  2014/11/17 10:57:30  fireton
 // - удаляем и проверяем наличие файлов хранилища правильно
 //
@@ -12,7 +15,7 @@ Unit Dt_IndexSupport;
 // - перенес ISab из DT_Sab в dtIntf
 //
 // Revision 1.11  2011/06/10 12:49:03  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.10  2010/08/04 08:29:39  voba
 // - k: 229672814
@@ -55,27 +58,27 @@ Unit Dt_IndexSupport;
 
 interface
  uses 
-  DT_Types,
+  daTypes,
   l3Types;
 
  type
   TIndexType = (itHeading, itText, itDictEntry);
 
-  function GetTextIndexPath(aFamily :  TFamilyID; aIndexType : TIndexType) : String;
+  function GetTextIndexPath(aFamily :  TdaFamilyID; aIndexType : TIndexType) : String;
 
-  procedure BuildTextIndexbyHeader(aFamily :  TFamilyID; aProgressProc: Tl3ProgressProc);
+  procedure BuildTextIndexbyHeader(aFamily :  TdaFamilyID; aProgressProc: Tl3ProgressProc);
   { Создает текстовый индекс заголовков документов }
 
-  procedure BuildTextIndexbyDictEntry(aFamily :  TFamilyID);
+  procedure BuildTextIndexbyDictEntry(aFamily :  TdaFamilyID);
   { Создает текстовый индекс заголовков словарных статей }
 
 implementation
  uses SysUtils,
       l3Base, l3String,
       m3ParaIndexBuilder, m3StgMgr,
-      Dt_Serv, dtIntf, DT_Sab, DT_Doc, dt_Const, DT_Query;
+      dt_Types, Dt_Serv, dtIntf, DT_Sab, DT_Doc, dt_Const, DT_Query;
 
-function GetTextIndexPath(aFamily :  TFamilyID; aIndexType : TIndexType) : String;
+function GetTextIndexPath(aFamily :  TdaFamilyID; aIndexType : TIndexType) : String;
 begin
  Case aIndexType of
   itHeading  : Result := GlobalHtServer.FamilyTbl.FamilyPath(aFamily)+'Heading'+IntToHex(aFamily,3)+'.idx';
@@ -84,7 +87,7 @@ begin
  end;
 end;
 
-procedure BuildTextIndexbyHeader(aFamily :  TFamilyID; aProgressProc: Tl3ProgressProc);
+procedure BuildTextIndexbyHeader(aFamily :  TdaFamilyID; aProgressProc: Tl3ProgressProc);
 var
  l_ParaIndexBuilder : Tm3ParaIndexBuilder;
  l_Sab              : ISab;
@@ -133,7 +136,7 @@ begin
  end;
 end;
 
-procedure BuildTextIndexbyDictEntry(aFamily :  TFamilyID);
+procedure BuildTextIndexbyDictEntry(aFamily :  TdaFamilyID);
 var
  l_ParaIndexBuilder : Tm3ParaIndexBuilder;
  l_Query            : TdtDocTypeFilterQuery;

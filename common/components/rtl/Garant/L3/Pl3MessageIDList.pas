@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4F9BCB620208impl_uses*
+ //#UC END# *4F9BCB620208impl_uses*
 ;
 
 var g_TPl3MessageIDList: TPl3MessageIDList = nil;

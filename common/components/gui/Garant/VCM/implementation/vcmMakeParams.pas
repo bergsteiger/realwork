@@ -44,6 +44,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *4AD89C12030Aimpl_uses*
+ //#UC END# *4AD89C12030Aimpl_uses*
 ;
 
 constructor TvcmMakeParams.Create(const anAggregate: IvcmAggregate;

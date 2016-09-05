@@ -63,6 +63,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *492FF76202CAimpl_uses*
+ //#UC END# *492FF76202CAimpl_uses*
 ;
 
 constructor TdeDocumentList.CreateClonned(const aList: IDynList;

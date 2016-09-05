@@ -67,6 +67,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A8A871B02EDimpl_uses*
+ //#UC END# *4A8A871B02EDimpl_uses*
 ;
 
 function TnscCustomChatMemo.ValidateInsertionPoint: Boolean;

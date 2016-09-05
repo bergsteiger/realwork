@@ -130,6 +130,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4E15A08E030Dimpl_uses*
+ //#UC END# *4E15A08E030Dimpl_uses*
 ;
 
 {$If NOT Defined(NoTB97)}

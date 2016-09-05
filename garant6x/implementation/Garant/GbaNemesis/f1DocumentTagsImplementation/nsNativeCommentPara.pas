@@ -58,6 +58,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , LeafParaDecorationsHolder_Const
+ //#UC START# *4CED3DF702F9impl_uses*
+ //#UC END# *4CED3DF702F9impl_uses*
 ;
 
 type

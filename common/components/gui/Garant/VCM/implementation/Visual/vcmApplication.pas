@@ -254,7 +254,11 @@ begin
    for l_Index := 0 to Pred(Count) do
    begin
     with ItemSlot(l_Index)^ do
+    begin
+     Assert(rVar^.rMoID < 0);
+     Assert(rVar^.rOpID < 0);
      rVar^ := Self.PublishModuleOperation(rModule, rOperationName, rOperationCaption, rNoPrefix);
+    end;//with ItemSlot(l_Index)^
    end;//for l_Index
   end;//with TvcmModuleOperationsForRegister.Instance
  end;//TvcmModuleOperationsForRegister.Exists

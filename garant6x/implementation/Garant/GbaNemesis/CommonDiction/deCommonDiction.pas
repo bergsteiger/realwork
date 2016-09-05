@@ -45,6 +45,8 @@ uses
  , BaseTypesUnit
  , bsTypesNew
  , bsDataContainer
+ //#UC START# *4B1E70D20312impl_uses*
+ //#UC END# *4B1E70D20312impl_uses*
 ;
 
 class function TdeCommonDiction.Convert(const aDocInfo: IdeDocInfo): IdeCommonDiction;

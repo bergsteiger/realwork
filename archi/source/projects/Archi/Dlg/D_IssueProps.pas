@@ -1,6 +1,6 @@
 unit D_IssueProps;
 
-{ $Id: D_IssueProps.pas,v 1.15 2013/04/19 13:05:03 lulin Exp $ }
+{ $Id: D_IssueProps.pas,v 1.16 2016/06/16 05:38:44 lukyanets Exp $ }
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Buttons, ExtCtrls, Mask,
   l3Date,
-  DT_Types, DT_Const, DT_Dict,
+  daTypes, dt_Types, DT_Const, DT_Dict,
   BottomBtnDlg, ToolEdit, vtCombo, vtDateEdit, ActnList,
   tb97GraphicControl, TB97Ctls, vtSpeedButton, dt_DictTypes;
 
@@ -38,18 +38,18 @@ type
     procedure acAddIssueImageExecute(Sender: TObject);
   private
     { Private declarations }
-    fDocFam : TFamilyID;
+    fDocFam : TdaFamilyID;
     fSourID : TDictID;
     fOrigIssueRec : PPublishedDictRec;
     fNonPeriodic : Boolean;
 
     procedure CheckImageIcon(aEnabled : boolean);
   public
-    function Execute(aDocFamily: TFamilyID; const aPubSource : AnsiString; aSourceNonPeriodic : boolean;
+    function Execute(aDocFamily: TdaFamilyID; const aPubSource : AnsiString; aSourceNonPeriodic : boolean;
                      aIssueRec : PPublishedDictRec; aWasEmpty: Boolean): Boolean;
   end;
 
-function RunGetIssuePropsDlg(aOwner: TComponent; aDocFamily : TFamilyID;
+function RunGetIssuePropsDlg(aOwner: TComponent; aDocFamily : TdaFamilyID;
                              const aPubSource : AnsiString; aSourceNonPeriodic : boolean;
                              aIssueRec : PPublishedDictRec; aWasEmpty : Boolean): Boolean;
 
@@ -87,7 +87,7 @@ begin
    acAddIssueImage.ImageIndex := picPublishSrc;
 end;
 
-function TGetIssuePropsDlg.Execute(aDocFamily: TFamilyID; const aPubSource : AnsiString; aSourceNonPeriodic : boolean; aIssueRec : PPublishedDictRec; aWasEmpty: Boolean): Boolean;
+function TGetIssuePropsDlg.Execute(aDocFamily: TdaFamilyID; const aPubSource : AnsiString; aSourceNonPeriodic : boolean; aIssueRec : PPublishedDictRec; aWasEmpty: Boolean): Boolean;
  var
   lSDate : TstDate;
   lEDate : TstDate;
@@ -182,7 +182,7 @@ begin
  CheckImageIcon(not fNonPeriodic);
 end;
 
-function RunGetIssuePropsDlg(aOwner: TComponent; aDocFamily : TFamilyID;
+function RunGetIssuePropsDlg(aOwner: TComponent; aDocFamily : TdaFamilyID;
                              const aPubSource : AnsiString; aSourceNonPeriodic : boolean;
                              aIssueRec : PPublishedDictRec; aWasEmpty : Boolean): Boolean;
 begin

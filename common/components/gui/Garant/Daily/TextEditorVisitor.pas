@@ -46,6 +46,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4BE425C70228impl_uses*
+ //#UC END# *4BE425C70228impl_uses*
 ;
 
 procedure TTextEditorVisitor.DoIt;

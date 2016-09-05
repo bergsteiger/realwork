@@ -33,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4DEFC812022Fimpl_uses*
+ //#UC END# *4DEFC812022Fimpl_uses*
 ;
 
 constructor Tl3EventedRecListView.Create(aList: Tl3ProtoPtrRecListPrim;

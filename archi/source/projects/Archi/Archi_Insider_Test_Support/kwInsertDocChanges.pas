@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *4E4BC07D0328impl_uses*
+ //#UC END# *4E4BC07D0328impl_uses*
 ;
 
 class function TkwInsertDocChanges.GetWordNameForRegister: AnsiString;

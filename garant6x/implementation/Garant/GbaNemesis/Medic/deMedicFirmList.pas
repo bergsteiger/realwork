@@ -98,6 +98,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *561F6D380330impl_uses*
+ //#UC END# *561F6D380330impl_uses*
 ;
 
 constructor TdeMedicFirmList.Create(const aDocInfo: IdeDocInfo;

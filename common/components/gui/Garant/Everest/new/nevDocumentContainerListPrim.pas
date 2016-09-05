@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47E261D8019Fimpl_uses*
+ //#UC END# *47E261D8019Fimpl_uses*
 ;
 
 type _Instance_R_ = TnevDocumentContainerListPrim;

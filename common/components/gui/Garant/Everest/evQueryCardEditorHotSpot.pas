@@ -51,6 +51,8 @@ uses
  , evdTypes
  , evQueryCardEditor
  , l3Interfaces
+ //#UC START# *48E2366202B9impl_uses*
+ //#UC END# *48E2366202B9impl_uses*
 ;
 
 procedure TevQueryCardEditorHotSpot.DoBeforeSelection(const aView: InevControlView);

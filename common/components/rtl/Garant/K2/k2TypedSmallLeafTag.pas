@@ -62,6 +62,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *527A6D5A0248impl_uses*
+ //#UC END# *527A6D5A0248impl_uses*
 ;
 
 type _Instance_R_ = Tk2TypedSmallLeafTag;

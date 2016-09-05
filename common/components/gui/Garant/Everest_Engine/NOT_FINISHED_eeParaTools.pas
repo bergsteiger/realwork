@@ -22,6 +22,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *49523C160394impl_uses*
+ //#UC END# *49523C160394impl_uses*
 ;
 
 procedure eeFindNumberedPara;

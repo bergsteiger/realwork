@@ -46,6 +46,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *55EEDAFE018Fimpl_uses*
+ //#UC END# *55EEDAFE018Fimpl_uses*
 ;
 
 constructor TkwCompiledWordPrimPrim.Create(aWordProducer: TtfwWord;

@@ -103,6 +103,8 @@ uses
  , l3Const
  , l3Interfaces
  , k2NilOp
+ //#UC START# *47E3C78502FBimpl_uses*
+ //#UC END# *47E3C78502FBimpl_uses*
 ;
 
 var g_WasExceptionInFreeInOwner: Boolean = False;

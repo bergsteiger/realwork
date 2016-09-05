@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49C77D5E0246impl_uses*
+ //#UC END# *49C77D5E0246impl_uses*
 ;
 
 procedure m3FreeDBStreamAction;

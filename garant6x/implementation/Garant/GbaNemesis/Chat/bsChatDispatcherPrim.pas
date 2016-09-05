@@ -111,6 +111,8 @@ uses
  , evdStyles
  , Base_Operations_F1Services_Contracts
  , l3Base
+ //#UC START# *4A682A110387impl_uses*
+ //#UC END# *4A682A110387impl_uses*
 ;
 
 var g_TnsChatWindowOpensCountEvent: TnsChatWindowOpensCountEvent = nil;
@@ -167,7 +169,7 @@ begin
    ClearHistory(anUID); // пользователя нет, его история не нужна
   end;
  end;
- TdmStdRes.OpenChatWindow(anUID, l_Name);
+ TChatService.Instance.OpenChatWindow(anUID, l_Name);
  f_Unreaded.Remove(anUID);
 //#UC END# *4A682A8303CA_4A682A110387_impl*
 end;//TbsChatDispatcherPrim.DoOpenChatWindow
@@ -419,7 +421,7 @@ procedure TbsChatDispatcherPrim.ShowAddUserDialog;
 //#UC END# *4A69985B00A8_4A682A110387_var*
 begin
 //#UC START# *4A69985B00A8_4A682A110387_impl*
- TdmStdRes.OpenAddUserDialog;
+ TChatService.Instance.OpenAddUserDialog;
 //#UC END# *4A69985B00A8_4A682A110387_impl*
 end;//TbsChatDispatcherPrim.ShowAddUserDialog
 
@@ -523,7 +525,7 @@ begin
   on EUnknownUser do
    l_Name := nil;
  end;
- TdmStdRes.OpenHistoryWindow(anUID, l_Name);
+ TChatService.Instance.OpenHistoryWindow(anUID, l_Name);
  f_Unreaded.Remove(anUID);
 //#UC END# *4A6EBE8E030F_4A682A110387_impl*
 end;//TbsChatDispatcherPrim.OpenChatHistoryByID

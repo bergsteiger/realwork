@@ -58,6 +58,8 @@ uses
  {$IfEnd} // Defined(Archi) AND NOT Defined(NoScripts)
  , SysUtils
  , l3Base
+ //#UC START# *552BF69B039Bimpl_uses*
+ //#UC END# *552BF69B039Bimpl_uses*
 ;
 
 var g_Tl3AutolinkService: Tl3AutolinkService = nil;

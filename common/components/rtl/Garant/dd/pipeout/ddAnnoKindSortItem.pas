@@ -43,6 +43,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *564C627A03D0impl_uses*
+ //#UC END# *564C627A03D0impl_uses*
 ;
 
 constructor TddAnnoKindSortItem.Create(const aName: AnsiString;

@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4DB7EA830363impl_uses*
+ //#UC END# *4DB7EA830363impl_uses*
 ;
 
 procedure TkwPopEditorDeleteUserComment.DoNextPara(const aCtx: TtfwContext;

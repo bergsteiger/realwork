@@ -33,6 +33,8 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , EditionsResKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ //#UC START# *4B50828502D7impl_uses*
+ //#UC END# *4B50828502D7impl_uses*
 ;
 
 {$R *.DFM}

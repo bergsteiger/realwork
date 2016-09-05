@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , tfwScriptingTypes
+ //#UC START# *4DB6CD4203D4impl_uses*
+ //#UC END# *4DB6CD4203D4impl_uses*
 ;
 
 constructor TkwString.Create(const aValue: Il3CString);

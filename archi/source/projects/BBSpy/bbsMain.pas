@@ -64,8 +64,7 @@ uses
  daTypes,
 
  DT_Table,
- DT_Sab,
- DT_User;
+ DT_Sab;
 
 {$R *.dfm}
 
@@ -85,7 +84,7 @@ type
  PUserDataHolder = ^TUserDataHolder;
  TUserDataHolder = class(Tl3Base)
  private
-  f_ID: TUserID;
+  f_ID: TdaUserID;
   f_Sessions: Tl3DataPtrList;
   f_TotalDuration: Integer;
   f_TotalPauses: Integer;
@@ -95,10 +94,10 @@ type
   procedure Cleanup; override;
   procedure IncDurations(aDuration, aPauses: Integer);
  public
-  constructor Create(anID: TUserID; aStatStartDate: TStDate; aStatDaysCount: Integer); reintroduce;
+  constructor Create(anID: TdaUserID; aStatStartDate: TStDate; aStatDaysCount: Integer); reintroduce;
   procedure CalcDayByDayStats;
   procedure PrintStats(aText: Tl3TextStream);
-  property ID: TUserID read f_ID;
+  property ID: TdaUserID read f_ID;
   property Sessions: Tl3DataPtrList read f_Sessions;
   property TotalDuration: Integer read f_TotalDuration write f_TotalDuration;
   property TotalPauses: Integer read f_TotalPauses write f_TotalPauses;
@@ -336,7 +335,7 @@ var
    end;
  end;
 
- function FindUser(aID: TUserID): TUserDataHolder;
+ function FindUser(aID: TdaUserID): TUserDataHolder;
  var
   I: Integer;
   l_CurUser: TUserDataHolder;
@@ -491,7 +490,7 @@ begin
  end;
 end;
 
-constructor TUserDataHolder.Create(anID: TUserID; aStatStartDate: TStDate; aStatDaysCount: Integer);
+constructor TUserDataHolder.Create(anID: TdaUserID; aStatStartDate: TStDate; aStatDaysCount: Integer);
 begin
  inherited Create(nil);
  f_ID := anID;

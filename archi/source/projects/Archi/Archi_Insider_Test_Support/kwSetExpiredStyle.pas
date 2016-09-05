@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestAdapter2
+ //#UC START# *4F22AFC0008Aimpl_uses*
+ //#UC END# *4F22AFC0008Aimpl_uses*
 ;
 
 class function TkwSetExpiredStyle.GetWordNameForRegister: AnsiString;

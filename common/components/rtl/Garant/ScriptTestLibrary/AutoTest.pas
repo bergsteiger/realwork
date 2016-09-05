@@ -29,6 +29,8 @@ uses
  , SysUtils
  , TestFrameWork
  , tfwScriptEngine
+ //#UC START# *4DC247C80356impl_uses*
+ //#UC END# *4DC247C80356impl_uses*
 ;
 
 procedure TAutoTest.Run;

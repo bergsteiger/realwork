@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , BaloonWarningUserTypes_remListModified_UserType
  , nsListWarningGenerator
+ //#UC START# *4EF485030376impl_uses*
+ //#UC END# *4EF485030376impl_uses*
 ;
 
 function TdsCRWarning.DoGenerateWarning(const aGenerator: InevTagGenerator;

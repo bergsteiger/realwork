@@ -47,6 +47,8 @@ uses
  , TextPara_Const
  , IOUnit
  , nsTypes
+ //#UC START# *48F8B61F0032impl_uses*
+ //#UC END# *48F8B61F0032impl_uses*
 ;
 
 constructor TnsContentsTreeStorable.Create(const aDocument: IDocument;

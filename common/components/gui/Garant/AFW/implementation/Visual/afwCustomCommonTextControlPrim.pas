@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48BBD3480266impl_uses*
+ //#UC END# *48BBD3480266impl_uses*
 ;
 
 procedure TafwCustomCommonTextControlPrim.Paint(const CN: Il3Canvas);

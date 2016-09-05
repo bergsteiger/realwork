@@ -49,6 +49,8 @@ uses
  , daFromTable
  , caResultSet
  , caParam
+ //#UC START# *56C6DB730289impl_uses*
+ //#UC END# *56C6DB730289impl_uses*
 ;
 
 constructor TcaTabledQuery.Create(const aFactory: IdaTableQueryFactory;

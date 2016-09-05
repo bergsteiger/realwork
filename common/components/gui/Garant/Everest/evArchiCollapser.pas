@@ -34,6 +34,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , SysUtils
+ //#UC START# *5530B9E90041impl_uses*
+ //#UC END# *5530B9E90041impl_uses*
 ;
 
 function TevArchiCollapser.TryDoHyperlink(const aView: InevControlView;

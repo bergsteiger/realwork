@@ -209,6 +209,8 @@ uses
  , ddFormulaSegment
  , ddRTFShape
  , Classes
+ //#UC START# *51D278280093impl_uses*
+ //#UC END# *51D278280093impl_uses*
 ;
 
 function TdestNorm.pm_GetLastAtom: TddDocumentAtom;
@@ -405,8 +407,8 @@ begin
    if not aCEP.MergeFirst then
     aCEP.Merged := True;
   ipropMergedFirst : aCEP.MergeFirst := True;
-  ipropColorB: aCEP.PatternBackColor:= GetColor(aValue - 1);
-  ipropColorF: aCEP.PatternForeColor:= GetColor(aValue - 1);
+  ipropColorB: aCEP.PatternBackColor := GetColor(aValue - 1);
+  ipropColorF: aCEP.PatternForeColor := GetColor(aValue - 1);
  end;{case What}
 //#UC END# *51E8D23B01F6_51D278280093_impl*
 end;//TdestNorm.ApplyToCell
@@ -429,9 +431,9 @@ begin
     ipropBold: Bold := ByteBool(aValue);
     ipropItalic: Italic := ByteBool(aValue);
     ipropUnderline : if not LongBool(aValue) then
-                       Underline := utNone
+                      Underline := utNone
                      else
-                       Underline := TUnderline(aValue);
+                      Underline := TUnderline(aValue);
     iproPAnsiCharCaps : Caps := TddCharCapsType(aValue);
     ipropHidden  : Hidden := ByteBool(aValue);
     ipropDeleted : ;
@@ -1757,7 +1759,7 @@ procedure TdestNorm.AddUnicodeChar(aText: Word;
    l_Char := f_TextBuffer.Last;
    if (l_Char in csSetRusI) then
    begin
-    f_TextBuffer.Ch[f_TextBuffer.Len - 1] := Char(Ord(l_Char) + 1);
+    f_TextBuffer.Ch[f_TextBuffer.Len - 1] := AnsiChar(Ord(l_Char) + 1);
     Result := True;
    end // if (l_Char in csSetRusI) then
    else
@@ -1870,6 +1872,7 @@ begin
    end; // propPAP
   propCell, propNestedCell:
    begin
+    l_Table := nil;
     if not Try2CloseNestedTable(aState.PAP.itap) then
      Try2AddTable(aState.PAP.itap); // наследуем оформление от предыдущей строки
     if aState.PAP.ListItem <> propUndefined then
@@ -1888,7 +1891,7 @@ begin
     end; // if CanAddTable then
     if f_TextBuffer.Len > 0 then
      FlushTextBuffer(aState, True);
-    if CanAddTable then
+    if CanAddTable and (l_Table <> nil) then
      l_Table.CloseCell;
    end; // propCell
   propRow, propNestedRow: // конец строки таблицы

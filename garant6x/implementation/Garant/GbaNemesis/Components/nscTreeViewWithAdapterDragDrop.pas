@@ -33,6 +33,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *52DE57DF007Bimpl_uses*
+ //#UC END# *52DE57DF007Bimpl_uses*
 ;
 
 {$If Defined(Nemesis)}

@@ -42,6 +42,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *53C65E01039Bimpl_uses*
+ //#UC END# *53C65E01039Bimpl_uses*
 ;
 
 function TnsChronologyDocumentContainer.CanBePlacedInDocumentsCache: Boolean;

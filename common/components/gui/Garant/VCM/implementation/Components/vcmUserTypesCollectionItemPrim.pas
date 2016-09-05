@@ -35,6 +35,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5006A4A6003Dimpl_uses*
+ //#UC END# *5006A4A6003Dimpl_uses*
 ;
 
 procedure TvcmUserTypesCollectionItemPrim.InitFields;

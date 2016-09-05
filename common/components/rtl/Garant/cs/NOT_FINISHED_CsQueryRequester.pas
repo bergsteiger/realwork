@@ -23,6 +23,8 @@ implementation
 uses
  l3ImplUses
  , CsQueryRequesterTool
+ //#UC START# *538DA3BD02A0impl_uses*
+ //#UC END# *538DA3BD02A0impl_uses*
 ;
 {$IfEnd} // NOT Defined(Nemesis)
 

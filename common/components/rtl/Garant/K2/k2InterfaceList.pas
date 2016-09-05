@@ -33,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *531EF67F0065impl_uses*
+ //#UC END# *531EF67F0065impl_uses*
 ;
 
 procedure Tk2InterfaceList.Clear;

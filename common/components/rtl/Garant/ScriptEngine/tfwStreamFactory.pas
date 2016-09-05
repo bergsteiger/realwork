@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *52F4E6AA02BBimpl_uses*
+ //#UC END# *52F4E6AA02BBimpl_uses*
 ;
 
 function TtfwStreamFactory.FileName: AnsiString;

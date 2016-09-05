@@ -299,6 +299,9 @@ uses
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  //#UC START# *4958E1F700C0impl_uses*
+ , Base_Operations_F1Services_Contracts
+ , Common_F1CommonServices_Contracts
+ , F1_Application_Template_Services
  //#UC END# *4958E1F700C0impl_uses*
 ;
 
@@ -395,7 +398,7 @@ procedure TPrimMainMenuNewForm.ExpertClick(aSender: TObject);
 //#UC END# *4ACB540E01CC_4958E1F700C0_var*
 begin
 //#UC START# *4ACB540E01CC_4958E1F700C0_impl*
- TdmStdRes.OpenSendConsultation(nil);
+ TConsultationService.Instance.OpenSendConsultation(nil);
 //#UC END# *4ACB540E01CC_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.ExpertClick
 
@@ -404,7 +407,7 @@ procedure TPrimMainMenuNewForm.OnLineClick(aSender: TObject);
 //#UC END# *4ACB542C0039_4958E1F700C0_var*
 begin
 //#UC START# *4ACB542C0039_4958E1F700C0_impl*
- vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_InternetAgent_InternetAgent);
+ vcmDispatcher.ModuleOperation(mod_opcode_InternetAgentService_InternetAgent);
 //#UC END# *4ACB542C0039_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.OnLineClick
 
@@ -414,16 +417,16 @@ procedure TPrimMainMenuNewForm.SearchClick(aSender: TObject);
 begin
 //#UC START# *4ACB8B7B0192_4958E1F700C0_impl*
  if (aSender = flAttributeSearch) then
-  TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil)
+  TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, nil, nil)
  else
  if (aSender = flSituationSearch) then
-  TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil)
+  TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, nil, nil)
  else
  if (aSender = flPublishedSourceSearch) then
-  TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil)
+  TQueryOpenService.Instance.OpenQuery(lg_qtPublishedSource, nil, nil)
  else
  if (aSender = flDictionSearch) then
-  TdmStdRes.OpenDictionary(nil, NativeMainForm)
+  TDictionService.Instance.OpenDictionary(nil, NativeMainForm)
  else
   Assert(false);
 //#UC END# *4ACB8B7B0192_4958E1F700C0_impl*
@@ -499,7 +502,7 @@ begin
    else
    if Supports(l_Ref, IEntityBase, l_Entity) then
     try
-     TdmStdRes.OpenEntityAsDocument(l_Entity, NativeMainForm);
+     TDocumentService.Instance.OpenEntityAsDocument(l_Entity, NativeMainForm);
     finally
      l_Entity := nil;
     end//try..finally
@@ -573,7 +576,7 @@ procedure TPrimMainMenuNewForm.IntranetClick(aSender: TObject);
 //#UC END# *4BF242E40213_4958E1F700C0_var*
 begin
 //#UC START# *4BF242E40213_4958E1F700C0_impl*
- vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Common_OpenIntranet);
+ vcmDispatcher.ModuleOperation(mod_opcode_CommonService_OpenIntranet);
 //#UC END# *4BF242E40213_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.IntranetClick
 
@@ -606,7 +609,7 @@ begin
  Inc(f_CurrentSection);
  if (f_CurrentSection = Pred(High(f_CurrentSection))) then
   f_CurrentSection := Low(f_CurrentSection);
- TdmStdRes.WriteMainMenuChangeableMainMenuTypeSetting(Ord(f_CurrentSection));
+ TMainMenuService.WriteChangeableMainMenuTypeSetting(Ord(f_CurrentSection));
  UpdateTaxesTree;
 //#UC END# *4E73346C032A_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.TaxesNextTree
@@ -772,7 +775,7 @@ procedure TPrimMainMenuNewForm.DoInit(aFromHistory: Boolean);
 //#UC END# *49803F5503AA_4958E1F700C0_var*
 begin
 //#UC START# *49803F5503AA_4958E1F700C0_impl*
- f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
+ f_CurrentSection := TSectionType(TMainMenuService.ChangeableMainMenuTypeSetting);
  UpdateTaxesTreeCaption;
  inherited;
  LoadBanner;
@@ -791,7 +794,7 @@ function TPrimMainMenuNewForm.DoLoadState(const aState: IvcmBase;
 //#UC END# *49807428008C_4958E1F700C0_var*
 begin
 //#UC START# *49807428008C_4958E1F700C0_impl*
- inherited DoLoadState(aState, aStateType);
+ inherited DoLoadState(aState, aStateType, aClone);
  UpdatePbExpertPosition;
 //#UC END# *49807428008C_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoLoadState
@@ -1033,9 +1036,11 @@ begin
    Visible := False;
   end;//with pbCourtsOnline
  with pbIntranet do
-  if Assigned(defDataAdapter) and
-     defDataAdapter.RevisionCheckEnabled and
-     (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE) then
+  if (afw.Application.LocaleInfo.Language = afw_lngRussian) and
+     Assigned(defDataAdapter) and
+     ((defDataAdapter.RevisionCheckEnabled and
+       (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE)) or
+      DefDataAdapter.CommonInterfaces.IsEarlyInstalled) then
   begin
    Left := 20;
    if pbCourtsOnline.Visible then

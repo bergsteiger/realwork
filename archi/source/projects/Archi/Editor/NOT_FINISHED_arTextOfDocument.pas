@@ -33,6 +33,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4E0072E100DBimpl_uses*
+ //#UC END# *4E0072E100DBimpl_uses*
 ;
 
 function TarTextOfDocument.DoMakeDocumentContainer: InevDocumentContainer;

@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4B8546940034impl_uses*
+ //#UC END# *4B8546940034impl_uses*
 ;
 
 function TEVDtoNSRCOldWriterTest.IsNSRCPlus: Boolean;

@@ -84,6 +84,8 @@ type
      const aSubName: AnsiString);
      {* Выводит замер времени в лог }
    function GetEtalonSuffix: AnsiString;
+   procedure ScriptDone(const aCtx: TtfwContext);
+   procedure ScriptWillRun(const aCtx: TtfwContext);
   protected
    procedure DontRaiseIfEtalonCreated;
    function GetTestSetFolderName: AnsiString;
@@ -429,9 +431,16 @@ begin
  Result := '.etalon';
 end;
 
+procedure TtfwScriptDebugger_Form.ScriptDone(const aCtx: TtfwContext);
+begin
+end;
+
+procedure TtfwScriptDebugger_Form.ScriptWillRun(const aCtx: TtfwContext);
+begin
+end;
+
 procedure TtfwScriptDebugger_Form.CheckPictureOnly;
 begin
-
 end;
 
 end.

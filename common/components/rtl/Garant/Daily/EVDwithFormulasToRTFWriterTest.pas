@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4CA616760108impl_uses*
+ //#UC END# *4CA616760108impl_uses*
 ;
 
 function TEVDwithFormulasToRTFWriterTest.GetFolder: AnsiString;

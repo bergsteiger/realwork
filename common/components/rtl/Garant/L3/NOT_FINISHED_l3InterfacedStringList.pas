@@ -38,6 +38,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4912A9950311impl_uses*
+ //#UC END# *4912A9950311impl_uses*
 ;
 
 procedure Tl3InterfacedString.Cleanup;

@@ -44,6 +44,8 @@ uses
  , evdNativeReader
  , k2DocumentBuffer
  , TaskResult_Const
+ //#UC START# *53E0D4F50178impl_uses*
+ //#UC END# *53E0D4F50178impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}

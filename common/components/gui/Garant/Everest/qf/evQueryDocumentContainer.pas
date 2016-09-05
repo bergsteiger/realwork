@@ -56,6 +56,8 @@ uses
  , evControlGenerator
  , evDefaultContext
  , nevBase
+ //#UC START# *48DB9DC1035Cimpl_uses*
+ //#UC END# *48DB9DC1035Cimpl_uses*
 ;
 
 class function TevQueryDocumentContainer.Make(aDocument: Tl3Variant = nil): InevQueryDocumentContainer;

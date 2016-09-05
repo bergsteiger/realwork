@@ -34,6 +34,8 @@ uses
  , l3FontManagerEx
  , SysUtils
  , l3Base
+ //#UC START# *5318974F0065impl_uses*
+ //#UC END# *5318974F0065impl_uses*
 ;
 
 var g_Tk2FontManager: Tk2FontManager = nil;

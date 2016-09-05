@@ -42,6 +42,8 @@ uses
  , LeafPara_Const
  , Sub_Const
  , Bookmark_Const
+ //#UC START# *499C28950272impl_uses*
+ //#UC END# *499C28950272impl_uses*
 ;
 
 function GetLEIFromTTV(aTTV: TnscTreeView): IListEntryInfo;

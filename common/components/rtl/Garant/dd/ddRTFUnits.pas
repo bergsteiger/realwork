@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , l3Math
  , RTFtypes
+ //#UC START# *521AFA27009Bimpl_uses*
+ //#UC END# *521AFA27009Bimpl_uses*
 ;
 
 function Inch2Pixel(aInch: Integer;

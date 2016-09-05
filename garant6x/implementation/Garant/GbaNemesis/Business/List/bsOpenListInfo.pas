@@ -49,6 +49,8 @@ uses
  , bsUtils
  , DynamicTreeUnit
  , bsTypes
+ //#UC START# *4AA4D8A6012Bimpl_uses*
+ //#UC END# *4AA4D8A6012Bimpl_uses*
 ;
 
 function TbsOpenListInfo.pm_GetData: IUnknown;

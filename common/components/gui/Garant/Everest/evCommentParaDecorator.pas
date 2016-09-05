@@ -42,6 +42,8 @@ uses
  , TextPara_Const
  , Graphics
  , nevInterfaces
+ //#UC START# *49E48A670254impl_uses*
+ //#UC END# *49E48A670254impl_uses*
 ;
 
 procedure TevCommentParaDecorator.OpenStream;

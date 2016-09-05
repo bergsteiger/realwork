@@ -37,6 +37,8 @@ uses
  , HyperLink_Const
  , SysUtils
  , evdTypes
+ //#UC START# *556ECBCF0396impl_uses*
+ //#UC END# *556ECBCF0396impl_uses*
 ;
 
 class function Tf1ExternalHyperlinkEliminator.SetTo(var theGenerator: Ik2TagGenerator): Ik2TagGenerator;

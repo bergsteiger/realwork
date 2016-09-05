@@ -42,6 +42,8 @@ uses
  l3ImplUses
  , TypInfo
  , l3Base
+ //#UC START# *537F645C01D1impl_uses*
+ //#UC END# *537F645C01D1impl_uses*
 ;
 
 constructor TCsReplyProceduresPrim.Create;

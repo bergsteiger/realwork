@@ -222,6 +222,7 @@ uses
  , NemesisMain_utMainWindow_UserType
  //#UC START# *4958D2EA00CCimpl_uses*
  , vcmEntityForm
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4958D2EA00CCimpl_uses*
 ;
 
@@ -473,7 +474,7 @@ begin
     end;//on ECanNotFindData
    end;//try..except
    try
-    TdmStdRes.OpenEntityAsDocument(l_BaseEntity, nil);
+    TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, nil);
     Result := true;
    finally
     l_BaseEntity := nil;
@@ -497,7 +498,7 @@ procedure TNemesisMainForm.FillList(const aList: InscStatusBarItemDefsList);
 //#UC END# *4A8E5E4702C6_4958D2EA00CC_var*
 begin
 //#UC START# *4A8E5E4702C6_4958D2EA00CC_impl*
- aList.Add(TnscStatusBarOperationDef.MakeSNoCaption(TdmStdRes.opcode_System_CantReceiveLegalServiceAnswer, True, True, 10000, nsc_ttkWarning));
+ aList.Add(TnscStatusBarOperationDef.MakeSNoCaption(opcode_System_CantReceiveLegalServiceAnswer, True, True, 10000, nsc_ttkWarning));
 //#UC END# *4A8E5E4702C6_4958D2EA00CC_impl*
 end;//TNemesisMainForm.FillList
 
@@ -600,19 +601,19 @@ begin
  if (f_sdsMainWindow = nil) then
  begin
   f_sdsMainWindow := TsdsMainWindow.Make;
-  TdmStdRes.MakeBaloonForm(Self,
+  TDocumentService.Instance.MakeBaloonForm(Self,
                     remUnreadConsultations,
                     f_sdsMainWindow.dsBaloonWarning);
-  TdmStdRes.MakeBaloonForm(Self,
+  TDocumentService.Instance.MakeBaloonForm(Self,
                     OldBaseWarning,
                     f_sdsMainWindow.dsBaloonWarning);
-  TdmStdRes.MakeBaloonForm(Self,
+  TDocumentService.Instance.MakeBaloonForm(Self,
                     remOnlineDead,
                     f_sdsMainWindow.dsBaloonWarning);
-  TdmStdRes.MakeBaloonForm(Self,
+  TDocumentService.Instance.MakeBaloonForm(Self,
                     TrialModeWarning,
                     f_sdsMainWindow.dsBaloonWarning);
-  TdmStdRes.MakeBaloonForm(Self,
+  TDocumentService.Instance.MakeBaloonForm(Self,
                     ControlledChangingWarning,
                     f_sdsMainWindow.dsBaloonWarning);
  end;//f_sdsMainWindow = nil

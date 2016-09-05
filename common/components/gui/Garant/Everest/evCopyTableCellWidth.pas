@@ -49,6 +49,8 @@ uses
  , evCellsWidthCorrecter
  , SysUtils
  , l3Base
+ //#UC START# *4F28F7160399impl_uses*
+ //#UC END# *4F28F7160399impl_uses*
 ;
 
 var g_TevCopyTableCellWidth: TevCopyTableCellWidth = nil;

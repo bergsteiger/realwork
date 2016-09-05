@@ -44,6 +44,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3InterfacesMisc
+ //#UC START# *4ADDF4110392impl_uses*
+ //#UC END# *4ADDF4110392impl_uses*
 ;
 
 constructor TnsPrimAdapterNode.Create(const aNode: INode;

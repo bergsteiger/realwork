@@ -47,6 +47,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , l3Base
+ //#UC START# *5475D1E30232impl_uses*
+ //#UC END# *5475D1E30232impl_uses*
 ;
 
 var g_Tl3ProcessMessagesManager: Tl3ProcessMessagesManager = nil;

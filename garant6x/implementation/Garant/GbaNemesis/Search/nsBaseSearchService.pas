@@ -94,6 +94,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *563875050317impl_uses*
+ //#UC END# *563875050317impl_uses*
 ;
 
 var g_TnsBaseSearchService: TnsBaseSearchService = nil;

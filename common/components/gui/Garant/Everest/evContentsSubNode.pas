@@ -53,6 +53,8 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , k2Tags
  , SysUtils
+ //#UC START# *4DFEF18B02C4impl_uses*
+ //#UC END# *4DFEF18B02C4impl_uses*
 ;
 
 constructor TevContentsSubNode.Create(aTag: Tl3Variant;

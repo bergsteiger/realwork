@@ -81,6 +81,8 @@ uses
  l3ImplUses
  , l3Printer
  , SysUtils
+ //#UC START# *480DE55C0315impl_uses*
+ //#UC END# *480DE55C0315impl_uses*
 ;
 
 class function TafwMultiDocumentPreview.Make: IafwMultiDocumentPreview;

@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , nsAACRightDocumentContainer
+ //#UC START# *500E747B0047impl_uses*
+ //#UC END# *500E747B0047impl_uses*
 ;
 
 function TdsAACDocumentRight.BlockViewKind: TevBlockViewKind;

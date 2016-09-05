@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , DataAdapter
+ //#UC START# *4911CFF60035impl_uses*
+ //#UC END# *4911CFF60035impl_uses*
 ;
 
 procedure TnsAdapterDeferredTree.InitFields;

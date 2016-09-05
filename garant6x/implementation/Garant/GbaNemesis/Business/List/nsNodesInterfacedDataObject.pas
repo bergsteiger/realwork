@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , DynamicTreeUnit
  , SysUtils
+ //#UC START# *48F744610382impl_uses*
+ //#UC END# *48F744610382impl_uses*
 ;
 
 function TnsNodesInterfacedDataObject.COMQueryInterface(const IID: Tl3GUID;

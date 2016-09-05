@@ -43,6 +43,8 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
  l3ImplUses
+ //#UC START# *4DE4A70402F1impl_uses*
+ //#UC END# *4DE4A70402F1impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

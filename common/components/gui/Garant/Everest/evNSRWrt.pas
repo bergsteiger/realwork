@@ -1948,7 +1948,7 @@ procedure TevCustomNSRCWriter.ValidateLine(aLine : Tl3String; aCodePage : Intege
   function HasOpenHyperlink(anIndex: Integer): Boolean;
   var
    l_Index : Integer;
-   l_Ch : Char;
+   l_Ch : AnsiChar;
   begin//HasOpenHyperlink
    if (anIndex < 0) then
     Result := false

@@ -37,6 +37,8 @@ uses
  , SecurityUnit
  , SysUtils
  , nsUserFlagsFilter
+ //#UC START# *4A680DA6013Cimpl_uses*
+ //#UC END# *4A680DA6013Cimpl_uses*
 ;
 
 class function TnsChatTreeStruct.Make(ForAdd: Boolean): Il3SimpleTree;

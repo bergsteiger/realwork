@@ -1,8 +1,11 @@
 unit a2dsBigBrother;
 
-{ $Id: a2dsBigBrother.pas,v 1.13 2015/07/09 10:35:01 lukyanets Exp $}
+{ $Id: a2dsBigBrother.pas,v 1.14 2016/06/16 05:38:36 lukyanets Exp $}
 
 // $Log: a2dsBigBrother.pas,v $
+// Revision 1.14  2016/06/16 05:38:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.13  2015/07/09 10:35:01  lukyanets
 // Готовимся вычитывать данные
 //
@@ -93,7 +96,7 @@ uses
 
  daDataProvider,
 
- DT_Types,
+ daTypes,
 
  ddRTFWriter
  , ddDocument;
@@ -136,7 +139,7 @@ procedure Ta2dsBigBrother.Refresh(aStart, aStop: TStDate; aDocID: Integer = 0);
 var
  l_Profile: Ia2Profile;
  l_IsGroup: Boolean;
- l_UID    : TUserID;
+ l_UID    : TdaUserID;
 begin
  f_Tree.Clear;
  l_UID := 0;

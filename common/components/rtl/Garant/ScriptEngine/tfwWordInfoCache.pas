@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *559F828102D8impl_uses*
+ //#UC END# *559F828102D8impl_uses*
 ;
 
 var g_TtfwWordInfoCache: TtfwWordInfoCache = nil;

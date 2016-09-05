@@ -17,6 +17,7 @@ uses
  , l3CProtoObject
  , nevBase
  , k2DocumentGenerator
+ , l3ProtoObject
 ;
 
 type
@@ -31,6 +32,37 @@ type
   public
    constructor Create(const aProcessor: InevProcessor); reintroduce;
  end;//TnsStyleParserContext
+
+ (*
+ MDocumentSettingsService = interface
+  {* Контракт сервиса TDocumentSettingsService }
+  function ShowChangesInfoSetting: Boolean;
+ end;//MDocumentSettingsService
+ *)
+
+ IDocumentSettingsService = interface
+  {* Интерфейс сервиса TDocumentSettingsService }
+  function ShowChangesInfoSetting: Boolean;
+ end;//IDocumentSettingsService
+
+ TDocumentSettingsService = {final} class(Tl3ProtoObject)
+  private
+   f_Alien: IDocumentSettingsService;
+    {* Внешняя реализация сервиса IDocumentSettingsService }
+  protected
+   procedure pm_SetAlien(const aValue: IDocumentSettingsService);
+   procedure ClearFields; override;
+  public
+   function ShowChangesInfoSetting: Boolean;
+   class function Instance: TDocumentSettingsService;
+    {* Метод получения экземпляра синглетона TDocumentSettingsService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property Alien: IDocumentSettingsService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса IDocumentSettingsService }
+ end;//TDocumentSettingsService
 
  TnsStyleParser = class
   public
@@ -63,7 +95,18 @@ uses
  , F1TagDataProviderInterface
  , k2Empty_Const
  , Block_Const
+ //#UC START# *4DDD3D520070impl_uses*
+ //#UC END# *4DDD3D520070impl_uses*
 ;
+
+var g_TDocumentSettingsService: TDocumentSettingsService = nil;
+ {* Экземпляр синглетона TDocumentSettingsService }
+
+procedure TDocumentSettingsServiceFree;
+ {* Метод освобождения экземпляра синглетона TDocumentSettingsService }
+begin
+ l3Free(g_TDocumentSettingsService);
+end;//TDocumentSettingsServiceFree
 
 function TnsStyleParserContext.DoFinishAtom(G: Tk2DocumentGenerator;
  var Atom: Tk2StackAtom): Boolean;
@@ -103,6 +146,45 @@ begin
  f_Processor := nil;
  inherited;
 end;//TnsStyleParserContext.ClearFields
+
+procedure TDocumentSettingsService.pm_SetAlien(const aValue: IDocumentSettingsService);
+begin
+ Assert((f_Alien = nil) OR (aValue = nil));
+ f_Alien := aValue;
+end;//TDocumentSettingsService.pm_SetAlien
+
+function TDocumentSettingsService.ShowChangesInfoSetting: Boolean;
+begin
+ if (f_Alien <> nil) then
+  Result := f_Alien.ShowChangesInfoSetting
+ else
+ begin
+  System.FillChar(Result, SizeOf(Result), 0);
+ end;
+end;//TDocumentSettingsService.ShowChangesInfoSetting
+
+class function TDocumentSettingsService.Instance: TDocumentSettingsService;
+ {* Метод получения экземпляра синглетона TDocumentSettingsService }
+begin
+ if (g_TDocumentSettingsService = nil) then
+ begin
+  l3System.AddExitProc(TDocumentSettingsServiceFree);
+  g_TDocumentSettingsService := Create;
+ end;
+ Result := g_TDocumentSettingsService;
+end;//TDocumentSettingsService.Instance
+
+class function TDocumentSettingsService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TDocumentSettingsService <> nil;
+end;//TDocumentSettingsService.Exists
+
+procedure TDocumentSettingsService.ClearFields;
+begin
+ Alien := nil;
+ inherited;
+end;//TDocumentSettingsService.ClearFields
 
 class procedure TnsStyleParser.Parse(const aStyle: IStream;
  aTag: Tl3Tag);
@@ -228,7 +310,7 @@ begin
       l_C := nil;
      end//try..finally
     else
-     aTag.BoolA[k2_tiCollapsed] := not TdmStdRes.DocumentShowChangesInfoSetting;
+     aTag.BoolA[k2_tiCollapsed] := not TDocumentSettingsService.Instance.ShowChangesInfoSetting;
    end;//aTag.IntA[k2_tiStyle] = ev_saChangesInfo
   if aTag.IsKindOf(k2_typBlock) then
    if (aTag.IntA[k2_tiStyle] = ev_saExpandedText) then

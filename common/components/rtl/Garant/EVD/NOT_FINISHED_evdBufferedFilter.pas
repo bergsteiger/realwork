@@ -45,6 +45,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49E496880120impl_uses*
+ //#UC END# *49E496880120impl_uses*
 ;
 
 function TevdCustomBufferedFilter.NeedFlushBuffer(aLeaf: Tl3Variant;

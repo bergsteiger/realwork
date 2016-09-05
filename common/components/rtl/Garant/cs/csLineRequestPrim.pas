@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , LineRequest_Const
+ //#UC START# *53B683D900A9impl_uses*
+ //#UC END# *53B683D900A9impl_uses*
 ;
 
 class function TcsLineRequestPrim.GetTaggedDataType: Tk2Type;

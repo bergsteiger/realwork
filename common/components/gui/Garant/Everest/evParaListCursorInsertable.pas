@@ -31,6 +31,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *4A3A4398010Aimpl_uses*
+ //#UC END# *4A3A4398010Aimpl_uses*
 ;
 
 function TevParaListCursorInsertable.DoIt(const anOpPack: InevOp;

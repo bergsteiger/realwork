@@ -33,6 +33,8 @@ uses
  , l3String
  , SysUtils
  , l3Memory
+ //#UC START# *4BB9C58B039Bimpl_uses*
+ //#UC END# *4BB9C58B039Bimpl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

@@ -37,6 +37,8 @@ uses
  , l3Chars
  , l3String
  , Windows
+ //#UC START# *55E5CAA801A1impl_uses*
+ //#UC END# *55E5CAA801A1impl_uses*
 ;
 
 constructor Tl3CStringDataObject.Create(const aString: Il3CString);

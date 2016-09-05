@@ -45,6 +45,8 @@ uses
  , kwCompiledIncluded
  , l3Base
  , tfwFileStreamFactory
+ //#UC START# *4DC2DF5D0167impl_uses*
+ //#UC END# *4DC2DF5D0167impl_uses*
 ;
 
 constructor TkwIncluded.Create(const aFileName: AnsiString);

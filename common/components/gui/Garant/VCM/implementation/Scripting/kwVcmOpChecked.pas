@@ -29,6 +29,8 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *5230153303B8impl_uses*
+ //#UC END# *5230153303B8impl_uses*
 ;
 
 function TkwVcmOpChecked.Flag: TvcmOpFlag;

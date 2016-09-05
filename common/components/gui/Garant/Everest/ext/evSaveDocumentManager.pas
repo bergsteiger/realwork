@@ -5,9 +5,12 @@ unit evSaveDocumentManager;
 { Автор: Люлин А.В. ©             }
 { Модуль: evSaveDocumentManager - }
 { Начат: 17.12.2001 17:06         }
-{ $Id: evSaveDocumentManager.pas,v 1.31 2015/08/18 12:15:36 lulin Exp $ }
+{ $Id: evSaveDocumentManager.pas,v 1.32 2016/07/15 13:18:46 lulin Exp $ }
 
 // $Log: evSaveDocumentManager.pas,v $
+// Revision 1.32  2016/07/15 13:18:46  lulin
+// - собираем DesignTime.
+//
 // Revision 1.31  2015/08/18 12:15:36  lulin
 // {RequestLink:604929290}
 //
@@ -231,7 +234,9 @@ uses
 
   evTypes,
 
+  {$If NOT Defined(DesignTimeLibrary)}
   evPDFWriter,
+  {$IfEnd}
   evTextFormatter,
   evGeneratorsInterfaces,
 
@@ -398,7 +403,11 @@ begin
      l_Writer := TevdXMLWriter.Create;
     if (f_FilterIndex = ev_sfPDF) then
     begin
+     {$If NOT Defined(DesignTimeLibrary)}
      l_Writer := TevPDFWriter.Create;
+     {$Else}
+     l_Writer := nil;
+     {$IfEnd}
      EvSetFilters4PDF(l_Writer, [-ev_saTechComment]);
     end; // if (f_FilterIndex = ev_sfPDF) then
    end;//l_Writer = nil

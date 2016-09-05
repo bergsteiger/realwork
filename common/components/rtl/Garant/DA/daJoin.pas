@@ -56,6 +56,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *57457765036Fimpl_uses*
+ //#UC END# *57457765036Fimpl_uses*
 ;
 
 constructor TdaJoin.Create(const aFactory: IdaTableQueryFactory;

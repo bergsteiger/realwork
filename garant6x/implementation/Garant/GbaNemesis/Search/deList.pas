@@ -75,6 +75,8 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *47F33E9E03C8impl_uses*
+ //#UC END# *47F33E9E03C8impl_uses*
 ;
 
 constructor TdeList.Create(const aList: IDynList;

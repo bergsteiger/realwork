@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , ddHTMLWriterRes
+ //#UC START# *4B9E545B0118impl_uses*
+ //#UC END# *4B9E545B0118impl_uses*
 ;
 
 procedure TddHTMLGenerator.WriteHTMLStyleTable;

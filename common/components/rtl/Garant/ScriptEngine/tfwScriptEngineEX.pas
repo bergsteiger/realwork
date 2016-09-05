@@ -42,6 +42,8 @@ uses
  {$If NOT Defined(NoWindows)}
  , WinUtilsPack
  {$IfEnd} // NOT Defined(NoWindows)
+ //#UC START# *4DEF306102FFimpl_uses*
+ //#UC END# *4DEF306102FFimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

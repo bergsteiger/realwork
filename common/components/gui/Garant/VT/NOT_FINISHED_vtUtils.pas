@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F4853203E7impl_uses*
+ //#UC END# *47F4853203E7impl_uses*
 ;
 
 procedure vtMakeImageListWrapper;

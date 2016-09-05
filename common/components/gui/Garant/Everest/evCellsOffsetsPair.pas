@@ -87,6 +87,8 @@ uses
  l3ImplUses
  , l3UnitsTools
  , SysUtils
+ //#UC START# *4F2F6F750263impl_uses*
+ //#UC END# *4F2F6F750263impl_uses*
 ;
 
 constructor TevCellsOffsetsPair.Create;

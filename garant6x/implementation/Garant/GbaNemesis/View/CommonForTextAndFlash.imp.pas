@@ -278,7 +278,7 @@ begin
  if CanAddToControl then
  begin
   l_Controllable := GetControllable(l_Doc);
-  aParams.Op.Flag[vcm_ofEnabled] := TdmStdRes.IsCurEditionActual(l_Doc) and
+  aParams.Op.Flag[vcm_ofEnabled] := TCommonService.Instance.IsCurEditionActual(l_Doc) and
                                     (l_Controllable <> nil);
  end//CanAddToControl
  else
@@ -302,12 +302,12 @@ begin
   try
    if not l_Controllable.GetControlled then
    begin
-    TdmStdRes.AddToControl(l_Controllable);
+    TCommonService.Instance.AddToControl(l_Controllable);
     Say(inf_SetDocToControl);
    end//not l_Controllable.GetControlled
    else
    if Ask(qr_RemoveDocumentFromControl) then
-    TdmStdRes.DeleteFromControl(l_Controllable);
+    TCommonService.Instance.DeleteFromControl(l_Controllable);
   finally
    l_Controllable := nil;
   end;//try..finally
@@ -327,7 +327,7 @@ begin
  l_Controllable := GetControllable(l_Doc);
  if (l_Controllable <> nil) then
  try
-  if TdmStdRes.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
+  if TCommonService.Instance.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
    State := st_user_Document_AddToControl_RemoveFromControl
   else
    State := vcm_DefaultOperationState;

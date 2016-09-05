@@ -37,6 +37,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *559E758B01BBimpl_uses*
+ //#UC END# *559E758B01BBimpl_uses*
 ;
 
 type _Instance_R_ = TtfwDictionaryListPrim;

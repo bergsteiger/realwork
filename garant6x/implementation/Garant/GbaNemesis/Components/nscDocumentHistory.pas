@@ -65,6 +65,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *53D2281F0048impl_uses*
+ //#UC END# *53D2281F0048impl_uses*
 ;
 
 var g_TnscDocumentHistory: TnscDocumentHistory = nil;

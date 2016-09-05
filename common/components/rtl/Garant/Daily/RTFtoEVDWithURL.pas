@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *56A9CA080124impl_uses*
+ //#UC END# *56A9CA080124impl_uses*
 ;
 
 function TRTFtoEVDWithURL.GetEnableReadURL: Boolean;

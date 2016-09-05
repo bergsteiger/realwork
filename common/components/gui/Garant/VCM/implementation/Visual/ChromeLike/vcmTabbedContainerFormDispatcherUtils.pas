@@ -56,6 +56,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *558163840015impl_uses*
+ //#UC END# *558163840015impl_uses*
 ;
 
 function TvcmContainerLockCountItem_C(aContainer: TvcmTabbedContainerForm): TvcmContainerLockCountItem;

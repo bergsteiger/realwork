@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4AD83627037Bimpl_uses*
+ //#UC END# *4AD83627037Bimpl_uses*
 ;
 
 type _Instance_R_ = TInsContextSearchHistoryNotifierList;

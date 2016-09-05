@@ -81,6 +81,8 @@ uses
  , l3Types
  , l3Bits
  , l3TreeInterfaces
+ //#UC START# *4DFEF11703D8impl_uses*
+ //#UC END# *4DFEF11703D8impl_uses*
 ;
 
 function TevContentsNode.NeedCreate: Boolean;

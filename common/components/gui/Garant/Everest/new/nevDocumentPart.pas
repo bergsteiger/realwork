@@ -30,6 +30,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ //#UC START# *4F87E8B50206impl_uses*
+ //#UC END# *4F87E8B50206impl_uses*
 ;
 
 function TnevDocumentPart.GetAppliesToMaxWidth: Boolean;

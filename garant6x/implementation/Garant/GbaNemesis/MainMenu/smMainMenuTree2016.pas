@@ -43,6 +43,8 @@ uses
  , nsMainMenu2011Node
  , nsNewCachableNode
  , SysUtils
+ //#UC START# *570B9CF90392impl_uses*
+ //#UC END# *570B9CF90392impl_uses*
 ;
 
 constructor TsmMainMenuTree2016.Create(const aSection: IMainMenuSection);

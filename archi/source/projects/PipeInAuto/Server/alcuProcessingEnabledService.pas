@@ -34,6 +34,8 @@ uses
  , alcuServer
  , SysUtils
  , l3Base
+ //#UC START# *561CF00A0193impl_uses*
+ //#UC END# *561CF00A0193impl_uses*
 ;
 
 var g_TalcuProcessingEnabledService: TalcuProcessingEnabledService = nil;

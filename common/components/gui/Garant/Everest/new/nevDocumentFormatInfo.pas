@@ -42,6 +42,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evAACContentUtils
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4E6A302701CFimpl_uses*
+ //#UC END# *4E6A302701CFimpl_uses*
 ;
 
 function TnevDocumentFormatInfo.GetInfoForChild(const aChild: InevObjectPrim): TnevFormatInfo;

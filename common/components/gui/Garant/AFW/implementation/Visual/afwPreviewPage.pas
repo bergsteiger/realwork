@@ -123,6 +123,8 @@ uses
  {$If Defined(nsTest)}
  , afwPreviewPageSpy
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *474155B703C6impl_uses*
+ //#UC END# *474155B703C6impl_uses*
 ;
 
 const

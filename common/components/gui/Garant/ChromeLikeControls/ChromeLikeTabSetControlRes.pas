@@ -33,6 +33,8 @@ implementation
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ //#UC START# *553E255C00B2impl_uses*
+ //#UC END# *553E255C00B2impl_uses*
 ;
 
 initialization

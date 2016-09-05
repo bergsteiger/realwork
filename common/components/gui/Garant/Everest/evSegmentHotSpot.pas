@@ -148,6 +148,8 @@ uses
  , k2Base
  , evdTypes
  , HyperLink_Const
+ //#UC START# *4A268E590029impl_uses*
+ //#UC END# *4A268E590029impl_uses*
 ;
 
 type

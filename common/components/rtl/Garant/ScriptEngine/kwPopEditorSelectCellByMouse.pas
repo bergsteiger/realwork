@@ -61,6 +61,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E980426001Fimpl_uses*
+ //#UC END# *4E980426001Fimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas}

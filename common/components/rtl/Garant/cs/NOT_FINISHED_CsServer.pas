@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , CsQueryExecutor
+ //#UC START# *5395BFCE0389impl_uses*
+ //#UC END# *5395BFCE0389impl_uses*
 ;
 
 {$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)

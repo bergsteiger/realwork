@@ -106,6 +106,8 @@ uses
  , afwSettingsImplSing
  , afwSettingsImplemented
  , Classes
+ //#UC START# *47764DEC01A7impl_uses*
+ //#UC END# *47764DEC01A7impl_uses*
 ;
 
 procedure FreeApp;

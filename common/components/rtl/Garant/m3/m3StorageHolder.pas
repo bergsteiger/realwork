@@ -62,6 +62,8 @@ uses
  , SysUtils
  , m3StorageHolderList
  , Windows
+ //#UC START# *542E5D79018Fimpl_uses*
+ //#UC END# *542E5D79018Fimpl_uses*
 ;
 
 constructor Tm3StorageHolder.Create(aStorageClass: Rm3CommonStorage;

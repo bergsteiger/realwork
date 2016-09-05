@@ -32,6 +32,8 @@ uses
  , DocumentUnit
  , SysUtils
  , SearchRes
+ //#UC START# *4B2895E80398impl_uses*
+ //#UC END# *4B2895E80398impl_uses*
 ;
 
 function nsCalcEditionImageIndex(const anEdition: Il3SimpleNode;

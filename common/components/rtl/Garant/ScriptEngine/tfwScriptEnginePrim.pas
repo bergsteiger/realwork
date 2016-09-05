@@ -191,6 +191,9 @@ uses
  , tfwMainDictionaryList
  , tfwStandardDictionaries
  , ItfwScriptEngineWordsPack
+ //#UC START# *4F733A0701F0impl_uses*
+ , tfwCS
+ //#UC END# *4F733A0701F0impl_uses*
 ;
 
 procedure TtfwScriptEnginePrim.Script(aStream: TtfwStreamFactory;
@@ -233,17 +236,22 @@ begin
    {$IfDef seCacheDict}
    if Self.CacheDict AND not l3IsNil(l_N) then
    begin
-    l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_N);
-    if (l_D <> nil) then
-    begin
-     l_D.SetRefTo(f_MainDictionary);
-     l_NeedCompile := false;
-    end//l_D <> nil
-    else
-    begin
-     f_MainDictionary := TtfwMainDictionary.Create(aStream, [TtfwAutoregisteredDiction.Instance]);
-     TtfwMainDictionaryCache.Instance.Add(f_MainDictionary);
-    end;//l_D <> nil
+    TtfwMainDictionaryCache.Instance.Lock;
+    try
+     l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_N);
+     if (l_D <> nil) then
+     begin
+      l_D.SetRefTo(f_MainDictionary);
+      l_NeedCompile := false;
+     end//l_D <> nil
+     else
+     begin
+      f_MainDictionary := TtfwMainDictionary.Create(aStream, [TtfwAutoregisteredDiction.Instance]);
+      TtfwMainDictionaryCache.Instance.Add(f_MainDictionary);
+     end;//l_D <> nil
+    finally
+     TtfwMainDictionaryCache.Instance.Unlock;
+    end;//try..finally 
    end//Self.CacheDict
    else
    {$EndIf seCacheDict}
@@ -267,50 +275,56 @@ begin
      l_Ctx.rStoredValuesStack := TtfwStoredValuesStack.Make;
      l_Ctx.rStreamFactory := aStream;
      try
-      if l_NeedCompile then
-      begin
-       try
+      TtfwCS.Instance.Lock;
+      try
+       if l_NeedCompile then
+       begin
         try
-         l_Ctx.rKeyWords := Self;
          try
+          l_Ctx.rKeyWords := Self;
           try
-           Self.DoIt(l_Ctx);
-          except
-           ExceptionStackToLog;
-           {$IfDef seCacheDict}
-           if Self.CacheDict then
-            TtfwMainDictionaryCache.Instance.Remove(f_MainDictionary);
-           {$EndIf seCacheDict}
-           raise;
-          end;//try..except
-          if (l_Ctx.rEngine.ValuesCount <> 0) then
-           CompilerAssert(false,
-                  'После компиляции стек должнен быть пустой: ' +
-                  f_ScriptFileName +
-                  ' Верхнее значение стека: ' + l3Str(l_Ctx.rEngine.PopPrintable) +
-                  ' Оставшееся количество элементов: ' + IntToStr(l_Ctx.rEngine.ValuesCount),
-                  l_Ctx);
+           try
+            Self.DoIt(l_Ctx);
+           except
+            ExceptionStackToLog;
+            {$IfDef seCacheDict}
+            if Self.CacheDict then
+             TtfwMainDictionaryCache.Instance.Remove(f_MainDictionary);
+            {$EndIf seCacheDict}
+            raise;
+           end;//try..except
+           if (l_Ctx.rEngine.ValuesCount <> 0) then
+            CompilerAssert(false,
+                   'После компиляции стек должнен быть пустой: ' +
+                   f_ScriptFileName +
+                   ' Верхнее значение стека: ' + l3Str(l_Ctx.rEngine.PopPrintable) +
+                   ' Оставшееся количество элементов: ' + IntToStr(l_Ctx.rEngine.ValuesCount + 1),
+                   l_Ctx);
+          finally
+           l_Ctx.rKeyWords := nil;
+          end;//try..finally
          finally
-          l_Ctx.rKeyWords := nil;
+          l_P := nil;
          end;//try..finally
-        finally
-         l_P := nil;
-        end;//try..finally
 
-        FreeAndNil(f_ExceptionStack);
-       finally
-        try
-         l_Ctx.rParser := nil;
+         FreeAndNil(f_ExceptionStack);
         finally
-         aStream.CloseStream;
-        end;//try..finally 
-       end;//try..finally
-      end;//l_NeedCompile
+         try
+          l_Ctx.rParser := nil;
+         finally
+          aStream.CloseStream;
+         end;//try..finally
+        end;//try..finally
+       end;//l_NeedCompile
+      finally
+       TtfwCS.Instance.Unlock;
+      end;//try..finally 
       try
        if not aCaller.CompileOnly then
        begin
         Tl3ScriptService.Instance.EnterScript;
         try
+         l_Ctx.rCaller.ScriptWillRun(l_Ctx);
          Self.RunCompiled(l_Ctx);
         finally
          Tl3ScriptService.Instance.LeaveScript;
@@ -327,6 +341,7 @@ begin
         raise;
        end;//else
       end;//try..except
+      l_Ctx.rCaller.ScriptDone(l_Ctx);
       if (l_Ctx.rEngine.ValuesCount <> 0) then
        RunnerError(
               'После выполнения стек должнен быть пустой: ' +

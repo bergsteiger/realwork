@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4C88AA1A00ABimpl_uses*
+ //#UC END# *4C88AA1A00ABimpl_uses*
 ;
 
 procedure TPasteColumnTest.Process(aForm: TPrimTextLoadForm);

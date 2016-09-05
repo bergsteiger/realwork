@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , tfwWordWorker
+ //#UC START# *5512E3740036impl_uses*
+ //#UC END# *5512E3740036impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwOtherWordRunner.imp.pas}

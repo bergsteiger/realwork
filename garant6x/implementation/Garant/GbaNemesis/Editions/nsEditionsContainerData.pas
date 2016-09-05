@@ -14,6 +14,7 @@ uses
  , l3ProtoObject
  , EditionsInterfaces
  , DocumentUnit
+ , Base_Operations_F1Services_Contracts
 ;
 
 type
@@ -33,6 +34,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4AE03B550243impl_uses*
+ //#UC END# *4AE03B550243impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas}

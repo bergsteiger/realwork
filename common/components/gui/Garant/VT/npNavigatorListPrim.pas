@@ -46,6 +46,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F61DFF20168impl_uses*
+ //#UC END# *4F61DFF20168impl_uses*
 ;
 
 type _Instance_R_ = TnpNavigatorListPrim;

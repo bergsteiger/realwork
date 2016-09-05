@@ -1,6 +1,6 @@
 unit D_CRef;
 
-{ $Id: D_CREF.PAS,v 1.27 2013/05/31 07:20:26 lulin Exp $ }
+{ $Id: D_CREF.PAS,v 1.28 2016/06/16 05:38:44 lukyanets Exp $ }
 
 {$Include l3XE.inc}
 
@@ -29,8 +29,10 @@ uses
   nevNavigation,
   evInternalInterfaces,
 
-  DT_Const, 
-  DT_Types, 
+  daTypes,
+
+  dt_Types,
+  DT_Const,
   DT_Doc
   ;
 
@@ -38,7 +40,7 @@ type
   TChoiceRefDlg = class(TvtPopupList)
    private
     f_Hyperlink : IevHyperlink;
-    f_Family    : TFamilyID;
+    f_Family    : TdaFamilyID;
    protected
     function RefListUserCommand(Sender: TObject; Command: Word) : Boolean;
     //procedure RefListActionElement(Sender: TObject; Index: Longint);
@@ -46,7 +48,7 @@ type
     procedure AdjustPopUp(Sender: TObject);
    public
     constructor Create(AOwner: TComponent); reintroduce;
-    Function Execute(aFamily : TFamilyID; aHyperlink : IevHyperlink; var aDestLink : TDestHLinkRec) : Boolean;
+    Function Execute(aFamily : TdaFamilyID; aHyperlink : IevHyperlink; var aDestLink : TDestHLinkRec) : Boolean;
   end;
 
 implementation
@@ -112,7 +114,7 @@ begin
  fLister.MultiStrokeItem := True;
 end;
 
-function TChoiceRefDlg.Execute(aFamily : TFamilyID;
+function TChoiceRefDlg.Execute(aFamily : TdaFamilyID;
                               aHyperlink : IevHyperlink;
                               var aDestLink : TDestHLinkRec) : Boolean;
 var

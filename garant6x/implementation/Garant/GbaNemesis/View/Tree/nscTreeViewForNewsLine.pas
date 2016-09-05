@@ -32,6 +32,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *54522FE602EDimpl_uses*
+ //#UC END# *54522FE602EDimpl_uses*
 ;
 
 procedure TnscTreeViewForNewsLine.SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;

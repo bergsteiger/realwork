@@ -41,6 +41,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4DC3A27D0253impl_uses*
+ //#UC END# *4DC3A27D0253impl_uses*
 ;
 
 class function TkwUses.GetWordNameForRegister: AnsiString;

@@ -19,6 +19,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *52E7AD220052impl_uses*
+ //#UC END# *52E7AD220052impl_uses*
 ;
 
 procedure arMakeNameStr;

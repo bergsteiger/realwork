@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , DataAdapter
  , nsConst
+ //#UC START# *49E8213D00F6impl_uses*
+ //#UC END# *49E8213D00F6impl_uses*
 ;
 
 function TnsGroupTreeStruct.ReAqurieUnfilteredRoot: INodeBase;

@@ -38,6 +38,8 @@ uses
  , ImgList
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *503F914E00EFimpl_uses*
+ //#UC END# *503F914E00EFimpl_uses*
 ;
 
 type

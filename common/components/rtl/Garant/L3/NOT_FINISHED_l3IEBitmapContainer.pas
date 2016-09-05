@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , l3IEBitmapContainerStack
+ //#UC START# *48E6486F0123impl_uses*
+ //#UC END# *48E6486F0123impl_uses*
 ;
 
 end.

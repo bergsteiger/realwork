@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47CFE7F00221impl_uses*
+ //#UC END# *47CFE7F00221impl_uses*
 ;
 
 procedure l3IEQ;

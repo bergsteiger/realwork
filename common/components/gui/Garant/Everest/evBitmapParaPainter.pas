@@ -29,6 +29,8 @@ implementation
 {$If Defined(evNeedPainters)}
 uses
  l3ImplUses
+ //#UC START# *4804CBCA0090impl_uses*
+ //#UC END# *4804CBCA0090impl_uses*
 ;
 
 procedure TevBitmapParaPainter.DoFillSelection;

@@ -16,6 +16,7 @@ uses
  , daTypes
  , l3DatLst
  , l3LongintList
+ , Classes
 ;
 
 type
@@ -99,6 +100,17 @@ type
     ActFlag: Byte;
     const EditMask: TdaUserEditMask);
    procedure DelUser(aUser: TdaUserID);
+   procedure GetUserListOnGroup(aUsGroup: TdaUserGroupID;
+    aList: Tl3StringDataList;
+    GetActiveUsersOnly: Boolean = False);
+   procedure GetFiltredUserList(aList: TStrings;
+    aOnlyActive: Boolean = False);
+   procedure GetDocGroupData(aUserGroup: TdaUserGroupID;
+    aFamily: TdaFamilyID;
+    aDocDataList: Tl3StringDataList);
+   procedure PutDocGroupData(aUserGroup: TdaUserGroupID;
+    aFamily: TdaFamilyID;
+    aDocDataList: Tl3StringDataList);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -121,6 +133,8 @@ uses
  , caArchiUser
  , SysUtils
  , l3Base
+ //#UC START# *56C428E4014Aimpl_uses*
+ //#UC END# *56C428E4014Aimpl_uses*
 ;
 
 constructor TcaUserManager.Create(const aHTManager: IdaUserManager;
@@ -648,6 +662,82 @@ begin
  f_PGManager.DelUser(aUser);
 //#UC END# *5784BE1E02F7_56C428E4014A_impl*
 end;//TcaUserManager.DelUser
+
+procedure TcaUserManager.GetUserListOnGroup(aUsGroup: TdaUserGroupID;
+ aList: Tl3StringDataList;
+ GetActiveUsersOnly: Boolean = False);
+//#UC START# *57A87EF901F3_56C428E4014A_var*
+var
+ l_Check: Tl3StringDataList;
+//#UC END# *57A87EF901F3_56C428E4014A_var*
+begin
+//#UC START# *57A87EF901F3_56C428E4014A_impl*
+ l_Check := Tl3StringDataList.Create;
+ try
+  l_Check.DataSize := aList.DataSize;
+  l_Check.Assign(aList);
+  f_HTManager.GetUserListOnGroup(aUsGroup, aList, GetActiveUsersOnly);
+  f_PGManager.GetUserListOnGroup(aUsGroup, l_Check, GetActiveUsersOnly);
+  Assert(l3IsIdenticalLists(aList, l_Check));
+ finally
+  FreeAndNil(l_Check);
+ end;
+//#UC END# *57A87EF901F3_56C428E4014A_impl*
+end;//TcaUserManager.GetUserListOnGroup
+
+procedure TcaUserManager.GetFiltredUserList(aList: TStrings;
+ aOnlyActive: Boolean = False);
+//#UC START# *57A9DF2103CE_56C428E4014A_var*
+var
+ l_Check: TStringList;
+//#UC END# *57A9DF2103CE_56C428E4014A_var*
+begin
+//#UC START# *57A9DF2103CE_56C428E4014A_impl*
+ l_Check := TStringList.Create;
+ try
+  l_Check.Assign(aList);
+  f_HTManager.GetFiltredUserList(aList, aOnlyActive);
+  f_PGManager.GetFiltredUserList(l_Check, aOnlyActive);
+  Assert(l3IsIdenticalLists(aList, l_Check));
+ finally
+  FreeAndNil(l_Check);
+ end;
+//#UC END# *57A9DF2103CE_56C428E4014A_impl*
+end;//TcaUserManager.GetFiltredUserList
+
+procedure TcaUserManager.GetDocGroupData(aUserGroup: TdaUserGroupID;
+ aFamily: TdaFamilyID;
+ aDocDataList: Tl3StringDataList);
+//#UC START# *57AC28890131_56C428E4014A_var*
+var
+ l_Check: Tl3StringDataList;
+//#UC END# *57AC28890131_56C428E4014A_var*
+begin
+//#UC START# *57AC28890131_56C428E4014A_impl*
+ l_Check := Tl3StringDataList.Create;
+ try
+  l_Check.DataSize := aDocDataList.DataSize;
+  l_Check.Assign(aDocDataList);
+  f_HTManager.GetDocGroupData(aUserGroup, aFamily, aDocDataList);
+  f_PGManager.GetDocGroupData(aUserGroup, aFamily, l_Check);
+  Assert(l3IsIdenticalLists(aDocDataList, l_Check));
+ finally
+  FreeAndNil(l_Check);
+ end;
+//#UC END# *57AC28890131_56C428E4014A_impl*
+end;//TcaUserManager.GetDocGroupData
+
+procedure TcaUserManager.PutDocGroupData(aUserGroup: TdaUserGroupID;
+ aFamily: TdaFamilyID;
+ aDocDataList: Tl3StringDataList);
+//#UC START# *57AC289F0257_56C428E4014A_var*
+//#UC END# *57AC289F0257_56C428E4014A_var*
+begin
+//#UC START# *57AC289F0257_56C428E4014A_impl*
+ f_HTManager.PutDocGroupData(aUserGroup, aFamily, aDocDataList);
+ f_PGManager.PutDocGroupData(aUserGroup, aFamily, aDocDataList);
+//#UC END# *57AC289F0257_56C428E4014A_impl*
+end;//TcaUserManager.PutDocGroupData
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

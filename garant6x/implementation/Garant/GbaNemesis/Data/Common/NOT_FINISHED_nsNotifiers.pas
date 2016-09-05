@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , nsNotificationManager
  , nsUnderControlNotificationManager
+ //#UC START# *4A6860C40384impl_uses*
+ //#UC END# *4A6860C40384impl_uses*
 ;
 
 end.

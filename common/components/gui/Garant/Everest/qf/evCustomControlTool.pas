@@ -42,6 +42,8 @@ uses
  l3ImplUses
  , k2Tags
  , l3InterfacesMisc
+ //#UC START# *47CFDFAB0197impl_uses*
+ //#UC END# *47CFDFAB0197impl_uses*
 ;
 
 constructor TevCustomControlTool.Create(const aPara: InevPara);

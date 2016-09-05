@@ -53,6 +53,8 @@ uses
  , bsConvert
  , l3TreeConst
  , Windows
+ //#UC START# *48F740E40022impl_uses*
+ //#UC END# *48F740E40022impl_uses*
 ;
 
 constructor TbsListDataObject.Create(const aData: Il3SimpleNode;

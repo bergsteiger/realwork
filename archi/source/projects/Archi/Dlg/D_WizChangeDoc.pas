@@ -7,7 +7,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   TabBBtnDlg, StdCtrls, vtSpin, ComCtrls, Buttons, ExtCtrls,
-  Dt_Types, DT_Const, Dt_Dict, Mask, vtCtrls, vtCombo, vtDateEdit, BottomBtnDlg;
+  daTypes, DT_Const, Dt_Dict, Mask, vtCtrls, vtCombo, vtDateEdit, BottomBtnDlg;
 
 type
   TChangeDocWizardDlg = class(TBottomBtnDlg)
@@ -39,7 +39,7 @@ type
     procedure sbChangeDocIDNameClick(Sender: TObject);
     procedure OKClick(Sender: TObject);
   private
-    fFamily : TFamilyID;
+    fFamily : TdaFamilyID;
     function  GetChangingID : Integer;
     procedure SetChangingID(aValue : Integer);
     function  GetChangerID : Integer;
@@ -62,7 +62,7 @@ type
     procedure SyncroChangingDocID;
     procedure SyncroChangeDocID;
 
-    function Execute(aFamily : TFamilyID) : boolean; reintroduce;
+    function Execute(aFamily : TdaFamilyID) : boolean; reintroduce;
     property ChangingDocID : Integer read GetChangingID write SetChangingID;
     property ChangerDocID : Integer read GetChangerID write SetChangerID;
     property ChangerSubID : Integer read GetChangerSubID;
@@ -99,7 +99,7 @@ begin
  Result := StrToIntDef(ev_psTrim(ev_psPrefix(aEditControl.Text,'.')), 0)
 end;
 
-function TChangeDocWizardDlg.Execute(aFamily : TFamilyID) : boolean;
+function TChangeDocWizardDlg.Execute(aFamily : TdaFamilyID) : boolean;
 begin
  fFamily := aFamily;
   {edtChangingDocID.Value := 674493;
@@ -143,7 +143,7 @@ end;
 
 procedure TChangeDocWizardDlg.SyncroChangeDocID;
 var
- lDocID : TDocID;
+ lDocID : TdaDocID;
  lDate  : TstDate;
 
 begin

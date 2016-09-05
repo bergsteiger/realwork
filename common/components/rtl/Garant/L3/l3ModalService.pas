@@ -72,6 +72,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *553F71BE03E0impl_uses*
+ //#UC END# *553F71BE03E0impl_uses*
 ;
 
 var g_Tl3ModalService: Tl3ModalService = nil;

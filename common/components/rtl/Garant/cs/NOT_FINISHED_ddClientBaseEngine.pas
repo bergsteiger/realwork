@@ -21,6 +21,8 @@ implementation
 {$If Defined(AppClientSide) AND NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *54352FAB00E6impl_uses*
+ //#UC END# *54352FAB00E6impl_uses*
 ;
 
 procedure DoneClientBaseEngine;

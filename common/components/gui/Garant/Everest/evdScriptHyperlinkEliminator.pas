@@ -30,6 +30,8 @@ uses
  , k2Tags
  , l3String
  , evdTypes
+ //#UC START# *4F352A840264impl_uses*
+ //#UC END# *4F352A840264impl_uses*
 ;
 
 function TevdScriptHyperlinkEliminator.NeedWritePara(aLeaf: Tl3Variant): Boolean;

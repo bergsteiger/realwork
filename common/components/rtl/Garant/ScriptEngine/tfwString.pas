@@ -36,6 +36,8 @@ uses
  , l3Base
  , l3Except
  , tfwScriptingTypes
+ //#UC START# *4DDFD1430390impl_uses*
+ //#UC END# *4DDFD1430390impl_uses*
 ;
 
 function TtfwString.GetString: AnsiString;

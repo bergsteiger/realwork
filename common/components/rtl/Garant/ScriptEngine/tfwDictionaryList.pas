@@ -20,6 +20,7 @@ uses
  , l3Except
  , Classes
  , tfwDictionaryExPrim
+ , SyncObjs
 ;
 
 type
@@ -41,6 +42,8 @@ uses
  , RTLConsts
  , SysUtils
  , l3String
+ //#UC START# *55A4E71403B3impl_uses*
+ //#UC END# *55A4E71403B3impl_uses*
 ;
 
 type _Instance_R_ = TtfwDictionaryList;

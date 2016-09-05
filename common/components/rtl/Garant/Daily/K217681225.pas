@@ -44,6 +44,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , l3Base
+ //#UC START# *4CE2839C0117impl_uses*
+ //#UC END# *4CE2839C0117impl_uses*
 ;
 
 function TK217681225.GetFolder: AnsiString;

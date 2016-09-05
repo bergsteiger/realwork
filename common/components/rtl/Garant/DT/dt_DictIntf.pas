@@ -25,7 +25,6 @@ type
 
  IDictItemPro = interface(IUnknown)
      ['{89957F41-FE93-11D3-A0B3-0060083017DC}']
-  function  dip_IsLastEntry : Boolean;
   function  dip_RefCount : Longint;
   procedure dip_LinkDisconnect;
 

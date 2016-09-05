@@ -36,6 +36,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwArchiEverestWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *512DB031030Fimpl_uses*
+ //#UC END# *512DB031030Fimpl_uses*
 ;
 
 {$If NOT Defined(NoScripts)}

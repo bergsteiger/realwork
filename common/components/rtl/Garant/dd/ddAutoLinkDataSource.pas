@@ -1,8 +1,14 @@
 unit ddAutoLinkDataSource;
 
-{ $Id: ddAutoLinkDataSource.pas,v 1.20 2015/11/25 14:01:46 lukyanets Exp $ }
+{ $Id: ddAutoLinkDataSource.pas,v 1.22 2016/08/24 09:11:09 fireton Exp $ }
 
 // $Log: ddAutoLinkDataSource.pas,v $
+// Revision 1.22  2016/08/24 09:11:09  fireton
+// - автопростановка ссылок, рефакторинг и доработка
+//
+// Revision 1.21  2016/07/18 10:50:06  fireton
+// переделка автолинкера
+//
 // Revision 1.20  2015/11/25 14:01:46  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -86,6 +92,7 @@ uses
  ddTypes,
  ddDocStructBase,
  ddDocStruct,
+ ddAutolinkInterfaces,
  ddAutolinkCache,
  ddBaseAutolinkDataSource
  ;
@@ -122,7 +129,7 @@ type
   procedure Cleanup; override;
   function DoGetContemporalEdition(const aExtDocID: TDocID; const aDate: TStDate): TddALDocRec; override;
  public
-  constructor Create(aType: TddAutolinkCacheType; aOnError: TddErrorEvent);
+  constructor Create(aType: TddAutolinkCacheType; aOnError: TddErrorEvent; aCanUpdateStruct: Boolean = False);
   procedure StartDocQuery; override;
   procedure FilterByDocType(aDocType: TDictID); override;
   procedure FilterByCasecode(const aCaseCode: Tl3PCharLen); override;
@@ -190,6 +197,7 @@ uses
 
  m3StgMgr,
 
+ ddAutolinkUtils,
  ddAutolinkServer;
 
 type
@@ -354,11 +362,12 @@ begin
   ErrorQueryAlreadyStarted;
 end;
 
-constructor TddCacheAutolinkDataSource.Create(aType: TddAutolinkCacheType; aOnError: TddErrorEvent);
+constructor TddCacheAutolinkDataSource.Create(aType: TddAutolinkCacheType; aOnError: TddErrorEvent; aCanUpdateStruct:
+ Boolean = False);
 begin
  inherited Create(aOnError);
  f_Type := aType;
- f_StructCache := TddDocStructCache.Create(GetAutolinkStructCacheFilePath(f_Type), GlobalDataProvider.TextBase[CurrentFamily], False);
+ f_StructCache := TddDocStructCache.Create(GetAutolinkStructCacheFilePath(f_Type), GlobalDataProvider.TextBase[CurrentFamily], aCanUpdateStruct);
 end;
 
 procedure TddCacheAutolinkDataSource.CheckIfQueryStarted;
@@ -526,7 +535,7 @@ end;
 
 function TddCacheAutolinkDataSource.FindBlock(const aDocID: TDocID; const aEntryAddr: TddDocStructElementRec): Longint;
 begin
- Result := f_StructCache.FindBlock(aDocID, aEntryAddr);
+ Result := f_StructCache.FindBlockSmart(aDocID, aEntryAddr);
 end;
 
 procedure TddCacheAutolinkDataSource.StartDocQuery;
@@ -553,7 +562,8 @@ begin
     l_TblInfo := l_ALS.GetAutolinkCacheMainTableInfo(l_CType);
     l_TblInfo := l_ALS.GetAutolinkCacheVersionsTableInfo(l_CType);
     l_TblInfo := nil;
-    f_DataSources[l_CType] := TddCacheAutolinkDataSource.Create(l_CType, aOnError);
+    // локальный кэш структур может пополняться на лету!
+    f_DataSources[l_CType] := TddCacheAutolinkDataSource.Create(l_CType, aOnError, (l_CType = dsLocal));
    except
     on E : EAutoLinkBadCache do
      DoError(E.Message);

@@ -4,9 +4,24 @@ unit StdResPrim;
 { Автор: Люлин А.В. ©     }
 { Модуль: StdResPrim -    }
 { Начат: 26.04.2011 14:15 }
-{ $Id: StdResPrim.pas,v 1.2 2015/08/26 15:19:25 lulin Exp $ }
+{ $Id: StdResPrim.pas,v 1.7 2016/08/04 17:44:49 lulin Exp $ }
 
 // $Log: StdResPrim.pas,v $
+// Revision 1.7  2016/08/04 17:44:49  lulin
+// - перегенерация.
+//
+// Revision 1.6  2016/08/03 09:37:12  lulin
+// - перегенерация.
+//
+// Revision 1.5  2016/07/15 14:35:18  lulin
+// - собираем DesignTime.
+//
+// Revision 1.4  2016/07/15 11:25:22  lulin
+// - выпрямляем зависимости.
+//
+// Revision 1.3  2016/07/15 09:53:34  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.2  2015/08/26 15:19:25  lulin
 // {RequestLink:606128535}
 //
@@ -96,7 +111,7 @@ uses
 
 {$IfNDef NoVCM}
 type
-  TdmStdRes =
+  TvcmApplicationRunner =
    {$IfDef NewGen}
    {$IfDef nsTest}
    TNemesisRes
@@ -139,7 +154,6 @@ type
    {$EndIf NewGen}
   ;
 
-  TvcmApplicationRef = TdmStdRes;
 {$EndIf  NoVCM}
 
 implementation

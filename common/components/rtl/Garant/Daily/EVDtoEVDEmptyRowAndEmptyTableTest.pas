@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , evEmptyTableEliminator
  , TestFrameWork
+ //#UC START# *51C8347903A2impl_uses*
+ //#UC END# *51C8347903A2impl_uses*
 ;
 
 procedure TEVDtoEVDEmptyRowAndEmptyTableTest.SetFilters(var theGenerator: Ik2TagGenerator);

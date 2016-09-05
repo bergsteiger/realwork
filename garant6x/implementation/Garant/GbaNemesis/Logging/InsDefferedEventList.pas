@@ -36,6 +36,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B139EC502DFimpl_uses*
+ //#UC END# *4B139EC502DFimpl_uses*
 ;
 
 type _Instance_R_ = TInsDefferedEventList;

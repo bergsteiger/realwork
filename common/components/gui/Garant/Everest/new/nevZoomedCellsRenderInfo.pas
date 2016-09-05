@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , l3Math
  , k2Tags
+ //#UC START# *4BA24BC5012Eimpl_uses*
+ //#UC END# *4BA24BC5012Eimpl_uses*
 ;
 
 function TnevZoomedCellsRenderInfo.ChildWidth(aChild: TnevFormatInfo): Integer;

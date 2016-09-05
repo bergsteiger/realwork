@@ -67,6 +67,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4C88E37B0049impl_uses*
+ , Admin_Users_Controls
  //#UC END# *4C88E37B0049impl_uses*
 ;
 
@@ -81,7 +82,7 @@ begin
 //#UC START# *4C762C910358_4C88E37B0049test_impl*
  if HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Cancel, aParams As IvcmTestParams);
+   l_Form.Entity.Operation(opcode_Result_Cancel, aParams As IvcmTestParams);
    aParams.Op.Flag[vcm_ofVisible] := False;
   finally
    l_Form := nil;
@@ -106,7 +107,7 @@ begin
 //#UC START# *4C762C910358_4C88E37B0049exec_impl*
  if HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Cancel, aParams As IvcmExecuteParams);
+   l_Form.Entity.Operation(opcode_Result_Cancel, aParams As IvcmExecuteParams);
   finally
    l_Form := nil;
   end;
@@ -125,7 +126,7 @@ begin
 //#UC START# *4C762D9B0224_4C88E37B0049test_impl*
  if HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Save, aParams As IvcmTestParams);
+   l_Form.Entity.Operation(opcode_Result_Save, aParams As IvcmTestParams);
    aParams.Op.Flag[vcm_ofVisible] := False;
   finally
    l_Form := nil;
@@ -150,7 +151,7 @@ begin
 //#UC START# *4C762D9B0224_4C88E37B0049exec_impl*
  if HasForm(vcm_ztChild, False, @l_Form) then
   try
-   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Save, aParams As IvcmExecuteParams);
+   l_Form.Entity.Operation(opcode_Result_Save, aParams As IvcmExecuteParams);
   finally
    l_Form := nil;
   end;

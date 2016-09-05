@@ -72,6 +72,8 @@ uses
  , nsTypes
  , l3InterfacesMisc
  , SysUtils
+ //#UC START# *49216B3C02E8impl_uses*
+ //#UC END# *49216B3C02E8impl_uses*
 ;
 
 type _Instance_R_ = TdsConsultationMark;

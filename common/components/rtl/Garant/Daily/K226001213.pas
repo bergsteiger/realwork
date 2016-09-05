@@ -48,6 +48,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C3C2D63027Eimpl_uses*
+ //#UC END# *4C3C2D63027Eimpl_uses*
 ;
 
 function TK226001213.SelectColumn(var aColID: Integer): Boolean;

@@ -50,6 +50,8 @@ uses
  , vcmFormSetFormsCollectionItem
  , SysUtils
  , vcmControllers
+ //#UC START# *4FFC4CD30122impl_uses*
+ //#UC END# *4FFC4CD30122impl_uses*
 ;
 
 function TvcmFormSetFormsCollectionPrim.pm_GetFormList: TvcmFormSetFormList;

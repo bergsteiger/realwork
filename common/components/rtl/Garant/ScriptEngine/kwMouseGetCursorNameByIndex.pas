@@ -32,6 +32,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4EF09324028Bimpl_uses*
+ //#UC END# *4EF09324028Bimpl_uses*
 ;
 
 class function TkwMouseGetCursorNameByIndex.GetWordNameForRegister: AnsiString;

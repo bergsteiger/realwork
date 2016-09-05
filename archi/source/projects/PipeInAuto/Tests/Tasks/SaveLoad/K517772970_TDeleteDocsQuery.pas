@@ -46,6 +46,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *532150340028impl_uses*
+ //#UC END# *532150340028impl_uses*
 ;
 
 function TK517772970_TDeleteDocsQuery.TaskClass: TddTaskClass;

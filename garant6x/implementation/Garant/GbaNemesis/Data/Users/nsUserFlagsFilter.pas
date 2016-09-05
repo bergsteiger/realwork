@@ -29,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4901E8E20154impl_uses*
+ //#UC END# *4901E8E20154impl_uses*
 ;
 
 constructor TnsUserFlagsFilter.Create(aFlags: LongWord);

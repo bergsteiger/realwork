@@ -15,24 +15,24 @@ type
  IddConfigStorage = interface
   {* Интерфейс для чтения-записи данных конфигурации }
   ['{86F1D5B0-F190-4497-AA2E-1E9F453F7066}']
-  function Get_Section: AnsiString; stdcall;
-  procedure Set_Section(const aValue: AnsiString); stdcall;
+  function Get_Section: AnsiString;
+  procedure Set_Section(const aValue: AnsiString);
   function ReadBool(const Alias: AnsiString;
-   Default: Boolean): Boolean; stdcall;
+   Default: Boolean): Boolean;
   function ReadDateTime(const Alias: AnsiString;
-   Default: TDateTime): TDateTime; stdcall;
+   Default: TDateTime): TDateTime;
   function ReadInteger(const Alias: AnsiString;
-   Default: Integer): Integer; stdcall;
+   Default: Integer): Integer;
   function ReadString(const Alias: AnsiString;
-   const Default: AnsiString): Il3CString; stdcall;
+   const Default: AnsiString): Il3CString;
   procedure WriteBool(const Alias: AnsiString;
-   B: Boolean); stdcall;
+   B: Boolean);
   procedure WriteDateTime(const Alias: AnsiString;
-   DT: TDateTime); stdcall;
+   DT: TDateTime);
   procedure WriteInteger(const Alias: AnsiString;
-   I: Integer); stdcall;
+   I: Integer);
   procedure WriteString(const Alias: AnsiString;
-   const S: AnsiString); stdcall;
+   const S: AnsiString);
   property Section: AnsiString
    read Get_Section
    write Set_Section;
@@ -42,6 +42,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5214AEF201AEimpl_uses*
+ //#UC END# *5214AEF201AEimpl_uses*
 ;
 
 end.

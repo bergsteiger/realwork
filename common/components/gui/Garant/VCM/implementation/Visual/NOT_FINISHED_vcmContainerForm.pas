@@ -120,6 +120,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *49525C240170impl_uses*
+ //#UC END# *49525C240170impl_uses*
 ;
 
 function TvcmContainerForm.AcceptForm(const aForm: IvcmEntityForm;

@@ -84,6 +84,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *51D56E9F004Bimpl_uses*
+ //#UC END# *51D56E9F004Bimpl_uses*
 ;
 
 function TnscDocumentListTreeView.GetCurrentText: AnsiString;

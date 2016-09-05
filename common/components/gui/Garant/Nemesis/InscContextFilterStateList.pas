@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *49083E6F02D8impl_uses*
+ //#UC END# *49083E6F02D8impl_uses*
 ;
 
 type _Instance_R_ = TInscContextFilterStateList;

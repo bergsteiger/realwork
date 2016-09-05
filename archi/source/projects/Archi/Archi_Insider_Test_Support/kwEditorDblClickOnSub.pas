@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4DFB3B88027Aimpl_uses*
+ //#UC END# *4DFB3B88027Aimpl_uses*
 ;
 
 procedure TkwEditorDblClickOnSub.DoWithEditor(const aCtx: TtfwContext;

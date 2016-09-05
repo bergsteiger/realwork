@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , bsInterfaces
  , SysUtils
+ //#UC START# *49F57FF400B2impl_uses*
+ //#UC END# *49F57FF400B2impl_uses*
 ;
 
 function TnsUserInterfacedDataObject.COMQueryInterface(const IID: Tl3GUID;

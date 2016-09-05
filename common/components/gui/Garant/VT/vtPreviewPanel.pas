@@ -1,9 +1,12 @@
 unit vtPreviewPanel;
 {* Компонент для Preview. }
 
-{ $Id: vtPreviewPanel.pas,v 1.40 2015/10/06 12:53:13 dinishev Exp $ }
+{ $Id: vtPreviewPanel.pas,v 1.41 2016/08/23 11:46:47 kostitsin Exp $ }
 
 // $Log: vtPreviewPanel.pas,v $
+// Revision 1.41  2016/08/23 11:46:47  kostitsin
+// {requestlink: 624862173 }
+//
 // Revision 1.40  2015/10/06 12:53:13  dinishev
 // {Requestlink:293280988}
 //
@@ -575,7 +578,7 @@ type
         {-}
       function  GetState: IevPreviewPanelState;
         {-}
-      procedure SetState(const aState: IevPreviewPanelState);
+      procedure SetState(const aState: IevPreviewPanelState; aClone: Boolean);
         {-}
       procedure Zoom(aX0, aY0: Integer; aK: Double; aGoCenter: Boolean = true);
         {-}
@@ -1404,12 +1407,12 @@ begin
  result := TeePreviewPanelState.Make(self);
 end;
 
-procedure TvtCustomPreviewPanel.SetState(const aState: IevPreviewPanelState);
+procedure TvtCustomPreviewPanel.SetState(const aState: IevPreviewPanelState; aClone: Boolean);
   {-}
 begin
  if (aState = nil) then
   Exit;
- f_ReadingFromHistory := True;
+ f_ReadingFromHistory := not aClone;
  Preview := aState.Preview;
  PreviewCanvas := aState.PreviewCanvas;
  SetMM2Pix(aState.MM2Pix);

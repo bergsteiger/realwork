@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , m2HasLib
+ //#UC START# *56F3E80A018Eimpl_uses*
+ //#UC END# *56F3E80A018Eimpl_uses*
 ;
 
 constructor TtfwHash16Table.Create;

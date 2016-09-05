@@ -29,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *462895DD0240impl_uses*
+ //#UC END# *462895DD0240impl_uses*
 ;
 
 function FindRedaction(const redaction_info_list: IRedactionInfoList;

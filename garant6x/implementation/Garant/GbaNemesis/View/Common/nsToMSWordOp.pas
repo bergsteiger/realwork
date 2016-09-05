@@ -50,6 +50,8 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , nsExternalObjectPrim
+ //#UC START# *496DA60C03CAimpl_uses*
+ //#UC END# *496DA60C03CAimpl_uses*
 ;
 
 class procedure TnsToMSWordOp.Test(const aParams: IvcmTestParamsPrim);

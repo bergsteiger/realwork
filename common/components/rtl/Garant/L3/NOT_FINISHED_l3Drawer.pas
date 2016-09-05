@@ -60,6 +60,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4739AF6301B6impl_uses*
+ //#UC END# *4739AF6301B6impl_uses*
 ;
 
 procedure Tl3Drawer.DrawLine(X1: Integer;

@@ -60,6 +60,8 @@ uses
  , SysUtils
  , l3Units
  , l3Base
+ //#UC START# *48D230A600EEimpl_uses*
+ //#UC END# *48D230A600EEimpl_uses*
 ;
 
 procedure TevButtonControl.IncButtonState;

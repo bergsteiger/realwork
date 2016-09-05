@@ -57,6 +57,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E2820E701E1impl_uses*
+ //#UC END# *4E2820E701E1impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}

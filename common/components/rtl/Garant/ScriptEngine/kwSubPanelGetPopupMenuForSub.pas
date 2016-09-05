@@ -59,6 +59,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *53EE014B03ACimpl_uses*
+ //#UC END# *53EE014B03ACimpl_uses*
 ;
 
 procedure TkwSubPanelGetPopupMenuForSub.DoWithSubPanel(aControl: TevCustomSubPanel;

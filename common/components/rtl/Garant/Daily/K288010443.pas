@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *4E8304550222impl_uses*
+ //#UC END# *4E8304550222impl_uses*
 ;
 
 function TK288010443.AcceptBadPictureFormat: Boolean;

@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *512DCAD901C3impl_uses*
+ //#UC END# *512DCAD901C3impl_uses*
 ;
 
 {$If NOT Defined(NoScripts)}

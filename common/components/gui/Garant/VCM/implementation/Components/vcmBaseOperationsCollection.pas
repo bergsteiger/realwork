@@ -74,6 +74,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *55D30E6601A8impl_uses*
+ //#UC END# *55D30E6601A8impl_uses*
 ;
 
 function TvcmBaseOperationsCollection.NeedToBeStored: Boolean;

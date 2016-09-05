@@ -35,6 +35,8 @@ uses
  , m3BuffStream
  , l3_String
  , l3String
+ //#UC START# *54182F8A0069impl_uses*
+ //#UC END# *54182F8A0069impl_uses*
 ;
 
 class function Tm3StorageIndexStream.Make(anAccess: Tm3StoreAccess;

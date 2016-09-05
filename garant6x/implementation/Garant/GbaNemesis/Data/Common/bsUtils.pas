@@ -8,8 +8,14 @@ unit bsUtils;
 { Описание   : Общие функции и процедуры бизнес слоя;                          }
 {------------------------------------------------------------------------------}
 
-// $Id: bsUtils.pas,v 1.64 2016/02/12 13:57:35 kostitsin Exp $
+// $Id: bsUtils.pas,v 1.66 2016/08/02 12:43:57 lulin Exp $
 // $Log: bsUtils.pas,v $
+// Revision 1.66  2016/08/02 12:43:57  lulin
+// - перегенерация.
+//
+// Revision 1.65  2016/07/15 11:25:37  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.64  2016/02/12 13:57:35  kostitsin
 // {requestlink: 612742232 }
 //
@@ -1218,6 +1224,7 @@ uses
   vcmMessagesSupport,
 
   l3DateSt
+  , Common_F1CommonServices_Contracts
   ;
 
 procedure bsAddLink(const aGen : Ik2TagGenerator;
@@ -2376,7 +2383,7 @@ var
  l_DateInterval: Il3CString;
 begin
  aDocument.GetCurrentState(l_State);
- if not TdmStdRes.IsCurEditionActual(l_State) then
+ if not TCommonService.Instance.IsCurEditionActual(l_State) then
  begin
   l_State.GetCurrentRedaction(l_RedactionInfo);
   l_DateInterval := bsCreateEditionDateInterval(l_RedactionInfo.rActiveIntervals);

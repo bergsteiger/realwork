@@ -31,6 +31,8 @@ uses
  , k2NullTagImpl
  , l3String
  , l3IID
+ //#UC START# *53270D0E02E4impl_uses*
+ //#UC END# *53270D0E02E4impl_uses*
 ;
 
 function TnevDocumentContainerPrimPrim.DoMarkModified: Boolean;

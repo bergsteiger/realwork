@@ -580,6 +580,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5507EFFD01FEimpl_uses*
+ //#UC END# *5507EFFD01FEimpl_uses*
 ;
 
 procedure TChromeLikeTabCloseButton.pm_SetShowOnlyHovered(aValue: Boolean);

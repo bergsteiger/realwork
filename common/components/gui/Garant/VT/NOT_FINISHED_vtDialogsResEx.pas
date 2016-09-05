@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , vtDialogsRes
+ //#UC START# *4D99E1B401B5impl_uses*
+ //#UC END# *4D99E1B401B5impl_uses*
 ;
 
 procedure vtGetDlgBtnCaption;

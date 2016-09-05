@@ -57,6 +57,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *47E3E20C02D1impl_uses*
+ //#UC END# *47E3E20C02D1impl_uses*
 ;
 
 constructor TevSavedCursor.Create(const aCursor: InevBasePoint;

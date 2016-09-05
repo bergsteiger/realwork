@@ -93,6 +93,8 @@ uses
  , k2OpMisc
  , Para_Const
  , k2Interfaces
+ //#UC START# *48CE0B85029Cimpl_uses*
+ //#UC END# *48CE0B85029Cimpl_uses*
 ;
 
 class function TnevParaList.Make(aTag: Tl3Variant): InevParaList;

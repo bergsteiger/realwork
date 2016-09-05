@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *53C7ED5A01A0impl_uses*
+ //#UC END# *53C7ED5A01A0impl_uses*
 ;
 
 var g_TtfwRegisteredEnums: TtfwRegisteredEnums = nil;

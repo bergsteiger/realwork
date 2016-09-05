@@ -30,6 +30,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *500E749D0046impl_uses*
+ //#UC END# *500E749D0046impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

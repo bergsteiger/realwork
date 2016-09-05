@@ -41,6 +41,8 @@ uses
  , CommentPara_Const
  , DecorTextPara_Const
  , LeafParaDecorationsHolder_Const
+ //#UC START# *4C99DF8C0241impl_uses*
+ //#UC END# *4C99DF8C0241impl_uses*
 ;
 
 function nsFindTagByID(aTag: Tl3Tag;

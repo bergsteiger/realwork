@@ -37,6 +37,8 @@ type
     const aCtx: TtfwContext);
    procedure ForEachBack(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext);
+   function IsView: Boolean;
+   function SafeView: ItfwValueList;
  end;//TtfwArray
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -45,6 +47,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4DCC173A026Cimpl_uses*
+ //#UC END# *4DCC173A026Cimpl_uses*
 ;
 
 constructor TtfwArray.Create;
@@ -208,6 +212,24 @@ begin
  Result := 1;
 //#UC END# *55E849210175_4DCC173A026C_impl*
 end;//TtfwArray.ItemsCountInSlice
+
+function TtfwArray.IsView: Boolean;
+//#UC START# *57B549300098_4DCC173A026C_var*
+//#UC END# *57B549300098_4DCC173A026C_var*
+begin
+//#UC START# *57B549300098_4DCC173A026C_impl*
+ Result := false;
+//#UC END# *57B549300098_4DCC173A026C_impl*
+end;//TtfwArray.IsView
+
+function TtfwArray.SafeView: ItfwValueList;
+//#UC START# *57C8213A0118_4DCC173A026C_var*
+//#UC END# *57C8213A0118_4DCC173A026C_var*
+begin
+//#UC START# *57C8213A0118_4DCC173A026C_impl*
+ Result := Self;
+//#UC END# *57C8213A0118_4DCC173A026C_impl*
+end;//TtfwArray.SafeView
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

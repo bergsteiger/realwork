@@ -53,6 +53,8 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
  , TestFrameWork
+ //#UC START# *519CA57101A1impl_uses*
+ //#UC END# *519CA57101A1impl_uses*
 ;
 
 function TK455105826.GetFolder: AnsiString;

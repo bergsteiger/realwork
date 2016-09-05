@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *5551DCD200EEimpl_uses*
+ //#UC END# *5551DCD200EEimpl_uses*
 ;
 
 constructor TdaSelectField.Create(const aTableAlias: AnsiString;

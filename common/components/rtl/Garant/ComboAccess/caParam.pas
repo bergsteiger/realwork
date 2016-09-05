@@ -54,6 +54,8 @@ implementation
 {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
  l3ImplUses
+ //#UC START# *56E14CE0012Eimpl_uses*
+ //#UC END# *56E14CE0012Eimpl_uses*
 ;
 
 constructor TcaParam.Create(const aHTParam: IdaParam;

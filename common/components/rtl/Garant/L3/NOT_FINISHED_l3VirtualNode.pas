@@ -74,6 +74,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4ADDF36E0055impl_uses*
+ //#UC END# *4ADDF36E0055impl_uses*
 ;
 
 procedure Tl3CustomVirtualNode.Set_ChildNode(const aValue: Il3Node);

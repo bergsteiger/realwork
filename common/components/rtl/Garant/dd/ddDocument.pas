@@ -3,9 +3,15 @@ unit ddDocument;
 
 { Базовый класс для сохранения в различные форматы }
 
-// $Id: ddDocument.pas,v 1.319 2016/05/24 12:22:57 dinishev Exp $
+// $Id: ddDocument.pas,v 1.321 2016/08/24 08:31:13 dinishev Exp $
 
 // $Log: ddDocument.pas,v $
+// Revision 1.321  2016/08/24 08:31:13  dinishev
+// {Requestlink:629202717}. Переименовал свойство Unicode в OEM.
+//
+// Revision 1.320  2016/06/15 11:37:52  dinishev
+// Remove complier warnings.
+//
 // Revision 1.319  2016/05/24 12:22:57  dinishev
 // Рамки во вложенных таблицах неправильно определялись.
 //
@@ -2238,7 +2244,7 @@ begin
    k2_tiText :
       begin
         l_Para.Text   := Tl3String(Value.AsString);
-        l_Para.Unicode:= (Value.AsString.AsWStr.SCodePage = cp_OEM) or (Value.AsString.AsWStr.SCodePage = cp_OEMLite);
+        l_Para.OEMText:= (Value.AsString.AsWStr.SCodePage = cp_OEM) or (Value.AsString.AsWStr.SCodePage = cp_OEMLite);
       end;
    k2_tiStyle:
      begin { обработка стиля }
@@ -2247,7 +2253,7 @@ begin
        if l_StyleRt <> nil then
        begin
         if l_Para <> nil then
-         l_Para.Unicode := Value.AsInteger = ev_saTxtNormalOEM;
+         l_Para.OEMText := Value.AsInteger = ev_saTxtNormalOEM;
         if l_StyleRt.StyleDef = sdParagraph then
          l_PAP.Style := Value.AsInteger
         else
@@ -3442,7 +3448,9 @@ var
 begin
  l_Nested := f_Tables.Count > 0;
  if l_Nested then
-  l_OuterCell := f_Tables.Last.LastRow.GetLastNonClosedCellOrAddNew;
+  l_OuterCell := f_Tables.Last.LastRow.GetLastNonClosedCellOrAddNew
+ else
+  l_OuterCell := nil;
  l_Table := TddTable.Create(nil);
  try
   l_Table.Nested := l_Nested;
@@ -3482,6 +3490,7 @@ procedure TddDocument.CheckNormalStyle(const aStyle: TddStyleEntry);
  var
   i: Integer;
  begin
+  Result := 0;
   for i := 0 to f_StyleTable.Count - 1 do
    Result := Min(Result, TddStyleEntry(f_StyleTable.Items[i]).Number);
  end;

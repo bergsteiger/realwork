@@ -48,6 +48,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F604272014Eimpl_uses*
+ //#UC END# *4F604272014Eimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}

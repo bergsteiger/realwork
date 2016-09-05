@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *52BACF040379impl_uses*
+ //#UC END# *52BACF040379impl_uses*
 ;
 
 procedure TddBaseObject.Assign(anObject: TddBaseObject);

@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *54B67EB9023Dimpl_uses*
+ //#UC END# *54B67EB9023Dimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas}

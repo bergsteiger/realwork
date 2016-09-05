@@ -45,6 +45,8 @@ uses
  , SysUtils
  , l3String
  , l3Interfaces
+ //#UC START# *4E5CDF9303B7impl_uses*
+ //#UC END# *4E5CDF9303B7impl_uses*
 ;
 
 function Tl3SearchNode.pm_GetChildren(anIndex: Integer): Tl3SearchNode;

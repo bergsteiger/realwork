@@ -7,7 +7,7 @@ uses
   CsDataPipe,
   ddServerTask,
   csRequestTask,
-  DT_types,
+  daTypes,
   csProcessTask,
 
   askRequest,
@@ -28,7 +28,7 @@ type
  protected
   procedure Cleanup; override;
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   constructor MakeFromTask(aTask: TddProcessTask);
   procedure SaveRequestToPipe(aPipe: TCsDataPipe); override;
   property TaskResult: TStream read f_TaskResult;
@@ -40,7 +40,7 @@ type
  protected
   procedure Cleanup; override;
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   procedure SaveRequestToPipe(aPipe: TCsDataPipe); override;
   property Task: TddTaskItem read f_Task;
  end;//TddTaskResultRequest
@@ -55,7 +55,7 @@ uses
   daInterfaces
   ;
 
-constructor TddTaskResultRequest.Create(aUserID: TUserID);
+constructor TddTaskResultRequest.Create(aUserID: TdaUserID);
 begin
   inherited;
   //TaskType := cs_ttTaskResult;
@@ -85,7 +85,7 @@ end;
 {
 ******************************** TddRequestTask ********************************
 }
-constructor TddGetTaskRequest.Create(aUserID: TUserID);
+constructor TddGetTaskRequest.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType := cs_ttGetTask;

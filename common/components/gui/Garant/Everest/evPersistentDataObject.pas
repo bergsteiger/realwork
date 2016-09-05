@@ -93,6 +93,8 @@ uses
  , l3Base
  , l3Stream
  , Classes
+ //#UC START# *48F4732803C8impl_uses*
+ //#UC END# *48F4732803C8impl_uses*
 ;
 
 constructor TevPersistentDataObject.Create(const aBlock: IevdDataObject;

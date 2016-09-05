@@ -67,6 +67,8 @@ uses
  , Block_Const
  , k2Tags
  , Sub_Const
+ //#UC START# *4E004D900171impl_uses*
+ //#UC END# *4E004D900171impl_uses*
 ;
 
 procedure TarDocumentContainerWithContentsTree.MakeContentsTree;

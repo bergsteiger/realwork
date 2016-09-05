@@ -62,6 +62,8 @@ uses
  , ComObj
  , m3Const
  , Windows
+ //#UC START# *53FDE7290320impl_uses*
+ //#UC END# *53FDE7290320impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\m3\m3RootStream.imp.pas}

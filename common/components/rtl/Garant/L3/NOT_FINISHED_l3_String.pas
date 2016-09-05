@@ -29,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4773DED9004Cimpl_uses*
+ //#UC END# *4773DED9004Cimpl_uses*
 ;
 
 procedure Tl3_String.NotifyDeletion(aPos: Integer;

@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *491450C80113impl_uses*
+ //#UC END# *491450C80113impl_uses*
 ;
 
 type _Instance_R_ = TInsConfigNotifyRecipientPtrList;

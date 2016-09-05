@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *541149B203E1impl_uses*
+ //#UC END# *541149B203E1impl_uses*
 ;
 
 function TnevDocumentProvider4PDF.pm_GetCanProvideOriginalDocument: Boolean;

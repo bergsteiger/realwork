@@ -21,6 +21,8 @@ implementation
 uses
  l3ImplUses
  , SearchUnit
+ //#UC START# *47500DB5025Aimpl_uses*
+ //#UC END# *47500DB5025Aimpl_uses*
 ;
 
 function ShellToAdapter(shell_name: PAnsiChar): TAttributeTag;

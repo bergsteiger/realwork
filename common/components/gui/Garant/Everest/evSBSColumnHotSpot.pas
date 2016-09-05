@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , k2Except
+ //#UC START# *4ED4D54502FFimpl_uses*
+ //#UC END# *4ED4D54502FFimpl_uses*
 ;
 
 type _Instance_R_ = TevSBSColumnHotSpot;

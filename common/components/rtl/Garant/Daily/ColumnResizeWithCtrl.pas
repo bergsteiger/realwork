@@ -42,6 +42,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D53D6AA0038impl_uses*
+ //#UC END# *4D53D6AA0038impl_uses*
 ;
 
 function TColumnResizeWithCtrl.GetFolder: AnsiString;

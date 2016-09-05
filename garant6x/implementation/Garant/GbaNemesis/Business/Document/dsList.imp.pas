@@ -1209,15 +1209,9 @@ begin
  begin
   RootManager.RootNode := nil;
   // Обновим справку к документу
-  if ImpList.GetIsSnippet then
+  if ImpList.GetIsSnippet or not IsFirstMake then
   begin
-   Result := TnsDocumentWithSnippetList.Make(Root, ImpList);
-   UpdateListInfo;
-  end
-  else
-  if not IsFirstMake then
-  begin
-   Result := TbsListTreeStruct.Make(Root, False);
+   Result := TnsDocumentWithSnippetList.Make(Root, False);
    UpdateListInfo;
   end
   else
@@ -1225,7 +1219,7 @@ begin
    // Применям фильтры здесь, а не в GotData потому, что
    // http://mdp.garant.ru/pages/viewpage.action?pageId=492601505
    ApplyFilters;
-   Result := TbsListTreeStruct.Make(Root, False);
+   Result := TnsDocumentWithSnippetList.Make(Root, False);
    // http://mdp.garant.ru/pages/viewpage.action?pageId=506709931
    DoSetupNewSimpleTree(Result);
   end;

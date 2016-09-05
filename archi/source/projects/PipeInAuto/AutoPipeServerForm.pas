@@ -14,7 +14,7 @@ uses
   {$IFDEF TrayIcon}
   CoolTrayIcon,
   {$ENDIF}
-  l3InterfacedComponent, dt_User, ActnMenus, ToolWin, ActnMan,
+  l3InterfacedComponent, ActnMenus, ToolWin, ActnMan,
   ActnCtrls, XPStyleActnCtrls, vtStatusBar, IdBaseComponent,
   daTypes, daInterfaces,
   Dialogs, IdAntiFreezeBase, IdAntiFreeze, csTaskTypes, csProcessTask,
@@ -350,6 +350,7 @@ type
     procedure UpdateSMTPStatus;
     procedure UpdateSchedulerMenu;
     procedure ExecuteSchedulrTask(Sender: TObject);
+    procedure DoSpeedupRequest;
  protected
     procedure WndProc(var Message: TMessage); override;
  public
@@ -394,7 +395,7 @@ Uses
  {$IfEnd defined(ManualSet20005Sub)}
   , alcuAutoClassifier, ddAppConfigUtils, ddAppConfigStrings,
   alcuConfigTypes, ddAppConfigConst, DT_AskList, L3Bits, Dt_Query, ddAppConfigDataAdapters,
-  alcuRegionAutoExportTask, dt_UserConst, BaseSupport,
+  alcuRegionAutoExportTask, BaseSupport,
   alcuTaskManager,
   afwAnswer,
   alcuTaskListBase,
@@ -417,7 +418,8 @@ const
   cs_tsCanChangePriotiryStatuses = [cs_tsQuery, cs_tsFrozen, cs_tsRun, cs_tsAsyncRun];
 
 var
- msg_UpdateStatus: THandle = 0; 
+ msg_UpdateStatus: THandle = 0;
+ msg_SpeedupRequest: THandle = 0;
 
 procedure TArchiServerForm.actImportAACExecute(Sender: TObject);
 var
@@ -1024,6 +1026,7 @@ begin
     f_AutoServer.CheckAtStartup := l_Check;
     f_AutoServer.MainForm := Self;
     f_AutoServer.TaskProcessor.OnTaskListChanged:= TaskListChanged;
+    f_AutoServer.TaskProcessor.SpeedupRequestProc := DoSpeedupRequest;
     if f_AutoServer.Start then
      Application.OnIdle:= StartUpIdle
     else
@@ -1050,6 +1053,7 @@ begin
   if Tl3BatchService.Instance.IsBatchMode then
    ddAppConfiguration.AsBoolean['LegalShutdown'] := true;
   {$EndIf InsiderTest}
+  f_AutoServer.TaskProcessor.SpeedupRequestProc := nil;
   f_AutoServer.ShutDown;
   //l3Free(f_AutoServer);
   //l3System.Str2Log(FormatDateTime(rsSessiyaostanovlenaDDMMYYYYvHhNn, Now));
@@ -2004,7 +2008,10 @@ begin
   if Message.Msg = msg_UpdateStatus then
    UpdateSMTPStatus
   else
-   inherited;
+   if Message.Msg = msg_SpeedupRequest then
+    f_AutoServer.TaskProcessor.ProcessIncomingTasks
+   else
+    inherited;
 end;
 
 procedure TArchiServerForm.menuDelOldTasksClick(Sender: TObject);
@@ -2086,8 +2093,14 @@ begin
  f_AutoServer.TaskProcessor.ActiveTaskList.ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
 end;
 
+procedure TArchiServerForm.DoSpeedupRequest;
+begin
+ PostMessage(Handle, msg_SpeedupRequest, 0, 0);
+end;
+
 initialization
  msg_UpdateStatus := RegisterWindowMessage(PChar(l3CreateStringGUID));
+ msg_SpeedupRequest := RegisterWindowMessage(PChar(l3CreateStringGUID));
 
 end.
 

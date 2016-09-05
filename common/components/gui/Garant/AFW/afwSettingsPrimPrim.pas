@@ -35,6 +35,8 @@ uses
  , afwAString
  , SysUtils
  , l3VCLStrings
+ //#UC START# *4F6C6E6F00CAimpl_uses*
+ //#UC END# *4F6C6E6F00CAimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas}

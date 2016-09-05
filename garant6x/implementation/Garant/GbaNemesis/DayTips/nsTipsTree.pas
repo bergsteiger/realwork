@@ -35,6 +35,8 @@ uses
  , DataAdapter
  , nsConst
  , SysUtils
+ //#UC START# *4906F6A103D5impl_uses*
+ //#UC END# *4906F6A103D5impl_uses*
 ;
 
 class function TnsTipsTree.Make: Il3SimpleTree;

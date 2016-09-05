@@ -58,6 +58,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *550AAEE001B7impl_uses*
+ //#UC END# *550AAEE001B7impl_uses*
 ;
 
 type _Instance_R_ = TsdsInpharmMainMenu;

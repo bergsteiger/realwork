@@ -42,6 +42,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D9058880214impl_uses*
+ //#UC END# *4D9058880214impl_uses*
 ;
 
 procedure TvtPopupFormModelPart.DataSourceChanged(aControl: TControl);

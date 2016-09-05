@@ -37,6 +37,8 @@ uses
  {$If Defined(ServerTasks)}
  , alcuMdpImportDocs
  {$IfEnd} // Defined(ServerTasks)
+ //#UC START# *55EED3CD0299impl_uses*
+ //#UC END# *55EED3CD0299impl_uses*
 ;
 
 function TalcuMdpDocImporter.HasToImport: Boolean;

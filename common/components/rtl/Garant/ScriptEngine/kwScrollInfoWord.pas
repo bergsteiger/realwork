@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , Forms
+ //#UC START# *517939B9033Cimpl_uses*
+ //#UC END# *517939B9033Cimpl_uses*
 ;
 
 procedure TkwScrollInfoWord.DoWinControl(aControl: TWinControl;

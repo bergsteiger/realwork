@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *556427250160impl_uses*
+ //#UC END# *556427250160impl_uses*
 ;
 
 constructor TkwSourcePointWord.Create(const aCtx: TtfwContext);

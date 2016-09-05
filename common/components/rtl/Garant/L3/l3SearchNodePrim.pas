@@ -39,6 +39,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4E5CDE950027impl_uses*
+ //#UC END# *4E5CDE950027impl_uses*
 ;
 
 constructor Tl3SearchNodePrim.Create(const aText: Il3CString;

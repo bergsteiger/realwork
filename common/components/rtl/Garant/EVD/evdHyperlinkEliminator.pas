@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , HyperLink_Const
+ //#UC START# *4E9FD8340247impl_uses*
+ //#UC END# *4E9FD8340247impl_uses*
 ;
 
 function TevdHyperlinkEliminator.ParaTypeForFiltering: Tk2Type;

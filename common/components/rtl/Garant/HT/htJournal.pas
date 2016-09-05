@@ -87,6 +87,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Err
  {$IfEnd} // NOT Defined(Nemesis)
+ //#UC START# *5540D3060300impl_uses*
+ //#UC END# *5540D3060300impl_uses*
 ;
 
 constructor ThtJournal.Create(const aFactory: IdaTableQueryFactory);
@@ -148,7 +150,7 @@ begin
    // ≈сли нет, то получаем этого пользовател€
    if UserGr then
    begin
-    l_ResultSab := UserManager.xxxGetUserGroupsList(UserOrGroupID);
+    l_ResultSab := xxxUserManager.xxxGetUserGroupsList(UserOrGroupID);
     l_ResultSab.TransferToPhoto(bbID_Ext, MakePhoto(BigBrother));
     l_ResultSab.RecordsByKey;
    end

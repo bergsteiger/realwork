@@ -27,7 +27,7 @@ type
   public
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
-   function GetValue(const aCtx: TtfwContext): PtfwStackValue; override;
+   function GetValue(const aCtx: TtfwContext): TtfwStackValue; override;
    function IsVarLike: Boolean; override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
@@ -146,8 +146,11 @@ uses
  , l3Base
  , TypInfo
  , l3String
+ , tfwThreadVar
  , tfwValueTypes
  , SysUtils
+ //#UC START# *4F4158EB01D9impl_uses*
+ //#UC END# *4F4158EB01D9impl_uses*
 ;
 
 var g_TkwObjRefParamWordInfo: TkwObjRefParamWordInfo = nil;
@@ -188,7 +191,7 @@ procedure TkwObjRefParam.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_558D7FFE0092_var*
 begin
 //#UC START# *4DAEEDE10285_558D7FFE0092_impl*
- aCtx.rEngine.Push(f_Value);
+ TtfwThreadVar.Instance.PushValue(Self, @f_Value, aCtx);
 //#UC END# *4DAEEDE10285_558D7FFE0092_impl*
 end;//TkwObjRefParam.DoDoIt
 
@@ -209,23 +212,23 @@ begin
 //#UC START# *52D00B00031A_558D7FFE0092_impl*
  Case aValue.rType of
   tfw_vtVoid:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   tfw_vtNil:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   tfw_vtObj:
-   f_Value := aValue;
+   TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
   else
    RunnerAssert(false, 'Требуется объект', aCtx);
  end;//aValue.rType
 //#UC END# *52D00B00031A_558D7FFE0092_impl*
 end;//TkwObjRefParam.SetValuePrim
 
-function TkwObjRefParam.GetValue(const aCtx: TtfwContext): PtfwStackValue;
+function TkwObjRefParam.GetValue(const aCtx: TtfwContext): TtfwStackValue;
 //#UC START# *52D399A00173_558D7FFE0092_var*
 //#UC END# *52D399A00173_558D7FFE0092_var*
 begin
 //#UC START# *52D399A00173_558D7FFE0092_impl*
- Result := @f_Value;
+ Result := TtfwThreadVar.Instance.GetValue(Self, @f_Value);
 //#UC END# *52D399A00173_558D7FFE0092_impl*
 end;//TkwObjRefParam.GetValue
 
@@ -282,7 +285,7 @@ function TkwRefParam.GetRef(const aCtx: TtfwContext): TtfwWord;
 //#UC END# *558D2BCA0324_559AA1BE0237_var*
 begin
 //#UC START# *558D2BCA0324_559AA1BE0237_impl*
- Result := f_Value.AsObject As TtfwWord;
+ Result := TtfwThreadVar.Instance.GetValue(Self, @f_Value).AsObject As TtfwWord;
  Result := Result.GetRef(aCtx);
 //#UC END# *558D2BCA0324_559AA1BE0237_impl*
 end;//TkwRefParam.GetRef

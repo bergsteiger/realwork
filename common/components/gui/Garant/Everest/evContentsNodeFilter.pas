@@ -57,6 +57,8 @@ uses
  , l3MinMax
  , k2Tags
  , evContentsUtils
+ //#UC START# *4DFEF1DF009Fimpl_uses*
+ //#UC END# *4DFEF1DF009Fimpl_uses*
 ;
 
 function TevContentsNodeFilter.NeedColor(const aNode: InevNode): Boolean;

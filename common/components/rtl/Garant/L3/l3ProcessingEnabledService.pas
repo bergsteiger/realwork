@@ -51,6 +51,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *561CEB90011Dimpl_uses*
+ //#UC END# *561CEB90011Dimpl_uses*
 ;
 
 var g_Tl3ProcessingEnabledService: Tl3ProcessingEnabledService = nil;

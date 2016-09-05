@@ -61,6 +61,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D9411E703B8impl_uses*
+ //#UC END# *4D9411E703B8impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

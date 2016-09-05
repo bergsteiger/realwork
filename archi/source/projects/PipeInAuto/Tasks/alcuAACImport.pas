@@ -13,7 +13,8 @@ Uses
  l3Types,
  l3Mutex,
 
- DT_types,
+ daTypes,
+ dt_Types,
 
  ddProcessTaskPrim,
  ddFileIterator,
@@ -70,7 +71,7 @@ type
   function WrongRelatedFileName: String;
   function TopicsFileName: string;
   procedure DeleteLogFiles;
-  procedure DocSkipped(aDocID : TDocID; aReason: TSkipDocReason; User : LongInt);
+  procedure DocSkipped(aDocID : TdaDocID; aReason: TSkipDocReason; User : LongInt);
   procedure MoveDuplicateFile;
   procedure ErrorReaction(const Msg: String; Category: Integer = 0);
   procedure OpenLogFiles;
@@ -106,7 +107,7 @@ type
  public
   class function CanAsyncRun: Boolean; override;
   function CanSimultaneousRunWith(const aTask: TddProcessTask): Boolean; override;
-  constructor Create(aUserID: TUserID; aManualMode: Boolean); reintroduce;
+  constructor Create(aUserID: TdaUserID; aManualMode: Boolean); reintroduce;
   {$If defined(AppServerSide)}
   procedure SetupServerSideConfigParams; override;
   {$IfEnd defined(AppServerSide)}
@@ -175,6 +176,7 @@ uses
  dd_lcVASSourceCorrector,
  ddUtils,
  ddAutolinkServer,
+ ddGeneralLawsLinkFinder,
  ddAppConfigDataAdapters,
  dd_lcFASSourceCorrector,
  {$If defined(ServerAssistantSide)}
@@ -190,7 +192,6 @@ uses
  dt_Dict,
  Dt_LinkServ,
  dt_Sab,
- dt_UserConst,
  dt_TblCacheDef,
  dt_TblCache,
 
@@ -312,7 +313,7 @@ begin
  end;
 end;
 
-constructor TalcuAACImport.Create(aUserID: TUserID;
+constructor TalcuAACImport.Create(aUserID: TdaUserID;
   aManualMode: Boolean);
 const
  cDescMap: array [Boolean] of AnsiString = ('Импорт "сырых" постановлений', 'Импорт подготовленных постановлений');
@@ -344,7 +345,7 @@ begin
  // Do nothing;
 end;
 
-procedure TalcuAACImport.DocSkipped(aDocID: TDocID;
+procedure TalcuAACImport.DocSkipped(aDocID: TdaDocID;
   aReason: TSkipDocReason; User: Integer);
 var
  l_Folder: String;
@@ -477,7 +478,8 @@ begin
     //BaseGenerator.ExclusiveMode:= True;
    end; //
 
-   TddAutoLinkFilter.SetTo(l_Gen, nil, LinkDataFile);
+   TddAutoLinkFilter.SetTo(l_Gen);
+   TddAutoLinkFilter(l_Gen).AddLinkFinder(ddGetGeneralLawsLinkFinder(nil, LinkDataFile));
    TddAutoLinkFilter(l_Gen).onError:= ErrorReaction;
    TddAutoLinkFilter(l_Gen).Category:= catLinks;
 
@@ -715,7 +717,7 @@ var
  l_ID: Integer;
  l_Date: TstDate;
  l_Time: TstTime;
- l_User: TUserID;
+ l_User: TdaUserID;
  l_Value: TLogActionType;
 begin
  l3System.Msg2Log('Пометка исправленных документов');

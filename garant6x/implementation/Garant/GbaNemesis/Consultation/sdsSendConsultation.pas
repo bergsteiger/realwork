@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , dsSendConsultation
+ //#UC START# *492FF1C500B5impl_uses*
+ //#UC END# *492FF1C500B5impl_uses*
 ;
 
 function TsdsSendConsultation.GetQueryClass: TdsQueryClass;

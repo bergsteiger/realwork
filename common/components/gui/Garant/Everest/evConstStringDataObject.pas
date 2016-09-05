@@ -40,6 +40,8 @@ uses
  , evFormats
  , nevTools
  , l3Base
+ //#UC START# *48F48A23007Dimpl_uses*
+ //#UC END# *48F48A23007Dimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}

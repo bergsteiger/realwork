@@ -30,6 +30,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *55895F0A01BFimpl_uses*
+ //#UC END# *55895F0A01BFimpl_uses*
 ;
 
 type
@@ -269,7 +271,10 @@ function TkwPopKeyWordDictionary.Dictionary(const aCtx: TtfwContext;
 //#UC END# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_var*
 begin
 //#UC START# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_impl*
- Result := aKeyWord.Dictionary As TtfwDictionary;
+ if (aKeyWord = nil) then
+  Result := nil
+ else
+  Result := aKeyWord.Dictionary As TtfwDictionary;
 //#UC END# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_impl*
 end;//TkwPopKeyWordDictionary.Dictionary
 

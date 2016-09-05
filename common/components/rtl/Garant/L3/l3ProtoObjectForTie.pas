@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4C9C9A0603D6impl_uses*
+ //#UC END# *4C9C9A0603D6impl_uses*
 ;
 
 function Tl3ProtoObjectForTie.DontUseMe: Pointer;

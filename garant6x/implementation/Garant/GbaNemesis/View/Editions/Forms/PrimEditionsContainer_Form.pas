@@ -152,6 +152,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
  , l3Base
  , l3String
  {$If NOT Defined(NoVCM)}
@@ -382,10 +383,10 @@ begin
 //#UC START# *4A8E5E4702C6_4A6EC0D0020C_impl*
  with aList do
  begin
-  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(TdmStdRes.opcode_Edition_PrevChange, true, false, 2000, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(TdmStdRes.opcode_Edition_NextChange, true, false, 2000, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(TdmStdRes.opcode_Redactions_OpenRedactionListFrmAct, true, false, 2000, nsc_ttkNone));
-  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(TdmStdRes.opcode_Edition_ReturnToDocument, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(opcode_Edition_PrevChange, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(opcode_Edition_NextChange, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(opcode_Redactions_OpenRedactionListFrmAct, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(opcode_Edition_ReturnToDocument, true, false, 2000, nsc_ttkNone));
  end;//with aList
 //#UC END# *4A8E5E4702C6_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.FillList
@@ -454,7 +455,7 @@ procedure TPrimEditionsContainerForm.Document_ViewChangedFragments_Execute(const
 //#UC END# *4DDCBABC03B7_4A6EC0D0020Cexec_var*
 begin
 //#UC START# *4DDCBABC03B7_4A6EC0D0020Cexec_impl*
- TdmStdRes.ViewChangedFragments(EditionsContainerData.Left.Document,
+ TChangesBetweenEditionsService.Instance.ViewChangedFragments(EditionsContainerData.Left.Document,
                                 EditionsContainerData.Right.Document);
 //#UC END# *4DDCBABC03B7_4A6EC0D0020Cexec_impl*
 end;//TPrimEditionsContainerForm.Document_ViewChangedFragments_Execute

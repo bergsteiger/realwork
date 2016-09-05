@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , kwCompiledIfElse
  , kwTemporaryCompiledCode
+ //#UC START# *5284E9670258impl_uses*
+ //#UC END# *5284E9670258impl_uses*
 ;
 
 function TkwIfElse.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;

@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , ContentsView
+ //#UC START# *4C778A2900FBimpl_uses*
+ //#UC END# *4C778A2900FBimpl_uses*
 ;
 
 constructor ContentsTree.Make(const tree);

@@ -82,6 +82,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , FontWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *556F24A80035impl_uses*
+ //#UC END# *556F24A80035impl_uses*
 ;
 
 type

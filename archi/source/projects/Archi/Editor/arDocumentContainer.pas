@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , arHAFPainer
  , arSubImplementation
+ //#UC START# *4E007C3803DCimpl_uses*
+ //#UC END# *4E007C3803DCimpl_uses*
 ;
 
 function TarDocumentContainer.DoGetSubEx(anID: Integer;

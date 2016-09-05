@@ -53,6 +53,8 @@ implementation
 {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
  l3ImplUses
+ //#UC START# *56C2E7040035impl_uses*
+ //#UC END# *56C2E7040035impl_uses*
 ;
 
 constructor TcaDataConverter.Create(const aHTConverter: IhtDataConverter;

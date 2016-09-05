@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , arArchiTestsAdapter
+ //#UC START# *4E01AD1F02CAimpl_uses*
+ //#UC END# *4E01AD1F02CAimpl_uses*
 ;
 
 class function TkwDeleteSub.GetWordNameForRegister: AnsiString;

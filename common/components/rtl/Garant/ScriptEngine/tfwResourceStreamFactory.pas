@@ -36,6 +36,8 @@ uses
  , l3String
  , l3Interfaces
  , tfwCStringFactory
+ //#UC START# *55795DB3008Cimpl_uses*
+ //#UC END# *55795DB3008Cimpl_uses*
 ;
 
 constructor TtfwResourceStreamFactory.Create(const aResName: AnsiString);

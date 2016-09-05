@@ -54,6 +54,8 @@ uses
  , l3Base
  , ncsMessageExecutorFactory
  , evdNcsTypes
+ //#UC START# *546061CE03DAimpl_uses*
+ //#UC END# *546061CE03DAimpl_uses*
 ;
 
 function TncsProcessThread.pm_GetTransporter: IncsTransporter;

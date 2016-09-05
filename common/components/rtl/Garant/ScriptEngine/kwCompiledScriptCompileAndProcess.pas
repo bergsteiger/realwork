@@ -29,6 +29,8 @@ type
    function KPage: AnsiString;
    procedure ToLog(const aSt: AnsiString);
    function CompileOnly: Boolean;
+   procedure ScriptDone(const aCtx: TtfwContext);
+   procedure ScriptWillRun(const aCtx: TtfwContext);
    procedure ClearFields; override;
   public
    function MakeStream(const aData: AnsiString): TtfwStreamFactory; virtual;
@@ -81,6 +83,9 @@ uses
  , kwMain
  , kwMainCodeController
  , SysUtils
+ //#UC START# *53DA24F802A7impl_uses*
+ , tfwCS
+ //#UC END# *53DA24F802A7impl_uses*
 ;
 
 function TkwCompiledScriptCompileAndProcess.MakeStream(const aData: AnsiString): TtfwStreamFactory;
@@ -112,25 +117,34 @@ procedure TkwCompiledScriptCompileAndProcess.DoDoIt(const aCtx: TtfwContext);
 var
  l_Controller : TkwMainCodeController;
  l_Stream     : TtfwStreamFactory;
+ l_Caller : ItfwScriptCaller;
 //#UC END# *4DAEEDE10285_53DA24F802A7_var*
 begin
 //#UC START# *4DAEEDE10285_53DA24F802A7_impl*
- f_NativeCaller := aCtx.rCaller;
+ TtfwCS.Instance.Lock;
  try
-  l_Stream := Self.MakeStream(aCtx.rEngine.PopDelphiString);
+  l_Caller := f_NativeCaller;
+  if (aCtx.rCaller <> ItfwScriptCaller(Self)) then
+   f_NativeCaller := aCtx.rCaller;
   try
-   l_Controller := TkwMainCodeController.Create(WordToWork, @aCtx);
+   l_Stream := Self.MakeStream(aCtx.rEngine.PopDelphiString);
    try
-    l_Controller.Script(l_Stream, Self);
+    l_Controller := TkwMainCodeController.Create(WordToWork, @aCtx);
+    try
+     l_Controller.Script(l_Stream, Self);
+    finally
+     FreeAndNil(l_Controller);
+    end;//try..finally
    finally
-    FreeAndNil(l_Controller);
+    FreeAndNil(l_Stream);
    end;//try..finally
   finally
-   FreeAndNil(l_Stream);
+   f_NativeCaller := l_Caller;
   end;//try..finally
+  l_Caller := nil;
  finally
-  f_NativeCaller := nil;
- end;//try..finally
+  TtfwCS.Instance.Unlock;
+ end;//try..finally 
 //#UC END# *4DAEEDE10285_53DA24F802A7_impl*
 end;//TkwCompiledScriptCompileAndProcess.DoDoIt
 
@@ -168,7 +182,14 @@ function TkwCompiledScriptCompileAndProcess.ResolveIncludedFilePath(const aFile:
 //#UC END# *4DC2E1470046_53DA24F802A7_var*
 begin
 //#UC START# *4DC2E1470046_53DA24F802A7_impl*
- Result := f_NativeCaller.ResolveIncludedFilePath(aFile);
+ Assert(f_NativeCaller <> nil);
+ if (f_NativeCaller <> ItfwScriptCaller(Self)) then
+  Result := f_NativeCaller.ResolveIncludedFilePath(aFile)
+ else
+ begin
+  Assert(false, 'Не доделано');
+  Result := aFile;
+ end;//f_NativeCaller <> ItfwScriptCaller(Self)
 //#UC END# *4DC2E1470046_53DA24F802A7_impl*
 end;//TkwCompiledScriptCompileAndProcess.ResolveIncludedFilePath
 
@@ -177,7 +198,8 @@ function TkwCompiledScriptCompileAndProcess.ResolveOutputFilePath(const aFile: A
 //#UC END# *4DCA915C0120_53DA24F802A7_var*
 begin
 //#UC START# *4DCA915C0120_53DA24F802A7_impl*
- Assert(false, 'Не доделано');
+ Result := aFile;
+ Assert(ExtractFilePath(Result) <> '');
 //#UC END# *4DCA915C0120_53DA24F802A7_impl*
 end;//TkwCompiledScriptCompileAndProcess.ResolveOutputFilePath
 
@@ -363,6 +385,25 @@ begin
  Assert(false, 'Не доделано');
 //#UC END# *536A15F901DA_53DA24F802A7_impl*
 end;//TkwCompiledScriptCompileAndProcess.CheckPictureOnly
+
+procedure TkwCompiledScriptCompileAndProcess.ScriptDone(const aCtx: TtfwContext);
+//#UC START# *57A9DF60030B_53DA24F802A7_var*
+//#UC END# *57A9DF60030B_53DA24F802A7_var*
+begin
+//#UC START# *57A9DF60030B_53DA24F802A7_impl*
+ //f_NativeCaller.ScriptDone(aCtx);
+ //Assert(false, 'Не доделано');
+//#UC END# *57A9DF60030B_53DA24F802A7_impl*
+end;//TkwCompiledScriptCompileAndProcess.ScriptDone
+
+procedure TkwCompiledScriptCompileAndProcess.ScriptWillRun(const aCtx: TtfwContext);
+//#UC START# *57A9F99A01C4_53DA24F802A7_var*
+//#UC END# *57A9F99A01C4_53DA24F802A7_var*
+begin
+//#UC START# *57A9F99A01C4_53DA24F802A7_impl*
+ // - ничего не делаем
+//#UC END# *57A9F99A01C4_53DA24F802A7_impl*
+end;//TkwCompiledScriptCompileAndProcess.ScriptWillRun
 
 procedure TkwCompiledScriptCompileAndProcess.ClearFields;
 begin

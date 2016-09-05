@@ -67,6 +67,8 @@ uses
  , SysUtils
  , kwRuntimeWordWithCode
  , tfwClassRef
+ //#UC START# *4F2198430108impl_uses*
+ //#UC END# *4F2198430108impl_uses*
 ;
 
 procedure TkwCompiledWordWorkerWordRunner.pm_SetWordToRun(aValue: TtfwWord);

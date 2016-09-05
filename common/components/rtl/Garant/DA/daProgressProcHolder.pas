@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *552523F2014Fimpl_uses*
+ //#UC END# *552523F2014Fimpl_uses*
 ;
 
 constructor TdaProgressProcHolder.Create(aProc: Tl3ProgressProc);

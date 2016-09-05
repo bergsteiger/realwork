@@ -20,16 +20,35 @@ implementation
 uses
  l3ImplUses
  , vcmEntityForm
- , tfwPropertyLike
+ , tfwGlobalKeyWord
  , tfwScriptingInterfaces
+ , vcmForm
  , TypInfo
+ , tfwPropertyLike
  , tfwTypeInfo
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *54DCB28C0273impl_uses*
+ //#UC END# *54DCB28C0273impl_uses*
 ;
 
 type
+ TkwVcmFormManualUpdateActions = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта vcm:Form:ManualUpdateActions }
+  private
+   procedure vcm_Form_ManualUpdateActions(const aCtx: TtfwContext;
+    aForm: TvcmForm);
+    {* Реализация слова скрипта vcm:Form:ManualUpdateActions }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwVcmFormManualUpdateActions
+
  TkwPopFormIsFloatingStateAndParentNotVisible = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Form:IsFloatingStateAndParentNotVisible }
   private
@@ -97,6 +116,52 @@ type
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
  end;//TkwPopFormFormID
+
+procedure TkwVcmFormManualUpdateActions.vcm_Form_ManualUpdateActions(const aCtx: TtfwContext;
+ aForm: TvcmForm);
+ {* Реализация слова скрипта vcm:Form:ManualUpdateActions }
+//#UC START# *57BACF5E010C_57BACF5E010C_Word_var*
+//#UC END# *57BACF5E010C_57BACF5E010C_Word_var*
+begin
+//#UC START# *57BACF5E010C_57BACF5E010C_Word_impl*
+ aForm.ManualUpdateActions;
+//#UC END# *57BACF5E010C_57BACF5E010C_Word_impl*
+end;//TkwVcmFormManualUpdateActions.vcm_Form_ManualUpdateActions
+
+class function TkwVcmFormManualUpdateActions.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Form:ManualUpdateActions';
+end;//TkwVcmFormManualUpdateActions.GetWordNameForRegister
+
+function TkwVcmFormManualUpdateActions.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwVcmFormManualUpdateActions.GetResultTypeInfo
+
+function TkwVcmFormManualUpdateActions.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwVcmFormManualUpdateActions.GetAllParamsCount
+
+function TkwVcmFormManualUpdateActions.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvcmForm)]);
+end;//TkwVcmFormManualUpdateActions.ParamsTypes
+
+procedure TkwVcmFormManualUpdateActions.DoDoIt(const aCtx: TtfwContext);
+var l_aForm: TvcmForm;
+begin
+ try
+  l_aForm := TvcmForm(aCtx.rEngine.PopObjAs(TvcmForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TvcmForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_Form_ManualUpdateActions(aCtx, l_aForm);
+end;//TkwVcmFormManualUpdateActions.DoDoIt
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.IsFloatingStateAndParentNotVisible(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): Boolean;
@@ -295,6 +360,8 @@ begin
 end;//TkwPopFormFormID.DoDoIt
 
 initialization
+ TkwVcmFormManualUpdateActions.RegisterInEngine;
+ {* Регистрация vcm_Form_ManualUpdateActions }
  TkwPopFormIsFloatingStateAndParentNotVisible.RegisterInEngine;
  {* Регистрация pop_Form_IsFloatingStateAndParentNotVisible }
  TkwPopFormIsFloatingState.RegisterInEngine;
@@ -311,6 +378,8 @@ initialization
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа AnsiString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmForm));
+ {* Регистрация типа TvcmForm }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

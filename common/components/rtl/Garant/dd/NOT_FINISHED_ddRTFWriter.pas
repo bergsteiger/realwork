@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , ddDocument
+ //#UC START# *48F4BA89000Dimpl_uses*
+ //#UC END# *48F4BA89000Dimpl_uses*
 ;
 
 function TCustomRTFObjectGenerator.Style2RTF(aStyle: TddStyleEntry;

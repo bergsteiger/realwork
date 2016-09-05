@@ -31,6 +31,8 @@ uses
  , BaseTreeSupportUnit
  , nevTools
  , evdTypes
+ //#UC START# *468271030094impl_uses*
+ //#UC END# *468271030094impl_uses*
 ;
 
 procedure TnsNodeStorable.GetAddress(var Addr: TevAddress);

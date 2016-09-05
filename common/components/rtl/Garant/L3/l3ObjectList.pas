@@ -40,6 +40,8 @@ uses
  , l3Base
  , l3MinMax
  , SysUtils
+ //#UC START# *4773DBBD000Dimpl_uses*
+ //#UC END# *4773DBBD000Dimpl_uses*
 ;
 
 type _Instance_R_ = Tl3ObjectList;

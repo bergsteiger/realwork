@@ -43,6 +43,8 @@ uses
  , l3FileUtils
  , m3DB
  , l3Base
+ //#UC START# *541957650320impl_uses*
+ //#UC END# *541957650320impl_uses*
 ;
 
 constructor TDataBaseTester.Create(CreateSuspended: Boolean;

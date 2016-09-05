@@ -116,6 +116,8 @@ uses
  , l3Types
  , l3FileUtils
  , l3Interlocked
+ //#UC START# *53C900CA012Eimpl_uses*
+ //#UC END# *53C900CA012Eimpl_uses*
 ;
 
 constructor TalcuWorkThreadContainer.Create(const anHostName: AnsiString;
@@ -264,6 +266,12 @@ end;//TalcuSubmitterWorkThread.SubmitTask
 procedure TalcuSubmitterWorkThread.CheckExecution(const aServices: IcsRunTaskServices);
  {* Проверить что процесс завершился и освободиться по необходимости }
 //#UC START# *53CDF9B0012E_53C92B390005_var*
+
+ function lp_ErrorMessage: String;
+ begin
+  Result := Format('Ошибка. Exit code = %d. %s. См. лог alcuTaskExecutor.', [f_Thread.ExitCode, f_ActiveTask.TaskID]);
+ end;
+
 //#UC END# *53CDF9B0012E_53C92B390005_var*
 begin
 //#UC START# *53CDF9B0012E_53C92B390005_impl*
@@ -283,10 +291,10 @@ begin
         if f_ActiveTask.IgnoreStrangeExitCode and ((f_Thread.ExitCode < 0) or (f_Thread.ExitCode > 100)) then
         begin
          f_ActiveTask.RunSuccessfullyFinished(aServices);
-         l3System.Msg2Log('Ошибка. Exit code = %d. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode]);
+         l3System.Msg2Log(lp_ErrorMessage);
         end
         else
-         f_ActiveTask.AsyncErrorIfRunning(Format('Ошибка. Exit code = %d. %s. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode, f_ActiveTask.TaskID]));
+         f_ActiveTask.AsyncErrorIfRunning(lp_ErrorMessage);
       end;
       end;
       {$If not defined(Nemesis)}

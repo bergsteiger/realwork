@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , ddTaskClassManager
  , csTaskListening
+ //#UC START# *52FA49C7022Cimpl_uses*
+ //#UC END# *52FA49C7022Cimpl_uses*
 ;
 
 procedure RegisterTaskClass;

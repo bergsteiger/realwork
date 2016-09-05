@@ -5,9 +5,12 @@ unit l3String;
 { Автор: Люлин А.В. ©                 }
 { Модуль: evString - методы для работы со строками}
 { Начат: 12.12.1996                   }
-{ $Id: l3String.pas,v 1.340 2016/04/21 17:01:47 lulin Exp $ }
+{ $Id: l3String.pas,v 1.341 2016/07/18 10:24:21 lulin Exp $ }
 
 // $Log: l3String.pas,v $
+// Revision 1.341  2016/07/18 10:24:21  lulin
+// {RequestLink:627386717}
+//
 // Revision 1.340  2016/04/21 17:01:47  lulin
 // - оказалось, что это ОЧЕНЬ ВРЕДНАЯ правка, она как-то плохо на сравнение хранилищ влияет, возможно корёжит их.
 //
@@ -2091,8 +2094,7 @@ var
  l_Flags        : Cardinal;
  l_CP           : Integer;
 begin
- Result := Long(S1.S) - Long(S2.S);
- if (Result <> 0) then
+ if (Pointer(S1.S) <> Pointer(S2.S)) then
  begin
   if (S1.S = nil) then
   begin

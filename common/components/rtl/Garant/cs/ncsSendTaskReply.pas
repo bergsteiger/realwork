@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , csSendTaskReply_Const
+ //#UC START# *54855C4200D7impl_uses*
+ //#UC END# *54855C4200D7impl_uses*
 ;
 
 function TncsSendTaskReply.pm_GetIsSuccess: Boolean;

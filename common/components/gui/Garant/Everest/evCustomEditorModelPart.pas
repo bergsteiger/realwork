@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B877C5101C1impl_uses*
+ //#UC END# *4B877C5101C1impl_uses*
 ;
 
 function TevCustomEditorModelPart.pm_GetAllowParaType: TevAllowParaTypes;

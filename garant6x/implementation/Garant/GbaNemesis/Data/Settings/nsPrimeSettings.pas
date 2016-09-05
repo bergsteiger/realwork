@@ -58,6 +58,8 @@ implementation
 {$If Defined(nsWithoutLogin)}
 uses
  l3ImplUses
+ //#UC START# *4C99AEBC01B3impl_uses*
+ //#UC END# *4C99AEBC01B3impl_uses*
 ;
 
 class function TnsPrimeSettings.Make(const aSettings: IPrimeSettingsManager): IafwSettings;

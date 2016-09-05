@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , k2AtomicTag
  , l3Memory
+ //#UC START# *526918BD0308impl_uses*
+ //#UC END# *526918BD0308impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

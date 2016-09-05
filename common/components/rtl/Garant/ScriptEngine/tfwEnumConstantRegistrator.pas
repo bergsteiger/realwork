@@ -37,6 +37,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *55C0D99E0109impl_uses*
+ //#UC END# *55C0D99E0109impl_uses*
 ;
 
 constructor TtfwEnumConstantRegistrator.Create(aValue: Integer;

@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *54491A3702F4impl_uses*
+ //#UC END# *54491A3702F4impl_uses*
 ;
 
 constructor Tm3NewStoragePrim.Create(anAccess: Tm3StoreAccess;

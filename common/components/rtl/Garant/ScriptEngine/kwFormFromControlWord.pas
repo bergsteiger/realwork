@@ -35,6 +35,8 @@ uses
  , SysUtils
  , l3FormsService
  , Windows
+ //#UC START# *4EB25D530395impl_uses*
+ //#UC END# *4EB25D530395impl_uses*
 ;
 
 procedure TkwFormFromControlWord.DoControl(aControl: TControl;

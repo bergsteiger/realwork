@@ -46,6 +46,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , FontWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5786531B02BDimpl_uses*
+ //#UC END# *5786531B02BDimpl_uses*
 ;
 
 constructor Tl3FontInfo.Create(aFont: TFont);

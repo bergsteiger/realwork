@@ -1,8 +1,11 @@
 unit Dt_Active;
 
-{ $Id: Dt_Active.pas,v 1.45 2016/05/26 14:01:24 voba Exp $ }
+{ $Id: Dt_Active.pas,v 1.46 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: Dt_Active.pas,v $
+// Revision 1.46  2016/06/16 05:40:06  lukyanets
+// ѕересаживаем UserManager на новые рельсы
+//
 // Revision 1.45  2016/05/26 14:01:24  voba
 // -k:623267081
 //
@@ -152,6 +155,7 @@ interface
 uses
  l3Base, l3Date,l3DatLst,
  HT_Const,
+ daTypes,
  Dt_Types,Dt_Const,
  dtIntf, Dt_Sab, Dt_ATbl,
  dt_Link,
@@ -188,7 +192,7 @@ type
 
  TActiveIntervalTbl = class(TDocAttrTbl)
   public
-   constructor Create(aFamID : TFamilyID); reintroduce;
+   constructor Create(aFamID : TdaFamilyID); reintroduce;
 
    (* ѕроцедура заполн€ет пользовательский список запис€ми TActiveFullRec, дл€
       документа, указанного в property DocID *)
@@ -241,7 +245,7 @@ type
                RecID   : Byte;
               end;
 
-constructor TActiveIntervalTbl.Create(aFamID : TFamilyID);
+constructor TActiveIntervalTbl.Create(aFamID : TdaFamilyID);
 var
  CurName : ShortString;
 begin

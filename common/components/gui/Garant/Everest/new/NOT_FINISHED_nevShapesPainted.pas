@@ -132,6 +132,8 @@ implementation
 uses
  l3ImplUses
  , nevShapesPaintedSpy
+ //#UC START# *4811DA3100E6impl_uses*
+ //#UC END# *4811DA3100E6impl_uses*
 ;
 
 function TnevShape.pm_GetBounds: TafwRect;

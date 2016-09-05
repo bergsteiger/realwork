@@ -39,6 +39,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4E5689DF037Bimpl_uses*
+ //#UC END# *4E5689DF037Bimpl_uses*
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}

@@ -13,11 +13,6 @@ interface
 uses
  l3IntfUses
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , DocumentUnit
- , MonitoringUnit
- {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , nsLogEvent
@@ -40,24 +35,19 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   protected
-   procedure opOpenNewsLineTest(const aParams: IvcmTestParamsPrim);
-    {* Новостная лента }
-   procedure opOpenNewsLineExecute(const aParams: IvcmExecuteParamsPrim);
-    {* Новостная лента }
    procedure opOpenLegislationReviewTest(const aParams: IvcmTestParamsPrim);
     {* Обзор изменений законодательства }
    procedure opOpenLegislationReviewExecute(const aParams: IvcmExecuteParamsPrim);
     {* Обзор изменений законодательства }
+   procedure opOpenNewsLineTest(const aParams: IvcmTestParamsPrim);
+    {* Новостная лента }
+   procedure opOpenNewsLineExecute(const aParams: IvcmExecuteParamsPrim);
+    {* Новостная лента }
    procedure Loaded; override;
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class procedure OpenAutoreferat(const aDoc: IDocument;
-    const aContainer: IvcmContainer);
-   class procedure OpenAutoreferatAfterSearch(const aList: IMonitoringList;
-    const aContainer: IvcmContainer);
-   class function OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
    class procedure OpenNewsLinePrim;
  end;//TPrimMonitoringsModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -70,6 +60,15 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwAxiomaticsResNameGetter
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , MonitoringUnit
  , Autoreferat_InternalOperations_Controls
  , nsOpenUtils
  , nsConst
@@ -79,30 +78,31 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsPostingsTreeSingle
  , PostingOrder_Strange_Controls
- , f1StartupCompletedServiceImpl
- , sdsAutoreferat
+ , f1StartupCompleteNotificationServiceImpl
  , deDocInfo
+ , sdsAutoreferat
  , DataAdapter
- {$If NOT Defined(NoVCM)}
- , vcmMessagesSupport
- {$IfEnd} // NOT Defined(NoVCM)
+ , Windows
  , PrimNewsLine_Form
- , CommonPost_Module
- {$If NOT Defined(NoVCL)}
- , Forms
- {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , Windows
- , LoggingUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Search_Services
  , PrimNewsLine_nltMain_UserType
+ , LoggingUnit
+ , SysUtils
+ , l3Base
  , NewsLine_Form
  , fsAutoreferat
  , fsAutoreferatAfterSearch
  , Common_FormDefinitions_Controls
  //#UC START# *4A8ECF3001D2impl_uses*
- , SysUtils
  , StdRes
  //#UC END# *4A8ECF3001D2impl_uses*
 ;
@@ -119,6 +119,28 @@ type
    class function ResName: AnsiString; override;
    {$IfEnd} // NOT Defined(NoScripts)
  end;//TPrimMonitorings_ModuleResNameGetter
+
+ TMonitoringsServiceImpl = {final} class(TvcmModuleContractImplementation, IMonitoringsService)
+  public
+   function OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
+   procedure OpenAutoreferat(const aDoc: IDocument;
+    const aContainer: IvcmContainer);
+   procedure OpenAutoreferatAfterSearch(const aList: IMonitoringList;
+    const aContainer: IvcmContainer);
+   class function Instance: TMonitoringsServiceImpl;
+    {* Метод получения экземпляра синглетона TMonitoringsServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TMonitoringsServiceImpl
+
+var g_TMonitoringsServiceImpl: TMonitoringsServiceImpl = nil;
+ {* Экземпляр синглетона TMonitoringsServiceImpl }
+
+procedure TMonitoringsServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TMonitoringsServiceImpl }
+begin
+ l3Free(g_TMonitoringsServiceImpl);
+end;//TMonitoringsServiceImplFree
 
 class procedure TnsOpenNewsLineEvent.Log;
 //#UC START# *4B14ED2F033E_4B14ED130233_var*
@@ -138,51 +160,7 @@ end;//TPrimMonitorings_ModuleResNameGetter.ResName
 
 {$R PrimMonitorings_Module.res}
 
-class procedure TPrimMonitoringsModule.OpenAutoreferat(const aDoc: IDocument;
- const aContainer: IvcmContainer);
-var
- __WasEnter : Boolean;
-//#UC START# *4AA4B45E0101_4A8ECF3001D2_var*
-//#UC END# *4AA4B45E0101_4A8ECF3001D2_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AA4B45E0101_4A8ECF3001D2_impl*
- if (aDoc <> nil) then
-  Tfs_Autoreferat.Make(TsdsAutoreferat.Make(TdeDocInfo.Make(aDoc)),
-                       CheckContainer(aContainer),
-                       True,
-                       True);
-//#UC END# *4AA4B45E0101_4A8ECF3001D2_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimMonitoringsModule.OpenAutoreferat
-
-class procedure TPrimMonitoringsModule.OpenAutoreferatAfterSearch(const aList: IMonitoringList;
- const aContainer: IvcmContainer);
-var l_Document: IDocument;
-var
- __WasEnter : Boolean;
-//#UC START# *4AA4C0C500AA_4A8ECF3001D2_var*
-//#UC END# *4AA4C0C500AA_4A8ECF3001D2_var*
-begin
- __WasEnter := vcmEnterFactory;
- try
-//#UC START# *4AA4C0C500AA_4A8ECF3001D2_impl*
- aList.GetSummary(l_Document);
- if (l_Document <> nil) then
-  Tfs_AutoreferatAfterSearch.Make(TsdsAutoreferat.Make(TdeDocInfo.Make(l_Document)),
-                                  CheckContainer(aContainer));
-//#UC END# *4AA4C0C500AA_4A8ECF3001D2_impl*
- finally
-  if __WasEnter then
-   vcmLeaveFactory;
- end;//try..finally
-end;//TPrimMonitoringsModule.OpenAutoreferatAfterSearch
-
-class function TPrimMonitoringsModule.OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
+function TMonitoringsServiceImpl.OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB76AD20100_4A8ECF3001D2_var*
@@ -216,7 +194,7 @@ var
      lp_IsContainerEmpty(l_ContainerForMainMenu) then
   begin
    try
-    dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
     afw.ProcessMessages;
     UpdateWindow(l_ContainerForMainMenu.AsForm.VCLWinControl.Handle);
    finally
@@ -282,7 +260,7 @@ begin
     begin
      if (l_Container = nil) then
       lp_CreateContainer(False);
-     TCommonPostModule.StartOpen(l_Container, False);
+     TCommonPostService.Instance.StartOpen(l_Container, False);
     end else
      Op_SearchSupport_ActivatePostingsListForm.Broadcast;
    end else
@@ -309,52 +287,69 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TPrimMonitoringsModule.OpenNewsLine
+end;//TMonitoringsServiceImpl.OpenNewsLine
 
-procedure TPrimMonitoringsModule.opOpenNewsLineTest(const aParams: IvcmTestParamsPrim);
- {* Новостная лента }
-//#UC START# *4AB775AA0314_4A8ECF3001D2test_var*
-//#UC END# *4AB775AA0314_4A8ECF3001D2test_var*
+procedure TMonitoringsServiceImpl.OpenAutoreferat(const aDoc: IDocument;
+ const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4AA4B45E0101_4A8ECF3001D2_var*
+//#UC END# *4AA4B45E0101_4A8ECF3001D2_var*
 begin
-//#UC START# *4AB775AA0314_4A8ECF3001D2test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := not defDataAdapter.AdministratorLogin and
-                                  defDataAdapter.Monitoring.IsExist;
- aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
-//#UC END# *4AB775AA0314_4A8ECF3001D2test_impl*
-end;//TPrimMonitoringsModule.opOpenNewsLineTest
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AA4B45E0101_4A8ECF3001D2_impl*
+ if (aDoc <> nil) then
+  Tfs_Autoreferat.Make(TsdsAutoreferat.Make(TdeDocInfo.Make(aDoc)),
+                       CheckContainer(aContainer),
+                       True,
+                       True);
+//#UC END# *4AA4B45E0101_4A8ECF3001D2_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TMonitoringsServiceImpl.OpenAutoreferat
 
-procedure TPrimMonitoringsModule.opOpenNewsLineExecute(const aParams: IvcmExecuteParamsPrim);
- {* Новостная лента }
-//#UC START# *4AB775AA0314_4A8ECF3001D2exec_var*
-//#UC END# *4AB775AA0314_4A8ECF3001D2exec_var*
+procedure TMonitoringsServiceImpl.OpenAutoreferatAfterSearch(const aList: IMonitoringList;
+ const aContainer: IvcmContainer);
+var
+ __WasEnter : Boolean;
+//#UC START# *4AA4C0C500AA_4A8ECF3001D2_var*
+var
+ l_Document : IDocument;
+//#UC END# *4AA4C0C500AA_4A8ECF3001D2_var*
 begin
-//#UC START# *4AB775AA0314_4A8ECF3001D2exec_impl*
- OpenNewsLine(False);
- TnsOpenNewsLineEvent.Log;
-//#UC END# *4AB775AA0314_4A8ECF3001D2exec_impl*
-end;//TPrimMonitoringsModule.opOpenNewsLineExecute
+ __WasEnter := vcmEnterFactory;
+ try
+//#UC START# *4AA4C0C500AA_4A8ECF3001D2_impl*
+ aList.GetSummary(l_Document);
+ if (l_Document <> nil) then
+  Tfs_AutoreferatAfterSearch.Make(TsdsAutoreferat.Make(TdeDocInfo.Make(l_Document)),
+                                  CheckContainer(aContainer));
+//#UC END# *4AA4C0C500AA_4A8ECF3001D2_impl*
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+end;//TMonitoringsServiceImpl.OpenAutoreferatAfterSearch
 
-procedure TPrimMonitoringsModule.opOpenLegislationReviewTest(const aParams: IvcmTestParamsPrim);
- {* Обзор изменений законодательства }
-//#UC START# *4AB77A0E0276_4A8ECF3001D2test_var*
-//#UC END# *4AB77A0E0276_4A8ECF3001D2test_var*
+class function TMonitoringsServiceImpl.Instance: TMonitoringsServiceImpl;
+ {* Метод получения экземпляра синглетона TMonitoringsServiceImpl }
 begin
-//#UC START# *4AB77A0E0276_4A8ECF3001D2test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.LegislationReviewAvailable;
- aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
-//#UC END# *4AB77A0E0276_4A8ECF3001D2test_impl*
-end;//TPrimMonitoringsModule.opOpenLegislationReviewTest
+ if (g_TMonitoringsServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TMonitoringsServiceImplFree);
+  g_TMonitoringsServiceImpl := Create;
+ end;
+ Result := g_TMonitoringsServiceImpl;
+end;//TMonitoringsServiceImpl.Instance
 
-procedure TPrimMonitoringsModule.opOpenLegislationReviewExecute(const aParams: IvcmExecuteParamsPrim);
- {* Обзор изменений законодательства }
-//#UC START# *4AB77A0E0276_4A8ECF3001D2exec_var*
-//#UC END# *4AB77A0E0276_4A8ECF3001D2exec_var*
+class function TMonitoringsServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
-//#UC START# *4AB77A0E0276_4A8ECF3001D2exec_impl*
- // Построение обзора законодателоьства
- TdmStdRes.OpenLegislationReview(nil);
-//#UC END# *4AB77A0E0276_4A8ECF3001D2exec_impl*
-end;//TPrimMonitoringsModule.opOpenLegislationReviewExecute
+ Result := g_TMonitoringsServiceImpl <> nil;
+end;//TMonitoringsServiceImpl.Exists
 
 class procedure TPrimMonitoringsModule.OpenNewsLinePrim;
 //#UC START# *542950E801C0_4A8ECF3001D2_var*
@@ -367,7 +362,7 @@ class procedure TPrimMonitoringsModule.OpenNewsLinePrim;
   begin
    l_ContainerForMainMenu := CheckContainer(nil);
    try
-    dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
    finally
     l_ContainerForMainMenu := nil;
    end;
@@ -390,7 +385,7 @@ begin
   if l_HasConnection then
   begin
    l_Cont := nsOpenNewWindowTabbed(CheckContainer(nil), vcm_okInCurrentTab);
-   TCommonPostModule.StartOpen(l_Cont, False);
+   TCommonPostService.Instance.StartOpen(l_Cont, False);
   end else
   begin
    //lp_OpenMainMenuIfNeeded;
@@ -406,11 +401,56 @@ begin
 //#UC END# *542950E801C0_4A8ECF3001D2_impl*
 end;//TPrimMonitoringsModule.OpenNewsLinePrim
 
+procedure TPrimMonitoringsModule.opOpenLegislationReviewTest(const aParams: IvcmTestParamsPrim);
+ {* Обзор изменений законодательства }
+//#UC START# *4AB77A0E0276_4A8ECF3001D2test_var*
+//#UC END# *4AB77A0E0276_4A8ECF3001D2test_var*
+begin
+//#UC START# *4AB77A0E0276_4A8ECF3001D2test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.LegislationReviewAvailable;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4AB77A0E0276_4A8ECF3001D2test_impl*
+end;//TPrimMonitoringsModule.opOpenLegislationReviewTest
+
+procedure TPrimMonitoringsModule.opOpenLegislationReviewExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Обзор изменений законодательства }
+//#UC START# *4AB77A0E0276_4A8ECF3001D2exec_var*
+//#UC END# *4AB77A0E0276_4A8ECF3001D2exec_var*
+begin
+//#UC START# *4AB77A0E0276_4A8ECF3001D2exec_impl*
+ // Построение обзора законодателоьства
+ TSearchService.Instance.OpenLegislationReview(nil);
+//#UC END# *4AB77A0E0276_4A8ECF3001D2exec_impl*
+end;//TPrimMonitoringsModule.opOpenLegislationReviewExecute
+
+procedure TPrimMonitoringsModule.opOpenNewsLineTest(const aParams: IvcmTestParamsPrim);
+ {* Новостная лента }
+//#UC START# *4AB775AA0314_4A8ECF3001D2test_var*
+//#UC END# *4AB775AA0314_4A8ECF3001D2test_var*
+begin
+//#UC START# *4AB775AA0314_4A8ECF3001D2test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not defDataAdapter.AdministratorLogin and
+                                  defDataAdapter.Monitoring.IsExist;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4AB775AA0314_4A8ECF3001D2test_impl*
+end;//TPrimMonitoringsModule.opOpenNewsLineTest
+
+procedure TPrimMonitoringsModule.opOpenNewsLineExecute(const aParams: IvcmExecuteParamsPrim);
+ {* Новостная лента }
+//#UC START# *4AB775AA0314_4A8ECF3001D2exec_var*
+//#UC END# *4AB775AA0314_4A8ECF3001D2exec_var*
+begin
+//#UC START# *4AB775AA0314_4A8ECF3001D2exec_impl*
+ TMonitoringsService.Instance.OpenNewsLine(False);
+ TnsOpenNewsLineEvent.Log;
+//#UC END# *4AB775AA0314_4A8ECF3001D2exec_impl*
+end;//TPrimMonitoringsModule.opOpenNewsLineExecute
+
 procedure TPrimMonitoringsModule.Loaded;
 begin
  inherited;
- PublishOp('opOpenNewsLine', opOpenNewsLineExecute, opOpenNewsLineTest);
  PublishOp('opOpenLegislationReview', opOpenLegislationReviewExecute, opOpenLegislationReviewTest);
+ PublishOp('opOpenNewsLine', opOpenNewsLineExecute, opOpenNewsLineTest);
 end;//TPrimMonitoringsModule.Loaded
 
 class procedure TPrimMonitoringsModule.GetEntityForms(aList: TvcmClassList);
@@ -422,6 +462,8 @@ end;//TPrimMonitoringsModule.GetEntityForms
 initialization
  TPrimMonitorings_ModuleResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
+ TMonitoringsService.Instance.Alien := TMonitoringsServiceImpl.Instance;
+ {* Регистрация TMonitoringsServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

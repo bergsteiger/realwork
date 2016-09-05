@@ -1,8 +1,11 @@
 Unit Dt_HeaderGen;
 
-{ $Id: Dt_HeaderGen.pas,v 1.2 2006/04/03 13:59:10 fireton Exp $}
+{ $Id: Dt_HeaderGen.pas,v 1.3 2016/06/16 05:40:06 lukyanets Exp $}
 
 // $Log: Dt_HeaderGen.pas,v $
+// Revision 1.3  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.2  2006/04/03 13:59:10  fireton
 // - add: TDocHeaderFixFilter
 //
@@ -29,11 +32,11 @@ Type
   private
    f_MainDocID: TDocID;
   protected
-   f_Family        : TFamilyID;
+   f_Family        : TdaFamilyID;
    f_ReNumTbl      : TReNumTbl;
    procedure DoAddAtomEx(AtomIndex: Long; const Value: Tk2Variant); override;
   public
-   Constructor Create(anOwner : TComponent; aFamily : TFamilyID); reintroduce;
+   Constructor Create(anOwner : TComponent; aFamily : TdaFamilyID); reintroduce;
    property MainDocID: TDocID read f_MainDocID write f_MainDocID;
  end;
 
@@ -53,7 +56,7 @@ uses
 
 
 Constructor TDocHeaderGenerator.Create(anOwner : TComponent;
-                                       aFamily : TFamilyID);
+                                       aFamily : TdaFamilyID);
 Begin
  Inherited Create(anOwner);
  f_Family := aFamily;

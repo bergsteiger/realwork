@@ -61,6 +61,8 @@ uses
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Utils
+ //#UC START# *493A66C50034impl_uses*
+ //#UC END# *493A66C50034impl_uses*
 ;
 
 type _Instance_R_ = TdMedicFirmList;

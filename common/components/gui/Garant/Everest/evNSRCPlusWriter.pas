@@ -67,6 +67,8 @@ uses
  , evdFrame_Const
  , TabStop_Const
  , l3String
+ //#UC START# *4836CFF1028Eimpl_uses*
+ //#UC END# *4836CFF1028Eimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}

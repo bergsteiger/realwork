@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , l3String
  , ddPipeOutInterfaces
+ //#UC START# *564C6BCB02EFimpl_uses*
+ //#UC END# *564C6BCB02EFimpl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = IddAnnoKindSortItem;{$IfEnd}

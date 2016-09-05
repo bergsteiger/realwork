@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *4F71A8080094impl_uses*
+ //#UC END# *4F71A8080094impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas}

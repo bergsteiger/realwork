@@ -38,6 +38,8 @@ uses
  , l3Except
  , vcmBaseMenuManager
  , SysUtils
+ //#UC START# *4DB060930263impl_uses*
+ //#UC END# *4DB060930263impl_uses*
 ;
 
 function TtfwModuleOperationWord.GetModuleOperationCode: TvcmMOPID;

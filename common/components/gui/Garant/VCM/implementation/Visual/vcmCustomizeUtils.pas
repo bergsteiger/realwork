@@ -3,11 +3,14 @@ unit vcmCustomizeUtils;
 ////////////////////////////////////////////////////////////////////////////////
 // Библиотека : VCM
 // Назначение : Общие утилиты для настройки
-// Версия     : $Id: vcmCustomizeUtils.pas,v 1.12 2015/07/09 09:54:21 kostitsin Exp $
+// Версия     : $Id: vcmCustomizeUtils.pas,v 1.13 2016/09/01 16:58:30 kostitsin Exp $
 ////////////////////////////////////////////////////////////////////////////////
 
 (*-------------------------------------------------------------------------------
   $Log: vcmCustomizeUtils.pas,v $
+  Revision 1.13  2016/09/01 16:58:30  kostitsin
+  {requestlink: 600322829 }
+
   Revision 1.12  2015/07/09 09:54:21  kostitsin
   чтобы не мешалось.
 
@@ -87,18 +90,19 @@ const
   // Локализуемая строка "Служебные настройки"
   str_OverheadSettings_Caption_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'str_OverheadSettings_Caption_Value'; rValue : '(Служебные настройки)');
 
-
 implementation
 
 uses
   SysUtils,
+
+  afwFacade,
+  afwInterfaces,
 
   l3Types,
   l3Base,
   l3String,
 
   vcmBase,
-
   vcmBaseMenuManager,
   vcmMenuManager,
   vcmStringList,
@@ -138,6 +142,29 @@ end;
 
 class function vcmFormCustomize.GetUserTypeDescrList(const aUserType: IvcmUserTypeDef;
  out aItemIndex: Integer): TvcmUserTypeDescrList;
+
+const
+ c_IgnoreUserTypesInEng: array[0..10] of String = (
+  'dftAutoreferat',
+  'enNewsLine',
+  'MyPostingList',
+  'dftAutoreferatAfterSearch',
+  'nltMain',
+  'slqtLegislationReview',
+  'dftDictEntry',
+  'dftDictSubEntry',
+  'utDiction',
+  'utTips',
+  'dftTips'
+ );
+
+ function lp_IndexOfUtName(const anUTName: AnsiString): Integer;
+ begin
+  for Result := Low(c_IgnoreUsertypesInEng) to High(c_IgnoreUsertypesInEng) do
+   if AnsiSameStr(c_IgnoreUsertypesInEng[Result], anUTName) then
+    Exit;
+  Result := -1;
+ end;
 
  function lp_FindDuplicateCaption(const aCaption: String;
   aList: TvcmUserTypeDescrList; out aDuplicateIndex: Integer): Boolean;
@@ -183,12 +210,13 @@ begin
     if (l_UT.UserVisibleOpCount > 0) then
      if TvcmUserTypeInfo.AllowCustomizeToolbars(l_UT) then
       if (l_UT.SettingsCaption <> cUntranslatedCaption) then
-      begin
-       l_UTDescr.IsCustomizationInternal := TvcmUserTypeInfo.IsCustomizationInternal(l_UT);
-       l_UTDescr.SettingsCaption := l_UT.SettingsCaption;
-       l_UTDescr.FormClass := l_UT.FormClass;
-       l_List.Add(l_UTDescr);
-      end;
+       if (afw.Application.LocaleInfo.Language = afw_lngRussian) or (lp_IndexOfUtName(l_UT.Name) = -1) then
+       begin
+        l_UTDescr.IsCustomizationInternal := TvcmUserTypeInfo.IsCustomizationInternal(l_UT);
+        l_UTDescr.SettingsCaption := l_UT.SettingsCaption;
+        l_UTDescr.FormClass := l_UT.FormClass;
+        l_List.Add(l_UTDescr);
+       end;
   end;//for l_Index
  if (l_List.Count > 0) then
  begin

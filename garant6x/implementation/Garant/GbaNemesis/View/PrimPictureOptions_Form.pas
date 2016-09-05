@@ -116,6 +116,7 @@ uses
  , nsObjectPreview
  , nevBase
  , nsHAFPainter
+ , Search_Services
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -123,6 +124,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4C8768010125impl_uses*
+ , Base_Operations_F1Services_Contracts
  //#UC END# *4C8768010125impl_uses*
 ;
 
@@ -225,7 +227,7 @@ procedure TPrimPictureOptionsForm.Document_GetAttributesFrmAct_Execute(const aPa
 //#UC END# *4C7B9EBC01AC_4C8768010125exec_var*
 begin
 //#UC START# *4C7B9EBC01AC_4C8768010125exec_impl*
- TdmStdRes.OpenPictureInfo(nil, f_Info);
+ TDocumentService.Instance.OpenPictureInfo(nil, f_Info);
 //#UC END# *4C7B9EBC01AC_4C8768010125exec_impl*
 end;//TPrimPictureOptionsForm.Document_GetAttributesFrmAct_Execute
 

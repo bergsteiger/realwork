@@ -65,6 +65,8 @@ uses
  , SysUtils
  , l3Types
  , l3Base
+ //#UC START# *5602A0790033impl_uses*
+ //#UC END# *5602A0790033impl_uses*
 ;
 
 constructor TpgJournal.Create(aConnection: TpgConnection;

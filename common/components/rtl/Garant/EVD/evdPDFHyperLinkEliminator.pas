@@ -31,6 +31,8 @@ uses
  , k2VariantImpl
  , k2Types
  , evdStyles
+ //#UC START# *541A7EEC0051impl_uses*
+ //#UC END# *541A7EEC0051impl_uses*
 ;
 
 procedure TevdPDFHyperLinkEliminator.AddAtomEx(AtomIndex: Integer;

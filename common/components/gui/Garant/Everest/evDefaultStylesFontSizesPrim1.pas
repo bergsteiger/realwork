@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , l3Memory
+ //#UC START# *4E317AC802F4impl_uses*
+ //#UC END# *4E317AC802F4impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

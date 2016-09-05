@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , l3VirtualCanvas
+ //#UC START# *4811FD87039Dimpl_uses*
+ //#UC END# *4811FD87039Dimpl_uses*
 ;
 
 function TnevVirtualView.GetCanvas(const anExtent: TnevPoint): InevCanvas;

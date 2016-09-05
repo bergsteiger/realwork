@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *559E5F080019impl_uses*
+ //#UC END# *559E5F080019impl_uses*
 ;
 
 type _Instance_R_ = TvcmUserFriendlyControlList;

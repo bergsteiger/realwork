@@ -51,6 +51,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C346A9C0180impl_uses*
+ //#UC END# *4C346A9C0180impl_uses*
 ;
 
 function TK224133899.SelectTableWholly: Boolean;

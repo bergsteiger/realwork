@@ -45,6 +45,8 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
+ //#UC START# *5671531301DBimpl_uses*
+ //#UC END# *5671531301DBimpl_uses*
 ;
 
 constructor TpgFunctionParamDescription.Create(const aName: AnsiString;

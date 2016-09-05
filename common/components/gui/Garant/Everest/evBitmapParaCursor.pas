@@ -26,6 +26,8 @@ implementation
 {$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
+ //#UC START# *49DF6D240199impl_uses*
+ //#UC END# *49DF6D240199impl_uses*
 ;
 
 function TevBitmapParaCursor.GetNeedWindowsCaret: Boolean;

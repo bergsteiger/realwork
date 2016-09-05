@@ -29,6 +29,8 @@ uses
  , l3String
  , l3Variant
  , l3Memory
+ //#UC START# *47B9CBCE029Dimpl_uses*
+ //#UC END# *47B9CBCE029Dimpl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = Tl3PrimString;{$IfEnd}

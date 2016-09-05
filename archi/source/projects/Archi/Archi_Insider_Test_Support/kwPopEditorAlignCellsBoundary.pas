@@ -49,6 +49,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4FC7144702FCimpl_uses*
+ //#UC END# *4FC7144702FCimpl_uses*
 ;
 
 procedure TkwPopEditorAlignCellsBoundary.DoWithEditor(const aCtx: TtfwContext;

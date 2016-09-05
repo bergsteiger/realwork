@@ -1,8 +1,11 @@
 unit Dt_Alarm;
 
-{ $Id: Dt_Alarm.pas,v 1.30 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_Alarm.pas,v 1.31 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: Dt_Alarm.pas,v $
+// Revision 1.31  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.30  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -107,6 +110,7 @@ uses
  l3Base,
  l3DatLst, l3Date,
  HT_Const,
+ daTypes,
  Dt_Types, Dt_Const,
  Dt_ATbl, dt_Sab,
  dt_Link;
@@ -132,7 +136,7 @@ type
 
  TAlarmTbl = class(TDocAttrTbl)
   public
-   constructor Create(aFamID : TFamilyID); reintroduce;
+   constructor Create(aFamID : TdaFamilyID); reintroduce;
 
    procedure GetDocAlarmsList(aDocID : TDocID; aList : Tl3CustomDataList);
    (* Процедура заполняет пользовательский список записями TAlarmFullRec, для
@@ -178,7 +182,7 @@ type
                  RecID   : Byte;
                 end;
 
-constructor TAlarmTbl.Create(aFamID : TFamilyID);
+constructor TAlarmTbl.Create(aFamID : TdaFamilyID);
 var
  CurName : ShortString;
 begin

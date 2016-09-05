@@ -48,6 +48,8 @@ uses
  , l3BaseStream
  , k2SizedMemoryPool
  , k2RawData_Const
+ //#UC START# *467FCDDA0064impl_uses*
+ //#UC END# *467FCDDA0064impl_uses*
 ;
 
 class function TnsBitmapParaPictureGetter.GetPicture(aTag: Tl3Variant;

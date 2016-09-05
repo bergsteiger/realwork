@@ -35,6 +35,8 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *492472AC0033impl_uses*
+ //#UC END# *492472AC0033impl_uses*
 ;
 
 constructor TdeNode.Create(const aNode: INodeBase);

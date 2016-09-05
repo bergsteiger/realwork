@@ -22,6 +22,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5110ED94010Eimpl_uses*
+ //#UC END# *5110ED94010Eimpl_uses*
 ;
 
 function MakeName(const aName: AnsiString): AnsiString;

@@ -25,6 +25,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4AC9B15903E7impl_uses*
+ //#UC END# *4AC9B15903E7impl_uses*
 ;
 
 procedure agArrangeGrid;

@@ -28,6 +28,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *551E87F00212impl_uses*
+ //#UC END# *551E87F00212impl_uses*
 ;
 
 function TkwConstLikeCompiled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

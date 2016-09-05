@@ -41,6 +41,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *4FF2EEF80072impl_uses*
+ //#UC END# *4FF2EEF80072impl_uses*
 ;
 
 type _Instance_R_ = TdsAACContainer;

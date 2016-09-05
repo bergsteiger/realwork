@@ -1,7 +1,10 @@
 unit dt_ImpExpTypes;
-{ $Id: dt_ImpExpTypes.pas,v 1.9 2015/07/02 07:36:07 lukyanets Exp $ }
+{ $Id: dt_ImpExpTypes.pas,v 1.10 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: dt_ImpExpTypes.pas,v $
+// Revision 1.10  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.9  2015/07/02 07:36:07  lukyanets
 // Описываем словари
 //
@@ -68,7 +71,7 @@ interface
                   ExportKW              : Boolean;
                   ExportDocImage        : Boolean;
                   MultiUser             : Boolean;
-                  Family                : TFamilyID;
+                  Family                : TdaFamilyID;
                   InternalFormat        : Boolean;
                   OutFileType           : Longint;
                   SeparateFiles         : Longint;
@@ -143,13 +146,13 @@ interface
                 LType : TLogActionType;
                 Date  : TStDate;
                 Time  : TStTime;
-                User  : TUserID;
+                User  : TdaUserID;
                end;
 
   PImpStageRec = ^TImpStageRec;
   TImpStageRec = Record
                   SType     : TStageType;
-                  User      : TUserID;
+                  User      : TdaUserID;
                   BeginDate,
                   EndDate   : TStDate;
                  end;
@@ -176,7 +179,7 @@ interface
                   Date    : TStDate;
                   PSour   : LongInt;
                   CType   : Byte;
-                  User    : TUserID;
+                  User    : TdaUserID;
                   Comment : Tl3CustomString;
                  end;
 
@@ -200,14 +203,14 @@ interface
                end;
 
 
-(*  TAutoAnnotationExportNotify = procedure(UserID : TUserID; AnnoDate: TstDate) of object;*)
+(*  TAutoAnnotationExportNotify = procedure(UserID : TdaUserID; AnnoDate: TstDate) of object;*)
 (*  {$IFNDEF NotImportTaskPriority}
-  TAutoImportNotify = procedure(UserID : TUserID; TaskParams : TImportParams) of object;
+  TAutoImportNotify = procedure(UserID : TdaUserID; TaskParams : TImportParams) of object;
   {$ELSE}
-  TAutoImportNotify = procedure(UserID : TUserID; IsRegion: Boolean; Const
+  TAutoImportNotify = procedure(UserID : TdaUserID; IsRegion: Boolean; Const
       Catalog : String; IsAnnotation, DeleteIncluded : Boolean) of object;
   {$ENDIF}*)
-(*  TAutoExportNotify = Procedure (aUserID : TUserID; aExpType : TDiapType;
+(*  TAutoExportNotify = Procedure (aUserID : TdaUserID; aExpType : TDiapType;
                                  aID : TDocID;const aFile : string;
                                  aParams : TExpQueryRec) of Object;*)
 

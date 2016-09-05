@@ -41,6 +41,8 @@ uses
  , dt_Sab
  {$IfEnd} // NOT Defined(Nemesis)
  , daTypes
+ //#UC START# *574C0F390376impl_uses*
+ //#UC END# *574C0F390376impl_uses*
 ;
 
 function TalcuMdpStagesSyncronizer.GetGardocStageCode(aStageType: TStageType): Integer;

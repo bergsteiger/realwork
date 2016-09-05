@@ -83,15 +83,15 @@ begin
   f_CountViewChanged := True;
 
  if (GetCurrentThreadID = MainThreadID) then
-  ChangeChildrenCountPrim(aNodeIndex, aDelta, aIndexPath, aChildIndex)
+  ChangeChildrenCountPrim(Node_Index, Delta, Index_Path, Child_Index)
  else
  begin
   with l_Data do
   begin
-   rNodeIndex := aNodeIndex;
-   rDelta := aDelta;
-   rIndexPath := aIndexPath;
-   rChildIndex := aChildIndex;
+   rNodeIndex := Node_Index;
+   rDelta := Delta;
+   rIndexPath := Index_Path;
+   rChildIndex := Child_Index;
   end;//with l_Data
   Synchronize(ChangeChildrenCountThread, @l_Data, SizeOf(l_Data), [l_Data.rIndexPath]);
  end;//GetCurrentThreadID = MainThreadID

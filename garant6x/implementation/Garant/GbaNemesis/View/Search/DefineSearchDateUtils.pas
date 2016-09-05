@@ -25,6 +25,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *51B5CB1100AEimpl_uses*
+ //#UC END# *51B5CB1100AEimpl_uses*
 ;
 
 function CompareButtons(Item1: Pointer;

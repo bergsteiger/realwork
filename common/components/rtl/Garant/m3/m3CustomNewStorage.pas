@@ -153,6 +153,8 @@ uses
  , m3NewStorageStream
  , ComObj
  , m2S64Lib
+ //#UC START# *5451095F00E9impl_uses*
+ //#UC END# *5451095F00E9impl_uses*
 ;
 
 type

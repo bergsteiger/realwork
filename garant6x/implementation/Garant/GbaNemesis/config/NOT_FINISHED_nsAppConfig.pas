@@ -95,14 +95,11 @@ type
    procedure SetEditsWidth;
   protected
    function pm_GetChanged: Boolean;
-   procedure DoClearControls; override;
    function DoCreateFrame(aOwner: TComponent;
     aTag: Integer): TCustomFrame; override;
-   procedure DoGetControlValues; override;
    function DoIsItem(aItem: TObject): Boolean; override;
    procedure DoLoad(const aStorage: IddConfigStorage); override;
    procedure DoSave(const aStorage: IddConfigStorage); override;
-   procedure DoSetControlValues(aDefault: Boolean); override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function pm_GetChanged: Boolean; override;
@@ -150,23 +147,23 @@ type
    f_Settings: IvcmSettings;
   protected
    function ReadBool(const Alias: AnsiString;
-    Default: Boolean): Boolean; overload; stdcall;
+    Default: Boolean): Boolean; overload;
    function ReadDateTime(const Alias: AnsiString;
-    Default: TDateTime): TDateTime; overload; stdcall;
+    Default: TDateTime): TDateTime; overload;
    function ReadInteger(const Alias: AnsiString;
-    Default: Integer): Integer; overload; stdcall;
+    Default: Integer): Integer; overload;
    function ReadString(const Alias: AnsiString;
-    const Default: AnsiString): Il3CString; overload; stdcall;
+    const Default: AnsiString): Il3CString; overload;
    procedure WriteBool(const Alias: AnsiString;
-    B: Boolean); overload; stdcall;
+    B: Boolean); overload;
    procedure WriteDateTime(const Alias: AnsiString;
-    DT: TDateTime); overload; stdcall;
+    DT: TDateTime); overload;
    procedure WriteInteger(const Alias: AnsiString;
-    I: Integer); overload; stdcall;
+    I: Integer); overload;
    procedure WriteString(const Alias: AnsiString;
-    const S: AnsiString); overload; stdcall;
-   function Get_Section: AnsiString; stdcall;
-   procedure Set_Section(const aValue: AnsiString); stdcall;
+    const S: AnsiString); overload;
+   function Get_Section: AnsiString;
+   procedure Set_Section(const aValue: AnsiString);
    function Get_DefaultValuesOperation: Boolean;
    procedure Set_DefaultValuesOperation(aValue: Boolean);
    procedure Cleanup; override;
@@ -305,6 +302,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , afwFacade
  , afwSettingsChangePublisher
+ //#UC START# *4AD5B874003Dimpl_uses*
+ //#UC END# *4AD5B874003Dimpl_uses*
 ;
 
 procedure EDuplicateConfName.pm_SetConfName(const aValue: AnsiString);
@@ -382,15 +381,6 @@ begin
 //#UC END# *5216208C03CD_523172E8012Eget_impl*
 end;//TnsConfInfoNode.pm_GetChanged
 
-procedure TnsConfInfoNode.DoClearControls;
-//#UC START# *521B285C035B_523172E8012E_var*
-//#UC END# *521B285C035B_523172E8012E_var*
-begin
-//#UC START# *521B285C035B_523172E8012E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *521B285C035B_523172E8012E_impl*
-end;//TnsConfInfoNode.DoClearControls
-
 function TnsConfInfoNode.DoCreateFrame(aOwner: TComponent;
  aTag: Integer): TCustomFrame;
 //#UC START# *521B28760177_523172E8012E_var*
@@ -400,15 +390,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *521B28760177_523172E8012E_impl*
 end;//TnsConfInfoNode.DoCreateFrame
-
-procedure TnsConfInfoNode.DoGetControlValues;
-//#UC START# *521B28BE015D_523172E8012E_var*
-//#UC END# *521B28BE015D_523172E8012E_var*
-begin
-//#UC START# *521B28BE015D_523172E8012E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *521B28BE015D_523172E8012E_impl*
-end;//TnsConfInfoNode.DoGetControlValues
 
 function TnsConfInfoNode.DoIsItem(aItem: TObject): Boolean;
 //#UC START# *521B28D60001_523172E8012E_var*
@@ -436,15 +417,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *521B295A024F_523172E8012E_impl*
 end;//TnsConfInfoNode.DoSave
-
-procedure TnsConfInfoNode.DoSetControlValues(aDefault: Boolean);
-//#UC START# *521B298800F7_523172E8012E_var*
-//#UC END# *521B298800F7_523172E8012E_var*
-begin
-//#UC START# *521B298800F7_523172E8012E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *521B298800F7_523172E8012E_impl*
-end;//TnsConfInfoNode.DoSetControlValues
 
 procedure TnsConfInfoNode.Cleanup;
  {* Функция очистки полей объекта. }

@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , kwCompiledWordWorkerEx
+ //#UC START# *5512E4070106impl_uses*
+ //#UC END# *5512E4070106impl_uses*
 ;
 
 function TtfwWordWorkerEx.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;

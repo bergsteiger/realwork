@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , k2ChildrenPath
  , l3Memory
+ //#UC START# *47BAB0450293impl_uses*
+ //#UC END# *47BAB0450293impl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = Tk2ChildrenPath;{$IfEnd}

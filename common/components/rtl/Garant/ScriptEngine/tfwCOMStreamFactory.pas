@@ -34,6 +34,8 @@ uses
  , l3Stream
  , Classes
  , SysUtils
+ //#UC START# *52F4F1AA01E1impl_uses*
+ //#UC END# *52F4F1AA01E1impl_uses*
 ;
 
 constructor TtfwCOMStreamFactory.Create(const aStream: IStream);

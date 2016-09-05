@@ -65,6 +65,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *56F12BAB0086impl_uses*
+ //#UC END# *56F12BAB0086impl_uses*
 ;
 
 constructor TnsBaseSearchModel.Create;

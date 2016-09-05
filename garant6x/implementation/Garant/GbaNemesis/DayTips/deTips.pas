@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *49254B6F0325impl_uses*
+ //#UC END# *49254B6F0325impl_uses*
 ;
 
 function TdeTips.DefaultDocType: TDocumentType;

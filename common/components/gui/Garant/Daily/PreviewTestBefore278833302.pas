@@ -37,6 +37,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D18986B03D0impl_uses*
+ //#UC END# *4D18986B03D0impl_uses*
 ;
 
 function TPreviewTestBefore278833302.IsBefore235875079: Boolean;

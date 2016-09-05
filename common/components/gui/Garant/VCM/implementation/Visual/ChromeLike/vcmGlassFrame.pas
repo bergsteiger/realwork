@@ -90,6 +90,8 @@ implementation
 uses
  l3ImplUses
  , l3DwmApi
+ //#UC START# *533921E6004Bimpl_uses*
+ //#UC END# *533921E6004Bimpl_uses*
 ;
 
 procedure TvcmGlassFrame.pm_SetLeft(aValue: Integer);

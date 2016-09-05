@@ -40,6 +40,8 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ //#UC START# *4AA50FB0007Eimpl_uses*
+ //#UC END# *4AA50FB0007Eimpl_uses*
 ;
 
 constructor TdeAdmin.Create(const aGroups: IdeNode;

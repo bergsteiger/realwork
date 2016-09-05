@@ -29,6 +29,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
  , vcmMessages
+ //#UC START# *52AB0A3703E2impl_uses*
+ //#UC END# *52AB0A3703E2impl_uses*
 ;
 
 procedure RequestClearPopup(aPopup: TPopupMenu);

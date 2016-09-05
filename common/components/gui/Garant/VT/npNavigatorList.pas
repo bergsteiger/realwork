@@ -48,6 +48,8 @@ uses
  , Messages
  , SysUtils
  , l3Base
+ //#UC START# *4F61E03003CFimpl_uses*
+ //#UC END# *4F61E03003CFimpl_uses*
 ;
 
 var g_TnpNavigatorList: TnpNavigatorList = nil;

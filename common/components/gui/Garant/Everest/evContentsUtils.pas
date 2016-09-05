@@ -22,6 +22,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *532BFF3F00CAimpl_uses*
+ //#UC END# *532BFF3F00CAimpl_uses*
 ;
 
 function evGetContentLevel(aLevel: Integer;

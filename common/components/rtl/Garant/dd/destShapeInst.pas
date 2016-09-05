@@ -66,6 +66,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5460C1530245impl_uses*
+ //#UC END# *5460C1530245impl_uses*
 ;
 
 procedure TdestShapeInst.pm_SetShapeLeft(aValue: Integer);

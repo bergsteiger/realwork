@@ -146,7 +146,7 @@ var
 //#UC END# *4A6D71700008_4A6EA44C0038_var*
 begin
 //#UC START# *4A6D71700008_4A6EA44C0038_impl*
- ProcessMessages(TdmStdRes.MakeChatDispatcher.GetMessages(UserID, -1));
+ ProcessMessages(TChatService.Instance.MakeChatDispatcher.GetMessages(UserID, -1));
  if not ContainsControl(FindControl(GetForegroundWindow)) then
  begin
   l3FillChar(l_Info, SizeOf(l_Info), 0); 
@@ -163,7 +163,7 @@ procedure TBaseChatWindowForm.RegisterInDispatcher;
 //#UC END# *4A6EA5EA00CD_4A6EA44C0038_var*
 begin
 //#UC START# *4A6EA5EA00CD_4A6EA44C0038_impl*
- TdmStdRes.MakeChatDispatcher.RegisterChatWindow(Self);
+ TChatService.Instance.MakeChatDispatcher.RegisterChatWindow(Self);
 //#UC END# *4A6EA5EA00CD_4A6EA44C0038_impl*
 end;//TBaseChatWindowForm.RegisterInDispatcher
 
@@ -172,7 +172,7 @@ procedure TBaseChatWindowForm.UnRegisterInDispatcher;
 //#UC END# *4A6EA6000339_4A6EA44C0038_var*
 begin
 //#UC START# *4A6EA6000339_4A6EA44C0038_impl*
- TdmStdRes.MakeChatDispatcher.UnRegisterChatWindow(Self);
+ TChatService.Instance.MakeChatDispatcher.UnRegisterChatWindow(Self);
 //#UC END# *4A6EA6000339_4A6EA44C0038_impl*
 end;//TBaseChatWindowForm.UnRegisterInDispatcher
 
@@ -222,7 +222,7 @@ begin
    Exit;
   end;
   try
-   l_Message := TdmStdRes.MakeChatDispatcher.SendMessage(UserID, l_Memory);
+   l_Message := TChatService.Instance.MakeChatDispatcher.SendMessage(UserID, l_Memory);
   except
    on EnsUnknownChatUser do
     SafeClose;

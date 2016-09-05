@@ -1,6 +1,6 @@
 unit D_DateNumberEditor;
 
-{ $Id: D_DateNumberEditor.pas,v 1.30 2015/11/26 08:45:28 lukyanets Exp $ }
+{ $Id: D_DateNumberEditor.pas,v 1.32 2016/08/11 11:37:09 lukyanets Exp $ }
 
 interface
 {$I arDefine.inc}
@@ -36,7 +36,7 @@ type
     procedure edtDateExit(Sender: TObject);
   private
     { Private declarations }
-    //fDocFam : TFamilyID;
+    //fDocFam : TdaFamilyID;
     lSaveDNType : TDNType; //дл€ запоминани€ последнего обработанного переключени€. »спользутс€ дл€ настройки контролов ввода параметров
     fSaveEdtNumberText : string;
     fSaveEdtDate : TStDate;
@@ -46,7 +46,7 @@ type
   protected
     property CurDNType: TDNType read pm_GetCurDNType write pm_SetCurDNType;
   public
-    function Execute({aDocFam : TFamilyID;} aRec : Tl3Tag; WasEmpty : Boolean) : Boolean;
+    function Execute({aDocFam : TdaFamilyID;} aRec : Tl3Tag; WasEmpty : Boolean) : Boolean;
   end;
 
   function GetAttrDateNum(aRec : Tl3Tag; aRecEmpty : Boolean = False) : boolean;
@@ -111,20 +111,16 @@ var
    lSaveDNType := CurDNType;
    if CurDNType = dnChangerDate then
    begin
-   {$ifdef DBver134}
     lblNumber.Caption := '—сылка на измен€ющий';
     with Attr[k2_tiLinkAddress] do
      if IsValid then
      begin
       lDocID := IntA[k2_tiDocID];
-    if lDocID  > 0 then
-     lDocID := LinkServer(CurrentFamily).Renum.GetExtDocID(lDocID);
-    if lDocID  > 0 then
-      edtNumber.Text  := format('%d.%d', [lDocID, IntA[k2_tiSubID]]);
+      if lDocID  > 0 then
+       lDocID := LinkServer(CurrentFamily).Renum.GetExtDocID(lDocID);
+      if lDocID  > 0 then
+        edtNumber.Text  := format('%d.%d', [lDocID, IntA[k2_tiSubID]]);
      end;
-   {$else}
-    edtNumber.Enabled := false;
-   {$endif}
    end
    else
    begin
@@ -153,7 +149,6 @@ var
 
    if CurDNType = dnChangerDate then
    begin
-   {$ifdef DBver134}
     StrToDocAddr(edtNumber.Text, lDocID, lSubID);
     if lDocID < 0 then lDocID := 0;
     if lSubID < 0 then lSubID := 0;
@@ -171,7 +166,6 @@ var
      IntA[k2_tiDocID] := lRDocID;
      IntA[k2_tiSubID] := lSubID;
     end;
-   {$endif}
     StrA[k2_tiNumber]  := '';
    end
    else
@@ -189,18 +183,11 @@ begin
  cbMOJNOTREG.Visible := CurDNType = dnMU;
  if CurDNType = dnChangerDate then
  begin
-  {$ifdef DBver134}
   lblNumber.Caption := '—сылка на измен€ющий';
-  {$else}
-  edtNumber.Enabled := False;
-  {$endif}
   edtNumber.Clear;
  end
  else
  begin
-  {$ifndef DBver134}
-  edtNumber.Enabled := True;
-  {$endif}
   lblNumber.Caption := 'Ќомер';
   if lSaveDNType = dnChangerDate then
    edtNumber.Text := fSaveEdtNumberText;

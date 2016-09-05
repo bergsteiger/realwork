@@ -69,6 +69,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *492189D90209impl_uses*
+ //#UC END# *492189D90209impl_uses*
 ;
 
 type _Instance_R_ = TdsWarning;

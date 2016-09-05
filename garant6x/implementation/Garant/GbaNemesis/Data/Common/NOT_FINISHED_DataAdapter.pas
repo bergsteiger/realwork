@@ -49,6 +49,8 @@ uses
  l3ImplUses
  , nsQuestionsWithChoices
  , nsLoginUtils
+ //#UC START# *48FF556602BAimpl_uses*
+ //#UC END# *48FF556602BAimpl_uses*
 ;
 
 procedure DefDataAdapter;

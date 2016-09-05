@@ -8,7 +8,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, l3Base, StdCtrls, ActnList, Menus, ExtCtrls,
   Buttons, ImgList,
-  l3ObjectRefList, dt_Types, csProcessTask,
+  l3ObjectRefList, daTypes, csProcessTask,
 
   ddTaskItemList,
   daArchiUserList
@@ -62,7 +62,7 @@ type
     f_TaskList : TddTaskItemList;
     f_UserList: TdaArchiUserList;
     f_ShowOnlyMyTasks: Boolean;
-    f_MyUserID: TUserID;
+    f_MyUserID: TdaUserID;
     f_CompareKind: TcsTaskCompareKind;
     f_OnTerminateTask: TddTerminateTask;
    procedure SetTaskList(Value: TddTaskItemList);
@@ -73,7 +73,7 @@ type
   public
     { Public declarations }
    function Execute: Boolean;
-    function FindUserName(aUserID: TUserID): AnsiString;
+    function FindUserName(aUserID: TdaUserID): AnsiString;
    procedure UpdateListView;
   public
    property TaskLst: TddTaskItemList
@@ -81,7 +81,7 @@ type
     write SetTaskList;
    property UserList: TdaArchiUserList read f_UserList write f_UserList;
    property ShowOnlyMyTasks: Boolean read f_ShowOnlyMyTasks write SetShowOnlyMyTasks;
-   property MyUserID: TUserID read f_MyUserID write f_MyUserID;
+   property MyUserID: TdaUserID read f_MyUserID write f_MyUserID;
    property CompareKind: TcsTaskCompareKind read f_CompareKind write pm_SetCompareKind;
    property OnTerminateTask: TddTerminateTask read f_OnTerminateTask write f_OnTerminateTask;
   end;
@@ -269,7 +269,7 @@ begin
  Result:= ShowModal = mrOk;
 end;
 
-function TTaskListDialog.FindUserName(aUserID: TUserID): AnsiString;
+function TTaskListDialog.FindUserName(aUserID: TdaUserID): AnsiString;
 var
  i: Integer;
 begin

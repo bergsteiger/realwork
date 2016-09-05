@@ -28,6 +28,8 @@ uses
  , kwGotoSub
  , kwEndAddSubByMouse
  , kwSetExpiredStyle
+ //#UC START# *4DFB406602B7impl_uses*
+ //#UC END# *4DFB406602B7impl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 

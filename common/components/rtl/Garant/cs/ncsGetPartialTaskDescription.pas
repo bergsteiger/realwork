@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , csGetPartialTaskDescription_Const
+ //#UC START# *54B66DB30346impl_uses*
+ //#UC END# *54B66DB30346impl_uses*
 ;
 
 function TncsGetPartialTaskDescription.pm_GetFileName: AnsiString;

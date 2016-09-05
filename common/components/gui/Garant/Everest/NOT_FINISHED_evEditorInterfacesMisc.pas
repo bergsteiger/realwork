@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4BBD91060298impl_uses*
+ //#UC END# *4BBD91060298impl_uses*
 ;
 
 procedure evFreeLPA;

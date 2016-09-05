@@ -57,6 +57,8 @@ uses
  , l3Base
  , SysUtils
  , l3Tree_TLB
+ //#UC START# *508EBDA900AEimpl_uses*
+ //#UC END# *508EBDA900AEimpl_uses*
 ;
 
 constructor TnscTasksPanelOperationNode.Create(const aOp: IvcmCustOpsGroupOperation);

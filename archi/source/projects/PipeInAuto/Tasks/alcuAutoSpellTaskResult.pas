@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , AutoSpellTaskResult_Const
+ //#UC START# *53FD813101B0impl_uses*
+ //#UC END# *53FD813101B0impl_uses*
 ;
 
 function TalcuAutoSpellTaskResult.pm_GetReportMessage: AnsiString;

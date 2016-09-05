@@ -1,7 +1,10 @@
 unit ddRTFWriter;
 
-{ $Id: ddRTFWriter.pas,v 1.227 2016/05/24 12:22:57 dinishev Exp $ }
+{ $Id: ddRTFWriter.pas,v 1.228 2016/08/24 08:31:37 dinishev Exp $ }
 // $Log: ddRTFWriter.pas,v $
+// Revision 1.228  2016/08/24 08:31:37  dinishev
+// {Requestlink:629202717}
+//
 // Revision 1.227  2016/05/24 12:22:57  dinishev
 // Рамки во вложенных таблицах неправильно определялись.
 //
@@ -748,9 +751,9 @@ type
     function Cell2RTF(aCell: TddCellProperty; aFillType, aNextFillType: TddFillAAC): AnsiString; 
     function CHP2RTF(aCHP: TddCharacterProperty; aParentCHP: TddCharacterProperty; const WithStyle: Boolean = True): AnsiString; override;
     function DIffCHP2RTF(aCHP1, aCHP2: TddCharacterProperty): AnsiString; override;
-    procedure OutText(aText: Tl3CustomString; anUnicode: Boolean); overload;
+    procedure OutText(aText: Tl3CustomString; anOEM: Boolean); overload;
     procedure OutText(const aPara: TddTextParagraph; const aStyle: TddStyleEntry); overload;
-    procedure OutText(aText: Tl3CustomString; anUnicode: Boolean; const aPara: TddTextParagraph; const aStyle: TddStyleEntry); overload;
+    procedure OutText(aText: Tl3CustomString; anOEM: Boolean; const aPara: TddTextParagraph; const aStyle: TddStyleEntry); overload;
     function PAP2RTF(aPAP: TddParagraphProperty; aBlockIndent: Integer; anIgnoreLeftIndent: Boolean;
                      WithStyle: Boolean = True): AnsiString; override;
     function Pixels2Twips(aPixels: Integer; aDPI: Integer = 96): Integer;
@@ -968,30 +971,91 @@ begin
 end; 
 
 procedure TCustomRTFObjectGenerator.OutText(aText       : Tl3CustomString;
-                                            anUnicode   : Boolean;
+                                            anOEM       : Boolean;
                                             const aPara : TddTextParagraph;
                                             const aStyle: TddStyleEntry);
 var
- i            : Integer;
- l_Code       : Word;
- l_Text       : AnsiString;
- l_Char       : AnsiChar;
  l_HasSegment : Boolean;
  l_MemUnicode : Tl3String;
-begin
- l_HasSegment := (aPara <> nil) and (aPara.SegmentCount > 0);
- if l_HasSegment then
-  Init4Segments;
- try
-  if anUnicode then
-  begin
+ l_UnicodeStr : PWideChar;
+
+ procedure lp_StartSpecialOut;
+ begin
+  if anOEM or (aText.CodePage = CP_Unicode) then
    if l_HasSegment then
     IncBracesCount(1, False);
+  if anOEM then
+  begin
    l_MemUnicode := Tl3String.Create;
    OutString(Format('{\f%d\uc1 ',[Document.AddFont(def_ANSIDOSFontName, 204)]));
    l_MemUnicode.Len := aText.Len * 2;
    MultiByteToWideChar(CP_RussianDOS, 0{mb_Composite}, aText.St, aText.Len, PWideChar(l_MemUnicode.St), l_MemUnicode.Len)
-  end; // if anUnicode then
+  end
+  else
+   if (aText.CodePage = CP_Unicode) then
+   begin
+    l_UnicodeStr := aText.AsPWideChar;
+    OutString('{\uc0 ');
+   end;
+ end;
+
+ procedure lp_OEM2Unicode(anIndex: Integer);
+ var
+  l_Code : Word;
+  l_Text : AnsiString;
+ begin
+  try
+   WordRec(l_Code).Hi := Ord(l_MemUnicode.Ch[(anIndex + 1) * 2 - 1]);
+   WordRec(l_Code).Lo := Ord(l_MemUnicode.Ch[(anIndex + 1) * 2 - 2]);
+   case l_Code of
+    {cc_TriUp}    30: l_Code := $25B2;
+    {cc_TriDown}  31: l_Code := $25BC;
+    {cc_TriLeft}  17: l_Code := $25C4;
+    {cc_TriRight} 16: l_Code := $25BA;
+   end;
+   l_Text := Format('\u%d\''3F', [l_Code])
+  except
+   Msg2Log('Ошибка преобразования в Unicode');
+  end; // try..except
+  OutString(l_Text);
+ end;
+
+ procedure lp_FinishSpecialOut;
+ begin
+  if anOEM or (aText.CodePage = CP_Unicode) then
+   if l_HasSegment then
+    DecBracesCount(1)
+   else
+    WriteCloseBarket;
+  if anOEM then
+   l3Free(l_MemUnicode);
+ end;
+
+ procedure lp_WriteChar(anIndex: Integer);
+ var
+  l_Char : AnsiChar;
+  l_Text : AnsiString;
+ begin
+  l_Char := aText.Ch[anIndex];
+  TranslateChar(l_Char, l_Text);
+  OutString(l_Text);
+ end;
+
+ procedure lp_OutUnicode(anIndex: Integer);
+ begin
+  OutString('\u');
+  OutString(IntToStr(Word(l_UnicodeStr[anIndex])));
+ end;
+
+var
+ i: Integer;
+begin
+ l_HasSegment := (aPara <> nil) and (aPara.SegmentCount > 0);
+ l_UnicodeStr := nil;
+ if l_HasSegment then
+  Init4Segments;
+ try
+  lp_StartSpecialOut;
 
   for i := 0 to Pred(aText.Len) do
   begin
@@ -1000,40 +1064,18 @@ begin
 
    if not CheckObjectSegment(aPara, i, aStyle) then
    begin
-    if anUnicode then
-    begin
-     try
-      WordRec(l_Code).Hi := Ord(l_MemUnicode.Ch[(i + 1) * 2 - 1]);
-      WordRec(l_Code).Lo := Ord(l_MemUnicode.Ch[(i + 1) * 2 - 2]);
-      case l_Code of
-       {cc_TriUp}    30: l_Code := $25B2;
-       {cc_TriDown}  31: l_Code := $25BC;
-       {cc_TriLeft}  17: l_Code := $25C4;
-       {cc_TriRight} 16: l_Code := $25BA;
-      end;
-      l_Text := Format('\u%d\''3F', [l_Code])
-     except
-      Msg2Log('Ошибка преобразования в Unicode');
-     end; // try..except
-    end
+    if aText.CodePage = CP_Unicode then
+     lp_OutUnicode(i)
     else
-    begin
-     l_Char := aText.Ch[i];
-     TranslateChar(l_Char, l_Text);
-    end;
-    OutString(l_Text);
-   end;
+     if anOEM then
+      lp_OEM2Unicode(i)
+     else
+      lp_WriteChar(i)
+   end; // if not CheckObjectSegment(aPara, i, aStyle) then
    if l_HasSegment then
     CheckFinishSegments(aPara, i);
-  end; //for i
-  if anUnicode then
-  begin
-   if l_HasSegment then
-    DecBracesCount(1)
-   else
-    WriteCloseBarket;
-   l3Free(l_MemUnicode);
-  end; // Unicode {or (aText.CodePage = CP_CentralEuropeWin)}
+  end; //for i := 0 to Pred(aText.Len) do
+  lp_FinishSpecialOut
  finally
   DeInit4Segments;
  end;
@@ -1971,15 +2013,15 @@ begin
 end;
 
 procedure TCustomRTFObjectGenerator.OutText(aText: Tl3CustomString;
-  anUnicode: Boolean);
+  anOEM: Boolean);
 begin
- OutText(aText, anUnicode, nil, nil);
+ OutText(aText, anOEM, nil, nil);
 end;
 
 procedure TCustomRTFObjectGenerator.OutText(const aPara: TddTextParagraph;
   const aStyle: TddStyleEntry);
 begin
- OutText(aPara.Text, aPara.Unicode, aPara, aStyle);
+ OutText(aPara.Text, aPara.OEMText, aPara, aStyle);
 end;
 
 procedure TCustomRTFObjectGenerator.DoInitPictureWidth;

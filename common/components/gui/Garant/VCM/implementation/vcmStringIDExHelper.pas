@@ -37,6 +37,8 @@ uses
  , vcmBase
  , l3Base
  , SysUtils
+ //#UC START# *55714DD30399impl_uses*
+ //#UC END# *55714DD30399impl_uses*
 ;
 
 var g_TvcmStringIDExHelper: TvcmStringIDExHelper = nil;

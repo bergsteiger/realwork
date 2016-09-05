@@ -306,7 +306,7 @@ procedure TPrimContactListForm.DoAddContact;
 //#UC END# *4C2B2FEE01AB_4AC4EF5600B4_var*
 begin
 //#UC START# *4C2B2FEE01AB_4AC4EF5600B4_impl*
- with TdmStdRes.MakeChatDispatcher do
+ with TChatService.Instance.MakeChatDispatcher do
  begin
   AddUser(trContactList.GetCurrentNode);
   OpenChatWindow(trContactList.GetCurrentNode);
@@ -365,7 +365,7 @@ procedure TPrimContactListForm.trContactListMakeTreeSource(out theTree: Il3Simpl
 //#UC END# *5199D9F30296_4AC4EF5600B4_var*
 begin
 //#UC START# *5199D9F30296_4AC4EF5600B4_impl*
- theTree := TdmStdRes.MakeChatDispatcher.MakeContactList(AddingContact);
+ theTree := TChatService.Instance.MakeChatDispatcher.MakeContactList(AddingContact);
 //#UC END# *5199D9F30296_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.trContactListMakeTreeSource
 
@@ -381,7 +381,7 @@ const
 //#UC END# *5199DAAF00FD_4AC4EF5600B4_var*
 begin
 //#UC START# *5199DAAF00FD_4AC4EF5600B4_impl*
- Result := cImageIndexMap[TdmStdRes.MakeChatDispatcher.GetContactType(trContactList.GetNode(Index))];
+ Result := cImageIndexMap[TChatService.Instance.MakeChatDispatcher.GetContactType(trContactList.GetNode(Index))];
 //#UC END# *5199DAAF00FD_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.trContactListGetItemImage
 
@@ -394,7 +394,7 @@ begin
  if AddingContact then
   DoAddContact
  else
-  TdmStdRes.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
+  TChatService.Instance.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
 //#UC END# *5199DAFF0296_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.trContactListActionElement
 
@@ -425,7 +425,7 @@ procedure TPrimContactListForm.trContactListFooterClick(Sender: TObject);
 //#UC END# *5199DC98012F_4AC4EF5600B4_var*
 begin
 //#UC START# *5199DC98012F_4AC4EF5600B4_impl*
- TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
+ TChatService.Instance.MakeChatDispatcher.ShowAddUserDialog;
 //#UC END# *5199DC98012F_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.trContactListFooterClick
 
@@ -548,7 +548,7 @@ procedure TPrimContactListForm.Chat_Add_Execute(const aParams: IvcmExecuteParams
 //#UC END# *4C2B245F01F2_4AC4EF5600B4exec_var*
 begin
 //#UC START# *4C2B245F01F2_4AC4EF5600B4exec_impl*
- TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
+ TChatService.Instance.MakeChatDispatcher.ShowAddUserDialog;
 //#UC END# *4C2B245F01F2_4AC4EF5600B4exec_impl*
 end;//TPrimContactListForm.Chat_Add_Execute
 
@@ -566,7 +566,7 @@ procedure TPrimContactListForm.Chat_History_Execute(const aParams: IvcmExecutePa
 //#UC END# *4C84CC2E0253_4AC4EF5600B4exec_var*
 begin
 //#UC START# *4C84CC2E0253_4AC4EF5600B4exec_impl*
- TdmStdRes.MakeChatDispatcher.OpenChatHistory(trContactList.GetCurrentNode);
+ TChatService.Instance.MakeChatDispatcher.OpenChatHistory(trContactList.GetCurrentNode);
 //#UC END# *4C84CC2E0253_4AC4EF5600B4exec_impl*
 end;//TPrimContactListForm.Chat_History_Execute
 
@@ -679,7 +679,7 @@ procedure TPrimContactListForm.Chat_OpenChatWindow_Execute(const aParams: IvcmEx
 begin
 //#UC START# *4C84D2C001D5_4AC4EF5600B4exec_impl*
  if not AddingContact then
-  TdmStdRes.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
+  TChatService.Instance.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
 //#UC END# *4C84D2C001D5_4AC4EF5600B4exec_impl*
 end;//TPrimContactListForm.Chat_OpenChatWindow_Execute
 
@@ -689,7 +689,7 @@ procedure TPrimContactListForm.Cleanup;
 //#UC END# *479731C50290_4AC4EF5600B4_var*
 begin
 //#UC START# *479731C50290_4AC4EF5600B4_impl*
- TdmStdRes.MakeChatDispatcher.UnRegisterContactList(Self);
+ TChatService.Instance.MakeChatDispatcher.UnRegisterContactList(Self);
  inherited;
 //#UC END# *479731C50290_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.Cleanup
@@ -744,7 +744,7 @@ begin
  Self.ActiveControl := trContactList;
  ContextFilter.Images := dmStdRes.SmallImageList;
  trContactList.Images := dmChat.ilUsers;
- TdmStdRes.MakeChatDispatcher.RegisterContactList(Self);
+ TChatService.Instance.MakeChatDispatcher.RegisterContactList(Self);
 
  Width := 220;
  Height := 617;

@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4926BD6800C8impl_uses*
+ //#UC END# *4926BD6800C8impl_uses*
 ;
 
 procedure TdsConsultationList.DoDeleteNodes;

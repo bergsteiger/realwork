@@ -55,6 +55,8 @@ uses
  l3ImplUses
  , m3DBDocumentPart
  , m3DB
+ //#UC START# *4742DCCE00DDimpl_uses*
+ //#UC END# *4742DCCE00DDimpl_uses*
 ;
 
 constructor Tm3DBDocument.Create(aDB: Tm3PrimDB;
@@ -180,7 +182,7 @@ var
 //#UC END# *486B7FD901A7_4742DCCE00DD_var*
 begin
 //#UC START# *486B7FD901A7_4742DCCE00DD_impl*
- Result := 0;
+ Result := 1;
  l_ExistID := f_DB.GetDocumentObjectsIDs(f_ID);
  try
   while true do

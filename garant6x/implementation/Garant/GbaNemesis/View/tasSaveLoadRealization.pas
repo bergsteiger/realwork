@@ -44,6 +44,8 @@ uses
  , nsQueryUtils
  , SysUtils
  , l3Base
+ //#UC START# *54F83BC9036Bimpl_uses*
+ //#UC END# *54F83BC9036Bimpl_uses*
 ;
 
 var g_TtasSaveLoadRealization: TtasSaveLoadRealization = nil;

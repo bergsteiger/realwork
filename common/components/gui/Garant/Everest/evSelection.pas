@@ -196,6 +196,8 @@ uses
  , evSelectConst
  , k2Tags
  , k2Base
+ //#UC START# *4A2D30DB039Eimpl_uses*
+ //#UC END# *4A2D30DB039Eimpl_uses*
 ;
 
 procedure TevRange.DoInit(const aStart: InevBasePoint;

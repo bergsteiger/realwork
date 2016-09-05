@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , SysUtils
  , afwSettingsChangePublisher
+ //#UC START# *4F6C957F01E7impl_uses*
+ //#UC END# *4F6C957F01E7impl_uses*
 ;
 
 class function TafwSettings.Make(const aSettingsImpl: IafwSettingsImpl): IafwSettings;

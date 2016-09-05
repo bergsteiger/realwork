@@ -38,6 +38,8 @@ uses
  , evSelection
  , nevFacade
  , l3Base
+ //#UC START# *4BAA279500E6impl_uses*
+ //#UC END# *4BAA279500E6impl_uses*
 ;
 
 function TnevRangePrim.Iterate(anAction: InevRangePrim_Iterate_Action;

@@ -45,6 +45,8 @@ uses
  , l3Base
  , afwInterfaces
  , Classes
+ //#UC START# *48E497E40042impl_uses*
+ //#UC END# *48E497E40042impl_uses*
 ;
 
 procedure TevMultiSelectEditorWindowHotSpot.Cleanup;

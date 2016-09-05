@@ -42,6 +42,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4DAFEB7300EEimpl_uses*
+ //#UC END# *4DAFEB7300EEimpl_uses*
 ;
 
 function TK263750307.GetFormulaText: AnsiString;

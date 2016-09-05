@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *567A8BE7002Dimpl_uses*
+ //#UC END# *567A8BE7002Dimpl_uses*
 ;
 
 constructor TpgFunctionSelectField.Create(const aDescription: IdaParamDescription);

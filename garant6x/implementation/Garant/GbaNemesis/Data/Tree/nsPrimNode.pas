@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4ADDF4020322impl_uses*
+ //#UC END# *4ADDF4020322impl_uses*
 ;
 
 constructor TnsPrimNode.Create(aNumInParent: Integer);

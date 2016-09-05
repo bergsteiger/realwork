@@ -8,20 +8,20 @@ uses
  l3ProtoObject,
 
  csDataPipe,
- dt_Types
+ daTypes
  ;
 
 type
  TarDeliveryList = class(Tl3ProtoObject)
  private
   f_List: TStrings;
-  f_UserID: TUserID;
+  f_UserID: TdaUserID;
   function pm_GetCount: Integer;
   function pm_GetTaskID(anIndex: Integer): String;
  protected
   procedure Cleanup; override;
  public
-  constructor Create(aUserID: TUserID);
+  constructor Create(aUserID: TdaUserID);
   procedure Communicate(aPipe: TCsDataPipe);
   property Count: Integer read pm_GetCount;
   property TaskID[anIndex: Integer]: String read pm_GetTaskID; default;
@@ -55,7 +55,7 @@ begin
  end;
 end;
 
-constructor TarDeliveryList.Create(aUserID: TUserID);
+constructor TarDeliveryList.Create(aUserID: TdaUserID);
 begin
  inherited Create;
  f_UserID := aUserID;

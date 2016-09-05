@@ -97,12 +97,8 @@ begin
     l_Date:= 0;
     l_Type:= Ord(dnLawCaseNum);
     l_LDocID := 0;
-    {$IFDEF DBVer134}
     l_LSubID := 0;
     f_Cache.AddRecord([f_DocID, l_Date, f_CaseCode, l_Type, l_LDocID, l_LSubID]);
-    {$ELSE}
-    f_Cache.AddRecord([f_DocID, l_Date, f_CaseCode, l_Type, l_LDocID]);
-    {$ENDIF}
    end;
   end;
  end;

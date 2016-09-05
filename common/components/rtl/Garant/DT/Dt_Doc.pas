@@ -1,8 +1,14 @@
 Unit Dt_Doc;
 
-{ $Id: Dt_Doc.pas,v 1.310 2016/05/17 11:57:53 voba Exp $ }
+{ $Id: Dt_Doc.pas,v 1.312 2016/06/30 12:34:15 lukyanets Exp $ }
 
 // $Log: Dt_Doc.pas,v $
+// Revision 1.312  2016/06/30 12:34:15  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.311  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.310  2016/05/17 11:57:53  voba
 // -k:623081921
 //
@@ -127,7 +133,7 @@ Unit Dt_Doc;
 // - add function  GetMinValue
 //
 // Revision 1.268  2011/06/10 11:52:18  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать, по-старому тоже работает
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать, по-старому тоже работает
 //
 // Revision 1.267  2011/02/18 11:27:32  voba
 // - k : 236721575
@@ -864,7 +870,7 @@ Uses
  l3BaseRefInterfacedList,
  l3InternalInterfaces, l3Interfaces,
  HT_Const,
-
+ daTypes,
  Dt_Types,Dt_Const,
  dt_Record,
  dt_AttrSchema, dt_ImpExpTypes,
@@ -969,7 +975,7 @@ Type
    procedure   PutFieldToRecord(aRecord : PAnsiChar; aField : ThtField; const aBody); override;
    procedure   GetFieldFromRecord(aRecord : PAnsiChar; aField : ThtField;var aBody);  override;
   public
-   Constructor Create(aFamily : TFamilyID); Reintroduce;
+   Constructor Create(aFamily : TdaFamilyID); Reintroduce;
 
    function    AddDoc : LongInt; // нужна утилите listimport
    Procedure   DelDoc(ID : LongInt);
@@ -1013,7 +1019,7 @@ Type
    procedure SendMessageAboutDeletedDocs(aDocIdsArray: array of Longint);
    procedure CheckFamilyNum; // выбрасывает исключение
   protected
-   fFamily          : TFamilyID;
+   fFamily          : TdaFamilyID;
 
    fFileTbl         : TFileTbl;
 
@@ -1021,7 +1027,7 @@ Type
    fCurProgress     : LongInt;
    fCurProgressDelta: LongInt;
 
-   procedure SetFamily(aValue : TFamilyID);
+   procedure SetFamily(aValue : TdaFamilyID);
    function  MakeAttrTableArray : Il3CBaseList;
   public
    procedure Cleanup; override;
@@ -1072,7 +1078,7 @@ Type
                           aNewDestDoc : TDocID; aNewDestSub : TSubID);
    function CheckDocEx(aDocID : TDocID): Boolean;
 
-   property  Family : TFamilyID read fFamily write SetFamily;
+   property  Family : TdaFamilyID read fFamily write SetFamily;
 
    property  FileTbl : TFileTbl read fFileTbl;
    property  CSClient: TcsClient read f_CSClient write f_CSClient;
@@ -1083,7 +1089,7 @@ Type
    f_ChangeNotifier : Tl3ChangeNotifier;
    procedure CheckFamilyNum; // выбрасывает исключение
   protected
-   fFamily        : TFamilyID;
+   fFamily        : TdaFamilyID;
    fFileTbl       : TFileTbl;
    fCurSab        : ISab;
    fSabCursor     : ISabCursor;
@@ -1091,7 +1097,7 @@ Type
    fCheckActive   : Boolean;
    fOrderIndex    : Tl3LongintList;
 
-   procedure SetFamily(aValue : TFamilyID);
+   procedure SetFamily(aValue : TdaFamilyID);
    procedure SetCurSab(aValue : ISab);
    function  GetSabCursor : ISabCursor;
    function  GetChkActive : Boolean;
@@ -1111,7 +1117,7 @@ Type
    property    SabCursor : ISabCursor read GetSabCursor;
   public
    constructor Create;
-   constructor CreateEmpty(aFamily : TFamilyID);
+   constructor CreateEmpty(aFamily : TdaFamilyID);
 
    procedure   SetEmptySab;
 
@@ -1127,7 +1133,7 @@ Type
 
    function    Count: Integer;
 
-   property    Family : TFamilyID read fFamily write SetFamily;
+   property    Family : TdaFamilyID read fFamily write SetFamily;
    property    CheckActiveStatus : Boolean read  GetChkActive
                                            write SetChkActive; // По умолчанию - False
    property    CurSab    : ISab read fCurSab write SetCurSab;
@@ -1139,19 +1145,18 @@ Type
 Const
  cDocumentServer : TDocumentServer = nil;
 
-function DocumentServer(aFamily : TFamilyID = High(TFamilyID)) : TDocumentServer; // -1 временно, что бы компиляция не отвалилвсь
+function DocumentServer(aFamily : TdaFamilyID = High(TdaFamilyID)) : TDocumentServer; // -1 временно, что бы компиляция не отвалилвсь
 function IsValidDocID(aDocID : TDocID) : boolean;
 
 function GetDocName(aDocID : TDocID; aIsExternalID : boolean = false) : String; overload;
 function GetDocName(aDocID : TDocID; aIsExternalID : boolean; var aHasVerlink : boolean) : String; overload;
 function GetMinPublDate(aDocID : TDocID; aIsExternalID : boolean = false; aNum : PANSIString = nil) : TstDate;
-function GetFreeDocID(aFamily : TFamilyID) : TDocID;
+function GetFreeDocID(aFamily : TdaFamilyID) : TDocID;
 Implementation
 
 uses
      WinProcs, Contnrs, Windows, Forms,
      daDataProvider,
-     daTypes,
      daInterfaces,
      daSchemeConsts,
      HT_Dll,
@@ -1169,7 +1174,7 @@ uses
 
 { TFileTbl }
 
-Constructor TFileTbl.Create(aFamily : TFamilyID);
+Constructor TFileTbl.Create(aFamily : TdaFamilyID);
 Begin
   Assert(aFamily <> MainTblsFamily);
   Inherited Create(aFamily, Ord(ftFile));
@@ -1488,7 +1493,7 @@ begin
  end;
 end;
 
-procedure TDocumentServer.SetFamily(aValue : TFamilyID);
+procedure TDocumentServer.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily = aValue then Exit;
  fFamily := aValue;
@@ -1757,6 +1762,7 @@ begin
    raise;
   end;
 
+//!! !!! Возможно тут нужен GlobalHTDataProvider
   GlobalDataProvider.Journal.LogDeleteDoc(fFamily, aDelDocID);
 
   if not lIsDelRel then
@@ -1789,6 +1795,7 @@ var
  begin
   Result := True;
   if lInDoc then
+//!! !!! Возможно тут нужен GlobalHTDataProvider
    GlobalDataProvider.Journal.LogDeleteDoc(fFamily, PInteger(aItemPtr)^);
   l_DocIdsArray[lArrIdx] := PInteger(aItemPtr)^;
   Inc(lArrIdx);
@@ -1862,6 +1869,7 @@ begin
   SetLength(l_DocIdsArray, aDocIDs.Count + l_RelatedIds.Count);
   lArrIdx := 0;
   try
+//!! !!! Возможно тут нужен GlobalHTDataProvider
    GlobalDataProvider.Journal.StartCaching;
    try
     lRAProcStub := L2RecAccessProc(@lRecAccessProc);
@@ -1878,6 +1886,7 @@ begin
     end;
 
    finally
+//!! !!! Возможно тут нужен GlobalHTDataProvider
     GlobalDataProvider.Journal.StopCaching;
    end;
 
@@ -1904,7 +1913,7 @@ begin
  f_ChangeNotifier := Tl3ChangeNotifier.Create;
 end;
 
-constructor TDocumentSabList.CreateEmpty(aFamily : TFamilyID);
+constructor TDocumentSabList.CreateEmpty(aFamily : TdaFamilyID);
 begin
  inherited Create;
  f_ChangeNotifier := Tl3ChangeNotifier.Create;
@@ -1926,7 +1935,7 @@ begin
  inherited;
 end;
 
-procedure TDocumentSabList.SetFamily(aValue : TFamilyID);
+procedure TDocumentSabList.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily<>aValue then
  begin
@@ -2652,9 +2661,9 @@ begin
   Result := fCurSab.Count;
 end;
 
-function DocumentServer(aFamily : TFamilyID = High(TFamilyID)) : TDocumentServer;
+function DocumentServer(aFamily : TdaFamilyID = High(TdaFamilyID)) : TDocumentServer;
 begin
- if aFamily <> High(TFamilyID) then
+ if aFamily <> High(TdaFamilyID) then
   cDocumentServer.Family := aFamily;
  Result := cDocumentServer;
 end;
@@ -2749,7 +2758,7 @@ begin
   aNum^ := l3ArrayToString(lDNRec.rNum, SizeOf(lDNRec.rNum));
 end;
 
-function GetFreeDocID(aFamily : TFamilyID) : TDocID;
+function GetFreeDocID(aFamily : TdaFamilyID) : TDocID;
 begin
  Result := DocumentServer(aFamily).FileTbl.GetFreeNum;
 end;

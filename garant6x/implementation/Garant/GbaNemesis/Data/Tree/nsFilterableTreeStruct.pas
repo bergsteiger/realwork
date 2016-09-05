@@ -140,6 +140,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *46835BD201D6impl_uses*
+ //#UC END# *46835BD201D6impl_uses*
 ;
 
 type

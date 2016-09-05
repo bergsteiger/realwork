@@ -60,6 +60,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *47F2317F015Eimpl_uses*
+ //#UC END# *47F2317F015Eimpl_uses*
 ;
 
 function TnsHAFPainter.pm_GetSettings: IafwSettings;

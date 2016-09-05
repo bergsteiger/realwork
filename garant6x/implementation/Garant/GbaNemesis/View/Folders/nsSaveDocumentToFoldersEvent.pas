@@ -31,6 +31,8 @@ uses
  , nsLogManager
  , LoggingUnit
  , LoggingWrapperInterfaces
+ //#UC START# *51BEFA3D019Eimpl_uses*
+ //#UC END# *51BEFA3D019Eimpl_uses*
 ;
 
 class procedure TnsSaveDocumentToFoldersEvent.Log(const aDoc: IDocument);

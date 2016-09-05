@@ -30,6 +30,8 @@ uses
  , TypInfo
  , k2Base
  , SysUtils
+ //#UC START# *484944E301AFimpl_uses*
+ //#UC END# *484944E301AFimpl_uses*
 ;
 
 function WEnumeration.AsString(A: Tl3Variant): AnsiString;

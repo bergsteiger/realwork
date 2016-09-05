@@ -43,6 +43,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4773DAAA02AAimpl_uses*
+ //#UC END# *4773DAAA02AAimpl_uses*
 ;
 
 type _Instance_R_ = Tl3ObjectRefList1;

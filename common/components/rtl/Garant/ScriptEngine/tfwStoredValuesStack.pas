@@ -54,6 +54,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F49416600CBimpl_uses*
+ //#UC END# *4F49416600CBimpl_uses*
 ;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
@@ -175,7 +177,7 @@ begin
      l_SV := TtfwStoredValues.Make;
     l_SVE := l_SV.Grow;
     l_SVE.rWord := l_W;
-    l_SVE.rValue := l_W.GetValue(aCtx)^;
+    l_SVE.rValue := l_W.GetValue(aCtx);
     if (l_SVE.rValue.rType = tfw_vtList) then
      l_W.SetValuePrim(TtfwStackValue_E, aCtx);
      //l_W.InitValue(aCtx);

@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , evControlParaHotSpot
  , evControlSegmentHotSpot
+ //#UC START# *4A27A8C70359impl_uses*
+ //#UC END# *4A27A8C70359impl_uses*
 ;
 
 function TevControlParaHotSpotTester.GetSegmentClass: RevSegmentClass;

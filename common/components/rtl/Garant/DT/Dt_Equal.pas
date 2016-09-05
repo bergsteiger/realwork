@@ -1,8 +1,11 @@
 Unit Dt_Equal;
 
-{ $Id: Dt_Equal.pas,v 1.36 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_Equal.pas,v 1.37 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: Dt_Equal.pas,v $
+// Revision 1.37  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.36  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -140,7 +143,7 @@ Type
   protected
 
   public
-   Constructor Create(aFamily : TFamilyID; aDLType : TdaDictionaryType); Reintroduce;
+   Constructor Create(aFamily : TdaFamilyID; aDLType : TdaDictionaryType); Reintroduce;
 
    Function  GetEqual(aField : SmallInt;aID : LongInt) : SAB;
    function  GetAllEquals : ISAB;
@@ -165,7 +168,7 @@ Uses
 
 (********************* TEqualItemsTbl **************************)
 
-constructor TEqualItemsTbl.Create(aFamily : TFamilyID; aDLType : TdaDictionaryType);
+constructor TEqualItemsTbl.Create(aFamily : TdaFamilyID; aDLType : TdaDictionaryType);
 begin
  Assert(aFamily <> MainTblsFamily);
  inherited Create(aFamily, Ord(cDLPassports[aDLType].rDict), atpEQ);

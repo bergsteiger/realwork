@@ -80,6 +80,8 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4FFC3347011Fimpl_uses*
+ , SysUtils
+ , RTLConsts
  //#UC END# *4FFC3347011Fimpl_uses*
 ;
 
@@ -100,7 +102,7 @@ begin
  if (f_Name <> aValue) then
  begin
   {$IfDef DesignTimeLibrary}
-  if (aName <> '') and not IsValidIdent(aValue) then
+  if (aValue <> '') and not IsValidIdent(aValue) then
     raise EComponentError.CreateResFmt(@SInvalidName, [aValue]);
   {$EndIf DesignTimeLibrary}
   ChangeName(f_Name, aValue);

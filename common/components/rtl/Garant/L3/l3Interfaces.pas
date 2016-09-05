@@ -15,6 +15,7 @@ uses
  , l3Core
  , l3PureMixIns
  , Windows
+ , Graphics
 ;
 
 const
@@ -25,6 +26,13 @@ const
   {* изменение текущего состояния индикатора. }
  piEnd = 2;
   {* конец прогресса индикатора. }
+ {* Алиасы для значений Graphics.TFontPitch }
+ fpDefault = Graphics.fpDefault;
+  {* The font pitch is set to the default value, which depends on the font specified in the font object's Name property. }
+ fpVariable = Graphics.fpVariable;
+  {* The font pitch is set to variable. The characters in the font have different widths. }
+ fpFixed = Graphics.fpFixed;
+  {* The font pitch is set to fixed. All characters in the font have the same width. }
  {* Кодировки символов. }
  CS_Ansi = Windows.ANSI_CHARSET;
  CS_OEM = Windows.OEM_CHARSET;

@@ -48,6 +48,8 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *4DB6A92C025Dimpl_uses*
+ //#UC END# *4DB6A92C025Dimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

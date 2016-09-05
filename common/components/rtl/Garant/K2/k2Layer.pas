@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , k2Tags
  , SysUtils
+ //#UC START# *47AC597C0320impl_uses*
+ //#UC END# *47AC597C0320impl_uses*
 ;
 
 procedure Tk2Layer.Assign(Source: TPersistent);

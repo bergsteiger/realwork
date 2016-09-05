@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , l3Except
  , l3Base
+ //#UC START# *4EE1DBBB013Cimpl_uses*
+ //#UC END# *4EE1DBBB013Cimpl_uses*
 ;
 
 function TtfwInteger.GetInteger: Integer;

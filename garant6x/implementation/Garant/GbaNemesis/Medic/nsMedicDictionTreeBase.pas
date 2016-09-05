@@ -38,6 +38,8 @@ uses
  , SysUtils
  , DataAdapter
  , nsTypes
+ //#UC START# *490707F10167impl_uses*
+ //#UC END# *490707F10167impl_uses*
 ;
 
 class function TnsMedicDictionTreeBase.Make: Il3SimpleTree;

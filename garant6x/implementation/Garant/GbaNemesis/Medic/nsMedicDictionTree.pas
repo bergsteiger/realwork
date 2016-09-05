@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *49070AD5032Cimpl_uses*
+ //#UC END# *49070AD5032Cimpl_uses*
 ;
 
 var g_TnsMedicDictionTree: Pointer = nil;

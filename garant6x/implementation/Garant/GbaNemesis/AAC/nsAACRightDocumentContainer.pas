@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , evdTypes
+ //#UC START# *500E75C90024impl_uses*
+ //#UC END# *500E75C90024impl_uses*
 ;
 
 function TnsAACRightDocumentContainer.AcceptableBlockViewKinds: TnsBlockViewKinds;

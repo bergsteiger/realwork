@@ -43,6 +43,9 @@ uses
  , l3Base
  , TypInfo
  , l3String
+ , tfwThreadVar
+ //#UC START# *4DBB04B6014Cimpl_uses*
+ //#UC END# *4DBB04B6014Cimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}

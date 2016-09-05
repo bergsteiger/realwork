@@ -50,6 +50,8 @@ uses
  , SysUtils
  , l3InterfacesMisc
  , l3Base
+ //#UC START# *4921809902CFimpl_uses*
+ //#UC END# *4921809902CFimpl_uses*
 ;
 
 type _Instance_R_ = TdsEditions;

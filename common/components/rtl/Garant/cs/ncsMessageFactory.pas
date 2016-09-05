@@ -48,6 +48,8 @@ uses
  , SysUtils
  , l3Types
  , l3Base
+ //#UC START# *54539F4702B1impl_uses*
+ //#UC END# *54539F4702B1impl_uses*
 ;
 
 var g_TncsMessageFactory: TncsMessageFactory = nil;

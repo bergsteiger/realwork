@@ -842,6 +842,8 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *497DDB2B001Bimpl_uses*
+ , Base_Operations_F1Services_Contracts
+ , Common_F1CommonServices_Contracts
  //#UC END# *497DDB2B001Bimpl_uses*
 ;
 
@@ -1167,7 +1169,7 @@ begin
   l_List := dsList.NewList;
   if l_List <> nil then
   try
-   TdmStdRes.OpenList(l_List, aContainer);
+   TListService.Instance.OpenList(l_List, aContainer);
   finally
    l_List := nil;
   end;{try..finally}
@@ -1189,11 +1191,11 @@ var
   if Supports(aNode, INodeBase, l_Node) then
   try
    l_Document := GetAsDocument(l_Node);
-   if Assigned(l_Document) and TdmStdRes.IsCurEditionActual(l_Document) and
+   if Assigned(l_Document) and TCommonService.Instance.IsCurEditionActual(l_Document) and
       Supports(l_Document, IControllable, l_Controllable) then
    try
     if not l_Controllable.GetControlled then
-     TdmStdRes.AddToControl(l_Controllable);
+     TCommonService.Instance.AddToControl(l_Controllable);
    finally
     l_Controllable := nil;
    end;
@@ -1924,7 +1926,8 @@ begin
     (aOpenKind in [vcm_okInNewWindow, vcm_okInNewTab]) and
     (dsDocumentList <> nil) and
     (dsDocumentList.OpenFrom in [lofBaseSearch, lofBaseSearchEx, lofAttributeSearch]) then
-  aContainer.InitFromPrevContainer(NativeMainForm, False);
+  if (not aContainer.AsForm.VCMClosing) then
+   aContainer.InitFromPrevContainer(NativeMainForm, False);
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566792807,
  // http://mdp.garant.ru/pages/viewpage.action?pageId=567573990
 //#UC END# *543E272E0005_497DDB2B001B_impl*
@@ -2067,11 +2070,11 @@ begin
 //#UC START# *4B0A69100289_497DDB2B001B_impl*
  ForceUpdateClassForHistory;
  lp_RegisterEvent;
-  // - запишем событие.
- TdmStdRes.OpenDocument(aDoc, aCont);
-  // - откроем документ.
+ // - запишем событие.
+ TDocumentService.Instance.OpenDocument(aDoc, aCont);
+ // - откроем документ.
  if aNeedReturnFocus then
-  if tvList.CanFocus then
+  if (tvList <> nil) and (not VCMClosing) and tvList.CanFocus then
    tvList.SetFocus;
 //#UC END# *4B0A69100289_497DDB2B001B_impl*
 end;//TPrimListForm.OpenDocument
@@ -2106,7 +2109,7 @@ procedure TPrimListForm.DoSwitchToFullList;
 begin
 //#UC START# *4B557C640258_497DDB2B001B_impl*
  if Assigned(dsDocumentList) and dsDocumentList.IsShortList then
-  TdmStdRes.OpenList{WithReplace}(dsDocumentList.MakeFullList, NativeMainForm);
+  TListService.Instance.OpenList(dsDocumentList.MakeFullList, NativeMainForm);
 //#UC END# *4B557C640258_497DDB2B001B_impl*
 end;//TPrimListForm.DoSwitchToFullList
 
@@ -2229,7 +2232,7 @@ procedure TPrimListForm.Edit_FindContext_Execute(const aParams: IvcmExecuteParam
 //#UC END# *49512B5D0009_497DDB2B001Bexec_var*
 begin
 //#UC START# *49512B5D0009_497DDB2B001Bexec_impl*
- TdmStdRes.OpenBaseSearch(ns_bsokLocal, nil);
+ TBaseSearchService.Instance.OpenBaseSearch(ns_bsokLocal, nil);
 //#UC END# *49512B5D0009_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Edit_FindContext_Execute
 
@@ -2505,7 +2508,7 @@ procedure TPrimListForm.File_LoadFromFolder_Execute(const aParams: IvcmExecutePa
 begin
 //#UC START# *49885D59018D_497DDB2B001Bexec_impl*
  // Выбор закладок
- TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+ TFoldersService.Instance.SelectOpen(Self.As_IvcmEntityForm,
                       MakeFilterInfo(ffList),
                       str_ListOpen);
 //#UC END# *49885D59018D_497DDB2B001Bexec_impl*
@@ -2847,7 +2850,7 @@ begin
  with aList do
  begin
   (*
-  Add(TnscStatusBarOperationDef.MakeS(TdmStdRes.opcode_Selection_Analize, True));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Selection_Analize, True));
   *)
   // http://mdp.garant.ru/pages/viewpage.action?pageId=274825697&focusedCommentId=276540205#comment-276540205
  end;//with aList
@@ -2989,6 +2992,7 @@ begin
    if l_AllDocumentFiltered then
     ShowEditorOrList(nil);
    tvList.TreeStruct := nil;
+   tvList.TreeStruct;   //mdp.garant.ru/pages/viewpage.action?pageId=627386747
   end;//if dsList.ClearFilters then
  end;//if dsList <> nil then
 //#UC END# *4AF80DB80383_497DDB2B001Bexec_impl*
@@ -3080,7 +3084,7 @@ procedure TPrimListForm.TimeMachine_TimeMachineOnOffNew_Execute(const aParams: I
 //#UC END# *4B261EC80086_497DDB2B001Bexec_var*
 begin
 //#UC START# *4B261EC80086_497DDB2B001Bexec_impl*
- TdmStdRes.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self));
+ TCommonService.Instance.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self));
 //#UC END# *4B261EC80086_497DDB2B001Bexec_impl*
 end;//TPrimListForm.TimeMachine_TimeMachineOnOffNew_Execute
 
@@ -3282,9 +3286,9 @@ procedure TPrimListForm.List_SpecifyList_Execute(const aParams: IvcmExecuteParam
 begin
 //#UC START# *4C3716E20109_497DDB2B001Bexec_impl*
  if (dsList.ListType = bs_ltDocument) then
-  TdmStdRes.OpenBaseSearch(ns_bsokSpecify, nil)
+  TBaseSearchService.Instance.OpenBaseSearch(ns_bsokSpecify, nil)
  else
-  TdmStdRes.InpharmSearch(nil, dsList.List, nil);
+  TSearchService.Instance.InpharmSearch(nil, dsList.List, nil);
 //#UC END# *4C3716E20109_497DDB2B001Bexec_impl*
 end;//TPrimListForm.List_SpecifyList_Execute
 
@@ -3412,7 +3416,7 @@ procedure TPrimListForm.LocalList_PublishSourceSearchInList_Execute(const aParam
 //#UC END# *4C3A96BD0239_497DDB2B001Bexec_var*
 begin
 //#UC START# *4C3A96BD0239_497DDB2B001Bexec_impl*
- TdmStdRes.PublishSourceSearch(nil, dsList.List);
+ TSearchService.Instance.PublishSourceSearch(nil, dsList.List);
 //#UC END# *4C3A96BD0239_497DDB2B001Bexec_impl*
 end;//TPrimListForm.LocalList_PublishSourceSearchInList_Execute
 
@@ -3451,7 +3455,7 @@ procedure TPrimListForm.LocalList_SearchDrugInList_Execute(const aParams: IvcmEx
 //#UC END# *4C3A97210318_497DDB2B001Bexec_var*
 begin
 //#UC START# *4C3A97210318_497DDB2B001Bexec_impl*
- TdmStdRes.InpharmSearch(nil, dsList.List, nil);
+ TSearchService.Instance.InpharmSearch(nil, dsList.List, nil);
 //#UC END# *4C3A97210318_497DDB2B001Bexec_impl*
 end;//TPrimListForm.LocalList_SearchDrugInList_Execute
 
@@ -3611,7 +3615,7 @@ begin
    // http://mdp.garant.ru/pages/viewpage.action?pageId=414849606
    if (l_Cont <> nil) then
    try
-    TdmStdRes.OpenList(l_Data, l_Cont);
+    TListService.Instance.OpenList(l_Data, l_Cont);
    finally
     l_Cont := nil;
    end;//try..finally
@@ -3651,7 +3655,7 @@ procedure TPrimListForm.Selection_Analize_Execute(const aParams: IvcmExecutePara
 begin
 //#UC START# *4C8103FB02FD_497DDB2B001Bexec_impl*
  if Assigned(dsDocumentList) then
-  TdmStdRes.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
+  TListService.Instance.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
 //#UC END# *4C8103FB02FD_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Selection_Analize_Execute
 
@@ -3671,7 +3675,7 @@ procedure TPrimListForm.LocalList_SearchInList_Execute(const aParams: IvcmExecut
 //#UC END# *4C810A2702D9_497DDB2B001Bexec_var*
 begin
 //#UC START# *4C810A2702D9_497DDB2B001Bexec_impl*
- TdmStdRes.AttributeSearch(nil, dsList.List, nil);
+ TSearchService.Instance.AttributeSearch(nil, dsList.List, nil);
 //#UC END# *4C810A2702D9_497DDB2B001Bexec_impl*
 end;//TPrimListForm.LocalList_SearchInList_Execute
 
@@ -3692,9 +3696,9 @@ procedure TPrimListForm.Filters_FiltersListOpen_Execute(const aParams: IvcmExecu
 begin
 //#UC START# *4C81191003E5_497DDB2B001Bexec_impl*
  if (ucpFilters = nil) then
-  TdmStdRes.OldSchoolFiltersOpen(Aggregate, nil, Self)
+  TFiltersService.Instance.OldSchoolFiltersOpen(Aggregate, nil, Self)
  else
-  TdmStdRes.FiltersOpen(ucpFilters);
+  TFiltersService.Instance.FiltersOpen(ucpFilters);
 //#UC END# *4C81191003E5_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Filters_FiltersListOpen_Execute
 
@@ -3817,7 +3821,7 @@ procedure TPrimListForm.List_Analize_Execute(const aParams: IvcmExecuteParamsPri
 begin
 //#UC START# *53DB376C0239_497DDB2B001Bexec_impl*
  if Assigned(dsDocumentList) then
-  TdmStdRes.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
+  TListService.Instance.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
 //#UC END# *53DB376C0239_497DDB2B001Bexec_impl*
 end;//TPrimListForm.List_Analize_Execute
 
@@ -4371,6 +4375,8 @@ function TPrimListForm.DoSaveState(out theState: IvcmBase;
  {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_497DDB2B001B_var*
 var
+ l_Current: Integer;
+ l_TopIndex: Integer;
  l_InnerState: IvcmBase;
  l_cfState: IUnknown;
  l_cfStateMaker: IvcmState;
@@ -4379,6 +4385,8 @@ var
 //#UC END# *49806ED503D5_497DDB2B001B_var*
 begin
 //#UC START# *49806ED503D5_497DDB2B001B_impl*
+ l_Current := tvList.Current;
+ l_TopIndex := tvList.TopIndex;
  theState := nil;
  l_InnerState := nil;
  l_TreeStructState := nil;
@@ -4387,15 +4395,20 @@ begin
  begin
   if Supports(tvList.TreeStruct, InsTreeStructStateProvider, l_TreeStructStateProvider) then
    l_TreeStructState := l_TreeStructStateProvider.MakeState;
+   
   if Supports(cfList, IvcmState, l_cfStateMaker) then
    if l_cfStateMaker.SaveState(l_cfState, vcm_stContent) then
-    theState := TPrimListFormState.Make(l_InnerState, l_cfState, l_TreeStructState, tvList.TopIndex, tvList.Current,
-                                        [lfoContextFilterState, lfoTopItemIndex, lfoCurrentIndex, lfoTreeStructState, lfoInner], f_WasFiltered);
+    theState := TPrimListFormState.Make(l_InnerState, l_cfState, l_TreeStructState,
+      tvList.TopIndex, tvList.Current,
+      [lfoContextFilterState, lfoTopItemIndex, lfoCurrentIndex,
+      lfoTreeStructState, lfoInner], f_WasFiltered);
+      
   if (theState = nil) then
    theState := TPrimListFormState.Make(l_InnerState, nil, nil, 0, 0, [lfoInner], f_WasFiltered);
  end
  else
-  theState := TPrimListFormState.Make(l_InnerState, nil, nil, 0, 0, [lfoInner], f_WasFiltered);
+  theState := TPrimListFormState.Make(l_InnerState, nil, nil, l_TopIndex,
+   l_Current, [lfoInner, lfoTopItemIndex, lfoCurrentIndex], f_WasFiltered);
 //#UC END# *49806ED503D5_497DDB2B001B_impl*
 end;//TPrimListForm.DoSaveState
 
@@ -4405,6 +4418,7 @@ function TPrimListForm.DoLoadState(const aState: IvcmBase;
  {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_497DDB2B001B_var*
 var
+ l_TreeStruct: Il3SimpleTree;
  l_StateReceiver: IvcmState;
  l_State: IPrimListFormState;
  l_TreeStructState: InsTreeStructState;
@@ -4434,7 +4448,7 @@ begin
      if (lfoContextFilterState in l_State.Options) then
      begin
       cfList.BeginAssignState;
-      l_StateReceiver.LoadState(l_State.ContextFilterState, aStateType);
+      l_StateReceiver.LoadState(l_State.ContextFilterState, aStateType, aClone);
       l_WasActive := cfList.Active;
       cfList.Active := False;
       // - если будет Active - контекст почему-то будет считаться неверным
@@ -4446,7 +4460,7 @@ begin
     Result := True;
    end
    else
-    Result := inherited DoLoadState(l_InnerState, aStateType);
+    Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
   end
   else
    Assert(False)
@@ -4454,20 +4468,28 @@ begin
  else
  begin
   l_InnerState := aState;
-  if Supports(aState, IPrimListFormState, l_State) then
-  begin
-   l_InnerState := l_State.InnerState;
-   if (lfoCurrentIndex in l_State.Options) then
-    tvList.Current := l_State.CurrentIndex;
-   if (lfoTreeStructState in l_State.Options) then
-    if Supports(tvList.TreeStruct, InsTreeStructStateConsumer, l_TreeStructStateConsumer) then
-     l_TreeStructStateConsumer.AssignState(l_State.TreeStructState);
-   if (lfoTopItemIndex in l_State.Options) then
-    tvList.TopIndex := l_State.TopItemIndex;
-   f_WasFiltered := l_State.WasFiltered
-  end;
-  Result := inherited DoLoadState(l_InnerState, aStateType);
- end; 
+  if (not (aClone and (UserType in [lftUserCR1, lftUserCR2]) and (not IsActiveInParent))) then
+   if Supports(aState, IPrimListFormState, l_State) then
+   begin
+    l_TreeStruct := tvList.TreeStruct;
+    try
+     Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
+     l_InnerState := l_State.InnerState;
+     if (lfoCurrentIndex in l_State.Options) then
+      tvList.Current := l_State.CurrentIndex;
+     if (lfoTreeStructState in l_State.Options) then
+      if Supports(l_TreeStruct, InsTreeStructStateConsumer, l_TreeStructStateConsumer) then
+       l_TreeStructStateConsumer.AssignState(l_State.TreeStructState);
+     if (lfoTopItemIndex in l_State.Options) then
+      tvList.TopIndex := l_State.TopItemIndex;
+     f_WasFiltered := l_State.WasFiltered;
+     Exit;
+    finally
+     l_TreeStruct := nil;
+    end;
+   end;
+  Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
+ end;
 //#UC END# *49807428008C_497DDB2B001B_impl*
 end;//TPrimListForm.DoLoadState
 

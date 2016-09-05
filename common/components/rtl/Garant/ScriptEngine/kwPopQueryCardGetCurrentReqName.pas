@@ -39,6 +39,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4FDB10E9009Aimpl_uses*
+ //#UC END# *4FDB10E9009Aimpl_uses*
 ;
 
 procedure TkwPopQueryCardGetCurrentReqName.DoCard(const aCtx: TtfwContext;

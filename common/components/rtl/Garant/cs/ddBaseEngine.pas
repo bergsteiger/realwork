@@ -80,7 +80,6 @@ Uses
  dt_Const,
  dt_Serv,
  dt_DocImages,
- dt_UserConst,
 
  htDataProviderParams,
 

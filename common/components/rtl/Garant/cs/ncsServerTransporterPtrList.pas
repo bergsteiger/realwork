@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5492D7AC0214impl_uses*
+ //#UC END# *5492D7AC0214impl_uses*
 ;
 
 type _Instance_R_ = TncsServerTransporterPtrList;

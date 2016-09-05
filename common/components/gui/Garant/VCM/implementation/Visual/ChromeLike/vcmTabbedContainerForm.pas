@@ -66,7 +66,8 @@ type
      {* Сигнатура метода DoGiveFocusToContainedForm }
    procedure LoadSettings;
    procedure NotifyComponentsMainFormChanged(aForm: TvcmEntityForm);
-   procedure NotifyComponentsSelectionChanged(aNewSelectedForm: TvcmEntityForm);
+   procedure NotifyComponentsSelectionChanged(aPrevSelectedForm: TvcmEntityForm;
+     aNewSelectedForm: TvcmEntityForm);
    procedure NotifyContainedFormsOnClosing;
    procedure WMClose(var aMessage: TWMClose); message WM_CLOSE;
    procedure WMEnable(var aMessage: TWMEnable); message WM_ENABLE;
@@ -388,7 +389,8 @@ begin
  lp_NotifyComponent(aForm);
 end;//TvcmTabbedContainerForm.NotifyComponentsMainFormChanged
 
-procedure TvcmTabbedContainerForm.NotifyComponentsSelectionChanged(aNewSelectedForm: TvcmEntityForm);
+procedure TvcmTabbedContainerForm.NotifyComponentsSelectionChanged(aPrevSelectedForm: TvcmEntityForm;
+  aNewSelectedForm: TvcmEntityForm);
 
  procedure lp_NotifyComponent(const aComponent: TComponent; aIsActive: Boolean);
 
@@ -416,16 +418,10 @@ procedure TvcmTabbedContainerForm.NotifyComponentsSelectionChanged(aNewSelectedF
    lp_NotifyComponent(aComponent.Components[l_Index], aIsActive);
  end;//lp_NotifyComponent
 
-var
- l_Index: Integer;
- l_Form: TForm;
 begin
- for l_Index := 0 to Pred(TabSet.TabCount) do
- begin
-  l_Form := TabSet.Tabs[l_Index].Form;
-  Assert(l_Form <> nil);
-  lp_NotifyComponent(l_Form, l_Form = aNewSelectedForm);
- end;
+ if (aPrevSelectedForm <> nil) then
+  lp_NotifyComponent(aPrevSelectedForm, False);
+ lp_NotifyComponent(aNewSelectedForm, True);
 end;//TvcmTabbedContainerForm.NotifyComponentsSelectionChanged
 
 procedure TvcmTabbedContainerForm.NotifyContainedFormsOnClosing;
@@ -968,16 +964,21 @@ procedure TvcmTabbedContainerForm.DoOnTabSetSelectionChanged(aTabSet: TChromeLik
   aPrevSelected: TChromeLikeTab;
   aNewSelected: TChromeLikeTab);
 var
+ l_PrevSelectedForm: TForm;
  l_Form: TForm;
 begin
  Assert(aNewSelected.Form <> nil);
+ if (aPrevSelected <> nil) then
+  l_PrevSelectedForm := aPrevSelected.Form
+ else
+  l_PrevSelectedForm := nil;
+  
  l_Form := aNewSelected.Form;
  if (not l3SystemDown) and
     (l_Form <> nil) and
     (not l_Form.Floating) then
  begin
   DisableOthers(l_Form);
-  NotifyComponentsSelectionChanged(l_Form as TvcmEntityForm);
   SetActiveWindow(l_Form.Handle);
   SetWindowPos(l_Form.Handle, HWND(0), l_Form.Left, l_Form.Top, l_Form.Width, l_Form.Height,
    SWP_NOSIZE or SWP_NOMOVE or SWP_NOZORDER);
@@ -987,6 +988,7 @@ begin
   UpdateMenu(l_Form);
   SetFocusToSelectedForm;
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=578894988
+  NotifyComponentsSelectionChanged(l_PrevSelectedForm as TvcmEntityForm, l_Form as TvcmEntityForm);  
  end;
  UpdateContainedFormsActions;
 end;//TvcmTabbedContainerForm.DoOnTabSetSelectionChanged
@@ -1026,6 +1028,8 @@ procedure TvcmTabbedContainerForm.AfterInsertForm(aForm: TForm;
   const aParams: Il3TabParams;
   aNeedSelect: Boolean);
 var
+ l_PrevSelectedForm: TForm;
+ l_PrevSelectedEntityForm: TvcmEntityForm;
  l_Form: TvcmEntityForm;
 begin
  inherited;
@@ -1033,6 +1037,9 @@ begin
  begin
   UpdateWindow(f_Menu.Handle);
   UpdateWindow(Handle);
+
+  l_PrevSelectedForm := TabSet.SelectedTab.Form;
+
 
   l_Form := aForm as TvcmEntityForm;
 
@@ -1059,7 +1066,10 @@ begin
   if aNeedSelect then
   begin
    DisableOthers(aForm);
-   NotifyComponentsSelectionChanged(l_Form);
+   l_PrevSelectedEntityForm := nil;
+   if (l_PrevSelectedForm <> nil) then
+    l_PrevSelectedEntityForm := l_PrevSelectedForm as TvcmEntityForm;
+   NotifyComponentsSelectionChanged(l_PrevSelectedEntityForm, l_Form);
    // - http://mdp.garant.ru/pages/viewpage.action?pageId=589883482
   end;
   TvgRemindersLineManager.CheckZOrder;

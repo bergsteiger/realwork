@@ -61,6 +61,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *533D14960061impl_uses*
+ //#UC END# *533D14960061impl_uses*
 ;
 
 function TChromeLikeLegacyWindowCaptionButton.GetButtonStateFlag: UINT;

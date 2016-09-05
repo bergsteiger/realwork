@@ -7,7 +7,7 @@ interface
 uses
  csProcessTask,
  Classes,
- DT_types,
+ daTypes,
  csUserDefinedExportTaskPrim
  ;
 
@@ -16,7 +16,7 @@ type
  protected
   procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); override;
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
   procedure DoSaveTo(aStream: TStream; aIsPipe: Boolean); override;
  end;//TcsUserDefinedExport
 
@@ -31,7 +31,7 @@ uses
 {
 ****************************** TddExportTaskItem *******************************
 }
-constructor TcsUserDefinedExport.Create(aUserID: TUserID);
+constructor TcsUserDefinedExport.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType := cs_ttUserDefinedExport;

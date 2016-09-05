@@ -4,7 +4,7 @@ interface
 
 uses
   ddProgressObj,
-  DT_Types,
+  daTypes,
   csProcessTask,
   csAutoSpellTaskPrim
   ;
@@ -14,7 +14,7 @@ type
  protected
   function GetDescription: AnsiString; override;
  public
-  constructor Create(aUserID: TUserID); override;
+  constructor Create(aUserID: TdaUserID); override;
  end;//TcsAutoSpellTask
 
 implementation
@@ -25,7 +25,7 @@ uses
 {
 ****************************** TcsAutoSpellTask *******************************
 }
-constructor TcsAutoSpellTask.Create(aUserID: TUserID);
+constructor TcsAutoSpellTask.Create(aUserID: TdaUserID);
 begin
  inherited;
  //TaskType := cs_ttAutoSpellCheck;

@@ -160,6 +160,8 @@ uses
  , SysUtils
  , nevPersistentDocumentContainer
  , k2NullTagImpl
+ //#UC START# *47F4D44C01BFimpl_uses*
+ //#UC END# *47F4D44C01BFimpl_uses*
 ;
 
 type _Instance_R_ = TevLocationBase;

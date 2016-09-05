@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , AutoExportTaskResult_Const
+ //#UC START# *54001C560310impl_uses*
+ //#UC END# *54001C560310impl_uses*
 ;
 
 function TalcuAutoExportTaskResult.pm_GetReportMessage: AnsiString;

@@ -42,6 +42,8 @@ implementation
 uses
  l3ImplUses
  , EverestLiteAdapter
+ //#UC START# *512D9C2D013Fimpl_uses*
+ //#UC END# *512D9C2D013Fimpl_uses*
 ;
 
 class function TkwCreate.GetWordNameForRegister: AnsiString;

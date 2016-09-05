@@ -39,6 +39,8 @@ uses
  , l3Base
  , evResultFontHolder
  , l3Memory
+ //#UC START# *4E55134F0348impl_uses*
+ //#UC END# *4E55134F0348impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

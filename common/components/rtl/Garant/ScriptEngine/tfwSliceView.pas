@@ -59,6 +59,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *55E5904F02A5impl_uses*
+ //#UC END# *55E5904F02A5impl_uses*
 ;
 
 constructor TtfwSliceLambda.Create(aCount: Integer;

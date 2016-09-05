@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , nsDocumentToolsNew
+ //#UC START# *4B1FC0FC010Eimpl_uses*
+ //#UC END# *4B1FC0FC010Eimpl_uses*
 ;
 
 constructor TnsIDocumentDataObject.Create(const aData: IDocument);

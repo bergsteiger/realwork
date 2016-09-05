@@ -58,6 +58,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *546F398E0203impl_uses*
+ //#UC END# *546F398E0203impl_uses*
 ;
 
 procedure TncsFileListDeliverer.PrepareDescription(const aList: FileDescHelper);

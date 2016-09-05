@@ -78,6 +78,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4829D7E80085impl_uses*
+ //#UC END# *4829D7E80085impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}

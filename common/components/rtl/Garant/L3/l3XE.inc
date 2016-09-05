@@ -25,13 +25,3 @@
 
   {$define DelphiX}
 {$endif}
-{$IfDef VER310}
-  {$define XE}
-  {$define XE1}
-  {$define XE2}
-  {$define XE3}
-  {$define XE4}
-
-  {$define DelphiX}
-  {$define DelphiBerlin}
-{$endif}

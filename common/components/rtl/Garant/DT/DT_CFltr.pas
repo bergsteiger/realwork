@@ -1,8 +1,11 @@
 Unit Dt_CFltr;
 
-{ $Id: DT_CFltr.pas,v 1.125 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: DT_CFltr.pas,v 1.126 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: DT_CFltr.pas,v $
+// Revision 1.126  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.125  2015/07/02 11:41:29  lukyanets
 // Описываем словари
 //
@@ -378,6 +381,8 @@ uses
   l3DatLst,k2TagGen,
   evdBufferedFilter,
 
+  daTypes,
+
   Dt_Const, Dt_Types, dt_AttrSchema, dt_ImpExpTypes,
   Dt_aTbl, Dt_TblCache, DT_TblCacheDef,
   Dt_Dict, Dt_Renum,
@@ -426,11 +431,11 @@ type
      Так же применяется при вставке текста из файлов
      ExpandedFormat - также вставляет Classes, Types, Sources and other Dict attr}
   protected
-   fFamily          : TFamilyID;
+   fFamily          : TdaFamilyID;
    fTargetDocID     : TDocID;
    fExpandedFormat  : Boolean;
 
-   fCurHLAddress    : TGlobalCoordinateRec;
+   fCurHLAddress    : TdaGlobalCoordinateRec;
    fCurLinkID       : LongInt;
    fCurSubRec       : TClipSubRec;
    fCurDictType     : TdaDictionaryType;
@@ -450,7 +455,7 @@ type
 
    function  GetObject: TObject;
         {* - получить объект из обертки. }
-   procedure   SetFamily(aValue : TFamilyID);
+   procedure   SetFamily(aValue : TdaFamilyID);
    procedure   SetTDocID(aValue : TDocID);
 
    Procedure   ClearIterationData;
@@ -481,7 +486,7 @@ type
    procedure   OpenStream; override;
    procedure   CloseStream(NeedUndo : Boolean); override;
 
-   property    Family : TFamilyID read fFamily write SetFamily;
+   property    Family : TdaFamilyID read fFamily write SetFamily;
    property    TargetDocID : TDocID read fTargetDocID write SetTDocID;
    property    ExpandedFormat : Boolean read fExpandedFormat write fExpandedFormat;
     {* - if its true, from clibboard may get Classes, Types, Sources and other Dict attr.}
@@ -499,7 +504,7 @@ type
      Так же применяется при вставке текста из файлов
      ExpandedFormat - также вставляет Classes, Types, Sources and other Dict attr}
   protected
-   fFamily : TFamilyID;
+   fFamily : TdaFamilyID;
    fExternalDocData : Boolean;
    fOnGetNewHandleID  : TdtGetNewHandleID;
    fOnInsertDocAttribute : TdtInsertDocAttribute;
@@ -525,7 +530,7 @@ type
 
    function DictDecoder  : TDictItemDecoder;
   public
-   property    Family : TFamilyID read fFamily write fFamily;
+   property    Family : TdaFamilyID read fFamily write fFamily;
 
    property    ExternalDocData : Boolean read fExternalDocData write fExternalDocData;
     {* - Данные идут из внешнего источника, DictID не правильный}
@@ -538,7 +543,7 @@ type
 
 (* TConvertorToInternalFormat = class(Tk2TagTerminator)
   protected
-   fFamily        : TFamilyID;
+   fFamily        : TdaFamilyID;
    fLevelSlash    : AnsiString;
 
    fBasesList,
@@ -552,7 +557,7 @@ type
    fCurDocID      : TDocID;
    fImpDictRec    : TImpDictRec;
 
-   procedure   SetFamily(aValue : TFamilyID);
+   procedure   SetFamily(aValue : TdaFamilyID);
    procedure   SetLevelSlash(aValue : AnsiString);
 
    procedure   ClearDataStorage;
@@ -575,7 +580,7 @@ type
 
    procedure   CloseStructure(NeedUndo : Bool); override;
 
-   property    Family : TFamilyID read fFamily write SetFamily;
+   property    Family : TdaFamilyID read fFamily write SetFamily;
    property    LevelSlash : AnsiString read fLevelSlash write SetLevelSlash;
  end;
 *)
@@ -583,13 +588,13 @@ type
  THLinkAddrToInternal = class(Tk2TagFilter)
  { - заменяет в гиперссылках внешние номера на внутренние}
   protected
-   fFamily        : TFamilyID;
+   fFamily        : TdaFamilyID;
    fReNumTbl      : TReNumTbl;
 
-   procedure   SetFamily(aValue : TFamilyID);
+   procedure   SetFamily(aValue : TdaFamilyID);
    procedure   AddAtomEx(AtomIndex : Long; const Value : Tk2Variant); override;
   public
-   property    Family : TFamilyID read fFamily write SetFamily;
+   property    Family : TdaFamilyID read fFamily write SetFamily;
  end;
 
 
@@ -603,22 +608,22 @@ type
    override;
 
  protected
-  fFamily        : TFamilyID;
+  fFamily        : TdaFamilyID;
   fCurDocID      : TDocID;
   fCacheAttrData : Tl3ObjectRefArray;
 
   function AttrData(aAttrType : TCacheType): TCacheDiffAttrData;
-  procedure SetFamily(aValue : TFamilyID);
+  procedure SetFamily(aValue : TdaFamilyID);
   procedure SetCurDocID(aValue : TDocID);
  public
-  constructor Create(anOwner : TComponent; aFamily : TFamilyID);
+  constructor Create(anOwner : TComponent; aFamily : TdaFamilyID);
   procedure   CloseStream(NeedUndo : Boolean);
    override;
   procedure   CloseStructure(NeedUndo: Bool);
    override;
          {-}
   procedure StartChild(TypeID: Tl3VariantDef); override;
-  class function SetTo(var aGenerator: Tk2TagGenerator; aFamily: TFamilyID; aDocID: TDocID): Tk2TagGenerator; overload;
+  class function SetTo(var aGenerator: Tk2TagGenerator; aFamily: TdaFamilyID; aDocID: TDocID): Tk2TagGenerator; overload;
   property    CurDocID : TDocID read fCurDocID write SetCurDocID;
  end;
  *)
@@ -632,15 +637,15 @@ type
    override;
 
  protected
-  fFamily        : TFamilyID;
+  fFamily        : TdaFamilyID;
   fCurDocID      : TDocID;
   fCacheAttrData : Tl3ObjectRefArray;
 
   function AttrData(aAttrType : TCacheType): TCacheDiffAttrData;
-  procedure SetFamily(aValue : TFamilyID);
+  procedure SetFamily(aValue : TdaFamilyID);
   procedure SetCurDocID(aValue : TDocID);
  public
-  constructor Create(anOwner : TComponent; aFamily : TFamilyID);
+  constructor Create(anOwner : TComponent; aFamily : TdaFamilyID);
   procedure CloseStream(NeedUndo : Boolean);
    override;
   procedure CloseStructure(NeedUndo: Bool);
@@ -665,8 +670,6 @@ uses
   k2Tags,
   k2Base,
   k2Facade,
-
-  daTypes,
 
   Dt_Serv,
   Dt_Hyper,
@@ -722,7 +725,7 @@ begin
  Result := Self;
 end;
 
-procedure TGetClipboardFilter.SetFamily(aValue : TFamilyID);
+procedure TGetClipboardFilter.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily <> aValue then
  begin
@@ -1527,7 +1530,7 @@ end;
 //************************ TConvertorToInternalFormat **************************
 
 {Protected methods}
-procedure TConvertorToInternalFormat.SetFamily(aValue : TFamilyID);
+procedure TConvertorToInternalFormat.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily <> aValue then
  begin
@@ -1889,7 +1892,7 @@ end;
 //************************ THLinkAddrToInternal **************************
 
 {Protected methods}
-procedure THLinkAddrToInternal.SetFamily(aValue : TFamilyID);
+procedure THLinkAddrToInternal.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily <> aValue then
  begin
@@ -1926,13 +1929,13 @@ end;
 
 (*
 {TSaveDocFilter2}
-constructor TSaveDocFilter2.Create(anOwner : TComponent; aFamily : TFamilyID);
+constructor TSaveDocFilter2.Create(anOwner : TComponent; aFamily : TdaFamilyID);
 begin
  Inherited Create(anOwner);
  SetFamily(aFamily);
 end;
 
-procedure TSaveDocFilter2.SetFamily(aValue : TFamilyID);
+procedure TSaveDocFilter2.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily <> aValue then
  begin
@@ -2055,7 +2058,7 @@ begin
  inherited;
 end;
 
-class function TSaveDocFilter2.SetTo(var aGenerator: Tk2TagGenerator; aFamily: TFamilyID; aDocID: TDocID): Tk2TagGenerator;
+class function TSaveDocFilter2.SetTo(var aGenerator: Tk2TagGenerator; aFamily: TdaFamilyID; aDocID: TDocID): Tk2TagGenerator;
 begin
  Result := inherited SetTo(aGenerator);
  with TSaveDocFilter2(aGenerator) do
@@ -2066,7 +2069,7 @@ begin
 end;
 *)
 
-constructor TUltraLiteSaveDocFilter.Create(anOwner : TComponent; aFamily : TFamilyID);
+constructor TUltraLiteSaveDocFilter.Create(anOwner : TComponent; aFamily : TdaFamilyID);
 begin
  Inherited Create(anOwner);
  SetFamily(aFamily);
@@ -2177,7 +2180,7 @@ begin
  end;
 end;
 
-procedure TUltraLiteSaveDocFilter.SetFamily(aValue : TFamilyID);
+procedure TUltraLiteSaveDocFilter.SetFamily(aValue : TdaFamilyID);
 begin
  if fFamily <> aValue then
  begin

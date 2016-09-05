@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *49196E5F01CDimpl_uses*
+ //#UC END# *49196E5F01CDimpl_uses*
 ;
 
 function TnevFormatInfoArray.pm_GetItems(anIndex: Integer): TnevFormatInfo;

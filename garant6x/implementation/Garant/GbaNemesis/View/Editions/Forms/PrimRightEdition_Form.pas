@@ -150,6 +150,7 @@ uses
  , evSubImplementation
  , DataAdapter
  , Base_Operations_View_Controls
+ , Base_Operations_F1Services_Contracts
  , BaseSearchInterfaces
  , l3Base
  , l3InterfacesMisc
@@ -182,7 +183,6 @@ uses
  , nsExternalObjectModelPart
  , nsSaveDialogExecutor
  , l3BatchService
- , Base_Operations_F1Services_Contracts
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit
@@ -385,7 +385,7 @@ begin
   Exit;
  Assert(not l_NewDoc.IsSameView(l_Doc));
  SetFocusToText;
- TdmStdRes.MakeCompareEditions(l_NewDoc, GetParaForPositionning, CompareEditions.EditionForCompare, EditionDiff.DocumentForReturn);
+ TEditionsService.Instance.MakeCompareEditions(l_NewDoc, GetParaForPositionning, CompareEditions.EditionForCompare, EditionDiff.DocumentForReturn);
 //#UC END# *4B55BB7F0172_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.DoEditionChanged
 

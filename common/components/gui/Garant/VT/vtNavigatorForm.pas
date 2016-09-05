@@ -42,6 +42,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *47CD0E4E001Fimpl_uses*
+ //#UC END# *47CD0E4E001Fimpl_uses*
 ;
 
 function TvtNavigatorForm.pm_GetCloseHandler: IvcmFormHandler;

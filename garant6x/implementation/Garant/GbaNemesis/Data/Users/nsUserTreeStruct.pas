@@ -41,6 +41,8 @@ uses
  , nsUserFlagsFilters
  , l3Interfaces
  , SecurityUnit
+ //#UC START# *4906E96C0364impl_uses*
+ //#UC END# *4906E96C0364impl_uses*
 ;
 
 function TnsUserTreeStruct.ReAqurieUnfilteredRoot: INodeBase;

@@ -2,9 +2,12 @@ Unit Base_CFG;
 
 { Различные настройки и доточки напильником }
 
-{ $Id: Base_CFG.pas,v 1.7 2013/06/14 13:57:47 voba Exp $ }
+{ $Id: Base_CFG.pas,v 1.8 2016/06/16 05:38:42 lukyanets Exp $ }
 
 // $Log: Base_CFG.pas,v $
+// Revision 1.8  2016/06/16 05:38:42  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.7  2013/06/14 13:57:47  voba
 // - K:435458154
 //
@@ -31,7 +34,7 @@ interface
 
 Uses
  l3IniFile, l3Base,
- dt_Types, Classes,
+ daTypes, Classes,
  l3LongintList
  ;
 
@@ -66,7 +69,7 @@ type
    write pm_SetMagicNumbersList;
  end;
 
-procedure InitBaseConfig(aFamily: TFamilyID);
+procedure InitBaseConfig(aFamily: TdaFamilyID);
 procedure DoneBaseConfig;
 
 var
@@ -80,7 +83,7 @@ Uses
  rxStrUtils;
 
 
-procedure InitBaseConfig(aFamily: TFamilyID);
+procedure InitBaseConfig(aFamily: TdaFamilyID);
 var
  l_FileName: String;
 begin

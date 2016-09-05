@@ -51,6 +51,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4845367E03B1impl_uses*
+ //#UC END# *4845367E03B1impl_uses*
 ;
 
 procedure TevTunedEditor.WMKeyDown(var Msg: TWMKeyDown);

@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52D65E6902A8impl_uses*
+ //#UC END# *52D65E6902A8impl_uses*
 ;
 
 procedure TkwSubDescriptorFromStackWord.DoObject(anObject: TObject;

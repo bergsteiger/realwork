@@ -61,6 +61,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ //#UC START# *4982B6510327impl_uses*
+ //#UC END# *4982B6510327impl_uses*
 ;
 
 function vcmCheckAndMake(var aRef: IvcmFormDataSourceRef;

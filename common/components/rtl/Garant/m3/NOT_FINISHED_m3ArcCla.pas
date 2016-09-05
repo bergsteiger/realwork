@@ -32,6 +32,8 @@ uses
  l3ImplUses
  , m3ArcHandle
  , m3ArcHandleList
+ //#UC START# *542A9FC5028Bimpl_uses*
+ //#UC END# *542A9FC5028Bimpl_uses*
 ;
 
 end.

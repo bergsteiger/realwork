@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52DFF03B0030impl_uses*
+ //#UC END# *52DFF03B0030impl_uses*
 ;
 
 function TkwBeginLikeCompiledCode.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;

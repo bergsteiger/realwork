@@ -28,6 +28,8 @@ uses
  , l3String
  , m3StorageHolder
  , l3Memory
+ //#UC START# *542E8D2902F1impl_uses*
+ //#UC END# *542E8D2902F1impl_uses*
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

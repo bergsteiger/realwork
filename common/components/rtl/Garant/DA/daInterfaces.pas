@@ -24,7 +24,7 @@ uses
 
 const
  c_BadVersion = 0;
- c_DocBaseVersion = {$ifDef DBVer134} 134 {$ELSE} 133 {$ENDIF};
+ c_DocBaseVersion = {$ifDef HT_NEWDLL} 135 {$ELSE} 134 {$ENDIF};
  c_AdminBaseVersion = c_DocBaseVersion;
  usSupervisor = 1;
  usAdminReservedHard = $FFFFFFFE;
@@ -718,6 +718,17 @@ type
    ActFlag: Byte;
    const EditMask: TdaUserEditMask);
   procedure DelUser(aUser: TdaUserID);
+  procedure GetUserListOnGroup(aUsGroup: TdaUserGroupID;
+   aList: Tl3StringDataList;
+   GetActiveUsersOnly: Boolean = False);
+  procedure GetFiltredUserList(aList: TStrings;
+   aOnlyActive: Boolean = False);
+  procedure GetDocGroupData(aUserGroup: TdaUserGroupID;
+   aFamily: TdaFamilyID;
+   aDocDataList: Tl3StringDataList);
+  procedure PutDocGroupData(aUserGroup: TdaUserGroupID;
+   aFamily: TdaFamilyID;
+   aDocDataList: Tl3StringDataList);
   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
   procedure IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
   property AllUsers: Tl3StringDataList
@@ -782,6 +793,10 @@ type
   function MakeAggregateField(anOperation: TdaAggregateOperation;
    const aField: IdaSelectField;
    const anAlias: AnsiString): IdaSelectField;
+  function MakeBitwiseCondition(const aTableAlias: AnsiString;
+   const aField: IdaFieldDescription;
+   anOperation: TdaBitwiseOperator;
+   aValue: Int64): IdaCondition;
   property DataConverter: IdaDataConverter
    read Get_DataConverter;
  end;//IdaTableQueryFactory
@@ -862,6 +877,10 @@ type
   procedure AddUserGroupShadow(anID: TdaUserGroupID;
    const aName: AnsiString);
  end;//IdaComboAccessUserManagerHelper
+
+ IdaBitwiseCondition = interface
+  ['{5AB5F8E7-F639-4768-978A-912F8FEE497C}']
+ end;//IdaBitwiseCondition
 
 function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: Pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }

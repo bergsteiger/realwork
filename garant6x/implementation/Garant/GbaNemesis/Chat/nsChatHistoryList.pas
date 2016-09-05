@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , ChatInterfaces
  , l3Memory
+ //#UC START# *4A6EAAEC023Cimpl_uses*
+ //#UC END# *4A6EAAEC023Cimpl_uses*
 ;
 
 type _Instance_R_ = TnsChatHistoryList;

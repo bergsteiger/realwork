@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , l3SimpleObject
+ //#UC START# *481866FC03E0impl_uses*
+ //#UC END# *481866FC03E0impl_uses*
 ;
 
 constructor TnevObjectHolder.Create(const anObject: InevObject);

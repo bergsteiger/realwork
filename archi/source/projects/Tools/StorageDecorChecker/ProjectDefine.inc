@@ -38,12 +38,13 @@
 {$Undef l3UseFPU}
 {$Undef evStoreSubsIndex} //Не записывает список использованых меток в док, а набирает его при чтении =======
 {$DEFINE l3CheckUnfreedResources}
-{$DEFINE l3TraceClasses}
+{.$DEFINE l3TraceClasses}
 {$DEFINE NewPubDict}
 {.$DEFINE RemoteDict} // Удаленное редактирование словарей
 {$DEFINE LoginEx} // Все пути получаются с Парня
 {.$DEFINE evdCheckFrames}
 {$DEFINE HT_NEWDLL}
+{$Define k2ForEditor}
 
 {.$Define DelLogTrace}
 

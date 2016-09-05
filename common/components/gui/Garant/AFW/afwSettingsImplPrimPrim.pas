@@ -62,6 +62,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F6C6EAD0053impl_uses*
+ //#UC END# *4F6C6EAD0053impl_uses*
 ;
 
 function TafwKeyValue_C(const aKey: Il3CString;

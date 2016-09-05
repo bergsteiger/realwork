@@ -31,6 +31,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *4ACA30C3014Cimpl_uses*
+ //#UC END# *4ACA30C3014Cimpl_uses*
 ;
 
 constructor TnscFixedHeightControlCell.Create(aControl: TControl);

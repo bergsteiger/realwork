@@ -28,6 +28,8 @@ implementation
 {$If Defined(AppClientSide)}
 uses
  l3ImplUses
+ //#UC START# *4E202A8502E6impl_uses*
+ //#UC END# *4E202A8502E6impl_uses*
 ;
 
 function GetInsTextNode(var anInsText: PAnsiChar): Boolean;

@@ -41,6 +41,8 @@ uses
  , CsConst
  , SysUtils
  , CsProcWithId
+ //#UC START# *538DEBEA032Dimpl_uses*
+ //#UC END# *538DEBEA032Dimpl_uses*
 ;
 
 class procedure TCsReplyTool.ProcessQuery(aPipe: TCsDataPipe;

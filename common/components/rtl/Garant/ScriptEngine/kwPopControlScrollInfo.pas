@@ -32,6 +32,8 @@ uses
  , Windows
  , Controls
  , Forms
+ //#UC START# *51793AE70134impl_uses*
+ //#UC END# *51793AE70134impl_uses*
 ;
 
 procedure TkwPopControlScrollInfo.DoScrollInfo(const aCtx: TtfwContext);

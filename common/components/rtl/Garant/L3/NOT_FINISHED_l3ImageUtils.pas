@@ -30,6 +30,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4CB861CA00F8impl_uses*
+ //#UC END# *4CB861CA00F8impl_uses*
 ;
 
 procedure l3BuildComparisonImage;

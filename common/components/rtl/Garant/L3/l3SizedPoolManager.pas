@@ -30,6 +30,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *545A25F5016Cimpl_uses*
+ //#UC END# *545A25F5016Cimpl_uses*
 ;
 
 constructor Tl3SizedPoolManager.Create(aBlockSize: Cardinal;

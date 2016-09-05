@@ -53,6 +53,8 @@ uses
  , BaseTypesUnit
  , nsNewCachableNode
  , nsMainMenuNode
+ //#UC START# *4909EF3B02B1impl_uses*
+ //#UC END# *4909EF3B02B1impl_uses*
 ;
 
 function TnsBaseMainMenuTree.MakeRoot: Il3RootNode;

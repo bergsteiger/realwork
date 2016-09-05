@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *533D33DC0092impl_uses*
+ //#UC END# *533D33DC0092impl_uses*
 ;
 
 procedure UpdateWindowFrame(aHWnd: HWND);

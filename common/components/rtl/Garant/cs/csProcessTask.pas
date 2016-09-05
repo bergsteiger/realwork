@@ -11,7 +11,7 @@ uses
  ddServerTask,
  l3LongintList,
  CsTaskTypes,
- DT_types,
+ daTypes,
  DT_Const,
 
   {$If defined(AppServerSide)}
@@ -37,7 +37,7 @@ type
  IcsRunTaskServices = interface(IUnknown)
    ['{38851828-B75C-4B6B-8017-90CA9E1ADC3E}']
    procedure AddActiveTask(const aTask: TddProcessTask);
-   procedure SendTextMessage(anUserID: TUserID;
+   procedure SendTextMessage(anUserID: TdaUserID;
     const aMessage: AnsiString);
  end;//IcsRunTaskServises
 
@@ -83,7 +83,7 @@ type
   {$EndIf Archi}
     property StatusW: TcsTaskStatus write pm_SetStatus;
   public
-    constructor Create(aUserID: TUserID); override;
+    constructor Create(aUserID: TdaUserID); override;
     function CanSimultaneousRunWith(const aTask: TddProcessTask): Boolean; virtual;
     function IgnoreStrangeExitCode: Boolean; virtual;
     procedure Abort;
@@ -168,7 +168,6 @@ uses
 
   k2Tags,
   ProcessTask_Const,
-  DT_UserConst,
 
   Math,
   DateUtils,
@@ -595,7 +594,7 @@ begin
   f_AbortProcessorList.Remove(aProcessor);
 end;
 
-constructor TddProcessTask.Create(aUserID: TUserID);
+constructor TddProcessTask.Create(aUserID: TdaUserID);
 begin
   inherited Create(aUserID);
   f_AbortProcessorList := Tl3InterfacePtrList.Make;

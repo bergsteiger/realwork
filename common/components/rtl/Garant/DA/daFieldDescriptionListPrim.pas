@@ -43,6 +43,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *5538E9AE0163impl_uses*
+ //#UC END# *5538E9AE0163impl_uses*
 ;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}

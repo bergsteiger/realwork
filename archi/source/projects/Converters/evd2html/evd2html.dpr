@@ -1,13 +1,12 @@
 program evd2html;
 
-{ $Id: evd2html.dpr,v 1.2 2015/10/13 13:22:34 fireton Exp $ }
+{ $Id: evd2html.dpr,v 1.9 2016/06/15 11:42:47 dinishev Exp $ }
 
 {$I evDefine.inc}
 {$I ProjectDefine.inc}
 
 uses
   SysUtils,
-  
   l3Types,
   l3Base,
   l3Chars,
@@ -15,16 +14,16 @@ uses
   l3Filer,
   l3String,
   l3FileUtils,
-
   k2TagGen,
   k2Reader,
-
   ddHTMLWriter,
+  ddProfNewsHTMLWriter,
   ddNSRC_r,
   evdReader,
   ddDocTypeDetector,
-  ddPipeOutInterfaces
-  ;
+  evCommentDecorator,
+  ddPipeOutInterfaces,
+  e2hCommentsFilter in 'e2hCommentsFilter.pas';
 
 {$R *.res}
 {$R versioninfo.res}
@@ -42,7 +41,12 @@ procedure BadParams(const aMsg: string);
 begin
  Writeln(DS(aMsg));
  Writeln;
- Writeln(DS('Использование: evd2html [-n] <входной файл> [<директория для результата>]'));
+ Writeln(DS('Использование: evd2html [-<ключ> [-<ключ>...]] <входной файл> [<директория для результата>]'));
+ Writeln(DS('Возможные ключи:'));
+ Writeln(DS('  -n  -  входной файл формата NSRC (по умолчанию считается EVD)'));
+ Writeln(DS('  -e  -  генерировать внешние ссылки на документы Гарант'));
+ Writeln(DS('  -t  -  выкинуть все технические комментарии'));
+ Writeln(DS('  -c  -  внешний CSS (не создаётся, вставляется link на garantdoc.css)'));
  ExitCode := 1;
 end;
 
@@ -57,6 +61,9 @@ var
  l_InFileName  : string;
  l_OutDir      : string;
  l_IsNSRC      : Boolean;
+ l_ExtLinks    : Boolean;
+ l_SkipTechComm  : Boolean;
+ l_ExternalCSS : Boolean;
  NoTopicIdx    : Integer;
 
 procedure DoOnNewDocument(Sender: TObject; TopicNo: Longint; aPart: TddExportDocPart; MainGroup: ShortString);
@@ -84,10 +91,13 @@ end;
 
 
 begin
- Writeln('Everest and NSRC to HTML converter, (c) 2015 Garant Service');
+ Writeln('Everest and NSRC to HTML converter, (c) 2015-2016 Garant Service');
  Writeln;
  InFileNameIndex := 1;
  l_IsNSRC := False;
+ l_ExtLinks := False;
+ l_SkipTechComm := False;
+ l_ExternalCSS := False;
  while (InFileNameIndex < ParamCount) do
  begin
   Switch := ParamStr(InFileNameIndex);
@@ -96,6 +106,9 @@ begin
    Inc(InFileNameIndex);
    case Switch[2] of
     'n', 'N': l_IsNSRC := True;
+    'e', 'E': l_ExtLinks := True;
+    't', 'T': l_SkipTechComm := True;
+    'c', 'C': l_ExternalCSS := True;
    else
     BadParams(Format('Неизвестная опция (%s) в параметрах', [Switch[2]]));
     Exit;
@@ -134,10 +147,18 @@ begin
     OutFiler.Filename := '#doc.html'; // имя нужно, иначе не запустится труба
     OutFiler.Mode := l3_fmWrite;
     try
-     TddHTMLGenerator.SetTo(G);
+     if l_ExternalCSS then
+      TddProfNewsHTMLWriter.SetTo(G)
+     else
+      TddHTMLGenerator.SetTo(G);
      TddHTMLGenerator(G).Filer := OutFiler;
+     TddHTMLGenerator(G).UseExternalLinks := l_ExtLinks;
+     if not l_ExternalCSS then
+	     TevCommentDecorator.SetTo(G);
      TddDocTypeDetector.SetTo(G);
      TddDocTypeDetector(G).OnStartDocumentProc := DoOnNewDocument;
+     if l_SkipTechComm then
+      Te2hCommentsFilter.SetTo(G);
      if l_IsNSRC then
       TCustomNSRCReader.SetTo(G)
      else

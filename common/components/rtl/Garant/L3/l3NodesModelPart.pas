@@ -659,6 +659,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *54C61BFC0342impl_uses*
+ //#UC END# *54C61BFC0342impl_uses*
 ;
 
 function Tl3PrimNode.DoGetLevel: Integer;

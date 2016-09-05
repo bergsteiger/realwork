@@ -35,6 +35,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F66F88103D4impl_uses*
+ //#UC END# *4F66F88103D4impl_uses*
 ;
 
 type _Instance_R_ = Tl3CBTListenersList;

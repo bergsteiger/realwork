@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , ChatInterfaces
  , l3Memory
+ //#UC START# *4A6D7E35012Cimpl_uses*
+ //#UC END# *4A6D7E35012Cimpl_uses*
 ;
 
 type _Instance_R_ = TnsChatWindowList;

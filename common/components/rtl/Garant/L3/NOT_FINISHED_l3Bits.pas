@@ -27,6 +27,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F2612701D0impl_uses*
+ //#UC END# *47F2612701D0impl_uses*
 ;
 
 procedure l3ClearMask(var W: Integer;

@@ -19,6 +19,8 @@ implementation
 {$If Defined(l3Requires_m0)}
 uses
  l3ImplUses
+ //#UC START# *54C6422703E7impl_uses*
+ //#UC END# *54C6422703E7impl_uses*
 ;
 {$IfEnd} // Defined(l3Requires_m0)
 

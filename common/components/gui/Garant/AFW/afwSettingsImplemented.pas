@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , afwSettingsImplSing
+ //#UC START# *4F6C6F250398impl_uses*
+ //#UC END# *4F6C6F250398impl_uses*
 ;
 
 constructor TafwSettingsImplemented.Create;

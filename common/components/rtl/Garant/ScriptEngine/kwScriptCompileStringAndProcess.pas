@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , kwCompiledScriptCompileStringAndProcess
+ //#UC START# *56420D340374impl_uses*
+ //#UC END# *56420D340374impl_uses*
 ;
 
 function TkwScriptCompileStringAndProcess.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;

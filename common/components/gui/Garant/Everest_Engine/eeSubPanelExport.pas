@@ -45,6 +45,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4C7F94A9028Dimpl_uses*
+ //#UC END# *4C7F94A9028Dimpl_uses*
 ;
 
 function TeeSubPanelExport.GetHotSpot(aSubType: Integer;

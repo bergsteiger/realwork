@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , kwBracketEnd
  , kwTypedBeginLikeCompiledCode
+ //#UC START# *4DBFBBE603E5impl_uses*
+ //#UC END# *4DBFBBE603E5impl_uses*
 ;
 
 function TkwBracketBegin.EndBracket(const aContext: TtfwContext;

@@ -56,6 +56,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5538D0A902AFimpl_uses*
+ //#UC END# *5538D0A902AFimpl_uses*
 ;
 
 constructor TdaFieldDescription.Create(const aSQLName: AnsiString;
@@ -74,6 +76,7 @@ begin
  f_Required := aRequired;
  f_DataType := aType;
  f_Size := aSize;
+ f_IsPrimaryKey := anIsPrimaryKey;
 //#UC END# *5538D15A03E5_5538D0A902AF_impl*
 end;//TdaFieldDescription.Create
 

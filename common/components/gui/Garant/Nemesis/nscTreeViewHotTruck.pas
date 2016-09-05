@@ -69,6 +69,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B60346A022Eimpl_uses*
+ //#UC END# *4B60346A022Eimpl_uses*
 ;
 
 procedure TnscTreeViewHotTruck.pm_SetAllowTrucking(aValue: Boolean);

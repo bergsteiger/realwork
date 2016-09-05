@@ -19,6 +19,7 @@ uses
  , eeInterfaces
  , l3Interfaces
  , FoldersDomainInterfaces
+ , Base_Operations_F1Services_Contracts
  , UnderControlUnit
  , DocumentAndListInterfaces
  {$If NOT Defined(NoVCM)}
@@ -68,6 +69,8 @@ uses
  , l3Base
  , l3Utils
  , afwFacade
+ //#UC START# *4A717FA60328impl_uses*
+ //#UC END# *4A717FA60328impl_uses*
 ;
 
 type _Instance_R_ = TdsRightEdition;

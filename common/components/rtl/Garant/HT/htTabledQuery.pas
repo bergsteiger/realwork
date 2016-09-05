@@ -53,6 +53,8 @@ uses
  , HT_DLL
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
+ //#UC START# *5551AB1602F4impl_uses*
+ //#UC END# *5551AB1602F4impl_uses*
 ;
 
 constructor ThtTabledQuery.Create(const aFactory: IdaTableQueryFactory;
@@ -132,7 +134,7 @@ procedure ThtTabledQuery.UnPrepareTable;
  begin
   Result := True;
   if Supports(anItem, IhtFromTable, l_Table) then
-   l_Table.Unprepare(f_Helper);
+   l_Table.Unprepare;
  end;
 
 //#UC END# *566A893B03C7_5551AB1602F4_var*

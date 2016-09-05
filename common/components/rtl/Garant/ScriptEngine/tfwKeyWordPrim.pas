@@ -31,6 +31,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4FFEEC080367impl_uses*
+ //#UC END# *4FFEEC080367impl_uses*
 ;
 
 constructor TtfwKeyWordPrim.Create(const aKeyword: Il3CString);

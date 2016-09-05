@@ -35,6 +35,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4E737EFA0153impl_uses*
+ //#UC END# *4E737EFA0153impl_uses*
 ;
 
 constructor TnsNewCachableNodeThatNeedKeepRoot.Create(const aNode: INodeBase;

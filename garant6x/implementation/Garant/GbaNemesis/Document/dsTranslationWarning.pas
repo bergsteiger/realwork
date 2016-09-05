@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4EDCF6BC00D9impl_uses*
+ //#UC END# *4EDCF6BC00D9impl_uses*
 ;
 
 function TdsTranslationWarning.DoGetDocInfo: IdeDocInfo;

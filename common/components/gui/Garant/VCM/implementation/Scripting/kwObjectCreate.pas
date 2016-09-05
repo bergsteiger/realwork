@@ -52,6 +52,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , StdRes
  , afwAnswer
+ //#UC START# *4E29311F0055impl_uses*
+ //#UC END# *4E29311F0055impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}

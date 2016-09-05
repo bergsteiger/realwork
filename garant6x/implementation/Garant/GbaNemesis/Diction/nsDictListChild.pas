@@ -40,6 +40,8 @@ uses
  l3ImplUses
  , BaseTypesUnit
  , l3Chars
+ //#UC START# *46836BEC0307impl_uses*
+ //#UC END# *46836BEC0307impl_uses*
 ;
 
 constructor TnsDictListChild.Create(const aNode: INodeBase;

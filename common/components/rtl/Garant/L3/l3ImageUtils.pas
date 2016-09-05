@@ -1,8 +1,11 @@
 unit l3ImageUtils;
 
-{ $Id: l3ImageUtils.pas,v 1.18 2016/06/10 08:16:45 dinishev Exp $ }
+{ $Id: l3ImageUtils.pas,v 1.19 2016/06/28 09:04:28 lulin Exp $ }
 
 // $Log: l3ImageUtils.pas,v $
+// Revision 1.19  2016/06/28 09:04:28  lulin
+// - считаем #10 разделителем строк дл€ чтени€ файла построчно.
+//
 // Revision 1.18  2016/06/10 08:16:45  dinishev
 // ¬озможность сохран€ть эталоны в PNG
 //
@@ -321,11 +324,14 @@ begin
 end;
 
 procedure l3SaveScreenShot2File(aFileName: AnsiString; aLeft, aTop, aWidth, aHeight: Integer; aHandle: THandle);
+{$IfNDef NoImageEn}
 var
  l_IO    : TImageEnIO;
  l_Bitmap: TBitmap;
  l_Stream: Tl3MemoryStream;
+{$EndIf  NoImageEn}
 begin
+ {$IfNDef NoImageEn}
  l_Bitmap := TBitmap.Create;
  try
   l3MakeScreenShot(l_Bitmap, aLeft, aTop, aWidth, aHeight, aHandle);
@@ -351,6 +357,9 @@ begin
  finally
   FreeAndNil(l_Bitmap);
  end;
+ {$Else  NoImageEn}
+ Assert(false);
+ {$EndIf  NoImageEn}
 end;
 
 procedure l3BitmapToAlphaPNG(aBitmap: TBitmap; aDest: TStream);

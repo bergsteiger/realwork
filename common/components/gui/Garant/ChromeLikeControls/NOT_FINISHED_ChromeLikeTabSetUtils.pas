@@ -18,6 +18,8 @@ implementation
 uses
  l3ImplUses
  , ChromeLikeTabSetTypes
+ //#UC START# *5507DFA9031Eimpl_uses*
+ //#UC END# *5507DFA9031Eimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 

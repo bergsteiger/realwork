@@ -1,6 +1,6 @@
 unit DocAttrToolsIntf;
 
-{ $Id: DocAttrToolsIntf.pas,v 1.12 2015/10/02 09:23:48 lukyanets Exp $ }
+{ $Id: DocAttrToolsIntf.pas,v 1.13 2016/06/16 05:38:41 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -13,6 +13,7 @@ interface
   l3Variant,
   l3Chars,
   l3Date,
+  daTypes,
   DT_Types,
   DocAttrIntf,
   dtIntf,
@@ -71,8 +72,8 @@ interface
    procedure SetEndDate  (aIndex : Integer; aDate : TstDate);
    function  GetStartDate(aIndex : Integer): TstDate;
    function  GetEndDate  (aIndex : Integer): TstDate;
-   function  GetAuthor   (aIndex : Integer): TUserID;
-   procedure SetAuthor   (aIndex : Integer; aUserID : TUserID);
+   function  GetAuthor   (aIndex : Integer): TdaUserID;
+   procedure SetAuthor   (aIndex : Integer; aUserID : TdaUserID);
   end;
 
   IActiveIntervalsAttributeTool = interface(IListDocAttribute)

@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , ddHTMLReader
+ //#UC START# *4802FF6101DEimpl_uses*
+ //#UC END# *4802FF6101DEimpl_uses*
 ;
 
 function TevHTMLDataObject.ReaderClass: Rk2CustomReader;

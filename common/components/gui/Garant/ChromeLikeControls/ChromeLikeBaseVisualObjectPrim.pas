@@ -194,6 +194,8 @@ uses
  , Windows
  , ChromeLikeTabSetUtils
  , Math
+ //#UC START# *5506A3B0036Eimpl_uses*
+ //#UC END# *5506A3B0036Eimpl_uses*
 ;
 
 function TChromeLikeMargins.pm_GetLeft: Integer;

@@ -81,6 +81,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B2F5BB102A4impl_uses*
+ //#UC END# *4B2F5BB102A4impl_uses*
 ;
 
 function TTimeInfo_C(aDate: TDateTime;

@@ -40,6 +40,8 @@ uses
  , l3Memory
  , l3Base
  , l3Chars
+ //#UC START# *4680F7E70110impl_uses*
+ //#UC END# *4680F7E70110impl_uses*
 ;
 
 function Tl3StorableDataObject.Store(aFormat: Tl3ClipboardFormat;

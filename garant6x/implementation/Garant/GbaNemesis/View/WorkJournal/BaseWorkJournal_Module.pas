@@ -12,7 +12,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , WorkJournalInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -29,15 +28,14 @@ type
  TvcmModule
  {$IfEnd} // NOT Defined(NoVCM)
  )
-  protected
+  private
    procedure opOpenJournalTest(const aParams: IvcmTestParamsPrim);
    procedure opOpenJournalExecute(const aParams: IvcmExecuteParamsPrim);
+  protected
    procedure Loaded; override;
    {$If NOT Defined(NoVCM)}
    class procedure GetEntityForms(aList: TvcmClassList); override;
    {$IfEnd} // NOT Defined(NoVCM)
-  public
-   class function MakeWorkJournal: IbsWorkJournal;
  end;//TBaseWorkJournalModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -46,8 +44,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
+ , WorkJournalInterfaces
  , PrimWorkJournal_utWorkJournal_UserType
  , bsWorkJournal
+ , SysUtils
+ , l3Base
  , WorkJournal_Form
  //#UC START# *4A811C1A0293impl_uses*
  , vcmInterfaces
@@ -55,7 +60,26 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TBaseWorkJournalModule.MakeWorkJournal: IbsWorkJournal;
+type
+ TWorkJournalServiceImpl = {final} class(TvcmModuleContractImplementation, IWorkJournalService)
+  public
+   function MakeWorkJournal: IbsWorkJournal;
+   class function Instance: TWorkJournalServiceImpl;
+    {* Метод получения экземпляра синглетона TWorkJournalServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TWorkJournalServiceImpl
+
+var g_TWorkJournalServiceImpl: TWorkJournalServiceImpl = nil;
+ {* Экземпляр синглетона TWorkJournalServiceImpl }
+
+procedure TWorkJournalServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TWorkJournalServiceImpl }
+begin
+ l3Free(g_TWorkJournalServiceImpl);
+end;//TWorkJournalServiceImplFree
+
+function TWorkJournalServiceImpl.MakeWorkJournal: IbsWorkJournal;
 var
  __WasEnter : Boolean;
 //#UC START# *4A827E40004E_4A811C1A0293_var*
@@ -70,30 +94,47 @@ begin
   if __WasEnter then
    vcmLeaveFactory;
  end;//try..finally
-end;//TBaseWorkJournalModule.MakeWorkJournal
+end;//TWorkJournalServiceImpl.MakeWorkJournal
+
+class function TWorkJournalServiceImpl.Instance: TWorkJournalServiceImpl;
+ {* Метод получения экземпляра синглетона TWorkJournalServiceImpl }
+begin
+ if (g_TWorkJournalServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TWorkJournalServiceImplFree);
+  g_TWorkJournalServiceImpl := Create;
+ end;
+ Result := g_TWorkJournalServiceImpl;
+end;//TWorkJournalServiceImpl.Instance
+
+class function TWorkJournalServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TWorkJournalServiceImpl <> nil;
+end;//TWorkJournalServiceImpl.Exists
 
 procedure TBaseWorkJournalModule.opOpenJournalTest(const aParams: IvcmTestParamsPrim);
-//#UC START# *4A97C7C0019C_4A811C1A0293test_var*
-//#UC END# *4A97C7C0019C_4A811C1A0293test_var*
+//#UC START# *579F752900CF_4A811C1A0293test_var*
+//#UC END# *579F752900CF_4A811C1A0293test_var*
 begin
-//#UC START# *4A97C7C0019C_4A811C1A0293test_impl*
+//#UC START# *579F752900CF_4A811C1A0293test_impl*
 // Do nothing
-//#UC END# *4A97C7C0019C_4A811C1A0293test_impl*
+//#UC END# *579F752900CF_4A811C1A0293test_impl*
 end;//TBaseWorkJournalModule.opOpenJournalTest
 
 procedure TBaseWorkJournalModule.opOpenJournalExecute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4A97C7C0019C_4A811C1A0293exec_var*
+//#UC START# *579F752900CF_4A811C1A0293exec_var*
 var
  l_Window: IvcmEntityForm;
-//#UC END# *4A97C7C0019C_4A811C1A0293exec_var*
+//#UC END# *579F752900CF_4A811C1A0293exec_var*
 begin
-//#UC START# *4A97C7C0019C_4A811C1A0293exec_impl*
+//#UC START# *579F752900CF_4A811C1A0293exec_impl*
  l_Window := TWorkJournalForm.MakeSingleChild(DefaultContainer,
                                vcmMakeParams(nil, DefaultContainer),
                                vcm_ztNavigator,
                                Ord(utWorkJournal));
  l_Window.SetActiveInParent;
-//#UC END# *4A97C7C0019C_4A811C1A0293exec_impl*
+//#UC END# *579F752900CF_4A811C1A0293exec_impl*
 end;//TBaseWorkJournalModule.opOpenJournalExecute
 
 procedure TBaseWorkJournalModule.Loaded;
@@ -107,6 +148,10 @@ begin
  inherited;
  aList.Add(TWorkJournalForm);
 end;//TBaseWorkJournalModule.GetEntityForms
+
+initialization
+ TWorkJournalService.Instance.Alien := TWorkJournalServiceImpl.Instance;
+ {* Регистрация TWorkJournalServiceImpl }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

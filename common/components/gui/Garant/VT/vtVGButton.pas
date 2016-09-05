@@ -46,6 +46,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D494D3601A8impl_uses*
+ //#UC END# *4D494D3601A8impl_uses*
 ;
 
 procedure TvtVGButton.UpdateDuplicateButton;

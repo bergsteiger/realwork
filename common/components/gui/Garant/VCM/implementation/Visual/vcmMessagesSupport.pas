@@ -141,6 +141,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4E01D696020Cimpl_uses*
+ //#UC END# *4E01D696020Cimpl_uses*
 ;
 
 var g_TvcmHugeMessageDlgWithWikiImpl: TvcmHugeMessageDlgWithWikiImpl = nil;

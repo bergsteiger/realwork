@@ -61,6 +61,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B1660B9000Dimpl_uses*
+ //#UC END# *4B1660B9000Dimpl_uses*
 ;
 
 var g_TnsContextFilterEventListener: TnsContextFilterEventListener = nil;

@@ -45,6 +45,8 @@ implementation
 uses
  l3ImplUses
  , mdpImportDocs_Const
+ //#UC START# *55EEC220007Fimpl_uses*
+ //#UC END# *55EEC220007Fimpl_uses*
 ;
 
 function TcsMdpImportDocs.pm_GetMail: AnsiString;

@@ -78,6 +78,8 @@ uses
  , l3Tree_TLB
  , l3String
  , nscTasksPanelView
+ //#UC START# *508EBD970342impl_uses*
+ //#UC END# *508EBD970342impl_uses*
 ;
 
 {$If NOT Defined(NoVCL)}

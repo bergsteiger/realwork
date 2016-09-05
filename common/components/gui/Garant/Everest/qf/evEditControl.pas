@@ -101,6 +101,8 @@ uses
  , k2Tags
  , l3Chars
  , SysUtils
+ //#UC START# *48D2409102B7impl_uses*
+ //#UC END# *48D2409102B7impl_uses*
 ;
 
 procedure TevEditControl.DoSynchronizeSelectedValueWithText;

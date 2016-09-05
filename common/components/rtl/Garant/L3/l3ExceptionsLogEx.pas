@@ -29,6 +29,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *540EE27400BEimpl_uses*
+ //#UC END# *540EE27400BEimpl_uses*
 ;
 
 {$If Defined(_m0USEFORMS1)}

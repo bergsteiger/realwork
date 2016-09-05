@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5465B85E011Bimpl_uses*
+ //#UC END# *5465B85E011Bimpl_uses*
 ;
 
 constructor ListTreeView.Make;

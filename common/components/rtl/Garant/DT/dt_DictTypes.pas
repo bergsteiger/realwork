@@ -21,7 +21,7 @@ type
 
  PDictMessageRec = ^TDictMessageRec;
  TDictMessageRec = record
-                    Family      : TFamilyID;
+                    Family      : TdaFamilyID;
                     DictType    : TdaDictionaryType;
                     Operation   : TOperActionType;
                     ID,
@@ -58,7 +58,7 @@ type
                     Date    : TStDate;
                     Sour    : TDictID;
                     Typ     : TCorType;
-                    Author  : TUserID;
+                    Author  : TdaUserID;
                     Comment : Array[1..70] of Char;
                    end;
 

@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *51E7BEA10022impl_uses*
+ //#UC END# *51E7BEA10022impl_uses*
 ;
 
 procedure TddRTFParser.Cleanup;

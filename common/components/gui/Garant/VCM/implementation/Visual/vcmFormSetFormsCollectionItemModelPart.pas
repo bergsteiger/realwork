@@ -47,6 +47,8 @@ implementation
 uses
  l3ImplUses
  , vcmFormSetFormsCollectionPrim
+ //#UC START# *4FFC4EA6004Aimpl_uses*
+ //#UC END# *4FFC4EA6004Aimpl_uses*
 ;
 
 function TvcmFormSetFormsCollectionItemModelPart.pm_GetFormList: TvcmFormSetFormList;

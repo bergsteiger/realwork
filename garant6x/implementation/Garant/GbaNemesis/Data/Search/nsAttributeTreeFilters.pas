@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *490203C503ADimpl_uses*
+ //#UC END# *490203C503ADimpl_uses*
 ;
 
 function TnsAttributeTreeFilters.pm_GetFilterType: TnsFilterType;

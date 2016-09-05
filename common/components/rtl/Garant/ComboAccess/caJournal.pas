@@ -61,6 +61,8 @@ uses
  , daSelectFieldList
  , caResultSet
  , SysUtils
+ //#UC START# *56BD8F200154impl_uses*
+ //#UC END# *56BD8F200154impl_uses*
 ;
 
 constructor TcaJournal.Create(const aFactory: IdaTableQueryFactory;

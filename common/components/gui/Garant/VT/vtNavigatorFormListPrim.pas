@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , vtNavigatorForm
  , l3Memory
+ //#UC START# *47D68267011Dimpl_uses*
+ //#UC END# *47D68267011Dimpl_uses*
 ;
 
 function TvtFormHandlerID_C(anObject: TObject): TvtFormHandlerID;

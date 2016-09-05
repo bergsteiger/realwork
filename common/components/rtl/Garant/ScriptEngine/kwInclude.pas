@@ -43,6 +43,8 @@ uses
  l3ImplUses
  , kwIncluded
  , l3String
+ //#UC START# *4DC1949F00E1impl_uses*
+ //#UC END# *4DC1949F00E1impl_uses*
 ;
 
 function TkwInclude.EndBracket(const aContext: TtfwContext;

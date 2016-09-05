@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *55BA0CA0035Aimpl_uses*
+ //#UC END# *55BA0CA0035Aimpl_uses*
 ;
 
 var g_TtfwCompiledAxiomaticsRes: TtfwCompiledAxiomaticsRes = nil;

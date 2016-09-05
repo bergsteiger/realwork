@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , SysUtils
  , daInterfaces
+ //#UC START# *5538E9E500EEimpl_uses*
+ //#UC END# *5538E9E500EEimpl_uses*
 ;
 
 {$If not Declared(_ItemType_)}type _ItemType_ = IdaFieldDescription;{$IfEnd}

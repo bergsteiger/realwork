@@ -69,6 +69,8 @@ uses
  , dt_Renum
  {$IfEnd} // NOT Defined(Nemesis)
  , TestFrameWork
+ //#UC START# *51948F2601E9impl_uses*
+ //#UC END# *51948F2601E9impl_uses*
 ;
 
 procedure TietBaseTest.DoIt;

@@ -1,7 +1,10 @@
 unit Main;
 
-{ $Id: Main.pas,v 1.25 2016/06/10 11:43:37 lukyanets Exp $ }
+{ $Id: Main.pas,v 1.26 2016/08/10 12:48:43 lukyanets Exp $ }
 // $Log: Main.pas,v $
+// Revision 1.26  2016/08/10 12:48:43  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.25  2016/06/10 11:43:37  lukyanets
 // Пересаживаем UserManager на новые рельсы
 //
@@ -179,7 +182,7 @@ uses
  daDataProvider,
  Ht_Dll, Ht_Const,
  Dt_Srch, Dt_Query, Dt_Doc, Dt_Hyper, Dt_Free, Dt_Containers,
- Dt_Mail, l3IniFile, Dt_user, Dt_Stage, Dt_Dict, Dt_ATbl, Dt_Renum,
+ Dt_Mail, l3IniFile, Dt_Stage, Dt_Dict, Dt_ATbl, Dt_Renum,
  D_pass, DictsSup, StrShop,
  //ddUserRequest,
  l3FileUtils, l3Date, l3Memory, 
@@ -543,7 +546,7 @@ begin
   f_JobStatistics := nil;
  end;
 
- UserManager.GetFiltredUserList(cbUser.Items);
+ GlobalDataProvider.UserManager.GetFiltredUserList(cbUser.Items);
  cbUser.Items.Insert(0, '[ВСЕ]');
  cbStage.Items.Insert(0, '[ВСЕ]');
  For I := Succ(Succ(Low(TStageType))) to High(TStageType) do

@@ -109,6 +109,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwFiltersAndGeneratorsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47ECAA270135impl_uses*
+ //#UC END# *47ECAA270135impl_uses*
 ;
 
 procedure Tk2TagGenerator.AddAtom(AtomIndex: Integer;

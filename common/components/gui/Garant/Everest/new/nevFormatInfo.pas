@@ -239,6 +239,8 @@ uses
  , l3ImageList
  , evdTextStyle_Const
  , evTextStyle_Const
+ //#UC START# *4810DFE100B4impl_uses*
+ //#UC END# *4810DFE100B4impl_uses*
 ;
 
 function TnevFormatInfo.pm_GetlocDeltaHeight: Integer;

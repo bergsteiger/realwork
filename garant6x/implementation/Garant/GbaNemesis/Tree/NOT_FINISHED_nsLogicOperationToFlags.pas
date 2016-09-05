@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49243E5C035Cimpl_uses*
+ //#UC END# *49243E5C035Cimpl_uses*
 ;
 
 procedure GetOperationIterator;

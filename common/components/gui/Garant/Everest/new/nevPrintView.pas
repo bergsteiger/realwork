@@ -53,6 +53,8 @@ uses
  , evdTypes
  , evTextStyle_Const
  , k2Tags
+ //#UC START# *4812119C00C1impl_uses*
+ //#UC END# *4812119C00C1impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas}

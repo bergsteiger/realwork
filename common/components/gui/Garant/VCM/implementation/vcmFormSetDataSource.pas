@@ -35,6 +35,8 @@ uses
  , vcmLocalInterfaces
  , l3Base
  , SysUtils
+ //#UC START# *494141D20217impl_uses*
+ //#UC END# *494141D20217impl_uses*
 ;
 
 type _Instance_R_ = TvcmFormSetDataSource;

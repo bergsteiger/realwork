@@ -3,7 +3,7 @@ unit DtSupport;
 interface
  uses
   daTypes,
-  DT_Const, DT_Types, DT_Serv,  DT_User,
+  DT_Const, DT_Types, DT_Serv,  
   dt_AttrSchema;
 
  const
@@ -21,13 +21,6 @@ interface
   agPublished    = 4;
 
  function dsStagesAccessMask: TTblMask;
-
- function GlobalCoord( aFamily : TFamilyID;
-                       aDoc    : TDocID;
-                       aSub    : TSubID) : TGlobalCoordinateRec; overload;
-
- function GlobalCoord(aDoc    : TDocID;
-                      aSub    : TSubID) : TGlobalCoordinateRec;  overload;
 
  function dsGetCurrentUserName : String;
 
@@ -68,24 +61,6 @@ function dsGetCurrentUserName : String;
   GlobalDataProvider.UserManager.GetUserInfo(GlobalDataProvider.UserID, lUserName, ltmpLoginName, ltmpActFlag);
   Result := lUserName;
  end;
-
-function GlobalCoord( aFamily : TFamilyID;
-                      aDoc    : TDocID;
-                      aSub    : TSubID) : TGlobalCoordinateRec;
-begin
- with Result do
- begin
-  Family := aFamily;
-  Doc    := aDoc;
-  Sub    := aSub;
- end;
-end;
-
-function GlobalCoord(aDoc    : TDocID;
-                     aSub    : TSubID) : TGlobalCoordinateRec;
-begin
- Result := GlobalCoord(0, aDoc, aSub);
-end;
 
 function dsStagesAccessMask: TTblMask;
 begin

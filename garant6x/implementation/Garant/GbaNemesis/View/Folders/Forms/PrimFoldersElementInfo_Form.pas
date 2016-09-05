@@ -1269,7 +1269,7 @@ begin
     else
     begin
      f_CurType := fiNone;
-     Container.Operation(TdmStdRes.opcode_AdditionInfo_Hide);
+     Container.Operation(opcode_AdditionInfo_Hide);
     end;
   end;
  end;

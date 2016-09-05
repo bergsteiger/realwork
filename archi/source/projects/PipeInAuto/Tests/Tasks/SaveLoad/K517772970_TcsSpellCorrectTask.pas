@@ -47,6 +47,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ //#UC START# *53B25C540327impl_uses*
+ //#UC END# *53B25C540327impl_uses*
 ;
 
 function TK517772970_TcsSpellCorrectTask.TaskClass: TddTaskClass;

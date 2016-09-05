@@ -1,6 +1,6 @@
 unit DocAttrUtils;
 
-{ $Id: DocAttrUtils.pas,v 1.26 2016/05/13 12:54:31 lukyanets Exp $ }
+{ $Id: DocAttrUtils.pas,v 1.29 2016/08/11 11:37:08 lukyanets Exp $ }
 {$I arDefine.inc}
 interface
  Uses
@@ -18,7 +18,6 @@ interface
   DT_Dict,
   DT_Link,
   DT_Doc,
-  DT_User,
   DT_Active,
   DT_Alarm,
   dt_DictTypes,
@@ -160,7 +159,6 @@ begin
     Append(l3PCharLen(GenStDateString(lDate)));
    end;
 
-   {$ifdef DBver134}
    if (lDNType = dnChangerDate) then
    begin
     with aItem.Attr[k2_tiLinkAddress] do
@@ -174,7 +172,6 @@ begin
      end
    end
    else
-   {$endif}
     if aItem.PCharLenA[k2_tiNumber].SLen > 0 then
     begin
      if (lDate <> BlankDate) then
@@ -292,7 +289,7 @@ begin
   end;
 
   if Author <> 0 then
-   Result := Result + ', корректор : ' + UserManager.GetUserDisplayName(TUserID(Author));
+   Result := Result + ', корректор : ' + UserManager.GetUserDisplayName(TdaUserID(Author));
 
   CStr := l3ArrayToString(Comment, SizeOf(Comment));
   if Length(CStr) > 0 then Result := Result + ' (' + CStr + ')';
@@ -723,7 +720,7 @@ begin
   Result := 'В архиве : ' +  aPaperPlace
  else
   if aPaperUser <> 0 then
-   Result := 'У пользователя : ' +  UserManager.GetUserDisplayName(TUserID(aPaperUser));
+   Result := 'У пользователя : ' +  UserManager.GetUserDisplayName(TdaUserID(aPaperUser));
 end;
 
 function GenWarningString(aDictText, aUserText : AnsiString) : AnsiString;

@@ -43,6 +43,8 @@ uses
  , SysUtils
  , l3Types
  , l3String
+ //#UC START# *4AD846290145impl_uses*
+ //#UC END# *4AD846290145impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistoryPrim.imp.pas}

@@ -27,6 +27,8 @@ uses
  , SysUtils
  , l3Parser
  , tfwParserInterfaces
+ //#UC START# *55C1F59F001Cimpl_uses*
+ //#UC END# *55C1F59F001Cimpl_uses*
 ;
 
 class procedure TtfwCOMaker.Make(const aFileName: AnsiString);

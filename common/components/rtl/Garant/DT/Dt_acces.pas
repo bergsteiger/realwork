@@ -1,8 +1,14 @@
 Unit Dt_Acces;
 
-{ $Id: Dt_acces.pas,v 1.47 2016/05/30 10:07:01 voba Exp $ }
+{ $Id: Dt_acces.pas,v 1.49 2016/06/16 07:47:47 lukyanets Exp $ }
 
 // $Log: Dt_acces.pas,v $
+// Revision 1.49  2016/06/16 07:47:47  lukyanets
+// Развязываем зависимости
+//
+// Revision 1.48  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.47  2016/05/30 10:07:01  voba
 // -k:623913569
 //
@@ -140,6 +146,7 @@ Unit Dt_Acces;
 
 Interface
 Uses
+ daTypes,
  Dt_ATbl,
  Dt_Types,
  l3Base,
@@ -160,12 +167,12 @@ Type
   public
    constructor Create; Reintroduce;
 
-   procedure   GetFamilyMasksForUG(aFamily : TFamilyID;
-                                   aUG_ID  : TUserGrID; aBuf : PAnsiChar; MaxDocGroup : TDictID);
-   procedure   GetFamilyMasks(aFamily : TFamilyID;aBuf : PAnsiChar;MaxDocGroup : TDictID);
-   procedure   UpdateMask(aFamily : TFamilyID; aUG_ID  : TUserGrID;
+   procedure   GetFamilyMasksForUG(aFamily : TdaFamilyID;
+                                   aUG_ID  : TdaUserGroupID; aBuf : PAnsiChar; MaxDocGroup : TDictID);
+   procedure   GetFamilyMasks(aFamily : TdaFamilyID;aBuf : PAnsiChar;MaxDocGroup : TDictID; const aGroups: TdaUserGroupIDArray);
+   procedure   UpdateMask(aFamily : TdaFamilyID; aUG_ID  : TdaUserGroupID;
                           aDG_ID : TDictID;NewMask : TTblMask);
-   procedure   DelUserGroup(aUG_ID : TUserGrID);
+   procedure   DelUserGroup(aUG_ID : TdaUserGroupID);
  end;
 
  PMaskArr = ^TMaskArr;
@@ -180,29 +187,31 @@ Type
   private
    f_CSClient: TcsClient;
    f_NonEditableDicts: LongInt;
+    f_CurrentUserGroups: TdaUserGroupIDArray;
    procedure GetNonEditableDicts;
-   function    GetMaskArr(aFamily : TFamilyID; aDocGr : TDictID) : TTblMask;
+   function    GetMaskArr(aFamily : TdaFamilyID; aDocGr : TDictID) : TTblMask;
    procedure pm_SetCSClient(const Value: TcsClient);
   protected
    fFamilyMasks : PFamilyMasks;
    procedure   Cleanup; override;
   public
    constructor Create; Reintroduce;
-   function    GetRightMask(aFamily : TFamilyID; aDocID : TDocID) : TTblMask; overload;
-   function    GetRightMask(aFamily : TFamilyID; aAccGr : TDictID; aIsIncluded : boolean) : TTblMask; overload;
-   function    TestRightsMaskForDocGroup(aFamily : TFamilyID; aDocGr : TDictID; aRightMask : integer) : Boolean;
-   procedure   ReLoadMaskArr(aFamily : TFamilyID);
+   function    GetRightMask(aFamily : TdaFamilyID; aDocID : TDocID) : TTblMask; overload;
+   function    GetRightMask(aFamily : TdaFamilyID; aAccGr : TDictID; aIsIncluded : boolean) : TTblMask; overload;
+   function    TestRightsMaskForDocGroup(aFamily : TdaFamilyID; aDocGr : TDictID; aRightMask : integer) : Boolean;
+   procedure   ReLoadMaskArr(aFamily : TdaFamilyID);
 
-   function    GetSelfMask(aFamily : TFamilyID{ = CurrentFamily}) : Word;
-   function    GetMask(aFamily : TFamilyID; aDoc : TDocID) : LongInt;
+   function    GetSelfMask(aFamily : TdaFamilyID{ = CurrentFamily}) : Word;
+   function    GetMask(aFamily : TdaFamilyID; aDoc : TDocID) : LongInt;
 
-   procedure   CanBeLocked(aFamily : TFamilyID; var aDocList : Il3IDList;
+   procedure   CanBeLocked(aFamily : TdaFamilyID; var aDocList : Il3IDList;
                                      aRightsNeeded: Longint; var aRejectedDocs : Il3IDList);
    // проверяет права на редактирование для пачки доков
 
    property    CSClient: TcsClient read f_CSClient write pm_SetCSClient;
-   property    Mask[Family : TFamilyID; DocGr : TDictID] : TTblMask read GetMaskArr; default;
+   property    Mask[Family : TdaFamilyID; DocGr : TDictID] : TTblMask read GetMaskArr; default;
    property    NonEditableDicts: LongInt read f_NonEditableDicts;
+   property CurrentUserGroups: TdaUserGroupIDArray read f_CurrentUserGroups write f_CurrentUserGroups;
  end;
 
 var
@@ -228,7 +237,6 @@ var
 Implementation
 Uses
  daDataProvider,
- daTypes,
  daSchemeConsts,
  DIALOGS,
  l3String,
@@ -252,14 +260,14 @@ begin
  Inherited Create(MainTblsFamily, Ord(mtAccess));
 end;
 
-procedure TMaskTbl.GetFamilyMasksForUG(aFamily : TFamilyID;
-                                       aUG_ID  : TUserGrID;
+procedure TMaskTbl.GetFamilyMasksForUG(aFamily : TdaFamilyID;
+                                       aUG_ID  : TdaUserGroupID;
                                        aBuf : PAnsiChar;
                                        MaxDocGroup : TDictID);
 Type
  TMaskSrchRec = Record
-                 UsGr : TUserGrID;
-                 Fam  : TFamilyID;
+                 UsGr : TdaUserGroupID;
+                 Fam  : TdaFamilyID;
                 end;
  TMaskReadRec = Record
                  DocGr : TDictID;
@@ -319,19 +327,19 @@ begin
  end;
 end;
 
-procedure TMaskTbl.GetFamilyMasks(aFamily : TFamilyID;aBuf : PAnsiChar;MaxDocGroup : TDictID);
+procedure TMaskTbl.GetFamilyMasks(aFamily : TdaFamilyID;aBuf : PAnsiChar;MaxDocGroup : TDictID; const aGroups: TdaUserGroupIDArray);
 var
- I            : TUserGrID;
+ I            : TdaUserGroupID;
  l_GroupsCount: Integer;
 begin
- l_GroupsCount := Length(GlobalHtServer.CurUserGr);
+ l_GroupsCount := Length(aGroups);
  if l_GroupsCount > 0 then
   for I := 0 to Pred(l_GroupsCount) do
-   GetFamilyMasksForUG(aFamily, GlobalHtServer.CurUserGr[I], aBuf, MaxDocGroup);
+   GetFamilyMasksForUG(aFamily, aGroups[I], aBuf, MaxDocGroup);
 end;
 
-procedure TMaskTbl.UpdateMask(aFamily : TFamilyID;
-                              aUG_ID  : TUserGrID;
+procedure TMaskTbl.UpdateMask(aFamily : TdaFamilyID;
+                              aUG_ID  : TdaUserGroupID;
                               aDG_ID  : TDictID;
                               NewMask : TTblMask);
 var
@@ -366,7 +374,7 @@ begin
   end;
 end;
 
-procedure TMaskTbl.DelUserGroup(aUG_ID : TUserGrID);
+procedure TMaskTbl.DelUserGroup(aUG_ID : TdaUserGroupID);
 var
  TmpList : SAB;
 begin
@@ -401,8 +409,9 @@ end;
 
 procedure TAccessServer.Cleanup;
 var
- I : TFamilyID;
+ I : TdaFamilyID;
 begin
+ f_CurrentUserGroups := nil;
  l3Free(fMaskTbl);
  for I:=0 to GlobalHTServer.FamilyTbl.MaxFamilyID do
   if fFamilyMasks^[I]<>nil then
@@ -428,7 +437,7 @@ begin
  {$ENDIF}
 end;
 
-procedure TAccessServer.ReLoadMaskArr(aFamily : TFamilyID);
+procedure TAccessServer.ReLoadMaskArr(aFamily : TdaFamilyID);
 var
  MaxItem : TDictID;
 begin
@@ -442,10 +451,10 @@ begin
   MaxItem:=GlobalHTServer.FamilyTbl.MaxFamilyID+1;
  fFamilyMasks^[aFamily] := l3StrAlloc(MaxItem*SizeOf(TTblMask));
  l3FillChar(fFamilyMasks^[aFamily]^,MaxItem*SizeOf(TTblMask));
- fMaskTbl.GetFamilyMasks(aFamily,fFamilyMasks^[aFamily],MaxItem);
+ fMaskTbl.GetFamilyMasks(aFamily,fFamilyMasks^[aFamily],MaxItem, CurrentUserGroups);
 end;
 
-function TAccessServer.GetMaskArr(aFamily : TFamilyID;aDocGr : TDictID) : TTblMask;
+function TAccessServer.GetMaskArr(aFamily : TdaFamilyID;aDocGr : TDictID) : TTblMask;
 begin
  if GlobalDataProvider.CurUserIsServer then
   Result := TTblMask(cMaxRightsMask)
@@ -465,13 +474,13 @@ begin
  end; // f_CSClient <> Value
 end;
 
-function TAccessServer.TestRightsMaskForDocGroup(aFamily : TFamilyID; aDocGr : TDictID; aRightMask : integer) : Boolean;
+function TAccessServer.TestRightsMaskForDocGroup(aFamily : TdaFamilyID; aDocGr : TDictID; aRightMask : integer) : Boolean;
 begin
  with TTblMaskRec(Mask[aFamily, aDocGr]) do
   Result := l3TestMask((AllowMask and not DenyMask), aRightMask);
 end;
 
-function TAccessServer.GetRightMask(aFamily : TFamilyID; aAccGr : TDictID; aIsIncluded : boolean) : TTblMask;
+function TAccessServer.GetRightMask(aFamily : TdaFamilyID; aAccGr : TDictID; aIsIncluded : boolean) : TTblMask;
 var
  lMask  : TTblMask;
 begin
@@ -488,7 +497,7 @@ begin
  TLongWord(Result).LoWord := TTblMaskRec(lMask).AllowMask and not TTblMaskRec(lMask).DenyMask;
 end;
 
-function TAccessServer.GetRightMask(aFamily : TFamilyID; aDocID : TDocID) : TTblMask;
+function TAccessServer.GetRightMask(aFamily : TdaFamilyID; aDocID : TDocID) : TTblMask;
 var
  lAccGr : TDictID;
 
@@ -525,7 +534,7 @@ begin
  Result := GetRightMask(aFamily, lAccGr, lIsIncluded);
 end;
 
-function TAccessServer.GetSelfMask(aFamily : TFamilyID {= CurrentFamily}) : Word;
+function TAccessServer.GetSelfMask(aFamily : TdaFamilyID {= CurrentFamily}) : Word;
 var
  lMask  : TTblMaskRec;
 begin
@@ -534,7 +543,7 @@ begin
  Result := lMask.AllowMask and not lMask.DenyMask;
 end;
 
-function TAccessServer.GetMask(aFamily : TFamilyID; aDoc : TDocID) : LongInt;
+function TAccessServer.GetMask(aFamily : TdaFamilyID; aDoc : TDocID) : LongInt;
 var
  Bodies  : Sab;
  lGroup  : TDictID;
@@ -569,7 +578,7 @@ begin
 end;
 
 
-procedure TAccessServer.CanBeLocked(aFamily : TFamilyID; var aDocList : Il3IDList;
+procedure TAccessServer.CanBeLocked(aFamily : TdaFamilyID; var aDocList : Il3IDList;
                                     aRightsNeeded: Longint; var aRejectedDocs : Il3IDList);
 
 

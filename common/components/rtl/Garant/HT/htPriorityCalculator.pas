@@ -33,6 +33,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_User
  {$IfEnd} // NOT Defined(Nemesis)
+ //#UC START# *575008E903D1impl_uses*
+ //#UC END# *575008E903D1impl_uses*
 ;
 
 constructor ThtPriorityCalculator.Create;
@@ -63,7 +65,7 @@ function ThtPriorityCalculator.Calc(aUserId: TdaUserID;
 //#UC END# *575000000164_575008E903D1_var*
 begin
 //#UC START# *575000000164_575008E903D1_impl*
- Result := dt_User.UserManager.xxxCalcUserPriorities(aUserID, aImportPriority, aExportPriority);
+ Result := dt_User.xxxUserManager.xxxCalcUserPriorities(aUserID, aImportPriority, aExportPriority);
 //#UC END# *575000000164_575008E903D1_impl*
 end;//ThtPriorityCalculator.Calc
 

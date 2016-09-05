@@ -34,6 +34,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *51B1AE6001BBimpl_uses*
+ //#UC END# *51B1AE6001BBimpl_uses*
 ;
 
 procedure TK460262716.DoDoit;

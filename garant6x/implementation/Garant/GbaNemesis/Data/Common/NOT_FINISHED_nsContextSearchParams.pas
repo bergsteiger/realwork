@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4926B67202CCimpl_uses*
+ //#UC END# *4926B67202CCimpl_uses*
 ;
 
 procedure nsMakeContextSearchFilterList;

@@ -84,6 +84,8 @@ uses
  , k2Base
  , Table_Const
  , Windows
+ //#UC START# *481D6D3F003Fimpl_uses*
+ //#UC END# *481D6D3F003Fimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}

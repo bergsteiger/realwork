@@ -73,6 +73,8 @@ uses
  , evdTypes
  , l3Variant
  , evTableCellUtils
+ //#UC START# *48D3D038036Aimpl_uses*
+ //#UC END# *48D3D038036Aimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}

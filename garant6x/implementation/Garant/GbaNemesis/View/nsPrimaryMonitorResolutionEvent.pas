@@ -31,6 +31,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0BB046001Bimpl_uses*
+ //#UC END# *4B0BB046001Bimpl_uses*
 ;
 
 class procedure TnsPrimaryMonitorResolutionEvent.Log(aWidth: Cardinal;

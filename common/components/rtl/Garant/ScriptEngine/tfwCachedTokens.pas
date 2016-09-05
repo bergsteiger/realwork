@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *52F1221701EBimpl_uses*
+ //#UC END# *52F1221701EBimpl_uses*
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}

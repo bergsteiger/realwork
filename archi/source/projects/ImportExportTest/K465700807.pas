@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *51CC0A110114impl_uses*
+ //#UC END# *51CC0A110114impl_uses*
 ;
 
 function TK465700807.GetOutputFormat: TepSupportFileType;

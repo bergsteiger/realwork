@@ -80,6 +80,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *53188A6D02A7impl_uses*
+ //#UC END# *53188A6D02A7impl_uses*
 ;
 
 type _Instance_R_ = Tk2FontName;

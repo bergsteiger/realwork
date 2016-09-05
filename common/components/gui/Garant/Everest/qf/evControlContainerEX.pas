@@ -150,6 +150,8 @@ uses
  , LeafPara_Const
  , l3Defaults
  , Graphics
+ //#UC START# *47D01F9801D8impl_uses*
+ //#UC END# *47D01F9801D8impl_uses*
 ;
 
 procedure TevControlContainerEX.UpdateMask;

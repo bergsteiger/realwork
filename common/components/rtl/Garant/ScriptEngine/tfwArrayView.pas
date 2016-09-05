@@ -11,13 +11,13 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , l3ProtoObject
+ , tfwIteratableParentPrim
  , tfwScriptingInterfaces
  , l3PureMixIns
 ;
 
 type
- TtfwArrayView = class(Tl3ProtoObject, ItfwValueList)
+ TtfwArrayView = class(TtfwIteratableParentPrim, ItfwValueList)
   protected
    f_Other: ItfwValueList;
   protected
@@ -34,6 +34,8 @@ type
    class function IsCacheable: Boolean; override;
     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   function GetCount: Integer; override;
+   function GetItem(anIndex: Integer): TtfwStackValue; override;
    procedure ClearFields; override;
   public
    constructor Create(const anOther: ItfwValueList); reintroduce;
@@ -49,6 +51,8 @@ type
     const aCtx: TtfwContext);
    procedure ForEachBack(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext);
+   function IsView: Boolean;
+   function SafeView: ItfwValueList;
  end;//TtfwArrayView
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -57,6 +61,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *52E270AE02EAimpl_uses*
+ //#UC END# *52E270AE02EAimpl_uses*
 ;
 
 constructor TtfwArrayView.Create(const anOther: ItfwValueList);
@@ -116,7 +122,7 @@ function TtfwArrayView.pm_GetFirst: TtfwStackValue;
 //#UC END# *47D8233603DD_52E270AE02EAget_var*
 begin
 //#UC START# *47D8233603DD_52E270AE02EAget_impl*
- Result := f_Other.First;
+ Result := GetItem(0);
 //#UC END# *47D8233603DD_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetFirst
 
@@ -125,7 +131,7 @@ function TtfwArrayView.pm_GetLast: TtfwStackValue;
 //#UC END# *47D823570315_52E270AE02EAget_var*
 begin
 //#UC START# *47D823570315_52E270AE02EAget_impl*
- Result := f_Other.Last;
+ Result := GetItem(GetCount - 1);
 //#UC END# *47D823570315_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetLast
 
@@ -134,7 +140,7 @@ function TtfwArrayView.pm_GetItems(anIndex: Integer): TtfwStackValue;
 //#UC END# *47D8248802AD_52E270AE02EAget_var*
 begin
 //#UC START# *47D8248802AD_52E270AE02EAget_impl*
- Result := f_Other.Items[anIndex];
+ Result := GetItem(anIndex);
 //#UC END# *47D8248802AD_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetItems
 
@@ -143,7 +149,7 @@ function TtfwArrayView.pm_GetEmpty: Boolean;
 //#UC END# *47E381E203D2_52E270AE02EAget_var*
 begin
 //#UC START# *47E381E203D2_52E270AE02EAget_impl*
- Result := f_Other.Empty;
+ Result := GetCount = 0;
 //#UC END# *47E381E203D2_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetEmpty
 
@@ -152,7 +158,9 @@ function TtfwArrayView.IndexOf(const anItem: TtfwStackValue): Integer;
 //#UC END# *482955910076_52E270AE02EA_var*
 begin
 //#UC START# *482955910076_52E270AE02EA_impl*
- Result := f_Other.IndexOf(anItem);
+ EtfwNotImplemented.Fail;
+ Result := -1;
+ //Result := f_Other.IndexOf(anItem);
 //#UC END# *482955910076_52E270AE02EA_impl*
 end;//TtfwArrayView.IndexOf
 
@@ -161,7 +169,9 @@ function TtfwArrayView.Add(const anItem: TtfwStackValue): Integer;
 //#UC END# *482958A203D0_52E270AE02EA_var*
 begin
 //#UC START# *482958A203D0_52E270AE02EA_impl*
- Result := f_Other.Add(anItem);
+ EtfwConstantArray.Fail('Не реализовано');
+ Result := -1;
+ //Result := f_Other.Add(anItem);
 //#UC END# *482958A203D0_52E270AE02EA_impl*
 end;//TtfwArrayView.Add
 
@@ -170,7 +180,7 @@ function TtfwArrayView.pm_GetCount: Integer;
 //#UC END# *4BB08B8902F2_52E270AE02EAget_var*
 begin
 //#UC START# *4BB08B8902F2_52E270AE02EAget_impl*
- Result := f_Other.Count;
+ Result := GetCount;
 //#UC END# *4BB08B8902F2_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetCount
 
@@ -209,7 +219,8 @@ procedure TtfwArrayView.SetItem(anIndex: Integer;
 //#UC END# *55CDF40C03D4_52E270AE02EA_var*
 begin
 //#UC START# *55CDF40C03D4_52E270AE02EA_impl*
- f_Other.SetItem(anIndex, aValue);
+ EtfwConstantArray.Fail('Не реализовано');
+ //f_Other.SetItem(anIndex, aValue);
 //#UC END# *55CDF40C03D4_52E270AE02EA_impl*
 end;//TtfwArrayView.SetItem
 
@@ -222,6 +233,24 @@ begin
 //#UC END# *55E849210175_52E270AE02EA_impl*
 end;//TtfwArrayView.ItemsCountInSlice
 
+function TtfwArrayView.IsView: Boolean;
+//#UC START# *57B549300098_52E270AE02EA_var*
+//#UC END# *57B549300098_52E270AE02EA_var*
+begin
+//#UC START# *57B549300098_52E270AE02EA_impl*
+ Result := GetIsView;
+//#UC END# *57B549300098_52E270AE02EA_impl*
+end;//TtfwArrayView.IsView
+
+function TtfwArrayView.SafeView: ItfwValueList;
+//#UC START# *57C8213A0118_52E270AE02EA_var*
+//#UC END# *57C8213A0118_52E270AE02EA_var*
+begin
+//#UC START# *57C8213A0118_52E270AE02EA_impl*
+ Result := GetSafeView;
+//#UC END# *57C8213A0118_52E270AE02EA_impl*
+end;//TtfwArrayView.SafeView
+
 {$If NOT Defined(DesignTimeLibrary)}
 class function TtfwArrayView.IsCacheable: Boolean;
  {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
@@ -233,6 +262,24 @@ begin
 //#UC END# *47A6FEE600FC_52E270AE02EA_impl*
 end;//TtfwArrayView.IsCacheable
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+function TtfwArrayView.GetCount: Integer;
+//#UC START# *57C811A30375_52E270AE02EA_var*
+//#UC END# *57C811A30375_52E270AE02EA_var*
+begin
+//#UC START# *57C811A30375_52E270AE02EA_impl*
+ Result := inherited GetCount;
+//#UC END# *57C811A30375_52E270AE02EA_impl*
+end;//TtfwArrayView.GetCount
+
+function TtfwArrayView.GetItem(anIndex: Integer): TtfwStackValue;
+//#UC START# *57C8146602DB_52E270AE02EA_var*
+//#UC END# *57C8146602DB_52E270AE02EA_var*
+begin
+//#UC START# *57C8146602DB_52E270AE02EA_impl*
+ Result := inherited GetItem(anIndex);
+//#UC END# *57C8146602DB_52E270AE02EA_impl*
+end;//TtfwArrayView.GetItem
 
 procedure TtfwArrayView.ClearFields;
 begin

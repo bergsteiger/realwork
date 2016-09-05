@@ -35,6 +35,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *541C300401C3impl_uses*
+ //#UC END# *541C300401C3impl_uses*
 ;
 
 type _Instance_R_ = Tl3Int64List;

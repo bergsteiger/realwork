@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5798D19702A1impl_uses*
+ //#UC END# *5798D19702A1impl_uses*
 ;
 
 function TddExtObjectDataStream.GetIsModified: Boolean;

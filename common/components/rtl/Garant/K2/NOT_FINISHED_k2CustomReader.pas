@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *482D6ED9000Aimpl_uses*
+ //#UC END# *482D6ED9000Aimpl_uses*
 ;
 
 procedure Tk2CustomReader.Read;

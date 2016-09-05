@@ -37,6 +37,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4B2F4382001Fimpl_uses*
+ //#UC END# *4B2F4382001Fimpl_uses*
 ;
 
 type _Instance_R_ = Tl3CardinalList;

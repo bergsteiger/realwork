@@ -95,6 +95,8 @@ uses
  , l3Utils
  , SysUtils
  , evdNcsTypes
+ //#UC START# *544A09EE005Fimpl_uses*
+ //#UC END# *544A09EE005Fimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}

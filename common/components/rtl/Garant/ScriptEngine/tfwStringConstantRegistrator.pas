@@ -38,6 +38,8 @@ uses
  l3ImplUses
  , l3String
  , SysUtils
+ //#UC START# *55311B3903DCimpl_uses*
+ //#UC END# *55311B3903DCimpl_uses*
 ;
 
 class function TtfwStringConstantRegistrator.Register(const aName: AnsiString;

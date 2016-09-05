@@ -46,6 +46,8 @@ uses
  , DataAdapter
  , nsTypes
  , nsConst
+ //#UC START# *49071BFA03A4impl_uses*
+ //#UC END# *49071BFA03A4impl_uses*
 ;
 
 constructor TnsMedicFirmsCountryFilterTreeBase.Create;

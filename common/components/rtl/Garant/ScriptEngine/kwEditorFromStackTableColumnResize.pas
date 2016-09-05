@@ -62,6 +62,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4E37F5B402A5impl_uses*
+ //#UC END# *4E37F5B402A5impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}

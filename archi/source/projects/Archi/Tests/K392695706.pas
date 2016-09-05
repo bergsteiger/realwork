@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ //#UC START# *504F49F40264impl_uses*
+ //#UC END# *504F49F40264impl_uses*
 ;
 
 {$If NOT Defined(NoScripts)}

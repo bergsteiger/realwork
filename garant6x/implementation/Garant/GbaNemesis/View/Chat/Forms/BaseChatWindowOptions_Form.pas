@@ -65,7 +65,7 @@ procedure TBaseChatWindowOptionsForm.Chat_History_Execute(const aParams: IvcmExe
 //#UC END# *4C84CC2E0253_4C84CB6F0007exec_var*
 begin
 //#UC START# *4C84CC2E0253_4C84CB6F0007exec_impl*
- TdmStdRes.MakeChatDispatcher.OpenChatHistoryByID(UserID);
+ TChatService.Instance.MakeChatDispatcher.OpenChatHistoryByID(UserID);
 //#UC END# *4C84CC2E0253_4C84CB6F0007exec_impl*
 end;//TBaseChatWindowOptionsForm.Chat_History_Execute
 

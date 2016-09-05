@@ -176,6 +176,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *493126130280impl_uses*
+ , SearchLite_Services
+ , Admin_Services
+ //#UC END# *493126130280impl_uses*
 ;
 
 type _Instance_R_ = TsdsAdmin;
@@ -223,7 +227,7 @@ function TsdsAdmin.ChangeBaseAccess: Boolean;
 //#UC END# *4AAF58000352_493126130280_var*
 begin
 //#UC START# *4AAF58000352_493126130280_impl*
- Result := TdmStdRes.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
+ Result := TLiteSearchService.Instance.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
                                        TdsBasesAccess.Make(nil,
                                                            TdeSearch.Make(BaseAccessRootTag, nil))) = mrOk;
 //#UC END# *4AAF58000352_493126130280_impl*
@@ -361,11 +365,11 @@ var
 begin
 //#UC START# *49EEEB1D0215_493126130280_impl*
  l_Data := TbsEditGroupName.Make(l3CStr(aNode));
- if (TdmStdRes.ShowRenameGroupDialog(l_Data) = mrOk) then
+ if (TAdminService.Instance.ShowRenameGroupDialog(l_Data) = mrOk) then
  begin
   aName := l_Data.Name;
   Result := true
- end//TdmStdRes.ShowRenameGroupDialog(TbsEditGroupName.Make(l_Name))  = mrOk
+ end//TAdminService.Instance.ShowRenameGroupDialog(TbsEditGroupName.Make(l_Name))  = mrOk
  else
   Result := false;
 //#UC END# *49EEEB1D0215_493126130280_impl*

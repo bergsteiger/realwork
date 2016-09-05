@@ -299,6 +299,9 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ //#UC START# *55A4AE2A01E5impl_uses*
+ , vcmHistoryService
+ //#UC END# *55A4AE2A01E5impl_uses*
 ;
 
 function TvcmHistoryFormCacheItem_C(const aForm: IvcmEntityForm;
@@ -751,6 +754,7 @@ var
 //#UC END# *55A77BB20049_55A5EB6F0346_var*
 begin
 //#UC START# *55A77BB20049_55A5EB6F0346_impl*
+ TvcmHistoryService.Instance.MakingCloneStarted(aContainer);
  Result := nil;
 
  l_Step := MakeStep(aContainer, True);
@@ -763,6 +767,7 @@ begin
                                              True,
                                              False,
                                              aContainer.AsForm.VCLWinControl as TvcmEntityForm);
+  TvcmHistoryService.Instance.ContainerForCloneMade(aContainer, l_NewContainer);
   if (l_NewContainer <> nil) then
    l_NewContainer.InitFromPrevContainer(aContainer, True);
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=606828289
@@ -781,6 +786,7 @@ begin
 
   Result := l_NewContainer;
  end;
+ TvcmHistoryService.Instance.MakingCloneFinished(Result);
 //#UC END# *55A77BB20049_55A5EB6F0346_impl*
 end;//TvcmFormSetHistory.CloneContainer
 
@@ -996,6 +1002,10 @@ begin
  begin
   f_InBf := True;
   try
+   l_FormSet := TvcmFormSetContainerRegistry.Instance.GetContainedFormSet(l_Container);
+   if (l_FormSet <> nil) then
+    if (not l_FormSet.CanBeSavedToHistory) then
+     Exit;
    f_Items.Add(MakeStep(l_Container, False));
   finally
    f_InBf := False;

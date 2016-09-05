@@ -27,6 +27,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *551D4B5B02FFimpl_uses*
+ //#UC END# *551D4B5B02FFimpl_uses*
 ;
 
 type
@@ -119,7 +121,10 @@ function TkwVgComboBoxGetText.vg_ComboBox_GetText(const aCtx: TtfwContext;
 //#UC END# *551D4BD8016D_551D4BD8016D_4D3D71CE0254_Word_var*
 begin
 //#UC START# *551D4BD8016D_551D4BD8016D_4D3D71CE0254_Word_impl*
- Result := aComboBox.ListBox.Selected.Binding['text'];
+ if not Assigned(aComboBox.ListBox.Selected) then
+  Result := ''
+ else
+  Result := aComboBox.ListBox.Selected.Binding['text'];
 //#UC END# *551D4BD8016D_551D4BD8016D_4D3D71CE0254_Word_impl*
 end;//TkwVgComboBoxGetText.vg_ComboBox_GetText
 

@@ -150,6 +150,8 @@ implementation
 uses
  l3ImplUses
  , ddTextParaString
+ //#UC START# *51E8DBEC0212impl_uses*
+ //#UC END# *51E8DBEC0212impl_uses*
 ;
 
 procedure TddTextParagraph.pm_SetCHP(aValue: TddCharacterProperty);

@@ -36,6 +36,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , k2Tags
+ //#UC START# *552FAA38015Bimpl_uses*
+ //#UC END# *552FAA38015Bimpl_uses*
 ;
 
 function TevExpandedTextCollapser.DoCollapse(const aView: InevControlView): Boolean;

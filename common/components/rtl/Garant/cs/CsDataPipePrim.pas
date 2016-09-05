@@ -74,6 +74,8 @@ uses
  , csIdIOHandlerAdapter
  , SysUtils
  , StrUtils
+ //#UC START# *538DC31F03A5impl_uses*
+ //#UC END# *538DC31F03A5impl_uses*
 ;
 
 constructor TCsDataPipePrim.Create(aIOHandler: TcsIdIOHandlerAbstractAdapter);

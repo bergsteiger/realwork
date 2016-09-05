@@ -50,6 +50,8 @@ uses
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , nsDocumentToolsNew
+ //#UC START# *47F9D43A03A7impl_uses*
+ //#UC END# *47F9D43A03A7impl_uses*
 ;
 
 constructor TnsDocumentStreamWrapper.Create(const aDocument: IDocument);

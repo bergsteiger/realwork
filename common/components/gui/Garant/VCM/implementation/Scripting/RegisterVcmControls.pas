@@ -33,6 +33,8 @@ uses
  {$If NOT Defined(NoVGScene)}
  , vgRemindersLineForm
  {$IfEnd} // NOT Defined(NoVGScene)
+ //#UC START# *52B16BA20032impl_uses*
+ //#UC END# *52B16BA20032impl_uses*
 ;
 
 initialization

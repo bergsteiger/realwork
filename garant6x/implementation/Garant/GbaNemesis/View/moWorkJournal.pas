@@ -26,8 +26,6 @@ type
  Tmo_WorkJournal = {final} class(TBaseWorkJournalModule)
   {* Журнал работы }
  end;//Tmo_WorkJournal
-
-var g_module_opcode_WorkJournal_OpenJournal: TvcmMOPID = (rMoID : -1; rOpID : -1);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -41,11 +39,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmModuleOperationsForRegister
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Services_Contracts
 ;
 
 initialization
  TvcmModulesForRegister.AddModule(TvcmModuleForRegister_C(Tmo_WorkJournal, 'Журнал работы'));
- TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_WorkJournal, 'OpenJournal', '', False, g_module_opcode_WorkJournal_OpenJournal));
+ TvcmModuleOperationsForRegister.AddOperation(TvcmModuleOperationForRegister_C(Tmo_WorkJournal, 'OpenJournal', '', False, mod_opcode_WorkJournalService_OpenJournal));
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

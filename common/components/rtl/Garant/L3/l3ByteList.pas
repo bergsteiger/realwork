@@ -35,6 +35,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5372344A03CAimpl_uses*
+ //#UC END# *5372344A03CAimpl_uses*
 ;
 
 type _Instance_R_ = Tl3ByteList;

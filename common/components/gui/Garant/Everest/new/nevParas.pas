@@ -40,6 +40,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47C5271101E3impl_uses*
+ //#UC END# *47C5271101E3impl_uses*
 ;
 
 type _Instance_R_ = TnevParas;

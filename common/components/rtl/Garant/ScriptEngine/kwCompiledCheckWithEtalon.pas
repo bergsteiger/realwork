@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , SysUtils
  , StrUtils
+ //#UC START# *50F3D22D007Bimpl_uses*
+ //#UC END# *50F3D22D007Bimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}

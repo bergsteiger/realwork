@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4906D9DE02FAimpl_uses*
+ //#UC END# *4906D9DE02FAimpl_uses*
 ;
 
 var g_TnsBaseSearchPromptTree: Pointer = nil;

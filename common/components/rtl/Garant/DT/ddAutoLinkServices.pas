@@ -36,6 +36,8 @@ uses
  , ddAutoLinkFilter
  , SysUtils
  , l3Base
+ //#UC START# *552BF78902EEimpl_uses*
+ //#UC END# *552BF78902EEimpl_uses*
 ;
 
 var g_TddAutolinkService: TddAutolinkService = nil;

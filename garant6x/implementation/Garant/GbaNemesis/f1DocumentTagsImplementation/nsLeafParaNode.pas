@@ -36,6 +36,8 @@ uses
  , ObjectSegment_Const
  , f1AtomChecker
  , F1TagDataProviderInterface
+ //#UC START# *467FCDA10044impl_uses*
+ //#UC END# *467FCDA10044impl_uses*
 ;
 
 procedure TnsLeafParaNode.BuildSubs(aProp: Tk2Prop);

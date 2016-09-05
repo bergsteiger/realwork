@@ -36,7 +36,7 @@ type
     f_PAP: TddParagraphProperty;
     f_Segments: TddTextSegmentsList;
     f_SubList: TddSubsList;
-    f_Unicode: Boolean;
+    f_OEM: Boolean;
     f_Width: LongInt;
     f_Text: Tl3String;
     f_Inc: Integer;
@@ -122,7 +122,7 @@ type
     property Segments[Index: Integer]: TddTextSegment read GetSegments;
     property SubList: TddSubsList read f_SubList write f_SubList;
     property Text: Tl3String read GetText write SetText;
-    property Unicode: Boolean read f_Unicode write f_Unicode;
+    property OEMText: Boolean read f_OEM write f_OEM;
     property Width: LongInt read f_Width write f_Width;
     property BlockIndent: Integer read f_BlockIndent write f_BlockIndent;
     property IgnoreLeftIndent: Boolean read f_IgnoreLeftIndent write f_IgnoreLeftIndent;
@@ -1654,6 +1654,7 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=609132323
  // http://mdp.garant.ru/pages/viewpage.action?pageId=611189558
  l_LeftSpace := 0;
+ l_NeedAlign := False;
  if (f_Text.CodePage = CP_ANSI) and (CHP.Pos <> cpSuperScript) then // ћоноширинный и верхний индекс - не трогаем...
  begin
   l_NeedTrim := f_Segments.Count = 0;

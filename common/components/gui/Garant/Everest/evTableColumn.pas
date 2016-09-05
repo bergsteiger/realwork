@@ -81,6 +81,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4F4C6AF301AEimpl_uses*
+ //#UC END# *4F4C6AF301AEimpl_uses*
 ;
 
 {$If Defined(evNeedEditableCursors)}

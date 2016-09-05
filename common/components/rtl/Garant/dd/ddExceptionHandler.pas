@@ -33,6 +33,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , l3Base
+ //#UC START# *55893A8B0110impl_uses*
+ //#UC END# *55893A8B0110impl_uses*
 ;
 
 var g_TddExceptionHandler: TddExceptionHandler = nil;

@@ -1,8 +1,14 @@
 unit ddRTFReader;
 
-// $Id: ddRTFReader.pas,v 1.253 2016/04/12 12:38:12 dinishev Exp $ 
+// $Id: ddRTFReader.pas,v 1.255 2016/06/17 11:17:59 dinishev Exp $ 
 
 // $Log: ddRTFReader.pas,v $
+// Revision 1.255  2016/06/17 11:17:59  dinishev
+// {Requestlink:624709249}. Тест.
+//
+// Revision 1.254  2016/06/14 12:21:26  dinishev
+// {Requestlink:624074743}. Символ отрицания приводил к DOS-кодировке.
+//
 // Revision 1.253  2016/04/12 12:38:12  dinishev
 // Убрал древний try except
 //
@@ -877,6 +883,7 @@ Uses
   Math,
   k2Prim,
 
+  ddUtils,
   dd_rtfFields,
   ddTextParagraph,
   ddTextSegment;
@@ -1380,40 +1387,13 @@ begin
 end;
 
 function TddRTFReader.CheckUnicodeChar(aParam: Long): Boolean;
-const
- // {$Requestlink:621056217}
- cnStartSkipChars1 = 11383;
- cnFinishSkipChars1 = 42775;
- // {$Requestlink:610504218}
- cnStartSkipChars = 57344;
- cnFinishSkipChars = 63743;
+var
+ l_Char: AnsiChar;
 begin
- Result := True;
- // напильник
- if ((aParam >= cnStartSkipChars1) and (aParam <= cnFinishSkipChars1)) or
-    ((aParam >= cnStartSkipChars) and (aParam <= cnFinishSkipChars)) then
- begin
-  case aParam of
-   61485,
-   61623,
-   61656,
-   61607,
-   61692: AddText(cc_Minus);
-  else
-   AddText(cc_HardSpace)
-  end;
- end // if (aParam >= cnStartIgnoreCode) and (aParam <= cnFinishIgnoreCode) then
- else
-  case aParam of
-   8194: AddText(cc_SoftSpace);
-   8722: AddText(cc_LargeDash);
-   8729: AddText(cc_Minus);
-   8242: AddText(cc_SingleQuote);
-   8243: AddText(cc_DoubleQuote);
-   9632: AddText(cc_Minus);
-  else
-   Result := False;
-  end;
+ l_Char := ddUnicode2Char(aParam);
+ Result := l_Char <> #0;
+ if Result then
+  AddText(l_Char);
 end;
 
 procedure TddRTFReader.BeforeClosePara(const aPara: TddDocumentAtom; var aNewStyle: Integer);

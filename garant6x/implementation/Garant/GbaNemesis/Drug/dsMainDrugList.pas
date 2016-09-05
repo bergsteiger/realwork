@@ -31,6 +31,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ //#UC START# *47F5D70E03ABimpl_uses*
+ //#UC END# *47F5D70E03ABimpl_uses*
 ;
 
 function TdsMainDrugList.NotifyAboutChangeCurrent: Boolean;

@@ -44,6 +44,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4EEF59E700E3impl_uses*
+ //#UC END# *4EEF59E700E3impl_uses*
 ;
 
 {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}

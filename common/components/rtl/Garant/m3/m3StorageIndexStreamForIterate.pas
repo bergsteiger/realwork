@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *544A2D800202impl_uses*
+ //#UC END# *544A2D800202impl_uses*
 ;
 
 class function Tm3StorageIndexStreamForIterate.NeedBuffering: Boolean;

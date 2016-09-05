@@ -502,6 +502,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4B990EF000AAimpl_uses*
+ //#UC END# *4B990EF000AAimpl_uses*
 ;
 
 const
@@ -1334,8 +1336,9 @@ procedure TddAppConfiguration.ClearControls;
   I: Integer;
  begin
   IddConfigNode(aNode).ClearControls;
-  for I := 0 to Pred(aNode.ChildrenCount) do
-   _Clear(aNode.Children[I]);
+// Это сами ноды проделают иначе выходит двойная очистка.  
+//  for I := 0 to Pred(aNode.ChildrenCount) do
+//   _Clear(aNode.Children[I]);
  end;
 //#UC END# *52149EC1019B_4B990F100126_var*
 begin
@@ -2421,8 +2424,9 @@ function TddAppConfiguration.ReadValuesFromDialog(aRead: Boolean = True): Boolea
      IddConfigNode(aNode).GetControlValues
     else
      IddConfigNode(aNode).SetControlValues(False);
-    for I := 0 to Pred(aNode.ChildrenCount) do
-     _ReadValue(aNode.Children[I]);
+// Дети вычитают себя сами! Иначе получаетя двойная запись/чтение для второго уровня дерева.     
+//    for I := 0 to Pred(aNode.ChildrenCount) do
+//     _ReadValue(aNode.Children[I]);
   end;
 var
  I: Integer;

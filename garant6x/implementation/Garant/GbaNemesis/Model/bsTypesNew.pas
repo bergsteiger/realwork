@@ -50,6 +50,8 @@ uses
  l3ImplUses
  , DocumentUnit
  , l3Bits
+ //#UC START# *4BA763B0004Bimpl_uses*
+ //#UC END# *4BA763B0004Bimpl_uses*
 ;
 
 function TbsDocPos_C(aType: TDocumentPositionType;

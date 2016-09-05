@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , vcmFormSetFormsCollectionItem
+ //#UC START# *4FFC32B60282impl_uses*
+ //#UC END# *4FFC32B60282impl_uses*
 ;
 
 function TvcmFormSetFormsCollection.FindItemByForm(const aForm: IvcmEntityForm): TvcmFormSetFormsCollectionItemPrim;

@@ -85,6 +85,8 @@ uses
  , SysUtils
  , k2BaseStruct
  , nsTagString
+ //#UC START# *467FCE2703D6impl_uses*
+ //#UC END# *467FCE2703D6impl_uses*
 ;
 
 procedure TnsParaListNode.MakeChildForInsert(var anIndex: Integer;

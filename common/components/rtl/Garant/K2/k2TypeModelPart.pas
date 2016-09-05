@@ -41,6 +41,8 @@ uses
  , l3String
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *4BC46A770394impl_uses*
+ //#UC END# *4BC46A770394impl_uses*
 ;
 
 function Tk2TypeModelPart.CompareTags(A: Tl3Variant;

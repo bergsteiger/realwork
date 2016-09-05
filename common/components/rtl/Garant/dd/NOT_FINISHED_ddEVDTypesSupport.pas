@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *521B05D60264impl_uses*
+ //#UC END# *521B05D60264impl_uses*
 ;
 
 procedure StartBitmapPara(const Generator: Ik2TagGenerator);

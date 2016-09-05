@@ -166,6 +166,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4DDBBD1103C3impl_uses*
  , SysUtils
+ , vcmBaseOperationsCollectionItem
+ , vcmInternalConst
  //#UC END# *4DDBBD1103C3impl_uses*
 ;
 

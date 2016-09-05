@@ -34,6 +34,8 @@ uses
  l3ImplUses
  , ddEVDTypesSupport
  , k2Tags
+ //#UC START# *54D9B0A2024Cimpl_uses*
+ //#UC END# *54D9B0A2024Cimpl_uses*
 ;
 
 procedure TddObjectSegment.Write2Generator(const Generator: Ik2TagGenerator;

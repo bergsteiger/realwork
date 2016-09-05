@@ -19,6 +19,8 @@ implementation
 uses
  l3ImplUses
  , spHelpNotifyManager
+ //#UC START# *4AA7E1390061impl_uses*
+ //#UC END# *4AA7E1390061impl_uses*
 ;
 
 procedure SPCorrectHelpFileName;

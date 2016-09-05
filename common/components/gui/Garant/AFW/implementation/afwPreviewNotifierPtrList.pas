@@ -38,6 +38,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47ED0A030258impl_uses*
+ //#UC END# *47ED0A030258impl_uses*
 ;
 
 type _Instance_R_ = TafwPreviewNotifierPtrList;

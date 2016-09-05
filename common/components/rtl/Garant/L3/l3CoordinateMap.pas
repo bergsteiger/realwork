@@ -77,6 +77,8 @@ uses
  , l3InterfacedIntegerList
  , SysUtils
  , l3UnitsTools
+ //#UC START# *48CA5CB001A3impl_uses*
+ //#UC END# *48CA5CB001A3impl_uses*
 ;
 
 constructor Tl3CoordinateMap.Create(anOrientation: Boolean);

@@ -38,6 +38,8 @@ uses
  , SysUtils
  , l3Base
  , l3FileUtils
+ //#UC START# *4DC24CA4037Eimpl_uses*
+ //#UC END# *4DC24CA4037Eimpl_uses*
 ;
 
 function TCustomAutoTestSuite.GetDataFolder: AnsiString;

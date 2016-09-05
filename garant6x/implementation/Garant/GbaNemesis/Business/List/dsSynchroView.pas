@@ -76,6 +76,8 @@ uses
  , SysUtils
  , l3InterfacesMisc
  , l3Base
+ //#UC START# *4922B4F803ACimpl_uses*
+ //#UC END# *4922B4F803ACimpl_uses*
 ;
 
 type _Instance_R_ = TdsSynchroView;

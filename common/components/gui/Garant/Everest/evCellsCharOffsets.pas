@@ -78,6 +78,8 @@ uses
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
  , evExcept
+ //#UC START# *4F2F6CA40273impl_uses*
+ //#UC END# *4F2F6CA40273impl_uses*
 ;
 
 procedure TevCellsCharOffsets.AddCellWidthAndRecalc;

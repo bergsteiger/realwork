@@ -41,6 +41,8 @@ implementation
 uses
  l3ImplUses
  , afwFacade
+ //#UC START# *4908A9240071impl_uses*
+ //#UC END# *4908A9240071impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}

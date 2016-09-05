@@ -67,6 +67,8 @@ uses
  , nsTreeUtils
  , nsFiltersRootNode
  , l3Nodes
+ //#UC START# *4CAEC809015Dimpl_uses*
+ //#UC END# *4CAEC809015Dimpl_uses*
 ;
 
 constructor TnsFiltersTree.Create(aFilterType: TnsFiltersType;

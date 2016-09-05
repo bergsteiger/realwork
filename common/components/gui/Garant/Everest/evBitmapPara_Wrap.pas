@@ -57,6 +57,8 @@ uses
  , k2SizedMemoryPool
  , k2Long_Const
  , BitmapPara_Const
+ //#UC START# *485792C1014Eimpl_uses*
+ //#UC END# *485792C1014Eimpl_uses*
 ;
 
 class function TevBitmapParaPictureGetter.GetPicture(aTag: Tl3Variant;
@@ -164,6 +166,7 @@ function WevBitmapPara.PreGetAtomData(AE: Tl3Variant;
 //#UC START# *48DD0CE60313_485792C1014E_var*
 var
  l_Data : Tl3Variant;
+ l_ID : Integer;
 //#UC END# *48DD0CE60313_485792C1014E_var*
 begin
 //#UC START# *48DD0CE60313_485792C1014E_impl*
@@ -171,20 +174,28 @@ begin
   k2_tiInternalHandle,
   k2_tiExternalHandle:
   begin
-   l_Data := AE.Attr[k2_tiData];
-   if (l_Data Is Tk2RawData) then
+   if AE.HasSubAtom(k2_tiData) then
    begin
-    Case aProp.TagIndex of
-     k2_tiInternalHandle:
-      Data := k2_typLong.MakeTag(Tk2RawData(l_Data).InternalID).AsObject;
-     k2_tiExternalHandle:
-      Data := k2_typLong.MakeTag(Tk2RawData(l_Data).ExternalID).AsObject;
-     else
-      Assert(false);
-    end;//Case aProp.TagIndex
-    Result := true;
-    Exit;
-   end;//l_Data Is Tk2RawData
+    l_Data := AE.Attr[k2_tiData];
+    if (l_Data Is Tk2RawData) then
+    begin
+     Case aProp.TagIndex of
+      k2_tiInternalHandle:
+       l_ID := Tk2RawData(l_Data).InternalID;
+      k2_tiExternalHandle:
+       l_ID := Tk2RawData(l_Data).ExternalID;
+      else
+       Assert(false);
+     end;//Case aProp.TagIndex
+     if (l_ID > 0) then
+     // http://mdp.garant.ru/pages/viewpage.action?pageId=628604913
+     begin
+      Result := true;
+      Data := k2_typLong.MakeTag(l_ID).AsObject;
+      Exit;
+     end//l_ID > 0
+    end;//l_Data Is Tk2RawData
+   end;//AE.HasSubAtom(k2_tiData)
   end;//k2_tiInternalHandle..
  end;//Case aProp.TagIndex
  Result := inherited PreGetAtomData(AE, aProp, Data);

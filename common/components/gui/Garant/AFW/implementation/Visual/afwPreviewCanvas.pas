@@ -102,6 +102,8 @@ uses
  , SysUtils
  , afwFacade
  , afwPreviewPage
+ //#UC START# *474145DE010Fimpl_uses*
+ //#UC END# *474145DE010Fimpl_uses*
 ;
 
 type

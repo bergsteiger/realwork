@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , nsAACLeftDocumentContainer
+ //#UC START# *500E746B0273impl_uses*
+ //#UC END# *500E746B0273impl_uses*
 ;
 
 function TdsAACDocumentLeft.BlockViewKind: TevBlockViewKind;

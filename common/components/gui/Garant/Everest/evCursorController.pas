@@ -127,6 +127,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *487B5D2D004Eimpl_uses*
+ //#UC END# *487B5D2D004Eimpl_uses*
 ;
 
 function TevCursorController.pm_GetDocument: Tl3Tag;

@@ -1,7 +1,10 @@
 unit DT_DbReformer;
 
-{ $Id: DT_DbReformer.pas,v 1.18 2016/04/18 12:54:15 fireton Exp $ }
+{ $Id: DT_DbReformer.pas,v 1.19 2016/06/16 05:40:06 lukyanets Exp $ }
 // $Log: DT_DbReformer.pas,v $
+// Revision 1.19  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.18  2016/04/18 12:54:15  fireton
 // - переводим исправление таблицы FREE на Tl3CardinalList
 //
@@ -242,6 +245,8 @@ uses
  l3IniFile,
  Ht_Const,
 
+ daTypes,
+
  DT_DbInfo,
  dt_ATbl,
  Dt_Types,
@@ -314,7 +319,7 @@ type
    procedure SetMainFolderVersion(const Value: Integer);
 
    function FullTableName(aTableFolder: TFamilyFolder; const aShortName: string): string; overload;
-   function FullTableName(aFamily: TFamilyID; aTblID: Integer): string;                   overload;
+   function FullTableName(aFamily: TdaFamilyID; aTblID: Integer): string;                   overload;
 
    procedure CorrectMaxID(theFolder, theTableName: String; theIDField: Integer; theFree: TdbFreeTable; theMaxValue:
        Longword = MAX_DWRD; const theFreeName: String = '');
@@ -414,7 +419,7 @@ type
     // удаление дубликатов типа LNK_DICT (значение Dict.Id не учитывается)
     // возвращает кол-во удаленных линков (= кол-ву удаленных словарных статей)
 
-   procedure DeleteBadLinkRec(aFamily: TFamilyID);
+   procedure DeleteBadLinkRec(aFamily: TdaFamilyID);
 
     // снимает блокировки с тех таблиц, которые в настоящее время никем не используются.
     // Т.о. запускать эту процедуру можно на ИСПОЛЬЗУЕМОЙ в этот момент времени БД
@@ -486,7 +491,6 @@ uses
  l3Const,
  l3String,
  daInterfaces,
- daTypes,
  daSchemeConsts,
  DT_Misc,
  dt_FRee,
@@ -1843,7 +1847,7 @@ begin
  end; //for
 end;
 
-procedure TDbReformer.DeleteBadLinkRec(aFamily: TFamilyID);
+procedure TDbReformer.DeleteBadLinkRec(aFamily: TdaFamilyID);
 const
  l_Zero: Integer = 0;
 var
@@ -2898,7 +2902,7 @@ begin
  end;
 end;
 
-function TDbReformer.FullTableName(aFamily: TFamilyID; aTblID: Integer): string;
+function TDbReformer.FullTableName(aFamily: TdaFamilyID; aTblID: Integer): string;
 begin
  if aFamily = MainTblsFamily then
   Result := MainTable(TableName(aFamily, aTblID))

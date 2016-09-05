@@ -54,6 +54,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *54FEC834013Bimpl_uses*
+ //#UC END# *54FEC834013Bimpl_uses*
 ;
 
 var g_TnsDataExchangeProxy: TnsDataExchangeProxy = nil;

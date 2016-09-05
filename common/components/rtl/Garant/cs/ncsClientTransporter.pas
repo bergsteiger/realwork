@@ -63,6 +63,8 @@ uses
  , csIdIOHandlerAdapter
  , csIdIOHandlerAbstractAdapter
  , ncsMessage
+ //#UC START# *544A0A0D0239impl_uses*
+ //#UC END# *544A0A0D0239impl_uses*
 ;
 
 const

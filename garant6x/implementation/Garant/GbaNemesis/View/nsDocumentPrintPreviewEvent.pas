@@ -31,6 +31,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0B9A9D00D1impl_uses*
+ //#UC END# *4B0B9A9D00D1impl_uses*
 ;
 
 class procedure TnsDocumentPrintPreviewEvent.Log(const aDoc: IDocument);

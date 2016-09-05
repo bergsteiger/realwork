@@ -41,6 +41,8 @@ uses
  , l3String
  , kwKeyValuesPack
  , kwCompiledProcedureWordsPack
+ //#UC START# *4F216D8D01A0impl_uses*
+ //#UC END# *4F216D8D01A0impl_uses*
 ;
 
 procedure TkwCompiledProcedure.Cleanup;

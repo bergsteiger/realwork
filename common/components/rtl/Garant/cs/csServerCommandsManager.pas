@@ -35,9 +35,7 @@ uses
  csQueryTypes,
  SysUtils,
  csCommandsConst,
- //DT_UserConst,
- csProcessTask,
- dt_User
+ csProcessTask
  ;
 
 procedure TcsServerCommandsManager.AddCommand(aID: TcsCommands; const aCaption: String; aOnExecute:

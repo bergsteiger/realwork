@@ -41,6 +41,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4EAFDEE000ECimpl_uses*
+ //#UC END# *4EAFDEE000ECimpl_uses*
 ;
 
 procedure TkwPopEditorGetSelectionText.DoWithEditor(const aCtx: TtfwContext;

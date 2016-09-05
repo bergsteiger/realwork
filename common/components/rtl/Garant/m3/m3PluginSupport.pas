@@ -38,6 +38,8 @@ uses
  , m3StgMgr
  , l3Chars
  , l3String
+ //#UC START# *556DC961003Aimpl_uses*
+ //#UC END# *556DC961003Aimpl_uses*
 ;
 
 function _CoCreateInstance(const aCLSID: TCLSID;

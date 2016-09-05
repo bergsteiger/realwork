@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , Windows
  , Forms
+ //#UC START# *4F212C680161impl_uses*
+ //#UC END# *4F212C680161impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}

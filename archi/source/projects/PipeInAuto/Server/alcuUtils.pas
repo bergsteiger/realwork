@@ -70,7 +70,8 @@ uses
  daInterfaces,
  daDataProvider,
  alcuMailServer,
- dt_User, dt_Const,
+ daTypes,
+ dt_Const,
  l3String,
  l3Bits, DateUtils,
  JclDebug,
@@ -91,7 +92,7 @@ function UserHostByID(aID: TcsClientID): String;
 var
  l_User: IdaArchiUser;
 begin
- if aID > High(TUserID) then
+ if aID > High(TdaUserID) then
   Result := ''
  else
  begin
@@ -143,7 +144,7 @@ function UserNameByID(aID: TcsClientID; const InkognitoSuffix: AnsiString = ''; 
 var
  l_User: IdaArchiUser;
 begin
- if aID > High(TUserID) then
+ if aID > High(TdaUserID) then
   Result := rsInkognito
  else
  begin

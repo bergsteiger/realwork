@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4AD8466301A3impl_uses*
+ //#UC END# *4AD8466301A3impl_uses*
 ;
 
 var g_TnsDocumentContextHistory: Pointer = nil;

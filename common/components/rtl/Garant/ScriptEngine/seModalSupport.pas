@@ -44,6 +44,8 @@ uses
  , l3MessagesService
  , SysUtils
  , l3Base
+ //#UC START# *4FC7541C02BAimpl_uses*
+ //#UC END# *4FC7541C02BAimpl_uses*
 ;
 
 var g_TseModalService: TseModalService = nil;

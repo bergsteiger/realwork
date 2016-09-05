@@ -80,6 +80,8 @@ uses
  , nsFoundRangeCollector
  , evTypes
  , l3Variant
+ //#UC START# *495137C70135impl_uses*
+ //#UC END# *495137C70135impl_uses*
 ;
 
 procedure TbsDocumentContextSearcher.DoContextFound(const aFoundBlock: InevRange;

@@ -30,6 +30,8 @@ uses
  , Windows
  , l3DwmApi
  , SysUtils
+ //#UC START# *53395AF50223impl_uses*
+ //#UC END# *53395AF50223impl_uses*
 ;
 
 procedure ShowSystemMenu(aForm: TForm;

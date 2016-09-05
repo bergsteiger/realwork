@@ -130,6 +130,8 @@ uses
  , l3Nodes
  , l3TreeInterfaces
  , daUtils
+ //#UC START# *559A3BD901CCimpl_uses*
+ //#UC END# *559A3BD901CCimpl_uses*
 ;
 
 constructor TdaJournal.Create(const aFactory: IdaTableQueryFactory);

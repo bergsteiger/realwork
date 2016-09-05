@@ -7,7 +7,3 @@
 {$Define seCacheDict}
 
 {$Define seTypeCheck}
-
-{$IfDef NewGen}
- {.$Undef seCacheDict}
-{$EndIf NewGen}

@@ -42,6 +42,8 @@ uses
  , evdTypes
  , nevFacade
  , ControlPara_Const
+ //#UC START# *48D3C237039Fimpl_uses*
+ //#UC END# *48D3C237039Fimpl_uses*
 ;
 
 class function TevDescriptionReq.Make(const aValue: InevPara): IevDescriptionReq;

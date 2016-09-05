@@ -43,6 +43,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C920E240280impl_uses*
+ //#UC END# *4C920E240280impl_uses*
 ;
 
 function TK234360974.GetFolder: AnsiString;

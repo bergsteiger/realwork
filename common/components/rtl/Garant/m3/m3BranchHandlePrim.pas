@@ -53,6 +53,8 @@ uses
  , m3BranchHandle
  , SysUtils
  , l3Base
+ //#UC START# *5453AB7202ECimpl_uses*
+ //#UC END# *5453AB7202ECimpl_uses*
 ;
 
 var g_Tm3BranchHandlesManager: Tm3BranchHandlesManager = nil;

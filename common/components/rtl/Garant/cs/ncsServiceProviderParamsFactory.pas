@@ -51,6 +51,8 @@ uses
  , ddAppConfigStrings
  , SysUtils
  , l3Base
+ //#UC START# *54F04779024Bimpl_uses*
+ //#UC END# *54F04779024Bimpl_uses*
 ;
 
 var g_TncsServiceProviderParamsFactory: TncsServiceProviderParamsFactory = nil;

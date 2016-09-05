@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , csCorrectFolder_Const
+ //#UC START# *549AA9CE0345impl_uses*
+ //#UC END# *549AA9CE0345impl_uses*
 ;
 
 function TncsCorrectFolder.pm_GetTaskID: AnsiString;

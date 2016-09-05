@@ -1,7 +1,25 @@
 unit Dt_DocImages;
 
-{ $Id: Dt_DocImages.pas,v 1.52 2016/06/10 12:35:17 fireton Exp $ }
+{ $Id: Dt_DocImages.pas,v 1.58 2016/07/29 11:25:14 fireton Exp $ }
 // $Log: Dt_DocImages.pas,v $
+// Revision 1.58  2016/07/29 11:25:14  fireton
+// - более точная диагностика ошибок настроек
+//
+// Revision 1.57  2016/06/20 15:04:21  fireton
+// - специализированная функция переноса файла образа из кэша в хранилище
+//
+// Revision 1.56  2016/06/17 13:00:03  fireton
+// - мелкая правка
+//
+// Revision 1.55  2016/06/17 12:48:39  fireton
+// - ускоряем перенос кэша
+//
+// Revision 1.54  2016/06/16 06:51:26  fireton
+// - не удаляем файлы по маске (слишком долго!)
+//
+// Revision 1.53  2016/06/15 14:47:13  fireton
+// - рапортуем имя файла при копировании из кэша
+//
 // Revision 1.52  2016/06/10 12:35:17  fireton
 // - кеширование образов документов
 //
@@ -250,6 +268,7 @@ uses
  l3FileUtils,
  l3IniFile,
  l3String,
+ l3Except,
 
  daTypes,
  daSchemeConsts,
@@ -304,13 +323,25 @@ begin
 end;
 
 function DocImageServer: TDocImageServer;
+var
+ l_CachePathDefined: Boolean;
+ l_CachePathValid: Boolean;
+ l_ImagePathValid: Boolean;
 begin
  if gDocImageServer = nil then
  begin
-  if not SysUtils.DirectoryExists(gDocImagePath) then
-   raise EDocImageError.CreateFmt('Неверный путь к файлам образов документов ("%s")!. Обратитесь к администратору', [gDocImagePath]);
-  if (gDocImageCachePath <> '') and (not SysUtils.DirectoryExists(gDocImageCachePath)) then
-   raise EDocImageError.CreateFmt('Неверный путь к кэшу образов документов ("%s")!. Обратитесь к администратору', [gDocImageCachePath]);
+  l_ImagePathValid := SysUtils.DirectoryExists(gDocImagePath);
+  l_CachePathDefined   := (gDocImageCachePath <> '');
+  if l_CachePathDefined then
+   l_CachePathValid := SysUtils.DirectoryExists(gDocImageCachePath)
+  else
+   l_CachePathValid := False;
+  if not l_ImagePathValid then
+   l3System.Msg2Log('ОШИБКА: Неверный путь к файлам образов документов ("%s")!. Обратитесь к администратору', [gDocImagePath]);
+  if l_CachePathDefined and not l_CachePathValid then
+   l3System.Msg2Log('ОШИБКА: Неверный путь к кэшу образов документов ("%s")!. Обратитесь к администратору', [gDocImageCachePath]);
+  if ((not l_ImagePathValid) and (not l_CachePathDefined)) or (l_CachePathDefined and (not l_CachePathValid)) then
+   raise El3Error.Create('Работа с образами невозможна! Неправильные настройки!');
   gDocImageServer := TDocImageServer.Create(gDocImagePath, gDocImageCachePath);
  end;
  Result := gDocImageServer;
@@ -540,16 +571,88 @@ var
  l_Time: Int64;
  l_Elapsed: Double;
  l_Str: AnsiString;
+ l_Num: Integer;
+
+ // это специальная функция копирования, без временных файлов и переименований
+ // нацелена на максимальную скорость работы в условиях директорий с большим количеством файлов
+ procedure MoveImageFile(const aFromFN, aToFN: AnsiString);
+ const
+  cBufSize = 1024 * 256; // 256 килобайт
+ var
+  l_Buf: Pointer;
+  l_FileAge, l_FileAttr: Longint;
+  l_HFrom, l_HTo: Integer;
+  l_FileSize, l_TotalWritten: Int64;
+  l_NumRead, l_NumWritten: Integer;
+  l_ErrStr: AnsiString;
+ begin
+  l3System.GetLocalMem(l_Buf, cBufSize);
+  try
+   l_FileAttr := FileGetAttr(aFromFN);
+   l_HFrom := FileOpen(aFromFN, fmShareDenyWrite);
+   if l_HFrom < 0 then
+    raise EInOutError.CreateFmt('Не могу открыть для чтения файл %s', [aFromFN]);
+   try
+    l_FileAge := FileGetDate(l_HFrom);
+    MakeDir(ExtractFilePath(aToFN));
+    l_HTo := FileCreate(aToFN);
+    if l_HTo < 0 then
+     raise EInOutError.CreateFmt('Не могу открыть для записи файл %s', [aToFN]);
+    try
+     l_FileSize := GetFileSize(aFromFN);
+     l_TotalWritten := 0;
+     repeat
+      l_NumRead := FileRead(l_HFrom, l_Buf^, cBufSize);
+      if l_NumRead < 0 then
+      begin
+       l_ErrStr := SysErrorMessage(GetLastError);
+       raise EInOutError.CreateFmt('Ошибка чтения файла %s (%s)', [aFromFN, l_ErrStr]);
+      end;
+      l_NumWritten := FileWrite(l_HTo, l_Buf^, l_NumRead);
+      if l_NumWritten < 0 then
+      begin
+       l_ErrStr := SysErrorMessage(GetLastError);
+       raise EInOutError.CreateFmt('Ошибка записи файла %s (%s)', [aToFN, l_ErrStr]);
+      end;
+      Inc(l_TotalWritten, l_NumWritten);
+     until (l_NumRead = 0) or (l_NumWritten < l_NumRead);
+     FileSetDate(l_HTo, l_FileAge);
+    finally
+     FileClose(l_HTo);
+    end;
+    if l_TotalWritten <> l_FileSize then
+    begin
+     DeleteFile(aToFN);
+     raise EInOutError.CreateFmt('Ошибка копирования, не совпадает размер файлов %s (%d) и %s (%d). Копия удалена.',
+        [aFromFN, l_FileSize, aToFN, l_TotalWritten]);
+    end;
+    FileSetAttr(aToFN, l_FileAttr);
+   finally
+    FileClose(l_HFrom);
+   end;
+   DeleteFile(aFromFN);
+  finally
+   l3System.FreeLocalMem(l_Buf);
+  end;
+ end;
 
  function MoveOne(const aFileName: AnsiString): Boolean;
  var
   l_DestFN: AnsiString;
+  l_LocalFN: AnsiString;
+  l_FS : Int64;
  begin
   Result := True;
   try
-   l_DestFN := ConcatDirName(f_ImageStoragePath, ExtractRelativePath(IncludeTrailingBackslash(f_ImageCachePath), aFileName));
-   DeleteFilesByMask('', ChangeFileExt(l_DestFN, '.*')); // чтобы удалить те образы, которые уже есть в хранилище
-   CopyFile(aFileName, l_DestFN, cmWriteOver + cmNoBakCopy + cmDeleteSource);
+   Inc(l_Num);
+   l_LocalFN := ExtractRelativePath(IncludeTrailingBackslash(f_ImageCachePath), aFileName);
+   l_FS := GetFileSize(aFileName);
+   l3System.Msg2Log('  [%d из %d] %s (%s)', [l_Num, l_FI.Count, l_LocalFN, Bytes2Str(l_FS)]);
+   l_DestFN := ConcatDirName(f_ImageStoragePath, l_LocalFN);
+   DeleteFile(ChangeFileExt(l_DestFN, cTIFFImageExt)); // чтобы удалить те образы, которые уже есть в хранилище
+   DeleteFile(ChangeFileExt(l_DestFN, cImageContainerExt)); // удалять по маске - НЕЛЬЗЯ! (слишком долго, если много файлов, ибо поиск)
+   //CopyFileEx(aFileName, l_DestFN, nil, cmWriteOver + cmNoBakCopy + cmDeleteSource, True);
+   MoveImageFile(aFileName, l_DestFN);
   except
    on E: Exception do
    begin
@@ -571,6 +674,7 @@ begin
    l_IterFunc := L2IterateFilesProc(@MoveOne);
    try
     l_Success := True;
+    l_Num := 0;
     l_Time := dbgStartTimeCounter;
     l_FI.IterateFiles(l_IterFunc);
     if l_Success then
@@ -578,10 +682,10 @@ begin
      l_Time := dbgGetElapsed(l_Time);
      l_Elapsed :=  l_Time / 1000; // прошедшее время в секундах
      if l_Elapsed > 0 then
-      l_Str := Bytes2Str(Trunc(l_FI.TotalSize / l_Elapsed))
+      l_Str := Bytes2Str(Trunc(l_FI.TotalSize / l_Elapsed))  
      else
       l_Str := 'бесконечность';
-     l3System.Msg2Log('Обработка завершена, файлы скопированы со скоростью %s/сек.', [l_Str], 1);
+     l3System.Msg2Log('Обработка завершена за %s, файлы скопированы со скоростью %s/сек.', [TimeSec2Str(Trunc(l_Elapsed)), l_Str]);
      PureDir(f_ImageCachePath);
     end;
     Result := l_Success;

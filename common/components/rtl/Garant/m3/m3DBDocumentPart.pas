@@ -70,6 +70,8 @@ uses
  , m2COMLib
  , Windows
  , l3Date
+ //#UC START# *4742DCFF02DCimpl_uses*
+ //#UC END# *4742DCFF02DCimpl_uses*
 ;
 
 constructor Tm3DBDocumentPart.Create(aDB: Tm3PrimDB;

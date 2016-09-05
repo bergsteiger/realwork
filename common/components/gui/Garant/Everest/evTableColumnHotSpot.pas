@@ -92,6 +92,8 @@ uses
  , k2OpMisc
  , evMsgCode
  , l3IID
+ //#UC START# *4ED31E9500E7impl_uses*
+ //#UC END# *4ED31E9500E7impl_uses*
 ;
 
 function TevTableColumnHotSpot.ProportionalChangeWidth(aTable: Tl3Variant;

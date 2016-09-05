@@ -41,6 +41,8 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ //#UC START# *4E85A869034Eimpl_uses*
+ //#UC END# *4E85A869034Eimpl_uses*
 ;
 
 function TevStyleHeaderAdder.ParaTypeForFiltering: Tk2Type;

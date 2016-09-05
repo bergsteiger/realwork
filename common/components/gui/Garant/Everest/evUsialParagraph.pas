@@ -35,6 +35,8 @@ implementation
 uses
  l3ImplUses
  , evParaFrame
+ //#UC START# *4BBF3E28035Eimpl_uses*
+ //#UC END# *4BBF3E28035Eimpl_uses*
 ;
 
 class function TevUsialParagraph.Make(aTag: Tl3Variant;

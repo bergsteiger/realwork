@@ -48,6 +48,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4E730AE6014Cimpl_uses*
+ //#UC END# *4E730AE6014Cimpl_uses*
 ;
 
 constructor TnsMainMenu2011Node.Create(const aSectionItem: ISectionItem);

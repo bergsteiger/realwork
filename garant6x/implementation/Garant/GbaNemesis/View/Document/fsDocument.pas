@@ -113,6 +113,8 @@ uses
  , bsUtils
  , SysUtils
  , l3Base
+ //#UC START# *4AA126C401ADimpl_uses*
+ //#UC END# *4AA126C401ADimpl_uses*
 ;
 
 var g_Tfs_Document: Tfs_Document = nil;

@@ -32,6 +32,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48BBD6550261impl_uses*
+ //#UC END# *48BBD6550261impl_uses*
 ;
 
 function TafwCustomCommonTextControl.pm_GetCanvas: TCanvas;

@@ -40,7 +40,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , SearchUnit
  , SimpleListInterfaces
@@ -66,7 +68,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TFiltersServiceImpl = {final} class(Tl3ProtoObject, IFiltersService)
+ TFiltersServiceImpl = {final} class(TvcmModuleContractImplementation, IFiltersService)
   public
    function CreateFilter(const aQuery: IQuery): Integer;
    procedure FiltersOpen(const aData: IucpFilters);
@@ -141,6 +143,8 @@ procedure TFiltersServiceImpl.OldSchoolFiltersOpen(const anAggregate: IvcmAggreg
 var
  __WasEnter : Boolean;
 //#UC START# *4AC09F4F011A_4CCAA9E50274_var*
+var
+ l_Filters : IvcmEntityForm;
 //#UC END# *4AC09F4F011A_4CCAA9E50274_var*
 begin
  __WasEnter := vcmEnterFactory;

@@ -42,6 +42,8 @@ uses
  , k2Tags
  , evdStyles
  , Document_Const
+ //#UC START# *502B789B03CAimpl_uses*
+ //#UC END# *502B789B03CAimpl_uses*
 ;
 
 function TevTextInTableCorrector.InCell: Boolean;

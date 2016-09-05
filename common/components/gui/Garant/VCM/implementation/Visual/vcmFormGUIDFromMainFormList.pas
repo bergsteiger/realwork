@@ -55,6 +55,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4F1EDCBC012Fimpl_uses*
+ //#UC END# *4F1EDCBC012Fimpl_uses*
 ;
 
 function TvcmFormGUIDFromMainFormRec_C(aMainForm: TvcmMainForm;

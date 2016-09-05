@@ -68,6 +68,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *578614D202D9impl_uses*
+ //#UC END# *578614D202D9impl_uses*
 ;
 
 function TvcmOperationStateForRegister_C(const aName: AnsiString;
@@ -149,7 +151,11 @@ begin
  l_Index := IndexOf(aState);
  if (l_Index < 0) then
   l_Index := Add(aState);
- Result := ItemSlot(l_Index); 
+ {$IfDef XE}
+ Result := PvcmOperationStateForRegister(ItemSlot(l_Index));
+ {$Else  XE}
+ Result := ItemSlot(l_Index);
+ {$EndIf XE}
 //#UC END# *57861CED02AE_578614D202D9_impl*
 end;//TvcmOperationStatesForRegister.AddState
 {$IfEnd} // NOT Defined(NoVCM)

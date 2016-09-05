@@ -60,6 +60,8 @@ uses
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Utils
+ //#UC START# *47F4CCAD037Fimpl_uses*
+ //#UC END# *47F4CCAD037Fimpl_uses*
 ;
 
 type _Instance_R_ = TdDrugDocument;

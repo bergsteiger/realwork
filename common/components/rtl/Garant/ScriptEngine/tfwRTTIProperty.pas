@@ -45,6 +45,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3String
+ //#UC START# *55C861DE03D5impl_uses*
+ //#UC END# *55C861DE03D5impl_uses*
 ;
 
 class procedure TtfwRTTIProperty.Register(aClass: TClass;

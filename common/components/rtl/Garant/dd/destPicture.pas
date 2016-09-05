@@ -60,6 +60,8 @@ uses
  , SysUtils
  , ddConst
  , l3Interfaces
+ //#UC START# *51E8E771003Aimpl_uses*
+ //#UC END# *51E8E771003Aimpl_uses*
 ;
 
 function TdestPicture.pm_GetPicture: TddPicture;

@@ -37,6 +37,8 @@ uses
  , m3StorageHolder
  , l3Memory
  , l3Base
+ //#UC START# *542E7AD00050impl_uses*
+ //#UC END# *542E7AD00050impl_uses*
 ;
 
 var g_Tm3StorageHolderList: Tm3StorageHolderList = nil;

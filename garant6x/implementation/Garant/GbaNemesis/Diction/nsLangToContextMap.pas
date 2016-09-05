@@ -62,6 +62,8 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilterState
  {$IfEnd} // Defined(Nemesis)
+ //#UC START# *490837B901D4impl_uses*
+ //#UC END# *490837B901D4impl_uses*
 ;
 
 class function TnsLangToContextMap.Make(const aNotifySource: Il3ContextFilterNotifySource): InsLangToContextMap;

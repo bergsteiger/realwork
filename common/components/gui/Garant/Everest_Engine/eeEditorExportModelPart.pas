@@ -149,6 +149,8 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , l3String
  , l3Variant
+ //#UC START# *4B877FE00340impl_uses*
+ //#UC END# *4B877FE00340impl_uses*
 ;
 
 {$If Defined(Nemesis)}

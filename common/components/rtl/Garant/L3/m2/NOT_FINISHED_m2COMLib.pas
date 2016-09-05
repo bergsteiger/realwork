@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *49B952CD03A6impl_uses*
+ //#UC END# *49B952CD03A6impl_uses*
 ;
 
 procedure m2COMGetSize;

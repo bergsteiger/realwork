@@ -28,6 +28,8 @@ uses
  , l3String
  , l3Variant
  , l3Memory
+ //#UC START# *47B9CBAA037Fimpl_uses*
+ //#UC END# *47B9CBAA037Fimpl_uses*
 ;
 
 type _Instance_R_ = Tl3StringList1;

@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4CEE65B701A4impl_uses*
+ //#UC END# *4CEE65B701A4impl_uses*
 ;
 
 class function TnsParaModifier.MarkModified(aTag: Tl3Variant): Boolean;

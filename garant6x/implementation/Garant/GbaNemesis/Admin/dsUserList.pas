@@ -155,6 +155,8 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilterState
  {$IfEnd} // Defined(Nemesis)
+ //#UC START# *49246742002Bimpl_uses*
+ //#UC END# *49246742002Bimpl_uses*
 ;
 
 type _Instance_R_ = TdsUserList;

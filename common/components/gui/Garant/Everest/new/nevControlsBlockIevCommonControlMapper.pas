@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , SysUtils
  , nevTools
+ //#UC START# *53D637420240impl_uses*
+ //#UC END# *53D637420240impl_uses*
 ;
 
 class function TnevControlsBlockIevCommonControlMapper.Make(aTag: Tl3Variant;

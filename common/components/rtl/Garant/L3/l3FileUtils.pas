@@ -5,9 +5,12 @@ unit l3FileUtils;
 { Автор: Бабанин В.Б. ©               }
 { Модуль: l3FileUtils -               }
 { Начат: 12.04.98 16:27               }
-{ $Id: l3FileUtils.pas,v 1.92 2016/05/19 08:38:49 lukyanets Exp $ }
+{ $Id: l3FileUtils.pas,v 1.93 2016/06/17 12:47:05 fireton Exp $ }
 
 // $Log: l3FileUtils.pas,v $
+// Revision 1.93  2016/06/17 12:47:05  fireton
+// - возможность копировать файлы без проверки директории назначения (дорогая операция)
+//
 // Revision 1.92  2016/05/19 08:38:49  lukyanets
 // Уточнение диагностики
 //
@@ -446,11 +449,11 @@ function MakeUniqueFileName(const aFileName: String): string;
 function GetNextUniqueFileName(const aFileName: String; aMaxSize: Integer): string;
 
 
-  procedure CopyDirEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc);
+procedure CopyDirEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc);
 
 
-  procedure CopyFileEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc; CopyMode: Byte =
-      cmWriteOver);
+procedure CopyFileEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc; CopyMode: Byte = cmWriteOver;
+   aSimpleTmpName: Boolean = False);
 
 function l3ChangeFileFolder(const aFileName, aNewFolder: string): string;
 
@@ -1581,7 +1584,7 @@ procedure CopyDirEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc);
  end;
 
 procedure CopyFileEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc; CopyMode: Byte =
-    cmWriteOver);
+    cmWriteOver; aSimpleTmpName: Boolean = False);
 var
  FromF, ToF          : Integer;
  NumRead, NumWritten : Integer;
@@ -1624,7 +1627,10 @@ Begin
     end // if ((CopyMode and cmAppend) <> 0) and FileExists(Dest) then
     else
     begin
-     TmpName := GetUniqFileName(ExtractFilePath(Dest), 'cpy', '.tmp');
+     if aSimpleTmpName then
+      TmpName := ChangeFileExt(Dest, '.ctmp')
+     else
+      TmpName := GetUniqFileName(ExtractFilePath(Dest), 'cpy', '.tmp');
      MakeDir(ExtractFilePath(Dest));
      ToF := FileCreate(TmpName);
      TmpLog := True;

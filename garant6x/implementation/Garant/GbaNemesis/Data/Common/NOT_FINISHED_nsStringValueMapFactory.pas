@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , nsStringValueMapFactoryRes
+ //#UC START# *4AD5BA56015Eimpl_uses*
+ //#UC END# *4AD5BA56015Eimpl_uses*
 ;
 
 function TnsStringValueMapFactory.MakeMap(const aID: TnsValueMapID): InsValueMap;

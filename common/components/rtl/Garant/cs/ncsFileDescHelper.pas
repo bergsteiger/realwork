@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , FileDesc_Const
+ //#UC START# *546EF5650026impl_uses*
+ //#UC END# *546EF5650026impl_uses*
 ;
 
 class function TFileDescHelper.Make(aValue: Tl3Tag): FileDescHelper;

@@ -1,6 +1,6 @@
 unit D_SrchIncludeDoc2;
 
-{ $Id: D_SrchIncludeDoc2.pas,v 1.2 2005/05/30 10:28:39 lulin Exp $ }
+{ $Id: D_SrchIncludeDoc2.pas,v 1.3 2016/08/11 10:41:58 lukyanets Exp $ }
 
 interface
 
@@ -34,8 +34,5 @@ type
 implementation
 
 {$R *.DFM}
-
-Uses
-  DT_User;
 
 end.

@@ -45,6 +45,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47E26A16008Eimpl_uses*
+ //#UC END# *47E26A16008Eimpl_uses*
 ;
 
 type _Instance_R_ = TnevRangeList;

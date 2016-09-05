@@ -66,6 +66,8 @@ uses
  , l3HugeMessageDlgWithWikiHelper
  , SysUtils
  , l3Base
+ //#UC START# *551BCBFD0240impl_uses*
+ //#UC END# *551BCBFD0240impl_uses*
 ;
 
 var g_Tl3FormatObjectInfoHelper: Tl3FormatObjectInfoHelper = nil;

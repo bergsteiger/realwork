@@ -42,7 +42,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
@@ -69,7 +71,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TBaseSearchServiceImpl = {final} class(Tl3ProtoObject, IBaseSearchService)
+ TBaseSearchServiceImpl = {final} class(TvcmModuleContractImplementation, IBaseSearchService)
   public
    procedure BaseSearchCheckFindBack(const aContainer: IvcmContainer);
    procedure BaseSearchCheckFragmentsCount(const aContainer: IvcmContainer);
@@ -102,6 +104,8 @@ procedure TBaseSearchServiceImpl.BaseSearchCheckFindBack(const aContainer: IvcmC
 var
  __WasEnter : Boolean;
 //#UC START# *4AB7A5A500FB_4CC97D020011_var*
+var
+ l_Processor : InsBaseSearchQueryDataProcessor;
 //#UC END# *4AB7A5A500FB_4CC97D020011_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -121,6 +125,8 @@ procedure TBaseSearchServiceImpl.BaseSearchCheckFragmentsCount(const aContainer:
 var
  __WasEnter : Boolean;
 //#UC START# *4AB79B8201F8_4CC97D020011_var*
+var
+ l_Processor : InsBaseSearchQueryDataProcessor;
 //#UC END# *4AB79B8201F8_4CC97D020011_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -140,6 +146,8 @@ procedure TBaseSearchServiceImpl.CheckBaseSearchDataReady(const aContainer: Ivcm
 var
  __WasEnter : Boolean;
 //#UC START# *4AB797E7001F_4CC97D020011_var*
+var
+ l_Checker : InsBaseSearchDataReadyChecker;
 //#UC END# *4AB797E7001F_4CC97D020011_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -160,6 +168,9 @@ procedure TBaseSearchServiceImpl.OpenBaseSearch(OpenKind: TnsBaseSearchOpenKind;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB7881B00EA_4CC97D020011_var*
+var
+ l_Container : IvcmContainer;
+ l_Processor : InsBaseSearchQueryDataProcessor;
 //#UC END# *4AB7881B00EA_4CC97D020011_var*
 begin
  __WasEnter := vcmEnterFactory;
@@ -185,6 +196,8 @@ procedure TBaseSearchServiceImpl.TryAnotherBaseSearch(const aContainer: IvcmCont
 var
  __WasEnter : Boolean;
 //#UC START# *4AB79DF40349_4CC97D020011_var*
+var
+ l_Processor : InsBaseSearchResultProcessor;
 //#UC END# *4AB79DF40349_4CC97D020011_var*
 begin
  __WasEnter := vcmEnterFactory;

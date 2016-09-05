@@ -38,6 +38,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *4F1EDE130096impl_uses*
+ //#UC END# *4F1EDE130096impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

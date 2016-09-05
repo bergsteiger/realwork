@@ -34,6 +34,8 @@ uses
  , nsLogEventData
  , nsLogManager
  , LoggingWrapperInterfaces
+ //#UC START# *4B0A8AB30113impl_uses*
+ //#UC END# *4B0A8AB30113impl_uses*
 ;
 
 class procedure TnsSearchInDocumentEvent.Log(const aDoc: IDocument;

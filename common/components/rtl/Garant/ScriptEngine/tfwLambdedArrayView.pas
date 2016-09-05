@@ -66,6 +66,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *52E666BC0270impl_uses*
+ //#UC END# *52E666BC0270impl_uses*
 ;
 
 constructor TtfwTwoLambdas.Create(aLambda: TtfwWord;

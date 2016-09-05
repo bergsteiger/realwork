@@ -40,6 +40,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F2148300318impl_uses*
+ //#UC END# *4F2148300318impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}

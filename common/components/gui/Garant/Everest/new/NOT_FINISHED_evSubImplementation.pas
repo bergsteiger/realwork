@@ -91,6 +91,8 @@ uses
  , k2Tags
  , k2Base
  , k2InterfaceFactory
+ //#UC START# *47F24F150318impl_uses*
+ //#UC END# *47F24F150318impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}

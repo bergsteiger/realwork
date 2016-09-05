@@ -1,7 +1,10 @@
 unit Dt_EditionFltr;
-{ $Id: Dt_EditionFltr.pas,v 1.34 2014/04/04 06:58:50 dinishev Exp $ }
+{ $Id: Dt_EditionFltr.pas,v 1.35 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: Dt_EditionFltr.pas,v $
+// Revision 1.35  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.34  2014/04/04 06:58:50  dinishev
 // Bug fix: не собирался Арчи.
 //
@@ -18,7 +21,7 @@ unit Dt_EditionFltr;
 // - потихоньку избавляемся от использования идентификаторов типов тегов.
 //
 // Revision 1.29  2011/06/10 11:53:44  voba
-// - DocumentServer сделал функцией function DocumentServer(aFamily : TFamilyID), что бы отдельно Family не присваивать
+// - DocumentServer сделал функцией function DocumentServer(aFamily : TdaFamilyID), что бы отдельно Family не присваивать
 //
 // Revision 1.28  2009/07/20 12:38:48  voba
 // - Засунул renum в атрибуты
@@ -116,6 +119,7 @@ interface
 uses Classes,
      l3Types,
      k2TagFilter, k2Types, k2Reader,
+     daTypes,
      Dt_Const, Dt_Types;
 
 type
@@ -124,7 +128,7 @@ type
    ID создаваемого документа выставляется вручную (ExternalEditionID). *)
  TCloneDocumentFilter = class(Tk2TagFilter)
   protected
-   fFamily          : TFamilyID;
+   fFamily          : TdaFamilyID;
    fIntDocumentID   : TDocID;
    fIntEditionID    : TDocID;
    // fExtEditionID : TDocID;
@@ -137,7 +141,7 @@ type
    procedure SetInternalEditionID(aValue : TDocID);
 
   public
-   constructor Create(aOwner : TComponent; aFamily : TFamilyID); reintroduce;
+   constructor Create(aOwner : TComponent; aFamily : TdaFamilyID); reintroduce;
 
    procedure   AddAtomEx(AtomIndex : Long; const Value : Tk2Variant); override;
 
@@ -190,7 +194,7 @@ uses SysUtils,
 
 (************************** TCreateNewEditionFilter *************************************)
 
-constructor TCloneDocumentFilter.Create(aOwner : TComponent; aFamily : TFamilyID);
+constructor TCloneDocumentFilter.Create(aOwner : TComponent; aFamily : TdaFamilyID);
 begin
  inherited Create(aOwner);
  if aFamily > 0 then

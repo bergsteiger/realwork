@@ -44,6 +44,8 @@ uses
  l3ImplUses
  , IOUnit
  , nsTypes
+ //#UC START# *4ADDF50A00E2impl_uses*
+ //#UC END# *4ADDF50A00E2impl_uses*
 ;
 
 constructor TnsQueryNode.Create(const aQuery: IQuery);

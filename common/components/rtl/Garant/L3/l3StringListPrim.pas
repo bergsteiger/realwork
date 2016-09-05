@@ -66,6 +66,8 @@ uses
  , l3Stream
  , l3IID
  , l3InterfacesMisc
+ //#UC START# *47B1DFC40250impl_uses*
+ //#UC END# *47B1DFC40250impl_uses*
 ;
 
 type _Instance_R_ = Tl3StringListPrim;

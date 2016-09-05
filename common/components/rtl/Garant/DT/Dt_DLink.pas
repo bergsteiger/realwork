@@ -1,8 +1,11 @@
 Unit Dt_DLink;
 
-{ $Id: Dt_DLink.pas,v 1.4 2004/08/03 08:52:51 step Exp $ }
+{ $Id: Dt_DLink.pas,v 1.5 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: Dt_DLink.pas,v $
+// Revision 1.5  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.4  2004/08/03 08:52:51  step
 // замена dt_def.pas на DtDefine.inc
 //
@@ -34,7 +37,7 @@ Type
    function    ModifyDictID(gRecNo : LongInt;fpRecord : Pointer) : Boolean; Pascal;
    function    ModifySub(gRecNo : LongInt;fpRecord : Pointer) : Boolean; Pascal;
   public
-   Constructor Create(aFamily : TFamilyID;aPrefName  : TPrefName); Reintroduce;
+   Constructor Create(aFamily : TdaFamilyID;aPrefName  : TPrefName); Reintroduce;
 
    Procedure   AddNode(DictLinkRec : TDLinkRec); virtual;
 

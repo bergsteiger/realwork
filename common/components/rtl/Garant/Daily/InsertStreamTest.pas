@@ -48,6 +48,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4C4FDC620374impl_uses*
+ //#UC END# *4C4FDC620374impl_uses*
 ;
 
 procedure TInsertStreamTest.DoProcess(aText: TevCustomEditorWindow;

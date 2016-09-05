@@ -31,6 +31,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *460B9047035Bimpl_uses*
+ //#UC END# *460B9047035Bimpl_uses*
 ;
 
 procedure Translate(const date: TDate;

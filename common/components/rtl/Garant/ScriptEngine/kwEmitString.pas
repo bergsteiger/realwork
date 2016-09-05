@@ -48,6 +48,8 @@ uses
  , Messages
  , l3Chars
  , l3Interfaces
+ //#UC START# *4DB19F7802E3impl_uses*
+ //#UC END# *4DB19F7802E3impl_uses*
 ;
 
 class function TkwEmitString.GetWordNameForRegister: AnsiString;

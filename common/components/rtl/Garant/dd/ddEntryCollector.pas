@@ -1,8 +1,14 @@
 unit ddEntryCollector;
 
-{ $Id: ddEntryCollector.pas,v 1.7 2014/06/20 12:50:34 fireton Exp $ }
+{ $Id: ddEntryCollector.pas,v 1.9 2016/08/24 09:11:09 fireton Exp $ }
 
 // $Log: ddEntryCollector.pas,v $
+// Revision 1.9  2016/08/24 09:11:09  fireton
+// - автопростановка ссылок, рефакторинг и доработка
+//
+// Revision 1.8  2016/08/01 15:05:25  fireton
+// - переделка автолинкера
+//
 // Revision 1.7  2014/06/20 12:50:34  fireton
 // - пилим автолинковщик на базовые классы
 //
@@ -51,6 +57,7 @@ type
 
  TddEntryCollector = class(Tl3ProtoObject)
  private
+  f_RightAligned: Boolean;
   f_SPAddrCluster: Tl3RegularSearch;
   f_SPAddrEntryTypeArray: array [TddAddrEntryType] of Tl3RegularSearch;
   f_SPSingleAddress: Tl3RegularSearch;
@@ -70,7 +77,9 @@ type
   property SPNumberCluster: Tl3RegularSearch read pm_GetSPNumberCluster;
   property SPSingleNumber: Tl3RegularSearch read pm_GetSPSingleNumber;
  public
+  constructor Create(aRightAligned: Boolean = True);
   function CollectEntries(aText: PAnsiChar; aStart, aFinish: Integer; aEntryList: Tl3RecList): Boolean;
+  class function MakeEntryList: Tl3RecList;
  end;
 
 implementation
@@ -103,11 +112,19 @@ const
  sp_SingleAddress  = '('+sp_AnyEntry+'\s*'+sp_NumberCluster+'\s*)+';
  sp_SingleAddressT = '({'+sp_AnyEntry+'}\s*{'+sp_NumberCluster+'}\s*)+';
 
- sp_AddressClusterT = '({'+sp_SingleAddress+'}(([\,\;]\s?)|(\s*и\s+))?)+$';
+ sp_AddressClusterT  = '({'+sp_SingleAddress+'}(([\,\;]\s?)|(\s*и\s+))?)+';
+ sp_AddressClusterRT = sp_AddressClusterT+'$';
+ 
 
 const
  cAddrEntryPattern: array [TddAddrEntryType] of string =
      (sp_Chapter, sp_Head, sp_Entry, sp_Item, sp_Subitem, sp_Paragraph, sp_Part);
+
+constructor TddEntryCollector.Create(aRightAligned: Boolean = True);
+begin
+ inherited Create;
+ f_RightAligned := aRightAligned; // ищем адреса, прижатые к правому краю переданной строки или по всей строке
+end;
 
 procedure TddEntryCollector.Cleanup;
 var
@@ -331,6 +348,7 @@ begin
    end;
   end; // for l_AddrIdx
  end;
+ Result := aEntryList.Count > 0;
 end;
 
 function TddEntryCollector.DetectEntryType(const aStr: Tl3WString; out theType: TddAddrEntryType): Boolean;
@@ -348,13 +366,21 @@ begin
   end;
 end;
 
+class function TddEntryCollector.MakeEntryList: Tl3RecList;
+begin
+ Result := Tl3RecList.Create(SizeOf(TLinkPrimRec));
+end;
+
 function TddEntryCollector.pm_GetSPAddrCluster: Tl3RegularSearch;
 begin
  if f_SPAddrCluster = nil then
  begin
   f_SPAddrCluster := Tl3RegularSearch.Create;
   f_SPAddrCluster.IgnoreCase := True;
-  f_SPAddrCluster.SearchPattern := sp_AddressClusterT;
+  if f_RightAligned then
+   f_SPAddrCluster.SearchPattern := sp_AddressClusterRT
+  else
+   f_SPAddrCluster.SearchPattern := sp_AddressClusterT;
  end;
  Result := f_SPAddrCluster;
 end;

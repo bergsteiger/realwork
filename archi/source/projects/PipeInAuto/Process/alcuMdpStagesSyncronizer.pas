@@ -43,6 +43,7 @@ uses
  {$If NOT Defined(Nemesis)}
  ,daSchemeConsts,
  daDataProvider,
+ daTypes,
  dt_DictConst,
  dt_Sab,
  dt_Query,
@@ -86,10 +87,10 @@ var
 type
  PStageRec = ^TStageRec;
  TStageRec = packed record
-              rDocID  : TDocID;
+              rDocID  : TdaDocID;
               rStType : Byte;
               rEDate  : TStDate;
-              rAuthor : TUserID;
+              rAuthor : TdaUserID;
              end;
 
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;
@@ -139,7 +140,8 @@ begin
 
  if l_StagesSab.Count <> 0 then
  begin
-  lUserSab := MakeAllRecords(UserManager.xxxUserTbl);
+//!! !!! заменить xxxUserManager
+  lUserSab := MakeAllRecords(xxxUserManager.xxxUserTbl);
   lUserSab.ValuesOfKey(dtIDFld);
   lUserSab.RecordsByKey(stAuthor_Key, l_StagesSab);
   l_StagesSab.AndSab(lUserSab);

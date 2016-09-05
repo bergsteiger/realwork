@@ -132,6 +132,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47F1F94201F6impl_uses*
+ //#UC END# *47F1F94201F6impl_uses*
 ;
 
 procedure TevSearchTool.Start;

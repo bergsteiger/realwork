@@ -38,6 +38,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *5141D01300D2impl_uses*
+ //#UC END# *5141D01300D2impl_uses*
 ;
 
 procedure TkwPopEditorGetLMargin.DoWithEditor(const aCtx: TtfwContext;

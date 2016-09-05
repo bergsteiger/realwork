@@ -40,6 +40,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *5640598000F0impl_uses*
+ //#UC END# *5640598000F0impl_uses*
 ;
 
 constructor TdaLogicCondition.Create(const aLeft: IdaCondition;

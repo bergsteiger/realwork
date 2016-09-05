@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *47ED10AF024Fimpl_uses*
+ //#UC END# *47ED10AF024Fimpl_uses*
 ;
 
 type _Instance_R_ = TevDocumentPreviewInfoList;

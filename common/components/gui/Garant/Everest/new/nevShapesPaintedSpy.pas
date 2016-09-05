@@ -63,6 +63,8 @@ uses
  , nevBase
  , l3MinMax
  , l3Base
+ //#UC START# *4CA5CC2C03CFimpl_uses*
+ //#UC END# *4CA5CC2C03CFimpl_uses*
 ;
 
 var g_TnevShapesPaintedSpy: TnevShapesPaintedSpy = nil;

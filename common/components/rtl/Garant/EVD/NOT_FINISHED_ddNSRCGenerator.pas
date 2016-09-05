@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4B59FBCA0096impl_uses*
+ //#UC END# *4B59FBCA0096impl_uses*
 ;
 
 {$If Defined(nsTest)}

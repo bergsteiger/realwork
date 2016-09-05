@@ -41,6 +41,8 @@ uses
  , l3Interfaces
  , k2Tags
  , evResultFontHolder
+ //#UC START# *4E5FAB3E0333impl_uses*
+ //#UC END# *4E5FAB3E0333impl_uses*
 ;
 
 procedure TnevSegmentFormatInfo.DoInvalidateShape(const aShape: InevObject;

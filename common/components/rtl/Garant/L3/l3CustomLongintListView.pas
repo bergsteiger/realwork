@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ //#UC START# *4DEFB340025Bimpl_uses*
+ //#UC END# *4DEFB340025Bimpl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas}

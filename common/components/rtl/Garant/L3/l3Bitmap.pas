@@ -42,6 +42,8 @@ uses
  , Classes
  , l3MemUtils
  , l3Interlocked
+ //#UC START# *47D15062022Aimpl_uses*
+ //#UC END# *47D15062022Aimpl_uses*
 ;
 
 type

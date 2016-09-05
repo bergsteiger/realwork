@@ -153,6 +153,8 @@ uses
  , l3FileUtils
  , StrUtils
  , daSchemeConsts
+ //#UC START# *55D6DA9E00BFimpl_uses*
+ //#UC END# *55D6DA9E00BFimpl_uses*
 ;
 
 constructor TpgDataProvider.Create(aParams: TpgDataProviderParams;
@@ -177,6 +179,8 @@ begin
  f_Connection := TpgConnection.Create(f_LongProcessList);
  f_FunctionFactory := TpgFunctionFactory.Create(f_Connection, f_DataConverter);
  f_AlienSessionID := BlankSession;
+ f_Factory := TpgTableQueryFactory.Make(f_DataConverter, f_Connection);
+ f_FreeIDHelperHolder := TpgFreeIDHelperHolder.Create(f_Connection, f_Factory, f_FunctionFactory);
 //#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
 end;//TpgDataProvider.Create
 
@@ -295,7 +299,7 @@ function TpgDataProvider.CheckFreeResource(aFamilyID: TdaFamilyID;
 //#UC END# *56558A4A01D1_55D6DA9E00BF_var*
 begin
 //#UC START# *56558A4A01D1_55D6DA9E00BF_impl*
- Result := FreeIDHelper[aFamilyID].AnyRangesPresent(aKey);
+ Result := FreeIDHelperHolder.FreeIDHelper[aFamilyID].AnyRangesPresent(aKey);
 //#UC END# *56558A4A01D1_55D6DA9E00BF_impl*
 end;//TpgDataProvider.CheckFreeResource
 
@@ -488,14 +492,14 @@ function TpgDataProvider.GetFreeExtObjID(aFamily: TdaFamilyID): TdaDocID;
 begin
 //#UC START# *551E7E1501D8_55D6DA9E00BF_impl*
  try
-  Result := FreeIDHelper[aFamily].GetFree(ftnImgHandle);
+  Result := FreeIDHelperHolder.FreeIDHelper[aFamily].GetFree(ftnImgHandle);
  except
   Result := 0;
  end;
 
  if (Result <= 0) then
  try
-  Result := FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
+  Result := FreeIDHelperHolder.FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
  except
   Result := 0;
  end;
@@ -511,7 +515,7 @@ begin
   Result := 0
  else
   repeat
-   Result := FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
+   Result := FreeIDHelperHolder.FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
   until Renum.ConvertToRealNumber(Result) = cUndefDocID;
 //#UC END# *551E7E35030B_55D6DA9E00BF_impl*
 end;//TpgDataProvider.GetFreeExtDocID
@@ -686,6 +690,8 @@ end;//TpgDataProvider.UnSubscribeProgress
 
 procedure TpgDataProvider.Start;
 //#UC START# *5526537A00CE_55D6DA9E00BF_var*
+var
+ l_UserGroups: TdaUserGroupIDArray;
 //#UC END# *5526537A00CE_55D6DA9E00BF_var*
 begin
 //#UC START# *5526537A00CE_55D6DA9E00BF_impl*
@@ -706,9 +712,10 @@ begin
   begin
    if f_RequireAdminRights or ((Get_UserID <> usSupervisor) and (Get_UserID < usAdminReserved)) then
    begin
-//!! !!! Need to be implemented !!!
-//    UserManager.GetUserGroup(fUserID); // load groups for logined user
+    l_UserGroups := Get_UserManager.GetUserGroups(Get_UserID);
     f_CurHomePath:=GetHomePath(Get_UserID);
+//!! !!! Need to be implemented !!!
+//    AccessServer.CurrentUserGroup := l_UserGroups;
 //    AccessServer.ReLoadMasks(MainTblsFamily); // Перегружаем маски доступа к документам
    end;
    f_HasAdminRights := Get_UserManager.IsUserAdmin(Get_UserID);
@@ -771,8 +778,6 @@ function TpgDataProvider.Get_TableQueryFactory: IdaTableQueryFactory;
 //#UC END# *554C7A3002BF_55D6DA9E00BFget_var*
 begin
 //#UC START# *554C7A3002BF_55D6DA9E00BFget_impl*
- if f_Factory = nil then
-  f_Factory := TpgTableQueryFactory.Make(f_DataConverter, f_Connection);
  Result := f_Factory;
 //#UC END# *554C7A3002BF_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_TableQueryFactory
@@ -831,7 +836,7 @@ function TpgDataProvider.Get_UserManager: IdaUserManager;
 begin
 //#UC START# *5628D25600E6_55D6DA9E00BFget_impl*
  if f_UserManager = nil then
-  f_UserManager := TpgUserManager.Make(Get_TableQueryFactory);
+  f_UserManager := TpgUserManager.Make(Get_TableQueryFactory, Get_Journal, f_FunctionFactory, f_FreeIDHelperHolder, f_Connection);
  Result := f_UserManager;
 //#UC END# *5628D25600E6_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_UserManager
@@ -843,7 +848,7 @@ function TpgDataProvider.RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
 //#UC END# *56BC642200D0_55D6DA9E00BF_var*
 begin
 //#UC START# *56BC642200D0_55D6DA9E00BF_impl*
- (FreeIDHelper[aFamilyID] as IdaComboAccessDataProviderHelper).RegisterFreeExtObjID(aFamilyID, aKey, anID);
+ FreeIDHelperHolder.FreeIDHelper[aFamilyID].ExcludeFree(aKey, anID);
 //#UC END# *56BC642200D0_55D6DA9E00BF_impl*
 end;//TpgDataProvider.RegisterFreeExtObjID
 
@@ -854,7 +859,7 @@ function TpgDataProvider.RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
 //#UC END# *56BC6437030F_55D6DA9E00BF_var*
 begin
 //#UC START# *56BC6437030F_55D6DA9E00BF_impl*
- (FreeIDHelper[aFamilyID] as IdaComboAccessDataProviderHelper).RegisterFreeExtDocID(aFamilyID, aKey, anID);
+ FreeIDHelperHolder.FreeIDHelper[aFamilyID].ExcludeFree(aKey, anID);
 //#UC END# *56BC6437030F_55D6DA9E00BF_impl*
 end;//TpgDataProvider.RegisterFreeExtDocID
 
@@ -886,8 +891,7 @@ begin
 //#UC START# *479731C50290_55D6DA9E00BF_impl*
  Assert(not f_Connection.Connected);
  FreeAndNil(f_FunctionFactory);
- FreeAndNil(f_MainFreeIDHelper);
- FreeAndNil(f_CurrentFreeIDHelper);
+ FreeAndNil(f_FreeIDHelperHolder);
  FreeAndNil(f_Renum);
  FreeAndNil(f_FamilyHelper);
  f_RegionQuery := nil;

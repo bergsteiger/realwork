@@ -52,7 +52,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Services_Contracts
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
@@ -81,7 +83,7 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- TInternetAgentServiceImpl = {final} class(Tl3ProtoObject, IInternetAgentService)
+ TInternetAgentServiceImpl = {final} class(TvcmModuleContractImplementation, IInternetAgentService)
   public
    procedure MakeInternetAgent(const anURL: Il3CString;
     const aContainer: IvcmContainer);

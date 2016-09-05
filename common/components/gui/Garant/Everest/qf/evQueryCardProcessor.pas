@@ -46,6 +46,8 @@ uses
  , ReqRow_Const
  , ReqCell_Const
  , nevTools
+ //#UC START# *48DBA722010Bimpl_uses*
+ //#UC END# *48DBA722010Bimpl_uses*
 ;
 
 function TevQueryCardProcessor.NeedAdd(Parent: Tl3Variant;

@@ -31,6 +31,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4AAF996900DCimpl_uses*
+ //#UC END# *4AAF996900DCimpl_uses*
 ;
 
 function FindSelectDialog(aWnd: hWnd;

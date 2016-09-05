@@ -226,6 +226,8 @@ uses
  , nsINodeRootWrap
  , nsINodeWrap
  , BaseTypesUnit
+ //#UC START# *46835B4001A4impl_uses*
+ //#UC END# *46835B4001A4impl_uses*
 ;
 
 constructor TnsTreeStructState.Create(aSelectedIndexList: Tl3LongintList);

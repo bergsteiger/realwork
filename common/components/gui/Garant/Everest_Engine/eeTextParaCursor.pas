@@ -77,6 +77,8 @@ uses
  , CommentPara_Const
  , SysUtils
  , evOp
+ //#UC START# *54BE4A4902B9impl_uses*
+ //#UC END# *54BE4A4902B9impl_uses*
 ;
 
 {$If Defined(evUseVisibleCursors)}

@@ -44,6 +44,8 @@ uses
  l3ImplUses
  , l3MinMax
  , SysUtils
+ //#UC START# *4680F5FF01EAimpl_uses*
+ //#UC END# *4680F5FF01EAimpl_uses*
 ;
 
 class function Tl3DataObjectEnum.Make(aDataObject: Tl3DataObject): IEnumFormatEtc;

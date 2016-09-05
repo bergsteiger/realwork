@@ -1,6 +1,6 @@
 unit D_Srch;
 
-{ $Id: D_SRCH.PAS,v 1.99 2015/12/25 12:44:37 voba Exp $ }
+{ $Id: D_SRCH.PAS,v 1.100 2016/06/16 05:38:44 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -17,6 +17,7 @@ uses BottomBtnDlg, F_AttrExplorer,
      l3Interfaces,
      l3DatLst, l3Tree, l3Tree_TLB, l3Nodes,
      ResShop, StrShop,
+     daTypes,
      DT_Const, DT_Types, DT_Link, DT_Dict, DT_Query, DT_Stage,
      l3Types,
      evTypes, evEditor, evMemo, evEditorWindow, OvcTCHdr, OvcTCmmn, OvcTCell,
@@ -155,7 +156,7 @@ type
     aNotEndStage,
     aNotBeginStage   : TStageSet;
 
-    fFamily : TFamilyID;
+    fFamily : TdaFamilyID;
     fDocument     : TarDocumentWithAttr;
     f_AlienQuery: TdtQuery;
 
@@ -174,7 +175,7 @@ type
     function GetQuery : TdtQuery;
     procedure SetQuery(aValue : TdtQuery);
 
-    procedure SetFamily(Value : TFamilyID);
+    procedure SetFamily(Value : TdaFamilyID);
 
     procedure WMDropAccept(var Message: TMessage); message wm_DropAccept;
 
@@ -183,7 +184,7 @@ type
 
   public
     NewSearchWinName : AnsiString;
-    constructor CreateParam(AOwner : TComponent; AFamily : TFamilyID);
+    constructor CreateParam(AOwner : TComponent; AFamily : TdaFamilyID);
     procedure Cleanup; override;
     procedure LoadDlgState;
     function Execute(var aQuery : TdtQuery;
@@ -192,7 +193,7 @@ type
 
 
     //property Query  : TdtQuery read GetQuery write SetQuery;
-    property Family : TFamilyID read fFamily write SetFamily;
+    property Family : TdaFamilyID read fFamily write SetFamily;
     
   end;
 
@@ -260,7 +261,7 @@ begin
   aList.AddRec(aValueList.Items[I]);
 end;
 
-constructor TDocSearchDlg.CreateParam(AOwner : TComponent; aFamily : TFamilyID);
+constructor TDocSearchDlg.CreateParam(AOwner : TComponent; aFamily : TdaFamilyID);
 Begin
  Create(AOwner);
  Screen.Cursor:=crHourGlass;
@@ -317,7 +318,7 @@ end;
 //begin
 //end;
 
-procedure TDocSearchDlg.SetFamily(Value : TFamilyID);
+procedure TDocSearchDlg.SetFamily(Value : TdaFamilyID);
 begin
  If fFamily = Value then Exit;
  fFamily := Value;

@@ -48,6 +48,8 @@ uses
  , SysUtils
  , l3Types
  , TestFrameWork
+ //#UC START# *4B2A51EA00EBimpl_uses*
+ //#UC END# *4B2A51EA00EBimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -2,7 +2,7 @@ unit VMailWin;
 
 {$Include l3Define.inc}
 
-{ $Id: VMAILWIN.PAS,v 1.5 2016/04/22 12:35:17 lukyanets Exp $ }
+{ $Id: VMAILWIN.PAS,v 1.7 2016/08/11 10:41:58 lukyanets Exp $ }
 
 interface
 
@@ -33,7 +33,9 @@ uses
 
   l3Types,
 
-  DT_Const, 
+  daTypes,
+
+  DT_Const,
   DT_Types, 
   DT_Mail, 
   DT_Doc, 
@@ -95,7 +97,7 @@ type
     {CurrData     : Pointer;}
     DocStorage    : TDocumentSabList;
     TempNameStr   : PAnsiChar;
-    fFromUserID   : TUserID;
+    fFromUserID   : TdaUserID;
     function CreateLetterCopy : TSendMailWin;
   protected
     function  Print : Boolean; override;
@@ -125,7 +127,6 @@ uses
   daDataProvider,
 
   ResShop,
-  DT_User, 
   dt_LinkServ,
   ObjList,
   Main,
@@ -336,7 +337,7 @@ end;
 procedure TViewMailWin.miInsertDocToObjListClick(Sender: TObject);
 var
  I             : Longint;
- ItDataRec     : TGlobalCoordinateRec;
+ ItDataRec     : TdaGlobalCoordinateRec;
  SaveAllocFlag : Boolean;
  lDoc          : TDocReadRec;
 begin

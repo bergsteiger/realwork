@@ -39,6 +39,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4909E1DD038Fimpl_uses*
+ //#UC END# *4909E1DD038Fimpl_uses*
 ;
 
 function TnsAttrBranchStruct.pm_GetRoot: INodeBase;

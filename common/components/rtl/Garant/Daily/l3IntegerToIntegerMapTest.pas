@@ -39,6 +39,8 @@ uses
  , l3IntegerToIntegerMap
  , SysUtils
  , TestFrameWork
+ //#UC START# *56090AF902FFimpl_uses*
+ //#UC END# *56090AF902FFimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

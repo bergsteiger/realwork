@@ -34,6 +34,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *54EC8C7C011Eimpl_uses*
+ //#UC END# *54EC8C7C011Eimpl_uses*
 ;
 
 type
@@ -702,7 +704,7 @@ function TkwPopComboTreeIndexOf.IndexOf(const aCtx: TtfwContext;
 //#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_var*
 begin
 //#UC START# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
- Result := aComboTree.Items.IndexOf(aString);
+ Result := aComboTree.IndexOfText(aString);
 //#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
 end;//TkwPopComboTreeIndexOf.IndexOf
 
@@ -759,7 +761,7 @@ procedure TkwPopComboTreeSelectItem.SelectItem(const aCtx: TtfwContext;
 //#UC END# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_var*
 begin
 //#UC START# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_impl*
- aComboTree.ItemIndex := aComboTree.Items.IndexOf(aString);
+ aComboTree.ItemIndex := aComboTree.IndexOfText(aString);
 //#UC END# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_impl*
 end;//TkwPopComboTreeSelectItem.SelectItem
 
@@ -818,14 +820,14 @@ var
 //#UC END# *55B7A6200240_55B7A6200240_55B780E60398_Word_var*
 begin
 //#UC START# *55B7A6200240_55B7A6200240_55B780E60398_Word_impl*
- if (aComboTree is TvtComboBoxQS) then //561950536
+ //if (aComboTree is TvtComboBoxQS) then //561950536
   aComboTree.ItemIndex := anIndex
- else
+ {else
  begin
   l_Node := aComboTree.Tree.GetNode(anIndex);
   aComboTree.Tree.GotoOnNode(l_Node);
   aComboTree.ShowNode(l_Node, True);
- end;//aComboTree is TvtComboBoxQS
+ end;//aComboTree is TvtComboBoxQS}
 //#UC END# *55B7A6200240_55B7A6200240_55B780E60398_Word_impl*
 end;//TkwPopComboTreeSetItemIndex.SetItemIndex
 
@@ -891,7 +893,7 @@ begin
  try
   l_Filer.Open;
   try
-   l_Filer.WriteLn((aComboTree.Items as Il3Strings).Items.Text);
+   l_Filer.WriteLn(aComboTree.GetTextOfAllItems);
   finally
    l_Filer.Close;
   end;

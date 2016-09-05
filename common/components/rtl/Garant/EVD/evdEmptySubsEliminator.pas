@@ -27,6 +27,8 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ //#UC START# *4F9BFA1F007Eimpl_uses*
+ //#UC END# *4F9BFA1F007Eimpl_uses*
 ;
 
 function TevdEmptySubsEliminator.NeedStartBuffering(aID: Integer): Boolean;

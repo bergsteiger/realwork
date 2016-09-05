@@ -61,6 +61,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *49ECA984005Fimpl_uses*
+ //#UC END# *49ECA984005Fimpl_uses*
 ;
 
 type _Instance_R_ = TsdsInternetAgent;

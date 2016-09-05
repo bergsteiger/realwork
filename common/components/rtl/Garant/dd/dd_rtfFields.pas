@@ -209,6 +209,8 @@ uses
  , l3Const
  , l3Interfaces
  , ddTextParagraph
+ //#UC START# *51D2772B035Bimpl_uses*
+ //#UC END# *51D2772B035Bimpl_uses*
 ;
 
 procedure TdestFormFieldItem.Close(aState: TddRTFState;

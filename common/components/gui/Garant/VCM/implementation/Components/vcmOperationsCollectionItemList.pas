@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *5603F69F0035impl_uses*
+ //#UC END# *5603F69F0035impl_uses*
 ;
 
 type _Instance_R_ = TvcmOperationsCollectionItemList;

@@ -69,6 +69,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *51E7D2010032impl_uses*
+ //#UC END# *51E7D2010032impl_uses*
 ;
 
 procedure TddFontEntry.Assign(Source: TPersistent);

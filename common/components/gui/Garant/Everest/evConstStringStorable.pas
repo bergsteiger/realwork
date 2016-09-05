@@ -43,6 +43,8 @@ uses
  l3ImplUses
  , l3Base
  , l3String
+ //#UC START# *48F49EEA0008impl_uses*
+ //#UC END# *48F49EEA0008impl_uses*
 ;
 
 constructor TevConstStringStorable.Create(const aData: IevdHyperlinkInfo;

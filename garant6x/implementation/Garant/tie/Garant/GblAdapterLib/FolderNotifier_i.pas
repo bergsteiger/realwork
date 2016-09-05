@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , ApplicationHelper
  , DoneNotifier_i
+ //#UC START# *45FFCCC9000Fimpl_uses*
+ //#UC END# *45FFCCC9000Fimpl_uses*
 ;
 
 constructor FolderNotifier_i.Make;

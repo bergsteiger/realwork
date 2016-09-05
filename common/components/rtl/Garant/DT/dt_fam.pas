@@ -1,8 +1,11 @@
 Unit Dt_Fam;
 
-{ $Id: dt_fam.pas,v 1.45 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: dt_fam.pas,v 1.46 2016/06/16 05:40:06 lukyanets Exp $ }
 
 // $Log: dt_fam.pas,v $
+// Revision 1.46  2016/06/16 05:40:06  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.45  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -129,6 +132,7 @@ Uses
  l3DatLst,
 
  HT_Const,
+ daTypes,
  Dt_Types,
  Dt_ATbl;
 
@@ -138,19 +142,19 @@ Const
 Type
   TFamNameStr = TChArr50;
   TFamilyRec = Record
-                ID     : TFamilyID;
+                ID     : TdaFamilyID;
                 Name   : TFamNameStr;
-                DocGr  : TUserGrID;
+                DocGr  : TdaUserGroupID;
                 Path   : TPathArr;
                 Attrib : LongInt;
                end;
  TFamilyShortRec = Record
-                    ID     : TFamilyID;
+                    ID     : TdaFamilyID;
                     Name   : TFamNameStr;
                    end;
 
  TFamilyPathRec = Record
-                   ID     : TFamilyID;
+                   ID     : TdaFamilyID;
                    Path   : TPathArr;
                    Attrib : LongInt;
                   end;
@@ -162,39 +166,39 @@ Type
    // Указатель на массив атрибутов семейств таблиц
    f_GlobalFamAttrib   : PFamilyAttrib;
 
-   f_MaxFamilyID       : TFamilyID;
+   f_MaxFamilyID       : TdaFamilyID;
 
    Procedure   CreateEmptyFamily(aPath : TPathStr;
-                                 aID   : TFamilyID;
+                                 aID   : TdaFamilyID;
                                  aType : LongInt);
-   Function    GetMaxFamilyID : TFamilyID;
+   Function    GetMaxFamilyID : TdaFamilyID;
   public
    Constructor Create(aSharing : Boolean); Reintroduce;
    procedure   Cleanup; override;
    Procedure   GetAllPathsAndAttrib(PathArr   : PFamilyPaths;
                                     AttribArr : PFamilyAttrib);
-   Procedure   GetPathAndAttrib(aFamilyID : TFamilyID;Var CurPath : PAnsiString;
+   Procedure   GetPathAndAttrib(aFamilyID : TdaFamilyID;Var CurPath : PAnsiString;
                                 Var CurAttrib : LongInt);
 
    Procedure   GetFamilysList(aList : TPersistent);
-   Function    GetFamilyName(aID : TFamilyID) : ShortString;
-   Procedure   GetFamilyInfo(aID : TFamilyID;Var aDataRec : TFamilyRec);
+   Function    GetFamilyName(aID : TdaFamilyID) : ShortString;
+   Procedure   GetFamilyInfo(aID : TdaFamilyID;Var aDataRec : TFamilyRec);
    Procedure   AddFamily(aName : ShortString;aPath : TPathStr;aType : LongInt;
                          aDocGroup : TDictID;WithCreate : Boolean;
-                         Var FamID : TFamilyID);
-   Procedure   UpdFamily(aID : TFamilyID;
+                         Var FamID : TdaFamilyID);
+   Procedure   UpdFamily(aID : TdaFamilyID;
                          aName : ShortString;aPath : TPathStr;
                          aDocGroup : TDictID);
-   Procedure   DelFamily(aID : TFamilyID);
+   Procedure   DelFamily(aID : TdaFamilyID);
 
-   function    FamilyPath(aFamilyId: TFamilyID): TPathStr;
-   property    MaxFamilyID: TFamilyID read f_MaxFamilyID;
+   function    FamilyPath(aFamilyId: TdaFamilyID): TPathStr;
+   property    MaxFamilyID: TdaFamilyID read f_MaxFamilyID;
  end;
 
  TdtFamily = class(Tl3ProtoObject)
   {* - объект для хранения/получения своств семейства, пока только захват, потом перетащим еще с }
  private
-  fFamilyID  : TFamilyID;
+  fFamilyID  : TdaFamilyID;
   fPath      : TPathStr;
   fLockCount : Integer;
   fCtrlTblH  : ThtTblHandle;
@@ -202,7 +206,7 @@ Type
   procedure Cleanup; override;
   procedure CloseCtrl;
  public
-  constructor Create(aFamilyID : TFamilyID; aPath : TPathStr);
+  constructor Create(aFamilyID : TdaFamilyID; aPath : TPathStr);
   procedure Lock(aShareMode : SmallInt);
   procedure Unlock;
 
@@ -236,7 +240,7 @@ uses
   ;
 
 {TdtFamily}
-constructor TdtFamily.Create(aFamilyID : TFamilyID; aPath : TPathStr);
+constructor TdtFamily.Create(aFamilyID : TdaFamilyID; aPath : TPathStr);
 begin
  Inherited Create;
  fPath := aPath;
@@ -328,7 +332,7 @@ Begin
  end;
 end;
 
-Procedure TFamilyTbl.GetPathAndAttrib(aFamilyID : TFamilyID;Var CurPath : PAnsiString;
+Procedure TFamilyTbl.GetPathAndAttrib(aFamilyID : TdaFamilyID;Var CurPath : PAnsiString;
                                       Var CurAttrib : LongInt);
 Var
  TmpStr   : TPathStr;
@@ -371,7 +375,7 @@ Begin
   If aList is Tl3StringDataList then
    Begin
     Tl3StringDataList(aList).Clear;
-    Tl3StringDataList(aList).DataSize:=SizeOf(TFamilyID);
+    Tl3StringDataList(aList).DataSize:=SizeOf(TdaFamilyID);
     Tl3StringDataList(aList).NeedAllocStr:=True;
    end;
 
@@ -405,7 +409,7 @@ Begin
  end;
 end;
 
-Function TFamilyTbl.GetFamilyName(aID : TFamilyID) : ShortString;
+Function TFamilyTbl.GetFamilyName(aID : TdaFamilyID) : ShortString;
 Var
   AbsN   : LongInt;
   FamRec : TFamilyRec;
@@ -419,7 +423,7 @@ Begin
   Result:=l3ArrayToString(FamRec.Name,SizeOf(FamRec.Name));
 end;
 
-Procedure TFamilyTbl.GetFamilyInfo(aID : TFamilyID;Var aDataRec : TFamilyRec);
+Procedure TFamilyTbl.GetFamilyInfo(aID : TdaFamilyID;Var aDataRec : TFamilyRec);
 var
  RecH   : RHandle;
  l_Ok : Longint;
@@ -434,7 +438,7 @@ end;
 
 Procedure TFamilyTbl.AddFamily(aName : ShortString;aPath : TPathStr;aType : LongInt;
                                aDocGroup : TDictID;WithCreate : Boolean;
-                               Var FamID : TFamilyID);
+                               Var FamID : TdaFamilyID);
 Var
  FamRec : TFamilyRec;
  TmpStr : ShortString;
@@ -479,7 +483,7 @@ Begin
  f_GlobalFamAttrib^[FamRec.ID]:=FamRec.Attrib;
 end;
 
-Procedure TFamilyTbl.UpdFamily(aID : TFamilyID;
+Procedure TFamilyTbl.UpdFamily(aID : TdaFamilyID;
                                aName : ShortString;aPath : TPathStr;
                                aDocGroup : TDictID);
 Var
@@ -515,7 +519,7 @@ Begin
   end;
 end;
 
-Procedure TFamilyTbl.DelFamily(aID : TFamilyID);
+Procedure TFamilyTbl.DelFamily(aID : TdaFamilyID);
 Var
   AbsNum : LongInt;
   RecH   : RHandle;
@@ -553,13 +557,13 @@ Begin
       end;
 end;
 
-Function TFamilyTbl.GetMaxFamilyID : TFamilyID;
+Function TFamilyTbl.GetMaxFamilyID : TdaFamilyID;
 Begin
   Result := MaxID;
 end;
 
 Procedure TFamilyTbl.CreateEmptyFamily(aPath : TPathStr;
-                                       aID   : TFamilyID;
+                                       aID   : TdaFamilyID;
                                        aType : LongInt);
 Const
   FileTblName = 'FILE';
@@ -741,7 +745,7 @@ Begin
   CreateFIFamily(aID,aType,aPath);}
 end;
 
-function TFamilyTbl.FamilyPath(aFamilyId: TFamilyID): TPathStr;
+function TFamilyTbl.FamilyPath(aFamilyId: TdaFamilyID): TPathStr;
 begin
  if aFamilyId > f_MaxFamilyID then
   raise Exception.Create(Format('Неверный номер семейства: %d.', [aFamilyId]));
@@ -752,7 +756,7 @@ end;
 procedure TFamilyTbl.Cleanup;
 var
  I: Integer;
- l_MaxFamily: TFamilyID;
+ l_MaxFamily: TdaFamilyID;
 begin
  If Assigned(GlobalHtServer) then
   l_MaxFamily:=f_MaxFamilyID

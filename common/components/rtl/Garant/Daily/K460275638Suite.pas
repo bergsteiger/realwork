@@ -26,6 +26,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *51BB0020030Aimpl_uses*
+ //#UC END# *51BB0020030Aimpl_uses*
 ;
 
 function TK460275638Suite.GetExt: AnsiString;

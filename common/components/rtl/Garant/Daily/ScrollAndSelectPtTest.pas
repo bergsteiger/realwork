@@ -53,6 +53,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4BFE38A8006Aimpl_uses*
+ //#UC END# *4BFE38A8006Aimpl_uses*
 ;
 
 function TScrollAndSelectPtTest.NeedScrollUp: Boolean;

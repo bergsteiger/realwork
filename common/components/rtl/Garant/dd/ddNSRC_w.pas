@@ -1,8 +1,14 @@
 unit ddNSRC_w;
 
-{ $Id: ddNSRC_w.pas,v 1.342 2016/03/16 13:56:23 voba Exp $ }
+{ $Id: ddNSRC_w.pas,v 1.344 2016/08/11 11:37:45 lukyanets Exp $ }
 
 // $Log: ddNSRC_w.pas,v $
+// Revision 1.344  2016/08/11 11:37:45  lukyanets
+// Вычищаем поддержку 133 версии
+//
+// Revision 1.343  2016/06/16 05:40:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
 // Revision 1.342  2016/03/16 13:56:23  voba
 // -k:619568279
 //
@@ -966,9 +972,7 @@ type
     rDate: TStDate;
     rNumber: Tl3String;
     rLinkDocID  : TDocID;
-    {$ifDef DBVer134}
     rLinkSubID  : TSubID;
-    {$endif}
   end;
 
   TCheckRec = record
@@ -984,7 +988,7 @@ type
    rAction  : TLogActionType;
    rDate    : TStDate;
    rTime    : TStTime;
-   rAuthor  : TUserID;
+   rAuthor  : TdaUserID;
   end;
 
   TActiveIntervalRec = record
@@ -2053,7 +2057,7 @@ begin
          f_StageRec.User:= Handle;
 
         If TopType[1].IsKindOf(k2_typLogRecord) then
-         f_LogRec.rAuthor := TUserID(Handle);
+         f_LogRec.rAuthor := TdaUserID(Handle);
        end;
      end
    end;
@@ -2174,13 +2178,11 @@ begin
         begin
          OutSpace;
          OutInteger(rLinkDocId);
-        {$ifDef DBVer134}
          if rLinkSubId <> 0 then
          begin
           OutString('.');
           OutInteger(rLinkSubId);
          end;
-        {$endif}
         end;
        end;
       dnLawCaseNum:
@@ -2197,9 +2199,7 @@ begin
     rDate:= 0;
     rNumber.Clear;
     rLinkDocId := 0;
-    {$ifDef DBVer134}
     rLinkSubId := 0;
-    {$endif}
   end;
 end;
 
@@ -3344,11 +3344,9 @@ begin
    if CheckValueType(Value, k2_vkInteger) then
     f_DateNumRec.rLinkDocID := Value.AsInteger;
 
-  {$ifdef DBver134}
   k2_tiSubID:
    if CheckValueType(Value, k2_vkInteger) then
     f_DateNumRec.rLinkSubID := Value.AsInteger;
-  {$endif}
 
   {k2_tiComment:
        If (Value.Kind=k2_vkString) then

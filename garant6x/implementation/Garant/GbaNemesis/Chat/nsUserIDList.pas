@@ -39,6 +39,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4A6D957701B6impl_uses*
+ //#UC END# *4A6D957701B6impl_uses*
 ;
 
 type _Instance_R_ = TnsUserIDList;

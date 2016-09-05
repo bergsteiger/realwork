@@ -82,6 +82,8 @@ uses
  , k2Base
  , k2Tags
  , evdStyles
+ //#UC START# *4F6C2D7901D1impl_uses*
+ //#UC END# *4F6C2D7901D1impl_uses*
 ;
 
 procedure evCheckCellStatus(const anOpPack: InevOp;

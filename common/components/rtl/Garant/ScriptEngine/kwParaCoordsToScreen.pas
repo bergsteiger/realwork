@@ -49,6 +49,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4F955027033Bimpl_uses*
+ //#UC END# *4F955027033Bimpl_uses*
 ;
 
 type

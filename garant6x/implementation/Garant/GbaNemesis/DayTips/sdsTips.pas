@@ -38,6 +38,8 @@ uses
  , dsTips
  , deTips
  , SysUtils
+ //#UC START# *493D0AFD02F6impl_uses*
+ //#UC END# *493D0AFD02F6impl_uses*
 ;
 
 function TsdsTips.BaseDocumentClass: IdsBaseDocument;

@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , tfwScriptEngine
+ //#UC START# *4DE4827600CAimpl_uses*
+ //#UC END# *4DE4827600CAimpl_uses*
 ;
 
 procedure TArchiInsiderTest.Run;

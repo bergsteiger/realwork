@@ -50,6 +50,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ //#UC START# *4D00D88F0282impl_uses*
+ //#UC END# *4D00D88F0282impl_uses*
 ;
 
 function TPreviewWithLinesTestBefore235875079.OpenLinesLog(const aCanvas: Il3InfoCanvas;

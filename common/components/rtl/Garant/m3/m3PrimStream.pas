@@ -77,6 +77,8 @@ uses
  , m2COMLib
  , ActiveX
  , ComObj
+ //#UC START# *5481CCCF0319impl_uses*
+ //#UC END# *5481CCCF0319impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas}

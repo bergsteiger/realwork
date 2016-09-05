@@ -82,6 +82,8 @@ uses
  , nsConst
  , l3InterfacesMisc
  , l3Base
+ //#UC START# *491DA7AB0298impl_uses*
+ //#UC END# *491DA7AB0298impl_uses*
 ;
 
 type _Instance_R_ = TdsUserProperty;

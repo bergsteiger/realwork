@@ -33,6 +33,8 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , CommentPara_Const
+ //#UC START# *4D93589403E2impl_uses*
+ //#UC END# *4D93589403E2impl_uses*
 ;
 
 procedure TeeDocumentPartGenerator.SetInsertionPoint(const aPoint: InevBasePoint;

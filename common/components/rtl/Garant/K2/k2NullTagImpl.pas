@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *49A6ABFB02BAimpl_uses*
+ //#UC END# *49A6ABFB02BAimpl_uses*
 ;
 
 var g_Tk2NullTagImpl: Tk2NullTagImpl = nil;

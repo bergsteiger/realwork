@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , vgRemindersLineList
  , NewRemindersInterfaces
+ //#UC START# *533EABAE0351impl_uses*
+ //#UC END# *533EABAE0351impl_uses*
 ;
 
 class procedure TvgRemindersLineManager.AddLine(aLine: TvgRemindersLine);

@@ -26,6 +26,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *517941310082impl_uses*
+ //#UC END# *517941310082impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}

@@ -29,6 +29,8 @@ uses
  , kwSetActivePage
  , kwShowMailMessage
  , archiDocEditorWindowWordsPack
+ //#UC START# *4E4A1982012Aimpl_uses*
+ //#UC END# *4E4A1982012Aimpl_uses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 

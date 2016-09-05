@@ -969,6 +969,7 @@ uses
  , nsManagers
  , LoggingUnit
  , bsConvert
+ , Common_F1CommonServices_Contracts
  , nsTimeMachineOffEvent
  , nsHyperLinkProcessor
  , deDocInfo
@@ -1602,7 +1603,7 @@ begin
  Result := 0;
  if Assigned(aBookmarks) then
   for I := 0 to Pred(aBookmarks.Count) do
-   if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
+   //if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
     Inc(Result);
 //#UC END# *4C3EC2DE00A4_49539DBA029D_impl*
 end;//TExTextForm.GetVisibleBookmarksCount
@@ -1620,7 +1621,7 @@ begin
  CurIndex := 0;
  if Assigned(aBookmarks) then
   for I := 0 to Pred(aBookmarks.Count) do
-   if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
+   //if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
    begin
     if CurIndex = anIndex then
     begin
@@ -1679,15 +1680,14 @@ begin
  f_InGoToInternet := True;
  try
   f_NeedAnnoingCheck := False; // http://mdp.garant.ru/pages/viewpage.action?pageId=352453000
-  Case MessageDlg(str_InActualDocumentAction,
+  case MessageDlg(str_InActualDocumentAction,
                   [BsControlStatusHint(Document.GetChangeStatus, true)]) of
-   -1:
-    GoToIntranetPrim(true);
+   -1: GoToIntranetPrim(true);
    -2, mrCancel : // mrCancel - для обработки закрытия окна (по Esc)
     // - ничего не делаем
     ;
-   else
-    Assert(false);
+  else
+   Assert(false);
   end;//Case MessageDlg(str_InActualDocumentAction..
  finally
   f_InGoToInternet := False;
@@ -1703,7 +1703,7 @@ begin
  {$IfDef nsTest}
  if not NeedShowIntranetWarningHack then
  {$EndIf nsTest}
-  if f_NeedAnnoingCheck and NeedShowIntranetWarning then
+  if f_NeedAnnoingCheck and (not f_LockAnnoingCheck) and NeedShowIntranetWarning then
   begin
    f_NeedAnnoingCheck := False;
    PostMessage(Handle, g_GoToIntranetMessage, 0, 0);
@@ -1742,7 +1742,7 @@ begin
    l_Str := DeleteEndlines(l3Trim(evAsString(l_Range.Data)))
   else
    l_Str := nil;
-  TdmStdRes.OpenTermByContext(l_Str, ViewArea.Language);
+  TDictionService.Instance.OpenTermByContext(l_Str, ViewArea.Language);
  end;//ViewArea <> nil
 //#UC END# *4C80FB6E0249_49539DBA029D_impl*
 end;//TExTextForm.DoFindInDict
@@ -1753,7 +1753,7 @@ procedure TExTextForm.RequiestCheckForcedQueryForInternet;
 begin
 //#UC START# *4C931477005F_49539DBA029D_impl*
  f_NeedAnnoingCheck := not f_InGoToInternet and
-                       not (UserType in [dftAACContentsRight, dftAACRight]) and 
+                       not (UserType in [dftAACContentsRight, dftAACRight]) and
                        afw.Application.Settings.LoadBoolean(pi_Document_ForceAskForIntranet,
                                                             dv_Document_ForceAskForIntranet);
 //#UC END# *4C931477005F_49539DBA029D_impl*
@@ -1947,7 +1947,7 @@ begin
  finally
   l_Adornments := nil;
  end;//try..finally
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
 //#UC END# *4EBAB1080234_49539DBA029D_impl*
 end;//TExTextForm.TextSourceTOCCreated
 
@@ -1990,7 +1990,7 @@ begin
 //#UC START# *4EBAB40900C2_49539DBA029D_impl*
  TvgRemindersLineManager.ClosePopupForms;
 
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
  if (aNewDocument <> nil) and
     l3IOk(aNewDocument.Owner.QueryInterface(IDocument, l_Document)) then
  begin
@@ -2165,7 +2165,7 @@ begin
  begin
   l_Cont := nsOpenNewWindowTabbed(NativeMainForm, aOpenKind);
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=530839714
-  TdmStdRes.OpenPicture(l_Cont,
+  TDocumentService.Instance.OpenPicture(l_Cont,
                         TnsInternalPictureData.Make(aPara,
                                                     aPicture,
                                                     nsGetDocumentShortName(Document)));
@@ -2484,7 +2484,7 @@ begin
  Result := False;
  if Assigned(aBookmarks) then
   for I := 0 to Pred(aBookmarks.Count) do
-   if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
+   //if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
    begin
     Result := True;
     Break;
@@ -2615,7 +2615,7 @@ begin
   begin
    if (not aShort) then
    begin
-    if not TdmStdRes.IsCurEditionActual(aDocument) then
+    if not TCommonService.Instance.IsCurEditionActual(aDocument) then
      Result := vcmFmt(str_nsRedactionCaption, [lp_GetDocumentName(aDocument)])
     else
      Result := l3Cat(CurUserType.Caption + ' : ', lp_GetDocumentName(aDocument));
@@ -2708,11 +2708,11 @@ begin
     l_NewDocument := defDataAdapter.TimeMachine.CorrectDocumentEdition(Document);
     try
      if (l_TopPara <> nil) then
-      TdmStdRes.OpenDocument(TdeDocInfo.Make(l_NewDocument,
+      TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_NewDocument,
                                              TbsDocPos_P(l_TopPara)),
                              l_Cont)
      else
-      TdmStdRes.OpenDocument(TdeDocInfo.Make(l_NewDocument), l_Cont);
+      TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_NewDocument), l_Cont);
     finally
      l_NewDocument := nil;
     end;//try..finally
@@ -2975,7 +2975,7 @@ procedure TExTextForm.Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
 //#UC END# *4988752302F4_49539DBA029Dexec_var*
 begin
 //#UC START# *4988752302F4_49539DBA029Dexec_impl*
- if not Operation(TdmStdRes.opcode_Document_GetCorrespondentListExFrmAct) then
+ if not Operation(opcode_Document_GetCorrespondentListExFrmAct) then
   Assert(false);
  if not OpenCRList(aKind, aCRType, True) then
   Assert(false);
@@ -3007,7 +3007,7 @@ procedure TExTextForm.Document_OpenRespondentList_Execute(aKind: TlstCRType;
 //#UC END# *49888E8003B9_49539DBA029Dexec_var*
 begin
 //#UC START# *49888E8003B9_49539DBA029Dexec_impl*
- if not Operation(TdmStdRes.opcode_Document_GetRespondentListExFrmAct) then
+ if not Operation(opcode_Document_GetRespondentListExFrmAct) then
   Assert(false);
  if not OpenCRList(aKind, aCRType, false) then
   Assert(false);
@@ -3086,7 +3086,7 @@ begin
         // !Stub! Пока не нужно
        FIT_BOOKMARK,
        FIT_PHARM_BOOKMARK:
-        TdmStdres.OpenEntityAsDocument(l_BaseEntity, nil);
+        TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, nil);
      end//case TFoldersItemType(l_FolderNode.GetObjectType)
     else
     if (l_Hyperlink.ID >= 0) then
@@ -3951,7 +3951,7 @@ begin
   l_Document := defDataAdapter.TimeMachine.NotSureHelp;
   if Assigned(l_Document) then
    try
-    TdmStdRes.OpenDocumentWithCheck(TdeDocInfo.Make(l_Document), NativeMainForm);
+    TDocumentService.Instance.OpenDocumentWithCheck(TdeDocInfo.Make(l_Document), NativeMainForm);
    finally
     l_Document := nil;
    end;//try..finally
@@ -3970,7 +3970,7 @@ procedure TExTextForm.Redactions_ActualRedaction_Test(const aParams: IvcmTestPar
 begin
 //#UC START# *4AFAF4900270_49539DBA029Dtest_impl*
  if EnableRedactionOps(aParams) and Assigned(ViewArea) then
-  aParams.Op.Flag[vcm_ofChecked] := TdmStdRes.IsCurEditionActual(ViewArea.DocInfo.Doc);
+  aParams.Op.Flag[vcm_ofChecked] := TCommonService.Instance.IsCurEditionActual(ViewArea.DocInfo.Doc);
 //#UC END# *4AFAF4900270_49539DBA029Dtest_impl*
 end;//TExTextForm.Redactions_ActualRedaction_Test
 
@@ -4057,9 +4057,9 @@ procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute(const aParams: Ivc
 begin
 //#UC START# *4B261EC80086_49539DBA029Dexec_impl*
  if DefDataAdapter.TimeMachine.IsOn then
-  TdmStdRes.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self))
+  TCommonService.Instance.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self))
  else
-  TdmStdRes.OpenTurnOnTimeMachine(InsTurnOnTimeMachine(Self));
+  TDocumentService.Instance.OpenTurnOnTimeMachine(InsTurnOnTimeMachine(Self));
 //#UC END# *4B261EC80086_49539DBA029Dexec_impl*
 end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute
 
@@ -4967,7 +4967,7 @@ procedure TExTextForm.WarnRedaction_OpenActualRedaction_Execute(const aParams: I
 begin
 //#UC START# *4C3B4A7D029B_49539DBA029Dexec_impl*
  if Assigned(ViewArea) and
-    not TdmStdRes.IsCurEditionActual(ViewArea.DocInfo.Doc) then
+    not TCommonService.Instance.IsCurEditionActual(ViewArea.DocInfo.Doc) then
   SetActualRedaction;
 //#UC END# *4C3B4A7D029B_49539DBA029Dexec_impl*
 end;//TExTextForm.WarnRedaction_OpenActualRedaction_Execute
@@ -5492,7 +5492,7 @@ begin
     begin
      Clear;
      for l_Index := 0 to Pred(l_BookmarkList.Count) do
-      if l_BookmarkList.Subs[l_Index].Flags and ev_sfOwn = ev_sfOwn then
+      //if l_BookmarkList.Subs[l_Index].Flags and ev_sfOwn = ev_sfOwn then
        Add(l_BookmarkList.Subs[l_Index].Name);
     end;//with aParams.Op.SubItems
    end//l_Count > 0
@@ -5822,7 +5822,7 @@ begin
       l_Caption := str_SetHyperLink
      else
       l_Caption := str_ChangeHyperLink;
-     TdmStdRes.SelectOpenWithUserData(Self.As_IvcmEntityForm,
+     TFoldersService.Instance.SelectOpenWithUserData(Self.As_IvcmEntityForm,
                                       FilterInfoFactory.MakeFilterInfo(ffNone, sfMyDocumentsAndCommon),
                                       l_Caption,
                                       l_Hyperlink);
@@ -5948,7 +5948,7 @@ procedure TExTextForm.Document_ViewChangedFragments_Execute(const aParams: IvcmE
 //#UC END# *4DDCBABC03B7_49539DBA029Dexec_var*
 begin
 //#UC START# *4DDCBABC03B7_49539DBA029Dexec_impl*
- TdmStdRes.ViewChangedFragmentsForPrevEdition(Self.Document);
+ TChangesBetweenEditionsService.Instance.ViewChangedFragmentsForPrevEdition(Self.Document);
 //#UC END# *4DDCBABC03B7_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_ViewChangedFragments_Execute
 
@@ -6184,7 +6184,7 @@ begin
   // http://mdp.garant.ru/pages/viewpage.action?pageId=495139252
   if (l_ActiveElement <> nil) and (l_ActiveElement.Para.AsObject.IntA[k2_tiStyle] <> ev_saVersionInfo) then
   begin
-   TdmStdRes.OpenDocument(TdeDocInfo.Make(aDocument, TbsDocPos_C(dptSub, aSub)), l_Cont);
+   TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(aDocument, TbsDocPos_C(dptSub, aSub)), l_Cont);
    Exit;
   end;//if (l_ActiveElement <> nil)
   if Assigned(l_ActiveElement) and
@@ -6221,9 +6221,11 @@ begin
   else
    Assert(False, 'Для построения СР поданы два экземпляра одной и той же редакции документа');
 
-  if l_JumpToText // перход в текст документа или в сравнение. 513615258
-   then TdmStdRes.OpenDocument(TdeDocInfo.Make(aDocument, TbsDocPos_C(dptSub, aSub)), l_Cont)
-   else TdmStdRes.MakeCompareEditions(l_LeftDocument, l_RightDocument, TbsDocPos_C(dptSub, aSub), HyperlinkDocument, l_Para, l_Cont);
+  if l_JumpToText then
+  // перход в текст документа или в сравнение. 513615258
+   TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(aDocument, TbsDocPos_C(dptSub, aSub)), l_Cont)
+  else
+   TEditionsService.Instance.MakeCompareEditions(l_LeftDocument, l_RightDocument, TbsDocPos_C(dptSub, aSub), HyperlinkDocument, l_Para, l_Cont);
  finally
   l_Para := nil;
   l_LeftDocument := nil;
@@ -6598,6 +6600,7 @@ begin
  nsWarnImages;
  f_LastBookmarkIndex := -1;
  f_InGoToInternet := False;
+ f_LockAnnoingCheck := False;
  LoadFromSettings;
  // http://mdp.garant.ru/pages/viewpage.action?pageId=290953654
 (* with SubPanel do
@@ -6650,7 +6653,7 @@ begin
   Text.ShowComments := l_State.NeedShowComments;
   Text.ShowVersionComments := l_State.NeedShowVersionComments;
   f_eeSubIdForTypedCorrespondentList := l_State.eeSubIdForTypedCorrespondentList;
-  Result := inherited DoLoadState(aState, aStateType);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
 
   // Ниже следует кошмар, который нужен для того, чтобы Text.ShowUserComments
   // не проставился принудительно в True в InvalidateDataSources,
@@ -6663,7 +6666,7 @@ begin
  else
  begin
   Assert(False);
-  Result := inherited DoLoadState(aState, aStateType);
+  Result := inherited DoLoadState(aState, aStateType, aClone);
  end;
 //#UC END# *49807428008C_49539DBA029D_impl*
 end;//TExTextForm.DoLoadState

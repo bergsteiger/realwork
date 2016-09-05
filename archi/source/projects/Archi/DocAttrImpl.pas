@@ -1,6 +1,6 @@
 unit DocAttrImpl;
 
-{ $Id: DocAttrImpl.pas,v 1.86 2016/04/22 10:59:49 lukyanets Exp $ }
+{ $Id: DocAttrImpl.pas,v 1.87 2016/08/11 10:41:59 lukyanets Exp $ }
 
 {$I l3Define.inc}
 {$R-}
@@ -436,7 +436,7 @@ uses
   Forms, Printers, Dialogs, vtDialogs,
   StrShop, IniShop, VConst, Com_Cnst,
   daDataProvider,
-  Dt_CFltr, Dt_RecalcHLinkFilter, DT_User,
+  Dt_CFltr, Dt_RecalcHLinkFilter, 
   //mgBasStr, mgExFStr, mgLnkStr,
   //mgHasPar,
   //m2COMLib,

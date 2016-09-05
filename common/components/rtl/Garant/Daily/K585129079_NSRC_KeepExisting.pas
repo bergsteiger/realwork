@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , l3Chars
  , TestFrameWork
+ //#UC START# *5491B41C0353impl_uses*
+ //#UC END# *5491B41C0353impl_uses*
 ;
 
 function TK585129079_NSRC_KeepExisting.NSRCCodePage: Integer;

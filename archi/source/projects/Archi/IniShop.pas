@@ -1,6 +1,6 @@
 unit IniShop;
 
-{ $Id: IniShop.pas,v 1.57 2016/04/27 09:33:30 lukyanets Exp $ }
+{ $Id: IniShop.pas,v 1.59 2016/08/25 10:13:18 lukyanets Exp $ }
 
 interface
 
@@ -21,6 +21,7 @@ interface
     f_MailNotifyByModalDialog: Boolean;
     f_OpenIniPath: string;
     f_SaveIniPath: string;
+    f_DirectDocStorageAccess: Boolean;
    public
     {System of windows}
      fMaxOnStart           : Boolean;
@@ -357,6 +358,8 @@ interface
     property OpenIniPath: string
       read f_OpenIniPath
       write f_OpenIniPath;
+    property DirectDocStorageAccess: Boolean
+      read f_DirectDocStorageAccess;
    end;
 
  Const
@@ -518,6 +521,8 @@ procedure TIniRecord.SetIniRecord;
   OrphoDotIsSeparator := UserConfig.ReadParamBoolDef('OrphoDotIsSeparator', False);
 
   MailNotifyByModalDialog := UserConfig.ReadParamBoolDef('MailNotifyByModalDialog', True);
+
+  f_DirectDocStorageAccess := UserConfig.ReadParamBoolDef('DirectDocStorageAccess', True);
 
   UserConfig.Section := DocWinDefault;
 

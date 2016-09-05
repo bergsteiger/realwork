@@ -104,6 +104,8 @@ uses
  , l3UnitsTools
  , l3String
  , l3Chars
+ //#UC START# *502CC6560261impl_uses*
+ //#UC END# *502CC6560261impl_uses*
 ;
 
 constructor TevCell.Create(const aView: InevView;

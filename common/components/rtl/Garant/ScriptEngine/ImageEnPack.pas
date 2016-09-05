@@ -24,6 +24,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *52E20EB3004Dimpl_uses*
+ //#UC END# *52E20EB3004Dimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 

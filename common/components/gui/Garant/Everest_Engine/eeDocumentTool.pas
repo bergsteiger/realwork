@@ -32,6 +32,8 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *54817DBA01BEimpl_uses*
+ //#UC END# *54817DBA01BEimpl_uses*
 ;
 
 function TeeDocumentTool.pm_GetDocument: IeeDocumentEx;

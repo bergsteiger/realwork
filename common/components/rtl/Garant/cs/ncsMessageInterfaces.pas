@@ -94,6 +94,8 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
+ //#UC START# *5460A4DB018Aimpl_uses*
+ //#UC END# *5460A4DB018Aimpl_uses*
 ;
 
 function TncsExecuteContext_C(aMessage: TncsMessage;

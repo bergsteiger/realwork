@@ -37,6 +37,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3MinMax
+ //#UC START# *537F6DA00036impl_uses*
+ //#UC END# *537F6DA00036impl_uses*
 ;
 
 constructor TdtNumRange.Create(aLowNum: LongWord;

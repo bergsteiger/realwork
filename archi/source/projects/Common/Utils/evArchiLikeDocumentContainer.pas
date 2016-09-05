@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ //#UC START# *50F8F97E0292impl_uses*
+ //#UC END# *50F8F97E0292impl_uses*
 ;
 
 procedure TevArchiLikeDocumentContainer.Cleanup;

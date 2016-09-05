@@ -563,8 +563,10 @@ type
    function HasForm(const aName: TvcmFormID;
     theForm: PIvcmEntityForm = nil): Boolean;
      {* Проверяет, присутствует ли указанная форма в агрегации }
+   function pm_GetCanBeCloned: Boolean;
    property GUID: TGUID
      read Get_GUID;
+   property CanBeCloned: Boolean read pm_GetCanBeCloned;
  end;//IvcmAggregate
 
 (*

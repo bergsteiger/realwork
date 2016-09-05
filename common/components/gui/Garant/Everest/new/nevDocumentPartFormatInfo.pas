@@ -38,6 +38,8 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , l3String
  , nevTools
+ //#UC START# *4E5F3349020Fimpl_uses*
+ //#UC END# *4E5F3349020Fimpl_uses*
 ;
 
 type

@@ -44,6 +44,8 @@ uses
  , VMailWin
  , l3ClipSpyService
  , vtClipSpyService
+ //#UC START# *4DFB4D3C01B5impl_uses*
+ //#UC END# *4DFB4D3C01B5impl_uses*
 ;
 
 procedure TMainForm.CreateNewDocumentFromFile(const aParams: TNewDocParams);

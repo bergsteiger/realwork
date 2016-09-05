@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5319C00B0313impl_uses*
+ //#UC END# *5319C00B0313impl_uses*
 ;
 
 function Tk2Tag.GetIsOrd: Boolean;

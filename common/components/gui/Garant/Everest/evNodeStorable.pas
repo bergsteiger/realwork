@@ -40,6 +40,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48F4D8230366impl_uses*
+ //#UC END# *48F4D8230366impl_uses*
 ;
 
 constructor TevNodeStorable.Create(const aData: InevSimpleNode;

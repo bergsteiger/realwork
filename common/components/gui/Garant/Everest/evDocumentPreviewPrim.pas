@@ -250,6 +250,8 @@ uses
  , Table_Const
  , SectionBreak_Const
  , evSectionPara
+ //#UC START# *47EA97410130impl_uses*
+ //#UC END# *47EA97410130impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
@@ -614,7 +616,7 @@ var l_Text: InevObject;
         until False;
         anArea.rCanvas.SectionExtent := l_HeightExtent;
         {$IFDEF nsTest}
-        if TPrintRowHeightsSpy.Exists then
+        if TPrintRowHeightsSpy.ExistsAndValid then
          TPrintRowHeightsSpy.Instance.ClearData;
         {$ENDIF nsTest}
         Inc(l_Top.P.Y, l_PageHeight);

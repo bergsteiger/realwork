@@ -1,8 +1,59 @@
 unit nsOpenUtils;
 
-// $Id: nsOpenUtils.pas,v 1.68 2016/04/12 14:42:30 kostitsin Exp $
+// $Id: nsOpenUtils.pas,v 1.85 2016/08/04 14:29:02 lulin Exp $
 
 // $Log: nsOpenUtils.pas,v $
+// Revision 1.85  2016/08/04 14:29:02  lulin
+// - перегенерация.
+//
+// Revision 1.84  2016/08/04 13:10:01  lulin
+// - перегенерация.
+//
+// Revision 1.83  2016/08/04 12:07:47  lulin
+// - перегенерация.
+//
+// Revision 1.82  2016/08/04 08:24:25  lulin
+// - перегенерация.
+//
+// Revision 1.81  2016/08/03 17:19:05  lulin
+// - перегенерация.
+//
+// Revision 1.80  2016/08/03 14:28:35  lulin
+// - перегенерация.
+//
+// Revision 1.79  2016/08/03 09:37:14  lulin
+// - перегенерация.
+//
+// Revision 1.78  2016/08/02 17:12:48  lulin
+// - перегенерация.
+//
+// Revision 1.77  2016/08/02 12:43:57  lulin
+// - перегенерация.
+//
+// Revision 1.76  2016/08/01 17:31:38  lulin
+// - перегенерация.
+//
+// Revision 1.75  2016/08/01 16:20:35  lulin
+// - перегенерация.
+//
+// Revision 1.74  2016/08/01 14:38:04  lulin
+// - перегенерация.
+//
+// Revision 1.73  2016/08/01 11:40:16  lulin
+// - перегенерация.
+//
+// Revision 1.72  2016/07/26 12:56:07  lulin
+// - перегенерация.
+//
+// Revision 1.71  2016/07/25 15:47:14  lulin
+// - перегенерация.
+//
+// Revision 1.70  2016/07/15 11:25:37  lulin
+// - выпрямляем зависимости.
+//
+// Revision 1.69  2016/07/15 09:53:37  lulin
+// - выпрямляем зависимости.
+//
 // Revision 1.68  2016/04/12 14:42:30  kostitsin
 // {requestlink: 620672440 } - Поддержка букмарков в новостях ОМ
 //
@@ -58,7 +109,7 @@ unit nsOpenUtils;
 // {RequestLink: 340174500}
 //
 // Revision 1.50  2014/02/19 13:01:24  kostitsin
-// {requestlink: 368378315 } - OpenQuery( xxx )
+// {requestlink: 368378315 } - _OpenQuery( xxx )
 //
 // Revision 1.49  2013/09/16 07:09:27  kostitsin
 // [$239370589]
@@ -657,6 +708,9 @@ uses
   ,
   ContextHistoryInterfaces
   {$IfEnd}
+  , Base_Operations_F1Services_Contracts
+  , Common_F1CommonServices_Contracts
+  , F1_Application_Template_Services
   ;
 
 {$If not defined(Admin) AND not defined(Monitorings)}
@@ -690,29 +744,27 @@ begin
   try
    case l_Query.GetType of
     QT_KEYWORD :
-     TdmStdRes.OpenQuery(lg_qtKeyWord, l_Query, nil);
+     TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, l_Query, nil);
     //QT_OLD_ATTRIBUTE,
     QT_ATTRIBUTE :
-     TdmStdRes.OpenQuery(lg_qtAttribute, l_Query, nil);
-(*    QT_OLD_FILTER :
-     TdmStdRes.OpenQuery(lg_qtAttribute, l_Query);*)
+     TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, l_Query, nil);
     QT_PUBLISHED_SOURCE :
-     TdmStdRes.OpenQuery(lg_qtPublishedSource, l_Query, nil);
+     TQueryOpenService.Instance.OpenQuery(lg_qtPublishedSource, l_Query, nil);
     QT_COMMENTS:
      nsSearch(aBaseEntity As IQuery);
     QT_REVIEW:
      if not defDataAdapter.LegislationReviewAvailable then
       vcmSay(err_QueryCannotBeExecuted)
      else
-      TdmStdRes.OpenQuery(lg_qtLegislationReview, l_Query, nil);
+      TQueryOpenService.Instance.OpenQuery(lg_qtLegislationReview, l_Query, nil);
     QT_CONSULT:
      Assert(false);
     QT_MAIL_LIST:
      Exit;
     QT_BASE_SEARCH:
-     TdmStdRes.OpenQuery(lg_qtBaseSearch, l_Query, nil);
+     TQueryOpenService.Instance.OpenQuery(lg_qtBaseSearch, l_Query, nil);
     QT_PHARM_SEARCH:
-     TdmStdRes.OpenQuery(lg_qtInpharmSearch, l_Query, nil);
+     TQueryOpenService.Instance.OpenQuery(lg_qtInpharmSearch, l_Query, nil);
     else
      Assert(false); 
    end;//case l_Query.GetType
@@ -792,7 +844,7 @@ begin
      FIT_BOOKMARK:
      begin
       try
-       l_Document := TdmStdres.OpenEntityAsDocument(l_BaseEntity, l_Cont);
+       l_Document := TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, l_Cont);
        if (l_Document <> nil) and
           (l_Document.GetDocType in [DT_DOCUMENT,
                                      DT_ACTUAL_ANALYTICS,
@@ -811,15 +863,15 @@ begin
       end;//try..except
      end;//FIT_BOOKMARK
      FIT_PHARM_BOOKMARK:
-      TdmStdres.OpenEntityAsDocument(l_BaseEntity, l_Cont);
+      TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, l_Cont);
      FIT_CONSULTATION:
       {$If not (defined(Monitorings) or defined(Admin))}
-      TdmStdRes.OpenEntityAsConsultation(l_BaseEntity, l_Cont);
+      TConsultationService.Instance.OpenEntityAsConsultation(l_BaseEntity, l_Cont);
       {$Else   Monitorings}
       Assert(false);
       {$IfEnd not (defined(Monitorings) or defined(Admin))}
      FIT_OLD_HISTORY:
-      g_Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_WorkJournal_OpenJournal);
+      g_Dispatcher.ModuleOperation(mod_opcode_WorkJournalService_OpenJournal);
    end;//case TFoldersItemType(l_AdapterNode.GetObjectType) of
   finally
    l_BaseEntity := nil;
@@ -861,7 +913,7 @@ begin
      JOT_BOOKMARK:
      begin
       try
-       l_Document := TdmStdres.OpenEntityAsDocument(l_BaseEntity, l_Cont);
+       l_Document := TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, l_Cont);
        if (l_Document <> nil) and (l_Document.GetDocType = DT_DOCUMENT) then
        begin
         if not Supports(l_BaseEntity, IJournalBookmark, l_JBookmark) then
@@ -916,7 +968,7 @@ begin
     l_Cont := nsOpenNewWindowTabbed(aForm.NativeMainForm, aOpenKind, aNeedSwitchTab);
     case TControlledItemType(l_Controllable.GetType) of
      CIT_DOCUMENT:
-      TdmStdres.OpenEntityAsDocument(l_BaseEntity, l_Cont);
+      TDocumentService.Instance.OpenEntityAsDocument(l_BaseEntity, l_Cont);
      CIT_LIST:
       nsOpenList(l_BaseEntity As IDynList, l_Cont);
      CIT_QUERY:
@@ -987,16 +1039,16 @@ begin
    OpenQuery(l_Q)
   else
   if Supports(l_Ent, IDocument, l_D) then
-   TdmStdres.OpenEntityAsDocument(l_D, aContainer)
+   TDocumentService.Instance.OpenEntityAsDocument(l_D, aContainer)
   else
   if Supports(l_Ent, IString, l_S) then
   begin
    l_S1 := nsCStr(l_S);
    if l3Same('AT_NEWS_LINE', l_S1, true) then
-    TdmStdRes.OpenNewsLine(False)
+    TMonitoringsService.Instance.OpenNewsLine(False)
    else
    if l3Starts('AT_PUBLISH_SOURCE', l3PCharLen(l_S1), true) then
-    TdmStdRes.OpenTaxesPublishSearch(l_S1)
+    TSearchService.Instance.OpenTaxesPublishSearch(l_S1)
    else
     Assert(false, 'Не доделано');
   end//Supports(l_Ent, IString, l_S)
@@ -1031,7 +1083,7 @@ begin
   end//Supports(l_Ent, IExternalLink, l_E)
   else
   if Supports(l_Ent, IBookmark, l_Bookmark) then
-   TdmStdRes.OpenEntityAsDocument(l_Ent, aContainer)
+   TDocumentService.Instance.OpenEntityAsDocument(l_Ent, aContainer)
   else
    Assert(false);
  finally
@@ -1092,7 +1144,7 @@ procedure nsOpenNavigatorItem(const aNode      : INodeBase;
   if Supports(l_EntityBase, IDocument, l_Document) then
   try
    {$If not defined(Admin) AND not defined(Monitorings)}
-   TdmStdRes.OpenDocument(TdeDocInfo.Make(l_Document), nil);
+   TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(l_Document), nil);
    {$Else}
    Assert(false);
    {$IfEnd}
@@ -1107,7 +1159,7 @@ procedure nsOpenNavigatorItem(const aNode      : INodeBase;
  begin
   aNode.GetUnfilteredNode(l_RubrNode);
   if (l_RubrNode <> nil) then
-   TdmStdRes.OpenRubricator(TnsNewCachableNodeThatNeedKeepRoot.Make(l_RubrNode, aRootToKeep),
+   TRubricatorService.Instance.OpenRubricator(TnsNewCachableNodeThatNeedKeepRoot.Make(l_RubrNode, aRootToKeep),
                             aRootToKeep,
                             aMenuSectionItemToKeep,
                             afw.Settings.LoadBoolean(pi_Sheets_MainMenu,
@@ -1121,42 +1173,42 @@ begin
   case TNavigatorMenuItemType(aNode.GetType) of
    // Поиск по ситуации.
    NM_SITUATION_SEARCH:
-    TdmStdRes.OpenQuery(lg_qtKeyWord, nil, nil);
+    TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, nil, nil);
    // Поиск по атрибутам.
    NM_ATTRIBUTE_SEARCH:
-    TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil);
+    TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, nil, nil);
    // Поиск по источнику опубликования.
    NM_PUBLISH_SOURCE_SEARCH:
-    TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, nil);
+    TQueryOpenService.Instance.OpenQuery(lg_qtPublishedSource, nil, nil);
    NM_SEARCH_WITH_LAW_SUPPORT:
     Assert(false);
    NM_LAW_SUPPORT:
-    TdmStdRes.OpenQuery(lg_qtSendConsultation, nil, nil);
+    TQueryOpenService.Instance.OpenQuery(lg_qtSendConsultation, nil, nil);
    // Толковый словарь.
    NM_EXPLANATORY_DICTIONARY:
-    g_Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Diction_OpenDict);
+    g_Dispatcher.ModuleOperation(mod_opcode_DictionService_OpenDict);
    NM_DOCUMENT:
     lp_OpenDocument;
    // Информация о комплекте
    NM_COMPLECT_INFO:
-    g_Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Common_ComplectInfo);
+    g_Dispatcher.ModuleOperation(mod_opcode_CommonService_ComplectInfo);
    // Список конфигураций
    NM_CONFIGURATION_LIST:
-    g_Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Settings_OpenConfList);
+    g_Dispatcher.ModuleOperation(mod_opcode_SettingsService_OpenConfList);
    // Обзор законодательства
    NM_REVIEW:
-    TdmStdRes.OpenQuery(lg_qtLegislationReview, nil, nil);
+    TQueryOpenService.Instance.OpenQuery(lg_qtLegislationReview, nil, nil);
    // Моя новостная лента
    NM_NEWS_LINE:
-    TdmStdRes.OpenNewsLine(False);
+    TMonitoringsService.Instance.OpenNewsLine(False);
    NM_PHARM_SEARCH:
-    TdmStdRes.OpenQuery(lg_qtInpharmSearch, nil, nil);
+    TQueryOpenService.Instance.OpenQuery(lg_qtInpharmSearch, nil, nil);
    NM_PHARM_LEK:
-    g_Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList);
+    g_Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_DrugList);
    NM_PHARM_FIRMS:
-    g_Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicFirms);
+    g_Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicFirms);
    NM_PHARM_DICT:
-    g_Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction);
+    g_Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicDiction);
    else
     // Открываем рубрикатор:
     if aNode.HasChildren then
@@ -1194,11 +1246,11 @@ begin
     l_ListEntryInfo.GetDoc(l_Document);
     try
      if l_Document.IsAlive then
-      TdmStdRes.OpenDocument(bsDocInfoMake(l_ListEntryInfo), aMainForm)
+      TDocumentService.Instance.OpenDocument(bsDocInfoMake(l_ListEntryInfo), aMainForm)
      else
      begin
       l_Document.GetSelfMissingInfo(l_MI);
-      TdmStdRes.OpenMainMenuIfNeeded(aMainForm);
+      TMainMenuService.Instance.OpenMainMenuIfNeeded(aMainForm);
       TbsDocumentMissingMessage.Show(True, l_MI);
      end;//l_Document.IsAlive
     finally

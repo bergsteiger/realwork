@@ -70,6 +70,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *533A9B6A00D9impl_uses*
+ //#UC END# *533A9B6A00D9impl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas}

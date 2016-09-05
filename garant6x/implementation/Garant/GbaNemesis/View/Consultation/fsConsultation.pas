@@ -47,6 +47,12 @@ type
    {$If NOT Defined(NoVCM)}
    class function GetInstance: TvcmFormSetFactoryPrim; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoGetCanCloneFormSet(const aFormSet: IvcmFormSet): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function TextParentDftConsultationNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
@@ -75,6 +81,8 @@ uses
  , l3StringIDEx
  , SysUtils
  , l3Base
+ //#UC START# *4AA5360E0197impl_uses*
+ //#UC END# *4AA5360E0197impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -189,6 +197,28 @@ class function Tfs_Consultation.GetInstance: TvcmFormSetFactoryPrim;
 begin
  Result := Self.Instance;
 end;//Tfs_Consultation.GetInstance
+
+function Tfs_Consultation.DoGetCanCloneFormSet(const aFormSet: IvcmFormSet): Boolean;
+//#UC START# *55E00AAB006B_4AA5360E0197_var*
+var
+ l_sds: IsdsConsultation;
+//#UC END# *55E00AAB006B_4AA5360E0197_var*
+begin
+//#UC START# *55E00AAB006B_4AA5360E0197_impl*
+ Result := inherited DoGetCanCloneFormset(aFormSet);
+ if Supports(aFormSet.DataSource, IsdsConsultation, l_sds) then
+  Result := (l_sds.BsConsultation <> nil) and (not l_sds.BsConsultation.WasDeleted);
+//#UC END# *55E00AAB006B_4AA5360E0197_impl*
+end;//Tfs_Consultation.DoGetCanCloneFormSet
+
+function Tfs_Consultation.DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
+//#UC START# *55E020470097_4AA5360E0197_var*
+//#UC END# *55E020470097_4AA5360E0197_var*
+begin
+//#UC START# *55E020470097_4AA5360E0197_impl*
+ Result := DoGetCanCloneFormSet(aFormSet);
+//#UC END# *55E020470097_4AA5360E0197_impl*
+end;//Tfs_Consultation.DoGetCanSaveFormSetToHistory
 
 initialization
  str_fsConsultationCaption.Init;

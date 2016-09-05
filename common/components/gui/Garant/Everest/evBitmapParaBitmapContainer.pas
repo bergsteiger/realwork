@@ -70,6 +70,8 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
  , k2List
+ //#UC START# *4858153B023Bimpl_uses*
+ //#UC END# *4858153B023Bimpl_uses*
 ;
 
 type _Instance_R_ = TevBitmapParaBitmapContainer;

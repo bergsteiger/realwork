@@ -54,6 +54,8 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
+ //#UC START# *5627445F00C1impl_uses*
+ //#UC END# *5627445F00C1impl_uses*
 ;
 
 constructor TpgField.Create(const aDataBuffer: IdaResultBuffer;

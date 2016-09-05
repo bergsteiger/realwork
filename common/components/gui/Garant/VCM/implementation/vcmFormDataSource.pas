@@ -38,6 +38,8 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , l3Base
+ //#UC START# *491B1EC400E2impl_uses*
+ //#UC END# *491B1EC400E2impl_uses*
 ;
 
 type _Instance_R_ = TvcmFormDataSource;

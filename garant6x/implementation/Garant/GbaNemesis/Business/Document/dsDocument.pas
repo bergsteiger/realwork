@@ -71,6 +71,7 @@ uses
  , deListSet
  , evdHyperlinkInfo
  , afwNavigation
+ , Common_F1CommonServices_Contracts
  , bsUtils
  , BaseTypesUnit
  , bsConvert
@@ -88,6 +89,8 @@ uses
  , deSearchInfo
  , DynamicTreeUnit
  , nsINodeWrap
+ //#UC START# *493D63D20049impl_uses*
+ //#UC END# *493D63D20049impl_uses*
 ;
 
 type _Instance_R_ = TdsDocument;

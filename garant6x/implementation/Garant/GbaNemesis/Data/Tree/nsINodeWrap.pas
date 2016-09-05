@@ -32,6 +32,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4909AEB00352impl_uses*
+ //#UC END# *4909AEB00352impl_uses*
 ;
 
 function TnsINodeWrap.ChildNodeClass: RnsINodeWrap;

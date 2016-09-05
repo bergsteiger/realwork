@@ -109,6 +109,8 @@ uses
  , l3MinMax
  , Windows
  , l3FrameLinesSpy
+ //#UC START# *48CA6E8201B8impl_uses*
+ //#UC END# *48CA6E8201B8impl_uses*
 ;
 
 function Tl3FrameLines.GetFrameObjects: Tl3FrameObjectList;

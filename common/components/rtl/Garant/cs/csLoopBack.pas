@@ -42,6 +42,8 @@ uses
  {$If Defined(AppServerSide)}
  , CsReplyTool
  {$IfEnd} // Defined(AppServerSide)
+ //#UC START# *538DF3CC00C8impl_uses*
+ //#UC END# *538DF3CC00C8impl_uses*
 ;
 
 class procedure TcsLoopBack.ExecuteQuery(aQueryId: TCsQueryId;

@@ -43,6 +43,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *4FEF23900010impl_uses*
+ //#UC END# *4FEF23900010impl_uses*
 ;
 
 procedure TkwPopQueryCardAttributeGetCollapsed.DoCard(const aCtx: TtfwContext;

@@ -132,6 +132,8 @@ uses
  , Pl3MessageIDList
  , l3String
  , SysUtils
+ //#UC START# *4E01D1980071impl_uses*
+ //#UC END# *4E01D1980071impl_uses*
 ;
 
 {$If NOT Defined(NoVCL)}

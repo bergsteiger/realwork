@@ -103,6 +103,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4DC011350154impl_uses*
+ //#UC END# *4DC011350154impl_uses*
 ;
 
 const

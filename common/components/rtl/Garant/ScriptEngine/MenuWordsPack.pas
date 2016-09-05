@@ -32,6 +32,8 @@ uses
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
+ //#UC START# *4FC7292F02EAimpl_uses*
+ //#UC END# *4FC7292F02EAimpl_uses*
 ;
 
 type

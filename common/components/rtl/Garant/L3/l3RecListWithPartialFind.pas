@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , l3Memory
+ //#UC START# *47BC6C30022Fimpl_uses*
+ //#UC END# *47BC6C30022Fimpl_uses*
 ;
 
 {$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}

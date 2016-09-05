@@ -68,6 +68,8 @@ uses
  , pgUtils
  , pgFunctionParamDescription
  , pgFunction
+ //#UC START# *56613507012Cimpl_uses*
+ //#UC END# *56613507012Cimpl_uses*
 ;
 
 const
@@ -86,8 +88,7 @@ begin
  inherited Create;
  aConnection.SetRefTo(f_Connection);
  f_DataConverter := aDataConverter;
- InitTypesQuery;
- InitFuctionsQuery;
+ f_Connection.RegisterListener(Self);
 //#UC END# *56653588036D_56613507012C_impl*
 end;//TpgFunctionFactory.Create
 
@@ -124,7 +125,7 @@ const
   begin
    Result := StringReplace(aStr, ' ', ',', [rfReplaceAll, rfIgnoreCase]);
    if Result[1] = '{' then
-    Result := Copy(Result, 2, Length(l_ArgsStr) - 2);
+    Result := Copy(Result, 2, Length(Result) - 2);
   end
   else
    Result := aStr;
@@ -147,7 +148,7 @@ begin
  l_ParamsValue[cProcNameParamIndex] := aFunctionName;
  l_ParamsValue[cSchemaNameParamIndex] := aSchemeName;
  for l_IDX := 0 to cFunctionParamsCount - 1 do
-  l_ParamsValuePtr[l_IDX] := @l_ParamsValue[l_IDX][1];
+  l_ParamsValuePtr[l_IDX] := PAnsiChar(l_ParamsValue[l_IDX]);
  l_Result := PQexecPrepared(f_Connection.Handle, PAnsiChar(f_FunctionsQueryName), cFunctionParamsCount, l_ParamsValuePtr, nil, 0, 0);
  try
   if not (PQresultStatus(l_Result) in [PGRES_EMPTY_QUERY, PGRES_COMMAND_OK, PGRES_TUPLES_OK]) then
@@ -222,8 +223,8 @@ begin
  SetLength(l_ParamsValue, cTypesParamsCount);
  SetLength(l_ParamsValuePtr, cTypesParamsCount);
  l_ParamsValue[cTypeNameParamIndex] := anOID;
- for l_IDX := 0 to cFunctionParamsCount - 1 do
-  l_ParamsValuePtr[l_IDX] := @l_ParamsValue[l_IDX][1];
+ for l_IDX := 0 to cTypesParamsCount - 1 do
+  l_ParamsValuePtr[l_IDX] := PAnsiChar(l_ParamsValue[l_IDX]);
  l_Result := PQexecPrepared(f_Connection.Handle, PAnsiChar(f_TypesQueryName), cTypesParamsCount, l_ParamsValuePtr, nil, 0, 0);
  try
   if not (PQresultStatus(l_Result) in [PGRES_EMPTY_QUERY, PGRES_COMMAND_OK, PGRES_TUPLES_OK]) then
@@ -260,7 +261,7 @@ var
 //#UC END# *566FFECF0160_56613507012C_var*
 begin
 //#UC START# *566FFECF0160_56613507012C_impl*
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE %s', [f_TypesQueryName])));
+ l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE "%s"', [f_TypesQueryName])));
  try
   pgCheckStatus(l_Result);
   f_TypesQueryName := '';
@@ -297,7 +298,7 @@ var
 //#UC END# *567010EB0006_56613507012C_var*
 begin
 //#UC START# *567010EB0006_56613507012C_impl*
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE %s', [f_FunctionsQueryName])));
+ l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE "%s"', [f_FunctionsQueryName])));
  try
   pgCheckStatus(l_Result);
   f_FunctionsQueryName := '';
@@ -373,13 +374,15 @@ function TpgFunctionFactory.MakeFunction(const aFunctionName: AnsiString;
 var
  l_ParamsDescription: TpgParamDecsriptionList;
  l_IsRetCursor: Boolean;
+ l_SchemeName: String;
 //#UC END# *56616E9800EA_56613507012C_var*
 begin
 //#UC START# *56616E9800EA_56613507012C_impl*
  l_ParamsDescription := TpgParamDecsriptionList.Make;
  try
-  FillParamDescriptions(l_ParamsDescription, aFunctionName, aSchemeName, l_IsRetCursor);
-  Result := TpgFunction.Make(f_Connection, f_DataConverter, aSchemeName, aFunctionName, l_ParamsDescription, l_IsRetCursor);
+  l_SchemeName := TdaScheme.Instance.CheckScheme(aSchemeName);
+  FillParamDescriptions(l_ParamsDescription, aFunctionName, l_SchemeName, l_IsRetCursor);
+  Result := TpgFunction.Make(f_Connection, f_DataConverter, l_SchemeName, aFunctionName, l_ParamsDescription, l_IsRetCursor);
  finally
   FreeAndNil(l_ParamsDescription);
  end;
@@ -412,9 +415,8 @@ procedure TpgFunctionFactory.Cleanup;
 //#UC END# *479731C50290_56613507012C_var*
 begin
 //#UC START# *479731C50290_56613507012C_impl*
- DoneTypesQuery;
- DoneFuctionsQuery;
  f_DataConverter := nil;
+ f_Connection.UnRegisterListener(Self);
  FreeAndNil(f_Connection);
  inherited;
 //#UC END# *479731C50290_56613507012C_impl*

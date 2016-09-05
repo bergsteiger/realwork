@@ -58,6 +58,8 @@ uses
  , tfwAutoregisteredDiction
  , kwForwardDeclarationHolder
  , SysUtils
+ //#UC START# *55A7DA0200C0impl_uses*
+ //#UC END# *55A7DA0200C0impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas}

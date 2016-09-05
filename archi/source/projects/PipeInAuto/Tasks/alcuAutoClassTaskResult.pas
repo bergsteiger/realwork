@@ -44,6 +44,8 @@ implementation
 uses
  l3ImplUses
  , AutoClassTaskResult_Const
+ //#UC START# *53F472280036impl_uses*
+ //#UC END# *53F472280036impl_uses*
 ;
 
 function TalcuAutoClassTaskResult.pm_GetReportMessage: AnsiString;

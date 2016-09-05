@@ -104,6 +104,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *524159C700FEimpl_uses*
+ //#UC END# *524159C700FEimpl_uses*
 ;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
@@ -175,8 +177,16 @@ procedure TddHTMLTag.AddChar(aChar: AnsiChar;
 //#UC START# *52415AC40279_524159C700FE_var*
 const
  csIgnoreChars = cc_WhiteSpaceExt + [cc_HardEnter, cc_SoftEnter] + cc_Quotes;
+
+ procedure lp_AnalizeValue(aClosed: Boolean);
+ begin
+  AlnalyseValue(aHRefSeacher, aClosed);
+  f_ParserAction := dd_ppaAddNewValue;
+ end;
+
 var
- l_Closed: Boolean;
+ l_Closed  : Boolean;
+ l_StartTag: Boolean;
 //#UC END# *52415AC40279_524159C700FE_var*
 begin
 //#UC START# *52415AC40279_524159C700FE_impl*
@@ -198,16 +208,25 @@ begin
      if f_Start = -1 then
       f_Start := f_ParamsString.Len;
     end; // if (f_ParserAction  = dd_ppaAddNewValue) then
-  AlnalyseValue(aHRefSeacher, l_Closed);
-  f_ParserAction := dd_ppaAddNewValue;
+  if ValueWithoutSpace(GetPrevParamType) and (aChar = cc_HardSpace) then
+   l_Closed := True;
+  lp_AnalizeValue(l_Closed);
  end // if aChar in csIgnoreChars then
  else
  begin
   if GetPrevParamType = dd_paridHREF then
    f_ParserAction := dd_ppaExtendString
-  else 
-   if aChar in [cc_Equal, cc_SemiColon] then
-    TryAddValue(aChar = cc_Equal, aHRefSeacher)
+  else
+   if aChar in [cc_Colon, cc_Equal, cc_SemiColon] then
+   begin
+    l_StartTag := (aChar = cc_Equal) or ((aChar = cc_Colon) and (GetPrevParamType = dd_paridSTYLE));
+    TryAddValue(l_StartTag, aHRefSeacher);
+    if (aChar = cc_SemiColon) and InStyle then
+     if ValueWithoutSpace(GetPrevParamType) then
+      lp_AnalizeValue(True)
+     else
+      AddKeyValue(dd_paridSTYLE);
+   end // if aChar in [cc_Colon, cc_Equal, cc_SemiColon] then
    else
     if aChar = cc_PercentSign then
      TryAddPercent
@@ -419,6 +438,7 @@ begin
    dd_paridCOLSPAN: AddIntValue(aHRefSeacher);
    dd_paridROWSPAN: AddIntValue(aHRefSeacher);
    dd_paridSTYLE,
+   dd_paridBorder,
    dd_paridBorderBottom,
    dd_paridBorderTop,
    dd_paridBorderLeft,
@@ -459,6 +479,7 @@ begin
    dd_paridCHARSET: AnalyseCharSet;
    dd_paridHREF: AnalyseHREF(aHRefSeacher);
    dd_paridSTYLE: AnalyseStyle;
+   dd_paridBorder: AnalyseBorder;
    dd_paridBorderBottom: AnalyseBorder;
    dd_paridBorderTop: AnalyseBorder;
    dd_paridBorderLeft: AnalyseBorder;
@@ -647,6 +668,12 @@ begin
   begin
    lp_ClearLastParam;
    AddKeyValue(dd_paridTextTransform);
+  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_csBorderBottom]) <> l3NotFound then
+  else
+  if l3Starts(carHTMLParamStrArray[dd_paridBorder], l_AlignStr, True) then
+  begin
+   lp_ClearLastParam;
+   AddKeyValue(dd_paridBorder);
   end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_csBorderBottom]) <> l3NotFound then
   else
   if l3Starts(carHTMLParamStrArray[dd_paridBorderBottom], l_AlignStr, True) then
@@ -850,12 +877,15 @@ begin
  end; // if not IsNil then
  l_Param.rType := dd_parBorderPart;
  l_FindStr := l3PCharLenPart(f_ParamsString.St, f_Start, f_ParamsString.Len, f_ParamsString.CodePage);
- if l3Compare(carHTMLBorderStyle, l_FindStr, l3_siCaseUnsensitive) = 0 then
-  l_Param.rHasBorder := True;
+ if l3Compare(carHTMLBorderStyle[True], l_FindStr, l3_siCaseUnsensitive) = 0 then
+  l_Param.rHasBorder := True
+ else
+  if l3Compare(carHTMLBorderStyle[False], l_FindStr, l3_siCaseUnsensitive) = 0 then
+   l_Param.rHasBorder := False;
  f_ParamsList.Add(l_Param);
  f_Start := -1;
  f_ParserAction := dd_ppaAddNewValue;
- if f_ParamsString.Last = cc_SemiColon then
+ if InStyle then
   AddKeyValue(dd_paridSTYLE);
 //#UC END# *56A071C8034A_524159C700FE_impl*
 end;//TddHTMLTag.AnalyseBorder

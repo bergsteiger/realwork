@@ -70,7 +70,7 @@ procedure TkwFiltersList.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_4DBA9CE301B4_var*
 begin
 //#UC START# *4DAEEDE10285_4DBA9CE301B4_impl*
- aCtx.rCaller.Check(vcmDispatcher.EntityOperation(TdmStdRes.opcode_Filters_FiltersListOpen, vcmParams));
+ aCtx.rCaller.Check(vcmDispatcher.EntityOperation(opcode_Filters_FiltersListOpen, vcmParams));
 //#UC END# *4DAEEDE10285_4DBA9CE301B4_impl*
 end;//TkwFiltersList.DoDoIt
 

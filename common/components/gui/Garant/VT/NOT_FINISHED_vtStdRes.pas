@@ -26,6 +26,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *49213DFA02CBimpl_uses*
+ //#UC END# *49213DFA02CBimpl_uses*
 ;
 
 procedure vtStdResources;

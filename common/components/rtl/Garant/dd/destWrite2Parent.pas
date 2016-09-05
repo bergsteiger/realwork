@@ -40,6 +40,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *54E3046A00AEimpl_uses*
+ //#UC END# *54E3046A00AEimpl_uses*
 ;
 
 constructor TdestWrite2Parent.Create(aRTFReader: TddCustomRTFReader;

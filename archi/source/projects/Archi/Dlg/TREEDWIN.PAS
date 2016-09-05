@@ -69,7 +69,7 @@ type
     procedure acLoadFromFileClick(Sender: TObject);
     procedure miEmptyItemsClick(Sender: TObject);
    private
-    Family   : TFamilyID;
+    Family   : TdaFamilyID;
     //fShowMode : TDictShowMode;
     fLeafIDList : Il3IDList;
 
@@ -101,7 +101,7 @@ type
 
     function CheckMayBeSelected(aIndex : Integer) : Boolean; override;
    public
-    constructor Create(aOwner : TComponent; aFamily : TFamilyID;
+    constructor Create(aOwner : TComponent; aFamily : TdaFamilyID;
                        aDictID : TdaDictionaryType; aShowMode : TDictShowMode); reintroduce;
 
     procedure   SetSpeedButton(Enabled : Boolean); override;
@@ -114,7 +114,7 @@ type
 
   end;
 
-procedure ApplyClassDeltaFile(aFamily : TFamilyID; aDeltaFileName : TFileName);
+procedure ApplyClassDeltaFile(aFamily : TdaFamilyID; aDeltaFileName : TFileName);
 
 { примен€ет файл добавленных/удаленных/замененных Ёлементов словар€
   ѕроблемы с заливкой
@@ -122,7 +122,7 @@ procedure ApplyClassDeltaFile(aFamily : TFamilyID; aDeltaFileName : TFileName);
    - если New = Old - ничего не делать
  }
 
-procedure ApplyClassBatchFile(aFamily : TFamilyID; aBatchFileName : TFileName);
+procedure ApplyClassBatchFile(aFamily : TdaFamilyID; aBatchFileName : TFileName);
  {примен€ет файл добавленных/удаленных/замененных Ћинков словар€ к документам}
 
 implementation
@@ -172,7 +172,7 @@ begin
  Result := l3ReplaceNonReadable(l3Trim(aStr));
 end;
 
-procedure ApplyClassBatchFile(aFamily : TFamilyID; aBatchFileName : TFileName);
+procedure ApplyClassBatchFile(aFamily : TdaFamilyID; aBatchFileName : TFileName);
  type
   TOperation = (otNone,otAdd,otDel,otChange);
   PAddr      = ^TAddr;
@@ -343,7 +343,7 @@ var
   //lRootNode.Save;
  end;
 
-procedure ApplyClassDeltaFile(aFamily : TFamilyID; aDeltaFileName : TFileName);
+procedure ApplyClassDeltaFile(aFamily : TdaFamilyID; aDeltaFileName : TFileName);
  const
   cLevelSlash : AnsiString = '\';
  var
@@ -495,7 +495,7 @@ procedure ApplyClassDeltaFile(aFamily : TFamilyID; aDeltaFileName : TFileName);
    Result := l3IterateSubTreeF(aRootNode, l3L2NA(@IterHandler), imCheckResult {or aIterMode, aFromNode});
   end;
 
-constructor TTreeDesignerForm.Create(aOwner : TComponent; aFamily   : TFamilyID;
+constructor TTreeDesignerForm.Create(aOwner : TComponent; aFamily   : TdaFamilyID;
                                         aDictID : TdaDictionaryType; aShowMode : TDictShowMode);
  procedure lpAssignRootNode;
   var

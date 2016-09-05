@@ -60,6 +60,8 @@ implementation
 uses
  l3ImplUses
  , DictEditQuery_Const
+ //#UC START# *53B27A6E01FCimpl_uses*
+ //#UC END# *53B27A6E01FCimpl_uses*
 ;
 
 function TcsDictEditQueryPrim.pm_GetFamily: Integer;

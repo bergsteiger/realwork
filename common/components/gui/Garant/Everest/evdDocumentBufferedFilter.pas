@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , Document_Const
  , l3Base
+ //#UC START# *56387286026Aimpl_uses*
+ //#UC END# *56387286026Aimpl_uses*
 ;
 
 constructor TevdDocumentBufferedFilter.Create;

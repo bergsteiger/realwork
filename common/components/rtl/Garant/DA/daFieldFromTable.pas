@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *574C12B400EAimpl_uses*
+ //#UC END# *574C12B400EAimpl_uses*
 ;
 
 constructor TdaFieldFromTable.Create(const aTableAlias: AnsiString;

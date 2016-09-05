@@ -36,6 +36,8 @@ uses
  l3ImplUses
  , ApplicationHelper
  , ListTreeView
+ //#UC START# *4603A0B8004Bimpl_uses*
+ //#UC END# *4603A0B8004Bimpl_uses*
 ;
 
 constructor ListTree.Make(active_changeable: Boolean);
