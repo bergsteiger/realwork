@@ -1,0 +1,154 @@
+// Abstracts 46E16545033C MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46E16545033C
+
+FORWARD ME_46E28D3A01E4
+
+ME ME_46E28D830109
+ MEPROP UID '46E28D830109'
+ MEPROP Name 'mda'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Генерация мета-шаблонов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E28D3A01E4 // Мета-MDA
+ ;
+
+ENDME // ME_46E28D830109 mda
+
+ME ME_4A09484300C6
+ MEPROP UID '4A09484300C6'
+ MEPROP Name 'mda.inc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Генерация списка включения мета-шаблонов (mda.inc)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E28D3A01E4 // Мета-MDA
+ ;
+
+ENDME // ME_4A09484300C6 mda.inc
+
+ME ME_5655E2B600CA
+ MEPROP UID '5655E2B600CA'
+ MEPROP Name 'tpi.script'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E28D3A01E4 // Мета-MDA
+ ;
+ UP "lang id" 'script'
+ UP "tab replace" '\\s'
+
+ENDME // ME_5655E2B600CA tpi.script
+
+ME ME_5655ED7D0175
+ MEPROP UID '5655ED7D0175'
+ MEPROP Name 'tpi_script_FileName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E28D3A01E4 // Мета-MDA
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_5655ED7D0175 tpi_script_FileName
+
+ME ME_5655EDAD01E3
+ MEPROP UID '5655EDAD01E3'
+ MEPROP Name 'tpi_script_Name'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E28D3A01E4 // Мета-MDA
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_5655EDAD01E3 tpi_script_Name
+
+ME ME_5655F14C01C2
+ MEPROP UID '5655F14C01C2'
+ MEPROP Name 'tpi_script_GenerateForward'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E28D3A01E4 // Мета-MDA
+ ;
+
+ENDME // ME_5655F14C01C2 tpi_script_GenerateForward
+
+ME ME_565872E001A9
+ MEPROP UID '565872E001A9'
+ MEPROP Name 'tpi_script_NamePrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E28D3A01E4 // Мета-MDA
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_565872E001A9 tpi_script_NamePrim
+
+ME ME_46E28D3A01E4
+ MEPROP UID '46E28D3A01E4'
+ MEPROP Name 'Мета-MDA'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'генераторы мета-шаблонов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E16545033C // Abstracts
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_46E28D830109 // mda
+ HWL ME_4A09484300C6 // mda.inc
+ HWL ME_5655E2B600CA // tpi.script
+ HWL ME_5655ED7D0175 // tpi_script_FileName
+ HWL ME_5655EDAD01E3 // tpi_script_Name
+ HWL ME_5655F14C01C2 // tpi_script_GenerateForward
+ HWL ME_565872E001A9 // tpi_script_NamePrim
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Abstracts\Мета-MDA'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Abstracts\Мета-MDA.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E28D3A01E4 Мета-MDA
+
+ME ME_46E16545033C
+ MEPROP UID '46E16545033C'
+ MEPROP Name 'Abstracts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой абстрактных генераторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_46E13A3C030D' '46E13A3C030D.ms.model.script' // Meta
+ ;
+ MELIST Children
+   Seq: ( HWL ME_46E28D3A01E4 // Мета-MDA
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Abstracts'
+ UP mda:PathOnly '\MDProcess\MetaTemplate\Meta\Abstracts'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E16545033C Abstracts

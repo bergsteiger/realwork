@@ -1,0 +1,94 @@
+// ModelPackages 4B62E09600D1 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B62E09600D1
+
+FORWARD ME_492E96FD00A7
+
+ME ME_492E98780300
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_492E96FD00A7 // ControllerInterfaces
+ ;
+ MELINK Target WL 'ME_492E97E60140' '492E955C02EC.ms.model.script' // UseCaseController
+ ;
+
+ENDME // ME_492E98780300 
+
+ME ME_492E98810034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_492E96FD00A7 // ControllerInterfaces
+ ;
+ MELINK Target WL 'ME_492E980503DD' '492E955C02EC.ms.model.script' // ViewAreaController
+ ;
+
+ENDME // ME_492E98810034 
+
+ME ME_5019152B0344
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_492E96FD00A7 // ControllerInterfaces
+ ;
+ MELINK Target WL 'ME_50191492035D' '50182A3C02D2.ms.model.script' // ReflectablePureMixIn
+ ;
+
+ENDME // ME_5019152B0344 
+
+ME ME_492E96FD00A7
+ MEPROP UID '492E96FD00A7'
+ MEPROP Name 'ControllerInterfaces'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейсы контроллеров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B62E09600D1 // ModelPackages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_494F7E5C0301' '4B62DE9C006C.ms.model.script' // VCMInterfacesLike
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_492E98780300 // UseCaseController
+ ME_492E98810034 // ViewAreaController
+ ME_5019152B0344 // ReflectablePureMixIn
+ )
+ ; // Dependencies
+ UP "personal label" 'code_vcm_controller_interfaces'
+ UP "visualization bg color" 16636008
+ UP "visualization f-font color" 16711808
+ UP "visualization f-line color" 16711808
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\ModelPackages\ControllerInterfaces'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMModelLayer\ModelPackages\ControllerInterfaces.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_492E96FD00A7 ControllerInterfaces
+
+ME ME_4B62E09600D1
+ MEPROP UID '4B62E09600D1'
+ MEPROP Name 'ModelPackages'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B5F4952010E' '4B5F4952010E.ms.model.script' // VCMModelLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_492E96FD00A7 // ControllerInterfaces
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_492E955C02EC' '492E955C02EC.ms.model.script' // ModelElements
+ WL 'ME_4B62DE9C006C' '4B62DE9C006C.ms.model.script' // StandardLikePackages
+ WL 'ME_50182A3C02D2' '50182A3C02D2.ms.model.script' // Reflectable
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\ModelPackages'
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\ModelPackages'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B62E09600D1 ModelPackages

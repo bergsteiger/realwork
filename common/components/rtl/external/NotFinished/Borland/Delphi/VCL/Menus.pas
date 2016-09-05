@@ -53,6 +53,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47E7ABAE0110impl_uses*
+ //#UC END# *47E7ABAE0110impl_uses*
 ;
 
 function TMenu.IsShortCut(var Message: TWMKey): Boolean;

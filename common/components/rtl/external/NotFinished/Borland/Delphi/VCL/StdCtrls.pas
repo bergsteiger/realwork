@@ -95,6 +95,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , vtComboBoxWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48C78D5402A6impl_uses*
+ //#UC END# *48C78D5402A6impl_uses*
 ;
 
 procedure TCustomLabel.AdjustBounds;

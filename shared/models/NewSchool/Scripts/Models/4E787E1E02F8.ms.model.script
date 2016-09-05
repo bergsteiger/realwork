@@ -1,0 +1,59 @@
+// Редактор с выпадающим деревом 4E787E1E02F8 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E787E1E02F8
+
+FORWARD ME_4E787E3402E3
+
+ME ME_4E787E7400A7
+ MEPROP UID '4E787E7400A7'
+ MEPROP Name 'Должен уметь показывать сложную псевдонадпись'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:272663344}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E787E3402E3 // Редактор с выпадающим деревом
+ ;
+
+ENDME // ME_4E787E7400A7 Должен уметь показывать сложную псевдонадпись
+
+ME ME_4E787E3402E3
+ MEPROP UID '4E787E3402E3'
+ MEPROP Name 'Редактор с выпадающим деревом'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E787E1E02F8 // Редактор с выпадающим деревом
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E787E7400A7 // Должен уметь показывать сложную псевдонадпись
+ )
+ ; // Children
+
+ENDME // ME_4E787E3402E3 Редактор с выпадающим деревом
+
+ME ME_4E787E1E02F8
+ MEPROP UID '4E787E1E02F8'
+ MEPROP Name 'Редактор с выпадающим деревом'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E787E3402E3 // Редактор с выпадающим деревом
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4E96FFD70348' '4E96FFD70348.ms.model.script' // Поля ввода
+ )
+ ; // Depends
+
+ENDME // ME_4E787E1E02F8 Редактор с выпадающим деревом

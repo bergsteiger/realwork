@@ -1,0 +1,1057 @@
+// ActiveX 46A0E6C5023A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46A0E6C5023A
+
+FORWARD ME_46A0E7200082
+
+FORWARD ME_48F33755005D
+
+ME ME_48F337820294
+ MEPROP Name 'celt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F337820294 celt
+
+ME ME_48F3378202B2
+ MEPROP Name 'elt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_48F3378202B2 elt
+
+ME ME_48F3378202CF
+ MEPROP Name 'pceltFetched'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F3383D02DB' '4AB0C3F60375.ms.model.script' // PLongint
+ ;
+
+ENDME // ME_48F3378202CF pceltFetched
+
+ME ME_48F33755005D
+ MEPROP UID '48F33755005D'
+ MEPROP Name 'Next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F337820294 // celt
+ ME_48F3378202B2 // elt
+ ME_48F3378202CF // pceltFetched
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F33755005D Next
+
+FORWARD ME_48F33790021D
+
+ME ME_48F3379A033B
+ MEPROP Name 'celt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F3379A033B celt
+
+ME ME_48F33790021D
+ MEPROP UID '48F33790021D'
+ MEPROP Name 'Skip'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F3379A033B // celt
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F33790021D Skip
+
+ME ME_48F337A20394
+ MEPROP UID '48F337A20394'
+ MEPROP Name 'Reset'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F337A20394 Reset
+
+FORWARD ME_48F337B1039E
+
+ME ME_48F337CF0240
+ MEPROP Name 'Enum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_46A0E7200082 // IEnumFORMATETC
+ ;
+
+ENDME // ME_48F337CF0240 Enum
+
+ME ME_48F337B1039E
+ MEPROP UID '48F337B1039E'
+ MEPROP Name 'Clone'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E7200082 // IEnumFORMATETC
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F337CF0240 // Enum
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F337B1039E Clone
+
+ME ME_46A0E7200082
+ MEPROP UID '46A0E7200082'
+ MEPROP GUID '8FDCFD24-3B06-444D-98A9-7C250B54D48C'
+ MEPROP Name 'IEnumFORMATETC'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Итератор по данным внутри IDataObject.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48F33755005D // Next
+ HWL ME_48F33790021D // Skip
+ HWL ME_48F337A20394 // Reset
+ HWL ME_48F337B1039E // Clone
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EnumFORMATETC'
+
+ENDME // ME_46A0E7200082 IEnumFORMATETC
+
+ME ME_46A5B13C018B
+ MEPROP UID '46A5B13C018B'
+ MEPROP Name 'TStgMedium'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+
+ENDME // ME_46A5B13C018B TStgMedium
+
+ME ME_46A5AFF103CA
+ MEPROP UID '46A5AFF103CA'
+ MEPROP GUID 'F9C63F24-4E9E-4D13-AEA7-2E1CC301DBC3'
+ MEPROP Name 'IStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поток.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Stream'
+
+ENDME // ME_46A5AFF103CA IStream
+
+ME ME_46A5B19203B6
+ MEPROP UID '46A5B19203B6'
+ MEPROP Name 'TFormatEtc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+
+ENDME // ME_46A5B19203B6 TFormatEtc
+
+ME ME_46A5D83000D7
+ MEPROP UID '46A5D83000D7'
+ MEPROP GUID '15439050-1E5B-4F96-AB3B-2F7215C67D66'
+ MEPROP Name 'IAdviseSink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AdviseSink'
+
+ENDME // ME_46A5D83000D7 IAdviseSink
+
+ME ME_46A5D8120200
+ MEPROP UID '46A5D8120200'
+ MEPROP GUID '776E8CD1-A4A3-4383-8647-2C34D8B8DAC9'
+ MEPROP Name 'IDropSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropSource'
+
+ENDME // ME_46A5D8120200 IDropSource
+
+ME ME_46A5D81E0167
+ MEPROP UID '46A5D81E0167'
+ MEPROP GUID '9B77F3D9-C3C7-4143-8439-3591802F77AE'
+ MEPROP Name 'IDropTarget'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropTarget'
+
+ENDME // ME_46A5D81E0167 IDropTarget
+
+ME ME_46A5D83D031A
+ MEPROP UID '46A5D83D031A'
+ MEPROP GUID 'C190C4EA-7EB2-40F1-A77A-8CEBCB2B66E6'
+ MEPROP Name 'IEnumStatData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EnumStatData'
+
+ENDME // ME_46A5D83D031A IEnumStatData
+
+ME ME_48F332AE0339
+ MEPROP UID '48F332AE0339'
+ MEPROP Name 'IEnumFormatEtc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46A0E7200082 // IEnumFORMATETC
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EnumFormatEtc'
+
+ENDME // ME_48F332AE0339 IEnumFormatEtc
+
+ME ME_46A5D85103D7
+ MEPROP UID '46A5D85103D7'
+ MEPROP Name 'PFormatEtc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+
+ENDME // ME_46A5D85103D7 PFormatEtc
+
+ME ME_4FA27F3E0193
+ MEPROP UID '4FA27F3E0193'
+ MEPROP Name 'TStatStg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+
+ENDME // ME_4FA27F3E0193 TStatStg
+
+FORWARD ME_46A0E6FF037E
+
+FORWARD ME_48F32DD50284
+
+ME ME_48F32DF70180
+ MEPROP Name 'formatetcIn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ENDME // ME_48F32DF70180 formatetcIn
+
+ME ME_48F32DF701A2
+ MEPROP Name 'medium'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_46A5B13C018B // TStgMedium
+ ;
+
+ENDME // ME_48F32DF701A2 medium
+
+ME ME_48F32DD50284
+ MEPROP UID '48F32DD50284'
+ MEPROP Name 'GetData'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F32DF70180 // formatetcIn
+ ME_48F32DF701A2 // medium
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F32DD50284 GetData
+
+FORWARD ME_48F32E0200AF
+
+ME ME_48F32E1801DE
+ MEPROP Name 'formatetc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ENDME // ME_48F32E1801DE formatetc
+
+ME ME_48F32E1801FE
+ MEPROP Name 'medium'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_46A5B13C018B // TStgMedium
+ ;
+
+ENDME // ME_48F32E1801FE medium
+
+ME ME_48F32E0200AF
+ MEPROP UID '48F32E0200AF'
+ MEPROP Name 'GetDataHere'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F32E1801DE // formatetc
+ ME_48F32E1801FE // medium
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F32E0200AF GetDataHere
+
+FORWARD ME_48F32E20007F
+
+ME ME_48F32E2B020B
+ MEPROP Name 'formatetc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ENDME // ME_48F32E2B020B formatetc
+
+ME ME_48F32E20007F
+ MEPROP UID '48F32E20007F'
+ MEPROP Name 'QueryGetData'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F32E2B020B // formatetc
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F32E20007F QueryGetData
+
+FORWARD ME_48F32E330154
+
+ME ME_48F32E440280
+ MEPROP Name 'formatetc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ENDME // ME_48F32E440280 formatetc
+
+ME ME_48F32E4402AB
+ MEPROP Name 'formatetcOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ENDME // ME_48F32E4402AB formatetcOut
+
+ME ME_48F32E330154
+ MEPROP UID '48F32E330154'
+ MEPROP Name 'GetCanonicalFormatEtc'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F32E440280 // formatetc
+ ME_48F32E4402AB // formatetcOut
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F32E330154 GetCanonicalFormatEtc
+
+FORWARD ME_48F32E4D0179
+
+ME ME_48F32E5D00B6
+ MEPROP Name 'formatetc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ENDME // ME_48F32E5D00B6 formatetc
+
+ME ME_48F32E5D00E3
+ MEPROP Name 'medium'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_46A5B13C018B // TStgMedium
+ ;
+
+ENDME // ME_48F32E5D00E3 medium
+
+ME ME_48F32E5D0112
+ MEPROP Name 'fRelease'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5DAC5031C' '4AB0C3F60375.ms.model.script' // BOOL
+ ;
+
+ENDME // ME_48F32E5D0112 fRelease
+
+ME ME_48F32E4D0179
+ MEPROP UID '48F32E4D0179'
+ MEPROP Name 'SetData'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F32E5D00B6 // formatetc
+ ME_48F32E5D00E3 // medium
+ ME_48F32E5D0112 // fRelease
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F32E4D0179 SetData
+
+FORWARD ME_48F330A10257
+
+ME ME_48F330BB02B9
+ MEPROP Name 'dwDirection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F330BB02B9 dwDirection
+
+ME ME_48F330BB0306
+ MEPROP Name 'enumFormatEtc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_48F332AE0339 // IEnumFormatEtc
+ ;
+
+ENDME // ME_48F330BB0306 enumFormatEtc
+
+ME ME_48F330A10257
+ MEPROP UID '48F330A10257'
+ MEPROP Name 'EnumFormatEtc'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F330BB02B9 // dwDirection
+ ME_48F330BB0306 // enumFormatEtc
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F330A10257 EnumFormatEtc
+
+FORWARD ME_48F330C40367
+
+ME ME_48F3310200A9
+ MEPROP Name 'formatetc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_46A5B19203B6 // TFormatEtc
+ ;
+
+ENDME // ME_48F3310200A9 formatetc
+
+ME ME_48F3310200D9
+ MEPROP Name 'advf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F3310200D9 advf
+
+ME ME_48F33102010B
+ MEPROP Name 'advSink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_46A5D83000D7 // IAdviseSink
+ ;
+
+ENDME // ME_48F33102010B advSink
+
+ME ME_48F33102013C
+ MEPROP Name 'dwConnection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F33102013C dwConnection
+
+ME ME_48F330C40367
+ MEPROP UID '48F330C40367'
+ MEPROP Name 'DAdvise'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F3310200A9 // formatetc
+ ME_48F3310200D9 // advf
+ ME_48F33102010B // advSink
+ ME_48F33102013C // dwConnection
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F330C40367 DAdvise
+
+FORWARD ME_48F3312B0381
+
+ME ME_48F3313603D8
+ MEPROP Name 'dwConnection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F3313603D8 dwConnection
+
+ME ME_48F3312B0381
+ MEPROP UID '48F3312B0381'
+ MEPROP Name 'DUnadvise'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F3313603D8 // dwConnection
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F3312B0381 DUnadvise
+
+FORWARD ME_48F3313E0339
+
+ME ME_48F3315200ED
+ MEPROP Name 'enumAdvise'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_46A5D83D031A // IEnumStatData
+ ;
+
+ENDME // ME_48F3315200ED enumAdvise
+
+ME ME_48F3313E0339
+ MEPROP UID '48F3313E0339'
+ MEPROP Name 'EnumDAdvise'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46A0E6FF037E // IDataObject
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F3315200ED // enumAdvise
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_48F3313E0339 EnumDAdvise
+
+ME ME_46A0E6FF037E
+ MEPROP UID '46A0E6FF037E'
+ MEPROP GUID 'D1B49E97-39B1-4ED5-9B33-5B1093FF9C37'
+ MEPROP Name 'IDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект представляющий данные для буфера обмена или drag-and-drop.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48F32DD50284 // GetData
+ HWL ME_48F32E0200AF // GetDataHere
+ HWL ME_48F32E20007F // QueryGetData
+ HWL ME_48F32E330154 // GetCanonicalFormatEtc
+ HWL ME_48F32E4D0179 // SetData
+ HWL ME_48F330A10257 // EnumFormatEtc
+ HWL ME_48F330C40367 // DAdvise
+ HWL ME_48F3312B0381 // DUnadvise
+ HWL ME_48F3313E0339 // EnumDAdvise
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataObject'
+
+ENDME // ME_46A0E6FF037E IDataObject
+
+ME ME_54523014032A
+ MEPROP UID '54523014032A'
+ MEPROP GUID '441B4CA8-58FB-4B30-BAFA-C1D6521FF7D6'
+ MEPROP Name 'IEnumStatStg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EnumStatStg'
+
+ENDME // ME_54523014032A IEnumStatStg
+
+ME ME_53FDFAAE0115
+ MEPROP UID '53FDFAAE0115'
+ MEPROP Name 'TCLSID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+
+ENDME // ME_53FDFAAE0115 TCLSID
+
+FORWARD ME_54522C020216
+
+FORWARD ME_54522C200280
+
+FORWARD ME_54522C2A02B7
+
+ME ME_54522C38011C
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4FA284CE011F' '4AB0C3C60310.ms.model.script' // PWideChar
+ ;
+
+ENDME // ME_54522C38011C aName
+
+ME ME_54522C2A02B7
+ MEPROP UID '54522C2A02B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54522C200280 // DestroyElement
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_54522C38011C // aName
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_54522C2A02B7 DoIt
+
+ME ME_54522C200280
+ MEPROP UID '54522C200280'
+ MEPROP Name 'DestroyElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54522C020216 // MCommonStorage
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54522C2A02B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54522C200280 DestroyElement
+
+FORWARD ME_5452303401DA
+
+FORWARD ME_545230400047
+
+ME ME_5452308B03D3
+ MEPROP Name 'unused1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5452308B03D3 unused1
+
+ME ME_5452308C0012
+ MEPROP Name 'unused2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_5452308C0012 unused2
+
+ME ME_5452308C003F
+ MEPROP Name 'unused3'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5452308C003F unused3
+
+ME ME_5452308C0066
+ MEPROP Name 'theStatStg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_54523014032A // IEnumStatStg
+ ;
+
+ENDME // ME_5452308C0066 theStatStg
+
+ME ME_545230400047
+ MEPROP UID '545230400047'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5452303401DA // EnumElements
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_5452308B03D3 // unused1
+ ME_5452308C0012 // unused2
+ ME_5452308C003F // unused3
+ ME_5452308C0066 // theStatStg
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_545230400047 DoIt
+
+ME ME_5452303401DA
+ MEPROP UID '5452303401DA'
+ MEPROP Name 'EnumElements'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54522C020216 // MCommonStorage
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545230400047 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5452303401DA EnumElements
+
+FORWARD ME_545244AA00BB
+
+FORWARD ME_545244B402D2
+
+ME ME_545250200117
+ MEPROP Name 'theStatStg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_4FA27F3E0193 // TStatStg
+ ;
+
+ENDME // ME_545250200117 theStatStg
+
+ME ME_545244DE021A
+ MEPROP Name 'aStatFlag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_545244DE021A aStatFlag
+
+ME ME_545244B402D2
+ MEPROP UID '545244B402D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545244AA00BB // Stat
+ ;
+ MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_545250200117 // theStatStg
+ ME_545244DE021A // aStatFlag
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_545244B402D2 DoIt
+
+ME ME_545244AA00BB
+ MEPROP UID '545244AA00BB'
+ MEPROP Name 'Stat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54522C020216 // MCommonStorage
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545244B402D2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_545244AA00BB Stat
+
+ME ME_54522C020216
+ MEPROP UID '54522C020216'
+ MEPROP Name 'MCommonStorage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54522C200280 // DestroyElement
+ HWL ME_5452303401DA // EnumElements
+ HWL ME_545244AA00BB // Stat
+ )
+ ; // Operations
+
+ENDME // ME_54522C020216 MCommonStorage
+
+ME ME_54522C200280_ME_472093480190
+ MELINK Original HWL ME_54522C200280 // DestroyElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_54522C200280_ME_472093480190 DestroyElement
+
+ME ME_5452303401DA_ME_472093480190
+ MELINK Original HWL ME_5452303401DA // EnumElements
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5452303401DA_ME_472093480190 EnumElements
+
+ME ME_545244AA00BB_ME_472093480190
+ MELINK Original HWL ME_545244AA00BB // Stat
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_545244AA00BB_ME_472093480190 Stat
+
+ME ME_472093480190
+ MEPROP UID '472093480190'
+ MEPROP GUID 'DBD1670E-4A5F-4030-896C-85BCA17997B1'
+ MEPROP Name 'IStorage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Структурированное хранилище.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_54522C020216 // MCommonStorage
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_54522C200280_ME_472093480190 // DestroyElement
+ ME_5452303401DA_ME_472093480190 // EnumElements
+ ME_545244AA00BB_ME_472093480190 // Stat
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Storage'
+
+ENDME // ME_472093480190 IStorage
+
+ME ME_556DC8FD0311
+ MEPROP UID '556DC8FD0311'
+ MEPROP Name 'TIID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+
+ENDME // ME_556DC8FD0311 TIID
+
+ME ME_556DCBD7038C
+ MEPROP UID '556DCBD7038C'
+ MEPROP Name 'POleStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FA284CE011F' '4AB0C3C60310.ms.model.script' // PWideChar
+ )
+ ; // Inherits
+
+ENDME // ME_556DCBD7038C POleStr
+
+ME ME_556DCC0400AB
+ MEPROP UID '556DCC0400AB'
+ MEPROP Name 'TSNB'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46A0E6C5023A // ActiveX
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_556DCBD7038C // POleStr
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_556DCC0400AB TSNB
+
+ME ME_46A0E6C5023A
+ MEPROP UID '46A0E6C5023A'
+ MEPROP Name 'ActiveX'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'ActiveX / OLE 2 Interface Unit.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_46A0E7200082 // IEnumFORMATETC
+ HWL ME_46A5B13C018B // TStgMedium
+ HWL ME_46A5AFF103CA // IStream
+ HWL ME_46A5B19203B6 // TFormatEtc
+ HWL ME_46A5D83000D7 // IAdviseSink
+ HWL ME_46A5D8120200 // IDropSource
+ HWL ME_46A5D81E0167 // IDropTarget
+ HWL ME_46A5D83D031A // IEnumStatData
+ HWL ME_48F332AE0339 // IEnumFormatEtc
+ HWL ME_46A5D85103D7 // PFormatEtc
+ HWL ME_4FA27F3E0193 // TStatStg
+ HWL ME_46A0E6FF037E // IDataObject
+ HWL ME_54523014032A // IEnumStatStg
+ HWL ME_53FDFAAE0115 // TCLSID
+ HWL ME_54522C020216 // MCommonStorage
+ HWL ME_472093480190 // IStorage
+ HWL ME_556DC8FD0311 // TIID
+ HWL ME_556DCBD7038C // POleStr
+ HWL ME_556DCC0400AB // TSNB
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP "NoSpell" True
+ UP "path prefix" '/Win'
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\ActiveX.pas'
+ UP intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win'
+
+ENDME // ME_46A0E6C5023A ActiveX

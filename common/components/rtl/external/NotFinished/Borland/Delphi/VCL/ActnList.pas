@@ -74,6 +74,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , ActionListWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47E76250004Cimpl_uses*
+ //#UC END# *47E76250004Cimpl_uses*
 ;
 
 function TActionLink.IsCaptionLinked: Boolean;

@@ -1,0 +1,41 @@
+// VCMTemplates 492E8F8603C3 MDATemplates Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_492E8F8603C3
+ MEPROP UID '492E8F8603C3'
+ MEPROP Name 'VCMTemplates'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDATemplates ;
+ %SUMMARY 'Метамодель VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B63155B0328' '4B63155B0328.ms.model.script' // MDProcess$ForDelphi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4B62DE6100ED' '4B62DE6100ED.ms.model.script' // VCMCore
+ WL 'ME_4B5F4952010E' '4B5F4952010E.ms.model.script' // VCMModelLayer
+ WL 'ME_4B62E29801AA' '4B62E29801AA.ms.model.script' // VCMControllersLayer
+ WL 'ME_4B62EC84020F' '4B62EC84020F.ms.model.script' // VCMViewInterfacesLayer
+ WL 'ME_4B62F01802BC' '4B62F01802BC.ms.model.script' // VCMViewImplementationLayer
+ WL 'ME_492E952D02A0' '492E952D02A0.ms.model.script' // VCMSubsystemLayer
+ WL 'ME_4B5F469E0305' '4B5F469E0305.ms.model.script' // VCMProjectLayer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4729C18B01F4' '4729C18B01F4.ms.model.script' // DelphiSpecific
+ WL 'ME_4734A001000F' '4734A001000F.ms.model.script' // MetaTemplate
+ WL 'ME_4734A46F005D' '4734A46F005D.ms.model.script' // CoreTemplates
+ WL 'ME_484914FC025E' '484914FC025E.ms.model.script' // EVDTemplates
+ WL 'ME_561D2FE00378' '561D2FE00378.ms.model.script' // SimpleTemplates
+ )
+ ; // Depends
+ UP mda.inc:Path 'MDProcess\VCMTemplates\VCMTemplates.inc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMTemplates.tpl'
+ UP mda:PathOnly '\MDProcess\VCMTemplates'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes'
+
+ENDME // ME_492E8F8603C3 VCMTemplates

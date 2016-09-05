@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *483C378301CBimpl_uses*
+ //#UC END# *483C378301CBimpl_uses*
 ;
 
 procedure AnsiReplaceStr;

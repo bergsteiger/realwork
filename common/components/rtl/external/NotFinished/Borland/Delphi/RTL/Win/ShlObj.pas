@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48F34C48034Dimpl_uses*
+ //#UC END# *48F34C48034Dimpl_uses*
 ;
 
 end.

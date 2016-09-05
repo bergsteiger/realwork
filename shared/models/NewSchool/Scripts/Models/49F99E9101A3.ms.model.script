@@ -1,0 +1,283 @@
+// Root 49F99E9101A3 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F99E9101A3
+
+FORWARD ME_49F99EB100B2
+
+ME ME_49F99F9C006D
+ MEPROP UID '49F99F9C006D'
+ MEPROP Name 'Full MDP'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'поддержка полного контроля используемости определяемого MDP' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_49F99F9C006D Full MDP
+
+ME ME_49F99FB701DE
+ MEPROP UID '49F99FB701DE'
+ MEPROP Name 'full constraint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Включает полный контроль за правильностью использования элементов (например при включенной опции серванты не могут нигде использоваться, кроме своих вложенных типов)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_49F99FB701DE full constraint
+
+ME ME_49F99FC00370
+ MEPROP UID '49F99FC00370'
+ MEPROP Name 'is namespace'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет является ли проект неймспейсом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_49F99FC00370 is namespace
+
+ME ME_49F99FD70146
+ MEPROP UID '49F99FD70146'
+ MEPROP Name 'root path suffix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет префикс пути вставляемый между рутовой дирректорией и всем компонентам входящими в проект' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+
+ENDME // ME_49F99FD70146 root path suffix
+
+ME ME_49F99FDE01AA
+ MEPROP UID '49F99FDE01AA'
+ MEPROP Name 'space key'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'идентификатор родительского спейса для генерации в MDKnow' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+
+ENDME // ME_49F99FDE01AA space key
+
+ME ME_49F99FE90031
+ MEPROP UID '49F99FE90031'
+ MEPROP Name 'space name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Название родительского спейса - при генерации будет выставленно в заданное (т.е. изменено при необходимости)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+
+ENDME // ME_49F99FE90031 space name
+
+ME ME_4E7C7B0B0192
+ MEPROP UID '4E7C7B0B0192'
+ MEPROP Name 'wiki_ProjectPageName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4E7C7B0B0192 wiki_ProjectPageName
+
+ME ME_49F99F0D017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_49F99EB100B2 // Project
+ ;
+ MELINK Target WL 'ME_47047244009C' '470335E60290.ms.model.script' // Requirements
+ ;
+
+ENDME // ME_49F99F0D017F 
+
+ME ME_46E6D4BB0339_ME_49F99EB100B2
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_49F99EB100B2 wiki
+
+ME ME_470484D50138_ME_49F99EB100B2
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_49F99EB100B2 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_49F99EB100B2
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_49F99EB100B2 constraint
+
+ME ME_4705CBD6003E_ME_49F99EB100B2
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_49F99EB100B2 wiki_child_kind
+
+ME ME_49F99EB100B2
+ MEPROP UID '49F99EB100B2'
+ MEPROP Name 'Project'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проект'#13#10'---'#13#10'Рутовый элемент модели. Определяет основные проекты. Одна модель может определять несколько проектов, определяя связи между ними.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49F99E9101A3 // Root
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49F99F9C006D // Full MDP
+ HWL ME_49F99FB701DE // full constraint
+ HWL ME_49F99FC00370 // is namespace
+ HWL ME_49F99FD70146 // root path suffix
+ HWL ME_49F99FDE01AA // space key
+ HWL ME_49F99FE90031 // space name
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E7C7B0B0192 // wiki_ProjectPageName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_49F99EB100B2 // wiki
+ ME_470484D50138_ME_49F99EB100B2 // wiki_up_add_gen
+ ME_4704C0E30186_ME_49F99EB100B2 // constraint
+ ME_4705CBD6003E_ME_49F99EB100B2 // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49F99F0D017F // Requirements
+ )
+ ; // Dependencies
+ UP "can be main" True
+ UP "personal label" 'code_project'
+ UP "visualization bg color" 12842435
+ UP "visualization f-font color" 5961040
+ UP "visualization f-line color" 5961040
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Integrated\Root\Project'
+ UP mda:Path 'MDProcess\CoreTemplates\Integrated\Root\Project.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49F99EB100B2 Project
+
+FORWARD ME_49F9A2D90085
+
+ME ME_49F9A30300D5
+ MEPROP UID '49F9A30300D5'
+ MEPROP Name 'used_by_main'
+ MEPROP Class class_Operation
+ %SUMMARY 'используется ли Main элементом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49F9A2D90085 // ProjectSupport
+ ;
+
+ENDME // ME_49F9A30300D5 used_by_main
+
+ME ME_49F9A30D0012
+ MEPROP UID '49F9A30D0012'
+ MEPROP Name 'dont_need_doc'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если для элемента не нужна документация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49F9A2D90085 // ProjectSupport
+ ;
+
+ENDME // ME_49F9A30D0012 dont_need_doc
+
+ME ME_49F9A3150217
+ MEPROP UID '49F9A3150217'
+ MEPROP Name 'attrs_need_doc'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если для атрибута нужна документация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49F9A2D90085 // ProjectSupport
+ ;
+
+ENDME // ME_49F9A3150217 attrs_need_doc
+
+ME ME_49F9A2D90085
+ MEPROP UID '49F9A2D90085'
+ MEPROP Name 'ProjectSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'вспомогательные функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49F99E9101A3 // Root
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49F9A30300D5 // used_by_main
+ HWL ME_49F9A30D0012 // dont_need_doc
+ HWL ME_49F9A3150217 // attrs_need_doc
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Integrated\Root\ProjectSupport'
+ UP mda:Path 'MDProcess\CoreTemplates\Integrated\Root\ProjectSupport.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49F9A2D90085 ProjectSupport
+
+ME ME_49F99E9101A3
+ MEPROP UID '49F99E9101A3'
+ MEPROP Name 'Root'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'рутовые стереотипы и функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49F99E660011' '49F99E660011.ms.model.script' // Integrated
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49F99EB100B2 // Project
+ HWL ME_49F9A2D90085 // ProjectSupport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470335E60290' '470335E60290.ms.model.script' // Requirements
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Integrated\Root'
+ UP mda:PathOnly '\MDProcess\CoreTemplates\Integrated\Root'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49F99E9101A3 Root

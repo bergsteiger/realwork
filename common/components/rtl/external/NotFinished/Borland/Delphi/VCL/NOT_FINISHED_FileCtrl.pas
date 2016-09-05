@@ -19,6 +19,8 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ //#UC START# *4AAF960E0065impl_uses*
+ //#UC END# *4AAF960E0065impl_uses*
 ;
 
 procedure SelectDirectory;

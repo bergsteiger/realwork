@@ -50,6 +50,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4799D2E6027Bimpl_uses*
+ //#UC END# *4799D2E6027Bimpl_uses*
 ;
 
 procedure Printer;

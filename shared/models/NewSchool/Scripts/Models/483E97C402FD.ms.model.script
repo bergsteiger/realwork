@@ -1,0 +1,61 @@
+// XML 483E97C402FD Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483E97C402FD
+
+FORWARD ME_483E9810029D
+
+ME ME_483E98560141
+ MEPROP UID '483E98560141'
+ MEPROP Name 'TXMLDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483E9810029D // XMLDoc
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'XMLDocument'
+
+ENDME // ME_483E98560141 TXMLDocument
+
+ME ME_483E9810029D
+ MEPROP UID '483E9810029D'
+ MEPROP Name 'XMLDoc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483E97C402FD // XML
+ ;
+ MELIST Children
+   Seq: ( HWL ME_483E98560141 // TXMLDocument
+ )
+ ; // Children
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Internet\XMLDoc.pas'
+
+ENDME // ME_483E9810029D XMLDoc
+
+ME ME_483E97C402FD
+ MEPROP UID '483E97C402FD'
+ MEPROP Name 'XML'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_483E96C10305' '483E96C10305.ms.model.script' // Internet
+ ;
+ MELIST Children
+   Seq: ( HWL ME_483E9810029D // XMLDoc
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_483E97460331' '483E97460331.ms.model.script' // XMLIntf
+ )
+ ; // Depends
+
+ENDME // ME_483E97C402FD XML

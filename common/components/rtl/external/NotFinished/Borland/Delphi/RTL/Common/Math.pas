@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4808A20402DCimpl_uses*
+ //#UC END# *4808A20402DCimpl_uses*
 ;
 
 procedure IfThen;

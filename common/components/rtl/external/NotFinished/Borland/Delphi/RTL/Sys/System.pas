@@ -201,6 +201,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , ObjectFromstackWords
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4807744200AAimpl_uses*
+ //#UC END# *4807744200AAimpl_uses*
 ;
 
 class function TObject.NewInstance: TObject;

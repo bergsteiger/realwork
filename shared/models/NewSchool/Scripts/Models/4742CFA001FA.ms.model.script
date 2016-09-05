@@ -1,0 +1,31 @@
+// CommonWithMeta 4742CFA001FA MDATemplates Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4742CFA001FA
+ MEPROP UID '4742CFA001FA'
+ MEPROP Name 'CommonWithMeta'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDATemplates ;
+ %SUMMARY 'Шаблон с общими языками и мета-языком для проектирования метамоделей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F5E505102A8' '4F5E505102A8.ms.model.script' // MDProcess$Templates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4742D02F0390' '4742D02F0390.ms.model.script' // Integrated
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4734A001000F' '4734A001000F.ms.model.script' // MetaTemplate
+ )
+ ; // Depends
+ UP mda.inc:Path 'MDProcess\CommonWithMeta\CommonWithMeta.inc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonWithMeta'
+ UP mda:Path 'MDProcess\CommonWithMeta\CommonWithMeta.tpl'
+ UP mda:PathOnly '\MDProcess\CommonWithMeta'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes'
+
+ENDME // ME_4742CFA001FA CommonWithMeta

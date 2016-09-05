@@ -1,0 +1,33 @@
+// DelphiSpecific 4729C18B01F4 MDATemplates Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4729C18B01F4
+ MEPROP UID '4729C18B01F4'
+ MEPROP Name 'DelphiSpecific'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDATemplates ;
+ %SUMMARY 'Модель шаблонов, описания стереотипов специфичных для дельфи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B63155B0328' '4B63155B0328.ms.model.script' // MDProcess$ForDelphi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4729C41D032C' '4729C41D032C.ms.model.script' // DelphiLang
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4734A46F005D' '4734A46F005D.ms.model.script' // CoreTemplates
+ WL 'ME_4742CFA001FA' '4742CFA001FA.ms.model.script' // CommonWithMeta
+ WL 'ME_484914FC025E' '484914FC025E.ms.model.script' // EVDTemplates
+ )
+ ; // Depends
+ UP mda.inc:Path 'MDProcess\DelphiSpecific\DelphiSpecific.inc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiSpecific.tpl'
+ UP mda:PathOnly '\MDProcess\DelphiSpecific'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes'
+
+ENDME // ME_4729C18B01F4 DelphiSpecific

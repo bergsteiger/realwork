@@ -1,0 +1,30 @@
+// MetaTemplate 4734A001000F MDATemplates Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4734A001000F
+ MEPROP UID '4734A001000F'
+ MEPROP Name 'MetaTemplate'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDATemplates ;
+ %SUMMARY 'Шаблоны для генерации шаблонов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F5E505102A8' '4F5E505102A8.ms.model.script' // MDProcess$Templates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_46E13A3C030D' '46E13A3C030D.ms.model.script' // Meta
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4734A46F005D' '4734A46F005D.ms.model.script' // CoreTemplates
+ )
+ ; // Depends
+ UP mda.inc:Path 'MDProcess\MetaTemplate\MetaTemplate.inc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate'
+ UP mda:PathOnly '\MDProcess\MetaTemplate'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes'
+
+ENDME // ME_4734A001000F MetaTemplate

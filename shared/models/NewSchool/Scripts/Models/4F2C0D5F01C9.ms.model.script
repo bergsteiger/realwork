@@ -1,0 +1,99 @@
+// Scripting 4F2C0D5F01C9 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F2C0D5F01C9
+
+FORWARD ME_4F2C0DA00085
+
+ME ME_55BB8A8A0048
+ MEPROP UID '55BB8A8A0048'
+ MEPROP Name 'ifndef'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2C0DA00085 // ScriptKeywords
+ ;
+ MEPROP Value 'NoScripts'
+ UP extprop:pas:Value 'NoScripts'
+
+ENDME // ME_55BB8A8A0048 ifndef
+
+ME ME_4F2C0DBA028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4F2C0DA00085 // ScriptKeywords
+ ;
+ MELINK Target WL 'ME_4F2C0D86003E' '473A7FCA0203.ms.model.script' // ScriptKeyword
+ ;
+
+ENDME // ME_4F2C0DBA028B 
+
+ME ME_4F2C15DE0025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4F2C0DA00085 // ScriptKeywords
+ ;
+ MELINK Target WL 'ME_4F2C15C90252' '473A7FCA0203.ms.model.script' // ScriptKeywordsPack
+ ;
+
+ENDME // ME_4F2C15DE0025 
+
+ME ME_4F2C0DA00085
+ MEPROP UID '4F2C0DA00085'
+ MEPROP Name 'ScriptKeywords'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Набор слов скрипта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F2C0D5F01C9 // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_473A81010196' '473A7FCA0203.ms.model.script' // Unit
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55BB8A8A0048 // ifndef
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_4F2C0DBA028B // ScriptKeyword
+ ME_4F2C15DE0025 // ScriptKeywordsPack
+ )
+ ; // Dependencies
+ UP "visualization bg color" 16443110
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Scripting\ScriptKeywords'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Scripting\ScriptKeywords.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4F2C0DA00085 ScriptKeywords
+
+ME ME_4F2C0D5F01C9
+ MEPROP UID '4F2C0D5F01C9'
+ MEPROP Name 'Scripting'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Поддержка скриптов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4729C41D032C' '4729C41D032C.ms.model.script' // DelphiLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F2C0DA00085 // ScriptKeywords
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Scripting'
+ UP mda:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Scripting'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4F2C0D5F01C9 Scripting

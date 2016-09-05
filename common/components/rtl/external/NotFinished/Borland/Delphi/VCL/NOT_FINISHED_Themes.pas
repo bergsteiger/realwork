@@ -19,6 +19,8 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ //#UC START# *4CC842140217impl_uses*
+ //#UC END# *4CC842140217impl_uses*
 ;
 
 procedure ThemeServices;

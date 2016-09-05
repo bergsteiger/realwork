@@ -1,0 +1,143 @@
+// Packages 48491B53015C MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48491B53015C
+
+FORWARD ME_48491CCA01C3
+
+ME ME_48491E1001F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48491CCA01C3 // EVD
+ ;
+ MELINK Target WL 'ME_484926640110' '4849199D0140.ms.model.script' // TagTable
+ ;
+
+ENDME // ME_48491E1001F4 
+
+ME ME_48493BAB0077
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48491CCA01C3 // EVD
+ ;
+ MELINK Target WL 'ME_48493B85025A' '48493B130062.ms.model.script' // Wrapper
+ ;
+
+ENDME // ME_48493BAB0077 
+
+ME ME_484A92FE00C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48491CCA01C3 // EVD
+ ;
+ MELINK Target WL 'ME_484A925103A7' '48493B130062.ms.model.script' // TagImplementator
+ ;
+
+ENDME // ME_484A92FE00C2 
+
+ME ME_4856771C02AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48491CCA01C3 // EVD
+ ;
+ MELINK Target WL 'ME_4856767D006A' '48493B130062.ms.model.script' // InterfaceFactory
+ ;
+
+ENDME // ME_4856771C02AD 
+
+ME ME_4A6489A600FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48491CCA01C3 // EVD
+ ;
+
+ENDME // ME_4A6489A600FF 
+
+ME ME_4F9001BB00B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_48491CCA01C3 // EVD
+ ;
+
+ENDME // ME_4F9001BB00B4 
+
+ME ME_485789C102E3_ME_48491CCA01C3
+ MELINK Original WL 'ME_485789C102E3' '46E80398003B.ms.model.script' // data_scheme_package
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_485789C102E3_ME_48491CCA01C3 data_scheme_package
+
+ME ME_4A41A13D03D5_ME_48491CCA01C3
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_48491CCA01C3 spell
+
+ME ME_48491CCA01C3
+ MEPROP UID '48491CCA01C3'
+ MEPROP Name 'EVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пакет EVD-схем'#13#10'---'#13#10'Пакет таблиц с описанием EVD тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48491B53015C // Packages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_485789C102E3_ME_48491CCA01C3 // data_scheme_package
+ ME_4A41A13D03D5_ME_48491CCA01C3 // spell
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48491E1001F4 // TagTable
+ ME_48493BAB0077 // Wrapper
+ ME_484A92FE00C2 // TagImplementator
+ ME_4856771C02AD // InterfaceFactory
+ ME_4A6489A600FF // 
+ ME_4F9001BB00B4 // 
+ )
+ ; // Dependencies
+ UP "personal label" 'code_evd_data_def'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13959039
+ UP "visualization f-line color" 13959039
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Packages\EVD'
+ UP mda:Path 'MDProcess\EVDTemplates\Data Definition\Packages\EVD.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48491CCA01C3 EVD
+
+ME ME_48491B53015C
+ MEPROP UID '48491B53015C'
+ MEPROP Name 'Packages'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Пакеты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_484918A30320' '484918A30320.ms.model.script' // Data Definition
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48491CCA01C3 // EVD
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_4849199D0140' '4849199D0140.ms.model.script' // Elements
+ WL 'ME_48493B130062' '48493B130062.ms.model.script' // Implementation
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition\Packages'
+ UP mda:PathOnly '\MDProcess\EVDTemplates\Data Definition\Packages'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48491B53015C Packages

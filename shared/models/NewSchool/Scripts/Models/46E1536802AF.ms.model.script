@@ -1,0 +1,2628 @@
+// Elements 46E1536802AF MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46E1536802AF
+
+ME ME_57B5D4FD0184
+ MEPROP UID '57B5D4FD0184'
+ MEPROP Name 'MDAGeneratorInner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGeneratorInner'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAGeneratorInner.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_57B5D4FD0184 MDAGeneratorInner
+
+FORWARD ME_46E1540F00AB
+
+FORWARD ME_46E3DB9001C5
+
+ME ME_46E406190128
+ MEPROP UID '46E406190128'
+ MEPROP Name 'tab replace'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'задает строку заменитель для символа табулятора. Если задан, то в результирующем файле все табуляторы будут заменены на указанную строку. Вместо пробела следует использовать последовательность "\s".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E3DB9001C5 // generator
+ ;
+
+ENDME // ME_46E406190128 tab replace
+
+ME ME_470343440213
+ MEPROP UID '470343440213'
+ MEPROP Name 'lang id'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'идентификатор языка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E3DB9001C5 // generator
+ ;
+
+ENDME // ME_470343440213 lang id
+
+ME ME_471C3DC90280
+ MEPROP UID '471C3DC90280'
+ MEPROP Name 'ifdef_suffix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'суффикс используемый при генерации деректив #ifdef' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E3DB9001C5 // generator
+ ;
+
+ENDME // ME_471C3DC90280 ifdef_suffix
+
+ME ME_49E8789303DB
+ MEPROP UID '49E8789303DB'
+ MEPROP Name 'newline replace'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Заменитель переноса строки. Если необходимо использовать специальные символы, то заменитель можно задать как последовательность кодов символов в шестнадцатиричном виде. Например заменитель 0D0A эквивалентен \n. Если не удалось распарсить последовательность, то заменителем будет просто строка, например: 0D123 так и останется 0D123.'#13#10'Вместо пробела следует использовать последовательность "\s".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E3DB9001C5 // generator
+ ;
+
+ENDME // ME_49E8789303DB newline replace
+
+ME ME_4A434BC601E5
+ MEPROP UID '4A434BC601E5'
+ MEPROP Name 'encoding'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Кодировка выходного файла, по-умолчанию cp1251' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E3DB9001C5 // generator
+ ;
+ MEPROP Value 'default|utf8|koi8-r|cp866'
+ UP extprop:pas:Value 'default|utf8|koi8-r|cp866'
+
+ENDME // ME_4A434BC601E5 encoding
+
+ME ME_46E28D830109_ME_46E3DB9001C5
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46E3DB9001C5 mda
+
+ME ME_46E6D4BB0339_ME_46E3DB9001C5
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_46E3DB9001C5 wiki
+
+ME ME_470484D50138_ME_46E3DB9001C5
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_46E3DB9001C5 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_46E3DB9001C5
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_46E3DB9001C5 constraint
+
+ME ME_4705CBD6003E_ME_46E3DB9001C5
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_46E3DB9001C5 wiki_child_kind
+
+ME ME_46E3DB9001C5
+ MEPROP UID '46E3DB9001C5'
+ MEPROP Name 'generator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'генератор'#13#10'---'#13#10'определяет конкретный целевой генератор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
+ HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_46E406190128 // tab replace
+ HWL ME_470343440213 // lang id
+ HWL ME_471C3DC90280 // ifdef_suffix
+ HWL ME_49E8789303DB // newline replace
+ HWL ME_4A434BC601E5 // encoding
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46E3DB9001C5 // mda
+ ME_46E6D4BB0339_ME_46E3DB9001C5 // wiki
+ ME_470484D50138_ME_46E3DB9001C5 // wiki_up_add_gen
+ ME_4704C0E30186_ME_46E3DB9001C5 // constraint
+ ME_4705CBD6003E_ME_46E3DB9001C5 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "abstraction type" 'ar'
+ UP "empty target" True
+ UP "implementable" True
+ UP "personal label" 'code_mda_op_generator'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\generator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E3DB9001C5 generator
+
+ME ME_46E3DB3B001F
+ MEPROP UID '46E3DB3B001F'
+ MEPROP Name 'function'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'функция стереотипа'#13#10'---'#13#10'определяет пользовательскую функцию принадлежащую стереотипу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ UP "abstraction type" 'ar'
+ UP "empty target" True
+ UP "implementable" True
+ UP "personal label" 'code_mda_op_function'
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\function'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E3DB3B001F function
+
+ME ME_46E3F93A0128
+ MEPROP UID '46E3F93A0128'
+ MEPROP Name 'transformator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Трансформатор'#13#10'---'#13#10'Задает пользовательский трансформатор принадлежащий стереотипу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ UP "abstraction type" 'ar'
+ UP "empty target" True
+ UP "implementable" True
+ UP "personal label" 'code_mda_op_transformator'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\transformator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E3F93A0128 transformator
+
+ME ME_46E6D4BB0339_ME_46EFD6DC0192
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_46EFD6DC0192 wiki
+
+ME ME_470484D50138_ME_46EFD6DC0192
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_46EFD6DC0192 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_46EFD6DC0192
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_46EFD6DC0192 constraint
+
+ME ME_4705CBD6003E_ME_46EFD6DC0192
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_46EFD6DC0192 wiki_child_kind
+
+ME ME_46EFD6DC0192
+ MEPROP UID '46EFD6DC0192'
+ MEPROP Name 'UserProperty'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовый класс для пользовательских свойств' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
+ HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_46EFD6DC0192 // wiki
+ ME_470484D50138_ME_46EFD6DC0192 // wiki_up_add_gen
+ ME_4704C0E30186_ME_46EFD6DC0192 // constraint
+ ME_4705CBD6003E_ME_46EFD6DC0192 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "empty target" True
+ UP "implementable" False
+ UP "link type" 'a'
+ UP "personal label" 'code_mda_attr_up'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\UserProperty'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46EFD6DC0192 UserProperty
+
+ME ME_46E28D830109_ME_46E6B9A10135
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46E6B9A10135 mda
+
+ME ME_46E6B9A10135
+ MEPROP UID '46E6B9A10135'
+ MEPROP Name 'bool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UP-бинарное значение'#13#10'---'#13#10'Задает пользовательское свойство типа бинарное значение "on/off"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46EFD6DC0192 // UserProperty
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46E6B9A10135 // mda
+ )
+ ; // Implemented
+ UP "implementable" False
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\bool'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6B9A10135 bool
+
+ME ME_46E28D830109_ME_46E6B9AC02FA
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46E6B9AC02FA mda
+
+ME ME_46E6B9AC02FA
+ MEPROP UID '46E6B9AC02FA'
+ MEPROP Name 'string'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UP-строка'#13#10'---'#13#10'Задает пользовательское свойство типа "строка"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46EFD6DC0192 // UserProperty
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46E6B9AC02FA // mda
+ )
+ ; // Implemented
+ UP "implementable" False
+ UP extprop:pas:TypeName 'PAnsiChar'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\string'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6B9AC02FA string
+
+FORWARD ME_46E6CB280164
+
+ME ME_4AE69AC90108
+ MEPROP UID '4AE69AC90108'
+ MEPROP Name 'internal'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет, что пользователь не может использовать стереотип, на который указывает (но можно использовать в суммонинге)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E6CB280164 // include
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4AE69AC90108 internal
+
+ME ME_46E6CB280164
+ MEPROP UID '46E6CB280164'
+ MEPROP Name 'include'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Разрешение использования'#13#10'---'#13#10'Связь разрешающая использование одного стереотипра (цель связи) внутри другого (рожитель связи).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AE69AC90108 // internal
+ )
+ ; // Attributes
+ UP "personal label" 'code_mda_dep_include'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\include'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6CB280164 include
+
+ME ME_46E7DE3F03A6
+ MEPROP UID '46E7DE3F03A6'
+ MEPROP Name 'group'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Родительская группа'#13#10'---'#13#10'Определяет родительскую "группу" для генераторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ UP "personal label" 'code_mda_dep_group'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\group'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E7DE3F03A6 group
+
+ME ME_46E28D830109_ME_46E6B6890396
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46E6B6890396 mda
+
+ME ME_46E6B6890396
+ MEPROP UID '46E6B6890396'
+ MEPROP Name 'list'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UP-список'#13#10'---'#13#10'Задает пользовательское свойство типа "список"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46EFD6DC0192 // UserProperty
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46E6B6890396 // mda
+ )
+ ; // Implemented
+ UP "implementable" False
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\list'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6B6890396 list
+
+ME ME_46E28D830109_ME_46FE5AA001E5
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46FE5AA001E5 mda
+
+ME ME_46FE5AA001E5
+ MEPROP UID '46FE5AA001E5'
+ MEPROP Name 'file'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UP-файл'#13#10'---'#13#10'Задает пользовательское свойство типа "имя файла" (с возможностьб выбора стандартными средствами)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46EFD6DC0192 // UserProperty
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46FE5AA001E5 // mda
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\file'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46FE5AA001E5 file
+
+ME ME_46E28D830109_ME_46FE5AED032D
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46FE5AED032D mda
+
+ME ME_46FE5AED032D
+ MEPROP UID '46FE5AED032D'
+ MEPROP Name 'color'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UP-цвет'#13#10'---'#13#10'Задает пользовательское свойство типа "цвет" в формате RGB (с возможностьб выбора стандартными средствами)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46EFD6DC0192 // UserProperty
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46FE5AED032D // mda
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\color'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46FE5AED032D color
+
+ME ME_46E28D830109_ME_470E033101F4
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_470E033101F4 mda
+
+ME ME_470E033101F4
+ MEPROP UID '470E033101F4'
+ MEPROP Name 'tribool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UP-булево значение с 3-мя состояними'#13#10'Задает пользовательское свойство с тремя состояниями "true/false/undefined"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46EFD6DC0192 // UserProperty
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_470E033101F4 // mda
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\tribool'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470E033101F4 tribool
+
+ME ME_49F847A30327
+ MEPROP UID '49F847A30327'
+ MEPROP Name 'main hierarchy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Основная ветка иерархии'#13#10'---'#13#10'цель данной связи определяет основного предка для стереотипа, этот основной элемент будет использоваться при разрешении неоднозначности при вызове метода на стереотипе-источнике' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ UP "personal label" 'code_mda_dep_main_hierarchy'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\main hierarchy'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49F847A30327 main hierarchy
+
+ME ME_4AE5844A0278
+ MEPROP UID '4AE5844A0278'
+ MEPROP Name 'exclude auto copy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'элементы, на которые указывают такие связи не копируется из родителя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ UP "personal label" 'code_mda_dep'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\exclude auto copy'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4AE5844A0278 exclude auto copy
+
+ME ME_46E28D830109_ME_4D6CD5FA03E7
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_4D6CD5FA03E7 mda
+
+ME ME_4D6CD5FA03E7
+ MEPROP UID '4D6CD5FA03E7'
+ MEPROP Name 'text'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UP-текст'#13#10'---'#13#10'Задает пользовательское свойство типа "текст"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46EFD6DC0192 // UserProperty
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_4D6CD5FA03E7 // mda
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator\text'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4D6CD5FA03E7 text
+
+ME ME_46E3F5E90242
+ MEPROP UID '46E3F5E90242'
+ MEPROP Name 'has exception'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'элемент может иметь исключения (s - SET, g - GET, a - SET и GET) по умолчанию - g. Для элементов с данным стереотипом будут доступны диалоги установки исключений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E3F5E90242 has exception
+
+ME ME_46E3F6470203
+ MEPROP UID '46E3F6470203'
+ MEPROP Name 'skip'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'элемент будет/не будет пропущен (включая всех его потомков) из загрузки модели и кодогенерации.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_46E3F6470203 skip
+
+ME ME_46E3F6EA0232
+ MEPROP UID '46E3F6EA0232'
+ MEPROP Name 'abstraction type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Возможные типы абстракции '#13#10'а=abstract;'#13#10'r=regular;'#13#10'f=final;' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E3F6EA0232 abstraction type
+
+ME ME_46E3F706000F
+ MEPROP UID '46E3F706000F'
+ MEPROP Name 'visability type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'возможные типы видимости элемента'#13#10'+ - public'#13#10'# - protected'#13#10'- - private'#13#10'i - implementation'#13#10'по умолчанию public' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E3F706000F visability type
+
+ME ME_46EFC8810347
+ MEPROP UID '46EFC8810347'
+ MEPROP Name 'personal label'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'лейбл идентифицирующий элемент и определяющий его визуальное представление (иконку) в wiki и в навигаторе Розы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46EFC8810347 personal label
+
+ME ME_47148DBA034B
+ MEPROP UID '47148DBA034B'
+ MEPROP Name 'internal'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что генератор является внутренним и используется только для объединения других генераторов (через наследование). Для конкретных стереотипов этот признак означает, что стереотип не может быть использован при проектировании модели, т.е проектировщику он не будет доступен для выбора, но этот стереотип можно использовать для построения виртуальных элементов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_47148DBA034B internal
+
+ME ME_4B21008202BB
+ MEPROP UID '4B21008202BB'
+ MEPROP Name 'no auto copy'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Не создавать копии вложенных стереотипов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4B21008202BB no auto copy
+
+ME ME_4B21008801A9
+ MEPROP UID '4B21008801A9'
+ MEPROP Name 'make auto copies internal'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'сделать все авто-копии внутренними (не доступными для проектировщика)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4B21008801A9 make auto copies internal
+
+ME ME_46E2BB3103B9
+ MEPROP UID '46E2BB3103B9'
+ MEPROP Name 'st_name'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерирует полное имя стереотипа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E2BB3103B9 st_name
+
+ME ME_46E2BB9400EA
+ MEPROP UID '46E2BB9400EA'
+ MEPROP Name 'need_st_define'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет необходимость создания описания стереотипа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E2BB9400EA need_st_define
+
+ME ME_46E3EDE002DE
+ MEPROP UID '46E3EDE002DE'
+ MEPROP Name 'sub_st_auto_copy'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерирует декларацию равенства для всех подстереотиппов, унаследованных от базовых стереотипов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E3EDE002DE sub_st_auto_copy
+
+ME ME_46E7AE5B00A8
+ MEPROP UID '46E7AE5B00A8'
+ MEPROP Name 'st_class_name'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает имя (идентификатор) класса стереотипа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E7AE5B00A8 st_class_name
+
+ME ME_46E7BDF301F1
+ MEPROP UID '46E7BDF301F1'
+ MEPROP Name 'define_up'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит определение всех UP' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_46E7BDF301F1 define_up
+
+ME ME_47130CC40213
+ MEPROP UID '47130CC40213'
+ MEPROP Name 'st_kind'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает вид стереотипа : main, sub' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_47130CC40213 st_kind
+
+ME ME_4986D3AD00DA
+ MEPROP UID '4986D3AD00DA'
+ MEPROP Name 'is_redefinition'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если элемент является переопределением уже существующего стереотипа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_4986D3AD00DA is_redefinition
+
+ME ME_4986D3D1021C
+ MEPROP UID '4986D3D1021C'
+ MEPROP Name 'collect_base_stereotypes'
+ MEPROP Class class_Operation
+ %SUMMARY 'собирает в список <<list_id>> базовые стереотипы элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_4986D3D1021C collect_base_stereotypes
+
+ME ME_4986D44803C1
+ MEPROP UID '4986D44803C1'
+ MEPROP Name 'dump_inherit_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит список наследования для стереотипа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_4986D44803C1 dump_inherit_list
+
+ME ME_499B91DB0171
+ MEPROP UID '499B91DB0171'
+ MEPROP Name 'collect_generators'
+ MEPROP Class class_Operation
+ %SUMMARY 'Алгоритм формирования списка генераторов, которые должны быть определены на стереотипе. Результат "складывается" в список с идентифкатором определяемым параметром list_id.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_499B91DB0171 collect_generators
+
+ME ME_49F970B601B4
+ MEPROP UID '49F970B601B4'
+ MEPROP Name 'dump_main_hierarchy'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит стереотип, определяющий основную ветку наследования, этот стереотип используется для разрешения неоднозначностей при вызове функций и трасформаторов, в случае множественного наследования.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_49F970B601B4 dump_main_hierarchy
+
+ME ME_4AE5851A019B
+ MEPROP UID '4AE5851A019B'
+ MEPROP Name 'collect_exclude_for_auto_copy'
+ MEPROP Class class_Operation
+ %SUMMARY 'собирает в список с заданным идентификатором имена стереотипов (A::Class), которые НЕ должны включаться в элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_4AE5851A019B collect_exclude_for_auto_copy
+
+ME ME_4B21010C008F
+ MEPROP UID '4B21010C008F'
+ MEPROP Name 'is_internal_auto_copy'
+ MEPROP Class class_Operation
+ %SUMMARY 'нужно ли помечать авто-копируемый элемент как внутренний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1540F00AB // MDAGenerator
+ ;
+
+ENDME // ME_4B21010C008F is_internal_auto_copy
+
+ME ME_46E28D830109_ME_46E1540F00AB
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46E1540F00AB mda
+
+ME ME_46E6D4BB0339_ME_46E1540F00AB
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_46E1540F00AB wiki
+
+ME ME_470484D50138_ME_46E1540F00AB
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_46E1540F00AB wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_46E1540F00AB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_46E1540F00AB constraint
+
+ME ME_4705CBD6003E_ME_46E1540F00AB
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_46E1540F00AB wiki_child_kind
+
+ME ME_46E1540F00AB
+ MEPROP UID '46E1540F00AB'
+ MEPROP Name 'MDAGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный генератор'#13#10'---'#13#10'Формулирует абстрактный генератор, определяющий генераторы для всех наследников, и формирующий иерархию генераторов объединяя их в связанные группы, посредствам связи "group". Генераторы с установленным свойством "internal" просто объединяют несколько генераторов посредством наследования, не создавая никаких иерархий и групп.'#13#10''#13#10'Атрибуты генератора (и всех его логических потомков) трактуются как пользовательские свойства.'#13#10''#13#10'Функции как методы (генераторы, функции и трансформаторы) стереотипа. Функции могут перекрываться аналогично виртуальным функциям в обычных ЯП.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_46E3F5E90242 // has exception
+ HWL ME_46E3F6470203 // skip
+ HWL ME_46E3F6EA0232 // abstraction type
+ HWL ME_46E3F706000F // visability type
+ HWL ME_46EFC8810347 // personal label
+ HWL ME_47148DBA034B // internal
+ HWL ME_4B21008202BB // no auto copy
+ HWL ME_4B21008801A9 // make auto copies internal
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_46E2BB3103B9 // st_name
+ HWL ME_46E2BB9400EA // need_st_define
+ HWL ME_46E3EDE002DE // sub_st_auto_copy
+ HWL ME_46E7AE5B00A8 // st_class_name
+ HWL ME_46E7BDF301F1 // define_up
+ HWL ME_47130CC40213 // st_kind
+ HWL ME_4986D3AD00DA // is_redefinition
+ HWL ME_4986D3D1021C // collect_base_stereotypes
+ HWL ME_4986D44803C1 // dump_inherit_list
+ HWL ME_499B91DB0171 // collect_generators
+ HWL ME_49F970B601B4 // dump_main_hierarchy
+ HWL ME_4AE5851A019B // collect_exclude_for_auto_copy
+ HWL ME_4B21010C008F // is_internal_auto_copy
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46E1540F00AB // mda
+ ME_46E6D4BB0339_ME_46E1540F00AB // wiki
+ ME_470484D50138_ME_46E1540F00AB // wiki_up_add_gen
+ ME_4704C0E30186_ME_46E1540F00AB // constraint
+ ME_4705CBD6003E_ME_46E1540F00AB // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_46E3DB9001C5 // generator
+ HWL ME_46E3DB3B001F // function
+ HWL ME_46E3F93A0128 // transformator
+ HWL ME_46EFD6DC0192 // UserProperty
+ HWL ME_46E6B9A10135 // bool
+ HWL ME_46E6B9AC02FA // string
+ HWL ME_46E6CB280164 // include
+ HWL ME_46E7DE3F03A6 // group
+ HWL ME_46E6B6890396 // list
+ HWL ME_46FE5AA001E5 // file
+ HWL ME_46FE5AED032D // color
+ HWL ME_470E033101F4 // tribool
+ HWL ME_49F847A30327 // main hierarchy
+ HWL ME_4AE5844A0278 // exclude auto copy
+ HWL ME_4D6CD5FA03E7 // text
+ )
+ ; // Children
+ UP "abstraction type" 'a'
+ UP "has derived impl" True
+ UP "personal label" 'code_mda_generator'
+ UP "visability type" '+'
+ UP "visualization bg color" 14148095
+ UP "visualization f-font color" 4944890
+ UP "visualization f-line color" 4944890
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAGenerator'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAGenerator.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E1540F00AB MDAGenerator
+
+FORWARD ME_46E7B7700193
+
+ME ME_46E7B7DF005A
+ MEPROP UID '46E7B7DF005A'
+ MEPROP Name 'visualization bg color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_color::Attribute ;
+ %SUMMARY 'определяет цвет заливки на "своей" диаграмме' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+
+ENDME // ME_46E7B7DF005A visualization bg color
+
+ME ME_46E7B7E101E1
+ MEPROP UID '46E7B7E101E1'
+ MEPROP Name 'visualization f-font color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_color::Attribute ;
+ %SUMMARY 'определяет цвет шрифта на "чужой" диаграмме' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+
+ENDME // ME_46E7B7E101E1 visualization f-font color
+
+ME ME_46E7B7E4004B
+ MEPROP UID '46E7B7E4004B'
+ MEPROP Name 'visualization type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет способ отображение стереотипа элемента'#13#10's - stereotype'#13#10'i = icon'#13#10'd = decoration' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+
+ENDME // ME_46E7B7E4004B visualization type
+
+ME ME_46E7B7E601F1
+ MEPROP UID '46E7B7E601F1'
+ MEPROP Name 'visualization f-line color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_color::Attribute ;
+ %SUMMARY 'определяет цвет линий на "чужой" диаграмме' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+
+ENDME // ME_46E7B7E601F1 visualization f-line color
+
+ME ME_46E7B7E80319
+ MEPROP UID '46E7B7E80319'
+ MEPROP Name 'visualization font color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_color::Attribute ;
+ %SUMMARY 'определяет цвет шрифта на "своей" диаграмме' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+
+ENDME // ME_46E7B7E80319 visualization font color
+
+ME ME_46E7B7EC03B6
+ MEPROP UID '46E7B7EC03B6'
+ MEPROP Name 'visualization line color'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_color::Attribute ;
+ %SUMMARY 'определяет цвет линий на "своей" диаграмме' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+
+ENDME // ME_46E7B7EC03B6 visualization line color
+
+ME ME_46E7B81302EB
+ MEPROP UID '46E7B81302EB'
+ MEPROP Name 'disable forward decl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY '"Disable forward declaration" - запрещает/разрешает forward-декларацию элементов,если не задано ни true ни false - по умолчанию принимается true.'#13#10'Этот параметр влияет на определение порядка вывода элементов из модели. Если forward-декларация разрешена, то при обнаружении циклических зависимостей элемент с таким стереотипом может быть forward-декларирован. В противном случае, forward-декларация будет сделана для второго элемента. Если для обоих элементов forward-декларация запрещена, то генератор выдаст ошибку о невозможности разрешения циклических зависимостей.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_46E7B81302EB disable forward decl
+
+ME ME_47EA16C9012E
+ MEPROP UID '47EA16C9012E'
+ MEPROP Name 'inherite constraints'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужно ли наследовать включаемые/исключаемые элементы. В шаблоне данный признак обязательно должен быть указан перед списком включаемых/исключаемых стереотипов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7B7700193 // MDAMainStereotype
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_47EA16C9012E inherite constraints
+
+ME ME_46E3DB3B001F_ME_46E7B7700193
+ MELINK Original HWL ME_46E3DB3B001F // function
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "abstraction type" 'ar'
+ UP "empty target" True
+ UP "implementable" True
+ UP "personal label" 'code_mda_op_function'
+ UP "unstereotyped" True
+ENDME // ME_46E3DB3B001F_ME_46E7B7700193 function
+
+ME ME_46E3F93A0128_ME_46E7B7700193
+ MELINK Original HWL ME_46E3F93A0128 // transformator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "abstraction type" 'ar'
+ UP "empty target" True
+ UP "implementable" True
+ UP "personal label" 'code_mda_op_transformator'
+ENDME // ME_46E3F93A0128_ME_46E7B7700193 transformator
+
+ME ME_46E6B6890396_ME_46E7B7700193
+ MELINK Original HWL ME_46E6B6890396 // list
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "implementable" False
+ENDME // ME_46E6B6890396_ME_46E7B7700193 list
+
+ME ME_46E6B9A10135_ME_46E7B7700193
+ MELINK Original HWL ME_46E6B9A10135 // bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "implementable" False
+ENDME // ME_46E6B9A10135_ME_46E7B7700193 bool
+
+ME ME_46E6B9AC02FA_ME_46E7B7700193
+ MELINK Original HWL ME_46E6B9AC02FA // string
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "implementable" False
+ENDME // ME_46E6B9AC02FA_ME_46E7B7700193 string
+
+ME ME_46E6CB280164_ME_46E7B7700193
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_46E7B7700193 include
+
+ME ME_46FE5AA001E5_ME_46E7B7700193
+ MELINK Original HWL ME_46FE5AA001E5 // file
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46FE5AA001E5_ME_46E7B7700193 file
+
+ME ME_46FE5AED032D_ME_46E7B7700193
+ MELINK Original HWL ME_46FE5AED032D // color
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46FE5AED032D_ME_46E7B7700193 color
+
+ME ME_470E033101F4_ME_46E7B7700193
+ MELINK Original HWL ME_470E033101F4 // tribool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470E033101F4_ME_46E7B7700193 tribool
+
+ME ME_49F847A30327_ME_46E7B7700193
+ MELINK Original HWL ME_49F847A30327 // main hierarchy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_main_hierarchy'
+ENDME // ME_49F847A30327_ME_46E7B7700193 main hierarchy
+
+ME ME_4AE5844A0278_ME_46E7B7700193
+ MELINK Original HWL ME_4AE5844A0278 // exclude auto copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep'
+ENDME // ME_4AE5844A0278_ME_46E7B7700193 exclude auto copy
+
+ME ME_4D6CD5FA03E7_ME_46E7B7700193
+ MELINK Original HWL ME_4D6CD5FA03E7 // text
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D6CD5FA03E7_ME_46E7B7700193 text
+
+ME ME_46E2BB9400EA_ME_46E7B7700193
+ MELINK Original HWL ME_46E2BB9400EA // need_st_define
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E2BB9400EA_ME_46E7B7700193 need_st_define
+
+ME ME_46E7BDF301F1_ME_46E7B7700193
+ MELINK Original HWL ME_46E7BDF301F1 // define_up
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7BDF301F1_ME_46E7B7700193 define_up
+
+ME ME_47130CC40213_ME_46E7B7700193
+ MELINK Original HWL ME_47130CC40213 // st_kind
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47130CC40213_ME_46E7B7700193 st_kind
+
+ME ME_46E7B7700193
+ MEPROP UID '46E7B7700193'
+ MEPROP Name 'MDAMainStereotype'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный стереотип база для основных элементов-стереотипов (класс, папка...)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E1540F00AB // MDAGenerator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_46E7B7DF005A // visualization bg color
+ HWL ME_46E7B7E101E1 // visualization f-font color
+ HWL ME_46E7B7E4004B // visualization type
+ HWL ME_46E7B7E601F1 // visualization f-line color
+ HWL ME_46E7B7E80319 // visualization font color
+ HWL ME_46E7B7EC03B6 // visualization line color
+ HWL ME_46E7B81302EB // disable forward decl
+ HWL ME_47EA16C9012E // inherite constraints
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46E3DB3B001F_ME_46E7B7700193 // function
+ ME_46E3F93A0128_ME_46E7B7700193 // transformator
+ ME_46E6B6890396_ME_46E7B7700193 // list
+ ME_46E6B9A10135_ME_46E7B7700193 // bool
+ ME_46E6B9AC02FA_ME_46E7B7700193 // string
+ ME_46E6CB280164_ME_46E7B7700193 // include
+ ME_46FE5AA001E5_ME_46E7B7700193 // file
+ ME_46FE5AED032D_ME_46E7B7700193 // color
+ ME_470E033101F4_ME_46E7B7700193 // tribool
+ ME_49F847A30327_ME_46E7B7700193 // main hierarchy
+ ME_4AE5844A0278_ME_46E7B7700193 // exclude auto copy
+ ME_4D6CD5FA03E7_ME_46E7B7700193 // text
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E2BB9400EA_ME_46E7B7700193 // need_st_define
+ ME_46E7BDF301F1_ME_46E7B7700193 // define_up
+ ME_47130CC40213_ME_46E7B7700193 // st_kind
+ )
+ ; // Overridden
+ UP "abstraction type" 'ra'
+ UP "has derived impl" True
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAMainStereotype'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAMainStereotype.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E7B7700193 MDAMainStereotype
+
+FORWARD ME_46E7ADBC0377
+
+ME ME_46E7ADF3025E
+ MEPROP UID '46E7ADF3025E'
+ MEPROP Name 'unstereotyped'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7ADBC0377 // MDASubStereotype
+ ;
+
+ENDME // ME_46E7ADF3025E unstereotyped
+
+ME ME_46E7AE3F01E1
+ MEPROP UID '46E7AE3F01E1'
+ MEPROP Name 'sub_st_name'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерирует имя подстереотипа на основе (с перфиксов) переданного аргумента родителя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E7ADBC0377 // MDASubStereotype
+ ;
+
+ENDME // ME_46E7AE3F01E1 sub_st_name
+
+ME ME_46E3DB3B001F_ME_46E7ADBC0377
+ MELINK Original HWL ME_46E3DB3B001F // function
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "abstraction type" 'ar'
+ UP "empty target" True
+ UP "implementable" True
+ UP "personal label" 'code_mda_op_function'
+ UP "unstereotyped" True
+ENDME // ME_46E3DB3B001F_ME_46E7ADBC0377 function
+
+ME ME_46E3F93A0128_ME_46E7ADBC0377
+ MELINK Original HWL ME_46E3F93A0128 // transformator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "abstraction type" 'ar'
+ UP "empty target" True
+ UP "implementable" True
+ UP "personal label" 'code_mda_op_transformator'
+ENDME // ME_46E3F93A0128_ME_46E7ADBC0377 transformator
+
+ME ME_46E6B6890396_ME_46E7ADBC0377
+ MELINK Original HWL ME_46E6B6890396 // list
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "implementable" False
+ENDME // ME_46E6B6890396_ME_46E7ADBC0377 list
+
+ME ME_46E6B9A10135_ME_46E7ADBC0377
+ MELINK Original HWL ME_46E6B9A10135 // bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "implementable" False
+ENDME // ME_46E6B9A10135_ME_46E7ADBC0377 bool
+
+ME ME_46E6B9AC02FA_ME_46E7ADBC0377
+ MELINK Original HWL ME_46E6B9AC02FA // string
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "implementable" False
+ENDME // ME_46E6B9AC02FA_ME_46E7ADBC0377 string
+
+ME ME_46FE5AA001E5_ME_46E7ADBC0377
+ MELINK Original HWL ME_46FE5AA001E5 // file
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46FE5AA001E5_ME_46E7ADBC0377 file
+
+ME ME_46FE5AED032D_ME_46E7ADBC0377
+ MELINK Original HWL ME_46FE5AED032D // color
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46FE5AED032D_ME_46E7ADBC0377 color
+
+ME ME_470E033101F4_ME_46E7ADBC0377
+ MELINK Original HWL ME_470E033101F4 // tribool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470E033101F4_ME_46E7ADBC0377 tribool
+
+ME ME_49F847A30327_ME_46E7ADBC0377
+ MELINK Original HWL ME_49F847A30327 // main hierarchy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_main_hierarchy'
+ENDME // ME_49F847A30327_ME_46E7ADBC0377 main hierarchy
+
+ME ME_4AE5844A0278_ME_46E7ADBC0377
+ MELINK Original HWL ME_4AE5844A0278 // exclude auto copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep'
+ENDME // ME_4AE5844A0278_ME_46E7ADBC0377 exclude auto copy
+
+ME ME_4D6CD5FA03E7_ME_46E7ADBC0377
+ MELINK Original HWL ME_4D6CD5FA03E7 // text
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D6CD5FA03E7_ME_46E7ADBC0377 text
+
+ME ME_46E28D830109_ME_46E7ADBC0377
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E28D830109_ME_46E7ADBC0377 mda
+
+ME ME_46E2BB3103B9_ME_46E7ADBC0377
+ MELINK Original HWL ME_46E2BB3103B9 // st_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E2BB3103B9_ME_46E7ADBC0377 st_name
+
+ME ME_47130CC40213_ME_46E7ADBC0377
+ MELINK Original HWL ME_47130CC40213 // st_kind
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47130CC40213_ME_46E7ADBC0377 st_kind
+
+ME ME_4986D3AD00DA_ME_46E7ADBC0377
+ MELINK Original HWL ME_4986D3AD00DA // is_redefinition
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4986D3AD00DA_ME_46E7ADBC0377 is_redefinition
+
+ME ME_499B91DB0171_ME_46E7ADBC0377
+ MELINK Original HWL ME_499B91DB0171 // collect_generators
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_499B91DB0171_ME_46E7ADBC0377 collect_generators
+
+ME ME_46E7ADBC0377
+ MEPROP UID '46E7ADBC0377'
+ MEPROP Name 'MDASubStereotype'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный стереотип база для всех под-стереотипов'#13#10''#13#10''#13#10'Финальные под-стереотипы не наследуются (не копируются) потомками' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E1540F00AB // MDAGenerator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_46E7ADF3025E // unstereotyped
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_46E7AE3F01E1 // sub_st_name
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E3DB3B001F_ME_46E7ADBC0377 // function
+ ME_46E3F93A0128_ME_46E7ADBC0377 // transformator
+ ME_46E6B6890396_ME_46E7ADBC0377 // list
+ ME_46E6B9A10135_ME_46E7ADBC0377 // bool
+ ME_46E6B9AC02FA_ME_46E7ADBC0377 // string
+ ME_46FE5AA001E5_ME_46E7ADBC0377 // file
+ ME_46FE5AED032D_ME_46E7ADBC0377 // color
+ ME_470E033101F4_ME_46E7ADBC0377 // tribool
+ ME_49F847A30327_ME_46E7ADBC0377 // main hierarchy
+ ME_4AE5844A0278_ME_46E7ADBC0377 // exclude auto copy
+ ME_4D6CD5FA03E7_ME_46E7ADBC0377 // text
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E28D830109_ME_46E7ADBC0377 // mda
+ ME_46E2BB3103B9_ME_46E7ADBC0377 // st_name
+ ME_47130CC40213_ME_46E7ADBC0377 // st_kind
+ ME_4986D3AD00DA_ME_46E7ADBC0377 // is_redefinition
+ ME_499B91DB0171_ME_46E7ADBC0377 // collect_generators
+ )
+ ; // Overridden
+ UP "abstraction type" 'rf'
+ UP "has derived impl" True
+ UP "implementable" True
+ UP "visualization bg color" 14811105
+ UP "visualization f-font color" 6617700
+ UP "visualization f-line color" 6617700
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDASubStereotype'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDASubStereotype.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E7ADBC0377 MDASubStereotype
+
+FORWARD ME_46E7ACEF00E7
+
+ME ME_46E7AD4101E1
+ MEPROP UID '46E7AD4101E1'
+ MEPROP Name 'empty target'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'разрешает/запрещает элементу иметь «пустой» TARGET  (например, атрибут без типа, или операция без типа результата), в противном случае генератор выдаст предупреждение, если не задано ни true ни false - по умолчанию принимается true.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7ACEF00E7 // MDASubChild
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_46E7AD4101E1 empty target
+
+ME ME_46E7AD460193
+ MEPROP UID '46E7AD460193'
+ MEPROP Name 'implementable'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ %SUMMARY 'признак элемента указывающий на то что данный элемент будет реализован в своем контейнере и может быть «перекрыт» в контейнере-наследнике' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7ACEF00E7 // MDASubChild
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_46E7AD460193 implementable
+
+ME ME_470CA1C101B5
+ MEPROP UID '470CA1C101B5'
+ MEPROP Name 'available target stereotypes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет для элемента набор дополнительных пользовательских стереотипов «цели» (т.е. дополнительный стереотипов связанных с возвращаемым результатом или с целевой связью атрибута). Можно задавать несколько стереотипов через символ ''|''.'#13#10''#13#10'значение "empty" генерится в пустой список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E7ACEF00E7 // MDASubChild
+ ;
+
+ENDME // ME_470CA1C101B5 available target stereotypes
+
+ME ME_46E7BDF301F1_ME_46E7ACEF00E7
+ MELINK Original HWL ME_46E7BDF301F1 // define_up
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7BDF301F1_ME_46E7ACEF00E7 define_up
+
+ME ME_46E7ACEF00E7
+ MEPROP UID '46E7ACEF00E7'
+ MEPROP Name 'MDASubChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный стереотип база для всех под-стереотипов являющихся непосредственными детьми контейнера (атрибуты, операции) кроме связей-зависимости'#13#10''#13#10'Абстрактные под-стереотипы не генерируются в шаблон.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ADBC0377 // MDASubStereotype
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_46E7AD4101E1 // empty target
+ HWL ME_46E7AD460193 // implementable
+ HWL ME_470CA1C101B5 // available target stereotypes
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_46E7BDF301F1_ME_46E7ACEF00E7 // define_up
+ )
+ ; // Overridden
+ UP "abstraction type" 'rafo'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDASubChild'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDASubChild.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E7ACEF00E7 MDASubChild
+
+ME ME_46E6CB280164_ME_46E6C0CB0116
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_46E6C0CB0116 include
+
+ME ME_46E7AE5B00A8_ME_46E6C0CB0116
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_46E6C0CB0116 st_class_name
+
+ME ME_46E6C0CB0116
+ MEPROP UID '46E6C0CB0116'
+ MEPROP Name 'MDADependency'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Связь-зависимости'#13#10'---'#13#10'Формулирует под-стереотип отвечающий за связь-зависимости' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ADBC0377 // MDASubStereotype
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_46E6C0CB0116 // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_46E6C0CB0116 // st_class_name
+ )
+ ; // Overridden
+ UP "abstraction type" 'raf'
+ UP "personal label" 'code_mda_dependency'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDADependency'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDADependency.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6C0CB0116 MDADependency
+
+FORWARD ME_46E6CEA300A8
+
+ME ME_46E6CEE102CB
+ MEPROP UID '46E6CEE102CB'
+ MEPROP Name 'function'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Общая функция'#13#10'---'#13#10'Пользовательская функция не привязанная к стереотипу - доступна из любого места шаблонов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6CEA300A8 // MDAUtilityPack
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ UP "empty target" True
+ UP "personal label" 'code_mda_op_function'
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAUtilityPack\function'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6CEE102CB function
+
+FORWARD ME_46E81A760106
+
+ME ME_49EF07EE0012
+ MEPROP UID '49EF07EE0012'
+ MEPROP Name 'is redefinition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'признак того, что трансформатор является доопределение существующего, т.е к значениям существующего трансформатора добавятся значения данного' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E81A760106 // transformator
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_49EF07EE0012 is redefinition
+
+ME ME_46E81A760106
+ MEPROP UID '46E81A760106'
+ MEPROP Name 'transformator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Общий трансформатор'#13#10'---'#13#10'Пользовательский трансформатор не привязанный к стереотипу - доступен из любого места шаблонов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E6CEA300A8 // MDAUtilityPack
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49EF07EE0012 // is redefinition
+ )
+ ; // Attributes
+ UP "empty target" True
+ UP "personal label" 'code_mda_op_transformator'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAUtilityPack\transformator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E81A760106 transformator
+
+ME ME_46E28D830109_ME_46E6CEA300A8
+ MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E28D830109_ME_46E6CEA300A8 mda
+
+ME ME_46E6D4BB0339_ME_46E6CEA300A8
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_46E6CEA300A8 wiki
+
+ME ME_470484D50138_ME_46E6CEA300A8
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_46E6CEA300A8 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_46E6CEA300A8
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_46E6CEA300A8 constraint
+
+ME ME_4705CBD6003E_ME_46E6CEA300A8
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_46E6CEA300A8 wiki_child_kind
+
+ME ME_46E6CEA300A8
+ MEPROP UID '46E6CEA300A8'
+ MEPROP Name 'MDAUtilityPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Набор-функций'#13#10'---'#13#10'Набор общих функций и трансформаторов не привязанных к стереотипу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E28D830109_ME_46E6CEA300A8 // mda
+ ME_46E6D4BB0339_ME_46E6CEA300A8 // wiki
+ ME_470484D50138_ME_46E6CEA300A8 // wiki_up_add_gen
+ ME_4704C0E30186_ME_46E6CEA300A8 // constraint
+ ME_4705CBD6003E_ME_46E6CEA300A8 // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_46E6CEE102CB // function
+ HWL ME_46E81A760106 // transformator
+ )
+ ; // Children
+ UP "personal label" 'code_mda_utility_pack'
+ UP "visualization bg color" 16444380
+ UP "visualization f-font color" 16099915
+ UP "visualization f-line color" 16099915
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAUtilityPack'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAUtilityPack.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E6CEA300A8 MDAUtilityPack
+
+FORWARD ME_46E3D9F10271
+
+FORWARD ME_470F58AF0138
+
+ME ME_470F58EC00EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_46E3D9F10271 // MDAOperation
+ ;
+ MELINK Target HWL ME_470F58AF0138 // MDAParameter
+ ;
+
+ENDME // ME_470F58EC00EA 
+
+ME ME_46E6CB280164_ME_46E3D9F10271
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_46E3D9F10271 include
+
+ME ME_46E7AE5B00A8_ME_46E3D9F10271
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_46E3D9F10271 st_class_name
+
+ME ME_46E3D9F10271
+ MEPROP UID '46E3D9F10271'
+ MEPROP Name 'MDAOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операция элемента-класса'#13#10'---'#13#10'Формулирует под-стереотип операции клласса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ACEF00E7 // MDASubChild
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_46E3D9F10271 // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_46E3D9F10271 // st_class_name
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_470F58EC00EA // MDAParameter
+ )
+ ; // Dependencies
+ UP "abstraction type" 'rao'
+ UP "personal label" 'code_mda_operation'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAOperation'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAOperation.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E3D9F10271 MDAOperation
+
+FORWARD ME_46E40915033C
+
+ME ME_46E6CC9A01A2
+ MEPROP UID '46E6CC9A01A2'
+ MEPROP Name 'link type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Возможные типы связей элемента'#13#10'a - aggregation'#13#10'r - reference'#13#10'l - link' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E40915033C // MDAAttribute
+ ;
+
+ENDME // ME_46E6CC9A01A2 link type
+
+ME ME_470F54FB006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_46E40915033C // MDAAttribute
+ ;
+ MELINK Target HWL ME_46E40915033C // MDAAttribute
+ ;
+
+ENDME // ME_470F54FB006D 
+
+ME ME_46E6CB280164_ME_46E40915033C
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_46E40915033C include
+
+ME ME_46E7AE5B00A8_ME_46E40915033C
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_46E40915033C st_class_name
+
+ME ME_46E7BDF301F1_ME_46E40915033C
+ MELINK Original HWL ME_46E7BDF301F1 // define_up
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7BDF301F1_ME_46E40915033C define_up
+
+ME ME_46E40915033C
+ MEPROP UID '46E40915033C'
+ MEPROP Name 'MDAAttribute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут элемента-класса'#13#10'---'#13#10'Формулирует под-стереотип атрибута клласса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ACEF00E7 // MDASubChild
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_46E6CC9A01A2 // link type
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_46E40915033C // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_46E40915033C // st_class_name
+ ME_46E7BDF301F1_ME_46E40915033C // define_up
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_470F54FB006D // MDAAttribute
+ )
+ ; // Dependencies
+ UP "personal label" 'code_mda_attribute'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAAttribute'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAAttribute.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E40915033C MDAAttribute
+
+FORWARD ME_46E1538400EA
+
+ME ME_46E2E5CE029F
+ MEPROP UID '46E2E5CE029F'
+ MEPROP Name 'can be main'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'признак может ли элемент быть основным элементом модели' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1538400EA // MDACategory
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_46E2E5CE029F can be main
+
+ME ME_4AAA20190350
+ MEPROP UID '4AAA20190350'
+ MEPROP Name 'can set visibility level'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Можно ли для папки устанавливать глубину видимости детей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1538400EA // MDACategory
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4AAA20190350 can set visibility level
+
+ME ME_46E7AE5B00A8_ME_46E1538400EA
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_46E1538400EA st_class_name
+
+ME ME_46E7BDF301F1_ME_46E1538400EA
+ MELINK Original HWL ME_46E7BDF301F1 // define_up
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7BDF301F1_ME_46E1538400EA define_up
+
+ME ME_4704C0E30186_ME_46E1538400EA
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_46E1538400EA constraint
+
+ME ME_46E1538400EA
+ MEPROP UID '46E1538400EA'
+ MEPROP Name 'MDACategory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент папка'#13#10'---'#13#10'Формулирует стереотип категории (папки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7B7700193 // MDAMainStereotype
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_46E2E5CE029F // can be main
+ HWL ME_4AAA20190350 // can set visibility level
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_46E1538400EA // st_class_name
+ ME_46E7BDF301F1_ME_46E1538400EA // define_up
+ ME_4704C0E30186_ME_46E1538400EA // constraint
+ )
+ ; // Overridden
+ UP "personal label" 'code_mda_category'
+ UP "visualization bg color" 16769023
+ UP "visualization f-font color" 15093990
+ UP "visualization f-line color" 15093990
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDACategory'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDACategory.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E1538400EA MDACategory
+
+FORWARD ME_4709F9E70196
+
+ME ME_4709FA190196
+ MEPROP UID '4709FA190196'
+ MEPROP Name 'visualization_type'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает способ отображения стереотипа элемента диаграмме:'#13#10'Stereotype'#13#10'Icon'#13#10'Decoration' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4709F9E70196 // Support
+ ;
+
+ENDME // ME_4709FA190196 visualization_type
+
+ME ME_470F600B0177
+ MEPROP UID '470F600B0177'
+ MEPROP Name 'collect_parents_generators'
+ MEPROP Class class_Operation
+ %SUMMARY 'собирает рекурсивно все генераторы определенные или реализумые родителями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4709F9E70196 // Support
+ ;
+
+ENDME // ME_470F600B0177 collect_parents_generators
+
+ME ME_4709F9E70196
+ MEPROP UID '4709F9E70196'
+ MEPROP Name 'Support'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'набор вспомогательных функций и трансформаторов для генерации шаблонов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4709FA190196 // visualization_type
+ HWL ME_470F600B0177 // collect_parents_generators
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\Support'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\Support.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4709F9E70196 Support
+
+FORWARD ME_470F42DA003E
+
+FORWARD ME_470F4363008C
+
+ME ME_470F43800271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F42DA003E // MDAStateMachine
+ ;
+ MELINK Target HWL ME_470F4363008C // MDAState
+ ;
+
+ENDME // ME_470F43800271 
+
+ME ME_46E6CB280164_ME_470F42DA003E
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_470F42DA003E include
+
+ME ME_46E7AE5B00A8_ME_470F42DA003E
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_470F42DA003E st_class_name
+
+ME ME_470F42DA003E
+ MEPROP UID '470F42DA003E'
+ MEPROP Name 'MDAStateMachine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент - машина состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ACEF00E7 // MDASubChild
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_470F42DA003E // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_470F42DA003E // st_class_name
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_470F43800271 // MDAState
+ )
+ ; // Dependencies
+ UP "personal label" 'code_mda_statemachine'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAStateMachine'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAStateMachine.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F42DA003E MDAStateMachine
+
+FORWARD ME_470F43B201E4
+
+ME ME_470F43F1004E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F4363008C // MDAState
+ ;
+ MELINK Target HWL ME_470F43B201E4 // MDAStateAction
+ ;
+
+ENDME // ME_470F43F1004E 
+
+FORWARD ME_470F44760251
+
+ME ME_470F47160280
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F4363008C // MDAState
+ ;
+ MELINK Target HWL ME_470F44760251 // MDATransition
+ ;
+
+ENDME // ME_470F47160280 
+
+ME ME_46E6CB280164_ME_470F4363008C
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_470F4363008C include
+
+ME ME_46E7AE5B00A8_ME_470F4363008C
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_470F4363008C st_class_name
+
+ME ME_470F4363008C
+ MEPROP UID '470F4363008C'
+ MEPROP Name 'MDAState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент-состояние'#13#10'---'#13#10'состояние в машине состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ACEF00E7 // MDASubChild
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_470F4363008C // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_470F4363008C // st_class_name
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_470F43F1004E // MDAStateAction
+ ME_470F47160280 // MDATransition
+ )
+ ; // Dependencies
+ UP "personal label" 'code_mda_state'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAState'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAState.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F4363008C MDAState
+
+ME ME_46E6CB280164_ME_470F43B201E4
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_470F43B201E4 include
+
+ME ME_46E7AE5B00A8_ME_470F43B201E4
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_470F43B201E4 st_class_name
+
+ME ME_470F43B201E4
+ MEPROP UID '470F43B201E4'
+ MEPROP Name 'MDAStateAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент-действие'#13#10'---'#13#10'определяет стереотип действия связанного с состояниеми' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ACEF00E7 // MDASubChild
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_470F43B201E4 // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_470F43B201E4 // st_class_name
+ )
+ ; // Overridden
+ UP "personal label" 'code_mda_state_action'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAStateAction'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAStateAction.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F43B201E4 MDAStateAction
+
+FORWARD ME_470F44DC0138
+
+ME ME_470F44FF0138
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F44760251 // MDATransition
+ ;
+ MELINK Target HWL ME_470F44DC0138 // MDATransitionAttribute
+ ;
+
+ENDME // ME_470F44FF0138 
+
+ME ME_46E6CB280164_ME_470F44760251
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_470F44760251 include
+
+ME ME_46E7AE5B00A8_ME_470F44760251
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_470F44760251 st_class_name
+
+ME ME_470F44760251
+ MEPROP UID '470F44760251'
+ MEPROP Name 'MDATransition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент - переход'#13#10'---'#13#10'определяет стереотип перехода связанного с состоянием' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ACEF00E7 // MDASubChild
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_470F44760251 // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_470F44760251 // st_class_name
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_470F44FF0138 // MDATransitionAttribute
+ )
+ ; // Dependencies
+ UP "personal label" 'code_mda_transition'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDATransition'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDATransition.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F44760251 MDATransition
+
+ME ME_46E6CB280164_ME_470F44DC0138
+ MELINK Original HWL ME_46E6CB280164 // include
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "personal label" 'code_mda_dep_include'
+ENDME // ME_46E6CB280164_ME_470F44DC0138 include
+
+ME ME_46E7AE5B00A8_ME_470F44DC0138
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_470F44DC0138 st_class_name
+
+ME ME_470F44DC0138
+ MEPROP UID '470F44DC0138'
+ MEPROP Name 'MDATransitionAttribute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут перехода'#13#10'---'#13#10'это может быть действие или событие' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ACEF00E7 // MDASubChild
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6CB280164_ME_470F44DC0138 // include
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_470F44DC0138 // st_class_name
+ )
+ ; // Overridden
+ UP "personal label" 'code_mda_transition_attribute'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDATransitionAttribute'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDATransitionAttribute.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F44DC0138 MDATransitionAttribute
+
+ME ME_470F596A030D
+ MEPROP UID '470F596A030D'
+ MEPROP Name 'unstereotyped'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F58AF0138 // MDAParameter
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_470F596A030D unstereotyped
+
+ME ME_4BA32E320045
+ MEPROP UID '4BA32E320045'
+ MEPROP Name 'empty target'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Разрешает/запрещает элементу иметь «пустой» TARGET  (например, атрибут без типа, или операция без типа результата), В противном случае генератор выдаст предупреждение, если не задано ни true ни false - по умолчанию принимается true.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F58AF0138 // MDAParameter
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4BA32E320045 empty target
+
+ME ME_46E7AE5B00A8_ME_470F58AF0138
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_470F58AF0138 st_class_name
+
+ME ME_46E7BDF301F1_ME_470F58AF0138
+ MELINK Original HWL ME_46E7BDF301F1 // define_up
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7BDF301F1_ME_470F58AF0138 define_up
+
+ME ME_470F58AF0138
+ MEPROP UID '470F58AF0138'
+ MEPROP Name 'MDAParameter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент-Параметр'#13#10'---'#13#10'определяет под-стереотип стереотипа, например параметр класса, параметр операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7ADBC0377 // MDASubStereotype
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_470F596A030D // unstereotyped
+ HWL ME_4BA32E320045 // empty target
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_470F58AF0138 // st_class_name
+ ME_46E7BDF301F1_ME_470F58AF0138 // define_up
+ )
+ ; // Overridden
+ UP "personal label" 'code_mda_parameter'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAParameter'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAParameter.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F58AF0138 MDAParameter
+
+ME ME_46E7AE5B00A8_ME_485A71080391
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_485A71080391 st_class_name
+
+ME ME_485A71080391
+ MEPROP UID '485A71080391'
+ MEPROP Name 'MDAAbstractClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент - абстрактный класс.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E1540F00AB // MDAGenerator
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_485A71080391 // st_class_name
+ )
+ ; // Overridden
+ UP "abstraction type" 'a'
+ UP "has derived impl" True
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAAbstractClass'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAAbstractClass.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_485A71080391 MDAAbstractClass
+
+FORWARD ME_46E1537802AF
+
+ME ME_46E2D18A01D4
+ MEPROP UID '46E2D18A01D4'
+ MEPROP Name 'has derived impl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'признак элемента указывающий на то что данный элемент может иметь унаследованную реализацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_46E2D18A01D4 has derived impl
+
+ME ME_46E3F5C4035B
+ MEPROP UID '46E3F5C4035B'
+ MEPROP Name 'exception'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'элемент может/не может быть использован, как исключение. В диалогах установки исключений, элементы с данным стереотипом будут доступны для выбора. Если не задано ни true ни false - по умолчанию принимается true.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_46E3F5C4035B exception
+
+ME ME_47144E2001E4
+ MEPROP UID '47144E2001E4'
+ MEPROP Name 'can be parametrized'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ %SUMMARY 'Указывает что элемент может/не может быть параметризован.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_47144E2001E4 can be parametrized
+
+ME ME_47C5033802FE
+ MEPROP UID '47C5033802FE'
+ MEPROP Name 'forward weight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'вес форвард декларации - из двух элементов форвард декларирован будет тот, у которого больший вес' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_47C5033802FE forward weight
+
+ME ME_4BF269080017
+ MEPROP UID '4BF269080017'
+ MEPROP Name 'implementable'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ %SUMMARY 'признак элемента указывающий на то что данный элемент будет реализован в своем контейнере и может быть «перекрыт» в контейнере-наследнике' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4BF269080017 implementable
+
+ME ME_46E3DA7B00AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MELINK Target HWL ME_46E3D9F10271 // MDAOperation
+ ;
+
+ENDME // ME_46E3DA7B00AB 
+
+ME ME_46E4093003A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MELINK Target HWL ME_46E40915033C // MDAAttribute
+ ;
+
+ENDME // ME_46E4093003A9 
+
+ME ME_46E6C1060368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MELINK Target HWL ME_46E6C0CB0116 // MDADependency
+ ;
+
+ENDME // ME_46E6C1060368 
+
+ME ME_470F43090196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MELINK Target HWL ME_470F42DA003E // MDAStateMachine
+ ;
+
+ENDME // ME_470F43090196 
+
+ME ME_470F59980119
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_46E1537802AF // MDAClass
+ ;
+ MELINK Target HWL ME_470F58AF0138 // MDAParameter
+ ;
+
+ENDME // ME_470F59980119 
+
+ME ME_46E7AE5B00A8_ME_46E1537802AF
+ MELINK Original HWL ME_46E7AE5B00A8 // st_class_name
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7AE5B00A8_ME_46E1537802AF st_class_name
+
+ME ME_46E7BDF301F1_ME_46E1537802AF
+ MELINK Original HWL ME_46E7BDF301F1 // define_up
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_46E7BDF301F1_ME_46E1537802AF define_up
+
+ME ME_4704C0E30186_ME_46E1537802AF
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_46E1537802AF constraint
+
+ME ME_46E1537802AF
+ MEPROP UID '46E1537802AF'
+ MEPROP Name 'MDAClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент-класс'#13#10'---'#13#10'Формулирует стереотип класса. '#13#10'Ключевой стереотип при создании мета-моделей шаблонов. Как можно видеть сама модель мета-шаблонов практически полностью построена за счет данного стереотипа. Т.к. именно он определяет основной строительный элемент - сущность класса-шаблона. Описывая при этом сам себя (что видно из равенства названий самого класса и его стереотипа).'#13#10''#13#10'Наследует все свойства своих базовых классов (прежде всего MDAGeneartor)'#13#10''#13#10'Вложенные классы определяют допустимые подстереотипы и генерируют их описание.'#13#10''#13#10'Абстрактность определяет возможность иметь экземпляры т.е. быть использованным на модели.'#13#10''#13#10'Атрибуты-пользовательские свойства определяют все основные команды-свойства стереотипов (определенные языком шаблона)'#13#10''#13#10'Большая часть мета-шаблона генерации определена в базовом классе MDAGenerator.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46E1536802AF // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_46E7B7700193 // MDAMainStereotype
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_46E2D18A01D4 // has derived impl
+ HWL ME_46E3F5C4035B // exception
+ HWL ME_47144E2001E4 // can be parametrized
+ HWL ME_47C5033802FE // forward weight
+ HWL ME_4BF269080017 // implementable
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_46E7AE5B00A8_ME_46E1537802AF // st_class_name
+ ME_46E7BDF301F1_ME_46E1537802AF // define_up
+ ME_4704C0E30186_ME_46E1537802AF // constraint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_46E3DA7B00AB // MDAOperation
+ ME_46E4093003A9 // MDAAttribute
+ ME_46E6C1060368 // MDADependency
+ ME_470F43090196 // MDAStateMachine
+ ME_470F59980119 // MDAParameter
+ )
+ ; // Dependencies
+ UP "personal label" 'code_mda_class'
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements\MDAClass'
+ UP mda:Path 'MDProcess\MetaTemplate\Meta\Elements\MDAClass.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E1537802AF MDAClass
+
+ME ME_46E1536802AF
+ MEPROP UID '46E1536802AF'
+ MEPROP Name 'Elements'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Элементы нижнего слоя (слой классов и под-стереотипов)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_46E13A3C030D' '46E13A3C030D.ms.model.script' // Meta
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57B5D4FD0184 // MDAGeneratorInner
+ HWL ME_46E1540F00AB // MDAGenerator
+ HWL ME_46E7B7700193 // MDAMainStereotype
+ HWL ME_46E7ADBC0377 // MDASubStereotype
+ HWL ME_46E7ACEF00E7 // MDASubChild
+ HWL ME_46E6C0CB0116 // MDADependency
+ HWL ME_46E6CEA300A8 // MDAUtilityPack
+ HWL ME_46E3D9F10271 // MDAOperation
+ HWL ME_46E40915033C // MDAAttribute
+ HWL ME_46E1538400EA // MDACategory
+ HWL ME_4709F9E70196 // Support
+ HWL ME_470F42DA003E // MDAStateMachine
+ HWL ME_470F4363008C // MDAState
+ HWL ME_470F43B201E4 // MDAStateAction
+ HWL ME_470F44760251 // MDATransition
+ HWL ME_470F44DC0138 // MDATransitionAttribute
+ HWL ME_470F58AF0138 // MDAParameter
+ HWL ME_485A71080391 // MDAAbstractClass
+ HWL ME_46E1537802AF // MDAClass
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E16545033C' '46E16545033C.ms.model.script' // Abstracts
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\MetaTemplate\Meta\Elements'
+ UP mda:PathOnly '\MDProcess\MetaTemplate\Meta\Elements'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_46E1536802AF Elements

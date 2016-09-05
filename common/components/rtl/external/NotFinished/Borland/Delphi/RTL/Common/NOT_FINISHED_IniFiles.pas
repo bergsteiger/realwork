@@ -10,10 +10,22 @@ uses
  l3IntfUses
 ;
 
+type
+ TCustomIniFile = class
+ end;//TCustomIniFile
+
+ TIniFile = class(TCustomIniFile)
+ end;//TIniFile
+
+ TMemIniFile = class(TCustomIniFile)
+ end;//TMemIniFile
+
 implementation
 
 uses
  l3ImplUses
+ //#UC START# *57726BD301F3impl_uses*
+ //#UC END# *57726BD301F3impl_uses*
 ;
 
 end.

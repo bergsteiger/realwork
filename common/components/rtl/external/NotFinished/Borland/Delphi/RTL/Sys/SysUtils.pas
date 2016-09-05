@@ -94,6 +94,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47877EB202FBimpl_uses*
+ //#UC END# *47877EB202FBimpl_uses*
 ;
 
 procedure FreeAndNil;

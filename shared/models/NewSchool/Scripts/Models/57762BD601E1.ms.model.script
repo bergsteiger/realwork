@@ -1,0 +1,61 @@
+// l3ClipboardSpy 57762BD601E1 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57762BD601E1
+
+FORWARD ME_57762C030193
+
+ME ME_57762C1A029F
+ MEPROP UID '57762C1A029F'
+ MEPROP Name 'Change'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57762C030193 // Il3ClipListner
+ ;
+
+ENDME // ME_57762C1A029F Change
+
+ME ME_57762C030193
+ MEPROP UID '57762C030193'
+ MEPROP GUID '8C610CBE-E829-413B-99B3-682F7A202873'
+ MEPROP Name 'Il3ClipListner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57762BD601E1 // l3ClipboardSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57762C1A029F // Change
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClipListner'
+
+ENDME // ME_57762C030193 Il3ClipListner
+
+ME ME_57762BD601E1
+ MEPROP UID '57762BD601E1'
+ MEPROP Name 'l3ClipboardSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_550012C403C4' '550012C403C4.ms.model.script' // L3$AFW
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57762C030193 // Il3ClipListner
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ClipboardSpy.pas'
+
+ENDME // ME_57762BD601E1 l3ClipboardSpy

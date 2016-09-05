@@ -1,0 +1,30 @@
+// Integrated 49F99E660011 MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_49F99E660011
+ MEPROP UID '49F99E660011'
+ MEPROP Name 'Integrated'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'рутовые стереотипы и функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4734A46F005D' '4734A46F005D.ms.model.script' // CoreTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_49F99E9101A3' '49F99E9101A3.ms.model.script' // Root
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ WL 'ME_47287F7D02CE' '47287F7D02CE.ms.model.script' // RequirementsLib
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Integrated'
+ UP mda:PathOnly '\MDProcess\CoreTemplates\Integrated'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49F99E660011 Integrated

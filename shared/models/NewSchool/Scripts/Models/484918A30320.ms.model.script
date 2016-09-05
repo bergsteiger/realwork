@@ -1,0 +1,32 @@
+// Data Definition 484918A30320 MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_484918A30320
+ MEPROP UID '484918A30320'
+ MEPROP Name 'Data Definition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'Шаблоны для описания структуры данных.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_484914FC025E' '484914FC025E.ms.model.script' // EVDTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4849199D0140' '4849199D0140.ms.model.script' // Elements
+ WL 'ME_4936A16E0294' '4936A16E0294.ms.model.script' // Delphi Specific
+ WL 'ME_48493B130062' '48493B130062.ms.model.script' // Implementation
+ WL 'ME_48491B53015C' '48491B53015C.ms.model.script' // Packages
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates\Data Definition'
+ UP mda:PathOnly '\MDProcess\EVDTemplates\Data Definition'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_484918A30320 Data Definition

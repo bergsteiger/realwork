@@ -24,6 +24,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , CheckListBoxWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *51F24E760273impl_uses*
+ //#UC END# *51F24E760273impl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVCL)
 

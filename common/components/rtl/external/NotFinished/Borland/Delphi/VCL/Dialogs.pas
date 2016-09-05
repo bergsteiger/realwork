@@ -55,6 +55,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AB0EE02004Eimpl_uses*
+ //#UC END# *4AB0EE02004Eimpl_uses*
 ;
 
 procedure TCommonDialog.DoClose;

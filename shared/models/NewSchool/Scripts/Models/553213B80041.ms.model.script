@@ -1,0 +1,3219 @@
+// TabbedInterfaceServices 553213B80041 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_553213B80041
+
+FORWARD ME_553213D902E0
+
+FORWARD ME_54118F530217
+
+ME ME_54118F780194
+ MEPROP UID '54118F780194'
+ MEPROP Name 'tcnTabChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_54118F780194 tcnTabChanged
+
+ME ME_54118FAD015F
+ MEPROP UID '54118FAD015F'
+ MEPROP Name 'tcnMainFormBecomeVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_54118FAD015F tcnMainFormBecomeVisible
+
+ME ME_5444F4FA0330
+ MEPROP UID '5444F4FA0330'
+ MEPROP Name 'tcnMainFormBecomeInvisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_5444F4FA0330 tcnMainFormBecomeInvisible
+
+ME ME_5417C69D0204
+ MEPROP UID '5417C69D0204'
+ MEPROP Name 'tcnNewContainerMakingStarted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_5417C69D0204 tcnNewContainerMakingStarted
+
+ME ME_5417C6AF038A
+ MEPROP UID '5417C6AF038A'
+ MEPROP Name 'tcnNewContainerMakingFinished'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_5417C6AF038A tcnNewContainerMakingFinished
+
+ME ME_54DAF1B500CE
+ MEPROP UID '54DAF1B500CE'
+ MEPROP Name 'tcnNewTabOrWindowOpeningStarted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_54DAF1B500CE tcnNewTabOrWindowOpeningStarted
+
+ME ME_54DAF1CA0320
+ MEPROP UID '54DAF1CA0320'
+ MEPROP Name 'tcnNewTabOrWindowOpeningFinished'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_54DAF1CA0320 tcnNewTabOrWindowOpeningFinished
+
+ME ME_5530F12A02AC
+ MEPROP UID '5530F12A02AC'
+ MEPROP Name 'tcnApplicationTerminating'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_5530F12A02AC tcnApplicationTerminating
+
+ME ME_54118F530217
+ MEPROP UID '54118F530217'
+ MEPROP Name 'Tl3TabbedContainerNotificationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54118F780194 // tcnTabChanged
+ HWL ME_54118FAD015F // tcnMainFormBecomeVisible
+ HWL ME_5444F4FA0330 // tcnMainFormBecomeInvisible
+ HWL ME_5417C69D0204 // tcnNewContainerMakingStarted
+ HWL ME_5417C6AF038A // tcnNewContainerMakingFinished
+ HWL ME_54DAF1B500CE // tcnNewTabOrWindowOpeningStarted
+ HWL ME_54DAF1CA0320 // tcnNewTabOrWindowOpeningFinished
+ HWL ME_5530F12A02AC // tcnApplicationTerminating
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_54118F530217 Tl3TabbedContainerNotificationType
+
+FORWARD ME_55321AC301F0
+
+FORWARD ME_55321ADE02E9
+
+ME ME_55321AE0032C
+ MEPROP Name 'aNotification'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ ;
+
+ENDME // ME_55321AE0032C aNotification
+
+ME ME_55321ADE02E9
+ MEPROP UID '55321ADE02E9'
+ MEPROP Name 'NotifyContainersChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55321AC301F0 // Il3TabbedContainersListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_55321AE0032C // aNotification
+ )
+ ; // Parameters
+
+ENDME // ME_55321ADE02E9 NotifyContainersChanged
+
+ME ME_55321AC301F0
+ MEPROP UID '55321AC301F0'
+ MEPROP GUID 'C3D77463-8146-48FA-9873-8AD832D9621A'
+ MEPROP Name 'Il3TabbedContainersListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55321ADE02E9 // NotifyContainersChanged
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TabbedContainersListener'
+
+ENDME // ME_55321AC301F0 Il3TabbedContainersListener
+
+FORWARD ME_53F2D7D90245
+
+FORWARD ME_53F2E44B0344
+
+ME ME_53F2E45A0031
+ MEPROP UID '53F2E45A0031'
+ MEPROP Name 'tuo_UpdateHintText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53F2E44B0344 // Tl3TabUpdateOption
+ ;
+
+ENDME // ME_53F2E45A0031 tuo_UpdateHintText
+
+ME ME_53F2E4640133
+ MEPROP UID '53F2E4640133'
+ MEPROP Name 'tuo_UpdateTabText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53F2E44B0344 // Tl3TabUpdateOption
+ ;
+
+ENDME // ME_53F2E4640133 tuo_UpdateTabText
+
+ME ME_53F2E46E009C
+ MEPROP UID '53F2E46E009C'
+ MEPROP Name 'tuo_UpdateTabImage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53F2E44B0344 // Tl3TabUpdateOption
+ ;
+
+ENDME // ME_53F2E46E009C tuo_UpdateTabImage
+
+ME ME_53F2E44B0344
+ MEPROP UID '53F2E44B0344'
+ MEPROP Name 'Tl3TabUpdateOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53F2E45A0031 // tuo_UpdateHintText
+ HWL ME_53F2E4640133 // tuo_UpdateTabText
+ HWL ME_53F2E46E009C // tuo_UpdateTabImage
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53F2E44B0344 Tl3TabUpdateOption
+
+ME ME_53F2E47C0055
+ MEPROP UID '53F2E47C0055'
+ MEPROP Name 'Tl3TabUpdateOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53F2E44B0344 // Tl3TabUpdateOption
+ )
+ ; // Inherits
+
+ENDME // ME_53F2E47C0055 Tl3TabUpdateOptions
+
+ME ME_53F2D8130105
+ MEPROP UID '53F2D8130105'
+ MEPROP Name 'HintText'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+ UP "pm" True
+
+ENDME // ME_53F2D8130105 HintText
+
+ME ME_53F2D8210054
+ MEPROP UID '53F2D8210054'
+ MEPROP Name 'Text'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ ;
+ UP "pm" True
+
+ENDME // ME_53F2D8210054 Text
+
+ME ME_53F2D837021D
+ MEPROP UID '53F2D837021D'
+ MEPROP Name 'ImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+
+ENDME // ME_53F2D837021D ImageIndex
+
+ME ME_53F2E49B01F5
+ MEPROP UID '53F2E49B01F5'
+ MEPROP Name 'UpdateOptions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ MELINK Target HWL ME_53F2E47C0055 // Tl3TabUpdateOptions
+ ;
+ UP "pm" True
+
+ENDME // ME_53F2E49B01F5 UpdateOptions
+
+ME ME_53F2D7D90245
+ MEPROP UID '53F2D7D90245'
+ MEPROP GUID 'FAD8E3D5-7261-41B0-9B86-3448C0613AC5'
+ MEPROP Name 'Il3TabParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53F2D8130105 // HintText
+ HWL ME_53F2D8210054 // Text
+ HWL ME_53F2D837021D // ImageIndex
+ HWL ME_53F2E49B01F5 // UpdateOptions
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_53F2E44B0344 // Tl3TabUpdateOption
+ HWL ME_53F2E47C0055 // Tl3TabUpdateOptions
+ )
+ ; // Children
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TabParams'
+
+ENDME // ME_53F2D7D90245 Il3TabParams
+
+FORWARD ME_5555A16D0024
+
+FORWARD ME_55001FD9025F
+
+ME ME_5568358501A0
+ MEPROP UID '5568358501A0'
+ MEPROP Name 'AsForm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+ UP "pm" True
+
+ENDME // ME_5568358501A0 AsForm
+
+FORWARD ME_55B5D8F00327
+
+ME ME_55B5D8FC0333
+ MEPROP UID '55B5D8FC0333'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B5D8F00327 // Tabs
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55B5D8FC0333 Index
+
+ME ME_55B5D8F00327
+ MEPROP UID '55B5D8F00327'
+ MEPROP Name 'Tabs'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55B5D8FC0333 // Index
+ )
+ ; // Attributes
+ UP "pm" True
+
+ENDME // ME_55B5D8F00327 Tabs
+
+ME ME_55B5D9330329
+ MEPROP UID '55B5D9330329'
+ MEPROP Name 'TabCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+
+ENDME // ME_55B5D9330329 TabCount
+
+ME ME_55B5D9750166
+ MEPROP UID '55B5D9750166'
+ MEPROP Name 'ActiveTab'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ UP "pm" True
+
+ENDME // ME_55B5D9750166 ActiveTab
+
+ME ME_55B5E26901DB
+ MEPROP UID '55B5E26901DB'
+ MEPROP Name 'CanOpenNewTab'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_55B5E26901DB CanOpenNewTab
+
+FORWARD ME_569611530032
+
+ME ME_5696115E028F
+ MEPROP UID '5696115E028F'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_569611530032 // TabByVisibleIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5696115E028F Index
+
+ME ME_569611530032
+ MEPROP UID '569611530032'
+ MEPROP Name 'TabByVisibleIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5696115E028F // Index
+ )
+ ; // Attributes
+ UP "pm" False
+
+ENDME // ME_569611530032 TabByVisibleIndex
+
+FORWARD ME_5500204D0269
+
+FORWARD ME_550020E600CC
+
+ME ME_550685340336
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_550685340336 aForm
+
+ME ME_55068534034A
+ MEPROP Name 'aNeedShow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55068534034A aNeedShow
+
+ME ME_550020E600CC
+ MEPROP UID '550020E600CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5500204D0269 // DockForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_550685340336 // aForm
+ ME_55068534034A // aNeedShow
+ )
+ ; // Parameters
+
+ENDME // ME_550020E600CC DoIt
+
+ME ME_5500204D0269
+ MEPROP UID '5500204D0269'
+ MEPROP Name 'DockForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550020E600CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5500204D0269 DockForm
+
+FORWARD ME_5500205C0308
+
+FORWARD ME_5500209302AD
+
+ME ME_550020980364
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_550020980364 aForm
+
+ME ME_5500209302AD
+ MEPROP UID '5500209302AD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5500205C0308 // UndockForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_550020980364 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_5500209302AD DoIt
+
+ME ME_5500205C0308
+ MEPROP UID '5500205C0308'
+ MEPROP Name 'UndockForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5500209302AD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5500205C0308 UndockForm
+
+FORWARD ME_550020700383
+
+FORWARD ME_550020C7005B
+
+ME ME_550020D20086
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_550020D20086 aForm
+
+ME ME_550020C7005B
+ MEPROP UID '550020C7005B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550020700383 // MakeFormParams
+ ;
+ MELINK Target HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_550020D20086 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_550020C7005B DoIt
+
+ME ME_550020700383
+ MEPROP UID '550020700383'
+ MEPROP Name 'MakeFormParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550020C7005B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550020700383 MakeFormParams
+
+FORWARD ME_5500208201D7
+
+ME ME_5500209D026A
+ MEPROP UID '5500209D026A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5500208201D7 // MakeClone
+ ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_5500209D026A DoIt
+
+ME ME_5500208201D7
+ MEPROP UID '5500208201D7'
+ MEPROP Name 'MakeClone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5500209D026A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5500208201D7 MakeClone
+
+FORWARD ME_55003806026E
+
+FORWARD ME_55003811008A
+
+ME ME_5522769D01AD
+ MEPROP Name 'aTopLeftPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_5522769D01AD aTopLeftPosition
+
+ME ME_55003811008A
+ MEPROP UID '55003811008A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55003806026E // MakeVisible
+ ;
+ MELIST Parameters
+   Seq: ( ME_5522769D01AD // aTopLeftPosition
+ )
+ ; // Parameters
+
+ENDME // ME_55003811008A DoIt
+
+ME ME_55003806026E
+ MEPROP UID '55003806026E'
+ MEPROP Name 'MakeVisible'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55003811008A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55003806026E MakeVisible
+
+FORWARD ME_550685560112
+
+FORWARD ME_5506855F012B
+
+ME ME_5513BD7C028D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_5513BD7C028D aForm
+
+ME ME_5513BD7C0296
+ MEPROP Name 'aTabParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+
+ENDME // ME_5513BD7C0296 aTabParams
+
+ME ME_5506855F012B
+ MEPROP UID '5506855F012B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550685560112 // DockForeignForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_5513BD7C028D // aForm
+ ME_5513BD7C0296 // aTabParams
+ )
+ ; // Parameters
+
+ENDME // ME_5506855F012B DoIt
+
+ME ME_550685560112
+ MEPROP UID '550685560112'
+ MEPROP Name 'DockForeignForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5506855F012B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550685560112 DockForeignForm
+
+FORWARD ME_552CEB1F00F0
+
+ME ME_13C2991C987D
+ MEPROP UID '13C2991C987D'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода LockPosition' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552CEB1F00F0 // LockPosition
+ ;
+
+ENDME // ME_13C2991C987D DoIt
+
+ME ME_552CEB1F00F0
+ MEPROP UID '552CEB1F00F0'
+ MEPROP Name 'LockPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_13C2991C987D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552CEB1F00F0 LockPosition
+
+FORWARD ME_552CEB2700ED
+
+ME ME_8D489F43B452
+ MEPROP UID '8D489F43B452'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода UnlockPosition' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552CEB2700ED // UnlockPosition
+ ;
+
+ENDME // ME_8D489F43B452 DoIt
+
+ME ME_552CEB2700ED
+ MEPROP UID '552CEB2700ED'
+ MEPROP Name 'UnlockPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_8D489F43B452 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552CEB2700ED UnlockPosition
+
+FORWARD ME_558BD3AD01A5
+
+FORWARD ME_558BD3BC035C
+
+ME ME_558BD3C7011A
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_558BD3C7011A aForm
+
+ME ME_558BD3BC035C
+ MEPROP UID '558BD3BC035C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558BD3AD01A5 // GetFormTab
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_558BD3C7011A // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_558BD3BC035C DoIt
+
+ME ME_558BD3AD01A5
+ MEPROP UID '558BD3AD01A5'
+ MEPROP Name 'GetFormTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_558BD3BC035C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_558BD3AD01A5 GetFormTab
+
+FORWARD ME_55B5D9AC03D5
+
+ME ME_55B5D9C1036F
+ MEPROP UID '55B5D9C1036F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B5D9AC03D5 // CloseAllButActiveTab
+ ;
+
+ENDME // ME_55B5D9C1036F DoIt
+
+ME ME_55B5D9AC03D5
+ MEPROP UID '55B5D9AC03D5'
+ MEPROP Name 'CloseAllButActiveTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B5D9C1036F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55B5D9AC03D5 CloseAllButActiveTab
+
+FORWARD ME_55B5DA3B02AC
+
+FORWARD ME_55B5DA4D0000
+
+ME ME_56A22A1402C4
+ MEPROP Name 'aOpenLast'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_56A22A1402C4 aOpenLast
+
+ME ME_55B5DA4D0000
+ MEPROP UID '55B5DA4D0000'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B5DA3B02AC // OpenNewTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_56A22A1402C4 // aOpenLast
+ )
+ ; // Parameters
+
+ENDME // ME_55B5DA4D0000 DoIt
+
+ME ME_55B5DA3B02AC
+ MEPROP UID '55B5DA3B02AC'
+ MEPROP Name 'OpenNewTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B5DA4D0000 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55B5DA3B02AC OpenNewTab
+
+FORWARD ME_55B60AA90117
+
+ME ME_32BDC0B2B2DB
+ MEPROP UID '32BDC0B2B2DB'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода CloseSelectedTab' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B60AA90117 // CloseSelectedTab
+ ;
+
+ENDME // ME_32BDC0B2B2DB DoIt
+
+ME ME_55B60AA90117
+ MEPROP UID '55B60AA90117'
+ MEPROP Name 'CloseSelectedTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_32BDC0B2B2DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55B60AA90117 CloseSelectedTab
+
+FORWARD ME_55B6104A00A6
+
+FORWARD ME_55B6105403A6
+
+ME ME_55B6105A00BF
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_55B6105A00BF aTab
+
+ME ME_55B6105403A6
+ MEPROP UID '55B6105403A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B6104A00A6 // CloseTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B6105A00BF // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_55B6105403A6 DoIt
+
+ME ME_55B6104A00A6
+ MEPROP UID '55B6104A00A6'
+ MEPROP Name 'CloseTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B6105403A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55B6104A00A6 CloseTab
+
+FORWARD ME_55FFE5140379
+
+ME ME_435A89BB59B0
+ MEPROP UID '435A89BB59B0'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода UpdateCaption' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FFE5140379 // UpdateCaption
+ ;
+
+ENDME // ME_435A89BB59B0 DoIt
+
+ME ME_55FFE5140379
+ MEPROP UID '55FFE5140379'
+ MEPROP Name 'UpdateCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_435A89BB59B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55FFE5140379 UpdateCaption
+
+FORWARD ME_56990DDF014B
+
+FORWARD ME_56990E110173
+
+ME ME_569CCC470212
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_569CCC470212 aTabIndex
+
+ME ME_56990E110173
+ MEPROP UID '56990E110173'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56990DDF014B // CanUndockFormFromTab
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_569CCC470212 // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_56990E110173 DoIt
+
+ME ME_56990DDF014B
+ MEPROP UID '56990DDF014B'
+ MEPROP Name 'CanUndockFormFromTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56990E110173 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56990DDF014B CanUndockFormFromTab
+
+FORWARD ME_56990E360344
+
+FORWARD ME_56990E490133
+
+ME ME_569CCC5202CF
+ MEPROP Name 'aTabIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_569CCC5202CF aTabIndex
+
+ME ME_56990E490133
+ MEPROP UID '56990E490133'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56990E360344 // UndockFormFromTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_569CCC5202CF // aTabIndex
+ )
+ ; // Parameters
+
+ENDME // ME_56990E490133 DoIt
+
+ME ME_56990E360344
+ MEPROP UID '56990E360344'
+ MEPROP Name 'UndockFormFromTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56990E490133 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56990E360344 UndockFormFromTab
+
+FORWARD ME_56CEAAE901F8
+
+FORWARD ME_56CEAAF8003A
+
+ME ME_56CEAB0302F6
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_56CEAB0302F6 aTab
+
+ME ME_56CEAAF8003A
+ MEPROP UID '56CEAAF8003A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56CEAAE901F8 // OpenTabAfter
+ ;
+ MELIST Parameters
+   Seq: ( ME_56CEAB0302F6 // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_56CEAAF8003A DoIt
+
+ME ME_56CEAAE901F8
+ MEPROP UID '56CEAAE901F8'
+ MEPROP Name 'OpenTabAfter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56CEAAF8003A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56CEAAE901F8 OpenTabAfter
+
+ME ME_55001FD9025F
+ MEPROP UID '55001FD9025F'
+ MEPROP GUID '95F3B29D-71D9-4A91-A2A3-F7FA6DC75511'
+ MEPROP Name 'Il3TabbedContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5568358501A0 // AsForm
+ HWL ME_55B5D8F00327 // Tabs
+ HWL ME_55B5D9330329 // TabCount
+ HWL ME_55B5D9750166 // ActiveTab
+ HWL ME_55B5E26901DB // CanOpenNewTab
+ HWL ME_569611530032 // TabByVisibleIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5500204D0269 // DockForm
+ HWL ME_5500205C0308 // UndockForm
+ HWL ME_550020700383 // MakeFormParams
+ HWL ME_5500208201D7 // MakeClone
+ HWL ME_55003806026E // MakeVisible
+ HWL ME_550685560112 // DockForeignForm
+ HWL ME_552CEB1F00F0 // LockPosition
+ HWL ME_552CEB2700ED // UnlockPosition
+ HWL ME_558BD3AD01A5 // GetFormTab
+ HWL ME_55B5D9AC03D5 // CloseAllButActiveTab
+ HWL ME_55B5DA3B02AC // OpenNewTab
+ HWL ME_55B60AA90117 // CloseSelectedTab
+ HWL ME_55B6104A00A6 // CloseTab
+ HWL ME_55FFE5140379 // UpdateCaption
+ HWL ME_56990DDF014B // CanUndockFormFromTab
+ HWL ME_56990E360344 // UndockFormFromTab
+ HWL ME_56CEAAE901F8 // OpenTabAfter
+ )
+ ; // Operations
+ MELIST Forwarded
+   Seq: ( HWL ME_5555A16D0024 // Il3FormTab
+ )
+ ; // Forwarded
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TabbedContainer'
+
+ENDME // ME_55001FD9025F Il3TabbedContainer
+
+FORWARD ME_55260C3F02C8
+
+ME ME_55260C7502E1
+ MEPROP UID '55260C7502E1'
+ MEPROP Name 'Params'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55260C3F02C8 // Il3FormTabParams
+ ;
+ MELINK Target HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ UP "pm" True
+
+ENDME // ME_55260C7502E1 Params
+
+ME ME_55260C8102CA
+ MEPROP UID '55260C8102CA'
+ MEPROP Name 'Form'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55260C3F02C8 // Il3FormTabParams
+ ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+ UP "pm" True
+
+ENDME // ME_55260C8102CA Form
+
+FORWARD ME_55261F0F00EB
+
+FORWARD ME_55261F2500EC
+
+ME ME_55261F2800D3
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+
+ENDME // ME_55261F2800D3 aParams
+
+ME ME_55261F2500EC
+ MEPROP UID '55261F2500EC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55261F0F00EB // Update
+ ;
+ MELIST Parameters
+   Seq: ( ME_55261F2800D3 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_55261F2500EC DoIt
+
+ME ME_55261F0F00EB
+ MEPROP UID '55261F0F00EB'
+ MEPROP Name 'Update'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55260C3F02C8 // Il3FormTabParams
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55261F2500EC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55261F0F00EB Update
+
+ME ME_55260C3F02C8
+ MEPROP UID '55260C3F02C8'
+ MEPROP GUID '4701ABBE-D6D2-4BF5-80C1-12E6B7353EE7'
+ MEPROP Name 'Il3FormTabParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55260C7502E1 // Params
+ HWL ME_55260C8102CA // Form
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55261F0F00EB // Update
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormTabParams'
+
+ENDME // ME_55260C3F02C8 Il3FormTabParams
+
+ME ME_555C5E4B0048
+ MEPROP UID '555C5E4B0048'
+ MEPROP Name 'TabbedForm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+ UP "pm" True
+
+ENDME // ME_555C5E4B0048 TabbedForm
+
+ME ME_556835BC03E1
+ MEPROP UID '556835BC03E1'
+ MEPROP Name 'TabbedContainer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ UP "pm" True
+
+ENDME // ME_556835BC03E1 TabbedContainer
+
+ME ME_5583FC49016F
+ MEPROP UID '5583FC49016F'
+ MEPROP Name 'VisibleIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+
+ENDME // ME_5583FC49016F VisibleIndex
+
+ME ME_55ED2AE10007
+ MEPROP UID '55ED2AE10007'
+ MEPROP Name 'CurrentParams'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELINK Target HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+ UP "pm" True
+
+ENDME // ME_55ED2AE10007 CurrentParams
+
+FORWARD ME_5555A18701F0
+
+ME ME_5555A22302E6
+ MEPROP UID '5555A22302E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5555A18701F0 // MakeClone
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_5555A22302E6 DoIt
+
+ME ME_5555A18701F0
+ MEPROP UID '5555A18701F0'
+ MEPROP Name 'MakeClone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5555A22302E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5555A18701F0 MakeClone
+
+FORWARD ME_55ED2AC800E4
+
+FORWARD ME_55ED2AD40314
+
+ME ME_55ED2ADA0010
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_53F2D7D90245 // Il3TabParams
+ ;
+
+ENDME // ME_55ED2ADA0010 aParams
+
+ME ME_55ED2AD40314
+ MEPROP UID '55ED2AD40314'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55ED2AC800E4 // AssignParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_55ED2ADA0010 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_55ED2AD40314 DoIt
+
+ME ME_55ED2AC800E4
+ MEPROP UID '55ED2AC800E4'
+ MEPROP Name 'AssignParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55ED2AD40314 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55ED2AC800E4 AssignParams
+
+ME ME_5555A16D0024
+ MEPROP UID '5555A16D0024'
+ MEPROP GUID '5B7152EE-BB8D-4CD2-8CD1-D33734DF059A'
+ MEPROP Name 'Il3FormTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_555C5E4B0048 // TabbedForm
+ HWL ME_556835BC03E1 // TabbedContainer
+ HWL ME_5583FC49016F // VisibleIndex
+ HWL ME_55ED2AE10007 // CurrentParams
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5555A18701F0 // MakeClone
+ HWL ME_55ED2AC800E4 // AssignParams
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormTab'
+
+ENDME // ME_5555A16D0024 Il3FormTab
+
+FORWARD ME_553886F600CF
+
+FORWARD ME_553214A00141
+
+FORWARD ME_1561A6522B5C
+
+ME ME_0D253EE90F1B
+ MEPROP Name 'aListener'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55321AC301F0 // Il3TabbedContainersListener
+ ;
+
+ENDME // ME_0D253EE90F1B aListener
+
+ME ME_1561A6522B5C
+ MEPROP UID '1561A6522B5C'
+ MEPROP Name 'Subscribe'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_0D253EE90F1B // aListener
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_553214A00141 // Subscribe
+ ;
+
+ENDME // ME_1561A6522B5C Subscribe
+
+FORWARD ME_553214B300E5
+
+FORWARD ME_4526B341C1C6
+
+ME ME_07395433BBA6
+ MEPROP Name 'aListener'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55321AC301F0 // Il3TabbedContainersListener
+ ;
+
+ENDME // ME_07395433BBA6 aListener
+
+ME ME_4526B341C1C6
+ MEPROP UID '4526B341C1C6'
+ MEPROP Name 'Unsubscribe'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_07395433BBA6 // aListener
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_553214B300E5 // Unsubscribe
+ ;
+
+ENDME // ME_4526B341C1C6 Unsubscribe
+
+FORWARD ME_5534EFA0002B
+
+ME ME_9584664239A7
+ MEPROP UID '9584664239A7'
+ MEPROP Name 'NeedUseTabs'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UPLINK Speller HWL ME_5534EFA0002B // NeedUseTabs
+ ;
+
+ENDME // ME_9584664239A7 NeedUseTabs
+
+FORWARD ME_5534EFAE03D2
+
+ME ME_F09F327B084A
+ MEPROP UID 'F09F327B084A'
+ MEPROP Name 'StartFlashing'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_5534EFAE03D2 // StartFlashing
+ ;
+
+ENDME // ME_F09F327B084A StartFlashing
+
+FORWARD ME_5534EFB602C6
+
+ME ME_2A43AA8AA799
+ MEPROP UID '2A43AA8AA799'
+ MEPROP Name 'StopFlashing'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_5534EFB602C6 // StopFlashing
+ ;
+
+ENDME // ME_2A43AA8AA799 StopFlashing
+
+FORWARD ME_553614290367
+
+ME ME_F550802110EC
+ MEPROP UID 'F550802110EC'
+ MEPROP Name 'CloseAll'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_553614290367 // CloseAll
+ ;
+
+ENDME // ME_F550802110EC CloseAll
+
+FORWARD ME_5536145D01B8
+
+ME ME_3F5E73D5D2B0
+ MEPROP UID '3F5E73D5D2B0'
+ MEPROP Name 'CascadeWindows'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_5536145D01B8 // CascadeWindows
+ ;
+
+ENDME // ME_3F5E73D5D2B0 CascadeWindows
+
+FORWARD ME_5536146B0080
+
+ME ME_651C515DADEE
+ MEPROP UID '651C515DADEE'
+ MEPROP Name 'TileWindowsHorizontal'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_5536146B0080 // TileWindowsHorizontal
+ ;
+
+ENDME // ME_651C515DADEE TileWindowsHorizontal
+
+FORWARD ME_5536147502B0
+
+ME ME_9D76EEC368A2
+ MEPROP UID '9D76EEC368A2'
+ MEPROP Name 'TileWindowsVertical'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_5536147502B0 // TileWindowsVertical
+ ;
+
+ENDME // ME_9D76EEC368A2 TileWindowsVertical
+
+FORWARD ME_55361ECB0370
+
+FORWARD ME_5E78F22AF1FF
+
+ME ME_5D744C3C67D0
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_5D744C3C67D0 aForm
+
+ME ME_5D744C3C67D1
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_5D744C3C67D1 aContainer
+
+ME ME_5E78F22AF1FF
+ MEPROP UID '5E78F22AF1FF'
+ MEPROP Name 'IsFormInContainer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5D744C3C67D0 // aForm
+ ME_5D744C3C67D1 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_55361ECB0370 // IsFormInContainer
+ ;
+
+ENDME // ME_5E78F22AF1FF IsFormInContainer
+
+FORWARD ME_55362E41001A
+
+ME ME_185C64EF3184
+ MEPROP UID '185C64EF3184'
+ MEPROP Name 'Lock'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_55362E41001A // Lock
+ ;
+
+ENDME // ME_185C64EF3184 Lock
+
+FORWARD ME_55362E490294
+
+ME ME_E781A200DBB9
+ MEPROP UID 'E781A200DBB9'
+ MEPROP Name 'Unlock'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ UPLINK Speller HWL ME_55362E490294 // Unlock
+ ;
+
+ENDME // ME_E781A200DBB9 Unlock
+
+FORWARD ME_5551EF940105
+
+FORWARD ME_94E9E4364244
+
+ME ME_6E8ECC5A8B09
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_6E8ECC5A8B09 aForm
+
+ME ME_94E9E4364244
+ MEPROP UID '94E9E4364244'
+ MEPROP Name 'ActivateForm'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_6E8ECC5A8B09 // aForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5551EF940105 // ActivateForm
+ ;
+
+ENDME // ME_94E9E4364244 ActivateForm
+
+FORWARD ME_5555AD91014F
+
+FORWARD ME_CA81A004E69C
+
+ME ME_3EF85BB67FF5
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_3EF85BB67FF5 aTab
+
+ME ME_CA81A004E69C
+ MEPROP UID 'CA81A004E69C'
+ MEPROP Name 'CloneTab'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_3EF85BB67FF5 // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5555AD91014F // CloneTab
+ ;
+
+ENDME // ME_CA81A004E69C CloneTab
+
+FORWARD ME_555DB90F0226
+
+FORWARD ME_EE61E6DE4383
+
+ME ME_BD25E75DBAA8
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_BD25E75DBAA8 aTab
+
+ME ME_EE61E6DE4383
+ MEPROP UID 'EE61E6DE4383'
+ MEPROP Name 'CanCloneTab'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_BD25E75DBAA8 // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_555DB90F0226 // CanCloneTab
+ ;
+
+ENDME // ME_EE61E6DE4383 CanCloneTab
+
+FORWARD ME_555DE0CE037D
+
+FORWARD ME_424D166E6D0C
+
+ME ME_EE01D23A2B1B
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_EE01D23A2B1B aContainer
+
+ME ME_424D166E6D0C
+ MEPROP UID '424D166E6D0C'
+ MEPROP Name 'ReopenClosedTab'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_EE01D23A2B1B // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_555DE0CE037D // ReopenClosedTab
+ ;
+
+ENDME // ME_424D166E6D0C ReopenClosedTab
+
+FORWARD ME_555DE0E702D5
+
+FORWARD ME_2EC8C1E48517
+
+ME ME_E046B773D553
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_E046B773D553 aContainer
+
+ME ME_2EC8C1E48517
+ MEPROP UID '2EC8C1E48517'
+ MEPROP Name 'CanReopenClosedTab'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_E046B773D553 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_555DE0E702D5 // CanReopenClosedTab
+ ;
+
+ENDME // ME_2EC8C1E48517 CanReopenClosedTab
+
+FORWARD ME_555F0622014D
+
+FORWARD ME_F2A394FBFE56
+
+ME ME_A8819CF69A63
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_A8819CF69A63 aTab
+
+ME ME_F2A394FBFE56
+ MEPROP UID 'F2A394FBFE56'
+ MEPROP Name 'SaveTabToHistory'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_A8819CF69A63 // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_555F0622014D // SaveTabToHistory
+ ;
+
+ENDME // ME_F2A394FBFE56 SaveTabToHistory
+
+FORWARD ME_5581536500A7
+
+FORWARD ME_44A2D9FC0500
+
+ME ME_C5FC6159ABAB
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_C5FC6159ABAB aContainer
+
+ME ME_44A2D9FC0500
+ MEPROP UID '44A2D9FC0500'
+ MEPROP Name 'LockContainer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_C5FC6159ABAB // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5581536500A7 // LockContainer
+ ;
+
+ENDME // ME_44A2D9FC0500 LockContainer
+
+FORWARD ME_5581537302C4
+
+FORWARD ME_1BFA5AA0644C
+
+ME ME_F6A3BBE5EA4F
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_F6A3BBE5EA4F aContainer
+
+ME ME_1BFA5AA0644C
+ MEPROP UID '1BFA5AA0644C'
+ MEPROP Name 'UnlockContainer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_F6A3BBE5EA4F // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5581537302C4 // UnlockContainer
+ ;
+
+ENDME // ME_1BFA5AA0644C UnlockContainer
+
+FORWARD ME_55815382017B
+
+FORWARD ME_89B204B9A81A
+
+ME ME_3909840FFDCF
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_3909840FFDCF aContainer
+
+ME ME_89B204B9A81A
+ MEPROP UID '89B204B9A81A'
+ MEPROP Name 'IsContainerLocked'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_3909840FFDCF // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_55815382017B // IsContainerLocked
+ ;
+
+ENDME // ME_89B204B9A81A IsContainerLocked
+
+FORWARD ME_558CF1E300F0
+
+FORWARD ME_0E111B36F193
+
+ME ME_303EC9B81406
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_303EC9B81406 aTab
+
+ME ME_0E111B36F193
+ MEPROP UID '0E111B36F193'
+ MEPROP Name 'CloseTab'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_303EC9B81406 // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_558CF1E300F0 // CloseTab
+ ;
+
+ENDME // ME_0E111B36F193 CloseTab
+
+FORWARD ME_559A6313007F
+
+FORWARD ME_E6CFFF63C7BA
+
+ME ME_1215B05329F8
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_1215B05329F8 aForm
+
+ME ME_E6CFFF63C7BA
+ MEPROP UID 'E6CFFF63C7BA'
+ MEPROP Name 'GetFormTab'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_1215B05329F8 // aForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_559A6313007F // GetFormTab
+ ;
+
+ENDME // ME_E6CFFF63C7BA GetFormTab
+
+FORWARD ME_55B1E03503D4
+
+FORWARD ME_BFD6868132D2
+
+ME ME_818B55738DC2
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_818B55738DC2 aTab
+
+ME ME_BFD6868132D2
+ MEPROP UID 'BFD6868132D2'
+ MEPROP Name 'IsTabEmpty'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_818B55738DC2 // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_55B1E03503D4 // IsTabEmpty
+ ;
+
+ENDME // ME_BFD6868132D2 IsTabEmpty
+
+FORWARD ME_55B5F8220246
+
+ME ME_2774A286694A
+ MEPROP UID '2774A286694A'
+ MEPROP Name 'GetActiveTabbedContainer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+ UPLINK Speller HWL ME_55B5F8220246 // GetActiveTabbedContainer
+ ;
+
+ENDME // ME_2774A286694A GetActiveTabbedContainer
+
+FORWARD ME_55B879F30316
+
+FORWARD ME_06D14140190A
+
+ME ME_A2CB7CCA541C
+ MEPROP Name 'aContainedForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_A2CB7CCA541C aContainedForm
+
+ME ME_06D14140190A
+ MEPROP UID '06D14140190A'
+ MEPROP Name 'IsInBF'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_A2CB7CCA541C // aContainedForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_55B879F30316 // IsInBF
+ ;
+
+ENDME // ME_06D14140190A IsInBF
+
+FORWARD ME_5601692A01BD
+
+FORWARD ME_02157F96E465
+
+ME ME_A7BDCD4419CE
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_A7BDCD4419CE aTab
+
+ME ME_02157F96E465
+ MEPROP UID '02157F96E465'
+ MEPROP Name 'GetTabIcon'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_A7BDCD4419CE // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5601692A01BD // GetTabIcon
+ ;
+
+ENDME // ME_02157F96E465 GetTabIcon
+
+FORWARD ME_56418870037B
+
+FORWARD ME_AEF0183D2054
+
+ME ME_E6903FFE5D62
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_E6903FFE5D62 aForm
+
+ME ME_AEF0183D2054
+ MEPROP UID 'AEF0183D2054'
+ MEPROP Name 'ContainedFormBecomeActive'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_E6903FFE5D62 // aForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_56418870037B // ContainedFormBecomeActive
+ ;
+
+ENDME // ME_AEF0183D2054 ContainedFormBecomeActive
+
+FORWARD ME_56728BA400D3
+
+FORWARD ME_086A3DF2665B
+
+ME ME_BF945E28F2AC
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_BF945E28F2AC aTab
+
+ME ME_086A3DF2665B
+ MEPROP UID '086A3DF2665B'
+ MEPROP Name 'GetTabCaption'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_BF945E28F2AC // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_56728BA400D3 // GetTabCaption
+ ;
+
+ENDME // ME_086A3DF2665B GetTabCaption
+
+FORWARD ME_57860BFF0213
+
+FORWARD ME_27138C52AC0C
+
+ME ME_56D80112B52E
+ MEPROP Name 'aTab'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_56D80112B52E aTab
+
+ME ME_27138C52AC0C
+ MEPROP UID '27138C52AC0C'
+ MEPROP Name 'IsTabClosing'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_56D80112B52E // aTab
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57860BFF0213 // IsTabClosing
+ ;
+
+ENDME // ME_27138C52AC0C IsTabClosing
+
+ME ME_553886F600CF
+ MEPROP UID '553886F600CF'
+ MEPROP Name 'Ml3TabbedContainersDispatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_1561A6522B5C // Subscribe
+ HWL ME_4526B341C1C6 // Unsubscribe
+ HWL ME_9584664239A7 // NeedUseTabs
+ HWL ME_F09F327B084A // StartFlashing
+ HWL ME_2A43AA8AA799 // StopFlashing
+ HWL ME_F550802110EC // CloseAll
+ HWL ME_3F5E73D5D2B0 // CascadeWindows
+ HWL ME_651C515DADEE // TileWindowsHorizontal
+ HWL ME_9D76EEC368A2 // TileWindowsVertical
+ HWL ME_5E78F22AF1FF // IsFormInContainer
+ HWL ME_185C64EF3184 // Lock
+ HWL ME_E781A200DBB9 // Unlock
+ HWL ME_94E9E4364244 // ActivateForm
+ HWL ME_CA81A004E69C // CloneTab
+ HWL ME_EE61E6DE4383 // CanCloneTab
+ HWL ME_424D166E6D0C // ReopenClosedTab
+ HWL ME_2EC8C1E48517 // CanReopenClosedTab
+ HWL ME_F2A394FBFE56 // SaveTabToHistory
+ HWL ME_44A2D9FC0500 // LockContainer
+ HWL ME_1BFA5AA0644C // UnlockContainer
+ HWL ME_89B204B9A81A // IsContainerLocked
+ HWL ME_0E111B36F193 // CloseTab
+ HWL ME_E6CFFF63C7BA // GetFormTab
+ HWL ME_BFD6868132D2 // IsTabEmpty
+ HWL ME_2774A286694A // GetActiveTabbedContainer
+ HWL ME_06D14140190A // IsInBF
+ HWL ME_02157F96E465 // GetTabIcon
+ HWL ME_AEF0183D2054 // ContainedFormBecomeActive
+ HWL ME_086A3DF2665B // GetTabCaption
+ HWL ME_27138C52AC0C // IsTabClosing
+ )
+ ; // Operations
+
+ENDME // ME_553886F600CF Ml3TabbedContainersDispatcher
+
+FORWARD ME_54868B0201AA
+
+ME ME_54868B67034A
+ MEPROP UID '54868B67034A'
+ MEPROP Name 'TabBecomeActive'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54868B0201AA // Il3SelectedTabDependent
+ ;
+
+ENDME // ME_54868B67034A TabBecomeActive
+
+ME ME_54868B84029F
+ MEPROP UID '54868B84029F'
+ MEPROP Name 'TabBecomeInactive'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54868B0201AA // Il3SelectedTabDependent
+ ;
+
+ENDME // ME_54868B84029F TabBecomeInactive
+
+ME ME_54868B0201AA
+ MEPROP UID '54868B0201AA'
+ MEPROP GUID '0145B642-38E2-42CE-B9BA-D4B93ACA3FC0'
+ MEPROP Name 'Il3SelectedTabDependent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54868B67034A // TabBecomeActive
+ HWL ME_54868B84029F // TabBecomeInactive
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SelectedTabDependent'
+
+ENDME // ME_54868B0201AA Il3SelectedTabDependent
+
+ME ME_55321AF901DE
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55321AC301F0 // Il3TabbedContainersListener
+ ;
+
+ENDME // ME_55321AF901DE aListener
+
+ME ME_553214A00141
+ MEPROP UID '553214A00141'
+ MEPROP Name 'Subscribe'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_55321AF901DE // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_553214A00141 Subscribe
+
+ME ME_55321AFF02D4
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55321AC301F0 // Il3TabbedContainersListener
+ ;
+
+ENDME // ME_55321AFF02D4 aListener
+
+ME ME_553214B300E5
+ MEPROP UID '553214B300E5'
+ MEPROP Name 'Unsubscribe'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_55321AFF02D4 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_553214B300E5 Unsubscribe
+
+ME ME_5534EFA0002B
+ MEPROP UID '5534EFA0002B'
+ MEPROP Name 'NeedUseTabs'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5534EFA0002B NeedUseTabs
+
+ME ME_5534EFAE03D2
+ MEPROP UID '5534EFAE03D2'
+ MEPROP Name 'StartFlashing'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_5534EFAE03D2 StartFlashing
+
+ME ME_5534EFB602C6
+ MEPROP UID '5534EFB602C6'
+ MEPROP Name 'StopFlashing'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_5534EFB602C6 StopFlashing
+
+ME ME_553614290367
+ MEPROP UID '553614290367'
+ MEPROP Name 'CloseAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_553614290367 CloseAll
+
+ME ME_5536145D01B8
+ MEPROP UID '5536145D01B8'
+ MEPROP Name 'CascadeWindows'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_5536145D01B8 CascadeWindows
+
+ME ME_5536146B0080
+ MEPROP UID '5536146B0080'
+ MEPROP Name 'TileWindowsHorizontal'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_5536146B0080 TileWindowsHorizontal
+
+ME ME_5536147502B0
+ MEPROP UID '5536147502B0'
+ MEPROP Name 'TileWindowsVertical'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_5536147502B0 TileWindowsVertical
+
+ME ME_55361EEE0148
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55361EEE0148 aForm
+
+ME ME_55361EEE017E
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55361EEE017E aContainer
+
+ME ME_55361ECB0370
+ MEPROP UID '55361ECB0370'
+ MEPROP Name 'IsFormInContainer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55361EEE0148 // aForm
+ ME_55361EEE017E // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_55361ECB0370 IsFormInContainer
+
+ME ME_55362E41001A
+ MEPROP UID '55362E41001A'
+ MEPROP Name 'Lock'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_55362E41001A Lock
+
+ME ME_55362E490294
+ MEPROP UID '55362E490294'
+ MEPROP Name 'Unlock'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_55362E490294 Unlock
+
+ME ME_5551EF9D03DF
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_5551EF9D03DF aForm
+
+ME ME_5551EF940105
+ MEPROP UID '5551EF940105'
+ MEPROP Name 'ActivateForm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_5551EF9D03DF // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_5551EF940105 ActivateForm
+
+ME ME_5555AD9C0109
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_5555AD9C0109 aTab
+
+ME ME_5555AD91014F
+ MEPROP UID '5555AD91014F'
+ MEPROP Name 'CloneTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_5555AD9C0109 // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_5555AD91014F CloneTab
+
+ME ME_555DB91A0334
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_555DB91A0334 aTab
+
+ME ME_555DB90F0226
+ MEPROP UID '555DB90F0226'
+ MEPROP Name 'CanCloneTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_555DB91A0334 // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_555DB90F0226 CanCloneTab
+
+ME ME_5593A2800210
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_5593A2800210 aContainer
+
+ME ME_555DE0CE037D
+ MEPROP UID '555DE0CE037D'
+ MEPROP Name 'ReopenClosedTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_5593A2800210 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_555DE0CE037D ReopenClosedTab
+
+ME ME_5593A270011F
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_5593A270011F aContainer
+
+ME ME_555DE0E702D5
+ MEPROP UID '555DE0E702D5'
+ MEPROP Name 'CanReopenClosedTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5593A270011F // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_555DE0E702D5 CanReopenClosedTab
+
+ME ME_555F0633026A
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_555F0633026A aTab
+
+ME ME_555F0622014D
+ MEPROP UID '555F0622014D'
+ MEPROP Name 'SaveTabToHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_555F0633026A // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_555F0622014D SaveTabToHistory
+
+ME ME_5581536F00E0
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_5581536F00E0 aContainer
+
+ME ME_5581536500A7
+ MEPROP UID '5581536500A7'
+ MEPROP Name 'LockContainer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_5581536F00E0 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_5581536500A7 LockContainer
+
+ME ME_5581537E03D3
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_5581537E03D3 aContainer
+
+ME ME_5581537302C4
+ MEPROP UID '5581537302C4'
+ MEPROP Name 'UnlockContainer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_5581537E03D3 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_5581537302C4 UnlockContainer
+
+ME ME_5581538D011B
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_5581538D011B aContainer
+
+ME ME_55815382017B
+ MEPROP UID '55815382017B'
+ MEPROP Name 'IsContainerLocked'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5581538D011B // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_55815382017B IsContainerLocked
+
+ME ME_558CF1F1016B
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_558CF1F1016B aTab
+
+ME ME_558CF1E300F0
+ MEPROP UID '558CF1E300F0'
+ MEPROP Name 'CloseTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_558CF1F1016B // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_558CF1E300F0 CloseTab
+
+ME ME_559A631E03B7
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_559A631E03B7 aForm
+
+ME ME_559A6313007F
+ MEPROP UID '559A6313007F'
+ MEPROP Name 'GetFormTab'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+ MELIST Parameters
+   Seq: ( ME_559A631E03B7 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_559A6313007F GetFormTab
+
+ME ME_55B1E03F01C1
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_55B1E03F01C1 aTab
+
+ME ME_55B1E03503D4
+ MEPROP UID '55B1E03503D4'
+ MEPROP Name 'IsTabEmpty'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B1E03F01C1 // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_55B1E03503D4 IsTabEmpty
+
+ME ME_55B5F8220246
+ MEPROP UID '55B5F8220246'
+ MEPROP Name 'GetActiveTabbedContainer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target HWL ME_55001FD9025F // Il3TabbedContainer
+ ;
+
+ENDME // ME_55B5F8220246 GetActiveTabbedContainer
+
+ME ME_55B87A0F0349
+ MEPROP Name 'aContainedForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55B87A0F0349 aContainedForm
+
+ME ME_55B879F30316
+ MEPROP UID '55B879F30316'
+ MEPROP Name 'IsInBF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B87A0F0349 // aContainedForm
+ )
+ ; // Parameters
+
+ENDME // ME_55B879F30316 IsInBF
+
+ME ME_560169410313
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_560169410313 aTab
+
+ME ME_5601692A01BD
+ MEPROP UID '5601692A01BD'
+ MEPROP Name 'GetTabIcon'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_560169410313 // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_5601692A01BD GetTabIcon
+
+ME ME_5641887903CA
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ ;
+
+ENDME // ME_5641887903CA aForm
+
+ME ME_56418870037B
+ MEPROP UID '56418870037B'
+ MEPROP Name 'ContainedFormBecomeActive'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_5641887903CA // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_56418870037B ContainedFormBecomeActive
+
+ME ME_56728BBB035A
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_56728BBB035A aTab
+
+ME ME_56728BA400D3
+ MEPROP UID '56728BA400D3'
+ MEPROP Name 'GetTabCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_56728BBB035A // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_56728BA400D3 GetTabCaption
+
+ME ME_57860C22029E
+ MEPROP Name 'aTab'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5555A16D0024 // Il3FormTab
+ ;
+
+ENDME // ME_57860C22029E aTab
+
+ME ME_57860BFF0213
+ MEPROP UID '57860BFF0213'
+ MEPROP Name 'IsTabClosing'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57860C22029E // aTab
+ )
+ ; // Parameters
+
+ENDME // ME_57860BFF0213 IsTabClosing
+
+ME ME_5534949A00C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ ;
+ MELINK Target HWL ME_55321AC301F0 // Il3TabbedContainersListener
+ ;
+
+ENDME // ME_5534949A00C5 
+
+ME ME_553213D902E0
+ MEPROP UID '553213D902E0'
+ MEPROP Name 'Tl3TabbedContainersDispatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553213B80041 // TabbedInterfaceServices
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_553214A00141 // Subscribe
+ HWL ME_553214B300E5 // Unsubscribe
+ HWL ME_5534EFA0002B // NeedUseTabs
+ HWL ME_5534EFAE03D2 // StartFlashing
+ HWL ME_5534EFB602C6 // StopFlashing
+ HWL ME_553614290367 // CloseAll
+ HWL ME_5536145D01B8 // CascadeWindows
+ HWL ME_5536146B0080 // TileWindowsHorizontal
+ HWL ME_5536147502B0 // TileWindowsVertical
+ HWL ME_55361ECB0370 // IsFormInContainer
+ HWL ME_55362E41001A // Lock
+ HWL ME_55362E490294 // Unlock
+ HWL ME_5551EF940105 // ActivateForm
+ HWL ME_5555AD91014F // CloneTab
+ HWL ME_555DB90F0226 // CanCloneTab
+ HWL ME_555DE0CE037D // ReopenClosedTab
+ HWL ME_555DE0E702D5 // CanReopenClosedTab
+ HWL ME_555F0622014D // SaveTabToHistory
+ HWL ME_5581536500A7 // LockContainer
+ HWL ME_5581537302C4 // UnlockContainer
+ HWL ME_55815382017B // IsContainerLocked
+ HWL ME_558CF1E300F0 // CloseTab
+ HWL ME_559A6313007F // GetFormTab
+ HWL ME_55B1E03503D4 // IsTabEmpty
+ HWL ME_55B5F8220246 // GetActiveTabbedContainer
+ HWL ME_55B879F30316 // IsInBF
+ HWL ME_5601692A01BD // GetTabIcon
+ HWL ME_56418870037B // ContainedFormBecomeActive
+ HWL ME_56728BA400D3 // GetTabCaption
+ HWL ME_57860BFF0213 // IsTabClosing
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_54118F530217 // Tl3TabbedContainerNotificationType
+ HWL ME_55321AC301F0 // Il3TabbedContainersListener
+ HWL ME_53F2D7D90245 // Il3TabParams
+ HWL ME_55001FD9025F // Il3TabbedContainer
+ HWL ME_55260C3F02C8 // Il3FormTabParams
+ HWL ME_5555A16D0024 // Il3FormTab
+ HWL ME_553886F600CF // Ml3TabbedContainersDispatcher
+ HWL ME_54868B0201AA // Il3SelectedTabDependent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5534949A00C5 // Il3TabbedContainersListener
+ )
+ ; // Dependencies
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'l3TabbedContainersDispatcher'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TabbedContainersDispatcher'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3TabbedContainersDispatcher.pas'
+
+ENDME // ME_553213D902E0 Tl3TabbedContainersDispatcher
+
+ME ME_553213B80041
+ MEPROP UID '553213B80041'
+ MEPROP Name 'TabbedInterfaceServices'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_550012C403C4' '550012C403C4.ms.model.script' // L3$AFW
+ ;
+ MELIST Children
+   Seq: ( HWL ME_553213D902E0 // Tl3TabbedContainersDispatcher
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+
+ENDME // ME_553213B80041 TabbedInterfaceServices

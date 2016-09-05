@@ -1,0 +1,357 @@
+// Требования к редактору Эверест 4E5CF70B01E2 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5CF70B01E2
+
+FORWARD ME_4E6A1BDA03DB
+
+ME ME_4E5CFCBA026C
+ MEPROP UID '4E5CFCBA026C'
+ MEPROP Name 'Отображение баллонов внутри текста'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=254348440#%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0-%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%D0%BE%D0%B1%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D1%8F%D1%8E%D1%89%D0%B8%D1%85%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%85' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6A1BDA03DB // Отображение документа
+ ;
+
+ENDME // ME_4E5CFCBA026C Отображение баллонов внутри текста
+
+FORWARD ME_4E5CF9ED03B7
+
+ME ME_4E5CF72A00BC
+ MEPROP UID '4E5CF72A00BC'
+ MEPROP Name '"Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:280006084}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF9ED03B7 // Отображение комментариев
+ ;
+
+ENDME // ME_4E5CF72A00BC "Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода
+
+ME ME_4E5CF9ED03B7
+ MEPROP UID '4E5CF9ED03B7'
+ MEPROP Name 'Отображение комментариев'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6A1BDA03DB // Отображение документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E5CF72A00BC // "Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода
+ )
+ ; // Children
+
+ENDME // ME_4E5CF9ED03B7 Отображение комментариев
+
+ME ME_4E6A1C160365
+ MEPROP UID '4E6A1C160365'
+ MEPROP Name 'Отображение шапки документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6A1BDA03DB // Отображение документа
+ ;
+
+ENDME // ME_4E6A1C160365 Отображение шапки документа
+
+ME ME_4E6A2DF3030F
+ MEPROP UID '4E6A2DF3030F'
+ MEPROP Name 'Отображение шапки параграфа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6A1BDA03DB // Отображение документа
+ ;
+
+ENDME // ME_4E6A2DF3030F Отображение шапки параграфа
+
+ME ME_4E6A1BDA03DB
+ MEPROP UID '4E6A1BDA03DB'
+ MEPROP Name 'Отображение документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E5CFCBA026C // Отображение баллонов внутри текста
+ HWL ME_4E5CF9ED03B7 // Отображение комментариев
+ HWL ME_4E6A1C160365 // Отображение шапки документа
+ HWL ME_4E6A2DF3030F // Отображение шапки параграфа
+ )
+ ; // Children
+
+ENDME // ME_4E6A1BDA03DB Отображение документа
+
+ME ME_4E7B18D60286
+ MEPROP UID '4E7B18D60286'
+ MEPROP Name 'Скроллирование документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+
+ENDME // ME_4E7B18D60286 Скроллирование документа
+
+FORWARD ME_4E8202E900AD
+
+ME ME_4E82032103C9
+ MEPROP UID '4E82032103C9'
+ MEPROP Name 'Карточки запроса должны уметь заполняться из скриптов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+
+ENDME // ME_4E82032103C9 Карточки запроса должны уметь заполняться из скриптов
+
+ME ME_4E85C86300AC
+ MEPROP UID '4E85C86300AC'
+ MEPROP Name 'Если не задан тег ShortName то не надо рисовать заголовок группы контролов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278834134}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+
+ENDME // ME_4E85C86300AC Если не задан тег ShortName то не надо рисовать заголовок группы контролов
+
+ME ME_4F69A954039F
+ MEPROP UID '4F69A954039F'
+ MEPROP Name 'Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:349114873}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+
+ENDME // ME_4F69A954039F Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов
+
+ME ME_4F69A97D02E2
+ MEPROP UID '4F69A97D02E2'
+ MEPROP Name 'Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:349114873}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+
+ENDME // ME_4F69A97D02E2 Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
+
+ME ME_4E8202E900AD
+ MEPROP UID '4E8202E900AD'
+ MEPROP Name 'Карточка запроса на основе EVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E82032103C9 // Карточки запроса должны уметь заполняться из скриптов
+ HWL ME_4E85C86300AC // Если не задан тег ShortName то не надо рисовать заголовок группы контролов
+ HWL ME_4F69A954039F // Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов
+ HWL ME_4F69A97D02E2 // Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
+ )
+ ; // Children
+
+ENDME // ME_4E8202E900AD Карточка запроса на основе EVD
+
+ME ME_4E85A41002B5
+ MEPROP UID '4E85A41002B5'
+ MEPROP Name 'Просмотр документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+
+ENDME // ME_4E85A41002B5 Просмотр документа
+
+ME ME_4E85A4280258
+ MEPROP UID '4E85A4280258'
+ MEPROP Name 'Редактирование документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+
+ENDME // ME_4E85A4280258 Редактирование документа
+
+FORWARD ME_4E85A48D035E
+
+FORWARD ME_4E85AE2A017A
+
+FORWARD ME_4E85A4EB02BD
+
+ME ME_4E85AE2A017A
+ MEPROP UID '4E85AE2A017A'
+ MEPROP Name 'И в Архивариусе (с новым редактором) - тоже'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$289276100]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E85A4EB02BD // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+ ;
+
+ENDME // ME_4E85AE2A017A И в Архивариусе (с новым редактором) - тоже
+
+ME ME_4E85A4EB02BD
+ MEPROP UID '4E85A4EB02BD'
+ MEPROP Name 'Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837126}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4E85AE2A017A // И в Архивариусе (с новым редактором) - тоже
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_4E85AE2A017A // И в Архивариусе (с новым редактором) - тоже
+ )
+ ; // Children
+
+ENDME // ME_4E85A4EB02BD Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+
+ME ME_4E85A48D035E
+ MEPROP UID '4E85A48D035E'
+ MEPROP Name 'Экспорт документа в форматы отличные от EVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E85A4EB02BD // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+ )
+ ; // Children
+
+ENDME // ME_4E85A48D035E Экспорт документа в форматы отличные от EVD
+
+FORWARD ME_4E85A4A500A5
+
+ME ME_4F352A3B036A
+ MEPROP UID '4F352A3B036A'
+ MEPROP Name 'В RTF не должны экспортироваться скриптовые ссылки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:329646242}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E85A4A500A5 // Экспорт документа в RTF
+ ;
+
+ENDME // ME_4F352A3B036A В RTF не должны экспортироваться скриптовые ссылки
+
+ME ME_4E85A4A500A5
+ MEPROP UID '4E85A4A500A5'
+ MEPROP Name 'Экспорт документа в RTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4F352A3B036A // В RTF не должны экспортироваться скриптовые ссылки
+ )
+ ; // Children
+
+ENDME // ME_4E85A4A500A5 Экспорт документа в RTF
+
+ME ME_4E85A4BD01A5
+ MEPROP UID '4E85A4BD01A5'
+ MEPROP Name 'Экспорт документа в TXT'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ )
+ ; // Inherits
+
+ENDME // ME_4E85A4BD01A5 Экспорт документа в TXT
+
+ME ME_4E5CF70B01E2
+ MEPROP UID '4E5CF70B01E2'
+ MEPROP Name 'Требования к редактору Эверест'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E6A1BDA03DB // Отображение документа
+ HWL ME_4E7B18D60286 // Скроллирование документа
+ HWL ME_4E8202E900AD // Карточка запроса на основе EVD
+ HWL ME_4E85A41002B5 // Просмотр документа
+ HWL ME_4E85A4280258 // Редактирование документа
+ HWL ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ HWL ME_4E85A4A500A5 // Экспорт документа в RTF
+ HWL ME_4E85A4BD01A5 // Экспорт документа в TXT
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4E57B8C2010F' '4E57B8C2010F.ms.model.script' // Требования к схеме документа EVD
+ )
+ ; // Depends
+
+ENDME // ME_4E5CF70B01E2 Требования к редактору Эверест

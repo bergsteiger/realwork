@@ -1,0 +1,256 @@
+// l3Const 47A1D4C201E8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47A1D4C201E8
+
+FORWARD ME_47A1D4ED01D2
+
+ME ME_47A1D4F903A3
+ MEPROP UID '47A1D4F903A3'
+ MEPROP Name 'rs_LongOperation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A1D4ED01D2 // Messages
+ ;
+ MEPROP Value '''Выполняется длительная операция...'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Выполняется длительная операция...'''
+
+ENDME // ME_47A1D4F903A3 rs_LongOperation
+
+ME ME_47A1D4ED01D2
+ MEPROP UID '47A1D4ED01D2'
+ MEPROP Name 'Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A1D4C201E8 // l3Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47A1D4F903A3 // rs_LongOperation
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47A1D4ED01D2 Messages
+
+FORWARD ME_47AC7CF90230
+
+ME ME_47AC7D1002C7
+ MEPROP UID '47AC7D1002C7'
+ MEPROP Name 'l3NilLong'
+ MEPROP Class class_Attribute
+ %SUMMARY 'NULL для целых.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7CF90230 // L3 Core Consts
+ ;
+ MEPROP Value 'High(Longint)'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'High(Longint)'
+
+ENDME // ME_47AC7D1002C7 l3NilLong
+
+ME ME_47AC7D3E0187
+ MEPROP UID '47AC7D3E0187'
+ MEPROP Name 'l3Inch'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Дюйм.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7CF90230 // L3 Core Consts
+ ;
+ MEPROP Value 1440
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1440
+
+ENDME // ME_47AC7D3E0187 l3Inch
+
+ME ME_47AC7D480392
+ MEPROP UID '47AC7D480392'
+ MEPROP Name 'l3mmInInch'
+ MEPROP Class class_Attribute
+ %SUMMARY 'число сантиметров в дюйме.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7CF90230 // L3 Core Consts
+ ;
+ MEPROP Value 254
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 254
+
+ENDME // ME_47AC7D480392 l3mmInInch
+
+ME ME_47AC7D550200
+ MEPROP UID '47AC7D550200'
+ MEPROP Name 'l3FontIndexDelta'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7CF90230 // L3 Core Consts
+ ;
+ MEPROP Value 'l3Inch div 16'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'l3Inch div 16'
+
+ENDME // ME_47AC7D550200 l3FontIndexDelta
+
+ME ME_47AC7D5B03E0
+ MEPROP UID '47AC7D5B03E0'
+ MEPROP Name 'l3Epsilon'
+ MEPROP Class class_Attribute
+ %SUMMARY 'предел точности.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7CF90230 // L3 Core Consts
+ ;
+ MEPROP Value 'l3Inch div 120'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'l3Inch div 120'
+
+ENDME // ME_47AC7D5B03E0 l3Epsilon
+
+ME ME_4AB9D25D0397
+ MEPROP UID '4AB9D25D0397'
+ MEPROP Name 'l3AlingDelta'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Велчина выравнивания (значения отличающиеся на меньшую по модулю велчину считаются равными).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7CF90230 // L3 Core Consts
+ ;
+ MEPROP Value 'l3Epsilon * 4'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'l3Epsilon * 4'
+
+ENDME // ME_4AB9D25D0397 l3AlingDelta
+
+ME ME_4ABA205E0233
+ MEPROP UID '4ABA205E0233'
+ MEPROP Name 'l3ShapeNil'
+ MEPROP Class class_Attribute
+ %SUMMARY 'NULL для координат рисуемых объектов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC7CF90230 // L3 Core Consts
+ ;
+ MEPROP Value 'Low(Longint) div 2'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'Low(Longint) div 2'
+
+ENDME // ME_4ABA205E0233 l3ShapeNil
+
+ME ME_47AC7CF90230
+ MEPROP UID '47AC7CF90230'
+ MEPROP Name 'L3 Core Consts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A1D4C201E8 // l3Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47AC7D1002C7 // l3NilLong
+ HWL ME_47AC7D3E0187 // l3Inch
+ HWL ME_47AC7D480392 // l3mmInInch
+ HWL ME_47AC7D550200 // l3FontIndexDelta
+ HWL ME_47AC7D5B03E0 // l3Epsilon
+ HWL ME_4AB9D25D0397 // l3AlingDelta
+ HWL ME_4ABA205E0233 // l3ShapeNil
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47AC7CF90230 L3 Core Consts
+
+FORWARD ME_49A6A0110126
+
+ME ME_49A6A02C0001
+ MEPROP UID '49A6A02C0001'
+ MEPROP Name 'l3NULLStr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49A6A0110126 // Strings
+ ;
+ MEPROP Value '''<NULL>'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''<NULL>'''
+
+ENDME // ME_49A6A02C0001 l3NULLStr
+
+ME ME_49A6A0110126
+ MEPROP UID '49A6A0110126'
+ MEPROP Name 'Strings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A1D4C201E8 // l3Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49A6A02C0001 // l3NULLStr
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_49A6A0110126 Strings
+
+ME ME_47A1D4C201E8
+ MEPROP UID '47A1D4C201E8'
+ MEPROP Name 'l3Const'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Константы библиотеки L3.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47A1D4ED01D2 // Messages
+ HWL ME_47AC7CF90230 // L3 Core Consts
+ HWL ME_49A6A0110126 // Strings
+ )
+ ; // Constants
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "is namespace" True
+ UP "started" '13.04.1998 14:05'
+ UP "UseNewGen" True
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Const.pas'
+
+ENDME // ME_47A1D4C201E8 l3Const

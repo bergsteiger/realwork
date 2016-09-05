@@ -1,0 +1,37 @@
+// L3$Domain 4E2F0E1B03BB Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4E2F0E1B03BB
+ MEPROP UID '4E2F0E1B03BB'
+ MEPROP Name 'L3'
+ MEPROP OriginalName 'L3$Domain'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Определение предметной области' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ WL 'ME_478CF8070260' '478CF8070260.ms.model.script' // l3IID
+ WL 'ME_47D810610398' '47D810610398.ms.model.script' // l3PureMixIns
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ WL 'ME_4787B0A8007B' '4787B0A8007B.ms.model.script' // l3Except
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_556F09AA036E' '556F09AA036E.ms.model.script' // l3PrinterInterfaces
+ )
+ ; // Children
+ UP "defines" 'l3Define.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "is namespace" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+
+ENDME // ME_4E2F0E1B03BB L3$Domain

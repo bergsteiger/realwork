@@ -264,6 +264,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *478CF30500C1impl_uses*
+ //#UC END# *478CF30500C1impl_uses*
 ;
 
 procedure Rect;

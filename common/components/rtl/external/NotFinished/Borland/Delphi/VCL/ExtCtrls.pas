@@ -51,6 +51,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , RadioGroupWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48C7C95C0221impl_uses*
+ //#UC END# *48C7C95C0221impl_uses*
 ;
 
 initialization

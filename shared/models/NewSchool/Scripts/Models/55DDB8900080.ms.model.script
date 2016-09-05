@@ -1,0 +1,193 @@
+// VersionInfo 55DDB8900080 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DDB8900080
+
+ME ME_4F8BF8D40367
+ MEPROP UID '4F8BF8D40367'
+ MEPROP Name 'vtVerInf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55DDB8900080 // VersionInfo
+ ;
+ UP "finished" False
+ UP extprop:rc:SelfName 'VerInf'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_vtVerInf.pas'
+
+ENDME // ME_4F8BF8D40367 vtVerInf
+
+FORWARD ME_55DDCF7C004A
+
+FORWARD ME_9F707534EAE2
+
+FORWARD ME_55DDCFBE0096
+
+ME ME_30F5EA5AF6DF
+ MEPROP UID '30F5EA5AF6DF'
+ MEPROP Name 'VersionInfo'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_9F707534EAE2 // Ml3VersionInfoService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UPLINK Speller HWL ME_55DDCFBE0096 // VersionInfo
+ ;
+
+ENDME // ME_30F5EA5AF6DF VersionInfo
+
+ME ME_9F707534EAE2
+ MEPROP UID '9F707534EAE2'
+ MEPROP Name 'Ml3VersionInfoService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3VersionInfoService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_30F5EA5AF6DF // VersionInfo
+ )
+ ; // Operations
+
+ENDME // ME_9F707534EAE2 Ml3VersionInfoService
+
+ME ME_55DDCFBE0096
+ MEPROP UID '55DDCFBE0096'
+ MEPROP Name 'VersionInfo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_55DDCFBE0096 VersionInfo
+
+ME ME_55DDCFB403BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ MELINK Target HWL ME_4F8BF8D40367 // vtVerInf
+ ;
+
+ENDME // ME_55DDCFB403BB 
+
+ME ME_55DDD84A00AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ ;
+
+ENDME // ME_55DDD84A00AB 
+
+ME ME_55DDCF7C004A
+ MEPROP UID '55DDCF7C004A'
+ MEPROP Name 'Tl3VersionInfoService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55DDB8900080 // VersionInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55DDCFBE0096 // VersionInfo
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_9F707534EAE2 // Ml3VersionInfoService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55DDCFB403BB // vtVerInf
+ ME_55DDD84A00AB // Format
+ )
+ ; // Dependencies
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'l3VersionInfoService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VersionInfoService'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3VersionInfoService.pas'
+
+ENDME // ME_55DDCF7C004A Tl3VersionInfoService
+
+FORWARD ME_55DDD0110086
+
+ME ME_55DDD05B0205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_55DDD0110086 // Tf1VersionInfoService
+ ;
+ MELINK Target HWL ME_55DDCF7C004A // Tl3VersionInfoService
+ ;
+
+ENDME // ME_55DDD05B0205 
+
+ME ME_55DDD0110086
+ MEPROP UID '55DDD0110086'
+ MEPROP Name 'Tf1VersionInfoService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55DDB8900080 // VersionInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_55DDD05B0205 // Tl3VersionInfoService
+ )
+ ; // Dependencies
+ UP "ifdef" 'Nemesis'
+ UP "need UC" True
+ UP extprop:pas:UnitName 'f1VersionInfoService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'f1VersionInfoService'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\f1VersionInfoService.pas'
+
+ENDME // ME_55DDD0110086 Tf1VersionInfoService
+
+ME ME_55DDB8900080
+ MEPROP UID '55DDB8900080'
+ MEPROP Name 'VersionInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8BF8D40367 // vtVerInf
+ HWL ME_55DDCF7C004A // Tl3VersionInfoService
+ HWL ME_55DDD0110086 // Tf1VersionInfoService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ )
+ ; // Depends
+
+ENDME // ME_55DDB8900080 VersionInfo

@@ -1,0 +1,55 @@
+// Плавающие окна 4E79FA920283 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E79FA920283
+
+FORWARD ME_4E79FAA30127
+
+ME ME_4E79FAE60370
+ MEPROP UID '4E79FAE60370'
+ MEPROP Name 'Плавающее окно должно уметь прятаться, а не только закрываться'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278836572}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E79FAA30127 // Плавающее окно
+ ;
+
+ENDME // ME_4E79FAE60370 Плавающее окно должно уметь прятаться, а не только закрываться
+
+ME ME_4E79FAA30127
+ MEPROP UID '4E79FAA30127'
+ MEPROP Name 'Плавающее окно'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E79FA920283 // Плавающие окна
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E79FAE60370 // Плавающее окно должно уметь прятаться, а не только закрываться
+ )
+ ; // Children
+
+ENDME // ME_4E79FAA30127 Плавающее окно
+
+ME ME_4E79FA920283
+ MEPROP UID '4E79FA920283'
+ MEPROP Name 'Плавающие окна'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E79FAA30127 // Плавающее окно
+ )
+ ; // Children
+
+ENDME // ME_4E79FA920283 Плавающие окна

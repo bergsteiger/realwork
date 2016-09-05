@@ -1,0 +1,242 @@
+// Reflectable 50182A3C02D2 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50182A3C02D2
+
+FORWARD ME_501824040339
+
+ME ME_501824410316
+ MEPROP UID '501824410316'
+ MEPROP Name 'reflectable'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_501824040339 // Reflectable
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_501824410316 reflectable
+
+ME ME_50182457013D
+ MEPROP UID '50182457013D'
+ MEPROP Name 'IsReflectable'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501824040339 // Reflectable
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_50182457013D IsReflectable
+
+ME ME_501824040339
+ MEPROP UID '501824040339'
+ MEPROP Name 'Reflectable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50182A3C02D2 // Reflectable
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_501824410316 // reflectable
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50182457013D // IsReflectable
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\Reflectable\Reflectable'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMModelLayer\Reflectable\Reflectable.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_501824040339 Reflectable
+
+FORWARD ME_50191492035D
+
+ME ME_46E6D4BB0339_ME_501915BD0369
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_501915BD0369 wiki
+
+ME ME_470484D50138_ME_501915BD0369
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_501915BD0369 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_501915BD0369
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_501915BD0369 constraint
+
+ME ME_501915BD0369
+ MEPROP UID '501915BD0369'
+ MEPROP Name 'readonly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50191492035D // ReflectablePureMixIn
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_501824040339 // Reflectable
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_501915BD0369 // wiki
+ ME_470484D50138_ME_501915BD0369 // wiki_up_add_gen
+ ME_4704C0E30186_ME_501915BD0369 // constraint
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\Reflectable\ReflectablePureMixIn\readonly'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_501915BD0369 readonly
+
+ME ME_46E6D4BB0339_ME_501915CD01DE
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_501915CD01DE wiki
+
+ME ME_470484D50138_ME_501915CD01DE
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_501915CD01DE wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_501915CD01DE
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_501915CD01DE constraint
+
+ME ME_501915CD01DE
+ MEPROP UID '501915CD01DE'
+ MEPROP Name 'property'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50191492035D // ReflectablePureMixIn
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_501824040339 // Reflectable
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_501915CD01DE // wiki
+ ME_470484D50138_ME_501915CD01DE // wiki_up_add_gen
+ ME_4704C0E30186_ME_501915CD01DE // constraint
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\Reflectable\ReflectablePureMixIn\property'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_501915CD01DE property
+
+ME ME_46E6D4BB0339_ME_501915DD0234
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_501915DD0234 wiki
+
+ME ME_470484D50138_ME_501915DD0234
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_501915DD0234 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_501915DD0234
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_501915DD0234 constraint
+
+ME ME_501915DD0234
+ MEPROP UID '501915DD0234'
+ MEPROP Name 'writeonly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50191492035D // ReflectablePureMixIn
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_501824040339 // Reflectable
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_501915DD0234 // wiki
+ ME_470484D50138_ME_501915DD0234 // wiki_up_add_gen
+ ME_4704C0E30186_ME_501915DD0234 // constraint
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\Reflectable\ReflectablePureMixIn\writeonly'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_501915DD0234 writeonly
+
+ME ME_50191492035D
+ MEPROP UID '50191492035D'
+ MEPROP Name 'ReflectablePureMixIn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50182A3C02D2 // Reflectable
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49D0EBE60338' '4729C4880157.ms.model.script' // PureMixIn
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_501915BD0369 // readonly
+ HWL ME_501915CD01DE // property
+ HWL ME_501915DD0234 // writeonly
+ )
+ ; // Children
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\Reflectable\ReflectablePureMixIn'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMModelLayer\Reflectable\ReflectablePureMixIn.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_50191492035D ReflectablePureMixIn
+
+ME ME_50182A3C02D2
+ MEPROP UID '50182A3C02D2'
+ MEPROP Name 'Reflectable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B5F4952010E' '4B5F4952010E.ms.model.script' // VCMModelLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_501824040339 // Reflectable
+ HWL ME_50191492035D // ReflectablePureMixIn
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4729C4880157' '4729C4880157.ms.model.script' // Interface
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\Reflectable'
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMModelLayer\Reflectable'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_50182A3C02D2 Reflectable

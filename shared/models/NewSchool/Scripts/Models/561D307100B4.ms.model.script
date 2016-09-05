@@ -1,0 +1,624 @@
+// Elements 561D307100B4 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_561D307100B4
+
+FORWARD ME_561D335D01B2
+
+ME ME_56239DF403C0
+ MEPROP UID '56239DF403C0'
+ MEPROP Name 'IsProjectGroup'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D335D01B2 // Delphi ST
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_56239DF403C0 IsProjectGroup
+
+ME ME_56239E15029D
+ MEPROP UID '56239E15029D'
+ MEPROP Name 'IsLibraryGroup'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D335D01B2 // Delphi ST
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_56239E15029D IsLibraryGroup
+
+ME ME_561D436002B8
+ MEPROP UID '561D436002B8'
+ MEPROP Name 'path'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D335D01B2 // Delphi ST
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_561D436002B8 path
+
+ME ME_561D335D01B2
+ MEPROP UID '561D335D01B2'
+ MEPROP Name 'Delphi ST'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAbstractClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56239DF403C0 // IsProjectGroup
+ HWL ME_56239E15029D // IsLibraryGroup
+ HWL ME_561D436002B8 // path
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\Delphi ST'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\Delphi ST.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D335D01B2 Delphi ST
+
+ME ME_561D436002B8_ME_561D41F8013A
+ MELINK Original HWL ME_561D436002B8 // path
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_561D436002B8_ME_561D41F8013A path
+
+ME ME_561D41F8013A
+ MEPROP UID '561D41F8013A'
+ MEPROP Name 'PascalGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAbstractClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_561D335D01B2 // Delphi ST
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_561D436002B8_ME_561D41F8013A // path
+ )
+ ; // Overridden
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\PascalGenerator'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\PascalGenerator.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D41F8013A PascalGenerator
+
+FORWARD ME_561D3BE5006A
+
+ME ME_561E58B50367
+ MEPROP UID '561E58B50367'
+ MEPROP Name 'path prefix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_561D3BE5006A // CategoryLike
+ ;
+
+ENDME // ME_561E58B50367 path prefix
+
+ME ME_56D087A1012A
+ MEPROP UID '56D087A1012A'
+ MEPROP Name 'defines'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет файл с условиями компиляции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_561D3BE5006A // CategoryLike
+ ;
+
+ENDME // ME_56D087A1012A defines
+
+ME ME_561E58EE0167
+ MEPROP UID '561E58EE0167'
+ MEPROP Name 'nameForPath'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D3BE5006A // CategoryLike
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_561E58EE0167 nameForPath
+
+FORWARD ME_561D3E94025C
+
+ME ME_561D3EC00365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561D3BE5006A // CategoryLike
+ ;
+ MELINK Target HWL ME_561D3E94025C // ElementProxy
+ ;
+
+ENDME // ME_561D3EC00365 
+
+FORWARD ME_561E515A008B
+
+ME ME_561E516700C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561D3BE5006A // CategoryLike
+ ;
+ MELINK Target HWL ME_561E515A008B // ClassProxy
+ ;
+
+ENDME // ME_561E516700C1 
+
+FORWARD ME_561E55DC0030
+
+ME ME_561E56040316
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561D3BE5006A // CategoryLike
+ ;
+ MELINK Target HWL ME_561E55DC0030 // InterfaceProxy
+ ;
+
+ENDME // ME_561E56040316 
+
+FORWARD ME_56D06F7E00BD
+
+ME ME_56D06F8E03BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561D3BE5006A // CategoryLike
+ ;
+ MELINK Target HWL ME_56D06F7E00BD // InterfaceFactoryProxy
+ ;
+
+ENDME // ME_56D06F8E03BC 
+
+ME ME_561D436002B8_ME_561D3BE5006A
+ MELINK Original HWL ME_561D436002B8 // path
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_561D436002B8_ME_561D3BE5006A path
+
+ME ME_561D3BE5006A
+ MEPROP UID '561D3BE5006A'
+ MEPROP Name 'CategoryLike'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAbstractClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ HWL ME_561D41F8013A // PascalGenerator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_561E58B50367 // path prefix
+ HWL ME_56D087A1012A // defines
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_561E58EE0167 // nameForPath
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_561D436002B8_ME_561D3BE5006A // path
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_561D3EC00365 // ElementProxy
+ ME_561E516700C1 // ClassProxy
+ ME_561E56040316 // InterfaceProxy
+ ME_56D06F8E03BC // InterfaceFactoryProxy
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\CategoryLike'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\CategoryLike.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D3BE5006A CategoryLike
+
+FORWARD ME_561D3C0F00B3
+
+ME ME_561D3CB002EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561D3C0F00B3 // Layer
+ ;
+ MELINK Target HWL ME_561D3C0F00B3 // Layer
+ ;
+
+ENDME // ME_561D3CB002EC 
+
+ME ME_561E58EE0167_ME_561D3C0F00B3
+ MELINK Original HWL ME_561E58EE0167 // nameForPath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_561E58EE0167_ME_561D3C0F00B3 nameForPath
+
+ME ME_561D3C0F00B3
+ MEPROP UID '561D3C0F00B3'
+ MEPROP Name 'Layer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слой'#13#10'---'#13#10'Для структурирования элементов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561D3BE5006A // CategoryLike
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_561E58EE0167_ME_561D3C0F00B3 // nameForPath
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_561D3CB002EC // Layer
+ )
+ ; // Dependencies
+ UP "personal label" 'code_unit'
+ UP "visualization bg color" 14145535
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\Layer'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\Layer.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D3C0F00B3 Layer
+
+ME ME_4704C0E30186_ME_561D3E2E029C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_561D3E2E029C constraint
+
+ME ME_561D3E2E029C
+ MEPROP UID '561D3E2E029C'
+ MEPROP Name 'Atomic'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAbstractClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ HWL ME_561D41F8013A // PascalGenerator
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_561D3E2E029C // constraint
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\Atomic'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\Atomic.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D3E2E029C Atomic
+
+FORWARD ME_561D478F0224
+
+ME ME_561D47DA0228
+ MEPROP UID '561D47DA0228'
+ MEPROP Name 'unitName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D478F0224 // UnitProducer
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_561D47DA0228 unitName
+
+ME ME_561D478F0224
+ MEPROP UID '561D478F0224'
+ MEPROP Name 'UnitProducer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAbstractClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561D3E2E029C // Atomic
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_561D47DA0228 // unitName
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UnitProducer'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UnitProducer.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D478F0224 UnitProducer
+
+FORWARD ME_561D36CD02EA
+
+ME ME_561D3C890170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_561D36CD02EA // LibraryST
+ ;
+ MELINK Target HWL ME_561D3C0F00B3 // Layer
+ ;
+
+ENDME // ME_561D3C890170 
+
+ME ME_561D36CD02EA
+ MEPROP UID '561D36CD02EA'
+ MEPROP Name 'LibraryST'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Библиотека' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561D3BE5006A // CategoryLike
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_561D3C890170 // Layer
+ )
+ ; // Dependencies
+ UP "personal label" 'code_library'
+ UP "visualization bg color" 16114090
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\LibraryST'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\LibraryST.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D36CD02EA LibraryST
+
+ME ME_561FA29C0136
+ MEPROP UID '561FA29C0136'
+ MEPROP Name 'IsElementProxy'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D3E94025C // ElementProxy
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_561FA29C0136 IsElementProxy
+
+ME ME_561D3E94025C
+ MEPROP UID '561D3E94025C'
+ MEPROP Name 'ElementProxy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Заместитель элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561D478F0224 // UnitProducer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_561FA29C0136 // IsElementProxy
+ )
+ ; // Operations
+ UP "abstraction type" 'a'
+ UP "personal label" 'code_simple_class'
+ UP "visability type" '+'
+ UP "visualization bg color" 13821680
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\ElementProxy'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\ElementProxy.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D3E94025C ElementProxy
+
+ME ME_561E558703CD
+ MEPROP UID '561E558703CD'
+ MEPROP Name 'ImplementableProxy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561D3E94025C // ElementProxy
+ )
+ ; // Inherits
+ UP "has derived impl" True
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\ImplementableProxy'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\ImplementableProxy.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561E558703CD ImplementableProxy
+
+ME ME_561E515A008B
+ MEPROP UID '561E515A008B'
+ MEPROP Name 'ClassProxy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561E558703CD // ImplementableProxy
+ )
+ ; // Inherits
+ UP "has derived impl" True
+ UP "visualization bg color" 12842465
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\ClassProxy'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\ClassProxy.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561E515A008B ClassProxy
+
+ME ME_561E55DC0030
+ MEPROP UID '561E55DC0030'
+ MEPROP Name 'InterfaceProxy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561E558703CD // ImplementableProxy
+ )
+ ; // Inherits
+ UP "visualization bg color" 16766935
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceProxy'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceProxy.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561E55DC0030 InterfaceProxy
+
+ME ME_563757310212
+ MEPROP UID '563757310212'
+ MEPROP Name 'UMLPrimitive'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4704818D00DA' '470481B700FA.ms.model.script' // UMLPrimitive
+ HWL ME_561D335D01B2 // Delphi ST
+ )
+ ; // Implements
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLPrimitive'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLPrimitive.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_563757310212 UMLPrimitive
+
+ME ME_470484D50138_ME_56375EA8032F
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_56375EA8032F wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_56375EA8032F
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_56375EA8032F constraint
+
+ME ME_4705CBD6003E_ME_56375EA8032F
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_56375EA8032F wiki_child_kind
+
+ME ME_56375EA8032F
+ MEPROP UID '56375EA8032F'
+ MEPROP Name 'UMLModule'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4704814501D4' '470481B700FA.ms.model.script' // UMLModule
+ HWL ME_561D335D01B2 // Delphi ST
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_470484D50138_ME_56375EA8032F // wiki_up_add_gen
+ ME_4704C0E30186_ME_56375EA8032F // constraint
+ ME_4705CBD6003E_ME_56375EA8032F // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLModule'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLModule.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_56375EA8032F UMLModule
+
+ME ME_56D06F7E00BD
+ MEPROP UID '56D06F7E00BD'
+ MEPROP Name 'InterfaceFactoryProxy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561D307100B4 // Elements
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_561E515A008B // ClassProxy
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceFactoryProxy'
+ UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceFactoryProxy.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_56D06F7E00BD InterfaceFactoryProxy
+
+ME ME_561D307100B4
+ MEPROP UID '561D307100B4'
+ MEPROP Name 'Elements'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_561D2FFF03CF' '561D2FFF03CF.ms.model.script' // SimpleTemplatesLibrary
+ ;
+ MELIST Children
+   Seq: ( HWL ME_561D335D01B2 // Delphi ST
+ HWL ME_561D41F8013A // PascalGenerator
+ HWL ME_561D3BE5006A // CategoryLike
+ HWL ME_561D3C0F00B3 // Layer
+ HWL ME_561D3E2E029C // Atomic
+ HWL ME_561D478F0224 // UnitProducer
+ HWL ME_561D36CD02EA // LibraryST
+ HWL ME_561D3E94025C // ElementProxy
+ HWL ME_561E558703CD // ImplementableProxy
+ HWL ME_561E515A008B // ClassProxy
+ HWL ME_561E55DC0030 // InterfaceProxy
+ HWL ME_563757310212 // UMLPrimitive
+ HWL ME_56375EA8032F // UMLModule
+ HWL ME_56D06F7E00BD // InterfaceFactoryProxy
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470481B700FA' '470481B700FA.ms.model.script' // UML
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements'
+ UP mda:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_561D307100B4 Elements

@@ -191,6 +191,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48A41FF10094impl_uses*
+ //#UC END# *48A41FF10094impl_uses*
 ;
 
 procedure IsWindowEnabled;

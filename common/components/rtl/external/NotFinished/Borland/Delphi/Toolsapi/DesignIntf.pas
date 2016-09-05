@@ -18,6 +18,8 @@ implementation
 uses
  l3ImplUses
  , DesignMenus
+ //#UC START# *52AEF7C90305impl_uses*
+ //#UC END# *52AEF7C90305impl_uses*
 ;
 {$IfEnd} // NOT Defined(XE)
 

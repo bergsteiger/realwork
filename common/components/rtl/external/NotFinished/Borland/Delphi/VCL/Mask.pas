@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *52A9ADB60286impl_uses*
+ //#UC END# *52A9ADB60286impl_uses*
 ;
 
 {$If Defined(l3HackedVCL) AND NOT Defined(DesignTimeLibrary)}

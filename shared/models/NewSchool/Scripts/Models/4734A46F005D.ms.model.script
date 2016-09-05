@@ -1,0 +1,31 @@
+// CoreTemplates 4734A46F005D MDATemplates Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4734A46F005D
+ MEPROP UID '4734A46F005D'
+ MEPROP Name 'CoreTemplates'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDATemplates ;
+ %SUMMARY 'Базовые абстрактные шаблоны' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_52138AEC0388' '52138AEC0388.ms.model.script' // MDProcess$CoreTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ WL 'ME_47287F7D02CE' '47287F7D02CE.ms.model.script' // RequirementsLib
+ WL 'ME_49F99E660011' '49F99E660011.ms.model.script' // Integrated
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP mda.inc:Path 'MDProcess\CoreTemplates\CoreTemplates.inc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates'
+ UP mda:PathOnly '\MDProcess\CoreTemplates'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes'
+
+ENDME // ME_4734A46F005D CoreTemplates

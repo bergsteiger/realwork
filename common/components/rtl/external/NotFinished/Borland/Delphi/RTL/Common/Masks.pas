@@ -30,6 +30,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *502549AF030Bimpl_uses*
+ //#UC END# *502549AF030Bimpl_uses*
 ;
 
 function MatchesMask(const Filename: AnsiString;

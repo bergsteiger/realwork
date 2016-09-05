@@ -29,6 +29,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4981AC0701C1impl_uses*
+ //#UC END# *4981AC0701C1impl_uses*
 ;
 
 procedure OleCheck;

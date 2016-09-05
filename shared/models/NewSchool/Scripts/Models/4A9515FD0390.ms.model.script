@@ -1,0 +1,139 @@
+// Factories 4A9515FD0390 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9515FD0390
+
+FORWARD ME_4A73234800B8
+
+ME ME_5773889B02FC
+ MEPROP UID '5773889B02FC'
+ MEPROP Name 'NO_FACTORY_BRACKECTS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A73234800B8 // FormSetFactory
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_5773889B02FC NO_FACTORY_BRACKECTS
+
+ME ME_4A816DBF0044
+ MEPROP UID '4A816DBF0044'
+ MEPROP Name 'IsFactoryOnModule'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является фабрикой на VCM-модуле' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A73234800B8 // FormSetFactory
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A816DBF0044 IsFactoryOnModule
+
+ME ME_4A73234800B8
+ MEPROP UID '4A73234800B8'
+ MEPROP Name 'FormSetFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика сборки форм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9515FD0390 // Factories
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5773889B02FC // NO_FACTORY_BRACKECTS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A816DBF0044 // IsFactoryOnModule
+ )
+ ; // Operations
+ UP "abstraction type" 'f'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 13959039
+ UP "visualization f-font color" 13688896
+ UP "visualization f-line color" 13688896
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FormSetFactory'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FormSetFactory.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A73234800B8 FormSetFactory
+
+ME ME_4A816E04018E
+ MEPROP UID '4A816E04018E'
+ MEPROP Name 'FormFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика форм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9515FD0390 // Factories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A73234800B8 // FormSetFactory
+ )
+ ; // Inherits
+ UP "visualization bg color" 16777152
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FormFactory'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FormFactory.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A816E04018E FormFactory
+
+ME ME_4A8288FF021A
+ MEPROP UID '4A8288FF021A'
+ MEPROP Name 'FactoryMethod'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабричный метод'#13#10'---'#13#10'Для создания модулем всего чего ни попадя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9515FD0390 // Factories
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A73234800B8 // FormSetFactory
+ )
+ ; // Inherits
+ UP "visualization bg color" 7451452
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FactoryMethod'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FactoryMethod.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A8288FF021A FactoryMethod
+
+ME ME_4A9515FD0390
+ MEPROP UID '4A9515FD0390'
+ MEPROP Name 'Factories'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Фабричные методы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B62EC84020F' '4B62EC84020F.ms.model.script' // VCMViewInterfacesLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A73234800B8 // FormSetFactory
+ HWL ME_4A816E04018E // FormFactory
+ HWL ME_4A8288FF021A // FactoryMethod
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_49CB456E025C' '49CB456E025C.ms.model.script' // ClassInner
+ WL 'ME_4A95156202EB' '4A95156202EB.ms.model.script' // MixIns
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories'
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A9515FD0390 Factories

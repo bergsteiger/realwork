@@ -1,0 +1,1098 @@
+// MultiThread 53A038340371 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53A038340371
+
+FORWARD ME_53A03846011C
+
+ME ME_53A038E300F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A03846011C // l3CriticalSectionHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53A038E300F9 
+
+ME ME_52BC2B9401F3_ME_53A03846011C
+ MELINK Original WL 'ME_52BC2B9401F3' '47913B47006E.ms.model.script' // AfterDestroyCalled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52BC2B9401F3_ME_53A03846011C AfterDestroyCalled
+
+ME ME_53AC02B602E3_ME_53A03846011C
+ MELINK Original WL 'ME_53AC02B602E3' '47913B47006E.ms.model.script' // InitAfterAlloc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53AC02B602E3_ME_53A03846011C InitAfterAlloc
+
+ME ME_53A03846011C
+ MEPROP UID '53A03846011C'
+ MEPROP Name 'l3CriticalSectionHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53A038340371 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_54B6852C0241' '545CDF1002C9.ms.model.script' // l3CriticalSectionHolderPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_52BC2B9401F3_ME_53A03846011C // AfterDestroyCalled
+ ME_53AC02B602E3_ME_53A03846011C // InitAfterAlloc
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53A038E300F9 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "ifndef" 'l3CriticalSectionHolder_Off'
+ UP extprop:pas:TypeName '_l3CriticalSectionHolder_'
+ UP extprop:pas:UnitName 'l3CriticalSectionHolder.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas'
+
+ENDME // ME_53A03846011C l3CriticalSectionHolder
+
+FORWARD ME_53A2C805017C
+
+FORWARD ME_53A2C8780191
+
+FORWARD ME_53A2C89B0302
+
+ME ME_53A2C8A503C1
+ MEPROP UID '53A2C8A503C1'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53A2C89B0302 // ForEachF
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A2C8A503C1 
+
+ME ME_53A2C89B0302
+ MEPROP UID '53A2C89B0302'
+ MEPROP Name 'ForEachF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetiterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53A2C8780191 // IntegerIterator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53A2C8A503C1 // 
+ )
+ ; // Attributes
+ UP "needs index" False
+ UP "needs result" False
+
+ENDME // ME_53A2C89B0302 ForEachF
+
+FORWARD ME_53A84EAD0005
+
+ME ME_53A84EBC0078
+ MEPROP UID '53A84EBC0078'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53A84EAD0005 // ForOneF
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A84EBC0078 
+
+ME ME_53A84EC102C8
+ MEPROP UID '53A84EC102C8'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_in::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53A84EAD0005 // ForOneF
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A84EC102C8 anIndex
+
+ME ME_53A84EAD0005
+ MEPROP UID '53A84EAD0005'
+ MEPROP Name 'ForOneF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetiterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53A2C8780191 // IntegerIterator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53A84EBC0078 // 
+ HWL ME_53A84EC102C8 // anIndex
+ )
+ ; // Attributes
+ UP "needs index" False
+ UP "needs result" False
+
+ENDME // ME_53A84EAD0005 ForOneF
+
+ME ME_53A2C8780191
+ MEPROP UID '53A2C8780191'
+ MEPROP Name 'IntegerIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2C805017C // l3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C89B0302 // ForEachF
+ HWL ME_53A84EAD0005 // ForOneF
+ )
+ ; // Operations
+
+ENDME // ME_53A2C8780191 IntegerIterator
+
+FORWARD ME_53A2C7AA03BF
+
+ME ME_53A2C7D50193
+ MEPROP UID '53A2C7D50193'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELINK Target WL 'ME_4CA9A2EB01E4' '47913B47006E.ms.model.script' // Tl3ProtoIntegerList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_53A2C7D50193 Items
+
+FORWARD ME_53A2C8C10024
+
+FORWARD ME_53A2C8C902D3
+
+ME ME_53A2C8D101F8
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A2C8D101F8 anItem
+
+ME ME_53A2C8C902D3
+ MEPROP UID '53A2C8C902D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C8C10024 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A2C8D101F8 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53A2C8C902D3 DoIt
+
+ME ME_53A2C8C10024
+ MEPROP UID '53A2C8C10024'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C8C902D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2C8C10024 Add
+
+FORWARD ME_53A2C8EE02B5
+
+FORWARD ME_53A2C8FD03B6
+
+ME ME_53A2C90502D8
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A2C90502D8 anItem
+
+ME ME_53A2C8FD03B6
+ MEPROP UID '53A2C8FD03B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C8EE02B5 // Remove
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A2C90502D8 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53A2C8FD03B6 DoIt
+
+ME ME_53A2C8EE02B5
+ MEPROP UID '53A2C8EE02B5'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C8FD03B6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2C8EE02B5 Remove
+
+FORWARD ME_53A2C90A0344
+
+ME ME_53A2C9140005
+ MEPROP UID '53A2C9140005'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C90A0344 // NeedSort
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53A2C9140005 DoIt
+
+ME ME_53A2C90A0344
+ MEPROP UID '53A2C90A0344'
+ MEPROP Name 'NeedSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C9140005 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2C90A0344 NeedSort
+
+FORWARD ME_53A84920013D
+
+ME ME_53A8492C0159
+ MEPROP UID '53A8492C0159'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A84920013D // Clear
+ ;
+
+ENDME // ME_53A8492C0159 DoIt
+
+ME ME_53A84920013D
+ MEPROP UID '53A84920013D'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A8492C0159 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A84920013D Clear
+
+ME ME_53A2C7EC030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53A2C7EC030C 
+
+ME ME_53A2C89B0302_ME_53A2C7AA03BF
+ MELINK Original HWL ME_53A2C89B0302 // ForEachF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" False
+ UP "needs result" False
+ENDME // ME_53A2C89B0302_ME_53A2C7AA03BF ForEachF
+
+ME ME_53A84EAD0005_ME_53A2C7AA03BF
+ MELINK Original HWL ME_53A84EAD0005 // ForOneF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" False
+ UP "needs result" False
+ENDME // ME_53A84EAD0005_ME_53A2C7AA03BF ForOneF
+
+ME ME_479731C50290_ME_53A2C7AA03BF
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53A2C7AA03BF Cleanup
+
+ME ME_47A042E100E2_ME_53A2C7AA03BF
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_53A2C7AA03BF InitFields
+
+ME ME_53A2C7AA03BF
+ MEPROP UID '53A2C7AA03BF'
+ MEPROP Name 'Tl3MultiThreadIntegerList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2C805017C // l3MultiThreadIntegerList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53A03846011C // l3CriticalSectionHolder
+ HWL ME_53A2C8780191 // IntegerIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53A2C7D50193 // Items
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53A2C8C10024 // Add
+ HWL ME_53A2C8EE02B5 // Remove
+ HWL ME_53A2C90A0344 // NeedSort
+ HWL ME_53A84920013D // Clear
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53A2C89B0302_ME_53A2C7AA03BF // ForEachF
+ ME_53A84EAD0005_ME_53A2C7AA03BF // ForOneF
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53A2C7AA03BF // Cleanup
+ ME_47A042E100E2_ME_53A2C7AA03BF // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53A2C7EC030C // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MultiThreadIntegerList'
+
+ENDME // ME_53A2C7AA03BF Tl3MultiThreadIntegerList
+
+ME ME_53A2C805017C
+ MEPROP UID '53A2C805017C'
+ MEPROP Name 'l3MultiThreadIntegerList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A038340371 // MultiThread
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53A2C8780191 // IntegerIterator
+ HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ )
+ ; // Children
+ UP extprop:rc:SelfName 'MultiThreadIntegerList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MultiThreadIntegerList.pas'
+
+ENDME // ME_53A2C805017C l3MultiThreadIntegerList
+
+ME ME_53A2C90A0344_ME_53A2C9290311
+ MELINK Original HWL ME_53A2C90A0344 // NeedSort
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53A2C90A0344_ME_53A2C9290311 NeedSort
+
+ME ME_53A2C9290311
+ MEPROP UID '53A2C9290311'
+ MEPROP Name 'Tl3MultiThreadSortedIntegerList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A038340371 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53A2C90A0344_ME_53A2C9290311 // NeedSort
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'l3MultiThreadSortedIntegerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MultiThreadSortedIntegerList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MultiThreadSortedIntegerList.pas'
+
+ENDME // ME_53A2C9290311 Tl3MultiThreadSortedIntegerList
+
+FORWARD ME_540EDC10016F
+
+ME ME_540EDCD00378
+ MEPROP UID '540EDCD00378'
+ MEPROP Name 'f_Handle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_540EDCD00378 f_Handle
+
+ME ME_540EDC2E03AF
+ MEPROP UID '540EDC2E03AF'
+ MEPROP Name 'Enter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+
+ENDME // ME_540EDC2E03AF Enter
+
+ME ME_540EDC3E006A
+ MEPROP UID '540EDC3E006A'
+ MEPROP Name 'Leave'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+
+ENDME // ME_540EDC3E006A Leave
+
+FORWARD ME_540EDC5F015E
+
+ME ME_540EDC8B006D
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_540EDC8B006D aName
+
+ME ME_540EDC8B008C
+ MEPROP Name 'InitialLocked'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_540EDC8B008C InitialLocked
+
+ME ME_540EDC5F015E
+ MEPROP UID '540EDC5F015E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EDC10016F // Tl3Mutex
+ ;
+ MELIST Parameters
+   Seq: ( ME_540EDC8B006D // aName
+ ME_540EDC8B008C // InitialLocked
+ )
+ ; // Parameters
+
+ENDME // ME_540EDC5F015E Create
+
+ME ME_479731C50290_ME_540EDC10016F
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_540EDC10016F Cleanup
+
+ME ME_540EDC10016F
+ MEPROP UID '540EDC10016F'
+ MEPROP Name 'Tl3Mutex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A038340371 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_540EDCD00378 // f_Handle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_540EDC2E03AF // Enter
+ HWL ME_540EDC3E006A // Leave
+ HWL ME_540EDC5F015E // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_540EDC10016F // Cleanup
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'l3Mutex'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Mutex'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Mutex.pas'
+
+ENDME // ME_540EDC10016F Tl3Mutex
+
+FORWARD ME_549BC5C50174
+
+FORWARD ME_549BC64F01DE
+
+ME ME_71DEA970B38C
+ MEPROP UID '71DEA970B38C'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода Exec' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC64F01DE // Exec
+ ;
+
+ENDME // ME_71DEA970B38C DoIt
+
+ME ME_549BC64F01DE
+ MEPROP UID '549BC64F01DE'
+ MEPROP Name 'Exec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549BC5C50174 // Tl3AsyncTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_71DEA970B38C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_549BC64F01DE Exec
+
+ME ME_549BC5C50174
+ MEPROP UID '549BC5C50174'
+ MEPROP Name 'Tl3AsyncTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A038340371 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_549BC64F01DE // Exec
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'l3AsyncTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AsyncTask'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3AsyncTask.pas'
+
+ENDME // ME_549BC5C50174 Tl3AsyncTask
+
+FORWARD ME_549BC6740033
+
+ME ME_549BC6CA007D
+ MEPROP UID '549BC6CA007D'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BC6740033 // Tl3AsynkTaskList
+ ;
+ MELINK Target HWL ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BC6CA007D ItemType
+
+ME ME_47B2C42A0163_ME_549BC6740033
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_549BC6740033 AssignItem
+
+ME ME_47B99D4503A2_ME_549BC6740033
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_549BC6740033 CompareExistingItems
+
+ME ME_549BC6740033
+ MEPROP UID '549BC6740033'
+ MEPROP Name 'Tl3AsynkTaskList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A038340371 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_549BC6CA007D // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_549BC6740033 // AssignItem
+ ME_47B99D4503A2_ME_549BC6740033 // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'l3AsynkTaskList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AsynkTaskList'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3AsynkTaskList.pas'
+
+ENDME // ME_549BC6740033 Tl3AsynkTaskList
+
+FORWARD ME_549BC58B0346
+
+FORWARD ME_549BDA9C0160
+
+ME ME_549BDADA034E
+ MEPROP UID '549BDADA034E'
+ MEPROP Name 'f_Task'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+ MELINK Target HWL ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BDADA034E f_Task
+
+ME ME_549BDB090120
+ MEPROP UID '549BDB090120'
+ MEPROP Name 'f_Event'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+ MELINK Target WL 'ME_491D9DB8010F' '4AB0997B00A2.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_549BDB090120 f_Event
+
+FORWARD ME_549BDAC601E8
+
+ME ME_549BDAD502E9
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BDAD502E9 aTask
+
+ME ME_549BDAC601E8
+ MEPROP UID '549BDAC601E8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+ MELIST Parameters
+   Seq: ( ME_549BDAD502E9 // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_549BDAC601E8 Create
+
+ME ME_549BDB15036E
+ MEPROP UID '549BDB15036E'
+ MEPROP Name 'WaitForExec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BDA9C0160 // Tl3SynTask
+ ;
+
+ENDME // ME_549BDB15036E WaitForExec
+
+ME ME_549BC64F01DE_ME_549BDA9C0160
+ MELINK Original HWL ME_549BC64F01DE // Exec
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_549BC64F01DE_ME_549BDA9C0160 Exec
+
+ME ME_479731C50290_ME_549BDA9C0160
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_549BDA9C0160 Cleanup
+
+ME ME_549BDA9C0160
+ MEPROP UID '549BDA9C0160'
+ MEPROP Name 'Tl3SynTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_549BC5C50174 // Tl3AsyncTask
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_549BDADA034E // f_Task
+ HWL ME_549BDB090120 // f_Event
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_549BDAC601E8 // Create
+ HWL ME_549BDB15036E // WaitForExec
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_549BC64F01DE_ME_549BDA9C0160 // Exec
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_549BDA9C0160 // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SynTask'
+
+ENDME // ME_549BDA9C0160 Tl3SynTask
+
+ME ME_549BC6EC02B8
+ MEPROP UID '549BC6EC02B8'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target HWL ME_549BC6740033 // Tl3AsynkTaskList
+ ;
+
+ENDME // ME_549BC6EC02B8 f_Data
+
+ME ME_549BCC490012
+ MEPROP UID '549BCC490012'
+ MEPROP Name 'f_Wnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_4E95755B0162' '4AB0C3F60375.ms.model.script' // HWND
+ ;
+
+ENDME // ME_549BCC490012 f_Wnd
+
+ME ME_549BD47903C0
+ MEPROP UID '549BD47903C0'
+ MEPROP Name 'f_MsgID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_549BD47903C0 f_MsgID
+
+ME ME_549BD08302D8
+ MEPROP UID '549BD08302D8'
+ MEPROP Name 'WndProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124920022' '4AB0997B00A2.ms.model.script' // TWndMethod
+ )
+ ; // Inherits
+
+ENDME // ME_549BD08302D8 WndProc
+
+ME ME_549BE5C2006F
+ MEPROP UID '549BE5C2006F'
+ MEPROP Name 'Init'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+
+ENDME // ME_549BE5C2006F Init
+
+FORWARD ME_549BC5F800ED
+
+ME ME_549BC61300F5
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BC61300F5 aTask
+
+ME ME_549BC5F800ED
+ MEPROP UID '549BC5F800ED'
+ MEPROP Name 'AsyncExec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_549BC61300F5 // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_549BC5F800ED AsyncExec
+
+FORWARD ME_549BC61B009B
+
+ME ME_549BC623037C
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_549BC5C50174 // Tl3AsyncTask
+ ;
+
+ENDME // ME_549BC623037C aTask
+
+ME ME_549BC61B009B
+ MEPROP UID '549BC61B009B'
+ MEPROP Name 'SyncExec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_549BC623037C // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_549BC61B009B SyncExec
+
+ME ME_549BCC6302C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_549BCC6302C6 
+
+ME ME_549BCFEF00EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_549BCFD20030' '4AB0997B00A2.ms.model.script' // AllocateHWnd
+ ;
+
+ENDME // ME_549BCFEF00EC 
+
+ME ME_549BD8B502D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ ;
+ MELINK Target WL 'ME_54509FEC02EB' '47D0290B016D.ms.model.script' // l3CreateStringGUID
+ ;
+
+ENDME // ME_549BD8B502D0 
+
+ME ME_479731C50290_ME_549BC58B0346
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_549BC58B0346 Cleanup
+
+ME ME_47A042E100E2_ME_549BC58B0346
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_549BC58B0346 InitFields
+
+ME ME_549BC58B0346
+ MEPROP UID '549BC58B0346'
+ MEPROP Name 'Tl3ExecuteInMainThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перед использованием нужно вызывать init в главном потоке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A038340371 // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53A03846011C // l3CriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_549BC6EC02B8 // f_Data
+ HWL ME_549BCC490012 // f_Wnd
+ HWL ME_549BD47903C0 // f_MsgID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_549BD08302D8 // WndProc
+ HWL ME_549BE5C2006F // Init
+ HWL ME_549BC5F800ED // AsyncExec
+ HWL ME_549BC61B009B // SyncExec
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_549BC58B0346 // Cleanup
+ ME_47A042E100E2_ME_549BC58B0346 // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_549BDA9C0160 // Tl3SynTask
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_549BCC6302C6 // FreeAndNil
+ ME_549BCFEF00EC // AllocateHWnd
+ ME_549BD8B502D0 // l3CreateStringGUID
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:pas:UnitName 'l3ExecuteInMainThread'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExecuteInMainThread'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ExecuteInMainThread.pas'
+
+ENDME // ME_549BC58B0346 Tl3ExecuteInMainThread
+
+ME ME_53A038340371
+ MEPROP UID '53A038340371'
+ MEPROP Name 'MultiThread'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53A03846011C // l3CriticalSectionHolder
+ HWL ME_53A2C805017C // l3MultiThreadIntegerList
+ HWL ME_53A2C9290311 // Tl3MultiThreadSortedIntegerList
+ HWL ME_540EDC10016F // Tl3Mutex
+ HWL ME_549BC5C50174 // Tl3AsyncTask
+ HWL ME_549BC6740033 // Tl3AsynkTaskList
+ HWL ME_549BC58B0346 // Tl3ExecuteInMainThread
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_545CDF1002C9' '545CDF1002C9.ms.model.script' // MemoryManagers
+ )
+ ; // Depends
+ UP "UseNewGen" True
+
+ENDME // ME_53A038340371 MultiThread

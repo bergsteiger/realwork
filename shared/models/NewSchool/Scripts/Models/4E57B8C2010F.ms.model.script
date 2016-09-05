@@ -1,0 +1,676 @@
+// Требования к схеме документа EVD 4E57B8C2010F UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E57B8C2010F
+
+FORWARD ME_4E67A4B600FB
+
+ME ME_4E5CCE190335
+ MEPROP UID '4E5CCE190335'
+ MEPROP Name 'Шапка документа должна иметь тег HasAnno'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:280859680}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'HasAnno'
+
+ENDME // ME_4E5CCE190335 Шапка документа должна иметь тег HasAnno
+
+ME ME_4E5D03C10190
+ MEPROP UID '4E5D03C10190'
+ MEPROP Name 'Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'Collapsable'
+
+ENDME // ME_4E5D03C10190 Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
+
+FORWARD ME_4E5D0DC6002B
+
+ME ME_4E57B8D703B8
+ MEPROP UID '4E57B8D703B8'
+ MEPROP Name 'Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagValueRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:279774062}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5D0DC6002B // Размер шрифта при печати
+ ;
+ UP "Value" 11
+
+ENDME // ME_4E57B8D703B8 Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
+
+ME ME_4E5D0DC6002B
+ MEPROP UID '4E5D0DC6002B'
+ MEPROP Name 'Размер шрифта при печати'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:199590272}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E57B8D703B8 // Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
+ )
+ ; // Children
+ UP "CodeName" 'PrintFontSize'
+
+ENDME // ME_4E5D0DC6002B Размер шрифта при печати
+
+ME ME_4E60E0AA027D
+ MEPROP UID '4E60E0AA027D'
+ MEPROP Name 'Стиль должен иметь возможность отображать шапку на одной строке с текстом'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'HeaderHasOwnSpace'
+
+ENDME // ME_4E60E0AA027D Стиль должен иметь возможность отображать шапку на одной строке с текстом
+
+FORWARD ME_4E6758CB0292
+
+ME ME_4E675968018B
+ MEPROP UID '4E675968018B'
+ MEPROP Name 'Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagValueRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837776}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6758CB0292 // Параграфы должны иметь возможность настройки фона отображения
+ ;
+ UP "Value" '$EDEFF3'
+
+ENDME // ME_4E675968018B Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
+
+ME ME_4E6758CB0292
+ MEPROP UID '4E6758CB0292'
+ MEPROP Name 'Параграфы должны иметь возможность настройки фона отображения'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E675968018B // Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
+ )
+ ; // Children
+ UP "CodeName" 'BackColor'
+
+ENDME // ME_4E6758CB0292 Параграфы должны иметь возможность настройки фона отображения
+
+FORWARD ME_4E67717E03BE
+
+ME ME_4E6780B60109
+ MEPROP UID '4E6780B60109'
+ MEPROP Name 'Требования к заголовку баллона об изменениях в документе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67717E03BE // Требования на оформление баллона
+ ;
+
+ENDME // ME_4E6780B60109 Требования к заголовку баллона об изменениях в документе
+
+ME ME_4E6780E40227
+ MEPROP UID '4E6780E40227'
+ MEPROP Name 'Требования к подвалу баллона об изменениях в документе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67717E03BE // Требования на оформление баллона
+ ;
+
+ENDME // ME_4E6780E40227 Требования к подвалу баллона об изменениях в документе
+
+ME ME_4E6781010190
+ MEPROP UID '4E6781010190'
+ MEPROP Name 'Требования к тексту баллона об изменениях в документе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67717E03BE // Требования на оформление баллона
+ ;
+
+ENDME // ME_4E6781010190 Требования к тексту баллона об изменениях в документе
+
+ME ME_4E6783AA00A8
+ MEPROP UID '4E6783AA00A8'
+ MEPROP Name 'Требования к подзаголовку баллона об изменениях документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67717E03BE // Требования на оформление баллона
+ ;
+
+ENDME // ME_4E6783AA00A8 Требования к подзаголовку баллона об изменениях документа
+
+ME ME_4E67717E03BE
+ MEPROP UID '4E67717E03BE'
+ MEPROP Name 'Требования на оформление баллона'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E6780B60109 // Требования к заголовку баллона об изменениях в документе
+ HWL ME_4E6780E40227 // Требования к подвалу баллона об изменениях в документе
+ HWL ME_4E6781010190 // Требования к тексту баллона об изменениях в документе
+ HWL ME_4E6783AA00A8 // Требования к подзаголовку баллона об изменениях документа
+ )
+ ; // Children
+
+ENDME // ME_4E67717E03BE Требования на оформление баллона
+
+ME ME_4E67899301A9
+ MEPROP UID '4E67899301A9'
+ MEPROP Name 'Требования к стилю заголовка группы контролов в КЗ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:263294701}'#13#10'{RequestLink:228688510}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+
+ENDME // ME_4E67899301A9 Требования к стилю заголовка группы контролов в КЗ
+
+ME ME_4E60DFD100C3
+ MEPROP UID '4E60DFD100C3'
+ MEPROP Name 'Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:272663564}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+
+ENDME // ME_4E60DFD100C3 Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+
+ME ME_4E6789AF00CE
+ MEPROP UID '4E6789AF00CE'
+ MEPROP Name 'Требования к стилю распахивающейся части диалогов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:254944102}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+
+ENDME // ME_4E6789AF00CE Требования к стилю распахивающейся части диалогов
+
+FORWARD ME_4E67A57800D4
+
+ME ME_4E67A6B202BB
+ MEPROP UID '4E67A6B202BB'
+ MEPROP Name 'Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagValueRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A57800D4 // Параграфы и стили должны иметь собственный интерлиньяж
+ ;
+ UP "Value" 100
+
+ENDME // ME_4E67A6B202BB Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
+
+ME ME_4E67A57800D4
+ MEPROP UID '4E67A57800D4'
+ MEPROP Name 'Параграфы и стили должны иметь собственный интерлиньяж'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestlInk:278837795}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E67A6B202BB // Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
+ )
+ ; // Children
+ UP "CodeName" 'LineSpacing'
+
+ENDME // ME_4E67A57800D4 Параграфы и стили должны иметь собственный интерлиньяж
+
+ME ME_4E6A1ADB0057
+ MEPROP UID '4E6A1ADB0057'
+ MEPROP Name 'Документ должен иметь собственный Header'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'Style Header'
+
+ENDME // ME_4E6A1ADB0057 Документ должен иметь собственный Header
+
+ME ME_4E6DD5C20039
+ MEPROP UID '4E6DD5C20039'
+ MEPROP Name 'Ссылки должны уметь содержать в себе скрипты'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'URL'
+
+ENDME // ME_4E6DD5C20039 Ссылки должны уметь содержать в себе скрипты
+
+FORWARD ME_4E6F73B701ED
+
+ME ME_4E6F73DB01E0
+ MEPROP UID '4E6F73DB01E0'
+ MEPROP Name 'Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagValueRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$283614171]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6F73B701ED // Гиперссылки должны иметь Hint
+ ;
+ UP "Value" '''Официальная копия графической публикации (Интернет-ссылка)'''
+
+ENDME // ME_4E6F73DB01E0 Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+
+ME ME_4E6F73B701ED
+ MEPROP UID '4E6F73B701ED'
+ MEPROP Name 'Гиперссылки должны иметь Hint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$283614171]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E6F73DB01E0 // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+ )
+ ; // Children
+ UP "CodeName" 'Address ShortName'
+
+ENDME // ME_4E6F73B701ED Гиперссылки должны иметь Hint
+
+FORWARD ME_4E7B2AD603D3
+
+ME ME_4E7B27C60178
+ MEPROP UID '4E7B27C60178'
+ MEPROP Name 'Стиль с подчеркиванием'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:287214235}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+
+ENDME // ME_4E7B27C60178 Стиль с подчеркиванием
+
+FORWARD ME_4E7B25360221
+
+ME ME_4FD086670011
+ MEPROP UID '4FD086670011'
+ MEPROP Name 'Стили для ДПЭ должны наследоваться от стиля Внимание'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:370390123}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B25360221 // Специальные стили текста для ДЭП
+ ;
+
+ENDME // ME_4FD086670011 Стили для ДПЭ должны наследоваться от стиля Внимание
+
+ME ME_4FD09229012E
+ MEPROP UID '4FD09229012E'
+ MEPROP Name 'У стилей ДПЭ должны быть картинки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:370389917}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B25360221 // Специальные стили текста для ДЭП
+ ;
+
+ENDME // ME_4FD09229012E У стилей ДПЭ должны быть картинки
+
+ME ME_4E7B25360221
+ MEPROP UID '4E7B25360221'
+ MEPROP Name 'Специальные стили текста для ДЭП'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:235046445}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4FD086670011 // Стили для ДПЭ должны наследоваться от стиля Внимание
+ HWL ME_4FD09229012E // У стилей ДПЭ должны быть картинки
+ )
+ ; // Children
+
+ENDME // ME_4E7B25360221 Специальные стили текста для ДЭП
+
+ME ME_4E96F94D0336
+ MEPROP UID '4E96F94D0336'
+ MEPROP Name 'Если стиль не определён в локальной таблице стилей, а в документе он присутствует, то его надо добавлять'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:259890927}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+
+ENDME // ME_4E96F94D0336 Если стиль не определён в локальной таблице стилей, а в документе он присутствует, то его надо добавлять
+
+ME ME_4FA0DADF00BE
+ MEPROP UID '4FA0DADF00BE'
+ MEPROP Name 'Должен быть стиль `Внимание`'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:362130309}'#13#10'Наследник от нормального, бледнорозовый фон. В шапке картинка и слово Внимание жирным.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+
+ENDME // ME_4FA0DADF00BE Должен быть стиль `Внимание`
+
+FORWARD ME_5006CF2103B2
+
+ME ME_5006CF4302F1
+ MEPROP UID '5006CF4302F1'
+ MEPROP Name 'Должен быть стиль `Напишите нам`'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:378541177}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5006CF2103B2 // Стили для ААК
+ ;
+
+ENDME // ME_5006CF4302F1 Должен быть стиль `Напишите нам`
+
+ME ME_5006CF2103B2
+ MEPROP UID '5006CF2103B2'
+ MEPROP Name 'Стили для ААК'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5006CF4302F1 // Должен быть стиль `Напишите нам`
+ )
+ ; // Children
+
+ENDME // ME_5006CF2103B2 Стили для ААК
+
+ME ME_5513C4CD01F2
+ MEPROP UID '5513C4CD01F2'
+ MEPROP Name 'Должен быть стиль ''Сворачивающиеся блоки'''
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:589882366}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+
+ENDME // ME_5513C4CD01F2 Должен быть стиль 'Сворачивающиеся блоки'
+
+ME ME_4E7B2AD603D3
+ MEPROP UID '4E7B2AD603D3'
+ MEPROP Name 'Стандартные стили абзацев'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E7B27C60178 // Стиль с подчеркиванием
+ HWL ME_4E7B25360221 // Специальные стили текста для ДЭП
+ HWL ME_4E96F94D0336 // Если стиль не определён в локальной таблице стилей, а в документе он присутствует, то его надо добавлять
+ HWL ME_4FA0DADF00BE // Должен быть стиль `Внимание`
+ HWL ME_5006CF2103B2 // Стили для ААК
+ HWL ME_5513C4CD01F2 // Должен быть стиль 'Сворачивающиеся блоки'
+ )
+ ; // Children
+
+ENDME // ME_4E7B2AD603D3 Стандартные стили абзацев
+
+ME ME_4E9C0BEA03A2
+ MEPROP UID '4E9C0BEA03A2'
+ MEPROP Name 'У документа должен быть тег MaxSubID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:283608516}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'MaxSubID'
+
+ENDME // ME_4E9C0BEA03A2 У документа должен быть тег MaxSubID
+
+ME ME_4F2694680164
+ MEPROP UID '4F2694680164'
+ MEPROP Name 'У блоков и документов должен быть тег CompareContentsLevel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:332563400}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'CompareContentsLevel'
+
+ENDME // ME_4F2694680164 У блоков и документов должен быть тег CompareContentsLevel
+
+ME ME_4F3157F70307
+ MEPROP UID '4F3157F70307'
+ MEPROP Name 'У типа PIRec должен быть тег Flags'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336135727}'#13#10'{RequestLink:336136491}'#13#10'{RequestLink:330695385}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'Flags'
+
+ENDME // ME_4F3157F70307 У типа PIRec должен быть тег Flags
+
+ME ME_4F4DD50A0220
+ MEPROP UID '4F4DD50A0220'
+ MEPROP Name 'У объектных сегментов должен быть тег Базовая линия'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336663777}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'BaseLine'
+
+ENDME // ME_4F4DD50A0220 У объектных сегментов должен быть тег Базовая линия
+
+ME ME_4F8D4BDB0353
+ MEPROP UID '4F8D4BDB0353'
+ MEPROP Name 'У документа должен быть тег для хранения образа документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:356073879}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+
+ENDME // ME_4F8D4BDB0353 У документа должен быть тег для хранения образа документа
+
+ME ME_4FBE1CBF01A8
+ MEPROP UID '4FBE1CBF01A8'
+ MEPROP Name 'У блоков и документов должен быть тег ViewKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:360022952}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+
+ENDME // ME_4FBE1CBF01A8 У блоков и документов должен быть тег ViewKind
+
+ME ME_525E86530375
+ MEPROP UID '525E86530375'
+ MEPROP Name 'У документа должно быть свойство EditableParts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:280859697}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ UP "CodeName" 'EditableParts'
+
+ENDME // ME_525E86530375 У документа должно быть свойство EditableParts
+
+ME ME_53ABD87B000A
+ MEPROP UID '53ABD87B000A'
+ MEPROP Name 'Цвет ссылки, ведущей на утративший силу документ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseTagRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'k:513880916' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E67A4B600FB // Стандартная схема документа
+ ;
+
+ENDME // ME_53ABD87B000A Цвет ссылки, ведущей на утративший силу документ
+
+ME ME_4E67A4B600FB
+ MEPROP UID '4E67A4B600FB'
+ MEPROP Name 'Стандартная схема документа'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E57B8C2010F // Требования к схеме документа EVD
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E5CCE190335 // Шапка документа должна иметь тег HasAnno
+ HWL ME_4E5D03C10190 // Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
+ HWL ME_4E5D0DC6002B // Размер шрифта при печати
+ HWL ME_4E60E0AA027D // Стиль должен иметь возможность отображать шапку на одной строке с текстом
+ HWL ME_4E6758CB0292 // Параграфы должны иметь возможность настройки фона отображения
+ HWL ME_4E67717E03BE // Требования на оформление баллона
+ HWL ME_4E67899301A9 // Требования к стилю заголовка группы контролов в КЗ
+ HWL ME_4E60DFD100C3 // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+ HWL ME_4E6789AF00CE // Требования к стилю распахивающейся части диалогов
+ HWL ME_4E67A57800D4 // Параграфы и стили должны иметь собственный интерлиньяж
+ HWL ME_4E6A1ADB0057 // Документ должен иметь собственный Header
+ HWL ME_4E6DD5C20039 // Ссылки должны уметь содержать в себе скрипты
+ HWL ME_4E6F73B701ED // Гиперссылки должны иметь Hint
+ HWL ME_4E7B2AD603D3 // Стандартные стили абзацев
+ HWL ME_4E9C0BEA03A2 // У документа должен быть тег MaxSubID
+ HWL ME_4F2694680164 // У блоков и документов должен быть тег CompareContentsLevel
+ HWL ME_4F3157F70307 // У типа PIRec должен быть тег Flags
+ HWL ME_4F4DD50A0220 // У объектных сегментов должен быть тег Базовая линия
+ HWL ME_4F8D4BDB0353 // У документа должен быть тег для хранения образа документа
+ HWL ME_4FBE1CBF01A8 // У блоков и документов должен быть тег ViewKind
+ HWL ME_525E86530375 // У документа должно быть свойство EditableParts
+ HWL ME_53ABD87B000A // Цвет ссылки, ведущей на утративший силу документ
+ )
+ ; // Children
+
+ENDME // ME_4E67A4B600FB Стандартная схема документа
+
+ME ME_4E57B8C2010F
+ MEPROP UID '4E57B8C2010F'
+ MEPROP Name 'Требования к схеме документа EVD'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E67A4B600FB // Стандартная схема документа
+ )
+ ; // Children
+
+ENDME // ME_4E57B8C2010F Требования к схеме документа EVD

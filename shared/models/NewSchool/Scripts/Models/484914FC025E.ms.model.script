@@ -1,0 +1,31 @@
+// EVDTemplates 484914FC025E MDATemplates Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_484914FC025E
+ MEPROP UID '484914FC025E'
+ MEPROP Name 'EVDTemplates'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDATemplates ;
+ %SUMMARY 'Шаблоны для описания структур EVD.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B63155B0328' '4B63155B0328.ms.model.script' // MDProcess$ForDelphi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_484918A30320' '484918A30320.ms.model.script' // Data Definition
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4734A46F005D' '4734A46F005D.ms.model.script' // CoreTemplates
+ )
+ ; // Depends
+ UP mda.inc:Path 'MDProcess\EVDTemplates\EVDTemplates.inc.tpi'
+ UP mda.inc:PathOnly '\MDProcess\EVDTemplates'
+ UP mda:Path 'MDProcess\EVDTemplates\EVDTemplates.tpl'
+ UP mda:PathOnly '\MDProcess\EVDTemplates'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes'
+
+ENDME // ME_484914FC025E EVDTemplates

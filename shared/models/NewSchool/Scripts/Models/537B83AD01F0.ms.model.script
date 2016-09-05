@@ -1,0 +1,215 @@
+// l3Math 537B83AD01F0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537B83AD01F0
+
+FORWARD ME_47E0C36201C7
+
+FORWARD ME_47E0C38E037F
+
+ME ME_47E0C3A0020E
+ MEPROP Name 'aParamA'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47E0C3A0020E aParamA
+
+ME ME_47E0C3A00228
+ MEPROP Name 'aParamB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47E0C3A00228 aParamB
+
+ME ME_47E0C3A00240
+ MEPROP Name 'aParamC'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47E0C3A00240 aParamC
+
+ME ME_47E0C38E037F
+ MEPROP UID '47E0C38E037F'
+ MEPROP Name 'l3MulDiv'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E0C36201C7 // l3Math
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_47E0C3A0020E // aParamA
+ ME_47E0C3A00228 // aParamB
+ ME_47E0C3A00240 // aParamC
+ )
+ ; // Parameters
+
+ENDME // ME_47E0C38E037F l3MulDiv
+
+ME ME_47E0C36201C7
+ MEPROP UID '47E0C36201C7'
+ MEPROP Name 'l3Math'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Математические функции.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537B83AD01F0 // l3Math
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47E0C38E037F // l3MulDiv
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '22.11.1999 18:02'
+ UP extprop:rc:SelfName 'Math'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Math.pas'
+
+ENDME // ME_47E0C36201C7 l3Math
+
+FORWARD ME_47A066980016
+
+FORWARD ME_47A066C301D4
+
+ME ME_47A066CC01A6
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066CC01A6 A
+
+ME ME_47A066CC01C6
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066CC01C6 B
+
+ME ME_47A066C301D4
+ MEPROP UID '47A066C301D4'
+ MEPROP Name 'Max'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A066980016 // l3MinMax
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A066CC01A6 // A
+ ME_47A066CC01C6 // B
+ )
+ ; // Parameters
+
+ENDME // ME_47A066C301D4 Max
+
+FORWARD ME_47A066D40062
+
+ME ME_47A066DC0120
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066DC0120 A
+
+ME ME_47A066DC013F
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066DC013F B
+
+ME ME_47A066D40062
+ MEPROP UID '47A066D40062'
+ MEPROP Name 'Min'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A066980016 // l3MinMax
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A066DC0120 // A
+ ME_47A066DC013F // B
+ )
+ ; // Parameters
+
+ENDME // ME_47A066D40062 Min
+
+ME ME_47A066980016
+ MEPROP UID '47A066980016'
+ MEPROP Name 'l3MinMax'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537B83AD01F0 // l3Math
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47A066C301D4 // Max
+ HWL ME_47A066D40062 // Min
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '01.12.95 16:28'
+ UP extprop:rc:SelfName 'MinMax'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3MinMax.pas'
+
+ENDME // ME_47A066980016 l3MinMax
+
+ME ME_54B7B2F900C2
+ MEPROP UID '54B7B2F900C2'
+ MEPROP Name 'l3Interlocked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537B83AD01F0 // l3Math
+ ;
+ UP "finished" False
+ UP extprop:rc:SelfName 'Interlocked'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Interlocked.pas'
+
+ENDME // ME_54B7B2F900C2 l3Interlocked
+
+ME ME_537B83AD01F0
+ MEPROP UID '537B83AD01F0'
+ MEPROP Name 'l3Math'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47E0C36201C7 // l3Math
+ HWL ME_47A066980016 // l3MinMax
+ HWL ME_54B7B2F900C2 // l3Interlocked
+ )
+ ; // Children
+ UP "UseNewGen" True
+
+ENDME // ME_537B83AD01F0 l3Math

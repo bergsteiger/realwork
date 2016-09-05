@@ -21,6 +21,8 @@ implementation
 {$If Defined(XE)}
 uses
  l3ImplUses
+ //#UC START# *56210ACE0023impl_uses*
+ //#UC END# *56210ACE0023impl_uses*
 ;
 {$IfEnd} // Defined(XE)
 

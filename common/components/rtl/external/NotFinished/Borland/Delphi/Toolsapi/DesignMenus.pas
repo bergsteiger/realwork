@@ -17,6 +17,8 @@ implementation
 {$If NOT Defined(XE)}
 uses
  l3ImplUses
+ //#UC START# *52AF123101ADimpl_uses*
+ //#UC END# *52AF123101ADimpl_uses*
 ;
 {$IfEnd} // NOT Defined(XE)
 

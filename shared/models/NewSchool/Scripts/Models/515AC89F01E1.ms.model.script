@@ -1,0 +1,35 @@
+// L3$Basic Concepts 515AC89F01E1 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_515AC89F01E1
+ MEPROP UID '515AC89F01E1'
+ MEPROP Name 'L3'
+ MEPROP OriginalName 'L3$Basic Concepts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_515AC8CC02BD' '515AC8CC02BD.ms.model.script' // l3EtalonsWorking
+ WL 'ME_51612EBB02F5' '51612EBB02F5.ms.model.script' // Ref Counting
+ WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.ms.model.script' // MemoryUtils
+ WL 'ME_540EE231015D' '540EE231015D.ms.model.script' // Logging
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ )
+ ; // Depends
+ UP "defines" 'l3Define.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "is namespace" True
+ UP "UseNewGen" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+
+ENDME // ME_515AC89F01E1 L3$Basic Concepts

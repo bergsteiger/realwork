@@ -1,0 +1,195 @@
+// StandardLikePackages 4B62DE9C006C MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B62DE9C006C
+
+FORWARD ME_4947E36801B6
+
+ME ME_4947E3B30167
+ MEPROP UID '4947E3B30167'
+ MEPROP Name 'gui'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Тип библиотеки'#13#10'---'#13#10'prj - библиотека специфичная для проекта'#13#10'rtl - утилитная библиотека'#13#10'gui - библиотека представления' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4947E36801B6 // VCMLibrary
+ ;
+ MEPROP Value 'prj|rtl|gui'
+ UP extprop:pas:Value 'prj|rtl|gui'
+
+ENDME // ME_4947E3B30167 gui
+
+ME ME_4954C69B0047
+ MEPROP UID '4954C69B0047'
+ MEPROP Name 'vendor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет префикс разработчика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4947E36801B6 // VCMLibrary
+ ;
+ MEPROP Value 'none'
+ UP extprop:pas:Value 'none'
+
+ENDME // ME_4954C69B0047 vendor
+
+ME ME_4947E3CB034C
+ MEPROP UID '4947E3CB034C'
+ MEPROP Name 'IsVCMLib'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4947E36801B6 // VCMLibrary
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4947E3CB034C IsVCMLib
+
+ME ME_4947E36801B6
+ MEPROP UID '4947E36801B6'
+ MEPROP Name 'VCMLibrary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B62DE9C006C // StandardLikePackages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_484915CD0184' '4732AE850271.ms.model.script' // Library
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4947E3B30167 // gui
+ HWL ME_4954C69B0047 // vendor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4947E3CB034C // IsVCMLib
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMCore\StandardLikePackages\VCMLibrary'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMCore\StandardLikePackages\VCMLibrary.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4947E36801B6 VCMLibrary
+
+FORWARD ME_494F7E5C0301
+
+ME ME_494F7EB200D2
+ MEPROP UID '494F7EB200D2'
+ MEPROP Name 'IsVCMUnit'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_494F7E5C0301 // VCMInterfacesLike
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_494F7EB200D2 IsVCMUnit
+
+ME ME_494F7E5C0301
+ MEPROP UID '494F7E5C0301'
+ MEPROP Name 'VCMInterfacesLike'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B62DE9C006C // StandardLikePackages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_473A80A70213' '4729C4880157.ms.model.script' // Interfaces
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_494F7EB200D2 // IsVCMUnit
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMCore\StandardLikePackages\VCMInterfacesLike'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMCore\StandardLikePackages\VCMInterfacesLike.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_494F7E5C0301 VCMInterfacesLike
+
+FORWARD ME_4947E3F30334
+
+ME ME_4947E7CF00EA
+ MEPROP UID '4947E7CF00EA'
+ MEPROP Name 'IsVCMUnit'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4947E3F30334 // VCMUnit
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4947E7CF00EA IsVCMUnit
+
+ME ME_4947E3F30334
+ MEPROP UID '4947E3F30334'
+ MEPROP Name 'VCMUnit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B62DE9C006C // StandardLikePackages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_473A81010196' '473A7FCA0203.ms.model.script' // Unit
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4947E7CF00EA // IsVCMUnit
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMCore\StandardLikePackages\VCMUnit'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMCore\StandardLikePackages\VCMUnit.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4947E3F30334 VCMUnit
+
+ME ME_4B62DE9C006C
+ MEPROP UID '4B62DE9C006C'
+ MEPROP Name 'StandardLikePackages'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Пакеты, похожие на стандартные' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B62DE6100ED' '4B62DE6100ED.ms.model.script' // VCMCore
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4947E36801B6 // VCMLibrary
+ HWL ME_494F7E5C0301 // VCMInterfacesLike
+ HWL ME_4947E3F30334 // VCMUnit
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4729C4880157' '4729C4880157.ms.model.script' // Interface
+ WL 'ME_4732AE850271' '4732AE850271.ms.model.script' // Redefinitions
+ WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMCore\StandardLikePackages'
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMCore\StandardLikePackages'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B62DE9C006C StandardLikePackages

@@ -1,0 +1,138 @@
+// UML 470481B700FA MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_470481B700FA
+
+FORWARD ME_4704814501D4
+
+FORWARD ME_4704818D00DA
+
+ME ME_470481A10222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704814501D4 // UMLModule
+ ;
+ MELINK Target HWL ME_4704818D00DA // UMLPrimitive
+ ;
+
+ENDME // ME_470481A10222 
+
+ME ME_46E6D4BB0339_ME_4704814501D4
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4704814501D4 wiki
+
+ME ME_4704814501D4
+ MEPROP UID '4704814501D4'
+ MEPROP Name 'UMLModule'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ѕакет примитивов'#13#10'---'#13#10'ѕакет содержащий стандартные UML-примитивы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470481B700FA // UML
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // ƒокументаци€
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4704814501D4 // wiki
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_470481A10222 // UMLPrimitive
+ )
+ ; // Dependencies
+ UP "can be main" True
+ UP "personal label" 'code_uml_module'
+ UP "visualization bg color" 13427169
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\UML\UMLModule'
+ UP mda:Path 'MDProcess\CoreTemplates\Core\UML\UMLModule.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4704814501D4 UMLModule
+
+ME ME_46E6D4BB0339_ME_4704818D00DA
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4704818D00DA wiki
+
+ME ME_470484D50138_ME_4704818D00DA
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4704818D00DA wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4704818D00DA
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4704818D00DA constraint
+
+ME ME_4705CBD6003E_ME_4704818D00DA
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4704818D00DA wiki_child_kind
+
+ME ME_4704818D00DA
+ MEPROP UID '4704818D00DA'
+ MEPROP Name 'UMLPrimitive'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'UML-примитив'#13#10'---'#13#10'јтомарный тип используемый дл€ опеределени€ базовых типов метамодели' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470481B700FA // UML
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // ƒокументаци€
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4704818D00DA // wiki
+ ME_470484D50138_ME_4704818D00DA // wiki_up_add_gen
+ ME_4704C0E30186_ME_4704818D00DA // constraint
+ ME_4705CBD6003E_ME_4704818D00DA // wiki_child_kind
+ )
+ ; // Implemented
+ UP "disable forward decl" True
+ UP "personal label" 'code_uml_primitive'
+ UP "visualization bg color" 13427169
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\UML\UMLPrimitive'
+ UP mda:Path 'MDProcess\CoreTemplates\Core\UML\UMLPrimitive.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4704818D00DA UMLPrimitive
+
+ME ME_470481B700FA
+ MEPROP UID '470481B700FA'
+ MEPROP Name 'UML'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой шаблонов определ€ющих стандартные UML - примитивы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4704814501D4 // UMLModule
+ HWL ME_4704818D00DA // UMLPrimitive
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CoreTemplates\Core\UML'
+ UP mda:PathOnly '\MDProcess\CoreTemplates\Core\UML'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470481B700FA UML

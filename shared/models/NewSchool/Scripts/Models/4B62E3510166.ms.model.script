@@ -1,0 +1,83 @@
+// ControllersImplementationPackages 4B62E3510166 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B62E3510166
+
+FORWARD ME_492E97410321
+
+ME ME_492EC7850338
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_492E97410321 // ControllerUnit
+ ;
+ MELINK Target WL 'ME_492EC704029E' '492EC605004C.ms.model.script' // UseCaseControllerImp
+ ;
+
+ENDME // ME_492EC7850338 
+
+ME ME_492EC78A008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_492E97410321 // ControllerUnit
+ ;
+ MELINK Target WL 'ME_492EC6CB020F' '492EC605004C.ms.model.script' // ViewAreaControllerImp
+ ;
+
+ENDME // ME_492EC78A008A 
+
+ME ME_492E97410321
+ MEPROP UID '492E97410321'
+ MEPROP Name 'ControllerUnit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализации контроллеров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B62E3510166 // ControllersImplementationPackages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4947E3F30334' '4B62DE9C006C.ms.model.script' // VCMUnit
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_492EC7850338 // UseCaseControllerImp
+ ME_492EC78A008A // ViewAreaControllerImp
+ )
+ ; // Dependencies
+ UP "abstraction type" 'ra'
+ UP "personal label" 'code_vcm_controller_unit'
+ UP "visualization bg color" 10206463
+ UP "visualization f-font color" 2124031
+ UP "visualization f-line color" 2124031
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMControllersLayer\ControllersImplementationPackages\ControllerUnit'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMControllersLayer\ControllersImplementationPackages\ControllerUnit.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_492E97410321 ControllerUnit
+
+ME ME_4B62E3510166
+ MEPROP UID '4B62E3510166'
+ MEPROP Name 'ControllersImplementationPackages'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B62E29801AA' '4B62E29801AA.ms.model.script' // VCMControllersLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_492E97410321 // ControllerUnit
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_492EC605004C' '492EC605004C.ms.model.script' // ControllersImplementation
+ WL 'ME_4B62DE9C006C' '4B62DE9C006C.ms.model.script' // StandardLikePackages
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMControllersLayer\ControllersImplementationPackages'
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMControllersLayer\ControllersImplementationPackages'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B62E3510166 ControllersImplementationPackages

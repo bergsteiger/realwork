@@ -1,0 +1,59 @@
+// Поля ввода 4E96FFD70348 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E96FFD70348
+
+FORWARD ME_4E97000003B8
+
+ME ME_4E97004E027F
+ MEPROP UID '4E97004E027F'
+ MEPROP Name 'Поля ввода при получения фокуса должны полностью выделять свой текст'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:292913360}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E97000003B8 // Поле ввода на основе редактора Эверест
+ ;
+
+ENDME // ME_4E97004E027F Поля ввода при получения фокуса должны полностью выделять свой текст
+
+ME ME_4E97000003B8
+ MEPROP UID '4E97000003B8'
+ MEPROP Name 'Поле ввода на основе редактора Эверест'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E96FFD70348 // Поля ввода
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E97004E027F // Поля ввода при получения фокуса должны полностью выделять свой текст
+ )
+ ; // Children
+
+ENDME // ME_4E97000003B8 Поле ввода на основе редактора Эверест
+
+ME ME_4E96FFD70348
+ MEPROP UID '4E96FFD70348'
+ MEPROP Name 'Поля ввода'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E97000003B8 // Поле ввода на основе редактора Эверест
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.ms.model.script' // Требования к редактору Эверест
+ )
+ ; // Depends
+
+ENDME // ME_4E96FFD70348 Поля ввода

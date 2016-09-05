@@ -116,6 +116,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AB0F6DB029Cimpl_uses*
+ //#UC END# *4AB0F6DB029Cimpl_uses*
 ;
 
 procedure TCustomImageList.Change;

@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48D391C60190impl_uses*
+ //#UC END# *48D391C60190impl_uses*
 ;
 
 procedure MillisecondsBetween;

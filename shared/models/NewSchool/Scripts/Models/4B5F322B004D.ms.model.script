@@ -1,0 +1,1153 @@
+// VCMForms 4B5F322B004D MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B5F322B004D
+
+FORWARD ME_4F72C6E703C7
+
+ME ME_4BD70D3D02CA
+ MEPROP UID '4BD70D3D02CA'
+ MEPROP Name 'CanClose'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ %SUMMARY 'Можно ли закрывать формы данного типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72C6E703C7 // CanCloseHolder
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4BD70D3D02CA CanClose
+
+ME ME_4F72C6E703C7
+ MEPROP UID '4F72C6E703C7'
+ MEPROP Name 'CanCloseHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BD70D3D02CA // CanClose
+ )
+ ; // Attributes
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\CanCloseHolder'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\CanCloseHolder.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4F72C6E703C7 CanCloseHolder
+
+FORWARD ME_496A216D0337
+
+ME ME_496A21E9033D
+ MEPROP UID '496A21E9033D'
+ MEPROP Name 'IsVCMController'
+ MEPROP Class class_Operation
+ %SUMMARY 'Элемент является VCM-контроллером' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_496A216D0337 // VCMController
+ ;
+
+ENDME // ME_496A21E9033D IsVCMController
+
+ME ME_46E6D4BB0339_ME_496A216D0337
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_496A216D0337 wiki
+
+ME ME_470484D50138_ME_496A216D0337
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_496A216D0337 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_496A216D0337
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_496A216D0337 constraint
+
+ME ME_496A216D0337
+ MEPROP UID '496A216D0337'
+ MEPROP Name 'VCMController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный стереотип для выращивания конкретных атрибутов - VCM-контроллеров. Не для создания' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_496A21E9033D // IsVCMController
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_496A216D0337 // wiki
+ ME_470484D50138_ME_496A216D0337 // wiki_up_add_gen
+ ME_4704C0E30186_ME_496A216D0337 // constraint
+ )
+ ; // Implemented
+ UP "abstraction type" 'f'
+ UP "visability type" '#-'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMController'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMController.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_496A216D0337 VCMController
+
+FORWARD ME_4B5DA84A00DD
+
+ME ME_494B848E003E
+ MEPROP UID '494B848E003E'
+ MEPROP Name 'ViewArea'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контроллер области вывода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_496A216D0337 // VCMController
+ )
+ ; // Inherits
+ UP "abstraction type" 'f'
+ UP "link type" 'l'
+ UP "visability type" '#-'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMForm\ViewArea'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_494B848E003E ViewArea
+
+ME ME_496A21CE0209
+ MEPROP UID '496A21CE0209'
+ MEPROP Name 'UseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контроллер прецедента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_496A216D0337 // VCMController
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMForm\UseCase'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_496A21CE0209 UseCase
+
+FORWARD ME_502128C500BE
+
+ME ME_502129440035
+ MEPROP UID '502129440035'
+ MEPROP Name 'NeedGroupItemsInContextMenu'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502128C500BE // GroupItemsInContextMenu
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_502129440035 NeedGroupItemsInContextMenu
+
+ME ME_46E6D4BB0339_ME_502128C500BE
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_502128C500BE wiki
+
+ME ME_470484D50138_ME_502128C500BE
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_502128C500BE wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_502128C500BE
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_502128C500BE constraint
+
+ME ME_4705CBD6003E_ME_502128C500BE
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_502128C500BE wiki_child_kind
+
+ME ME_502128C500BE
+ MEPROP UID '502128C500BE'
+ MEPROP Name 'GroupItemsInContextMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группировать операции сущности в контекстном меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502129440035 // NeedGroupItemsInContextMenu
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_502128C500BE // wiki
+ ME_470484D50138_ME_502128C500BE // wiki_up_add_gen
+ ME_4704C0E30186_ME_502128C500BE // constraint
+ ME_4705CBD6003E_ME_502128C500BE // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMForm\GroupItemsInContextMenu'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_502128C500BE GroupItemsInContextMenu
+
+FORWARD ME_502149B8006C
+
+ME ME_502149CA00B1
+ MEPROP UID '502149CA00B1'
+ MEPROP Name 'ToolbarAtBottom'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502149B8006C // ToolbarAtBottom
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_502149CA00B1 ToolbarAtBottom
+
+ME ME_46E6D4BB0339_ME_502149B8006C
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_502149B8006C wiki
+
+ME ME_470484D50138_ME_502149B8006C
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_502149B8006C wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_502149B8006C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_502149B8006C constraint
+
+ME ME_4705CBD6003E_ME_502149B8006C
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_502149B8006C wiki_child_kind
+
+ME ME_502149B8006C
+ MEPROP UID '502149B8006C'
+ MEPROP Name 'ToolbarAtBottom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502149CA00B1 // ToolbarAtBottom
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_502149B8006C // wiki
+ ME_470484D50138_ME_502149B8006C // wiki_up_add_gen
+ ME_4704C0E30186_ME_502149B8006C // constraint
+ ME_4705CBD6003E_ME_502149B8006C // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMForm\ToolbarAtBottom'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_502149B8006C ToolbarAtBottom
+
+FORWARD ME_51CE86080034
+
+ME ME_51CE8657026A
+ MEPROP UID '51CE8657026A'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51CE86080034 // ContextMenuWeight
+ ;
+
+ENDME // ME_51CE8657026A Value
+
+ME ME_51CE863501D2
+ MEPROP UID '51CE863501D2'
+ MEPROP Name 'ContextMenuWeight'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51CE86080034 // ContextMenuWeight
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_51CE863501D2 ContextMenuWeight
+
+ME ME_46E6D4BB0339_ME_51CE86080034
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_51CE86080034 wiki
+
+ME ME_470484D50138_ME_51CE86080034
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_51CE86080034 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_51CE86080034
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_51CE86080034 constraint
+
+ME ME_4705CBD6003E_ME_51CE86080034
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_51CE86080034 wiki_child_kind
+
+ME ME_51CE86080034
+ MEPROP UID '51CE86080034'
+ MEPROP Name 'ContextMenuWeight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51CE8657026A // Value
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51CE863501D2 // ContextMenuWeight
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_51CE86080034 // wiki
+ ME_470484D50138_ME_51CE86080034 // wiki_up_add_gen
+ ME_4704C0E30186_ME_51CE86080034 // constraint
+ ME_4705CBD6003E_ME_51CE86080034 // wiki_child_kind
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMForm\ContextMenuWeight'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_51CE86080034 ContextMenuWeight
+
+ME ME_4B5DA8B0018D
+ MEPROP UID '4B5DA8B0018D'
+ MEPROP Name 'ZoneType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Тип зоны' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MEPROP Value 'Any|Parent|Child|Main|Navigator|Modal|SimpleFloat|ManualModal|Floating'
+ UP extprop:pas:Value 'Any|Parent|Child|Main|Navigator|Modal|SimpleFloat|ManualModal|Floating'
+
+ENDME // ME_4B5DA8B0018D ZoneType
+
+ME ME_4FFD5874000D
+ MEPROP UID '4FFD5874000D'
+ MEPROP Name 'restrict form def'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_4FFD5874000D restrict form def
+
+ME ME_4B5DE4800324
+ MEPROP UID '4B5DE4800324'
+ MEPROP Name 'HasUserType'
+ MEPROP Class class_Operation
+ %SUMMARY 'Есть ли UserType''ы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B5DE4800324 HasUserType
+
+ME ME_4B5DE48F01D4
+ MEPROP UID '4B5DE48F01D4'
+ MEPROP Name 'HasUserTypeRec'
+ MEPROP Class class_Operation
+ %SUMMARY 'Есть ли UserType''ы (рекурсивно)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B5DE48F01D4 HasUserTypeRec
+
+ME ME_4B5F28CD00A9
+ MEPROP UID '4B5F28CD00A9'
+ MEPROP Name 'IsVCMFinalForm'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B5F28CD00A9 IsVCMFinalForm
+
+ME ME_4BDB046402D7
+ MEPROP UID '4BDB046402D7'
+ MEPROP Name 'NeedsInitEntities'
+ MEPROP Class class_Operation
+ %SUMMARY 'Надо ли выводить перекрытие процедуры InitEntities' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BDB046402D7 NeedsInitEntities
+
+ME ME_4BDB047F02CD
+ MEPROP UID '4BDB047F02CD'
+ MEPROP Name 'ImplementsSomeVCMOperation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Реализует ли хоть одну операцию VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BDB047F02CD ImplementsSomeVCMOperation
+
+FORWARD ME_4B0402290215
+
+ME ME_4B0402520391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target HWL ME_4B0402290215 // UserType
+ ;
+
+ENDME // ME_4B0402520391 
+
+ME ME_4A794CC70006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_4A794CA201BF' '4B5DCCB9015E.ms.model.script' // Control
+ ;
+
+ENDME // ME_4A794CC70006 
+
+ME ME_4A83F23901EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_4A83F1EB00AB' '4B5DCCB9015E.ms.model.script' // ControlOverride
+ ;
+
+ENDME // ME_4A83F23901EA 
+
+FORWARD ME_4BDAFC17020A
+
+ME ME_4BDAFC3B033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target HWL ME_4BDAFC17020A // ExcludeUserTypes
+ ;
+
+ENDME // ME_4BDAFC3B033F 
+
+FORWARD ME_4C342272021C
+
+ME ME_4C3422CC002F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target HWL ME_4C342272021C // IncludeUserTypes
+ ;
+
+ENDME // ME_4C3422CC002F 
+
+ME ME_4FFC691200CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_4BD853F50147' '4B62F51F0182.ms.model.script' // VCMFormDefinition
+ ;
+
+ENDME // ME_4FFC691200CC 
+
+ME ME_54DB61C60115
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B5DA84A00DD // VCMForm
+ ;
+ MELINK Target WL 'ME_4F2C0D86003E' '473A7FCA0203.ms.model.script' // ScriptKeyword
+ ;
+
+ENDME // ME_54DB61C60115 
+
+ME ME_4B5DA84A00DD
+ MEPROP UID '4B5DA84A00DD'
+ MEPROP Name 'VCMForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4947E2F10338' '4B5F24920336.ms.model.script' // VCMCustomForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B5DA8B0018D // ZoneType
+ HWL ME_4FFD5874000D // restrict form def
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B5DE4800324 // HasUserType
+ HWL ME_4B5DE48F01D4 // HasUserTypeRec
+ HWL ME_4B5F28CD00A9 // IsVCMFinalForm
+ HWL ME_4BDB046402D7 // NeedsInitEntities
+ HWL ME_4BDB047F02CD // ImplementsSomeVCMOperation
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_494B848E003E // ViewArea
+ HWL ME_496A21CE0209 // UseCase
+ HWL ME_502128C500BE // GroupItemsInContextMenu
+ HWL ME_502149B8006C // ToolbarAtBottom
+ HWL ME_51CE86080034 // ContextMenuWeight
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B0402520391 // UserType
+ ME_4A794CC70006 // Control
+ ME_4A83F23901EA // ControlOverride
+ ME_4BDAFC3B033F // ExcludeUserTypes
+ ME_4C3422CC002F // IncludeUserTypes
+ ME_4FFC691200CC // VCMFormDefinition
+ ME_54DB61C60115 // ScriptKeyword
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMForm'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMForm.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B5DA84A00DD VCMForm
+
+FORWARD ME_4947FD1201CE
+
+FORWARD ME_4A797F2E017E
+
+ME ME_4A797F5F0181
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4947FD1201CE // VCMContainer
+ ;
+ MELINK Target HWL ME_4A797F2E017E // VCMFormZone
+ ;
+
+ENDME // ME_4A797F5F0181 
+
+ME ME_4947FD1201CE
+ MEPROP UID '4947FD1201CE'
+ MEPROP Name 'VCMContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма-контейнер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B5DA84A00DD // VCMForm
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4A797F5F0181 // VCMFormZone
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMContainer'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMContainer.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4947FD1201CE VCMContainer
+
+ME ME_46E6D4BB0339_ME_4B040B8B0071
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4B040B8B0071 wiki
+
+ME ME_470484D50138_ME_4B040B8B0071
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4B040B8B0071 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4B040B8B0071
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4B040B8B0071 constraint
+
+ME ME_4705CBD6003E_ME_4B040B8B0071
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4B040B8B0071 wiki_child_kind
+
+ME ME_4B040B8B0071
+ MEPROP UID '4B040B8B0071'
+ MEPROP Name 'link'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4B040B8B0071 // wiki
+ ME_470484D50138_ME_4B040B8B0071 // wiki_up_add_gen
+ ME_4704C0E30186_ME_4B040B8B0071 // constraint
+ ME_4705CBD6003E_ME_4B040B8B0071 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "abstraction type" 'f'
+ UP "link type" 'l'
+ UP "personal label" 'code_property'
+ UP "visability type" '#'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\UserType\link'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B040B8B0071 link
+
+ME ME_4B0402BE0299
+ MEPROP UID '4B0402BE0299'
+ MEPROP Name 'VisibleToUser'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Видим пользователю' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_4B0402BE0299 VisibleToUser
+
+ME ME_4B04031C01C9
+ MEPROP UID '4B04031C01C9'
+ MEPROP Name 'ImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MEPROP Value '-1'
+ UP extprop:pas:Value '-1'
+
+ENDME // ME_4B04031C01C9 ImageIndex
+
+ME ME_4B04032A0110
+ MEPROP UID '4B04032A0110'
+ MEPROP Name 'SettingsCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+
+ENDME // ME_4B04032A0110 SettingsCaption
+
+ME ME_4B04033C020C
+ MEPROP UID '4B04033C020C'
+ MEPROP Name 'Weight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MEPROP Value '-1'
+ UP extprop:pas:Value '-1'
+
+ENDME // ME_4B04033C020C Weight
+
+ME ME_4B0403D400F7
+ MEPROP UID '4B0403D400F7'
+ MEPROP Name 'NeedOnQueryMaximized'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужен ли обработчик OnQueryMaximized' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4B0403D400F7 NeedOnQueryMaximized
+
+ME ME_4B0403F6035F
+ MEPROP UID '4B0403F6035F'
+ MEPROP Name 'NeedOnQueryOpen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужен ли обработчик OnQueryOpen' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4B0403F6035F NeedOnQueryOpen
+
+ME ME_4B040434029E
+ MEPROP UID '4B040434029E'
+ MEPROP Name 'NeedOnQueryClose'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужен ли обработчик OnQueryClose' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4B040434029E NeedOnQueryClose
+
+ME ME_5006A83C0048
+ MEPROP UID '5006A83C0048'
+ MEPROP Name 'CanHaveToolbars'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_5006A83C0048 CanHaveToolbars
+
+ME ME_4B0421B502D4
+ MEPROP UID '4B0421B502D4'
+ MEPROP Name 'IsUserType'
+ MEPROP Class class_Operation
+ %SUMMARY 'Является ли UserType''ом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B0421B502D4 IsUserType
+
+ME ME_4B0423CE01F3
+ MEPROP UID '4B0423CE01F3'
+ MEPROP Name 'PutToMakeControls'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+
+ENDME // ME_4B0423CE01F3 PutToMakeControls
+
+ME ME_4B0423E502D2
+ MEPROP UID '4B0423E502D2'
+ MEPROP Name 'NeedPutToMakeControls'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B0423E502D2 NeedPutToMakeControls
+
+ME ME_4BD1C4FC01E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+
+ENDME // ME_4BD1C4FC01E4 
+
+ME ME_4EE1E4CB02E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+
+ENDME // ME_4EE1E4CB02E4 
+
+ME ME_54DDBF1D01B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+ MELINK Target WL 'ME_4F2C0D86003E' '473A7FCA0203.ms.model.script' // ScriptKeyword
+ ;
+
+ENDME // ME_54DDBF1D01B9 
+
+ME ME_5746EA2A0254
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B0402290215 // UserType
+ ;
+
+ENDME // ME_5746EA2A0254 
+
+ME ME_4704C0E30186_ME_4B0402290215
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4B0402290215 constraint
+
+ME ME_4BD70B950302_ME_4B0402290215
+ MELINK Original WL 'ME_4BD70B950302' '4A95156202EB.ms.model.script' // UserTypeID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BD70B950302_ME_4B0402290215 UserTypeID
+
+ME ME_4B0402290215
+ MEPROP UID '4B0402290215'
+ MEPROP Name 'UserType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пользовательский тип формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BD70B860015' '4A95156202EB.ms.model.script' // UserTypeIDHolder
+ HWL ME_4F72C6E703C7 // CanCloseHolder
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B0402BE0299 // VisibleToUser
+ HWL ME_4B04031C01C9 // ImageIndex
+ HWL ME_4B04032A0110 // SettingsCaption
+ HWL ME_4B04033C020C // Weight
+ HWL ME_4B0403D400F7 // NeedOnQueryMaximized
+ HWL ME_4B0403F6035F // NeedOnQueryOpen
+ HWL ME_4B040434029E // NeedOnQueryClose
+ HWL ME_5006A83C0048 // CanHaveToolbars
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B0421B502D4 // IsUserType
+ HWL ME_4B0423CE01F3 // PutToMakeControls
+ HWL ME_4B0423E502D2 // NeedPutToMakeControls
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4B0402290215 // constraint
+ ME_4BD70B950302_ME_4B0402290215 // UserTypeID
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4B040B8B0071 // link
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BD1C4FC01E4 // 
+ ME_4EE1E4CB02E4 // 
+ ME_54DDBF1D01B9 // ScriptKeyword
+ ME_5746EA2A0254 // 
+ )
+ ; // Dependencies
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_vcm_usertype'
+ UP "visability type" '+'
+ UP "visualization bg color" 10025880
+ UP "visualization f-font color" 37632
+ UP "visualization f-line color" 37632
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\UserType'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\UserType.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B0402290215 UserType
+
+FORWARD ME_4C3AF75101F2
+
+ME ME_4C3AF7970093
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4BDAFC17020A // ExcludeUserTypes
+ ;
+ MELINK Target HWL ME_4C3AF75101F2 // FakeChild
+ ;
+
+ENDME // ME_4C3AF7970093 
+
+ME ME_4704C0E30186_ME_4BDAFC17020A
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4BDAFC17020A constraint
+
+ME ME_4BDAFC17020A
+ MEPROP UID '4BDAFC17020A'
+ MEPROP Name 'ExcludeUserTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Исключения обработки операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4BDAFC17020A // constraint
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C3AF7970093 // FakeChild
+ )
+ ; // Dependencies
+ UP "abstraction type" 'f'
+ UP "has derived impl" True
+ UP "personal label" 'code_vcm_excludeusertypes'
+ UP "visability type" '-'
+ UP "visualization bg color" 10066425
+ UP "visualization f-font color" 255
+ UP "visualization f-line color" 255
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\ExcludeUserTypes'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\ExcludeUserTypes.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4BDAFC17020A ExcludeUserTypes
+
+ME ME_4C342272021C
+ MEPROP UID '4C342272021C'
+ MEPROP Name 'IncludeUserTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Включения обработки операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BDAFC17020A // ExcludeUserTypes
+ )
+ ; // Inherits
+ UP "personal label" 'code_vcm_includeusertypes'
+ UP "visualization bg color" 10156124
+ UP "visualization f-font color" 37632
+ UP "visualization f-line color" 37632
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\IncludeUserTypes'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\IncludeUserTypes.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4C342272021C IncludeUserTypes
+
+ME ME_4C3AF75101F2
+ MEPROP UID '4C3AF75101F2'
+ MEPROP Name 'FakeChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фиктивный элемент для возможности рисования диаграмм у элементов, которые его включают' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ UP "abstraction type" 'a'
+ UP "visability type" '-'
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\FakeChild'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\FakeChild.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4C3AF75101F2 FakeChild
+
+ME ME_4D7A410B0366
+ MEPROP UID '4D7A410B0366'
+ MEPROP Name 'MergeTopTollbarWithContainer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A797F2E017E // VCMFormZone
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4D7A410B0366 MergeTopTollbarWithContainer
+
+ME ME_4D7A4123008E
+ MEPROP UID '4D7A4123008E'
+ MEPROP Name 'MergeBottomTollbarWithContainer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A797F2E017E // VCMFormZone
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4D7A4123008E MergeBottomTollbarWithContainer
+
+ME ME_4A797F2E017E
+ MEPROP UID '4A797F2E017E'
+ MEPROP Name 'VCMFormZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Зона внутри формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5F322B004D // VCMForms
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A797DC60043' '4A95156202EB.ms.model.script' // VCMZonePrim
+ HWL ME_4F72C6E703C7 // CanCloseHolder
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D7A410B0366 // MergeTopTollbarWithContainer
+ HWL ME_4D7A4123008E // MergeBottomTollbarWithContainer
+ )
+ ; // Attributes
+ UP "visualization bg color" 6008319
+ UP "visualization f-font color" 6008319
+ UP "visualization f-line color" 2124031
+ UP "visualization font color" 0
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMFormZone'
+ UP mda:Path 'MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms\VCMFormZone.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A797F2E017E VCMFormZone
+
+ME ME_4B5F322B004D
+ MEPROP UID '4B5F322B004D'
+ MEPROP Name 'VCMForms'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Формы VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B62F01802BC' '4B62F01802BC.ms.model.script' // VCMViewImplementationLayer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F72C6E703C7 // CanCloseHolder
+ HWL ME_496A216D0337 // VCMController
+ HWL ME_4B5DA84A00DD // VCMForm
+ HWL ME_4947FD1201CE // VCMContainer
+ HWL ME_4B0402290215 // UserType
+ HWL ME_4BDAFC17020A // ExcludeUserTypes
+ HWL ME_4C342272021C // IncludeUserTypes
+ HWL ME_4C3AF75101F2 // FakeChild
+ HWL ME_4A797F2E017E // VCMFormZone
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_4729C4880157' '4729C4880157.ms.model.script' // Interface
+ WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ WL 'ME_4A95156202EB' '4A95156202EB.ms.model.script' // MixIns
+ WL 'ME_4B5DCCB9015E' '4B5DCCB9015E.ms.model.script' // FormInner
+ WL 'ME_4B5F24920336' '4B5F24920336.ms.model.script' // CustomForms
+ WL 'ME_4B62F51F0182' '4B62F51F0182.ms.model.script' // VCMUserInteraction
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms'
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\VCMForms'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B5F322B004D VCMForms

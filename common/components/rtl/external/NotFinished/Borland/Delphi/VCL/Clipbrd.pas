@@ -19,6 +19,8 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ //#UC START# *482C8482030Eimpl_uses*
+ //#UC END# *482C8482030Eimpl_uses*
 ;
 
 procedure Clipboard;

@@ -47,6 +47,8 @@ implementation
 uses
  l3ImplUses
  , DesignIntf
+ //#UC START# *52A1F018005Bimpl_uses*
+ //#UC END# *52A1F018005Bimpl_uses*
 ;
 {$IfEnd} // NOT Defined(XE)
 

@@ -131,6 +131,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , CustomFormProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47E13C6B0341impl_uses*
+ //#UC END# *47E13C6B0341impl_uses*
 ;
 
 procedure Application;

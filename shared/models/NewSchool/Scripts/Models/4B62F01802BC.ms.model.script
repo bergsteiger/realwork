@@ -1,0 +1,38 @@
+// VCMViewImplementationLayer 4B62F01802BC MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4B62F01802BC
+ MEPROP UID '4B62F01802BC'
+ MEPROP Name 'VCMViewImplementationLayer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'Уровень реализации представления' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_492E8F8603C3' '492E8F8603C3.ms.model.script' // VCMTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4B5DCCB9015E' '4B5DCCB9015E.ms.model.script' // FormInner
+ WL 'ME_4B5F24920336' '4B5F24920336.ms.model.script' // CustomForms
+ WL 'ME_4B5F322B004D' '4B5F322B004D.ms.model.script' // VCMForms
+ WL 'ME_4B5F324E0023' '4B5F324E0023.ms.model.script' // FinalVCMForms
+ WL 'ME_4B5F3B1F0044' '4B5F3B1F0044.ms.model.script' // FormSetFactory
+ WL 'ME_4947E25703A8' '4947E25703A8.ms.model.script' // FormsPack
+ WL 'ME_4B62F77B031E' '4B62F77B031E.ms.model.script' // VCMFormsPackages
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ WL 'ME_4729C41D032C' '4729C41D032C.ms.model.script' // DelphiLang
+ WL 'ME_4B62DE6100ED' '4B62DE6100ED.ms.model.script' // VCMCore
+ WL 'ME_4B62EC84020F' '4B62EC84020F.ms.model.script' // VCMViewInterfacesLayer
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer'
+ UP mda:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B62F01802BC VCMViewImplementationLayer

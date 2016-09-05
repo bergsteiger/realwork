@@ -1,0 +1,71 @@
+// Отображение списков 4E365B6002CA UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E365B6002CA
+
+FORWARD ME_4E365B7F023B
+
+ME ME_4F54AFDF01F3
+ MEPROP UID '4F54AFDF01F3'
+ MEPROP Name 'Структура документа должна показываться своим собственным стилем'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336142662}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E365B7F023B // Отдельная настройка шрифта в панели навигации
+ ;
+
+ENDME // ME_4F54AFDF01F3 Структура документа должна показываться своим собственным стилем
+
+ME ME_4F54B0740014
+ MEPROP UID '4F54B0740014'
+ MEPROP Name 'Рубрикатор должен показываться стилем Текст'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336142662}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E365B7F023B // Отдельная настройка шрифта в панели навигации
+ ;
+
+ENDME // ME_4F54B0740014 Рубрикатор должен показываться стилем Текст
+
+ME ME_4E365B7F023B
+ MEPROP UID '4E365B7F023B'
+ MEPROP Name 'Отдельная настройка шрифта в панели навигации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:96475831}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E365B6002CA // Отображение списков
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F54AFDF01F3 // Структура документа должна показываться своим собственным стилем
+ HWL ME_4F54B0740014 // Рубрикатор должен показываться стилем Текст
+ )
+ ; // Children
+
+ENDME // ME_4E365B7F023B Отдельная настройка шрифта в панели навигации
+
+ME ME_4E365B6002CA
+ MEPROP UID '4E365B6002CA'
+ MEPROP Name 'Отображение списков'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E365B7F023B // Отдельная настройка шрифта в панели навигации
+ )
+ ; // Children
+
+ENDME // ME_4E365B6002CA Отображение списков

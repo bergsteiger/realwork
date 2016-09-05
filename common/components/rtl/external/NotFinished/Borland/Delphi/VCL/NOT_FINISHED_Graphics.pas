@@ -124,6 +124,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *47D15712022Dimpl_uses*
+ //#UC END# *47D15712022Dimpl_uses*
 ;
 
 procedure ColorToRGB;

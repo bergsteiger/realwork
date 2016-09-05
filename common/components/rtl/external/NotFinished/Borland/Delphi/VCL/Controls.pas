@@ -291,6 +291,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , ScrollInfoProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *47E11FC3021Eimpl_uses*
+ //#UC END# *47E11FC3021Eimpl_uses*
 ;
 
 procedure FindControl;

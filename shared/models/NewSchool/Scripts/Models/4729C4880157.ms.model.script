@@ -1,0 +1,1092 @@
+// Interface 4729C4880157 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4729C4880157
+
+FORWARD ME_4B6BF66900BF
+
+ME ME_4B6BF76902E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+
+ENDME // ME_4B6BF76902E2 
+
+ME ME_4B6BF78B00D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+
+ENDME // ME_4B6BF78B00D7 
+
+ME ME_4B6BF7AA00D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+
+ENDME // ME_4B6BF7AA00D3 
+
+ME ME_4B6BF7BC038C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+
+ENDME // ME_4B6BF7BC038C 
+
+ME ME_4B6BF7C40018
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+
+ENDME // ME_4B6BF7C40018 
+
+ME ME_4B6BF915016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+ MELINK Target WL 'ME_4721B0380203' '4936A16E0294.ms.model.script' // Range
+ ;
+
+ENDME // ME_4B6BF915016F 
+
+FORWARD ME_4721B1C60157
+
+ME ME_4B6BF93F00E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+ MELINK Target HWL ME_4721B1C60157 // SetOf
+ ;
+
+ENDME // ME_4B6BF93F00E7 
+
+ME ME_4B6BFA37033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+
+ENDME // ME_4B6BFA37033D 
+
+FORWARD ME_4721B14D00AB
+
+ME ME_4B6BFD8C0377
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ ;
+ MELINK Target HWL ME_4721B14D00AB // SetConst
+ ;
+
+ENDME // ME_4B6BFD8C0377 
+
+ME ME_4B6BF66900BF
+ MEPROP UID '4B6BF66900BF'
+ MEPROP Name 'InterfaceTypesInclude'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь для включения стереотипом интерфейсных типов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B6BF76902E2 // 
+ ME_4B6BF78B00D7 // 
+ ME_4B6BF7AA00D3 // 
+ ME_4B6BF7BC038C // 
+ ME_4B6BF7C40018 // 
+ ME_4B6BF915016F // Range
+ ME_4B6BF93F00E7 // SetOf
+ ME_4B6BFA37033D // 
+ ME_4B6BFD8C0377 // SetConst
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\InterfaceTypesInclude'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\InterfaceTypesInclude.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B6BF66900BF InterfaceTypesInclude
+
+ME ME_4721B211000F
+ MEPROP UID '4721B211000F'
+ MEPROP Name 'force usage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'явно определяет, что элемент будет кем-то использован (нужно для проверки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4721B1C60157 // SetOf
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4721B211000F force usage
+
+ME ME_46E6D4BB0339_ME_4721B1C60157
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4721B1C60157 wiki
+
+ME ME_4704C0E30186_ME_4721B1C60157
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4721B1C60157 constraint
+
+ME ME_4721B1C60157
+ MEPROP UID '4721B1C60157'
+ MEPROP Name 'SetOf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Множество'#13#10'---'#13#10'Декларация типа определяет производный тип - множество значений исходного. Исходный задаются как базовый класс (связь наследования).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4721B211000F // force usage
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4721B1C60157 // wiki
+ ME_4704C0E30186_ME_4721B1C60157 // constraint
+ )
+ ; // Implemented
+ UP "disable forward decl" True
+ UP "personal label" 'code_setof'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 15781360
+ UP "visualization f-font color" 7874680
+ UP "visualization f-line color" 7874680
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\SetOf'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\SetOf.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4721B1C60157 SetOf
+
+ME ME_4721B18901F4
+ MEPROP UID '4721B18901F4'
+ MEPROP Name 'force usage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'явно определяет, что элемент будет кем-то использован (нужно для проверки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4721B14D00AB // SetConst
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4721B18901F4 force usage
+
+ME ME_4704C0E30186_ME_4721B14D00AB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4721B14D00AB constraint
+
+ME ME_4721B14D00AB
+ MEPROP UID '4721B14D00AB'
+ MEPROP Name 'SetConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константа из множества'#13#10'---'#13#10'Определяет константное множество. Тип множества задаются как базовый класс (связь наследования).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4721B18901F4 // force usage
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4721B14D00AB // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_set_const'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 16119285
+ UP "visualization f-font color" 6579300
+ UP "visualization f-line color" 6579300
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\SetConst'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\SetConst.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4721B14D00AB SetConst
+
+FORWARD ME_4729C4CF00AB
+
+FORWARD ME_4739862802BF
+
+ME ME_473989AA002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4729C4CF00AB // DelphiPackageInclude
+ ;
+ MELINK Target HWL ME_4739862802BF // StaticObject
+ ;
+
+ENDME // ME_473989AA002E 
+
+ME ME_4729C4CF00AB
+ MEPROP UID '4729C4CF00AB'
+ MEPROP Name 'DelphiPackageInclude'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный стереотип, включает в себя стереотипы, которые могут находится как в пакете интерфейсов, так и в пакете имплементации СПЕЦИФИЧНЫХ для Дельфи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_473989AA002E // StaticObject
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\DelphiPackageInclude'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\DelphiPackageInclude.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4729C4CF00AB DelphiPackageInclude
+
+FORWARD ME_473A80A70213
+
+FORWARD ME_498090FE0150
+
+ME ME_498091C200C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_473A80A70213 // Interfaces
+ ;
+ MELINK Target HWL ME_498090FE0150 // ObjStub
+ ;
+
+ENDME // ME_498091C200C7 
+
+ME ME_473A80A70213
+ MEPROP UID '473A80A70213'
+ MEPROP Name 'Interfaces'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перекрытие стандартного стереотипа Interface' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4729C4CF00AB // DelphiPackageInclude
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_498091C200C7 // ObjStub
+ )
+ ; // Dependencies
+ UP "disable forward decl" True
+ UP "personal label" 'code_interfaces'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP "visualization f-line color" 16714250
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\Interfaces'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\Interfaces.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_473A80A70213 Interfaces
+
+ME ME_498090FE0150
+ MEPROP UID '498090FE0150'
+ MEPROP Name 'ObjStub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс реализации в виде интерфейса'#13#10'---'#13#10'Хак для рисования объектов в виде интерфейса. [$136252986]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\ObjStub'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\ObjStub.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_498090FE0150 ObjStub
+
+FORWARD ME_4B6BFF45025F
+
+ME ME_4B6BFF7B02F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BFF45025F // FacetIncludePrim
+ ;
+ MELINK Target HWL ME_4739862802BF // StaticObject
+ ;
+
+ENDME // ME_4B6BFF7B02F1 
+
+FORWARD ME_49D0EBE60338
+
+ME ME_4B6BFF83032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B6BFF45025F // FacetIncludePrim
+ ;
+ MELINK Target HWL ME_49D0EBE60338 // PureMixIn
+ ;
+
+ENDME // ME_4B6BFF83032D 
+
+ME ME_4B6BFF45025F
+ MEPROP UID '4B6BFF45025F'
+ MEPROP Name 'FacetIncludePrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы включаемые в Facet и его аналоги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4B6BFF7B02F1 // StaticObject
+ ME_4B6BFF83032D // PureMixIn
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\FacetIncludePrim'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\FacetIncludePrim.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B6BFF45025F FacetIncludePrim
+
+FORWARD ME_4F2A9A06021D
+
+FORWARD ME_4E82C72002E9
+
+ME ME_4E82C7DD03C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4F2A9A06021D // FacetInclude
+ ;
+ MELINK Target HWL ME_4E82C72002E9 // facetmethod
+ ;
+
+ENDME // ME_4E82C7DD03C4 
+
+ME ME_52E286620317
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4F2A9A06021D // FacetInclude
+ ;
+
+ENDME // ME_52E286620317 
+
+ME ME_4F2A9A06021D
+ MEPROP UID '4F2A9A06021D'
+ MEPROP Name 'FacetInclude'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B6BFF45025F // FacetIncludePrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4E82C7DD03C4 // facetmethod
+ ME_52E286620317 // 
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\FacetInclude'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\FacetInclude.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4F2A9A06021D FacetInclude
+
+FORWARD ME_4B7034B20297
+
+ME ME_4B7034DF0103
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B7034B20297 // Struct
+ ;
+ MELINK Target WL 'ME_4AE024D60148' '49CB456E025C.ms.model.script' // Constructor
+ ;
+
+ENDME // ME_4B7034DF0103 
+
+FORWARD ME_4B7EBC4002E1
+
+ME ME_4DF0F0A8029E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B7034B20297 // Struct
+ ;
+ MELINK Target HWL ME_4B7EBC4002E1 // Define
+ ;
+
+ENDME // ME_4DF0F0A8029E 
+
+FORWARD ME_4B7ECBCF0091
+
+ME ME_4DF0F0B1016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4B7034B20297 // Struct
+ ;
+ MELINK Target HWL ME_4B7ECBCF0091 // Undef
+ ;
+
+ENDME // ME_4DF0F0B1016B 
+
+ME ME_4B7034B20297
+ MEPROP UID '4B7034B20297'
+ MEPROP Name 'Struct'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Структура' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B7034DF0103 // Constructor
+ ME_4DF0F0A8029E // Define
+ ME_4DF0F0B1016B // Undef
+ )
+ ; // Dependencies
+ UP "inherite constraints" False
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\Struct'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\Struct.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B7034B20297 Struct
+
+FORWARD ME_499D6E6D0319
+
+ME ME_572C893602E2
+ MEPROP UID '572C893602E2'
+ MEPROP Name 'register in scripts'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499D6E6D0319 // Facet
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_572C893602E2 register in scripts
+
+ME ME_499D6E6D0319
+ MEPROP UID '499D6E6D0319'
+ MEPROP Name 'Facet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F2A9A06021D // FacetInclude
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_572C893602E2 // register in scripts
+ )
+ ; // Attributes
+ UP "abstraction type" 'ra'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\Facet'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\Facet.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_499D6E6D0319 Facet
+
+ME ME_4B6C2D8B00B1
+ MEPROP UID '4B6C2D8B00B1'
+ MEPROP Name 'StaticObjectPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Заплатка, так как по человечески включение через примесь не работает' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B7034B20297 // Struct
+ )
+ ; // Inherits
+ UP "inherite constraints" False
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObjectPrim'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObjectPrim.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B6C2D8B00B1 StaticObjectPrim
+
+ME ME_4705CBD6003E_ME_47398BF3004E
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47398BF3004E wiki_child_kind
+
+ME ME_47398BF3004E
+ MEPROP UID '47398BF3004E'
+ MEPROP Name 'attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MELIST Implemented
+   Seq: ( ME_4705CBD6003E_ME_47398BF3004E // wiki_child_kind
+ )
+ ; // Implemented
+ UP "abstraction type" 'fr'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" True
+ UP "visability type" '+#-'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObject\attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47398BF3004E attr
+
+FORWARD ME_47398C2B001F
+
+ME ME_56B4DD02022A
+ MEPROP UID '56B4DD02022A'
+ MEPROP Name 'Param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47398C2B001F // operation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4976EB82018C' '46E80398003B.ms.model.script' // Ifdef
+ )
+ ; // Inherits
+ UP "personal label" 'code_param'
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObject\operation\Param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_56B4DD02022A Param
+
+ME ME_4705CBD6003E_ME_47398C2B001F
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47398C2B001F wiki_child_kind
+
+ME ME_47398C2B001F
+ MEPROP UID '47398C2B001F'
+ MEPROP Name 'operation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MELIST Implemented
+   Seq: ( ME_4705CBD6003E_ME_47398C2B001F // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_56B4DD02022A // Param
+ )
+ ; // Children
+ UP "abstraction type" 'fr'
+ UP "empty target" True
+ UP "personal label" 'code_method'
+ UP "unstereotyped" True
+ UP "visability type" '+#-'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObject\operation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47398C2B001F operation
+
+ME ME_46E6D4BB0339_ME_47E0E4970192
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_47E0E4970192 wiki
+
+ME ME_470484D50138_ME_47E0E4970192
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_47E0E4970192 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_47E0E4970192
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47E0E4970192 constraint
+
+ME ME_4705CBD6003E_ME_47E0E4970192
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4705CBD6003E_ME_47E0E4970192 wiki_child_kind
+
+ME ME_47E0E4970192
+ MEPROP UID '47E0E4970192'
+ MEPROP Name 'ctor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конструктор.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47398C2B001F // operation
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_47E0E4970192 // wiki
+ ME_470484D50138_ME_47E0E4970192 // wiki_up_add_gen
+ ME_4704C0E30186_ME_47E0E4970192 // constraint
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4705CBD6003E_ME_47E0E4970192 // wiki_child_kind
+ )
+ ; // Overridden
+ UP "abstraction type" 'f'
+ UP "empty target" True
+ UP "personal label" 'code_ctor'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObject\ctor'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47E0E4970192 ctor
+
+ME ME_4E0AFFF702A6
+ MEPROP UID '4E0AFFF702A6'
+ MEPROP Name 'readonly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ UP "abstraction type" 'f'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObject\readonly'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E0AFFF702A6 readonly
+
+ME ME_47398D3B00FA
+ MEPROP UID '47398D3B00FA'
+ MEPROP Name 'packed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет упакованность структуры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_47398D3B00FA packed
+
+ME ME_4A4251CE01FB
+ MEPROP UID '4A4251CE01FB'
+ MEPROP Name 'IsAutoHelper'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что объект является автоматическим helper''ом для интерфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4A4251CE01FB IsAutoHelper
+
+ME ME_51E56CDF01AC
+ MEPROP UID '51E56CDF01AC'
+ MEPROP Name 'not treat as record for XE4'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_51E56CDF01AC not treat as record for XE4
+
+ME ME_4E0B58C0032F
+ MEPROP UID '4E0B58C0032F'
+ MEPROP Name 'IsConstructorsHolder'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4E0B58C0032F IsConstructorsHolder
+
+ME ME_4B6C321802F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+
+ENDME // ME_4B6C321802F6 
+
+ME ME_4B6C3BB602D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4739862802BF // StaticObject
+ ;
+ MELINK Target WL 'ME_4AE024D60148' '49CB456E025C.ms.model.script' // Constructor
+ ;
+
+ENDME // ME_4B6C3BB602D3 
+
+ME ME_4704C0E30186_ME_4739862802BF
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_4739862802BF constraint
+
+ME ME_4739862802BF
+ MEPROP UID '4739862802BF'
+ MEPROP Name 'StaticObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Статический объект'#13#10'---'#13#10'Определяет элемент реализации (пока может находится в интерфейсных пакетах, потом должен быть перенёс только в пакеты реализации), экземпляры которого можно создавать на стеке. Аналог Struct, но с методами и наследованием.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ HWL ME_4B6C2D8B00B1 // StaticObjectPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47398D3B00FA // packed
+ HWL ME_4A4251CE01FB // IsAutoHelper
+ HWL ME_51E56CDF01AC // not treat as record for XE4
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E0B58C0032F // IsConstructorsHolder
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_4739862802BF // constraint
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47398BF3004E // attr
+ HWL ME_47398C2B001F // operation
+ HWL ME_47E0E4970192 // ctor
+ HWL ME_4E0AFFF702A6 // readonly
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B6C321802F6 // 
+ ME_4B6C3BB602D3 // Constructor
+ )
+ ; // Dependencies
+ UP "disable forward decl" True
+ UP "has derived impl" True
+ UP "personal label" 'code_struct'
+ UP "visualization bg color" 13821680
+ UP "visualization f-font color" 2313060
+ UP "visualization f-line color" 2313060
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObject'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\StaticObject.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4739862802BF StaticObject
+
+ME ME_4B7EBC970190
+ MEPROP UID '4B7EBC970190'
+ MEPROP Name 'IsDefine'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B7EBC4002E1 // Define
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B7EBC970190 IsDefine
+
+ME ME_4B7EC8C803A5
+ MEPROP UID '4B7EC8C803A5'
+ MEPROP Name 'DefineKeyword'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B7EBC4002E1 // Define
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4B7EC8C803A5 DefineKeyword
+
+ME ME_4704C0E30186_ME_4B7EBC4002E1
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4B7EBC4002E1 constraint
+
+ME ME_4B7EBC4002E1
+ MEPROP UID '4B7EBC4002E1'
+ MEPROP Name 'Define'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Директива условной компиляции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B7EBC970190 // IsDefine
+ HWL ME_4B7EC8C803A5 // DefineKeyword
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_4B7EBC4002E1 // constraint
+ )
+ ; // Implemented
+ UP "abstraction type" 'f'
+ UP "personal label" 'code_define'
+ UP "visability type" '+-'
+ UP "visualization bg color" 16443110
+ UP "visualization f-font color" 6710886
+ UP "visualization f-line color" 6710886
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\Define'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\Define.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B7EBC4002E1 Define
+
+ME ME_4B7EC8C803A5_ME_4B7ECBCF0091
+ MELINK Original HWL ME_4B7EC8C803A5 // DefineKeyword
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B7EC8C803A5_ME_4B7ECBCF0091 DefineKeyword
+
+ME ME_4B7ECBCF0091
+ MEPROP UID '4B7ECBCF0091'
+ MEPROP Name 'Undef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отмена директивы условной компиляции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B7EBC4002E1 // Define
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4B7EC8C803A5_ME_4B7ECBCF0091 // DefineKeyword
+ )
+ ; // Overridden
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\Undef'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\Undef.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B7ECBCF0091 Undef
+
+ME ME_4E82C7620176
+ MEPROP UID '4E82C7620176'
+ MEPROP Name 'operation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сигнатура метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E82C72002E9 // facetmethod
+ ;
+ UP "abstraction type" 'f'
+ UP "empty target" True
+ UP "has exception" 'g'
+ UP "implementable" False
+ UP "personal label" 'code_method'
+ UP "unstereotyped" True
+ UP "visability type" '-'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\facetmethod\operation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E82C7620176 operation
+
+ME ME_5791CC9F0032
+ MEPROP UID '5791CC9F0032'
+ MEPROP Name 'OriginalStereotype'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E82C72002E9 // facetmethod
+ ;
+
+ENDME // ME_5791CC9F0032 OriginalStereotype
+
+ME ME_4E82C72002E9
+ MEPROP UID '4E82C72002E9'
+ MEPROP Name 'facetmethod'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод интерфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5791CC9F0032 // OriginalStereotype
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4E82C7620176 // operation
+ )
+ ; // Children
+ UP "abstraction type" 'a'
+ UP "implementable" True
+ UP "inherite constraints" False
+ UP "personal label" 'code_method'
+ UP "visability type" '+#'
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\facetmethod'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\facetmethod.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4E82C72002E9 facetmethod
+
+ME ME_4DF9E44800C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_49D0EBE60338 // PureMixIn
+ ;
+
+ENDME // ME_4DF9E44800C6 
+
+ME ME_49D0EBE60338
+ MEPROP UID '49D0EBE60338'
+ MEPROP Name 'PureMixIn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4729C4880157 // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499D6E6D0319 // Facet
+ HWL ME_4F2A9A06021D // FacetInclude
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4DF9E44800C6 // 
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface\PureMixIn'
+ UP mda:Path 'MDProcess\DelphiSpecific\DelphiLang\Interface\PureMixIn.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49D0EBE60338 PureMixIn
+
+ME ME_4729C4880157
+ MEPROP UID '4729C4880157'
+ MEPROP Name 'Interface'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой шаблонов, описывающих интерфейсные типы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4729C41D032C' '4729C41D032C.ms.model.script' // DelphiLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B6BF66900BF // InterfaceTypesInclude
+ HWL ME_4721B1C60157 // SetOf
+ HWL ME_4721B14D00AB // SetConst
+ HWL ME_4729C4CF00AB // DelphiPackageInclude
+ HWL ME_473A80A70213 // Interfaces
+ HWL ME_498090FE0150 // ObjStub
+ HWL ME_4B6BFF45025F // FacetIncludePrim
+ HWL ME_4F2A9A06021D // FacetInclude
+ HWL ME_4B7034B20297 // Struct
+ HWL ME_499D6E6D0319 // Facet
+ HWL ME_4B6C2D8B00B1 // StaticObjectPrim
+ HWL ME_4739862802BF // StaticObject
+ HWL ME_4B7EBC4002E1 // Define
+ HWL ME_4B7ECBCF0091 // Undef
+ HWL ME_4E82C72002E9 // facetmethod
+ HWL ME_49D0EBE60338 // PureMixIn
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_4936A16E0294' '4936A16E0294.ms.model.script' // Delphi Specific
+ WL 'ME_49CB456E025C' '49CB456E025C.ms.model.script' // ClassInner
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface'
+ UP mda:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\Interface'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4729C4880157 Interface
