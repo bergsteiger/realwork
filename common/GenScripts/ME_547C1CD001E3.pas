@@ -1,9 +1,9 @@
-unit csDIsconnect_Const;
+unit csDisconnect_Const;
 
-// Модуль: "w:\common\components\rtl\Garant\EVD\csDIsconnect_Const.pas"
+// Модуль: "w:\common\components\rtl\Garant\EVD\csDisconnect_Const.pas"
 // Стереотип: "Tag"
-// Элемент модели: "csDIsconnect" MUID: (547C1CD001E3)
-// Имя типа: "csDIsconnectTag"
+// Элемент модели: "csDisconnect" MUID: (547C1CD001E3)
+// Имя типа: "csDisconnectTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
@@ -14,7 +14,7 @@ uses
  , csMessageWithReply_Const
 ;
 
- // csDIsconnectTag
+ // csDisconnectTag
 
 implementation
 

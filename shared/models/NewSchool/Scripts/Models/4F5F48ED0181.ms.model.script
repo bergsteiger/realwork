@@ -1,0 +1,215 @@
+// EtalonsWorking 4F5F48ED0181 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F5F48ED0181
+
+ME ME_4F5F490D030B
+ MEPROP UID '4F5F490D030B'
+ MEPROP Name 'CheckOutputWithInput'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5F48ED0181 // EtalonsWorking
+ ;
+ UP "NameForScript" 'tests:CheckOutputWithInput'
+ UP extprop:pas:TypeName 'TkwCheckOutputWithInput'
+ UP extprop:pas:UnitName 'kwCheckOutputWithInput'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CheckOutputWithInput'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas'
+
+ENDME // ME_4F5F490D030B CheckOutputWithInput
+
+ME ME_4DD547B70001
+ MEPROP UID '4DD547B70001'
+ MEPROP Name 'CheckEtalon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F5F48ED0181 // EtalonsWorking
+ ;
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'tests:CheckEtalon'
+ UP "no hands" True
+ UP "started" '19.05.2011 20:39'
+ UP extprop:pas:TypeName 'TkwCheckEtalon'
+ UP extprop:pas:UnitName 'kwCheckEtalon'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CheckEtalon'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckEtalon.pas'
+
+ENDME // ME_4DD547B70001 CheckEtalon
+
+FORWARD ME_4F5F495003E0
+
+ME ME_555F531D0312
+ MEPROP UID '555F531D0312'
+ MEPROP Name 'EtalonNeeds64'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+
+ENDME // ME_555F531D0312 EtalonNeeds64
+
+ME ME_555F53390367
+ MEPROP UID '555F53390367'
+ MEPROP Name 'EtalonNeedsComputerName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+
+ENDME // ME_555F53390367 EtalonNeedsComputerName
+
+ME ME_555F534D01A0
+ MEPROP UID '555F534D01A0'
+ MEPROP Name 'EtalonNeedsOSName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+
+ENDME // ME_555F534D01A0 EtalonNeedsOSName
+
+ME ME_555F535F00CE
+ MEPROP UID '555F535F00CE'
+ MEPROP Name 'EtalonNeedsXE'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+
+ENDME // ME_555F535F00CE EtalonNeedsXE
+
+ME ME_4F5F49570039
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+ MELINK Target HWL ME_4F5F490D030B // CheckOutputWithInput
+ ;
+
+ENDME // ME_4F5F49570039 
+
+ME ME_4F5F495C0259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+ MELINK Target HWL ME_4DD547B70001 // CheckEtalon
+ ;
+
+ENDME // ME_4F5F495C0259 
+
+FORWARD ME_53FC3551023F
+
+ME ME_53FC35A40121
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+ MELINK Target HWL ME_53FC3551023F // test_ResolveInputFilePath
+ ;
+
+ENDME // ME_53FC35A40121 
+
+ME ME_555F52E402EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+ MELINK Target WL 'ME_555F49A0015B' '555F498C03BA.ms.model.script' // Tl3EtalonsService
+ ;
+
+ENDME // ME_555F52E402EC 
+
+ME ME_4F5F495003E0
+ MEPROP UID '4F5F495003E0'
+ MEPROP Name 'EtalonsWorkingPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5F48ED0181 // EtalonsWorking
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555F531D0312 // EtalonNeeds64
+ HWL ME_555F53390367 // EtalonNeedsComputerName
+ HWL ME_555F534D01A0 // EtalonNeedsOSName
+ HWL ME_555F535F00CE // EtalonNeedsXE
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F5F49570039 // CheckOutputWithInput
+ ME_4F5F495C0259 // CheckEtalon
+ ME_53FC35A40121 // test_ResolveInputFilePath
+ ME_555F52E402EC // Tl3EtalonsService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\EtalonsWorkingPack.pas'
+
+ENDME // ME_4F5F495003E0 EtalonsWorkingPack
+
+ME ME_53FC3551023F
+ MEPROP UID '53FC3551023F'
+ MEPROP Name 'test_ResolveInputFilePath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Описание:* добавляет к имени файла путь к директории TestSet, где хранятся исходные файлы.'#13#10'*Формат*'#13#10'{code}'#13#10'aFileName test:ResolveInputFilePath'#13#10'{code}'#13#10'где aFileName - имя файля без пути (!).'#13#10'Результат помещается в стек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5F48ED0181 // EtalonsWorking
+ ;
+ UP extprop:pas:TypeName 'TkwTestResolveInputFilePath'
+ UP extprop:pas:UnitName 'kwTestResolveInputFilePath'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TestResolveInputFilePath'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas'
+
+ENDME // ME_53FC3551023F test_ResolveInputFilePath
+
+ME ME_4F5F48ED0181
+ MEPROP UID '4F5F48ED0181'
+ MEPROP Name 'EtalonsWorking'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F5F490D030B // CheckOutputWithInput
+ HWL ME_4DD547B70001 // CheckEtalon
+ HWL ME_4F5F495003E0 // EtalonsWorkingPack
+ HWL ME_53FC3551023F // test_ResolveInputFilePath
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_555F498C03BA' '555F498C03BA.ms.model.script' // EtalonsServices
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+ UP "UseNewGen" True
+
+ENDME // ME_4F5F48ED0181 EtalonsWorking

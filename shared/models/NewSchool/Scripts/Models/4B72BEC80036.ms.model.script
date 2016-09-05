@@ -1,0 +1,113 @@
+// Windows 4B72BEC80036 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B72BEC80036
+
+FORWARD ME_4B72BED1017B
+
+ME ME_4CBD724403E7
+ MEPROP UID '4CBD724403E7'
+ MEPROP Name 'TJclStackInfoList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B72BED1017B // jclDebug
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'JclStackInfoList'
+
+ENDME // ME_4CBD724403E7 TJclStackInfoList
+
+ME ME_4B72BEEB00CA
+ MEPROP UID '4B72BEEB00CA'
+ MEPROP Name 'JclLastExceptStackList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72BED1017B // jclDebug
+ ;
+
+ENDME // ME_4B72BEEB00CA JclLastExceptStackList
+
+ME ME_4B72BED1017B
+ MEPROP UID '4B72BED1017B'
+ MEPROP Name 'jclDebug'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72BEC80036 // Windows
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B72BEEB00CA // JclLastExceptStackList
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4CBD724403E7 // TJclStackInfoList
+ )
+ ; // Children
+ UP "finished" False
+ UP "ifndef" 'notDebugStackTrace'
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_jclDebug.pas'
+
+ENDME // ME_4B72BED1017B jclDebug
+
+FORWARD ME_4E4A3D72001F
+
+ME ME_4E4A3D8E007E
+ MEPROP UID '4E4A3D8E007E'
+ MEPROP Name 'WinExec32AndWait'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4A3D72001F // JclMiscel
+ ;
+
+ENDME // ME_4E4A3D8E007E WinExec32AndWait
+
+ME ME_4E4A3D72001F
+ MEPROP UID '4E4A3D72001F'
+ MEPROP Name 'JclMiscel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72BEC80036 // Windows
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E4A3D8E007E // WinExec32AndWait
+ )
+ ; // Operations
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_JclMiscel.pas'
+
+ENDME // ME_4E4A3D72001F JclMiscel
+
+ME ME_4B72BEC80036
+ MEPROP UID '4B72BEC80036'
+ MEPROP Name 'Windows'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.ms.model.script' // JEDI
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B72BED1017B // jclDebug
+ HWL ME_4E4A3D72001F // JclMiscel
+ )
+ ; // Children
+ UP "path prefix" '/source/windows'
+ UP intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\windows'
+
+ENDME // ME_4B72BEC80036 Windows

@@ -1,0 +1,567 @@
+// KeyBoardInput 5019517A022F ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5019517A022F
+
+FORWARD ME_4DB1A01E01F4
+
+ME ME_4DB1A0660303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4DB1A0660303 
+
+ME ME_4DB1A0900097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL 'ME_47E7ABAE0110' '4799D29F033F.ms.model.script' // Menus
+ ;
+
+ENDME // ME_4DB1A0900097 
+
+ME ME_4DB1A0EF0161
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_4DB1A0EF0161 
+
+ME ME_4DB1BF440078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4DB1BF440078 
+
+ME ME_5507EA22015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB1A01E01F4 // Key
+ ;
+ MELINK Target WL 'ME_5506D3B202FA' '5506D079035B.ms.model.script' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA22015B 
+
+ME ME_4DB1A01E01F4
+ MEPROP UID '4DB1A01E01F4'
+ MEPROP Name 'Key'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нажатие на кнопку клавиатуры.'#13#10'Пример:'#13#10'{code}'#13#10': "Нажать" STRING IN aString'#13#10' aString key'#13#10';'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5019517A022F // KeyBoardInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DB1A0660303 // Windows
+ ME_4DB1A0900097 // Menus
+ ME_4DB1A0EF0161 // Classes
+ ME_4DB1BF440078 // Msg Codes
+ ME_5507EA22015B // Tl3MessagesService
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'key'
+ UP "no hands" True
+ UP "started" '22.04.2011 19:35'
+ UP extprop:pas:TypeName 'TkwKey'
+ UP extprop:pas:UnitName 'kwKey'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Key'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKey.pas'
+
+ENDME // ME_4DB1A01E01F4 Key
+
+FORWARD ME_50195665016F
+
+ME ME_501956770078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target HWL ME_4DB1A01E01F4 // Key
+ ;
+
+ENDME // ME_501956770078 
+
+FORWARD ME_501956850225
+
+ME ME_50195691015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target HWL ME_501956850225 // HardKey
+ ;
+
+ENDME // ME_50195691015A 
+
+FORWARD ME_5220A3ED0104
+
+ME ME_5220A473029B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target HWL ME_5220A3ED0104 // KeyDown
+ ;
+
+ENDME // ME_5220A473029B 
+
+FORWARD ME_5220A3FC021A
+
+ME ME_5220A4770079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target HWL ME_5220A3FC021A // KeyUp
+ ;
+
+ENDME // ME_5220A4770079 
+
+ME ME_50195665016F
+ MEPROP UID '50195665016F'
+ MEPROP Name 'KeyboardInputPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5019517A022F // KeyBoardInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_501956770078 // Key
+ ME_50195691015A // HardKey
+ ME_5220A473029B // KeyDown
+ ME_5220A4770079 // KeyUp
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "needs script" True
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.pas'
+
+ENDME // ME_50195665016F KeyboardInputPack
+
+FORWARD ME_50195C750318
+
+ME ME_50195C8702F3
+ MEPROP UID '50195C8702F3'
+ MEPROP Name 'aKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50195C750318 // TInputKeyRecord
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+
+ENDME // ME_50195C8702F3 aKey
+
+ME ME_50195C9401BC
+ MEPROP UID '50195C9401BC'
+ MEPROP Name 'aHold'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50195C750318 // TInputKeyRecord
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50195C9401BC aHold
+
+ME ME_50195C750318
+ MEPROP UID '50195C750318'
+ MEPROP Name 'TInputKeyRecord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50195C8702F3 // aKey
+ HWL ME_50195C9401BC // aHold
+ )
+ ; // Attributes
+
+ENDME // ME_50195C750318 TInputKeyRecord
+
+FORWARD ME_50195CA90222
+
+ME ME_501969110132
+ MEPROP UID '501969110132'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_50195CA90222 // TInputKeyRecordArray
+ ;
+ MELINK Target HWL ME_50195C750318 // TInputKeyRecord
+ ;
+
+ENDME // ME_501969110132 
+
+ME ME_50195CA90222
+ MEPROP UID '50195CA90222'
+ MEPROP Name 'TInputKeyRecordArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Array ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_501969110132 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_50195CA90222 TInputKeyRecordArray
+
+FORWARD ME_50195D48017A
+
+ME ME_50196939001B
+ MEPROP UID '50196939001B'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_50195D48017A // TInputArray
+ ;
+ MELINK Target WL 'ME_4F7197540233' '4AB0C3F60375.ms.model.script' // TInput
+ ;
+
+ENDME // ME_50196939001B 
+
+ME ME_50195D48017A
+ MEPROP UID '50195D48017A'
+ MEPROP Name 'TInputArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50196939001B // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_50195D48017A TInputArray
+
+ME ME_50195C3B00E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_5019588700F7' '4799D29F033F.ms.model.script' // TMenuKeyCap
+ ;
+
+ENDME // ME_50195C3B00E5 
+
+ME ME_50195C3F03E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_501958A100CF' '4799D29F033F.ms.model.script' // MenuKeyCaps
+ ;
+
+ENDME // ME_50195C3F03E0 
+
+ME ME_50195DDC039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_50195DC90360' '4AB0C3C60310.ms.model.script' // AnsiStrLIComp
+ ;
+
+ENDME // ME_50195DDC039F 
+
+ME ME_50195F43020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_4C2D9FF00326' '55C4AF3F02EE.ms.model.script' // Consts
+ ;
+
+ENDME // ME_50195F43020D 
+
+ME ME_5507EA3D015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_5506D3B202FA' '5506D079035B.ms.model.script' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA3D015C 
+
+ME ME_501956850225
+ MEPROP UID '501956850225'
+ MEPROP Name 'HardKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5019517A022F // KeyBoardInput
+ ;
+ MELIST Children
+   Seq: ( HWL ME_50195C750318 // TInputKeyRecord
+ HWL ME_50195CA90222 // TInputKeyRecordArray
+ HWL ME_50195D48017A // TInputArray
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_50195C3B00E5 // TMenuKeyCap
+ ME_50195C3F03E0 // MenuKeyCaps
+ ME_50195DDC039F // AnsiStrLIComp
+ ME_50195F43020D // Consts
+ ME_5507EA3D015C // Tl3MessagesService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoVCL'
+ UP extprop:pas:TypeName 'TkwHardKey'
+ UP extprop:pas:UnitName 'kwHardKey'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HardKey'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwHardKey.pas'
+
+ENDME // ME_501956850225 HardKey
+
+ME ME_5220A4110125
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5220A4110125 
+
+ME ME_5220A41300FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL 'ME_47E7ABAE0110' '4799D29F033F.ms.model.script' // Menus
+ ;
+
+ENDME // ME_5220A41300FA 
+
+ME ME_5220A41500B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_5220A41500B6 
+
+ME ME_5220A4170023
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_5220A4170023 
+
+ME ME_5220B6AF017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5220B6AF017E 
+
+ME ME_5507EA4F03B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3ED0104 // KeyDown
+ ;
+ MELINK Target WL 'ME_5506D3B202FA' '5506D079035B.ms.model.script' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA4F03B4 
+
+ME ME_5220A3ED0104
+ MEPROP UID '5220A3ED0104'
+ MEPROP Name 'KeyDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Alt'' KeyDown // зажать клавишу'#13#10'1000 SLEEP'#13#10'''Alt'' KeyUp // отпустить клавишу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5019517A022F // KeyBoardInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5220A4110125 // Windows
+ ME_5220A41300FA // Menus
+ ME_5220A41500B6 // Classes
+ ME_5220A4170023 // Msg Codes
+ ME_5220B6AF017E // SysUtils
+ ME_5507EA4F03B4 // Tl3MessagesService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoVCL'
+ UP extprop:pas:TypeName 'TkwKeyDown'
+ UP extprop:pas:UnitName 'kwKeyDown'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'KeyDown'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKeyDown.pas'
+
+ENDME // ME_5220A3ED0104 KeyDown
+
+ME ME_5220A458024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3FC021A // KeyUp
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5220A458024E 
+
+ME ME_5220A45A0041
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3FC021A // KeyUp
+ ;
+ MELINK Target WL 'ME_47E7ABAE0110' '4799D29F033F.ms.model.script' // Menus
+ ;
+
+ENDME // ME_5220A45A0041 
+
+ME ME_5220A45B02F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3FC021A // KeyUp
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_5220A45B02F1 
+
+ME ME_5220A45D01B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3FC021A // KeyUp
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_5220A45D01B0 
+
+ME ME_5220B6D601BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3FC021A // KeyUp
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5220B6D601BA 
+
+ME ME_5507EA6600A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5220A3FC021A // KeyUp
+ ;
+ MELINK Target WL 'ME_5506D3B202FA' '5506D079035B.ms.model.script' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA6600A3 
+
+ME ME_5220A3FC021A
+ MEPROP UID '5220A3FC021A'
+ MEPROP Name 'KeyUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Alt'' KeyDown // зажать клавишу'#13#10'1000 SLEEP'#13#10'''Alt'' KeyUp // отпустить клавишу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5019517A022F // KeyBoardInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5220A458024E // Windows
+ ME_5220A45A0041 // Menus
+ ME_5220A45B02F1 // Classes
+ ME_5220A45D01B0 // Msg Codes
+ ME_5220B6D601BA // SysUtils
+ ME_5507EA6600A3 // Tl3MessagesService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoVCL'
+ UP extprop:pas:TypeName 'TkwKeyUp'
+ UP extprop:pas:UnitName 'kwKeyUp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'KeyUp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKeyUp.pas'
+
+ENDME // ME_5220A3FC021A KeyUp
+
+ME ME_5019517A022F
+ MEPROP UID '5019517A022F'
+ MEPROP Name 'KeyBoardInput'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DB1A01E01F4 // Key
+ HWL ME_50195665016F // KeyboardInputPack
+ HWL ME_501956850225 // HardKey
+ HWL ME_5220A3ED0104 // KeyDown
+ HWL ME_5220A3FC021A // KeyUp
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_5506D079035B' '5506D079035B.ms.model.script' // AFWServices
+ WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.ms.model.script' // Consts
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts,NoVCL'
+ UP "UseNewGen" True
+
+ENDME // ME_5019517A022F KeyBoardInput

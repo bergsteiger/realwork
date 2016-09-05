@@ -1,0 +1,56 @@
+// EVD 467A8734039C Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_467A8734039C
+ MEPROP UID '467A8734039C'
+ MEPROP Name 'EVD'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Содержит классы и методы для обработки документов в формате EVD.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_476C0699010D' '476C0699010D.ms.model.script' // Const
+ WL 'ME_476BE0350329' '476BE0350329.ms.model.script' // Styles
+ WL 'ME_48F4E61C0060' '48F4E61C0060.ms.model.script' // Interfaces
+ WL 'ME_4C1B915E0261' '4C1B915E0261.ms.model.script' // Version Info
+ WL 'ME_4860B0120014' '4860B0120014.ms.model.script' // Core Objects
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ WL 'ME_4A23D24F0125' '4A23D24F0125.ms.model.script' // DOM
+ WL 'ME_47CFDC160002' '47CFDC160002.ms.model.script' // Paragraphs
+ WL 'ME_483E80C9025F' '483E80C9025F.ms.model.script' // Readers
+ WL 'ME_53B15D5603E3' '53B15D5603E3.ms.model.script' // TagHolder
+ WL 'ME_53C51B390355' '53C51B390355.ms.model.script' // TasksTuning
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_4E36644A0023' '4E36644A0023.ms.model.script' // Стандартные компоненты
+ )
+ ; // Depends
+ UP "defines" 'evdDefine.inc'
+ UP "elements prefix" 'evd'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "is namespace" True
+ UP "vendor" '/Garant'
+ UP cpp:Path 'common\components\rtl\Garant\EVD\LibHome.cpp'
+ UP cpp:PathOnly '\common\components\rtl\Garant\EVD'
+ UP extprop:pas:ElementPrefix 'evd_'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP h:Path 'common\components\rtl\Garant\EVD\LibHome.h'
+ UP h:PathOnly '\common\components\rtl\Garant\EVD'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\EVD'
+
+ENDME // ME_467A8734039C EVD

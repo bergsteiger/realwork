@@ -1,0 +1,107 @@
+// Autolink 552D07E00278 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552D07E00278
+
+FORWARD ME_552CF9C50052
+
+ME ME_552BE03C03E2
+ MEPROP UID '552BE03C03E2'
+ MEPROP Name 'filter_AutolinkFilter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Создаёт на стеке фильтр TddAutolinkFilter (в виде Ik2TagGenerator).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
+ ;
+ MELINK Target WL 'ME_4678160E01BE' '47913B47006E.ms.model.script' // Ik2TagGenerator
+ ;
+ UP "ifdef" 'Archi'
+
+ENDME // ME_552BE03C03E2 filter_AutolinkFilter
+
+ME ME_552BE009014C
+ MEPROP UID '552BE009014C'
+ MEPROP Name 'filter_CleanAutolinkFilter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Поскольку TddAutolinkFilter создаётся один на всё приложение, от него нужно отрезать Generator после использования. А иначе цепочка сохранится и будет мешать другим тестам.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
+ ;
+ UP "ifdef" 'Archi'
+
+ENDME // ME_552BE009014C filter_CleanAutolinkFilter
+
+ME ME_552CFA0300CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
+ ;
+ MELINK Target WL 'ME_552BF69B039B' '552BF68E0188.ms.model.script' // Tl3AutolinkService
+ ;
+
+ENDME // ME_552CFA0300CA 
+
+ME ME_552CFA080079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_552CF9C50052 // AutolinkFilterWordsPack
+ ;
+ MELINK Target WL 'ME_552BF69B039B' '552BF68E0188.ms.model.script' // Tl3AutolinkService
+ ;
+
+ENDME // ME_552CFA080079 
+
+ME ME_552CF9C50052
+ MEPROP UID '552CF9C50052'
+ MEPROP Name 'AutolinkFilterWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552D07E00278 // Autolink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552BE03C03E2 // filter_AutolinkFilter
+ HWL ME_552BE009014C // filter_CleanAutolinkFilter
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_552CFA0300CA // Tl3AutolinkService
+ ME_552CFA080079 // Tl3AutolinkService
+ )
+ ; // Dependencies
+ UP "ifdef" 'Archi'
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\AutolinkFilterWordsPack.pas'
+
+ENDME // ME_552CF9C50052 AutolinkFilterWordsPack
+
+ME ME_552D07E00278
+ MEPROP UID '552D07E00278'
+ MEPROP Name 'Autolink'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54EF440B0244' '54EF440B0244.ms.model.script' // ScriptEngine$L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_552CF9C50052 // AutolinkFilterWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_552BF68E0188' '552BF68E0188.ms.model.script' // AutoLink
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_552D07E00278 Autolink

@@ -1,0 +1,54 @@
+// orbtypes 4CA0D52900F5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0D52900F5
+
+ME ME_4CA0D53B0284
+ MEPROP UID '4CA0D53B0284'
+ MEPROP Name 'ServiceContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0D52900F5 // orbtypes
+ ;
+
+ENDME // ME_4CA0D53B0284 ServiceContext
+
+ME ME_4CA0D5A300D3
+ MEPROP UID '4CA0D5A300D3'
+ MEPROP Name 'ServiceId'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0D52900F5 // orbtypes
+ ;
+
+ENDME // ME_4CA0D5A300D3 ServiceId
+
+ME ME_4CA0D52900F5
+ MEPROP UID '4CA0D52900F5'
+ MEPROP Name 'orbtypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.ms.model.script' // MTDOrb
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA0D53B0284 // ServiceContext
+ HWL ME_4CA0D5A300D3 // ServiceId
+ )
+ ; // Children
+ UP "finished" False
+ UP "is namespace" True
+ UP "path prefix" '/src/orb'
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\orb\NOT_FINISHED_orbtypes.pas'
+ UP intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\orb'
+
+ENDME // ME_4CA0D52900F5 orbtypes

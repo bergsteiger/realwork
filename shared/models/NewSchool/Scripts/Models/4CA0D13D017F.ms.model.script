@@ -1,0 +1,428 @@
+// idl 4CA0D13D017F Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0D13D017F
+
+FORWARD ME_4CA0D16702D5
+
+FORWARD ME_4CA0D1770172
+
+FORWARD ME_4CA0D24C02B9
+
+ME ME_4CA0D26000B2
+ MEPROP Name 'info'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D21F022E' '4CA0D1FB01E0.ms.model.script' // IORBInitInfo
+ ;
+
+ENDME // ME_4CA0D26000B2 info
+
+ME ME_4CA0D24C02B9
+ MEPROP UID '4CA0D24C02B9'
+ MEPROP Name 'pre__init'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D1770172 // TORBInitializer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D26000B2 // info
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D24C02B9 pre__init
+
+FORWARD ME_4CA0D27000D5
+
+ME ME_4CA0D279035D
+ MEPROP Name 'info'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D21F022E' '4CA0D1FB01E0.ms.model.script' // IORBInitInfo
+ ;
+
+ENDME // ME_4CA0D279035D info
+
+ME ME_4CA0D27000D5
+ MEPROP UID '4CA0D27000D5'
+ MEPROP Name 'post__init'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D1770172 // TORBInitializer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D279035D // info
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D27000D5 post__init
+
+ME ME_4CA0D1770172
+ MEPROP UID '4CA0D1770172'
+ MEPROP Name 'TORBInitializer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0D16702D5 // pi
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA0D24C02B9 // pre__init
+ HWL ME_4CA0D27000D5 // post__init
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ORBInitializer'
+
+ENDME // ME_4CA0D1770172 TORBInitializer
+
+FORWARD ME_4CA0D3170323
+
+ME ME_4CA0D39501A8
+ MEPROP UID '4CA0D39501A8'
+ MEPROP Name '__destroy'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D3170323 // TInterceptor
+ ;
+
+ENDME // ME_4CA0D39501A8 __destroy
+
+ME ME_4CA0D3AD017C
+ MEPROP UID '4CA0D3AD017C'
+ MEPROP Name '__get__name'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D3170323 // TInterceptor
+ ;
+ MELINK Target WL 'ME_4CA0D7180013' '4AB0C3C60310.ms.model.script' // ANSIString
+ ;
+
+ENDME // ME_4CA0D3AD017C __get__name
+
+ME ME_4CA0D3170323
+ MEPROP UID '4CA0D3170323'
+ MEPROP Name 'TInterceptor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0D16702D5 // pi
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CA0D369004C' '4CA0D33A02D6.ms.model.script' // TLocalORBObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CA0D39501A8 // __destroy
+ HWL ME_4CA0D3AD017C // __get__name
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Interceptor'
+
+ENDME // ME_4CA0D3170323 TInterceptor
+
+FORWARD ME_4CA0D3070257
+
+FORWARD ME_4CA0D42302FC
+
+ME ME_4CA0D4290350
+ MEPROP Name 'ri'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D4010019' '4CA0D1FB01E0.ms.model.script' // IClientRequestInfo
+ ;
+
+ENDME // ME_4CA0D4290350 ri
+
+ME ME_4CA0D42302FC
+ MEPROP UID '4CA0D42302FC'
+ MEPROP Name 'send__request'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D3070257 // TClientRequestInterceptor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D4290350 // ri
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D42302FC send__request
+
+FORWARD ME_4CA0D43401E5
+
+ME ME_4CA0D43A00BB
+ MEPROP Name 'ri'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D4010019' '4CA0D1FB01E0.ms.model.script' // IClientRequestInfo
+ ;
+
+ENDME // ME_4CA0D43A00BB ri
+
+ME ME_4CA0D43401E5
+ MEPROP UID '4CA0D43401E5'
+ MEPROP Name 'send__poll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D3070257 // TClientRequestInterceptor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D43A00BB // ri
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D43401E5 send__poll
+
+FORWARD ME_4CA0D44F0352
+
+ME ME_4CA0D45B004D
+ MEPROP Name 'ri'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D4010019' '4CA0D1FB01E0.ms.model.script' // IClientRequestInfo
+ ;
+
+ENDME // ME_4CA0D45B004D ri
+
+ME ME_4CA0D44F0352
+ MEPROP UID '4CA0D44F0352'
+ MEPROP Name 'receive__reply'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D3070257 // TClientRequestInterceptor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D45B004D // ri
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D44F0352 receive__reply
+
+FORWARD ME_4CA0D46502E4
+
+ME ME_4CA0D47101E7
+ MEPROP Name 'ri'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D4010019' '4CA0D1FB01E0.ms.model.script' // IClientRequestInfo
+ ;
+
+ENDME // ME_4CA0D47101E7 ri
+
+ME ME_4CA0D46502E4
+ MEPROP UID '4CA0D46502E4'
+ MEPROP Name 'receive__exception'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D3070257 // TClientRequestInterceptor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D47101E7 // ri
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D46502E4 receive__exception
+
+FORWARD ME_4CA0D47C037F
+
+ME ME_4CA0D4860134
+ MEPROP Name 'ri'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D4010019' '4CA0D1FB01E0.ms.model.script' // IClientRequestInfo
+ ;
+
+ENDME // ME_4CA0D4860134 ri
+
+ME ME_4CA0D47C037F
+ MEPROP UID '4CA0D47C037F'
+ MEPROP Name 'receive__other'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CA0D3070257 // TClientRequestInterceptor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D4860134 // ri
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D47C037F receive__other
+
+ME ME_4CA0D3070257
+ MEPROP UID '4CA0D3070257'
+ MEPROP Name 'TClientRequestInterceptor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0D16702D5 // pi
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CA0D3170323 // TInterceptor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CA0D42302FC // send__request
+ HWL ME_4CA0D43401E5 // send__poll
+ HWL ME_4CA0D44F0352 // receive__reply
+ HWL ME_4CA0D46502E4 // receive__exception
+ HWL ME_4CA0D47C037F // receive__other
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClientRequestInterceptor'
+
+ENDME // ME_4CA0D3070257 TClientRequestInterceptor
+
+ME ME_4CA0D16702D5
+ MEPROP UID '4CA0D16702D5'
+ MEPROP Name 'pi'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0D13D017F // idl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA0D1770172 // TORBInitializer
+ HWL ME_4CA0D3170323 // TInterceptor
+ HWL ME_4CA0D3070257 // TClientRequestInterceptor
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_pi.pas'
+
+ENDME // ME_4CA0D16702D5 pi
+
+FORWARD ME_4CA1C51D0182
+
+ME ME_4CA1C5300391
+ MEPROP UID '4CA1C5300391'
+ MEPROP Name 'TNamingContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1C51D0182 // CosNaming
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NamingContext'
+
+ENDME // ME_4CA1C5300391 TNamingContext
+
+ME ME_4CA1C51D0182
+ MEPROP UID '4CA1C51D0182'
+ MEPROP Name 'CosNaming'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0D13D017F // idl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1C5300391 // TNamingContext
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_CosNaming.pas'
+
+ENDME // ME_4CA1C51D0182 CosNaming
+
+FORWARD ME_4CA1CBA90131
+
+ME ME_4CA1C7DB0156
+ MEPROP UID '4CA1C7DB0156'
+ MEPROP GUID '0384D0BB-0399-4340-8D2D-1DDCEAFAE2D6'
+ MEPROP Name 'INamingContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1CBA90131 // CosNaming_int
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NamingContext'
+
+ENDME // ME_4CA1C7DB0156 INamingContext
+
+ME ME_4CA1CBF401AD
+ MEPROP UID '4CA1CBF401AD'
+ MEPROP Name 'TName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1CBA90131 // CosNaming_int
+ ;
+
+ENDME // ME_4CA1CBF401AD TName
+
+ME ME_4CA1CBA90131
+ MEPROP UID '4CA1CBA90131'
+ MEPROP Name 'CosNaming_int'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0D13D017F // idl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1C7DB0156 // INamingContext
+ HWL ME_4CA1CBF401AD // TName
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_CosNaming_int.pas'
+
+ENDME // ME_4CA1CBA90131 CosNaming_int
+
+ME ME_4CA0D13D017F
+ MEPROP UID '4CA0D13D017F'
+ MEPROP Name 'idl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.ms.model.script' // MTDOrb
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA0D16702D5 // pi
+ HWL ME_4CA1C51D0182 // CosNaming
+ HWL ME_4CA1CBA90131 // CosNaming_int
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4CA0D1FB01E0' '4CA0D1FB01E0.ms.model.script' // pi_int
+ WL 'ME_4CA0D33A02D6' '4CA0D33A02D6.ms.model.script' // orb
+ )
+ ; // Depends
+ UP "path prefix" '/src/idl'
+ UP intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+
+ENDME // ME_4CA0D13D017F idl

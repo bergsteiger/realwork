@@ -30,6 +30,8 @@ uses
  , l3String
  , Classes
  , Windows
+ //#UC START# *568140E2020Bimpl_uses*
+ //#UC END# *568140E2020Bimpl_uses*
 ;
 
 class procedure TscriptsListWatcherRunner.Run;

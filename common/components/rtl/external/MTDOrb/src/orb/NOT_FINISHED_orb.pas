@@ -27,6 +27,8 @@ implementation
 {$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
 uses
  l3ImplUses
+ //#UC START# *4CA0D35D00BFimpl_uses*
+ //#UC END# *4CA0D35D00BFimpl_uses*
 ;
 
 function ORB_Init(props: TStrings): IORB;

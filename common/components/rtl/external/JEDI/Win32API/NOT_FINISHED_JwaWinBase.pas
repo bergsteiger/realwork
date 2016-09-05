@@ -21,6 +21,8 @@ uses
  , JwaNtStatus
  , JwaWinNT
  , JwaWinType
+ //#UC START# *4C98A79C011Dimpl_uses*
+ //#UC END# *4C98A79C011Dimpl_uses*
 ;
 
 procedure WTSGetActiveConsoleSessionId;
