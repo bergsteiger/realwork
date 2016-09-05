@@ -1,0 +1,283 @@
+// TreeViewWords 512F475600DF ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512F475600DF
+
+FORWARD ME_512F47C80388
+
+FORWARD ME_55C9CBCD0127
+
+ME ME_55C9CBDA0295
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C9CBDA0295 anIndex
+
+ME ME_55C9CBCD0127
+ MEPROP UID '55C9CBCD0127'
+ MEPROP Name 'GetItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512F47C80388 // TreeViewWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C9CBDA0295 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_55C9CBCD0127 GetItem
+
+FORWARD ME_55C9CBB10045
+
+ME ME_55C9CBBD028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512F47C80388 // TreeViewWordsPack
+ ;
+ MELINK Target HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+
+ENDME // ME_55C9CBBD028C 
+
+ME ME_512F47C80388
+ MEPROP UID '512F47C80388'
+ MEPROP Name 'TreeViewWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512F475600DF // TreeViewWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_512F402F01BA' '4799D29F033F.ms.model.script' // TTreeView
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C9CBCD0127 // GetItem
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C9CBBD028C // TreeNodeWordsPack
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas'
+
+ENDME // ME_512F47C80388 TreeViewWordsPack
+
+ME ME_55C9CBEB0063
+ MEPROP UID '55C9CBEB0063'
+ MEPROP Name 'GetNext'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9CBEB0063 GetNext
+
+ME ME_55C9CBF80354
+ MEPROP UID '55C9CBF80354'
+ MEPROP Name 'HasChildren'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55C9CBF80354 HasChildren
+
+ME ME_55C9D4D302CC
+ MEPROP UID '55C9D4D302CC'
+ MEPROP Name 'GetPrev'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9D4D302CC GetPrev
+
+ME ME_55C9D4EA0111
+ MEPROP UID '55C9D4EA0111'
+ MEPROP Name 'GetFirstChild'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9D4EA0111 GetFirstChild
+
+ME ME_55C9D4FD035F
+ MEPROP UID '55C9D4FD035F'
+ MEPROP Name 'GetLastChild'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9D4FD035F GetLastChild
+
+ME ME_55C9D5BB0220
+ MEPROP UID '55C9D5BB0220'
+ MEPROP Name 'GetNextSibling'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9D5BB0220 GetNextSibling
+
+ME ME_55C9D5D00259
+ MEPROP UID '55C9D5D00259'
+ MEPROP Name 'GetPrevSibling'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9D5D00259 GetPrevSibling
+
+ME ME_55C9D5F401A4
+ MEPROP UID '55C9D5F401A4'
+ MEPROP Name 'GetNextVisible'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9D5F401A4 GetNextVisible
+
+ME ME_55C9D6120364
+ MEPROP UID '55C9D6120364'
+ MEPROP Name 'GetPrevVisible'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9D6120364 GetPrevVisible
+
+FORWARD ME_55C9D632015E
+
+ME ME_55C9D6390245
+ MEPROP Name 'aRecurse'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55C9D6390245 aRecurse
+
+ME ME_55C9D632015E
+ MEPROP UID '55C9D632015E'
+ MEPROP Name 'Expand'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C9D6390245 // aRecurse
+ )
+ ; // Parameters
+
+ENDME // ME_55C9D632015E Expand
+
+ME ME_55C9CBB10045
+ MEPROP UID '55C9CBB10045'
+ MEPROP Name 'TreeNodeWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512F475600DF // TreeViewWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_512F3FCB02F3' '4799D29F033F.ms.model.script' // TTreeNode
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C9CBEB0063 // GetNext
+ HWL ME_55C9CBF80354 // HasChildren
+ HWL ME_55C9D4D302CC // GetPrev
+ HWL ME_55C9D4EA0111 // GetFirstChild
+ HWL ME_55C9D4FD035F // GetLastChild
+ HWL ME_55C9D5BB0220 // GetNextSibling
+ HWL ME_55C9D5D00259 // GetPrevSibling
+ HWL ME_55C9D5F401A4 // GetNextVisible
+ HWL ME_55C9D6120364 // GetPrevVisible
+ HWL ME_55C9D632015E // Expand
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TreeNodeWordsPack.pas'
+
+ENDME // ME_55C9CBB10045 TreeNodeWordsPack
+
+ME ME_512F475600DF
+ MEPROP UID '512F475600DF'
+ MEPROP Name 'TreeViewWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54DB92A80279' '54DB92A80279.ms.model.script' // ScriptEngine$RTLandVCL
+ ;
+ MELIST Children
+   Seq: ( HWL ME_512F47C80388 // TreeViewWordsPack
+ HWL ME_55C9CBB10045 // TreeNodeWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts,NoVCL'
+
+ENDME // ME_512F475600DF TreeViewWords

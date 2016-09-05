@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4B4DCD220000impl_uses*
+ //#UC END# *4B4DCD220000impl_uses*
 ;
 
 procedure CPUID;

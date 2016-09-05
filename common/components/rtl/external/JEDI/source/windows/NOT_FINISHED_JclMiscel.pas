@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4E4A3D72001Fimpl_uses*
+ //#UC END# *4E4A3D72001Fimpl_uses*
 ;
 
 procedure WinExec32AndWait;

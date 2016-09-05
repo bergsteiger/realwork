@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5369F9C90151impl_uses*
+ //#UC END# *5369F9C90151impl_uses*
 ;
 
 procedure ScreenShot;

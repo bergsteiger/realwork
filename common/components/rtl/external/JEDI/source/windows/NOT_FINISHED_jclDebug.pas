@@ -25,6 +25,8 @@ implementation
 {$If NOT Defined(notDebugStackTrace)}
 uses
  l3ImplUses
+ //#UC START# *4B72BED1017Bimpl_uses*
+ //#UC END# *4B72BED1017Bimpl_uses*
 ;
 
 procedure JclLastExceptStackList;
