@@ -1,0 +1,287 @@
+// l3Variants 5326D70401F3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5326D70401F3
+
+FORWARD ME_5326D72000C8
+
+ME ME_4A4216790331
+ MEPROP UID '4A4216790331'
+ MEPROP Name 'AsWStr'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'свойство для преобразования к типу Tl3PCharLen' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ UP "pm" True
+
+ENDME // ME_4A4216790331 AsWStr
+
+ME ME_4A42149A01FE
+ MEPROP UID '4A42149A01FE'
+ MEPROP Name 'AsString'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'свойство для преобразования к строкам Delphi' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP "pm" True
+
+ENDME // ME_4A42149A01FE AsString
+
+ME ME_4A42195A0244
+ MEPROP UID '4A42195A0244'
+ MEPROP Name 'AsBool'
+ MEPROP Class class_Operation
+ %SUMMARY 'преобразовать к Boolean.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A42195A0244 AsBool
+
+ME ME_4A42196201B8
+ MEPROP UID '4A42196201B8'
+ MEPROP Name 'AsLong'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4A42196201B8 AsLong
+
+ME ME_4BC8446D010E
+ MEPROP UID '4BC8446D010E'
+ MEPROP Name 'IsNull'
+ MEPROP Class class_Operation
+ %SUMMARY 'пустой тег?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BC8446D010E IsNull
+
+ME ME_4BC8447501CB
+ MEPROP UID '4BC8447501CB'
+ MEPROP Name 'IsTransparent'
+ MEPROP Class class_Operation
+ %SUMMARY 'тег "прозрачный"?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BC8447501CB IsTransparent
+
+ME ME_4BC8447200B0
+ MEPROP UID '4BC8447200B0'
+ MEPROP Name 'IsValid'
+ MEPROP Class class_Operation
+ %SUMMARY 'тег имеет значение?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BC8447200B0 IsValid
+
+FORWARD ME_4BC8447A0046
+
+ME ME_4BC8447A009C
+ MEPROP Name 'theStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4BC8447A009C theStream
+
+ME ME_4BC8447A0046
+ MEPROP UID '4BC8447A0046'
+ MEPROP Name 'IsStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет может ли тег приводиться к потоку. И приводит к потоку - если указатель на поток - не нулевой.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BC8447A009C // theStream
+ )
+ ; // Parameters
+
+ENDME // ME_4BC8447A0046 IsStream
+
+ME ME_4A4248C902F1
+ MEPROP UID '4A4248C902F1'
+ MEPROP Name 'MarkModified'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5326D72000C8 // Ml3Variant
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A4248C902F1 MarkModified
+
+ME ME_5326D72000C8
+ MEPROP UID '5326D72000C8'
+ MEPROP Name 'Ml3Variant'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5326D70401F3 // l3Variants
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A4216790331 // AsWStr
+ HWL ME_4A42149A01FE // AsString
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A42195A0244 // AsBool
+ HWL ME_4A42196201B8 // AsLong
+ HWL ME_4BC8446D010E // IsNull
+ HWL ME_4BC8447501CB // IsTransparent
+ HWL ME_4BC8447200B0 // IsValid
+ HWL ME_4BC8447A0046 // IsStream
+ HWL ME_4A4248C902F1 // MarkModified
+ )
+ ; // Operations
+
+ENDME // ME_5326D72000C8 Ml3Variant
+
+FORWARD ME_4BC843FE01D7
+
+FORWARD ME_4BC8441500B7
+
+ME ME_4BC84415010E
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4BC84415010E anIndex
+
+ME ME_4BC8441500B7
+ MEPROP UID '4BC8441500B7'
+ MEPROP Name 'HasSubAtom'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BC843FE01D7 // Mk2AtomHolder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BC84415010E // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4BC8441500B7 HasSubAtom
+
+ME ME_4BC843FE01D7
+ MEPROP UID '4BC843FE01D7'
+ MEPROP Name 'Mk2AtomHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5326D70401F3 // l3Variants
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BC8441500B7 // HasSubAtom
+ )
+ ; // Operations
+
+ENDME // ME_4BC843FE01D7 Mk2AtomHolder
+
+FORWARD ME_4A421BB502E5
+
+ME ME_4A421BE201A9
+ MEPROP UID '4A421BE201A9'
+ MEPROP Name 'IsOrd'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A421BB502E5 // Mk2TypeInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A421BE201A9 IsOrd
+
+ME ME_4A421BB502E5
+ MEPROP UID '4A421BB502E5'
+ MEPROP Name 'Mk2TypeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о типе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5326D70401F3 // l3Variants
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A421BE201A9 // IsOrd
+ )
+ ; // Operations
+
+ENDME // ME_4A421BB502E5 Mk2TypeInfo
+
+ME ME_5326D70401F3
+ MEPROP UID '5326D70401F3'
+ MEPROP Name 'l3Variants'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5326D72000C8 // Ml3Variant
+ HWL ME_4BC843FE01D7 // Mk2AtomHolder
+ HWL ME_4A421BB502E5 // Mk2TypeInfo
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Variants.pas'
+
+ENDME // ME_5326D70401F3 l3Variants

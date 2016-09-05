@@ -1,0 +1,160 @@
+// TagViews 4DF0C61901BE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DF0C61901BE
+
+FORWARD ME_4DF0C6690021
+
+ME ME_4DF0C70902FE
+ MEPROP UID '4DF0C70902FE'
+ MEPROP Name 'l3ViewListIsTag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ UP extprop:rc:SelfName 'ViewListIsTag'
+
+ENDME // ME_4DF0C70902FE l3ViewListIsTag
+
+ME ME_4DF0C68D0254
+ MEPROP UID '4DF0C68D0254'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4DF0C68D0254 ListType
+
+ME ME_4DF0C6A0026B
+ MEPROP UID '4DF0C6A0026B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4DF0C6A0026B ItemType
+
+ME ME_4DF0C6690021
+ MEPROP UID '4DF0C6690021'
+ MEPROP Name 'Tk2CustomTagView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DF0C61901BE // TagViews
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DEFC3B90061' '4A6D65B9022A.ms.model.script' // l3OtherTypedListView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DF0C68D0254 // ListType
+ HWL ME_4DF0C6A0026B // ItemType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4DF0C70902FE // l3ViewListIsTag
+ )
+ ; // Children
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '09.06.2011 17:11'
+ UP extprop:pas:UnitName 'k2CustomTagView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TagView'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2CustomTagView.pas'
+
+ENDME // ME_4DF0C6690021 Tk2CustomTagView
+
+FORWARD ME_4DF0C6BE0166
+
+ME ME_4DF0C6EB0150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF0C6BE0166 // Tk2TagByHandleView
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4DF0C6EB0150 
+
+ME ME_4DEFB2D90167_ME_4DF0C6BE0166
+ MELINK Original WL 'ME_4DEFB2D90167' '4A6D65B9022A.ms.model.script' // CompareData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DEFB2D90167_ME_4DF0C6BE0166 CompareData
+
+ME ME_4DF0C6BE0166
+ MEPROP UID '4DF0C6BE0166'
+ MEPROP Name 'Tk2TagByHandleView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DF0C61901BE // TagViews
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DF0C6690021 // Tk2CustomTagView
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DEFB2D90167_ME_4DF0C6BE0166 // CompareData
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DF0C6EB0150 // Tk2TagID
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '09.08.2011 17:17'
+ UP extprop:pas:UnitName 'k2TagByHandleView'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TagByHandleView'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TagByHandleView.pas'
+
+ENDME // ME_4DF0C6BE0166 Tk2TagByHandleView
+
+ME ME_4DF0C61901BE
+ MEPROP UID '4DF0C61901BE'
+ MEPROP Name 'TagViews'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DF0C6690021 // Tk2CustomTagView
+ HWL ME_4DF0C6BE0166 // Tk2TagByHandleView
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4678137501EA' '4678137501EA.ms.model.script' // k2Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ )
+ ; // Depends
+ UP "UseNewGen" True
+
+ENDME // ME_4DF0C61901BE TagViews

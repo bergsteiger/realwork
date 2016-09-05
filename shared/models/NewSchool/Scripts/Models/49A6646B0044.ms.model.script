@@ -1,0 +1,257 @@
+// k2BaseTypes 49A6646B0044 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49A6646B0044
+
+FORWARD ME_469F6CD10123
+
+ME ME_469F6CE801D0
+ MEPROP UID '469F6CE801D0'
+ MEPROP Name 'l3_spfScalars'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ENDME // ME_469F6CE801D0 l3_spfScalars
+
+ME ME_469F6CF1025F
+ MEPROP UID '469F6CF1025F'
+ MEPROP Name 'l3_spfObjects'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ENDME // ME_469F6CF1025F l3_spfObjects
+
+ME ME_469F6CFB01A5
+ MEPROP UID '469F6CFB01A5'
+ MEPROP Name 'l3_spfChildren'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ENDME // ME_469F6CFB01A5 l3_spfChildren
+
+ME ME_469F6D050109
+ MEPROP UID '469F6D050109'
+ MEPROP Name 'l3_spfRawData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_469F6CD10123 // Tk2StorePropertyFlag
+ ;
+
+ENDME // ME_469F6D050109 l3_spfRawData
+
+ME ME_469F6CD10123
+ MEPROP UID '469F6CD10123'
+ MEPROP Name 'Tk2StorePropertyFlag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Режим сохранения типов тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A6646B0044 // k2BaseTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_469F6CE801D0 // l3_spfScalars
+ HWL ME_469F6CF1025F // l3_spfObjects
+ HWL ME_469F6CFB01A5 // l3_spfChildren
+ HWL ME_469F6D050109 // l3_spfRawData
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_469F6CD10123 Tk2StorePropertyFlag
+
+ME ME_469F700E01BB
+ MEPROP UID '469F700E01BB'
+ MEPROP Name 'Tk2StorePropertyFlags'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Режимы сохранения типов тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A6646B0044 // k2BaseTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_469F6CD10123 // Tk2StorePropertyFlag
+ )
+ ; // Inherits
+
+ENDME // ME_469F700E01BB Tk2StorePropertyFlags
+
+FORWARD ME_469F6D170322
+
+ME ME_469F6D270126
+ MEPROP UID '469F6D270126'
+ MEPROP Name 'k2_amNull'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_469F6D170322 // Tk2AssignMode
+ ;
+
+ENDME // ME_469F6D270126 k2_amNull
+
+ME ME_469F6D3101AD
+ MEPROP UID '469F6D3101AD'
+ MEPROP Name 'k2_amTransparent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_469F6D170322 // Tk2AssignMode
+ ;
+
+ENDME // ME_469F6D3101AD k2_amTransparent
+
+ME ME_469F6D170322
+ MEPROP UID '469F6D170322'
+ MEPROP Name 'Tk2AssignMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Режим копирования спецзначений тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A6646B0044 // k2BaseTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_469F6D270126 // k2_amNull
+ HWL ME_469F6D3101AD // k2_amTransparent
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_469F6D170322 Tk2AssignMode
+
+ME ME_469F7035001C
+ MEPROP UID '469F7035001C'
+ MEPROP Name 'Tk2AssignModes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Режимы копирования спецзначений тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A6646B0044 // k2BaseTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_469F6D170322 // Tk2AssignMode
+ )
+ ; // Inherits
+
+ENDME // ME_469F7035001C Tk2AssignModes
+
+ME ME_469F7CBE0071
+ MEPROP UID '469F7CBE0071'
+ MEPROP Name 'l3_spfAll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetConst ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'режим сохранения всех типов тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A6646B0044 // k2BaseTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_469F700E01BB // Tk2StorePropertyFlags
+ )
+ ; // Inherits
+ UP "spell names" False
+ UP extprop:rc:SelfName '_spfAll'
+
+ENDME // ME_469F7CBE0071 l3_spfAll
+
+ME ME_469F7D84008A
+ MEPROP UID '469F7D84008A'
+ MEPROP Name 'l3_spfInner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetConst ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'режим сохранения всех вложенных тегов целиком.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A6646B0044 // k2BaseTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_469F7CBE0071 // l3_spfAll
+ )
+ ; // Inherits
+ UP "force usage" True
+ UP "spell names" False
+ UP extprop:rc:SelfName '_spfInner'
+
+ENDME // ME_469F7D84008A l3_spfInner
+
+ME ME_469F7CE1016C
+ MEPROP UID '469F7CE1016C'
+ MEPROP Name 'k2_amAll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetConst ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'режим копирования всех значений тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A6646B0044 // k2BaseTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_469F7035001C // Tk2AssignModes
+ )
+ ; // Inherits
+ UP "force usage" True
+ UP "spell names" False
+ UP extprop:rc:SelfName '_amAll'
+
+ENDME // ME_469F7CE1016C k2_amAll
+
+ME ME_49A6646B0044
+ MEPROP UID '49A6646B0044'
+ MEPROP Name 'k2BaseTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Базовые типы библиотеки. На них опирается описание интерфейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_469F6CD10123 // Tk2StorePropertyFlag
+ HWL ME_469F700E01BB // Tk2StorePropertyFlags
+ HWL ME_469F6D170322 // Tk2AssignMode
+ HWL ME_469F7035001C // Tk2AssignModes
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_469F7CBE0071 // l3_spfAll
+ HWL ME_469F7D84008A // l3_spfInner
+ HWL ME_469F7CE1016C // k2_amAll
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '26.02.2009 12:44'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\k2BaseTypes.pas'
+
+ENDME // ME_49A6646B0044 k2BaseTypes

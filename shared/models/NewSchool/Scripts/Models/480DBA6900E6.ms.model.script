@@ -1,0 +1,64 @@
+// k2Facade 480DBA6900E6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480DBA6900E6
+
+FORWARD ME_480DBA760390
+
+ME ME_480DBAAB02AD
+ MEPROP UID '480DBAAB02AD'
+ MEPROP Name 'Tk2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DBA760390 // k2Facade
+ ;
+ UP "author" 'Люлин А.В.'
+ UP "started" '01.04.2005 17:36'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_480DBAAB02AD Tk2
+
+ME ME_480DBA760390
+ MEPROP UID '480DBA760390'
+ MEPROP Name 'k2Facade'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейсы библиотеки K2, предназначенные для унифицированного общения с таблицами тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480DBA6900E6 // k2Facade
+ ;
+ MELIST Children
+   Seq: ( HWL ME_480DBAAB02AD // Tk2
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '01.04.2005 17:36'
+ UP extprop:rc:SelfName 'Facade'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2Facade.pas'
+
+ENDME // ME_480DBA760390 k2Facade
+
+ME ME_480DBA6900E6
+ MEPROP UID '480DBA6900E6'
+ MEPROP Name 'k2Facade'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ ;
+ MELIST Children
+   Seq: ( HWL ME_480DBA760390 // k2Facade
+ )
+ ; // Children
+ UP "UseNewGen" True
+
+ENDME // ME_480DBA6900E6 k2Facade

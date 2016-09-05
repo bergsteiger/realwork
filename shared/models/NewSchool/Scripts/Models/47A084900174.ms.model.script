@@ -1,0 +1,87 @@
+// l3Message 47A084900174 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47A084900174
+
+FORWARD ME_47A084B502EE
+
+ME ME_47A084CE0324
+ MEPROP UID '47A084CE0324'
+ MEPROP Name 'l3_MesCannotModifyConstantString'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A084B502EE // Messages
+ ;
+ MEPROP Value '''Cannot modify constant string ''''%s'''''''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Cannot modify constant string ''''%s'''''''
+
+ENDME // ME_47A084CE0324 l3_MesCannotModifyConstantString
+
+ME ME_47A084D501A2
+ MEPROP UID '47A084D501A2'
+ MEPROP Name 'l3_MesNewUndoOperation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A084B502EE // Messages
+ ;
+ MEPROP Value '''Новая Undo-операция %s'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Новая Undo-операция %s'''
+
+ENDME // ME_47A084D501A2 l3_MesNewUndoOperation
+
+ME ME_47A084B502EE
+ MEPROP UID '47A084B502EE'
+ MEPROP Name 'Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A084900174 // l3Message
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47A084CE0324 // l3_MesCannotModifyConstantString
+ HWL ME_47A084D501A2 // l3_MesNewUndoOperation
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47A084B502EE Messages
+
+ME ME_47A084900174
+ MEPROP UID '47A084900174'
+ MEPROP Name 'l3Message'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47A084B502EE // Messages
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "is namespace" True
+ UP "started" '18.07.2002 15:50'
+ UP "UseNewGen" True
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Message.pas'
+
+ENDME // ME_47A084900174 l3Message
