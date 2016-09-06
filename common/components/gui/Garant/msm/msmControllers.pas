@@ -11,6 +11,8 @@ interface
 uses
  l3IntfUses
  , msmEvents
+ , msmOperations
+ , msmModels
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -31,23 +33,21 @@ type
    const aContext: TmsmViewContext);
  end;//ImsmViewParent
 
- ImsmModel = interface
-  ['{FCD19034-099E-4C0D-BE89-D5E8325EBD9B}']
-  function As_ImsmEventsPublisher: ImsmEventsPublisher;
-   {* Метод приведения нашего интерфейса к ImsmEventsPublisher }
- end;//ImsmModel
-
  ImsmController = interface
   ['{EC037151-8355-41ED-BEB3-C02739D2D3B1}']
   function Get_Model: ImsmModel;
+  function Get_Operations: ImsmOperationsList;
   procedure Activate;
   procedure Activated;
   function As_ImsmEventsSubscriber: ImsmEventsSubscriber;
    {* Метод приведения нашего интерфейса к ImsmEventsSubscriber }
   procedure DisableEvent(anEvent: TmsmEvent);
   procedure EnableEvent(anEvent: TmsmEvent);
+  procedure AddOperation(const anOp: ImsmOperation);
   property Model: ImsmModel
    read Get_Model;
+  property Operations: ImsmOperationsList
+   read Get_Operations;
  end;//ImsmController
 
  TmsmModelEvent = {abstract} class(TmsmEvent)
@@ -57,16 +57,7 @@ type
   ['{97253C71-CB39-4199-AC67-944EFFE8FC5A}']
  end;//ImsmViewController
 
- ImsmUseCase = interface
-  ['{54200745-EE4F-42D0-840A-8209E1EBE0D3}']
-  procedure AddController(const aController: ImsmController);
-  procedure Activate;
- end;//ImsmUseCase
-
  TmsmViewParentControl = TWinControl;
-
- TmsmOperation = {abstract} class(TmsmSignal)
- end;//TmsmOperation
 
 function TmsmViewContext_C: TmsmViewContext;
 

@@ -11,6 +11,7 @@
   private
    f_DisabledEvents: TmsmEventList;
    f_EnabledEvents: TmsmEventList;
+   f_EventHandlers: TmsmEventHandlers;
   protected
    procedure DoFire(anEvent: TmsmEvent); virtual;
    function Publisher: ImsmEventsPublisher; virtual; abstract;
@@ -56,7 +57,9 @@ procedure _msmEventsSubscriber_.LinkEventHandler(anEvent: TmsmEvent;
 //#UC END# *57CD83DE0170_57B6B5D00202_var*
 begin
 //#UC START# *57CD83DE0170_57B6B5D00202_impl*
- Assert(false, 'Недоделано');
+ if (f_EventHandlers = nil) then
+  f_EventHandlers := TmsmEventHandlers.Create;
+ f_EventHandlers.Add(anEvent, aHandler);
 //#UC END# *57CD83DE0170_57B6B5D00202_impl*
 end;//_msmEventsSubscriber_.LinkEventHandler
 
@@ -71,7 +74,13 @@ begin
   if (f_EnabledEvents = nil) OR
      f_EnabledEvents.Empty OR
      (f_EnabledEvents.IndexOf(anEvent) >= 0) then
-   DoFire(anEvent);
+  begin
+   if (f_EventHandlers<> nil) AND
+      f_EventHandlers.Has(anEvent) then
+    f_EventHandlers.ValueByKey(anEvent)(anEvent)
+   else
+    DoFire(anEvent);
+  end;//f_EnabledEvents = nil..
  end;//f_DisabledEvents = nil..
 //#UC END# *57AD8E570241_57B6B5D00202_impl*
 end;//_msmEventsSubscriber_.Fire
@@ -106,6 +115,7 @@ begin
 //#UC START# *479731C50290_57B6B5D00202_impl*
  FreeAndNil(f_DisabledEvents);
  FreeAndNil(f_EnabledEvents);
+ FreeAndNil(f_EventHandlers);
  inherited;
 //#UC END# *479731C50290_57B6B5D00202_impl*
 end;//_msmEventsSubscriber_.Cleanup

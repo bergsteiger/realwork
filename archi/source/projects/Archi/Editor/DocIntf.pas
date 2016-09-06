@@ -1,6 +1,6 @@
 unit DocIntf;
 
-{ $Id: DocIntf.pas,v 1.108 2016/08/30 14:11:47 lukyanets Exp $ }
+{ $Id: DocIntf.pas,v 1.110 2016/09/06 11:52:50 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -389,7 +389,7 @@ type
    //procedure ImportObject(anObjID: Integer; const aStream: TStream);
    //procedure DeleteObject(anObjID: Integer);
 
-   procedure SaveDocPart(aPart: Tm3DocPartSelector; aFullSave: Boolean); virtual;
+   procedure SaveDocPart(aPart: Tm3DocPartSelector; aFullSave: Boolean); // virtual;
    function  GenDocInfoRecord : Tm3DBDocumentInfo; virtual;
 
   public
@@ -470,7 +470,6 @@ type
    public
     constructor CreateParam(aMasterDoc : TarDocument; aDocID : TDocID; aUserDocID : Boolean = false); reintroduce;
     //procedure Cleanup; override;
-    procedure Save(aFullSave : Boolean); override;
     function  GetLocalStoragePath : TPathStr; override;
   end;
 
@@ -552,7 +551,7 @@ type
     procedure SetDocFamily(aValue : TdaFamilyID); override;
     procedure SetDocID(aValue : TDocId);     override;
 
-    procedure SaveDocPart(aPart: Tm3DocPartSelector; aFullSave: Boolean); override;
+//    procedure SaveDocPart(aPart: Tm3DocPartSelector; aFullSave: Boolean); override;
 
     function  GetShortName : Tl3WString;
     function  GetName      : Tl3WString;
@@ -1474,9 +1473,10 @@ function CheckAnoncedConditions: Boolean;
   end;
  end;
 
-var
-  lListAttr : IDocAttribute;
+//var
+//  lListAttr : IDocAttribute;
 begin
+(*
  if aSender.AttrID = atDateNums then
  begin //вычисление SortDate
   lListAttr := AttrManager.GetDocAttribute(atDateNums);
@@ -1484,6 +1484,7 @@ begin
   // SortDate := (lListAttr as IDateNumDocAttributeTool).GetMinPublishDate;
  end
  else
+*) 
  if aSender.AttrID = atStages then
   if ((AttrManager.GetDocAttribute(atStages) as IStageDocAttributeTool).DateOfStageClosed(stEdit) = CurrentDate)
      and
@@ -2546,7 +2547,7 @@ begin
  end;
  Result := f_DocObject;
 end;
-
+(*
 procedure TarDocument.SaveDocPart(aPart: Tm3DocPartSelector; aFullSave: Boolean);
 begin
  if (aPart = m3_dsMain) and (DocClass in [dtObject, dtFlash]) then
@@ -2554,7 +2555,7 @@ begin
  else
   inherited;
 end;
-
+*)
 (*procedure TarDocument.SetDocData(Value : TDocumentAttrData);
 begin
  l3Set(fDocData, Value);
@@ -2622,11 +2623,6 @@ end;
 //begin
 // Result := fMasterDoc.GenDocInfoRecord;
 //end;
-
-procedure TSprDocument.Save(aFullSave : Boolean);
-begin
- inherited Save(aFullSave);
-end;
 
 {TDocsList}
 procedure TDocsList.Cleanup;
@@ -3723,6 +3719,7 @@ procedure TarTextOfDocument.BuildLoadPipeParams(out WithAttr: Boolean;
   out DocPartSel: TDocPartSelector);
 begin
  WithAttr:= not IsSpravka and (DocPart in [m3_dsMain, m3_dsAnno]);
+ DocPartSel := dpDoc;
  if WithAttr then
  begin
   if IsSpravka then

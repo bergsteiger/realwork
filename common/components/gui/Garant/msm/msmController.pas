@@ -12,19 +12,26 @@ uses
  l3IntfUses
  , l3ProtoObject
  , msmControllers
+ , msmModels
  , msmEvents
  , msmEventList
+ , msmEventHandlers
+ , msmOperations
+ , msmOperationsList
 ;
 
 type
  _msmEventsSubscriber_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas}
- TmsmController = class(_msmEventsSubscriber_, ImsmController)
+ _msmOperationsManaging_Parent_ = _msmEventsSubscriber_;
+ {$Include w:\common\components\gui\Garant\msm\msmOperationsManaging.imp.pas}
+ TmsmController = class(_msmOperationsManaging_, ImsmController)
   private
    f_Model: ImsmModel;
   protected
    procedure DoActivate; virtual;
    procedure LinkDataToView; virtual;
+   procedure DoActivated; virtual;
    function As_ImsmEventsSubscriber: ImsmEventsSubscriber;
     {* Метод приведения нашего интерфейса к ImsmEventsSubscriber }
    function Get_Model: ImsmModel;
@@ -48,11 +55,14 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , msmNullOperationsList
  //#UC START# *57B1F28B030Dimpl_uses*
  //#UC END# *57B1F28B030Dimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\msm\msmEventsSubscriber.imp.pas}
+
+{$Include w:\common\components\gui\Garant\msm\msmOperationsManaging.imp.pas}
 
 procedure TmsmController.DoActivate;
 //#UC START# *57B1ABC80368_57B1F28B030D_var*
@@ -93,6 +103,14 @@ begin
 //#UC END# *57B6A49900F4_57B1F28B030D_impl*
 end;//TmsmController.LinkDataToView
 
+procedure TmsmController.DoActivated;
+//#UC START# *57CEC64E0063_57B1F28B030D_var*
+//#UC END# *57CEC64E0063_57B1F28B030D_var*
+begin
+//#UC START# *57CEC64E0063_57B1F28B030D_impl*
+//#UC END# *57CEC64E0063_57B1F28B030D_impl*
+end;//TmsmController.DoActivated
+
 function TmsmController.As_ImsmEventsSubscriber: ImsmEventsSubscriber;
  {* Метод приведения нашего интерфейса к ImsmEventsSubscriber }
 begin
@@ -123,6 +141,7 @@ procedure TmsmController.Activated;
 begin
 //#UC START# *57B6A3EF0191_57B1F28B030D_impl*
  LinkDataToView;
+ DoActivated;
 //#UC END# *57B6A3EF0191_57B1F28B030D_impl*
 end;//TmsmController.Activated
 

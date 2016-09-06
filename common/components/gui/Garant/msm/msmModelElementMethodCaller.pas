@@ -231,10 +231,10 @@ CONST cQuote = '''';
 
 var
  l_Caller : TmsmModelElementMethodScriptCaller;
- l_S : String;
- l_Path : String;
- l_N : String;
- l_N1 : String;
+ l_S : AnsiString;
+ l_Path : AnsiString;
+ l_N : AnsiString;
+ l_N1 : AnsiString;
  l_F : Tl3FileStream;
 //#UC END# *57C437080131_57AA00BD022E_var*
 begin
@@ -255,7 +255,7 @@ begin
   l_N1 := l_N + '.tmp';
   l_F := Tl3FileStream.Create(l_N1, l3_fmWrite);
   try
-   l_F.Write(PChar(l_S)^, Length(l_S));
+   l_F.Write(PAnsiChar(l_S)^, Length(l_S));
   finally
    FreeAndNil(l_F);
   end;//try..finally

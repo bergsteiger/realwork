@@ -12,6 +12,7 @@ uses
  l3IntfUses
  , msmViewController
  , msmControllers
+ , msmModels
 ;
 
 type

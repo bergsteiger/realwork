@@ -22,7 +22,8 @@ type
  {$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
  TmsmListToTreeBinding = class(_msmModelToModelBinding_)
   protected
-   procedure DoFire(anEvent: TmsmEvent); override;
+   procedure DoListChangedEvent(anEvent: TmsmEvent);
+   procedure LinkEventHandlers; override;
  end;//TmsmListToTreeBinding
 
 implementation
@@ -37,21 +38,24 @@ uses
 
 {$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
 
-procedure TmsmListToTreeBinding.DoFire(anEvent: TmsmEvent);
-//#UC START# *57ADDC3A0071_57C9A3B200E2_var*
+procedure TmsmListToTreeBinding.DoListChangedEvent(anEvent: TmsmEvent);
+//#UC START# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_var*
 var
  l_O : ImsmModelElement;
-//#UC END# *57ADDC3A0071_57C9A3B200E2_var*
+//#UC END# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_var*
 begin
-//#UC START# *57ADDC3A0071_57C9A3B200E2_impl*
+//#UC START# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_impl*
  inherited;
- if (anEvent = ListChangedEvent.Instance) then
- begin
-  l_O := Self.ModelToListen.List.Owner;
-  if (Self.ModelToFire.CurrentElement <> l_O) then
-   Self.ModelToFire.CurrentElement := l_O;
- end;//anEvent = ListChangedEvent.Instance
-//#UC END# *57ADDC3A0071_57C9A3B200E2_impl*
-end;//TmsmListToTreeBinding.DoFire
+ l_O := Self.ModelToListen.List.Owner;
+ if (Self.ModelToFire.CurrentElement <> l_O) then
+  Self.ModelToFire.CurrentElement := l_O;
+//#UC END# *57C9A3B200E2_57ADBA39026E_57C9A3B200E2_impl*
+end;//TmsmListToTreeBinding.DoListChangedEvent
+
+procedure TmsmListToTreeBinding.LinkEventHandlers;
+begin
+ inherited;
+ Self.LinkEventHandler(ListChangedEvent.Instance, DoListChangedEvent);
+end;//TmsmListToTreeBinding.LinkEventHandlers
 
 end.

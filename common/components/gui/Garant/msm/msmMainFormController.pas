@@ -21,7 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\msm\msmConcreteModelViewController.imp.pas}
  TmsmMainFormController = class(_msmConcreteModelViewController_)
   protected
-   procedure DoFire(anEvent: TmsmEvent); override;
+   procedure DoCaptionChangedEvent(anEvent: TmsmEvent);
+   procedure LinkEventHandlers; override;
  end;//TmsmMainFormController
 
 implementation
@@ -36,15 +37,20 @@ uses
 
 {$Include w:\common\components\gui\Garant\msm\msmConcreteModelViewController.imp.pas}
 
-procedure TmsmMainFormController.DoFire(anEvent: TmsmEvent);
-//#UC START# *57ADDC3A0071_57AE06A901F9_var*
-//#UC END# *57ADDC3A0071_57AE06A901F9_var*
+procedure TmsmMainFormController.DoCaptionChangedEvent(anEvent: TmsmEvent);
+//#UC START# *57AE06A901F9_57CD31A200FA_57AE06A901F9_var*
+//#UC END# *57AE06A901F9_57CD31A200FA_57AE06A901F9_var*
 begin
-//#UC START# *57ADDC3A0071_57AE06A901F9_impl*
+//#UC START# *57AE06A901F9_57CD31A200FA_57AE06A901F9_impl*
  inherited;
- if (anEvent = CaptionChangedEvent.Instance) then
-  TForm(View).Caption := l3Str(Model.Caption);
-//#UC END# *57ADDC3A0071_57AE06A901F9_impl*
-end;//TmsmMainFormController.DoFire
+ TForm(View).Caption := l3Str(Model.Caption);
+//#UC END# *57AE06A901F9_57CD31A200FA_57AE06A901F9_impl*
+end;//TmsmMainFormController.DoCaptionChangedEvent
+
+procedure TmsmMainFormController.LinkEventHandlers;
+begin
+ inherited;
+ Self.LinkEventHandler(CaptionChangedEvent.Instance, DoCaptionChangedEvent);
+end;//TmsmMainFormController.LinkEventHandlers
 
 end.

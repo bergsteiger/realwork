@@ -1,7 +1,10 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.161 2016/09/05 12:58:24 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.162 2016/09/06 10:21:37 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.162  2016/09/06 10:21:37  lukyanets
+// Ѕолее правильно синхронизируемс€.
+//
 // Revision 1.161  2016/09/05 12:58:24  lukyanets
 // –асталкиваем очередь по приходу запроса
 //
@@ -1287,7 +1290,7 @@ type
     f_ServerStarted: Boolean;
 
     f_SerachActiveTaskCounter: Integer;// ќтладочна€ ловушка - потом можно грохнуть.
-    f_SpeedupRequestProc: TalcuSpeedupRequestProc;
+    f_SpeedupRequestHandle: Windows.THandle;
     procedure AddDelayedTask(aTask: TddProcessTask);
     procedure ChangeServerStatus(atask: TddProcessTask);
     procedure CheckDeliveringTasks;
@@ -1298,6 +1301,7 @@ type
     procedure DoSaveUserDefinedExport(aTask: TddProcessTask);
     procedure DoDeleteDocs(aTask: TddProcessTask);
     procedure DoDownloadDoc(aTask: TddProcessTask);
+    procedure SpeedupRequestWndProc(var Msg: TMessage);
     function pm_GetActiveTaskListCount: Integer; // количества задач ожидающих выполнени€
     function pm_GetCurrentUserName: string;
     function pm_GetLineLen: Integer;
@@ -1424,6 +1428,7 @@ type
     procedure SignalServerStopping;
     procedure RequestExecuteCommand(aUser: TdaUserID; aCommandID: Integer);
     function HasActiveTask(aTaskType: TcsTaskType): Boolean;
+    procedure SpeedupRequest;
     property Actions: TcsServerCommandsManager read f_Actions write f_Actions;
     property ActiveTaskList: TalcuTaskList read f_ActiveTaskList;
     property ActiveTaskListCount: Integer read pm_GetActiveTaskListCount; // количества задач ожидающих выполнени€
@@ -1442,7 +1447,6 @@ type
     property UserQueries: TQueryList read f_UserQueries;
     property AddedActiveTaskCount: Integer read f_AddedActiveTaskCount;
     property WorkThreadCount: Integer read pm_GetWorkThreadCount write pm_SetWorkThreadCount;
-    property SpeedupRequestProc: TalcuSpeedupRequestProc read f_SpeedupRequestProc write f_SpeedupRequestProc;
     {$IFNDEF Service}
     property OnException: TExceptionEvent read f_OnException write f_OnException;
     {$ENDIF}
@@ -1477,7 +1481,7 @@ Uses
  dt_Const, dt_AttrSchema, dt_IFltr, dt_Serv,  dt_Stage,
  dt_Dict, dt_Table, dt_Link, dt_Lock, dt_Query, DT_SrchQueries,
  l3Filer, l3FileUtils, l3Stream, l3String, l3TempMemoryStream,
- l3ProcessingEnabledService,
+ l3ProcessingEnabledService, l3Utils,
  CSNotification, csActiveClients, CsNotifier,
  alcuMailServer, alcuUtils, alcuAutoClassifier, rxStrUtils, l3ShellUtils, vtLogFile, alcuPrime,
  alcuStrings, StrUtils, alcuAutoExport, ddAppConfigDataAdapters,
@@ -1527,6 +1531,8 @@ Uses
 
 const
  cNoActiveTask = 'Ќет активной задачи';
+var
+ msg_SpeedupRequest: Windows.THandle = 0;
 
 {
 ***************************** TddServerTaskManager *****************************
@@ -1564,6 +1570,8 @@ begin
   f_TransporterPool := TncsServerTransporterPool.Create;
   f_DetachedExecutorPool := TalcuDetachedExecutorPool.Create;
 
+  f_SpeedupRequestHandle := Classes.AllocateHWnd(SpeedupRequestWndProc);
+
   ncsFileTransferReg.ncsServerRegister;
   ncsTaskSendReg.ncsServerRegister;
   ncsDocStorageTransferReg.ncsServerRegister;
@@ -1587,15 +1595,13 @@ end;
 procedure TddServerTaskManager.AddRequest(const aRequest: TddProcessTask);
 begin
  DoAddRequest(aRequest);
- if Assigned(f_SpeedupRequestProc) then
-  f_SpeedupRequestProc;
+ SpeedupRequest;
 end;
 
 procedure TddServerTaskManager.AddActiveTask(const aTask: TddProcessTask);
 begin
  DoAddActiveTask(aTask);
- if Assigned(f_SpeedupRequestProc) then
-  f_SpeedupRequestProc;
+ SpeedupRequest;
 end;
 
 procedure TddServerTaskManager.CalculatePriority(aTask: TddProcessTask);
@@ -1687,6 +1693,7 @@ begin
  l3Free(f_BaseEngineHolder);
  l3Free(f_TransporterPool);
  l3Free(f_DetachedExecutorPool);
+ Classes.DeallocateHWnd(f_SpeedUpRequestHandle);
  inherited;
 end;
 
@@ -3190,17 +3197,17 @@ begin
   Result := TalcuDeliveryResultExecutor.Make(f_ActiveTaskList, Self)
  else if aMessage is TncsSendTask then
 {$IFDEF csSynchroTransport}
-  Result := TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder, f_SpeedupRequestProc)
+  Result := TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder, SpeedupRequest)
 {$ELSE csSynchroTransport}
-  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder, f_SpeedupRequestProc))
+  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuSendTaskExecutor.Make(f_IncomingTasks, RootTaskFolder, SpeedupRequest))
 {$ENDIF csSynchroTransport}
  else if aMessage is TncsCorrectFolder then
   Result := TalcuCorrectFolderExecutor.Make(f_ActiveTaskList)
  else if aMessage is TcsDownloadDocStream then
 {$IFDEF csSynchroTransport}
-  Result := TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, f_SpeedupRequestProc)
+  Result := TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, SpeedupRequest)
 {$ELSE csSynchroTransport}
-  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, f_SpeedupRequestProc))
+  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, SpeedupRequest))
 {$ENDIF csSynchroTransport}
  else
   Result := nil;
@@ -3500,6 +3507,25 @@ procedure TddServerTaskManager.DoAddRequest(
 begin
  f_RequestList.Push(aRequest);
 end;
+
+procedure TddServerTaskManager.SpeedupRequestWndProc(var Msg: TMessage);
+begin
+ if Msg.Msg = msg_SpeedupRequest then
+ begin
+  ProcessIncomingTasks;
+  Msg.Result := 1;
+ end
+ else
+  Msg.Result := DefWindowProc(f_SpeedupRequestHandle, Msg.Msg, Msg.wParam, Msg.lParam);
+end;
+
+procedure TddServerTaskManager.SpeedupRequest;
+begin
+ PostMessage(f_SpeedupRequestHandle, msg_SpeedupRequest, 0, 0);
+end;
+
+initialization
+ msg_SpeedupRequest := RegisterWindowMessage(PChar(l3CreateStringGUID));
 
 end.
 

@@ -3,9 +3,12 @@ unit ddHTMLWriter;
 {* Конвертация формата Эверест в HTML }
 
 
-//$Id: ddHTMLWriter.pas,v 1.204 2016/09/05 09:43:51 dinishev Exp $
+//$Id: ddHTMLWriter.pas,v 1.205 2016/09/06 10:59:29 dinishev Exp $
 
 // $Log: ddHTMLWriter.pas,v $
+// Revision 1.205  2016/09/06 10:59:29  dinishev
+// {Requestlink:629809919}. Вернул стиль для body. Не в нем было дело. Убрал пробелы перед in.
+//
 // Revision 1.204  2016/09/05 09:43:51  dinishev
 // {Requestlink:629809919}. Непонятно зачем выставленный стиль для всей страницы от стиля текстового параграфа.
 //
@@ -932,21 +935,21 @@ begin
    if not IsPrime then
    begin
     if (xaLeft <> propUndefined) and (xaLeft <> 0) then
-     Result := Result + Format('margin-left : %s', [InchStr(xaLeft)]);
+     Result := Result + Format('margin-left: %s', [InchStr(xaLeft)]);
     if (xaRight <> propUndefined) and (xaRight <> 0) then
-     Result := Result + Format('margin-right : %s', [InchStr(xaRight)]);
+     Result := Result + Format('margin-right: %s', [InchStr(xaRight)]);
     { TODO -oДудко Дмитрий -cРазвитие : перерасчет отступа красной строки }
     if xaLeft <> propUndefined then
      l_Left := xaLeft
     else
      l_Left := 0;
     if (xaFirst <> propUndefined){ and (xaFirst <> 0) Зачем эта проверка ?} then
-      Result := Result + Format('text-indent : %s', [InchStr(xaFirst)]);
+      Result := Result + Format('text-indent: %s', [InchStr(xaFirst)]);
     lp_CheckAlignment(Just, Result);
     if (Before <> propUndefined) and (Before <> 0) then
-     Result := Result + Format('margin-top : %s', [InchStr(Before)]);
+     Result := Result + Format('margin-top: %s', [InchStr(Before)]);
     if (After <> propUndefined) and (After <> 0) then
-     Result := Result + Format('margin-bottom : %s', [InchStr(After)]);
+     Result := Result + Format('margin-bottom: %s', [InchStr(After)]);
     aParaTag := dd_ptP;
     if Result <> '' then
      Result := csStyleParam + Result + csFinishParam;
@@ -984,8 +987,13 @@ end;
 
 function TddHTMLGenerator.InchStr(aInch: Integer): AnsiString;
 begin
- Result := Format('%f in;', [aInch / 1440]);
- Result := StringReplace(Result, ',', '.', [rfReplaceAll]);
+ if aInch = 0 then
+  Result := '0;'
+ else
+ begin
+  Result := Format('%fin;', [aInch / 1440]);
+  Result := StringReplace(Result, ',', '.', [rfReplaceAll]);
+ end; 
 end;
 
 procedure TddHTMLGenerator.OpenDivPre;
@@ -1137,7 +1145,7 @@ begin
        else
         l_Left := 0;
        if (xaFirst <> propUndefined) then
-        lp_OutStyleProp('text-indent :', InchStr(xaFirst));
+        lp_OutStyleProp('text-indent:', InchStr(xaFirst));
 
        case Just of
         justL : lp_OutStyleProp('text-align:', 'left;');
@@ -1343,8 +1351,22 @@ begin
  if dd_hwoWriteStyleSheet in f_HTMLOptions then
  begin
   OutStringLn('<style type="text/css">');
+  OutStringLn('body {');
+  l_Style:= Document.StyleTable[ev_saTxtNormalAnsi];
+  if l_Style <> nil then
+  begin
+   OutStringLn(Style2HTML(l_Style));
+   if l_Style.CHP.FontName = '' then
+    OutStringLn('font-family : Arial;');
+  end
+  else
+  begin
+   OutStringLn('text-indent: 0.5in; margin: 0; margin-left: 1in; margin-right: 1in;');
+   OutStringLn('text-align:justify; font-family : Arial; font-size: 10pt;');
+  end;
+  OutStringLn('}');
   OutStringLn('pre {');
-  OutStringLn('margin: 0; margin-left: 0 in; text-indent : 0 in; text-align: left;');
+  OutStringLn('margin: 0; margin-left: 0; text-indent: 0; text-align: left;');
   OutStringLn('}');
   l_Style:= Document.StyleTable[ev_saNormalTable];
   if l_Style <> nil then
@@ -1376,7 +1398,7 @@ begin
   if l_NeedP then
   begin
    OutStringLn('p {');
-   OutStringLn('text-indent : 0.5 in; margin: 0;');
+   OutStringLn('text-indent: 0.5in margin: 0;');
    OutStringLn('text-align:justify; font-family : Arial; font-size: 10pt');
    OutStringLn('}');
   end; // if l_NeedP then

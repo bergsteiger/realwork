@@ -13,7 +13,8 @@
  {$Include w:\common\components\gui\Garant\msm\msmMEListLikeViewController.imp.pas}
  _msmMETreeViewController_ = {abstract} class(_msmMEListLikeViewController_)
   protected
-   procedure DoFire(anEvent: TmsmEvent); override;
+   procedure DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+   procedure LinkEventHandlers; override;
  end;//_msmMETreeViewController_
 
 {$Else msmMETreeViewController_imp}
@@ -26,16 +27,21 @@
 
 {$Include w:\common\components\gui\Garant\msm\msmMEListLikeViewController.imp.pas}
 
-procedure _msmMETreeViewController_.DoFire(anEvent: TmsmEvent);
-//#UC START# *57ADDC3A0071_57C981AF03C7_var*
-//#UC END# *57ADDC3A0071_57C981AF03C7_var*
+procedure _msmMETreeViewController_.DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+//#UC START# *57C981AF03C7_57B31D1000FA_57C981AF03C7_var*
+//#UC END# *57C981AF03C7_57B31D1000FA_57C981AF03C7_var*
 begin
-//#UC START# *57ADDC3A0071_57C981AF03C7_impl*
+//#UC START# *57C981AF03C7_57B31D1000FA_57C981AF03C7_impl*
  inherited;
- if (anEvent = CurrentElementChangedEvent.Instance) then
-  OwnView.GotoOnNode(Model.Tree.NodeByElement(Model.CurrentElement));
-//#UC END# *57ADDC3A0071_57C981AF03C7_impl*
-end;//_msmMETreeViewController_.DoFire
+ OwnView.GotoOnNode(Model.Tree.NodeByElement(Model.CurrentElement));
+//#UC END# *57C981AF03C7_57B31D1000FA_57C981AF03C7_impl*
+end;//_msmMETreeViewController_.DoCurrentElementChangedEvent
+
+procedure _msmMETreeViewController_.LinkEventHandlers;
+begin
+ inherited;
+ Self.LinkEventHandler(CurrentElementChangedEvent.Instance, DoCurrentElementChangedEvent);
+end;//_msmMETreeViewController_.LinkEventHandlers
 
 {$EndIf msmMETreeViewController_imp_impl}
 

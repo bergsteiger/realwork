@@ -11,7 +11,7 @@ interface
 uses
  l3IntfUses
  , l3ProtoObject
- , msmControllers
+ , msmModels
  , msmEvents
  , ImsmEventsSubscriberList
 ;

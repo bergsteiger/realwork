@@ -15,6 +15,7 @@ uses
  , msmListAndTreeViewUtils
  , msmParentedViewController
  , msmControllers
+ , msmModels
  , msmEvents
  , l3Interfaces
 ;

@@ -22,8 +22,9 @@ type
  {$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
  TmsmListToCaptionBinding = class(_msmModelToModelBinding_)
   protected
-   procedure DoFire(anEvent: TmsmEvent); override;
+   procedure DoListChangedEvent(anEvent: TmsmEvent);
    procedure LinkDataToView; override;
+   procedure LinkEventHandlers; override;
  end;//TmsmListToCaptionBinding
 
 implementation
@@ -37,16 +38,15 @@ uses
 
 {$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
 
-procedure TmsmListToCaptionBinding.DoFire(anEvent: TmsmEvent);
-//#UC START# *57ADDC3A0071_57CD32BB0369_var*
-//#UC END# *57ADDC3A0071_57CD32BB0369_var*
+procedure TmsmListToCaptionBinding.DoListChangedEvent(anEvent: TmsmEvent);
+//#UC START# *57CD32BB0369_57ADBA39026E_57CD32BB0369_var*
+//#UC END# *57CD32BB0369_57ADBA39026E_57CD32BB0369_var*
 begin
-//#UC START# *57ADDC3A0071_57CD32BB0369_impl*
+//#UC START# *57CD32BB0369_57ADBA39026E_57CD32BB0369_impl*
  inherited;
- if (anEvent = ListChangedEvent.Instance) then
-  ModelToFire.Caption := ModelToListen.List.Owner.Name;
-//#UC END# *57ADDC3A0071_57CD32BB0369_impl*
-end;//TmsmListToCaptionBinding.DoFire
+ ModelToFire.Caption := ModelToListen.List.Owner.Name;
+//#UC END# *57CD32BB0369_57ADBA39026E_57CD32BB0369_impl*
+end;//TmsmListToCaptionBinding.DoListChangedEvent
 
 procedure TmsmListToCaptionBinding.LinkDataToView;
 //#UC START# *57B6A49900F4_57CD32BB0369_var*
@@ -57,5 +57,11 @@ begin
  ModelToFire.Caption := ModelToListen.List.Owner.Name;
 //#UC END# *57B6A49900F4_57CD32BB0369_impl*
 end;//TmsmListToCaptionBinding.LinkDataToView
+
+procedure TmsmListToCaptionBinding.LinkEventHandlers;
+begin
+ inherited;
+ Self.LinkEventHandler(ListChangedEvent.Instance, DoListChangedEvent);
+end;//TmsmListToCaptionBinding.LinkEventHandlers
 
 end.

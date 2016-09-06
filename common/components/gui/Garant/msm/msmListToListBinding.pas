@@ -22,7 +22,9 @@ type
  {$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
  TmsmListToListBinding = class(_msmModelToModelBinding_)
   protected
-   procedure DoFire(anEvent: TmsmEvent); override;
+   procedure DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+   procedure DoActionElementEvent(anEvent: TmsmEvent);
+   procedure LinkEventHandlers; override;
  end;//TmsmListToListBinding
 
 implementation
@@ -36,18 +38,31 @@ uses
 
 {$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
 
-procedure TmsmListToListBinding.DoFire(anEvent: TmsmEvent);
-//#UC START# *57ADDC3A0071_57B329AF021D_var*
-//#UC END# *57ADDC3A0071_57B329AF021D_var*
+procedure TmsmListToListBinding.DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+//#UC START# *57B329AF021D_57B31D1000FA_57B329AF021D_var*
+//#UC END# *57B329AF021D_57B31D1000FA_57B329AF021D_var*
 begin
-//#UC START# *57ADDC3A0071_57B329AF021D_impl*
+//#UC START# *57B329AF021D_57B31D1000FA_57B329AF021D_impl*
  inherited;
- if (anEvent = CurrentElementChangedEvent.Instance) then
-  Self.ModelToFire.ShowElementRelationList(Self.ModelToListen.CurrentElement)
- else
- if (anEvent = ActionElementEvent.Instance) then
-  Self.ModelToFire.ShowElementAsDir(Self.ModelToListen.ElementToAction);
-//#UC END# *57ADDC3A0071_57B329AF021D_impl*
-end;//TmsmListToListBinding.DoFire
+ Self.ModelToFire.ShowElementRelationList(Self.ModelToListen.CurrentElement);
+//#UC END# *57B329AF021D_57B31D1000FA_57B329AF021D_impl*
+end;//TmsmListToListBinding.DoCurrentElementChangedEvent
+
+procedure TmsmListToListBinding.DoActionElementEvent(anEvent: TmsmEvent);
+//#UC START# *57B329AF021D_57B2B0C602DF_57B329AF021D_var*
+//#UC END# *57B329AF021D_57B2B0C602DF_57B329AF021D_var*
+begin
+//#UC START# *57B329AF021D_57B2B0C602DF_57B329AF021D_impl*
+ inherited;
+ Self.ModelToFire.ShowElementAsDir(Self.ModelToListen.ElementToAction);
+//#UC END# *57B329AF021D_57B2B0C602DF_57B329AF021D_impl*
+end;//TmsmListToListBinding.DoActionElementEvent
+
+procedure TmsmListToListBinding.LinkEventHandlers;
+begin
+ inherited;
+ Self.LinkEventHandler(CurrentElementChangedEvent.Instance, DoCurrentElementChangedEvent);
+ Self.LinkEventHandler(ActionElementEvent.Instance, DoActionElementEvent);
+end;//TmsmListToListBinding.LinkEventHandlers
 
 end.

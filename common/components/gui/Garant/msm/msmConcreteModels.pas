@@ -15,6 +15,7 @@ uses
  , msmControllers
  , msmElementViews
  , msmUsualData
+ , msmModels
  , msmEvents
 ;
 

@@ -71,7 +71,7 @@ function _msmListLikeModel_.Get_Caption: AnsiString;
 begin
 //#UC START# *57B49A8201E1_57B57EDB003Fget_impl*
  Result := f_ElementView.rListName;
- if (Result = '_NullList') then
+ if (Result = 'SelfList') then
   Result := f_ElementView.rTextName;
  if (Result = 'DocumentationNotEmpty') then
   Result := 'Doc';

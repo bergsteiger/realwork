@@ -37,6 +37,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3PointerUtils
  , msmModelElement
  , l3Memory
  , SysUtils
@@ -71,7 +72,7 @@ begin
  if (anItem.MainWord = aData) then
   Result := 0
  else
-  Result := PAnsiChar(anItem.MainWord.GetRefForCompare) - PAnsiChar(aData.GetRefForCompare);
+  Result := l3ComparePointers(anItem.MainWord.GetRefForCompare, aData.GetRefForCompare);
 //#UC END# *47B9BAFD01F4_57AB39D10325_impl*
 end;//CompareItemWithData
 

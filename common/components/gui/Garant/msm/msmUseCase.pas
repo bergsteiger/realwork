@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , l3ProtoDataContainer
+ , msmUseCases
  , msmControllers
  , l3Memory
  , l3Types

@@ -36,6 +36,7 @@ implementation
 {$If Defined(seThreadSafe)}
 uses
  l3ImplUses
+ , l3PointerUtils
  , msmModelLoadingThreadPrim
  , SysUtils
  , l3Base
@@ -64,7 +65,7 @@ function CompareItemWithData(const anItem: _ItemType_;
 begin
 //#UC START# *47B9BAFD01F4_57C68795032A_impl*
  Assert(anItem <> nil);
- Result := PChar(anItem.WordToLoad) - PChar(aData);
+ Result := l3ComparePointers(anItem.WordToLoad, aData);
 //#UC END# *47B9BAFD01F4_57C68795032A_impl*
 end;//CompareItemWithData
 

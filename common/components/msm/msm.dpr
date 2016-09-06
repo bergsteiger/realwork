@@ -1599,8 +1599,14 @@ uses
  , afwHintManager in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwHintManager.pas'
  , msmSizeablePanel in 'w:\common\components\gui\Garant\msm\msmSizeablePanel.pas'
  , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
+ , msmUseCases in 'w:\common\components\gui\Garant\msm\msmUseCases.pas'
+ , msmControllers in 'w:\common\components\gui\Garant\msm\msmControllers.pas'
+ , msmEvents in 'w:\common\components\gui\Garant\msm\msmEvents.pas'
+ , msmOperations in 'w:\common\components\gui\Garant\msm\msmOperations.pas'
+ , msmModels in 'w:\common\components\gui\Garant\msm\msmModels.pas'
  , msmModelElements in 'w:\common\components\gui\Garant\msm\msmModelElements.pas'
  , msmUsualData in 'w:\common\components\gui\Garant\msm\msmUsualData.pas'
+ , msmOpenService in 'w:\common\components\gui\Garant\msm\msmOpenService.pas'
  , msmModelLoader in 'w:\common\components\gui\Garant\msm\msmModelLoader.pas'
  , msmScriptCaller in 'w:\common\components\gui\Garant\msm\msmScriptCaller.pas'
  {$If NOT Defined(NoScripts)}
@@ -1628,6 +1634,7 @@ uses
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThreadPrimList in 'w:\common\components\gui\Garant\msm\msmModelLoadingThreadPrimList.pas'
  {$IfEnd} // Defined(seThreadSafe)
+ , l3PointerUtils in 'w:\common\components\rtl\Garant\L3\l3PointerUtils.pas'
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine in 'w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngine.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1740,14 +1747,15 @@ uses
  , msmTreeViewController in 'w:\common\components\gui\Garant\msm\msmTreeViewController.pas'
  , msmOutliner in 'w:\common\components\gui\Garant\msm\msmOutliner.pas'
  , msmConcreteModels in 'w:\common\components\gui\Garant\msm\msmConcreteModels.pas'
- , msmControllers in 'w:\common\components\gui\Garant\msm\msmControllers.pas'
- , msmEvents in 'w:\common\components\gui\Garant\msm\msmEvents.pas'
  , msmElementViews in 'w:\common\components\gui\Garant\msm\msmElementViews.pas'
  , msmListAndTreeViewUtils in 'w:\common\components\gui\Garant\msm\msmListAndTreeViewUtils.pas'
  , msmParentedViewController in 'w:\common\components\gui\Garant\msm\msmParentedViewController.pas'
  , msmViewController in 'w:\common\components\gui\Garant\msm\msmViewController.pas'
  , msmController in 'w:\common\components\gui\Garant\msm\msmController.pas'
  , msmEventList in 'w:\common\components\gui\Garant\msm\msmEventList.pas'
+ , msmEventHandlers in 'w:\common\components\gui\Garant\msm\msmEventHandlers.pas'
+ , msmOperationsList in 'w:\common\components\gui\Garant\msm\msmOperationsList.pas'
+ , msmNullOperationsList in 'w:\common\components\gui\Garant\msm\msmNullOperationsList.pas'
  , msmViewControllersUtils in 'w:\common\components\gui\Garant\msm\msmViewControllersUtils.pas'
  , msmListAndTreeInterfaces in 'w:\common\components\gui\Garant\msm\msmListAndTreeInterfaces.pas'
  , msmWaitCursor in 'w:\common\components\gui\Garant\msm\msmWaitCursor.pas'
@@ -1788,6 +1796,11 @@ uses
  , msmListToCaptionBinding in 'w:\common\components\gui\Garant\msm\msmListToCaptionBinding.pas'
  , msmCaptionModel in 'w:\common\components\gui\Garant\msm\msmCaptionModel.pas'
  , msmListOpener in 'w:\common\components\gui\Garant\msm\msmListOpener.pas'
+ , msmOperation in 'w:\common\components\gui\Garant\msm\msmOperation.pas'
+ , msmListToTreeOperation in 'w:\common\components\gui\Garant\msm\msmListToTreeOperation.pas'
+ , msmShowInNavigator in 'w:\common\components\gui\Garant\msm\msmShowInNavigator.pas'
+ , msmOpenInNewWindow in 'w:\common\components\gui\Garant\msm\msmOpenInNewWindow.pas'
+ , msmListOperation in 'w:\common\components\gui\Garant\msm\msmListOperation.pas'
  //#UC START# *57A9BB9101F5manualuses*
  //#UC END# *57A9BB9101F5manualuses*
 ;

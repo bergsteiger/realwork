@@ -46,6 +46,7 @@ implementation
 {$If Defined(seThreadSafe)}
 uses
  l3ImplUses
+ , l3PointerUtils
  , l3Base
  , l3MinMax
  , RTLConsts
@@ -76,7 +77,7 @@ begin
 //#UC START# *47B99D4503A2_57C6876700B1_impl*
  Assert(CI.rA^ <> nil);
  Assert(CI.rB^ <> nil);
- Result := PChar(CI.rA.WordToLoad) - PChar(CI.rB.WordToLoad);
+ Result := l3ComparePointers(CI.rA.WordToLoad, CI.rB.WordToLoad);
 //#UC END# *47B99D4503A2_57C6876700B1_impl*
 end;//CompareExistingItems
 

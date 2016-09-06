@@ -13,7 +13,9 @@
  {$Include w:\common\components\gui\Garant\msm\msmMEListLikeViewController.imp.pas}
  _msmMEListViewController_ = {abstract} class(_msmMEListLikeViewController_)
   protected
-   procedure DoFire(anEvent: TmsmEvent); override;
+   procedure DoListChangedEvent(anEvent: TmsmEvent);
+   procedure DoActionElementEvent(anEvent: TmsmEvent);
+   procedure LinkEventHandlers; override;
  end;//_msmMEListViewController_
 
 {$Else msmMEListViewController_imp}
@@ -26,19 +28,32 @@
 
 {$Include w:\common\components\gui\Garant\msm\msmMEListLikeViewController.imp.pas}
 
-procedure _msmMEListViewController_.DoFire(anEvent: TmsmEvent);
-//#UC START# *57ADDC3A0071_57C9879A032D_var*
-//#UC END# *57ADDC3A0071_57C9879A032D_var*
+procedure _msmMEListViewController_.DoListChangedEvent(anEvent: TmsmEvent);
+//#UC START# *57C9879A032D_57ADBA39026E_57C9879A032D_var*
+//#UC END# *57C9879A032D_57ADBA39026E_57C9879A032D_var*
 begin
-//#UC START# *57ADDC3A0071_57C9879A032D_impl*
+//#UC START# *57C9879A032D_57ADBA39026E_57C9879A032D_impl*
  inherited;
- if (anEvent = ListChangedEvent.Instance) then
-  LinkDataToView
- else
- if (anEvent = ActionElementEvent.Instance) then
-  Self.Model.ShowElementAsDir(Self.Model.ElementToAction);
-//#UC END# *57ADDC3A0071_57C9879A032D_impl*
-end;//_msmMEListViewController_.DoFire
+ LinkDataToView;
+//#UC END# *57C9879A032D_57ADBA39026E_57C9879A032D_impl*
+end;//_msmMEListViewController_.DoListChangedEvent
+
+procedure _msmMEListViewController_.DoActionElementEvent(anEvent: TmsmEvent);
+//#UC START# *57C9879A032D_57B2B0C602DF_57C9879A032D_var*
+//#UC END# *57C9879A032D_57B2B0C602DF_57C9879A032D_var*
+begin
+//#UC START# *57C9879A032D_57B2B0C602DF_57C9879A032D_impl*
+ inherited;
+ Self.Model.ShowElementAsDir(Self.Model.ElementToAction);
+//#UC END# *57C9879A032D_57B2B0C602DF_57C9879A032D_impl*
+end;//_msmMEListViewController_.DoActionElementEvent
+
+procedure _msmMEListViewController_.LinkEventHandlers;
+begin
+ inherited;
+ Self.LinkEventHandler(ListChangedEvent.Instance, DoListChangedEvent);
+ Self.LinkEventHandler(ActionElementEvent.Instance, DoActionElementEvent);
+end;//_msmMEListViewController_.LinkEventHandlers
 
 {$EndIf msmMEListViewController_imp_impl}
 

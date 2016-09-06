@@ -34,6 +34,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3PointerUtils
  , l3Base
  , l3MinMax
  , RTLConsts
@@ -65,7 +66,7 @@ begin
  if (CI.rA^ = CI.rB^) then
   Result := 0
  else
-  Result := PAnsiChar(CI.rA.MainWord.GetRefForCompare) - PAnsiChar(CI.rB.MainWord.GetRefForCompare);
+  Result := l3ComparePointers(CI.rA.MainWord.GetRefForCompare, CI.rB.MainWord.GetRefForCompare);
 //#UC END# *47B99D4503A2_57C021910000_impl*
 end;//CompareExistingItems
 
