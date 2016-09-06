@@ -2841,6 +2841,116 @@ ME ME_57C52EF90214
 
 ENDME // ME_57C52EF90214 Tl3MsgList
 
+FORWARD ME_57CE8E0B0357
+
+FORWARD ME_57CE8E2403E7
+
+ME ME_57CE8E5601A7
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_57CE8E5601A7 A
+
+ME ME_57CE8E5601CF
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_57CE8E5601CF B
+
+ME ME_57CE8E46015F
+ MEPROP UID '57CE8E46015F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CE8E2403E7 // l3ComparePointers
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CE8E5601A7 // A
+ ME_57CE8E5601CF // B
+ )
+ ; // Parameters
+
+ENDME // ME_57CE8E46015F DoIt
+
+ME ME_57CE8E2403E7
+ MEPROP UID '57CE8E2403E7'
+ MEPROP Name 'l3ComparePointers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CE8E0B0357 // l3PointerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CE8E46015F // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ComparePointers'
+
+ENDME // ME_57CE8E2403E7 l3ComparePointers
+
+ME ME_57CE8E0B0357
+ MEPROP UID '57CE8E0B0357'
+ MEPROP Name 'l3PointerUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6D65B9022A // Containers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CE8E2403E7 // l3ComparePointers
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PointerUtils.pas'
+ UP extprop:rc:SelfName 'PointerUtils'
+
+ENDME // ME_57CE8E0B0357 l3PointerUtils
+
+FORWARD ME_57CE9D2803DF
+
+ME ME_47A042E100E2_ME_57CE9D2803DF
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_57CE9D2803DF InitFields
+
+ME ME_57CE9D2803DF
+ MEPROP UID '57CE9D2803DF'
+ MEPROP Name 'l3ReplacingMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мапа, которая замещает существующие элементы новыми.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D65B9022A // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5609096C03BE // l3Map
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57CE9D2803DF // InitFields
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ReplacingMap.imp.pas'
+ UP extprop:pas:TypeName '_l3ReplacingMap_'
+ UP extprop:pas:UnitName 'l3ReplacingMap.imp'
+
+ENDME // ME_57CE9D2803DF l3ReplacingMap
+
 ME ME_4A6D65B9022A
  MEPROP UID '4A6D65B9022A'
  MEPROP Name 'Containers'
@@ -2874,6 +2984,8 @@ ME ME_4A6D65B9022A
  HWL ME_56090A5401A5 // Tl3IntegerToIntegerMap
  HWL ME_56963C1702B0 // Tl3StringToStringMap
  HWL ME_57C52EF90214 // Tl3MsgList
+ HWL ME_57CE8E0B0357 // l3PointerUtils
+ HWL ME_57CE9D2803DF // l3ReplacingMap
  )
  ; // Children
  MELIST Depends

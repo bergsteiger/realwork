@@ -1,0 +1,108 @@
+// msmUseCases 57CEAF3602AB Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CEAF3602AB
+
+FORWARD ME_57AD9468006E
+
+FORWARD ME_57AD949C0005
+
+ME ME_57AD94AE0382
+ MEPROP Name 'aController'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+ ;
+
+ENDME // ME_57AD94AE0382 aController
+
+ME ME_57AD94A60371
+ MEPROP UID '57AD94A60371'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD949C0005 // AddController
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AD94AE0382 // aController
+ )
+ ; // Parameters
+
+ENDME // ME_57AD94A60371 DoIt
+
+ME ME_57AD949C0005
+ MEPROP UID '57AD949C0005'
+ MEPROP Name 'AddController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57AD9468006E // ImsmUseCase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AD94A60371 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57AD949C0005 AddController
+
+ME ME_57B1ABA800A6
+ MEPROP UID '57B1ABA800A6'
+ MEPROP Name 'Activate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57AD9468006E // ImsmUseCase
+ ;
+
+ENDME // ME_57B1ABA800A6 Activate
+
+ME ME_57AD9468006E
+ MEPROP UID '57AD9468006E'
+ MEPROP GUID '54200745-EE4F-42D0-840A-8209E1EBE0D3'
+ MEPROP Name 'ImsmUseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CEAF3602AB // msmUseCases
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AD949C0005 // AddController
+ HWL ME_57B1ABA800A6 // Activate
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'msmUseCase'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57AD9468006E ImsmUseCase
+
+ME ME_57CEAF3602AB
+ MEPROP UID '57CEAF3602AB'
+ MEPROP Name 'msmUseCases'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57AD9468006E // ImsmUseCase
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+ )
+ ; // Depends
+ UP "is namespace" true
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmUseCases.pas'
+
+ENDME // ME_57CEAF3602AB msmUseCases

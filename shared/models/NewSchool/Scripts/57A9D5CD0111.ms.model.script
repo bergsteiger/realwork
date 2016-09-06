@@ -859,6 +859,16 @@ ME ME_57AB3A3C01DF
 
 ENDME // ME_57AB3A3C01DF ItemType
 
+ME ME_57CE91B70269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C021910000 // TmsmModelElementFactoryPrim
+ ;
+ MELINK Target WL 'ME_57CE8E0B0357' '4A6D65B9022A.ms.model.script' // l3PointerUtils
+ ;
+
+ENDME // ME_57CE91B70269 
+
 ME ME_47B2C42A0163_ME_57C021910000
  MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
  ;
@@ -907,6 +917,10 @@ ME ME_57C021910000
    Seq: ( ME_47A042E100E2_ME_57C021910000 // InitFields
  )
  ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CE91B70269 // l3PointerUtils
+ )
+ ; // Dependencies
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementFactoryPrim.pas'
  UP extprop:rc:SelfName 'msmModelElementFactoryPrim'
  UP extprop:rc:isAcceptableForScripts true
@@ -975,6 +989,16 @@ ME ME_57AB3A620365
 
 ENDME // ME_57AB3A620365 Make
 
+ME ME_57CE91870394
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AB39D10325 // TmsmModelElementFactory
+ ;
+ MELINK Target WL 'ME_57CE8E0B0357' '4A6D65B9022A.ms.model.script' // l3PointerUtils
+ ;
+
+ENDME // ME_57CE91870394 
+
 ME ME_47A042E100E2_ME_57AB39D10325
  MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
  ;
@@ -1018,6 +1042,10 @@ ME ME_57AB39D10325
  ME_47B9BAFD01F4_ME_57AB39D10325 // CompareItemWithData
  )
  ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CE91870394 // l3PointerUtils
+ )
+ ; // Dependencies
  UP "singleton" true
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementFactory.pas'
  UP extprop:rc:SelfName 'msmModelElementFactory'
@@ -1050,6 +1078,7 @@ ME ME_57A9D5CD0111
  WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces

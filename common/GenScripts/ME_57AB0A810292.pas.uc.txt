@@ -1,5 +1,8 @@
 //#UC START# *479731C50290_57AB0A810292_impl*
  inherited;
+ if (f_PopupMenu = TmsmViewFriend(View).PopupMenu) then
+  TmsmViewFriend(View).PopupMenu := nil;
+ FreeAndNil(f_PopupMenu); 
  f_View := nil;
 //#UC END# *479731C50290_57AB0A810292_impl*
 //#UC START# *479731C50290_57AB0A810292_var*
@@ -9,6 +12,12 @@
 //#UC END# *47A042E100E2_57AB0A810292_impl*
 //#UC START# *47A042E100E2_57AB0A810292_var*
 //#UC END# *47A042E100E2_57AB0A810292_var*
+//#UC START# *48077504027E_57CECA080010_impl*
+ f_Operation := nil;
+ inherited;
+//#UC END# *48077504027E_57CECA080010_impl*
+//#UC START# *48077504027E_57CECA080010_var*
+//#UC END# *48077504027E_57CECA080010_var*
 //#UC START# *57AB058F01A0_57AB0A810292get_impl*
  Result := f_View;
 //#UC END# *57AB058F01A0_57AB0A810292get_impl*
@@ -19,6 +28,7 @@ w:\common\components\gui\Garant\msm\msmViewController.pas
 //#UC END# *57AB0A810292_ext:FileName
 //#UC START# *57AB0A810292impl_uses*
  , SysUtils
+ , Menus
 //#UC END# *57AB0A810292impl_uses*
 //#UC START# *57AB0AD803AD_57AB0A810292_impl*
  Assert(aView <> nil);
@@ -70,3 +80,33 @@ w:\common\components\gui\Garant\msm\msmViewController.pas
 //#UC END# *57B1ABC80368_57AB0A810292_impl*
 //#UC START# *57B1ABC80368_57AB0A810292_var*
 //#UC END# *57B1ABC80368_57AB0A810292_var*
+//#UC START# *57CEC64E0063_57AB0A810292_impl*
+ inherited;
+ if not OperationsList.Empty then
+ begin
+  f_PopupMenu := TPopupMenu.Create(View);
+  for l_Index := 0 to Pred(OperationsList.Count) do
+  begin
+   l_Item := TmsmOperationMenuItem.Create(f_PopupMenu, OperationsList[l_Index]);
+   f_PopupMenu.Items.Add(l_Item);
+  end;//for l_Index
+  TmsmViewFriend(View).PopupMenu := f_PopupMenu;
+ end;//not OperationsList.Empty
+//#UC END# *57CEC64E0063_57AB0A810292_impl*
+//#UC START# *57CEC64E0063_57AB0A810292_var*
+var
+ l_Item : TMenuItem;
+ l_Index : Integer;
+//#UC END# *57CEC64E0063_57AB0A810292_var*
+//#UC START# *57CECA500287_57CECA080010get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57CECA500287_57CECA080010get_impl*
+//#UC START# *57CECA500287_57CECA080010get_var*
+//#UC END# *57CECA500287_57CECA080010get_var*
+//#UC START# *57CECAC202FB_57CECA080010_impl*
+ inherited Create(anOwner);
+ f_Operation := anOperation;
+ Self.Caption := anOperation.Caption;
+//#UC END# *57CECAC202FB_57CECA080010_impl*
+//#UC START# *57CECAC202FB_57CECA080010_var*
+//#UC END# *57CECAC202FB_57CECA080010_var*

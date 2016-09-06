@@ -2260,8 +2260,8 @@ BOOLEAN elem_func IsUses
 elem_iterator UsesInDependencies
  Cached:
  (
-  Self .Dependencies 
-  .filter> .IsUses 
+  Self .Dependencies
+  .filter> .IsUses
   .mapToTarget>
   array:Copy
  ) 
@@ -2599,7 +2599,7 @@ elem_iterator OperationsEx
       .join> ToArray: (
        'ChangeSynchroForm' MakeProcedure: (
          IN aMade
-        aMade -> UID := ( [ Self .LUID '_' aEnum .LUID '_' 'ChangeSynchroForm' ] strings:Cat ) 
+        aMade -> UID := ( [ Self .LUID '_' aEnum .LUID '_' 'ChangeSynchroForm' ] strings:Cat )
         aMade -> %SUM := 'Переключает форму синхронного просмотра'
         //aMade -> Stereotype := st_static::Operation
         aMade -> Visibility := ProtectedAccess
@@ -2608,11 +2608,11 @@ elem_iterator OperationsEx
          'aSynchroForm' aEnum MakeParam
          'aDoSaveToHistory' GarantModel::Boolean MakeParam: (
            IN aMade
-          aMade -> 'extprop:pas:Value' := true 
+          aMade -> 'extprop:pas:Value' := true
          ) // 'aDoSaveToHistory' GarantModel::Boolean MakeParam:
          'aNeedRefresh' GarantModel::Boolean MakeParam: (
            IN aMade
-          aMade -> 'extprop:pas:Value' := true 
+          aMade -> 'extprop:pas:Value' := true
          ) // 'aNeedRefresh' GarantModel::Boolean MakeParam:
         ] // aMade -> Parameters
        ) // 'ChangeSynchroForm' MakeProcedure:
@@ -2635,7 +2635,22 @@ elem_iterator OperationsEx
    ) // .for>
    l_Operations
   end // ( Self .IsVCMFormsPack )
-  
+
+  Self .ConsumedEvents
+  .for> (
+    IN anEvent
+   .join> ToArray: (
+    'Do' anEvent .Name Cat MakeProcedure: (
+      IN aMade
+     aMade -> Stereotype := st_method 
+     aMade -> UID := ( [ Self .LUID '_' anEvent .LUID ] strings:Cat )
+     aMade -> Visibility := ProtectedAccess
+     aMade -> Abstraction := at_final
+     aMade -> Inherits := [ GarantModel::TmsmEventHandler ]
+    ) // 'Do' anEvent .Name Cat MakeProcedure:
+   ) // .join> ToArray:
+  ) // .for>
+
   if ( Self .IsPureMixIn ) then
   // - это заготовочка для сервисов
   begin
@@ -10047,7 +10062,32 @@ elem_iterator OverriddenEx
     end // ( l_Overridden GarantModel::vcmFormSetDataSource.ClearAreas .HasModelElement ! )
    end // ( Self .ImplementedEx .filter> .IsVCMArea .NotEmpty )
   end // ( Self .IsUseCaseControllerImp )
- ) 
+
+  if ( Self .ConsumedEvents .NotEmpty ) then
+  begin
+   .join> ToArray: (
+    GarantModel::msmEventsSubscriber.LinkEventHandlers .OverrideMethod: (
+      IN aMade
+     aMade ->^ cVarUserCodeName ^:= cEmptyUserCode
+     aMade .AddMethodWithParams: cImplementationUserCodeName Self (
+       IN Self
+      [
+       ' inherited;'
+       Self .ConsumedEvents
+       .for> (
+         IN anEvent
+        \n 
+        ' Self.LinkEventHandler('
+        anEvent .Name '.Instance' ', '
+        'Do' anEvent .Name
+        ');'
+       ) // .for>
+      ]
+     ) // aMade .AddMethodWithParams: cImplementationUserCodeName Self
+    ) // GarantModel::msmEventsSubscriber.LinkEventHandlers .OverrideMethod:
+   ) // .join> ToArray:
+  end // ( Self .ConsumedEvents .NotEmpty )
+ )
  >>> Result
 ; // OverriddenEx
 
@@ -16135,26 +16175,6 @@ elem_generator rc
  //call.inherited
 ; // rc
 
-STRING elem_func MDAClassString
- RULES
-  ( Self .MDAClass class_Operation == )
-   'Operation'
-  ( Self .MDAClass class_Attribute == )
-   'Attribute'
-  ( Self .MDAClass class_Parameter == )
-   'Parameter'
-  ( Self .MDAClass class_Category == )
-   'Category'
-  ( Self .MDAClass class_Dependency == )
-   'Dependency'
-  ( Self .MDAClass class_Class == )
-   'Class'
-  DEFAULT
-   ( Self .MDAClass ToPrintable )
- ; // RULES
- >>> Result
-; // MDAClassString
-
 STRING elem_func KindString
  RULES
   ( Self .Kind kind_NormalClass == )
@@ -16235,6 +16255,15 @@ STRING FUNCTION .FineString
  >>> Result
 ; // .FineString
 
+STRING elem_func ScriptWordLink
+ [
+  'WL '
+  cQuote Self .WordName cQuote ' '
+  cQuote Self .DictName cModelScript cQuote
+ ] strings:Cat
+ >>> Result
+; // ScriptWordLink
+
 elem_generator model.script
 
  CONST Ext '.model.script'
@@ -16307,11 +16336,7 @@ elem_generator model.script
      begin
       RULES
        ( l_DictName Self .DictName != )
-        ( [
-           'WL '
-           cQuote Self .WordName cQuote ' '
-           cQuote Self .DictName cModelScript cQuote
-          ] strings:Cat )
+        ( Self .ScriptWordLink )
        ( Self .MDAClass class_Parameter == )
         ( Self .WordName )
        ( Self .MDAClass class_Dependency == )
@@ -16649,6 +16674,91 @@ elem_generator model.script
 
 ; // model.script
 
+elem_generator diagram.script
+
+ Inherits .model.script
+ 
+ CONST Ext '.diagram.script'
+
+ BOOLEAN elem_func NeedOwnFilePrim
+  RULES
+   ( Self .IsAutoElement )
+   // - это "автоматически выдуманый элемент"
+    false
+   ( Self .IsSubRoot )
+    true
+   ( Self .Children .NotEmpty )
+    true 
+   ( Self .Constants .NotEmpty )
+    true
+   ( Self .Operations .NotEmpty )
+    true
+   DEFAULT
+    false
+  ; // RULES
+  >>> Result
+ ; // NeedOwnFilePrim
+
+ STRING elem_func FinalFileNamePrim
+  [
+   '\shared\models\NewSchool\Scripts\Models\'
+   if ( Self .LUID .IsNil ) then
+    ( Self .Name )
+   else
+    ( Self .LUID )
+   '.ms.diagram.script'
+  ] strings:Cat >>> Result
+ ; // FinalFileNamePrim
+ 
+ [
+  '// '
+  Self .NameInModel ' '
+  Self .LUID ' '
+  Self .Stereotype .Name ' '
+  Self .MDAClassString
+ ] .Out
+ OutLn
+ [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
+ OutLn
+
+ VAR l_DiagramName
+ 'main' >>> l_DiagramName
+
+ [ 'MEDIAGRAM ' Self .WordName '_' l_DiagramName ] .Out
+ Indented: (
+  [ 'MEPROP Name ' cQuote l_DiagramName cQuote ] .Out
+  [ 'MELINK Original ' Self .ScriptWordLink ' ;' ' // ' Self .NameInModel ] .Out
+  OutLn
+  CONST cOffsetX 10
+  CONST cOffsetY 10
+  VAR X
+  cOffsetX >>> X
+  VAR Y
+  cOffsetY >>> Y
+  Self .Children
+  .join> ( Self .Constants )
+  .join> ( Self .Operations )
+  .for> (
+    IN anElement
+   [ 'MEVIEW ' anElement .WordName '_' 'view' ] .Out
+   Indented: (
+    [ 'MELINK Original ' anElement .ScriptWordLink ' ;' ' // ' anElement .NameInModel ] .Out
+    [ 'MEPROP X ' X ] .Out
+    [ 'MEPROP Y ' Y ] .Out
+    X 100 + cOffsetX + >>> X
+    if ( X > 800 ) then
+    begin
+     cOffsetX >>> X
+     Y 80 + cOffsetY + >>> Y
+    end // ( X > 800 )
+   ) // Indented:
+   [ 'ENDMEVIEW ' '// ' anElement .WordName '_' 'view' ] .Out
+   OutLn 
+  ) // .for>
+ ) // Indented:
+ [ 'ENDMEDIAGRAM ' '// ' Self .WordName '_' l_DiagramName ] .Out
+; // diagram.script
+
 elem_generator null
 
  CONST Ext '.null'
@@ -16741,7 +16851,7 @@ elem_proc Generate
  TF g_TransformWord (
   @ .DoTransformWord >>> g_TransformWord
   Self .DoTransformWord
-  Self .call.generators.in.list @[ .null .model.script .pas .dfm .rc .rc.script .res.cmd ]
+  Self .call.generators.in.list @[ .null .model.script .diagram.script .pas .dfm .rc .rc.script .res.cmd ]
  ) // TF g_TransformWord
 ; // Generate
 
@@ -16752,7 +16862,7 @@ elem_proc GenerateModel
   TF g_TransformWord (
    @ .DoTransformWord >>> g_TransformWord
    Self .DoTransformWord
-   Self .call.generators.in.list @[ .model.script ]
+   Self .call.generators.in.list @[ .model.script .diagram.script ]
   ) // TF g_TransformWord
  ) // TF g_ModelOnly
 ; // GenerateModel
@@ -16764,7 +16874,7 @@ elem_proc GenerateModelSpell
   TF g_TransformWord (
    @ .DoTransformWord >>> g_TransformWord
    Self .DoTransformWord
-   Self .call.generators.in.list @[ .model.script ]
+   Self .call.generators.in.list @[ .model.script .diagram.script ]
   ) // TF g_TransformWord
  ) // TF g_ModelOnly
 ; // GenerateModelSpell

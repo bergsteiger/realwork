@@ -588,4 +588,16 @@ BOOLEAN elem_func IsSomeKeyWord
  >>> Result
 ; // IsSomeKeyWord
 
+BOOLEAN elem_func IsConsume
+ Self .IsStereotype st_consume::Dependency
+ >>> Result
+; // IsConsume
+
+elem_iterator ConsumedEvents
+ Self .Dependencies
+ .filter> .IsConsume
+ .map> .Target
+ .filter> .IsEvent
+ >>> Result
+; // ConsumedEvents
 

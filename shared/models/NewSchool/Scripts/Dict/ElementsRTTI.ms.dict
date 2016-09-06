@@ -524,6 +524,26 @@ STRING FUNCTION ValueToKey
  >>> Result
 ; // ValueToKey
 
+STRING elem_func MDAClassString
+ RULES
+  ( Self .MDAClass class_Operation == )
+   'Operation'
+  ( Self .MDAClass class_Attribute == )
+   'Attribute'
+  ( Self .MDAClass class_Parameter == )
+   'Parameter'
+  ( Self .MDAClass class_Category == )
+   'Category'
+  ( Self .MDAClass class_Dependency == )
+   'Dependency'
+  ( Self .MDAClass class_Class == )
+   'Class'
+  DEFAULT
+   ( Self .MDAClass ToPrintable )
+ ; // RULES
+ >>> Result
+; // MDAClassString
+
 : CacheWordEx
   ANY IN aKey
   ModelElement IN aCacheWhere

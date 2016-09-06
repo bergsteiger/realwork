@@ -1,0 +1,136 @@
+// Application Services 57CED450035C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CED450035C
+
+FORWARD ME_57CED46B03BD
+
+FORWARD ME_FE6ED5E72A1D
+
+FORWARD ME_57CED48A00B9
+
+ME ME_C568F9861EEC
+ MEPROP Name 'anElementForList'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+
+ENDME // ME_C568F9861EEC anElementForList
+
+ME ME_5077A5E39FAB
+ MEPROP UID '5077A5E39FAB'
+ MEPROP Name 'OpenListInNewWindow'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_FE6ED5E72A1D // MmsmOpenService
+ ;
+ MELIST Parameters
+   Seq: ( ME_C568F9861EEC // anElementForList
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57CED48A00B9 // OpenListInNewWindow
+ ;
+
+ENDME // ME_5077A5E39FAB OpenListInNewWindow
+
+ME ME_FE6ED5E72A1D
+ MEPROP UID 'FE6ED5E72A1D'
+ MEPROP Name 'MmsmOpenService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TmsmOpenService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CED46B03BD // TmsmOpenService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5077A5E39FAB // OpenListInNewWindow
+ )
+ ; // Operations
+
+ENDME // ME_FE6ED5E72A1D MmsmOpenService
+
+ME ME_57CED4A302BD
+ MEPROP Name 'anElementForList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+
+ENDME // ME_57CED4A302BD anElementForList
+
+ME ME_57CED48A00B9
+ MEPROP UID '57CED48A00B9'
+ MEPROP Name 'OpenListInNewWindow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CED46B03BD // TmsmOpenService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CED4A302BD // anElementForList
+ )
+ ; // Parameters
+
+ENDME // ME_57CED48A00B9 OpenListInNewWindow
+
+ME ME_57CED46B03BD
+ MEPROP UID '57CED46B03BD'
+ MEPROP Name 'TmsmOpenService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CED450035C // Application Services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57CED48A00B9 // OpenListInNewWindow
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_FE6ED5E72A1D // MmsmOpenService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOpenService.pas'
+ UP extprop:rc:SelfName 'msmOpenService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmOpenService'
+
+ENDME // ME_57CED46B03BD TmsmOpenService
+
+ME ME_57CED450035C
+ MEPROP UID '57CED450035C'
+ MEPROP Name 'Application Services'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57A9C7A301DF' '57A9C7A301DF.ms.model.script' // msm$Lib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57CED46B03BD // TmsmOpenService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
+ )
+ ; // Depends
+
+ENDME // ME_57CED450035C Application Services

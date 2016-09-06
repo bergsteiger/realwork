@@ -25,11 +25,16 @@ USES
 ;
 
 elem_iterator NullList
- [ Self ] >>> Result
- //[empty] >>> Result
+ [empty] >>> Result
 ; // NullList
 
 WordAlias ._NullList .NullList
+
+elem_iterator SelfList
+ [ Self ] >>> Result
+; // SelfList
+
+WordAlias ._SelfList .SelfList
 
 elem_iterator Inner
  Cached:
@@ -94,7 +99,8 @@ STRING elem_func NameWithStereo
   end // ( l_St .NotIsNil )
   else
   begin
-   [ '<<default>>' ' ' Result ] strings:Cat >>> Result
+   [ '[[' Self .MDAClassString ']]' ' ' Result ] strings:Cat >>> Result
+   //[ '<<default>>' ' ' Result ] strings:Cat >>> Result
   end
   Result
  )
